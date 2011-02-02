@@ -3216,27 +3216,69 @@
 	</numbers>
 	<units>
 		<!-- http://physics.nist.gov/cuu/Units/outside.html -->
-		<unit type="day">
-			<unitPattern count="other">{0} d</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="other">{0} h</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="other">{0} min</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="other">{0} m</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="other">{0} s</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="other">{0} w</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="other">{0} y</unitPattern>
-		</unit>
+        <unit type="day">
+            <unitPattern count="other">{0} d</unitPattern>
+        </unit>
+        <unit type="day-past">
+            <unitPattern count="other">-{0} d</unitPattern>
+        </unit>
+        <unit type="day-future">
+            <unitPattern count="other">+{0} d</unitPattern>
+        </unit>
+        <unit type="hour">
+            <unitPattern count="other">{0} h</unitPattern>
+        </unit>
+        <unit type="hour-past">
+            <unitPattern count="other">-{0} h</unitPattern>
+        </unit>
+        <unit type="hour-future">
+            <unitPattern count="other">+{0} h</unitPattern>
+        </unit>
+        <unit type="minute">
+            <unitPattern count="other">{0} min</unitPattern>
+        </unit>
+        <unit type="minute-past">
+            <unitPattern count="other">-{0} min</unitPattern>
+        </unit>
+        <unit type="minute-future">
+            <unitPattern count="other">+{0} min</unitPattern>
+        </unit>
+        <unit type="month">
+            <unitPattern count="other">{0} m</unitPattern>
+        </unit>
+        <unit type="month-past">
+            <unitPattern count="other">-{0} m</unitPattern>
+        </unit>
+        <unit type="month-future">
+            <unitPattern count="other">+{0} m</unitPattern>
+        </unit>
+        <unit type="second">
+            <unitPattern count="other">{0} s</unitPattern>
+        </unit>
+        <unit type="second-past">
+            <unitPattern count="other">-{0} s</unitPattern>
+        </unit>
+        <unit type="second-future">
+            <unitPattern count="other">+{0} s</unitPattern>
+        </unit>
+        <unit type="week">
+            <unitPattern count="other">{0} w</unitPattern>
+        </unit>
+        <unit type="week-past">
+            <unitPattern count="other">-{0} w</unitPattern>
+        </unit>
+        <unit type="week-future">
+            <unitPattern count="other">+{0} w</unitPattern>
+        </unit>
+        <unit type="year">
+            <unitPattern count="other">{0} y</unitPattern>
+        </unit>
+        <unit type="year-past">
+            <unitPattern count="other">-{0} y</unitPattern>
+        </unit>
+        <unit type="year-future">
+            <unitPattern count="other">+{0} y</unitPattern>
+        </unit>
 	</units>
 	<listPatterns>
 		<listPattern>

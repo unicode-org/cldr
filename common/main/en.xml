@@ -1527,12 +1527,21 @@
 					</field>
 					<field type="year">
 						<displayName>Year</displayName>
+                        <relative type="-1">last year</relative>
+                        <relative type="0">this year</relative>
+                        <relative type="1">next year</relative>
 					</field>
 					<field type="month">
 						<displayName>Month</displayName>
+                        <relative type="-1">last month</relative>
+                        <relative type="0">this month</relative>
+                        <relative type="1">next month</relative>
 					</field>
 					<field type="week">
 						<displayName>Week</displayName>
+                        <relative type="-1">last week</relative>
+                        <relative type="0">this week</relative>
+                        <relative type="1">next week</relative>
 					</field>
 					<field type="day">
 						<displayName>Day</displayName>
@@ -4416,48 +4425,104 @@
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} day</unitPattern>
-			<unitPattern count="one" alt="short">{0} day</unitPattern>
-			<unitPattern count="other">{0} days</unitPattern>
-			<unitPattern count="other" alt="short">{0} days</unitPattern>
-		</unit>
+        <unit type="day">
+            <unitPattern count="one">{0} day</unitPattern>
+            <unitPattern count="one" alt="short">{0} day</unitPattern>
+            <unitPattern count="other">{0} days</unitPattern>
+            <unitPattern count="other" alt="short">{0} days</unitPattern>
+        </unit>
+        <unit type="day-past">
+            <unitPattern count="one">{0} day ago</unitPattern>
+            <unitPattern count="other">{0} days ago</unitPattern>
+        </unit>
+        <unit type="day-future">
+            <unitPattern count="one">in {0} day</unitPattern>
+            <unitPattern count="other">in {0} days</unitPattern>
+        </unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hour</unitPattern>
 			<unitPattern count="one" alt="short">{0} hr</unitPattern>
 			<unitPattern count="other">{0} hours</unitPattern>
 			<unitPattern count="other" alt="short">{0} hrs</unitPattern>
 		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minute</unitPattern>
-			<unitPattern count="one" alt="short">{0} min</unitPattern>
-			<unitPattern count="other">{0} minutes</unitPattern>
-			<unitPattern count="other" alt="short">{0} mins</unitPattern>
-		</unit>
+        <unit type="hour-past">
+            <unitPattern count="one">{0} hour ago</unitPattern>
+            <unitPattern count="other">{0} hours ao</unitPattern>
+        </unit>
+        <unit type="hour-future">
+            <unitPattern count="one">in {0} hour</unitPattern>
+            <unitPattern count="other">in {0} hours</unitPattern>
+        </unit>
+        <unit type="minute">
+            <unitPattern count="one">{0} minute</unitPattern>
+            <unitPattern count="one" alt="short">{0} min</unitPattern>
+            <unitPattern count="other">{0} minutes</unitPattern>
+            <unitPattern count="other" alt="short">{0} mins</unitPattern>
+        </unit>
+        <unit type="minute-past">
+            <unitPattern count="one">{0} minute ago</unitPattern>
+            <unitPattern count="other">{0} minutes ago</unitPattern>
+        </unit>
+        <unit type="minute-future">
+            <unitPattern count="one">in {0} minute</unitPattern>
+            <unitPattern count="other">in {0} minutes</unitPattern>
+        </unit>
 		<unit type="month">
 			<unitPattern count="one">{0} month</unitPattern>
 			<unitPattern count="one" alt="short">{0} mth</unitPattern>
 			<unitPattern count="other">{0} months</unitPattern>
 			<unitPattern count="other" alt="short">{0} mths</unitPattern>
 		</unit>
+        <unit type="month-past">
+            <unitPattern count="one">{0} month ago</unitPattern>
+            <unitPattern count="other">{0} months ago</unitPattern>
+        </unit>
+        <unit type="month-future">
+            <unitPattern count="one">in {0} month</unitPattern>
+            <unitPattern count="other">in {0} months</unitPattern>
+        </unit>
 		<unit type="second">
 			<unitPattern count="one">{0} second</unitPattern>
 			<unitPattern count="one" alt="short">{0} sec</unitPattern>
 			<unitPattern count="other">{0} seconds</unitPattern>
 			<unitPattern count="other" alt="short">{0} secs</unitPattern>
 		</unit>
+        <unit type="second-past">
+            <unitPattern count="one">{0} second ago</unitPattern>
+            <unitPattern count="other">{0} seconds ago</unitPattern>
+        </unit>
+        <unit type="second-future">
+            <unitPattern count="one">in {0} second</unitPattern>
+            <unitPattern count="other">in {0} seconds</unitPattern>
+        </unit>
 		<unit type="week">
 			<unitPattern count="one">{0} week</unitPattern>
 			<unitPattern count="one" alt="short">{0} wk</unitPattern>
 			<unitPattern count="other">{0} weeks</unitPattern>
 			<unitPattern count="other" alt="short">{0} wks</unitPattern>
 		</unit>
+        <unit type="week-past">
+            <unitPattern count="one">{0} week ago</unitPattern>
+            <unitPattern count="other">{0} weeks ago</unitPattern>
+        </unit>
+        <unit type="week-future">
+            <unitPattern count="one">in {0} week</unitPattern>
+            <unitPattern count="other">in {0} weeks</unitPattern>
+        </unit>
 		<unit type="year">
 			<unitPattern count="one">{0} year</unitPattern>
 			<unitPattern count="one" alt="short">{0} yr</unitPattern>
 			<unitPattern count="other">{0} years</unitPattern>
 			<unitPattern count="other" alt="short">{0} yrs</unitPattern>
 		</unit>
+        <unit type="year-past">
+            <unitPattern count="one">{0} year ago</unitPattern>
+            <unitPattern count="other">{0} years ago</unitPattern>
+        </unit>
+        <unit type="year-future">
+            <unitPattern count="one">in {0} year</unitPattern>
+            <unitPattern count="other">in {0} years</unitPattern>
+        </unit>
 	</units>
 	<listPatterns>
 		<listPattern>

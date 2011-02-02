@@ -311,7 +311,7 @@ public class SurveyForum {
             theMenu="raw";
         }
         return ctx.base()+"?"+
-					"_="+locale+"&amp;x="+theMenu+"&amp;xfind="+base_xpath+"#x"+base_xpath;
+					"_="+locale+"&amp;x="+theMenu+"&amp;"+SurveyMain.QUERY_XFIND+"="+base_xpath+"#x"+base_xpath;
     }
     
     void doZoom(WebContext ctx, int base_xpath, String sessionMessage) {

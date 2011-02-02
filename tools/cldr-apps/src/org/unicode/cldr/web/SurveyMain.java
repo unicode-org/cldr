@@ -251,7 +251,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String PREF_GROTTY = "p_grotty";
     static final String PREF_SORTMODE_CODE = "code";
     static final String PREF_SORTMODE_CODE_CALENDAR = "codecal";
-    static final String PREF_SORTMODE_ALPHA = "alpha";
+   // static final String PREF_SORTMODE_ALPHA = "alpha";
     static final String PREF_SORTMODE_WARNING = "interest";
     static final String PREF_SORTMODE_NAME = "name";
     static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_CODE;
@@ -6542,7 +6542,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
         // simple case - show the list of zones.
         if((zone == null)||(zone.length()==0)) {
-            showPathList(ctx, DataSection.EXEMPLAR_ONLY, null);
+            showPathList(ctx, DataSection.EXEMPLAR_PARENT, XPathMatcher.regex(Pattern.compile(".*exemplarCity.*")), null);
             return;
         }
 
@@ -6681,7 +6681,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
                 
         printSectionTableOpen(ctx, section, true);
-        showPeas(ctx, section, canModify, zoneXpath+DataSection.EXEMPLAR_EXCLUDE, true);
+        // use a special matcher.
+        showPeas(ctx, section, canModify, XPathMatcher.regex(BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,zoneXpath),
+        		 Pattern.compile(".*/((short)|(long))/.*")), true);
         printSectionTableClose(ctx, section);
         if(canModify) {
             ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
@@ -6705,11 +6707,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param ctx
      * @param xpath
      * @param lastElement
-     * @param simple
+     * @param simple (ignored)
      */
     public void showPathList(WebContext ctx, String xpath, String lastElement, boolean simple) {
-        /* all simple */
-        simple = true;
+    	showPathList(ctx,xpath,null, lastElement);
+    }
+    public void showPathList(WebContext ctx, String xpath, XPathMatcher matcher, String lastElement) {
+    	/* all simple */
         
         synchronized(ctx.session) {
             UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
@@ -6720,11 +6724,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             if(lastElement == null) {
                 fullThing = xpath;
             }    
-            boolean exemplar_only = false;
-            if(fullThing.equals(DataSection.EXEMPLAR_ONLY)) {
-                fullThing = DataSection.EXEMPLAR_PARENT;
-                exemplar_only=true;
-            }
                 
             boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
             
@@ -6746,25 +6745,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     }
             //        System.out.println("Pod's full thing: " + fullThing);
                     DataSection section = ctx.getSection(fullThing); // we load a new pod here - may be invalid by the modifications above.
-//                    section.simple=simple;
-                    if(exemplar_only) {
-                        showPeas(ctx, section, canModify, DataSection.EXEMPLAR_ONLY, false);
-                    } else {
-                        showPeas(ctx, section, canModify);
-                    }
+                    showPeas(ctx, section, canModify, matcher, false);
                 }
             }
         }
-    }
-
-    String getSortMode(WebContext ctx, DataSection section) {
-        return getSortMode(ctx, section.xpathPrefix);
-    }
-
-    String getSortMode(WebContext ctx, String prefix) {
-        String sortMode = null;
-        sortMode = ctx.pref(PREF_SORTMODE, PREF_SORTMODE_DEFAULT);
-        return sortMode;
     }
 
     static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
@@ -6928,125 +6912,72 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		}
 	}
 
-    /**
-     * Caller must hold session sync
-     */
+	/**
+	 * 
+     * Call this function to show a DataSection to the user.
+     * Caller must hold session sync.
+     * @param only_base_path only show this base xpath
+     * @param only_prefix_xpath only show this prefix
+     * @param zoomedIn show in zoomed-in mode
+     * @param canModify user is allowed to modify
+     * @param section the section to show
+     * @param ctx the context to show
+     * @deprecated use a custom XPathmatcher
+     */	
     void showPeas(WebContext ctx, DataSection section, boolean canModify, int only_base_xpath, String only_prefix_xpath, boolean zoomedIn) {
+    	showPeas(ctx, section, canModify, BaseAndPrefixMatcher.getInstance(only_base_xpath, only_prefix_xpath), zoomedIn);
+    }
+    
+    void showPeas(WebContext ctx, DataSection section, boolean canModify, XPathMatcher matcher, boolean zoomedIn) {
         int count = 0;
-//        int dispCount = 0;
-//        int total = 0;
         int skip = 0; // where the index points to
         int oskip = ctx.fieldInt("skip",0); // original skip from user.
         
-        boolean partialPeas = ((only_base_xpath!=-1)||(only_prefix_xpath!=null));
+        boolean partialPeas = (matcher != null); // true if we are filtering the section
         
-        //       total = mySet.count();
-        //        boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
         synchronized(ctx.session) {
             UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;
-                //    CLDRFile engf = getBaselineFile();
             XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
             CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
-//            XPathParts pathParts = new XPathParts(null, null);
-//            XPathParts fullPathParts = new XPathParts(null, null);
-//            List checkCldrResult = new ArrayList();
-//            Iterator theIterator = null;
-            String sortMode = getSortMode(ctx, section);
+            
+            // get the name of the sortmode
+            String sortModeName = SortMode.getSortMode(ctx, section);
             boolean disputedOnly = false;
-            if(ctx.field("only").equals("disputed")) {
+            if(ctx.field("only").equals("disputed")) { // are we in 'disputed-only' mode?
                 disputedOnly=true;
-                sortMode = PREF_SORTMODE_WARNING; // so that disputed shows up on top
+                sortModeName = PREF_SORTMODE_WARNING; // so that disputed shows up on top- force the sortmode.
             }
-            List peas = section.getList(sortMode);
+            SortMode sortMode = SortMode.getInstance(sortModeName);
+       
+            // Calculate the names of the references (andn store them in temp hash)
+            String refs[] = calculateReferences(ctx, section);
 
-            if ( peas.size() == 0 ) {
-                    ctx.println("<h3>There are no items to display on this page due to the selected coverage level. To see more items, " +
-                        "click on ");
-                    
-                    WebContext subCtx2 = new WebContext(ctx);
-                    subCtx2.removeQuery(QUERY_LOCALE);
-                    subCtx2.removeQuery(QUERY_LOCALE);
-                    subCtx2.removeQuery(SurveyForum.F_FORUM);
-                    printMenu(subCtx2, "", "options", "My Options", QUERY_DO);
+            // Get the set of things to display.
+            DataSection.DisplaySet dSet = section.createDisplaySet(sortMode, matcher);
+            
+            if(dSet.size() == 0) {
+                ctx.println("<h3>There are no items to display on this page due to the selected coverage level. To see more items, " +
+                "click on ");
+            
+	            WebContext subCtx2 = new WebContext(ctx);
+	            subCtx2.removeQuery(QUERY_LOCALE);
+	            subCtx2.removeQuery(QUERY_LOCALE);
+	            subCtx2.removeQuery(SurveyForum.F_FORUM);
+	            printMenu(subCtx2, "", "options", "My Options", QUERY_DO);
+	
+	            ctx.println("and set your coverage level to a higher value.</h3>");
+	            return;
+		    }
 
-                    ctx.println("and set your coverage level to a higher value.</h3>");
-                    return;
-            }
-            
-        //    boolean exemplarCityOnly = (!partialPeas && pod.exemplarCityOnly);
-            boolean exemplarCityOnly = (only_prefix_xpath!=null) && (only_prefix_xpath.equals(DataSection.EXEMPLAR_ONLY));
-            if(exemplarCityOnly) {
-                only_prefix_xpath = null; // special prefix
-                partialPeas = false;
-            }
-            boolean exemplarCityExclude = (only_prefix_xpath!=null) && (only_prefix_xpath.endsWith(DataSection.EXEMPLAR_EXCLUDE));
-            if(exemplarCityExclude) {
-                only_prefix_xpath = only_prefix_xpath.replaceAll(DataSection.EXEMPLAR_EXCLUDE,""); // special prefix
-            }
-    
-            String refs[] = new String[0];
-            Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
-            Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
-            
-    //        boolean showFullXpaths = ctx.prefBool(PREF_XPATHS);
-            // calculate references
-            if(section.xpathPrefix.indexOf("references")==-1) {
-                Set refsSet = new TreeSet();
-                WebContext refCtx = (WebContext)ctx.clone();
-                refCtx.setQuery("_",ctx.getLocale().getLanguage());
-                refCtx.setLocale(CLDRLocale.getInstance(ctx.getLocale().getLanguage())); // ensure it is from the language
-                DataSection refSection = refCtx.getSection("//ldml/references");
-                List refPeas = refSection.getList(PREF_SORTMODE_CODE);
-                //int rType[] = new int[1];
-                for(Iterator i = refPeas.iterator();i.hasNext();) {
-                    DataSection.DataRow p = (DataSection.DataRow)i.next();
-                    // look for winning item
-                    int vetResultId =  vet.getWinningXPath(p.base_xpath, refSection.locale);
-                    DataSection.DataRow.CandidateItem winner = null;
-                    DataSection.DataRow.CandidateItem someItem = null;
-                    for(Iterator j = p.items.iterator();j.hasNext();) {
-                        DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
-                        if(item.inheritFrom == null) {
-                            refsSet.add(p.type);
-                            refsHash.put(p.type, p);
-                            if(item.xpathId == vetResultId) {
-                                winner = item;
-                            }
-                            someItem = item;
-                        }
-                    }
-                    if(winner == null) {
-                        winner = someItem; // pick a random item. 
-                    }
-                    if(winner != null) {
-                        refsItemHash.put(p.type, winner);
-                    }
-                }
-                if(!refsSet.isEmpty()) {
-                    refs = (String[])refsSet.toArray((Object[]) refs);
-                    ctx.temporaryStuff.put("refsHash",refsHash);
-                    ctx.temporaryStuff.put("refsItemHash",refsItemHash);
-                }
-            }
-            DataSection.DisplaySet dSet = null;
-    
-            if(exemplarCityOnly) {
-                dSet = section.getDisplaySet(sortMode, Pattern.compile(".*exemplarCity.*"));
-            } else if(exemplarCityExclude) {
-                dSet = section.getDisplaySet(sortMode, Pattern.compile(".*/((short)|(long))/.*"));
-            } else {
-                dSet = section.getDisplaySet(sortMode);  // contains 'peas' and display list
-            }
-            
             boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
             int moveSkip=-1;  // move the "skip" marker?
-            int xfind = ctx.fieldInt("xfind");
+            int xfind = ctx.fieldInt(QUERY_XFIND);
             if((xfind != -1) && !partialPeas) {
                 // see if we can find this base_xpath somewhere..
                 int pn = 0;
-                for(Iterator i = peas.iterator();(moveSkip==-1)&&i.hasNext();) {
-                    DataSection.DataRow p = (DataSection.DataRow)i.next();
+                for(int i=0;i<dSet.rows.length && (moveSkip==-1);i++) {
+                	DataSection.DataRow p = dSet.rows[i];
                     if(p.base_xpath == xfind) {
                         moveSkip = pn;
                     }
@@ -7058,7 +6989,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             // -----
             if(!partialPeas) {
-                skip = showSkipBox(ctx, dSet.size(), dSet, true, sortMode, oskip);
+                skip = showSkipBox(ctx, dSet, oskip);
             } else {
                 skip = 0;
             }
@@ -7094,33 +7025,35 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
             }
     
-            
-            for(ListIterator i = dSet.rows.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
-                DataSection.DataRow p = (DataSection.DataRow)i.next();
+            int peaEnd = peaStart+peaCount;
+            if(peaEnd > dSet.rows.length) {
+            	peaEnd = dSet.rows.length;
+            }
+            // if(partialPeas) { ??? }
+            for(int i=peaStart;i<peaEnd;i++) {
+                //for(ListIterator i = dSet.rows.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
+                DataSection.DataRow p = dSet.rows[i];
                 
-                if(partialPeas) { // are we only showing some peas?
-                    if((only_base_xpath != -1) && (only_base_xpath != p.base_xpath)) { // print only this one xpath
-                        continue; 
-                    }
-                    
-                    if((only_prefix_xpath!=null) && !section.xpath(p).startsWith(only_prefix_xpath)) {
-                        continue;
-                    }
-                }
                 
                 if((!partialPeas) && checkPartitions) {
                     for(int j = 0;j<dSet.partitions.length;j++) {
-                        if((dSet.partitions[j].name != null) && (count+skip) == dSet.partitions[j].start) {
+                        if((dSet.partitions[j].name != null) &&
+                        		( (i == dSet.partitions[j].start) ||
+                        		((i==peaStart)&&(i>=dSet.partitions[j].start)&&(i<dSet.partitions[j].limit)))) { // ensure the first item has a header.
                             ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>" +
                                 "<a name='" + dSet.partitions[j].name + "'>" +
                                 dSet.partitions[j].name + "</a>" +
-                                "</th></tr>");
+                                "</th>");
+//                            if(isUnofficial) {
+//                            	ctx.println("<td>Partition #"+j+": "+dSet.partitions[j].start+"-"+dSet.partitions[j].limit+"</td>");
+//                            }
+                            ctx.println("</tr>");
                         }
                     }
                 }
                 
                 try {
-                    if(exemplarCityOnly) {
+                    if(section.xpath(p).startsWith(DataSection.EXEMPLAR_PARENT)) {
                         String zone = p.type;
                         int n = zone.lastIndexOf('/');
                         if(n!=-1) {
@@ -7165,7 +7098,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
                 
                 
-                /*skip = */ showSkipBox(ctx, dSet.size(), dSet, false, sortMode, oskip);
+                /*skip = */ showSkipBox(ctx, dSet, oskip);
                 
                 if(!canModify) {
                     ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
@@ -7175,6 +7108,59 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
     /**
+     * Calculate the references and put them in temporary hash.
+     * @param ctx context - to hold the temporary hash
+     * @param section -  the section being shown.
+     * @return list of possible references
+     */
+    private static String[] calculateReferences(WebContext ctx, DataSection section) {
+        
+        String refs[] = new String[0];
+        
+        // calculate references
+        if(section.xpathPrefix.indexOf("references")==-1) { // if this is NOT the references section, itself:
+            Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
+            Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
+
+            Set refsSet = new TreeSet();
+            WebContext refCtx = (WebContext)ctx.clone();
+            refCtx.setQuery("_",ctx.getLocale().getLanguage());
+            refCtx.setLocale(CLDRLocale.getInstance(ctx.getLocale().getLanguage())); // ensure it is from the language
+            DataSection refSection = refCtx.getSection("//ldml/references");
+            //int rType[] = new int[1];
+            for(DataSection.DataRow p : refSection.getAll()) {
+                // look for winning item
+                int vetResultId =  ctx.sm.vet.getWinningXPath(p.base_xpath, refSection.locale);
+                DataSection.DataRow.CandidateItem winner = null;
+                DataSection.DataRow.CandidateItem someItem = null;
+                for(Iterator j = p.items.iterator();j.hasNext();) {
+                    DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
+                    if(item.inheritFrom == null) {
+                        refsSet.add(p.type);
+                        refsHash.put(p.type, p);
+                        if(item.xpathId == vetResultId) {
+                            winner = item;
+                        }
+                        someItem = item;
+                    }
+                }
+                if(winner == null) {
+                    winner = someItem; // pick a random item. 
+                }
+                if(winner != null) {
+                    refsItemHash.put(p.type, winner);
+                }
+            }
+            if(!refsSet.isEmpty()) {
+                refs = (String[])refsSet.toArray((Object[]) refs);
+                ctx.temporaryStuff.put("refsHash",refsHash);
+                ctx.temporaryStuff.put("refsItemHash",refsItemHash);
+            }
+        }
+        
+        return refs;
+	}
+	/**
      * Call from within session lock
      * @param ctx
      * @param oldSection
@@ -7866,7 +7852,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         // ##2 code
         ctx.print("<th rowspan='"+rowSpan+"' class='botgray' colspan='1' valign='top' align='left'>");
         //if(p.displayName != null) { // have a display name - code gets its own box
-        int xfind = ctx.fieldInt("xfind");
+        int xfind = ctx.fieldInt(QUERY_XFIND);
         if(xfind==base_xpath) {
             ctx.print("<a name='x"+xfind+"'>");
         }
@@ -8774,17 +8760,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
 
-    void showSkipBox_menu(WebContext ctx, String sortMode, String aMode, String aDesc) {
+    void showSkipBox_menu(WebContext ctx, SortMode sortMode, String aMode, String aDesc) {
         WebContext nuCtx = (WebContext)ctx.clone();
         nuCtx.addQuery(PREF_SORTMODE, aMode);
         
-        if(!sortMode.equals(aMode)) {
+        if(!sortMode.getName().equals(aMode)) {
             nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
         } else {
             nuCtx.print("<span class='selected'>");
         }
         nuCtx.print(aDesc);
-        if(!sortMode.equals(aMode)) {
+        if(!sortMode.getName().equals(aMode)) {
             nuCtx.println("</a>");
         } else {
             nuCtx.println("</span>");
@@ -8793,12 +8779,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         nuCtx.println(" ");
     }
 
-    public int showSkipBox(WebContext ctx, int total, DataSection.DisplaySet displaySet,
-        boolean showSearchMode, String sortMode, int skip) {
-    showSearchMode = true;// all
-        List displayList = null;
+    
+    public int showSkipBox(WebContext ctx, DataSection.DisplaySet displaySet,
+                 int skip) {
+    	SortMode sortMode = displaySet.sortMode;
+    	int total = displaySet.size();
+        DataRow displayList[] = null;
         if(displaySet != null) {
-            displayList = displaySet.displayRows;
+            displayList = displaySet.rows;
         }
         ctx.println("<div class='pager' style='margin: 2px'>");
         if((ctx.getLocale() != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale())) { // at least street level
@@ -8817,12 +8805,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             to = total;
         }
 
-        if(showSearchMode) {
+        if(true) { // showsearchmode
             ctx.println("<div style='float: right;'>Items " + from + " to " + to + " of " + total+"</div>");
             ctx.println("<p class='hang' > " +  //float: right; tyle='margin-left: 3em;'
                 "<b>Sorted:</b>  ");
             {
-                boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
+               // boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
                 
                 //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
@@ -8847,7 +8835,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
 
         // Print navigation
-        if(showSearchMode) {
+        if(true) { // showsearchmode
 
             if(total>=(ctx.prefCodesPerPage())) {
                 int prevSkip = skip - ctx.prefCodesPerPage();
@@ -8930,7 +8918,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         ctx.println("\">"); // skip to the pageStart
                     }
                     if(displayList != null) {
-                        String iString = displayList.get(i).toString();
+                        String iString = sortMode.getDisplayName(displayList[i]);
                         if(iString.length() > PAGER_SHORTEN_WIDTH) {
                             iString = iString.substring(0,PAGER_SHORTEN_WIDTH)+"\u2026";
                         }
@@ -9609,6 +9597,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String SHORT_B = "(hide.)";
 
     public static final String QUERY_FIELDHASH = "fhash";
+
+	public static final String QUERY_XFIND = "xfind";
     private static void printShortened(WebContext ctx, String str) {
         ctx.println(getShortened(str));
     }

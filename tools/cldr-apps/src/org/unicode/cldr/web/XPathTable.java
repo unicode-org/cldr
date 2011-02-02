@@ -416,6 +416,7 @@ public class XPathTable {
     // proposed-u4-1
     public static final String PROPOSED_U = LDMLConstants.PROPOSED+"-u";
     public static final String PROPOSED_SEP = "-";
+	public static final int NO_XPATH = -1;
     public static final String altProposedPrefix(int userid) {
         return PROPOSED_U + userid + PROPOSED_SEP;
     }

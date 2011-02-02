@@ -35,10 +35,12 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /** A data section represents a group of related data that will be displayed to users in a list
  * such as, "all of the language display names contained in the en_US locale".
@@ -86,8 +88,6 @@ public class DataSection extends Registerable {
     public static final String DATASECTION_PROPOSED = "Proposed";
     public static final String DATASECTION_VETPROB = "Vetting Issue";
 
-    public static final String EXEMPLAR_ONLY = "//ldml/dates/timeZoneNames/zone/*/exemplarCity";
-    public static final String EXEMPLAR_EXCLUDE = "!exemplarCity";
     public static final String EXEMPLAR_PARENT = "//ldml/dates/timeZoneNames/zone";
     
     public String[] LAYOUT_INTEXT_VALUES = { "titlecase-words", "titlecase-firstword", "lowercase-words", "mixed" }; // layout/inText/* - from UTS35
@@ -173,14 +173,8 @@ public class DataSection extends Registerable {
     	return p.xpath();
     }
         
-    static Collator getOurCollator() {
-        RuleBasedCollator rbc = 
-            ((RuleBasedCollator)Collator.getInstance());
-        rbc.setNumericCollation(true);
-        return rbc;
-    }
     
-    final Collator myCollator = getOurCollator();
+    final Collator myCollator = CodeSortMode.createCollator();
     
     /**
      * This class represents a "row" of data - a single distinguishing xpath
@@ -242,7 +236,7 @@ public class DataSection extends Registerable {
         boolean hasInherited = false; // True if has inherited value
         public int allVoteType = 0; // bitmask of all voting types included
         public int voteType = 0; // status of THIS item
-        public int reservedForSort = -1; // ordering for use in collator.
+        public int reservedForSort[] = SortMode.reserveForSort(); // ordering for use in collator.
         
 //        String inheritFrom = null;
 //        String pathWhereFound = null;
@@ -796,48 +790,18 @@ public class DataSection extends Registerable {
         return rowsHash.values();
     }
     
-    public abstract class PartitionMembership {
-        public abstract boolean isMember(DataRow p);
-    };
-    public class Partition {
-
-        public PartitionMembership pm;
-
-        public String name; // name of this partition
-        public int start; // first item
-        public int limit; // after last item
-
-        public Partition(String n, int s, int l) {
-            name = n;
-            start = s;
-            limit = l;
-        }
-        
-        public Partition(String n, PartitionMembership pm) {
-            name = n;
-            this.pm = pm;
-            start = -1;
-            limit = -1;
-        }
-        
-        public String toString() {
-            return name + " - ["+start+".."+limit+"]";
-        }
-
-    };
 
     /** 
      * A class representing a list of rows, in sorted and divided order.
      */
     public class DisplaySet {
         public int size() {
-            return rows.size();
+            return rows.length;
         }
-        String sortMode = null;
+        SortMode sortMode = null;
         public boolean canName = true; // can use the 'name' view?
         public boolean isCalendar = false;
-        public List<DataRow> rows; // list of peas in sorted order
-        public List<DataRow> displayRows; // list of Strings suitable for display
+        DataRow rows[]; // list of peas in sorted order
         /**
          * Partitions divide up the peas into sets, such as 'proposed', 'normal', etc.
          * The 'limit' is one more than the index number of the last item.
@@ -846,11 +810,16 @@ public class DataSection extends Registerable {
         
         public Partition partitions[];  // display group partitions.  Might only contain one entry:  {null, 0, <end>}.  Otherwise, contains a list of entries to be named separately
 
-        public DisplaySet(List<DataRow> myRows, List<DataRow> myDisplayRows, String sortMode) {
+        /**
+         * 
+         * @param myRows the original rows
+         * @param myDisplayRows the rows in display order (?)
+         * @param sortMode the sort mode to use
+         */
+        public DisplaySet(DataRow[] myRows, SortMode sortMode) {
             this.sortMode = sortMode;
             
             rows = myRows;
-            displayRows = myDisplayRows;
 
             /*
             if(matcher != null) {
@@ -876,57 +845,7 @@ public class DataSection extends Registerable {
             */
             
             // fetch partitions..
-            Vector<Partition> v = new Vector<Partition>();
-            if(sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING) || sortMode.equals(SurveyMain.PREF_SORTMODE_CODE_CALENDAR)) { // something with partitions
-                Partition testPartitions[];
-                if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-                    testPartitions = (SurveyMain.isPhaseSubmit()||SurveyMain.isPhaseVetting())?createSubmitPartitions():createVettingPartitions();
-                } else {
-                    testPartitions = createCalendarPartitions();
-                }
-                                                                        
-                // find the starts
-                int lastGood = 0;
-                DataRow peasArray[] = null;
-                peasArray = (DataRow[])rows.toArray(new DataRow[0]);
-                for(int i=0;i<peasArray.length;i++) {
-                    DataRow p = peasArray[i];
-                                        
-                    for(int j=lastGood;j<testPartitions.length;j++) {
-                        if(testPartitions[j].pm.isMember(p)) {
-                            if(j>lastGood) {
-                                lastGood = j;
-                            }
-                            if(testPartitions[j].start == -1) {
-                                testPartitions[j].start = i;
-                            }
-                            break; // sit here until we fail membership
-                        }
-                        
-                        if(testPartitions[j].start != -1) {
-                            testPartitions[j].limit = i;
-                        }
-                    }
-                }
-                // catch the last item
-                if((testPartitions[lastGood].start != -1) &&
-                    (testPartitions[lastGood].limit == -1)) {
-                    testPartitions[lastGood].limit = rows.size(); // limit = off the end.
-                }
-                    
-                for(int j=0;j<testPartitions.length;j++) {
-                    if(testPartitions[j].start != -1) {
-						if(testPartitions[j].start!=0 && v.isEmpty()) {
-//							v.add(new Partition("Other",0,testPartitions[j].start));
-						}
-                        v.add(testPartitions[j]);
-                    }
-                }
-            } else {
-                // default partition
-                v.add(new Partition(null, 0, rows.size()));
-            }
-            partitions = (Partition[])v.toArray(new Partition[0]); // fold it up
+            partitions = Partition.createPartitions(sortMode.memberships(),rows);
         }
 
     }
@@ -937,336 +856,27 @@ public class DataSection extends Registerable {
 	public static String TENTATIVELY_APPROVED = "Tentatively Approved";
 	public static String STATUS_QUO = "Status Quo";
     
+	/**
+	 * @deprecated
+	 */
     public static final String VETTING_PROBLEMS_LIST[] = { 
         PARTITION_ERRORS,
         CHANGES_DISPUTED,
         PARTITION_UNCONFIRMED };
 
-
-    private Partition[] createVettingPartitions() {
-        return createSubmitPartitions(); // added disputed into the Submit partitions
-    }
-
-    private Partition[] createSubmitPartitions() {
-        Partition theTestPartitions[] = 
-        {                 
-                new Partition("Errors", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    return (p.hasErrors);
-                  }
-                }),
-                new Partition("Disputed", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure why "allVoteType" is needed
-                  }
-                }),
-                new Partition("Warnings", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    return (p.hasWarnings);
-                  }
-                }),
-//              Later, we might want more groups.
-//              INDETERMINATE (-1),
-//              APPROVED (0),
-//              CONTRIBUTED (1),
-//              PROVISIONAL (2),
-//              UNCONFIRMED (3);
-                new Partition("Not (minimally) Approved", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    return p.winningXpathId != -1 
-                    && p.confirmStatus != Vetting.Status.APPROVED
-                    && p.confirmStatus != Vetting.Status.CONTRIBUTED;
-                    // || p.winningXpathId == -1 && p.hasMultipleProposals;
-                  }
-                }),
-                new Partition("Approved", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    return p.winningXpathId != -1; // will be APPROVED
-                  }
-                }),
-                new Partition("Missing", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    //return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
-                    return p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
-                    ( "root".equals(p.inheritedValue.inheritFrom) 
-                            || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom) );
-                    /*
-         p.winningXpathId==-1 &&    // no winning item
-         p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
-             ( "root".equals(p.inheritedValue.inheritFrom) ||XMLSource.CODE_FALLBACK_ID,equals(p.inheritedValue.inheritFrom) )
-                     */
-                  }
-                }),
-                new Partition("Inherited", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    return true;
-                  }
-                }),
-        };
-        return theTestPartitions;
-      }        
-      
-    private Partition[] createCalendarPartitions() {
-        Partition theCalendarPartitions[] = 
-        {                 
-                new Partition("Date Formats", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|pattern\\|date-.*"));
-                  }
-                }),
-                new Partition("Time Formats", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|pattern\\|time-.*"));
-                  }
-                }),
-                new Partition("Date/Time Combination Formats", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|pattern\\|datetime-.*"));
-                  }
-                }),
-                new Partition("Wide Month Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-format-wide"));
-                  }
-                }),
-                new Partition("Abbreviated Month Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-format-abbreviated"));
-                  }
-                }),
-                new Partition("Narrow Month Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-stand-alone-narrow"));
-                  }
-                }),
-                new Partition("Wide Month Names (Stand Alone Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-stand-alone-wide"));
-                  }
-                }),
-                new Partition("Abbreviated Month Names (Stand Alone Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-stand-alone-abbreviated"));
-                  }
-                }),
-                new Partition("Narrow Month Names (Format Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|month\\|.*-format-narrow"));
-                  }
-                }),
-                new Partition("Wide Day Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-wide"));
-                  }
-                }),
-                new Partition("Abbreviated Day Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-abbreviated"));
-                  }
-                }),
-                new Partition("Narrow Day Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-narrow"));
-                  }
-                }),
-                new Partition("Wide Day Names (Stand Alone Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-wide"));
-                  }
-                }),
-                new Partition("Abbreviated Day Names (Stand Alone Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-abbreviated"));
-                  }
-                }),
-                new Partition("Narrow Day Names (Format Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-narrow"));
-                  }
-                }),
-                new Partition("Wide Quarter Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-format-wide"));
-                  }
-                }),
-                new Partition("Abbreviated Quarter Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-format-abbreviated"));
-                  }
-                }),
-                new Partition("Narrow Quarter Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-stand-alone-narrow"));
-                  }
-                }),
-                new Partition("Wide Quarter Names (Stand Alone Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-stand-alone-wide"));
-                  }
-                }),
-                new Partition("Abbreviated Quarter Names (Stand Alone Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-stand-alone-abbreviated"));
-                  }
-                }),
-                new Partition("Narrow Quarter Names (Format Context)", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|quarter\\|.*-format-narrow"));
-                  }
-                }),
-                new Partition("Day Periods", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|dayPeriod.*"));
-                  }
-                }),
-                new Partition("Eras", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|era\\|.*"));
-                  }
-                }),
-                new Partition("Relative Field Names", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|fields\\|.*"));
-                  }
-                }),
-                new Partition("Calendar Field Labels", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String pp = p.getPrettyPath();
-                    return (pp != null && pp.matches("calendar-.*\\|field-label\\|.*"));
-                  }
-                }),
-                new Partition("Flexible Date/Time Formats", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    int xpint = p.getXpathId();
-                    String xp = p.getXpath();
-                    return (xpint == -1 || (xp != null && xp.indexOf("availableFormats")>-1));
-                  }
-                }),
-                new Partition("Interval Formats", 
-                        new PartitionMembership() { 
-                  public boolean isMember(DataRow p) {
-                    String xp = p.getXpath();
-                    return (xp != null && xp.indexOf("intervalFormats")>-1);
-                  }
-                }),
-        };
-        return theCalendarPartitions;
-      }        
-      
-
-    private Hashtable displayHash = new Hashtable();
     
-    public DisplaySet getDisplaySet(String sortMode, Pattern matcher) {
-        return createDisplaySet(sortMode, matcher); // don't cache.
-    }
-
-    public DisplaySet getDisplaySet(String sortMode) {
-        DisplaySet aDisplaySet = (DisplaySet)displayHash.get(sortMode);
-        if(aDisplaySet == null)  {
-            aDisplaySet = createDisplaySet(sortMode, null);
-            displayHash.put(sortMode, aDisplaySet);
-        }
-        return aDisplaySet;
-    }
-    
-    private DisplaySet createDisplaySet(String sortMode, Pattern matcher) {
-        DisplaySet aDisplaySet = new DisplaySet(getList(sortMode, matcher), getDisplayList(sortMode, matcher), sortMode);
+    DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
+        DisplaySet aDisplaySet = new DisplaySet(createSortedList(sortMode,matcher), sortMode);
         aDisplaySet.canName = canName;
         aDisplaySet.isCalendar = isCalendar;
         return aDisplaySet;
     }
-    
-    private Hashtable<String, List<DataRow>> listHash = new Hashtable<String, List<DataRow>>();  // hash of sortMode->pea
-    
-    /**
-     * get a List of peas, in sorted order 
-     */
-    public List<DataRow> getList(String sortMode) {
-        List<DataRow> aList = (List<DataRow>)listHash.get(sortMode);
-        if(aList == null) {
-            aList = getList(sortMode, null);
-        }
-        listHash.put(sortMode, aList);
-        return aList;
-    }
         
-    public List getList(String sortMode, Pattern matcher) {
-    //        final boolean canName = canName;
+    
+    private DataRow[] createSortedList(SortMode sortMode, XPathMatcher matcher) {
         Set<DataRow> newSet;
         
-    //                final com.ibm.icu.text.RuleBasedCollator rbc = 
-    //                    ((com.ibm.icu.text.RuleBasedCollator)com.ibm.icu.text.Collator.getInstance());
-    //                rbc.setNumericCollation(true);
-
-        
-        if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
-            newSet = new TreeSet<DataRow>(COMPARE_CODE);
-        } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_CODE_CALENDAR)) {
-            newSet = new TreeSet<DataRow>(COMPARE_CODE_CALENDAR);
-        } else if (sortMode.equals(SurveyMain.PREF_SORTMODE_WARNING)) {
-            newSet = new TreeSet<DataRow>(COMPARE_PRIORITY);
-        } else if(sortMode.equals(SurveyMain.PREF_SORTMODE_NAME)) {
-            newSet = new TreeSet<DataRow>(COMPARE_NAME);
-        } else {
-            throw new InternalError("Unknown or unsupported sort mode: " + sortMode);
-        }
+        newSet = new TreeSet<DataRow>(sortMode.createComparator());
         
         if(matcher == null) {
             newSet.addAll(rowsHash.values()); // sort it    
@@ -1276,249 +886,16 @@ public class DataSection extends Registerable {
                                 
 ///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
 
-                if(matcher.matcher(p.type).matches()) {
-                    newSet.add(p);
+                if(matcher!=null && !matcher.matches(p.xpath(), p.base_xpath)) {
+                	continue;
+                } else {
+                	newSet.add(p);
                 }
             }
         }
-        
-        ArrayList aList = new ArrayList(); // list it (waste here??)
-        aList.addAll(newSet);
-        if(matcher != null) {
-///*srl*/ System.err.println("Pruned match of " + aList.size() + " items from " + peasHash.size());
-        }
-
-        return aList;
+        return newSet.toArray(new DataRow[newSet.size()]);
     }
     
-    /**
-     * Comparator that just compares codes
-     */
-    final Comparator<DataRow> COMPARE_CODE = new Comparator<DataRow>() {
-      //                        com.ibm.icu.text.Collator myCollator = rbc;
-      public int compare(DataRow p1, DataRow p2){
-        if(p1==p2) { 
-          return 0;
-        }
-        return myCollator.compare(p1.type, p2.type);
-      }
-    };
-    
-    /**
-     * Comparator that compares priorities, then codes (used to be priorities, then names, then codes)
-     */
-    final Comparator<DataRow> COMPARE_PRIORITY = new Comparator<DataRow>() {
-
-      int categorizeDataRow(DataRow p, Partition partitions[]) {
-        int rv = -1;
-        for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
-          if(partitions[i].pm.isMember(p)) {
-            rv = i;
-          }
-        }
-        if(rv==-1) {
-        }
-        return rv;
-      }
-
-      final Partition[] warningSort = (SurveyMain.isPhaseVetting()||SurveyMain.isPhaseSubmit())?createSubmitPartitions():
-        createVettingPartitions();
-//    com.ibm.icu.text.Collator myCollator = rbc;
-      public int compare(DataRow p1, DataRow p2){
-        if(p1==p2) {
-          return 0;
-        }
-
-        int rv = 0; // neg:  a < b.  pos: a> b
-
-        if(p1.reservedForSort==-1) {
-          p1.reservedForSort = categorizeDataRow(p1, warningSort);
-        }
-        if(p2.reservedForSort==-1) {
-          p2.reservedForSort = categorizeDataRow(p2, warningSort);
-        }
-
-        if(rv == 0) {
-          if(p1.reservedForSort < p2.reservedForSort) {
-            return -1;
-          } else if(p1.reservedForSort > p2.reservedForSort) {
-            return 1;
-          }
-        }
-        final boolean p1IsName = p1.isName();
-        final boolean p2IsName = p2.isName();
-        if (p1IsName != p2IsName) { // do this for transitivity, so that names sort first if there are mixtures
-          return p1IsName ? -1 : 1;
-        } else if (p1IsName) {
-          return COMPARE_NAME.compare(p1,p2);
-        }
-        return COMPARE_CODE.compare(p1,p2);
-
-//        if(rv == 0) { // try to avoid a compare
-//          String p1d  = null;
-//          String p2d  = null;
-//          if(canName) {
-//            p1d = p1.displayName;
-//            p2d = p2.displayName;
-//          }
-//          if(p1d == null ) {
-//            p1d = p1.type;
-//            if(p1d == null) {
-//              p1d = "(null)";
-//            }
-//          }
-//          if(p2d == null ) {
-//            p2d = p2.type;
-//            if(p2d == null) {
-//              p2d = "(null)";
-//            }
-//          }
-//          rv = myCollator.compare(p1d, p2d);
-//        }
-//
-//        if(rv == 0) {
-//          // Question for Steven. It doesn't appear that the null checks would be needed, since they aren't in COMPARE_BY_CODE
-//          String p1d  = p1.type;
-//          String p2d  = p2.type;
-//          if(p1d == null ) {
-//            p1d = "(null)";
-//          }
-//          if(p2d == null ) {
-//            p2d = "(null)";
-//          }
-//          rv = myCollator.compare(p1d, p2d);
-//        }
-//
-//        if(rv < 0) {
-//          return -1;
-//        } else if(rv > 0) {
-//          return 1;
-//        } else {
-//          return 0;
-//        }
-      }
-    };
-
-    /**
-     * Comparator that compares by code, within each partition defined for calendars
-     */
-    final Comparator<DataRow> COMPARE_CODE_CALENDAR = new Comparator<DataRow>() {
-
-      int categorizeDataRow(DataRow p, Partition partitions[]) {
-        int rv = -1;
-        for(int i=0;(rv==-1)&&(i<partitions.length);i++) {
-          if(partitions[i].pm.isMember(p)) {
-            rv = i;
-          }
-        }
-        return rv;
-      }
-
-      final Partition[] calendarCodeSort = createCalendarPartitions();
-
-      public int compare(DataRow p1, DataRow p2){
-        if(p1==p2) {
-          return 0;
-        }
-
-        int rv = 0; // neg:  a < b.  pos: a> b
-
-        if(p1.reservedForSort==-1) {
-          p1.reservedForSort = categorizeDataRow(p1, calendarCodeSort);
-        }
-        if(p2.reservedForSort==-1) {
-          p2.reservedForSort = categorizeDataRow(p2, calendarCodeSort);
-        }
-
-        if(rv == 0) {
-          if(p1.reservedForSort < p2.reservedForSort) {
-            return -1;
-          } else if(p1.reservedForSort > p2.reservedForSort) {
-            return 1;
-          }
-        }
-        return COMPARE_CODE.compare(p1,p2);
-
-      }
-    };
-
-    /**
-     * Comparator that compares names, then codes
-     */
-    final Comparator<DataRow> COMPARE_NAME = new Comparator<DataRow>() {
-      //                        com.ibm.icu.text.Collator myCollator = rbc;
-      public int compare(DataRow p1, DataRow p2){
-        if(p1==p2) { 
-          return 0;
-        }
-        String p1d = p1.displayName;
-        if(p1.displayName == null ) {
-          p1d = p1.type;
-          //                                throw new InternalError("item p1 w/ null display: " + p1.type);
-        }
-        String p2d = p2.displayName;
-        if(p2.displayName == null ) {
-          p2d = p2.type;
-          //                                throw new InternalError("item p2 w/ null display: " + p2.type);
-        }
-        int rv = myCollator.compare(p1d, p2d);
-        if(rv == 0) {
-          p1d  = p1.type;
-          p2d  = p2.type;
-          if(p1d == null ) {
-            p1d = "(null)";
-          }
-          if(p2d == null ) {
-            p2d = "(null)";
-          }
-          rv = myCollator.compare(p1d, p2d);
-        }
-        return rv;
-      }
-    };
-
-    
-    /** Returns a list parallel to that of getList() but of Strings suitable for display. 
-    (Alternate idea: just make toString() do so on Row.. advantage here is we can adjust for sort mode.) **/
-    public List getDisplayList(String sortMode) {
-        return getDisplayList(sortMode, getList(sortMode));
-    }
-    /**
-     * Returns a list parallel to that of getList, but of Strings suitable for display
-     * @param sortMode the mode such as SurveyMain.PREF_SORTMODE_CODE
-     * @param matcher regex to determine matching rows
-     * @return the new list
-     */
-    public List getDisplayList(String sortMode, Pattern matcher) {
-        return getDisplayList(sortMode, getList(sortMode, matcher));
-    }
-    
-    public List getDisplayList(String sortMode, List inRows) {
-        final List myPeas = inRows;
-        if(sortMode.equals(SurveyMain.PREF_SORTMODE_CODE)) {
-            return new AbstractList() {
-                private List ps = myPeas;
-                public Object get(int n) {
-                  return ((DataRow)ps.get(n)).type; // always code
-                }
-                public int size() { return ps.size(); }
-            };
-        } else {
-            return new AbstractList() {
-                private List ps = myPeas;
-                public Object get(int n) {
-                  DataRow p = (DataRow)ps.get(n);
-                  if(p.displayName != null) {
-                    return p.displayName;
-                  } else {
-                    return p.type;
-                  } 
-                  //return ((Pea)ps.get(n)).type;
-                }
-                public int size() { return ps.size(); }
-            };
-        }
-    }
 
 	/**
 	 * Create, populate, and complete a DataSection given the specified locale and prefix

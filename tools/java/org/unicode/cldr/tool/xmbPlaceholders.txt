@@ -81,7 +81,8 @@
 
 ^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; {0}=START_DATE_OR_TIME Nov 10; {1}=END_DATE_OR_TIME Dec 10
 
-^//ldml/dates/timeZoneNames/fallbackFormat ; {1}=COUNTRY United States; {0}=CITY Los Angeles
+^//ldml/dates/timeZoneNames/fallbackFormat ; {1}=METAZONE Pacific Time; {0}=CITY_OR_COUNTRY Los Angeles
+^//ldml/dates/timeZoneNames/fallbackRegionFormat ; {1}=COUNTRY Argentina; {0}=CITY Buenos Aires
 ^//ldml/dates/timeZoneNames/gmtFormat ; {0}=HOURS_FROM_GMT +3
 ^//ldml/dates/timeZoneNames/regionFormat ; {0}=COUNTRY Canada
 
@@ -94,16 +95,17 @@
 ^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="script"] ; {0}=SCRIPT_CODE Hans
 ^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="territory"] ; {0}=REGION_CODE CN
 ^//ldml/localeDisplayNames/localeDisplayPattern/localePattern ; {0}=BASE_LANGUAGE Chinese; {1}=MODIFIERS Simplified, Singapore
+^//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern ; {0}=CATEGORY; {1}=SPECIFIC_NAME
 
 ^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 
-^//ldml/units/unit\[@type="day"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
-^//ldml/units/unit\[@type="hour"]/unitPattern ; {0}=NUMBER_OF_HOURS 3
-^//ldml/units/unit\[@type="minute"]/unitPattern ; {0}=NUMBER_OF_MINUTES 3
-^//ldml/units/unit\[@type="month"]/unitPattern ; {0}=NUMBER_OF_MONTHS 3
-^//ldml/units/unit\[@type="second"]/unitPattern ; {0}=NUMBER_OF_SECONDS 3
-^//ldml/units/unit\[@type="week"]/unitPattern ; {0}=NUMBER_OF_WEEKS 3
-^//ldml/units/unit\[@type="year"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
+^//ldml/units/unit\[@type="day[^"]*"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
+^//ldml/units/unit\[@type="hour[^"]*"]/unitPattern ; {0}=NUMBER_OF_HOURS 3
+^//ldml/units/unit\[@type="minute[^"]*"]/unitPattern ; {0}=NUMBER_OF_MINUTES 3
+^//ldml/units/unit\[@type="month[^"]*"]/unitPattern ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/units/unit\[@type="second[^"]*"]/unitPattern ; {0}=NUMBER_OF_SECONDS 3
+^//ldml/units/unit\[@type="week[^"]*"]/unitPattern ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/units/unit\[@type="year[^"]*"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
 
 ^//ldml/characters/ellipsis\[@type="final"] ; {0}=FIRST_PART_OF_TEXT very long na
 ^//ldml/characters/ellipsis\[@type="initial"] ; {0}=LAST_PART_OF_TEXT ry long name

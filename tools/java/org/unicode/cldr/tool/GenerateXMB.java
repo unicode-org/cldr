@@ -381,9 +381,11 @@ public class GenerateXMB {
                     + pathInfo.getPath() + "\t-->");
         } 
         out.println("\t<msg id='" + pathInfo.getStringId() + "' desc='" + pathInfo.description + "'");
-        out.println("\t >" + pathInfo.transformValue(path, value, isEnglish) + "</msg>");
-        if (!isEnglish || pathInfo.placeholderReplacements != null) {
-            out.println("\t<!-- English original:\t" + pathInfo.getEnglishValue() + "\t-->");
+        String transformValue = pathInfo.transformValue(path, value, isEnglish);
+        out.println("\t >" + transformValue + "</msg>");
+        value = TransliteratorUtilities.toHTML.transform(value);
+        if (!value.equals(transformValue) && (!isEnglish || pathInfo.placeholderReplacements != null)) {
+            out.println("\t<!-- English original:\t" + value + "\t-->");
         }
         out.flush();
     }
@@ -421,7 +423,8 @@ public class GenerateXMB {
             this.id = id;
             stringId = String.valueOf(id);
             this.englishValue = englishValue;
-            this.placeholderReplacements = placeholderReplacements;
+            this.placeholderReplacements = placeholderReplacements == null ? null 
+                    : Collections.unmodifiableMap(placeholderReplacements);
             this.description = description.intern();
             this.starredPath = starredPath;
             // count words
@@ -442,7 +445,12 @@ public class GenerateXMB {
         static final Pattern VARIABLE_NAME = Pattern.compile("name='([^']*)'");
         public String getFirstVariable() {
             //... name='FIRST_PART_OF_TEXT' ...
-            String placeHolder = placeholderReplacements.get("{0}");
+            String placeHolder;
+            try {
+                 placeHolder = placeholderReplacements.get("{0}");
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Missing {0} for " + this);
+            }
             Matcher m = VARIABLE_NAME.matcher(placeHolder);
             if (!m.find()) {
                 throw new IllegalArgumentException("Missing name in " + placeHolder);
@@ -605,9 +613,9 @@ public class GenerateXMB {
                         extras.put(path2,path);
                     }
                 }
-                if (path.contains("ellipsis")) {
-                    System.out.println(path);
-                }
+//                if (path.contains("ellipsis")) {
+//                    System.out.println(path);
+//                }
             }
             sorted.addAll(extras.keySet());
 

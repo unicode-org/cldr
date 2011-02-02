@@ -108,7 +108,6 @@
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/intervalFormats/intervalFormatFallback   ;   The pattern used for "fallback" with date/time intervals. Note: before translating, be sure to read http://cldr.org/translation/date-time-intervals.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/intervalFormats/intervalFormatItem\[@id="([^"]*)"]/greatestDifference\[@id="([^"]*)"]    ;   The pattern used for the date/time interval skeleton "{1}" when the greatest difference is "{2}". Note: before translating, be sure to read http://cldr.org/translation/date-time-intervals.
 
-
 ^//ldml/localeDisplayNames/transformNames/transformName\[@type="([^"]*)"]   ;   The name of the transform "{1}". For more information, please see http://cldr.org/translation/transforms.
 
 ^//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName\[@type="([^"]*)"]   ;   The name of the measurement system "{1}".  For more information, please see http://cldr.org/translation/misc. 

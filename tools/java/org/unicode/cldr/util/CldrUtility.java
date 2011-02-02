@@ -560,7 +560,7 @@ public class CldrUtility {
   public static String getCanonicalName(String file) {
     try {
       return new File(file).getCanonicalPath();
-    } catch (IOException e) {
+    } catch (Exception e) {
       return file;
     }
   }

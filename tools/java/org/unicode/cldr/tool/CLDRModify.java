@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
@@ -76,7 +77,8 @@ public class CLDRModify {
   RESOLVE = 10,
   PATH = 11,
   USER = 12,
-  ALL_DIRS = 13
+  ALL_DIRS = 13,
+  CHECK = 14
   ;
 
   private static final UOption[] options = {
@@ -94,6 +96,7 @@ public class CLDRModify {
     UOption.create("path", 'p', UOption.REQUIRES_ARG),
     UOption.create("user", 'u', UOption.REQUIRES_ARG),
     UOption.create("all", 'a', UOption.REQUIRES_ARG),
+    UOption.create("check", 'c', UOption.NO_ARG),
   };
 
   private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
@@ -119,6 +122,7 @@ public class CLDRModify {
   + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)" + XPathParts.NEWLINE
   + "-u\t set user for -fb" + XPathParts.NEWLINE
   + "-a\t pattern: recurse over all subdirectories that match pattern" + XPathParts.NEWLINE
+  + "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
   ;
 
   static final String HELP_TEXT2 =  "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results." + XPathParts.NEWLINE;
@@ -339,6 +343,10 @@ public class CLDRModify {
           k.write(pw);
           pw.println();
           pw.close();
+          if (options[CHECK].doesOccur) {
+              QuickCheck.check(new File(targetDir, test + ".xml"));
+          }
+
           CldrUtility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 
           /*

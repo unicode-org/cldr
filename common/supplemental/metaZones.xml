@@ -1434,7 +1434,8 @@
 				<usesMetazone mzone="America_Pacific"/>
 			</timezone>
 			<timezone type="Antarctica/Macquarie">
-				<usesMetazone to="2010-04-03 16:00" mzone="Australia_Eastern"/>
+				<usesMetazone to="2010-04-03 17:00" mzone="Australia_Eastern"/>
+				<usesMetazone from="2010-04-03 17:00" mzone="Macquarie"/>
 			</timezone>
 			<timezone type="America/Bahia_Banderas">
 				<usesMetazone to="1970-01-01 08:00" mzone="America_Pacific"/>
@@ -1532,6 +1533,7 @@
 			<mapZone other="Atlantic" territory="GP" type="America/Guadeloupe"/>
 			<mapZone other="Atlantic" territory="KN" type="America/St_Kitts"/>
 			<mapZone other="Atlantic" territory="LC" type="America/St_Lucia"/>
+			<mapZone other="Atlantic" territory="MF" type="America/Marigot"/>
 			<mapZone other="Atlantic" territory="MQ" type="America/Martinique"/>
 			<mapZone other="Atlantic" territory="MS" type="America/Montserrat"/>
 			<mapZone other="Atlantic" territory="PR" type="America/Puerto_Rico"/>
@@ -1607,8 +1609,11 @@
 			<mapZone other="Europe_Central" territory="SE" type="Europe/Stockholm"/>
 			<mapZone other="Europe_Central" territory="SI" type="Europe/Ljubljana"/>
 			<mapZone other="Europe_Central" territory="SK" type="Europe/Bratislava"/>
+			<mapZone other="Europe_Central" territory="SM" type="Europe/San_Marino"/>
 			<mapZone other="Europe_Central" territory="TN" type="Africa/Tunis"/>
+			<mapZone other="Europe_Central" territory="VA" type="Europe/Vatican"/>
 			<mapZone other="Europe_Eastern" territory="001" type="Europe/Bucharest"/>
+			<mapZone other="Europe_Eastern" territory="AX" type="Europe/Mariehamn"/>
 			<mapZone other="Europe_Eastern" territory="BG" type="Europe/Sofia"/>
 			<mapZone other="Europe_Eastern" territory="CY" type="Asia/Nicosia"/>
 			<mapZone other="Europe_Eastern" territory="EG" type="Africa/Cairo"/>
@@ -1689,6 +1694,7 @@
 			<mapZone other="Long_Shu" territory="001" type="Asia/Chongqing"/>
 			<mapZone other="Lord_Howe" territory="001" type="Australia/Lord_Howe"/>
 			<mapZone other="Macau" territory="001" type="Asia/Macau"/>
+			<mapZone other="Macquarie" territory="001" type="Antarctica/Macquarie"/>
 			<mapZone other="Magadan" territory="001" type="Asia/Magadan"/>
 			<mapZone other="Malaya" territory="001" type="Asia/Kuala_Lumpur"/>
 			<mapZone other="Malaysia" territory="001" type="Asia/Kuching"/>

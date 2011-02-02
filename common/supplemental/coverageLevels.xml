@@ -77,7 +77,7 @@
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='(format|stand-alone)']/quarterWidth[@type='(wide|abbreviated|narrow)']/quarter[@type='.*']"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='.*']/timeFormat[@type='standard']/pattern[@type='standard']"/>
 		<coverageLevel inTerritory="AR" value="30" match="dates/timeZoneNames/metazone[@type='Argentina(_Western)?']/.*"/>
-		<coverageLevel inTerritory="AU" value="30" match="dates/timeZoneNames/metazone[@type='(Australia_(Central(Western)?|(East|West)ern)|Lord_Howe)']/.*"/>
+		<coverageLevel inTerritory="AU" value="30" match="dates/timeZoneNames/metazone[@type='(Australia_(Central(Western)?|(East|West)ern)|Lord_Howe|Macquarie)']/.*"/>
 		<coverageLevel inTerritory="BR" value="30" match="dates/timeZoneNames/metazone[@type='(Amazon|Brasilia|Noronha)']/.*"/>
 		<coverageLevel inTerritory="CA" value="30" match="dates/timeZoneNames/metazone[@type='(America_(Eastern|Central|Mountain|Pacific)|Newfoundland)']/.*"/>
 		<coverageLevel inTerritory="EU" value="30" match="dates/timeZoneNames/metazone[@type='Europe_(Central|(East|West)ern)']/.*"/>
@@ -122,7 +122,7 @@
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Gambier|Galapagos|Georgia|Gilbert_Islands|Greenland_(East|West)ern|Gulf|Guyana)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Hawaii_Aleutian|Hong_Kong|Hovd|Indian_Ocean|Iran|Irkutsk)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Kamchatka|Kazakhstan_(East|West)ern|Kosrae|Krasnoyarsk|Kyrgystan|Line_Islands|Lord_Howe)']/.*"/>
-		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Magadan|Malaysia|Maldives|Marquesas|Marshall_Islands|Mauritius|Mawson|Mongolia|Myanmar)']/.*"/>
+		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Macquarie|Magadan|Malaysia|Maldives|Marquesas|Marshall_Islands|Mauritius|Mawson|Mongolia|Myanmar)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Nauru|Nepal|New_(Caledonia|Zealand)|Newfoundland|Niue|Norfolk|Noronha|Novosibirsk|Omsk)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Pakistan|Palau|Papua_New_Guinea|Paraguay|Peru|Philippines|Phoenix_Islands|Pierre_Miquelon|Pitcairn|Ponape)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Reunion|Rothera|Sakhalin|Samara|Samoa|Seychelles|Singapore|Solomon|South_Georgia|Suriname|Syowa)']/.*"/>

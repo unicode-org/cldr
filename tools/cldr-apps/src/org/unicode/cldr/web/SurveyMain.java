@@ -37,7 +37,6 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -47,10 +46,10 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
@@ -4131,7 +4130,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("<br>(Current effective coverage level: <tt class='codebox'>" + ctx.defaultPtype()+"</tt>)<p>");
       }*/
         	ctx.println("<br/>Current coverage level: <tt class='codebox'>" + lev +"</tt>.<br>");
-        	ctx.println("Persistent: " + ctx.settings().persistent());
+        	if(!ctx.settings().persistent()) {
+        	    ctx.println("<i>Note: Your coverage level won't be saved, you are not logged in.</i><br/>");
+        	} else {
+        	    ctx.println("(Your coverage level will be saved for the next time you log in.)<br/>");
+        	}
             ctx.println("</blockquote>");
             
    
@@ -6933,8 +6936,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         int skip = 0; // where the index points to
         int oskip = ctx.fieldInt("skip",0); // original skip from user.
         
-        boolean partialPeas = (matcher != null); // true if we are filtering the section
-        
+        //boolean partialPeas = (matcher != null); // true if we are filtering the section
+        boolean partialPeas = false; // TODO: always nonpartial
         synchronized(ctx.session) {
             UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;

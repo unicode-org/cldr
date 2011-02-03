@@ -22,18 +22,19 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
-import org.unicode.cldr.test.CoverageLevel.Level;
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
@@ -42,11 +43,11 @@ import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -150,8 +151,10 @@ public class CLDRModify {
       sourceInput = removeSuffix(sourceInput, "main/", "main");
       destInput = removeSuffix(destInput, "main/", "main");
     }
-    String sourceDirBase = CldrUtility.checkValidDirectory(sourceInput);  // Utility.COMMON_DIRECTORY + "main/";
+    String sourceDirBase = CldrUtility.checkValidDirectory(sourceInput);  // Utility.COMMON_DIRECTORY + "main/";    
     String targetDirBase = CldrUtility.checkValidDirectory(destInput);	// Utility.GEN_DIRECTORY + "main/";
+    System.out.format("Source:\t%s\n", sourceDirBase);
+    System.out.format("Target:\t%s\n", targetDirBase);
 
     Set<String> dirSet = new TreeSet();
     if (recurseOnDirectories == null) {
@@ -217,6 +220,7 @@ public class CLDRModify {
 			   }
          */
         Set locales = new TreeSet(cldrFactory.getAvailable());
+        System.out.format("Locales:\t%s\n", locales.toString());
         if (mergeFactory != null) {
           Set temp = new TreeSet(mergeFactory.getAvailable());
           Set locales3 = new TreeSet();
@@ -241,6 +245,8 @@ public class CLDRModify {
           //System.out.println("C:\\ICU4C\\locale\\common\\main\\fr.xml");
 
           CLDRFile k = (CLDRFile) cldrFactory.make(test, makeResolved).cloneAsThawed();
+          //HashSet<String> set = Builder.with(new HashSet<String>()).addAll(k).get(); 
+          //System.out.format("Locale\t%s, Size\t%s\n", test, set.size());
           //if (k.isNonInheriting()) continue; // for now, skip supplementals
           if (DEBUG_PATHS != null) {
             System.out.println("Debug1 (" + test + "):\t" + k.toString(DEBUG_PATHS));

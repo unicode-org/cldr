@@ -28,6 +28,11 @@ import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
+/** 
+ * Overall process is described in 
+ * http://cldr.unicode.org/development/development-process/design-proposals/resolution-of-cldr-files. Please update that document if major
+ * changes are made.
+ */
 public abstract class XMLSource implements Freezable {
     public static final String CODE_FALLBACK_ID = "code-fallback";
     public static final boolean USE_PARTS_IN_ALIAS = false;
@@ -132,85 +137,123 @@ public abstract class XMLSource implements Freezable {
      */
     public static final class Alias {
         //public String oldLocaleID;
-        private String newLocaleID;
-        private String oldPath;
-        private String newPath;
-        private boolean pathsEqual;
+        final private String newLocaleID;
+        final private String oldPath;
+        final private String newPath;
+        final private boolean pathsEqual;
         static final Pattern aliasPattern = Pattern.compile("(?:\\[@source=\"([^\"]*)\"])?(?:\\[@path=\"([^\"]*)\"])?(?:\\[@draft=\"([^\"]*)\"])?"); // constant, so no need to sync
-        static final Map<String,Alias> cache = new HashMap<String,Alias>();
+        static final Map<String,Map<String,Alias>> cache = new HashMap<String,Map<String,Alias>>();
 
-        public static Alias make(String aliasPath) {
+        public static Alias make(Alias alias, String aliasPath) {
             int pos = aliasPath.indexOf("/alias");
             if (pos < 0) return null; // quickcheck
+            String aliasParts = aliasPath.substring(pos+6);
+            String oldPath = aliasPath.substring(0,pos);
+            String newPath = null;
+            if (alias != null) {
+                if (!oldPath.startsWith(alias.newPath)) {
+                    oldPath = alias.oldPath;
+                    newPath = alias.newPath;
+                    System.out.println("WARNING!!!");
+                } else if (oldPath.length() == alias.newPath.length()) {
+                    oldPath = alias.oldPath;
+                    newPath = alias.newPath;
+                } else {
+                    String extra = oldPath.substring(alias.newPath.length());
+                    oldPath = alias.oldPath + extra; // just separated for debugging
+                    newPath = alias.newPath + extra;
+                }
+            }
 
             // check cache
             synchronized (Alias.class) {
-                Alias result = cache.get(aliasPath);
+                Map<String, Alias> submap = cache.get(oldPath);
+                Alias result;
+                if (submap == null) {
+                    cache.put(oldPath, submap = new HashMap<String,Alias>());
+                    result = null;
+                } else {
+                    result = submap.get(aliasParts);
+                }
                 if (result == null) {
-                    result = new Alias();
-                    result.oldPath = aliasPath.substring(0,pos); // this is safe
-                    String relativePath;
-                    if (USE_PARTS_IN_ALIAS) {
-                        XPathParts tempAliasParts = new XPathParts(null, null);      
-                        if (!tempAliasParts.set(aliasPath).containsElement("alias")) {
-                            return null;
-                        }
-                        Map attributes = tempAliasParts.getAttributes(tempAliasParts.size()-1);
-                        result.newLocaleID = (String) attributes.get("source");
-                        relativePath = (String) attributes.get("path");
-                        if (result.newLocaleID != null && result.newLocaleID.equals("locale")) {
-                            result.newLocaleID = null;
-                        }
-                        if (relativePath == null) {
-                            result.newPath = result.oldPath;
-                        }
-                        else {
-                            result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
-                        }
-                    } else {
-                        // do the same as the above with a regex
-                        Matcher matcher = aliasPattern.matcher(aliasPath.substring(pos+6));
-                        if (matcher.matches()) {
-                            result.newLocaleID = matcher.group(1);
-                            if (result.newLocaleID != null && result.newLocaleID.equals("locale")) {
-                                result.newLocaleID = null;
-                            }
-                            String relativePath2 = matcher.group(2);
-                            if (relativePath2 == null) {
-                                result.newPath = result.oldPath;
-                            }
-                            else {
-                                result.newPath = addRelative(result.oldPath, relativePath2);
-                            }
-
-                            //            if (false) { // test
-                            //            if (newLocaleID != null) {
-                            //            if (!newLocaleID.equals(result.newLocaleID)) {
-                            //            throw new IllegalArgumentException();
-                            //            }
-                            //            } else if (result.newLocaleID != null) {
-                            //            throw new IllegalArgumentException();
-                            //            }
-                            //            if (!relativePath2.equals(relativePath)) {
-                            //            throw new IllegalArgumentException();
-                            //            }
-                            //            if (!newPath.equals(result.newPath)) {
-                            //            throw new IllegalArgumentException();
-                            //            }
-                            //            }
-                        } else {
-                            throw new IllegalArgumentException("bad alias pattern for " + aliasPath);
-                        }
-                    }
-
-                    if (result.newPath.equals(result.oldPath) && result.newLocaleID == null) {
-                        throw new IllegalArgumentException("Alias must have different path or different source. AliasPath: " + aliasPath + ", Alias: " + result.toString());
-                    }
-                    result.pathsEqual = result.oldPath.equals(result.newPath);
-                    cache.put(aliasPath,result);
+                    result = new Alias(pos, oldPath, newPath, aliasParts);
+                    submap.put(aliasPath,result);
                 }
                 return result;
             }
+        }
+
+        /**
+         * @param newLocaleID
+         * @param oldPath
+         * @param aliasParts 
+         * @param newPath
+         * @param pathsEqual
+         */
+        private Alias(int pos, String oldPath, String newPath, String aliasParts) {
+            //            if (USE_PARTS_IN_ALIAS) {
+            //                XPathParts tempAliasParts = new XPathParts(null, null);      
+            //                if (!tempAliasParts.set(aliasPath).containsElement("alias")) {
+            //                    return null;
+            //                }
+            //                Map attributes = tempAliasParts.getAttributes(tempAliasParts.size()-1);
+            //                result.newLocaleID = (String) attributes.get("source");
+            //                relativePath = (String) attributes.get("path");
+            //                if (result.newLocaleID != null && result.newLocaleID.equals("locale")) {
+            //                    result.newLocaleID = null;
+            //                }
+            //                if (relativePath == null) {
+            //                    result.newPath = result.oldPath;
+            //                }
+            //                else {
+            //                    result.newPath = tempAliasParts.trimLast().addRelative(relativePath).toString();
+            //                }
+            //            } else {
+            // do the same as the above with a regex
+            Matcher matcher = aliasPattern.matcher(aliasParts);
+            if (!matcher.matches()) {
+                throw new IllegalArgumentException("bad alias pattern for " + aliasParts);
+            }
+            String newLocaleID = matcher.group(1);
+            if (newLocaleID != null && newLocaleID.equals("locale")) {
+                newLocaleID = null;
+            }
+            String relativePath2 = matcher.group(2);
+            if (newPath == null) {
+                newPath = oldPath;
+            }
+            if (relativePath2 != null) {
+                newPath = addRelative(newPath, relativePath2);
+            }
+
+            //            if (false) { // test
+                //            if (newLocaleID != null) {
+            //            if (!newLocaleID.equals(result.newLocaleID)) {
+            //            throw new IllegalArgumentException();
+            //            }
+            //            } else if (result.newLocaleID != null) {
+            //            throw new IllegalArgumentException();
+            //            }
+            //            if (!relativePath2.equals(relativePath)) {
+            //            throw new IllegalArgumentException();
+            //            }
+            //            if (!newPath.equals(result.newPath)) {
+            //            throw new IllegalArgumentException();
+            //            }
+            //            }
+            // }
+
+            boolean pathsEqual = oldPath.equals(newPath);
+            
+            if (pathsEqual && newLocaleID == null) {
+                throw new IllegalArgumentException("Alias must have different path or different source. AliasPath: " + aliasParts 
+                        + ", Alias: " + newPath + ", " + newLocaleID);
+            }
+
+            this.newLocaleID = newLocaleID;
+            this.oldPath = oldPath;
+            this.newPath = newPath;
+            this.pathsEqual = pathsEqual;
         }
 
         /**
@@ -264,9 +307,11 @@ public abstract class XMLSource implements Freezable {
         public String toString() {
             return 
             //"oldLocaleID: " + oldLocaleID + ", " +
-            "oldPath: " + oldPath + ", "
-            + "newLocaleID: " + newLocaleID + ", "
-            + "newPath: " + newPath;
+            "newLocaleID: " + newLocaleID + ",\t"
+            +
+            "oldPath: " + oldPath + ",\n\t"
+            + 
+            "newPath: " + newPath;
         }
         /**
          * This function is called on the full path, when we know the distinguishing path matches the oldPath.
@@ -352,7 +397,7 @@ public abstract class XMLSource implements Freezable {
             String path = it.next();
             //if (!Alias.isAliasPath(path)) continue;
             String fullPath = getFullPathAtDPath(path);
-            Alias temp = Alias.make(fullPath);
+            Alias temp = Alias.make(null, fullPath);
             if (temp == null) continue;
             output.add(temp);
         }
@@ -655,6 +700,9 @@ public abstract class XMLSource implements Freezable {
         //    Map<String,String> getValueAtDPathCache = new HashMap();
 
         public String getValueAtDPath(String xpath) {
+            if (DEBUG_PATH != null && DEBUG_PATH.matcher(xpath).find()) {
+                System.out.println("Getting value for Path: " + xpath);
+            }
             if (TRACE_VALUE) System.out.println("\t*xpath: " + xpath
                     + CldrUtility.LINE_SEPARATOR + "\t*source: " + mySource.getClass().getName()
                     + CldrUtility.LINE_SEPARATOR + "\t*locale: " + mySource.getLocaleID()
@@ -848,6 +896,7 @@ public abstract class XMLSource implements Freezable {
         private transient Map<String,AliasLocation> getSourceLocaleIDCache = new HashMap();
 
         public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
+
             //xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
             boolean hasValue = mySource.hasValueAtDPath(distinguishedXPath);
             //String result = currentSource.getValueAtDPath(xpath);
@@ -906,16 +955,30 @@ public abstract class XMLSource implements Freezable {
         static final boolean TRACE_FILL = CldrUtility.getProperty("TRACE_FILL", false);
         static final String DEBUG_PATH_STRING = CldrUtility.getProperty("DEBUG_PATH", null);
         static final Pattern DEBUG_PATH = DEBUG_PATH_STRING == null ? null : Pattern.compile(DEBUG_PATH_STRING);
-        
+        static final boolean SKIP_FALLBACKID = CldrUtility.getProperty("SKIP_FALLBACKID", false);;
+
         static final int MAX_LEVEL = 40; /* Throw an error if it goes past this. */
+        
+        
+        /**
+         * http://cldr.unicode.org/development/development-process/design-proposals/resolution-of-cldr-files. 
+         * @param level
+         * @param currentSource
+         * @param alias
+         * @param excludedAliases
+         * @param resultKeySet
+         */
         private void fillKeys(int level, XMLSource currentSource, Alias alias, List<Alias> excludedAliases, Set<String> resultKeySet) {
             if (TRACE_FILL) {
                 if (level > MAX_LEVEL) throw new IllegalArgumentException("Stack overflow");
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "alias: " + alias);
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "cachedKeySet.size(): " + resultKeySet.size());
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "excludedAliases: " + excludedAliases);
+                boolean show = DEBUG_PATH == null || currentSource.iterator(DEBUG_PATH.matcher("")).hasNext();
+                if (show) {
+                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
+                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
+                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "alias: " + alias);
+                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "cachedKeySet.size(): " + resultKeySet.size());
+                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "excludedAliases: " + excludedAliases);
+                }
             } else if(level > MAX_LEVEL) {
                 System.out.println(Utility.repeat(TRACE_INDENT, level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
                 System.out.println(Utility.repeat(TRACE_INDENT, level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
@@ -934,59 +997,99 @@ public abstract class XMLSource implements Freezable {
             for (Iterator<String> it = currentSource.iterator(); it.hasNext();) {
                 String path = it.next();
                 String originalPath = path;
-                if (DEBUG_PATH != null && DEBUG_PATH.matcher(path).find()) {
-                    System.out.println("Path: " + path);
-                }
+                boolean showPathInfo = DEBUG_PATH != null && DEBUG_PATH.matcher(path).find();
                 if (alias != null) {
-                    if (!path.startsWith(alias.getNewPath())) continue; // skip unless matches alias
+                    if (!path.startsWith(alias.getNewPath())) {
+                        continue; // skip unless matches alias
+                    }
+                    if (showPathInfo) {
+                        System.out.println("*Matching Alias: " + path);
+                        if (path.contains("/alias")) {
+                            System.out.println("**ALIAS**");
+                        }
+                    }
                     if (!alias.pathsEqual()) { // substitute OLD path // getOldPath().equals(alias.getNewPath())
                         path = alias.composeOldAndNewPath(path); // alias.getOldPath() + path.substring(alias.getNewPath().length());
+                        if (showPathInfo) {
+                            System.out.println("*New Path from Alias: " + path);
+                        }
+                        showPathInfo = DEBUG_PATH != null && DEBUG_PATH.matcher(path).find();
                     }
                 }
+                
                 if (excludedAliases != null && startsWith(path, excludedAliases)) {
-                    //System.out.println("Skipping: " + path);
+                    if (showPathInfo) {
+                        System.out.println(Utility.repeat(TRACE_INDENT, level) + "Skipping Path: " + path);
+                    }
                     continue;
                 }
+
                 if (Alias.isAliasPath(path)) { // quick check
                     String fullPath = currentSource.getFullPathAtDPath(originalPath);
                     // it's ok that the fullpath is not mapped to the old path, since 
                     // the only thing the Alias.make cares about is the last bit
-                    Alias possibleAlias = Alias.make(fullPath);
+                    Alias possibleAlias = Alias.make(alias, fullPath);
                     if (possibleAlias != null) {
-                        if (collectedAliases == null) collectedAliases = new ArrayList<Alias>();
+                        if (showPathInfo) {
+                            System.out.println("-Adding Alias: " + possibleAlias);
+                        }
+
+                        if (collectedAliases == null) {
+                            collectedAliases = new ArrayList<Alias>();
+                        }
                         collectedAliases.add(possibleAlias);
                     }
+                }
+
+                if (resultKeySet.contains(path)) {
+                    continue;
+                }
+
+                if (showPathInfo) {
+                    System.out.println("Adding Path: " + path);
                 }
                 resultKeySet.add(path); // Note: we add the aliases
             }
 
             // recurse on the parent, unless at the end of the line (constructedItems
             if (currentSource != constructedItems) { // end of the line?
-                if (TRACE_FILL) {
-                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Parent: ");
-                }
-                XMLSource parentSource = constructedItems; // default
+                XMLSource parentSource;
                 String parentID = LocaleIDParser.getParent(currentSource.getLocaleID());
-                if (parentID != null) parentSource = make(parentID); // factory.make(parentID, false).dataSource;
-                if (collectedAliases != null) {
-                    if (excludedAliases == null) excludedAliases = new ArrayList<Alias>();
-                    else excludedAliases.addAll(collectedAliases);
+                if (parentID != null) {
+                    parentSource = make(parentID); // factory.make(parentID, false).dataSource;
+                } else if (SKIP_FALLBACKID) {
+                    parentSource = null;
+                } else {
+                    parentSource = constructedItems; // default
                 }
-                fillKeys(level+1, parentSource, alias, excludedAliases, resultKeySet);
+                if (parentSource != null) {
+                    if (TRACE_FILL) {
+                        System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Parent: " + parentSource.localeID);
+                    }
+                    if (collectedAliases != null) {
+                        if (excludedAliases == null) {
+                            excludedAliases = new ArrayList<Alias>();
+                        }
+                        excludedAliases.addAll(collectedAliases);
+                    }
+                    fillKeys(level+1, parentSource, alias, excludedAliases, resultKeySet);
+                }
             }
 
             // now recurse on the aliases we found
-            if (collectedAliases != null) for (Iterator<Alias> it = collectedAliases.iterator(); it.hasNext();) {
-                if (TRACE_FILL) {
-                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Alias: ");
+            if (collectedAliases != null) {
+                for (Iterator<Alias> it = collectedAliases.iterator(); it.hasNext();) {
+                    if (TRACE_FILL) {
+                        System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Alias: ");
+                    }
+                    Alias foundAlias = it.next();
+                    // this is important. If the new source is null, use *this* (the desired locale)
+                    XMLSource aliasSource = mySource;
+                    if (foundAlias.getNewLocaleID() != null) {
+                        aliasSource = make(foundAlias.getNewLocaleID()); // factory.make(foundAlias.newLocaleID, false).dataSource;
+                    }
+                    fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
                 }
-                Alias foundAlias = it.next();
-                // this is important. If the new source is null, use *this* (the desired locale)
-                XMLSource aliasSource = mySource;
-                if (foundAlias.getNewLocaleID() != null) {
-                    aliasSource = make(foundAlias.getNewLocaleID()); // factory.make(foundAlias.newLocaleID, false).dataSource;
-                }
-                fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
             }
             if (TRACE_FILL) {
                 System.out.println(Utility.repeat(TRACE_INDENT, level) + "=> cachedKeySet.size():  [#"+level+"] " + resultKeySet.size());

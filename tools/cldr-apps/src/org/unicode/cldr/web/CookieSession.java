@@ -147,7 +147,8 @@ public class CookieSession {
      * Create a bran-new session.  
      * @param isGuest True if the user is a guest.
      */
-    public CookieSession(boolean isGuest) {
+    public CookieSession(boolean isGuest, String ip) {
+        this.ip = ip;
         id = newId(isGuest);
         touch();
         synchronized(gHash) {
@@ -162,12 +163,6 @@ public class CookieSession {
         last = System.currentTimeMillis();
     }
     
-    /**
-     * Set the user's IP, if known.
-     */
-    public void setIp(String ip) {
-        this.ip=ip;
-    }
     
     /**
      * Delete a session.
@@ -522,4 +517,47 @@ public class CookieSession {
     }
 
     private UserSettings settings;
+    
+    static CookieSession specialGuest = null;
+    
+    private static synchronized CookieSession getSpecialGuest() {
+        if(specialGuest==null) {
+            specialGuest = new CookieSession(true,"[throttled]");
+        }
+        return specialGuest;
+    }
+
+    public static synchronized CookieSession checkForAbuseFrom(String userIP,
+            Hashtable<String, Integer> BAD_IPS) {
+        if(BAD_IPS.containsKey(userIP)) {
+            BAD_IPS.put(userIP, BAD_IPS.get(userIP)+1);
+            return getSpecialGuest();
+        }
+        
+        // get the # of sessions
+        int noSes = 0;
+        long now = System.currentTimeMillis();
+        synchronized(gHash) {
+            BAD_IPS.put(userIP, new Integer(1));
+            for(Object o : gHash.values()) {
+                CookieSession cs = (CookieSession)o;
+                if(!userIP.equals(cs.ip)) {
+                    continue;
+                }
+                if(cs.user!=null) {
+                    return null; // has a user, OK
+                }
+                if((now-cs.last) < (5*60*1000)) {
+                    noSes++;
+                }
+            }
+        }
+        if(noSes>10) {
+            //System.err.println(userIP+" has " + noSes + " sessions recently.");
+            BAD_IPS.put(userIP, new Integer(1));
+            return getSpecialGuest();
+        } else {
+            return null;
+        }
+    }
 }

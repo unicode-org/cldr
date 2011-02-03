@@ -38,6 +38,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeMap;
@@ -367,35 +368,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     /**
      * IP blacklist
      */
-    static final private String BAD_IPS [] = {
-   /*             "199.89.199.82",
-                "66.154.103.161",
-                "66.249.66.5", // googlebot
-                "203.148.64.17",
-				"209.249.11.4",
-                "65.55.212.189", // MSFT search.live.com
-                "38.98.120.72", // 38.98.120.72 - feb 7, 2007-  lots of connections
-                "124.129.175.245",  // NXDOMAIN @ sdjnptt.net.cn
-                //"128.194.135.94", // crawler4.irl.cs.tamu.edu
-                 */
-                /*
-                209.249.11.4		see | be | kick
-10:32	Guest
-64.5.245.50	 German (Liechtenstein)	see | be | kick
-11:32	Guest
-64.5.245.50	 German (Liechtenstein)	see | be | kick
-11:11	Guest
-209.249.11.4		see | be | kick
-12:32	Guest
-64.5.245.50	 German (Liechtenstein)	see | be | kick
-12:02	Guest
-209.249.11.4		see | be | kick
-12:12	Guest
-209.249.11.4		see | be | kick
-13:32	Guest
-*/
-		"66.249.67.196",
-                 };
+    Hashtable<String, Integer> BAD_IPS = new Hashtable<String,Integer>();
     
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException
@@ -413,12 +386,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             
             String remoteIP = WebContext.userIP(request);
-            
-            for( String badIP : BAD_IPS ) {  // no spiders, please.
-                if(badIP.equals(remoteIP)) {
-                    response.sendRedirect(URL_CLDR);
-                }
-            }
             
             response.setHeader("Cache-Control", "no-cache");
             response.setDateHeader("Expires",0);
@@ -1211,6 +1178,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
             }
             ctx.println("</table>");
+            if(!BAD_IPS.isEmpty()) {
+                ctx.println("<h3>Bad IPs</h3>");
+                for(Entry<String, Integer> e : BAD_IPS.entrySet()) {
+                    ctx.println(e.getValue() + " connections from " + e.getKey() + "<br/>");
+                }
+            }
         } else if(action.equals("upd_1")) {
             WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
@@ -2588,11 +2561,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             mySession = null; // throw it out.
         }
         
-        if(mySession == null) {
-            mySession = new CookieSession(user==null);
-            if(user==null) {
-                mySession.setIp(ctx.userIP());
+        if(mySession==null && user==null) {
+            mySession = CookieSession.checkForAbuseFrom(ctx.userIP(), BAD_IPS);
+            if(mySession!=null) {
+                ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP()) + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag. Going to sleep a bit now.</h1>");
+                ctx.flush();
+                try {
+                    Thread.sleep(15000);
+                } catch(InterruptedException ie) {
+                }
             }
+        }
+        if(mySession == null) {
+            mySession = new CookieSession(user==null, ctx.userIP());
             if(!myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
 //                ctx.println("New session: " + mySession.id + "<br>");
             }
@@ -10234,7 +10215,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             
             System.err.println("--- Starting processing of requests ---");
-            CookieSession cs = new CookieSession(true);
+            CookieSession cs = new CookieSession(true, "0.0.0.0");
             for ( String arg : args ) {
                 if(arg.equals("-wait")) {
                     try {

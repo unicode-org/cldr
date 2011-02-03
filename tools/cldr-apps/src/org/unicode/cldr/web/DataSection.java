@@ -80,6 +80,7 @@ public class DataSection extends Registerable {
     // UI strings
     boolean canName = true; // can the Display Name be used for sorting?
     boolean isCalendar = false; // Is this a calendar section?
+    int skippedDueToCoverage = 0; // How many were skipped due to coverage?
 //    boolean simple = false; // is it a 'simple code list'?
     
     public static final String DATASECTION_MISSING = "Inherited";
@@ -769,6 +770,11 @@ public class DataSection extends Registerable {
 		List<CandidateItem> currentItems = null, proposedItems=null;
 
 		/**
+		 * Calculated coverage level for this row.
+		 */
+        public int coverageValue;
+
+		/**
 		 * Get a list of proposed items, if any.
 		 */
 		public List<CandidateItem> getProposedItems() {
@@ -927,6 +933,7 @@ public class DataSection extends Registerable {
                 System.err.println("Begin populate of " + locale + " // " + prefix+":"+ctx.defaultPtype() + " - is:" + ourSrc.getClass().getName());
             }
             CLDRFile baselineFile = ctx.sm.getBaselineFile();
+            section.skippedDueToCoverage=0;
             section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
 			int popCount = section.getAll().size();
 /*            if(SHOW_TIME) {
@@ -1253,7 +1260,8 @@ public class DataSection extends Registerable {
             if ( coverageValue > workingCoverageValue ) {
                 if ( coverageValue <= 100 ) {
                     // TODO: KEEP COUNT OF FILTERED ITEMS
-                }
+                    skippedDueToCoverage++;
+                } // else: would never be shown, don't care
                 continue;
             }
 
@@ -1394,8 +1402,10 @@ public class DataSection extends Registerable {
             p.base_xpath = base_xpath;
             p.winningXpathId = sm.dbsrcfac.getWinningPathId(base_xpath, locale, false);
 
-            DataRow superP = getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
+            p.coverageValue=coverageValue;
             
+            DataRow superP = getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
+            superP.coverageValue=coverageValue;
             peaSuffixXpath = fullSuffixXpath; // for now...
             
             if(peaSuffixXpath!=null) {
@@ -1779,11 +1789,14 @@ public class DataSection extends Registerable {
                     if ( coverageValue > workingCoverageValue ) {
                         if ( coverageValue <= 100 ) {
                             // KEEP COUNT OF FILTERED ITEMS
-                        }
+                            skippedDueToCoverage++;
+                        } // else: would never be shown, don't care.
                         continue;
                     }
                     
                     DataSection.DataRow myp = getDataRow(rowXpath);
+                    
+                    myp.coverageValue = coverageValue;
                     
                     // set it up..
                     int base_xpath = sm.xpt.getByXpath(base_xpath_string);
@@ -2037,5 +2050,8 @@ public class DataSection extends Registerable {
    //     SurveyMain.busted("unimplemented: addReferenceToNextSlot");
 //        throw new InternalError("unimplemented: addReferenceToNextSlot");
 //        return null;
+    }
+    public int getSkippedDueToCoverage() {
+        return skippedDueToCoverage;
     }
 }

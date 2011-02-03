@@ -258,7 +258,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String PREF_NOSHOWDELETE = "p_nodelete";
     static final String PREF_DELETEZOOMOUT = "p_deletezoomout";
     public static final String PREF_NOJAVASCRIPT = "p_nojavascript";
-    static final String PREF_JAVASCRIPT = PREF_NOJAVASCRIPT;
     static final String PREF_ADV = "p_adv"; // show advanced prefs?
     static final String PREF_XPATHS = "p_xpaths"; // show xpaths?
     public static final String PREF_LISTROWS = "p_listrows";
@@ -1107,7 +1106,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             	startupThread.addTask(new SurveyTask("Waste 10 Seconds")
             	{
             		public void run() throws Throwable {
+            		    CLDRProgressTask task = this.openProgress("Waste 10 Seconds");
             			Thread.sleep(10000);
+            			task.close();
             		}
             	});
             	ctx.println("10s task added.\n");
@@ -2271,6 +2272,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
         ctx.put("TITLE", title);
         ctx.includeFragment("st_top.jsp");
+        ctx.no_js_warning();
     }
     
     void showSpecialHeader(WebContext ctx) {
@@ -6960,16 +6962,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             DataSection.DisplaySet dSet = section.createDisplaySet(sortMode, matcher);
             
             if(dSet.size() == 0) {
-                ctx.println("<h3>There are no items to display on this page due to the selected coverage level. To see more items, " +
-                "click on ");
-            
-	            WebContext subCtx2 = new WebContext(ctx);
-	            subCtx2.removeQuery(QUERY_LOCALE);
-	            subCtx2.removeQuery(QUERY_LOCALE);
-	            subCtx2.removeQuery(SurveyForum.F_FORUM);
-	            printMenu(subCtx2, "", "options", "My Options", QUERY_DO);
-	
-	            ctx.println("and set your coverage level to a higher value.</h3>");
+                ctx.println("<h3>There are no items to display on this page ");
+                if(section.getSkippedDueToCoverage() > 0) { 
+                    ctx.println("due to the selected coverage level. To see "+section.getSkippedDueToCoverage()+" skipped items, " +
+                    "click on ");
+                
+    	            WebContext subCtx2 = new WebContext(ctx);
+    	            subCtx2.removeQuery(QUERY_LOCALE);
+    	            subCtx2.removeQuery(QUERY_LOCALE);
+    	            subCtx2.removeQuery(SurveyForum.F_FORUM);
+    	            printMenu(subCtx2, "", "options", "My Options", QUERY_DO);
+    	
+    	            ctx.println("and set your coverage level to a higher value.");
+                }
+                ctx.println("</h3>");
 	            return;
 		    }
 

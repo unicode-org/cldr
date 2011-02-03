@@ -12,6 +12,7 @@ import java.io.*;
 import java.util.*;
 
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
@@ -1210,14 +1211,17 @@ public class WebContext implements Cloneable {
                 loadString = "data was re-loaded due to a new user submission.";
             }
             if(section == null) {
+                CLDRProgressTask progress = sm.openProgress("Preparing");
+                progress.update(locale+"|"+sm.xpt.getPrettyPath(prefix));
                 long t0 = System.currentTimeMillis();
                 ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
                 section = DataSection.make(this, locale, prefix, false);
                 if((System.currentTimeMillis()-t0) > 10 * 1000) {
                     println("<i><b>" + podTimer + "</b></i><br/>");
                 }
+                progress.close();
             }
-                    section.register();
+            section.register();
 //                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
 	}
             putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference<DataSection>(section)); // PUT******
@@ -1509,5 +1513,18 @@ public class WebContext implements Cloneable {
      */
     UserSettings settings() {
         return session.settings();
+    }
+
+    public void no_js_warning() {
+        boolean no_js = prefBool(SurveyMain.PREF_NOJAVASCRIPT);
+        if(!no_js) {
+            WebContext nuCtx = (WebContext)clone();
+            nuCtx.setQuery(SurveyMain.PREF_NOJAVASCRIPT, "t");
+            println("<noscript><h1>");
+            println("<a href='"+nuCtx.url()+"'>");
+            println(iconHtml("warn", "JavaScript disabled")+ "JavaScript is disabled. Please click here to continue.");
+            println("</a>");
+            println("</h1></noscript>");
+        }
     }
 }

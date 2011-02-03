@@ -2666,7 +2666,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //            }
             ctx.print(" | ");
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
-            ctx.print(" <smaller>Coverage Level: "+getCoverageSetting(ctx)+"</smaller>");
+            ctx.print(" <smaller>Coverage Level: "+ctx.getCoverageSetting()+"</smaller>");
         } else {
             ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") | ");
             ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout</a> | ");
@@ -2675,7 +2675,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                ctx.print(" | ");
 //            }
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
-            ctx.print(" <smaller>Coverage Level: "+getCoverageSetting(ctx)+"</smaller>");
+            ctx.print(" <smaller>Coverage Level: "+ctx.getCoverageSetting()+"</smaller>");
             ctx.print(" | ");
             printMenu(ctx, doWhat, "listu", "My Account", QUERY_DO);
             //ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
@@ -2689,16 +2689,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 ctx.print(" | ");
                 printMenu(ctx, doWhat, "list", "Manage " + ctx.session.user.org + " Users", QUERY_DO);
                 ctx.print(" | ");
-                printMenu(ctx, doWhat, "coverage", "Coverage", QUERY_DO);    
-                ctx.print(" | ");
 //              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
                 printMenu(ctx, doWhat, "disputed", "Disputed (Approximate)", QUERY_DO);
             } else {
                 if(UserRegistry.userIsVetter(ctx.session.user)) {
                     ctx.print(" | ");
                     printMenu(ctx, doWhat, "list", "List " + ctx.session.user.org + " Users", QUERY_DO);
-                    ctx.print(" | ");
-                    printMenu(ctx, doWhat, "coverage", "Coverage", QUERY_DO);                    
                 } else if(UserRegistry.userIsLocked(ctx.session.user)) {
                     ctx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + ctx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
@@ -3393,6 +3389,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("</users>");
     }
     
+    /**
+     * List Users
+     * @param ctx
+     */
     public void doList(WebContext ctx) {
         int n=0;
         String just = ctx.field(LIST_JUST);
@@ -3417,7 +3417,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         } else {
             printHeader(ctx, "List Users" + ((just==null)?"":(" - " + just)));
         }
+
         printUserTableWithHelp(ctx, "/AddModifyUser");
+        ctx.print(" | ");
+        printMenu(ctx, doWhat, "coverage", "Show Vetting Participation", QUERY_DO);                    
         if(reg.userCanCreateUsers(ctx.session.user)) {
             showAddUser(ctx);
 //            ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");
@@ -4061,8 +4064,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         return val;
     }
 
-    public static final String PREF_COVLEV_LIST[] = { "default","comprehensive","modern","moderate","basic","minimal" };
-	
     void doDisputed(WebContext ctx){
         printHeader(ctx, "Disputed Items Page");
         printUserTableWithHelp(ctx, "/DisputedItems");
@@ -4097,9 +4098,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<p class='hang'>For more information on coverage, see "+
             "<a href='http://www.unicode.org/cldr/data/docs/web/survey_tool.html#Coverage'>Coverage Help</a></p>");
         //String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
-        String lev = showCoverageSetting(ctx);
-            
-        
+        String lev = ctx.showCoverageSetting();
         
       /*if(false) { // currently not doing effective coverages
         if(lev.equals("default")) {
@@ -4162,13 +4161,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         printFooter(ctx);
     }
 
-    public String showCoverageSetting(WebContext ctx) {
-    	return showListSetting(ctx, PREF_COVLEV, "Coverage Level", PREF_COVLEV_LIST);
-	}
-    public String getCoverageSetting(WebContext ctx) {
-    	return getListSetting(ctx, PREF_COVLEV, PREF_COVLEV_LIST);
-    }
-	/**
+    /**
      * Print the opening form for a 'shopping cart' (one or more showPathList operations)
      * @see showPathList
      * @see printPathListClose
@@ -5777,20 +5770,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<h3>Basic information about the Locale</h3>");
         
         // coverage level
-        {
-            org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
-                    StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(ctx.getChosenLocaleType()), ctx.getLocale().toString()) ;
-        
-            String def = getCoverageSetting(ctx);
-            if(def.equals("default")) {
-                ctx.print("Coverage Level: <tt class='codebox'>"+itsLevel.toString()+"</tt><br>");
-            } else {
-                ctx.print("Coverage Level: <tt class='codebox'>"+def+"</tt>  (overriding <tt>"+itsLevel.toString()+"</tt>)<br>");
-            }
-            ctx.print("<ul><li>To change your default coverage level, see ");
-            printMenu(ctx, "", "options", "My Options", QUERY_DO);
-            ctx.println("</li></ul>");
-        }
+        ctx.showCoverageLevel();
     
         
         ctx.print("  <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul>    <li><font size='4'><i>W</i></font><i><font size='4'>"+

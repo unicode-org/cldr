@@ -2666,7 +2666,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //            }
             ctx.print(" | ");
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
-            ctx.print(" <smaller>Coverage Level: "+ctx.getCoverageSetting()+"</smaller>");
+            
+            showCoverageInHeader(ctx);
+            
         } else {
             ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") | ");
             ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout</a> | ");
@@ -2675,7 +2677,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                ctx.print(" | ");
 //            }
             printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
-            ctx.print(" <smaller>Coverage Level: "+ctx.getCoverageSetting()+"</smaller>");
+            showCoverageInHeader(ctx);
             ctx.print(" | ");
             printMenu(ctx, doWhat, "listu", "My Account", QUERY_DO);
             //ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
@@ -2714,7 +2716,26 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
         }
     }
-    /**
+    private void showCoverageInHeader(WebContext ctx) {
+    	String curSetting = ctx.getCoverageSetting();
+    	if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
+    		ctx.println("<span style='border: 2px solid blue'>");
+    	}
+    	if(ctx.hasField(SurveyMain.QUERY_LOCALE)) {
+    		WebContext subCtx = new WebContext(ctx);
+    		subCtx.addQuery(SurveyMain.QUERY_LOCALE, ctx.field(QUERY_LOCALE));
+    		if(ctx.hasField(QUERY_SECTION)) {
+    			subCtx.addQuery(SurveyMain.QUERY_SECTION, ctx.field(QUERY_SECTION));
+    		}
+    		subCtx.showCoverageSettingForLocale();	
+    	} else {
+    		ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
+    	}
+    	if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
+    		ctx.println("</span>");
+    	}
+	}
+	/**
     * Handle creating a new user
     */
     public void doNew(WebContext ctx) {
@@ -4042,25 +4063,73 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     	String val = ctx.pref(pref, settingsSet);
     	return val;
     }
+    static void writeMenu(WebContext jout, String title, String field, String current, String items[])  {
+    	String which = current;
+		boolean any = false;
+		for (int i = 0; !any && (i < items.length); i++) {
+			if (items[i].equals(which))
+				any = true;
+		}
+
+		jout.println("<label class='"
+				+ (!current.equals(items[0]) ? "menutop-active" : "menutop-other") + "' >");
+		
+//		if(!any) {
+//			WebContext ssc = new WebContext(jout);
+//			ssc.setQuery(field, items[0]);
+//			//jout.println("<a href='"+ssc.url()+"' style='text-decoration: none;'>");
+//		}
+		jout.println(title);
+//		if(!any) {
+//			//jout.println("</a>");
+//		}
+
+		jout.println("<select class='"
+				+ (any ? "menutop-active" : "menutop-other")
+				+ "' onchange='window.location=this.value'>");
+		if (!any) {
+			jout.println("<option selected value=\"\">Change...</option>");
+		}
+		for (int i = 0; i < items.length; i++) {
+			WebContext ssc = new WebContext(jout);
+			ssc.setQuery(field, items[i]);
+			jout.print("<option ");
+			if (items[i].equals(which)) {
+				jout.print(" selected ");
+			} else {
+				jout.print("value=\"" + ssc.url() + "\" ");
+			}
+			jout.print(">" + items[i]);
+			jout.println("</option>");
+		}
+		jout.println("</select>");
+		jout.println("</label>");
+	}
+    
     String showListSetting(WebContext ctx, String pref, String what, String[] list, boolean doDef) {
     	String val = getListSetting(ctx,pref,list,doDef);
         ctx.settings().set(pref, val);
         
-        ctx.println("<b>"+what+"</b>: ");
-//        ctx.println("<select name='"+pref+"'>");
-        if(doDef) {
-            WebContext nuCtx = (WebContext)ctx.clone();
-            nuCtx.addQuery(pref, "default");
-            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals("default")?"selected":"notselected")+"'>"+"default"+"</a> ");
+        boolean no_js = ctx.prefBool(SurveyMain.PREF_NOJAVASCRIPT);
+
+        if(no_js) {
+	        ctx.println("<b>"+what+"</b>: ");
+	        if(doDef) {
+	            WebContext nuCtx = (WebContext)ctx.clone();
+	            nuCtx.addQuery(pref, "default");
+	            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals("default")?"selected":"notselected")+"'>"+"default"+"</a> ");
+	        }
+	        for(int n=0;n<list.length;n++) {
+	            WebContext nuCtx = (WebContext)ctx.clone();
+	            nuCtx.addQuery(pref, list[n]);
+	            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals(list[n])?"selected":"notselected")+"'>"+list[n]+"</a> ");
+	        }
+	        ctx.println("<br>");
+        } else {
+        	writeMenu(ctx,what,pref,val,list);
         }
-        for(int n=0;n<list.length;n++) {
-//            ctx.println("    <option " + (val.equals(list[n])?" SELECTED ":"") + "value='" + list[n] + "'>"+list[n] +"</option>");
-            WebContext nuCtx = (WebContext)ctx.clone();
-            nuCtx.addQuery(pref, list[n]);
-            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals(list[n])?"selected":"notselected")+"'>"+list[n]+"</a> ");
-        }
-//    ctx.println("</select></label><br>");
-        ctx.println("<br>");
+        
+        
         return val;
     }
 

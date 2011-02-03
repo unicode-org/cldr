@@ -1073,6 +1073,10 @@ public class WebContext implements Cloneable {
 		return sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level", WebContext.PREF_COVLEV_LIST);
 	}
 
+	public String showCoverageSettingForLocale() {
+		return sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level (Recommended= <b>"+getRecommendedCoverageLevel()+"</b>)", WebContext.PREF_COVLEV_LIST);
+	}
+
 	public String getCoverageSetting() {
 		return sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
 	}

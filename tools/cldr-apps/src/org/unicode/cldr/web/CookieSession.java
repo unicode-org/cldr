@@ -15,8 +15,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -526,19 +528,40 @@ public class CookieSession {
         }
         return specialGuest;
     }
+    
+    private static class BadUserRecord {
+        String ip;
+        int hits=0;
+        Set<String> agents = new HashSet<String>();
+        public BadUserRecord(String IP) {
+            ip = IP;
+        }
+        public void hit(String userAgent) {
+            agents.add(userAgent);
+            hits++;
+        }
+        public String toString() {
+            String s =" hits: " + hits + ", from :";
+            for(String ua:agents) {
+                s = s + ua + ", ";
+            }
+            return s;
+        }
+    }
 
     public static synchronized CookieSession checkForAbuseFrom(String userIP,
-            Hashtable<String, Integer> BAD_IPS) {
+            Hashtable<String, Object> BAD_IPS, String userAgent) {
         if(BAD_IPS.containsKey(userIP)) {
-            BAD_IPS.put(userIP, BAD_IPS.get(userIP)+1);
+            BadUserRecord bur = (BadUserRecord)BAD_IPS.get(userIP);
+            bur.hit(userAgent);
             return getSpecialGuest();
         }
         
         // get the # of sessions
+        
         int noSes = 0;
         long now = System.currentTimeMillis();
         synchronized(gHash) {
-            BAD_IPS.put(userIP, new Integer(1));
             for(Object o : gHash.values()) {
                 CookieSession cs = (CookieSession)o;
                 if(!userIP.equals(cs.ip)) {
@@ -554,7 +577,10 @@ public class CookieSession {
         }
         if(noSes>10) {
             //System.err.println(userIP+" has " + noSes + " sessions recently.");
-            BAD_IPS.put(userIP, new Integer(1));
+            BadUserRecord bur = new BadUserRecord(userIP);
+            bur.hit(userAgent);
+            
+            BAD_IPS.put(userIP, bur);
             return getSpecialGuest();
         } else {
             return null;

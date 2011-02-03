@@ -364,11 +364,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     {
         doGet(request,response);
     }
-                    
+
     /**
      * IP blacklist
      */
-    Hashtable<String, Integer> BAD_IPS = new Hashtable<String,Integer>();
+    Hashtable<String, Object> BAD_IPS = new Hashtable<String,Object>();
     
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException
@@ -1180,8 +1180,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("</table>");
             if(!BAD_IPS.isEmpty()) {
                 ctx.println("<h3>Bad IPs</h3>");
-                for(Entry<String, Integer> e : BAD_IPS.entrySet()) {
-                    ctx.println(e.getValue() + " connections from " + e.getKey() + "<br/>");
+                for(Entry<String, Object> e : BAD_IPS.entrySet()) {
+                    ctx.println(e.getKey() + " : " + e.getValue() + "<br/>");
                 }
             }
         } else if(action.equals("upd_1")) {
@@ -2562,7 +2562,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
         
         if(mySession==null && user==null) {
-            mySession = CookieSession.checkForAbuseFrom(ctx.userIP(), BAD_IPS);
+            mySession = CookieSession.checkForAbuseFrom(ctx.userIP(), BAD_IPS, ctx.request.getHeader("User-Agent"));
             if(mySession!=null) {
                 ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP()) + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag. Going to sleep a bit now.</h1>");
                 ctx.flush();

@@ -1242,6 +1242,11 @@ public class WebContext implements Cloneable {
 	                if((System.currentTimeMillis()-t0) > 10 * 1000) {
 	                    println("<i><b>" + podTimer + "</b></i><br/>");
 	                }
+                } catch (Throwable t) {
+                	System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);
+                	t.printStackTrace();
+                	this.println("Error loading " + prefix + " / " + ptype + " in " + locale);
+                	
                 } finally {
                 	progress.close();
                 }

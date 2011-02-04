@@ -233,7 +233,9 @@ public class SurveyAjax extends HttpServlet {
 		r.put("SurveyOK","1");
 		r.put("isSetup", (sm.isSetup)?"1":"0");
 		r.put("isBusted", (sm.isBusted!=null)?"1":"0");
-		r.put("visitors", sm.getGuestsAndUsers());
+		StringBuffer memBuf = new StringBuffer();
+		SurveyMain.appendMemoryInfo(memBuf, true);
+		r.put("visitors", sm.getGuestsAndUsers()+memBuf.toString());
 		r.put("uptime", sm.uptime.toString());
 		r.put("progress", sm.getTopBox(false));
 	}

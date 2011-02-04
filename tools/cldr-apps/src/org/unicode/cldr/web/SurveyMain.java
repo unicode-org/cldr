@@ -1016,15 +1016,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("</div>");
             
             StringBuffer buf = new StringBuffer();
-
             ctx.println("<h4>Memory</h4>");
-            Runtime r = Runtime.getRuntime();
-            double total = r.totalMemory();
-            total = total / 1024000.0;
-            double free = r.freeMemory();
-            free = free / 1024000.0;
-            ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
-            SurveyProgressManager.appendProgressBar(buf, total-free, total);
+
+            appendMemoryInfo(buf, false);
+            
             ctx.print(buf.toString());
             buf.delete(0, buf.length());
             
@@ -2126,7 +2121,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         printFooter(ctx);
     }
     
-    /* print a warning the first time. */
+    public static void appendMemoryInfo(StringBuffer buf, boolean inline) {
+        Runtime r = Runtime.getRuntime();
+        double total = r.totalMemory();
+        total = total / 1024000.0;
+        double free = r.freeMemory();
+        free = free / 1024000.0;        
+        
+        String info = ("Free memory: " + free + "M / " + total + "M.");
+        if(inline) {
+        	buf.append("<span title='"+info+"'>");
+        }
+        SurveyProgressManager.appendProgressBar(buf, total-free, total);
+        if(inline) {
+        	buf.append("</span>");
+        } else {
+        	buf.append(info+"<br/>");
+        }
+     }
+	/* print a warning the first time. */
     private int addAndWarnOnce(WebContext ctx, int count, String icon,
 			String desc) {
     	if(count==0) {

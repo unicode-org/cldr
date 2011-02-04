@@ -246,7 +246,7 @@ public class StandardCodes {
         if ((type != null) && (getLocaleCoverageOrganizations().contains(type))) {
             return type;
         } else {
-            return "default"; // the default.. for now..
+            return null; // the default.. for now..
         }
     }
 
@@ -275,7 +275,7 @@ public class StandardCodes {
     }
 
     /**
-     * Returns coverage level of locale according to organization. Returns Level.BASIC if information is missing.
+     * Returns coverage level of locale according to organization. Returns Level.MODERN if information is missing.
      */
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
         synchronized (StandardCodes.class) {
@@ -283,16 +283,16 @@ public class StandardCodes {
                 loadPlatformLocaleStatus();
             }
         }
-        if (organization == null) return Level.MINIMAL;
+        if (organization == null) return Level.MODERN;
         Map<String, Level> locale_status = platform_locale_level.get(organization);
-        if (locale_status == null) return Level.MINIMAL;
+        if (locale_status == null) return Level.MODERN;
         // see if there is a parent
         while (desiredLocale != null) {
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) return status;
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
-        return Level.MINIMAL;
+        return Level.MODERN;
     }
 
     public Set<String> getLocaleCoverageOrganizations() {

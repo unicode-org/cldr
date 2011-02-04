@@ -922,27 +922,23 @@ public class DataSection extends Registerable {
             if(checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-
-            
-
-            
-            
+            String workingCoverageLevel = ctx.getEffectiveCoverageLevel();
             com.ibm.icu.dev.test.util.ElapsedTimer cet;
             if(SHOW_TIME) {
                 cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
-                System.err.println("Begin populate of " + locale + " // " + prefix+":"+ctx.defaultPtype() + " - is:" + ourSrc.getClass().getName());
+                System.err.println("Begin populate of " + locale + " // " + prefix+":"+workingCoverageLevel + " - is:" + ourSrc.getClass().getName());
             }
             CLDRFile baselineFile = ctx.sm.getBaselineFile();
             section.skippedDueToCoverage=0;
-            section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap());
+            section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap(), workingCoverageLevel);
 			int popCount = section.getAll().size();
 /*            if(SHOW_TIME) {
                 System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
             }*/
-            section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap());
+            section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
             if(SHOW_TIME) {
 				int allCount = section.getAll().size();
-                System.err.println("Populate+complete " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
+                System.err.println("Populate+complete " + locale + " // " + prefix +":"+ctx.getEffectiveCoverageLevel()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
             }
         }
 		return section;
@@ -1053,7 +1049,7 @@ public class DataSection extends Registerable {
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
-    private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options) {
+    private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
         init();
         XPathParts xpp = new XPathParts(null,null);
 //        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
@@ -1069,12 +1065,6 @@ public class DataSection extends Registerable {
             lastTime = countStart = System.currentTimeMillis();
         }
         
-        String workingCoverageLevel = options.get("CheckCoverage.requiredLevel");
-        if ( workingCoverageLevel.equals("default") || workingCoverageLevel.equals(WebContext.COVLEV_RECOMMENDED)) {
-            org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
-            StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(options.get("CheckCoverage.requiredLocaleType")), locale.toString()) ;
-            workingCoverageLevel = itsLevel.toString();
-        }
         int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
         // what to exclude under 'misc'
         
@@ -1700,14 +1690,8 @@ public class DataSection extends Registerable {
     /**
      * Makes sure this pod contains the peas we'd like to see.
      */
-    private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options) {
+    private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
-        String workingCoverageLevel = options.get("CheckCoverage.requiredLevel");
-        if ( workingCoverageLevel.equals("default")) {
-            org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
-            StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(options.get("CheckCoverage.requiredLocaleType")), locale.toString()) ;
-            workingCoverageLevel = itsLevel.toString();
-        }
         int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
         if(xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames")) {
             // work on zones

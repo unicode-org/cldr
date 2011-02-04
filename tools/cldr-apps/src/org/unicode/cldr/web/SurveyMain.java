@@ -1004,12 +1004,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+
                 ", Container: " + config.getServletContext().getServerInfo()+"<br>");
             ctx.println(uptime + ", " + pages + " pages and "+xpages+" xml pages served.<br/>");
-            Runtime r = Runtime.getRuntime();
-            double total = r.totalMemory();
-            total = total / 1024000.0;
-            double free = r.freeMemory();
-            free = free / 1024000.0;
-            ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
     //        r.gc();
     //        ctx.println("Ran gc();<br/>");
             
@@ -1020,6 +1014,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
             ctx.println("</div>");
+            
+            StringBuffer buf = new StringBuffer();
+
+            ctx.println("<h4>Memory</h4>");
+            Runtime r = Runtime.getRuntime();
+            double total = r.totalMemory();
+            total = total / 1024000.0;
+            double free = r.freeMemory();
+            free = free / 1024000.0;
+            ctx.println("Free memory: " + free + "M / " + total + "M.<br/>");
+            SurveyProgressManager.appendProgressBar(buf, total-free, total);
+            ctx.print(buf.toString());
+            buf.delete(0, buf.length());
             
             ctx.println("<a class='notselected' href='" + ctx.jspLink("about.jsp") +"'>More version information...</a><br/>");
             
@@ -2904,7 +2911,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         boolean participation = showTogglePref(subCtx, "cov_participation", "Participation Shown (click to toggle)");
         String missingLocalesForOrg = org;
         if(missingLocalesForOrg == null) {
-            missingLocalesForOrg = showListPref(subCtx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(), true);
+            missingLocalesForOrg = showListPref(subCtx,PREF_COVTYP, "Coverage Type", ctx.getLocaleCoverageOrganizations(), true);
         }
         if(missingLocalesForOrg == null || missingLocalesForOrg.length()==0 || missingLocalesForOrg.equals("default")) {
             missingLocalesForOrg = "default"; // ?!
@@ -5007,7 +5014,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             
             // check for errors
             {
-                List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.defaultPtype());
+                List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.getEffectiveCoverageLevel());
 
                 if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
                     (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
@@ -6149,7 +6156,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             return checkCldr;
         }
         public CheckCLDR getCheck(WebContext ctx) {
-        	return getCheck(ctx.defaultPtype(), ctx.getOptionsMap(basicOptionsMap()));
+        	return getCheck(ctx.getEffectiveCoverageLevel(), ctx.getOptionsMap(basicOptionsMap()));
         }
         
         

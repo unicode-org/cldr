@@ -17,6 +17,7 @@ import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.test.*;
+import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 
 import com.ibm.icu.util.ULocale;
@@ -1043,8 +1044,8 @@ public class WebContext implements Cloneable {
      * Print the coverage level for a certain locale.
      */
 	public void showCoverageLevel() {
-        org.unicode.cldr.test.CoverageLevel.Level itsLevel = getEffectiveCoverageLevel();
-        CoverageLevel.Level recLevel = getRecommendedCoverageLevel();
+        String itsLevel = getEffectiveCoverageLevel();
+        String recLevel = getRecommendedCoverageLevel();
         String def = getCoverageSetting();
         if(def.equals(COVLEV_RECOMMENDED)) {
             print("Coverage Level: <tt class='codebox'>"+itsLevel.toString()+"</tt><br>");
@@ -1056,23 +1057,31 @@ public class WebContext implements Cloneable {
         sm.printMenu(this, "", "options", "My Options", SurveyMain.QUERY_DO);
         println("</li></ul>");
 		if(SurveyMain.isUnofficial) {
-			println("<smaller><i> // User Org:" + getUserOrg() + " // Effective: " + getEffectiveCoverageLevel() + " // defaultPType:"+defaultPtype() + " // chosenLocaleType:" + getChosenLocaleType() + "</i></smaller>");
+			println("<smaller><i> // User Org:" + getUserOrg() + "isCoverageOrg:"+isCoverageOrganization(getUserOrg())+ " // Effective: " + getEffectiveCoverageLevel() +  " // Recommended: " + getRecommendedCoverageLevel() + "</i></smaller>");
 		}
 	}
 	
 	
-	org.unicode.cldr.test.CoverageLevel.Level getEffectiveCoverageLevel() {
-		return getEffectiveCoverageLevel(getChosenLocaleType());
+	public String getEffectiveCoverageLevel() {
+		String level = getCoverageSetting();
+		if((level == null) || (level.equals(COVLEV_RECOMMENDED))||(level.equals("default"))) {
+			// fetch from org
+			String  myOrg = getUserOrg();
+			if((myOrg == null) || !isCoverageOrganization(myOrg)) {
+				level = COVLEV_DEFAULT_RECOMMENDED_STRING;
+			} else {
+				level = StandardCodes.make().getLocaleCoverageLevel(myOrg, getLocale().toString()).toString() ;
+			}
+		}
+		return level;
 	}
-	org.unicode.cldr.test.CoverageLevel.Level getEffectiveCoverageLevel(String type) {
-		return  StandardCodes.make().getLocaleCoverageLevel(getEffectiveLocaleType(type), getLocale().toString()) ;
-	}
-	org.unicode.cldr.test.CoverageLevel.Level getRecommendedCoverageLevel() {
+	
+	String getRecommendedCoverageLevel() {
 		String  myOrg = getUserOrg();
-		if(myOrg == null) {
-			return org.unicode.cldr.test.CoverageLevel.Level.MODERN;
+		if((myOrg == null) || !isCoverageOrganization(myOrg)) {
+			return COVLEV_DEFAULT_RECOMMENDED_STRING;
 		} else {
-			return  StandardCodes.make().getLocaleCoverageLevel(getEffectiveLocaleType(myOrg), getLocale().toString()) ;
+			return StandardCodes.make().getLocaleCoverageLevel(myOrg, getLocale().toString()).toString() ;
 		}
 	}
 	
@@ -1092,39 +1101,19 @@ public class WebContext implements Cloneable {
 
 	public static final String COVLEV_RECOMMENDED = "recommended";
 	public static final String PREF_COVLEV_LIST[] = { COVLEV_RECOMMENDED,"comprehensive","modern","moderate","basic","minimal" };
+	/**
+	 * The default level, if no organization is available.
+	 */
+	public static final Level COVLEVEL_DEFAULT_RECOMMENDED = org.unicode.cldr.test.CoverageLevel.Level.MODERN;
+	public static final String COVLEV_DEFAULT_RECOMMENDED_STRING = COVLEVEL_DEFAULT_RECOMMENDED.name().toLowerCase();
 
     /**
-     * Get the default coverage level type, possibly for the user's org
-     * @return the default type
-     */
-    public String defaultPtype() {
-    	return getEffectiveCoverageLevel().toString();
-//        if(sm.isPhaseSubmit()) {
-//            String def = getCoverageSetting();
-//            if(!def.equals(COVLEV_RECOMMENDED)) {
-//                return def;
-//            } else {
-//                String org = getChosenLocaleType();
-//                String ltype = getEffectiveLocaleType(org);
-//                return ltype;
-//            }
-//        } else {
-//            return "Defaults";
-//        }
-    }
-    
-    /**
-     * Get the effective locale type
+     * Is it an organization that participates in coverage?
      * @param org
      * @return
-     * @see StandardCodes#getEffectiveLocaleType(String)
      */
-    static String getEffectiveLocaleType(String org) {
-        try {
-            return  StandardCodes.make().getEffectiveLocaleType(org);
-        } catch (java.io.IOException ioe) {
-            return org;
-        }
+    public static boolean isCoverageOrganization(String org) {
+		return (org!=null && StandardCodes.make().getLocaleCoverageOrganizations().contains(org));
     }
    
     /**
@@ -1132,28 +1121,9 @@ public class WebContext implements Cloneable {
      * @return a list of locale types
      * @see StandardCodes#getLocaleCoverageOrganizations()
      */
-   static String[] getLocaleTypes() {
+   static String[] getLocaleCoverageOrganizations() {
        return StandardCodes.make().getLocaleCoverageOrganizations().toArray(new String[0]);
    }
-    
-   /**
-    * Return the type of the current locale according to coverage
-    * @return the type for locale coverage
-    */
-    public String getChosenLocaleType() {
-//        if(sm.isPhaseSubmit()) { 
-            String org = getCoverageSetting();
-            if(org.equals(COVLEV_RECOMMENDED)) {
-                org = null;
-            }
-            if(org==null) {
-            	org = getUserOrg();
-            }
-            return org;
-//        } else {
-//            return defaultPtype();
-//        }
-    }
     
     /**
      * User's organization or null.
@@ -1189,11 +1159,11 @@ public class WebContext implements Cloneable {
         String def = getCoverageSetting();
         options.put("CheckCoverage.requiredLevel",def);
         
-        String org = getEffectiveLocaleType(getChosenLocaleType());
+        String org = getEffectiveCoverageLevel();
         if(org!=null) {
             options.put("CoverageLevel.localeType",org);
         }
-                
+        
         return options;
     }
     
@@ -1207,7 +1177,7 @@ public class WebContext implements Cloneable {
      * @return the existing data section or null if it is invalid
      */
     DataSection getExistingSection(String prefix) {
-        return getExistingSection(prefix, defaultPtype());
+        return getExistingSection(prefix, getEffectiveCoverageLevel());
     }
     
     /**
@@ -1237,7 +1207,7 @@ public class WebContext implements Cloneable {
      * @param prefix
      */
     DataSection getSection(String prefix) {
-        return getSection(prefix, defaultPtype());
+        return getSection(prefix, getEffectiveCoverageLevel());
     }
     
     /** 

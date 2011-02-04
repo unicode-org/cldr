@@ -1,5 +1,5 @@
 /**
- * 
+ * Copyright (C) 2010-2011 IBM Corporation and Others. All Rights Reserved.
  */
 package org.unicode.cldr.web;
 
@@ -95,30 +95,8 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
             double cur = progressCount;
             
-            if(max>0) {
-                if(cur>max) {
-                    cur = max;
-                }
-                if(cur<0) {
-                    cur = 0;
-                }
-    
-                double barWid = (cur/max)*(double)SurveyMain.PROGRESS_WID;
-    
-                int barX = (int)barWid;
-                int remainX = SurveyMain.PROGRESS_WID-barX;
-    
-                buf.append("<table class='stprogress' border=0 ><tr height='12'>");
-                if(barX > 0) {
-                    buf.append("<td class='bar' width='"+barX+"' >");
-                    buf.append("</td>");
-                }
-                if(remainX >0) {
-                    buf.append("<td class='remain' width='"+remainX+"'>");
-                    buf.append("</td>");
-                }
-                buf.append("</table>");
-            }
+            appendProgressBar(buf, cur, max);
+            
             if(progressMax>=0) { //  only show the actual number if >0
                 buf.append(progressCount+" of "+progressMax+" &mdash; ");
             }
@@ -145,7 +123,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         return openProgress(what,-100);
     }
 
-    /* (non-Javadoc)
+	/* (non-Javadoc)
      * @see org.unicode.cldr.web.CLDRProgressIndicator#openProgress(java.lang.String, int)
      */
     @Override
@@ -182,5 +160,32 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         }
         return buf.toString();
     }
+
+    public static void appendProgressBar(StringBuffer buf, double cur, double max) {
+        if(max>0) {
+            if(cur>max) {
+                cur = max;
+            }
+            if(cur<0) {
+                cur = 0;
+            }
+
+            double barWid = (cur/max)*(double)SurveyMain.PROGRESS_WID;
+
+            int barX = (int)barWid;
+            int remainX = SurveyMain.PROGRESS_WID-barX;
+
+            buf.append("<table class='stprogress' border=0 ><tr height='12'>");
+            if(barX > 0) {
+                buf.append("<td class='bar' width='"+barX+"' >");
+                buf.append("</td>");
+            }
+            if(remainX >0) {
+                buf.append("<td class='remain' width='"+remainX+"'>");
+                buf.append("</td>");
+            }
+            buf.append("</table>");
+        }
+	}
 
 }

@@ -3363,6 +3363,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String LIST_ACTION_CHANGE_EMAIL = "setemail_";
     static final String LIST_ACTION_CHANGE_NAME = "setname_";
     static final String LIST_ACTION_CHANGE_PASSWORD = "setpass_";
+
+	public static final String PREF_SHCOVERAGE = "showcov";
     
     public static final String changeAtTo40(String s) {
         return s.replaceAll("@","%40");
@@ -4058,6 +4060,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     	return getListSetting(ctx,pref,list,false);
     }
     
+    boolean getBoolSetting(WebContext ctx, String pref) {
+    	return ctx.prefBool(pref,ctx.settings().get(pref,false));
+    }
+    
     String getListSetting(WebContext ctx, String pref, String[] list, boolean doDef) {
         String settingsSet = ctx.settings().get(pref, doDef?"default":list[0]);
     	String val = ctx.pref(pref, settingsSet);
@@ -4071,7 +4077,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 				any = true;
 		}
 
-		jout.println("<label class='"
+		String hash = "menu_"+field;
+		
+		jout.println("<label id='m_"+hash+"' class='"
 				+ (!current.equals(items[0]) ? "menutop-active" : "menutop-other") + "' >");
 		
 //		if(!any) {
@@ -4086,7 +4094,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
 		jout.println("<select class='"
 				+ (any ? "menutop-active" : "menutop-other")
-				+ "' onchange='window.location=this.value'>");
+				+ "' onchange='window.location=this.value;'>"); //  document.getElementById(\"m_"+hash+"\").innerHTML+=\"<i>Changing to \" + this.text + \"...</i>\";
 		if (!any) {
 			jout.println("<option selected value=\"\">Change...</option>");
 		}
@@ -4198,7 +4206,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		
         ctx.println("<h4>Advanced Options</h4>");
         ctx.print("<blockquote>");
-        boolean adv = showTogglePref(ctx, PREF_ADV, "Show Advanced Options");
+        boolean adv = showToggleSetting(ctx, PREF_ADV, "Show Advanced Options");
         ctx.println("</blockquote>");
 
         
@@ -4208,29 +4216,34 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             showTogglePref(ctx, PREF_XPID, "show XPATH ids");
             showTogglePref(ctx, PREF_GROTTY, "show obtuse items");
             showTogglePref(ctx, PREF_XPATHS, "Show full XPaths");
+        	showToggleSetting(ctx, PREF_SHCOVERAGE, "Show Coverage Levels");
             showTogglePref(ctx, PREF_NOSHOWDELETE, "Suppress controls for deleting unused items in zoomed-in view:");
             showTogglePref(ctx, PREF_NOJAVASCRIPT, "Reduce the use of JavaScript (unimplemented)");
             
             ctx.println("</div>");
         }
 
-        
-        // Dummy, pointless boolean toggle.
-        if(isUnofficial) {
-            ctx.println("(settings type: " + ctx.settings().getClass().getName()+")<br/>");
-            
-            // If a pref (URL) is set, use that, otherwise if there is a setting use that, otherwise false.
-            boolean dummySetting = ctx.prefBool("dummy",ctx.settings().get("dummy",false));
-            // always set.
-            ctx.settings().set("dummy",dummySetting);
-
-            showTogglePref(ctx, "dummy", "A Dummy Setting");
-        }
+//        
+//        // Dummy, pointless boolean toggle.
+//        if(isUnofficial) {
+//            ctx.println("(settings type: " + ctx.settings().getClass().getName()+")<br/>");
+//            showToggleSetting(ctx, "dummy","A Dummy Setting");
+//        }
                 
         printFooter(ctx);
     }
 
-    /**
+    public boolean showToggleSetting(WebContext ctx, String field, String title) {
+        // If a pref (URL) is set, use that, otherwise if there is a setting use that, otherwise false.
+        boolean someSetting = getBoolSetting(ctx,field);
+        // always set.
+        ctx.settings().set(field,someSetting);
+
+        showTogglePref(ctx, field, title);
+        
+        return someSetting;
+	}
+	/**
      * Print the opening form for a 'shopping cart' (one or more showPathList operations)
      * @see showPathList
      * @see printPathListClose
@@ -8090,6 +8103,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 +((ourVoteXpath==null)?"CHECKED":"")+" >");
         }
         ctx.print("</td>");
+        
+        
+        if(ctx.prefBool(SurveyMain.PREF_SHCOVERAGE)) {
+        	ctx.print("<th>Cov="+p.coverageValue+"</th>");
+        }
 
         
         ctx.println("</tr>");

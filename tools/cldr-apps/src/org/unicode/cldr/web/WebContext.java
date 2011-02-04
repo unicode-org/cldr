@@ -1055,26 +1055,35 @@ public class WebContext implements Cloneable {
         print("<ul><li>To change your default coverage level, see ");
         sm.printMenu(this, "", "options", "My Options", SurveyMain.QUERY_DO);
         println("</li></ul>");
+		if(SurveyMain.isUnofficial) {
+			println("<smaller><i> // User Org:" + getUserOrg() + " // Effective: " + getEffectiveCoverageLevel() + " // defaultPType:"+defaultPtype() + " // chosenLocaleType:" + getChosenLocaleType() + "</i></smaller>");
+		}
 	}
 	
+	
 	org.unicode.cldr.test.CoverageLevel.Level getEffectiveCoverageLevel() {
-		return  StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(getChosenLocaleType()), getLocale().toString()) ;
+		return getEffectiveCoverageLevel(getChosenLocaleType());
+	}
+	org.unicode.cldr.test.CoverageLevel.Level getEffectiveCoverageLevel(String type) {
+		return  StandardCodes.make().getLocaleCoverageLevel(getEffectiveLocaleType(type), getLocale().toString()) ;
 	}
 	org.unicode.cldr.test.CoverageLevel.Level getRecommendedCoverageLevel() {
 		String  myOrg = getUserOrg();
 		if(myOrg == null) {
 			return org.unicode.cldr.test.CoverageLevel.Level.MODERN;
 		} else {
-			return  StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(myOrg), getLocale().toString()) ;
+			return  StandardCodes.make().getLocaleCoverageLevel(getEffectiveLocaleType(myOrg), getLocale().toString()) ;
 		}
 	}
 	
 	public String showCoverageSetting() {
-		return sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level", WebContext.PREF_COVLEV_LIST);
+		String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level", WebContext.PREF_COVLEV_LIST);
+		return rv;
 	}
 
 	public String showCoverageSettingForLocale() {
-		return sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level (Recommended= <b>"+getRecommendedCoverageLevel()+"</b>)", WebContext.PREF_COVLEV_LIST);
+		String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level (Recommended= <b>"+getRecommendedCoverageLevel()+"</b>)", WebContext.PREF_COVLEV_LIST);
+		return rv;
 	}
 
 	public String getCoverageSetting() {
@@ -1089,18 +1098,19 @@ public class WebContext implements Cloneable {
      * @return the default type
      */
     public String defaultPtype() {
-        if(sm.isPhaseSubmit()) {
-            String def = getCoverageSetting();
-            if(!def.equals(COVLEV_RECOMMENDED)) {
-                return def;
-            } else {
-                String org = getChosenLocaleType();
-                String ltype = getEffectiveLocaleType(org);
-                return ltype;
-            }
-        } else {
-            return "Defaults";
-        }
+    	return getEffectiveCoverageLevel().toString();
+//        if(sm.isPhaseSubmit()) {
+//            String def = getCoverageSetting();
+//            if(!def.equals(COVLEV_RECOMMENDED)) {
+//                return def;
+//            } else {
+//                String org = getChosenLocaleType();
+//                String ltype = getEffectiveLocaleType(org);
+//                return ltype;
+//            }
+//        } else {
+//            return "Defaults";
+//        }
     }
     
     /**
@@ -1131,7 +1141,7 @@ public class WebContext implements Cloneable {
     * @return the type for locale coverage
     */
     public String getChosenLocaleType() {
-        if(sm.isPhaseSubmit()) { 
+//        if(sm.isPhaseSubmit()) { 
             String org = getCoverageSetting();
             if(org.equals(COVLEV_RECOMMENDED)) {
                 org = null;
@@ -1140,9 +1150,9 @@ public class WebContext implements Cloneable {
             	org = getUserOrg();
             }
             return org;
-        } else {
-            return defaultPtype();
-        }
+//        } else {
+//            return defaultPtype();
+//        }
     }
     
     /**
@@ -1253,15 +1263,18 @@ public class WebContext implements Cloneable {
                 loadString = "data was re-loaded due to a new user submission.";
             }
             if(section == null) {
-                CLDRProgressTask progress = sm.openProgress("Preparing");
-                progress.update(locale+"|"+sm.xpt.getPrettyPath(prefix));
-                long t0 = System.currentTimeMillis();
-                ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-                section = DataSection.make(this, locale, prefix, false);
-                if((System.currentTimeMillis()-t0) > 10 * 1000) {
-                    println("<i><b>" + podTimer + "</b></i><br/>");
+                CLDRProgressTask progress = sm.openProgress("Loading");
+                try {
+	                progress.update("<span title='"+sm.xpt.getPrettyPath(prefix)+"'>"+locale+"</span>");
+	                long t0 = System.currentTimeMillis();
+	                ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
+	                section = DataSection.make(this, locale, prefix, false);
+	                if((System.currentTimeMillis()-t0) > 10 * 1000) {
+	                    println("<i><b>" + podTimer + "</b></i><br/>");
+	                }
+                } finally {
+                	progress.close();
                 }
-                progress.close();
             }
             section.register();
 //                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******

@@ -1070,7 +1070,7 @@ public class DataSection extends Registerable {
         }
         
         String workingCoverageLevel = options.get("CheckCoverage.requiredLevel");
-        if ( workingCoverageLevel.equals("default")) {
+        if ( workingCoverageLevel.equals("default") || workingCoverageLevel.equals(WebContext.COVLEV_RECOMMENDED)) {
             org.unicode.cldr.test.CoverageLevel.Level itsLevel = 
             StandardCodes.make().getLocaleCoverageLevel(WebContext.getEffectiveLocaleType(options.get("CheckCoverage.requiredLocaleType")), locale.toString()) ;
             workingCoverageLevel = itsLevel.toString();
@@ -1255,8 +1255,14 @@ public class DataSection extends Registerable {
 //		if(false) System.err.println("CheckCLDR.skipShowingInSurvey match for "+xpath);
                 continue;
             }
+
+            String fullPath = aFile.getFullXPath(xpath);
+            //int xpath_id = src.xpt.getByXpath(fullPath);
+            int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
+            String baseXpath = sm.xpt.getById(base_xpath);
+
             // Filter out data that is higher than the desired coverage level
-            int coverageValue = sdi.getCoverageValue(xpath,locale.toULocale());
+            int coverageValue = sdi.getCoverageValue(baseXpath,locale.toULocale());
             if ( coverageValue > workingCoverageValue ) {
                 if ( coverageValue <= 100 ) {
                     // TODO: KEEP COUNT OF FILTERED ITEMS
@@ -1264,11 +1270,6 @@ public class DataSection extends Registerable {
                 } // else: would never be shown, don't care
                 continue;
             }
-
-            String fullPath = aFile.getFullXPath(xpath);
-            //int xpath_id = src.xpt.getByXpath(fullPath);
-            int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
-            String baseXpath = sm.xpt.getById(base_xpath);
 
             if(fullPath == null) { 
                 if(isExtraPath) {

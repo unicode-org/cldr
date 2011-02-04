@@ -107,16 +107,16 @@ public class CoverageLevel {
     COMPREHENSIVE(100, "G0", 2),
     OPTIONAL(101, "optional", 1);
     
-    private byte level;
-    private String altName;
-    private int value;
+    private final byte level;
+    private final String altName;
+    private final int value;
     
     public int getValue() {
       return value;
     }
 
     private Level(int i, String altName, int value) {
-      level = (byte) i;
+      this.level = ((byte) i);
       this.altName = altName;
       this.value = value;
     }
@@ -151,6 +151,18 @@ public class CoverageLevel {
       return 1;
     }
 
+    public byte getLevel() {
+        return level;
+    }
+    
+    public static Level fromLevel(int level) {
+        for (Level result : Level.values()) {
+            if (level == result.level) {
+                return result;
+            }
+        }
+        return null;
+    }
   }
   
   private static Object sync = new Object();

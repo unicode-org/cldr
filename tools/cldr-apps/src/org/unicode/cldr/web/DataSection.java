@@ -1254,7 +1254,7 @@ public class DataSection extends Registerable {
             // Filter out data that is higher than the desired coverage level
             int coverageValue = -1;
             try {
-            	sdi.getCoverageValue(baseXpath,locale.toULocale());
+            	coverageValue = sdi.getCoverageValue(baseXpath,locale.toULocale());
 	            if ( coverageValue > workingCoverageValue ) {
 	                if ( coverageValue <= 100 ) {
 	                    skippedDueToCoverage++;

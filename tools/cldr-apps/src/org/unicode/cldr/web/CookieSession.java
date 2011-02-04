@@ -525,6 +525,7 @@ public class CookieSession {
     private static synchronized CookieSession getSpecialGuest() {
         if(specialGuest==null) {
             specialGuest = new CookieSession(true,"[throttled]");
+            gHash.put("throttled", specialGuest);
         }
         return specialGuest;
     }

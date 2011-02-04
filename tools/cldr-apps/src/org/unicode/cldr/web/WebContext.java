@@ -592,6 +592,7 @@ public class WebContext implements Cloneable {
      * @return the context path for the specified resource
      */
     public String context(String s) { 
+    	if(request==null) return s;
         return context(request,s);
     }
     /**
@@ -600,6 +601,7 @@ public class WebContext implements Cloneable {
      * @return the context path for the specified resource
      */
     public static String context(HttpServletRequest request, String s) { 
+    	if(request==null) return "/"+s;
         return request.getContextPath() + "/" + s;
     }
     
@@ -1242,11 +1244,14 @@ public class WebContext implements Cloneable {
 	                if((System.currentTimeMillis()-t0) > 10 * 1000) {
 	                    println("<i><b>" + podTimer + "</b></i><br/>");
 	                }
+                } catch (OutOfMemoryError oom) {
+                	System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);
+                	oom.printStackTrace();
+                	this.println("Error loading " + prefix + " / " + ptype + " in " + locale + " - " + oom.toString());
                 } catch (Throwable t) {
                 	System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);
                 	t.printStackTrace();
-                	this.println("Error loading " + prefix + " / " + ptype + " in " + locale);
-                	
+                	this.println("Error loading " + prefix + " / " + ptype + " in " + locale + " - " + t.toString());
                 } finally {
                 	progress.close();
                 }
@@ -1413,8 +1418,10 @@ public class WebContext implements Cloneable {
      * @throws IOException
      */
     public static void includeFragment(HttpServletRequest request, HttpServletResponse response, String filename) throws ServletException, IOException {
-            RequestDispatcher dp = request.getRequestDispatcher(TMPL_PATH+filename);
-            dp.include(request,response);
+            if(request != null) {
+            	RequestDispatcher dp = request.getRequestDispatcher(TMPL_PATH+filename);
+            	dp.include(request,response);
+            }
     }
 
     /**

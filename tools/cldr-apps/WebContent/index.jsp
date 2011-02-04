@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 	<head>
+<meta name="google-site-verification" content="srvwuSyUz9Z1IqUdRzS9fKqc928itVA9OeLxh60vnDM" />
 		<title>CLDR Web Applications</title>
 <!--        <link rel="stylesheet" type="text/css" 
         href="http://www.unicode.org/webscripts/standard_styles.css"> -->

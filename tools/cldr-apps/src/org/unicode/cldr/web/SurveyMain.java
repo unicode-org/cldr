@@ -611,7 +611,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
     }
     
-    private String getHome() {
+    private static String getHome() {
     	if(cldrHome == null) {
 	    	String props[] = { 
 	    			"catalina.home",
@@ -842,7 +842,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         total = total / 1024000.0;
         double free = r.freeMemory();
         free = free / 1024000.0;
-        return "Free memory: " + (int)free + "M / " + total + "M";
+        double used = total-free;
+        return "Free memory: " + (int)free + "M / Used: " + (int)used+"M /: total: " + total + "M";
     }
     
     private static final void freeMem(int pages, int xpages) {
@@ -2148,7 +2149,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     	return ++count;
 	}
 	private static void throwIfBadLocale(String test0) {
-        if(!SurveyMain.getLocalesSet().contains(test0)) {
+        if(!SurveyMain.getLocalesSet().contains(CLDRLocale.getInstance(test0))) {
             throw new InternalError("Bad locale: "+test0);
         }
     }
@@ -2504,14 +2505,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         if(password.length()==0) {
             password = ctx.field(QUERY_PASSWORD_ALT);
         }
-	boolean letmein = vap.equals(ctx.field("letmein"));
-    String email = ctx.field(QUERY_EMAIL);
-	if("admin@".equals(email) && vap.equals(password)) {
-		letmein = true;
-	}
-	if(letmein) {
-	    password = null;
-	}
+        boolean letmein = vap.equals(ctx.field("letmein"));
+        String email = ctx.field(QUERY_EMAIL);
+        if("admin@".equals(email) && vap.equals(password)) {
+        	letmein = true;
+        }
+        if(letmein) {
+        	password = null;
+        }
         UserRegistry.User user;
 //        /*srl*/ System.err.println("isBusted: " + isBusted + ", reg: " + reg);
 	
@@ -2590,6 +2591,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     Thread.sleep(15000);
                 } catch(InterruptedException ie) {
                 }
+                ctx.session = null;
+                ctx.println("Now, go away.");
+                return "Bad IP.";
             }
         }
         if(mySession == null) {
@@ -4289,6 +4293,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         setLocale(ctx);
         
         String sessionMessage = setSession(ctx);
+        
+        if(ctx.session == null) {
+        	return;
+        }
         
         
         if(lockOut != null) {
@@ -6371,7 +6379,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         if((aliasItems==null) || (aliasItems.length==0)) {
                             aliasTo=null;
                         } else if(aliasItems.length>1) {
-                            throw new InternalError("found " + aliasItems + " items at " + "//ldml/alias" + " - should have only found 1");
+                            throw new InternalError("found " + aliasItems.length + " items at " + "//ldml/alias" + " - should have only found 1");
                         } else {
                             aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0],"source");
                         }
@@ -10288,7 +10296,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public static void main(String args[]) {
         System.out.println("Starting some test of SurveyTool locally....");
         try{
-            cldrHome="/xsrl/T/cldr";
+            cldrHome=getHome()+"/cldr";
             vap="testingvap";
             SurveyMain sm=new SurveyMain();
             System.out.println("sm created.");
@@ -10302,17 +10310,32 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             
             System.err.println("--- Starting processing of requests ---");
+            System.err.println("Mem: "+freeMem());
             CookieSession cs = new CookieSession(true, "0.0.0.0");
             for ( String arg : args ) {
+                com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
+                System.err.println("***********\n* "+arg);
                 if(arg.equals("-wait")) {
                     try {
                         System.err.println("*** WAITING ***");
                         System.in.read();
                     } catch(Throwable t) {}
                     continue;
+                } else if(arg.equals("-makeall")) {
+                    WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + "?");
+                    xctx.sm = sm;
+                    xctx.session=cs;
+                    for(int jj=0;jj<5;jj++) {
+	                    for(CLDRLocale locale : sm.getLocales()) {
+	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
+	                        xctx.setLocale(locale);
+	                    	DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false);
+	                    	System.err.println("Made: " + qt.toString() + " -- " + freeMem());
+	                    }
+                    }
+                    continue;
                 }
-                com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
-                System.err.println("***********\n* "+arg);
+                System.err.println("Mem: "+freeMem());
                 WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + arg);
                 xctx.sm = sm;
                 xctx.session=cs;

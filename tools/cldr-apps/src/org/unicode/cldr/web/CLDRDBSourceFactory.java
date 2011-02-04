@@ -1076,7 +1076,7 @@ public class CLDRDBSourceFactory {
         CLDRLocale updateNeeded = null;
 
         System.err.println("@sl&v: "+locale+"/"+srcId);
-		CLDRProgressTask progress = sm.openProgress("Loading " + locale);
+		CLDRProgressTask progress = sm.openProgress("DB Load " + locale);
         try {
         	synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
         		// double check..

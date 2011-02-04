@@ -34,21 +34,21 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         @Override
         public void close() {
             tasks.remove(this); // remove from deque
-            System.err.println("Progress ("+progressWhat+") DONE");
+            System.err.println("Progress ("+progressWhat+") DONE - "+ ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()));
             dead = true;
         }
         @Override
         public void update(int count) {
             progressCount = count;
             subTaskTime = System.currentTimeMillis();
-            if(SurveyMain.isUnofficial) System.err.println("Progress (" + progressWhat + ") on #"+progressCount );
+            //if(SurveyMain.isUnofficial) System.err.println("Progress (" + progressWhat + ") on #"+progressCount );
         }
         @Override
         public void update(int count, String what) {
             progressCount = count;
             progressSub = what;
             subTaskTime = System.currentTimeMillis();
-            if(SurveyMain.isUnofficial) System.err.println("Progress (" + progressWhat + ") on " + progressSub + " #"+progressCount );
+            //if(SurveyMain.isUnofficial) System.err.println("Progress (" + progressWhat + ") on " + progressSub + " #"+progressCount );
         }
         /**
          * Update the sub-progress without moving the count
@@ -60,7 +60,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
                 progressCount++;
             }
             subTaskTime = System.currentTimeMillis();
-            if(SurveyMain.isUnofficial) System.err.println("Progress (" + progressWhat + ") on "+what );
+            //if(SurveyMain.isUnofficial) System.err.println("Progress (" + progressWhat + ") on "+what );
         }
         @Override
         public long startTime() {
@@ -130,6 +130,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
     public CLDRProgressTask openProgress(String what, int max) {
         SurveyProgressTask t = new SurveyProgressTask(what,max);
         tasks.addLast(t);
+        if(SurveyMain.isUnofficial)  System.err.println("Progress (" + what + ") BEGIN");
         return t;
     }
 

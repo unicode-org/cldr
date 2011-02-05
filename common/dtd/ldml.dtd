@@ -1187,6 +1187,7 @@ $Date$
 <!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED >
 <!ATTLIST settings hiraganaQuaternary   ( on | off ) #IMPLIED >
 <!ATTLIST settings numeric              ( on | off ) #IMPLIED >
+<!ATTLIST settings private              ( true | false ) #IMPLIED >
 <!ATTLIST settings variableTop          CDATA #IMPLIED >
 
 <!ELEMENT suppress_contractions (  #PCDATA | cp )* >

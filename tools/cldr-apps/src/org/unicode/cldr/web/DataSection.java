@@ -1255,20 +1255,14 @@ public class DataSection extends Registerable {
             String baseXpath = sm.xpt.getById(base_xpath);
 
             // Filter out data that is higher than the desired coverage level
-            int coverageValue = -1;
-            try {
-            	coverageValue = sdi.getCoverageValue(baseXpath,locale.toULocale());
-	            if ( coverageValue > workingCoverageValue ) {
-	                if ( coverageValue <= 100 ) {
-	                    skippedDueToCoverage++;
-	                } // else: would never be shown, don't care
-	                continue;
-	            }
-            } catch (NullPointerException NPE) {
-            	NPE.printStackTrace();
-            	System.err.println("NPE for xpath " + baseXpath+ " / locale " + locale);
-            }
-
+            int	coverageValue = sdi.getCoverageValue(baseXpath,locale.toULocale());
+	        if ( coverageValue > workingCoverageValue ) {
+	            if ( coverageValue <= 100 ) {
+	                skippedDueToCoverage++;
+	            } // else: would never be shown, don't care
+	            continue;
+	        }
+	        
             if(fullPath == null) { 
                 if(isExtraPath) {
                     fullPath=xpath; // (this is normal for 'extra' paths)

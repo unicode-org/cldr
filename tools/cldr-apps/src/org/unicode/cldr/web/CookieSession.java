@@ -520,12 +520,12 @@ public class CookieSession {
 
     private UserSettings settings;
     
-    static CookieSession specialGuest = null;
+   static CookieSession specialGuest = null;
     
     private static synchronized CookieSession getSpecialGuest() {
         if(specialGuest==null) {
             specialGuest = new CookieSession(true,"[throttled]");
-            gHash.put("throttled", specialGuest);
+//            gHash.put("throttled", specialGuest);
         }
         return specialGuest;
     }

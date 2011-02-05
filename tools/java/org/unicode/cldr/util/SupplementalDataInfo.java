@@ -1692,24 +1692,34 @@ public class SupplementalDataInfo {
     private Set<String> getTargetScripts(String language) {
         Set<BasicLanguageData> langData = getBasicLanguageData(language);
         Set<String> targetScripts = new HashSet<String>();
-        Iterator<BasicLanguageData> ldi = langData.iterator();
-        while ( ldi.hasNext()) {
-            Set<String> addScripts = ldi.next().scripts;
-            if ( addScripts != null ) {
-                targetScripts.addAll(addScripts);              
+        if (langData != null) {
+            Iterator<BasicLanguageData> ldi = langData.iterator();
+            while ( ldi.hasNext()) {
+                Set<String> addScripts = ldi.next().scripts;
+                if ( addScripts != null ) {
+                    targetScripts.addAll(addScripts);              
+                }
             }
+        }
+        if (targetScripts.size() == 0) {
+            targetScripts.add("Zzzz"); // Unknown Script
         }
         return targetScripts;
     }
     private Set<String> getTargetTerritories(String language) {
         Set<BasicLanguageData> langData = getBasicLanguageData(language);
         Set<String> targetTerritories = new HashSet<String>();
-        Iterator<BasicLanguageData> ldi = langData.iterator();
-        while ( ldi.hasNext()) {
-            Set<String> addTerritories = ldi.next().territories;
-            if ( addTerritories != null ) {
-                targetTerritories.addAll(addTerritories);              
+        if (langData != null) {
+            Iterator<BasicLanguageData> ldi = langData.iterator();
+            while ( ldi.hasNext()) {
+                Set<String> addTerritories = ldi.next().territories;
+                if ( addTerritories != null ) {
+                    targetTerritories.addAll(addTerritories);              
+                }
             }
+        }
+        if (targetTerritories.size() == 0) {
+            targetTerritories.add("ZZ");
         }
         return targetTerritories;
     }

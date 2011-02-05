@@ -1003,6 +1003,9 @@ public class DataSection extends Registerable {
                                                     "/quarterWidth|"+
                                                     "/dayContext|"+
                                                     "/dayWidth|"+
+                                                    "/dayPeriodContext|"+
+                                                    "/dayPeriodWidth|"+
+                                                    "/dayPeriod|"+
 //                                                    "day/|"+
 //                                                    "date/|"+
                                                     "Format|"+

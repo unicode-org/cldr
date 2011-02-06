@@ -35,6 +35,7 @@
 # Skip for now, since we can't handle well:
 ^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/displayName\[@count="([^"]*)"] ; SKIP
 ^//ldml/numbers/currencyFormats/unitPattern\[@count="([^"]*)"]  ;   SKIP
+/calendar.*/dayPeriod.*\@alt   ;   SKIP
 
 # ROOT descriptions (using special placeholders). Must occur first.
 

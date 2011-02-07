@@ -16,11 +16,11 @@
 		<coverageLevel value="20" match="numbers/defaultNumberingSystem"/>
 		<coverageLevel value="20" match="numbers/decimalFormats/decimalFormatLength/decimalFormat.*"/>
 		<coverageLevel value="20" match="numbers/currencyFormats/currencyFormatLength/currencyFormat.*"/>
-		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='${Target-Language}']"/>
+		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='${Target-Language}']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='und']"/>
 		<coverageLevel value="30" match="localeDisplayNames/scripts/script[@type='${Target-Scripts}']"/>
-		<coverageLevel value="30" match="localeDisplayNames/scripts/script[@type='Zzzz']"/>
-		<coverageLevel value="30" match="localeDisplayNames/territories/territory[@type='${Target-Territories}']"/>
+		<coverageLevel value="30" match="localeDisplayNames/scripts/script[@type='(Zxxx|Zzzz)']"/>
+		<coverageLevel value="30" match="localeDisplayNames/territories/territory[@type='${Target-Territories}']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="30" match="localeDisplayNames/territories/territory[@type='ZZ']"/>
 		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='${Calendar-List}'][@key='calendar']"/>
 		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='gregorian'][@key='calendar']"/>
@@ -59,6 +59,8 @@
  		<coverageLevel inScript="Thai" value="30" match="localeDisplayNames/types/type[@type='thai'][@key='numbers']"/>
  		<coverageLevel inScript="Tibt" value="30" match="localeDisplayNames/types/type[@type='tibt'][@key='numbers']"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='${Target-Currencies}']/(symbol|displayName.*)"/>
+		<coverageLevel value="30" match="numbers/currencies/currency[@type='XXX']/displayName.*"/>
+		<coverageLevel value="30" match="numbers/currencyFormats/unitPattern[@count='.*']"/>
 		<coverageLevel value="30" match="numbers/percentFormats/percentFormatLength/percentFormat.*"/>
 		<coverageLevel value="30" match="numbers/scientificFormats/scientificFormatLength/scientificFormat.*"/>
 		<coverageLevel value="30" match="numbers/symbols/(plus|minus|percent)Sign"/>
@@ -69,7 +71,7 @@
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
 		<coverageLevel value="30" match="dates/timeZoneNames/zone[@type='${Target-TimeZones}']/exemplarCity"/>
 		<coverageLevel value="30" match="dates/timeZoneNames/zone[@type='Etc/Unknown']/exemplarCity"/>
-		<coverageLevel value="30" match="dates/timeZoneNames/(fallback|gmt(Zero)?|region|hour)Format"/>
+		<coverageLevel value="30" match="dates/timeZoneNames/(fallback(Region)?|gmt(Zero)?|region|hour)Format"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='wide']/dayPeriod[@type='(am|pm)']"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='(format|stand-alone)']/dayWidth[@type='(wide|abbreviated|narrow)']/day[@type='(sun|mon|tue|wed|thu|fri|sat)']"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='(0|1)']"/>
@@ -85,37 +87,51 @@
 		<coverageLevel inTerritory="KZ" value="30" match="dates/timeZoneNames/metazone[@type='Kazakhstan_(East|West)ern']/.*"/>
 		<coverageLevel inTerritory="RU" value="30" match="dates/timeZoneNames/metazone[@type='(Europe_Eastern|Moscow|Samara|Yekaterinburg|Omsk|Novosibirsk|Krasnoyarsk|Irkutsk|Yakutsk|Vladivostok|Magadan|Kamchatka)']/.*"/>
 		<coverageLevel inTerritory="US" value="30" match="dates/timeZoneNames/metazone[@type='(America_(Eastern|Central|Mountain|Pacific)|Alaska|Hawaii_Aleutian)']/.*"/>
-		<coverageLevel value="40" match="localeDisplayNames/languages/language[@type='(de(_(AT|CH))?|en(_(AU|CA|GB|US))?|es(_(ES|419))?|fr(_(CA|CH))?|it|ja|pt(_(BR|PT))?|ru|zh(_(Hans|Hant))?)']"/>
-		<coverageLevel value="40" match="localeDisplayNames/scripts/script[@type='(Latn|Hans|Hant|Cyrl|Arab)']"/>
+		<coverageLevel inTerritory="GB" value="30" match="dates/timeZoneNames/zone[@type='Europe/London']/(long|short)/daylight"/>
+		<coverageLevel inTerritory="IE" value="30" match="dates/timeZoneNames/zone[@type='Europe/Dublin']/(long|short)/daylight"/>
+		<coverageLevel value="30" match="listPatterns/listPattern/listPatternPart[@type='(2|start|middle|end)']"/>
+		<coverageLevel value="30" match="units/unit[@type='(second|minute|hour|day|week|month|year)(\-(future|past))?']/unitPattern[@count='.*']([@alt='short'])?"/>
+		<coverageLevel value="40" match="localeDisplayNames/languages/language[@type='(de(_(AT|CH))?|en(_(AU|CA|GB|US))?|es(_(ES|419))?|fr(_(CA|CH))?|it|ja|pt(_(BR|PT))?|ru|zh(_(Hans|Hant))?)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="40" match="localeDisplayNames/scripts/script[@type='(Latn|Hans|Hant|Cyrl|Arab)']([@alt='(variant|stand-alone)'])?"/>
 		<coverageLevel value="40" match="localeDisplayNames/territories/territory[@type='(BR|CN|DE|GB|FR|IN|IT|JP|RU|US)']"/>
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='(BRL|CNY|EUR|GBP|INR|JPY|RUB|USD)']/(symbol|displayName.*)"/>
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='INR']/symbol[@alt='new']"/>
 		<coverageLevel value="40" match="localeDisplayNames/codePatterns/codePattern[@type='(language|script|territory)']"/>
 		<coverageLevel value="40" match="localeDisplayNames/measurementSystemNames/measurementSystemName[@type='(metric|UK|US)']"/>
-		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='(Hm|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)']"/>
+		<coverageLevel value="40" match="localeDisplayNames/localeDisplayPattern/locale((KeyType)?Pattern|Separator)"/>
+		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='(d|(h|H)m?v?|y|y?(M(MM)?)(E?d)?|y?MMMM)'].*"/>
-		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='day']/relative[@type='(\-?1|0)']"/>
+		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='(day|week|month)']/relative[@type='(\-?1|0)']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='.*']/displayName"/>
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='America_(Eastern|Central|Mountain|Pacific)']/.*"/>
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='Europe_(Central|(East|West)ern)']/.*"/>
-		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='Atlantic|GMT']/.*"/>
-		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='(ar|bn|hi|id|ko|nl(_BE)?|pl|th|tr)']"/>
-		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/languages/language[@type='(cs|da|el|et|fi|hu|lv|mt|sk|sl|sv)']"/>
+		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='(Atlantic|GMT)']/.*"/>
+		<coverageLevel value="40" match="delimiters/(alternateQ|q)uotation(Start|End)"/>
+		<coverageLevel value="40" match="numbers/decimalFormats/decimalFormatLength[@type='short']/decimalFormat[@type='standard']/pattern[@type='.*]"/>
+		<coverageLevel value="60" match="characters/ellipsis[@type='.*']"/>
+		<coverageLevel value="60" match="characters/moreInformation"/>
+		<coverageLevel value="60" match="characters/stopwords/stopwordList[@type='.*']"/>
+		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='(ar|bn|hi|id|ko|nl(_BE)?|pl|th|tr)']([@alt='(short|variant)'])?"/>
+		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/languages/language[@type='(cs|da|el|et|fi|hu|lv|mt|sk|sl|sv)']([@alt='(short|variant)'])?"/>
 	    <coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='(AT|AU|BE|CA|CH|DK|ES|FI|GR|HK|ID|IE|KR|MX|NL|NO|PL|PT|SA|SE|TH|TR|TW|ZA)']"/>
+	    <coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='(0|1|2|3|4|5|6|7|8|9){3}']"/>
 		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/territories/territory[@type='(CZ|EE|HU|LT|LU|LV|MT|SI|SK)']"/>
+	    <coverageLevel value="60" match="localeDisplayNames/transformNames/transformName[@type='.*']"/>
 		<coverageLevel value="60" match="numbers/currencies/currency[@type='(AUD|CAD|CHF|DKK|HKD|IDR|KRW|MXN|NOK|PLN|SAR|SEK|THB|TRY|TWD|ZAR)']/(symbol|displayName.*)"/>
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='(CZK|HUF|LTL|LVL)']/(symbol|displayName.*)"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='Africa_(Central|(East|South|West)ern)']/.*"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='(Arabian|Australia_(Central(Western)?|(East|West)ern)|China|India|Indochina|Indonesia_(Central|(East|West)ern)|Israel|Japan|Korea|Moscow)']/.*"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ab|ady|af|ak|am|as|ast|av|ay|az|ba|be|bg|bi|bo|bs|ca|ce|ceb|ch|chk|cs|cy|da|dv|dz|ee|efi|el|et|eu)']"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(fa|fi|fil|fj|fo|fy|ga|gaa|gag|gd|gil|gl|gn|gu|ha|haw|he|hil|ho|hr|ht|hu|hy|ig|ilo|inh|is)']"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ka|kbd|kg|kha|kj|kk|kl|km|kn|koi|kok|kos|kpv|krc|ks|ku|kum|ky|la|lb|lbe|lez|ln|lo|lt|lua|lv)'"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(mai|mdh|mdf|mg|mh|mk|mi|ml|mn|mr|ms|mt|my|myv|na|nb|nd|ne|niu|nn|nr|nso|ny|or|os)']"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(pa|pag|pap|pau|pon|ps|qu|rm|rn|ro|ru|rw|sa|sah|sat|sd|se|sg|si|sk|sl|sm|sn|so|sq|sr|ss|st|su|sv|sw)']"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ta|te|tet|tg|th|ti|tk|tkl|tn|to|tpi|ts|tsg|tt|tvl|ty|tyv|udm|ug|uk|uli|ur|uz|ve|vi|war|wo|xh|yap|yo|za|zdj|zu)']"/>
-		<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='.*']"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ab|ady|af|ak|am|as|ast|av|ay|az|ba|be|bg|bi|bo|bs|ca|ce|ceb|ch|chk|cs|cy|da|dv|dz|ee|efi|el|et|eu)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(fa|fi|fil|fj|fo|fy|ga|gaa|gag|gd|gil|gl|gn|gu|ha|haw|he|hil|ho|hr|ht|hu|hy|ig|ilo|inh|is)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ka|kbd|kg|kha|kj|kk|kl|km|kn|koi|kok|kos|kpv|krc|ks|ku|kum|ky|la|lb|lbe|lez|ln|lo|lt|lua|lv)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(mai|mdh|mdf|mg|mh|mk|mi|ml|mn|mr|ms|mt|my|myv|na|nb|nd|ne|niu|nn|nr|nso|ny|or|os)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(pa|pag|pap|pau|pon|ps|qu|rm|rn|ro|ru|rw|sa|sah|sat|sd|se|sg|si|sk|sl|sm|sn|so|sq|sr|ss|st|su|sv|sw)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ta|te|tet|tg|th|ti|tk|tkl|tn|to|tpi|ts|tsg|tt|tvl|ty|tyv|udm|ug|uk|uli|ur|uz|ve|vi|war|wo|xh|yap|yo|za|zdj|zu)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/scripts/script[@type='(Armn|Beng|Deva|Ethi|Geor|Grek|Gujr|Hebr|Jpan|Khmr|Knda|Kore|Laoo|Mlym|Mymr|Orya|Sinh|Taml|Telu|Tfng|Thaa|Thai|Yiii)']"/>
+		<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='.*']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='(ducet|search)'][@key='collation']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='.*']"/>
+		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='day']/relative[@type='\-?(2|3)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Afghanistan|Alaska|Amazon|Anadyr|Argentina(_Western)?|Armenia|Azerbaijan|Azores)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Bangladesh|Bhutan|Bolivia|Brasilia|Brunei|Cape_Verde|Chamorro|Chatham|Chile|Choibalsan|Christmas|Cocos|Colombia|Cook|Cuba)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Davis|DumontDUrville|East_Timor|Easter|Ecuador|Falkland|Fiji|French_(Guiana|Southern))']/.*"/>
@@ -128,13 +144,8 @@
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Reunion|Rothera|Sakhalin|Samara|Samoa|Seychelles|Singapore|Solomon|South_Georgia|Suriname|Syowa)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Tahiti|Taipei|Tajikistan|Tokelau|Tonga|Truk|Turkmenistan|Tuvalu)']/.*"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Uruguay|Uzbekistan|Vanuatu|Venezuela|Vladivostok|Volgograd|Vostok|Wake|Wallis|Yakutsk|Yekaterinburg)']/.*"/>
-		<coverageLevel value="80" match="characters/ellipsis.*"/>
-		<coverageLevel value="80" match="characters/moreInformation.*"/>
-		<coverageLevel value="80" match="delimiters/.*"/>
-		<coverageLevel value="80" match="listPatterns/listPattern/listPatternPart[@type='(2|start|middle|end)']"/>
-		<coverageLevel value="80" match="numbers/currencyFormats/unitPattern[@count='.*']"/>
-		<coverageLevel value="80" match="numbers/decimalFormats/decimalFormatLength[@type='short']/decimalFormat[@type='standard']/pattern[@type='.*]"/>
-		<coverageLevel value="80" match="units/unit[@type='(second|minute|hour|day|week|month|year)']/unitPattern[@count='.*']([@alt='short'])?"/>
+		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='.*']/exemplarCity"/>
+		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='Europe/(Dublin|London)']/(long|short)/daylight"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(AED|AFN|ALL|AMD|ANG|AOA|ARS|AWG|AZN|BAM|BBD|BDT|BGN|BHD|BIF|BMD|BND|BOB|BSD|BTN|BWP|BYR|BZD)']/(symbol|displayName.*)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(CDF|CLP|COP|CRC|CUC|CUP|CVE|CZK|DJF|DOP|DZD|EGP|ERN|ETB|FJD|FKP|GEL|GHS|GIP|GMD|GNF|GTQ|GYD)']/(symbol|displayName.*)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(HNL|HRK|HTG|HUF|ILS|IQD|IRR|ISK|JMD|JOD|KES|KGS|KHR|KMF|KPW|KWD|KYD|KZT)']/(symbol|displayName.*)"/>
@@ -142,14 +153,13 @@
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(NAD|NGN|NIO|NPR|NZD|OMR|PAB|PEN|PGK|PHP|PKR|PYG|QAR|RON|RSD|RWF)']/(symbol|displayName.*)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(SBD|SCR|SDG|SGD|SHP|SLL|SOS|SRD|STD|SYP|SZL|TJS|TMT|TND|TOP|TTD|TZS)']/(symbol|displayName.*)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(UAH|UGX|UYU|UZS|VEF|VND|VUV|WST|XCD|XAF|XOF|XPF|YER|ZMK)']/(symbol|displayName.*)"/>
-		<coverageLevel value="100" match="dates/timeZoneNames/zone[@type='.*']/exemplarCity"/>
 		<coverageLevel value="100" match="localeDisplayNames/keys/key[@type='.*']"/>
-		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='.*']"/>
+		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='.*']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='.*']"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='.*']"/>
 		<coverageLevel value="100" match="localeDisplayNames/types/type[@type='.*'][@key='(calendar|collation|numbers)']"/>
-		<coverageLevel value="100" match="localeDisplayNames/localeDisplayPattern/locale(Pattern|Separator)"/>
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='.*']/(symbol|displayName.*)"/>
+		<coverageLevel value="100" match="numbers/currencyFormats/currencySpacing/(before|after)Currency/(insertBetween|(currency|surrounding)Match)"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/era(Names|Narrow)/era[@type='(0|1)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='wide']/dayPeriod[@type='.*']"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='(Acre|Aktyubinsk|Alaska_Hawaii|Almaty|Aqtau|Aqtobe|Ashkhabad|Baku|Bering|Borneo|Casey|Changbai|Dacca|Dushanbe)']/.*"/>

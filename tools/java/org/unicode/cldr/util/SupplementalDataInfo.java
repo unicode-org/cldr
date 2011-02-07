@@ -1643,12 +1643,12 @@ public class SupplementalDataInfo {
             String regex = "//ldml/"+ci.match.replace('\'','"')
                                              .replaceAll("\\[","\\\\[")
                                              .replaceAll("\\]","\\\\]")
-                                             .replaceAll("\\$\\{Target\\-Language\\}", targetLanguage)
-                                             .replaceAll("\\$\\{Target\\-Scripts\\}", targetScriptString)
-                                             .replaceAll("\\$\\{Target\\-Territories\\}", targetTerritoryString)
-                                             .replaceAll("\\$\\{Target\\-TimeZones\\}", targetTimeZoneString)
-                                             .replaceAll("\\$\\{Target\\-Currencies\\}", targetCurrencyString)
-                                             .replaceAll("\\$\\{Calendar\\-List\\}", calendarListString);
+                                             .replace("${Target-Language}", targetLanguage)
+                                             .replace("${Target-Scripts}", targetScriptString)
+                                             .replace("${Target-Territories}", targetTerritoryString)
+                                             .replace("${Target-TimeZones}", targetTimeZoneString)
+                                             .replace("${Target-Currencies}", targetCurrencyString)
+                                             .replace("${Calendar-List}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
             // to certain territories
@@ -1695,8 +1695,9 @@ public class SupplementalDataInfo {
         if (langData != null) {
             Iterator<BasicLanguageData> ldi = langData.iterator();
             while ( ldi.hasNext()) {
-                Set<String> addScripts = ldi.next().scripts;
-                if ( addScripts != null ) {
+                BasicLanguageData bl = ldi.next();
+                Set<String> addScripts = bl.scripts;
+                if ( addScripts != null && bl.getType() != BasicLanguageData.Type.secondary) {
                     targetScripts.addAll(addScripts);              
                 }
             }
@@ -1712,8 +1713,9 @@ public class SupplementalDataInfo {
         if (langData != null) {
             Iterator<BasicLanguageData> ldi = langData.iterator();
             while ( ldi.hasNext()) {
-                Set<String> addTerritories = ldi.next().territories;
-                if ( addTerritories != null ) {
+                BasicLanguageData bl = ldi.next();
+                Set<String> addTerritories = bl.territories;
+                if ( addTerritories != null && bl.getType() != BasicLanguageData.Type.secondary) {
                     targetTerritories.addAll(addTerritories);              
                 }
             }

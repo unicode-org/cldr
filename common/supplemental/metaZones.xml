@@ -561,6 +561,10 @@
 			<timezone type="America/Noronha">
 				<usesMetazone mzone="Noronha"/>
 			</timezone>
+			<timezone type="America/North_Dakota/Beulah">
+				<usesMetazone to="2010-11-07 08:00" mzone="America_Mountain"/>
+				<usesMetazone from="2010-11-07 08:00" mzone="America_Central"/>
+			</timezone>
 			<timezone type="America/North_Dakota/Center">
 				<usesMetazone to="1992-10-25 08:00" mzone="America_Mountain"/>
 				<usesMetazone from="1992-10-25 08:00" mzone="America_Central"/>

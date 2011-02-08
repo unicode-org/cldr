@@ -139,7 +139,9 @@ public class SupplementalDataParser {
       } else if (name.equals(LDMLConstants.LANGUAGE_MATCHING)) {
         res = parseLanguageMatch(node, xpath);
       } else if (name.equals(LDMLConstants.COVERAGE_LEVELS)) {
-        //Ignore this for now
+          //Ignore this for now
+      } else if (name.equals(LDMLConstants.PARENT_LOCALES)) {
+          //Ignore this for now
       } else if (name.equals(LDMLConstants.DAY_PERIOD_RULE_SET)) {
         //Ignore this for now
       } else {

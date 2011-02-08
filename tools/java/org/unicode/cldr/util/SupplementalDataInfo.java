@@ -690,7 +690,7 @@ public class SupplementalDataInfo {
             return 100;
         }
     }
-
+    
     private Map<String, PopulationData> territoryToPopulationData = new TreeMap();
 
     private Map<String, Map<String, PopulationData>> territoryToLanguageToPopulationData = new TreeMap();
@@ -998,6 +998,9 @@ public class SupplementalDataInfo {
                 } else if (level1.equals("coverageLevels")) {
                     handleCoverageLevels();
                     return;
+                } else if (level1.equals("parentLocales")) {
+                    handleParentLocales();
+                    return;
                 } else if (level1.equals("metadata")) {
                     if (handleMetadata(level2, value)) {
                         return;
@@ -1079,6 +1082,15 @@ public class SupplementalDataInfo {
             Integer value =  ( valueStr != null ) ? Integer.valueOf(valueStr) : Integer.valueOf("101");
             CoverageLevelInfo ci = new CoverageLevelInfo(match,value,inLanguage,inScript,inTerritory);
             coverageLevels.add(ci);
+        }
+        
+        private void handleParentLocales() {
+            String parent = parts.getAttributeValue(-1,"parent");
+            String locales = parts.getAttributeValue(-1,"locales");
+            String [] pl = locales.split(" ");
+            for (int i = 0 ; i < pl.length ; i++ ) {
+                parentLocales.put(pl[i], parent);
+            }
         }
         private void handleCalendarPreferenceData() {
             String territoryString = parts.getAttributeValue(-1, "territories");
@@ -1476,6 +1488,7 @@ public class SupplementalDataInfo {
     private Map<String, Pair<String, String>> references = new TreeMap();
     private Map<String, String> likelySubtags = new TreeMap();
     private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
+    private Map<String, String> parentLocales = new HashMap<String,String>();
     private Map<String, List<String>> calendarPreferences= new HashMap();
     private Map<String, CoverageVariableInfo> coverageVariables = new TreeMap();    
     private Set<String> numberingSystems = new TreeSet();
@@ -1773,6 +1786,13 @@ public class SupplementalDataInfo {
         return targetTimeZones;
     }
     
+    public String getParentLocale(String loc) {
+        if ( parentLocales.containsKey(loc)) {
+            return parentLocales.get(loc);
+        }
+        return null;
+    }
+
     /**
      * Return the canonicalized zone, or null if there is none.
      * 

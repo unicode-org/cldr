@@ -882,16 +882,12 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return mainTable;
         }
 
-        // If this is a language + script locale and the script is not default content,
-        // then add a "Parent is root" boolean resource in order to prevent cross-script
-        // inheritance.
-        if (ULocale.getScript(localeID).length() > 0 && ULocale.getCountry(localeID).length() == 0 && !supplementalDataInfo.getDefaultContentLocales().contains(localeID)
-            && sourceDir.indexOf("coll") < 0) {
-
-            ResourceInt pr = new ResourceInt();
-            pr.name = "%%ParentIsRoot";
-            pr.val = "1";
-            mainTable.appendContents(pr);
+        // If this locale has an explicit parent, then put that into the resource file
+        if (supplementalDataInfo.getParentLocale(localeID) != null) {
+            ResourceString pl = new ResourceString();
+            pl.name = "%%Parent";
+            pl.val = supplementalDataInfo.getParentLocale(localeID);
+            mainTable.appendContents(pl);
         }
 
         // Now, loop over other stuff.

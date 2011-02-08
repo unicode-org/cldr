@@ -27,13 +27,14 @@ import org.w3c.dom.NodeList;
  * and the interface should not be considered stable.
  * 
  * Generally, it tries to only parse data as it is used.
- *
+ * @deprecated use SupplementalDataInfo instead.
  */
 public class SupplementalData {
 
     String pathName = null;
     private Document supplementalDocument = null;
     private Document supplementalMetaDocument = null;
+    private SupplementalDataInfo sdi = null;
 
     static final String SPLIT_PATTERN = "[, \t\u00a0\\s]+"; // whitespace
     
@@ -58,6 +59,7 @@ public class SupplementalData {
         if(supplementalMetaDocument == null) {
             throw new InternalError("Can't parse metadata: " + pathName+"/supplementalMetadata.xml");
         }
+        sdi = SupplementalDataInfo.getInstance(pathName);
     }
     
     /**
@@ -173,73 +175,10 @@ public class SupplementalData {
         }
     }
 
-    /**
-     * parse the list of used zones
-     */
-    private Hashtable territoryToZones = null;
-    private Hashtable zoneToTerritory = null;
     
-    String olsonVersion = null;
     String multiZone[] = null;
     Set multiZoneSet = null;
     
-    public String getOlsonVersion() {
-        if(olsonVersion==null) {
-            getTerritoryToZones();
-        }
-        return olsonVersion;
-    }
-
-    public synchronized Hashtable getZoneToTerritory() {
-        if(zoneToTerritory == null) {
-            getTerritoryToZones();
-        }
-        return zoneToTerritory;
-    }
-
-    public synchronized Hashtable getTerritoryToZones() {
-        if(territoryToZones == null) {
-            Hashtable u = new Hashtable();
-            Hashtable z = new Hashtable();
-            NodeList zoneFormatting = 
-                        LDMLUtilities.getNodeList(getSupplemental(), 
-                        "//supplementalData/timezoneData/zoneFormatting");
-                        
-            Node zfItem = zoneFormatting.item(0);
-            
-            olsonVersion = LDMLUtilities.getAttributeValue(zfItem,"tzidVersion");
-            multiZone = split(LDMLUtilities.getAttributeValue(zfItem,"multizone"));
-            multiZoneSet = new HashSet();
-            for(int i=0;i<multiZone.length;i++) {
-                multiZoneSet.add(multiZone[i]);
-            }
-            
-            NodeList terrToZones = 
-                        LDMLUtilities.getNodeList(getSupplemental(), 
-                        "//supplementalData/timezoneData/zoneFormatting/zoneItem");
-            for(int i=0;i<terrToZones.getLength();i++) {
-                Node item = terrToZones.item(i);
-                
-                String type = LDMLUtilities.getAttributeValue(item, LDMLConstants.TYPE);
-                String territory = LDMLUtilities.getAttributeValue(item, LDMLConstants.TERRITORY);
-                // do we care about alias?
-                
-                //String[] containsList = split(contains);
-                Vector v = (Vector)u.get(territory);
-                if(v==null) { 
-                    v = new Vector();
-                    u.put(territory,v);
-                }
-                v.add(type);
-                z.put(type,territory);
-            }
-            
-            // devectorize?        
-            zoneToTerritory=z;
-            territoryToZones = u;
-        }
-        return territoryToZones;
-    }
     
     public String resolveParsedMetazone ( String metazone, String territory )
     {

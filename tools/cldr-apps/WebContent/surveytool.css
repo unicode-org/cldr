@@ -641,11 +641,24 @@ table.sqlbox form {
 	padding: .2em;
 }
 
-h4#toptitle {
-	margin-top: 0;
+div#toparea {
 	border-bottom: 3px solid green;
 	background-color: whitesmoke;
 	font: normal 1.2em Georgia, "Times New Roman", Times, serif;
+}
+
+div#toparea img#stlogo {
+	float: right;
+	margin-left:  auto;
+	height: 2.5em;
+	margin-right: 1em;
+}
+
+
+h4#toptitle {
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 2.5em;
 }
 
 h4#toptitle b{
@@ -882,10 +895,12 @@ span.elapsedtime {
 
  table.progress-list {
 	border-collapse: collapse;
-	border:  none;
+	border:  2px solid red;
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
+	border-bottom: 3px solid red;
+	border-right: 3px solid red;
 }
 
 table.progress-list tr th {
@@ -899,10 +914,32 @@ table.progress-list tr th {
 
  table.progress-list tbody tr td {
 	background-color: #bbb;
-	opacity: .6;
+	opacity: .9;
 	border-left:  3px dashed gray;
 	padding-left:  1em;
+	display:  none;
 }
+
+table.progress-list #busy0 {
+	display: block;
+}
+table.progress-list #busy1 {
+	display: none;
+}
+
+
+/* Overrides */
+
+span#progress.popout table.progress-list td {
+	display:  table-cell !important;
+}
+span#progress.popout table.progress-list #busy0 {
+	display: none !important;
+}
+span#progress.popout table.progress-list #busy1 {
+	display: block !important;
+}
+
 
 table.progress-list tbody tr td:first-child {
 	opacity: 1.0;

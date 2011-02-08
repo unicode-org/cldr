@@ -19,9 +19,12 @@
     </p>
     <% } %>
 
+				<img src="STLogo.png" align="right" border="0" title="[logo]" alt="[logo]" />
+
 		<h1>CLDR Web Applications</h1>
 		<ul>
-			<li><strong><a href="survey/">CLDR Survey Tool</a></strong> - <a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">(Help)</a><br /></li>
+			<li><strong><a href="survey/">CLDR Survey Tool
+			</a></strong> - <a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">(Help)</a><br /></li>
 		    <li><strong><a href="about.jsp">About this Installation…</a></strong></li>
 		</ul>
         

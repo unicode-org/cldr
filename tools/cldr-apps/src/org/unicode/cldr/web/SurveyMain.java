@@ -1001,31 +1001,31 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		/* Begin sub pages */
 		
         if(action.equals("stats")) {
-            ctx.println("<div class='pager'>");
-            ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+
-                ", Container: " + config.getServletContext().getServerInfo()+"<br>");
-            ctx.println(uptime + ", " + pages + " pages and "+xpages+" xml pages served.<br/>");
-    //        r.gc();
-    //        ctx.println("Ran gc();<br/>");
-            
-            ctx.println("String hash has " + stringHash.size() + " items.<br/>");
-            ctx.println("xString hash info: " + xpt.statistics() +"<br>");
-            if(gBaselineHash != null) {
-                ctx.println("baselinecache info: " + (gBaselineHash.size()) + " items."  +"<br>");
-            }
-            ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
-            ctx.println("</div>");
-            
-            StringBuffer buf = new StringBuffer();
-            ctx.println("<h4>Memory</h4>");
+        	ctx.println("<div class='pager'>");
+        	ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+
+        			", Container: " + config.getServletContext().getServerInfo()+"<br>");
+        	ctx.println(uptime + ", " + pages + " pages and "+xpages+" xml pages served.<br/>");
+        	//        r.gc();
+        	//        ctx.println("Ran gc();<br/>");
 
-            appendMemoryInfo(buf, false);
-            
-            ctx.print(buf.toString());
-            buf.delete(0, buf.length());
-            
-            ctx.println("<a class='notselected' href='" + ctx.jspLink("about.jsp") +"'>More version information...</a><br/>");
-            
+        	ctx.println("String hash has " + stringHash.size() + " items.<br/>");
+        	ctx.println("xString hash info: " + xpt.statistics() +"<br>");
+        	if(gBaselineHash != null) {
+        		ctx.println("baselinecache info: " + (gBaselineHash.size()) + " items."  +"<br>");
+        	}
+        	ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
+        	ctx.println("</div>");
+
+        	StringBuffer buf = new StringBuffer();
+        	ctx.println("<h4>Memory</h4>");
+
+        	appendMemoryInfo(buf, false);
+
+        	ctx.print(buf.toString());
+        	buf.delete(0, buf.length());
+
+        	ctx.println("<a class='notselected' href='" + ctx.jspLink("about.jsp") +"'>More version information...</a><br/>");
+
         } else if(action.equals("statics")) {
             ctx.println("<h1>Statics</h1>");
             ctx.staticInfo();
@@ -1035,15 +1035,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
 
 	    if(isUnofficial) {
-		ctx.println("<form style='float: right;' method='POST' action='"+actionCtx.url()+"'>");
-		actionCtx.printUrlAsHiddenFields();
-		ctx.println("<input type=submit value='Do Nothing For Ten Seconds' name='10s'></form>");
+			ctx.println("<form style='float: right;' method='POST' action='"+actionCtx.url()+"'>");
+			actionCtx.printUrlAsHiddenFields();
+			ctx.println("<input type=submit value='Do Nothing For Ten Seconds' name='10s'></form>");
+			
+			ctx.println("<form style='float: right;' method='POST' action='"+actionCtx.url()+"'>");
+			actionCtx.printUrlAsHiddenFields();
+			ctx.println("<input type=submit value='Do Nothing For Ten Minutes' name='10m'></form>");
 	    }
 
 
 	    String fullInfo = startupThread.toString();
 
-            ctx.println("<h1 title='"+fullInfo+"'>Tasks</h1>");
+        ctx.println("<h1 title='"+fullInfo+"'>Tasks</h1>");
 	    
 	    if(!startupThread.mainThreadRunning()) {	    
 		ctx.println("<i>Main thread is not running.</i><br>");
@@ -1073,16 +1077,38 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             
            
 	    if(ctx.hasField("10s")) {
-            	startupThread.addTask(new SurveyTask("Waste 10 Seconds")
-            	{
-            		public void run() throws Throwable {
-            		    CLDRProgressTask task = this.openProgress("Waste 10 Seconds");
-            			Thread.sleep(10000);
-            			task.close();
-            		}
-            	});
-            	ctx.println("10s task added.\n");
-            } else  if(ctx.hasField("tstop")) {
+	    	startupThread.addTask(new SurveyTask("Waste 10 Seconds")
+	    	{
+	    		public void run() throws Throwable {
+	    			CLDRProgressTask task = this.openProgress("Waste 10 Seconds",10);
+	    			try {
+	    				for(int i=0;i<10;i++) {
+	    					task.update(i);
+		    				Thread.sleep(1000);
+	    				}
+	    			} finally {
+	    				task.close();
+	    			}
+	    		}
+	    	});
+	    	ctx.println("10s task added.\n");
+	    } else if(ctx.hasField("10m")) {
+		    	startupThread.addTask(new SurveyTask("Waste 10 Minutes")
+		    	{
+		    		public void run() throws Throwable {
+		    			CLDRProgressTask task = this.openProgress("Waste 10 Minutes",10);
+		    			try {
+		    				for(int i=0;i<10;i++) {
+		    					task.update(i);
+			    				Thread.sleep(1000*60);
+		    				}
+		    			} finally {
+		    				task.close();
+		    			}
+		    		}
+		    	});
+		    	ctx.println("10m task added.\n");
+	    } else  if(ctx.hasField("tstop")) {
             	if(acurrent!=null) {
 		    acurrent.stop();
 		    ctx.println(acurrent + " stopped");
@@ -5079,7 +5105,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     if(which.equals(PathUtilities.CURRENCIES)) {
                         showPathList(subCtx, "//ldml/"+PathUtilities.NUMBERSCURRENCIES, null);
                     } else if(which.equals(PathUtilities.TIMEZONES)) {
-                        showTimeZones(subCtx);
+                    	try {
+                    		showTimeZones(subCtx);
+                    	} catch(Throwable t) {
+                    		t.printStackTrace();
+                    		System.err.println("Err showing timezones: " + t);                    		
+                    		ctx.println("Error: " + t.toString());
+                    	}
                     } else {
                         showLocaleCodeList(subCtx, which);
                     }
@@ -6631,7 +6663,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
         String currentMetaZone = zoneToMetaZone(ctx, zone, metaMap);
 
-        String territory = (String)(supplemental.getZoneToTerritory().get(zone));
+        String territory = getSupplementalDataInfo().getZone_territory(zone);
         String displayTerritory = null;
         String displayZone = null;
         if((territory != null) && (territory.length()>0)) {

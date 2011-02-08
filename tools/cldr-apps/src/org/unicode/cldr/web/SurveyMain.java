@@ -2537,7 +2537,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 if(null == CookieSession.retrieve(mySession.id)) {
                     mySession = null; // don't allow dead sessions to show up via the user list.
                 } else {
-//                    message = "<i>Reconnecting to your previous session.</i>";
+//                    message = "<i id='sessionMessage'>Reconnecting to your previous session.</i>";
                     myNum = mySession.id;
                 }
             }
@@ -2558,7 +2558,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 idFromSession = false;
             }
             if((mySession == null)&&(!myNum.equals(SURVEYTOOL_COOKIE_NONE))) {
-                message = "<i>(Sorry, This session has expired. ";
+                message = "<i id='sessionMessage'>(Sorry, This session has expired. ";
                 if(user == null) {
                     message = message + "You may have to log in again. ";
                 }
@@ -2621,7 +2621,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.session.user.ip = ctx.userIP();
         } else {
             if( (email !=null) && (email.length()>0)) {
-                message = ("<strong>login failed.</strong><br>");
+                message = "<strong id='sessionMessage'>"+(ctx.iconHtml("stop", "failed login")+"login failed.</strong><br>");
             }
         }
         CookieSession.reap();
@@ -2657,7 +2657,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * print table that holds the menu of choices
      */
     public void printUserTableBegin(WebContext ctx) {
-            ctx.println("<table summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
+            ctx.println("<table id='usertable' summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
                         " width='100%' bgcolor='#EEEEEE'>"); //bordercolor='#111111'
             ctx.println("<tr><td>");
 //            ctx.printHelpLink("","General&nbsp;Instructions"); // base help
@@ -4379,7 +4379,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
             }
             // Option wasn't found
-            sessionMessage = ("<i>Could not do the action '"+doWhat+"'. You may need to be logged in first.</i>");
+            sessionMessage = ("<i id='sessionMessage'>Could not do the action '"+doWhat+"'. You may need to be logged in first.</i>");
         }
         
         String title = " " + which;
@@ -10334,6 +10334,64 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	                    }
                     }
                     continue;
+                } else if(arg.equals("-makelots")) {
+                    WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + "?");
+                    xctx.sm = sm;
+                    xctx.session=cs;
+	                CLDRLocale locale = CLDRLocale.getInstance("az_Arab");
+                    xctx.setLocale(locale);
+                    for(int jj=0;jj<50000;jj++) {
+//	                    for(CLDRLocale locale : sm.getLocales()) {
+	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
+	                        xctx.setLocale(locale);
+	                    	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false);
+	                        DataSection.DisplaySet set = ds.createDisplaySet(SortMode.getInstance(SurveyMain.PREF_SORTMODE_CODE_CALENDAR), null);
+	                    	System.err.println("Made: " + qt.toString() + " -- " + freeMem());
+//	                    }
+                    }
+                    continue;
+                } else if(arg.equals("-displots")) {
+	                WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + "?");
+	                xctx.sm = sm;
+	                xctx.session=cs;
+	                CLDRLocale locale = CLDRLocale.getInstance("az_Arab");
+                    xctx.setLocale(locale);
+                	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false);
+                	long startTime = System.currentTimeMillis();
+                    com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName());
+	                for(int jj=0;jj<10000;jj++) {
+                        DataSection.DisplaySet set = ds.createDisplaySet(SortMode.getInstance(SurveyMain.PREF_SORTMODE_CODE_CALENDAR), null);
+                    	if((jj%1000)==1) {
+                    		long nowTime = System.currentTimeMillis();
+                    		long et = nowTime-startTime;
+                    		double dps=  (((double)jj)/((double)et))*1000.0;
+                    		System.err.println("Made: " + qt.toString() + " -- " + freeMem() + " - " + set.rows.length + " - #"+jj + ":  "+dps+"/sec");
+                    	}
+	                }
+	                continue;
+                } else if (arg.equals("-regextst")) {
+                	long startTime = System.currentTimeMillis();
+	                for(int jj=0;jj<5000000;jj++) {
+	                	SurveyMain.GREGO_XPATH.matches("calendar-.*\\|pattern\\|date-.*");
+                    	if((jj%1000000)==1) {
+                    		long nowTime = System.currentTimeMillis();
+                    		long et = nowTime-startTime;
+                    		double dps=  (((double)jj)/((double)et))*1000.0;
+                    		System.err.println("ONE: - - #"+jj + ":  "+dps+"/sec");
+                    	}
+	                }
+	                startTime = System.currentTimeMillis();
+	                Pattern pat = Pattern.compile("calendar-.*\\|pattern\\|date-.*");
+	                for(int jj=0;jj<5000000;jj++) {
+	                	pat.matcher(SurveyMain.GREGO_XPATH).matches();
+                    	if((jj%1000000)==1) {
+                    		long nowTime = System.currentTimeMillis();
+                    		long et = nowTime-startTime;
+                    		double dps=  (((double)jj)/((double)et))*1000.0;
+                    		System.err.println("TWO: - - #"+jj + ":  "+dps+"/sec");
+                    	}
+	                }
+	                continue;
                 }
                 System.err.println("Mem: "+freeMem());
                 WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + arg);

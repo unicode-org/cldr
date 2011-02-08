@@ -708,9 +708,7 @@ public class SurveyForum {
         
         DataSection section = ctx.getSection(podBase);
         
-        sm.printSectionTableOpen(ctx, section, true);
-        sm.showPeas(ctx, section, canModify, base_xpath, true);
-        sm.printSectionTableClose(ctx, section);
+        sm.showPeas(ctx, section, canModify, BaseAndPrefixMatcher.getInstance(base_xpath,null), true);
         sm.printPathListClose(ctx);
         
         ctx.printHelpHtml(xpath);

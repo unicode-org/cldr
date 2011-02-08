@@ -87,6 +87,7 @@ public abstract class SortMode {
 
 	enum SortKeyType { SORTKEY_INTEREST, SORTKEY_CALENDAR };
 	
+	
 	public static final int[] reserveForSort() {
 		int[] x =  new int[SortKeyType.values().length];
 		for(int i=0;i<x.length;i++) {

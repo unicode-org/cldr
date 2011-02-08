@@ -8,6 +8,7 @@
 	http://unicode.org/cldr/apps/surveytool.css
 	http://kwanyin.unicode.org/cldr-apps/surveytool.css
 	http://localhost:8080/cldr-apps/surveytool.css
+	http://10.0.0.112:8080/cldr-apps/surveytool.css
 */
 
 td {
@@ -17,6 +18,7 @@ td {
 body {
 	background-color: white;
 	padding-bottom: 3em;
+	padding-right:  0.5em;
 }
 
 hr {
@@ -271,6 +273,10 @@ table.data td, table.data th {
 table.data td.noborder, table.data th.noborder {
 	border-left: none;
 	border-right: none;
+}
+
+table.data :target {
+	background-color:  yellow;
 }
 
 .list {
@@ -783,10 +789,12 @@ div.topnotices div.unofficial {
 	padding: 3px;
 	position: fixed;
 	bottom: 0;
-	left: 0;
+	right: 0;
 	opacity: 0.9;
-	width:  100%;
+/*	width:  100%;*/
 	text-align: center;
+
+
 }
 
 div.topnotices p.beta {
@@ -794,6 +802,18 @@ div.topnotices p.beta {
 }
 
 div.topnotices div.beta {
+/* for firefox, safari, chrome, etc. */
+-webkit-transform: rotate(-90deg);
+-webkit-transform-origin: right bottom;
+-moz-transform: rotate(-90deg);
+-moz-transform-origin: right bottom;
+-o-transform: rotate(-90deg);/* For Opera*/
+-o-transform-origin: right bottom;/* For Opera*/
+-khtml-transform: rotate(-90deg);/* For Lunix*/
+-khtml-transform-origin: right bottom;/* For Lunix*/
+/* for ie */
+/* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
+
     background-color: yellow;
 	padding: 3px;
 	float: right;
@@ -804,6 +824,7 @@ div.topnotices div.beta {
 	right: 0;
 	opacity:  0.8;
 	z-index: 0;
+
 }
 
 div.debugJsp {

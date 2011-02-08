@@ -208,8 +208,12 @@ public class DataSection extends Registerable {
 	public int getXpathId() {
 		return base_xpath;
 	}
+	private String pp = null;
 	public String getPrettyPath() {
-		return sm.xpt.getPrettyPath(base_xpath);
+		if(pp==null) {
+			pp=sm.xpt.getPrettyPath(base_xpath);
+		}
+		return pp;
 	}
         
         // true even if only the non-winning subitems have tests.
@@ -892,13 +896,18 @@ public class DataSection extends Registerable {
                                 
 ///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
 
-                if(matcher!=null && !matcher.matches(p.xpath(), p.base_xpath)) {
+                if(!matcher.matches(p.xpath(), p.base_xpath)) {
                 	continue;
                 } else {
                 	newSet.add(p);
                 }
             }
         }
+        String matchName = "(*)";
+        if(matcher!=null) {
+        	matchName = matcher.getName();
+        }
+        if(sm.isUnofficial) System.err.println("Loaded "+ newSet.size() + " from " + matchName + " - base xpath = " + this.xpathPrefix);
         return newSet.toArray(new DataRow[newSet.size()]);
     }
     

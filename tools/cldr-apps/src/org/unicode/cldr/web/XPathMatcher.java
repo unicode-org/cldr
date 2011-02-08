@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  *
  * Class to encapsulate matching an xpath.
  */
-public abstract class XPathMatcher {
+public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 	/**
 	 * XPathTable for use.
 	 */
@@ -34,6 +34,31 @@ public abstract class XPathMatcher {
 	}
 	
 	/**
+	 * Get a name that can be used to compare objects.
+	 * @return
+	 */
+	public abstract String getName();
+	
+	@Override
+	public int compareTo(XPathMatcher other) {
+		if(this==other) {
+			return 0;
+		} else {
+			return(getName().compareTo(other.getName()));
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		return getName().hashCode();
+	}
+	
+	@Override
+	public String toString() {
+		return getName();
+	}
+	
+	/**
 	 * Is this xpath matched?
 	 * @param xpath string to match
 	 * @param xpid ( may be XPathTable.NO_XPATH )
@@ -52,6 +77,8 @@ public abstract class XPathMatcher {
 		return new XPathMatcher() {
 			private final XPathMatcher left = a;
 			private final XPathMatcher right = b;
+			private final String name = left.getName() + "\u2229" + right.getName();
+
 			@Override
 			public boolean matches(String xpath, int xpid) {
 				return left.matches(xpath,xpid)&&right.matches(xpath,xpid);
@@ -77,6 +104,10 @@ public abstract class XPathMatcher {
 					return null;
 				}
 			}
+			@Override
+			public String getName() {
+				return name;
+			}
 		};
 	}
 	
@@ -88,6 +119,8 @@ public abstract class XPathMatcher {
 	public static XPathMatcher regex(final XPathMatcher x, final Pattern pattern) {
 		if(pattern == null) return x;
 		return new XPathMatcher() {
+			private final String name = "/" + pattern.toString() + "/" + ( (x==null)?"":"\u2229"+x.getName());
+
 			@Override
 			public int getXPath() {
 				return (x==null)?XPathTable.NO_XPATH:x.getXPath();
@@ -103,6 +136,10 @@ public abstract class XPathMatcher {
 				} else {
 					return pattern.matcher(xpath).matches();
 				}
+			}
+			@Override
+			public String getName() {
+				return name;
 			}
 		};
 	}

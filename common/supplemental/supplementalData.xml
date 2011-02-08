@@ -4206,7 +4206,11 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="ZW" numeric="716" alpha3="ZWE" fips10="ZI"/>
         <territoryCodes type="ZZ" numeric="999" alpha3="ZZZ" internet="AERO ARPA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG PRO TRAVEL"/>
     </codeMappings>
-
+	<parentLocales>
+		<parentLocale parent="root" locales="az_Cyrl ha_Arab ku_Latn mn_Mong pa_Arab shi_Tfng sr_Latn uz_Arab uz_Latn zh_Hant"/>
+		<parentLocale parent="es_419" locales="es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE"/>
+		<parentLocale parent="pt_PT" locales="pt_AO pt_GW pt_MZ"/>
+	</parentLocales>
 	<references>
 		<reference type="R1000" uri="https://www.cia.gov/cia/publications/factbook/geos/aa.html">Dutch official</reference>
 		<reference type="R1001" uri="http://www.migrationinformation.org/Feature/display.cfm?ID=72">At most 6% are not fluent in English</reference>

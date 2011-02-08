@@ -1216,8 +1216,8 @@
 						<dateFormatItem id="yMd">d/‏M/‏y G</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE، d/‏M/‏y G</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE، d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM، y G</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE، d MMM، y G</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM، y G</dateFormatItem>
@@ -1439,9 +1439,11 @@
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M‏/yyyy</dateFormatItem>
+						<dateFormatItem id="yMd">d‏/M‏/yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE، d/‏M/‏yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE، d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM، y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE، d MMM، y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
@@ -1906,9 +1908,11 @@
 					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d/‏M</dateFormatItem>
+						<dateFormatItem id="Md">d‏/M</dateFormatItem>
+						<dateFormatItem id="MEd">EEE، d‏/M</dateFormatItem>
 						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
@@ -1916,12 +1920,14 @@
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE، d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d‏/M‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE، d‏/M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">EEE، d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE، d MMM، y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1984,9 +1990,11 @@
 					<availableFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d/‏M</dateFormatItem>
+						<dateFormatItem id="Md">d‏/M</dateFormatItem>
+						<dateFormatItem id="MEd">EEE، d‏/M</dateFormatItem>
 						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
@@ -1994,14 +2002,15 @@
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
-						<dateFormatItem id="yyyyMd">d/‏M/‏y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE، d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d‏/M‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE، d‏/M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">EEE، d MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM، y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE، d MMM، y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>

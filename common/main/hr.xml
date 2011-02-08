@@ -1390,8 +1390,10 @@
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y.</dateFormatItem>
 						<dateFormatItem id="yM">M. yyyy.</dateFormatItem>
+						<dateFormatItem id="yMd">d. M. y.</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d. M. y.</dateFormatItem>
 						<dateFormatItem id="yMMM">LLL y.</dateFormatItem>
+						<dateFormatItem id="yMMMd">d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y.</dateFormatItem>
 						<dateFormatItem id="yQ">Q. yyyy.</dateFormatItem>
@@ -1571,12 +1573,19 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Gy">yy. GGG</dateFormatItem>
 						<dateFormatItem id="Md">d. M.</dateFormatItem>
+						<dateFormatItem id="MEd">E, d. M.</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
+						<dateFormatItem id="y">yy. GGG</dateFormatItem>
 						<dateFormatItem id="yyyy">yy. GGG</dateFormatItem>
 						<dateFormatItem id="yyyyM">M. y. GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d. M. y. GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, d. M. y. GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">LLL y. GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d. MMM y. GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d. MMM y. GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyQ">Q. yy. GGGGG</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1613,10 +1622,17 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Gy">y. G</dateFormatItem>
+						<dateFormatItem id="Md">d. M.</dateFormatItem>
+						<dateFormatItem id="MEd">E, d. M.</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
+						<dateFormatItem id="y">y. G</dateFormatItem>
 						<dateFormatItem id="yyyy">y. G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M. y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d. M. y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">EEE, d. M. y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">LLL y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d. MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">EEE, d. MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyQ">Q. y. G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y. G</dateFormatItem>

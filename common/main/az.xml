@@ -1092,6 +1092,16 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">EEE, d, MMM</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d, MMM, y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 				<fields>
 					<field type="era">
 						<displayName>era</displayName>

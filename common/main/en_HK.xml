@@ -35,13 +35,15 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
-						<dateFormatItem id="Md">d-M</dateFormatItem>
-						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d/M/y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM, y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -77,7 +79,9 @@
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E,  d MMMM</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM, y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
@@ -130,25 +134,37 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, MMMM d, y G</pattern>
+							<pattern>EEEE, d MMMM, y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>MMMM d, y G</pattern>
+							<pattern>d MMMM, y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, y G</pattern>
+							<pattern>d MMM, y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>G M/d/yy</pattern>
+							<pattern>d/M/yy GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM, y G</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d MMM, y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 	</dates>

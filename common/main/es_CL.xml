@@ -65,6 +65,13 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md">dd-MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd-MM</dateFormatItem>
+						<dateFormatItem id="yM">MM-yy</dateFormatItem>
+						<dateFormatItem id="yMd">dd-MM-yy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE dd-MM-yy</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} a el {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">

@@ -89,22 +89,22 @@
 					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, MMMM d, y G</pattern>
+							<pattern>EEEE, G y MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>MMMM d, y G</pattern>
+							<pattern>G y MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, y G</pattern>
+							<pattern>G y MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>M/d/yyyy</pattern>
+							<pattern>GGGGG yyyy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -112,7 +112,52 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
-					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
+					<dateTimeFormatLength>
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
+						<dateFormatItem id="yM">GGGGG yyyy-MM</dateFormatItem>
+						<dateFormatItem id="yMd">GGGGG yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, GGGGG yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="yMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, G y MMM d</dateFormatItem>
+						<dateFormatItem id="yQ">GGGGG yyyy Q</dateFormatItem>
+						<dateFormatItem id="yQQQ">G y QQQ</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Day">{0} ({2}: {1})</appendItem>
+						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Era">{0} {1}</appendItem>
+						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
+						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
+						<appendItem request="Month">{0} ({2}: {1})</appendItem>
+						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
+						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+						<appendItem request="Week">{0} ({2}: {1})</appendItem>
+						<appendItem request="Year">{0} {1}</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats"/>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
@@ -634,8 +679,10 @@
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">y-M</dateFormatItem>
+						<dateFormatItem id="yMd">y-M-d</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, y-M-d</dateFormatItem>
 						<dateFormatItem id="yMMM">y MMM</dateFormatItem>
+						<dateFormatItem id="yMMMd">y MMM d</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, y MMM d</dateFormatItem>
 						<dateFormatItem id="yQ">y Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
@@ -1325,7 +1372,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>G yy-MM-dd</pattern>
+							<pattern>GGGGG yy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1355,23 +1402,32 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="h">hh a</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyyy">yy GGG</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
+						<dateFormatItem id="yyyy">G y</dateFormatItem>
 						<dateFormatItem id="yyyyM">GGGGG yy-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">GGGGG yy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">GGGGG yy MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">GGGGG yy MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, GGGGG yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE, G y MMM d</dateFormatItem>
 						<dateFormatItem id="yyyyQ">GGGGG yy Q</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
@@ -1497,22 +1553,22 @@
 					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, MMMM d, G y</pattern>
+							<pattern>EEEE, G y MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>MMMM d, G y</pattern>
+							<pattern>G y MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, G y</pattern>
+							<pattern>G y MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>G y/M/d</pattern>
+							<pattern>GGGGG yy-MM-dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1524,25 +1580,32 @@
 						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="EEEd">d EEE</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
 						<dateFormatItem id="yyyy">G y</dateFormatItem>
-						<dateFormatItem id="yyyyM">G y/M</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, G y/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM, G y</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">EEE, MMM d, G y</dateFormatItem>
-						<dateFormatItem id="yyyyQ">Q G y</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ G y</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGG yy-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGG yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, GGGGG yy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE, G y MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyQ">GGGGG yy Q</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>

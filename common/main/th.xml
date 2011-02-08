@@ -1060,6 +1060,38 @@
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
+						<dateFormatItem id="hm" draft="provisional">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="provisional">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yM">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQ">Q yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -1414,8 +1446,10 @@
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/yyyy</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE d/M/yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ">Q yyyy</dateFormatItem>
@@ -1905,9 +1939,16 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="yyyy">GGG yy</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="yyyy">G yy</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/GGGGG yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM GGGGG yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM G yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM G y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE d MMM G y</dateFormatItem>
 						<dateFormatItem id="yyyyQ">Q GGGGG yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1937,9 +1978,16 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="yyyy">GGG yy</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="yyyy">G yy</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/GGGGG yy</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM GGGGG yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM G yy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM G y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE d MMM G y</dateFormatItem>
 						<dateFormatItem id="yyyyQ">Q GGGGG yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>

@@ -29,7 +29,17 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="Md">dd/MM</dateFormatItem>
+						<dateFormatItem id="MEd">EEE dd/MM</dateFormatItem>
 						<dateFormatItem id="MMdd" draft="unconfirmed">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMd">dd MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">EEE dd MMM</dateFormatItem>
+						<dateFormatItem id="yM">MM/yy</dateFormatItem>
+						<dateFormatItem id="yMd">dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, dd/MM/yy</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">dd MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE dd MMM y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>

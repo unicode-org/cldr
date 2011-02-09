@@ -267,18 +267,18 @@ public class CLDRDBSourceFactory {
     CLDRDBSourceFactory(SurveyMain sm, String theDir, Logger xlogger, File cacheDir) throws SQLException {
         this.xpt = sm.xpt;
         this.dir = theDir;
-        Connection sconn = sm.getDBConnection();
+        Connection sconn = sm.dbUtils.getDBConnection(sm);
         CLDRDBSourceFactory.sm = sm;
         logger = xlogger; // set static
         setupDB(sconn);
         // initconn done later, in vetterReady
         this.cacheDir = cacheDir;
-        SurveyMain.closeDBConnection(sconn);
+        DBUtils.closeDBConnection(sconn);
     }
     
     public void vetterReady() {
         System.err.println("DBSRCFAC: processing vetterReady()... initializing connection");
-        Connection sconn = sm.getDBConnection();
+        Connection sconn = sm.dbUtils.getDBConnection(sm);
         CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(this.dir,".*");
         this.initConn(sconn, afactory);
         System.err.println("DBSRCFAC: processing vetterReady()...");
@@ -380,7 +380,7 @@ public class CLDRDBSourceFactory {
      */
     public void setupDB(Connection sconn) throws SQLException
     {
-        boolean isNew = !sm.hasTable(sconn, CLDR_DATA);
+        boolean isNew = !DBUtils.hasTable(sconn, CLDR_DATA);
         if(!isNew) {
             return; // nothing to setup
         }
@@ -389,7 +389,7 @@ public class CLDRDBSourceFactory {
             String sql; // this points to 
             Statement s = sconn.createStatement();
             
-            sql = "create table " + CLDR_DATA + " (id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+            sql = "create table " + CLDR_DATA + " (id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                 "xpath INT not null, " + // normal
                 "txpath INT not null, " + // tiny
                 "locale varchar(20), " +
@@ -398,15 +398,15 @@ public class CLDRDBSourceFactory {
                 "alt_proposed varchar(50), " +
                 "alt_type varchar(50), " +
                 "type varchar(50), " +
-                "value "+sm.DB_SQL_UNICODE+" not null, " +
+                "value "+DBUtils.DB_SQL_UNICODE+" not null, " +
                 "submitter INT, " +
                 "modtime TIMESTAMP, " +
                 // new additions, April 2006
-                "base_xpath INT NOT NULL "+sm.DB_SQL_WITHDEFAULT+" -1 " + // alter table CLDR_DATA add column base_xpath INT NOT NULL WITH DEFAULT -1
+                "base_xpath INT NOT NULL "+DBUtils.DB_SQL_WITHDEFAULT+" -1 " + // alter table CLDR_DATA add column base_xpath INT NOT NULL WITH DEFAULT -1
                 " )";
             //            System.out.println(sql);
             s.execute(sql);
-            sql = "create table " + CLDR_SRC + " (id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+            sql = "create table " + CLDR_SRC + " (id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                 "locale varchar(20), " +
                 "tree varchar(20) NOT NULL, " +
                 "rev varchar(20), " +
@@ -465,7 +465,7 @@ public class CLDRDBSourceFactory {
             try {
                 ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
             } catch ( SQLException se ) {
-                String complaint = " Couldn't prepare " + name + " - " + SurveyMain.unchainSqlException(se) + " - " + sql;
+                String complaint = " Couldn't prepare " + name + " - " + DBUtils.unchainSqlException(se) + " - " + sql;
                 logger.severe(complaint);
                 throw new InternalError(complaint);
             }
@@ -660,7 +660,7 @@ public class CLDRDBSourceFactory {
                         //logger.info(key + " - =" + r);
                         return result;
                     } catch(SQLException se) {
-                        logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+                        logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
                         return -1;
                     }
         }
@@ -688,7 +688,7 @@ public class CLDRDBSourceFactory {
                     // auto close
                     return rev;
                 } catch (SQLException se) {
-                    String what = ("CLDRDBSource: Failed to find source info ("+id +"): " + SurveyMain.unchainSqlException(se));
+                    String what = ("CLDRDBSource: Failed to find source info ("+id +"): " + DBUtils.unchainSqlException(se));
                     logger.severe(what);
                     throw new InternalError(what);
                 }
@@ -718,7 +718,7 @@ public class CLDRDBSourceFactory {
 //                        return -1;
                     }
                 } catch(SQLException se) {
-                    throw new InternalError("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+                    throw new InternalError("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 //                    return -1;
                 }
         }
@@ -829,7 +829,7 @@ public class CLDRDBSourceFactory {
                         }
                     }
                 } catch(SQLException se) {
-                    String complaint = ("CLDRDBSource: err in manageSourceUpdates["+what+"] ("+tree + "/" + "*" +"): " + SurveyMain.unchainSqlException(se));
+                    String complaint = ("CLDRDBSource: err in manageSourceUpdates["+what+"] ("+tree + "/" + "*" +"): " + DBUtils.unchainSqlException(se));
                     logger.severe(complaint);
                     ctx.println("<hr /><pre>" + complaint + "</pre><br />");
                     return updated;
@@ -927,8 +927,8 @@ public class CLDRDBSourceFactory {
 	              return -1;
 	          }
 	      } catch(SQLException se) {
-	          logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
-	          throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+	          logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + DBUtils.unchainSqlException(se));
+	          throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+DBUtils.unchainSqlException(se));
 	      }
     	}
     }
@@ -966,8 +966,8 @@ public class CLDRDBSourceFactory {
               //if(showDebug)/*srl*/if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
           } catch(SQLException se) {
               se.printStackTrace();
-              logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + SurveyMain.unchainSqlException(se));
-              throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+SurveyMain.unchainSqlException(se));
+              logger.severe("CLDRDBSource: Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + DBUtils.unchainSqlException(se));
+              throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+DBUtils.unchainSqlException(se));
           }
       } else {
           return sm.vet.getWinningXPath(xpath, locale);
@@ -991,7 +991,7 @@ public class CLDRDBSourceFactory {
      * Close out the connection.
      */
     public void closeConnection() {
-        SurveyMain.closeDBConnection(conn);
+        DBUtils.closeDBConnection(conn);
         conn = null;
     }
     
@@ -1163,7 +1163,7 @@ public class CLDRDBSourceFactory {
         				stmts.insert.setString(2,locale);
         				stmts.insert.setInt(3,srcId);
         				stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
-        				SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+        				DBUtils.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
         				stmts.insert.setString(6,eType);
         				stmts.insert.setString(7,eAlt);
         				stmts.insert.setInt(8,txpid); // tiny
@@ -1175,7 +1175,7 @@ public class CLDRDBSourceFactory {
         			} catch(SQLException se) {
         				String complaint = 
         					"CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath +
-        					")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+        					")='" + value + "' -- " + DBUtils.unchainSqlException(se);
         				logger.severe(complaint);
         				throw new InternalError(complaint);
         			}
@@ -1186,7 +1186,7 @@ public class CLDRDBSourceFactory {
         		} catch(SQLException se) {
         			String complaint = 
         				"CLDRDBSource: Couldn't commit " + locale +
-        				":" + SurveyMain.unchainSqlException(se);
+        				":" + DBUtils.unchainSqlException(se);
         			logger.severe(complaint);
         			throw new InternalError(complaint);
         		}
@@ -1284,7 +1284,7 @@ public class CLDRDBSourceFactory {
     			stmts.insert.setString(2,loc);
     			stmts.insert.setInt(3,srcId);
     			stmts.insert.setInt(4,oxpid);  // origxpath = full (original) xpath
-    			SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+    			DBUtils.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
     			stmts.insert.setString(6,eType);
     			stmts.insert.setString(7,eAlt);
     			stmts.insert.setInt(8,txpid); // tiny xpath
@@ -1302,7 +1302,7 @@ public class CLDRDBSourceFactory {
     		} catch(SQLException se) {
     			String complaint = 
     				"CLDRDBSource: Couldn't insert " + getLocaleID() + ":" + xpid + "(" + xpath +
-    				")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+    				")='" + value + "' -- " + DBUtils.unchainSqlException(se);
     			logger.severe(complaint);
     			throw new InternalError(complaint);
     		}
@@ -1312,7 +1312,7 @@ public class CLDRDBSourceFactory {
     		} catch(SQLException se) {
     			String complaint = 
     				"CLDRDBSource: Couldn't commit " + getLocaleID() +
-    				":" + SurveyMain.unchainSqlException(se);
+    				":" + DBUtils.unchainSqlException(se);
     			logger.severe(complaint);
     			throw new InternalError(complaint);
     		}
@@ -1362,7 +1362,7 @@ public class CLDRDBSourceFactory {
             conn.commit();
             return n;
         } catch(SQLException se) {
-            String problem = ("CLDRDBSource: "+"Trying to remove "+locale+":"+xpathId+"@" +" : " + SurveyMain.unchainSqlException(se));
+            String problem = ("CLDRDBSource: "+"Trying to remove "+locale+":"+xpathId+"@" +" : " + DBUtils.unchainSqlException(se));
             logger.severe(problem);
             throw new InternalError(problem);
         }
@@ -1410,7 +1410,7 @@ public class CLDRDBSourceFactory {
                 //                rs.close();
                 //logger.info(locale + ":" + path+" -> " + rv);
             } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to check data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
+                logger.severe("CLDRDBSource: Failed to check data ("+tree + "/" + locale + ":" + path + "): " + DBUtils.unchainSqlException(se));
                 return false;
             }
         //}
@@ -1502,7 +1502,7 @@ public class CLDRDBSourceFactory {
 	                    return null;
 	                }                      
 	            }
-	            rv = SurveyMain.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
+	            rv = DBUtils.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
 	            if(SHOW_TIMES) System.err.println("getValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
 	            if(rs.next()) {
 	                String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
@@ -1514,7 +1514,7 @@ public class CLDRDBSourceFactory {
 	            return rv;
 	        } catch(SQLException se) {
 	            se.printStackTrace();
-	            logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + SurveyMain.unchainSqlException(se));
+	            logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + DBUtils.unchainSqlException(se));
 	            return null;
 	        }
     	}
@@ -1636,7 +1636,7 @@ public class CLDRDBSourceFactory {
                 rs.close();
                 return result;
             } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + SurveyMain.unchainSqlException(se));
+                logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + DBUtils.unchainSqlException(se));
                 return pathid; //? should be null?
             }
         }
@@ -1803,8 +1803,8 @@ public class CLDRDBSourceFactory {
 */
 			return Collections.unmodifiableSet(s);
 		} catch(SQLException se) {
-			logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
-			throw new InternalError("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+			logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
+			throw new InternalError("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 		}
     }
 
@@ -1858,7 +1858,7 @@ public class CLDRDBSourceFactory {
                 return Collections.unmodifiableSet(s);
                 // TODO: 0
             } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + getLocaleID() +"): " + SurveyMain.unchainSqlException(se));
+                logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + getLocaleID() +"): " + DBUtils.unchainSqlException(se));
                 return null;
             }
 //        }
@@ -1916,7 +1916,7 @@ public class CLDRDBSourceFactory {
                     return output;
                     // TODO: 0
                 } catch(SQLException se) {
-                    logger.severe("CLDRDBSource: Failed to query A source ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+                    logger.severe("CLDRDBSource: Failed to query A source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
                     return null;
                 }
             }
@@ -2094,7 +2094,7 @@ public class CLDRDBSourceFactory {
                 stmts.queryXpathPrefixes.setString(2,locale);
                 rs = stmts.queryXpathPrefixes.executeQuery();
             } catch(SQLException se) {
-                logger.severe("CLDRDBSource: Failed to getPrefixKeySet ("+tree + "/" + locale +"): " + SurveyMain.unchainSqlException(se));
+                logger.severe("CLDRDBSource: Failed to getPrefixKeySet ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
                 return null;
             }
         }
@@ -2189,7 +2189,7 @@ public class CLDRDBSourceFactory {
                     }
                     rs.close();
                 } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     throw new InternalError(complaint);
                 }
@@ -2223,7 +2223,7 @@ public class CLDRDBSourceFactory {
                     stmts.insert.setString(2,locale.toString());
                     stmts.insert.setInt(3,srcId); // assumes homogenous srcId
                     stmts.insert.setInt(4,oxpid);
-                    SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+                    DBUtils.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
                     stmts.insert.setString(6,eType);
                     stmts.insert.setString(7,eAlt);
                     stmts.insert.setInt(8,txpid); // tiny
@@ -2233,7 +2233,7 @@ public class CLDRDBSourceFactory {
                     stmts.insert.execute();
                     
                 } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     throw new InternalError(complaint);
                 }
@@ -2242,7 +2242,7 @@ public class CLDRDBSourceFactory {
                     conn.commit();
                     return altProposed; // success
                 } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + SurveyMain.unchainSqlException(se);
+                    String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     throw new InternalError(complaint);
                 }
@@ -2299,7 +2299,7 @@ public class CLDRDBSourceFactory {
                     }
                     rs.close();
                 } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    String complaint = "CLDRDBSource: Couldn't search for empty slot " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     throw new InternalError(complaint);
                 }
@@ -2332,7 +2332,7 @@ public class CLDRDBSourceFactory {
                     stmts.insert.setString(2,locale);
                     stmts.insert.setInt(3,srcId); // assumes homogenous srcId
                     stmts.insert.setInt(4,oxpid);
-                    SurveyMain.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
+                    DBUtils.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
                     stmts.insert.setString(6,eType);
                     stmts.insert.setString(7,eAlt);
                     stmts.insert.setInt(8,txpid); // tiny
@@ -2342,7 +2342,7 @@ public class CLDRDBSourceFactory {
                     stmts.insert.execute();
                     
                 } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + SurveyMain.unchainSqlException(se);
+                    String complaint = "CLDRDBSource: Couldn't insert " + locale + ":" + xpid + "(" + xpath + ")='" + value + "' -- " + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     throw new InternalError(complaint);
                 }
@@ -2351,7 +2351,7 @@ public class CLDRDBSourceFactory {
                     conn.commit();
                     return type; // success
                 } catch(SQLException se) {
-                    String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + SurveyMain.unchainSqlException(se);
+                    String complaint = "CLDRDBSource: Couldn't commit " + locale + ":" + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     throw new InternalError(complaint);
                 }

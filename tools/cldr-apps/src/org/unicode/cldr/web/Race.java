@@ -466,7 +466,7 @@ public class Race {
         vet.queryValue.setInt(2, base_xpath);
         rs = vet.queryValue.executeQuery();
         if (rs.next()) {
-            String itemValue = SurveyMain.getStringUTF8(rs, 1);
+            String itemValue = DBUtils.getStringUTF8(rs, 1);
             int origXpath = rs.getInt(2);
             existingVote(base_xpath, origXpath, itemValue);
             
@@ -503,7 +503,7 @@ public class Race {
             int orig_xpath = vote_xpath;
             String itemValue = null;
             if (crs.next()) {
-                itemValue = SurveyMain.getStringUTF8(crs, 1);
+                itemValue = DBUtils.getStringUTF8(crs, 1);
                 orig_xpath = crs.getInt(2);
             
 
@@ -549,7 +549,7 @@ public class Race {
 	            int xpath = rs.getInt(1);
 	            int origXpath = rs.getInt(2);
 	            // 3 : alt_type
-	            String value = SurveyMain.getStringUTF8(rs, 4);
+	            String value = DBUtils.getStringUTF8(rs, 4);
 	            Chad c = getChad(xpath, origXpath, value);
 	            possibles.put(c,xpath);
 //	            if(c.xpath != xpath) {

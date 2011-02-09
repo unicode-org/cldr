@@ -743,7 +743,7 @@ public class WebContext implements Cloneable {
                 t.toString() + "<br />");
         StringWriter asString = new StringWriter();
         if(t instanceof SQLException) {
-        	println("SQL: "+SurveyMain.unchainSqlException((SQLException)t));
+        	println("SQL: "+DBUtils.unchainSqlException((SQLException)t));
         } else {
         	t.printStackTrace(new PrintWriter(asString));
         }

@@ -73,7 +73,7 @@ public class UserSettingsData {
             } catch(SQLException se) {
                 se.printStackTrace();
                 SurveyMain.busted("getting " + name + " for user id " + id + " : " + se.toString(),se);
-                throw new InternalError("SQL err: " + SurveyMain.unchainSqlException(se));
+                throw new InternalError("SQL err: " + DBUtils.unchainSqlException(se));
             }
         }
         
@@ -88,7 +88,7 @@ public class UserSettingsData {
             } catch(SQLException se) {
                 se.printStackTrace();
                 SurveyMain.busted("getting " + name + " for user id " + id + " : " + se.toString(),se);
-                throw new InternalError("SQL err: " + SurveyMain.unchainSqlException(se));
+                throw new InternalError("SQL err: " + DBUtils.unchainSqlException(se));
             }
         }
         
@@ -105,18 +105,18 @@ public class UserSettingsData {
     private void setupDB() throws SQLException {
 
         String sql = null;
-        Connection conn = sm.getDBConnection();
+        Connection conn = sm.dbUtils.getDBConnection(sm);
         CLDRProgressTask progress = sm.openProgress("Setup " + UserSettingsData.class.getName()+ " database");
         try{
 
-            if(!sm.hasTable(conn,SET_KINDS)) {
+            if(!DBUtils.hasTable(conn,SET_KINDS)) {
                 Statement s = conn.createStatement();
                 progress.update("Creating table " + SET_KINDS);
-                sql = ("create table " + SET_KINDS +   "(set_id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                sql = ("create table " + SET_KINDS +   "(set_id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                                                         "set_name varchar(128) not null UNIQUE " +
-                                                        (!SurveyMain.db_Mysql?",primary key(set_id)":"") + ")");
+                                                        (!DBUtils.db_Mysql?",primary key(set_id)":"") + ")");
                 s.execute(sql);
-                if(sm.hasTable(conn,SET_VALUES)) {
+                if(DBUtils.hasTable(conn,SET_VALUES)) {
                     progress.update("Clearing old values");
                     sql = "drop table " + SET_VALUES;
                     s.execute(sql);
@@ -125,23 +125,23 @@ public class UserSettingsData {
                 conn.commit();
             }
             
-            if(!sm.hasTable(conn, SET_VALUES)) {
+            if(!DBUtils.hasTable(conn, SET_VALUES)) {
                 Statement s = conn.createStatement();
                 progress.update("Creating table " + SET_VALUES);
                 sql = ("create table " + SET_VALUES +   "(usr_id INT NOT NULL, " +
                         "set_id INT NOT NULL, " +
-                        "set_value "+sm.DB_SQL_UNICODE+" not null " +
+                        "set_value "+DBUtils.DB_SQL_UNICODE+" not null " +
                         ",primary key(usr_id,set_id))");
                 s.execute(sql);
                 s.close();
                 conn.commit();
             }
-            SurveyMain.closeDBConnection(conn);
+            DBUtils.closeDBConnection(conn);
             conn = null;
             progress.update("done");
         } catch(SQLException se) {
             se.printStackTrace();
-            System.err.println("SQL err: " + SurveyMain.unchainSqlException(se));
+            System.err.println("SQL err: " + DBUtils.unchainSqlException(se));
             System.err.println("Last SQL run: " + sql);
             throw se;
         } finally {
@@ -150,7 +150,7 @@ public class UserSettingsData {
     }
     
     private String internalGet(int id, String name) throws SQLException {
-        Connection conn = sm.getDBConnection();
+        Connection conn = sm.dbUtils.getDBConnection(sm);
         
         String sql = "select "+SET_VALUES+".set_value from " + SET_VALUES + "," + SET_KINDS + " where " + SET_VALUES+".usr_id=? AND "+
             SET_KINDS+".set_id="+SET_VALUES+".set_id AND "+SET_KINDS+".set_name=?";
@@ -160,16 +160,16 @@ public class UserSettingsData {
             ps.setString(2,name);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
-                return SurveyMain.getStringUTF8(rs,1);
+                return DBUtils.getStringUTF8(rs,1);
             }
         } finally {
-            SurveyMain.closeDBConnection(conn);
+            DBUtils.closeDBConnection(conn);
         }
         return null;
     }
     
     private void internalSet(int id, String name, String value) throws SQLException{
-        Connection conn = sm.getDBConnection();
+        Connection conn = sm.dbUtils.getDBConnection(sm);
         String sql;
         try {
             int set_id = getSetId(name, conn);
@@ -182,12 +182,12 @@ public class UserSettingsData {
             d0.setInt(2,set_id);
             i1.setInt(1,id);
             i1.setInt(2,set_id);
-            SurveyMain.setStringUTF8(i1,3,value);
+            DBUtils.setStringUTF8(i1,3,value);
             d0.executeUpdate();
             i1.executeUpdate();
             conn.commit();
         } finally {
-            SurveyMain.closeDBConnection(conn);
+            DBUtils.closeDBConnection(conn);
         }
     }
     

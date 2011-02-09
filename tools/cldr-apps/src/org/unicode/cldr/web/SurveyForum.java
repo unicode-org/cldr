@@ -132,7 +132,7 @@ public class SurveyForum {
                 return j;
             }
         } catch (SQLException se) {
-            String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+            String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + DBUtils.unchainSqlException(se) + " - fGetByLoc";
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         }
@@ -146,7 +146,7 @@ public class SurveyForum {
                 fAdd.executeUpdate();
                 conn.commit();
             } catch (SQLException se) {
-                String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + SurveyMain.unchainSqlException(se) + " - fAdd";
+                String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + DBUtils.unchainSqlException(se) + " - fAdd";
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -185,7 +185,7 @@ public class SurveyForum {
                     }
                 }
             } catch ( SQLException se ) {
-                String complaint = "SurveyForum:  Couldn't gather interested users for " +forum + " - " + SurveyMain.unchainSqlException(se) + " - pIntUsers";
+                String complaint = "SurveyForum:  Couldn't gather interested users for " +forum + " - " + DBUtils.unchainSqlException(se) + " - pIntUsers";
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -404,7 +404,7 @@ public class SurveyForum {
                             throw new RuntimeException("Couldn't post to " + forum + " - update failed.");
                         }
                     } catch ( SQLException se ) {
-                        String complaint = "SurveyForum:  Couldn't add post to " +forum + " - " + SurveyMain.unchainSqlException(se) + " - pAdd";
+                        String complaint = "SurveyForum:  Couldn't add post to " +forum + " - " + DBUtils.unchainSqlException(se) + " - pAdd";
                         logger.severe(complaint);
                         throw new RuntimeException(complaint);
                     }
@@ -762,8 +762,8 @@ public class SurveyForum {
                     }
                     
                     int poster = rs.getInt(1);
-                    String subj = SurveyMain.getStringUTF8(rs, 2);
-                    String text = SurveyMain.getStringUTF8(rs, 3);
+                    String subj = DBUtils.getStringUTF8(rs, 2);
+                    String text = DBUtils.getStringUTF8(rs, 3);
                     int id = rs.getInt(4);
                     java.sql.Timestamp lastDate = rs.getTimestamp(5);
                     String loc = rs.getString(6);
@@ -778,7 +778,7 @@ public class SurveyForum {
                     count++;
                 }
             } catch (SQLException se) {
-                String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+                String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + DBUtils.unchainSqlException(se) + " - fGetByLoc";
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -821,8 +821,8 @@ public class SurveyForum {
                 }
               
                 int poster = rs.getInt(1);
-                String subj = SurveyMain.getStringUTF8(rs, 2);
-                String text = SurveyMain.getStringUTF8(rs, 3);
+                String subj = DBUtils.getStringUTF8(rs, 2);
+                String text = DBUtils.getStringUTF8(rs, 3);
                 //int id = rs.getInt(4);
                 java.sql.Timestamp lastDate = rs.getTimestamp(5);
                 String loc = rs.getString(6);
@@ -854,7 +854,7 @@ public class SurveyForum {
                 return subj;
                  
             } catch (SQLException se) {
-                String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+                String complaint = "SurveyForum:  Couldn't add forum " +forum + " - " + DBUtils.unchainSqlException(se) + " - fGetByLoc";
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -992,7 +992,7 @@ public class SurveyForum {
     		  {
                   ElapsedTimer et = new ElapsedTimer("setting up DB_LOC2FORUM");
                       Statement s = conn.createStatement();
-                  if(!sm.hasTable(conn, DB_LOC2FORUM)) { // user attribute
+                  if(!DBUtils.hasTable(conn, DB_LOC2FORUM)) { // user attribute
                       what=DB_LOC2FORUM;
                       sql="";
                       
@@ -1027,7 +1027,7 @@ public class SurveyForum {
                           }
                       } catch(SQLException se) {
                           if(errs==0) {
-                              System.err.println("While updating " + DB_LOC2FORUM + " -  " + SurveyMain.unchainSqlException(se) + " - " + l+":"+forum+",  [This and further errors, ignored]");
+                              System.err.println("While updating " + DB_LOC2FORUM + " -  " + DBUtils.unchainSqlException(se) + " - " + l+":"+forum+",  [This and further errors, ignored]");
                           }
                           errs++;
                       }
@@ -1064,21 +1064,21 @@ public class SurveyForum {
             String sql = null;
 //            logger.info("SurveyForum DB: initializing...");
             String locindex = "loc";
-            if(sm.db_Mysql) {
+            if(DBUtils.db_Mysql) {
                 locindex = "loc(999)";
             }
 
-            if(!sm.hasTable(conn, DB_FORA)) { // user attribute
+            if(!DBUtils.hasTable(conn, DB_FORA)) { // user attribute
                 Statement s = conn.createStatement();
                 what=DB_FORA;
                 sql="";
                 
                 sql = "CREATE TABLE " + DB_FORA +
                       " ( " + 
-                          " id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " + 
+                          " id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " + 
                           " loc VARCHAR(999) NOT NULL, " + // interest locale
-                          " first_time "+sm.DB_SQL_TIMESTAMP0+" NOT NULL "+sm.DB_SQL_WITHDEFAULT+" "+sm.DB_SQL_CURRENT_TIMESTAMP0+", " +
-                          " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
+                          " first_time "+DBUtils.DB_SQL_TIMESTAMP0+" NOT NULL "+DBUtils.DB_SQL_WITHDEFAULT+" "+DBUtils.DB_SQL_CURRENT_TIMESTAMP0+", " +
+                          " last_time TIMESTAMP NOT NULL "+DBUtils.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
                         " )";
                 s.execute(sql);
                 sql="";
@@ -1086,23 +1086,23 @@ public class SurveyForum {
                 conn.commit();
                 what="?";
             }
-            if(!sm.hasTable(conn, DB_POSTS)) { // user attribute
+            if(!DBUtils.hasTable(conn, DB_POSTS)) { // user attribute
                 Statement s = conn.createStatement();
                 what=DB_POSTS;
                 sql="";
                 
                 sql = "CREATE TABLE " + DB_POSTS +
                       " ( " + 
-                          " id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                          " id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                           " forum INT NOT NULL, " + // which forum (DB_FORA), i.e. de
                           " poster INT NOT NULL, " + 
-                          " subj "+sm.DB_SQL_UNICODE+", " + 
-                          " text "+sm.DB_SQL_UNICODE+" NOT NULL, " +
-                          " parent INT "+sm.DB_SQL_WITHDEFAULT+" -1, " +
+                          " subj "+DBUtils.DB_SQL_UNICODE+", " + 
+                          " text "+DBUtils.DB_SQL_UNICODE+" NOT NULL, " +
+                          " parent INT "+DBUtils.DB_SQL_WITHDEFAULT+" -1, " +
                           " loc VARCHAR(999), " + // specific locale, i.e. de_CH
                           " xpath INT, " + // base xpath 
-                          " first_time "+sm.DB_SQL_TIMESTAMP0+" NOT NULL "+sm.DB_SQL_WITHDEFAULT+" "+sm.DB_SQL_CURRENT_TIMESTAMP0+", " +
-                          " last_time TIMESTAMP NOT NULL "+sm.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
+                          " first_time "+DBUtils.DB_SQL_TIMESTAMP0+" NOT NULL "+DBUtils.DB_SQL_WITHDEFAULT+" "+DBUtils.DB_SQL_CURRENT_TIMESTAMP0+", " +
+                          " last_time TIMESTAMP NOT NULL "+DBUtils.DB_SQL_WITHDEFAULT+" CURRENT_TIMESTAMP" + 
                         " )";
                 s.execute(sql);
                 sql = "CREATE UNIQUE INDEX " + DB_POSTS + "_id ON " + DB_POSTS + " (id) ";
@@ -1140,7 +1140,7 @@ public class SurveyForum {
         try {
             ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
         } catch ( SQLException se ) {
-            String complaint = "Vetter:  Couldn't prepare " + name + " - " + SurveyMain.unchainSqlException(se) + " - " + sql;
+            String complaint = "Vetter:  Couldn't prepare " + name + " - " + DBUtils.unchainSqlException(se) + " - " + sql;
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         }
@@ -1338,7 +1338,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
                             count++;
                         }
                     } catch (SQLException se) {
-                        String complaint = "SurveyForum:  Couldn't use forum " +loc + " - " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+                        String complaint = "SurveyForum:  Couldn't use forum " +loc + " - " + DBUtils.unchainSqlException(se) + " - fGetByLoc";
                         logger.severe(complaint);
                         throw new RuntimeException(complaint);
                     }
@@ -1415,7 +1415,7 @@ public boolean doFeed(HttpServletRequest request, HttpServletResponse response)
                     // select CLDR_DATA.value,SF_LOC2FORUM.locale from SF_LOC2FORUM,CLDR_INTEREST,CLDR_DATA where SF_LOC2FORUM.forum=CLDR_INTEREST.forum AND CLDR_INTEREST.uid=2 AND CLDR_DATA.locale=SF_LOC2FORUM.locale AND CLDR_DATA.submitter is null ORDER BY CLDR_DATA.modtime DESC
                     
                 } catch (SQLException se) {
-                    String complaint = "SurveyForum:  Couldn't use forum s for RSS- " + SurveyMain.unchainSqlException(se) + " - fGetByLoc";
+                    String complaint = "SurveyForum:  Couldn't use forum s for RSS- " + DBUtils.unchainSqlException(se) + " - fGetByLoc";
                     logger.severe(complaint);
                     throw new RuntimeException(complaint);
                 }

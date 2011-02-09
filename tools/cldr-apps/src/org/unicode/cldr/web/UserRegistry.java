@@ -328,7 +328,7 @@ public class UserRegistry {
      * Called by SM to shutdown
      */
     public void shutdownDB() throws SQLException {
-        SurveyMain.closeDBConnection(conn);
+        DBUtils.closeDBConnection(conn);
     }
 
     /**
@@ -343,13 +343,13 @@ public class UserRegistry {
         try{
             synchronized(conn) {
     //            logger.info("UserRegistry DB: initializing...");
-                boolean hadUserTable = sm.hasTable(conn,CLDR_USERS);
+                boolean hadUserTable = DBUtils.hasTable(conn,CLDR_USERS);
                 if(!hadUserTable) {
                     Statement s = conn.createStatement();
                 
-                    sql = ("create table " + CLDR_USERS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                    sql = ("create table " + CLDR_USERS + "(id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                                                             "userlevel int not null, " +
-                                                            "name "+sm.DB_SQL_UNICODE+" not null, " +
+                                                            "name "+DBUtils.DB_SQL_UNICODE+" not null, " +
                                                             "email varchar(128) not null UNIQUE, " +
                                                             "org varchar(256) not null, " +
                                                             "password varchar(100) not null, " +
@@ -357,8 +357,8 @@ public class UserRegistry {
                                                             "locales varchar(1024) , " +
                                                             //"prefs varchar(1024) , " + /* deprecated Dec 2010. Not used anywhere */
                                                             "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
-                                                            "lastlogin " + sm.DB_SQL_TIMESTAMP0 + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
-                                                            (!SurveyMain.db_Mysql?",primary key(id)":"") +  ")"); 
+                                                            "lastlogin " + DBUtils.DB_SQL_TIMESTAMP0 + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
+                                                            (!DBUtils.db_Mysql?",primary key(id)":"") +  ")"); 
                     s.execute(sql);
                     sql=("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
                                                             "VALUES(" + ADMIN +"," + 
@@ -372,7 +372,7 @@ public class UserRegistry {
                     
                     s.close();
                     conn.commit();
-                } else if(!sm.db_Derby) {
+                } else if(!DBUtils.db_Derby) {
                     /* update table to DATETIME instead of TIMESTAMP */
                     Statement s = conn.createStatement();
                     sql = "alter table cldr_users change lastlogin lastlogin DATETIME";
@@ -381,7 +381,7 @@ public class UserRegistry {
                     conn.commit();
                 }
     
-                boolean hadInterestTable = sm.hasTable(conn,CLDR_INTEREST);
+                boolean hadInterestTable = DBUtils.hasTable(conn,CLDR_INTEREST);
                 if(!hadInterestTable) {
                     Statement s = conn.createStatement();
                 
@@ -408,7 +408,7 @@ public class UserRegistry {
             }
         } catch(SQLException se) {
             se.printStackTrace();
-            System.err.println("SQL err: " + SurveyMain.unchainSqlException(se));
+            System.err.println("SQL err: " + DBUtils.unchainSqlException(se));
             System.err.println("Last SQL run: " + sql);
             throw se;
         }
@@ -502,7 +502,7 @@ public class UserRegistry {
                     importStmt.setString(1,u.id);
                     importStmt.setString(2,u.email);
                     importStmt.setString(3,u.sponsor);
-                    SurveyMain.setStringUTF8(importStmt, 4, u.real); //    importStmt.setString(4,u.real);
+                    DBUtils.setStringUTF8(importStmt, 4, u.real); //    importStmt.setString(4,u.real);
                     importStmt.execute();
                     nUsers++;   
                 }
@@ -621,7 +621,7 @@ public class UserRegistry {
                     }
                     User u = new UserRegistry.User(id);                    
                     // from params:
-                    u.name = SurveyMain.getStringUTF8(rs, 1);// rs.getString(1);
+                    u.name = DBUtils.getStringUTF8(rs, 1);// rs.getString(1);
                     u.org = rs.getString(2);
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
@@ -646,8 +646,8 @@ public class UserRegistry {
                         throw new InternalError("Dup user id # " + id);
                     }
                 } catch (SQLException se) {
-                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get #" + id + " - " + SurveyMain.unchainSqlException(se),se);
-		    throw new InternalError("UserRegistry: SQL error trying to get #" + id + " - " + SurveyMain.unchainSqlException(se));
+                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get #" + id + " - " + DBUtils.unchainSqlException(se),se);
+		    throw new InternalError("UserRegistry: SQL error trying to get #" + id + " - " + DBUtils.unchainSqlException(se));
                     //return ret;
                 } catch (Throwable t) {
                     logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get #" + id,t);
@@ -660,7 +660,7 @@ public class UserRegistry {
                             rs.close();
                         }
                     } catch(SQLException se) {
-                        /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: #" + id + " - " + SurveyMain.unchainSqlException(se)/*,se*/);
+                        /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: #" + id + " - " + DBUtils.unchainSqlException(se)/*,se*/);
                     }
                 } // end try
             }
@@ -682,8 +682,8 @@ public class UserRegistry {
                 touchStmt.executeUpdate();
                 conn.commit();
             } catch(SQLException se) {
-                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to touch " + id + " - " + SurveyMain.unchainSqlException(se),se);
-                throw new InternalError("UserRegistry: SQL error trying to touch " + id + " - " + SurveyMain.unchainSqlException(se));
+                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to touch " + id + " - " + DBUtils.unchainSqlException(se),se);
+                throw new InternalError("UserRegistry: SQL error trying to touch " + id + " - " + DBUtils.unchainSqlException(se));
             }
         }
     }
@@ -728,7 +728,7 @@ public class UserRegistry {
                 }
                 u.email = email;
                 // from db:   (id,name,userlevel,org,locales)
-                u.name = SurveyMain.getStringUTF8(rs, 2);//rs.getString(2);
+                u.name = DBUtils.getStringUTF8(rs, 2);//rs.getString(2);
                 u.userlevel = rs.getInt(3);
                 u.org = rs.getString(4);
                 u.locales = rs.getString(5);
@@ -748,8 +748,8 @@ public class UserRegistry {
                 
                 return u;
             } catch (SQLException se) {
-                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get " + email + " - " + SurveyMain.unchainSqlException(se),se);
-                throw new InternalError("UserRegistry: SQL error trying to get " + email + " - " + SurveyMain.unchainSqlException(se));
+                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to get " + email + " - " + DBUtils.unchainSqlException(se),se);
+                throw new InternalError("UserRegistry: SQL error trying to get " + email + " - " + DBUtils.unchainSqlException(se));
                 //return null;
             } catch (Throwable t) {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get " + email,t);
@@ -762,7 +762,7 @@ public class UserRegistry {
                         rs.close();
                     }
                 } catch(SQLException se) {
-                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to close resultset for: " + email + " - " + SurveyMain.unchainSqlException(se),se);
+                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to close resultset for: " + email + " - " + DBUtils.unchainSqlException(se),se);
                 }
             } // end try
         } // end synch(conn)
@@ -947,7 +947,7 @@ public class UserRegistry {
                     msg = msg + updateIntLocs(theirId);
                 }
             } catch (SQLException se) {
-                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+                msg = msg + " exception: " + DBUtils.unchainSqlException(se);
             } catch (Throwable t) {
                 msg = msg + " exception: " + t.toString();
             } finally  {
@@ -1001,7 +1001,7 @@ public class UserRegistry {
                     }*/
                 }
             } catch (SQLException se) {
-                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+                msg = msg + " exception: " + DBUtils.unchainSqlException(se);
             } catch (Throwable t) {
                 msg = msg + " exception: " + t.toString();
             } finally  {
@@ -1045,7 +1045,7 @@ public class UserRegistry {
                     msg = msg + " [removed OK]";
                 }
             } catch (SQLException se) {
-                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+                msg = msg + " exception: " + DBUtils.unchainSqlException(se);
             } catch (Throwable t) {
                 msg = msg + " exception: " + t.toString();
             } finally  {
@@ -1084,7 +1084,7 @@ public class UserRegistry {
                         return("[unknown type: " + type.toString() +"]");
                 }
                 if(type==UserRegistry.InfoType.INFO_NAME) { // unicode treatment
-                    SurveyMain.setStringUTF8(updateInfoStmt, 1, value);
+                    DBUtils.setStringUTF8(updateInfoStmt, 1, value);
                 } else {
                     updateInfoStmt.setString(1, value);
                 }
@@ -1105,7 +1105,7 @@ public class UserRegistry {
                     msg = msg + " [updated OK]";
                 }
             } catch (SQLException se) {
-                msg = msg + " exception: " + SurveyMain.unchainSqlException(se);
+                msg = msg + " exception: " + DBUtils.unchainSqlException(se);
             } catch (Throwable t) {
                 msg = msg + " exception: " + t.toString();
             } finally  {
@@ -1136,8 +1136,8 @@ public class UserRegistry {
                     return null;
                 }                
             } catch (SQLException se) {
-                logger.severe("UR:  exception: " + SurveyMain.unchainSqlException(se));
-                ctx.println(" An error occured: " + SurveyMain.unchainSqlException(se));
+                logger.severe("UR:  exception: " + DBUtils.unchainSqlException(se));
+                ctx.println(" An error occured: " + DBUtils.unchainSqlException(se));
             } catch (Throwable t) {
                 logger.severe("UR:  exception: " + t.toString());
                 ctx.println(" An error occured: " + t.toString());
@@ -1170,7 +1170,7 @@ public class UserRegistry {
             try {
                 logger.info("UR: Attempt newuser by " + ctx.session.user.email + ": of " + u.email + " @ " + ctx.userIP());
                 insertStmt.setInt(1, u.userlevel);
-                SurveyMain.setStringUTF8(insertStmt, 2, u.name); //insertStmt.setString(2, u.name);
+                DBUtils.setStringUTF8(insertStmt, 2, u.name); //insertStmt.setString(2, u.name);
                 insertStmt.setString(3, u.org);
                 insertStmt.setString(4, u.email);
                 insertStmt.setString(5, u.password);
@@ -1189,7 +1189,7 @@ public class UserRegistry {
                     return null;
                 }
             } catch (SQLException se) {
-                logger.severe("UR: Adding: exception: " + SurveyMain.unchainSqlException(se));
+                logger.severe("UR: Adding: exception: " + DBUtils.unchainSqlException(se));
             } catch (Throwable t) {
                 logger.severe("UR: Adding: exception: " + t.toString());
             } finally  {
@@ -1576,7 +1576,7 @@ public class UserRegistry {
                     User u = new UserRegistry.User(rs.getInt(1));
                     // from params:
                     u.userlevel = rs.getInt(2);
-                    u.name = SurveyMain.getStringUTF8(rs, 3);
+                    u.name = DBUtils.getStringUTF8(rs, 3);
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
                     u.locales = rs.getString(6);
@@ -1590,7 +1590,7 @@ public class UserRegistry {
                 }
                 voterInfo = map;
             } catch (SQLException se) {
-                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to  update VoterInfo - " + SurveyMain.unchainSqlException(se),se);
+                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to  update VoterInfo - " + DBUtils.unchainSqlException(se),se);
             } catch (Throwable t) {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to update VoterInfo - "  + t.toString(),t);
             } finally {
@@ -1600,7 +1600,7 @@ public class UserRegistry {
                         rs.close();
                     }
                 } catch(SQLException se) {
-                    /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: VI "  + " - " + SurveyMain.unchainSqlException(se)/*,se*/);
+                    /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: VI "  + " - " + DBUtils.unchainSqlException(se)/*,se*/);
                 }
             } // end try
         }
@@ -1643,7 +1643,7 @@ public class UserRegistry {
 	        		orgs.add(org);
 	        	}
             } catch(SQLException se) {
-                /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to get orgs resultset for: VI "  + " - " + SurveyMain.unchainSqlException(se)/*,se*/);
+                /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to get orgs resultset for: VI "  + " - " + DBUtils.unchainSqlException(se)/*,se*/);
             }
         }
         

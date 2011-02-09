@@ -41,7 +41,7 @@ public class CookieSession {
     
     public Connection db(SurveyMain sm) {
         if(conn == null) {
-            conn = sm.getDBConnection();
+            conn = sm.dbUtils.getDBConnection(sm);
         }
         return conn;
     }
@@ -177,7 +177,7 @@ public class CookieSession {
             gHash.remove(id);
         }
         // clear out any database sessions in use
-        SurveyMain.closeDBConnection(conn);
+        DBUtils.closeDBConnection(conn);
     }
     
     /**

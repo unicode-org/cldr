@@ -16,12 +16,9 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -46,17 +43,12 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.Name;
-import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
@@ -349,16 +341,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         cldrHome = config.getInitParameter("cldr.home");
         this.config = config;
         
-        // Initialize DB context
-        try {
-            Context initialContext = new InitialContext();
-            Context envContext = (Context)initialContext.lookup("java:comp/env");
-            datasource = (DataSource)envContext.lookup(JDBC_SURVEYTOOL);
-        } catch(NamingException nc) {
-            System.err.println("Couldn't load context " + JDBC_SURVEYTOOL + " - not using datasource.");
-            nc.printStackTrace();
-            datasource = null;
-        }
         startupThread.addTask(new SurveyThread.SurveyTask("startup") {
             public void run() throws Throwable{
                 doStartup();
@@ -664,7 +646,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         printAdminMenu(ctx, "/AdminSql");
         ctx.println("<h1>SQL Console</h1>");
         
-        if((dbDir == null) || (isBusted != null)) { // This may or may not work. Survey Tool is busted, can we attempt to get in via SQL?
+        if((dbUtils.dbDir == null) || (isBusted != null)) { // This may or may not work. Survey Tool is busted, can we attempt to get in via SQL?
             ctx.println("<h4>ST busted, attempting to make SQL available via " + cldrHome + "</h4>");
             ctx.println("<pre>");
             specialMessage = "<b>SurveyTool is in an administrative mode- please log off.</b>";
@@ -693,7 +675,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
         
         if(q.length() == 0) {
-            q = DB_SQL_ALLTABLES;
+            q = DBUtils.DB_SQL_ALLTABLES;
             tblsel = true;
         } else {
             ctx.println("<a href='" + ctx.base() + "?sql=" + vap + "'>[List of Tables]</a>");
@@ -722,7 +704,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                if(ctx.field("isUser").length()>0) {
 //                    conn = getU_DBConnection();
 //                } else {
-                    conn = getDBConnection();
+                    conn = dbUtils.getDBConnection(this);
 //                }
                 s = conn.createStatement();
                 //s.setQueryTimeout(120); // 2 minute timeout. Not supported by derby..
@@ -771,7 +753,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                                 if(se.getSQLState().equals("S1009")) {
                                     v="0000-00-00 00:00:00";
                                 } else {
-                                    v = "(Err:"+unchainSqlException(se)+")";
+                                    v = "(Err:"+DBUtils.unchainSqlException(se)+")";
                                 }
                             } catch (Throwable t) {
                                 t.printStackTrace();
@@ -780,7 +762,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                             if(v != null) {
                                 ctx.println("<td>"  );
                                 if(rsm.getColumnType(i)==java.sql.Types.LONGVARBINARY) {
-                                    String uni = SurveyMain.getStringUTF8(rs, i);
+                                    String uni = DBUtils.getStringUTF8(rs, i);
                                     ctx.println(uni+"<br>");
                                     byte bytes[] = rs.getBytes(i);
                                     for(byte b : bytes) {
@@ -803,7 +785,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                                     ctx.println("<input type=hidden name=q value='" + "select * from "+v+" where 1 = 0'>");
                                     ctx.println("<input type=image src='"+ctx.context("zoom"+".png")+"' value='Info'></form>");
                                     ctx.println("</td><td>");
-                                    int count = sqlCount(ctx, conn, "select COUNT(*) from " + v);
+                                    int count = DBUtils.sqlCount(ctx, conn, "select COUNT(*) from " + v);
                                     ctx.println(count+"</td>");
                                 }
                             } else {
@@ -819,7 +801,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 
                 ctx.println("elapsed time: " + et + "<br>");
             } catch(SQLException se) {
-                String complaint = "SQL err: " + unchainSqlException(se);
+                String complaint = "SQL err: " + DBUtils.unchainSqlException(se);
                 
                 ctx.println("<pre class='ferrbox'>" + complaint + "</pre>" );
                 logger.severe(complaint);
@@ -833,7 +815,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             try {
                 s.close();
             } catch(SQLException se) {
-                String complaint = "in s.closing: SQL err: " + unchainSqlException(se);
+                String complaint = "in s.closing: SQL err: " + DBUtils.unchainSqlException(se);
                 
                 ctx.println("<pre class='ferrbox'> " + complaint + "</pre>" );
                 logger.severe(complaint);
@@ -843,7 +825,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 logger.severe("Err in SQL close: " + complaint);
             }
         } finally {
-            SurveyMain.closeDBConnection(conn);
+            DBUtils.closeDBConnection(conn);
         }
         printFooter(ctx);
     }
@@ -1017,7 +999,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		
         if(action.equals("stats")) {
         	ctx.println("<div class='pager'>");
-        	ctx.println("DB version " + dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+
+        	ctx.println("DB version " + dbUtils.dbInfo+ ",  ICU " + com.ibm.icu.util.VersionInfo.ICU_VERSION+
         			", Container: " + config.getServletContext().getServerInfo()+"<br>");
         	ctx.println(uptime + ", " + pages + " pages and "+xpages+" xml pages served.<br/>");
         	//        r.gc();
@@ -1682,13 +1664,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	                        try {
 	                            synchronized(vet.conn) {
 	                                vet.rmResultLoc.setString(1,loc.toString());
-	                                int del = sqlUpdate(ctx, vet.conn, vet.rmResultLoc);
+	                                int del = DBUtils.sqlUpdate(ctx, vet.conn, vet.rmResultLoc);
 	                                ctx.println("<em>"+del+" results of "+loc+" locale removed</em><br>");
 	                                System.err.println("update: "+del+" results of "+loc+" locale removed");
 	                            }
 	                        } catch(SQLException se) {
 	                            se.printStackTrace();
-	                            ctx.println("<b>Err while trying to delete results for " + loc + ":</b> <pre>" + unchainSqlException(se)+"</pre>");
+	                            ctx.println("<b>Err while trying to delete results for " + loc + ":</b> <pre>" + DBUtils.unchainSqlException(se)+"</pre>");
 	                        }
 	                    }
 	                    
@@ -2126,7 +2108,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             Set<Integer> paths = new HashSet<Integer>();
             String sql = "SELECT xpath from CLDR_DATA where locale=\""+test0+"\"";
             try {
-                Connection conn = getDBConnection();
+                Connection conn = dbUtils.getDBConnection(this);
                 Statement s = conn.createStatement();
                 ResultSet rs = s.executeQuery(sql);
                 while(rs.next()) {
@@ -2135,7 +2117,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 rs.close();
                 s.close();
             } catch ( SQLException se ) {
-                String complaint = " Couldn't query xpaths of " + test0 +" - " + SurveyMain.unchainSqlException(se) + " - " + sql;
+                String complaint = " Couldn't query xpaths of " + test0 +" - " + DBUtils.unchainSqlException(se) + " - " + sql;
                 System.err.println(complaint);
                 ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
             }
@@ -2876,52 +2858,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
     
     
-    private static int sqlCount(WebContext ctx, Connection conn, String sql) {
-        int rv = -1;
-        try {
-            Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery(sql);
-            if(rs.next()) {
-                rv = rs.getInt(1);
-            }
-            rs.close();
-            s.close();
-        } catch ( SQLException se ) {
-            String complaint = " Couldn't query count - " + SurveyMain.unchainSqlException(se) + " - " + sql;
-            System.err.println(complaint);
-            ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
-        }
-        return rv;
-    }
-
-    private static int sqlCount(WebContext ctx, Connection conn, PreparedStatement ps) {
-        int rv = -1;
-        try {
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()) {
-                rv = rs.getInt(1);
-            }
-            rs.close();
-        } catch ( SQLException se ) {
-            String complaint = " Couldn't query count - " + SurveyMain.unchainSqlException(se) + " -  ps";
-            System.err.println(complaint);
-            ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
-        }
-        return rv;
-    }
-
-    private static int sqlUpdate(WebContext ctx, Connection conn, PreparedStatement ps) {
-        int rv = -1;
-        try {
-            rv = ps.executeUpdate();
-        } catch ( SQLException se ) {
-            String complaint = " Couldn't sqlUpdate  - " + SurveyMain.unchainSqlException(se) + " -  ps";
-            System.err.println(complaint);
-            ctx.println("<hr><font color='red'>ERR: "+complaint+"</font><hr>");
-        }
-        return rv;
-    }
-
     public static void showCoverageLanguage(WebContext ctx, String group, String lang) {
         ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+lang+"</tt> ("+new ULocale(lang).getDisplayName(ctx.displayLocale)+":<i>"+group+"</i>)</tt>" );
     }
@@ -3010,7 +2946,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         Hashtable<CLDRLocale,Hashtable<Integer,String>> nullStatus = null;
         
         {
-            conn = getDBConnection();
+            conn = dbUtils.getDBConnection(this);
             userMap = new TreeMap<String, String>();
             nullMap = new TreeMap<String, String>();
             localeStatus = new Hashtable<CLDRLocale,Hashtable<Integer,String>>();
@@ -3038,7 +2974,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
               //  n++;
                 int theirId = rs.getInt(1);
                 int theirLevel = rs.getInt(2);
-                String theirName = SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
+                String theirName = DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
                 String theirLocaleList = rs.getString(6);
@@ -3054,8 +2990,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 					psnSubmit.setInt(1,theirId);
 					psnVet.setInt(1,theirId);
 					
-                   int mySubmit=sqlCount(ctx,conn,psMySubmit);
-                    int myVet=sqlCount(ctx,conn,psMyVet);
+                   int mySubmit=DBUtils.sqlCount(ctx,conn,psMySubmit);
+                    int myVet=DBUtils.sqlCount(ctx,conn,psMyVet);
                 
                     String userInfo = "<tr><td>"+nameLink + "</td><td>" +"submits: "+ mySubmit+"</td><td>vets: "+myVet+"</td></tr>";
 					if((mySubmit+myVet)==0) {
@@ -3110,8 +3046,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 							psnSubmit.setString(2,theLocale.getBaseName());
 							psnVet.setString(2,theLocale.getBaseName());
 							
-							int nSubmit=sqlCount(ctx,conn,psnSubmit);
-							int nVet=sqlCount(ctx,conn,psnVet);
+							int nSubmit=DBUtils.sqlCount(ctx,conn,psnSubmit);
+							int nVet=DBUtils.sqlCount(ctx,conn,psnVet);
 							
 							if((nSubmit+nVet)==0) {
 								theHash = nullStatus; // vetter w/ no work done
@@ -3154,8 +3090,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             // #level $name $email $org
             rs.close();
         }/*end synchronized(reg)*/ } catch(SQLException se) {
-            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
-            ctx.println("<i>Failure: " + unchainSqlException(se) + "</i><br>");
+            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+            ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
         }
 
 //        Map<String, CLDRLocale> lm = getLocaleListMap();
@@ -3406,7 +3342,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
                 ctx.println("</table>");
             }
-            SurveyMain.closeDBConnection(conn);
+            DBUtils.closeDBConnection(conn);
 		}
 
         printFooter(ctx);
@@ -3453,7 +3389,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             while(rs.next()) {
                 int theirId = rs.getInt(1);
                 int theirLevel = rs.getInt(2);
-                String theirName = SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
+                String theirName = DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
                 String theirLocales = rs.getString(6);
@@ -3471,8 +3407,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 ctx.println("\t</user>");
             }            
         }/*end synchronized(reg)*/ } catch(SQLException se) {
-            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
-            ctx.println("<!-- Failure: " + unchainSqlException(se) + " -->");
+            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+            ctx.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
         }
         ctx.println("</users>");
     }
@@ -3659,7 +3595,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     locked++;
                     continue;
                 }
-                String theirName = SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
+                String theirName = DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
                 String theirEmail = rs.getString(4);
                 String theirOrg = rs.getString(5);
                 String theirLocales = rs.getString(6);                
@@ -4046,8 +3982,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 ctx.println("</form>");
             }
         }/*end synchronized(reg)*/ } catch(SQLException se) {
-            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
-            ctx.println("<i>Failure: " + unchainSqlException(se) + "</i><br>");
+            logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+            ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
         }
         if(just!=null) {
             ctx.println("<a href='"+ctx.url()+ctx.urlConnector()+"do=list'>\u22d6 Show all users</a><br>");
@@ -5322,7 +5258,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         new OutputStreamWriter(
                             new FileOutputStream(outFile), "UTF8"));
 
-                out.println("-- dump of CLDR data from " + cldrdb);
+                out.println("-- dump of CLDR data from " + DBUtils.cldrdb);
                 out.println("-- mysql bias mode");
                 out.println("-- "+ourDate);
                 out.println();
@@ -5344,7 +5280,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         nn++;
                         int theirId = rs.getInt(1);
                         int theirLevel = rs.getInt(2);
-                        String theirName = SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
+                        String theirName = DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
                         String theirEmail = rs.getString(4);
                         String theirOrg = rs.getString(5);
                         String theirLocales = rs.getString(6); // nbsp -> sp
@@ -5356,13 +5292,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         if(theirIntLocs!=null) {
                             theirIntLocs = theirIntLocs.replace((char)0x00a0, ' ');
                         }
-                        String escapeName = escapeForMysqlUtf8(theirName);
+                        String escapeName = DBUtils.escapeForMysqlUtf8(theirName);
                         if(escapeName.length()>(theirName.length()+2)) {
                             out.println("-- \""+theirName+"\"");
                         }
-                        out.print("("+theirId+","+theirLevel+","+ escapeName+","+escapeForMysql(theirOrg)+","+
-                                    escapeForMysql(theirEmail)+","+escapeForMysql(theirPassword)+","+
-                                    escapeForMysql(theirLocales)+","+escapeForMysql(theirIntLocs)+")");
+                        out.print("("+theirId+","+theirLevel+","+ escapeName+","+DBUtils.escapeForMysql(theirOrg)+","+
+                                    DBUtils.escapeForMysql(theirEmail)+","+DBUtils.escapeForMysql(theirPassword)+","+
+                                    DBUtils.escapeForMysql(theirLocales)+","+DBUtils.escapeForMysql(theirIntLocs)+")");
                     }
                     if(nn>0) out.println(";");
                     
@@ -5381,7 +5317,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 e.printStackTrace();
                 throw new InternalError("writing " + kind + " - IO Exception "+e.toString());
             } catch(SQLException se) {
-                logger.log(java.util.logging.Level.WARNING,"Query for org " + null + " failed: " + unchainSqlException(se),se);
+                logger.log(java.util.logging.Level.WARNING,"Query for org " + null + " failed: " + DBUtils.unchainSqlException(se),se);
                 //out.println("-- Failure: " + unchainSqlException(se) + " --");
             } finally {
 //                SurveyMain.closeDBConnection(conn);
@@ -5409,7 +5345,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     while(rs.next()) {
                         int theirId = rs.getInt(1);
                         int theirLevel = rs.getInt(2);
-                        String theirName = obscured?("#"+theirId):SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
+                        String theirName = obscured?("#"+theirId):DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
                         String theirEmail = obscured?"?@??.??":rs.getString(4);
                         String theirOrg = rs.getString(5);
                         String theirLocales = rs.getString(6);
@@ -5437,8 +5373,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         out.println("\t</user>");
                     }            
                 }/*end synchronized(reg)*/ } catch(SQLException se) {
-                    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
-                    out.println("<!-- Failure: " + unchainSqlException(se) + " -->");
+                    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+                    out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
                 }
                 out.println("</users>");
                 out.close();
@@ -5466,7 +5402,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     while(rs.next()) {
                         int theirId = rs.getInt(1);
                         int theirLevel = rs.getInt(2);
-                        String theirName = SurveyMain.getStringUTF8(rs, 3);//rs.getString(3);
+                        String theirName = DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
                         String theirEmail = rs.getString(4);
                         String theirOrg = rs.getString(5);
                         String theirLocales = rs.getString(6);
@@ -5491,8 +5427,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                        */
                     }            
                 } } catch(SQLException se) {
-                    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + unchainSqlException(se),se);
-                    out.println("# Failure: " + unchainSqlException(se) + " -->");
+                    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+                    out.println("# Failure: " + DBUtils.unchainSqlException(se) + " -->");
                 }
                 out.close();
             } catch (IOException e) {
@@ -5507,7 +5443,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             try {
                 //Set<Integer> xpathSet = new TreeSet<Integer>();
                 boolean xpathSet[] = new boolean[0];
-                Connection conn = getDBConnection();
+                Connection conn = dbUtils.getDBConnection(this);
                 for(int i=0;(i<nrInFiles) && !SurveyThread.shouldStop();i++) {
                     String fileName = inFiles[i].getName();
                     int dot = fileName.indexOf('.');
@@ -5571,7 +5507,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     } catch (SQLException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                        throw new InternalError("SQL Exception on vote file "+SurveyMain.unchainSqlException(e));
+                        throw new InternalError("SQL Exception on vote file "+DBUtils.unchainSqlException(e));
                     } finally {
                         if(lastfile != null) {
                             System.err.println("Last  vote file written: " + kind + " / " + lastfile);
@@ -5579,7 +5515,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     }
 
                 }
-                SurveyMain.closeDBConnection(conn);
+                DBUtils.closeDBConnection(conn);
 
                 progress.update(nrInFiles, "writing " +"xpathTable");
                 lastfile = "xpathTable.xml" + " - xpath table";
@@ -5779,7 +5715,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	
                 }
                 if(conn!=null) 
-                    SurveyMain.closeDBConnection(conn);
+                    DBUtils.closeDBConnection(conn);
             }
         }
         return true;
@@ -5827,7 +5763,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                                 }
                             }
                         } catch (SQLException se) {
-                            throw new RuntimeException("SQL error listing OD results - " + SurveyMain.unchainSqlException(se));
+                            throw new RuntimeException("SQL error listing OD results - " + DBUtils.unchainSqlException(se));
                         }
                     }
                     WebContext subCtx = (WebContext)ctx.clone();
@@ -5882,7 +5818,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         }
                         rs.close();
                     } catch (SQLException se) {
-                        throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
+                        throw new RuntimeException("SQL error listing bad results - " + DBUtils.unchainSqlException(se));
                     }
                     // et.tostring
                 }
@@ -6339,7 +6275,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         try {
          this.fora.reloadLocales();
         } catch(SQLException se) {
-        	System.err.println("On resetLocaleCaches().reloadLocales: " + this.unchainSqlException(se));
+        	System.err.println("On resetLocaleCaches().reloadLocales: " + DBUtils.unchainSqlException(se));
         	this.busted("trying to reset locale caches @ fora", se);
         }
     }
@@ -9228,7 +9164,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             
             progress.update("Setup DB config");
             // set up DB properties
-            setupDBProperties(survprops);
+            dbUtils.setupDBProperties(this, survprops);
             progress.update("Setup phase..");
             
             // phase
@@ -9602,8 +9538,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
             }
         } catch (SQLException se) {
-            busted("SQL error querying users for getIntUsers - " + SurveyMain.unchainSqlException(se));
-            throw new RuntimeException("SQL error querying users for getIntUsers - " + SurveyMain.unchainSqlException(se));
+            busted("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
+            throw new RuntimeException("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
 
 	}
         return m;
@@ -9649,7 +9585,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param se the SQL Exception
      */
     protected static void busted(String what, SQLException se) {
-        busted(what, se, unchainSqlException(se));
+        busted(what, se, DBUtils.unchainSqlException(se));
     }
     
     protected static void busted(String what, Throwable t) {
@@ -9847,154 +9783,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
     }
 
-
-    // DB stuff
-    public String db_driver = null;
-    public String db_protocol = null;
-    public static String CLDR_DB_U = null;
-    public static String CLDR_DB_P = null;
-    public String cldrdb_u = null;
-    public static String CLDR_DB;
-    public String cldrdb = null;
-    public String CLDR_DB_CREATESUFFIX=null;
-    public String CLDR_DB_SHUTDOWNSUFFIX=null;
-    static boolean db_Derby = false;
-    static boolean db_Mysql = false;
-    private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
+    public static DBUtils dbUtils = DBUtils.getInstance();
     
-    // === DB workarounds :(
-    public String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
-    public String DB_SQL_VARCHARXPATH = "varchar(1024)";
-    public String DB_SQL_WITHDEFAULT = "WITH DEFAULT";
-    public String DB_SQL_TIMESTAMP0 = "TIMESTAMP";
-    public String DB_SQL_CURRENT_TIMESTAMP0 = "CURRENT_TIMESTAMP";
-    public String DB_SQL_MIDTEXT   = "VARCHAR(1024)";
-    public String DB_SQL_BIGTEXT   = "VARCHAR(16384)";
-    public String DB_SQL_UNICODE   = "VARCHAR(16384)"; // unicode type string
-    public String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
-    public String DB_SQL_BINCOLLATE = "";
-    public String DB_SQL_BINTRODUCER = "";
-
-    private void setupDBProperties(Properties cldrprops) {
-        db_driver   =cldrprops.getProperty("CLDR_DB_DRIVER", "org.apache.derby.jdbc.EmbeddedDriver");
-        db_protocol =cldrprops.getProperty("CLDR_DB_PROTOCOL", "jdbc:derby:");
-        if(db_protocol.indexOf("derby")>=0) {
-            db_Derby=true;
-        } else if(db_protocol.indexOf("mysql")>=0) {
-            System.err.println("Note: mysql mode");
-            db_Mysql=true;
-            DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
-            DB_SQL_BINCOLLATE=" COLLATE latin1_bin ";
-            DB_SQL_VARCHARXPATH="TEXT(1000) CHARACTER SET latin1 " + DB_SQL_BINCOLLATE;
-            DB_SQL_BINTRODUCER = "_latin1";
-            DB_SQL_WITHDEFAULT="DEFAULT";
-            DB_SQL_TIMESTAMP0 = "DATETIME";
-            DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
-            DB_SQL_MIDTEXT   = "TEXT(1024)";
-            DB_SQL_BIGTEXT   = "TEXT(16384)";
-            DB_SQL_UNICODE   = "BLOB";
-            DB_SQL_ALLTABLES = "show tables";
-        } else {
-            System.err.println("WARNING: Don't know what kind of database is "+db_protocol+" - might be interesting!");
-        }
-        CLDR_DB_U   =cldrprops.getProperty("CLDR_DB_U",null);
-        CLDR_DB_P   =cldrprops.getProperty("CLDR_DB_P",null);
-        CLDR_DB     =cldrprops.getProperty("CLDR_DB","cldrdb");
-        dbDir = new File(cldrHome,CLDR_DB);
-        cldrdb      =cldrprops.getProperty("CLDR_DB_LOCATION", dbDir.getAbsolutePath());
-        CLDR_DB_CREATESUFFIX = cldrprops.getProperty("CLDR_DB_CREATESUFFIX",";create=true");
-        CLDR_DB_SHUTDOWNSUFFIX = cldrprops.getProperty("CLDR_DB_SHUTDOWNSUFFIX","jdbc:derby:;shutdown=true");
-    }
-
-    public Connection getDBConnection()
-    {
-        return getDBConnection("");
-    }
-
-//    private Connection getU_DBConnection()
-//    {
-//        return getU_DBConnection("");
-//    }
-    
-    static int db_number_cons=0;
-    static int db_number_pool_cons=0;
-
-    public static void closeDBConnection(Connection aconn) {
-        if(aconn!=null) {
-            try {
-                aconn.close();
-            } catch (SQLException e) {
-                System.err.println(SurveyMain.unchainSqlException(e));
-                e.printStackTrace();
-            }
-            db_number_cons--;
-            if(datasource != null) {
-                db_number_pool_cons--;
-            }
-            if(isUnofficial) {
-                System.err.println("SQL -conns: " + db_number_cons + " "+
-                            ((datasource==null)?"":(" pool:"+db_number_pool_cons)));
-            }
-        }
-    }
-    private Connection getDBConnection(String options)
-    {
-        try{ 
-            db_number_cons++;
-            
-            if(datasource != null) {
-                db_number_pool_cons++;
-                if(this.isUnofficial) {
-                    System.err.println("SQL  +conns: " + db_number_cons+" Pconns: " + db_number_pool_cons);
-                }
-                Connection c = datasource.getConnection();
-                c.setAutoCommit(false);
-                return c;
-            }
-            if(this.isUnofficial) {
-                System.err.println("SQL +conns: " + db_number_cons);
-            }
-//            if(db_number_cons >= 12) {
-//                throw new InternalError("too many..");
-//            }
-            Properties props = new Properties();
-            if(CLDR_DB_U != null) {
-            	props.put("user", CLDR_DB_U);
-            	props.put("password", CLDR_DB_P);
-            }
-            Connection nc =  DriverManager.getConnection(db_protocol +
-                                                         cldrdb + options, props);
-            nc.setAutoCommit(false);
-            return nc;
-        } catch (SQLException se) {
-            se.printStackTrace();
-            busted("Fatal in getDBConnection", se);
-            return null;
-        }
-    }
-
-//    private Connection getU_DBConnection(String options)
-//    {
-//        try{ 
-//            Properties props = new Properties();
-//            props.put("user", "cldr_user");
-//            props.put("password", "cldr_password");
-//            cldrdb_u =  dbDir_u.getAbsolutePath();
-//            Connection nc =  DriverManager.getConnection(db_protocol +
-//                                                         cldrdb_u + options, props);
-//            nc.setAutoCommit(false);
-//            return nc;
-//        } catch (SQLException se) {
-//            busted("Fatal in getDBConnection: "", se);
-//            return null;
-//        }
-//    }
-
-    File dbDir = null;
-    private static DataSource datasource = null;
-//    File dbDir_u = null;
-    static String dbInfo = null;
-
     private void doStartupDB()
     {
         CLDRProgressTask progress = openProgress("Database Setup");
@@ -10005,60 +9795,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ///*U*/	    boolean doesExist_u = dbDir_u.isDirectory();
 
             //    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
-            try
-            { 
-//                if(false) { // pooling listener disabled by default
-//                    progress.update( "Load pool "+STPoolingListener.ST_ATTRIBUTE); // restore
-//                    datasource = (DataSource) getServletContext().getAttribute(STPoolingListener.ST_ATTRIBUTE);
-//                }
-                
-                if(datasource != null) {
-                    
-                    progress.update( "Load "+db_driver); // restore
-                    Object o = Class.forName(db_driver).newInstance();
-                    try {
-                        java.sql.Driver drv = (java.sql.Driver)o;
-                        progress.update("Check "+db_driver); // restore
-                        dbInfo = "v"+drv.getMajorVersion()+"."+drv.getMinorVersion();
-                        //   dbInfo = dbInfo + " " +org.apache.derby.tools.sysinfo.getProductName()+" " +org.apache.derby.tools.sysinfo.getVersionString();
-                    } catch(Throwable t) {
-                        dbInfo = "unknown";
-                    }
-                    logger.info("loaded "+db_driver+" driver " + o + " - " + dbInfo);
-                    progress.update( "Create DB"); // restore
-                    Connection conn = getDBConnection(CLDR_DB_CREATESUFFIX);
-                    //        logger.info("Connected to database " + cldrdb);
-                    ///*U*/        Connection conn_u = getU_DBConnection(";create=true");
-                    //        logger.info("Connected to user database " + cldrdb_u);
-    
-                    // set up our main tables.
-                    progress.update("Commit DB"); // restore
-                    conn.commit();        
-                    conn.close(); 
-                } else {
-                    progress.update("Using datasource..."); // restore
-                }
-
-                ///*U*/        conn_u.commit();
-                ///*U*/        conn_u.close();
-            }
-            catch (SQLException e)
-            {
-                busted("On database startup", e);
-                return;
-            }
-            catch (Throwable t)
-            {
-                busted("Other error on database startup",t);
-                t.printStackTrace();
-                return;
-            }
+            dbUtils.startupDB(this, progress);
             // now other tables..
             progress.update("Setup databases "); // restore
             try {
                 progress.update("Setup  "+UserRegistry.CLDR_USERS); // restore
-                Connection uConn = getDBConnection(); ///*U*/ was:  getU_DBConnection
-                boolean doesExist_u = hasTable(uConn, UserRegistry.CLDR_USERS);
+                Connection uConn = dbUtils.getDBConnection(this); ///*U*/ was:  getU_DBConnection
+                boolean doesExist_u = DBUtils.hasTable(uConn, UserRegistry.CLDR_USERS);
                 progress.update("Create UserRegistry  "+UserRegistry.CLDR_USERS); // restore
                 reg = UserRegistry.createRegistry(logger, uConn, this);
                 if(!doesExist_u) { // only import users on first run through..
@@ -10078,7 +9821,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             progress.update( "Create XPT"); // restore
             try {
-                xpt = XPathTable.createTable(logger, getDBConnection(), this);
+                xpt = XPathTable.createTable(logger, dbUtils.getDBConnection(this), this);
             } catch (SQLException e) {
                 busted("On XPathTable startup", e);
                 return;
@@ -10093,7 +9836,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             progress.update( "Create Vetting"); // restore
             try {
-                vet = Vetting.createTable(logger, getDBConnection(), this);
+                vet = Vetting.createTable(logger, dbUtils.getDBConnection(this), this);
             } catch (SQLException e) {
                 e.printStackTrace();
                 busted("On Vetting startup", e);
@@ -10109,7 +9852,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             progress.update("Create fora"); // restore
             try {
-                fora = SurveyForum.createTable(logger, getDBConnection(), this);
+                fora = SurveyForum.createTable(logger, dbUtils.getDBConnection(this), this);
             } catch (SQLException e) {
                 busted("On Fora startup", e);
                 return;
@@ -10128,186 +9871,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         } catch ( Throwable tt ) {
         	tt.printStackTrace();
             return("[[unable to get stack: "+tt.toString()+"]]");
-        }
-    }
-
-    public static final String unchainSqlException(SQLException e) {
-        String echain = "SQL exception: \n ";
-        SQLException laste =null;
-        while(e!=null) {
-        	laste = e;
-            echain = echain + " -\n " + e.toString();
-            e = e.getNextException();
-        }
-        String stackStr = "\n unknown Stack";
-        try {
-            StringWriter asString = new StringWriter();
-            laste.printStackTrace(new PrintWriter(asString));
-            stackStr = "\n Stack: \n " + asString.toString();
-        } catch ( Throwable tt ) {
-        	stackStr  = "\n unknown stack ("+tt.toString()+")";
-        }
-        return echain + stackStr;
-    }
-    
-    String escapeForMysql(String what) throws UnsupportedEncodingException {
-        if(what==null) {
-            return "NULL";
-        } else if(what.length()==0) {
-            return "\"\"";
-        } else {
-            return escapeForMysql(what.getBytes("ASCII"));
-        }
-    }
-    
-    String escapeForMysqlUtf8(String what) throws UnsupportedEncodingException {
-        if(what==null) {
-            return "NULL";
-        } else if(what.length()==0) {
-            return "\"\"";
-        } else {
-            return escapeForMysql(what.getBytes("UTF-8"));
-        }
-    }
-    
-    public static final boolean escapeIsBasic(char c) {
-        return ((c>='a'&&c<='z')||
-                (c>='A'&&c<='Z')||
-                (c>='0'&&c<='9')||
-                (c==' ' || c=='.' || c=='/' || c=='[' || c==']' || c=='=' ||
-                 c=='@' || c=='_' || c==',' || c=='&' || 
-                 c=='-' || c=='(' || c==')' || c=='#' || c=='$' || c=='!'));
-    }
-    
-    public static final boolean escapeIsEscapeable(char c) {
-        return(c==0 || c=='\'' || c=='"' || c=='\b' || c=='\n' || c=='\r' || c=='\t' || c==26 || c=='\\');
-    }
-    
-    public static final String escapeForMysql(byte what[]) {
-       boolean hasEscapeable    = false;
-       boolean hasNonEscapeable = false;
-       for(byte b : what) {
-           int j =  ((int)b)&0xff;
-           char c = (char)j;
-           if(escapeIsBasic(c)) {
-               continue;
-           } else if(escapeIsEscapeable(c)) {
-               hasEscapeable=true;
-           } else {
-               hasNonEscapeable=true;
-           }
-       }
-       if(hasNonEscapeable) {
-           return escapeHex(what);
-       } else if(hasEscapeable) {
-           return escapeLiterals(what);
-       } else {
-           return escapeBasic(what);
-       }
-    }
-    
-    public static final String escapeHex(byte what[]) {
-        StringBuffer out=new StringBuffer("x'");
-        for(byte b : what) {
-            int j =  ((int)b)&0xff;
-            if(j<0x10) {
-                out.append('0');
-            }
-            out.append(Integer.toHexString(j));
-        }
-        out.append("'");
-        return out.toString();
-    }
-    
-    public static final String escapeLiterals(byte what[]) {
-        StringBuffer out=new StringBuffer("'");
-        for(byte b : what) {
-            int j =  ((int)b)&0xff;
-            char c = (char)j;
-            switch(c) {
-            case 0: out.append("\\0"); break;
-            case '\'': out.append("'"); break;
-            case '"': out.append("\\"); break;
-            case '\b': out.append("\\b"); break;
-            case '\n': out.append("\\n"); break;
-            case '\r': out.append("\\r"); break;
-            case '\t': out.append("\\t"); break;
-            case 26: out.append("\\z"); break;
-            case '\\': out.append("\\\\"); break;
-            default: out.append(c);
-            }
-        }
-        out.append("'");
-        return out.toString();
-    }
-    public static final String escapeBasic(byte what[]) {
-        return escapeLiterals(what);
-    }
-    
-    // fix the UTF-8 fail
-    public static final String getStringUTF8(ResultSet rs, int which) throws SQLException {
-        if(db_Derby) { // unicode
-            return rs.getString(which);
-        }
-        byte rv[] = rs.getBytes(which);
-        if(rv != null) {
-            String unicode;
-            try {
-                unicode = new String(rv, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                throw new InternalError(e.toString());
-            }
-            return unicode;
-        } else {
-            return null;
-        }
-    }
-    
-    public static final void setStringUTF8(PreparedStatement s, int which, String what) throws SQLException {
-        if(db_Derby) {
-            s.setString(which, what);
-        } else {
-            byte u8[];
-            if(what == null) {
-                u8 = null;
-            } else {
-                try {
-                    u8 = what.getBytes("UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                    throw new InternalError(e.toString());
-                }
-            }
-            s.setBytes(which, u8);
-        }
-    }
-
-    public boolean hasTable(Connection conn, String table) {
-        String canonName = db_Derby?table.toUpperCase():table;
-        try {
-            ResultSet rs;
-            
-            if(SurveyMain.db_Derby) {
-                DatabaseMetaData dbmd = conn.getMetaData();
-                rs = dbmd.getTables(null, null, canonName, null);
-            } else {
-                Statement s = conn.createStatement();
-                rs = s.executeQuery("show tables like '"+canonName+"'");
-            }
-            
-            if(rs.next()==true) {
-                rs.close();
-                //System.err.println("table " + canonName + " did exist.");
-                return true;
-            } else {
-                System.err.println("table " + canonName + " did not exist.");
-                return false;
-            }
-        } catch (SQLException se)
-        {
-            busted("While looking for table '" + table + "': ", se);
-            return false; // NOTREACHED
         }
     }
 
@@ -10342,9 +9905,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 System.err.println("While shutting down vet ");
             }
             
-            if(db_Derby) {
-                DriverManager.getConnection(CLDR_DB_SHUTDOWNSUFFIX);
-            }
+            dbUtils.doShutdown();
         }
         catch (SQLException se)
         {

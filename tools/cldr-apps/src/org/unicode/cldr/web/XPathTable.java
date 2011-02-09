@@ -36,7 +36,7 @@ public class XPathTable {
      * @param ourConn the conn to use
      */
     public static XPathTable createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
-        boolean isNew =  !sm.hasTable(ourConn, CLDR_XPATHS);
+        boolean isNew =  !DBUtils.hasTable(ourConn, CLDR_XPATHS);
         XPathTable reg = new XPathTable(xlogger,ourConn);
         reg.sm = sm;
         if(isNew) {
@@ -51,7 +51,7 @@ public class XPathTable {
      * Called by SM to shutdown
      */
     public void shutdownDB() throws SQLException {
-        SurveyMain.closeDBConnection(conn);
+        DBUtils.closeDBConnection(conn);
     }
 
     /**
@@ -59,7 +59,7 @@ public class XPathTable {
      */
     private void setupDB() throws SQLException
     {
-        logger.info("XPathTable DB: initializing... conn: "+conn+", db:"+CLDR_XPATHS+", id:"+sm.DB_SQL_IDENTITY);
+        logger.info("XPathTable DB: initializing... conn: "+conn+", db:"+CLDR_XPATHS+", id:"+DBUtils.DB_SQL_IDENTITY);
         synchronized(conn) {
             String sql = null;
             try {
@@ -69,12 +69,12 @@ public class XPathTable {
                 }
                 String xpathindex = "xpath";
                 String uniqueness = ", " +   "unique(xpath)";
-                if(SurveyMain.db_Mysql) {
+                if(DBUtils.db_Mysql) {
                     uniqueness = "";
                     xpathindex="xpath(755)";
                 }
-                sql=("create table " + CLDR_XPATHS + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
-                                                        "xpath "+sm.DB_SQL_VARCHARXPATH+" not null"+uniqueness+")");
+                sql=("create table " + CLDR_XPATHS + "(id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
+                                                        "xpath "+DBUtils.DB_SQL_VARCHARXPATH+" not null"+uniqueness+")");
                 s.execute(sql);
                 sql=("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS +" ("+xpathindex+")");
                 s.execute(sql);
@@ -119,9 +119,9 @@ public class XPathTable {
     public void myinit() throws SQLException {
         synchronized(conn) {
             insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS +" (xpath ) " + 
-                                            " values ("+sm.DB_SQL_BINTRODUCER+" ?)");
+                                            " values ("+DBUtils.DB_SQL_BINTRODUCER+" ?)");
             queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + 
-                                        " where XPATH="+sm.DB_SQL_BINTRODUCER+" ? "+sm.DB_SQL_BINCOLLATE);
+                                        " where XPATH="+DBUtils.DB_SQL_BINTRODUCER+" ? "+DBUtils.DB_SQL_BINCOLLATE);
             queryIdStmt = conn.prepareStatement("SELECT XPATH FROM " + CLDR_XPATHS + "   " + 
                                         " where ID=?");
         }
@@ -189,8 +189,8 @@ public class XPathTable {
                     return nid;
             } catch(SQLException sqe) {
             	System.err.println("xpath ["+xpath+"] len " + xpath.length());
-                logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + SurveyMain.unchainSqlException(sqe));
-                sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + SurveyMain.unchainSqlException(sqe));
+                logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
+                sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
             }
         }
         return null; // an exception occured.
@@ -243,7 +243,7 @@ public class XPathTable {
                     stringToId.put(idToString_put(id,xpath),nid);
                     return xpath;
             } catch(SQLException sqe) {
-                logger.severe("XPathTable: Failed ingetByID (ID: "+ id+"): " + SurveyMain.unchainSqlException(sqe) );
+                logger.severe("XPathTable: Failed ingetByID (ID: "+ id+"): " + DBUtils.unchainSqlException(sqe) );
     //            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
                 return null;
             }

@@ -151,7 +151,7 @@ public class Vetting {
      * Called by SurveyMain to shutdown
      */
     public void shutdownDB() throws SQLException {
-        SurveyMain.closeDBConnection(conn);
+        DBUtils.closeDBConnection(conn);
     }
 
     /**
@@ -165,7 +165,7 @@ public class Vetting {
 //            logger.info("Vetting DB: initializing...");
 
             // remove allpaths table if present
-            if(!sm.hasTable(conn, CLDR_ALLPATHS)) {
+            if(!DBUtils.hasTable(conn, CLDR_ALLPATHS)) {
                 logger.info("Vetting DB: setting up " + CLDR_ALLPATHS);
                 Statement s = conn.createStatement();
                 sql = "create table " + CLDR_ALLPATHS + " (base_xpath INT NOT NULL , unique(base_xpath))";
@@ -186,10 +186,10 @@ public class Vetting {
                 s.close();
                 conn.commit();
             }
-            if(!sm.hasTable(conn, CLDR_RESULT)) {
+            if(!DBUtils.hasTable(conn, CLDR_RESULT)) {
                 logger.info("Vetting DB: setting up " + CLDR_RESULT);
                 Statement s = conn.createStatement();
-                sql = "create table " + CLDR_RESULT + " (id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                sql = "create table " + CLDR_RESULT + " (id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                                                         "locale VARCHAR(20) NOT NULL, " +
                                                         "base_xpath INT NOT NULL, " +
                                                         "result_xpath INT, " +
@@ -209,10 +209,10 @@ public class Vetting {
                 s.close();
                 conn.commit();
             }
-            if(!sm.hasTable(conn, CLDR_VET)) {
+            if(!DBUtils.hasTable(conn, CLDR_VET)) {
                 logger.info("Vetting DB: setting up " + CLDR_VET);
                 Statement s = conn.createStatement();
-                s.execute("create table " + CLDR_VET + "(id INT NOT NULL "+sm.DB_SQL_IDENTITY+", " +
+                s.execute("create table " + CLDR_VET + "(id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                                                         "locale VARCHAR(20) NOT NULL, " +
                                                         "submitter INT NOT NULL, " +
                                                         "base_xpath INT NOT NULL, " +
@@ -228,7 +228,7 @@ public class Vetting {
                 s.close();
                 conn.commit();
             }
-            if(!sm.hasTable(conn, CLDR_STATUS)) {
+            if(!DBUtils.hasTable(conn, CLDR_STATUS)) {
                 logger.info("Vetting DB: setting up " + CLDR_STATUS);
                 Statement s = conn.createStatement();
                 s.execute("create table " + CLDR_STATUS + " " +
@@ -241,7 +241,7 @@ public class Vetting {
                 conn.commit();
             }
 
-            if(!sm.hasTable(conn, CLDR_INTGROUP)) {
+            if(!DBUtils.hasTable(conn, CLDR_INTGROUP)) {
                 logger.info("Vetting DB: setting up " + CLDR_INTGROUP);
                 Statement s = conn.createStatement();
                 s.execute("create table " + CLDR_INTGROUP + " " +
@@ -255,7 +255,7 @@ public class Vetting {
             }
 
             String theTable = CLDR_OUTPUT;
-            if(!sm.hasTable(conn, theTable)) {
+            if(!DBUtils.hasTable(conn, theTable)) {
                 logger.info("Vetting DB: setting up " + theTable);
                 Statement s = conn.createStatement();
                 s.execute("create table " + theTable + " " +
@@ -272,7 +272,7 @@ public class Vetting {
             }
 
             theTable = CLDR_ORGDISPUTE;
-            if(!sm.hasTable(conn, theTable)) {
+            if(!DBUtils.hasTable(conn, theTable)) {
                 logger.info("Vetting DB: setting up " + theTable);
                 Statement s = conn.createStatement();
                 s.execute("create table " + theTable + " " +
@@ -314,7 +314,7 @@ public class Vetting {
             ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
             if(false) System.out.println("EXPLAIN EXTENDED " + sql.replaceAll("\\?", "'?'")+";");
         } catch ( SQLException se ) {
-            String complaint = "Vetter:  Couldn't prepare " + name + " - " + SurveyMain.unchainSqlException(se) + " - " + sql;
+            String complaint = "Vetter:  Couldn't prepare " + name + " - " + DBUtils.unchainSqlException(se) + " - " + sql;
             logger.severe(complaint);
             throw new RuntimeException(complaint);
         }
@@ -605,7 +605,7 @@ public class Vetting {
                     conn.commit();
                 }
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't update implied votes for  " + locale + " - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't update implied votes for  " + locale + " - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -660,7 +660,7 @@ public class Vetting {
                 }
                 return -1;
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't query  votes for  " + locale + " - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't query  votes for  " + locale + " - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -693,7 +693,7 @@ public class Vetting {
                 }
                 return result;
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't query  users for  " + locale + " - " + base_xpath +" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't query  users for  " + locale + " - " + base_xpath +" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 throw new RuntimeException(complaint);
             }
@@ -807,7 +807,7 @@ public class Vetting {
                     gAllImportantXpaths = Collections.unmodifiableSet(aSet);
                     conn.commit();
                 } catch ( SQLException se ) {
-                    String complaint = "Vetter:  couldn't update "+CLDR_ALLPATHS+"" + " - " + SurveyMain.unchainSqlException(se);
+                    String complaint = "Vetter:  couldn't update "+CLDR_ALLPATHS+"" + " - " + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     se.printStackTrace();
                     throw new RuntimeException(complaint);
@@ -933,7 +933,7 @@ public class Vetting {
                 
                 
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't update vote results for  " + locale + " - " + SurveyMain.unchainSqlException(se) + 
+                String complaint = "Vetter:  couldn't update vote results for  " + locale + " - " + DBUtils.unchainSqlException(se) + 
                     "base_xpath#"+base_xpath+" "+sm.xpt.getById(base_xpath);
                 logger.severe(complaint);
                 se.printStackTrace();
@@ -1046,7 +1046,7 @@ public class Vetting {
         int base_xpath=-1;
         long lastU = System.currentTimeMillis();
         
-        if(SurveyMain.db_Mysql) {
+        if(DBUtils.db_Mysql) {
             throw new InternalError("Not implemented for mysql");
         }
         // two lists here.
@@ -1176,7 +1176,7 @@ public class Vetting {
                 */
                 conn.commit();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't wash vote results for  " + locale + " - " + SurveyMain.unchainSqlException(se) + 
+                String complaint = "Vetter:  couldn't wash vote results for  " + locale + " - " + DBUtils.unchainSqlException(se) + 
                     "base_xpath#"+base_xpath+" "+sm.xpt.getById(base_xpath);
                 logger.severe(complaint);
                 se.printStackTrace();
@@ -1400,7 +1400,7 @@ public class Vetting {
                 return rv;
             } catch ( SQLException se ) {
                 type[0]=0; // doesn't matter here..
-                String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1430,7 +1430,7 @@ public class Vetting {
 				rs.close();
                 return Status.find(rv);
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't query outputQueryStatus for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't query outputQueryStatus for  " + locale + ":"+base_xpath+" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1459,7 +1459,7 @@ public class Vetting {
 				rs.close();
                 return rv;
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't query voting highest for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't query voting highest for  " + locale + ":"+base_xpath+" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1490,7 +1490,7 @@ public class Vetting {
                 conn.commit();
                 return rs;
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't rm voting  for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't rm voting  for  " + locale + ":"+base_xpath+" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1537,7 +1537,7 @@ public class Vetting {
 
               //  updateResults(locale);// caller needs to do updateResults
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't query voting result for  " + locale + ":"+base_xpath+" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1593,7 +1593,7 @@ public class Vetting {
                 }
                 conn.commit();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  update status - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  update status - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1630,7 +1630,7 @@ public class Vetting {
                     return -1;
                 }
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  query status - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  query status - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -1932,7 +1932,7 @@ if(true == true)    throw new InternalError("removed from use.");
 						}
 						rs.close();
 					} catch (SQLException se) {
-						throw new RuntimeException("SQL error listing bad results - " + SurveyMain.unchainSqlException(se));
+						throw new RuntimeException("SQL error listing bad results - " + DBUtils.unchainSqlException(se));
 					}
 				}
 				//WebContext subCtx = new WebContext(ctx);
@@ -1987,7 +1987,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 }
                 rs.close();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  query count - loc=" + loc + ", type="+typeToStr(type)+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  query count - loc=" + loc + ", type="+typeToStr(type)+" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -2009,7 +2009,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 
                 rs = listBadResults.executeQuery();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  query bad results - loc=" + loc + ", type=BAD - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  query bad results - loc=" + loc + ", type=BAD - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -2037,7 +2037,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 }
                 rs.close();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  query timestamp - nag=" + forNag + ", forRest="+reset+" - " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  query timestamp - nag=" + forNag + ", forRest="+reset+" - " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -2138,7 +2138,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 }
                 rs.close();
             } catch ( SQLException se ) {
-                String complaint = "Vetter:  couldn't  query org dispute count " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter:  couldn't  query org dispute count " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -2162,7 +2162,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 }
                 rs.close();
             } catch ( SQLException se ) {
-                String complaint = "Vetter: couldn't  query org dispute count " + SurveyMain.unchainSqlException(se);
+                String complaint = "Vetter: couldn't  query org dispute count " + DBUtils.unchainSqlException(se);
                 logger.severe(complaint);
                 se.printStackTrace();
                 throw new RuntimeException(complaint);
@@ -2198,7 +2198,7 @@ if(true == true)    throw new InternalError("removed from use.");
                     }
                     rs.close();
                 } catch ( SQLException se ) {
-                    String complaint = "Vetter:  couldn't  query orgdisputes " + SurveyMain.unchainSqlException(se);
+                    String complaint = "Vetter:  couldn't  query orgdisputes " + DBUtils.unchainSqlException(se);
                     logger.severe(complaint);
                     se.printStackTrace();
                     throw new RuntimeException(complaint);
@@ -2259,7 +2259,7 @@ if(true == true)    throw new InternalError("removed from use.");
 			}
 			ctx.println("<hr>"+n+" disputed total in " + m.size() + " locales.<br>");			
          } catch ( SQLException se ) {
-            String complaint = "Vetter:  couldn't do DisputePage - " + SurveyMain.unchainSqlException(se);
+            String complaint = "Vetter:  couldn't do DisputePage - " + DBUtils.unchainSqlException(se);
             logger.severe(complaint);
             se.printStackTrace();
             throw new RuntimeException(complaint);

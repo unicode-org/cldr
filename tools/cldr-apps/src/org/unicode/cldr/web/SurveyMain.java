@@ -46,6 +46,10 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.Name;
+import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -315,6 +319,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                                                 "--></script>";
     
     static final HelpMessages surveyToolSystemMessages = new HelpMessages("st_sysmsg.html");
+
     
     static String sysmsg(String msg) {
         try {
@@ -344,10 +349,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         cldrHome = config.getInitParameter("cldr.home");
         this.config = config;
         
+        // Initialize DB context
+        try {
+            Context initialContext = new InitialContext();
+            Context envContext = (Context)initialContext.lookup("java:comp/env");
+            datasource = (DataSource)envContext.lookup(JDBC_SURVEYTOOL);
+        } catch(NamingException nc) {
+            System.err.println("Couldn't load context " + JDBC_SURVEYTOOL + " - not using datasource.");
+            nc.printStackTrace();
+            datasource = null;
+        }
         startupThread.addTask(new SurveyThread.SurveyTask("startup") {
-			public void run() throws Throwable{
-				doStartup();
-			}
+            public void run() throws Throwable{
+                doStartup();
+            }
         });
         
         startupThread.start();
@@ -9845,6 +9860,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public String CLDR_DB_SHUTDOWNSUFFIX=null;
     static boolean db_Derby = false;
     static boolean db_Mysql = false;
+    private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     
     // === DB workarounds :(
     public String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
@@ -9912,8 +9928,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 e.printStackTrace();
             }
             db_number_cons--;
+            if(datasource != null) {
+                db_number_pool_cons--;
+            }
             if(isUnofficial) {
-                System.err.println("SQL -conns: " + db_number_cons);
+                System.err.println("SQL -conns: " + db_number_cons + " "+
+                            ((datasource==null)?"":(" pool:"+db_number_pool_cons)));
             }
         }
     }
@@ -9927,7 +9947,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 if(this.isUnofficial) {
                     System.err.println("SQL  +conns: " + db_number_cons+" Pconns: " + db_number_pool_cons);
                 }
-                return datasource.getConnection();
+                Connection c = datasource.getConnection();
+                c.setAutoCommit(false);
+                return c;
             }
             if(this.isUnofficial) {
                 System.err.println("SQL +conns: " + db_number_cons);
@@ -9969,7 +9991,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //    }
 
     File dbDir = null;
-    private DataSource datasource = null;
+    private static DataSource datasource = null;
 //    File dbDir_u = null;
     static String dbInfo = null;
 
@@ -9985,31 +10007,37 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             //    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
             try
             { 
-                if(false) { // pooling listener disabled by default
-                    progress.update( "Load pool "+STPoolingListener.ST_ATTRIBUTE); // restore
-                    datasource = (DataSource) getServletContext().getAttribute(STPoolingListener.ST_ATTRIBUTE);
+//                if(false) { // pooling listener disabled by default
+//                    progress.update( "Load pool "+STPoolingListener.ST_ATTRIBUTE); // restore
+//                    datasource = (DataSource) getServletContext().getAttribute(STPoolingListener.ST_ATTRIBUTE);
+//                }
+                
+                if(datasource != null) {
+                    
+                    progress.update( "Load "+db_driver); // restore
+                    Object o = Class.forName(db_driver).newInstance();
+                    try {
+                        java.sql.Driver drv = (java.sql.Driver)o;
+                        progress.update("Check "+db_driver); // restore
+                        dbInfo = "v"+drv.getMajorVersion()+"."+drv.getMinorVersion();
+                        //   dbInfo = dbInfo + " " +org.apache.derby.tools.sysinfo.getProductName()+" " +org.apache.derby.tools.sysinfo.getVersionString();
+                    } catch(Throwable t) {
+                        dbInfo = "unknown";
+                    }
+                    logger.info("loaded "+db_driver+" driver " + o + " - " + dbInfo);
+                    progress.update( "Create DB"); // restore
+                    Connection conn = getDBConnection(CLDR_DB_CREATESUFFIX);
+                    //        logger.info("Connected to database " + cldrdb);
+                    ///*U*/        Connection conn_u = getU_DBConnection(";create=true");
+                    //        logger.info("Connected to user database " + cldrdb_u);
+    
+                    // set up our main tables.
+                    progress.update("Commit DB"); // restore
+                    conn.commit();        
+                    conn.close(); 
+                } else {
+                    progress.update("Using datasource..."); // restore
                 }
-                progress.update( "Load "+db_driver); // restore
-                Object o = Class.forName(db_driver).newInstance();
-                try {
-                    java.sql.Driver drv = (java.sql.Driver)o;
-                    progress.update("Check "+db_driver); // restore
-                    dbInfo = "v"+drv.getMajorVersion()+"."+drv.getMinorVersion();
-                    //   dbInfo = dbInfo + " " +org.apache.derby.tools.sysinfo.getProductName()+" " +org.apache.derby.tools.sysinfo.getVersionString();
-                } catch(Throwable t) {
-                    dbInfo = "unknown";
-                }
-                logger.info("loaded "+db_driver+" driver " + o + " - " + dbInfo);
-                progress.update( "Create DB"); // restore
-                Connection conn = getDBConnection(CLDR_DB_CREATESUFFIX);
-                //        logger.info("Connected to database " + cldrdb);
-                ///*U*/        Connection conn_u = getU_DBConnection(";create=true");
-                //        logger.info("Connected to user database " + cldrdb_u);
-
-                // set up our main tables.
-                progress.update("Commit DB"); // restore
-                conn.commit();        
-                conn.close(); 
 
                 ///*U*/        conn_u.commit();
                 ///*U*/        conn_u.close();
@@ -10270,7 +10298,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             
             if(rs.next()==true) {
                 rs.close();
-                System.err.println("table " + canonName + " did exist.");
+                //System.err.println("table " + canonName + " did exist.");
                 return true;
             } else {
                 System.err.println("table " + canonName + " did not exist.");

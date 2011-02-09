@@ -798,4 +798,19 @@ standard deployment descriptor.
     <servlet-name>SurveyAjax</servlet-name>
     <url-pattern>/SurveyAjax</url-pattern>
   </servlet-mapping>
+<resource-ref>
+  <description>
+    Database used by the SurveyTool.
+  </description>
+  <res-ref-name>
+    jdbc/SurveyTool
+  </res-ref-name>
+  <res-type>
+    javax.sql.DataSource
+  </res-type>
+  <res-auth>
+    Container
+  </res-auth>
+</resource-ref>
+
 </web-app>

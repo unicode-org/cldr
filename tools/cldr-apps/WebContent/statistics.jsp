@@ -24,7 +24,7 @@
 	Total Votes Cast: <%= dbUtils.sqlQuery(conn,"select count(*) from cldr_vet where submitter is not null") %> <br/>
 
 	<%
-		String[][] submits = dbUtils.sqlQueryArrayArray(conn,"select  locale,count(*) from cldr_data  where submitter is not null group by locale");
+		String[][] submits = dbUtils.sqlQueryArrayArray(conn,"select  locale,count(*) as count from cldr_data  where submitter is not null group by locale order by count desc ");
 	%>
 
 	<h2>Top Locales with Submitted Data</h2>

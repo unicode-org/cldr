@@ -12,14 +12,18 @@ import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 
 /**
  * All of the database related stuff has been moved here.
@@ -307,6 +311,44 @@ public class DBUtils {
 		}
 		return rv;
 	}
+	
+	public String[] sqlQueryArray(Connection conn, String str) throws SQLException {
+		return sqlQueryArrayArray(conn,str)[0];
+	}
+	
+	public String[][] sqlQueryArrayArray(Connection conn, String str) throws SQLException {
+		Statement s  = null;
+		ResultSet rs  = null;
+		try {
+			s = conn.createStatement();
+			rs = s.executeQuery(str);
+			ArrayList<String[]> al = new ArrayList<String[]>();
+			while(rs.next()) {
+				al.add(arrayOfResult(rs));
+			}
+			return al.toArray(new String[al.size()][]);
+		} finally {
+			if(rs!=null) {
+				rs.close();
+			}
+			if(s!=null) {
+				s.close();
+			}
+		}
+	}
+
+	private String[] arrayOfResult(ResultSet rs) throws SQLException {
+		ResultSetMetaData rsm = rs.getMetaData();
+		String ret[] = new String[rsm.getColumnCount()];
+		for(int i=0;i<ret.length;i++) {
+			ret[i]=rs.getString(i+1);
+		}
+		return ret;
+	}
+	public String sqlQuery(Connection conn, String str) throws SQLException {
+		return sqlQueryArray(conn,str)[0];
+	}
+	
 
 	static int sqlUpdate(WebContext ctx, Connection conn, PreparedStatement ps) {
 		int rv = -1;
@@ -350,20 +392,31 @@ public class DBUtils {
 		// Initialize DB context
 		try {
 			Context initialContext = new InitialContext();
-			Context envContext = (Context) initialContext
-					.lookup("java:comp/env");
-			datasource = (DataSource) envContext.lookup(JDBC_SURVEYTOOL);
-
+//			Context envContext = (Context) initialContext
+//					.lookup("java:comp/env");
+			datasource = (DataSource) initialContext.lookup("java:comp/env/" + JDBC_SURVEYTOOL);
+			//datasource = (DataSource) envContext.lookup("ASDSDASDASDASD");
+			
+			if(datasource instanceof BasicDataSource && ((BasicDataSource)datasource).getUrl()==null) {
+				datasource = null;
+				//throw new InternalError("URL is null for datasource (tried once) " + JDBC_SURVEYTOOL);
+			} else {
+				System.err.println("daaSource class = " + datasource.getClass().getName());
+			}
+			if(datasource!=null) {
+				System.err.println("Got datasource: " + datasource.toString());
+			}
 			Connection c = null;
 			try {
-				c = datasource.getConnection();
-			} catch (Throwable t) {
-				// t.printStackTrace();
+				if(datasource!=null) {
+					c = datasource.getConnection();
+				}
+			} catch (SQLException  t) {
 				System.err
 						.println(getClass().getName()+": WARNING: in the future, we will require a JNDI datasource.  "
 								+ "'"+JDBC_SURVEYTOOL+"'"
 								+ ".getConnection() returns : "
-								+ t.toString());
+								+ t.toString()+"\n"+unchainSqlException(t));
 				datasource = null;
 			} finally {
 				if (c != null)
@@ -376,11 +429,12 @@ public class DBUtils {
 					}
 			}
 		} catch (NamingException nc) {
-			System.err.println("Couldn't load context " + JDBC_SURVEYTOOL
-					+ " - not using datasource.");
 			nc.printStackTrace();
 			datasource = null;
+			throw new Error("Couldn't load context " + JDBC_SURVEYTOOL
+					+ " - not using datasource.",nc);
 		}
+		
 	}
 
 	public void doShutdown() throws SQLException {
@@ -410,6 +464,7 @@ public class DBUtils {
 				c.setAutoCommit(false);
 				return c;
 			}
+			if(false) throw new InternalError("**************** FAIL: no DataSource ********************\n");
 			if (SurveyMain.isUnofficial) {
 				System.err.println("SQL +conns: " + db_number_cons);
 			}

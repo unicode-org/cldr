@@ -5,10 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script type='text/javascript' src='<%= request.getContextPath() %>/js/raphael.js' ></script>
-<script type='text/javascript' src='<%= request.getContextPath() %>/js/g.raphael.js' ></script>
-<script type='text/javascript' src='<%= request.getContextPath() %>/js/g.line.js' ></script>
-<script type='text/javascript' src='<%= request.getContextPath() %>/js/g.bar.js' ></script>
 </head>
 <body>
 
@@ -24,11 +20,11 @@
 %>
 	<h1>SurveyTool Statistics.</h1>
 
-	Total Data Rows Submitted: <%= dbUtils.sqlQuery(conn,"select count(*) from cldr_data where submitter is not null") %> <br/>
-	Total Vetting Submitted: <%= dbUtils.sqlQuery(conn,"select count(*) from cldr_vet where submitter is not null") %> <br/>
+	Total New/Changed Submitted: <%= dbUtils.sqlQuery(conn,"select count(*) from cldr_data where submitter is not null") %> <br/>
+	Total Votes Cast: <%= dbUtils.sqlQuery(conn,"select count(*) from cldr_vet where submitter is not null") %> <br/>
 
 	<%
-		String[][] submits = dbUtils.sqlQueryArrayArray(conn,"select distinct locale as loc,count(*) as count from cldr_data where submitter is not null order by count desc");
+		String[][] submits = dbUtils.sqlQueryArrayArray(conn,"select  locale,count(*) from cldr_data  where submitter is not null group by locale");
 	%>
 
 	<h2>Top Locales with Submitted Data</h2>
@@ -38,7 +34,42 @@
 			<tr><th style='background-color: #ddd;'><%= r[0] %></th><td><%= r[1] %></td></tr>
 		<% } %>
 	</table>
+	
+	<div id="holder-holder">
+	        <div id="holder" style="width: 640px; height: 480px;"></div>
+	</div>        
+	
+	<%
+		int offh = 10;
+		int offv = 10;
+		int wid = 600;
+		int hei=220;
+	%>
 
+<script type='text/javascript' src='js/raphael.js' ></script>
+<script type='text/javascript' src='js/g.raphael.js' ></script>
+<script type='text/javascript' src='js/g.line.js' ></script>
+<script type='text/javascript' src='js/g.bar.js' ></script>
+	<script type="text/javascript">
+		var r = Raphael("holder");
+		var barchart = r.g.barchart(<%= offh %>, <%= offv %>, <%= wid %>, <%= hei %>, [[ <%
+		for(String[] r:submits) {
+			%><%= r[1] %>, <%
+		}
+		%> ]]);
+		<%
+		int ii=0;
+		int ea = wid/submits.length;
+		for(String[] r:submits) {
+			++ii;
+			int h = ((ea)*(ii-1))+offh+(ea/2);
+			int v=hei+offv;
+			%>
+			var t<%= ii %> = r.text(<%= h %>,<%= v %>, "<%= r[0] %>");
+			var n<%= ii %> = r.text(<%= h %>,<%= v+20 %>, "<%= r[1] %>");
+		<% } %>
+	</script>
+	
 
 <%
 	} finally {

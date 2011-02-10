@@ -23,7 +23,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
+//import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 
 /**
  * All of the database related stuff has been moved here.
@@ -397,12 +397,12 @@ public class DBUtils {
 			datasource = (DataSource) initialContext.lookup("java:comp/env/" + JDBC_SURVEYTOOL);
 			//datasource = (DataSource) envContext.lookup("ASDSDASDASDASD");
 			
-			if(datasource instanceof BasicDataSource && ((BasicDataSource)datasource).getUrl()==null) {
-				datasource = null;
-				//throw new InternalError("URL is null for datasource (tried once) " + JDBC_SURVEYTOOL);
-			} else {
+//			if(datasource instanceof BasicDataSource && ((BasicDataSource)datasource).getUrl()==null) {
+//				datasource = null;
+//				//throw new InternalError("URL is null for datasource (tried once) " + JDBC_SURVEYTOOL);
+//			} else {
 				System.err.println("daaSource class = " + datasource.getClass().getName());
-			}
+//			}
 			if(datasource!=null) {
 				System.err.println("Got datasource: " + datasource.toString());
 			}

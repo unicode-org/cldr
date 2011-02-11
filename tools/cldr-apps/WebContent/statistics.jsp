@@ -4,14 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>SurveyTool Statistics</title>
 </head>
 <body>
+
+<a href="<%=  request.getContextPath() %>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 
 
 <%
 	DBUtils dbUtils = DBUtils.getInstance();
-	Connection conn = dbUtils.getDBConnection(null);
+	Connection conn = dbUtils.getDBConnection();
 	if(conn==null) {
 		throw new InternalError("Can't open DB connection. Note, you must use a new JNDI connection for this to work.");
 	}
@@ -79,9 +81,8 @@
 	}
 %>
 
-<!-- 
+<hr/>
 <i>Graphs by <a href='http://g.raphaeljs.com/'>gRaphaël</a></i>
--->
 
 <hr>
 <a href="<%=  request.getContextPath() %>/survey">Return to the SurveyTool</a>

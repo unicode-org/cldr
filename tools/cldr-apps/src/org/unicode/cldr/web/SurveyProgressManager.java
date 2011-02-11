@@ -143,7 +143,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
                 return (int) (arg1.recentTime() - arg0.recentTime());
             }});
         for(SurveyProgressTask t : tasks ) {
-            if(!t.dead)orderedTasks.add(t); 
+            if(t!=null && !t.dead)orderedTasks.add(t); 
         }
         
         StringBuffer buf = new StringBuffer();

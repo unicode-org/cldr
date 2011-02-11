@@ -105,7 +105,7 @@ public class UserSettingsData {
     private void setupDB() throws SQLException {
 
         String sql = null;
-        Connection conn = sm.dbUtils.getDBConnection(sm);
+        Connection conn = sm.dbUtils.getDBConnection();
         CLDRProgressTask progress = sm.openProgress("Setup " + UserSettingsData.class.getName()+ " database");
         try{
 
@@ -150,7 +150,7 @@ public class UserSettingsData {
     }
     
     private String internalGet(int id, String name) throws SQLException {
-        Connection conn = sm.dbUtils.getDBConnection(sm);
+        Connection conn = sm.dbUtils.getDBConnection();
         
         String sql = "select "+SET_VALUES+".set_value from " + SET_VALUES + "," + SET_KINDS + " where " + SET_VALUES+".usr_id=? AND "+
             SET_KINDS+".set_id="+SET_VALUES+".set_id AND "+SET_KINDS+".set_name=?";
@@ -169,7 +169,7 @@ public class UserSettingsData {
     }
     
     private void internalSet(int id, String name, String value) throws SQLException{
-        Connection conn = sm.dbUtils.getDBConnection(sm);
+        Connection conn = sm.dbUtils.getDBConnection();
         String sql;
         try {
             int set_id = getSetId(name, conn);

@@ -2,6 +2,8 @@
 
 package org.unicode.cldr.web;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -267,8 +269,8 @@ public class Race {
     /**
      * calculate the optimal item, if any recalculate any items
      */
-    public int optimal() throws SQLException {
-        gatherVotes();
+    public int optimal(Connection conn) throws SQLException {
+        gatherVotes(conn);
 
         Chad optimal = calculateWinner();
 
@@ -339,7 +341,7 @@ public class Race {
             return valueChad;
         } else {
             Chad otherChad = chadsByValue2.get(nonEmptyValue);
-            if (otherChad != null && otherChad.refs != theReferences) {
+            if (otherChad != null && otherChad.refs != theReferences) { // TODO: should be String.equals() ? 
                 refConflicts.add(nonEmptyValue);
             }
         }
@@ -445,130 +447,138 @@ public class Race {
     /**
      * @returns number of votes counted, including abstentions
      */
-    private int gatherVotes() throws SQLException {
-        VoteResolver.setVoterToInfo(vet.sm.reg.getVoterToInfo());
+    private int gatherVotes(Connection conn) throws SQLException {
+    	PreparedStatement queryVoteForBaseXpath=null, queryValue=null, dataByBase=null;
+    	try {
+    		queryVoteForBaseXpath = Vetting.prepare_queryVoteForBaseXpath(conn); 
+    		queryValue=Vetting.prepare_queryValue(conn);
+    		dataByBase=Vetting.prepare_dataByBase(conn);
+    		VoteResolver.setVoterToInfo(vet.sm.reg.getVoterToInfo());
 
-        // set status of 'last release' (base) data
-        
-        vet.queryVoteForBaseXpath.setString(1, locale.toString());
-        vet.queryVoteForBaseXpath.setInt(2, base_xpath);
-        vet.queryValue.setString(1, locale.toString());
+    		// set status of 'last release' (base) data
 
-        // Add the base xpath. It may come in as data later, and there may be no other values (and no votes).
-        // If the base xpath wins, and there's no matching chad, the winning result will be 'null'.
-        resolver.add(base_xpath);
-        
-        ResultSet rs;
+    		queryVoteForBaseXpath.setString(1, locale.toString());
+    		queryVoteForBaseXpath.setInt(2, base_xpath);
+    		queryValue.setString(1, locale.toString());
 
-        /**
-         * Get the existing item.
-         */
-        vet.queryValue.setInt(2, base_xpath);
-        rs = vet.queryValue.executeQuery();
-        if (rs.next()) {
-            String itemValue = DBUtils.getStringUTF8(rs, 1);
-            int origXpath = rs.getInt(2);
-            existingVote(base_xpath, origXpath, itemValue);
-            
-            // get draft status for VR
-            String fullpathstr = vet.sm.xpt.getById(origXpath);
-            // xpp.clear();
-            XPathParts xpp = new XPathParts(null, null);
-            xpp.initialize(fullpathstr);
-            String lelement = xpp.getElement(-1);
-            String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
-            VoteResolver.Status newStatus = VoteResolver.Status.valueOf(
-                        VoteResolver.fixBogusDraftStatusValues(eDraft));
-            // 'last release' here means, whatever is in CVS
-            resolver.setLastRelease(base_xpath, newStatus );
-        } else {
-            // 'last release' is missing
-            resolver.setLastRelease(base_xpath, VoteResolver.Status.missing );
-        }
-        
-        // Now, fetch all votes for this path.
-        rs = vet.queryVoteForBaseXpath.executeQuery();
-        int count = 0;
-        while (rs.next()) {
-            count++;
-            int submitter = rs.getInt(1);
-            int vote_xpath = rs.getInt(2);
-            /* String vote_value = rs.getString(4); */
-            if (vote_xpath == -1) {
-                continue; // abstention
-            }
+    		// Add the base xpath. It may come in as data later, and there may be no other values (and no votes).
+    		// If the base xpath wins, and there's no matching chad, the winning result will be 'null'.
+    		resolver.add(base_xpath);
 
-            vet.queryValue.setInt(2, vote_xpath);
-            ResultSet crs = vet.queryValue.executeQuery();
-            int orig_xpath = vote_xpath;
-            String itemValue = null;
-            if (crs.next()) {
-                itemValue = DBUtils.getStringUTF8(crs, 1);
-                orig_xpath = crs.getInt(2);
-            
+    		ResultSet rs;
 
-                UserRegistry.User u = vet.sm.reg.getInfo(submitter);
-            	vote(u, vote_xpath, orig_xpath, itemValue);
-            }
-        }
+    		/**
+    		 * Get the existing item.
+    		 */
+    		queryValue.setInt(2, base_xpath);
+    		rs = queryValue.executeQuery();
+    		if (rs.next()) {
+    			String itemValue = DBUtils.getStringUTF8(rs, 1);
+    			int origXpath = rs.getInt(2);
+    			existingVote(base_xpath, origXpath, itemValue);
+
+    			// get draft status for VR
+    			String fullpathstr = vet.sm.xpt.getById(origXpath);
+    			// xpp.clear();
+    			XPathParts xpp = new XPathParts(null, null);
+    			xpp.initialize(fullpathstr);
+    			String lelement = xpp.getElement(-1);
+    			String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
+    			VoteResolver.Status newStatus = VoteResolver.Status.valueOf(
+    					VoteResolver.fixBogusDraftStatusValues(eDraft));
+    			// 'last release' here means, whatever is in CVS
+    			resolver.setLastRelease(base_xpath, newStatus );
+    		} else {
+    			// 'last release' is missing
+    			resolver.setLastRelease(base_xpath, VoteResolver.Status.missing );
+    		}
+
+    		// Now, fetch all votes for this path.
+    		rs = queryVoteForBaseXpath.executeQuery();
+    		int count = 0;
+    		while (rs.next()) {
+    			count++;
+    			int submitter = rs.getInt(1);
+    			int vote_xpath = rs.getInt(2);
+    			/* String vote_value = rs.getString(4); */
+    			if (vote_xpath == -1) {
+    				continue; // abstention
+    			}
+
+    			queryValue.setInt(2, vote_xpath);
+    			ResultSet crs = queryValue.executeQuery();
+    			int orig_xpath = vote_xpath;
+    			String itemValue = null;
+    			if (crs.next()) {
+    				itemValue = DBUtils.getStringUTF8(crs, 1);
+    				orig_xpath = crs.getInt(2);
 
 
-        // Check for default votes
+    				UserRegistry.User u = vet.sm.reg.getInfo(submitter);
+    				vote(u, vote_xpath, orig_xpath, itemValue);
+    			}
+    		}
 
-//        // Google: (proposed-x650)
-//        vet.googData.setString(1, locale);
-//        vet.googData.setInt(2, base_xpath);
-//        rs = vet.googData.executeQuery(); // select xpath,origxpath,value from
-//                                            // CLDR_DATA where
-//                                            // alt_type='proposed-x650' and
-//                                            // locale='af' and base_xpath=194130
-//        if (rs.next()) {
-//            int vote_xpath = rs.getInt(1);
-//            int origXpath = rs.getInt(2);
-//            String value = SurveyMain.getStringUTF8(rs, 3);
-//            defaultVote("Google", vote_xpath, origXpath, value);
-//        }
 
-        // Now, add ALL other possible items.
-        
-        Map<Chad,Integer> possibles = new HashMap<Chad,Integer>(); // checking if it is disqualified could load other bundles, leading to contention on dataByBase's RS
-       
-      //  synchronized(vet) {
-          if(dbb>5) {
-        	  vet.sm.busted("dbb isn't 1, it's " + dbb + " !");
-          }
-	        if(++dbb!=1) {
-	        	throw new InternalError("Going in: dbb isn't 1, it's " + dbb);
-	        }
-	        
-	        
-	        vet.dataByBase.setString(1, locale.toString());
-	        vet.dataByBase.setInt(2, base_xpath);
-	        rs = vet.dataByBase.executeQuery();
-	        while (rs.next()) {
-	            int xpath = rs.getInt(1);
-	            int origXpath = rs.getInt(2);
-	            // 3 : alt_type
-	            String value = DBUtils.getStringUTF8(rs, 4);
-	            Chad c = getChad(xpath, origXpath, value);
-	            possibles.put(c,xpath);
-//	            if(c.xpath != xpath) {
-//	            	throw new InternalError("Chad has xpath " + c.xpath+" but supposed to be + " + xpath);
-//	            }
-	        }
+    		// Check for default votes
 
-	        if(--dbb!=0) {
-	        	throw new InternalError("Going in: dbb isn't 0, it's " + dbb);
-	        }
-    //    }
+    		//        // Google: (proposed-x650)
+    		//        vet.googData.setString(1, locale);
+    		//        vet.googData.setInt(2, base_xpath);
+    		//        rs = vet.googData.executeQuery(); // select xpath,origxpath,value from
+    		//                                            // CLDR_DATA where
+    		//                                            // alt_type='proposed-x650' and
+    		//                                            // locale='af' and base_xpath=194130
+    		//        if (rs.next()) {
+    		//            int vote_xpath = rs.getInt(1);
+    		//            int origXpath = rs.getInt(2);
+    		//            String value = SurveyMain.getStringUTF8(rs, 3);
+    		//            defaultVote("Google", vote_xpath, origXpath, value);
+    		//        }
 
-        for(Map.Entry<Race.Chad,Integer> e : possibles.entrySet()) {        	
-	        if(!e.getKey().isDisqualified()) {
-	            resolver.add(e.getValue());
-	        }
-        }
-        
-        return count;
+    		// Now, add ALL other possible items.
+
+    		Map<Chad,Integer> possibles = new HashMap<Chad,Integer>(); // checking if it is disqualified could load other bundles, leading to contention on dataByBase's RS
+
+    		//  synchronized(vet) {
+    		if(dbb>5) {
+    			vet.sm.busted("dbb isn't 1, it's " + dbb + " !");
+    		}
+    		if(++dbb!=1) {
+    			throw new InternalError("Going in: dbb isn't 1, it's " + dbb);
+    		}
+
+
+    		dataByBase.setString(1, locale.toString());
+    		dataByBase.setInt(2, base_xpath);
+    		rs = dataByBase.executeQuery();
+    		while (rs.next()) {
+    			int xpath = rs.getInt(1);
+    			int origXpath = rs.getInt(2);
+    			// 3 : alt_type
+    			String value = DBUtils.getStringUTF8(rs, 4);
+    			Chad c = getChad(xpath, origXpath, value);
+    			possibles.put(c,xpath);
+    			//	            if(c.xpath != xpath) {
+    			//	            	throw new InternalError("Chad has xpath " + c.xpath+" but supposed to be + " + xpath);
+    			//	            }
+    		}
+
+    		if(--dbb!=0) {
+    			throw new InternalError("Going in: dbb isn't 0, it's " + dbb);
+    		}
+    		//    }
+
+    		for(Map.Entry<Race.Chad,Integer> e : possibles.entrySet()) {        	
+    			if(!e.getKey().isDisqualified()) {
+    				resolver.add(e.getValue());
+    			}
+    		}
+
+    		return count;
+    	} finally {
+    		DBUtils.close(queryVoteForBaseXpath, queryValue, dataByBase);
+    	}
     }
     
     static int dbb = 0;
@@ -607,188 +617,204 @@ public class Race {
      * 
      * @return type
      */
-    public int updateDB() throws SQLException {
-        // First, zap old data
-        int rowsUpdated = 0;
+    public int updateDB(Connection conn) throws SQLException {
+    	PreparedStatement outputDelete=null,  orgDisputeDelete=null,  outputInsert=null,  orgDisputeInsert=null,  insertResult=null,  updateResult=null;
+    	
+    	try {
+    		// First, zap old data
+    		int rowsUpdated = 0;
 
-        // zap old CLDR_OUTPUT rows
-        vet.outputDelete.setString(1, locale.toString());
-        vet.outputDelete.setInt(2, base_xpath);
-        rowsUpdated += vet.outputDelete.executeUpdate();
+    		// zap old CLDR_OUTPUT rows
+    		outputDelete=Vetting.prepare_outputDelete(conn);
+    		outputDelete.setString(1, locale.toString());
+    		outputDelete.setInt(2, base_xpath);
+    		rowsUpdated += outputDelete.executeUpdate();
 
-        // zap orgdispute
-        vet.orgDisputeDelete.setString(1, locale.toString());
-        vet.orgDisputeDelete.setInt(2, base_xpath);
-        rowsUpdated += vet.orgDisputeDelete.executeUpdate();
+    		// zap orgdispute
+    		orgDisputeDelete=Vetting.prepare_orgDisputeDelete(conn);
+    		orgDisputeDelete.setString(1, locale.toString());
+    		orgDisputeDelete.setInt(2, base_xpath);
+    		rowsUpdated += orgDisputeDelete.executeUpdate();
 
-        vet.outputInsert.setString(1, locale.toString());
-        vet.outputInsert.setInt(2, base_xpath);
-        vet.orgDisputeInsert.setString(2, locale.toString());
-        vet.orgDisputeInsert.setInt(3, base_xpath);
-        // Now, IF there was a valid result, store it.
-        // outputInsert = prepareStatement("outputInsert", // loc, basex, outx,
-        // outFx, datax
-        // outputInsert: #1 locale, #2 basex, #3 OUTx (the "user" xpath, i.e.,
-        // no alt confirmed), #4 outFx #5 DATAx (where the data really lives.
-        // For the eventual join that will find the data.)
-        String baseString = vet.sm.xpt.getById(base_xpath);
+    		// Now, IF there was a valid result, store it.
+    		// outputInsert = prepareStatement("outputInsert", // loc, basex, outx,
+    		// outFx, datax
+    		// outputInsert: #1 locale, #2 basex, #3 OUTx (the "user" xpath, i.e.,
+    		// no alt confirmed), #4 outFx #5 DATAx (where the data really lives.
+    		// For the eventual join that will find the data.)
+    		String baseString = vet.sm.xpt.getById(base_xpath);
 
-        XPathParts xpp = new XPathParts(null, null);
-        xpp.clear();
-        xpp.initialize(baseString);
-        String lelement = xpp.getElement(-1);
-        String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+    		XPathParts xpp = new XPathParts(null, null);
+    		xpp.clear();
+    		xpp.initialize(baseString);
+    		String lelement = xpp.getElement(-1);
+    		String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
 
-        String alts[] = LDMLUtilities.parseAlt(eAlt);
-        String altvariant = null;
-        String baseNoAlt = baseString;
+    		String alts[] = LDMLUtilities.parseAlt(eAlt);
+    		String altvariant = null;
+    		String baseNoAlt = baseString;
 
-        if (alts[0] != null) { // it has an alt, so deconstruct it.
-            altvariant = alts[0];
-            baseNoAlt = vet.sm.xpt.removeAlt(baseString);
-        }
+    		if (alts[0] != null) { // it has an alt, so deconstruct it.
+    			altvariant = alts[0];
+    			baseNoAlt = vet.sm.xpt.removeAlt(baseString);
+    		}
 
-        if (winner != null) {
-            int winnerPath = base_xpath; // shortcut - this IS the base
-                                            // xpath.
+    		if (winner != null) {
+    			int winnerPath = base_xpath; // shortcut - this IS the base
+    			// xpath.
 
-            String baseFString = vet.sm.xpt.getById(winner.full_xpath);
-            String baseFNoAlt = baseFString;
-            if (alts[0] != null) {
-                baseFNoAlt = vet.sm.xpt.removeAlt(baseFString);
-            }
+    			String baseFString = vet.sm.xpt.getById(winner.full_xpath);
+    			String baseFNoAlt = baseFString;
+    			if (alts[0] != null) {
+    				baseFNoAlt = vet.sm.xpt.removeAlt(baseFString);
+    			}
 
-            baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "draft");
-            baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "alt");
+    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "draft");
+    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "alt");
 
-            int winnerFullPath = vet.makeXpathId(baseFNoAlt, altvariant, null, status);
+    			int winnerFullPath = vet.makeXpathId(baseFNoAlt, altvariant, null, status);
 
-            if (winner.disqualified && Vetting.MARK_NO_DISQUALIFY) {
-                winnerFullPath = vet.makeXpathId(baseFNoAlt, altvariant, "proposed-x555", status);
-            }
+    			if (winner.disqualified && Vetting.MARK_NO_DISQUALIFY) {
+    				winnerFullPath = vet.makeXpathId(baseFNoAlt, altvariant, "proposed-x555", status);
+    			}
 
-            vet.outputInsert.setInt(3, winnerPath); // outputxpath = base, i.e.
-                                                    // no alt/proposed.
-            vet.outputInsert.setInt(4, winnerFullPath); // outputFullxpath =
-                                                        // base, i.e. no
-                                                        // alt/proposed.
-            vet.outputInsert.setInt(5, winner.xpath); // data = winner.xpath
-            vet.outputInsert.setInt(6, status.intValue());
-            rowsUpdated += vet.outputInsert.executeUpdate();
-        }
+    			if(outputInsert==null) {
+    	    		outputInsert=Vetting.prepare_outputInsert(conn);
+    	    		outputInsert.setString(1, locale.toString());
+    	    		outputInsert.setInt(2, base_xpath);
+    			}
+    			outputInsert.setInt(3, winnerPath); // outputxpath = base, i.e.
+    			// no alt/proposed.
+    			outputInsert.setInt(4, winnerFullPath); // outputFullxpath =
+    			// base, i.e. no
+    			// alt/proposed.
+    			outputInsert.setInt(5, winner.xpath); // data = winner.xpath
+    			outputInsert.setInt(6, status.intValue());
+    			rowsUpdated += outputInsert.executeUpdate();
+    		}
 
-        // add any other items
-        int jsernum = 1000; // starting point for x proposed designation
-        for (Chad other : chads.values()) {
-            // skip if:
-            if (other == winner || (other.disqualified && !Vetting.MARK_NO_DISQUALIFY)
-                    || other.voters == null || other.voters.isEmpty()) { 
-                // skip the winner and any disqualified or no-vote items.
-                continue;
-            }
-            jsernum++;
-            Status proposedStatus = Status.UNCONFIRMED;
-            String altproposed = "proposed-x" + jsernum;
-            int aPath = vet.makeXpathId(baseNoAlt, altvariant, altproposed, Status.INDETERMINATE);
+    		// add any other items
+    		int jsernum = 1000; // starting point for x proposed designation
+    		for (Chad other : chads.values()) {
+    			// skip if:
+    			if (other == winner || (other.disqualified && !Vetting.MARK_NO_DISQUALIFY)
+    					|| other.voters == null || other.voters.isEmpty()) { 
+    				// skip the winner and any disqualified or no-vote items.
+    				continue;
+    			}
+    			jsernum++;
+    			Status proposedStatus = Status.UNCONFIRMED;
+    			String altproposed = "proposed-x" + jsernum;
+    			int aPath = vet.makeXpathId(baseNoAlt, altvariant, altproposed, Status.INDETERMINATE);
 
-            String baseFString = vet.sm.xpt.getById(other.full_xpath);
-            String baseFNoAlt = baseFString;
-            if (alts[0] != null) {
-                baseFNoAlt = vet.sm.xpt.removeAlt(baseFString);
-            }
-            baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "draft");
-            baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "alt");
-            int aFullPath = vet.makeXpathId(baseFNoAlt, altvariant, altproposed, proposedStatus);
+    			String baseFString = vet.sm.xpt.getById(other.full_xpath);
+    			String baseFNoAlt = baseFString;
+    			if (alts[0] != null) {
+    				baseFNoAlt = vet.sm.xpt.removeAlt(baseFString);
+    			}
+    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "draft");
+    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "alt");
+    			int aFullPath = vet.makeXpathId(baseFNoAlt, altvariant, altproposed, proposedStatus);
 
-            // otherwise, show it under something.
-            vet.outputInsert.setInt(3, aPath); // outputxpath = base, i.e. no
-                                                // alt/proposed.
-            vet.outputInsert.setInt(4, aFullPath); // outputxpath = base, i.e.
-                                                    // no alt/proposed.
-            vet.outputInsert.setInt(5, other.xpath); // data = winner.xpath
-            vet.outputInsert.setInt(6, proposedStatus.intValue());
-            rowsUpdated += vet.outputInsert.executeUpdate();
-        }
+    			// otherwise, show it under something.
+    			outputInsert.setInt(3, aPath); // outputxpath = base, i.e. no
+    			// alt/proposed.
+    			outputInsert.setInt(4, aFullPath); // outputxpath = base, i.e.
+    			// no alt/proposed.
+    			outputInsert.setInt(5, other.xpath); // data = winner.xpath
+    			outputInsert.setInt(6, proposedStatus.intValue());
+    			rowsUpdated += outputInsert.executeUpdate();
+    		}
 
-        // update disputes, if any
-//        for (Organization org : orgVotes.values()) {
-//            if (org.dispute) {
-//                vet.orgDisputeInsert.setString(1, org.name);
-//                rowsUpdated += vet.orgDisputeInsert.executeUpdate();
-//            }
-//        }
-        for(VoteResolver.Organization org : resolver.getConflictedOrganizations()) {
-//            Organization sorg = Organization.fromOrganization(org); // convert from foreign format
-            vet.orgDisputeInsert.setString(1, org.name()); // use foreign format
-            rowsUpdated += vet.orgDisputeInsert.executeUpdate();
-        }
+    		// update disputes, if any
+    		//        for (Organization org : orgVotes.values()) {
+    		//            if (org.dispute) {
+    		//                vet.orgDisputeInsert.setString(1, org.name);
+    		//                rowsUpdated += vet.orgDisputeInsert.executeUpdate();
+    		//            }
+    		//        }
+    		for(VoteResolver.Organization org : resolver.getConflictedOrganizations()) {
+    			//            Organization sorg = Organization.fromOrganization(org); // convert from foreign format
+    			if(orgDisputeInsert==null) {
+    	    		orgDisputeInsert=Vetting.prepare_orgDisputeInsert(conn);
+    	    		orgDisputeInsert.setString(2, locale.toString());
+    	    		orgDisputeInsert.setInt(3, base_xpath);
+    			}
+    			orgDisputeInsert.setString(1, org.name()); // use foreign format
+    			rowsUpdated += orgDisputeInsert.executeUpdate();
+    		}
 
-        // Now, update the vote results
-        int resultXpath = -1;
-        int type = 0;
-        if (winner != null) {
-            resultXpath = winner.xpath;
-        }
+    		// Now, update the vote results
+    		int resultXpath = -1;
+    		int type = 0;
+    		if (winner != null) {
+    			resultXpath = winner.xpath;
+    		}
 
-        // Examine the results
-        if (resultXpath != -1) {
-            if (resolver.isDisputed()/* && (status != Status.APPROVED)*/) { 
-             // if it  was  approved  anyways,  then  it's  not  makred  as disputed.
-                type = Vetting.RES_DISPUTED;
-            } else {
-                type = Vetting.RES_GOOD;
-            }
-        } else {
-            if (!chads.isEmpty()) {
-                type = Vetting.RES_INSUFFICIENT;
-            } else {
-                type = Vetting.RES_NO_VOTES;
-            }
-        }
-        if (hadDisqualifiedWinner || hadOtherError) {
-            type = Vetting.RES_ERROR;
-        }
-        if (id == -1) {
-            // Not an existing vote: insert a new one
-            // insert
-            vet.insertResult.setInt(2, base_xpath);
-            if (resultXpath != -1) {
-                vet.insertResult.setInt(3, resultXpath);
-            } else {
-                vet.insertResult.setNull(3, java.sql.Types.SMALLINT); // no
-                                                                        // fallback.
-            }
-            vet.insertResult.setInt(4, type);
-//            System.err.println(this.locale.toString()+"-"+base_xpath+"++");
+    		// Examine the results
+    		if (resultXpath != -1) {
+    			if (resolver.isDisputed()/* && (status != Status.APPROVED)*/) { 
+    				// if it  was  approved  anyways,  then  it's  not  makred  as disputed.
+    				type = Vetting.RES_DISPUTED;
+    			} else {
+    				type = Vetting.RES_GOOD;
+    			}
+    		} else {
+    			if (!chads.isEmpty()) {
+    				type = Vetting.RES_INSUFFICIENT;
+    			} else {
+    				type = Vetting.RES_NO_VOTES;
+    			}
+    		}
+    		if (hadDisqualifiedWinner || hadOtherError) {
+    			type = Vetting.RES_ERROR;
+    		}
+    		if (id == -1) {
+    			// Not an existing vote: insert a new one
+    			// insert
+    			insertResult=Vetting.prepare_insertResult(conn);
+    			insertResult.setString(1,locale.toString());
+    			insertResult.setInt(2, base_xpath);
+    			if (resultXpath != -1) {
+    				insertResult.setInt(3, resultXpath);
+    			} else {
+    				insertResult.setNull(3, java.sql.Types.SMALLINT); // no
+    				// fallback.
+    			}
+    			insertResult.setInt(4, type);
+    			//            System.err.println(this.locale.toString()+"-"+base_xpath+"++");
 
-            int res = vet.insertResult.executeUpdate();
-            // no commit
-            if (res != 1) {
-                throw new RuntimeException(locale + ":" + base_xpath + "=" + resultXpath + " ("
-                        + Vetting.typeToStr(type) + ") - insert failed.");
-            }
-            id = -2; // unknown id
-        } else {
-            // existing vote: get the old one
-            // ... for now, just do an update
-            // update CLDR_RESULT set
-            // vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
-
-            if (resultXpath != -1) {
-                vet.updateResult.setInt(1, resultXpath);
-            } else {
-                vet.updateResult.setNull(1, java.sql.Types.SMALLINT); // no fallback.
-            }
-            vet.updateResult.setInt(2, type);
-            vet.updateResult.setInt(3, base_xpath);
-            vet.updateResult.setString(4, locale.toString());
-            int res = vet.updateResult.executeUpdate();
-            if (res != 1) {
-                throw new RuntimeException(locale + ":" + base_xpath + "@" + id + "=" + resultXpath
-                        + " (" + Vetting.typeToStr(type) + ") - update failed.");
-            }
-        }
-        return type;
+    			int res = insertResult.executeUpdate();
+    			// no commit
+    			if (res != 1) {
+    				throw new RuntimeException(locale + ":" + base_xpath + "=" + resultXpath + " ("
+    						+ Vetting.typeToStr(type) + ") - insert failed.");
+    			}
+    			id = -2; // unknown id
+    		} else {
+    			// existing vote: get the old one
+    			// ... for now, just do an update
+    			// update CLDR_RESULT set
+    			// vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
+    			updateResult=Vetting.prepare_updateResult(conn);
+    			if (resultXpath != -1) {
+    				updateResult.setInt(1, resultXpath);
+    			} else {
+    				updateResult.setNull(1, java.sql.Types.SMALLINT); // no fallback.
+    			}
+    			updateResult.setInt(2, type);
+    			updateResult.setInt(3, base_xpath);
+    			updateResult.setString(4, locale.toString());
+    			int res = updateResult.executeUpdate();
+    			if (res != 1) {
+    				throw new RuntimeException(locale + ":" + base_xpath + "@" + id + "=" + resultXpath
+    						+ " (" + Vetting.typeToStr(type) + ") - update failed.");
+    			}
+    		}
+    		return type;
+    	} finally {
+    		DBUtils.close(outputDelete,  orgDisputeDelete,  outputInsert,  orgDisputeInsert,  insertResult,  updateResult);
+    	}
     }
     
     public Chad getOrgVote(String organization) {

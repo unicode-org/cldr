@@ -1392,6 +1392,7 @@ public class WebContext implements Cloneable {
      */
     public Object clone() {
         return new WebContext(this);
+        // TODO: call super.clone()
     }
     
     /**

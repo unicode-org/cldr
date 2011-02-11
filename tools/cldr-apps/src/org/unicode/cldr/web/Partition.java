@@ -97,6 +97,7 @@ public class Partition {
 		if(memberships == null) {
 			Partition empty[] = new Partition[1];
 			empty[0] = new Partition(null, 0, 0);
+			return empty;
 		}
 		Partition testPartitions[] = new Partition[memberships.length];
     	for(int i=0;i<memberships.length;i++) {

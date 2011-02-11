@@ -494,9 +494,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	        	Thread.currentThread().setName(baseThreadName+" ST ");
 	            doSession(ctx); // Session-based Survey main
 	        }
-	        ctx.close();
+        } catch (Throwable t) {
+        	ctx.println("<div class='ferrbox'><h2>Error: </h2><pre>" + t.toString()+"</pre></div>");
+        	System.err.println("Failure with user: " + t);
+        	t.printStackTrace();
         } finally {
         	Thread.currentThread().setName(baseThreadName);
+	        ctx.close();
         }
     }
     
@@ -704,7 +708,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                if(ctx.field("isUser").length()>0) {
 //                    conn = getU_DBConnection();
 //                } else {
-                    conn = dbUtils.getDBConnection(this);
+                    conn = dbUtils.getDBConnection();
 //                }
                 s = conn.createStatement();
                 //s.setQueryTimeout(120); // 2 minute timeout. Not supported by derby..
@@ -1322,7 +1326,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             	
 
 	            for(File file : files ) {
-              	  synchronized(vet.conn) {
+              	  synchronized(vet) {
 	            	CLDRLocale loc = getLocaleOf(file);
 		DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc.toULocale());
 	            	ctx.println("<a name=\""+loc+"\"><h2>"+file.getName()+" - "+loc.getDisplayName(ctx.displayLocale)+"</h2></a>");
@@ -1648,44 +1652,58 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		ctx.println("<h2>Task Queued.</h2>");
 		
             } else {
-                ctx.println("<h4>Update All</h4>");
-                ctx.println("Locs: ");
-                for(CLDRLocale loc : locs ) {
-                	ctx.println("("+loc+") ");
-                }
-                ctx.println("<br>");
-                ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all (routine update)</a><p>  ");
-                ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL&reupdate=reupdate'><b>REupdate:</b> " +
-                        "Delete all old results, and recount everything. Takes a long time.</a><br>");
-                if(what.length()>0) {
-                	for(CLDRLocale loc : locs) {
-                		ctx.println("<h2>"+loc+"</h2>");
-	                    if(reupdate) {
-	                        try {
-	                            synchronized(vet.conn) {
-	                                vet.rmResultLoc.setString(1,loc.toString());
-	                                int del = DBUtils.sqlUpdate(ctx, vet.conn, vet.rmResultLoc);
-	                                ctx.println("<em>"+del+" results of "+loc+" locale removed</em><br>");
-	                                System.err.println("update: "+del+" results of "+loc+" locale removed");
-	                            }
-	                        } catch(SQLException se) {
-	                            se.printStackTrace();
-	                            ctx.println("<b>Err while trying to delete results for " + loc + ":</b> <pre>" + DBUtils.unchainSqlException(se)+"</pre>");
-	                        }
-	                    }
-	                    
-	                    ctx.println("<h4>Update just "+loc+"</h4>");
-	                    ElapsedTimer et = new ElapsedTimer();
-	                    int n = vet.updateResults(loc);
-	                    ctx.println("Done updating "+n+" vote results for " + loc + " in: " + et + "<br>");
-	                    lcr.invalidateLocale(loc);
-                	}
-                    ElapsedTimer zet = new ElapsedTimer();
-                    int zn = vet.updateStatus();
-                    ctx.println("Done updating "+zn+" statuses ["+locs.size()+" locales] in: " + zet + "<br>");
-                } else {
-                    vet.stopUpdating = true;            
-                }
+            	ctx.println("<h4>Update All</h4>");
+            	ctx.println("Locs: ");
+            	for(CLDRLocale loc : locs ) {
+            		ctx.println("("+loc+") ");
+            	}
+            	ctx.println("<br>");
+            	ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL'>Update all (routine update)</a><p>  ");
+            	ctx.println("* <a href='"+actionCtx.url()+actionCtx.urlConnector()+"srl_vet_res=ALL&reupdate=reupdate'><b>REupdate:</b> " +
+            	"Delete all old results, and recount everything. Takes a long time.</a><br>");
+            	if(what.length()>0) {
+            		try {
+            			Connection conn = null;
+            			PreparedStatement rmResultLoc = null;
+            			try {
+            				conn = dbUtils.getDBConnection();
+            				rmResultLoc = Vetting.prepare_rmResultLoc(conn);
+            				for(CLDRLocale loc : locs) {
+            					ctx.println("<h2>"+loc+"</h2>");
+            					if(reupdate) {
+            						try {
+            							synchronized(vet) {
+            								rmResultLoc.setString(1,loc.toString());
+            								int del = DBUtils.sqlUpdate(ctx, conn, rmResultLoc);
+            								ctx.println("<em>"+del+" results of "+loc+" locale removed</em><br>");
+            								System.err.println("update: "+del+" results of "+loc+" locale " +
+            								"removed");
+            							}
+            						} catch(SQLException se) {
+            							se.printStackTrace();
+            							ctx.println("<b>Err while trying to delete results for " + loc + ":</b> <pre>" + DBUtils.unchainSqlException(se)+"</pre>");
+            						}
+            					}
+
+            					ctx.println("<h4>Update just "+loc+"</h4>");
+            					ElapsedTimer et = new ElapsedTimer();
+            					int n = vet.updateResults(loc,conn);
+            					ctx.println("Done updating "+n+" vote results for " + loc + " in: " + et + "<br>");
+            					lcr.invalidateLocale(loc);
+            				}
+            				ElapsedTimer zet = new ElapsedTimer();
+            				int zn = vet.updateStatus(conn);
+            				ctx.println("Done updating "+zn+" statuses ["+locs.size()+" locales] in: " + zet + "<br>");
+            			} finally {
+            				DBUtils.close(rmResultLoc,conn);
+            			}
+            		} catch (SQLException se) {
+            			se.printStackTrace();
+            			ctx.println("<b>Err while trying to delete results :</b> <pre>" + DBUtils.unchainSqlException(se)+"</pre>");
+            		}
+            	} else {
+            		vet.stopUpdating = true;            
+            	}
             }
             actionCtx.println("<hr><h4>Update just certain locales</h4>");
             actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
@@ -1706,32 +1724,32 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 			}
 			
 			
-        } else if(action.equals("srl_vet_wash")) {
-            WebContext subCtx = (WebContext)ctx.clone();
-            actionCtx.addQuery("action",action);
-            ctx.println("<br>");
-            String what = actionCtx.field("srl_vet_wash");
-            if(what.equals("ALL")) {
-                ctx.println("<h4>Remove Old Votes. (in preparation for a new CLDR - do NOT run this after start of vetting)</h4>");
-                ElapsedTimer et = new ElapsedTimer();
-                int n = vet.washVotes();
-                ctx.println("Done washing "+n+" vote results in: " + et + "<br>");
-                int stup = vet.updateStatus();
-                ctx.println("Updated " + stup + " statuses.<br>");
-            } else {
-                ctx.println("All: [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+action+"=ALL'>Wash all</a> ]<br>");
-                if(what.length()>0) {
-                    ctx.println("<h4>Wash "+what+"</h4>");
-                    ElapsedTimer et = new ElapsedTimer();
-                    int n = vet.washVotes(CLDRLocale.getInstance(what));
-                    ctx.println("Done washing "+n+" vote results in: " + et + "<br>");
-                    int stup = vet.updateStatus();
-                    ctx.println("Updated " + stup + " statuses.<br>");
-                }
-            }
-            actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-            actionCtx.printUrlAsHiddenFields();
-            actionCtx.println("Update just: <input name='"+action+"' value='"+what+"'><input type='submit' value='Wash'></form>");
+//        } else if(action.equals("srl_vet_wash")) {
+//        	WebContext subCtx = (WebContext)ctx.clone();
+//        	actionCtx.addQuery("action",action);
+//        	ctx.println("<br>");
+//        	String what = actionCtx.field("srl_vet_wash");
+//        	if(what.equals("ALL")) {
+//        		ctx.println("<h4>Remove Old Votes. (in preparation for a new CLDR - do NOT run this after start of vetting)</h4>");
+//        		ElapsedTimer et = new ElapsedTimer();
+//        		int n = vet.washVotes();
+//        		ctx.println("Done washing "+n+" vote results in: " + et + "<br>");
+//        		int stup = vet.updateStatus();
+//        		ctx.println("Updated " + stup + " statuses.<br>");
+//        	} else {
+//        		ctx.println("All: [ <a href='"+actionCtx.url()+actionCtx.urlConnector()+action+"=ALL'>Wash all</a> ]<br>");
+//        		if(what.length()>0) {
+//        			ctx.println("<h4>Wash "+what+"</h4>");
+//        			ElapsedTimer et = new ElapsedTimer();
+//        			int n = vet.washVotes(CLDRLocale.getInstance(what));
+//        			ctx.println("Done washing "+n+" vote results in: " + et + "<br>");
+//        			int stup = vet.updateStatus();
+//        			ctx.println("Updated " + stup + " statuses.<br>");
+//        		}
+//        	}
+//        	actionCtx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+//        	actionCtx.printUrlAsHiddenFields();
+//        	actionCtx.println("Update just: <input name='"+action+"' value='"+what+"'><input type='submit' value='Wash'></form>");
         } else if(action.equals("srl_twiddle")) {
 			ctx.println("<h3>Parameters. Please do not click unless you know what you are doing.</h3>");
 			
@@ -2108,7 +2126,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             Set<Integer> paths = new HashSet<Integer>();
             String sql = "SELECT xpath from CLDR_DATA where locale=\""+test0+"\"";
             try {
-                Connection conn = dbUtils.getDBConnection(this);
+                Connection conn = dbUtils.getDBConnection();
                 Statement s = conn.createStatement();
                 ResultSet rs = s.executeQuery(sql);
                 while(rs.next()) {
@@ -2762,6 +2780,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 ctx.println("<b class='selected'> you have been granted extended privileges for the CLDR "+getNewVersion()+" vetting period.</b><br>");
             }
         }
+        if(dbUtils.hasDataSource()) {
+        	ctx.println(" | <a class='notselected' href='"+ctx.jspUrl("statistics.jsp")+"'>Statistics</a>");
+        }
     }
     private void showCoverageInHeader(WebContext ctx) {
     	String curSetting = ctx.getCoverageSetting();
@@ -2946,7 +2967,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         Hashtable<CLDRLocale,Hashtable<Integer,String>> nullStatus = null;
         
         {
-            conn = dbUtils.getDBConnection(this);
             userMap = new TreeMap<String, String>();
             nullMap = new TreeMap<String, String>();
             localeStatus = new Hashtable<CLDRLocale,Hashtable<Integer,String>>();
@@ -2955,14 +2975,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
         Set<CLDRLocale> badSet = new TreeSet<CLDRLocale>();
+		PreparedStatement psMySubmit = null;
+		PreparedStatement psMyVet = null;
+		PreparedStatement psnSubmit = null;
+		PreparedStatement psnVet = null;
+
         try {
-			PreparedStatement psMySubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			PreparedStatement psMyVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			PreparedStatement psnSubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			PreparedStatement psnVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+            conn = dbUtils.getDBConnection();
+			 psMySubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			psMyVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			psnSubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			psnVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
 			synchronized(reg) {
-            java.sql.ResultSet rs = reg.list(org);
+            java.sql.ResultSet rs = reg.list(org,conn);
             if(rs == null) {
                 ctx.println("<i>No results...</i>");
                 return;
@@ -3092,6 +3118,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }/*end synchronized(reg)*/ } catch(SQLException se) {
             logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
             ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
+        } finally {
+        	try {
+        		DBUtils.close(psMySubmit,psMyVet,psnSubmit,psnVet,conn);
+        	} catch(SQLException se) {
+                logger.log(java.util.logging.Level.WARNING,"Closing Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+                ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
+        	}
         }
 
 //        Map<String, CLDRLocale> lm = getLocaleListMap();
@@ -3380,8 +3413,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
         ctx.println("<users host=\""+ctx.serverHostport()+"\">");
         String org = null;
-        try { synchronized(reg) {
-            java.sql.ResultSet rs = reg.list(org);
+        Connection conn = null;
+        try { 
+        	conn = dbUtils.getDBConnection();
+        	synchronized(reg) {
+            java.sql.ResultSet rs = reg.list(org,conn);
             if(rs == null) {
                 ctx.println("\t<!-- No results -->");
                 return;
@@ -3409,6 +3445,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }/*end synchronized(reg)*/ } catch(SQLException se) {
             logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
             ctx.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
+        } finally {
+        	try {
+        		DBUtils.close(conn);
+        	}
+        	catch(SQLException se) {
+                logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+                ctx.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
+        	}
         }
         ctx.println("</users>");
     }
@@ -3490,500 +3534,735 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 hideUserList = true; // hide the user list temporarily.
             }
         }
-        
-        try { synchronized(reg) {
-            java.sql.ResultSet rs = reg.list(org);
-            if(rs == null) {
-                ctx.println("<i>No results...</i>");
-                return;
-            }
-            if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
-                org = "ALL"; // all
-            }
-            if(justme) {
-                ctx.println("<h2>My Account</h2>");
-            } else {
-                ctx.println("<h2>Users for " + org + "</h2>");
-                if(UserRegistry.userIsTC(ctx.session.user)) {
-                    showTogglePref(subCtx, PREF_SHOWLOCKED, "Show locked users:");
-                }
-                ctx.println("<br>");
-                if(UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                    ctx.println("<div class='fnotebox'>"+ctx.iconHtml("warn","warning")+"Changing user level or locales while a user is active will result in  " +
-                                " destruction of their session. Check if they have been working recently.</div>");
-                }
-            }
-            // Preset box
-            boolean preFormed = false;
-            
-            if(hideUserList) {
-                String warnHash = "userlist";
-                ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
-                            "<b>+</b> Click here to show the user list...</a></div>");
-                ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
-                            "<div style='display: none' id='" + warnHash + "'>" );
-                ctx.println("<a href='javascript:hide(\"" + warnHash + "\")'>" + "(<b>- hide userlist</b>)</a><br>");
+        Connection conn = null;
+		try {
+			conn = dbUtils.getDBConnection();
+			synchronized (reg) {
+				java.sql.ResultSet rs = reg.list(org, conn);
+				if (rs == null) {
+					ctx.println("<i>No results...</i>");
+					return;
+				}
+				if (UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
+					org = "ALL"; // all
+				}
+				if (justme) {
+					ctx.println("<h2>My Account</h2>");
+				} else {
+					ctx.println("<h2>Users for " + org + "</h2>");
+					if (UserRegistry.userIsTC(ctx.session.user)) {
+						showTogglePref(subCtx, PREF_SHOWLOCKED,
+								"Show locked users:");
+					}
+					ctx.println("<br>");
+					if (UserRegistry.userCanModifyUsers(ctx.session.user)) {
+						ctx.println("<div class='fnotebox'>"
+								+ ctx.iconHtml("warn", "warning")
+								+ "Changing user level or locales while a user is active will result in  "
+								+ " destruction of their session. Check if they have been working recently.</div>");
+					}
+				}
+				// Preset box
+				boolean preFormed = false;
 
-            }
-            
-            if((just==null) 
-                  && UserRegistry.userCanModifyUsers(ctx.session.user) && !justme) {
-                ctx.println("<div class='pager' style='align: right; float: right; margin-left: 4px;'>");
-                ctx.println("<form method=POST action='" + ctx.base() + "'>");
-                ctx.printUrlAsHiddenFields();
-                ctx.println("Set menus:<br><label>all ");
-                ctx.println("<select name='preset_from'>");
-                ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
-                    ctx.println("<option class='user" + UserRegistry.ALL_LEVELS[i] + "' ");
-                    ctx.println(" value='"+UserRegistry.ALL_LEVELS[i]+"'>" + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]) + "</option>");
-                }
-                ctx.println("</select></label> <br>");
-                ctx.println(" <label>to");
-                ctx.println("<select name='preset_do'>");
-                ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-        /*
-                for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
-                    ctx.println("<option class='user" + UserRegistry.ALL_LEVELS[i] + "' ");
-                    ctx.println(" value='"+LIST_ACTION_SETLEVEL+UserRegistry.ALL_LEVELS[i]+"'>" + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]) + "</option>");
-                }
-                ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                ctx.println("   <option value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
-                ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-        */
-                ctx.println("   <option value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password URL...</option>");
-                ctx.println("   <option value='" + LIST_ACTION_SEND_PASSWORD + "'>Resend password...</option>");
-//                ctx.println("   <option value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
-                ctx.println("</select></label> <br>");
-                if(just!=null) {
-                    ctx.print("<input type='hidden' name='"+LIST_JUST+"' value='"+just+"'>");
-                }
-                ctx.println("<input type='submit' name='do' value='"+listName+"'></form>");
-                if((ctx.field("preset_from").length()>0)&&!ctx.field("preset_from").equals(LIST_ACTION_NONE)) {
-                    ctx.println("<hr><i><b>Menus have been pre-filled. <br> Confirm your choices and click Change.</b></i>");
-                    ctx.println("<form method=POST action='" + ctx.base() + "'>");
-                    ctx.println("<input type='submit' name='doBtn' value='Change'>");
-                    preFormed=true;
-                }
-                ctx.println("</div>");
-            }
-            int preset_fromint = ctx.fieldInt("preset_from", -1);
-            String preset_do = ctx.field("preset_do");
-            if(preset_do.equals(LIST_ACTION_NONE)) {
-                preset_do="nothing";
-            }
-            if(/*(just==null)&& */((UserRegistry.userCanModifyUsers(ctx.session.user))) &&
-               !preFormed) { // form was already started, above
-                ctx.println("<form method=POST action='" + ctx.base() + "'>");
-            }
-            if(just!=null) {
-                ctx.print("<input type='hidden' name='"+LIST_JUST+"' value='"+just+"'>");
-            }
-            if(justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                ctx.printUrlAsHiddenFields();
-                ctx.println("<input type='hidden' name='do' value='"+listName+"'>");
-                ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
-            }
-            ctx.println("<table summary='User List' class='userlist' border='2'>");
-            ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Action</th><th>Locales</th><th>Seen</th></tr>");
-            String oldOrg = null;
-            int locked = 0;
-            while(rs.next()) {
-                int theirId = rs.getInt(1);
-                int theirLevel = rs.getInt(2);
-                if(!showLocked && theirLevel >= UserRegistry.LOCKED) {
-                    locked++;
-                    continue;
-                }
-                String theirName = DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
-                String theirEmail = rs.getString(4);
-                String theirOrg = rs.getString(5);
-                String theirLocales = rs.getString(6);                
-                String theirIntlocs = rs.getString(7);
-                java.sql.Timestamp theirLast = rs.getTimestamp(8);
-                boolean havePermToChange = UserRegistry.userCanModifyUser(ctx.session.user, theirId, theirLevel);
-                String theirTag = theirId + "_" + theirEmail; // ID+email - prevents stale data. (i.e. delete of user 3 if the rows change..)
-                String action = ctx.field(theirTag);
-                CookieSession theUser = CookieSession.retrieveUserWithoutTouch(theirEmail);
-                
-                if(just!=null && !just.equals(theirEmail)) {
-                    continue;
-                }
-                n++;
-                
-                if((just==null)&&(!justme)&&(!theirOrg.equals(oldOrg))) {
-                    ctx.println("<tr class='heading' ><th class='partsection' colspan='6'><a name='"+theirOrg+"'><h4>"+theirOrg+"</h4></a></th></tr>");
-                    oldOrg = theirOrg;
-                }
-                
-                ctx.println("  <tr class='user" + theirLevel + "'>");
-                
-            
-                if(areSendingMail && (theirLevel < UserRegistry.LOCKED) ) {
-                    ctx.print("<td class='framecell'>");
-                    mailUser(ctx,theirEmail,mailSubj,mailBody);
-                    ctx.println("</td>");
-                }
-                // first:  DO.
-                
-                if(havePermToChange) {  // do stuff
-                    
-                    String msg = null;
-                    if(ctx.field(LIST_ACTION_SETLOCALES + theirTag).length()>0) {
-                        ctx.println("<td class='framecell' >");
-                        String newLocales = ctx.field(LIST_ACTION_SETLOCALES + theirTag);
-                        msg = reg.setLocales(ctx, theirId, theirEmail, newLocales);
-                        ctx.println(msg);
-                        theirLocales = newLocales; // MODIFY
-                        if(theUser != null) {
-                            ctx.println("<br/><i>Logging out user session " + theUser.id + " and deleting all unsaved changes</i>");
-                            theUser.remove();
-                        }
-                        UserRegistry.User newThem = reg.getInfo(theirId);
-                        if(newThem != null) {
-                            theirLocales = newThem.locales; // update
-                        }
-                        ctx.println("</td>");
-                    } else if((action!=null)&&(action.length()>0)&&(!action.equals(LIST_ACTION_NONE))) { // other actions
-                        ctx.println("<td class='framecell'>");
-                        
-                        // check an explicit list. Don't allow random levels to be set.
-                        for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
-                            if(action.equals(LIST_ACTION_SETLEVEL + UserRegistry.ALL_LEVELS[i])) {
-                                if((just==null)&&(UserRegistry.ALL_LEVELS[i]<=UserRegistry.TC)) {
-                                    ctx.println("<b>Must be zoomed in on a user to promote them to TC</b>");
-                                } else {
-                                    msg = reg.setUserLevel(ctx, theirId, theirEmail, UserRegistry.ALL_LEVELS[i]);
-                                    ctx.println("Set user level to " + UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i]));
-                                    ctx.println(": " + msg);
-                                    theirLevel = UserRegistry.ALL_LEVELS[i];
-                                    if(theUser != null) {
-                                        ctx.println("<br/><i>Logging out user session " + theUser.id + "</i>");
-                                        theUser.remove();
-                                    }
-                                }
-                            }
-                        }
-                        
-                        if(action.equals(LIST_ACTION_SHOW_PASSWORD)) {
-                            String pass = reg.getPassword(ctx, theirId);
-                            if(pass != null) {
-                                UserRegistry.printPasswordLink(ctx, theirEmail, pass);
-                            }
-                        } else if(action.equals(LIST_ACTION_SEND_PASSWORD)) {
-                            String pass = reg.getPassword(ctx, theirId);
-                            if(pass != null) {
-                                UserRegistry.printPasswordLink(ctx, theirEmail, pass);
-                                notifyUser(ctx, theirEmail, pass);                                
-                            }                            
-                        } else if(action.equals(LIST_ACTION_DELETE0)) {
-                            ctx.println("Ensure that 'confirm delete' is chosen at right and click Change again to delete..");
-                        } else if((UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) && (action.equals(LIST_ACTION_DELETE1))) {
-                            msg = reg.delete(ctx, theirId, theirEmail);
-                            ctx.println("<strong style='font-color: red'>Deleting...</strong><br>");
-                            ctx.println(msg);
-                        } else if((UserRegistry.userCanModifyUser(ctx.session.user,theirId,theirLevel)) && (action.equals(LIST_ACTION_SETLOCALES))) {
-                            if(theirLocales == null) {
-                                theirLocales = "";
-                            }
-                            ctx.println("<label>Locales: (space separated) <input name='" + LIST_ACTION_SETLOCALES + theirTag + "' value='" + theirLocales + "'></label>"); 
-                        } else if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
-                            // change of other stuff.
-                            if(UserRegistry.userIsAdmin(ctx.session.user) && action.equals(LIST_ACTION_CHANGE_PASSWORD)) {
-                                String what = "password";
-                                UserRegistry.InfoType type = UserRegistry.InfoType.INFO_PASSWORD;
-                                
-                                String s0 = ctx.field("string0"+what);
-                                String s1 = ctx.field("string1"+what);
-                                if(s0.equals(s1)&&s0.length()>0) {
-                                    ctx.println("<h4>Change "+what+" to <tt class='codebox'>"+s0+"</tt></h4>");
-                                    action = ""; // don't popup the menu again.
-                                    
-                                    msg = reg.updateInfo(ctx, theirId, theirEmail, type, s0);
-                                    ctx.println("<div class='fnotebox'>"+msg+"</div>");
-                                    ctx.println("<i>click Change again to see changes</i>");                                    
-                                } else {
-                                    ctx.println("<h4>Change " + what+"</h4>");
-                                    if(s0.length()>0) {
-                                        ctx.println("<p class='ferrbox'>Both fields must match.</p>");
-                                    }
-                                    ctx.println("<label><b>New "+what+ ":</b><input type='password' name='string0"+what+"' value='"+s0+"'></label><br>");
-                                    ctx.println("<label><b>New "+what+ ":</b><input type='password' name='string1"+what+"'> (confirm)</label>");
-                                    
-                                    ctx.println("<br><br>");
-                                    ctx.println("(Suggested password: <tt>"+UserRegistry.makePassword(theirEmail)+"</tt> )");
-                                }
-                            } else if(action.equals(LIST_ACTION_CHANGE_EMAIL) ||
-                                 action.equals(LIST_ACTION_CHANGE_NAME)) {
-                                String what = action.equals(LIST_ACTION_CHANGE_EMAIL)?"Email":"Name";
-                                UserRegistry.InfoType type = action.equals(LIST_ACTION_CHANGE_EMAIL)?UserRegistry.InfoType.INFO_EMAIL:UserRegistry.InfoType.INFO_NAME;
-                                
-                                String s0 = ctx.field("string0"+what);
-                                String s1 = ctx.field("string1"+what);
-                                if(s0.equals(s1)&&s0.length()>0) {
-                                    ctx.println("<h4>Change "+what+" to <tt class='codebox'>"+s0+"</tt></h4>");
-                                    action = ""; // don't popup the menu again.
-                                    
-                                    msg = reg.updateInfo(ctx, theirId, theirEmail, type, s0);
-                                    ctx.println("<div class='fnotebox'>"+msg+"</div>");
-                                    ctx.println("<i>click Change again to see changes</i>");                                    
-                                } else {
-                                    ctx.println("<h4>Change " + what+"</h4>");
-                                    if(s0.length()>0) {
-                                        ctx.println("<p class='ferrbox'>Both fields must match.</p>");
-                                    }
-                                    ctx.println("<label><b>New "+what+ ":</b><input name='string0"+what+"' value='"+s0+"'></label><br>");
-                                    ctx.println("<label><b>New "+what+ ":</b><input name='string1"+what+"'> (confirm)</label>");
-                                }
-                            }
-                        }
-                        // ctx.println("Change to " + action);
-                    } else {
-                        ctx.print("<td>");
-                    }
-                } else {
-                    ctx.print("<td>");
-                }
-                
-                if(just==null) {
-                    ctx.print("<a href='"+ctx.url()+ctx.urlConnector()+"do=list&"+LIST_JUST+"="+changeAtTo40(theirEmail)+
-                        "' >"+ctx.iconHtml("zoom","More on this user..")+"</a>");
-                }
-                ctx.println("</td>");
-                
-                // org, level
-                ctx.println("    <td>" + theirOrg + "<br>" +
-                    "&nbsp; <span style='font-size: 80%' align='right'>" + UserRegistry.levelToStr(ctx,theirLevel).replaceAll(" ","&nbsp;") + "</span></td>");
+				if (hideUserList) {
+					String warnHash = "userlist";
+					ctx.println("<div id='h_"
+							+ warnHash
+							+ "'><a href='javascript:show(\""
+							+ warnHash
+							+ "\")'>"
+							+ "<b>+</b> Click here to show the user list...</a></div>");
+					ctx.println("<!-- <noscript>Warning: </noscript> -->"
+							+ "<div style='display: none' id='" + warnHash
+							+ "'>");
+					ctx.println("<a href='javascript:hide(\"" + warnHash
+							+ "\")'>" + "(<b>- hide userlist</b>)</a><br>");
 
-                ctx.println("    <td valign='top'><font size='-1'>#" + theirId + " </font> <a name='u_"+theirEmail+"'>" +  theirName + "</a>");                
-                ctx.println("    <a href='mailto:" + theirEmail + "'>" + theirEmail + "</a>");
-                ctx.print("</td><td>");
-                if(havePermToChange) {
-                    // Was something requested?
-                    
-                    { // PRINT MENU
-                        ctx.print("<select name='" + theirTag + "'>");
-                        
-                        // set user to VETTER
-                        ctx.println("   <option value=''>" + LIST_ACTION_NONE + "</option>");
-                        if(just != null)  {
-                            for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
-                                int lev = UserRegistry.ALL_LEVELS[i];
-                                if((just==null)&&(lev<=UserRegistry.TC)) {
-                                    continue; // no promotion to TC from zoom out
-                                }
-                                doChangeUserOption(ctx, lev, theirLevel,
-                                                  false&&(preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLEVEL + lev) );
-                            }
-                            ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");                                                            
-                        }
-                        ctx.println("   <option ");
-                        if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
-                            ctx.println(" SELECTED ");
-                        }
-                        ctx.println(" value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password...</option>");
-                        ctx.println("   <option ");
-                        if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SEND_PASSWORD)) {
-                            ctx.println(" SELECTED ");
-                        }
-                        ctx.println(" value='" + LIST_ACTION_SEND_PASSWORD + "'>Send password...</option>");
+				}
 
-                        if(just != null)  {
-                            if(theirLevel > UserRegistry.TC) {
-                                ctx.println("   <option ");
-                                if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_SETLOCALES)) {
-                              //      ctx.println(" SELECTED ");
-                                }
-                                ctx.println(" value='" + LIST_ACTION_SETLOCALES + "'>Set locales...</option>");
-                            }
-                            if(UserRegistry.userCanDeleteUser(ctx.session.user,theirId,theirLevel)) {
-                                ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                                if((action!=null) && action.equals(LIST_ACTION_DELETE0)) {
-                                    ctx.println("   <option value='" + LIST_ACTION_DELETE1 +"' SELECTED>Confirm delete</option>");
-                                } else {
-                                    ctx.println("   <option ");
-                                    if((preset_fromint==theirLevel)&&preset_do.equals(LIST_ACTION_DELETE0)) {
-                                    //    ctx.println(" SELECTED ");
-                                    }
-                                    ctx.println(" value='" + LIST_ACTION_DELETE0 +"'>Delete user..</option>");
-                                }
-                            }
-                            if(just != null) { // only do these in 'zoomin' view.
-                                ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");     
-                                
-                                                                                                                                              
-                                // CHANGE EMAIL
-                                ctx.print (" <option ");
-                                if(LIST_ACTION_CHANGE_EMAIL.equals(action)) {
-                                    ctx.print (" SELECTED ");
-                                }
-                                ctx.println(" value='" + LIST_ACTION_CHANGE_EMAIL + "'>Change Email...</option>");
-                                
-                                
-                                // CHANGE NAME
-                                ctx.print(" <option  ");
-                                if(LIST_ACTION_CHANGE_NAME.equals(action)) {
-                                    ctx.print (" SELECTED ");
-                                }
-                                ctx.println(" value='" + LIST_ACTION_CHANGE_NAME + "'>Change Name...</option>");
+				if ((just == null)
+						&& UserRegistry.userCanModifyUsers(ctx.session.user)
+						&& !justme) {
+					ctx.println("<div class='pager' style='align: right; float: right; margin-left: 4px;'>");
+					ctx.println("<form method=POST action='" + ctx.base()
+							+ "'>");
+					ctx.printUrlAsHiddenFields();
+					ctx.println("Set menus:<br><label>all ");
+					ctx.println("<select name='preset_from'>");
+					ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+					for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
+						ctx.println("<option class='user"
+								+ UserRegistry.ALL_LEVELS[i] + "' ");
+						ctx.println(" value='"
+								+ UserRegistry.ALL_LEVELS[i]
+								+ "'>"
+								+ UserRegistry.levelToStr(ctx,
+										UserRegistry.ALL_LEVELS[i])
+								+ "</option>");
+					}
+					ctx.println("</select></label> <br>");
+					ctx.println(" <label>to");
+					ctx.println("<select name='preset_do'>");
+					ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
+					/*
+					 * for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
+					 * ctx.println("<option class='user" +
+					 * UserRegistry.ALL_LEVELS[i] + "' ");
+					 * ctx.println(" value='"
+					 * +LIST_ACTION_SETLEVEL+UserRegistry.ALL_LEVELS[i]+"'>" +
+					 * UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i])
+					 * + "</option>"); } ctx.println("   <option>" +
+					 * LIST_ACTION_NONE + "</option>");
+					 * ctx.println("   <option value='" + LIST_ACTION_DELETE0
+					 * +"'>Delete user..</option>"); ctx.println("   <option>" +
+					 * LIST_ACTION_NONE + "</option>");
+					 */
+					ctx.println("   <option value='"
+							+ LIST_ACTION_SHOW_PASSWORD
+							+ "'>Show password URL...</option>");
+					ctx.println("   <option value='"
+							+ LIST_ACTION_SEND_PASSWORD
+							+ "'>Resend password...</option>");
+					// ctx.println("   <option value='" + LIST_ACTION_SETLOCALES
+					// + "'>Set locales...</option>");
+					ctx.println("</select></label> <br>");
+					if (just != null) {
+						ctx.print("<input type='hidden' name='" + LIST_JUST
+								+ "' value='" + just + "'>");
+					}
+					ctx.println("<input type='submit' name='do' value='"
+							+ listName + "'></form>");
+					if ((ctx.field("preset_from").length() > 0)
+							&& !ctx.field("preset_from").equals(
+									LIST_ACTION_NONE)) {
+						ctx.println("<hr><i><b>Menus have been pre-filled. <br> Confirm your choices and click Change.</b></i>");
+						ctx.println("<form method=POST action='" + ctx.base()
+								+ "'>");
+						ctx.println("<input type='submit' name='doBtn' value='Change'>");
+						preFormed = true;
+					}
+					ctx.println("</div>");
+				}
+				int preset_fromint = ctx.fieldInt("preset_from", -1);
+				String preset_do = ctx.field("preset_do");
+				if (preset_do.equals(LIST_ACTION_NONE)) {
+					preset_do = "nothing";
+				}
+				if (/* (just==null)&& */((UserRegistry
+						.userCanModifyUsers(ctx.session.user))) && !preFormed) { // form
+																					// was
+																					// already
+																					// started,
+																					// above
+					ctx.println("<form method=POST action='" + ctx.base()
+							+ "'>");
+				}
+				if (just != null) {
+					ctx.print("<input type='hidden' name='" + LIST_JUST
+							+ "' value='" + just + "'>");
+				}
+				if (justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
+					ctx.printUrlAsHiddenFields();
+					ctx.println("<input type='hidden' name='do' value='"
+							+ listName + "'>");
+					ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
+				}
+				ctx.println("<table summary='User List' class='userlist' border='2'>");
+				ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Action</th><th>Locales</th><th>Seen</th></tr>");
+				String oldOrg = null;
+				int locked = 0;
+				while (rs.next()) {
+					int theirId = rs.getInt(1);
+					int theirLevel = rs.getInt(2);
+					if (!showLocked && theirLevel >= UserRegistry.LOCKED) {
+						locked++;
+						continue;
+					}
+					String theirName = DBUtils.getStringUTF8(rs, 3);// rs.getString(3);
+					String theirEmail = rs.getString(4);
+					String theirOrg = rs.getString(5);
+					String theirLocales = rs.getString(6);
+					String theirIntlocs = rs.getString(7);
+					java.sql.Timestamp theirLast = rs.getTimestamp(8);
+					boolean havePermToChange = UserRegistry.userCanModifyUser(
+							ctx.session.user, theirId, theirLevel);
+					String theirTag = theirId + "_" + theirEmail; // ID+email -
+																	// prevents
+																	// stale
+																	// data.
+																	// (i.e.
+																	// delete of
+																	// user 3 if
+																	// the rows
+																	// change..)
+					String action = ctx.field(theirTag);
+					CookieSession theUser = CookieSession
+							.retrieveUserWithoutTouch(theirEmail);
 
-                                // CHANGE PASSWORD
-                                if(UserRegistry.userIsAdmin(ctx.session.user)) {
-                                    ctx.print(" <option  ");
-                                    if(LIST_ACTION_CHANGE_PASSWORD.equals(action)) {
-                                        ctx.print (" SELECTED ");
-                                    }
-                                    ctx.println(" value='" + LIST_ACTION_CHANGE_PASSWORD+ "'>Change Password...</option>");
-                                }
-                            
-                            }
-                        }
-                        ctx.println("    </select>");
-                    } // end menu
-                }
-                ctx.println("</td>");
-                
-                if(theirLevel <= UserRegistry.TC) {
-                    ctx.println(" <td>" + UserRegistry.prettyPrintLocale(null) + "</td> ");
-                } else {
-                    ctx.println(" <td>" + UserRegistry.prettyPrintLocale(theirLocales) + "</td>");
-                }
-                
-                // are they logged in?
-                if((theUser != null) && UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                    ctx.println("<td>");
-                    ctx.println("<b>active: " + timeDiff(theUser.last) + " ago</b>");
-                    if(UserRegistry.userIsAdmin(ctx.session.user)) {
-                        ctx.print("<br/>");
-                        printLiveUserMenu(ctx, theUser);
-                    }
-                    ctx.println("</td>");
-                } else if(theirLast != null) {
-                    ctx.println("<td>");
-                    ctx.println("<b>seen: " + timeDiff(theirLast.getTime()) + " ago</b>");
-                    ctx.print("<br/><font size='-2'>");
-                    ctx.print(theirLast.toString());
-                    ctx.println("</font></td>");
-                }
-                
-                ctx.println("  </tr>");
-            }
-            ctx.println("</table>");
-            
-            if(hideUserList ) {
-                ctx.println("</div>");
-            }
-            if(!justme) {
-                ctx.println("<div style='font-size: 70%'>Number of users shown: " + n +"</div><br>");
-                if(UserRegistry.userIsTC(ctx.session.user) && locked > 0) {
-                    showTogglePref(subCtx, PREF_SHOWLOCKED, "Show "+locked+" locked users:");
-                }
-            }
-            if(!justme && UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                if((n>0) && UserRegistry.userCanEmailUsers(ctx.session.user)) { // send a mass email to users
-                    if(ctx.field(LIST_MAILUSER).length()==0) {
-                        ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"'>Check this box to compose a message to these " + n + " users (excluding LOCKED users).</label>");
-                    } else {
-                        ctx.println("<p><div class='pager'>");
-                        ctx.println("<h4>Mailing "+n+" users</h4>");
-                        if(didConfirmMail) {
-							if(areSendingDisp) {
-								int nm = vet.doDisputeNag(mailBody,UserRegistry.userIsAdmin(ctx.session.user)?null:ctx.session.user.org);
-								ctx.println("<b>dispute note sent: " + nm + " emails sent.</b><br>");
-							} else {
-								ctx.println("<b>Mail sent.</b><br>");
+					if (just != null && !just.equals(theirEmail)) {
+						continue;
+					}
+					n++;
+
+					if ((just == null) && (!justme)
+							&& (!theirOrg.equals(oldOrg))) {
+						ctx.println("<tr class='heading' ><th class='partsection' colspan='6'><a name='"
+								+ theirOrg
+								+ "'><h4>"
+								+ theirOrg
+								+ "</h4></a></th></tr>");
+						oldOrg = theirOrg;
+					}
+
+					ctx.println("  <tr class='user" + theirLevel + "'>");
+
+					if (areSendingMail && (theirLevel < UserRegistry.LOCKED)) {
+						ctx.print("<td class='framecell'>");
+						mailUser(ctx, theirEmail, mailSubj, mailBody);
+						ctx.println("</td>");
+					}
+					// first: DO.
+
+					if (havePermToChange) { // do stuff
+
+						String msg = null;
+						if (ctx.field(LIST_ACTION_SETLOCALES + theirTag)
+								.length() > 0) {
+							ctx.println("<td class='framecell' >");
+							String newLocales = ctx
+									.field(LIST_ACTION_SETLOCALES + theirTag);
+							msg = reg.setLocales(ctx, theirId, theirEmail,
+									newLocales);
+							ctx.println(msg);
+							theirLocales = newLocales; // MODIFY
+							if (theUser != null) {
+								ctx.println("<br/><i>Logging out user session "
+										+ theUser.id
+										+ " and deleting all unsaved changes</i>");
+								theUser.remove();
 							}
-                        } else { // dont' allow resend option
-							if(sendWhat.length()>0) {
-								ctx.println("<label><input type='checkbox' value='y' name='"+LIST_MAILUSER+"_d'>Check this box to send a Dispute complaint with this email.</label><br>");
-							} else {
-								ctx.println("<i>On the next page you will be able to choose a Dispute Report.</i><br>");
+							UserRegistry.User newThem = reg.getInfo(theirId);
+							if (newThem != null) {
+								theirLocales = newThem.locales; // update
 							}
-                            ctx.println("<input type='hidden' name='"+LIST_MAILUSER+"' value='y'>");
-                        }
-                        ctx.println("From: <b>"+cleanEmail+"</b><br>");
-                        if(sendWhat.length()>0) {
-                            ctx.println("<div class='odashbox'>"+
-                                TransliteratorUtilities.toHTML.transliterate(sendWhat).replaceAll("\n","<br>")+
-                                "</div>");
-                            if(!didConfirmMail) {
-                                ctx.println("<input type='hidden' name='"+LIST_MAILUSER_WHAT+"' value='"+
-                                        sendWhat.replaceAll("&","&amp;").replaceAll("'","&quot;")+"'>");
-                                if(!ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail) && (ctx.field(LIST_MAILUSER_CONFIRM).length()>0)) {
-                                    ctx.println("<strong>"+ctx.iconHtml("stop","email did not match")+"That email didn't match. Try again.</strong><br>");
-                                }
-                                ctx.println("To confirm sending, type the email address <tt class='codebox'>"+cleanEmail+"</tt> in this box : <input name='"+LIST_MAILUSER_CONFIRM+
-                                    "'>");
-                            }
-                        } else {
-                            ctx.println("<textarea NAME='"+LIST_MAILUSER_WHAT+"' id='body' ROWS='15' COLS='85' style='width:100%'></textarea>");
-                        }
-                        ctx.println("</div>");
-                    }
-                    
-                    
-                }
-            }
-            // #level $name $email $org
-            rs.close();
-            
-            // more 'My Account' stuff
-            if(justme) {
-                ctx.println("<hr>");
-                // Is the 'interest locales' list relevant?
-                String mainLocs[] = UserRegistry.tokenizeLocale(ctx.session.user.locales);
-                if(mainLocs.length == 0) {
-                    boolean intlocs_change = (ctx.field("intlocs_change").length()>0);
-                                
-                    ctx.println("<h4>Notify me about these locale groups:</h4>");
-                    
-                    if(intlocs_change) {
-                        if(ctx.field("intlocs_change").equals("t")) {
-                            String newIntLocs = ctx.field("intlocs");
-                            
-                            String msg = reg.setLocales(ctx, ctx.session.user.id, ctx.session.user.email, newIntLocs, true);
-                            
-                            if(msg != null) {
-                                ctx.println(msg+"<br>");
-                            }
-                            UserRegistry.User newMe = reg.getInfo(ctx.session.user.id);
-                            if(newMe != null) {
-                                ctx.session.user.intlocs = newMe.intlocs; // update
-                            }
-                        }
-                    
-                    
-                        ctx.println("<input type='hidden' name='intlocs_change' value='t'>");
-                        ctx.println("<label>Locales: <input name='intlocs' ");
-                        if(ctx.session.user.intlocs != null) {
-                            ctx.println("value='"+ctx.session.user.intlocs.trim()+"' ");
-                        }
-                        ctx.println("</input></label>");
-                        if(ctx.session.user.intlocs == null) {
-                            ctx.println("<br><i>List languages only, separated by spaces.  Example: <tt class='codebox'>en fr zh</tt>. leave blank for 'all locales'.</i>");
-                        }
-                        //ctx.println("<br>Note: changing interest locales is currently unimplemented. Check back later.<br>");
-                    }
-                    
-                    ctx.println("<ul><tt class='codebox'>"+UserRegistry.prettyPrintLocale(ctx.session.user.intlocs) + "</tt>");
-                    if(!intlocs_change) {
-                        ctx.print("<a href='"+ctx.url()+ctx.urlConnector()+"do=listu&"+LIST_JUST+"="+changeAtTo40(ctx.session.user.email)+
-                            "&intlocs_change=b' >[Change this]</a>");
-                    }
-                    ctx.println("</ul>");
-                    
-                } // end intlocs
-                ctx.println("<br>");
-                //ctx.println("<input type='submit' disabled value='Reset Password'>"); /* just mean to show it as disabled */
-            }
-            if(justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
-                ctx.println("<br>");
-                ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
-                ctx.println("</form>");
-            }
-        }/*end synchronized(reg)*/ } catch(SQLException se) {
+							ctx.println("</td>");
+						} else if ((action != null) && (action.length() > 0)
+								&& (!action.equals(LIST_ACTION_NONE))) { // other
+																			// actions
+							ctx.println("<td class='framecell'>");
+
+							// check an explicit list. Don't allow random levels
+							// to be set.
+							for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
+								if (action.equals(LIST_ACTION_SETLEVEL
+										+ UserRegistry.ALL_LEVELS[i])) {
+									if ((just == null)
+											&& (UserRegistry.ALL_LEVELS[i] <= UserRegistry.TC)) {
+										ctx.println("<b>Must be zoomed in on a user to promote them to TC</b>");
+									} else {
+										msg = reg.setUserLevel(ctx, theirId,
+												theirEmail,
+												UserRegistry.ALL_LEVELS[i]);
+										ctx.println("Set user level to "
+												+ UserRegistry
+														.levelToStr(
+																ctx,
+																UserRegistry.ALL_LEVELS[i]));
+										ctx.println(": " + msg);
+										theirLevel = UserRegistry.ALL_LEVELS[i];
+										if (theUser != null) {
+											ctx.println("<br/><i>Logging out user session "
+													+ theUser.id + "</i>");
+											theUser.remove();
+										}
+									}
+								}
+							}
+
+							if (action.equals(LIST_ACTION_SHOW_PASSWORD)) {
+								String pass = reg.getPassword(ctx, theirId);
+								if (pass != null) {
+									UserRegistry.printPasswordLink(ctx,
+											theirEmail, pass);
+								}
+							} else if (action.equals(LIST_ACTION_SEND_PASSWORD)) {
+								String pass = reg.getPassword(ctx, theirId);
+								if (pass != null) {
+									UserRegistry.printPasswordLink(ctx,
+											theirEmail, pass);
+									notifyUser(ctx, theirEmail, pass);
+								}
+							} else if (action.equals(LIST_ACTION_DELETE0)) {
+								ctx.println("Ensure that 'confirm delete' is chosen at right and click Change again to delete..");
+							} else if ((UserRegistry.userCanDeleteUser(
+									ctx.session.user, theirId, theirLevel))
+									&& (action.equals(LIST_ACTION_DELETE1))) {
+								msg = reg.delete(ctx, theirId, theirEmail);
+								ctx.println("<strong style='font-color: red'>Deleting...</strong><br>");
+								ctx.println(msg);
+							} else if ((UserRegistry.userCanModifyUser(
+									ctx.session.user, theirId, theirLevel))
+									&& (action.equals(LIST_ACTION_SETLOCALES))) {
+								if (theirLocales == null) {
+									theirLocales = "";
+								}
+								ctx.println("<label>Locales: (space separated) <input name='"
+										+ LIST_ACTION_SETLOCALES
+										+ theirTag
+										+ "' value='"
+										+ theirLocales
+										+ "'></label>");
+							} else if (UserRegistry.userCanDeleteUser(
+									ctx.session.user, theirId, theirLevel)) {
+								// change of other stuff.
+								if (UserRegistry.userIsAdmin(ctx.session.user)
+										&& action
+												.equals(LIST_ACTION_CHANGE_PASSWORD)) {
+									String what = "password";
+									UserRegistry.InfoType type = UserRegistry.InfoType.INFO_PASSWORD;
+
+									String s0 = ctx.field("string0" + what);
+									String s1 = ctx.field("string1" + what);
+									if (s0.equals(s1) && s0.length() > 0) {
+										ctx.println("<h4>Change " + what
+												+ " to <tt class='codebox'>"
+												+ s0 + "</tt></h4>");
+										action = ""; // don't popup the menu
+														// again.
+
+										msg = reg.updateInfo(ctx, theirId,
+												theirEmail, type, s0);
+										ctx.println("<div class='fnotebox'>"
+												+ msg + "</div>");
+										ctx.println("<i>click Change again to see changes</i>");
+									} else {
+										ctx.println("<h4>Change " + what
+												+ "</h4>");
+										if (s0.length() > 0) {
+											ctx.println("<p class='ferrbox'>Both fields must match.</p>");
+										}
+										ctx.println("<label><b>New "
+												+ what
+												+ ":</b><input type='password' name='string0"
+												+ what + "' value='" + s0
+												+ "'></label><br>");
+										ctx.println("<label><b>New "
+												+ what
+												+ ":</b><input type='password' name='string1"
+												+ what + "'> (confirm)</label>");
+
+										ctx.println("<br><br>");
+										ctx.println("(Suggested password: <tt>"
+												+ UserRegistry
+														.makePassword(theirEmail)
+												+ "</tt> )");
+									}
+								} else if (action
+										.equals(LIST_ACTION_CHANGE_EMAIL)
+										|| action
+												.equals(LIST_ACTION_CHANGE_NAME)) {
+									String what = action
+											.equals(LIST_ACTION_CHANGE_EMAIL) ? "Email"
+											: "Name";
+									UserRegistry.InfoType type = action
+											.equals(LIST_ACTION_CHANGE_EMAIL) ? UserRegistry.InfoType.INFO_EMAIL
+											: UserRegistry.InfoType.INFO_NAME;
+
+									String s0 = ctx.field("string0" + what);
+									String s1 = ctx.field("string1" + what);
+									if (s0.equals(s1) && s0.length() > 0) {
+										ctx.println("<h4>Change " + what
+												+ " to <tt class='codebox'>"
+												+ s0 + "</tt></h4>");
+										action = ""; // don't popup the menu
+														// again.
+
+										msg = reg.updateInfo(ctx, theirId,
+												theirEmail, type, s0);
+										ctx.println("<div class='fnotebox'>"
+												+ msg + "</div>");
+										ctx.println("<i>click Change again to see changes</i>");
+									} else {
+										ctx.println("<h4>Change " + what
+												+ "</h4>");
+										if (s0.length() > 0) {
+											ctx.println("<p class='ferrbox'>Both fields must match.</p>");
+										}
+										ctx.println("<label><b>New " + what
+												+ ":</b><input name='string0"
+												+ what + "' value='" + s0
+												+ "'></label><br>");
+										ctx.println("<label><b>New " + what
+												+ ":</b><input name='string1"
+												+ what + "'> (confirm)</label>");
+									}
+								}
+							}
+							// ctx.println("Change to " + action);
+						} else {
+							ctx.print("<td>");
+						}
+					} else {
+						ctx.print("<td>");
+					}
+
+					if (just == null) {
+						ctx.print("<a href='" + ctx.url() + ctx.urlConnector()
+								+ "do=list&" + LIST_JUST + "="
+								+ changeAtTo40(theirEmail) + "' >"
+								+ ctx.iconHtml("zoom", "More on this user..")
+								+ "</a>");
+					}
+					ctx.println("</td>");
+
+					// org, level
+					ctx.println("    <td>"
+							+ theirOrg
+							+ "<br>"
+							+ "&nbsp; <span style='font-size: 80%' align='right'>"
+							+ UserRegistry.levelToStr(ctx, theirLevel)
+									.replaceAll(" ", "&nbsp;") + "</span></td>");
+
+					ctx.println("    <td valign='top'><font size='-1'>#"
+							+ theirId + " </font> <a name='u_" + theirEmail
+							+ "'>" + theirName + "</a>");
+					ctx.println("    <a href='mailto:" + theirEmail + "'>"
+							+ theirEmail + "</a>");
+					ctx.print("</td><td>");
+					if (havePermToChange) {
+						// Was something requested?
+
+						{ // PRINT MENU
+							ctx.print("<select name='" + theirTag + "'>");
+
+							// set user to VETTER
+							ctx.println("   <option value=''>"
+									+ LIST_ACTION_NONE + "</option>");
+							if (just != null) {
+								for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
+									int lev = UserRegistry.ALL_LEVELS[i];
+									if ((just == null)
+											&& (lev <= UserRegistry.TC)) {
+										continue; // no promotion to TC from
+													// zoom out
+									}
+									doChangeUserOption(
+											ctx,
+											lev,
+											theirLevel,
+											false
+													&& (preset_fromint == theirLevel)
+													&& preset_do
+															.equals(LIST_ACTION_SETLEVEL
+																	+ lev));
+								}
+								ctx.println("   <option disabled>"
+										+ LIST_ACTION_NONE + "</option>");
+							}
+							ctx.println("   <option ");
+							if ((preset_fromint == theirLevel)
+									&& preset_do
+											.equals(LIST_ACTION_SHOW_PASSWORD)) {
+								ctx.println(" SELECTED ");
+							}
+							ctx.println(" value='" + LIST_ACTION_SHOW_PASSWORD
+									+ "'>Show password...</option>");
+							ctx.println("   <option ");
+							if ((preset_fromint == theirLevel)
+									&& preset_do
+											.equals(LIST_ACTION_SEND_PASSWORD)) {
+								ctx.println(" SELECTED ");
+							}
+							ctx.println(" value='" + LIST_ACTION_SEND_PASSWORD
+									+ "'>Send password...</option>");
+
+							if (just != null) {
+								if (theirLevel > UserRegistry.TC) {
+									ctx.println("   <option ");
+									if ((preset_fromint == theirLevel)
+											&& preset_do
+													.equals(LIST_ACTION_SETLOCALES)) {
+										// ctx.println(" SELECTED ");
+									}
+									ctx.println(" value='"
+											+ LIST_ACTION_SETLOCALES
+											+ "'>Set locales...</option>");
+								}
+								if (UserRegistry.userCanDeleteUser(
+										ctx.session.user, theirId, theirLevel)) {
+									ctx.println("   <option>"
+											+ LIST_ACTION_NONE + "</option>");
+									if ((action != null)
+											&& action
+													.equals(LIST_ACTION_DELETE0)) {
+										ctx.println("   <option value='"
+												+ LIST_ACTION_DELETE1
+												+ "' SELECTED>Confirm delete</option>");
+									} else {
+										ctx.println("   <option ");
+										if ((preset_fromint == theirLevel)
+												&& preset_do
+														.equals(LIST_ACTION_DELETE0)) {
+											// ctx.println(" SELECTED ");
+										}
+										ctx.println(" value='"
+												+ LIST_ACTION_DELETE0
+												+ "'>Delete user..</option>");
+									}
+								}
+								if (just != null) { // only do these in 'zoomin'
+													// view.
+									ctx.println("   <option disabled>"
+											+ LIST_ACTION_NONE + "</option>");
+
+									// CHANGE EMAIL
+									ctx.print(" <option ");
+									if (LIST_ACTION_CHANGE_EMAIL.equals(action)) {
+										ctx.print(" SELECTED ");
+									}
+									ctx.println(" value='"
+											+ LIST_ACTION_CHANGE_EMAIL
+											+ "'>Change Email...</option>");
+
+									// CHANGE NAME
+									ctx.print(" <option  ");
+									if (LIST_ACTION_CHANGE_NAME.equals(action)) {
+										ctx.print(" SELECTED ");
+									}
+									ctx.println(" value='"
+											+ LIST_ACTION_CHANGE_NAME
+											+ "'>Change Name...</option>");
+
+									// CHANGE PASSWORD
+									if (UserRegistry
+											.userIsAdmin(ctx.session.user)) {
+										ctx.print(" <option  ");
+										if (LIST_ACTION_CHANGE_PASSWORD
+												.equals(action)) {
+											ctx.print(" SELECTED ");
+										}
+										ctx.println(" value='"
+												+ LIST_ACTION_CHANGE_PASSWORD
+												+ "'>Change Password...</option>");
+									}
+
+								}
+							}
+							ctx.println("    </select>");
+						} // end menu
+					}
+					ctx.println("</td>");
+
+					if (theirLevel <= UserRegistry.TC) {
+						ctx.println(" <td>"
+								+ UserRegistry.prettyPrintLocale(null)
+								+ "</td> ");
+					} else {
+						ctx.println(" <td>"
+								+ UserRegistry.prettyPrintLocale(theirLocales)
+								+ "</td>");
+					}
+
+					// are they logged in?
+					if ((theUser != null)
+							&& UserRegistry
+									.userCanModifyUsers(ctx.session.user)) {
+						ctx.println("<td>");
+						ctx.println("<b>active: " + timeDiff(theUser.last)
+								+ " ago</b>");
+						if (UserRegistry.userIsAdmin(ctx.session.user)) {
+							ctx.print("<br/>");
+							printLiveUserMenu(ctx, theUser);
+						}
+						ctx.println("</td>");
+					} else if (theirLast != null) {
+						ctx.println("<td>");
+						ctx.println("<b>seen: " + timeDiff(theirLast.getTime())
+								+ " ago</b>");
+						ctx.print("<br/><font size='-2'>");
+						ctx.print(theirLast.toString());
+						ctx.println("</font></td>");
+					}
+
+					ctx.println("  </tr>");
+				}
+				ctx.println("</table>");
+
+				if (hideUserList) {
+					ctx.println("</div>");
+				}
+				if (!justme) {
+					ctx.println("<div style='font-size: 70%'>Number of users shown: "
+							+ n + "</div><br>");
+					if (UserRegistry.userIsTC(ctx.session.user) && locked > 0) {
+						showTogglePref(subCtx, PREF_SHOWLOCKED, "Show "
+								+ locked + " locked users:");
+					}
+				}
+				if (!justme
+						&& UserRegistry.userCanModifyUsers(ctx.session.user)) {
+					if ((n > 0)
+							&& UserRegistry.userCanEmailUsers(ctx.session.user)) { // send
+																					// a
+																					// mass
+																					// email
+																					// to
+																					// users
+						if (ctx.field(LIST_MAILUSER).length() == 0) {
+							ctx.println("<label><input type='checkbox' value='y' name='"
+									+ LIST_MAILUSER
+									+ "'>Check this box to compose a message to these "
+									+ n
+									+ " users (excluding LOCKED users).</label>");
+						} else {
+							ctx.println("<p><div class='pager'>");
+							ctx.println("<h4>Mailing " + n + " users</h4>");
+							if (didConfirmMail) {
+								if (areSendingDisp) {
+									int nm = vet
+											.doDisputeNag(
+													mailBody,
+													UserRegistry
+															.userIsAdmin(ctx.session.user) ? null
+															: ctx.session.user.org);
+									ctx.println("<b>dispute note sent: " + nm
+											+ " emails sent.</b><br>");
+								} else {
+									ctx.println("<b>Mail sent.</b><br>");
+								}
+							} else { // dont' allow resend option
+								if (sendWhat.length() > 0) {
+									ctx.println("<label><input type='checkbox' value='y' name='"
+											+ LIST_MAILUSER
+											+ "_d'>Check this box to send a Dispute complaint with this email.</label><br>");
+								} else {
+									ctx.println("<i>On the next page you will be able to choose a Dispute Report.</i><br>");
+								}
+								ctx.println("<input type='hidden' name='"
+										+ LIST_MAILUSER + "' value='y'>");
+							}
+							ctx.println("From: <b>" + cleanEmail + "</b><br>");
+							if (sendWhat.length() > 0) {
+								ctx.println("<div class='odashbox'>"
+										+ TransliteratorUtilities.toHTML
+												.transliterate(sendWhat)
+												.replaceAll("\n", "<br>")
+										+ "</div>");
+								if (!didConfirmMail) {
+									ctx.println("<input type='hidden' name='"
+											+ LIST_MAILUSER_WHAT
+											+ "' value='"
+											+ sendWhat.replaceAll("&", "&amp;")
+													.replaceAll("'", "&quot;")
+											+ "'>");
+									if (!ctx.field(LIST_MAILUSER_CONFIRM)
+											.equals(cleanEmail)
+											&& (ctx.field(LIST_MAILUSER_CONFIRM)
+													.length() > 0)) {
+										ctx.println("<strong>"
+												+ ctx.iconHtml("stop",
+														"email did not match")
+												+ "That email didn't match. Try again.</strong><br>");
+									}
+									ctx.println("To confirm sending, type the email address <tt class='codebox'>"
+											+ cleanEmail
+											+ "</tt> in this box : <input name='"
+											+ LIST_MAILUSER_CONFIRM + "'>");
+								}
+							} else {
+								ctx.println("<textarea NAME='"
+										+ LIST_MAILUSER_WHAT
+										+ "' id='body' ROWS='15' COLS='85' style='width:100%'></textarea>");
+							}
+							ctx.println("</div>");
+						}
+
+					}
+				}
+				// #level $name $email $org
+				rs.close();
+
+				// more 'My Account' stuff
+				if (justme) {
+					ctx.println("<hr>");
+					// Is the 'interest locales' list relevant?
+					String mainLocs[] = UserRegistry
+							.tokenizeLocale(ctx.session.user.locales);
+					if (mainLocs.length == 0) {
+						boolean intlocs_change = (ctx.field("intlocs_change")
+								.length() > 0);
+
+						ctx.println("<h4>Notify me about these locale groups:</h4>");
+
+						if (intlocs_change) {
+							if (ctx.field("intlocs_change").equals("t")) {
+								String newIntLocs = ctx.field("intlocs");
+
+								String msg = reg.setLocales(ctx,
+										ctx.session.user.id,
+										ctx.session.user.email, newIntLocs,
+										true);
+
+								if (msg != null) {
+									ctx.println(msg + "<br>");
+								}
+								UserRegistry.User newMe = reg
+										.getInfo(ctx.session.user.id);
+								if (newMe != null) {
+									ctx.session.user.intlocs = newMe.intlocs; // update
+								}
+							}
+
+							ctx.println("<input type='hidden' name='intlocs_change' value='t'>");
+							ctx.println("<label>Locales: <input name='intlocs' ");
+							if (ctx.session.user.intlocs != null) {
+								ctx.println("value='"
+										+ ctx.session.user.intlocs.trim()
+										+ "' ");
+							}
+							ctx.println("</input></label>");
+							if (ctx.session.user.intlocs == null) {
+								ctx.println("<br><i>List languages only, separated by spaces.  Example: <tt class='codebox'>en fr zh</tt>. leave blank for 'all locales'.</i>");
+							}
+							// ctx.println("<br>Note: changing interest locales is currently unimplemented. Check back later.<br>");
+						}
+
+						ctx.println("<ul><tt class='codebox'>"
+								+ UserRegistry
+										.prettyPrintLocale(ctx.session.user.intlocs)
+								+ "</tt>");
+						if (!intlocs_change) {
+							ctx.print("<a href='" + ctx.url()
+									+ ctx.urlConnector() + "do=listu&"
+									+ LIST_JUST + "="
+									+ changeAtTo40(ctx.session.user.email)
+									+ "&intlocs_change=b' >[Change this]</a>");
+						}
+						ctx.println("</ul>");
+
+					} // end intlocs
+					ctx.println("<br>");
+					// ctx.println("<input type='submit' disabled value='Reset Password'>");
+					// /* just mean to show it as disabled */
+				}
+				if (justme || UserRegistry.userCanModifyUsers(ctx.session.user)) {
+					ctx.println("<br>");
+					ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
+					ctx.println("</form>");
+				}
+			}/* end synchronized(reg) */
+		} catch(SQLException se) {
             logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
             ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
+        } finally {
+        	try {
+        		DBUtils.close(conn);
+        	}
+        	catch(SQLException se) {
+                logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+                ctx.println("<i>Failure CLOSEING: " + DBUtils.unchainSqlException(se) + "</i><br>");
+        	}
         }
         if(just!=null) {
             ctx.println("<a href='"+ctx.url()+ctx.urlConnector()+"do=list'>\u22d6 Show all users</a><br>");
@@ -5249,10 +5528,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         System.err.println("Writing " + kind);
         long lastTime = System.currentTimeMillis();
         long countStart = lastTime;
-
         if(sql) {
             File outFile = new File(outdir,"cldrdb.sql");
+            Connection conn = null;
             try { 
+            	conn = dbUtils.getDBConnection();
                 int nn=0;
                 PrintWriter out = new PrintWriter(
                         new OutputStreamWriter(
@@ -5270,7 +5550,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     
                     out.println("INSERT INTO "+table+" (id,userlevel,name,org,email,password,locales,intLocs) VALUES ");
 
-                    java.sql.ResultSet rs = reg.listPass();
+                    java.sql.ResultSet rs = reg.listPass(conn);
                     if(rs == null) {
                         out.print("-- no rows ");
                     } else while(rs.next()) {
@@ -5320,7 +5600,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 logger.log(java.util.logging.Level.WARNING,"Query for org " + null + " failed: " + DBUtils.unchainSqlException(se),se);
                 //out.println("-- Failure: " + unchainSqlException(se) + " --");
             } finally {
-//                SurveyMain.closeDBConnection(conn);
+            	try {
+            		DBUtils.close(conn);
+            	}catch(SQLException se) {
+                    logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + null + " failed: " + DBUtils.unchainSqlException(se),se);
+                    //out.println("-- Failure: " + unchainSqlException(se) + " --");
+            	}
             }
             nrOutFiles++;
          } else if(users) {
@@ -5336,8 +5621,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
                 out.println("<users generated=\""+ourDate+"\" host=\""+localhost()+"\" obscured=\""+obscured+"\">");
                 String org = null;
-                try { synchronized(reg) {
-                    java.sql.ResultSet rs = reg.list(org);
+                Connection conn = null;
+                try {
+                	conn = dbUtils.getDBConnection();
+                	synchronized(reg) {
+                    java.sql.ResultSet rs = reg.list(org, conn);
                     if(rs == null) {
                         out.println("\t<!-- No results -->");
                         return 0;
@@ -5375,6 +5663,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }/*end synchronized(reg)*/ } catch(SQLException se) {
                     logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
                     out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
+                } finally {
+                	try {
+                		DBUtils.close(conn);
+                	}catch(SQLException se) {
+                        logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + null + " failed: " + DBUtils.unchainSqlException(se),se);
+                        //out.println("-- Failure: " + unchainSqlException(se) + " --");
+                	}
                 }
                 out.println("</users>");
                 out.close();
@@ -5385,7 +5680,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             nrOutFiles++;
         } else if(translators) {
             File outFile = new File(outdir,"cldr-translators.txt");
+            Connection conn = null;
             try {
+            	conn = dbUtils.getDBConnection();
                 PrintWriter out = new PrintWriter(
                     new OutputStreamWriter(
                         new FileOutputStream(outFile), "UTF8"));
@@ -5394,7 +5691,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     //        ctx.println("<users host=\""+ctx.serverHostport()+"\">");
                 String org = null;
                 try { synchronized(reg) {
-                    java.sql.ResultSet rs = reg.list(org);
+                    java.sql.ResultSet rs = reg.list(org, conn);
                     if(rs == null) {
                         out.println("# No results");
                         return 0;
@@ -5429,12 +5726,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 } } catch(SQLException se) {
                     logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
                     out.println("# Failure: " + DBUtils.unchainSqlException(se) + " -->");
+                }finally {
+                	try {
+                		DBUtils.close(conn);
+                	} catch(SQLException se) {
+                        logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+                        out.println("# Failure CLOSING: " + DBUtils.unchainSqlException(se) + " -->");
+                    }
                 }
                 out.close();
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new InternalError("writing " + kind + " - IO Exception "+e.toString());
-            }
+            } 
             nrOutFiles++;
         } else {
             File inFiles[] = getInFiles();
@@ -5443,7 +5747,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             try {
                 //Set<Integer> xpathSet = new TreeSet<Integer>();
                 boolean xpathSet[] = new boolean[0];
-                Connection conn = dbUtils.getDBConnection(this);
+                Connection conn = dbUtils.getDBConnection();
                 for(int i=0;(i<nrInFiles) && !SurveyThread.shouldStop();i++) {
                     String fileName = inFiles[i].getName();
                     int dot = fileName.indexOf('.');
@@ -5472,7 +5776,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         PrintWriter utf8OutStream = new PrintWriter(
                             new OutputStreamWriter(
                                 new FileOutputStream(outFile), "UTF8"));
-                        synchronized(this.vet.conn) {
+                        synchronized(this.vet) {
                         	file.write(utf8OutStream);
                         }
                         nrOutFiles++;
@@ -5659,7 +5963,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             if(!found) {
                 throw new InternalError("No such locale: " + s);
-            } else synchronized(this.vet.conn) {
+            } else synchronized(this.vet) {
 		String doKvp = request.getParameter("kvp");
 		boolean isKvp = (doKvp!=null && doKvp.length()>0);
 
@@ -5748,23 +6052,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     
                     ctx.print("<h4><span style='padding: 1px;' class='disputed'>"+(orgDisp)+" items with conflicts among "+ctx.session.user.org+" vetters.</span> "+ctx.iconHtml("disp","Vetter Dispute")+"</h4>");
                     
+                    Set<String> disputePaths = vet.getOrgDisputePaths(ctx.session.user.voterOrg(), localeName);
                     Set<String> odItems = new TreeSet<String>();
-                    synchronized(vet.conn) { 
-                        try { // moderately expensive.. since we are tying up vet's connection..
-                            vet.orgDisputePaths.setString(1,ctx.session.user.voterOrg());
-                            vet.orgDisputePaths.setString(2,localeName.toString());
-                            ResultSet rs = vet.orgDisputePaths.executeQuery();
-                            while(rs.next()) {
-                                int xp = rs.getInt(1);                               
-                                String path = xpt.getById(xp);                               
-                                String theMenu = PathUtilities.xpathToMenu(path);
-                                if(theMenu != null) {
-                                    odItems.add(theMenu);
-                                }
-                            }
-                        } catch (SQLException se) {
-                            throw new RuntimeException("SQL error listing OD results - " + DBUtils.unchainSqlException(se));
-                        }
+                    for(String path : disputePaths) {
+                    	String theMenu = PathUtilities.xpathToMenu(path);
+                    	if(theMenu != null) {
+                    		odItems.add(theMenu);
+                    	}
                     }
                     WebContext subCtx = (WebContext)ctx.clone();
                     //subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
@@ -5787,42 +6081,49 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 Hashtable<String,Integer> insItems = new Hashtable<String,Integer>();
                 Hashtable<String,Integer> disItems = new Hashtable<String,Integer>();
 
-                synchronized(vet.conn) { 
-                    try { // moderately expensive.. since we are tying up vet's connection..
-                        ResultSet rs = vet.listBadResults(ctx.getLocale());
-                        while(rs.next()) {
-                            int xp = rs.getInt(1);
-                            int type = rs.getInt(2);
-                            
-                            String path = xpt.getById(xp);
-                            
-                            String theMenu = PathUtilities.xpathToMenu(path);
-                            
-                            if(theMenu != null) {
-                                if(type == Vetting.RES_DISPUTED) {
-                                    Integer n = disItems.get(theMenu);
-                                    if(n==null) {
-                                        n = 1;
-                                    }
-                                    disItems.put(theMenu, n+1);// what goes here?
-                                } else if (type == Vetting.RES_ERROR) {
-                                    //disItems.put(theMenu, "");
-                                } else {
-                                    Integer n = insItems.get(theMenu);
-                                    if(n==null) {
-                                        n = 1;
-                                    }
-                                    insItems.put(theMenu, n+1);// what goes here?
-                                }
-                            }
-                        }
-                        rs.close();
-                    } catch (SQLException se) {
-                        throw new RuntimeException("SQL error listing bad results - " + DBUtils.unchainSqlException(se));
-                    }
-                    // et.tostring
+                try { // moderately expensive.. since we are tying up vet's connection..
+                	Connection conn = null;
+                	PreparedStatement listBadResults = null;
+                	try {
+                		conn= dbUtils.getDBConnection();
+                		listBadResults = vet.prepare_listBadResults(conn);
+                		listBadResults.setString(1, ctx.getLocale().getBaseName());
+                		ResultSet rs = listBadResults.executeQuery();
+                		while(rs.next()) {
+                			int xp = rs.getInt(1);
+                			int type = rs.getInt(2);
+
+                			String path = xpt.getById(xp);
+
+                			String theMenu = PathUtilities.xpathToMenu(path);
+
+                			if(theMenu != null) {
+                				if(type == Vetting.RES_DISPUTED) {
+                					Integer n = disItems.get(theMenu);
+                					if(n==null) {
+                						n = 1;
+                					}
+                					disItems.put(theMenu, n+1);// what goes here?
+                				} else if (type == Vetting.RES_ERROR) {
+                					//disItems.put(theMenu, "");
+                				} else {
+                					Integer n = insItems.get(theMenu);
+                					if(n==null) {
+                						n = 1;
+                					}
+                					insItems.put(theMenu, n+1);// what goes here?
+                				}
+                			}
+                		}
+                		rs.close();
+                	} finally  {
+                		DBUtils.close(listBadResults,conn);
+                	}
+                } catch (SQLException se) {
+                	throw new RuntimeException("SQL error listing bad results - " + DBUtils.unchainSqlException(se));
                 }
-                
+                // et.tostring
+
                 WebContext subCtx = (WebContext)ctx.clone();
                 //subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
                 subCtx.removeQuery(QUERY_SECTION);
@@ -6273,7 +6574,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         gBaselineFile=null;
         gBaselineHash=null;
         try {
-         this.fora.reloadLocales();
+        	Connection conn = null;
+        	try {
+        		conn = dbUtils.getDBConnection();
+        		this.fora.reloadLocales(conn);
+        	} finally {
+        		DBUtils.close(conn);
+        	}
         } catch(SQLException se) {
         	System.err.println("On resetLocaleCaches().reloadLocales: " + DBUtils.unchainSqlException(se));
         	this.busted("trying to reset locale caches @ fora", se);
@@ -8274,259 +8581,259 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	    ctx.print("<td colspan="+(PODTABLE_WIDTH-2)+">");
 			
 	    try {
-		Race r =  vet.getRace(section.locale, p.base_xpath);
-		ctx.println("<i>Voting results by organization:</i><br>");
-                ctx.print("<table class='list' border=1 summary='voting results by organization'>");
-                ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Item</th><th>Score</th><th>Conflicting Votes</th></tr>");
-                int onn=0;
-		for(Race.Organization org : r.orgVotes.values()) {
-		    Race.Chad orgVote = r.getOrgVote(org.name);				    
-		    Map<Integer,Long> o2v = r.getOrgToVotes(org.name);
-/*
+	    	Race r =  vet.getRace(section.locale, p.base_xpath);
+	    	ctx.println("<i>Voting results by organization:</i><br>");
+	    	ctx.print("<table class='list' border=1 summary='voting results by organization'>");
+	    	ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Item</th><th>Score</th><th>Conflicting Votes</th></tr>");
+	    	int onn=0;
+	    	for(Race.Organization org : r.orgVotes.values()) {
+	    		Race.Chad orgVote = r.getOrgVote(org.name);				    
+	    		Map<Integer,Long> o2v = r.getOrgToVotes(org.name);
+	    		/*
 		    System.err.println("org:"+org.name);
 		    for(int i : o2v.keySet()) {
 			long l = o2v.get(i);
 		    	System.err.println(" "+i+"->"+l);
 		     }
-					
-*/
-                    ctx.println("<tr class='row"+(onn++ % 2)+"'>");
-		    long score=0;
 
-		    CandidateItem oitem = null;
-		    int on = -1;
-		    if(orgVote != null)
-                	{
-			    int nn=0;
-	                    for(CandidateItem citem : numberedItemsList) {
-				nn++;
-				if(citem==null) continue;
-				if(orgVote.xpath==citem.xpathId) {
-				    oitem = citem;
-				    on=nn;
-				}
-	                    }
-			    if(oitem!=null) {
-				Long l = o2v.get(oitem.xpathId);
-				if(l != null) {
-				    score = l;
-//				    System.err.println(org.name+": ox " + oitem.xpathId + " -> l " + l + ", nn="+nn);
-				    if(on>=0) {
-					totals[on-1]+=score;
-				    }
-				}
-			    }
-			}
-                    
-		    ctx.print("<th>"+org.name+"</th>");
-		    ctx.print("<td>");
-		    if(orgVote == null) {
-			ctx.print("<i>(No vote.)</i>");
-			if(org.dispute) {
-			    ctx.print("<br>");
-			    if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
-				ctx.print(ctx.iconHtml("disp","Vetter Dispute"));
-			    }
-			    ctx.print(" (Dispute among "+org.name+" vetters) ");
-			}
-		    } else {
-			String theValue = orgVote.value;
-			if(theValue == null) {  
-			    if(orgVote.xpath == r.base_xpath) {
-				theValue = "<i>(Old Vote for Status Quo)</i>";
-			    } else {
-				theValue = "<strike>(Old Vote for Other Item)</strike>";
-			    }
-			}
-			if(orgVote.disqualified) {
-			    ctx.print("<strike>");
-			}
-			ctx.print("<span dir='"+ctx.getDirectionForLocale()+"'>");
-			//						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
-			//						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
-			ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
-			if(orgVote.disqualified) {
-			    ctx.print("</strike>");
-			}
-			if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
-			    ctx.print(" (default vote)");
-			}
-			if(true||UserRegistry.userIsTC(ctx.session.user)) {
-			    ctx.print("<br>");
-			    for(UserRegistry.User u:orgVote.voters) {
-				if(!u.voterOrg().equals(org.name)) continue;
-				ctx.print(u.toHtml(ctx.session.user)+", ");
-			    }
-			}
-		    }
-		    ctx.print("</td>");
-		    
-		    ctx.print("<td class='warningReference'>#"+on+"</td> ");
-		    
-		    ctx.print("<td>"+score+"</td>");
-		    
-		    ctx.print("<td>");
-		    if(!org.votes.isEmpty()) for(Race.Chad item : org.votes) {
-			    if(item==orgVote) continue;
-			    
-			    String theValue = item.value;
-			    if(theValue == null) {  
-				if(item.xpath == r.base_xpath) {
-				    theValue = "<i>(Old Vote for Status Quo)</i>";
-				} else {
-				    theValue = "<strike>(Old Vote for Other Item"+")</strike>";
-				}
-			    }
-			    if(item.disqualified) {
-				ctx.print("<strike>");
-			    }
-			    ctx.print("<span dir='"+ctx.getDirectionForLocale()+"' class='notselected' title='#"+item.xpath+"'>"+theValue+"</span>");
-			    if(item.disqualified) {
-				ctx.print("</strike>");
-			    }
-			    ctx.print("<br>");
-			    for(UserRegistry.User u : item.voters)  { 
-				if(!u.voterOrg().equals(org.name)) continue;
-				ctx.print(u.toHtml(ctx.session.user)+", ");
-			    }
-			    ctx.println("<hr>");
-			}
-		    ctx.println("</td>");
-		    ctx.print("</tr>");
-		}
-		ctx.print("</table>"); // end of votes-by-organization
-		
-		if(isUnofficial || UserRegistry.userIsTC(ctx.session.user)) {
-		    ctx.println("<pre style='border: 1px solid gray; margin: 3px;'>"+r.resolverToString());
-		    ctx.print("</pre>");
-		}
-		
-                  
-		if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
-		    // This says that the optimal value was NOT the numeric winner.
-		    ctx.print("<i>not enough votes to overturn approved item</i><br>");
-		} else if(!r.disputes.isEmpty()) {
-		    ctx.print(" "+ctx.iconHtml("warn","Warning")+"Disputed with: ");
-		    for(Race.Chad disputor : r.disputes) {
-			ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span> ");
-		    }
-		    ctx.print("");
-		    ctx.print("<br>");
-		} else if(r.hadDisqualifiedWinner) {
-		    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Original winner of votes was disqualified due to errors.</b><br>");
-		}
-		if(isUnofficial && r.hadOtherError) {
-		    ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Had Other Error.</b><br>");
-		}
-                
-		ctx.print("<br><hr><i>Voting results by item:</i>");
-		ctx.print("<table class='list' border=1 summary='voting results by item'>");
-		ctx.print("<tr class='heading'><th>Value</th><th>Item</th><th>Score</th><th>O/N</th><th>Status 1.6</th><th>Status 1.7</th></tr>");
-		int nn=0;
+	    		 */
+	    		ctx.println("<tr class='row"+(onn++ % 2)+"'>");
+	    		long score=0;
 
-		int lastReleaseXpath = r.getLastReleaseXpath();
-		String lastReleaseStatus = r.getLastReleaseStatus().toString();
+	    		CandidateItem oitem = null;
+	    		int on = -1;
+	    		if(orgVote != null)
+	    		{
+	    			int nn=0;
+	    			for(CandidateItem citem : numberedItemsList) {
+	    				nn++;
+	    				if(citem==null) continue;
+	    				if(orgVote.xpath==citem.xpathId) {
+	    					oitem = citem;
+	    					on=nn;
+	    				}
+	    			}
+	    			if(oitem!=null) {
+	    				Long l = o2v.get(oitem.xpathId);
+	    				if(l != null) {
+	    					score = l;
+	    					//				    System.err.println(org.name+": ox " + oitem.xpathId + " -> l " + l + ", nn="+nn);
+	    					if(on>=0) {
+	    						totals[on-1]+=score;
+	    					}
+	    				}
+	    			}
+	    		}
 
-		for(CandidateItem citem : numberedItemsList) {
-		    ctx.println("<tr class='row"+(nn++ % 2)+"'>");
-		    if(citem==null) {ctx.println("</tr>"); continue; } 
-		    String theValue = citem.value;
-		    String title="X#"+citem.xpathId;
-                    
-		    // find Chad item that matches citem
-                	
-                    long score = -1;
-		    Race.Chad item = null;
-		    if(citem.inheritFrom==null) {
-			for(Race.Chad anitem : r.chads.values()) {
-			    if(anitem.xpath==citem.xpathId) {
-				item = anitem;
-				title="#"+item.xpath;
-			    }
-			}
-		    }
-                	
-		    //for(Race.Chad item : r.chads.values()) {
-		    if(item!=null&&theValue == null) {  
-			if(item.xpath == r.base_xpath) {
-			    theValue = "<i>(Old Vote for Status Quo)</i>";
-			} else {
-			    theValue = "<strike>(Old Vote for Other Item"+")</strike>";
-			}
-		    }
-                    
-		    ctx.print("<td>");
-		    if(item!=null) {
-			if(item == r.winner) {
-			    ctx.print("<b>");
-			}
-			if(item.disqualified) {
-			    ctx.print("<strike>");
-			}
-		    }
-		    ctx.print("<span dir='"+ctx.getDirectionForLocale()+"' title='"+title+"'>"+theValue+"</span> ");
-		    if(item!=null) {
-			if(item.disqualified) {
-			    ctx.print("</strike>");
-			}
-			if(item == r.winner) {
-			    ctx.print("</b>");
-			}
-			if(item == r.existing) {
-			    ctx.print(ctx.iconHtml("star","existing item"));
-			}
-		    }
-		    ctx.print("</td>");
+	    		ctx.print("<th>"+org.name+"</th>");
+	    		ctx.print("<td>");
+	    		if(orgVote == null) {
+	    			ctx.print("<i>(No vote.)</i>");
+	    			if(org.dispute) {
+	    				ctx.print("<br>");
+	    				if((ctx.session.user != null) && (org.name.equals(ctx.session.user.org))) {
+	    					ctx.print(ctx.iconHtml("disp","Vetter Dispute"));
+	    				}
+	    				ctx.print(" (Dispute among "+org.name+" vetters) ");
+	    			}
+	    		} else {
+	    			String theValue = orgVote.value;
+	    			if(theValue == null) {  
+	    				if(orgVote.xpath == r.base_xpath) {
+	    					theValue = "<i>(Old Vote for Status Quo)</i>";
+	    				} else {
+	    					theValue = "<strike>(Old Vote for Other Item)</strike>";
+	    				}
+	    			}
+	    			if(orgVote.disqualified) {
+	    				ctx.print("<strike>");
+	    			}
+	    			ctx.print("<span dir='"+ctx.getDirectionForLocale()+"'>");
+	    			//						ctx.print(VoteResolver.getOrganizationToMaxVote(section.locale).
+	    			//						            get(VoteResolver.Organization.valueOf(org.name)).toString().replaceAll("street","guest")
+	    			ctx.print(ctx.iconHtml("vote","#"+orgVote.xpath)+theValue+"</span>");
+	    			if(orgVote.disqualified) {
+	    				ctx.print("</strike>");
+	    			}
+	    			if(org.votes.isEmpty()/* && (r.winner.orgsDefaultFor!=null) && (r.winner.orgsDefaultFor.contains(org))*/) {
+	    				ctx.print(" (default vote)");
+	    			}
+	    			if(true||UserRegistry.userIsTC(ctx.session.user)) {
+	    				ctx.print("<br>");
+	    				for(UserRegistry.User u:orgVote.voters) {
+	    					if(!u.voterOrg().equals(org.name)) continue;
+	    					ctx.print(u.toHtml(ctx.session.user)+", ");
+	    				}
+	    			}
+	    		}
+	    		ctx.print("</td>");
 
-		    ctx.println("<th class='warningReference'>#"+nn+"</th>");
-		    if(item!=null) {
-                    	ctx.print("<td>"+ totals[nn-1] +"</td>");
-			if(item == r.Ochad) {
-			    ctx.print("<td>O</td>");
-			} else if(item == r.Nchad) {
-			    ctx.print("<td>N</td>");
-			} else {
-			    ctx.print("<td></td>");
-			}
-			if(item.xpath == lastReleaseXpath) {
-			    ctx.print("<td>"+lastReleaseStatus.toString().toLowerCase()+"</td>");
-			} else {
-			    ctx.print("<td></td>");
-			}
-			if(item == r.winner) {
-			    ctx.print("<td>"+r.vrstatus.toString().toLowerCase()+"</td>");
-			} else {
-			    ctx.print("<td></td>");
-			}
-                    	
-		    } else {
-			/* no item */
-			if(citem.inheritFrom!=null) {
-			    ctx.println("<td colspan=4><i>Inherited from "+citem.inheritFrom+"</i></td>");
-			} else {
-			    ctx.println("<td colspan=4><i>Item not found!</i></td>");
-			}
-		    }
-		    ctx.print("</tr>");
-		}
-		ctx.print("</table>");
-		//if(UserRegistry.userIsTC(ctx.session.user)) {
-		if(r.winner != null ) {
-		    CandidateItem witem = null;
-		    int wn = -1;
-		    nn=0;
-		    for(CandidateItem citem : numberedItemsList) {
-			nn++;
-			if(citem == null) continue;
-			if(r.winner.xpath==citem.xpathId) {
-			    witem = citem;
-			    wn=nn;
-			}
-		    }
-		    ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ctx.getDirectionForLocale()+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
-		}
-		                
-		ctx.println("For more information, see <a href='http://cldr.unicode.org/index/process#Voting_Process'>Voting Process</a><br>");
+	    		ctx.print("<td class='warningReference'>#"+on+"</td> ");
+
+	    		ctx.print("<td>"+score+"</td>");
+
+	    		ctx.print("<td>");
+	    		if(!org.votes.isEmpty()) for(Race.Chad item : org.votes) {
+	    			if(item==orgVote) continue;
+
+	    			String theValue = item.value;
+	    			if(theValue == null) {  
+	    				if(item.xpath == r.base_xpath) {
+	    					theValue = "<i>(Old Vote for Status Quo)</i>";
+	    				} else {
+	    					theValue = "<strike>(Old Vote for Other Item"+")</strike>";
+	    				}
+	    			}
+	    			if(item.disqualified) {
+	    				ctx.print("<strike>");
+	    			}
+	    			ctx.print("<span dir='"+ctx.getDirectionForLocale()+"' class='notselected' title='#"+item.xpath+"'>"+theValue+"</span>");
+	    			if(item.disqualified) {
+	    				ctx.print("</strike>");
+	    			}
+	    			ctx.print("<br>");
+	    			for(UserRegistry.User u : item.voters)  { 
+	    				if(!u.voterOrg().equals(org.name)) continue;
+	    				ctx.print(u.toHtml(ctx.session.user)+", ");
+	    			}
+	    			ctx.println("<hr>");
+	    		}
+	    		ctx.println("</td>");
+	    		ctx.print("</tr>");
+	    	}
+	    	ctx.print("</table>"); // end of votes-by-organization
+
+	    	if(isUnofficial || UserRegistry.userIsTC(ctx.session.user)) {
+	    		ctx.println("<pre style='border: 1px solid gray; margin: 3px;'>"+r.resolverToString());
+	    		ctx.print("</pre>");
+	    	}
+
+
+	    	if((r.nexthighest > 0) && (r.winner!=null)&&(r.winner.score==0)) {
+	    		// This says that the optimal value was NOT the numeric winner.
+	    		ctx.print("<i>not enough votes to overturn approved item</i><br>");
+	    	} else if(!r.disputes.isEmpty()) {
+	    		ctx.print(" "+ctx.iconHtml("warn","Warning")+"Disputed with: ");
+	    		for(Race.Chad disputor : r.disputes) {
+	    			ctx.print("<span title='#"+disputor.xpath+"'>"+disputor.value+"</span> ");
+	    		}
+	    		ctx.print("");
+	    		ctx.print("<br>");
+	    	} else if(r.hadDisqualifiedWinner) {
+	    		ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Original winner of votes was disqualified due to errors.</b><br>");
+	    	}
+	    	if(isUnofficial && r.hadOtherError) {
+	    		ctx.print("<br><b>"+ctx.iconHtml("warn","Warning")+"Had Other Error.</b><br>");
+	    	}
+
+	    	ctx.print("<br><hr><i>Voting results by item:</i>");
+	    	ctx.print("<table class='list' border=1 summary='voting results by item'>");
+	    	ctx.print("<tr class='heading'><th>Value</th><th>Item</th><th>Score</th><th>O/N</th><th>Status 1.6</th><th>Status 1.7</th></tr>");
+	    	int nn=0;
+
+	    	int lastReleaseXpath = r.getLastReleaseXpath();
+	    	String lastReleaseStatus = r.getLastReleaseStatus().toString();
+
+	    	for(CandidateItem citem : numberedItemsList) {
+	    		ctx.println("<tr class='row"+(nn++ % 2)+"'>");
+	    		if(citem==null) {ctx.println("</tr>"); continue; } 
+	    		String theValue = citem.value;
+	    		String title="X#"+citem.xpathId;
+
+	    		// find Chad item that matches citem
+
+	    		long score = -1;
+	    		Race.Chad item = null;
+	    		if(citem.inheritFrom==null) {
+	    			for(Race.Chad anitem : r.chads.values()) {
+	    				if(anitem.xpath==citem.xpathId) {
+	    					item = anitem;
+	    					title="#"+item.xpath;
+	    				}
+	    			}
+	    		}
+
+	    		//for(Race.Chad item : r.chads.values()) {
+	    		if(item!=null&&theValue == null) {  
+	    			if(item.xpath == r.base_xpath) {
+	    				theValue = "<i>(Old Vote for Status Quo)</i>";
+	    			} else {
+	    				theValue = "<strike>(Old Vote for Other Item"+")</strike>";
+	    			}
+	    		}
+
+	    		ctx.print("<td>");
+	    		if(item!=null) {
+	    			if(item == r.winner) {
+	    				ctx.print("<b>");
+	    			}
+	    			if(item.disqualified) {
+	    				ctx.print("<strike>");
+	    			}
+	    		}
+	    		ctx.print("<span dir='"+ctx.getDirectionForLocale()+"' title='"+title+"'>"+theValue+"</span> ");
+	    		if(item!=null) {
+	    			if(item.disqualified) {
+	    				ctx.print("</strike>");
+	    			}
+	    			if(item == r.winner) {
+	    				ctx.print("</b>");
+	    			}
+	    			if(item == r.existing) {
+	    				ctx.print(ctx.iconHtml("star","existing item"));
+	    			}
+	    		}
+	    		ctx.print("</td>");
+
+	    		ctx.println("<th class='warningReference'>#"+nn+"</th>");
+	    		if(item!=null) {
+	    			ctx.print("<td>"+ totals[nn-1] +"</td>");
+	    			if(item == r.Ochad) {
+	    				ctx.print("<td>O</td>");
+	    			} else if(item == r.Nchad) {
+	    				ctx.print("<td>N</td>");
+	    			} else {
+	    				ctx.print("<td></td>");
+	    			}
+	    			if(item.xpath == lastReleaseXpath) {
+	    				ctx.print("<td>"+lastReleaseStatus.toString().toLowerCase()+"</td>");
+	    			} else {
+	    				ctx.print("<td></td>");
+	    			}
+	    			if(item == r.winner) {
+	    				ctx.print("<td>"+r.vrstatus.toString().toLowerCase()+"</td>");
+	    			} else {
+	    				ctx.print("<td></td>");
+	    			}
+
+	    		} else {
+	    			/* no item */
+	    			if(citem.inheritFrom!=null) {
+	    				ctx.println("<td colspan=4><i>Inherited from "+citem.inheritFrom+"</i></td>");
+	    			} else {
+	    				ctx.println("<td colspan=4><i>Item not found!</i></td>");
+	    			}
+	    		}
+	    		ctx.print("</tr>");
+	    	}
+	    	ctx.print("</table>");
+	    	//if(UserRegistry.userIsTC(ctx.session.user)) {
+	    	if(r.winner != null ) {
+	    		CandidateItem witem = null;
+	    		int wn = -1;
+	    		nn=0;
+	    		for(CandidateItem citem : numberedItemsList) {
+	    			nn++;
+	    			if(citem == null) continue;
+	    			if(r.winner.xpath==citem.xpathId) {
+	    				witem = citem;
+	    				wn=nn;
+	    			}
+	    		}
+	    		ctx.print("<b class='selected'>Optimal field</b>: #"+wn+" <span dir='"+ctx.getDirectionForLocale()+"' class='winner' title='#"+r.winner.xpath+"'>"+r.winner.value+"</span>, " + r.vrstatus + ", <!-- score: "+r.winner.score +" -->");
+	    	}
+
+	    	ctx.println("For more information, see <a href='http://cldr.unicode.org/index/process#Voting_Process'>Voting Process</a><br>");
 	    } catch (SQLException se) {
 		ctx.println("<div class='ferrbox'>Error fetching vetting results:<br><pre>"+se.toString()+"</pre></div>");
 	    }
@@ -9484,66 +9791,86 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     /* returns a map of String localegroup -> Set [ User interestedUser,  ... ]
     */ 
-    protected Map getIntUsers(Map intGroups) {
-        Map m = new HashMap();
-        try {
-            synchronized(reg) {
-                java.sql.ResultSet rs = reg.list(null);
-                if(rs == null) {
-                    return m;
-                }
-                while(rs.next()) {
-                    int theirLevel = rs.getInt(2);
-                    if(theirLevel > UserRegistry.VETTER) {
-                        continue; // will not receive notice.
-                    }
-                    
-                    int theirId = rs.getInt(1);
-                    UserRegistry.User u = reg.getInfo(theirId);
-                    //String theirName = rs.getString(3);
-                    //String theirEmail = rs.getString(4);
-                    //String theirOrg = rs.getString(5);
-                    String theirLocales = rs.getString(6);                
-                    String theirIntlocs = rs.getString(7);
-                    
-                    String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
-                    
-                    if((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all locales
-                        localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
-                    }
-                    
-                    if(localeArray.length == 0) {
-                        for(Iterator li = intGroups.keySet().iterator();li.hasNext();) {
-                            String group = (String)li.next();
-                            Set v = (Set)m.get(group);
-                            if(v == null) {
-                                v=new HashSet();
-                                m.put(group, v);
-                            }
-                            v.add(u);
-                        //    System.err.println(group + " - " + u.email + " (ALL)");
-                        }
-                    } else {
-                        for(int i=0;i<localeArray.length;i++) {
-                            String group= localeArray[i];
-                            Set v = (Set)m.get(group);
-                            if(v == null) {
-                                v=new HashSet();
-                                m.put(group, v);
-                            }
-                            v.add(u);
-                     //       System.err.println(group + " - " + u.email + "");
-                        }
-                    }
-                }
-            }
-        } catch (SQLException se) {
-            busted("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
-            throw new RuntimeException("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
+	protected Map getIntUsers(Map intGroups) {
+		Map m = new HashMap();
+		Connection conn = null;
+		try {
+			conn = dbUtils.getDBConnection();
+			synchronized (reg) {
+				java.sql.ResultSet rs = reg.list(null, conn);
+				if (rs == null) {
+					return m;
+				}
+				while (rs.next()) {
+					int theirLevel = rs.getInt(2);
+					if (theirLevel > UserRegistry.VETTER) {
+						continue; // will not receive notice.
+					}
 
+					int theirId = rs.getInt(1);
+					UserRegistry.User u = reg.getInfo(theirId);
+					// String theirName = rs.getString(3);
+					// String theirEmail = rs.getString(4);
+					// String theirOrg = rs.getString(5);
+					String theirLocales = rs.getString(6);
+					String theirIntlocs = rs.getString(7);
+
+					String localeArray[] = UserRegistry
+							.tokenizeLocale(theirLocales);
+
+					if ((theirId <= UserRegistry.TC)
+							|| (localeArray.length == 0)) { // all locales
+						localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
+					}
+
+					if (localeArray.length == 0) {
+						for (Iterator li = intGroups.keySet().iterator(); li
+								.hasNext();) {
+							String group = (String) li.next();
+							Set v = (Set) m.get(group);
+							if (v == null) {
+								v = new HashSet();
+								m.put(group, v);
+							}
+							v.add(u);
+							// System.err.println(group + " - " + u.email +
+							// " (ALL)");
+						}
+					} else {
+						for (int i = 0; i < localeArray.length; i++) {
+							String group = localeArray[i];
+							Set v = (Set) m.get(group);
+							if (v == null) {
+								v = new HashSet();
+								m.put(group, v);
+							}
+							v.add(u);
+							// System.err.println(group + " - " + u.email + "");
+						}
+					}
+				}
+			}
+		} catch (SQLException se) {
+			busted("SQL error querying users for getIntUsers - "
+					+ DBUtils.unchainSqlException(se));
+			throw new RuntimeException(
+					"SQL error querying users for getIntUsers - "
+							+ DBUtils.unchainSqlException(se));
+
+		} finally {
+			try {
+				DBUtils.close(conn);
+			} catch (SQLException se) {
+				busted("SQL error CLOSING  users for getIntUsers - "
+						+ DBUtils.unchainSqlException(se));
+				throw new RuntimeException(
+						"SQL error CLOSING users for getIntUsers - "
+								+ DBUtils.unchainSqlException(se));
+
+			}
+		}
+		return m;
 	}
-        return m;
-    }
 
 
     void writeRadio(WebContext ctx,String xpath,String type,String value,String checked) {
@@ -9783,7 +10110,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
     }
 
-    public static DBUtils dbUtils = DBUtils.getInstance();
+    public DBUtils dbUtils = DBUtils.getInstance();
     
     private void doStartupDB()
     {
@@ -9800,7 +10127,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             progress.update("Setup databases "); // restore
             try {
                 progress.update("Setup  "+UserRegistry.CLDR_USERS); // restore
-                Connection uConn = dbUtils.getDBConnection(this); ///*U*/ was:  getU_DBConnection
+                Connection uConn = dbUtils.getDBConnection(); ///*U*/ was:  getU_DBConnection
                 boolean doesExist_u = DBUtils.hasTable(uConn, UserRegistry.CLDR_USERS);
                 progress.update("Create UserRegistry  "+UserRegistry.CLDR_USERS); // restore
                 reg = UserRegistry.createRegistry(logger, uConn, this);
@@ -9821,7 +10148,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             progress.update( "Create XPT"); // restore
             try {
-                xpt = XPathTable.createTable(logger, dbUtils.getDBConnection(this), this);
+                xpt = XPathTable.createTable(logger, dbUtils.getDBConnection(), this);
             } catch (SQLException e) {
                 busted("On XPathTable startup", e);
                 return;
@@ -9836,7 +10163,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             progress.update( "Create Vetting"); // restore
             try {
-                vet = Vetting.createTable(logger, dbUtils.getDBConnection(this), this);
+                vet = Vetting.createTable(logger, dbUtils.getDBConnection(), this);
             } catch (SQLException e) {
                 e.printStackTrace();
                 busted("On Vetting startup", e);
@@ -9852,7 +10179,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             progress.update("Create fora"); // restore
             try {
-                fora = SurveyForum.createTable(logger, dbUtils.getDBConnection(this), this);
+                fora = SurveyForum.createTable(logger, dbUtils.getDBConnection(), this);
             } catch (SQLException e) {
                 busted("On Fora startup", e);
                 return;

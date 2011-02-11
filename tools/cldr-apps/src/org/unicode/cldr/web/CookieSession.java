@@ -41,7 +41,7 @@ public class CookieSession {
     
     public Connection db(SurveyMain sm) {
         if(conn == null) {
-            conn = sm.dbUtils.getDBConnection(sm);
+            conn = sm.dbUtils.getDBConnection();
         }
         return conn;
     }

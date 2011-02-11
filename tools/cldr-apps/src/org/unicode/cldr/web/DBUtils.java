@@ -23,6 +23,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.ibm.icu.text.UnicodeSet;
+
 //import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 
 /**
@@ -62,10 +64,10 @@ public class DBUtils {
 	public static String DB_SQL_BINTRODUCER = "";
 	static int db_number_cons = 0;
 	static int db_number_pool_cons = 0;
-	public static void closeDBConnection(Connection aconn) {
-		if (aconn != null) {
+	public static void closeDBConnection(Connection conn) {
+		if (conn != null) {
 			try {
-				aconn.close();
+				conn.close();
 			} catch (SQLException e) {
 				System.err.println(DBUtils.unchainSqlException(e));
 				e.printStackTrace();
@@ -74,7 +76,7 @@ public class DBUtils {
 			if (datasource != null) {
 				db_number_pool_cons--;
 			}
-			if (SurveyMain.isUnofficial) {
+			if (false && SurveyMain.isUnofficial) {
 				System.err.println("SQL -conns: "
 						+ db_number_cons
 						+ " "
@@ -401,7 +403,7 @@ public class DBUtils {
 //				datasource = null;
 //				//throw new InternalError("URL is null for datasource (tried once) " + JDBC_SURVEYTOOL);
 //			} else {
-				System.err.println("daaSource class = " + datasource.getClass().getName());
+//				System.err.println("daaSource class = " + datasource.getClass().getName());
 //			}
 			if(datasource!=null) {
 				System.err.println("Got datasource: " + datasource.toString());
@@ -446,17 +448,31 @@ public class DBUtils {
 		instance = null;
 	}
 
-	public Connection getDBConnection(SurveyMain surveyMain) {
-		return getDBConnection(surveyMain, "");
+	/**
+	 * @deprecated Use {@link #getDBConnection()} instead
+	 */
+	public final Connection getDBConnection(SurveyMain surveyMain) {
+		return getDBConnection();
+	}
+	
+	public final Connection getDBConnection() {
+		return getDBConnection("");
 	}
 
-	Connection getDBConnection(SurveyMain surveyMain, String options) {
+	/**
+	 * @deprecated Use {@link #getDBConnection(String)} instead
+	 */
+	public final Connection getDBConnection(SurveyMain surveyMain, String options) {
+		return getDBConnection(options);
+	}
+	
+	public Connection getDBConnection(String options) {
 		try {
 			db_number_cons++;
 
 			if (datasource != null) {
 				db_number_pool_cons++;
-				if (SurveyMain.isUnofficial) {
+				if (false&&SurveyMain.isUnofficial) {
 					System.err.println("SQL  +conns: " + db_number_cons
 							+ " Pconns: " + db_number_pool_cons);
 				}
@@ -465,7 +481,7 @@ public class DBUtils {
 				return c;
 			}
 			if(false) throw new InternalError("**************** FAIL: no DataSource ********************\n");
-			if (SurveyMain.isUnofficial) {
+			if (false&&SurveyMain.isUnofficial) {
 				System.err.println("SQL +conns: " + db_number_cons);
 			}
 			// if(db_number_cons >= 12) {
@@ -486,6 +502,7 @@ public class DBUtils {
 			return null;
 		}
 	}
+
 
 	void setupDBProperties(SurveyMain surveyMain, Properties cldrprops) {
 		db_driver = cldrprops.getProperty("CLDR_DB_DRIVER",
@@ -553,7 +570,7 @@ public class DBUtils {
 					sm.logger.info("loaded " + db_driver + " driver " + o
 							+ " - " + dbInfo);
 				progress.update("Create DB"); // restore
-				Connection conn = getDBConnection(sm, CLDR_DB_CREATESUFFIX);
+				Connection conn = getDBConnection(CLDR_DB_CREATESUFFIX);
 				// logger.info("Connected to database " + cldrdb);
 				// /*U*/ Connection conn_u = getU_DBConnection(";create=true");
 				// logger.info("Connected to user database " + cldrdb_u);
@@ -578,5 +595,96 @@ public class DBUtils {
 			t.printStackTrace();
 			return;
 		}
+	}
+	/**
+	 * Shortcut for certain statements.
+	 * @param conn
+	 * @param str
+	 * @return
+	 * @throws SQLException
+	 */
+    public static final PreparedStatement prepareForwardReadOnly(Connection conn, String str) throws SQLException {
+    	return conn.prepareStatement(str,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+    }
+
+    /**
+     * prepare statements for this connection 
+     * @throws SQLException 
+     **/ 
+    public static final PreparedStatement prepareStatementForwardReadOnly(Connection conn, String name, String sql) throws SQLException {
+    	PreparedStatement ps = null;
+    	try {       
+    		ps = prepareForwardReadOnly(conn, sql);
+    	} finally {
+    		if(ps==null) {
+    			System.err.println("Warning: couldn't initialize "+name+" from " + sql);
+    		}
+    	}
+    	//            if(false) System.out.println("EXPLAIN EXTENDED " + sql.replaceAll("\\?", "'?'")+";");
+    	//        } catch ( SQLException se ) {
+    	//            String complaint = "Vetter:  Couldn't prepare " + name + " - " + DBUtils.unchainSqlException(se) + " - " + sql;
+    	//            logger.severe(complaint);
+    	//            throw new RuntimeException(complaint);
+    	//        }
+    	return ps;
+    }
+    
+    /**
+     * prepare statements for this connection 
+     * @throws SQLException 
+     **/ 
+    public static final PreparedStatement prepareStatement(Connection conn, String name, String sql) throws SQLException {
+    	PreparedStatement ps = null;
+    	try {       
+    		ps =  conn.prepareStatement(sql);
+    	} finally {
+    		if(ps==null) {
+    			System.err.println("Warning: couldn't initialize "+name+" from " + sql);
+    		}
+    	}
+    	//            if(false) System.out.println("EXPLAIN EXTENDED " + sql.replaceAll("\\?", "'?'")+";");
+    	//        } catch ( SQLException se ) {
+    	//            String complaint = "Vetter:  Couldn't prepare " + name + " - " + DBUtils.unchainSqlException(se) + " - " + sql;
+    	//            logger.severe(complaint);
+    	//            throw new RuntimeException(complaint);
+    	//        }
+    	return ps;
+    }
+	/**
+	 * Close all of the objects in order, if not null. Knows how to close Connection, Statement, ResultSet, otherwise you'll get an IAE.
+	 * @param a1
+	 * @throws SQLException
+	 */
+	public static void close(Object... list) throws SQLException {
+		for(Object o : list) {
+//			if(o!=null) {
+//				System.err.println("Closing " + an(o.getClass().getSimpleName())+" " + o.getClass().getName());
+//			}
+			if(o == null) {
+				continue;
+			} else if(o instanceof Connection ) {
+				DBUtils.closeDBConnection((Connection) o);
+			} else if (o instanceof Statement) {
+				((Statement)o).close();
+			} else if (o instanceof ResultSet) {
+				((ResultSet)o).close();
+			} else {
+				throw new IllegalArgumentException("Don't know how to close "+an(o.getClass().getSimpleName())+" " + o.getClass().getName());
+			}
+		}
+	}
+
+	private static final UnicodeSet vowels = new UnicodeSet("[aeiouAEIOUhH]");
+	/**
+	 * Print A or AN appropriately.
+	 * @param str
+	 * @return
+	 */
+	private static String an(String str) {
+		boolean isVowel = vowels.contains(str.charAt(0));
+		return isVowel?"an":"a";
+	}
+	public boolean hasDataSource() {
+		return(datasource!=null);
 	}
 }

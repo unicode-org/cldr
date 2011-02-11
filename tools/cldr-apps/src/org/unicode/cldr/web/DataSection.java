@@ -722,7 +722,7 @@ public class DataSection extends Registerable {
 		public synchronized List<CandidateItem> getCurrentItems() {
 			if(this.currentItems==null) {
 
-				String resultXpath = getResultXpath();
+//				String resultXpath = getResultXpath();
 
 				List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 				List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
@@ -1749,7 +1749,7 @@ public class DataSection extends Registerable {
 
             String podBase = xpathPrefix;
             CLDRFile resolvedFile = new CLDRFile(ourSrc, true);
-            XPathParts parts = new XPathParts(null,null);
+//            XPathParts parts = new XPathParts(null,null);
 //            TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
 
             for(;zoneIterator.hasNext();) {

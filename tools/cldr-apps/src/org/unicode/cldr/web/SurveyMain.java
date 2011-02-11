@@ -5864,7 +5864,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         if(s.startsWith(FEED_PREFIX)) {
             return fora.doFeed(request, response);
         }
-
+        
+        CLDRProgressTask progress = this.openProgress("Raw XML");
+        try {
+        	
         boolean finalData = false;
         boolean resolved = false;
         boolean voteData = false;
@@ -6023,6 +6026,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
         }
         return true;
+        } finally {
+        	progress.close();
+        }
     }
 
     /**

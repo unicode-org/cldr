@@ -1119,13 +1119,16 @@ public class CLDRDBSourceFactory {
 		 **/
 		boolean setLocaleAndValidate(String locale) {
 			setLocaleID(locale);
+			if(srcId != -1) {
+				return true;
+			}
 
 			CLDRLocale updateNeeded = null;
 
 			System.err.println("@sl&v: "+locale+"/"+srcId);
 			CLDRProgressTask progress = sm.openProgress("DB Load " + locale);
 			MyStatements stmts = null;
-			try {
+			synchronized (this) { try {
 				stmts = openStatements();
 				//        	synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
 				// double check..
@@ -1251,6 +1254,7 @@ public class CLDRDBSourceFactory {
 				if(updateNeeded != null) {
 					needUpdate(updateNeeded);
 				}
+			}
 			}
 		}
 

@@ -16,6 +16,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -146,13 +148,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public SurveyForum  fora = null;
     public CLDRDBSourceFactory dbsrcfac = null;
     public LocaleChangeRegistry lcr = new LocaleChangeRegistry();
-    static ElapsedTimer uptime = new ElapsedTimer("ST uptime: {0}");
+    static ElapsedTimer uptime = new ElapsedTimer("uptime: {0}");
     ElapsedTimer startupTime = new ElapsedTimer("{0} until first GET/POST");
     public static String isBusted = null;
     private static String isBustedStack = null;
     private static Throwable isBustedThrowable = null;
     private static ElapsedTimer isBustedTimer = null;
     static ServletConfig config = null;
+    public static OperatingSystemMXBean osmxbean = ManagementFactory.getOperatingSystemMXBean();
 
     
     // ===== UI constants
@@ -590,7 +593,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             
             out.print(sysmsg("startup_wait"));
         }
-            out.println("<br><i id='uptime'> "+uptime+"</i><br>");
+            out.println("<br><i id='uptime'> "+getGuestsAndUsers()+"</i><br>");
             // TODO: on up, goto <base>
             
             out.println("<script type=\"text/javascript\">loadOnOk = '"+loadOnOk+"';</script>");
@@ -2444,7 +2447,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.print(" \u00b7 <span id='visitors'>");
         ctx.print(getGuestsAndUsers());
         ctx.print("</span> \u00b7 ");
-        ctx.print("#" + pages + " served in " + ctx.reqTimer + "</div>");
+        ctx.print(" served in " + ctx.reqTimer + "</div>");
         ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='"+URL_CLDR+"'>Common Locale Data Repository</a>");
         if(ctx.request != null) try {
             Map m = new TreeMap(ctx.getParameterMap());
@@ -2478,21 +2481,38 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("</html>");
     }
     
-    public String getGuestsAndUsers() {
+    public static String getGuestsAndUsers() {
         StringBuffer out = new StringBuffer();
         int guests = CookieSession.nGuests;
         int users = CookieSession.nUsers;
         if((guests+users)>0) { // ??
-            out.append("approx. ");
+            out.append("~");
             if(users>0) {
-                out.append(users+" logged in");
+                out.append(users+" users");
             }
             if(guests>0) {
                 if(users>0) {
-                    out.append(" and");
+                    out.append(", ");
                 }
-                out.append(" "+guests+" visiting");
+                out.append(" "+guests+" guests");
             }
+        }
+        out.append(", "+pages+"pg/"+uptime);
+        double load = osmxbean.getSystemLoadAverage();
+        if(load>0.0) {
+            int n=256-(int)Math.floor(load*256.0);
+            String asTwoHexString=Integer.toHexString(n);
+        	out.append("/<span style='background-color: #ff");
+	        if(asTwoHexString.length()==1) {
+	        	out.append("0");
+	        	out.append(asTwoHexString);
+	        	out.append("0");
+	        	out.append(asTwoHexString);
+	        } else {
+	        	out.append(asTwoHexString);
+	        	out.append(asTwoHexString);
+	        }
+	        out.append("'>load:"+(int)Math.floor(load*100.0)+"%</span>");
         }
         return out.toString();
     }
@@ -9930,7 +9950,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
     
     protected static void busted(String what, Throwable t, String stack) {
-        System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served, uptime " + uptime.toString()  + ")");
+        System.err.println("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served,  " + getGuestsAndUsers()  + ")");
         try {
             throw new InternalError("broke here");
         } catch(InternalError e) {

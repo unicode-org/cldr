@@ -37,6 +37,7 @@
 		<% } %>
 	</table>
 	
+<% if(submits!=null && submits.length>0) { %>
 	<div id="holder-holder">
 	        <div id="holder" style="width: 640px; height: 480px;"></div>
 	</div>        
@@ -71,7 +72,7 @@
 			var n<%= ii %> = r.text(<%= h %>,<%= v+20 %>, "<%= r[1] %>");
 		<% } %>
 	</script>
-	
+<% } %>
 
 <%
 	} finally {

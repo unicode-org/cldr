@@ -16,6 +16,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.MissingResourceException;
 import java.util.Properties;
 
 import javax.naming.Context;
@@ -394,17 +395,9 @@ public class DBUtils {
 		// Initialize DB context
 		try {
 			Context initialContext = new InitialContext();
-//			Context envContext = (Context) initialContext
-//					.lookup("java:comp/env");
 			datasource = (DataSource) initialContext.lookup("java:comp/env/" + JDBC_SURVEYTOOL);
 			//datasource = (DataSource) envContext.lookup("ASDSDASDASDASD");
 			
-//			if(datasource instanceof BasicDataSource && ((BasicDataSource)datasource).getUrl()==null) {
-//				datasource = null;
-//				//throw new InternalError("URL is null for datasource (tried once) " + JDBC_SURVEYTOOL);
-//			} else {
-//				System.err.println("daaSource class = " + datasource.getClass().getName());
-//			}
 			if(datasource!=null) {
 				System.err.println("Got datasource: " + datasource.toString());
 			}
@@ -412,14 +405,17 @@ public class DBUtils {
 			try {
 				if(datasource!=null) {
 					c = datasource.getConnection();
+					DatabaseMetaData dmd = c.getMetaData();
+					dbInfo = dmd.getDatabaseProductName()+" v"+dmd.getDatabaseProductVersion();
+					loadSqlHacks();
+					System.err.println("Metadata: "+ dbInfo);
 				}
 			} catch (SQLException  t) {
-				System.err
-						.println(getClass().getName()+": WARNING: in the future, we will require a JNDI datasource.  "
+                datasource = null;
+				throw new RuntimeException(getClass().getName()+": WARNING: we require a JNDI datasource.  "
 								+ "'"+JDBC_SURVEYTOOL+"'"
 								+ ".getConnection() returns : "
 								+ t.toString()+"\n"+unchainSqlException(t));
-				datasource = null;
 			} finally {
 				if (c != null)
 					try {
@@ -439,10 +435,32 @@ public class DBUtils {
 		
 	}
 
-	public void doShutdown() throws SQLException {
-		if (db_Derby) {
-			DriverManager.getConnection(CLDR_DB_SHUTDOWNSUFFIX);
-		}
+	private void loadSqlHacks() {
+	    System.err.println("Loading hacks for " + dbInfo);
+        if (dbInfo.contains("Derby")) {
+            db_Derby = true;
+            System.err.println("Note: derby mode");
+        } else if (dbInfo.contains("MySQL")) {
+            System.err.println("Note: mysql mode");
+            db_Mysql = true;
+            DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
+            DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
+            DB_SQL_VARCHARXPATH = "TEXT(1000) CHARACTER SET latin1 "
+                    + DB_SQL_BINCOLLATE;
+            DB_SQL_BINTRODUCER = "_latin1";
+            DB_SQL_WITHDEFAULT = "DEFAULT";
+            DB_SQL_TIMESTAMP0 = "DATETIME";
+            DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
+            DB_SQL_MIDTEXT = "TEXT(1024)";
+            DB_SQL_BIGTEXT = "TEXT(16384)";
+            DB_SQL_UNICODE = "BLOB";
+            DB_SQL_ALLTABLES = "show tables";
+        } else {
+            System.err.println("*** WARNING: Don't know what kind of database is "
+                    + dbInfo  + " - might be interesting!");
+        }
+    }
+    public void doShutdown() throws SQLException {
 		datasource = null;
 		System.err.println("DBUtils: removing my instance.");
 		instance = null;
@@ -480,22 +498,7 @@ public class DBUtils {
 				c.setAutoCommit(false);
 				return c;
 			}
-			if(false) throw new InternalError("**************** FAIL: no DataSource ********************\n");
-			if (false&&SurveyMain.isUnofficial) {
-				System.err.println("SQL +conns: " + db_number_cons);
-			}
-			// if(db_number_cons >= 12) {
-			// throw new InternalError("too many..");
-			// }
-			Properties props = new Properties();
-			if (CLDR_DB_U != null) {
-				props.put("user", CLDR_DB_U);
-				props.put("password", CLDR_DB_P);
-			}
-			Connection nc = DriverManager.getConnection(db_protocol + cldrdb
-					+ options, props);
-			nc.setAutoCommit(false);
-			return nc;
+			throw new InternalError("Error: we only support JNDI datasources. Contact srl.\n");
 		} catch (SQLException se) {
 			se.printStackTrace();
 			SurveyMain.busted("Fatal in getDBConnection", se);
@@ -505,32 +508,11 @@ public class DBUtils {
 
 
 	void setupDBProperties(SurveyMain surveyMain, Properties cldrprops) {
-		db_driver = cldrprops.getProperty("CLDR_DB_DRIVER",
-				"org.apache.derby.jdbc.EmbeddedDriver");
-		db_protocol = cldrprops.getProperty("CLDR_DB_PROTOCOL", "jdbc:derby:");
-		if (db_protocol.indexOf("derby") >= 0) {
-			db_Derby = true;
-		} else if (db_protocol.indexOf("mysql") >= 0) {
-			System.err.println("Note: mysql mode");
-			db_Mysql = true;
-			DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
-			DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
-			DB_SQL_VARCHARXPATH = "TEXT(1000) CHARACTER SET latin1 "
-					+ DB_SQL_BINCOLLATE;
-			DB_SQL_BINTRODUCER = "_latin1";
-			DB_SQL_WITHDEFAULT = "DEFAULT";
-			DB_SQL_TIMESTAMP0 = "DATETIME";
-			DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
-			DB_SQL_MIDTEXT = "TEXT(1024)";
-			DB_SQL_BIGTEXT = "TEXT(16384)";
-			DB_SQL_UNICODE = "BLOB";
-			DB_SQL_ALLTABLES = "show tables";
-		} else {
-			System.err.println("WARNING: Don't know what kind of database is "
-					+ db_protocol + " - might be interesting!");
-		}
-		CLDR_DB_U = cldrprops.getProperty("CLDR_DB_U", null);
-		CLDR_DB_P = cldrprops.getProperty("CLDR_DB_P", null);
+//		db_driver = cldrprops.getProperty("CLDR_DB_DRIVER",
+//				"org.apache.derby.jdbc.EmbeddedDriver");
+//		db_protocol = cldrprops.getProperty("CLDR_DB_PROTOCOL", "jdbc:derby:");
+//		CLDR_DB_U = cldrprops.getProperty("CLDR_DB_U", null);
+//		CLDR_DB_P = cldrprops.getProperty("CLDR_DB_P", null);
 		CLDR_DB = cldrprops.getProperty("CLDR_DB", "cldrdb");
 		dbDir = new File(SurveyMain.cldrHome, CLDR_DB);
 		cldrdb = cldrprops.getProperty("CLDR_DB_LOCATION",
@@ -543,58 +525,13 @@ public class DBUtils {
 
 	public void startupDB(SurveyMain sm,
 			CLDRProgressIndicator.CLDRProgressTask progress) {
-		try {
-			// if(false) { // pooling listener disabled by default
-			// progress.update( "Load pool "+STPoolingListener.ST_ATTRIBUTE); //
-			// restore
-			// datasource = (DataSource)
-			// getServletContext().getAttribute(STPoolingListener.ST_ATTRIBUTE);
-			// }
+	    System.err.println("StartupDB: datasource="+ datasource);
+	    if(datasource == null) {
+	        throw new RuntimeException("JNDI required: http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db");
+	    }
 
-			if (DBUtils.datasource != null) {
+		progress.update("Using datasource..."+dbInfo); // restore
 
-				progress.update("Load " + db_driver); // restore
-				Object o = Class.forName(db_driver).newInstance();
-				try {
-					java.sql.Driver drv = (java.sql.Driver) o;
-					progress.update("Check " + db_driver); // restore
-					dbInfo = "v" + drv.getMajorVersion() + "."
-							+ drv.getMinorVersion();
-					// dbInfo = dbInfo + " "
-					// +org.apache.derby.tools.sysinfo.getProductName()+" "
-					// +org.apache.derby.tools.sysinfo.getVersionString();
-				} catch (Throwable t) {
-					dbInfo = "unknown";
-				}
-				if (sm != null)
-					sm.logger.info("loaded " + db_driver + " driver " + o
-							+ " - " + dbInfo);
-				progress.update("Create DB"); // restore
-				Connection conn = getDBConnection(CLDR_DB_CREATESUFFIX);
-				// logger.info("Connected to database " + cldrdb);
-				// /*U*/ Connection conn_u = getU_DBConnection(";create=true");
-				// logger.info("Connected to user database " + cldrdb_u);
-
-				// set up our main tables.
-				progress.update("Commit DB"); // restore
-				conn.commit();
-				conn.close();
-			} else {
-				progress.update("Using datasource..."); // restore
-			}
-
-			// /*U*/ conn_u.commit();
-			// /*U*/ conn_u.close();
-		} catch (SQLException e) {
-			if (sm != null)
-				SurveyMain.busted("On database startup", e);
-			return;
-		} catch (Throwable t) {
-			if (sm != null)
-				SurveyMain.busted("Other error on database startup", t);
-			t.printStackTrace();
-			return;
-		}
 	}
 	/**
 	 * Shortcut for certain statements.
@@ -668,6 +605,8 @@ public class DBUtils {
 				((Statement)o).close();
 			} else if (o instanceof ResultSet) {
 				((ResultSet)o).close();
+			} else if(o instanceof CLDRDBSourceFactory.MyStatements) {
+			    ((CLDRDBSourceFactory.MyStatements)o).close();
 			} else {
 				throw new IllegalArgumentException("Don't know how to close "+an(o.getClass().getSimpleName())+" " + o.getClass().getName());
 			}

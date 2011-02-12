@@ -355,6 +355,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
     public SurveyMain() {
+      dbUtils  = DBUtils.getInstance();
     }
 
     /**
@@ -2498,9 +2499,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
         }
         out.append(", "+pages+"pg/"+uptime);
+        double procs = osmxbean.getAvailableProcessors();
         double load = osmxbean.getSystemLoadAverage();
         if(load>0.0) {
-            int n=256-(int)Math.floor(load*256.0);
+            int n=256-(int)Math.floor((load/procs)*256.0);
             String asTwoHexString=Integer.toHexString(n);
         	out.append("/<span style='background-color: #ff");
 	        if(asTwoHexString.length()==1) {
@@ -10136,7 +10138,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
     }
 
-    public DBUtils dbUtils = DBUtils.getInstance();
+    public DBUtils dbUtils= null;
     
     private void doStartupDB()
     {
@@ -10259,6 +10261,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             
             dbUtils.doShutdown();
+            dbUtils = null;
         }
         catch (SQLException se)
         {

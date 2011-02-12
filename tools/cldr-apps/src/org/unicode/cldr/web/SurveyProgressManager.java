@@ -17,6 +17,7 @@ import com.ibm.icu.text.NumberFormat;
  *
  */
 public class SurveyProgressManager implements CLDRProgressIndicator {
+    private static final boolean DEBUG_PROGRESS=false;
     private Deque<SurveyProgressTask> tasks = new LinkedList<SurveyProgressTask>();
     private class SurveyProgressTask implements CLDRProgressIndicator.CLDRProgressTask {
         boolean dead = false;
@@ -34,7 +35,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         @Override
         public void close() {
             tasks.remove(this); // remove from deque
-            System.err.println("Progress ("+progressWhat+") DONE - "+ ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()));
+            if(DEBUG_PROGRESS) System.err.println("Progress ("+progressWhat+") DONE - "+ ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()));
             dead = true;
         }
         @Override
@@ -130,7 +131,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
     public CLDRProgressTask openProgress(String what, int max) {
         SurveyProgressTask t = new SurveyProgressTask(what,max);
         tasks.addLast(t);
-        if(SurveyMain.isUnofficial)  System.err.println("Progress (" + what + ") BEGIN");
+        if(SurveyMain.isUnofficial && DEBUG_PROGRESS)  System.err.println("Progress (" + what + ") BEGIN");
         return t;
     }
 

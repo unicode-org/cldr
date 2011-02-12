@@ -29,14 +29,14 @@
             <or>
                 <isset property="ICU4J_JAR" />
             </or>
-        </condition > 
+        </condition> 
         <fail unless="is.icu4j.classes.set" message="Please set the ICU4J_JAR property in build.properties."/>
         
         <condition property="is.utilities.classes.set" >
             <or>
                 <isset property="UTILITIES_JAR" />
             </or>
-        </condition > 
+        </condition> 
         <fail unless="is.utilities.classes.set" message="Please set the UTILITIES_JAR property in build.properties."/>        
         <mkdir dir="${build.dir}"/>
         
@@ -59,7 +59,7 @@
         <property name="tomcat.home"        value="${CATALINA_HOME}"/>
         <condition property="is.tomcat.home.set" >
                 <isset property="CATALINA_HOME" />
-        </condition > 
+        </condition> 
         <fail unless="is.tomcat.home.set" message="Please set the CATALINA_HOME property in build.properties to point at your Tomcat installation."/>   
         
  <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->
@@ -122,6 +122,7 @@
         <echo message="CLDR_TOOLS: ${CLDR_TOOLS} ( usually just ../java )"/>
         <echo message="JDOM_LIB: ${JDOM_LIB}"/>
         <echo message="DERBY_LIB: ${DERBY_LIB}"/>
+        <echo message="DERBYTOOLS_LIB: ${DERBYTOOLS_LIB}"/>
         <echo message="ROME_LIB: ${ROME_LIB}"/>
         <echo message="MAIL_LIB: ${MAIL_LIB}"/>
         <echo message="servlet.jar: ${servlet.jar}"/>
@@ -245,6 +246,19 @@
         Note, this will fail if you haven't deployed the first time. -->
     <target name="redeploy" description="Redeploy SurveyTool application" 
         depends="init,war,undeploy,deploy">
+    </target>
+
+	<!-- must use this to initialize the derby DB. -->
+    <target name="create-derby-db" description="Create empty Derby DB"
+	depends="init">
+	<java classname="org.apache.derby.tools.ij" inputstring="exit;">
+         <sysproperty key="derby.system.home" value="${tomcat.home}"/>
+         <sysproperty key="ij.database" value="jdbc:derby:cldr/cldrdb;create=true"/>
+	 <classpath>
+		<pathelement location="${DERBY_LIB}"/>
+		<pathelement location="${DERBYTOOLS_LIB}"/>
+	 </classpath>
+	</java>	
     </target>
 
 </project>

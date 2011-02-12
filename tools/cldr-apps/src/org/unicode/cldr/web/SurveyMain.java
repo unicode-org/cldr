@@ -2645,7 +2645,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             mySession = null; // throw it out.
         }
         
-        if(mySession==null && user==null) {
+        if(!SurveyMain.isUnofficial && mySession==null && user==null) {
             mySession = CookieSession.checkForAbuseFrom(ctx.userIP(), BAD_IPS, ctx.request.getHeader("User-Agent"));
             if(mySession!=null) {
                 ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP()) + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag. Going to sleep a bit now.</h1>");

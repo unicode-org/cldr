@@ -487,7 +487,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
         try {
 	
-	                    
+            
+            if(isUnofficial) {
+                boolean waitASec = twidBool("SurveyMain.twoSecondPageDelay");
+                if(waitASec) {
+                    ctx.println("<h1>twoSecondPageDelay</h1>");
+                    Thread.sleep(2000);
+                }
+            }
+
 	        if(ctx.field("dump").equals(vap)) {
 	        	Thread.currentThread().setName(baseThreadName+" ST admin");
 	            doAdminPanel(ctx); // admin interface
@@ -7989,8 +7997,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
             }
             
-            String newProp = DataSection.addDataToNextSlot(ourSrc, cf, section.locale, fullPathMinusAlt, altType, 
-                altPrefix, ctx.session.user.id, choice_v, choice_r);
+            String newProp = null;
+            synchronized(vet) { // make sure that no-one else grabs our slot.
+                newProp = DataSection.addDataToNextSlot(ourSrc, cf, section.locale, fullPathMinusAlt, altType, 
+                    altPrefix, ctx.session.user.id, choice_v, choice_r);
+            }
             // update implied vote
 //            ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" + newProp+"</tt>");
             if(HAVE_REMOVE&&choice.equals(REMOVE)) {

@@ -1096,8 +1096,10 @@ public class Vetting {
     			        racesToUpdate.add(r);
     			        
     					// make the Race update itself ( we don't do this if it's just investigatory)
-    					int rc = r.updateDB(conn);
-    			        updates |= rc;
+                        synchronized (this) {
+                            int rc = r.updateDB(conn);
+                            updates |= rc;
+                        }
     				}
     			}
     			//                System.err.println("Missing results "+ncount+" for " + locale + " updated in " + et_m.toString());
@@ -1679,34 +1681,38 @@ public class Vetting {
      * @return >0 if successful
      */
     int unvote(CLDRLocale locale, int base_xpath, int submitter) {
-    	try {
-    		Connection conn = null;
-    		PreparedStatement rmVote = null;
-    		PreparedStatement rmResult = null;
-    		try {
-    			conn = sm.dbUtils.getDBConnection();
-    			rmVote = prepare_rmVote(conn);
-    			rmResult = prepare_rmResult(conn);
-    			
-    			rmVote.setString(1,locale.toString());
-    			rmVote.setInt(2,submitter);
-    			rmVote.setInt(3,base_xpath);
+        try {
+            Connection conn = null;
+            PreparedStatement rmVote = null;
+            PreparedStatement rmResult = null;
+            try {
+                conn = sm.dbUtils.getDBConnection();
+                rmVote = prepare_rmVote(conn);
+                rmResult = prepare_rmResult(conn);
 
-    			int rs = rmVote.executeUpdate();
-    			rmResult.setString(1,locale.toString());
-    			rmResult.setInt(2,base_xpath);
-    			rs += rmResult.executeUpdate();
-    			conn.commit();
-    			return rs;
-    		} finally {
-    			DBUtils.close(rmVote,conn);
-    		}
-    	} catch ( SQLException se ) {
-    		String complaint = "Vetter:  couldn't rm voting  for  " + locale + ":"+base_xpath+" - " + DBUtils.unchainSqlException(se);
-    		logger.severe(complaint);
-    		se.printStackTrace();
-    		throw new RuntimeException(complaint);
-    	}
+                rmVote.setString(1, locale.toString());
+                rmVote.setInt(2, submitter);
+                rmVote.setInt(3, base_xpath);
+                rmResult.setString(1, locale.toString());
+                rmResult.setInt(2, base_xpath);
+
+                synchronized (this) {
+                    int rs = rmVote.executeUpdate();
+                    rs += rmResult.executeUpdate();
+                    conn.commit();
+                    return rs;
+                }
+            } finally {
+                DBUtils.close(rmVote, conn);
+            }
+        } catch (SQLException se) {
+            String complaint = "Vetter:  couldn't rm voting  for  " + locale
+            + ":" + base_xpath + " - "
+            + DBUtils.unchainSqlException(se);
+            logger.severe(complaint);
+            se.printStackTrace();
+            throw new RuntimeException(complaint);
+        }
     }
     
     /**
@@ -1731,32 +1737,35 @@ public class Vetting {
     			queryVoteId.setString(1,locale.toString());
     			queryVoteId.setInt(2,submitter);
     			queryVoteId.setInt(3,base_xpath);
+                rmResult = prepare_rmResult(conn);
+                rmResult.setString(1,locale.toString());
+                rmResult.setInt(2,base_xpath);
+                updateVote = prepare_updateVote(conn);
+                insertVote = prepare_insertVote(conn);
 
     			ResultSet rs = queryVoteId.executeQuery();
-    			if(rs.next()) {
-    				// existing
-    				int id = rs.getInt(1);
-        			updateVote = prepare_updateVote(conn);
-    				updateVote.setInt(1, vote_xpath);
-    				updateVote.setInt(2, type);
-    				updateVote.setInt(3, id);
-    				updateVote.executeUpdate();
-    				//                    System.err.println("updated CLDR_VET #"+id);
-    			} else {
-    				insertVote = prepare_insertVote(conn);
-    				insertVote.setString(1,locale.toString());
-    				insertVote.setInt(2,submitter);
-    				insertVote.setInt(3,base_xpath);
-    				insertVote.setInt(4,vote_xpath);
-    				insertVote.setInt(5,type);
-    				insertVote.executeUpdate();
-    			}
-    			rmResult = prepare_rmResult(conn);
-    			rmResult.setString(1,locale.toString());
-    			rmResult.setInt(2,base_xpath);
-    			rmResult.executeUpdate();
 
-    			conn.commit();
+                synchronized (this) {
+                    if (rs.next()) {
+                        // existing
+                        int id = rs.getInt(1);
+                        updateVote.setInt(1, vote_xpath);
+                        updateVote.setInt(2, type);
+                        updateVote.setInt(3, id);
+                        updateVote.executeUpdate();
+                        // System.err.println("updated CLDR_VET #"+id);
+                    } else {
+                        insertVote.setString(1, locale.toString());
+                        insertVote.setInt(2, submitter);
+                        insertVote.setInt(3, base_xpath);
+                        insertVote.setInt(4, vote_xpath);
+                        insertVote.setInt(5, type);
+                        insertVote.executeUpdate();
+                    }
+                    rmResult.executeUpdate();
+
+                    conn.commit();
+                }
     			//  updateResults(locale);// caller needs to do updateResults
     		} finally {
     			DBUtils.close(rmResult,insertVote,updateVote,queryVoteId,conn);

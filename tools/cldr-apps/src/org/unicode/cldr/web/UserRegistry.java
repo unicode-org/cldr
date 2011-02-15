@@ -562,7 +562,15 @@ public class UserRegistry {
         voterInfo = null;
     }
 
+    /**
+     * Get the singleton user for this ID. 
+     * @param id
+     * @return singleton, or null if not found/invalid
+     */
     public UserRegistry.User getInfo(int id) {
+        if(id<0) {
+            return null;
+        }
 //    System.err.println("Fetching info for id " + id);
         synchronized(infoArray) {
             User ret = null;
@@ -1446,6 +1454,10 @@ public class UserRegistry {
     }
     
     static final String LOCALE_PATTERN = "[, \t\u00a0\\s]+"; // whitespace
+    /**
+     * Invalid user ID, representing NO USER.
+     */
+    public static final int NO_USER = -1;
     
     static String[] tokenizeLocale(String localeList) {
         if((localeList == null)||((localeList=localeList.trim()).length()==0)) {

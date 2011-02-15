@@ -1566,4 +1566,16 @@ public class WebContext implements Cloneable {
         }
     }
 
+    /**
+     * Return the ID of this user, or -1 (UserRegistry.NO_USER)
+     * @return user's id, or -1 (UserRegistry.NO_USER) if not found/not set
+     */
+    public int userId() {
+        if(session!=null && session.user!=null) {
+            return session.user.id;
+        } else {
+            return UserRegistry.NO_USER;
+        }
+    }
+
 }

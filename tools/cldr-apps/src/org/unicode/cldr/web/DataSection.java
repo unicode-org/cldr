@@ -782,13 +782,38 @@ public class DataSection extends Registerable {
 		 * Get a list of proposed items, if any.
 		 */
 		public List<CandidateItem> getProposedItems() {
-			// TODO Auto-generated method stub
 			if(currentItems==null) {
 				getCurrentItems();
 			}
 			return proposedItems;
 		}
         
+		
+		/**
+		 * Return the CandidateItem for a particular user ID
+		 * @param userId
+		 * @return
+		 */
+		public CandidateItem getVotesForUser(int userId) {
+		    UserRegistry.User infoForUser = sm.reg.getInfo(userId); /* see gatherVotes - getVotes() is populated with a set drawn from the getInfo() singletons. */
+		    if(infoForUser==null) return null;
+		    for(CandidateItem item: getProposedItems()) {
+		        Set<User> votes = item.getVotes();
+		        if(votes!=null && votes.contains(infoForUser)) {
+		            return item;
+		        }
+		    }
+		    return null; /* not found. */
+		}
+
+		/**
+		 * Returns true if a user has voted or not.
+		 * @param userId
+		 * @return true if user has voted at all, false otherwise. Will return false if user changes their vote back to no opinion.
+		 */
+		public boolean userHasVoted(int userId) {
+		    return getVotesForUser(userId)!=null;
+		}
     }
 
     Hashtable<String, DataRow> rowsHash = new Hashtable<String, DataRow>(); // hashtable of type->Row

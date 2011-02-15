@@ -5406,6 +5406,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         showPathList(subCtx, "//ldml/units", null);
                     } else if(PathUtilities.xOTHER.equals(which)) {
                         showPathList(subCtx, "//ldml", null);
+                    } else if(which.equals(LDMLConstants.CHARACTERS)) {
+                        showPathList(subCtx, "//ldml/"+LDMLConstants.CHARACTERS, LDMLConstants.EXEMPLAR_CHARACTERS);
                     } else {
                         showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
                     }
@@ -7107,8 +7109,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     /**
      * Holds session lock
      * @param ctx
-     * @param xpath
-     * @param lastElement
+     * @param xpath the 'base xpath' such as '//ldml/characters'
+     * @param lastElement the 'final element' of each item, such as 'exemplarCharacters' 
      * @param simple (ignored)
      */
     public void showPathList(WebContext ctx, String xpath, String lastElement, boolean simple) {

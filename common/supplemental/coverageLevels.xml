@@ -101,7 +101,7 @@
 		<coverageLevel value="40" match="localeDisplayNames/localeDisplayPattern/locale((KeyType)?Pattern|Separator)"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='(d|(h|H)m?v?|y|y?(M(MM)?)(E?d)?|y?MMMM)'].*"/>
-		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='(day|week|month)']/relative[@type='(\-?1|0)']"/>
+		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='(day|week|month|year)']/relative[@type='(\-?1|0)']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='.*']/displayName"/>
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='America_(Eastern|Central|Mountain|Pacific)']/.*"/>
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='Europe_(Central|(East|West)ern)']/.*"/>

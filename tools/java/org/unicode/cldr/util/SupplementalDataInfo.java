@@ -660,7 +660,7 @@ public class SupplementalDataInfo {
         }
     }
     public static class CoverageLevelInfo implements Comparable<CoverageLevelInfo> {
-        private String match;
+        public String match;
         private Integer value;
         private String inLanguage;
         private String inScript;
@@ -1487,7 +1487,8 @@ public class SupplementalDataInfo {
 
     private Map<String, Pair<String, String>> references = new TreeMap();
     private Map<String, String> likelySubtags = new TreeMap();
-    private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
+    // make public temporarily until we resolve.
+    public SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
     private Map<String, String> parentLocales = new HashMap<String,String>();
     private Map<String, List<String>> calendarPreferences= new HashMap();
     private Map<String, CoverageVariableInfo> coverageVariables = new TreeMap();    

@@ -2,6 +2,8 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -17,11 +19,13 @@ import com.ibm.icu.text.Transform;
  * Lookup items according to a set of regex patterns. Returns the value according to the first pattern that matches. Not thread-safe.
  * @param <T>
  */
-public class RegexLookup<T> {
+public class RegexLookup<T> implements Iterable<Row.R2<Matcher,T>>{
+    private static final boolean DEBUG = false;
     private final Map<String, Row.R2<Matcher,T>> entries = new LinkedHashMap<String, Row.R2<Matcher,T>>();
     private final Transform<String, Pattern> patternTransform;
     private final Transform<String, T> valueTransform;
     private final Merger<T> valueMerger;
+    private final boolean allowNull = false;
 
     /**
      * Allows for merging items of the same type.
@@ -58,11 +62,26 @@ public class RegexLookup<T> {
                         }
                     }
                     return entry.get1();
+                } else if (DEBUG) {
+                    int failPoint = getFailPoint(matcher, source);
+                    String show = source.substring(0,failPoint) + "$" + source.substring(failPoint);
+                    show += "";
                 }
             }
             break;
         }
         return null;
+    }
+
+    public int getFailPoint(Matcher matcher, String source) {
+        for (int i = 1; i < source.length(); ++i) {
+            matcher.reset(source.substring(0,i)).find();
+            boolean hitEnd = matcher.hitEnd();
+            if (!hitEnd) {
+                return i - 1;
+            }
+        }
+        return 0;
     }
 
     /**
@@ -124,9 +143,13 @@ public class RegexLookup<T> {
      * @return this, for chaining
      */
     public RegexLookup<T> add(String stringPattern, String target) {
-        @SuppressWarnings("unchecked")
-        T result = valueTransform == null ? (T) target : valueTransform.transform(target);
-        return add(stringPattern, result);
+        try {
+            @SuppressWarnings("unchecked")
+            T result = valueTransform == null ? (T) target : valueTransform.transform(target);
+            return add(stringPattern, result);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Failed to add <" + stringPattern + "> => <" + target + ">", e);
+        }
     }
 
     /**
@@ -147,6 +170,9 @@ public class RegexLookup<T> {
      * @return this, for chaining
      */
     public RegexLookup<T> add(Pattern pattern, T target) {
+        if (!allowNull && target == null) {
+            throw new NullPointerException("null disallowed, unless allowNull(true) is called.");
+        }
         Matcher matcher = pattern.matcher("");
         R2<Matcher, T> old = entries.get(pattern.pattern());
         if (old == null) {
@@ -157,5 +183,10 @@ public class RegexLookup<T> {
             throw new IllegalArgumentException("Duplicate matcher without Merger defined " + pattern + "; old: " + old + "; new: " + target);
         }
         return this;
+    }
+
+    @Override
+    public Iterator<R2<Matcher, T>> iterator() {
+        return Collections.unmodifiableCollection(entries.values()).iterator();
     }
 }

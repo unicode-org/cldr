@@ -19,12 +19,14 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
 public class TestCoverageLevel extends TestFmwk {
@@ -52,7 +54,7 @@ public class TestCoverageLevel extends TestFmwk {
         CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
         coverageLevel.setFile(cldrFileToCheck, options, null, possibleErrors);
 
-        Map<Row.R2<Level, Integer>, Relation<String, String>> failures = new TreeMap(); // Relation.of(new HashMap<Row.R2<Level, Integer>, Set<Relation<String,String>>>(), HashSet.class);
+        Map<Row.R2<Level, Level>, Relation<String, String>> failures = new TreeMap<Row.R2<Level, Level>, Relation<String, String>>(); // Relation.of(new HashMap<Row.R2<Level, Integer>, Set<Relation<String,String>>>(), HashSet.class);
 
         int failureCount = 0;
         int successCount = 0;
@@ -68,18 +70,28 @@ public class TestCoverageLevel extends TestFmwk {
             if (fullPath == null) {
                 continue;
             }
-            Level level = coverageLevel.getCoverageLevel(fullPath);            
-            int newLevel = testInfo.getSupplementalDataInfo().getCoverageValue(path, ulocale);
-            if (newLevel != level.getLevel()) {
-                ++failureCount;
+//            if (path.contains("ethiopic")) {
+//                System.out.println("?");
+//            }
+            Level level = coverageLevel.getCoverageLevel(fullPath);     
+            
+            Level newLevel = Level.fromLevel(testInfo.getSupplementalDataInfo().getCoverageValue(path, ulocale));
+            if (newLevel != level) {
+                Level exceptionLevel = exceptions.get(fullPath);
+                if (newLevel == exceptionLevel) {
+                    level = exceptionLevel;
+                    ++successCount;
+                } else {
+                    ++failureCount;
+                }
             } else {
                 ++successCount;
             }
-            R2<Level, Integer> key = Row.of(level, newLevel);
+            R2<Level, Level> key = Row.of(level, newLevel);
             String starredPath = pathStarrer.set(path);
             Relation<String, String> starredToAttributes = failures.get(key);
             if (starredToAttributes == null) {
-                failures.put(key, starredToAttributes = new Relation(new TreeMap<String, Set<String>>(), TreeSet.class));
+                failures.put(key, starredToAttributes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
             starredToAttributes.put(starredPath, pathStarrer.getAttributesString("|"));
         }
@@ -90,13 +102,12 @@ public class TestCoverageLevel extends TestFmwk {
         }
         if (params.verbose) {
             for (int i = 0; i < 2; ++i) {
-                for (Entry<R2<Level, Integer>, Relation<String, String>> entry : failures.entrySet()) {
-                    R2<Level, Integer> levels = entry.getKey();
+                for (Entry<R2<Level, Level>, Relation<String, String>> entry : failures.entrySet()) {
+                    R2<Level, Level> levels = entry.getKey();
                     Relation<String, String> starredToAttributes = entry.getValue();
                     Level oldLevel = levels.get0();
-                    int newLevel = levels.get1();
-                    byte oldLevelInt = oldLevel.getLevel();
-                    if ((i == 0) == (oldLevelInt == newLevel)) {
+                    Level newLevel = levels.get1();
+                    if ((i == 0) == (oldLevel == newLevel)) {
                         continue;
                     }
                     //logln("\tCount:\t" + starredToAttributes.values().size() + ",\tOld level:\t" + oldLevel + " (=" + oldLevelInt + ")" + ",\tNew level:\t" + newLevel);
@@ -110,7 +121,10 @@ public class TestCoverageLevel extends TestFmwk {
                         if (valueSample.length() > 100) {
                             valueSample = valueSample.substring(0,100) + "…";
                         }
-                        logln(oldLevelInt + "\t" + newLevel + "\t" + s.getKey() + "\t" + valueSample);
+                        logln((oldLevel == null ? "?" : oldLevel.getLevel()) 
+                                + "\t" + (newLevel == null ? "?" : newLevel.getLevel())
+                                + "\t" + s.getKey() 
+                                + "\t" + valueSample);
                     }
                 }
             }
@@ -209,5 +223,17 @@ public class TestCoverageLevel extends TestFmwk {
             total++;
         }
         return total;
+    }
+    
+    RegexLookup<Level> exceptions = RegexLookup.of(null, new Transform<String,Level>() {
+        public Level transform(String source) {
+            return Level.fromLevel(Integer.parseInt(source));
+        }
+    }, null)
+    .loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
+    {
+        for (R2<Matcher, Level> x : exceptions) {
+            System.out.println(x.get0().pattern() + " => " + x.get1());
+        }
     }
 }

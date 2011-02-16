@@ -99,6 +99,7 @@ public class CoverageLevel {
    */
   public enum Level {
     UNDETERMINED(0, "none",0),
+    CORE(10,"G4", 100),
     POSIX(20,"G4", 100),
     MINIMAL(30,"G3.5", 90),
     BASIC(40,"G3", 80),
@@ -161,7 +162,7 @@ public class CoverageLevel {
                 return result;
             }
         }
-        return null;
+        throw new IllegalArgumentException(String.valueOf(level));
     }
   }
   

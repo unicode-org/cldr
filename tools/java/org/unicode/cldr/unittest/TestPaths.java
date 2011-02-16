@@ -80,7 +80,7 @@ public class TestPaths extends TestFmwk {
     } else if (!path.equals(unprettied)) {
       errln("Pretty Path doesn't roundtrip:\t" + path + "\t" + prettied + "\t" + unprettied);
     } else {
-      //logln(prettied + "\t" + path);
+      logln(prettied + "\t" + path);
     }
   }
 

@@ -69,7 +69,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-    public static final String CHART_DISPLAY_VERSION = "1.9\u03B2"; // "1.8\u03B2"; // \u03B2 is betaβ
+    public static final String CHART_DISPLAY_VERSION = "2.0\u03B1"; // "1.8\u03B2"; // \u03B2 is beta - β, \u03b1 is alpha - α
 
     private static final boolean SHOW_NATIVE = true;
 

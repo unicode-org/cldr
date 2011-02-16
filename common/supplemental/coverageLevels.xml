@@ -95,7 +95,6 @@
 		<coverageLevel value="40" match="localeDisplayNames/scripts/script[@type='(Latn|Hans|Hant|Cyrl|Arab)']([@alt='(variant|stand-alone)'])?"/>
 		<coverageLevel value="40" match="localeDisplayNames/territories/territory[@type='(BR|CN|DE|GB|FR|IN|IT|JP|RU|US)']"/>
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='(BRL|CNY|EUR|GBP|INR|JPY|RUB|USD)']/(symbol|displayName.*)"/>
-		<coverageLevel value="40" match="numbers/currencies/currency[@type='INR']/symbol[@alt='new']"/>
 		<coverageLevel value="40" match="localeDisplayNames/codePatterns/codePattern[@type='(language|script|territory)']"/>
 		<coverageLevel value="40" match="localeDisplayNames/measurementSystemNames/measurementSystemName[@type='(metric|UK|US)']"/>
 		<coverageLevel value="40" match="localeDisplayNames/localeDisplayPattern/locale((KeyType)?Pattern|Separator)"/>

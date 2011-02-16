@@ -2,7 +2,7 @@
 //  DataSection.java
 //
 //  Created by Steven R. Loomis on 18/11/2005.
-//  Copyright 2005-2009 IBM. All rights reserved.
+//  Copyright 2005-2011 IBM. All rights reserved.
 //
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
@@ -797,6 +797,12 @@ public class DataSection extends Registerable {
 		public CandidateItem getVotesForUser(int userId) {
 		    UserRegistry.User infoForUser = sm.reg.getInfo(userId); /* see gatherVotes - getVotes() is populated with a set drawn from the getInfo() singletons. */
 		    if(infoForUser==null) return null;
+            for(CandidateItem item: getCurrentItems()) {
+                Set<User> votes = item.getVotes();
+                if(votes!=null && votes.contains(infoForUser)) {
+                    return item;
+                }
+            }
 		    for(CandidateItem item: getProposedItems()) {
 		        Set<User> votes = item.getVotes();
 		        if(votes!=null && votes.contains(infoForUser)) {

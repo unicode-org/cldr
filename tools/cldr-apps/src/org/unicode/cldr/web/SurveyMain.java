@@ -8246,7 +8246,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         ctx.println("<td class='examplecell'>");
                     }
                 */
-                
             } else if((s & Vetting.RES_DISPUTED)>0) {
                 rclass= "disputedrow";
                 statusIcon = (ctx.iconHtml("ques","Unconfirmed: disputed"));
@@ -8264,13 +8263,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     if(p.confirmStatus == Vetting.Status.INDETERMINATE) {
                         statusIcon = ctx.iconHtml("ques", "No New Values");
                     } else if(p.confirmStatus != Vetting.Status.APPROVED) {
-                        statusIcon = (ctx.iconHtml("ques-2","Not Approved, but no alternatives"));
+                        if (p.userHasVoted(ctx.userId())) {
+                            String confIcon = isPhaseSubmit() ? "conf" : "conf2";
+                            statusIcon = (ctx.iconHtml(confIcon,"Needs confirmation from others to approve"));
+                        } else {
+                            statusIcon = (ctx.iconHtml("ques-2","Not Approved, and no vote recorded"));
+                        }
                     } else {
                         statusIcon = ctx.iconHtml("okay", "Approved Item");
                     }
                 } else {
                     if(!p.hasMultipleProposals && (p.confirmStatus != Vetting.Status.APPROVED)) {
-                        statusIcon = (ctx.iconHtml("ques-2","Not Approved, but no alternatives"));
+                        if (p.userHasVoted(ctx.userId())) {
+                            String confIcon = isPhaseSubmit() ? "conf" : "conf2";
+                            statusIcon = (ctx.iconHtml(confIcon,"Needs confirmation from others to approve"));
+                        } else {
+                            statusIcon = (ctx.iconHtml("ques-2","Not Approved, and no vote recorded"));
+                        }
                     } else {
                         statusIcon = okayIcon;
                     }

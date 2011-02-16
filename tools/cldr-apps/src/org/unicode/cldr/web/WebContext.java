@@ -632,7 +632,7 @@ public class WebContext implements Cloneable {
         for(Iterator<String> e = outQueryMap.keySet().iterator();e.hasNext();) {
             String k = e.next().toString();
             String v = outQueryMap.get(k).toString();
-            println("<input type='hidden' name='" + k + "' value='" + v + "'/>");
+            print("<input type='hidden' name='" + k + "' value='" + v + "'/>");
         }
     }
     

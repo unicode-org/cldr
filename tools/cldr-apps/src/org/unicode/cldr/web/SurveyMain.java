@@ -954,30 +954,30 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		actionSubCtx.addQuery("action",action);
 
 		actionCtx.println("Click here to update data: ");
-        printMenu(actionCtx, action, "upd_1", "Easy Data Update", "action");       
-        actionCtx.println(" <br> ");
-        printMenu(actionCtx, action, "sessions", "Sessions", "action");    
-            actionCtx.println(" | ");
-            printMenu(actionCtx, action, "stats", "Stats", "action");       
-            actionCtx.println(" | ");
-            printMenu(actionCtx, action, "tasks", "Tasks", "action");       
-            actionCtx.println(" | ");
-        printMenu(actionCtx, action, "statics", "Statics", "action");       
-            actionCtx.println(" | ");
-        printMenu(actionCtx, action, "specialusers", "Specialusers", "action");       
-            actionCtx.println(" | ");
-        printMenu(actionCtx, action, "specialmsg", "Update Special Message", "action");       
-        actionCtx.println(" | ");
-        printMenu(actionCtx, action, "upd_src", "Manage Sources", "action");       
-        actionCtx.println(" | ");
-        printMenu(actionCtx, action, "load_all", "Load all locales", "action");       
-        actionCtx.println(" | ");
-        printMenu(actionCtx, action, "add_locale", "Add a locale", "action");       
-        actionCtx.println(" | ");
-        printMenu(actionCtx, action, "bulk_submit", "Bulk Data Submit", "action");       
-            actionCtx.println(" | ");
-        printMenu(actionCtx, action, "srl", "EXPERT-ADMIN-use-only", "action");  // Dangerous items
-		
+		printMenuButton(actionCtx, action, "upd_1", "Easy Data Update", "action", "Update:");       
+		actionCtx.println(" <br> ");
+		printMenu(actionCtx, action, "sessions", "User Sessions", "action");    
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "stats", "Internal Statistics", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "tasks", "Tasks and Threads", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "statics", "Static Data", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "specialusers", "Specialusers", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "specialmsg", "Update Header Message", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "upd_src", "Manage Sources", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "load_all", "Load all locales", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "add_locale", "Add a locale", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "bulk_submit", "Bulk Data Submit", "action");       
+		actionCtx.println(" | ");
+		printMenu(actionCtx, action, "srl", "Dangerous Options...", "action");  // Dangerous items
+
         if(action.startsWith("srl")) {
             ctx.println("<br><ul><div class='ferrbox'>");
             if(action.equals("srl")) {
@@ -1177,10 +1177,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             
         } else if(action.equals("sessions"))  {
             ctx.println("<h1>Current Sessions</h1>");
-            ctx.println("<table summary='User list' border=1><tr><th>age</th><th>user</th><th>what</th><th>action</th></tr>");
+            ctx.println("<table class='list' summary='User list'><tr class='heading'><th>age</th><th>user</th><th>what</th><th>action</th></tr>");
+            int rowc = 0;
             for(Iterator li = CookieSession.getAll();li.hasNext();) {
                 CookieSession cs = (CookieSession)li.next();
-                ctx.println("<tr><!-- <td><tt style='font-size: 72%'>" + cs.id + "</tt></td> -->");
+                ctx.println("<tr class='row"+(rowc++)%2+"'><!-- <td><tt style='font-size: 72%'>" + cs.id + "</tt></td> -->");
                 ctx.println("<td>" + timeDiff(cs.last) + "</td>");
                 if(cs.user != null) {
                     ctx.println("<td><tt>" + cs.user.email + "</tt><br/>" + 
@@ -1206,6 +1207,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     cs.remove();
                     ctx.println("<br><b>Removed.</b>");
                 }
+                ctx.println(  " | <a class='notselected' href='"+actionCtx.url()+"&amp;banip="+URLEncoder.encode(cs.ip)+"'>Ban</a>");
+                if(cs.ip.equals(ctx.field("banip"))) {
+                    ctx.println("<b> Banned:</b> " + cs.banIn(BAD_IPS) + "<hr/> and Kicked.");
+                    cs.remove();
+                }
                 ctx.println("</td>");
                 
                 ctx.println("</tr>");
@@ -1220,11 +1226,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
             }
             ctx.println("</table>");
+            String rmip = ctx.field("rmip");
+            if(rmip !=null && !rmip.isEmpty()) {
+                BAD_IPS.remove(rmip);
+                ctx.println("<b>Removed bad IP:"+rmip+"</b>");
+            }
             if(!BAD_IPS.isEmpty()) {
                 ctx.println("<h3>Bad IPs</h3>");
+                ctx.println("<table class='list'><tr class='heading'><th>IP</th><th>Info</th><th>(delete)</th></tr>");
+                rowc=0;
                 for(Entry<String, Object> e : BAD_IPS.entrySet()) {
-                    ctx.println(e.getKey() + " : " + e.getValue() + "<br/>");
+                    ctx.println("<tr class='row"+(rowc++)%2+"'>");
+                    ctx.println( "<th>"+e.getKey() + "</th>");
+                    ctx.println( "<td>" + e.getValue() + "</td>");
+                    ctx.println(  "<td><a class='notselected' href='"+actionCtx.url()+"&amp;rmip="+URLEncoder.encode(e.getKey())+"'>(remove)</td>");
+                    ctx.println("</tr>");
                 }
+                ctx.println("</table>");
             }
         } else if(action.equals("upd_1")) {
             WebContext subCtx = (WebContext)ctx.clone();
@@ -1598,6 +1616,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		t.printStackTrace();
 		ctx.println("Err : " + t.toString() );
 	    }
+        } else if(action.equals("srl")) {
+            ctx.println("<h1>"+ctx.iconHtml("warn", "warning")+"Please be careful!</h1>");
         } else if(action.equals("srl_vet_imp")) {
             WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);
@@ -1926,10 +1946,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 			actionCtx.addQuery("action", action);
 			ctx.println("<hr><br><br>");
 			String loc = actionCtx.field("loc");
+			
+			ctx.println("<div class='ferrbox'><B>Note:</B> before using this interface, you must read <a href='http://cldr.unicode.org/development/adding-locales'>This Page</a> especially about adding core data.</div>");
 
 			ctx.println("This interface lets you create a new locale, and its parents.  Before continuing, please make sure you have done a" +
-					" CVS update to make sure the file doesn't already exist." +
-					" After creating the locale, it should be added to CVS as well.<hr>");
+					" SVN update to make sure the file doesn't already exist." +
+					" After creating the locale, it should be added to SVN as well.<hr>");
 			
 			ctx.print("<form action='"+actionCtx.base()+"'>");
             ctx.print("<input type='hidden' name='action' value='"+action+"'>");
@@ -2653,7 +2675,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             mySession = null; // throw it out.
         }
         
-        if(!SurveyMain.isUnofficial && mySession==null && user==null) {
+        if(mySession==null && user==null) {
             mySession = CookieSession.checkForAbuseFrom(ctx.userIP(), BAD_IPS, ctx.request.getHeader("User-Agent"));
             if(mySession!=null) {
                 ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP()) + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag. Going to sleep a bit now.</h1>");
@@ -5093,6 +5115,26 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public void printMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
         ctx.print(getMenu(ctx,which, menu, title, key, anchor));
     }
+    
+    /**
+     * Print out a menu as a form
+     * @param ctx
+     * @param which
+     * @param menu
+     * @param title
+     * @param key
+     */
+    private void printMenuButton(WebContext ctx, String which,
+            String menu, String title, String key, String buttonName) {
+        ctx.print("<form action='"+ctx.url()+"#"+key+"="+menu+"' method='POST'>");
+        ctx.printUrlAsHiddenFields();
+        ctx.println("\n<input type='hidden' name='"+key+"' value='"+menu+"' />");
+        ctx.println("<label class='"+(menu.equals(which)?"selected":"notselected")+"'>"+buttonName);
+        ctx.println("<input type='submit' value='"+title+"' />");
+        ctx.println("</label>");
+        ctx.println("</form>");
+    }
+
     
     public String getMenu(WebContext ctx, String which, String menu, String title) {
         return getMenu(ctx,which,menu,title,QUERY_SECTION);

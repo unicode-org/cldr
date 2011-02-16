@@ -558,6 +558,10 @@ public class CookieSession {
             return getSpecialGuest();
         }
         
+        if(SurveyMain.isUnofficial) {
+            return null; // OK.
+        }
+        
         // get the # of sessions
         
         int noSes = 0;
@@ -584,7 +588,23 @@ public class CookieSession {
             BAD_IPS.put(userIP, bur);
             return getSpecialGuest();
         } else {
-            return null;
+            return null; // OK.
+        }
+    }
+
+    public String banIn(Hashtable<String, Object> BAD_IPS) {
+        synchronized(gHash) {
+            BadUserRecord bur  = (BadUserRecord)BAD_IPS.get(this.ip);
+            if(bur == null) {
+                bur = new BadUserRecord(this.ip);
+                BAD_IPS.put(this.ip, bur);
+            } else {
+                bur.hit("(Banned by Admin)");
+            }
+            int kickCount = 0;
+            this.remove();
+            kickCount++;
+            return "banned and kicked this session";
         }
     }
 }

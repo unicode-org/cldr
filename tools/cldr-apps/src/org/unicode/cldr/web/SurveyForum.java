@@ -1005,8 +1005,12 @@ public class SurveyForum {
 	 */
 	public static SurveyForum createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
 		SurveyForum reg = new SurveyForum(xlogger,sm);
-		reg.setupDB(ourConn); // always call - we can figure it out.
+		try {
+		    reg.setupDB(ourConn); // always call - we can figure it out.
 		//        logger.info("SurveyForum DB: Created.");
+		} finally {
+		    DBUtils.closeDBConnection(ourConn);
+		}
 		return reg;
 	}
 

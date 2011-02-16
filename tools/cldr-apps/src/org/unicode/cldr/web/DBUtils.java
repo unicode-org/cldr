@@ -65,8 +65,13 @@ public class DBUtils {
 	public static String DB_SQL_BINTRODUCER = "";
 	static int db_number_cons = 0;
 	static int db_number_pool_cons = 0;
+    private static StackTracker tracker = null; // new StackTracker(); - enable, to track unclosed connections
+	
 	public static void closeDBConnection(Connection conn) {
 		if (conn != null) {
+		    if(SurveyMain.isUnofficial && tracker!=null) {
+		        tracker.remove(conn);
+		    }
 			try {
 				conn.close();
 			} catch (SQLException e) {
@@ -462,7 +467,8 @@ public class DBUtils {
     }
     public void doShutdown() throws SQLException {
 		datasource = null;
-		System.err.println("DBUtils: removing my instance. " + this.db_number_cons + " still open?");
+		System.err.println("DBUtils: removing my instance. " + this.db_number_cons + " still open?\n"+tracker);
+		if(tracker!=null) tracker.clear();
 		instance = null;
 	}
 
@@ -496,6 +502,7 @@ public class DBUtils {
 				}
 				Connection c = datasource.getConnection();
 				c.setAutoCommit(false);
+				if(SurveyMain.isUnofficial&&tracker!=null) tracker.add(c);
 				return c;
 			}
 			throw new InternalError("Error: we only support JNDI datasources. Contact srl.\n");
@@ -505,7 +512,6 @@ public class DBUtils {
 			return null;
 		}
 	}
-
 
 	void setupDBProperties(SurveyMain surveyMain, Properties cldrprops) {
 //		db_driver = cldrprops.getProperty("CLDR_DB_DRIVER",

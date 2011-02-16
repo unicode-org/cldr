@@ -126,8 +126,8 @@ public class Vetting {
      * @param ourConn the conn to use
      * @return vetting service object
      */
-    public static Vetting createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
-        Vetting reg = new Vetting(xlogger,ourConn,sm);
+    public static Vetting createTable(java.util.logging.Logger xlogger, SurveyMain sm) throws SQLException {
+        Vetting reg = new Vetting(xlogger,sm);
         reg.setupDB(); // always call - we can figure it out.
 //        logger.info("Vetting DB: Created.");
 
@@ -140,7 +140,7 @@ public class Vetting {
     /**
      * Internal Constructor for creating Vetting objects
      */
-    private Vetting(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain ourSm) {
+    private Vetting(java.util.logging.Logger xlogger, SurveyMain ourSm) {
         logger = xlogger;
         sm = ourSm;
     }

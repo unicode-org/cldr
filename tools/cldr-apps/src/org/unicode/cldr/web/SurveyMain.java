@@ -10207,31 +10207,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         CLDRProgressTask progress = openProgress("Database Setup");
         try {
             progress.update("begin.."); // restore
-            //dbDir_u = new File(cldrHome,CLDR_DB_U);
-            //boolean doesExist = dbDir.isDirectory();
-            ///*U*/	    boolean doesExist_u = dbDir_u.isDirectory();
-
-            //    logger.info("SurveyTool setting up database.. " + dbDir.getAbsolutePath());
             dbUtils.startupDB(this, progress);
             // now other tables..
             progress.update("Setup databases "); // restore
             try {
                 progress.update("Setup  "+UserRegistry.CLDR_USERS); // restore
-                Connection uConn = dbUtils.getDBConnection(); ///*U*/ was:  getU_DBConnection
-                boolean doesExist_u = DBUtils.hasTable(uConn, UserRegistry.CLDR_USERS);
                 progress.update("Create UserRegistry  "+UserRegistry.CLDR_USERS); // restore
-                reg = UserRegistry.createRegistry(logger, uConn, this);
-                if(!doesExist_u) { // only import users on first run through..
-                    progress.update( "Import old users"); // restore
-                    reg.importOldUsers(vetdata);
-                }
-
-                //            String doMigrate = survprops.getProperty("CLDR_MIGRATE");
-                //            if((doMigrate!=null) && (doMigrate.length()>0)) {
-                //                System.err.println("** User DB migrate");
-                //                reg.migrateFrom(getU_DBConnection());
-                //            }
-
+                reg = UserRegistry.createRegistry(logger, this);
             } catch (SQLException e) {
                 busted("On UserRegistry startup", e);
                 return;
@@ -10253,7 +10235,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             progress.update( "Create Vetting"); // restore
             try {
-                vet = Vetting.createTable(logger, dbUtils.getDBConnection(), this);
+                vet = Vetting.createTable(logger, this);
             } catch (SQLException e) {
                 e.printStackTrace();
                 busted("On Vetting startup", e);

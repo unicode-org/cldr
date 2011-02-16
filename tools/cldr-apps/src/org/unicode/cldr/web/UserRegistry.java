@@ -319,11 +319,11 @@ public class UserRegistry {
      * @param xlogger the logger to use
      * @param ourConn the conn to use
      */
-    public static UserRegistry createRegistry(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain theSm) 
+    public static UserRegistry createRegistry(java.util.logging.Logger xlogger, SurveyMain theSm) 
       throws SQLException
     {
         sm = theSm;
-        UserRegistry reg = new UserRegistry(xlogger,ourConn);
+        UserRegistry reg = new UserRegistry(xlogger);
         reg.setupDB();
 //        logger.info("UserRegistry DB: created");
         return reg;
@@ -432,102 +432,6 @@ public class UserRegistry {
      */
     static final int ALL_ID = -1;
 	
-    /**
-     * Migrate the user DB from the separate user DB to the main DB
-     * @deprecated
-     */
-//	public void migrateFrom(Connection uConn) throws SQLException {
-//		System.err.println("USER MIGRATE");
-//		Statement s = conn.createStatement(); // 'new' side
-//		int n = s.executeUpdate("DROP TABLE "+CLDR_USERS+"");
-//		System.err.println("drop table: " + n + " rows from 'new' side table");
-//		setupDB();
-//		System.err.println("Reset table");
-//		Statement oldS = uConn.createStatement(); // old side
-//
-//		ResultSet rs = oldS.executeQuery("select id from "+CLDR_USERS+" order by id desc");
-//		if(rs.next()) {
-//			n=rs.getInt(1);
-//		} else { 
-//			throw new RuntimeException("Err: couldn't count old users");
-//		}
-//		rs.close();
-//
-//		System.err.println("max userid: " + n);
-//		
-//		for(;n>0;n--) {
-//			s.execute("INSERT INTO "+CLDR_USERS+" (userlevel,name,org,email,password) VALUES(999,'junk user"+n+"','_Delete','delete"+n+"@example.com','delete"+("delete"+n).hashCode()+"')");
-//		}
-//		conn.commit();
-//		System.err.println("dummy users created.");
-//		
-//		PreparedStatement patchStmt = conn.prepareStatement("UPDATE " + CLDR_USERS + " set userlevel=?,name=?,email=?,org=?,password=?,locales=?,intlocs=?,lastlogin=?  " +
-//                                                    " where id=?" );
-//
-//		Statement us = uConn.createStatement();
-//		rs = us.executeQuery("SELECT userlevel,name,email,org,password,locales,intlocs,lastlogin,id from "+CLDR_USERS);
-//		//								1         2   3    4     5       6      7        8       9
-//		n=0;
-//		while(rs.next()) {
-//			n++;
-//			patchStmt.setInt(1,		rs.getInt(1));
-//			SurveyMain.setStringUTF8(patchStmt, 2, SurveyMain.getStringUTF8(rs, 2));
-//			patchStmt.setString(3,	rs.getString(3));
-//			patchStmt.setString(4,	rs.getString(4));
-//			patchStmt.setString(5,  rs.getString(5));
-//			patchStmt.setString(6,  rs.getString(6));
-//			patchStmt.setString(7,  rs.getString(7));
-//			patchStmt.setTimestamp(8, rs.getTimestamp(8));
-//			patchStmt.setInt(9, rs.getInt(9));
-//			
-//			int j = patchStmt.executeUpdate();
-//			System.err.println("n"+n+", id"+rs.getInt(9)+", e:"+rs.getString(3) + " -> updt. " + j);
-//		}
-//		conn.commit();
-//		rs.close();
-//		
-//		System.err.println("Done.  Probably good to restart ST now.");
-//	}
-    
-    public void importOldUsers(String dir) throws SQLException
-    {
-        int nUsers = 0;
-        Connection conn= sm.dbUtils.getDBConnection();
-//        synchronized(conn) {
-        PreparedStatement importStmt = null;
-            try {
-                logger.info("Importing old users...");
-                  importStmt = conn.prepareStatement("INSERT  INTO " + CLDR_USERS +" (userlevel,password,email,org,name,audit) " +
-                    " VALUES(999,?,?,?,?,'Imported')");       
-                    
-                OldUserRegistry our = new OldUserRegistry(dir);
-                if(!our.read()) {
-                    logger.severe("Couldn't import old user registry from " + dir);
-                    return;
-                }
-                Hashtable emails = our.getEmails();
-                Iterator e = emails.values().iterator();
-                while(e.hasNext()) {
-                    OldUserRegistry.User u = (OldUserRegistry.User)e.next();
-                    importStmt.setString(1,u.id);
-                    importStmt.setString(2,u.email);
-                    importStmt.setString(3,u.sponsor);
-                    DBUtils.setStringUTF8(importStmt, 4, u.real); //    importStmt.setString(4,u.real);
-                    importStmt.execute();
-                    nUsers++;   
-                }
-            } finally {
-                logger.info("Imported " + nUsers + " users.");
-//                if(importStmt != null) {
-//                    importStmt.close();
-//                    importStmt = null;
-//                }
-                conn.commit();
-                DBUtils.close(importStmt,conn);
-            }
-        //}
-    }
-    
     private void myinit() throws SQLException {}
     
     /**
@@ -777,7 +681,7 @@ public class UserRegistry {
     
     static SurveyMain sm = null; // static for static checking of defaultContent..
 
-    private UserRegistry(java.util.logging.Logger xlogger, Connection ourConn) {
+    private UserRegistry(java.util.logging.Logger xlogger) {
         logger = xlogger;
     }
 
@@ -1646,9 +1550,7 @@ public class UserRegistry {
             } finally {
                 // close out the RS
                 try {
-                    if(rs!=null) {
-                        rs.close();
-                    }
+                    DBUtils.close(rs,conn);
                 } catch(SQLException se) {
                     /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: VI "  + " - " + DBUtils.unchainSqlException(se)/*,se*/);
                 }

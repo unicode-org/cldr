@@ -37,14 +37,18 @@ public class XPathTable {
      * @param ourConn the conn to use
      */
     public static XPathTable createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
-        boolean isNew =  !DBUtils.hasTable(ourConn, CLDR_XPATHS);
-        XPathTable reg = new XPathTable(xlogger);
-        reg.sm = sm;
-        if(isNew) {
-            reg.setupDB();
+        try {
+            boolean isNew =  !DBUtils.hasTable(ourConn, CLDR_XPATHS);
+            XPathTable reg = new XPathTable(xlogger);
+            reg.sm = sm;
+            if(isNew) {
+                reg.setupDB();
+            }
+    //        logger.info("XPathTable DB: Created.");
+            return reg;
+        } finally {
+            DBUtils.closeDBConnection(ourConn);
         }
-//        logger.info("XPathTable DB: Created.");
-        return reg;
     }
     
     /**

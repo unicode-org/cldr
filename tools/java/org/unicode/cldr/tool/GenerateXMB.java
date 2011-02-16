@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -34,6 +32,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.RegexLookup.Merger;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -80,14 +79,6 @@ public class GenerateXMB {
     ;
 
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-    static final MessageDigest digest;
-    static {
-        try {
-            digest = MessageDigest.getInstance("SHA-1");
-        } catch (NoSuchAlgorithmException e) {
-            throw new IllegalArgumentException(e); // darn'd checked exceptions
-        }
-    }
     static Matcher contentMatcher;
     static Matcher pathMatcher;
     static PrettyPath prettyPath = new PrettyPath();
@@ -343,7 +334,7 @@ public class GenerateXMB {
          </msg>
          */
         StringBuilder result = new StringBuilder();
-        result.append('{').append(var).append(", plural,");
+        result.append('{').append("PLURAL_").append(var).append(", plural,");
         for (String key : PLURAL_KEYS) {
             String value;
             value = values.get(key);
@@ -417,7 +408,7 @@ public class GenerateXMB {
 
         public PathInfo(String path, String englishValue, Map<String, String> placeholderReplacements, String description, String starredPath) {
             this.path = path;
-            long id = getId(path);
+            long id = StringId.getId(path);
             this.id = id;
             stringId = String.valueOf(id);
             this.englishValue = englishValue;
@@ -470,18 +461,6 @@ public class GenerateXMB {
 
         public String getEnglishValue() {
             return englishValue;
-        }
-
-        private static long getId(String path) {
-            byte[] hash = digest.digest(path.getBytes()); // safe, because it is all ascii
-            long result = 0;
-            for (int i = 0; i < 8; ++i) {
-                result <<= 8;
-                result ^= hash[i];
-            }
-            // mash the top bit to make things easier
-            result &= 0x7FFFFFFFFFFFFFFFL;
-            return result;
         }
 
         public String getDescription() {
@@ -543,7 +522,7 @@ public class GenerateXMB {
             return path;
         }
     }
-
+    
     private static final String MISSING_DESCRIPTION = "Before translating, please see cldr.org/translation.";
 
 

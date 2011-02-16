@@ -4830,12 +4830,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         return localeTree;
     }
     
-    public  String getLocaleDisplayName(CLDRLocale locale) {
+    public static String getLocaleDisplayName(CLDRLocale locale) {
         return locale.getDisplayName(BASELINE_LOCALE);
     }
 
-
-    
     void printLocaleStatus(WebContext ctx, CLDRLocale localeName, String str, String explanation) {
         ctx.print(getLocaleStatus(localeName,str,explanation));
     }

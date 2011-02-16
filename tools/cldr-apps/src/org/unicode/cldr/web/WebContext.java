@@ -47,15 +47,12 @@ public class WebContext implements Cloneable {
     public SurveyMain sm = null;
     public Document doc[]= new Document[0];
     private CLDRLocale locale = null;
-//    public String  localeString = null;
     public ULocale displayLocale = SurveyMain.BASELINE_LOCALE;
     public CLDRLocale docLocale[] = new CLDRLocale[0];
-    public String localeName = null; 
     public CookieSession session = null;
     public ElapsedTimer reqTimer = null;
     public Hashtable temporaryStuff = new Hashtable();
     public static final String CLDR_WEBCONTEXT="cldr_webcontext";
-    
     
 // private fields
     protected Writer out = null;
@@ -180,7 +177,7 @@ public class WebContext implements Cloneable {
         out = other.out;
         pw = other.pw;
         outQuery = other.outQuery;
-        localeName = other.localeName;
+//        localeName = other.localeName;
         locale = other.locale;
 //        if(locale != null) {
 //            localeString = locale.getBaseName();
@@ -1443,11 +1440,20 @@ public class WebContext implements Cloneable {
     }
 
     /**
-     * @return the CLDRLocale with which this WebCOntext currently pertains.
+     * @return the CLDRLocale with which this WebContext currently pertains.
      * @see CLDRLocale
      */
     public CLDRLocale getLocale() {
         return locale;
+    }
+    
+    /**
+     * @return display name of current locale if set
+     * @see #getLocale()
+     * @see SurveyMain#getLocaleDisplayName(CLDRLocale)
+     */
+    public String getLocaleDisplayName() {
+        return SurveyMain.getLocaleDisplayName(getLocale());
     }
 
 	// Display Context Data

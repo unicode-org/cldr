@@ -84,7 +84,13 @@ public class UserSettingsData {
          */
         public void set(String name, String value) {
             try {
-                internalSet(id,name,value);
+                Connection conn = null;
+                try {
+                    conn = sm.dbUtils.getDBConnection();
+                    internalSet(id,name,value,conn);
+                } finally {
+                    DBUtils.closeDBConnection(conn);
+                }
             } catch(SQLException se) {
                 se.printStackTrace();
                 SurveyMain.busted("getting " + name + " for user id " + id + " : " + se.toString(),se);
@@ -168,16 +174,27 @@ public class UserSettingsData {
         return null;
     }
     
-    private void internalSet(int id, String name, String value) throws SQLException{
-        Connection conn = sm.dbUtils.getDBConnection();
+    private void internalSet(int id, String name, String value, Connection conn) throws SQLException{
         String sql;
-        try {
-            int set_id = getSetId(name, conn);
+        int set_id = getSetId(name, conn);
+        
+        if(DBUtils.db_Mysql) { /* use 'on duplicate key' syntax */
+            sql = "INSERT INTO " + SET_VALUES + " (usr_id,set_id,set_value) values (?,?,?) " + 
+                "ON DUPLICATE KEY UPDATE set_value=?";
+            PreparedStatement d0 = conn.prepareStatement(sql);
+            
+            d0.setInt(1,id);
+            d0.setInt(2,set_id);
+            DBUtils.setStringUTF8(d0,3,value);
+            DBUtils.setStringUTF8(d0,4,value);
+            
+            d0.executeUpdate();
+        } else {
             sql = "DELETE FROM " + SET_VALUES + " where usr_id=? AND set_id=?";
             PreparedStatement d0 = conn.prepareStatement(sql);
             sql = "INSERT INTO " + SET_VALUES + " (usr_id,set_id,set_value) values (?,?,?)";
             PreparedStatement i1 = conn.prepareStatement(sql);
-            
+    
             d0.setInt(1,id);
             d0.setInt(2,set_id);
             i1.setInt(1,id);
@@ -185,10 +202,9 @@ public class UserSettingsData {
             DBUtils.setStringUTF8(i1,3,value);
             d0.executeUpdate();
             i1.executeUpdate();
-            conn.commit();
-        } finally {
-            DBUtils.closeDBConnection(conn);
-        }
+        }        
+        
+        conn.commit();
     }
     
     private int getSetId(String name, Connection conn) throws SQLException{

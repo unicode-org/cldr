@@ -8376,9 +8376,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             /* ignored */ uf.getExampleGenerator().getExampleHtml(section.xpath(p), null,
                     zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
         }
-        
 
-//        String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT);
         String baseExample = getBaselineExample().getExampleHtml(fullPathFull, p.displayName, zoomedIn?ExampleGenerator.Zoomed.IN:ExampleGenerator.Zoomed.OUT,
                 exampleContext, ExampleType.ENGLISH);
         int baseCols = 1;
@@ -8393,34 +8391,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 				ctx.print("</a>");
 			}
         }
-    /*
-        if(specialUrl) {
-            ctx.println("<br>"+fullPathFull);
-        }
-
-        if(true==false) {
-            ctx.println("<br>"+"hasTests:"+p.hasTests+", props:"+p.hasProps+", hasInh:"+p.hasInherited);
-        }
-    */
         ctx.println("</th>");
         
         // ##2 and a half - baseline sample
-// DEBUG JCE        int cv = supplementalDataInfo.getCoverageValue(fullPathFull,ctx.getLocale().toULocale());
         if(baseExample != null) {
             ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
-                    baseExample.replaceAll("\\\\","\u200b\\") + "</td>");
-// DEBUG JCE            ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
-// DEBUG JCE                    baseExample.replaceAll("\\\\","\u200b\\") + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>");
+                    baseExample.replaceAll("\\\\","\u200b\\\\") + "</td>");
         } else {
             ctx.print("<td rowspan='"+rowSpan+"' >" + "</td>"); // empty box for baseline
-// DEBUG JCE            ctx.print("<td rowspan='"+rowSpan+"' >" + "[" + Integer.toString(cv) + "/" + fullPathFull + "]" + "</td>"); // empty box for baseline
         }
         
-//        if(topCurrent != null) {
-            printCells(ctx,section,p,topCurrent,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
-//        } else {
-//            printEmptyCells(ctx, section, p, ourAlign, zoomedIn);
-//        }
+        printCells(ctx,section,p,topCurrent,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
         DataSection.DataRow.CandidateItem topProposed = null;

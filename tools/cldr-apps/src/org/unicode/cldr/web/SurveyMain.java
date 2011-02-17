@@ -47,6 +47,7 @@ import java.util.regex.Pattern;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -92,7 +93,9 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
-	private static final String STEPSMENU_TOP_JSP = "stepsmenu_top.jsp";
+	public static final String QUERY_SAVE_COOKIE = "save_cookie";
+
+    private static final String STEPSMENU_TOP_JSP = "stepsmenu_top.jsp";
 
 	private static final String REPORT_PREFIX = "r_";
 
@@ -229,9 +232,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     // ======= query fields
     public static final String QUERY_TERRITORY = "territory";
     public static final String QUERY_ZONE = "zone";
-    static final String QUERY_PASSWORD = "pw";
+    public static final String QUERY_PASSWORD = "pw";
     static final String QUERY_PASSWORD_ALT = "uid";
-    static final String QUERY_EMAIL = "email";
+    public static final String QUERY_EMAIL = "email";
     public static final String QUERY_SESSION = "s";
     public static final String QUERY_LOCALE = "_";
     public static final String QUERY_SECTION = "x";
@@ -2595,24 +2598,35 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         String myNum = ctx.field(QUERY_SESSION);
         // get the uid
         String password = ctx.field(QUERY_PASSWORD);
-        if(password.length()==0) {
+        if(password.isEmpty()) {
             password = ctx.field(QUERY_PASSWORD_ALT);
         }
         boolean letmein = vap.equals(ctx.field("letmein"));
         String email = ctx.field(QUERY_EMAIL);
         if("admin@".equals(email) && vap.equals(password)) {
-        	letmein = true;
+        	letmein = true; /* don't require the DB password from admin, VAP is ok */
         }
-        if(letmein) {
-        	password = null;
+        
+        {
+            String myEmail = ctx.getCookieValue(QUERY_EMAIL);
+            String myPassword = ctx.getCookieValue(QUERY_PASSWORD);
+            System.err.println("Cookie: " + myEmail + " / " + myPassword);
+            if(myEmail!=null && (email==null||email.isEmpty())) {
+                email=myEmail;
+            }
+            if(myPassword!=null && (password == null||password.isEmpty())) {
+                password = myPassword;
+            }
         }
         UserRegistry.User user;
 //        /*srl*/ System.err.println("isBusted: " + isBusted + ", reg: " + reg);
 	
-//	System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
+        System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
 
         user = reg.get(password,email,ctx.userIP(), letmein);
-        if(user!=null) user.touch();
+        if(user!=null) {
+            user.touch();
+        }
 	//	System.err.println("user= "+user);
 
         if(ctx.request == null && ctx.session != null) {
@@ -2787,8 +2801,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             showCoverageInHeader(ctx);
             
         } else {
-            ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") | ");
-            ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout</a> | ");
+            boolean haveCookies = (ctx.getCookie(QUERY_EMAIL)!=null&&ctx.getCookie(QUERY_PASSWORD)!=null);
+            ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") ");
+            if(!haveCookies && !ctx.hasField(QUERY_SAVE_COOKIE)) {
+                ctx.println(" <a class='notselected' href='"+ctx.url()+ctx.urlConnector()+QUERY_SAVE_COOKIE+"=iva'><b>Remember Me!</b></a>");
+            }
+            ctx.print(" | ");
+            String cookieMessage = haveCookies?" and Forget Me":"";
+            ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout"+cookieMessage+"</a> | ");
 //            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) {
 //                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
 //                ctx.print(" | ");
@@ -4606,7 +4626,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         	return;
         }
         
-        
         if(lockOut != null) {
             if(ctx.field("unlock").equals(lockOut)) {
                 ctx.session.put("unlock",lockOut);
@@ -4624,6 +4643,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         // setup thread name
         if(ctx.session.user != null) {
         	Thread.currentThread().setName(Thread.currentThread().getName()+" "+ctx.session.user.id+":"+ctx.session.user.toString());        	
+
+            if(ctx.hasField(QUERY_SAVE_COOKIE)) {
+                int TWELVE_WEEKS=3600*24*7*12;
+                ctx.addCookie(QUERY_EMAIL, ctx.session.user.email, TWELVE_WEEKS);
+                ctx.addCookie(QUERY_PASSWORD, ctx.session.user.password, TWELVE_WEEKS);
+            }
         }
         if(ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
             fora.doForum(ctx, sessionMessage);
@@ -4664,6 +4689,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     }
 
                     try {
+                        ctx.addCookie(QUERY_PASSWORD, "", 0);
+                        ctx.addCookie(QUERY_EMAIL, "", 0);
                         ctx.response.sendRedirect(ctx.jspLink("?logout=1"));
                         ctx.out.close();
                         ctx.close();

@@ -1584,4 +1584,47 @@ public class WebContext implements Cloneable {
         }
     }
 
+    /**
+     * Get a certain cookie
+     * @param id
+     * @return
+     */
+    public Cookie getCookie(String id) {
+        return getCookie(request,id);
+    }
+    
+    public static Cookie getCookie(HttpServletRequest request, String id) {
+        for(Cookie c : request.getCookies()) {
+            if(c.getName().equals(id)) {
+                return c;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Get a cookie value or null
+     * @param id
+     * @return
+     */
+    public String getCookieValue(String id) {
+        Cookie c = getCookie(id);
+        if(c!=null) {
+            return c.getValue();
+        }
+        return null;
+    }
+    
+    /**
+     * Set a cookie
+     * @param id
+     * @param value
+     * @param expiry
+     */
+    void addCookie(String id, String value, int expiry) {
+        Cookie c = new Cookie(id,value);
+        c.setMaxAge(expiry);
+        response.addCookie(c);
+    }
+
 }

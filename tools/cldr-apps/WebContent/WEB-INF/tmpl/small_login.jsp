@@ -2,8 +2,9 @@
 <div id='smalllogin'>
 	    <a id='login_button' class='notselected' href='#' onclick='loginclick();' onmouseover='loginclick();'>Login</a>
    	  <div id='small_login_show' style='display: none'>
-		<label for="email">Email:</label><input id="email" name="email" />
-		<label for="pw">Password:</label> <input id="pw" type="password"			name="pw" />
+		<label for="email"> Email:</label><input id="email" name="email" />
+        <label for="pw"> Password:</label> <input id="pw" type="password"            name="pw" />
+        <label for="save_cook"> Remember?</label> <input id="<%= SurveyMain.QUERY_SAVE_COOKIE %>" type="checkbox"            name="save_cookie" />
 		<%-- to allow non-JS login simply add:
 		
 					<input type="submit" value="Login" />

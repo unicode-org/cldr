@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/2001/REC-xhtml11-20010531/DTD/xhtml11-flat.dtd">
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" import="javax.servlet.http.Cookie,org.unicode.cldr.web.*" %>
 <html>
 	<head>
 <meta name="google-site-verification" content="srvwuSyUz9Z1IqUdRzS9fKqc928itVA9OeLxh60vnDM" />
@@ -10,7 +10,21 @@
 	</head>
 	<body style='padding: 1em'>
 
-    <% if(request.getParameter("logout")!=null) { %>
+    <% if(request.getParameter("logout")!=null) { 
+    
+        Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
+        if(c0!=null) {
+            c0.setValue("");
+            c0.setMaxAge(0);
+            response.addCookie(c0);
+        }
+        Cookie c1 = WebContext.getCookie(request,SurveyMain.QUERY_PASSWORD);
+        if(c1!=null) {
+            c1.setValue("");
+            c1.setMaxAge(0);
+            response.addCookie(c1);
+        }
+    %>
     <p>
     	<i>
     		You have been logged out. Thank you for using the Survey

@@ -2610,7 +2610,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         {
             String myEmail = ctx.getCookieValue(QUERY_EMAIL);
             String myPassword = ctx.getCookieValue(QUERY_PASSWORD);
-            System.err.println("Cookie: " + myEmail + " / " + myPassword);
             if(myEmail!=null && (email==null||email.isEmpty())) {
                 email=myEmail;
             }
@@ -2621,7 +2620,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         UserRegistry.User user;
 //        /*srl*/ System.err.println("isBusted: " + isBusted + ", reg: " + reg);
 	
-        System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
+//        System.err.println("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
 
         user = reg.get(password,email,ctx.userIP(), letmein);
         if(user!=null) {

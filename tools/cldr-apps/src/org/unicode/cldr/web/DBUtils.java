@@ -467,7 +467,9 @@ public class DBUtils {
     }
     public void doShutdown() throws SQLException {
 		datasource = null;
-		System.err.println("DBUtils: removing my instance. " + this.db_number_cons + " still open?\n"+tracker);
+		if(this.db_number_cons>0) {
+		    System.err.println("DBUtils: removing my instance. " + this.db_number_cons + " still open?\n"+tracker);
+		}
 		if(tracker!=null) tracker.clear();
 		instance = null;
 	}

@@ -8516,7 +8516,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         if(ctx.prefBool(SurveyMain.PREF_SHCOVERAGE)) {
         	ctx.print("<th>Cov="+p.coverageValue+"<br/>V:"+p.userHasVoted(ctx.userId())+"</th>");
         }
-
         
         ctx.println("</tr>");
         

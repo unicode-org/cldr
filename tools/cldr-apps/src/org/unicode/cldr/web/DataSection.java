@@ -282,7 +282,9 @@ public class DataSection extends Registerable {
             public String example = "";
             
             public String toString() { 
-                return "{Item v='"+value+"', altProposed='"+altProposed+"', inheritFrom='"+inheritFrom+"'}";
+                return "{Item v='"+value+"', altProposed='"+altProposed+"', inheritFrom='"+inheritFrom+"'"
+                    +(isWinner()?",winner":"")
+                    +"}";
             }
 			
 			public int compareTo(Object other) {
@@ -701,73 +703,98 @@ public class DataSection extends Registerable {
 		}
 		
 		public String getWinningValue() {
-			for(CandidateItem i : items) {
-				if(i.isWinner()) {
-					return i.value;
-				}
-			}
-
-			List<CandidateItem> topItems = getCurrentItems();
-			if(topItems==null || topItems.size()<1) {
-				return null;
-			}
-			return topItems.get(0).value;
+		    CandidateItem item = getWinningItem();
+		    
+		    if(item!=null) {
+		        return item.value;
+		    } else {
+		        return null;
+		    }
 		}
 		
+		/**
+		 * @see #getCurrentItem()
+		 * @return
+		 */
+		CandidateItem getWinningItem() {
+    		for(CandidateItem i : items) {
+                if(i.isWinner()) {
+                    return i;
+                }
+            }
+    
+            return  getCurrentItem();
+		}		
 		
 		/**
 		 * Get a list of current CandidateItems for this Row.
 		 * The top item will be the winning value, if any. 
+		 * @deprecated use getCurrentItem - there's only one winner allowed.
+		 * @see #getCurrentItem()
 		 */
-		public synchronized List<CandidateItem> getCurrentItems() {
-			if(this.currentItems==null) {
+        public synchronized List<CandidateItem> getCurrentItems() {
+            getCurrentItem();
+            return currentItems;
+        }
+        
+        /**
+         * Returns the winning (current) item.
+         * @return
+         */
+        public CandidateItem getCurrentItem() {
+            if (this.currentItems == null) {
 
-//				String resultXpath = getResultXpath();
+                // String resultXpath = getResultXpath();
 
-				List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
-				List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
+                List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
+                List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 
-				for(Iterator j = items.iterator();j.hasNext();) {
-					DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
-					if(
-							(  (item.xpathId == resultXpath_id) ||
-									(resultXpath_id==-1 && item.xpathId==this.base_xpath
-											&& !errorNoOutcome)  ) &&  // do NOT add as current, if vetting said 'no' to current item.
-											!(item.isFallback || (item.inheritFrom != null))) { 
-						currentItems.add(item); 
-					} else {
-						proposedItems.add(item);
-					}
-				}
-				// if there is an inherited value available - see if we need to show it.
-				if((inheritedValue != null) &&
-						(inheritedValue.value != null)  // and it isn't a shim
-						/* && p.inheritedValue.pathWhereFound == null */ 
-				/* && !p.inheritedValue.isParentFallback */ ) { // or an alias
-					if(currentItems.isEmpty()) {  // no other current items.. 
-						currentItems.add(inheritedValue); 
-					} else {
-						boolean found = false;
-						for( DataSection.DataRow.CandidateItem i : proposedItems ) {
-							if(inheritedValue.value.equals(i.value)) {
-								found = true;
-							}
-						}
-						if (!found) for( DataSection.DataRow.CandidateItem i : currentItems ) {
-							if(inheritedValue.value.equals(i.value)) {
-								found = true;
-							}
-						}
-						if(!found) {
-							proposedItems.add(inheritedValue);
-						}
-					}
-				}
-				this.currentItems=currentItems;
-				this.proposedItems=proposedItems;
-			}
-			return this.currentItems;
-		}
+                for (CandidateItem item : items) {
+//                    System.err.println("Considering: " + item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.base_xpath+", ENO="+errorNoOutcome);
+                    if (((item.xpathId == resultXpath_id) || (resultXpath_id == -1
+                            && item.xpathId == this.base_xpath && !errorNoOutcome))
+                            && // do NOT add as current, if vetting said 'no' to
+                            // current item.
+                            !(item.isFallback || (item.inheritFrom != null))) {
+                        if(!currentItems.isEmpty()) {
+                            throw new InternalError(this.toString()+": can only have one candidate item, not " + currentItems.get(0) +" and " + item);
+                        }
+                        currentItems.add(item);
+                    } else {
+                        proposedItems.add(item);
+                    }
+                }
+                // if there is an inherited value available - see if we need to
+                // show it.
+                if ((inheritedValue != null) && (inheritedValue.value != null)) { // or an alias
+                    if (currentItems.isEmpty()) { // no other current items..
+                        currentItems.add(inheritedValue);
+                    } else {
+                        boolean found = false; /* Have we found this value in the inherited items? If so, don't show it. */
+                        for (DataSection.DataRow.CandidateItem i : proposedItems) {
+                            if (inheritedValue.value.equals(i.value)) {
+                                found = true;
+                            }
+                        }
+                        if (!found)
+                            for (DataSection.DataRow.CandidateItem i : currentItems) {
+                                if (inheritedValue.value.equals(i.value)) {
+                                    found = true;
+                                }
+                            }
+                        if (!found) {
+                            proposedItems.add(inheritedValue);
+                        }
+                    }
+                }
+                this.currentItems = currentItems;
+                this.proposedItems = proposedItems;
+            }
+            if(!this.currentItems.isEmpty())
+                return this.currentItems.get(0);
+            else    
+                return null;
+        }
 		
 		
 		

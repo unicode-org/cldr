@@ -1594,7 +1594,9 @@ public class WebContext implements Cloneable {
     }
     
     public static Cookie getCookie(HttpServletRequest request, String id) {
-        for(Cookie c : request.getCookies()) {
+	Cookie cooks[] = request.getCookies();
+	if(cooks == null) return null;
+        for(Cookie c : cooks) {
             if(c.getName().equals(id)) {
                 return c;
             }

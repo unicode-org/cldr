@@ -13,7 +13,7 @@
             <pluralRule count="few">n mod 100 in 3..10</pluralRule>
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
         </pluralRules>
-        <pluralRules locales="bem brx da de el en eo es et fi fo gl he iw it nb nl nn no pt_PT sv af bg bn ca eu fur fy gu ha is ku lb ml mr nah ne om or pa pap ps so sq sw ta te tk ur zu mn gsw chr rm pt wae"> <!-- 2nd two lines from Tamplin's data, deleting az fa -->
+        <pluralRules locales="af bem bg bn brx ca chr da de ee el en eo es et eu fi fo fur fy gl gsw gu ha he is it ku lb ml mn mr nah nb ne nl nn no om or pa pap ps pt rm so sq sv sw ta te tk ur wae zu">
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="ak am bh fil tl guw hi ln mg nso ti wa">
@@ -38,7 +38,7 @@
             <pluralRule count="one">n mod 10 is 1 and n mod 100 not in 11..19</pluralRule>
             <pluralRule count="few">n mod 10 in 2..9 and n mod 100 not in 11..19</pluralRule>
         </pluralRules>
-        <pluralRules locales="hr ru sr uk be bs sh">
+        <pluralRules locales="be bs hr ru sh sr uk">
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
             <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
             <pluralRule count="many">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14</pluralRule>

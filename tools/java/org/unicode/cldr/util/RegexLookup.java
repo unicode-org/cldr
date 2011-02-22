@@ -132,7 +132,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
      * @param valueMerger Used to merge values with the same key.
      */
     public static <T,U> RegexLookup<T> of(Transform<String, Finder> patternTransform, Transform<String, T> valueTransform, Merger<T> valueMerger) {
-        return new RegexLookup<T>().setValueTransform(valueTransform).setPatternTransform(patternTransform).setValueMerger(valueMerger);
+        return new RegexLookup<T>().setPatternTransform(patternTransform).setValueTransform(valueTransform).setValueMerger(valueMerger);
     }
     
     public static <T> RegexLookup<T> of(Transform<String,T> valueTransform) {
@@ -149,7 +149,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
     }
 
     public RegexLookup<T> setPatternTransform(Transform<String, ? extends Finder> patternTransform) {
-        this.patternTransform = patternTransform;
+        this.patternTransform = patternTransform != null ? patternTransform : RegexFinderTransform;
         return this;
     }
 

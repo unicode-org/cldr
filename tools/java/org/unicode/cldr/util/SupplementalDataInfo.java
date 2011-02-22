@@ -23,6 +23,7 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -1663,12 +1664,32 @@ public class SupplementalDataInfo {
         return coverageLevels;
     }
 
-
-    public int getCoverageValue(String xpath) {
-        ULocale loc = new ULocale("und");
-        return getCoverageValue(xpath,loc);
-    }
+    /**
+     * Used to get the coverage value for a path. Note, it is more efficient to create a CoverageLevel2 for a language, and keep it around.
+     * @param xpath
+     * @param loc
+     * @return
+     */
     public int getCoverageValue(String xpath, ULocale loc) {
+        return CoverageLevel2.getInstance(loc.getLanguage()).getIntLevel(xpath);
+    }
+    
+    /**
+     * This appears to be unused, so didn't provide new version.
+     * @param xpath
+     * @return
+     */
+    public int getCoverageValueOld(String xpath) {
+        ULocale loc = new ULocale("und");
+        return getCoverageValueOld(xpath,loc);
+    }
+    /**
+     * Older version of code.
+     * @param xpath
+     * @param loc
+     * @return
+     */
+    public int getCoverageValueOld(String xpath, ULocale loc) {
         String targetLanguage = loc.getLanguage();
        
         CoverageVariableInfo cvi = getCoverageVariableInfo(targetLanguage);

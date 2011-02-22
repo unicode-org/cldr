@@ -1132,6 +1132,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       || attribute.equals("value")
       || attribute.equals("yeartype")
       || attribute.equals("numberSystem")
+      || attribute.equals("parent")
       || (attribute.equals("type")
               && !elementName.equals("listPattern") 
               && !elementName.equals("default") 

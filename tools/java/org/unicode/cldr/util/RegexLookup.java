@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.RegexLookup.Finder;
 
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -19,13 +20,56 @@ import com.ibm.icu.text.Transform;
  * Lookup items according to a set of regex patterns. Returns the value according to the first pattern that matches. Not thread-safe.
  * @param <T>
  */
-public class RegexLookup<T> implements Iterable<Row.R2<Matcher,T>>{
+public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
     private static final boolean DEBUG = false;
-    private final Map<String, Row.R2<Matcher,T>> entries = new LinkedHashMap<String, Row.R2<Matcher,T>>();
-    private final Transform<String, Pattern> patternTransform;
-    private final Transform<String, T> valueTransform;
-    private final Merger<T> valueMerger;
+    private final Map<Finder, Row.R2<Finder,T>> entries = new LinkedHashMap<Finder, Row.R2<Finder,T>>();
+    private Transform<String, ? extends Finder> patternTransform = RegexFinderTransform;
+    private Transform<String, ? extends T> valueTransform;
+    private Merger<T> valueMerger;
     private final boolean allowNull = false;
+    
+    public abstract static class Finder {
+        abstract public String[] getInfo();
+        abstract public boolean find(String item, Object context);
+        public int getFailPoint(String source) { return -1; }
+        // must also define toString
+    }
+    
+    public static class RegexFinder extends Finder {
+        protected final Matcher matcher;
+        public RegexFinder(String pattern) {
+            matcher = Pattern.compile(pattern, Pattern.COMMENTS).matcher("");
+        }
+        public boolean find(String item, Object context) {
+            return matcher.reset(item).find();
+        }
+        @Override
+        public String[] getInfo() {
+            int limit = matcher.groupCount() + 1;
+            String[] value = new String[limit];
+            for (int i = 0; i < limit; ++i) {
+                value[i] = matcher.group(i);
+            }
+            return value;
+        }
+        public String toString() {
+            return matcher.pattern().pattern();
+        }
+        @Override
+        public boolean equals(Object obj) {
+            return toString().equals(obj.toString());
+        }
+        @Override
+        public int hashCode() {
+            return toString().hashCode();
+        }
+    }
+    
+    public static Transform<String, RegexFinder> RegexFinderTransform = new Transform<String, RegexFinder>() {
+        public RegexFinder transform(String source) {
+            return new RegexFinder(source);
+        }
+    };
 
     /**
      * Allows for merging items of the same type.
@@ -41,29 +85,26 @@ public class RegexLookup<T> implements Iterable<Row.R2<Matcher,T>>{
      * @return
      */
     public final T get(String source) {
-        return get(source, null);
+        return get(source, null, null);
     }
 
     /**
      * Returns the result of a regex lookup, with the group arguments that matched.
      * @param source
+     * @param context TODO
      * @return
      */
-    public T get(String source, CldrUtility.Output<String[]> arguments) {
+    public T get(String source, Object context, CldrUtility.Output<String[]> arguments) {
         while (true) {
-            for (R2<Matcher, T> entry : entries.values()) {
-                Matcher matcher = entry.get0();
-                if (matcher.reset(source).find()) {
+            for (R2<Finder, T> entry : entries.values()) {
+                Finder matcher = entry.get0();
+                if (matcher.find(source, context)) {
                     if (arguments != null) {
-                        int limit = matcher.groupCount() + 1;
-                        arguments.value = new String[limit];
-                        for (int i = 0; i < limit; ++i) {
-                            arguments.value[i] = matcher.group(i);
-                        }
+                        arguments.value = matcher.getInfo();
                     }
                     return entry.get1();
                 } else if (DEBUG) {
-                    int failPoint = getFailPoint(matcher, source);
+                    int failPoint = matcher.getFailPoint(source);
                     String show = source.substring(0,failPoint) + "$" + source.substring(failPoint);
                     show += "";
                 }
@@ -86,25 +127,35 @@ public class RegexLookup<T> implements Iterable<Row.R2<Matcher,T>>{
 
     /**
      * Create a RegexLookup. It will take a list of key/value pairs, where the key is a regex pattern and the value is what gets returned.
-     */
-    public RegexLookup() {
-        this(null, null, null);
-    }
-
-    /**
-     * Create a RegexLookup. It will take a list of key/value pairs, where the key is a regex pattern and the value is what gets returned.
      * @param patternTransform Used to transform string patterns into a Pattern. Can be used to process replacements (like variables).
      * @param valueTransform Used to transform string values into another form.
      * @param valueMerger Used to merge values with the same key.
      */
-    public static <T> RegexLookup<T> of(Transform<String, Pattern> patternTransform, Transform<String, T> valueTransform, Merger<T> valueMerger) {
-        return new RegexLookup<T>(patternTransform, valueTransform, valueMerger);
+    public static <T,U> RegexLookup<T> of(Transform<String, Finder> patternTransform, Transform<String, T> valueTransform, Merger<T> valueMerger) {
+        return new RegexLookup<T>().setValueTransform(valueTransform).setPatternTransform(patternTransform).setValueMerger(valueMerger);
+    }
+    
+    public static <T> RegexLookup<T> of(Transform<String,T> valueTransform) {
+        return new RegexLookup<T>().setValueTransform(valueTransform).setPatternTransform(RegexFinderTransform);
     }
 
-    private RegexLookup(Transform<String, Pattern> patternTransform, Transform<String, T> valueTransform, Merger<T> valueMerger) {
+    public static <T> RegexLookup<T> of() {
+        return new RegexLookup<T>().setPatternTransform(RegexFinderTransform);
+    }
+
+    public RegexLookup<T> setValueTransform(Transform<String, ? extends T> valueTransform) {
         this.valueTransform = valueTransform;
-        this.valueMerger = valueMerger;
+        return this;
+    }
+
+    public RegexLookup<T> setPatternTransform(Transform<String, ? extends Finder> patternTransform) {
         this.patternTransform = patternTransform;
+        return this;
+    }
+
+    public RegexLookup<T> setValueMerger(Merger<T> valueMerger) {
+        this.valueMerger = valueMerger;
+        return this;
     }
 
     /**
@@ -159,7 +210,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Matcher,T>>{
      * @return this, for chaining
      */
     public RegexLookup<T> add(String stringPattern, T target) {
-        Pattern pattern0 = patternTransform != null ? patternTransform.transform(stringPattern) : Pattern.compile(stringPattern, Pattern.COMMENTS);
+        Finder pattern0 = patternTransform.transform(stringPattern);
         return add(pattern0, target);
     }
 
@@ -169,14 +220,13 @@ public class RegexLookup<T> implements Iterable<Row.R2<Matcher,T>>{
      * @param target
      * @return this, for chaining
      */
-    public RegexLookup<T> add(Pattern pattern, T target) {
+    public RegexLookup<T> add(Finder pattern, T target) {
         if (!allowNull && target == null) {
             throw new NullPointerException("null disallowed, unless allowNull(true) is called.");
         }
-        Matcher matcher = pattern.matcher("");
-        R2<Matcher, T> old = entries.get(pattern.pattern());
+        R2<Finder, T> old = entries.get(pattern);
         if (old == null) {
-            entries.put(pattern.pattern(), Row.of(matcher, target));
+            entries.put(pattern, Row.of(pattern, target));
         } else if (valueMerger != null) {
             valueMerger.merge(target, old.get1());
         } else {
@@ -186,7 +236,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Matcher,T>>{
     }
 
     @Override
-    public Iterator<R2<Matcher, T>> iterator() {
+    public Iterator<R2<Finder, T>> iterator() {
         return Collections.unmodifiableCollection(entries.values()).iterator();
     }
 }

@@ -660,21 +660,41 @@ public class SupplementalDataInfo {
         }
     }
     public static class CoverageLevelInfo implements Comparable<CoverageLevelInfo> {
-        public String match;
-        private Integer value;
-        private String inLanguage;
-        private String inScript;
-        private String inTerritory;
-        public CoverageLevelInfo(String match, Integer value, String language, String script, String territory) {
+        public final String match;
+        public final Level value;
+        public final String inLanguage;
+        public final Set<String> inLanguageSet;
+        public final String inScript;
+        public final Set<String> inScriptSet;
+        public final String inTerritory;
+        public final Set<String> inTerritorySet;
+        private Set<String> inTerritorySetInternal;
+        
+        public CoverageLevelInfo(String match, int value, String language, String script, String territory) {
             this.inLanguage = language;
             this.inScript = script;
             this.inTerritory = territory;
+            this.inLanguageSet = toSet(language);
+            this.inScriptSet = toSet(script);
+            this.inTerritorySet = toSet(territory); // MUST BE LAST, sets inTerritorySetInternal
             this.match = match;
-            this.value = value;
+            this.value = Level.fromLevel(value);
+        }
+
+        public static final Pattern NON_ASCII_LETTER = Pattern.compile("[^A-Za-z]+");
+        
+        private Set<String> toSet(String source) {
+            if (source == null) {
+                return null;
+            }
+            Set<String> result = new HashSet<String>(Arrays.asList(NON_ASCII_LETTER.split(source)));
+            result.remove("");
+            inTerritorySetInternal = result;
+            return Collections.unmodifiableSet(result);
         }
 
         public int compareTo(CoverageLevelInfo o) {
-            if (value.equals(o.value)) {
+            if (value == o.value) {
                 return match.compareTo(o.match);
             } else {
                 return value.compareTo(o.value);
@@ -688,6 +708,16 @@ public class SupplementalDataInfo {
             if (str.equals("moderate")) return 60;
             if (str.equals("modern")) return 80;
             return 100;
+        }
+        
+        static void fixEU(Collection<CoverageLevelInfo> targets, SupplementalDataInfo info) {
+            Set<String> euCountries = info.getContained("EU");
+            for (CoverageLevelInfo item : targets) {
+                if (item.inTerritorySet != null 
+                        && item.inTerritorySet.contains("EU")) {
+                    item.inTerritorySetInternal.addAll(euCountries);
+                }
+            }
         }
     }
     
@@ -908,6 +938,8 @@ public class SupplementalDataInfo {
         languageMatch = CldrUtility.protectCollection(languageMatch);
         key_subtypes.freeze();
         bcp47Aliases.freeze();
+        CoverageLevelInfo.fixEU(coverageLevels, this);
+        coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
     }
 
     //private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>> metazoneToRegionToZone) {
@@ -1459,7 +1491,7 @@ public class SupplementalDataInfo {
         }
     }
 
-    private class CoverageVariableInfo {
+    public class CoverageVariableInfo {
         public Set<String> targetScripts;
         public Set<String> targetTerritories;
         public Set<String> calendars;
@@ -1488,7 +1520,7 @@ public class SupplementalDataInfo {
     private Map<String, Pair<String, String>> references = new TreeMap();
     private Map<String, String> likelySubtags = new TreeMap();
     // make public temporarily until we resolve.
-    public SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
+    private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
     private Map<String, String> parentLocales = new HashMap<String,String>();
     private Map<String, List<String>> calendarPreferences= new HashMap();
     private Map<String, CoverageVariableInfo> coverageVariables = new TreeMap();    
@@ -1626,25 +1658,20 @@ public class SupplementalDataInfo {
     public Set<String> getNumberingSystems() {
         return numberingSystems;
     }
+    
+    public SortedSet<CoverageLevelInfo> getCoverageLevelInfo() {
+        return coverageLevels;
+    }
+
+
     public int getCoverageValue(String xpath) {
         ULocale loc = new ULocale("und");
         return getCoverageValue(xpath,loc);
     }
     public int getCoverageValue(String xpath, ULocale loc) {
-        CoverageVariableInfo cvi;
         String targetLanguage = loc.getLanguage();
        
-        if ( coverageVariables.containsKey(targetLanguage)) {
-            cvi = coverageVariables.get(targetLanguage);
-        } else {
-            cvi = new CoverageVariableInfo();
-            cvi.targetScripts = getTargetScripts(targetLanguage);
-            cvi.targetTerritories = getTargetTerritories(targetLanguage);
-            cvi.calendars = getCalendars(cvi.targetTerritories);
-            cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
-            cvi.targetTimeZones = getCurrentTimeZones(cvi.targetTerritories);
-            coverageVariables.put(targetLanguage, cvi);
-        }
+        CoverageVariableInfo cvi = getCoverageVariableInfo(targetLanguage);
         String targetScriptString = toRegexString(cvi.targetScripts);
         String targetTerritoryString = toRegexString(cvi.targetTerritories);
         String calendarListString = toRegexString(cvi.calendars);
@@ -1694,15 +1721,32 @@ public class SupplementalDataInfo {
             }
             
             if (xpath.matches(regex)) {
-                return ci.value.intValue();
+                return ci.value.getLevel();
             }
             
             if (xpath.matches(regex)) {
-                return ci.value.intValue();
+                return ci.value.getLevel();
             }
         }
-        return 101; // If no match then return highest possible value
+        return Level.OPTIONAL.getLevel(); // If no match then return highest possible value
     }
+
+    public CoverageVariableInfo getCoverageVariableInfo(String targetLanguage) {
+        CoverageVariableInfo cvi;
+        if ( coverageVariables.containsKey(targetLanguage)) {
+            cvi = coverageVariables.get(targetLanguage);
+        } else {
+            cvi = new CoverageVariableInfo();
+            cvi.targetScripts = getTargetScripts(targetLanguage);
+            cvi.targetTerritories = getTargetTerritories(targetLanguage);
+            cvi.calendars = getCalendars(cvi.targetTerritories);
+            cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
+            cvi.targetTimeZones = getCurrentTimeZones(cvi.targetTerritories);
+            coverageVariables.put(targetLanguage, cvi);
+        }
+        return cvi;
+    }
+    
     private Set<String> getTargetScripts(String language) {
         Set<BasicLanguageData> langData = getBasicLanguageData(language);
         Set<String> targetScripts = new HashSet<String>();

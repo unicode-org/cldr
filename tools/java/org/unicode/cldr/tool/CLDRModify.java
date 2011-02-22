@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.util.Builder;
@@ -31,6 +30,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
@@ -396,7 +396,7 @@ public class CLDRModify {
     }
     public boolean is(String path) {
       Level pathLevel = coverage.getCoverageLevel(path);
-      return CoverageLevel.Level.BASIC.compareTo(pathLevel) >= 0;
+      return Level.BASIC.compareTo(pathLevel) >= 0;
     }
   };
 

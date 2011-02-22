@@ -539,7 +539,9 @@ public class GenerateXMB {
             Map<String, List<Set<String>>> starredPaths = new TreeMap<String,List<Set<String>>>();
 
             Merger<Map<String, String>> merger = new MyMerger();
-            RegexLookup<Map<String,String>> patternPlaceholders = RegexLookup.of(null, new MapTransform(), merger)
+            RegexLookup<Map<String, String>> patternPlaceholders 
+            = RegexLookup.of(new MapTransform())
+            .setValueMerger(merger)
             .loadFromFile(GenerateXMB.class, "xmbPlaceholders.txt");
 
             HashSet<String> metazonePaths = new HashSet<String>();
@@ -614,7 +616,7 @@ public class GenerateXMB {
                     reasonsToPaths.put("path-parameter", path);
                     continue;
                 }
-                String description = pathHandling.get(path, pathArguments);
+                String description = pathHandling.get(path, null, pathArguments);
                 if (description == null) {
                     description = MISSING_DESCRIPTION;
                 } else if ("SKIP".equals(description)) {

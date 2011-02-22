@@ -14,6 +14,7 @@ import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 import org.w3c.dom.Node;
@@ -243,7 +244,7 @@ public abstract class CLDRConverterTool {
                     continue;
                   }
 
-                  CoverageLevel.Level cv = CoverageLevel.Level.get(level.level);
+                  Level cv = Level.get(level.level);
                   // only include the xpaths that have the coverage level at least the coverage
                   // level specified by the locale
                   if (coverageLevel.getCoverageLevel(xpath).compareTo(cv) <= 0) {

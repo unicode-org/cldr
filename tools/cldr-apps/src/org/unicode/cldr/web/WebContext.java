@@ -17,7 +17,6 @@ import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.test.*;
-import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 
 import com.ibm.icu.util.ULocale;
@@ -1103,7 +1102,7 @@ public class WebContext implements Cloneable {
 	/**
 	 * The default level, if no organization is available.
 	 */
-	public static final Level COVLEVEL_DEFAULT_RECOMMENDED = org.unicode.cldr.test.CoverageLevel.Level.MODERN;
+	public static final Level COVLEVEL_DEFAULT_RECOMMENDED = org.unicode.cldr.util.Level.MODERN;
 	public static final String COVLEV_DEFAULT_RECOMMENDED_STRING = COVLEVEL_DEFAULT_RECOMMENDED.name().toLowerCase();
 
     /**

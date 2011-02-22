@@ -28,6 +28,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VariantFolder;
@@ -225,7 +226,7 @@ public class TestMisc {
         CLDRFile english = cldrFactory.make("en", true);
         Set<Pair<Integer,String>> rel = new TreeSet();
         for (String desiredLocale : cldrFactory.getAvailable()) {
-            int vote = CoverageLevel.Level.getDefaultWeight("google", desiredLocale);
+            int vote = Level.getDefaultWeight("google", desiredLocale);
             rel.add(new Pair(vote, desiredLocale));
         }
         for (Pair<Integer,String> p : rel) {

@@ -14,12 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -232,8 +233,8 @@ public class TestCoverageLevel extends TestFmwk {
     }, null)
     .loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
     {
-        for (R2<Matcher, Level> x : exceptions) {
-            System.out.println(x.get0().pattern() + " => " + x.get1());
+        for (R2<Finder, Level> x : exceptions) {
+            System.out.println(x.get0().toString() + " => " + x.get1());
         }
     }
 }

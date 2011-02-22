@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -28,6 +27,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -92,80 +92,6 @@ public class CoverageLevel {
 
   public static final String EUROPEAN_UNION = "EU";
   
-  /**
-   * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
-   * @author davis
-   *
-   */
-  public enum Level {
-    UNDETERMINED(0, "none",0),
-    CORE(10,"G4", 100),
-    POSIX(20,"G4", 100),
-    MINIMAL(30,"G3.5", 90),
-    BASIC(40,"G3", 80),
-    MODERATE(60, "G2", 70),
-    MODERN(80, "G1", 50),
-    COMPREHENSIVE(100, "G0", 2),
-    OPTIONAL(101, "optional", 1);
-    
-    private final byte level;
-    private final String altName;
-    private final int value;
-    
-    public int getValue() {
-      return value;
-    }
-
-    private Level(int i, String altName, int value) {
-      this.level = ((byte) i);
-      this.altName = altName;
-      this.value = value;
-    }
-    
-    public static Level get(String name) {
-      try {
-        return Level.valueOf(name.toUpperCase(Locale.ENGLISH));
-      } catch (RuntimeException e) {
-        for (Level level : Level.values()) {
-          if (name.equalsIgnoreCase(level.altName)) {
-            return level;
-          }
-        }
-        return UNDETERMINED;
-      }
-    }
-    
-    public String toString() {
-      return this.name().toLowerCase();
-    }
-    
-//    public int compareTo(Level o) {
-//      int otherLevel = ((Level) o).level;
-//      return level < otherLevel ? -1 : level > otherLevel ? 1 : 0;
-//    }
-    
-    public static int getDefaultWeight(String organization, String desiredLocale) {
-      Level level = sc.getLocaleCoverageLevel(organization, desiredLocale);
-      if (level.compareTo(Level.MODERATE) >= 0) {
-        return 4;
-      }
-      return 1;
-    }
-
-    public byte getLevel() {
-        return level;
-    }
-    
-    public static Level fromLevel(int level) {
-        for (Level result : Level.values()) {
-            if (level == result.level) {
-                return result;
-            }
-        }
-        throw new IllegalArgumentException(String.valueOf(level));
-    }
-  }
-  
   private static Object sync = new Object();
   
   // commmon stuff, set once
@@ -212,7 +138,7 @@ public class CoverageLevel {
   
   private Map<String, Level> script_level = new TreeMap<String, Level>();
   private Map<String, Level> zone_level = new TreeMap<String, Level>();
-  private Map<String, CoverageLevel.Level> metazone_level = new TreeMap<String, Level>();
+  private Map<String, Level> metazone_level = new TreeMap<String, Level>();
   
   private Map<String, Level> territory_level = new TreeMap<String, Level>();
   private Map<String, Level> currency_level = new TreeMap<String, Level>();
@@ -325,7 +251,7 @@ public class CoverageLevel {
     try {
       Set<String> scriptsForLanguage = language_scripts.getAll(language);
       if (scriptsForLanguage != null && scriptsForLanguage.size() > 1) {
-        putAll(script_level, scriptsForLanguage, CoverageLevel.Level.MINIMAL, true);
+        putAll(script_level, scriptsForLanguage, Level.MINIMAL, true);
       }
     } catch (RuntimeException e) {
       e.printStackTrace();
@@ -333,29 +259,29 @@ public class CoverageLevel {
     
     territory_level.putAll(base_territory_level);
     Set<String> mainTerritories = language_territories.getAll(language);
-    putAll(territory_level, mainTerritories, CoverageLevel.Level.MINIMAL, true);
+    putAll(territory_level, mainTerritories, Level.MINIMAL, true);
     if (mainTerritories == null || mainTerritories.size() == 0) {
       mainTerritories = fallback_language_territories.getAll(language);
-      putAll(territory_level, mainTerritories, CoverageLevel.Level.MINIMAL, true);
+      putAll(territory_level, mainTerritories, Level.MINIMAL, true);
     }
 
     
     {
-      language_level.put(language, CoverageLevel.Level.MINIMAL);
+      language_level.put(language, Level.MINIMAL);
       String script = parser.getScript();
       if (script != null) {
-        script_level.put(script, CoverageLevel.Level.MINIMAL);
+        script_level.put(script, Level.MINIMAL);
       }
       String territory = parser.getRegion();
       if (territory != null) {
-        territory_level.put(territory, CoverageLevel.Level.MINIMAL);
+        territory_level.put(territory, Level.MINIMAL);
       }
     }
     
     // special cases for EU
     if (euroLanguages.contains(language)) {
-      setIfBetter(language_level, euroLanguages, CoverageLevel.Level.MODERATE, true);
-      setIfBetter(territory_level, euroCountries, CoverageLevel.Level.MODERATE, true);
+      setIfBetter(language_level, euroLanguages, Level.MODERATE, true);
+      setIfBetter(territory_level, euroCountries, Level.MODERATE, true);
     }
     // special case pt_BR, zh_Hant, zh_Hans
     Level x = language_level.get("zh");
@@ -368,15 +294,15 @@ public class CoverageLevel {
       language_level.put("pt_BR", x);
     }
     
-    setIfBetter(territory_level, territoryContainment, CoverageLevel.Level.MODERATE, true);
+    setIfBetter(territory_level, territoryContainment, Level.MODERATE, true);
     
     // set currencies, timezones according to territory level
     // HOWEVER, make the currency level at most BASIC
-    putAll(currency_level, modernCurrencies, CoverageLevel.Level.MODERN, true);
+    putAll(currency_level, modernCurrencies, Level.MODERN, true);
     for (Iterator it = territory_level.keySet().iterator(); it.hasNext();) {
       String territory = (String) it.next();
-      CoverageLevel.Level level = (CoverageLevel.Level) territory_level.get(territory);
-      if (level.compareTo(CoverageLevel.Level.BASIC) < 0) level = CoverageLevel.Level.BASIC;
+      Level level = (Level) territory_level.get(territory);
+      if (level.compareTo(Level.BASIC) < 0) level = Level.BASIC;
       Set currencies = (Set) territory_currency.get(territory);
       setIfBetter(currency_level, currencies, level, false);
       Set timezones = (Set) territory_timezone.get(territory);
@@ -388,7 +314,7 @@ public class CoverageLevel {
     }
     
     // set the calendars only by the direct territories for the language
-    calendar_level.put("gregorian", CoverageLevel.Level.BASIC);
+    calendar_level.put("gregorian", Level.BASIC);
 
     if (mainTerritories == null) {
       possibleErrors.add(new CheckStatus()
@@ -396,7 +322,7 @@ public class CoverageLevel {
           .setMessage("Missing language->territory information in supplemental data!"));
     } else for (Iterator it = mainTerritories.iterator(); it.hasNext();) {
       String territory = (String) it.next();
-      setIfBetter(calendar_level, (Collection) territory_calendar.get(territory), CoverageLevel.Level.BASIC, true);
+      setIfBetter(calendar_level, (Collection) territory_calendar.get(territory), Level.BASIC, true);
     }
     
     setIfBetter(currency_level, minimalCurrencies, Level.MINIMAL, true);
@@ -455,7 +381,7 @@ public class CoverageLevel {
     valueSet.add(value);
   }
   
-  private void setIfBetter(Map targetMap, Collection keyCollection, CoverageLevel.Level level, boolean show) {
+  private void setIfBetter(Map targetMap, Collection keyCollection, Level level, boolean show) {
     if (keyCollection == null) return;
     for (Iterator it2 = keyCollection.iterator(); it2.hasNext();) {
       Object item = it2.next();
@@ -463,8 +389,8 @@ public class CoverageLevel {
     }
   }
 
-  private void setIfBetter(Map targetMap, Object item, CoverageLevel.Level level, boolean show) {
-    CoverageLevel.Level old = (CoverageLevel.Level) targetMap.get(item);
+  private void setIfBetter(Map targetMap, Object item, Level level, boolean show) {
+    Level old = (Level) targetMap.get(item);
     if (old == null || level.compareTo(old) < 0) {
       if (CheckCoverage.DEBUG_SET && show) System.out.println("\t" + item + "\t(" + old + " \u2192 " + level + ")");
       targetMap.put(item, level);
@@ -477,7 +403,7 @@ public class CoverageLevel {
   
   // //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/relative[@type="2"]
 
-  public CoverageLevel.Level getCoverageLevel(String fullPath) {
+  public Level getCoverageLevel(String fullPath) {
     return getCoverageLevel(fullPath, null);
   }
   /**
@@ -487,28 +413,28 @@ public class CoverageLevel {
    * @return the coverage level. UNDETERMINED is returned if there is not enough information to determine the level (initially
    * we only look at the long lists of display names, currencies, timezones, etc.).
    */
-  public CoverageLevel.Level getCoverageLevel(String fullPath, String distinguishedPath) {
+  public Level getCoverageLevel(String fullPath, String distinguishedPath) {
     if (fullPath != null && fullPath.contains("/alias")) {
-      return CoverageLevel.Level.UNDETERMINED; // skip
+      return Level.UNDETERMINED; // skip
     }
     if (distinguishedPath == null) {
       distinguishedPath = CLDRFile.getDistinguishingXPath(fullPath,null,false);
     }
     
     // the minimal level is posix, so test for that.
-    CoverageLevel.Level result = posixCoverage.get(distinguishedPath); // default the level to POSIX
+    Level result = posixCoverage.get(distinguishedPath); // default the level to POSIX
     if (result != null) {
       return result;
     }
     
     // the next check we make is for certain basic patterns, based on a regex
     if (minimalPatterns.reset(distinguishedPath).find()) {
-      return CoverageLevel.Level.MINIMAL;
+      return Level.MINIMAL;
     }
 
     // the next check we make is for certain basic patterns, based on a regex
     if (basicPatterns.reset(distinguishedPath).find()) {
-      return CoverageLevel.Level.BASIC;
+      return Level.BASIC;
     }
     
     // we now do some more complicated tests that depend on the type
@@ -520,22 +446,22 @@ public class CoverageLevel {
     if (lastElement.equals("exemplarCity")) {
       type = parts.getAttributeValue(-2, "type"); // it's one level up
       if (exemplarsContainA_Z && !type.equals("Etc/Unknown")) {
-        result = CoverageLevel.Level.OPTIONAL;
+        result = Level.OPTIONAL;
       } else {
-        result = (CoverageLevel.Level) zone_level.get(type);
+        result = (Level) zone_level.get(type);
       }
     } else if (part1.equals("localeDisplayNames")) {
       if (lastElement.equals("language")) {
         // <language type=\"aa\">Afar</language>"
         result = language_level.get(type);
       } else if (lastElement.equals("territory")) {
-        result = (CoverageLevel.Level) territory_level.get(type);
+        result = (Level) territory_level.get(type);
       } else if (lastElement.equals("script")) {
-        result = (CoverageLevel.Level) script_level.get(type);
+        result = (Level) script_level.get(type);
       } else if (lastElement.equals("type")) {
         String key = parts.getAttributeValue(-1, "key");
         if (key.equals("calendar")) {
-          result = (CoverageLevel.Level) calendar_level.get(type);
+          result = (Level) calendar_level.get(type);
         }
       }
       // <types><type type="big5han" key="collation">Traditional Chinese (Big5)</type>
@@ -546,10 +472,10 @@ public class CoverageLevel {
        * <numbers> ? <currencies> ? <currency type="BRL"> <displayName draft="true">Brazilian Real</displayName>
        */
       if (currencyExemplarsContainA_Z && lastElement.equals("symbol")) {
-        result = CoverageLevel.Level.OPTIONAL;
+        result = Level.OPTIONAL;
       } else if (lastElement.equals("displayName") || lastElement.equals("symbol")) {
           String currency = parts.getAttributeValue(-2, "type");
-          result = (CoverageLevel.Level) currency_level.get(currency);
+          result = (Level) currency_level.get(currency);
           if (parts.getAttributeValue(-1, "count") != null) {
             boolean found = false;
             // ugly loop to get next value
@@ -570,7 +496,7 @@ public class CoverageLevel {
       if (calendar.equals("gregorian")) {
         String id = parts.getAttributeValue(-2, "id");
         if (INTERVAL_FORMATS.contains(id)) {
-          result = CoverageLevel.Level.BASIC;
+          result = Level.BASIC;
         }
       }
     } else if (lastElement.equals("dateFormatItem")) {
@@ -578,7 +504,7 @@ public class CoverageLevel {
       if (calendar.equals("gregorian")) {
         String id = parts.getAttributeValue(-1, "id");
         if (DATE_FORMAT_ITEM_IDS.contains(id)) {
-          result = CoverageLevel.Level.BASIC;
+          result = Level.BASIC;
         }
       }
     } else {
@@ -587,10 +513,10 @@ public class CoverageLevel {
     
     if (result == null) {
        if (distinguishedPath.contains("metazone") || distinguishedPath.contains("usesMetazone")) {
-         result = CoverageLevel.Level.OPTIONAL;
+         result = Level.OPTIONAL;
        }
        else {
-         result = CoverageLevel.Level.COMPREHENSIVE;
+         result = Level.COMPREHENSIVE;
        }
     }
    
@@ -629,22 +555,22 @@ public class CoverageLevel {
       Map type_timezones = (Map) coverageData.get("timezoneCoverage");
       CldrUtility.putAllTransposed(type_territories, base_timezone_level);
 
-      minimalCurrencies = (Set) type_currencies.get(CoverageLevel.Level.MINIMAL);
-      minimalTimezones = (Set) type_timezones.get(CoverageLevel.Level.MINIMAL);
-      moderateTimezones = (Set) type_timezones.get(CoverageLevel.Level.MODERATE);
+      minimalCurrencies = (Set) type_currencies.get(Level.MINIMAL);
+      minimalTimezones = (Set) type_timezones.get(Level.MINIMAL);
+      moderateTimezones = (Set) type_timezones.get(Level.MODERATE);
       
       // add the modern stuff, after doing both of the above
       
       //modernLanguages.removeAll(base_language_level.keySet());
-      putAll(base_language_level, modernLanguages, CoverageLevel.Level.MODERN, false);
+      putAll(base_language_level, modernLanguages, Level.MODERN, false);
       //putAll(base_language_level, sc.getGoodAvailableCodes("language"), CoverageLevel.Level.COMPREHENSIVE, false);
       
       //modernScripts.removeAll(base_script_level.keySet());
-      putAll(base_script_level, modernScripts, CoverageLevel.Level.MODERN, false);
+      putAll(base_script_level, modernScripts, Level.MODERN, false);
       //putAll(base_script_level, sc.getGoodAvailableCodes("script"), CoverageLevel.Level.COMPREHENSIVE, false);
       
       //modernTerritories.removeAll(base_territory_level.keySet());
-      putAll(base_territory_level, modernTerritories, CoverageLevel.Level.MODERN, false);
+      putAll(base_territory_level, modernTerritories, Level.MODERN, false);
       //putAll(base_territory_level, sc.getGoodAvailableCodes("territory"), CoverageLevel.Level.COMPREHENSIVE, false);
       
       //if(euroCountries != null) {
@@ -853,7 +779,7 @@ public class CoverageLevel {
 
     for ( int i = 0 ; i < Moderate_Metazones.length ; i++ ) {
       
-      CoverageLevel.Level level;
+      Level level;
       if ( usedMetazones.contains(Moderate_Metazones[i][0]))
          level = Level.BASIC;
       else
@@ -889,7 +815,7 @@ public class CoverageLevel {
 
     for ( int i = 0 ; i < Modern_Metazones.length ; i++ ) {
 
-      CoverageLevel.Level level;
+      Level level;
       if ( usedMetazones.contains(Modern_Metazones[i][0]))
          level = Level.BASIC;
       else
@@ -1020,7 +946,7 @@ public class CoverageLevel {
 
     for ( int i = 0 ; i < Comprehensive_Metazones.length ; i++ ) {
 
-      CoverageLevel.Level level;
+      Level level;
       if ( usedMetazones.contains(Comprehensive_Metazones[i][0]))
          level = Level.BASIC;
       else
@@ -1055,7 +981,7 @@ public class CoverageLevel {
         //String value = metadata.getStringValue(path);
         // <languageCoverage type="basic" values="de en es fr it ja
         // pt ru zh"/>
-        CoverageLevel.Level level = CoverageLevel.Level.get(type);
+        Level level = Level.get(type);
         String values = parts.getAttributeValue(-1, "values");
         CldrUtility.addTreeMapChain(coverageData, 
             lastElement, level,
@@ -1306,9 +1232,9 @@ public class CoverageLevel {
     //parts.set(fullPath);
     //parts.equals()
     // check to see if the level is good enough
-    CoverageLevel.Level level = (CoverageLevel.Level) posixCoverage.get(fullPath);
+    Level level = (Level) posixCoverage.get(fullPath);
     
-    if (level==null || level == CoverageLevel.Level.UNDETERMINED) return; // continue if we don't know what the status is
+    if (level==null || level == Level.UNDETERMINED) return; // continue if we don't know what the status is
     if (Level.POSIX.compareTo(level) >= 0) {
       result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.insufficientCoverage)
           .setMessage("Needed to meet {0} coverage level.", new Object[] { level }));

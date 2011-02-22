@@ -25,8 +25,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -366,7 +364,7 @@ public class StandardCodes {
 
                 String language = parser.getLanguage();
                 if (!language.equals(locale)) {
-                    CoverageLevel.Level languageLevel = (CoverageLevel.Level) locale_level.get(language);
+                    Level languageLevel = (Level) locale_level.get(language);
                     if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
                         locale_level.put(language, childLevel);
                     }
@@ -374,7 +372,7 @@ public class StandardCodes {
                 String oldLanguage = language;
                 language = parser.getLanguageScript();
                 if (!language.equals(oldLanguage)) {
-                    CoverageLevel.Level languageLevel = (CoverageLevel.Level) locale_level.get(language);
+                    Level languageLevel = (Level) locale_level.get(language);
                     if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
                         locale_level.put(language, childLevel);
                     }

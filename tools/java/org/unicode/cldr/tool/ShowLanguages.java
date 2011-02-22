@@ -30,12 +30,12 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Map.Entry;
 
-import org.unicode.cldr.test.CoverageLevel.Level;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;

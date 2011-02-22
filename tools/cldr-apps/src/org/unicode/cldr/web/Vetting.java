@@ -33,11 +33,11 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
@@ -1496,11 +1496,11 @@ public class Vetting {
                 return weightInt.intValue();
             }
             int weight = 
-                CoverageLevel.Level.getDefaultWeight(name, locale);
+                Level.getDefaultWeight(name, locale);
             googleMap.put(locale, weight);
             return weight;
         } else {
-            return CoverageLevel.Level.getDefaultWeight(name, locale);
+            return Level.getDefaultWeight(name, locale);
         }
     }
 	

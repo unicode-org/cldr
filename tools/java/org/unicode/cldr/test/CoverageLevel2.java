@@ -151,7 +151,7 @@ public class CoverageLevel2 {
         Timer timer = new Timer();
         timer.start();
         for (String path : englishPaths) {
-            int oldLevel = supplementalDataInfo2.getCoverageValue(path, uloc);
+            int oldLevel = supplementalDataInfo2.getCoverageValueOld(path, uloc);
         }
         long oldTime = timer.getDuration();
         System.out.println(timer.toString(1));
@@ -164,7 +164,7 @@ public class CoverageLevel2 {
 
         for (String path : englishPaths) {
             int newLevel = cv2.getIntLevel(path);
-            int oldLevel = supplementalDataInfo2.getCoverageValue(path, uloc);
+            int oldLevel = supplementalDataInfo2.getCoverageValueOld(path, uloc);
             if (newLevel != oldLevel) {
                 newLevel = cv2.getIntLevel(path);
                 System.out.println(oldLevel + "\t" + newLevel + "\t" + path);

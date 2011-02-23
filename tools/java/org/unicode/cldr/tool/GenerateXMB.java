@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -278,7 +279,7 @@ public class GenerateXMB {
                 continue;
             }
             String var = pathInfo.getFirstVariable();
-            String fullPlurals = showPlurals(var, fullValues, locale, pluralInfo);
+            String fullPlurals = showPlurals(var, fullValues, locale, pluralInfo, isEnglish);
             if (fullPlurals == null) {
                 System.out.println("Can't format plurals for: " + entry.getKey());
                 continue;
@@ -307,7 +308,7 @@ public class GenerateXMB {
     static final String[] PLURAL_KEYS = {"=0", "=1", "zero", "one", "two", "few", "many", "other"};
     static final String[] EXTRA_PLURAL_KEYS = {"zero", "one", "two", "few", "many"};
 
-    private static String showPlurals(String var, Map<String,String> values, String locale, PluralInfo pluralInfo) {
+    private static String showPlurals(String var, Map<String,String> values, String locale, PluralInfo pluralInfo, boolean isEnglish) {
         /*
         <msg desc="[ICU Syntax] Plural forms for a number of hours. These are special messages: before translating, see cldr.org/translation/plurals.">
          {LENGTH, select,
@@ -332,9 +333,29 @@ public class GenerateXMB {
             many {# hours}
             other {# hours}}}}
          </msg>
+
+         NOTE: For the WSB, the format has to match the following, WITHOUT LFs
+
+<msg id='1431840205484292448' desc='[ICU Syntax] who is viewing?​ This message requires special attention. Please follow the instructions here: https://sites.google.com/a/google.com/localization-info-site/Home/training/icusyntax'>
+<ph name='[PLURAL_NUM_USERS_OFFSET_1]' ex='Special placeholder used in [ICU Syntax] messages, see instructions page.'/>
+<ph name='[​=0]'/>No one else is viewing.
+<ph name='[=1]'/><ph name='USERNAME' ex='Bob'/> is viewing.
+<ph name='[=2]'/><ph name='USERNAME' ex='Bob'/> and one other are viewing.
+<ph name='[ZERO]'/><ph name='USERNAME' ex='Bob'/> and # others are viewing.
+<ph name='[ONE]'/><ph name='USERNAME' ex='Bob'/> and # others are viewing.
+<ph name='[TWO]'/><ph name='USERNAME' ex='Bob'/> and # others are viewing.
+<ph name='[FEW]'/><ph name='USERNAME' ex='Bob'/> and # others are viewing.
+<ph name='[MANY]'/><ph name='USERNAME' ex='Bob'/> and # others are viewing.
+<ph name='[OTHER]'/><ph name='USERNAME' ex='Bob'/> and # others are viewing.
+<ph name='[END_PLURAL]'/>
+</msg>
          */
         StringBuilder result = new StringBuilder();
-        result.append('{').append("PLURAL_").append(var).append(", plural,");
+        if (isEnglish) {
+            result.append('{').append("PLURAL_").append(var).append(",plural,");
+        } else {
+            result.append("<ph name='[PLURAL_").append(var).append("]'/>"); //  ex='Special placeholder used in [ICU Syntax] messages, see instructions page.'
+        }
         for (String key : PLURAL_KEYS) {
             String value;
             value = values.get(key);
@@ -356,7 +377,15 @@ public class GenerateXMB {
                 }
             }
             String newValue = MessageFormat.format(MessageFormat.autoQuoteApostrophe(value), new Object[] {key.startsWith("=") ? key.substring(1,2) : "#"});
-            result.append("\n\t\t\t").append(key).append(" {").append(newValue).append('}');
+            if (isEnglish) {
+                result.append("\n\t\t\t").append(key).append(" {").append(newValue).append('}');
+            } else {
+                String prefix = key.toUpperCase(Locale.ENGLISH);
+                if (key.equals("=0")) {
+                    prefix = '\u200b' + prefix;
+                }
+                result.append("<!--\n\t\t--><ph name='[").append(prefix).append("]'/>").append(newValue);
+            }
         }
         return result.append('}').toString();
     }
@@ -436,7 +465,7 @@ public class GenerateXMB {
             //... name='FIRST_PART_OF_TEXT' ...
             String placeHolder;
             try {
-                 placeHolder = placeholderReplacements.get("{0}");
+                placeHolder = placeholderReplacements.get("{0}");
             } catch (Exception e) {
                 throw new IllegalArgumentException("Missing {0} for " + this);
             }
@@ -522,7 +551,7 @@ public class GenerateXMB {
             return path;
         }
     }
-    
+
     private static final String MISSING_DESCRIPTION = "Before translating, please see cldr.org/translation.";
 
 
@@ -592,9 +621,9 @@ public class GenerateXMB {
                         extras.put(path2,path);
                     }
                 }
-//                if (path.contains("ellipsis")) {
-//                    System.out.println(path);
-//                }
+                //                if (path.contains("ellipsis")) {
+                //                    System.out.println(path);
+                //                }
             }
             sorted.addAll(extras.keySet());
 
@@ -680,7 +709,7 @@ public class GenerateXMB {
                         String codeName = lastSlash< 0 ? code : code.substring(lastSlash+1).replace('_', ' ');
 
                         boolean found = false;
-                        if (country.equals("001")) {
+                        if ("001".equals(country)) {
                             code = "the timezone \"" + codeName + '"';
                             found = true;
                         } else if (country != null) {

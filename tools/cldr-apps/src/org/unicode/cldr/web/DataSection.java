@@ -40,7 +40,6 @@ import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /** A data section represents a group of related data that will be displayed to users in a list
  * such as, "all of the language display names contained in the en_US locale".

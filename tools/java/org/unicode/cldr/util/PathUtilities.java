@@ -86,7 +86,7 @@ public class PathUtilities {
     // }
     // else {
 
-    String defaultCalendarsItems = "gregorian buddhist coptic ethiopic chinese hebrew indian islamic islamic-civil japanese persian roc";
+    String defaultCalendarsItems = "gregorian buddhist coptic ethiopic chinese hebrew indian islamic japanese persian roc";
     return (defaultCalendarsItems.split(" "));
 
     // }

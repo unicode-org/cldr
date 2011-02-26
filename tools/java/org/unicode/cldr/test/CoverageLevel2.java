@@ -23,9 +23,7 @@ import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.util.ULocale;
 
 public class CoverageLevel2 {
-    @SuppressWarnings("deprecation")
-    private static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
-    private static RegexLookup<Level> lookup = new RegexLookup<Level>();
+    private RegexLookup<Level> lookup = null;
     
     enum SetMatchType {Target_Language, Target_Scripts, Target_Territories, Target_TimeZones, Target_Currencies, Calendar_List}
 
@@ -42,7 +40,7 @@ public class CoverageLevel2 {
      * @author markdavis
      *
      */
-    private static class MyRegexFinder extends RegexFinder {
+    public static class MyRegexFinder extends RegexFinder {
         final private SetMatchType additionalMatch;
         final private CoverageLevelInfo ci;
         
@@ -91,40 +89,26 @@ public class CoverageLevel2 {
         }
     }
 
-    /*
-     * Set up the RegexLookup by building the right patterns.
-     */
-    static {
-        Matcher variable = Pattern.compile("\\$\\{[\\-A-Za-z]*\\}").matcher("");
-        
-        for (CoverageLevelInfo ci : supplementalDataInfo.getCoverageLevelInfo()) {
-            String pattern = ci.match.replace('\'','"')
-                    .replace("[@","\\[@") // make sure that attributes are quoted
-                    .replace("(","(?:") // make sure that there are no capturing groups (beyond what we generate below).
-                    ;
-            pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
-            String variableType = null;
-            variable.reset(pattern);
-            if (variable.find()) {
-                pattern = pattern.substring(0,variable.start()) + "([^\"]*)" + pattern.substring(variable.end());
-                variableType = variable.group();
-                if (variable.find()) {
-                    throw new IllegalArgumentException("We can only handle a single variable on a line");
-                }
-            }
-            
-            //.replaceAll("\\]","\\\\]");
-            lookup.add(new MyRegexFinder(pattern, variableType, ci), ci.value);
-        }
-    }
 
-    private CoverageLevel2(String locale) {
+    private CoverageLevel2(SupplementalDataInfo sdi, String locale) {
         myInfo.targetLanguage = new LanguageTagParser().set(locale).getLanguage();
-        myInfo.cvi = supplementalDataInfo.getCoverageVariableInfo(myInfo.targetLanguage);
+        myInfo.cvi = sdi.getCoverageVariableInfo(myInfo.targetLanguage);
+        lookup = sdi.getCoverageLookup();
     }
 
+    /**
+     * get an instance, using CldrUtility.SUPPLEMENTAL_DIRECTORY
+     * @param locale
+     * @return
+     * @deprecated Don't use this. call the version which takes a SupplementalDataInfo as an argument.
+     * @see #getInstance(SupplementalDataInfo, String)
+     * @see CldrUtility#SUPPLEMENTAL_DIRECTORY
+     */
     public static CoverageLevel2 getInstance(String locale) {
-        return new CoverageLevel2(locale);
+        return new CoverageLevel2(SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY), locale);
+    }
+    public static CoverageLevel2 getInstance(SupplementalDataInfo sdi, String locale) {
+        return new CoverageLevel2(sdi, locale);
     }
 
     public Level getLevel(String path) {

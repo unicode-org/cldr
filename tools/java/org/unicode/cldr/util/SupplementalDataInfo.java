@@ -15,11 +15,11 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -1671,7 +1671,40 @@ public class SupplementalDataInfo {
      * @return
      */
     public int getCoverageValue(String xpath, ULocale loc) {
-        return CoverageLevel2.getInstance(loc.getLanguage()).getIntLevel(xpath);
+        return CoverageLevel2.getInstance(this, loc.getLanguage()).getIntLevel(xpath);
+    }
+    
+    private RegexLookup<Level> coverageLookup = null;
+    
+    public synchronized RegexLookup<Level> getCoverageLookup() {
+        if(coverageLookup==null) {
+            RegexLookup<Level> lookup=  new RegexLookup<Level>();
+
+
+            Matcher variable = Pattern.compile("\\$\\{[\\-A-Za-z]*\\}").matcher("");
+            
+            for (CoverageLevelInfo ci : getCoverageLevelInfo()) {
+                String pattern = ci.match.replace('\'','"')
+                        .replace("[@","\\[@") // make sure that attributes are quoted
+                        .replace("(","(?:") // make sure that there are no capturing groups (beyond what we generate below).
+                        ;
+                pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
+                String variableType = null;
+                variable.reset(pattern);
+                if (variable.find()) {
+                    pattern = pattern.substring(0,variable.start()) + "([^\"]*)" + pattern.substring(variable.end());
+                    variableType = variable.group();
+                    if (variable.find()) {
+                        throw new IllegalArgumentException("We can only handle a single variable on a line");
+                    }
+                }
+                
+                //.replaceAll("\\]","\\\\]");
+                lookup.add(new CoverageLevel2.MyRegexFinder(pattern, variableType, ci), ci.value);
+            }
+            coverageLookup=lookup;
+        }
+        return coverageLookup;
     }
     
     /**

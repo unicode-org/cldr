@@ -1,6 +1,6 @@
 /*
  **********************************************************************
- * Copyright (c) 2002-2010, International Business Machines
+ * Copyright (c) 2002-2011, International Business Machines
  * Corporation and others.  All Rights Reserved.
  **********************************************************************
  * Author: Mark Davis
@@ -2980,13 +2980,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         //final String anyPatternPath = "//ldml/units/unit[@type=\"any\"]/unitPattern[@count=\"" + count + "\"]";
         //toAddTo.add(anyPatternPath);
         for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
-          final String unitPattern = "//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + count + "\"]";
-          String value = getWinningValue(unitPattern);
-          if (value != null && value.length() == 0) {
-            continue;
+          for (String when : new String[]{"", "-past", "-future"}) {
+            final String unitPattern = "//ldml/units/unit[@type=\"" + unit + when+ "\"]/unitPattern[@count=\"" + count + "\"]";
+            String value = getWinningValue(unitPattern);
+            if (value != null && value.length() == 0) {
+              continue;
+            }
+            toAddTo.add(unitPattern);
+            //toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
           }
-          toAddTo.add(unitPattern);
-          //toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
         }
 
         // do units now, but only if pattern is not empty

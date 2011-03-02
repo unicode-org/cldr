@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.swing.text.StyleContext.SmallAttributeSet;
+
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -619,7 +621,7 @@ public class Race {
      */
     public int updateDB(Connection conn) throws SQLException {
     	PreparedStatement outputDelete=null,  orgDisputeDelete=null,  outputInsert=null,  orgDisputeInsert=null,  insertResult=null,  updateResult=null;
-    	
+    	PreparedStatement updateElse = null;
     	try {
     		// First, zap old data
     		int rowsUpdated = 0;
@@ -769,51 +771,85 @@ public class Race {
     		if (hadDisqualifiedWinner || hadOtherError) {
     			type = Vetting.RES_ERROR;
     		}
-    		if (id == -1) {
-    			// Not an existing vote: insert a new one
-    			// insert
-    			insertResult=Vetting.prepare_insertResult(conn);
-    			insertResult.setString(1,locale.toString());
-    			insertResult.setInt(2, base_xpath);
+            if(DBUtils.db_Mysql) { /* use 'on duplicate key' syntax */
+            	updateElse = Vetting.prepare_updateResultElse(conn);
+            	updateElse.setString(1,locale.toString());
+            	updateElse.setInt(2, base_xpath);
     			if (resultXpath != -1) {
-    				insertResult.setInt(3, resultXpath);
+    				updateElse.setInt(3, resultXpath);
     			} else {
-    				insertResult.setNull(3, java.sql.Types.SMALLINT); // no
+    				updateElse.setNull(3, java.sql.Types.SMALLINT); // no
     				// fallback.
     			}
-    			insertResult.setInt(4, type);
-    			//            System.err.println(this.locale.toString()+"-"+base_xpath+"++");
+    			updateElse.setInt(4, type);
 
-    			int res = insertResult.executeUpdate();
-    			// no commit
-    			if (res != 1) {
-    				throw new RuntimeException(locale + ":" + base_xpath + "=" + resultXpath + " ("
-    						+ Vetting.typeToStr(type) + ") - insert failed.");
-    			}
-    			id = -2; // unknown id
-    		} else {
-    			// existing vote: get the old one
-    			// ... for now, just do an update
-    			// update CLDR_RESULT set
-    			// vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
-    			updateResult=Vetting.prepare_updateResult(conn);
+            	updateElse.setString(5,locale.toString());
+            	updateElse.setInt(6, base_xpath);
     			if (resultXpath != -1) {
-    				updateResult.setInt(1, resultXpath);
+    				updateElse.setInt(7, resultXpath);
     			} else {
-    				updateResult.setNull(1, java.sql.Types.SMALLINT); // no fallback.
+    				updateElse.setNull(7, java.sql.Types.SMALLINT); // no
+    				// fallback.
     			}
-    			updateResult.setInt(2, type);
-    			updateResult.setInt(3, base_xpath);
-    			updateResult.setString(4, locale.toString());
-    			int res = updateResult.executeUpdate();
+    			updateElse.setInt(8, type);
+    			
+    			int res = updateElse.executeUpdate();
     			if (res != 1) {
     				throw new RuntimeException(locale + ":" + base_xpath + "@" + id + "=" + resultXpath
-    						+ " (" + Vetting.typeToStr(type) + ") - update failed.");
+    						+ " (" + Vetting.typeToStr(type) + ") - update failed, result=."+res);
+    			} else if(SurveyMain.isUnofficial&&false){
+    				System.err.println(locale + ":" + base_xpath + "@" + id + "=" + resultXpath
+    						+ " (" + Vetting.typeToStr(type) + ") - else update done, result=."+res);    				
     			}
-    		}
+    			
+            } else {
+            	/* legacy (derby, etc) */
+	    		if (id == -1) {
+	    			// Not an existing vote: insert a new one
+	    			// insert
+	    			insertResult=Vetting.prepare_insertResult(conn);
+	    			insertResult.setString(1,locale.toString());
+	    			insertResult.setInt(2, base_xpath);
+	    			if (resultXpath != -1) {
+	    				insertResult.setInt(3, resultXpath);
+	    			} else {
+	    				insertResult.setNull(3, java.sql.Types.SMALLINT); // no
+	    				// fallback.
+	    			}
+	    			insertResult.setInt(4, type);
+	    			//            System.err.println(this.locale.toString()+"-"+base_xpath+"++");
+	
+	    			int res = insertResult.executeUpdate();
+	    			// no commit
+	    			if (res != 1) {
+	    				throw new RuntimeException(locale + ":" + base_xpath + "=" + resultXpath + " ("
+	    						+ Vetting.typeToStr(type) + ") - insert failed.");
+	    			}
+	    			id = -2; // unknown id
+	    		} else {
+	    			// existing vote: get the old one
+	    			// ... for now, just do an update
+	    			// update CLDR_RESULT set
+	    			// vote_xpath=?,type=?,modtime=CURRENT_TIMESTAMP where id=?
+	    			updateResult=Vetting.prepare_updateResult(conn);
+	    			if (resultXpath != -1) {
+	    				updateResult.setInt(1, resultXpath);
+	    			} else {
+	    				updateResult.setNull(1, java.sql.Types.SMALLINT); // no fallback.
+	    			}
+	    			updateResult.setInt(2, type);
+	    			updateResult.setInt(3, base_xpath);
+	    			updateResult.setString(4, locale.toString());
+	    			int res = updateResult.executeUpdate();
+	    			if (res != 1) {
+	    				throw new RuntimeException(locale + ":" + base_xpath + "@" + id + "=" + resultXpath
+	    						+ " (" + Vetting.typeToStr(type) + ") - update failed.");
+	    			}
+	    		}
+            }
     		return type;
     	} finally {
-    		DBUtils.close(outputDelete,  orgDisputeDelete,  outputInsert,  orgDisputeInsert,  insertResult,  updateResult);
+    		DBUtils.close(updateElse, outputDelete,  orgDisputeDelete,  outputInsert,  orgDisputeInsert,  insertResult,  updateResult);
     	}
     }
     

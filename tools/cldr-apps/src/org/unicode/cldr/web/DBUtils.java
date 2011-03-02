@@ -395,6 +395,10 @@ public class DBUtils {
 
 	// File dbDir_u = null;
 	static String dbInfo = null;
+	
+	public boolean isBogus() {
+		return (datasource==null);
+	}
 
 	private DBUtils() {
 		// Initialize DB context
@@ -417,7 +421,7 @@ public class DBUtils {
 				}
 			} catch (SQLException  t) {
                 datasource = null;
-				throw new RuntimeException(getClass().getName()+": WARNING: we require a JNDI datasource.  "
+				throw new IllegalArgumentException(getClass().getName()+": WARNING: we require a JNDI datasource.  "
 								+ "'"+JDBC_SURVEYTOOL+"'"
 								+ ".getConnection() returns : "
 								+ t.toString()+"\n"+unchainSqlException(t));

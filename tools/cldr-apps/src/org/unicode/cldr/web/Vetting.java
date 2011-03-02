@@ -418,6 +418,26 @@ public class Vetting {
 				+ CLDR_ALLPATHS + ".base_xpath=" + CLDR_RESULT
 				+ ".base_xpath)  )");
 	}
+	
+	/**
+	 * statement params: locale,base_xpath,result_xpath,type
+	 * @param conn
+	 * @return
+	 * @throws SQLException
+	 */
+	public static PreparedStatement prepare_updateResultElse(Connection conn) throws SQLException {
+		return DBUtils.prepareStatementForwardReadOnly(
+				conn,
+				"updateResultElse",
+				"insert into "
+				+ CLDR_RESULT
+				+ " (locale,base_xpath,result_xpath,type,modtime) values (?,?,?,?,CURRENT_TIMESTAMP)" +
+						"ON DUPLICATE KEY UPDATE locale=?, base_xpath=?, result_xpath=?, type=?, modtime=CURRENT_TIMESTAMP");
+
+		//                 sql = "INSERT INTO " + SET_VALUES + " (usr_id,set_id,set_value) values (?,?,?) " + 
+				//"ON DUPLICATE KEY UPDATE set_value=?";
+	}
+
 
 	static PreparedStatement prepare_insertResult(Connection conn) throws SQLException {
 		return DBUtils.prepareStatementForwardReadOnly(
@@ -3132,6 +3152,7 @@ if(true == true)    throw new InternalError("removed from use.");
 			throw new InternalError(DBUtils.unchainSqlException(sqe));
 		}
 	}
+
 
 
 }

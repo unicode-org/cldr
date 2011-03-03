@@ -143,6 +143,11 @@ Switch to:
 %>
 
 <hr/>
+<p>
+ Note: Sort is by D, the total number of new proposed data items submitted.
+ there can be more submissions than votes (if multiple proposals are made for a single item), and there may be more votes than submissions (if multiple people voted for a single proposal).
+</p>
+
 <i>Graphs by <a href='http://g.raphaeljs.com/'>gRaphaël</a></i>
 
 <hr>

@@ -1,0 +1,57 @@
+package org.unicode.cldr.web;
+
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class StatisticsUtils {
+	private static class di {
+		public String s;
+		public int v;
+		public int d;
+		di(String s) {
+			this.s=s;
+			this.v=0;
+			this.d=0;
+		}
+	};
+	
+	public static String[][] calcSubmits(String[][] v, String[][] d) {
+		Map<String,di> all = new TreeMap<String,di>();
+		
+		for(int i=0;i<v.length;i++) {
+			di ent = all.get(v[i][0]);
+			if(ent==null) {
+				all.put(v[i][0], (ent=new di(v[i][0])));
+			}
+			ent.v=Integer.parseInt(v[i][1]);
+		}
+		for(int i=0;i<d.length;i++) {
+			di ent = all.get(d[i][0]);
+			if(ent==null) {
+				all.put(d[i][0], (ent=new di(d[i][0])));
+			}
+			ent.d=Integer.parseInt(d[i][1]);
+		}
+		Set<di> asSet = new TreeSet<di>(new Comparator<di>(){
+
+			@Override
+			public int compare(di arg0, di arg1) {
+				return arg1.d-arg0.d;
+			}});
+		asSet.addAll(all.values());
+		String[][] ret = new String[asSet.size()][];
+		int j=0;
+		for(di dd : asSet) {
+			ret[j]=new String[3];
+			ret[j][0]=dd.s;
+			ret[j][1]=Integer.toString(dd.d);
+			ret[j][2]=Integer.toString(dd.v);
+			j++;
+		}
+		return ret;
+	}
+
+}

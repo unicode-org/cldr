@@ -529,8 +529,7 @@
 				<usesMetazone from="1982-12-02 05:00" mzone="America_Central"/>
 			</timezone>
 			<timezone type="America/Metlakatla">
-				<usesMetazone to="1983-10-30 09:00" mzone="America_Pacific"/>
-				<usesMetazone from="1983-10-30 09:00" mzone="Metlakatla"/>
+				<usesMetazone mzone="America_Pacific"/>
 			</timezone>
 			<timezone type="America/Mexico_City">
 				<usesMetazone mzone="America_Central"/>
@@ -1722,7 +1721,6 @@
 			<mapZone other="Marshall_Islands" territory="001" type="Pacific/Majuro"/>
 			<mapZone other="Mauritius" territory="001" type="Indian/Mauritius"/>
 			<mapZone other="Mawson" territory="001" type="Antarctica/Mawson"/>
-			<mapZone other="Metlakatla" territory="001" type="America/Metlakatla"/>
 			<mapZone other="Mongolia" territory="001" type="Asia/Ulaanbaatar"/>
 			<mapZone other="Moscow" territory="001" type="Europe/Moscow"/>
 			<mapZone other="Myanmar" territory="001" type="Asia/Rangoon"/>

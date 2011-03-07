@@ -18,6 +18,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
 import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -950,7 +952,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         printAdminMenu(ctx, "/AdminDump");
         ctx.println("<h1>SurveyTool Administration</h1>");
         ctx.println("<hr>");
+
+        ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
         
+        long deadlockedThreads[] = threadBean.findDeadlockedThreads();
+
         
         if(action.equals("")) {
             action = "sessions";
@@ -967,7 +973,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		actionCtx.println(" | ");
 		printMenu(actionCtx, action, "stats", "Internal Statistics", "action");       
 		actionCtx.println(" | ");
-		printMenu(actionCtx, action, "tasks", "Tasks and Threads", "action");       
+		printMenu(actionCtx, action, "tasks", "Tasks and Threads"+
+									((deadlockedThreads!=null)?actionCtx.iconHtml("warn","deadlock"):
+															  actionCtx.iconHtml("okay","no deadlock")),
+														"action");       
 		actionCtx.println(" | ");
 		printMenu(actionCtx, action, "statics", "Static Data", "action");       
 		actionCtx.println(" | ");
@@ -1148,7 +1157,22 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             	ctx.println("<li><a href='#"+t.getId()+"'>"+t.getName()+"</a>  - "+t.getState().toString()+"</li>");
             }
             ctx.println("</ul>");
-           	for(Thread t : s.keySet()) {
+           	// detect deadlocks
+            if(deadlockedThreads != null) {
+            	ctx.println("<h2>"+ctx.iconHtml("stop", "deadlocks")+" deadlocks</h2>");
+            	
+            	ThreadInfo deadThreadInfo[] = threadBean.getThreadInfo(deadlockedThreads, true, true);
+            	for(ThreadInfo deadThread : deadThreadInfo) {
+            		ctx.println("<b>Name: " + deadThread.getThreadName()+" / #"+deadThread.getThreadId()+"</b><br>");
+            		ctx.println("<pre>"+deadThread.toString()+"</pre>");
+            	}
+            } else {
+            	ctx.println("<i>no deadlocked threads</i>");
+            }
+            
+            
+            // show all threads
+            for(Thread t : s.keySet()) {
 		    if(t == startupThread) { 
 			ctx.println("<a name='currentTask'></a>");
 		    }

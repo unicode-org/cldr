@@ -177,11 +177,13 @@
 			</timezone>
 			<timezone type="America/Adak">
 				<usesMetazone to="1983-10-30 12:00" mzone="Bering"/>
-				<usesMetazone from="1983-10-30 12:00" mzone="Hawaii_Aleutian"/>
+				<usesMetazone to="1983-11-30 10:00"  from="1983-10-30 12:00" mzone="Alaska_Hawaii"/>
+				<usesMetazone from="1983-11-30 10:00" mzone="Hawaii_Aleutian"/>
 			</timezone>
 			<timezone type="America/Anchorage">
 				<usesMetazone to="1983-10-30 11:00" mzone="Alaska_Hawaii"/>
-				<usesMetazone from="1983-10-30 11:00" mzone="Alaska"/>
+				<usesMetazone to="1983-11-30 09:00" from="1983-10-30 11:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30 09:00" mzone="Alaska"/>
 			</timezone>
 			<timezone type="America/Anguilla">
 				<usesMetazone mzone="Atlantic"/>
@@ -458,8 +460,11 @@
 				<usesMetazone from="1991-10-06 04:00" mzone="Argentina"/>
 			</timezone>
 			<timezone type="America/Juneau">
-				<usesMetazone to="1983-10-30 09:00" mzone="America_Pacific"/>
-				<usesMetazone from="1983-10-30 09:00" mzone="Alaska"/>
+				<usesMetazone to="1980-04-27 10:00" mzone="America_Pacific"/>
+				<usesMetazone to="1980-10-26 10:00" from="1980-04-27 10:00" mzone="Yukon"/>
+				<usesMetazone to="1983-10-30 09:00" from="1980-10-26 10:00" mzone="America_Pacific"/>
+				<usesMetazone to="1983-11-30 09:00" from="1983-10-30 09:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30 09:00" mzone="Alaska"/>
 			</timezone>
 			<timezone type="America/Kentucky/Monticello">
 				<usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
@@ -523,6 +528,10 @@
 				<usesMetazone to="1982-12-02 05:00" from="1981-12-23 06:00" mzone="America_Eastern"/>
 				<usesMetazone from="1982-12-02 05:00" mzone="America_Central"/>
 			</timezone>
+			<timezone type="America/Metlakatla">
+				<usesMetazone to="1983-10-30 09:00" mzone="America_Pacific"/>
+				<usesMetazone from="1983-10-30 09:00" mzone="Metlakatla"/>
+			</timezone>
 			<timezone type="America/Mexico_City">
 				<usesMetazone mzone="America_Central"/>
 			</timezone>
@@ -556,7 +565,8 @@
 			</timezone>
 			<timezone type="America/Nome">
 				<usesMetazone to="1983-10-30 12:00" mzone="Bering"/>
-				<usesMetazone from="1983-10-30 12:00" mzone="Alaska"/>
+				<usesMetazone to="1983-11-30 09:00" from="1983-10-30 12:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30 09:00" mzone="Alaska"/>
 			</timezone>
 			<timezone type="America/Noronha">
 				<usesMetazone mzone="Noronha"/>
@@ -655,6 +665,11 @@
 			<timezone type="America/Shiprock">
 				<usesMetazone mzone="America_Mountain"/>
 			</timezone>
+			<timezone type="America/Sitka">
+				<usesMetazone to="1983-10-30 09:00" mzone="America_Pacific"/>
+				<usesMetazone to="1983-11-30 09:00" from="1983-10-30 09:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30 09:00" mzone="Alaska"/>
+			</timezone>
 			<timezone type="America/St_Barthelemy">
 				<usesMetazone mzone="Atlantic"/>
 			</timezone>
@@ -705,8 +720,8 @@
 				<usesMetazone mzone="America_Central"/>
 			</timezone>
 			<timezone type="America/Yakutat">
-				<usesMetazone to="1983-10-30 10:00" mzone="Yukon"/>
-				<usesMetazone from="1983-10-30 10:00" mzone="Alaska"/>
+				<usesMetazone to="1983-11-30 09:00" mzone="Yukon"/>
+				<usesMetazone from="1983-11-30 09:00" mzone="Alaska"/>
 			</timezone>
 			<timezone type="America/Yellowknife">
 				<usesMetazone mzone="America_Mountain"/>
@@ -1707,6 +1722,7 @@
 			<mapZone other="Marshall_Islands" territory="001" type="Pacific/Majuro"/>
 			<mapZone other="Mauritius" territory="001" type="Indian/Mauritius"/>
 			<mapZone other="Mawson" territory="001" type="Antarctica/Mawson"/>
+			<mapZone other="Metlakatla" territory="001" type="America/Metlakatla"/>
 			<mapZone other="Mongolia" territory="001" type="Asia/Ulaanbaatar"/>
 			<mapZone other="Moscow" territory="001" type="Europe/Moscow"/>
 			<mapZone other="Myanmar" territory="001" type="Asia/Rangoon"/>

@@ -542,15 +542,6 @@ public class Race {
 
     		Map<Chad,Integer> possibles = new HashMap<Chad,Integer>(); // checking if it is disqualified could load other bundles, leading to contention on dataByBase's RS
 
-    		//  synchronized(vet) {
-    		if(dbb>5) {
-    			vet.sm.busted("dbb isn't 1, it's " + dbb + " !");
-    		}
-    		if(++dbb!=1) {
-    			throw new InternalError("Going in: dbb isn't 1, it's " + dbb);
-    		}
-
-
     		dataByBase.setString(1, locale.toString());
     		dataByBase.setInt(2, base_xpath);
     		rs = dataByBase.executeQuery();
@@ -566,10 +557,6 @@ public class Race {
     			//	            }
     		}
 
-    		if(--dbb!=0) {
-    			throw new InternalError("Going in: dbb isn't 0, it's " + dbb);
-    		}
-    		//    }
 
     		for(Map.Entry<Race.Chad,Integer> e : possibles.entrySet()) {        	
     			if(!e.getKey().isDisqualified()) {
@@ -583,9 +570,6 @@ public class Race {
     	}
     }
     
-    static int dbb = 0;
-    
-
     
     /**
      * Calculate the winning item of the race. May be null if n/a.
@@ -696,36 +680,38 @@ public class Race {
     		}
 
     		// add any other items
-    		int jsernum = 1000; // starting point for x proposed designation
-    		for (Chad other : chads.values()) {
-    			// skip if:
-    			if (other == winner || (other.disqualified && !Vetting.MARK_NO_DISQUALIFY)
-    					|| other.voters == null || other.voters.isEmpty()) { 
-    				// skip the winner and any disqualified or no-vote items.
-    				continue;
-    			}
-    			jsernum++;
-    			Status proposedStatus = Status.UNCONFIRMED;
-    			String altproposed = "proposed-x" + jsernum;
-    			int aPath = vet.makeXpathId(baseNoAlt, altvariant, altproposed, Status.INDETERMINATE);
-
-    			String baseFString = vet.sm.xpt.getById(other.full_xpath);
-    			String baseFNoAlt = baseFString;
-    			if (alts[0] != null) {
-    				baseFNoAlt = vet.sm.xpt.removeAlt(baseFString);
-    			}
-    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "draft");
-    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "alt");
-    			int aFullPath = vet.makeXpathId(baseFNoAlt, altvariant, altproposed, proposedStatus);
-
-    			// otherwise, show it under something.
-    			outputInsert.setInt(3, aPath); // outputxpath = base, i.e. no
-    			// alt/proposed.
-    			outputInsert.setInt(4, aFullPath); // outputxpath = base, i.e.
-    			// no alt/proposed.
-    			outputInsert.setInt(5, other.xpath); // data = winner.xpath
-    			outputInsert.setInt(6, proposedStatus.intValue());
-    			rowsUpdated += outputInsert.executeUpdate();
+    		synchronized(this.vet) {
+	    		int jsernum = 1000; // starting point for x proposed designation
+	    		for (Chad other : chads.values()) {
+	    			// skip if:
+	    			if (other == winner || (other.disqualified && !Vetting.MARK_NO_DISQUALIFY)
+	    					|| other.voters == null || other.voters.isEmpty()) { 
+	    				// skip the winner and any disqualified or no-vote items.
+	    				continue;
+	    			}
+	    			jsernum++;
+	    			Status proposedStatus = Status.UNCONFIRMED;
+	    			String altproposed = "proposed-x" + jsernum;
+	    			int aPath = vet.makeXpathId(baseNoAlt, altvariant, altproposed, Status.INDETERMINATE);
+	
+	    			String baseFString = vet.sm.xpt.getById(other.full_xpath);
+	    			String baseFNoAlt = baseFString;
+	    			if (alts[0] != null) {
+	    				baseFNoAlt = vet.sm.xpt.removeAlt(baseFString);
+	    			}
+	    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "draft");
+	    			baseFNoAlt = vet.sm.xpt.removeAttribute(baseFNoAlt, "alt");
+	    			int aFullPath = vet.makeXpathId(baseFNoAlt, altvariant, altproposed, proposedStatus);
+	
+	    			// otherwise, show it under something.
+	    			outputInsert.setInt(3, aPath); // outputxpath = base, i.e. no
+	    			// alt/proposed.
+	    			outputInsert.setInt(4, aFullPath); // outputxpath = base, i.e.
+	    			// no alt/proposed.
+	    			outputInsert.setInt(5, other.xpath); // data = winner.xpath
+	    			outputInsert.setInt(6, proposedStatus.intValue());
+	    			rowsUpdated += outputInsert.executeUpdate();
+	    		}
     		}
 
     		// update disputes, if any
@@ -735,15 +721,17 @@ public class Race {
     		//                rowsUpdated += vet.orgDisputeInsert.executeUpdate();
     		//            }
     		//        }
-    		for(VoteResolver.Organization org : resolver.getConflictedOrganizations()) {
-    			//            Organization sorg = Organization.fromOrganization(org); // convert from foreign format
-    			if(orgDisputeInsert==null) {
-    	    		orgDisputeInsert=Vetting.prepare_orgDisputeInsert(conn);
-    	    		orgDisputeInsert.setString(2, locale.toString());
-    	    		orgDisputeInsert.setInt(3, base_xpath);
-    			}
-    			orgDisputeInsert.setString(1, org.name()); // use foreign format
-    			rowsUpdated += orgDisputeInsert.executeUpdate();
+    		synchronized(this.vet) {
+	    		for(VoteResolver.Organization org : resolver.getConflictedOrganizations()) {
+	    			//            Organization sorg = Organization.fromOrganization(org); // convert from foreign format
+	    			if(orgDisputeInsert==null) {
+	    	    		orgDisputeInsert=Vetting.prepare_orgDisputeInsert(conn);
+	    	    		orgDisputeInsert.setString(2, locale.toString());
+	    	    		orgDisputeInsert.setInt(3, base_xpath);
+	    			}
+	    			orgDisputeInsert.setString(1, org.name()); // use foreign format
+	    			rowsUpdated += orgDisputeInsert.executeUpdate();
+	    		}
     		}
 
     		// Now, update the vote results

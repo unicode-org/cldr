@@ -773,7 +773,8 @@
 				<usesMetazone mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Asia/Anadyr">
-				<usesMetazone mzone="Anadyr"/>
+				<usesMetazone to="2010-03-27 14:00" mzone="Anadyr"/>
+				<usesMetazone from="2010-03-27 14:00" mzone="Magadan"/>
 			</timezone>
 			<timezone type="Asia/Aqtau">
 				<usesMetazone to="1991-12-15 19:00" mzone="Shevchenko"/>
@@ -878,7 +879,8 @@
 				<usesMetazone mzone="Afghanistan"/>
 			</timezone>
 			<timezone type="Asia/Kamchatka">
-				<usesMetazone mzone="Kamchatka"/>
+				<usesMetazone to="2010-03-27 14:00" mzone="Kamchatka"/>
+				<usesMetazone from="2010-03-27 14:00" mzone="Magadan"/>
 			</timezone>
 			<timezone type="Asia/Karachi">
 				<usesMetazone to="1971-03-25 19:00" mzone="Karachi"/>
@@ -1232,7 +1234,8 @@
 			</timezone>
 			<timezone type="Europe/Samara">
 				<usesMetazone to="1991-10-20 00:00" mzone="Kuybyshev"/>
-				<usesMetazone from="1991-10-20 00:00" mzone="Samara"/>
+				<usesMetazone from="1991-10-20 00:00" to="2010-03-27 22:00" mzone="Samara"/>
+				<usesMetazone from="2010-03-27 22:00" mzone="Moscow"/>
 			</timezone>
 			<timezone type="Europe/San_Marino">
 				<usesMetazone mzone="Europe_Central"/>

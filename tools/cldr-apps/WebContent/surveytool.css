@@ -1,4 +1,4 @@
-/* Copyright (c) 2004-2010 IBM and others. All Rights Reserved. */
+/* Copyright (c) 2004-2011 IBM and others. All Rights Reserved. */
 
 /* @override 
 	http://127.0.0.1:8080/cldr-apps/surveytool.css
@@ -895,12 +895,18 @@ span.elapsedtime {
 
  table.progress-list {
 	border-collapse: collapse;
-	border:  2px solid red;
 	position: absolute;
 	top: 0;
 	left: 0;
-	border-bottom: 3px solid red;
-	border-right: 3px solid red;
+}
+table.progress-busy {
+    border-bottom: 3px solid red;
+    border-right: 3px solid red;
+}
+table.progress-idle {
+    border-bottom: 2px dashed green;
+    border-right: 2px dashed green;
+    opacity: 0.8;
 }
 
 table.progress-list tr th {

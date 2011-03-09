@@ -148,14 +148,16 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         }
         
         StringBuffer buf = new StringBuffer();
+        buf.append("<table id='progress-list' border=0 class='progress-list"+(orderedTasks.isEmpty()?" progress-idle":" progress-busy")+"'><tr>");
+        buf.append("<th>");
+        if(orderedTasks.isEmpty()) {
+            buf.append("<span id='busy0' onclick='document.getElementById(\"progress\").className=\"popout\";'>Idle\u00BB</span>");
+        } else {
+            buf.append("<span id='busy0' onclick='document.getElementById(\"progress\").className=\"popout\";'>Busy\u00BB</span>");
+        }
+        buf.append("<span id='busy1' onclick='document.getElementById(\"progress\").className=\"\";'>Hide\u00AB</span>" +
+                "</th>");
         for(SurveyProgressTask t : orderedTasks) {
-            if(buf.length()==0) { // initial
-                buf.append("<table id='progress-list' border=0 class='progress-list'><tr>");
-                buf.append("<th>" +
-                		"<span id='busy0' onclick='document.getElementById(\"progress\").className=\"popout\";'>Busy\u00BB</span>" +
-                		"<span id='busy1' onclick='document.getElementById(\"progress\").className=\"\";'>Hide\u00AB</span>" +
-                		"</th>");
-            }
             buf.append("<td>");
             buf.append(t.toString());
             buf.append("</td>");

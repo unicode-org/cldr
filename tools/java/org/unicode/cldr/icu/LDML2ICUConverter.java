@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2010 International Business Machines Corporation and    *
+ * Copyright (C) 2004-2011 International Business Machines Corporation and    *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -883,7 +883,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         // If this locale has an explicit parent, then put that into the resource file
-        if (supplementalDataInfo.getParentLocale(localeID) != null) {
+        if (supplementalDataInfo != null && supplementalDataInfo.getParentLocale(localeID) != null) {
             ResourceString pl = new ResourceString();
             pl.name = "%%Parent";
             pl.val = supplementalDataInfo.getParentLocale(localeID);
@@ -1243,6 +1243,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 name = LDMLConstants.PATTERN;
             } else if (LDMLConstants.LOCALE_SEPARATOR.equals(element)) {
                 name = LDMLConstants.SEPARATOR;
+            } else if (LDMLConstants.LOCALE_KEYTYPE_PATTERN.equals(element)) {
+                name = LDMLConstants.KEYTYPE_PATTERN;
             } else {
                 log.error("Encountered unknown <" + xpath + "> subelement: " + element + " while looking for " + LDMLConstants.TYPE);
                 System.exit(-1);
@@ -1469,6 +1471,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // Currently we dont have a way to represent this data in ICU !
                 // And we don't need to
                 // if (DEBUG)printXPathWarning(node, xpath);
+            } else if (aPath.contains(LDMLConstants.STOPWORDS)) {
+                // Skip for now
             } else if (aPath.indexOf("/" + LDMLConstants.SPECIAL) > 0) {
               res = parseSpecialElements(loc, aPath);
             } else if (aPath.contains("/ellipsis")) {
@@ -1957,7 +1961,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 String mzname = XPPUtil.getAttributeValue(apath, LDMLConstants.METAZONE, LDMLConstants.TYPE);
                 metazones.add(mzname);
             } else if (name.equals(LDMLConstants.HOUR_FORMAT) || name.equals(LDMLConstants.GMT_FORMAT) || name.equals(LDMLConstants.GMT_ZERO_FORMAT) || name.equals(LDMLConstants.REGION_FORMAT)
-                || name.equals(LDMLConstants.FALLBACK_FORMAT)) {
+                || name.equals(LDMLConstants.FALLBACK_FORMAT) || name.equals(LDMLConstants.FALLBACK_REGION_FORMAT)) {
                 ResourceString str = new ResourceString();
                 str.name = name;
                 str.val = loc.getFile().getStringValue(apath);

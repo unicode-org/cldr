@@ -1535,21 +1535,21 @@
 					</field>
 					<field type="year">
 						<displayName>Year</displayName>
-                        <relative type="-1">last year</relative>
-                        <relative type="0">this year</relative>
-                        <relative type="1">next year</relative>
+                        <relative type="-1">Last year</relative>
+                        <relative type="0">This year</relative>
+                        <relative type="1">Next year</relative>
 					</field>
 					<field type="month">
 						<displayName>Month</displayName>
-                        <relative type="-1">last month</relative>
-                        <relative type="0">this month</relative>
-                        <relative type="1">next month</relative>
+                        <relative type="-1">Last month</relative>
+                        <relative type="0">This month</relative>
+                        <relative type="1">Next month</relative>
 					</field>
 					<field type="week">
 						<displayName>Week</displayName>
-                        <relative type="-1">last week</relative>
-                        <relative type="0">this week</relative>
-                        <relative type="1">next week</relative>
+						<relative type="-1">Last week</relative>
+						<relative type="0">This week</relative>
+						<relative type="1">Next week</relative>
 					</field>
 					<field type="day">
 						<displayName>Day</displayName>
@@ -4457,8 +4457,8 @@
             <unitPattern count="other">{0} days ago</unitPattern>
         </unit>
         <unit type="day-future">
-            <unitPattern count="one">in {0} day</unitPattern>
-            <unitPattern count="other">in {0} days</unitPattern>
+            <unitPattern count="one">In {0} day</unitPattern>
+            <unitPattern count="other">In {0} days</unitPattern>
         </unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hour</unitPattern>
@@ -4471,8 +4471,8 @@
             <unitPattern count="other">{0} hours ao</unitPattern>
         </unit>
         <unit type="hour-future">
-            <unitPattern count="one">in {0} hour</unitPattern>
-            <unitPattern count="other">in {0} hours</unitPattern>
+            <unitPattern count="one">In {0} hour</unitPattern>
+            <unitPattern count="other">In {0} hours</unitPattern>
         </unit>
         <unit type="minute">
             <unitPattern count="one">{0} minute</unitPattern>
@@ -4485,8 +4485,8 @@
             <unitPattern count="other">{0} minutes ago</unitPattern>
         </unit>
         <unit type="minute-future">
-            <unitPattern count="one">in {0} minute</unitPattern>
-            <unitPattern count="other">in {0} minutes</unitPattern>
+            <unitPattern count="one">In {0} minute</unitPattern>
+            <unitPattern count="other">In {0} minutes</unitPattern>
         </unit>
 		<unit type="month">
 			<unitPattern count="one">{0} month</unitPattern>
@@ -4499,8 +4499,8 @@
             <unitPattern count="other">{0} months ago</unitPattern>
         </unit>
         <unit type="month-future">
-            <unitPattern count="one">in {0} month</unitPattern>
-            <unitPattern count="other">in {0} months</unitPattern>
+            <unitPattern count="one">In {0} month</unitPattern>
+            <unitPattern count="other">In {0} months</unitPattern>
         </unit>
 		<unit type="second">
 			<unitPattern count="one">{0} second</unitPattern>
@@ -4513,8 +4513,8 @@
             <unitPattern count="other">{0} seconds ago</unitPattern>
         </unit>
         <unit type="second-future">
-            <unitPattern count="one">in {0} second</unitPattern>
-            <unitPattern count="other">in {0} seconds</unitPattern>
+            <unitPattern count="one">In {0} second</unitPattern>
+            <unitPattern count="other">In {0} seconds</unitPattern>
         </unit>
 		<unit type="week">
 			<unitPattern count="one">{0} week</unitPattern>
@@ -4527,8 +4527,8 @@
             <unitPattern count="other">{0} weeks ago</unitPattern>
         </unit>
         <unit type="week-future">
-            <unitPattern count="one">in {0} week</unitPattern>
-            <unitPattern count="other">in {0} weeks</unitPattern>
+            <unitPattern count="one">In {0} week</unitPattern>
+            <unitPattern count="other">In {0} weeks</unitPattern>
         </unit>
 		<unit type="year">
 			<unitPattern count="one">{0} year</unitPattern>
@@ -4541,8 +4541,8 @@
             <unitPattern count="other">{0} years ago</unitPattern>
         </unit>
         <unit type="year-future">
-            <unitPattern count="one">in {0} year</unitPattern>
-            <unitPattern count="other">in {0} years</unitPattern>
+            <unitPattern count="one">In {0} year</unitPattern>
+            <unitPattern count="other">In {0} years</unitPattern>
         </unit>
 	</units>
 	<listPatterns>

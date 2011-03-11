@@ -749,7 +749,7 @@ public class DataSection extends Registerable {
                 List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 
                 for (CandidateItem item : items) {
-//                    System.err.println("Considering: " + item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.base_xpath+", ENO="+errorNoOutcome);
+		    if(sm.isUnofficial && false) System.err.println("Considering: " + item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.base_xpath+", ENO="+errorNoOutcome);
                     if (((item.xpathId == resultXpath_id) || (resultXpath_id == -1
                             && item.xpathId == this.base_xpath && !errorNoOutcome))
                             && // do NOT add as current, if vetting said 'no' to

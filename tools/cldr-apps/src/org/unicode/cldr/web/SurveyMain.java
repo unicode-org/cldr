@@ -8693,7 +8693,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
 		
 
-        if(zoomedIn && !isPhaseSubmit() && !isPhaseBeta()) {
+        if(zoomedIn && ( (!isPhaseSubmit() && !isPhaseBeta()) || isUnofficial) ) {
 	    
 	    long totals[] = new long[numberedItemsList.size()];
 	    for(int j=0;j<totals.length;j++) {

@@ -782,12 +782,12 @@ public class Race {
     			updateElse.setInt(8, type);
     			
     			int res = updateElse.executeUpdate();
-    			if (res != 1) {
+    			if (res <= 0 ) {
     				throw new RuntimeException(locale + ":" + base_xpath + "@" + id + "=" + resultXpath
-    						+ " (" + Vetting.typeToStr(type) + ") - update failed, result=."+res);
+    						+ " (" + Vetting.typeToStr(type) + ") - update failed, result="+res);
     			} else if(SurveyMain.isUnofficial&&false){
     				System.err.println(locale + ":" + base_xpath + "@" + id + "=" + resultXpath
-    						+ " (" + Vetting.typeToStr(type) + ") - else update done, result=."+res);    				
+    						+ " (" + Vetting.typeToStr(type) + ") - else update done, result="+res);    				
     			}
     			
             } else {

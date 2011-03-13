@@ -882,8 +882,16 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return mainTable;
         }
 
+        // Short term workaround to skip adding %%Parent in collation data.
+        // See CldrBug#3589 and IcuBug#8425 - yoshito
+        boolean isCollationRes = false;
+        Iterator<String> xpathItr = loc.getFile().iterator("//ldml/collations");
+        if (xpathItr.hasNext()) {
+            isCollationRes = true;
+        }
+
         // If this locale has an explicit parent, then put that into the resource file
-        if (supplementalDataInfo != null && supplementalDataInfo.getParentLocale(localeID) != null) {
+        if (supplementalDataInfo != null && supplementalDataInfo.getParentLocale(localeID) != null && !isCollationRes) {
             ResourceString pl = new ResourceString();
             pl.name = "%%Parent";
             pl.val = supplementalDataInfo.getParentLocale(localeID);

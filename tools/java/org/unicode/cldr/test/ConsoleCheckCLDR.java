@@ -483,7 +483,7 @@ public class ConsoleCheckCLDR {
             CheckStatus status = it3.next();
             String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
             String statusType = status.getType();
-            if (errorsOnly && !statusType.equals(status.errorType)) continue;
+            if (errorsOnly && !statusType.equals(CheckStatus.errorType)) continue;
             if (checkOnSubmit) {
               if (!status.isCheckOnSubmit() || !statusType.equals(status.errorType)) continue;
             }

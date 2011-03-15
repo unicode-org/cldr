@@ -212,7 +212,7 @@ public class TestBasic extends TestFmwk {
                         }
                         // later test for all Latin-1
                         if (fallbackList == null) {
-                            errln("Locale:\t" + locale + ";\tCharacter with no fallback:\t" + it2.getString() + "\t" + UCharacter.getName(fishyCodepoint));
+                            warnln("Locale:\t" + locale + ";\tCharacter with no fallback:\t" + it2.getString() + "\t" + UCharacter.getName(fishyCodepoint));
                             badSoFar.add(fishyCodepoint);
                         } else {
                             String fallback = null;
@@ -228,13 +228,13 @@ public class TestBasic extends TestFmwk {
                                 }
                             }
                             if (fallback == null) {
-                                errln("Locale:\t" + locale + ";\tCharacter with no good fallback (exemplars+Latin1):\t" + it2.getString() + "\t" + UCharacter.getName(fishyCodepoint));
+                                warnln("Locale:\t" + locale + ";\tCharacter with no good fallback (exemplars+Latin1):\t" + it2.getString() + "\t" + UCharacter.getName(fishyCodepoint));
                                 badSoFar.add(fishyCodepoint);
                             } else {
-                                errln("Locale:\t" + locale + ";\tCharacter with good fallback:\t"
+                                logln("Locale:\t" + locale + ";\tCharacter with good fallback:\t"
                                         + it2.getString() + " " + UCharacter.getName(fishyCodepoint)
                                         + " => " + fallback);
-                                badSoFar.add(fishyCodepoint);
+                                //badSoFar.add(fishyCodepoint);
                             }
                         }
                     }
@@ -528,7 +528,10 @@ public class TestBasic extends TestFmwk {
         // That is what ICUServiceBuilder in CLDR has to do, which is a royal pain.
     }
 
-    public void TestCurrency() {
+    /**
+     * The verbose output shows the results of 1..3 \u00a4 signs.
+     */
+    public void checkCurrency() {
         Map<String,Set<R2>> results = new TreeMap<String,Set<R2>>(Collator.getInstance(ULocale.ENGLISH));
         for (ULocale locale : ULocale.getAvailableLocales()) {
             if (locale.getCountry().length() != 0) {
@@ -548,7 +551,7 @@ public class TestBasic extends TestFmwk {
             }
         }
         for (String formatted : results.keySet()) {
-            System.out.println(formatted + "\t" + results.get(formatted)); 
+            logln(formatted + "\t" + results.get(formatted)); 
         }
     }
 
@@ -643,7 +646,7 @@ public class TestBasic extends TestFmwk {
             }
             PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(localeID);
             if (pluralInfo == rootRules) {
-                errln("Missing Plural Rules for\t" + testInfo.getEnglish().getName(localeID) + "\t-\t" + localeID);
+                warnln("Missing Plural Rules for\t" + testInfo.getEnglish().getName(localeID) + "\t-\t" + localeID);
             }
         }
     }

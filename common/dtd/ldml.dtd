@@ -635,7 +635,7 @@ $Date$
 <!ATTLIST dateFormat validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT displayName ( #PCDATA ) >
-<!ATTLIST displayName count (zero | one | two | few | many | other) #IMPLIED> <!-- only for currencies -->
+<!ATTLIST displayName count (0 | 1 | zero | one | two | few | many | other) #IMPLIED> <!-- only for currencies -->
 <!ATTLIST displayName draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST displayName references CDATA #IMPLIED >
 <!ATTLIST displayName alt NMTOKENS #IMPLIED >
@@ -1134,7 +1134,7 @@ $Date$
 <!ATTLIST unit validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT unitPattern ( #PCDATA ) >
-<!ATTLIST unitPattern count (zero | one | two | few | many | other) #REQUIRED >
+<!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >
 <!ATTLIST unitPattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST unitPattern references CDATA #IMPLIED >
 <!ATTLIST unitPattern alt NMTOKENS #IMPLIED >

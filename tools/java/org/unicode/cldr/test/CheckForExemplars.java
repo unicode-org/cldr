@@ -42,7 +42,7 @@ public class CheckForExemplars extends CheckCLDR {
   private String informationMessage;
   private Status otherPathStatus = new Status();
   private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
-  static final Pattern SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN = Pattern.compile("/(" +
+  public static final Pattern SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN = Pattern.compile("/(" +
           "codePattern" +
           "|dateRangePattern" +
           "|dateTimeFormat[^/]*?/pattern" +
@@ -52,7 +52,7 @@ public class CheckForExemplars extends CheckCLDR {
           "|gmtFormat" +
           "|regionFormat" +
           "|fallbackFormat" +
-          "|unitPattern" +
+          "|unitPattern.*@count=\"(zero|one|two|few|many|other)\"" +
           "|localePattern" +
           "|listPatternPart" +
   ")");

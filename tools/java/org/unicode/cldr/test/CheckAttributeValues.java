@@ -25,6 +25,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.CollectionUtilities.ObjectMatcher;
+import com.ibm.icu.text.UnicodeSet;
 
 public class CheckAttributeValues extends CheckCLDR {
     static LinkedHashSet elementOrder = new LinkedHashSet();
@@ -35,23 +36,24 @@ public class CheckAttributeValues extends CheckCLDR {
     static Map<String,Map<String,MatcherPattern>> element_attribute_validity = new TreeMap<String,Map<String,MatcherPattern>>();
     static Map<String,MatcherPattern> common_attribute_validity = new TreeMap<String,MatcherPattern>();
     static Map variables = new TreeMap();
-//    static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above -- to do later.
+    //    static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above -- to do later.
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
     static Map code_type_replacement = new TreeMap();
     SupplementalDataInfo supplementalData;
-    
+
     boolean isEnglish;
     PluralInfo pluralInfo;
 
     XPathParts parts = new XPathParts(null, null);
-    
+    static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
+
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
-      if (fullPath == null) return this; // skip paths that we don't have
-      if (fullPath.indexOf('[') < 0) return this; // skip paths with no attributes
+        if (fullPath == null) return this; // skip paths that we don't have
+        if (fullPath.indexOf('[') < 0) return this; // skip paths with no attributes
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
-        	if (parts.getAttributeCount(i) == 0) continue;
+            if (parts.getAttributeCount(i) == 0) continue;
             Map attributes = parts.getAttributes(i);
             String element = parts.getElement(i);
 
@@ -63,17 +65,24 @@ public class CheckAttributeValues extends CheckCLDR {
                 check(common_attribute_validity, attribute, attributeValue, result);
                 // then for the specific element
                 check(attribute_validity, attribute, attributeValue, result);
+                
+                // now for plurals
+                
                 if (attribute.equals("count")) {
-                  final Count countValue = PluralInfo.Count.valueOf(attributeValue);
-                  if (!pluralInfo.getCountToExamplesMap().keySet().contains(countValue)) {
-                    result.add(new CheckStatus()
-                    .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
-                    .setMessage("Illegal plural value {0}; must be one of: {1}", 
-                            new Object[]{countValue, pluralInfo.getCountToExamplesMap().keySet()}));          
-                  }
+                    if (DIGITS.containsAll(attributeValue)) {
+                        // ok, keep going
+                        int x = 0;
+                    } else {
+                        final Count countValue = PluralInfo.Count.valueOf(attributeValue);
+                        if (!pluralInfo.getCountToExamplesMap().keySet().contains(countValue)) {
+                            result.add(new CheckStatus()
+                            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
+                            .setMessage("Illegal plural value {0}; must be one of: {1}", 
+                                    new Object[]{countValue, pluralInfo.getCountToExamplesMap().keySet()}));          
+                        }
+                    }
                 }
             }
-            
         }
         return this;
     }
@@ -89,22 +98,22 @@ public class CheckAttributeValues extends CheckCLDR {
             if (replacement.length() == 0) {
                 result.add(new CheckStatus()
                 .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttribute)
-                        .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.", 
-                                new Object[]{attribute, attributeValue}));
+                .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.", 
+                        new Object[]{attribute, attributeValue}));
             } else {
                 result.add(new CheckStatus()
                 .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttributeWithReplacement)
-                        .setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
-                                new Object[]{attribute, attributeValue, replacement}));
+                .setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
+                        new Object[]{attribute, attributeValue, replacement}));
             }
         } else {
             result.add(new CheckStatus()
             .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
-                    .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
-                            new Object[]{attribute, attributeValue, matcherPattern.pattern}));
+            .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
+                    new Object[]{attribute, attributeValue, matcherPattern.pattern}));
         }
     }
-    
+
     /**
      * Returns replacement, or null if there is none. "" if the code is deprecated, but without a replacement.
      * Input is of the form $language
@@ -118,22 +127,22 @@ public class CheckAttributeValues extends CheckCLDR {
         String result = (String) type_replacement.get(attributeValue);
         return result;
     }
-  
-    
+
+
     LocaleIDParser localeIDParser = new LocaleIDParser();
-    
+
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String,String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (Phase.FINAL_TESTING == getPhase()) {
-          setSkipTest(false); // ok
+            setSkipTest(false); // ok
         } else {
-          setSkipTest(true);
-          return this;
+            setSkipTest(true);
+            return this;
         }
-        
+
         supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
         pluralInfo = supplementalData.getPlurals(cldrFileToCheck.getLocaleID());
-        
+
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
@@ -150,13 +159,13 @@ public class CheckAttributeValues extends CheckCLDR {
         if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
             possibleErrors.add(new CheckStatus()
             .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
-                    .setMessage("Invalid Locale {0}", 
-                            new Object[]{cldrFileToCheck.getLocaleID()}));
-            
+            .setMessage("Invalid Locale {0}", 
+                    new Object[]{cldrFileToCheck.getLocaleID()}));
+
         }
         return this;
     }
-    
+
     private void getMetadata(CLDRFile metadata) {
         String lastPath = "//ldml";
         //checkTransitivity(metadata.iterator(), CLDRFile.ldmlComparator);
@@ -184,21 +193,21 @@ public class CheckAttributeValues extends CheckCLDR {
             } else if (lastElement.equals("attributes")) {
                 // skip for now
             } else if (lastElement.equals("variable")) {
-//            	String oldValue = value;
-//            	value = variableReplacer.replace(value);
-//            	if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
+                //            	String oldValue = value;
+                //            	value = variableReplacer.replace(value);
+                //            	if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
                 Map attributes = parts.getAttributes(-1);
                 MatcherPattern mp = getMatcherPattern(value, attributes, path);
                 if (mp != null) {
                     String id = (String) attributes.get("id");
                     variables.put(id, mp);
-//                    variableReplacer.add(id, value);
+                    //                    variableReplacer.add(id, value);
                 }
             } else if (lastElement.equals("attributeValues")) {
                 try {
                     String originalValue = value;
                     Map attributes = parts.getAttributes(-1);
-                    
+
                     MatcherPattern mp = getMatcherPattern(value, attributes, path);
                     if (mp == null) {
                         //System.out.println("Failed to make matcher for: " + value + "\t" + path);
@@ -222,7 +231,7 @@ public class CheckAttributeValues extends CheckCLDR {
                             addAttributes(attributeList, attribute_validity, mp);
                         }
                     }
-                    
+
                 } catch (RuntimeException e) {
                     System.err
                     .println("Problem with: " + path + ", \t" + value);
@@ -233,7 +242,7 @@ public class CheckAttributeValues extends CheckCLDR {
             } else if (lastElement.equals("generation")) {
                 // skip for now
             } else if (lastElement.endsWith("Alias")) {
-               String code = "$" + lastElement.substring(0,lastElement.length()-5);
+                String code = "$" + lastElement.substring(0,lastElement.length()-5);
                 Map type_replacement = (Map)code_type_replacement.get(code);
                 if (type_replacement == null) code_type_replacement.put(code, type_replacement = new TreeMap());
                 Map attributes = parts.getAttributes(-1);
@@ -246,15 +255,15 @@ public class CheckAttributeValues extends CheckCLDR {
             } else if (lastElement.equals("deprecatedItems")) {
                 // skip for now 
             } else if (lastElement.endsWith("Coverage")) {
-              // skip for now 
+                // skip for now 
             } else if (lastElement.endsWith("skipDefaultLocale")) {
-              // skip for now 
+                // skip for now 
             } else if (lastElement.endsWith("defaultContent")) {
-              // skip for now 
+                // skip for now 
             } else if (lastElement.endsWith("distinguishingItems")) {
-              // skip for now 
+                // skip for now 
             } else if (lastElement.endsWith("blockingItems")) {
-              // skip for now 
+                // skip for now 
             } else {
                 System.out.println("Unknown final element: " + path);
             }
@@ -307,7 +316,7 @@ public class CheckAttributeValues extends CheckCLDR {
         System.out.flush();
     }
     static Set missing = new TreeSet();
-    
+
     private MatcherPattern getMatcherPattern(String value, Map attributes, String path) {
         String typeAttribute = (String) attributes.get("type");
         MatcherPattern result = (MatcherPattern) variables.get(value);
@@ -323,7 +332,7 @@ public class CheckAttributeValues extends CheckCLDR {
             }
             return result;
         }
-        
+
         result = new MatcherPattern();
         result.pattern = value;
         result.type = typeAttribute;
@@ -336,14 +345,14 @@ public class CheckAttributeValues extends CheckCLDR {
         } else if ("locale".equals(typeAttribute)) {
             result.matcher = LocaleMatcher.make();
         } else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
-           result.matcher = new RegexMatcher().set(".*", Pattern.COMMENTS);
+            result.matcher = new RegexMatcher().set(".*", Pattern.COMMENTS);
         } else {
             System.out.println("unknown type; value: <" + value + ">,\t" + typeAttribute + ",\t" + attributes + ",\t" + path);
             return null;
         }
         return result;
     }
-    
+
     private void addAttributes(String[] attributes, Map attribute_validity, MatcherPattern mp) {
         for (int i = 0; i < attributes.length; ++i) {
             String attribute = attributes[i];
@@ -355,7 +364,7 @@ public class CheckAttributeValues extends CheckCLDR {
             attribute_validity.put(attribute, mp);
         }
     }
-    
+
     private static class MatcherPattern {
         public String value;
         ObjectMatcher matcher;
@@ -429,7 +438,7 @@ public class CheckAttributeValues extends CheckCLDR {
         static LocaleMatcher singleton = null;
         static Object sync = new Object();
         private LocaleMatcher(boolean b){}
-        
+
         public static LocaleMatcher make() {
             synchronized (sync) {
                 if (singleton == null) {
@@ -438,7 +447,7 @@ public class CheckAttributeValues extends CheckCLDR {
             }
             return singleton;
         }
-        
+
         public boolean matches(Object value) {
             if (grandfathered.matches(value)) return true;
             lip.set((String)value);
@@ -455,5 +464,5 @@ public class CheckAttributeValues extends CheckCLDR {
             return true;
         }
     }
-    
+
 }

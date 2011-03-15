@@ -104,7 +104,7 @@ public class XMLFileReader {
     }      
   }
 
-  private class MyContentHandler implements ContentHandler, ErrorHandler, LexicalHandler, DeclHandler {
+  private class MyContentHandler implements ContentHandler, LexicalHandler, DeclHandler, ErrorHandler {
     StringBuffer chars = new StringBuffer();
     StringBuffer commentChars = new StringBuffer();
     Stack startElements = new Stack();

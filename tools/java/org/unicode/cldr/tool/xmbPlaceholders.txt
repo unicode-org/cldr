@@ -107,6 +107,8 @@
 ^//ldml/units/unit\[@type="week[^"]*"]/unitPattern ; {0}=NUMBER_OF_WEEKS 3
 ^//ldml/units/unit\[@type="year[^"]*"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
 
+# ^//ldml/numbers/currencyFormats/unitPattern\[@count="([^"]*)"]  ;  {0}=NUMBER 3 ; {1}=UNIT hour(s)
+
 ^//ldml/characters/ellipsis\[@type="final"] ; {0}=FIRST_PART_OF_TEXT very long na
 ^//ldml/characters/ellipsis\[@type="initial"] ; {0}=LAST_PART_OF_TEXT ry long name
 ^//ldml/characters/ellipsis\[@type="medial"] ; {0}=FIRST_PART_OF_TEXT very l; {1}=LAST_PART_OF_TEXT g name

@@ -262,7 +262,7 @@ class ExtractMessages {
   
   static Map<String,String> fixLocaleMap = CldrUtility.asMap(new String[][]{
       {"zh_CN", "zh"},
-      {"zh_TW", "zh_Hans"},
+      {"zh_TW", "zh_Hant"},
       {"pt_BR", "pt"},
       {"in", "id"},
       {"iw", "he"},

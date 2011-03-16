@@ -18,7 +18,11 @@ public class StatisticsUtils {
 		}
 	};
 	
+	public static final int NO_LIMIT=-1;
 	public static String[][] calcSubmits(String[][] v, String[][] d) {
+		return calcSubmits(v,d,NO_LIMIT);
+	}
+	public static String[][] calcSubmits(String[][] v, String[][] d, int limit) {
 		Map<String,di> all = new TreeMap<String,di>();
 		
 		for(int i=0;i<v.length;i++) {
@@ -42,9 +46,18 @@ public class StatisticsUtils {
 				return arg1.d-arg0.d;
 			}});
 		asSet.addAll(all.values());
-		String[][] ret = new String[asSet.size()][];
+		
+		int newSize = asSet.size();
+		if(limit != NO_LIMIT && limit<newSize) {
+			newSize = limit;
+		}
+		
+		String[][] ret = new String[newSize][];
 		int j=0;
 		for(di dd : asSet) {
+			if(j==newSize) {
+				return ret;
+			}
 			ret[j]=new String[3];
 			ret[j][0]=dd.s;
 			ret[j][1]=Integer.toString(dd.d);

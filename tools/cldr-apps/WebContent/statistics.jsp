@@ -100,16 +100,24 @@ Switch to:
 	
 <%
 		if (submits != null && submits.length > 0) {
+			
+			if(submits.length>20) { %><hr/><i>(Note: Top 20 of <%= submits.length %> shown on graph.)</i><% 
+			
+				submits = StatisticsUtils.calcSubmits(submitsV, submitsD, 20);
+			}
+
 	%>
 	<div id="holder-holder">
 	        <div id="holder" style="width: <%=totalwidth%>px; height: <%=totalhei%>px;"></div>
 	</div>        
 	
 	<%
-        			int offh = 10;
-        					int offv = 10;
-        					int wid = totalwidth-20;
-        					int hei = 220;
+     			int offh = 10;
+ 					int offv = 10;
+ 					int wid = totalwidth-20;
+ 					int hei = 220;
+    				
+ 					
         		%>
 
 <script type='text/javascript' src='js/raphael.js' ></script>

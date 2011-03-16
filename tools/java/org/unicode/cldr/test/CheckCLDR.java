@@ -255,13 +255,15 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       }
       return message;
     }
-    /*
-     * If this is not null, wrap it in a <form>...</form> and display. When you get a submit, call getDemo
-     * to get a demo that you can call to change values of the fields. See CheckNumbers for an example. 
+    /**
+     * @deprecated
      */
     public String getHTMLMessage() {
       return htmlMessage;
     }
+    /**
+     * @deprecated
+     */
     public CheckStatus setHTMLMessage(String message) {
       htmlMessage = message;
       return this;

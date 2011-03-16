@@ -642,6 +642,7 @@ table.sqlbox form {
 }
 
 div#toparea {
+	margin-top: 1em;
 	border-bottom: 3px solid green;
 	background-color: whitesmoke;
 	font: normal 1.2em Georgia, "Times New Roman", Times, serif;
@@ -651,7 +652,7 @@ div#toparea img#stlogo {
 	float: right;
 	margin-left:  auto;
 	height: 2.5em;
-	margin-right: 1em;
+	margin-right: 5.5em;
 }
 
 
@@ -893,7 +894,34 @@ span.elapsedtime {
 	font-size: smaller;
 }
 
- table.progress-list {
+
+span#visitors {
+position:  absolute;
+top: 0;
+right: 0;	
+}
+
+span#visitors table {
+	position: absolute;
+	right: 0;
+}
+
+span#visitors table.stprogress {
+	border: 1px solid #ccc !important;
+}
+
+span#visitors td.bar {
+	background: #ddd !important;
+	border: none !important;
+}
+
+span#visitors td.remain {
+	background: #2e2 !important;
+	border: none !important;
+}
+
+
+table.progress-list {
 	border-collapse: collapse;
 	position: absolute;
 	top: 0;
@@ -1010,3 +1038,4 @@ tr.tr_submit {
 */
 tr.tr_unknown {
 }
+

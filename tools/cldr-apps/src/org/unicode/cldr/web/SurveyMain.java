@@ -8094,10 +8094,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
             
             String newProp = null;
-            synchronized(vet) { // make sure that no-one else grabs our slot.
+//            synchronized(vet) { // make sure that no-one else grabs our slot.
                 newProp = DataSection.addDataToNextSlot(ourSrc, cf, section.locale, fullPathMinusAlt, altType, 
                     altPrefix, ctx.session.user.id, choice_v, choice_r);
-            }
+//            }
             // update implied vote
 //            ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" + newProp+"</tt>");
             if(HAVE_REMOVE&&choice.equals(REMOVE)) {

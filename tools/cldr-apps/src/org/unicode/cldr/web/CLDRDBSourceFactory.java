@@ -309,12 +309,17 @@ public class CLDRDBSourceFactory {
 		CLDRProgressTask progress = null;
 		if(surveyTask!=null) progress = surveyTask.openProgress("DeferredUpdates", needUpdate.size());
 		try {
+		    Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
 			synchronized(needUpdate) {
+			    toUpdate.addAll(needUpdate);
+			    needUpdate.clear();
+			}
+			{
 				Connection conn = null;
 				try {
 					try {
 						conn = sm.dbUtils.getDBConnection();
-						for(CLDRLocale l : needUpdate) {
+						for(CLDRLocale l : toUpdate) {
 							n++;
 							if(progress!=null) progress.update(n);
 							if(DEBUG) System.err.println("CLDRDBSRCFAC: executing deferred update of " + l +"("+needUpdate.size()+" on queue)");
@@ -329,7 +334,6 @@ public class CLDRDBSourceFactory {
 								((CacheableXMLSource)cached).save();
 							}
 						}
-						needUpdate.clear();
 					} finally {
 						DBUtils.close(conn);
 					}

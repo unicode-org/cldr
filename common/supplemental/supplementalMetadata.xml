@@ -493,7 +493,7 @@
             <attributeValues elements="info" attributes="digits" type="regex">[0-9]+</attributeValues>
             <attributeValues elements="info" attributes="iso4217">$currency</attributeValues>
             <attributeValues elements="info" attributes="rounding" type="regex">[0-9]+</attributeValues>
-            <attributeValues elements="key" attributes="type" type="choice">calendar collation currency numbers</attributeValues>
+            <attributeValues elements="key" attributes="type" type="choice">calendar collation currency numbers x</attributeValues>
             <attributeValues elements="language" attributes="scripts">$script</attributeValues>
             <attributeValues elements="language" attributes="territories">$territory</attributeValues>
             <attributeValues elements="language" attributes="type">$locale</attributeValues>
@@ -526,7 +526,7 @@
             <attributeValues elements="supplementalData" attributes="version">$version</attributeValues>
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
-            <attributeValues elements="type" attributes="key" type="choice">calendar collation currency numbers</attributeValues>
+            <attributeValues elements="type" attributes="key" type="choice">calendar collation currency numbers x</attributeValues>
             <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew indian islamic islamic-civil japanese jpan jpanfin knda khmr laoo latn mlym mong mymr orya persian phonebook pinyin roc roman romanlow search stroke taml telu thai tibt traditional</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>

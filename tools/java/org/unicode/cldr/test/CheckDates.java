@@ -159,7 +159,7 @@ public class CheckDates extends CheckCLDR {
       .setMessage("ParseException in creating date format {0}", new Object[]{e});    	
       result.add(item);
     } catch (Exception e) {
-	e.printStackTrace();
+	//e.printStackTrace();
       CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
       .setMessage("Error in creating date format {0}", new Object[]{e});    	
       result.add(item);

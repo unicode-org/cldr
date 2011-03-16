@@ -56,7 +56,7 @@ public class VettingViewer {
         /**
          * The value changed from the last version of CLDR
          */
-        changedOldValue('O', "Changed from CLDR 1.9", "The value in the last version of CLDR was changed."),
+        changedOldValue('O', "Changed from CLDR 1.9", "The winning value change from the CLDR 1.9 value."),
         /**
          * My choice is not the winning item
          */
@@ -323,11 +323,12 @@ public class VettingViewer {
             }
             if (!problems.isEmpty()) {
                 reasonsToPaths.clear();
+                appendToMessage("level:" + level.toString(), testMessage);
                 final String description = pathDescription.getDescription(path, value, level, null);
                 if (!reasonsToPaths.isEmpty()) {
                     appendToMessage(level + " " + TransliteratorUtilities.toHTML.transform(reasonsToPaths.toString()), testMessage);
                 }
-                if (description != null) {
+                if (description != null && !description.equals("SKIP")) {
                     appendToMessage(TransliteratorUtilities.toHTML.transform(description), testMessage);
                 }
                 sorted.put(pathTransform.getPrettyPath(path), new WritingInfo(path, problems, testMessage));

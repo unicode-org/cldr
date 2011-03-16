@@ -247,10 +247,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       Exception[] exceptionParameters = getExceptionParameters();
       if (exceptionParameters != null) {
         for (Exception exception : exceptionParameters) {
-          message += "\n" + exception.getClass().getName();
-          for (StackTraceElement item : exception.getStackTrace()) {
-            message += "\n\t" + item;
-          }
+          message += "; \t" + exception.getMessage(); //  + " \t(" + exception.getClass().getName() + ")";
+//          for (StackTraceElement item : exception.getStackTrace()) {
+//            message += "\n\t" + item;
+//          }
         }
       }
       return message;
@@ -554,7 +554,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
               .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}", 
                       new Object[]{item.getClass().getName(), e.getClass().getName(), e, 
-                      Arrays.asList(e.getStackTrace())}));
+                      Arrays.asList(e.getStackTrace())
+                      }));
     }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {

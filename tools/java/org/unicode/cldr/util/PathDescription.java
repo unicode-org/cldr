@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -52,8 +53,8 @@ public class PathDescription {
             Map<String, List<Set<String>>> starredPaths, 
             ErrorHandling errorHandling) {
         this.english = english;
-        this.extras = extras;
-        this.starredPaths = starredPaths;
+        this.extras = extras == null ? new HashMap<String, String>() : extras;
+        this.starredPaths = starredPaths == null ? new HashMap<String, List<Set<String>>>() : starredPaths;
         allMetazones = supplementalDataInfo.getAllMetazones();
         this.errorHandling = errorHandling;
     }

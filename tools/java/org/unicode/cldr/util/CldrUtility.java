@@ -112,6 +112,7 @@ public class CldrUtility {
   // if the main is different, use -Dcldrmain=<value>
   public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new File(Utility.getProperty("CLDR_DIR", null)).getPath();	// get up to <CLDR>
   public static final String UTIL_DATA_DIR = getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/");        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
+  public static final String UTIL_CODE_DIR = getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/");        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
   public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
   public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY , "common/");
   public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN", getPath(CldrUtility.COMMON_DIRECTORY,  "main"));

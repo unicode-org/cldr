@@ -33,14 +33,15 @@ public class GenerateBirth {
     enum Versions {
         trunk, v1_9_0, v1_8_1, v1_7_2, v1_6_1, v1_5_1, v1_4_1, v1_3_0, v1_2_0, v1_1_1;
         public String toString() {
-            return name().substring(1).replace('_', '.');
+            return this == Versions.trunk ? name() : name().substring(1).replace('_', '.');
         };
     }
     static final Versions[] VERSIONS = Versions.values();
     static final Factory[] factories = new Factory[VERSIONS.length];
     
     final static Options myOptions = new Options()
-    .add("target", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/xmb/", "The target directory for building. Will generate an English .xmb file, and .wsb files for other languages.")
+    .add("target", ".*", CldrUtility.UTIL_CODE_DIR + "test/", "The target directory for building the text files that show the results.")
+    .add("log", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/births/", "The target directory for building the text files that show the results.")
     .add("file", ".*", ".*", "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
     ;
 
@@ -62,7 +63,7 @@ public class GenerateBirth {
 
         // load and process English
         
-        String outputDirectory = CldrUtility.GEN_DIRECTORY + "/births/";
+        String outputDirectory = myOptions.get("log").getValue();
 
         System.out.println("en");
         Births english = new Births("en");
@@ -70,8 +71,9 @@ public class GenerateBirth {
         
         // Set up the binary data file
 
-        File file = new File(outputDirectory + "/../outdated/", "outdated.data");
-        System.out.println("Writing data: " + file.getCanonicalPath());
+        File file = new File(myOptions.get("target").getValue() + "outdated.data");
+        final String outputDataFile = file.getCanonicalPath();
+        System.out.println("Writing data: " + outputDataFile);
         DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file));
 
         // Load and process all the locales
@@ -106,7 +108,7 @@ public class GenerateBirth {
 
         // Doublecheck the data
         
-        OutdatedPaths outdatedPaths = new OutdatedPaths(outputDirectory + "/../outdated/");
+        OutdatedPaths outdatedPaths = new OutdatedPaths(outputDataFile);
         for (Entry<String, Set<String>> localeAndNewer : localeToNewer.entrySet()) {
             String locale = localeAndNewer.getKey();
             System.out.println("Checking " + locale);
@@ -179,6 +181,9 @@ public class GenerateBirth {
                     }
                     R3<Versions, String, String> info = pathToBirthCurrentPrevious.get(xpath);
                     if (onlyNewer != null) {
+                        if (xpath.contains("/exemplarCharacters") || xpath.contains("/references")) {
+                            continue;
+                        }
                         R3<Versions, String, String> otherInfo = onlyNewer.pathToBirthCurrentPrevious.get(xpath);
                         if (otherInfo == null) {
                             continue;

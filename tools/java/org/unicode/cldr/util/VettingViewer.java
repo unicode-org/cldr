@@ -41,7 +41,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class VettingViewer<T> {
 
-    private static final boolean TESTING = true;
+    private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
 
     public enum Choice {
         /**
@@ -260,6 +260,10 @@ public class VettingViewer<T> {
                 continue;
             }
             
+            if (path.contains("/exemplarCharacters") || path.contains("/references")) {
+                continue;
+            }
+            
             String value = sourceFile.getWinningValue(path);
             Level level = coverage.getLevel(path);
 
@@ -439,7 +443,7 @@ public class VettingViewer<T> {
                 Choice.appendDisplay(choicesForPath, output)
                 .append("</a></td>");
                 
-                if (!pathInfo.testMessage.isEmpty()) {
+                if (TESTING && !pathInfo.testMessage.isEmpty()) {
                     addCell(output, pathInfo.testMessage, "tv-test", HTMLType.markup);
                 }
                 output.append("</tr>\n");
@@ -512,15 +516,7 @@ public class VettingViewer<T> {
 
         // here are per-view parameters
 
-        final EnumSet<Choice> choiceSet;
-        if (args.length == 0) {
-            choiceSet = EnumSet.allOf(Choice.class);
-        } else {
-            choiceSet = EnumSet.noneOf(Choice.class);
-            for (String arg : args) {
-                choiceSet.add(Choice.fromString(arg));
-            }
-        }
+        final EnumSet<Choice> choiceSet = EnumSet.allOf(Choice.class);
         String localeStringID = "de";
         int userNumericID = 666;
         Level usersLevel = Level.MODERATE;

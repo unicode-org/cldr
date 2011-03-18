@@ -253,6 +253,7 @@ public class VettingViewer<T> {
         StringBuilder testMessage = new StringBuilder();
 
         for (String path : sourceFile) {
+            progressCallback.nudge(); // Let the user know we're moving along.
             // note that the value might be missing!
             
             // make sure we only look at the real values
@@ -263,7 +264,6 @@ public class VettingViewer<T> {
             if (path.contains("/exemplarCharacters") || path.contains("/references")) {
                 continue;
             }
-            
             String value = sourceFile.getWinningValue(path);
             Level level = coverage.getLevel(path);
 
@@ -367,9 +367,44 @@ public class VettingViewer<T> {
 
     static final NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
     private Relation<String, String> reasonsToPaths;
+    private String baseUrl = "http://unicode.org/cldr/apps/survey";
     static {
         nf.setGroupingUsed(true);
     }
+    /**
+     * Set the base URL, equivalent to 'http://unicode.org/cldr/apps/survey' for generated URLs.
+     * @param url
+     * @author srl
+     */
+    public void setBaseUrl(String url) {
+        baseUrl = url;
+    }
+    /**
+     * Class that allows the relaying of progress information
+     * @author srl
+     *
+     */
+    public static class ProgressCallback {
+        /**
+         * Note any progress. This will be called before any output is printed.
+         * It will be called approximately once per xpath.
+         */
+        public void nudge() {}
+        /**
+         * Called when all operations are complete.
+         */
+        public void done() {}
+    }
+    private ProgressCallback progressCallback = new ProgressCallback(); // null instance by default
+    
+    /**
+     * Select a new callback
+     * 
+     */
+    public void setProgressCallback(ProgressCallback newCallback) {
+        progressCallback = newCallback;
+    }
+    
 
     private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile, 
             TreeMap<String, WritingInfo> sorted,
@@ -435,7 +470,7 @@ public class VettingViewer<T> {
                 addCell(output, sourceFile.getWinningValue(path), choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                 // Fix?
                 // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                output.append("<td class='tv-fix'><a href='http://unicode.org/cldr/apps/survey?_=")
+                output.append("<td class='tv-fix'><a href='"+baseUrl +"?_=")
                 .append(localeID)
                 .append("&xpath=")
                 .append(percentEscape.transform(path))

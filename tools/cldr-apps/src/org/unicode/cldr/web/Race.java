@@ -13,8 +13,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import javax.swing.text.StyleContext.SmallAttributeSet;
-
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -842,7 +840,11 @@ public class Race {
     }
     
     public Chad getOrgVote(String organization) {
-        Integer v = resolver.getOrgVote(VoteResolver.Organization.valueOf(organization));
+        return getOrgVote(VoteResolver.Organization.valueOf(organization));
+    }
+
+    public Chad getOrgVote(VoteResolver.Organization org) {
+        Integer v = resolver.getOrgVote(org);
         if(v==null) return null;
         return chads.get(v);
     }

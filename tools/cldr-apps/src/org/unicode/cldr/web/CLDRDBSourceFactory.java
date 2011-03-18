@@ -13,33 +13,40 @@
 
 package org.unicode.cldr.web;
 
-import java.io.*;
-import java.util.*;
-
+import java.io.File;
+import java.io.FileFilter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 
-// JDBC imports
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
-
-// CLDR imports
-import org.unicode.cldr.util.*;
-//import org.unicode.cldr.util.XMLSource.Alias;
+import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
-import org.unicode.cldr.web.CLDRDBSourceFactory.MyStatements;
 import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
-import org.unicode.cldr.icu.LDMLConstants;
 
-// ICU
-import com.ibm.icu.util.ULocale;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class CLDRDBSourceFactory {
+public class CLDRDBSourceFactory extends Factory {
     private static final boolean DEBUG = false;
 	/**
 	 * @author srl
@@ -2198,5 +2205,28 @@ public class CLDRDBSourceFactory {
 	public int update() {
 		return update(null);
 	}
+
+    @Override
+    public String getSourceDirectory() {
+        throw new NotImplementedException();
+    }
+
+    @Override
+    protected CLDRFile handleMake(String localeID, boolean resolved,
+            DraftStatus madeWithMinimalDraftStatus) {
+        return new CLDRFile(getInstance(CLDRLocale.getInstance(localeID), true),resolved);
+    }
+
+    @Override
+    protected DraftStatus getMinimalDraftStatus() {
+        // TODO Auto-generated method stub
+        return DraftStatus.unconfirmed;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Set<String> handleGetAvailable() {
+        return (Set<String>)rootDbSource.getAvailableLocales();
+    }
 
 }

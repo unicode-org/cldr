@@ -11,6 +11,32 @@
 	http://10.0.0.112:8080/cldr-apps/surveytool.css
 */
 
+/* @group Vetting View */
+
+/* todo: sync with later items */
+table.tv-table, table.tvs-table {
+	border-collapse: collapse;
+}
+
+table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, table.tvs-table, tr.tvs-tr, td.tvs-count, td.tvs-abb, td.tvs-desc {
+	border: 1px solid gray;
+}
+
+td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, td.tvs-count, td.tvs-abb, td.tvs-desc {
+	background-color: #FFFFCC;
+}
+
+th.tv-th, th.tvs-th {
+	background-color: #DDDDDD;
+}
+
+th.tv-win {
+	background-color: #FFCCCC;
+}
+
+/* @end */
+
+
 td {
 	vertical-align: top;
 }
@@ -18,7 +44,7 @@ td {
 body {
 	background-color: white;
 	padding-bottom: 3em;
-	padding-right:  0.5em;
+	padding-right: 0.5em;
 }
 
 hr {
@@ -71,8 +97,6 @@ A.nodraft:visited {
 	color: #f00
 }
 
-
-
 .missing a:hover {
 	color: #fDD
 }
@@ -82,18 +106,20 @@ A.nodraft:visited {
 }
 
 .alias {
+	/
 
+*	font-size: smaller; */
 
-/*	font-size: smaller; */
+/
 
-/*	font-color: #F22;*/
+*	font-color: #F22;*/
  background-color: #ddf;
 }
 
 .fallback {
+	/
 
-
-/*	background-color: #3da; 
+*	background-color: #3da; 
 	border: 1px dotted #9b7dff; */
 	border: 1px solid #0cc;
 	background-color: #0ff;
@@ -139,9 +165,9 @@ a.selected :link {
 .notselected {
 	margin: 2px;
 	padding: 1px;
+/*
 
-
-/*	text-decoration: none; */
+text-decoration: none; */
 }
 
 a.notselected {
@@ -161,9 +187,9 @@ a.notselected {
 
 .warning {
 	font-size: smaller;
+	/
 
-
-/*	font-color: #F22;*/
+*	font-color: #F22;*/
 	color: #F22;
 	background-color: #fee;
 	border: 1px solid red;
@@ -184,9 +210,9 @@ td.warncell {
 }
 
 tr.warnrow {
+	/
 
-
-/*    font-color: #f22;*/
+*    font-color: #f22;*/
     color: #f22;
 	background-color: #fee;
 }
@@ -195,9 +221,9 @@ tr.warnrow {
 	border: 1px solid gray;
 	background-color: #FFEECC;
 	padding: 0.2em 0.2em 0.2em 0.2em;
+	/
 
-
-/*	padding: 1em 1em 1em 1em; */
+*	padding: 1em 1em 1em 1em; */
 	margin-top: 2px;
 	font-size: smaller;
 }
@@ -208,8 +234,7 @@ tr.warnrow {
 }
 
 .pagerl_active {
-
-
+	
 }
 
 .pagerl_inactive {
@@ -220,9 +245,9 @@ tr.warnrow {
 	border: 1px solid gray;
 	background-color: #fff;
 	margin: 5px;
+/*
 
-
-/*	align: left;*/
+align: left;*/
 }
 
 .inputbox {
@@ -244,9 +269,9 @@ tr.warnrow {
 
 .hangsml {
 	text-indent: -1em;
+/*
 
-
-/*	margin-left: 2em; */
+margin-left: 2em; */
 }
 
 table.data {
@@ -276,7 +301,7 @@ table.data td.noborder, table.data th.noborder {
 }
 
 table.data :target {
-	background-color:  yellow;
+	background-color: yellow;
 }
 
 .list {
@@ -411,9 +436,9 @@ th.partsection, th.partsection a {
 }
 
 tr.headingb {
+	/
 
-
-/* heading with a border */
+* heading with a border */
     background: #ddd;
 }
 
@@ -423,6 +448,8 @@ tr.headingb th {
 
 tt.codebox {
 	border: 1px solid gray;
+
+
 /*
 		padding: 1px; 
   	margin-top:0px;
@@ -475,13 +502,14 @@ div.person a {
 }
 
 .actionbox {
+	/
 
-
-/*    color: #000;
+*    color: #000;
     background: #ddd; */
     font-size: 80%;
+/*
 
-/*    border: 1px
+border: 1px
     dashed gray;
     padding: 1px;
     margin-top: 0px; */
@@ -489,7 +517,6 @@ div.person a {
 
 a.forumlink {
 	
-
 }
 
 .disabledbox {
@@ -517,14 +544,12 @@ td.framecell {
 }
 
 .disputed {
-
-
+	
 }
 
 .insufficient {
 	
 }
-
 
 /* but, an insufficient table.. */
 
@@ -545,9 +570,9 @@ td.insufficient span.loser {
 /* @group tzbox */
 
 table.tzbox {
+	/
 
-
-/*	border: 1px solid gray; */
+*	border: 1px solid gray; */
 	border-collapse: collapse;
 }
 
@@ -650,11 +675,10 @@ div#toparea {
 
 div#toparea img#stlogo {
 	float: right;
-	margin-left:  auto;
+	margin-left: auto;
 	height: 2.5em;
 	margin-right: 5.5em;
 }
-
 
 h4#toptitle {
 	margin-top: 0;
@@ -662,7 +686,7 @@ h4#toptitle {
 	line-height: 2.5em;
 }
 
-h4#toptitle b{
+h4#toptitle b {
 	
 }
 
@@ -679,7 +703,7 @@ h4#toptitle b{
 	margin-right: 1px;
 	color: #d00
 	font-weight: bold;
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
 /*
@@ -694,9 +718,10 @@ deletebox:
 	margin-bottom: 2px;
 	color: #00989e;
 	font-weight: bold;
-    white-space: nowrap;
+	white-space: nowrap;
 }
-	/*
+
+/*
 
 border: 1px solid red; margin: 1em; padding: 1em;	 */
 
@@ -715,9 +740,9 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 }
 
 .winner {
+	/
 
-
-/*	border: 4px groove #0f0;*/
+*	border: 4px groove #0f0;*/
    border: 1px solid #0f0;
 	background-color: #DDFFDD;
 }
@@ -728,8 +753,7 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 }
 
 .loser {
-
-
+	
 }
 
 td.generatedexample {
@@ -777,7 +801,6 @@ span.marks b {
 
 div.topnotices {
 	
-
 }
 
 div.topnotices a {
@@ -799,16 +822,16 @@ div.topnotices p.unofficial {
 }
 
 div.topnotices div.unofficial {
-    background-color: goldenrod;
+	background-color: goldenrod;
 	padding: 3px;
 	position: fixed;
 	bottom: 0;
 	right: 0;
 	opacity: 0.9;
-/*	width:  100%;*/
+	/*
+
+width:  100%;*/
 	text-align: center;
-
-
 }
 
 div.topnotices p.beta {
@@ -816,15 +839,33 @@ div.topnotices p.beta {
 }
 
 div.topnotices div.beta {
+
+
 /* for firefox, safari, chrome, etc. */
 -webkit-transform: rotate(-90deg);
--webkit-transform-origin: right bottom;
--moz-transform: rotate(-90deg);
--moz-transform-origin: right bottom;
--o-transform: rotate(-90deg);/* For Opera*/
--o-transform-origin: right bottom;/* For Opera*/
--khtml-transform: rotate(-90deg);/* For Lunix*/
--khtml-transform-origin: right bottom;/* For Lunix*/
+	-webkit-transform-origin: right bottom;
+	-moz-transform: rotate(-90deg);
+	-moz-transform-origin: right bottom;
+	-o-transform: rotate(-90
+
+deg);
+	/* For Opera*/
+-o-transform-origin: right 
+
+bottom;
+	/* For Opera*/
+-khtml-transform: rotate
+
+(-90deg);
+	/* For Lunix*/
+-khtml-transform-origin: ri
+
+ght bottom;
+	/*
+
+For Lunix*/
+
+
 /* for ie */
 /* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
 
@@ -836,16 +877,16 @@ div.topnotices div.beta {
 	position: absolute;
 	top: 0;
 	right: 0;
-	opacity:  0.8;
+	opacity: 0.8;
 	z-index: 0;
-
 }
 
 div.debugJsp {
 	position: fixed;
 	bottom: 0;
 	right: 0;
-	border: 1px solid gray; margin: 0.5em;
+	border: 1px solid gray;
+	margin: 0.5em;
 }
 
 form.adduser table {
@@ -890,15 +931,15 @@ form.adduser tr.submit td {
 form.adduser tr.submit input {
 	font-size: x-large;
 }
+
 span.elapsedtime {
 	font-size: smaller;
 }
 
-
 span#visitors {
-position:  absolute;
-top: 0;
-right: 0;	
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 span#visitors table {
@@ -920,66 +961,67 @@ span#visitors td.remain {
 	border: none !important;
 }
 
-
 table.progress-list {
 	border-collapse: collapse;
 	position: absolute;
 	top: 0;
 	left: 0;
 }
+
 table.progress-busy {
-    border-bottom: 3px solid red;
-    border-right: 3px solid red;
+	border-bottom: 3px solid red;
+	border-right: 3px solid red;
 }
+
 table.progress-idle {
-    border-bottom: 2px dashed green;
-    border-right: 2px dashed green;
-    opacity: 0.8;
+	border-bottom: 2px dashed green;
+	border-right: 2px dashed green;
+	opacity: 0.8;
 }
 
 table.progress-list tr th {
 	vertical-align: top;
-
 	background-color: #eee;
 	opacity: .8;
-	padding-left:  1em;
+	padding-left: 1em;
 	font-color: red;
 }
 
- table.progress-list tbody tr td {
+table.progress-list tbody tr td {
 	background-color: #bbb;
 	opacity: .9;
-	border-left:  3px dashed gray;
-	padding-left:  1em;
-	display:  none;
+	border-left: 3px dashed gray;
+	padding-left: 1em;
+	display: none;
 }
 
 table.progress-list #busy0 {
 	display: block;
 }
+
 table.progress-list #busy1 {
 	display: none;
 }
 
-
 /* Overrides */
 
 span#progress.popout table.progress-list td {
-	display:  table-cell !important;
+	display: table-cell !important;
 }
+
 span#progress.popout table.progress-list #busy0 {
 	display: none !important;
 }
+
 span#progress.popout table.progress-list #busy1 {
 	display: block !important;
 }
 
-
 table.progress-list tbody tr td:first-child {
 	opacity: 1.0;
 	background-color: whitesmoke;
-	border-left:  none;
-	padding-left:  0;
+	border-left: none;
+	padding-left: 0;
 }
 
 table.stprogress {
@@ -1012,30 +1054,39 @@ label.menutop-active {
 }
 
 select.menutop-active {
+	
 }
 
 select.menutop-other {
+	
 }
 
 /* classes for ajax form responses */
+
 tr.tr_checking {
 	background-color: goldenrod;
 }
+
 tr.tr_warn {
 	background-color: yellow;
 }
+
 tr.tr_err {
 	background-color: red;
 }
+
 /*
   ready to submit
   */
+
 tr.tr_submit {
 	background-color: #dfd;
 }
+
 /*
  Unknown status
 */
-tr.tr_unknown {
-}
 
+tr.tr_unknown {
+	
+}

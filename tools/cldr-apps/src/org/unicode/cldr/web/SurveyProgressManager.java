@@ -168,7 +168,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         return buf.toString();
     }
 
-    public static void appendProgressBar(StringBuffer buf, double cur, double max) {
+    public static StringBuffer appendProgressBar(StringBuffer buf, double cur, double max) {
         if(max>0) {
             if(cur>max) {
                 cur = max;
@@ -193,6 +193,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
             }
             buf.append("</table>");
         }
+        return buf;
 	}
 
 }

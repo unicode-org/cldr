@@ -270,7 +270,7 @@ public class CheckForExemplars extends CheckCLDR {
                 new Object[]{fixedMissing, scriptString, qualifier}));
     }
 
-    static final Normalizer2 NFC = Normalizer2.getInstance(null, "NFC", Normalizer2.Mode.COMPOSE);
+    static final Normalizer2 NFC = Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.COMPOSE);
     
     private boolean containsAllCountingParens(UnicodeSet exemplarSet, String value) {
         if (exemplarSet.containsAll(value)) {

@@ -44,6 +44,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
@@ -71,9 +72,13 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VettingViewer;
+import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
@@ -102,6 +107,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	private static final String REPORT_PREFIX = "r_";
 
     private static final String R_STEPS = REPORT_PREFIX+ "steps";
+    public static final String R_VETTING = REPORT_PREFIX+ "vetting";
 
     public static final String SURVEYMAIN_REVISION = "$Revision$";
 
@@ -516,7 +522,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            doSession(ctx); // Session-based Survey main
 	        }
         } catch (Throwable t) {
-        	ctx.println("<div class='ferrbox'><h2>Error: </h2><pre>" + t.toString()+"</pre></div>");
+        	ctx.println("<div class='ferrbox'><h2>Error processing session: </h2><pre>" + t.toString()+"</pre></div>");
         	System.err.println("Failure with user: " + t);
         	t.printStackTrace();
         } finally {
@@ -2227,7 +2233,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 
         printFooter(ctx);
     }
-    
+
     public static void appendMemoryInfo(StringBuffer buf, boolean inline) {
         Runtime r = Runtime.getRuntime();
         double total = r.totalMemory();
@@ -5359,6 +5365,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             printMenu(subCtx, which, RAW_MENU_ITEM);
             subCtx.println("</p>");
         }
+        
+        if(canModify) {
+            String xclass = R_VETTING.equals(ctx.field(QUERY_SECTION))?"selected":"notselected";
+            subCtx.println("<a href=\"" + ctx.base()+ "?_=" + subCtx.getLocale() + "&amp;" +  QUERY_SECTION + "="+ R_VETTING + "\" class='"+xclass+"'>Vetting Viewer</a>");
+        }
 
         subCtx.println("</td></tr></table>");
     }
@@ -5383,7 +5394,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             doMain(ctx);
             return;
         }
-        synchronized (ctx.session) { // session sync
+        /*synchronized (ctx.session) */ { // session sync
             UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
             CLDRFile cf = uf.cldrfile;
             if(cf == null) {
@@ -5538,6 +5549,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      */
     public void doReport(WebContext ctx, String which) {
         if(isLegalReportSuffix(which.substring(2))) {
+            ctx.flush();
             ctx.includeFragment(which+".jsp");
         } else {
             ctx.println("<i>Illegal report name: " + which+"</i><br/>");
@@ -10787,4 +10799,49 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
       return choice_r.length()>0 || ALLOWED_EMPTY.matcher(path).matches();
     }
     
+    
+    private VettingViewer<VoteResolver.Organization> gVettingViewer = null;
+    public synchronized VettingViewer<VoteResolver.Organization> getVettingViewer(WebContext ctx) {
+        CLDRProgressTask p = null;
+        if(gVettingViewer==null)  try {
+            p = openProgress("Setting up vettingViewer...");
+            p.update("opening..");
+            gVettingViewer = new VettingViewer<VoteResolver.Organization>(
+                    getSupplementalDataInfo(), dbsrcfac, getFactory(),
+                    gUsersChoice, "CLDR "+oldVersion, "Winning "+newVersion);
+            gVettingViewer.setBaseUrl(ctx.base());
+            p.update("OK");
+        } finally {
+            p.close();
+        }
+        return gVettingViewer;
+    }
+    private UsersChoice<VoteResolver.Organization> gUsersChoice = 
+        new UsersChoice<VoteResolver.Organization>() {
+            @Override
+            public String getWinningValueForUsersOrganization(
+                    CLDRFile cldrFile, String path, VoteResolver.Organization user) {
+                CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+                int base_xpath = xpt.xpathToBaseXpathId(path);
+                Race r;
+                Connection conn = null;
+                try { 
+                    conn = dbUtils.getDBConnection();
+                    r = vet.getRace(loc, base_xpath, conn);
+                    VoteResolver.Organization org = (Organization) user;
+                    Race.Chad c =  r.getOrgVote(org);
+                    if(c==null) {
+                        //System.err.println("Error: organization " + org + " vote null for " + path + " [#"+base_xpath+"]");
+                        return null;
+                    }
+                    return c.value;
+                }catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    DBUtils.closeDBConnection(conn);
+                }
+
+            }
+
+        };
 }

@@ -98,6 +98,12 @@
             target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
+        <!-- copy data files into classes.. -->
+        <mkdir dir="${build.dir}/org/unicode/cldr/tool"/>
+        <copy todir="${build.dir}/org/unicode/cldr/tool">
+            <fileset dir="${src.dir}/org/unicode/cldr/tool" 
+                excludes="**/CVS/**/* **/**/*.java"/>
+        </copy>
     </target>
     <target name="posix" depends="init,util" description="build posix conversion tool">
         <javac includes="org/unicode/cldr/posix/**/*.java"
@@ -131,6 +137,12 @@
             target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
+        <!-- copy data files into classes.. -->
+        <mkdir dir="${build.dir}/org/unicode/cldr/test"/>
+        <copy todir="${build.dir}/org/unicode/cldr/test">
+            <fileset dir="${src.dir}/org/unicode/cldr/test" 
+                excludes="**/CVS/**/* **/**/*.java"/>
+        </copy>
     </target>
    <target name="ooo" depends="init,icu,util" description="build OpenOffice.org conversion tools">
         <javac includes="org/unicode/cldr/ooo/**/*.java"
@@ -151,7 +163,7 @@
     <target name="jar" depends="all" description="build full 'cldr.jar' jar file">
         <jar jarfile="${jar.file}"
             compress="true"
-            includes="org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ooo/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
+            includes="org/unicode/cldr/draft/**/*,org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ooo/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
             basedir="${build.dir}"/>
     </target>
   <!-- Docs stuff -->

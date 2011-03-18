@@ -48,7 +48,7 @@ public class VettingViewer {
     private static final boolean TESTING = true;
     static RegexLookup<String> pathHandling = new RegexLookup<String>().loadFromFile(GenerateXMB.class, "xmbHandling.txt");
 
-    enum Choice {
+    public enum Choice {
         /**
          * There is a console-check error
          */
@@ -186,7 +186,7 @@ public class VettingViewer {
      * @param i
      * @param string
      */
-    void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, int user, Level usersLevel) {
+    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, int user, Level usersLevel) {
 
         // first gather the relevant paths
         // each one will be marked with the choice that it triggered.

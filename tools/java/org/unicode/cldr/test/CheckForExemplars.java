@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -38,11 +39,11 @@ public class CheckForExemplars extends CheckCLDR {
         "/inText"
     };
 
-    static final UnicodeSet START_PAREN = new UnicodeSet("[(\\[（［]");
-    static final UnicodeSet END_PAREN = new UnicodeSet("[)\\]］）]");
+    static final UnicodeSet START_PAREN = new UnicodeSet("[(\\[（［]").freeze();
+    static final UnicodeSet END_PAREN = new UnicodeSet("[)\\]］）]").freeze();
     private UnicodeSet exemplars;
-    private UnicodeSet scriptRegionExemplars;
-    private UnicodeSet scriptRegionExemplarsWithParens;
+    private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplars = new UnicodeSet("[()（）;,；，]").freeze();
+    private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplarsWithParens = new UnicodeSet("[;,；，]").freeze();
     private UnicodeSet currencySymbolExemplars;
     private boolean skip;
     private Collator col;
@@ -113,9 +114,6 @@ public class CheckForExemplars extends CheckCLDR {
         UnicodeSet auxiliary = safeGetExemplars("auxiliary", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
         if (auxiliary != null) exemplars.addAll(auxiliary);
         exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
-
-        scriptRegionExemplars = (UnicodeSet) new UnicodeSet(exemplars).removeAll("();,").freeze();
-        scriptRegionExemplarsWithParens = (UnicodeSet) new UnicodeSet(exemplars).removeAll(";,").freeze();
 
         currencySymbolExemplars = safeGetExemplars("currencySymbol", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
         if (currencySymbolExemplars == null) {
@@ -202,13 +200,18 @@ public class CheckForExemplars extends CheckCLDR {
         if (path.contains("/currency") && path.endsWith("/symbol")) {
             if (!containsAllCountingParens(currencySymbolExemplars, value)) {
                 UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(currencySymbolExemplars);
-                addMissingMessage(missing, Subtype.charactersNotInCurrencyExemplars, Subtype.asciiCharactersNotInCurrencyExemplars, "should not be used in currency symbols", result);
+                addMissingMessage(missing, CheckStatus.warningType, Subtype.charactersNotInCurrencyExemplars, Subtype.asciiCharactersNotInCurrencyExemplars, "are not in the currency exemplar characters", result);
             }
         } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
-            UnicodeSet appropriateExemplars = path.contains("_") ? scriptRegionExemplarsWithParens : scriptRegionExemplars;
-            if (!containsAllCountingParens(appropriateExemplars, value)) {
-                UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(appropriateExemplars);
-                addMissingMessage(missing, Subtype.discouragedCharactersInTranslation, Subtype.discouragedCharactersInTranslation, "should not be used in this context", result);
+            // test first for outside of the set.
+            if (!containsAllCountingParens(exemplars, value)) {
+                UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
+                addMissingMessage(missing, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
+            }
+            UnicodeSet disallowedInExemplars = path.contains("_") ? DISALLOWED_IN_scriptRegionExemplarsWithParens : DISALLOWED_IN_scriptRegionExemplars;
+            if (disallowedInExemplars.containsSome(value)) {
+                UnicodeSet disallowed = new UnicodeSet().addAll(value).retainAll(disallowedInExemplars);
+                addMissingMessage(disallowed, CheckStatus.warningType, Subtype.discouragedCharactersInTranslation, Subtype.discouragedCharactersInTranslation, "should not be used in this context", result);
                 //
                 //                String fixedMissing = prettyPrint
                 //                .setToQuote(null)
@@ -219,22 +222,22 @@ public class CheckForExemplars extends CheckCLDR {
             }
         } else if (!containsAllCountingParens(exemplars, value)) {
             UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
-            addMissingMessage(missing, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "should not be used", result);
+            addMissingMessage(missing, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
         }
 
         // check for spaces 
 
         if (!value.equals(value.trim())) {
             if (!leadOrTrailWhitespaceOk.reset(path).find()) {
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.mustNotStartOrEndWithSpace)
-                        .setMessage("This item must not start or end with whitespace."));
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.mustNotStartOrEndWithSpace)
+                        .setMessage("This item must not start or end with whitespace, or be empty."));
             }
         }
         return this;
     }
 
     static final String TEST = "؉";
-    private void addMissingMessage(UnicodeSet missing, Subtype subtype, Subtype subtypeAscii, String qualifier, List<CheckStatus> result) {
+    private void addMissingMessage(UnicodeSet missing, String warningVsError, Subtype subtype, Subtype subtypeAscii, String qualifier, List<CheckStatus> result) {
         if (missing.containsAll(TEST)) {
             int x = 1;
         }
@@ -260,18 +263,23 @@ public class CheckForExemplars extends CheckCLDR {
         }
         result.add(new CheckStatus()
         .setCause(this)
-        .setMainType(CheckStatus.warningType)
+        .setMainType(warningVsError)
         .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
         .setMessage("The characters \u200E{0}\u200E {1} {2}. " +
                 "For what to do, see <a href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Exemplar Characters</a>.", 
                 new Object[]{fixedMissing, scriptString, qualifier}));
     }
 
+    static final Normalizer2 NFC = Normalizer2.getInstance(null, "NFC", Normalizer2.Mode.COMPOSE);
+    
     private boolean containsAllCountingParens(UnicodeSet exemplarSet, String value) {
         if (exemplarSet.containsAll(value)) {
             return true;
         }
 
+        // Normalize
+        value = NFC.normalize(value);
+        
         // if we failed, then check that everything outside of () is ok.
         // and everything inside parens is either ASCII or in the set
         int lastPos = 0;

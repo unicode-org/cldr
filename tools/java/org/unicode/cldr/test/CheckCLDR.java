@@ -84,6 +84,7 @@ abstract public class CheckCLDR {
     .add(new CheckChildren())
     .add(new CheckCoverage())
     .add(new CheckDates())
+    .add(new CheckForCopy())
     .add(new CheckDisplayCollisions())
     .add(new CheckExemplars())
     .add(new CheckForExemplars())
@@ -210,7 +211,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
       illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
       illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
-      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit;
+      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit, sameAsEnglishOrCode;
     public String toString() {
       return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
     }

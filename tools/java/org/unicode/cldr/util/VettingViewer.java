@@ -19,16 +19,12 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
-import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.VettingViewer.HTMLType;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.NumberFormat;
@@ -43,10 +39,9 @@ import com.ibm.icu.util.ULocale;
  * 
  * @author markdavis
  */
-public class VettingViewer {
+public class VettingViewer<T> {
 
     private static final boolean TESTING = true;
-    static RegexLookup<String> pathHandling = new RegexLookup<String>().loadFromFile(GenerateXMB.class, "xmbHandling.txt");
 
     public enum Choice {
         /**
@@ -122,7 +117,7 @@ public class VettingViewer {
         }
     };
 
-    public static interface UsersChoice {
+    public static interface UsersChoice<T> {
         /**
          * Return the value that the user's organization (as a whole) voted for,
          * or null if none of the users in the organization voted for the path.
@@ -130,13 +125,13 @@ public class VettingViewer {
          * 
          * @param locale
          */
-        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, int user);
+        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T user);
     }
 
     private final Factory              cldrFactory;
     private final Factory              cldrFactoryOld;
     private final CLDRFile             englishFile;
-    private final UsersChoice          userVoteStatus;
+    private final UsersChoice<T>          userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
     private final String lastVersionTitle;
     private final String currentWinningTitle;
@@ -186,7 +181,7 @@ public class VettingViewer {
      * @param i
      * @param string
      */
-    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, int user, Level usersLevel) {
+    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
 
         // first gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -479,8 +474,8 @@ public class VettingViewer {
         CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));
 
         // fake this, because we don't have access to ST data
-        UsersChoice usersChoice = new UsersChoice() {
-            public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, int user) {
+        UsersChoice<Integer> usersChoice = new UsersChoice<Integer>() {
+            public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Integer user) {
                 if (path.contains("\"en")) {
                     return "dummy ‘losing’ value";
                 }
@@ -492,7 +487,7 @@ public class VettingViewer {
         // The Options should come from a GUI; from each you can get a long
         // description and a button label.
         // Assuming user can be identified by an int
-        VettingViewer tableView = new VettingViewer(supplementalDataInfo, cldrFactory, cldrFactoryOld, usersChoice, "CLDR 1.7.2", "Winning 1.9");
+        VettingViewer<Integer> tableView = new VettingViewer<Integer>(supplementalDataInfo, cldrFactory, cldrFactoryOld, usersChoice, "CLDR 1.7.2", "Winning 1.9");
 
         // here are per-view parameters
 

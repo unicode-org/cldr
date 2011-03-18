@@ -645,6 +645,11 @@ public class Race {
     			baseNoAlt = vet.sm.xpt.removeAlt(baseString);
     		}
 
+            if(outputInsert==null) {
+                outputInsert=Vetting.prepare_outputInsert(conn);
+                outputInsert.setString(1, locale.toString());
+                outputInsert.setInt(2, base_xpath);
+            }
     		if (winner != null) {
     			int winnerPath = base_xpath; // shortcut - this IS the base
     			// xpath.
@@ -664,11 +669,6 @@ public class Race {
     				winnerFullPath = vet.makeXpathId(baseFNoAlt, altvariant, "proposed-x555", status);
     			}
 
-    			if(outputInsert==null) {
-    	    		outputInsert=Vetting.prepare_outputInsert(conn);
-    	    		outputInsert.setString(1, locale.toString());
-    	    		outputInsert.setInt(2, base_xpath);
-    			}
     			outputInsert.setInt(3, winnerPath); // outputxpath = base, i.e.
     			// no alt/proposed.
     			outputInsert.setInt(4, winnerFullPath); // outputFullxpath =

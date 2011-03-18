@@ -580,7 +580,8 @@ public class CookieSession {
                 }
             }
         }
-        if(noSes>10) {
+        if((noSes>10) || userAgent.contains("Googlebot")
+                    || userAgent.contains("_bot_") ) {
             //System.err.println(userIP+" has " + noSes + " sessions recently.");
             BadUserRecord bur = new BadUserRecord(userIP);
             bur.hit(userAgent);

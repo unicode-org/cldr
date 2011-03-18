@@ -2721,12 +2721,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             if(mySession!=null) {
                 ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP()) + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag. Going to sleep a bit now.</h1>");
                 ctx.flush();
-                try {
-                    Thread.sleep(15000);
-                } catch(InterruptedException ie) {
-                }
+//                try {
+//                    Thread.sleep(15000);
+//                } catch(InterruptedException ie) {
+//                }
                 ctx.session = null;
-                ctx.println("Now, go away.");
+//                ctx.println("Now, go away.");
                 return "Bad IP.";
             }
         }

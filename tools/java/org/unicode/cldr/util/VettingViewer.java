@@ -95,6 +95,25 @@ public class VettingViewer<T> {
                 // exceptions
             }
         }
+        
+        public static Choice fromString(String i) {
+            try {
+                return valueOf(i);
+            } catch (NullPointerException e) {
+                throw e;
+            } catch (RuntimeException e) {
+                if (i.isEmpty()) {
+                    throw e;
+                }
+                int cp = i.codePointAt(0);
+                for (Choice choice : Choice.values()) {
+                    if (cp == choice.abbreviation) {
+                        return choice;
+                    }
+                }
+                throw e;
+            }
+        }
     }
 
     static private PrettyPath                      pathTransform         = new PrettyPath();
@@ -191,21 +210,22 @@ public class VettingViewer<T> {
         EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
 
         // Initialize
-        CoverageLevel2 coverage = null;
+        CoverageLevel2 coverage = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
+        CLDRFile lastSourceFile = cldrFactoryOld.make(localeID, true);
+        
+        // set the following only where needed.
         Status status = null;
         OutdatedPaths outdatedPaths = null;
         CheckCLDR checkCldr = null;
-        CLDRFile lastSourceFile = null;
+
         Map<String, String> options = null;
         List<CheckStatus> result = null;
 
         for (Choice choice : choices) {
             switch (choice) {
             case changedOldValue:
-                lastSourceFile = cldrFactoryOld.make(localeID, true);
                 break;
             case missingCoverage:
-                coverage = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
                 status = new Status();
                 break;
             case englishChanged:
@@ -465,6 +485,7 @@ public class VettingViewer<T> {
      */
     public static void main(String[] args) throws IOException {
         Timer timer = new Timer();
+        timer.start();
         final String currentMain = "/Users/markdavis/Documents/workspace/cldr/common/main";
         final String lastMain = "/Users/markdavis/Documents/workspace/cldr-1.7.2/common/main";
 
@@ -491,15 +512,46 @@ public class VettingViewer<T> {
 
         // here are per-view parameters
 
-        EnumSet<Choice> choiceSet = EnumSet.allOf(Choice.class);
+        final EnumSet<Choice> choiceSet;
+        if (args.length == 0) {
+            choiceSet = EnumSet.allOf(Choice.class);
+        } else {
+            choiceSet = EnumSet.noneOf(Choice.class);
+            for (String arg : args) {
+                choiceSet.add(Choice.fromString(arg));
+            }
+        }
         String localeStringID = "de";
         int userNumericID = 666;
         Level usersLevel = Level.MODERATE;
+        System.out.println(timer.getDuration() / 10000000000.0 + " secs");
+        
+        timer.start();
+        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel);
+        System.out.println(timer.getDuration() / 10000000000.0 + " secs");
+        
+        for (Choice choice : choiceSet) {
+            timer.start();
+            writeFile(tableView, EnumSet.of(choice), "-" + choice.abbreviation, localeStringID, userNumericID, usersLevel);
+            System.out.println(timer.getDuration() / 10000000000.0 + " secs");
+        }
+        /**
+         * function changeStyle(selectorText) { var theRules = new Array(); if
+         * (document.styleSheets[0].cssRules) { theRules =
+         * document.styleSheets[0].cssRules; } else if
+         * (document.styleSheets[0].rules) { theRules =
+         * document.styleSheets[0].rules; } for (n in theRules) { if
+         * (theRules[n].selectorText == selectorText) { theRules[n].style.color
+         * = 'blue'; } } }
+         */
+    }
 
+    private static void writeFile(VettingViewer<Integer> tableView, final EnumSet<Choice> choiceSet, String name, String localeStringID, int userNumericID, Level usersLevel)
+            throws IOException {
         // open up a file, and output some of the styles to control the table
         // appearance
 
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "temp", "vettingView.html");
+        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "temp", "vettingView" + name + ".html");
         out.println("<html>\n"
                 + "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />\n"
                 + "<base target='_new'>\n"
@@ -548,15 +600,5 @@ public class VettingViewer<T> {
         tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, userNumericID, usersLevel);
         out.println("</body></html>");
         out.close();
-        System.out.println(timer.getDuration() / 10000000000.0 + " secs");
-        /**
-         * function changeStyle(selectorText) { var theRules = new Array(); if
-         * (document.styleSheets[0].cssRules) { theRules =
-         * document.styleSheets[0].cssRules; } else if
-         * (document.styleSheets[0].rules) { theRules =
-         * document.styleSheets[0].rules; } for (n in theRules) { if
-         * (theRules[n].selectorText == selectorText) { theRules[n].style.color
-         * = 'blue'; } } }
-         */
     }
 }

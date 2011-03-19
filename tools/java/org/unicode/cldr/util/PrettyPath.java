@@ -97,7 +97,11 @@ public class PrettyPath {
    * @return cleaned pretty path
    */
 	public String getOutputForm(String prettyPath) {
-		return sortingGorpRemoval.reset(prettyPath).replaceAll("");
+		try {
+            return sortingGorpRemoval.reset(prettyPath).replaceAll("");
+        } catch (Exception e) {
+            return prettyPath;
+        }
 	}
 	
 	private static Matcher sortingGorpRemoval = Pattern.compile("(?<=(^|[|]))([0-9]+-)?").matcher("");

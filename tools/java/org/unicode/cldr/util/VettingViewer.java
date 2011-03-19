@@ -563,7 +563,7 @@ public class VettingViewer<T> {
         final EnumSet<Choice> choiceSet = EnumSet.allOf(Choice.class);
         String localeStringID = "de";
         int userNumericID = 666;
-        Level usersLevel = Level.MODERATE;
+        Level usersLevel = Level.MODERN;
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");
         
         timer.start();

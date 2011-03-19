@@ -51,7 +51,7 @@ public class VettingViewer<T> {
         /**
          * The value changed from the last version of CLDR
          */
-        changedOldValue('O', "Changed from CLDR 1.9", "The winning value change from the CLDR 1.9 value."),
+        changedOldValue('O', "Changed from CLDR 1.9", "The winning value changed from the CLDR 1.9 value."),
         /**
          * My choice is not the winning item
          */
@@ -264,8 +264,15 @@ public class VettingViewer<T> {
             if (path.contains("/exemplarCharacters") || path.contains("/references")) {
                 continue;
             }
-            String value = sourceFile.getWinningValue(path);
+            
             Level level = coverage.getLevel(path);
+
+            // skip anything above the requested level
+            if (level.compareTo(usersLevel) > 0) {
+                continue;
+            }
+            
+            String value = sourceFile.getWinningValue(path);
 
             problems.clear();
             testMessage.setLength(0);
@@ -280,10 +287,6 @@ public class VettingViewer<T> {
                     }
                     break;
                 case missingCoverage:
-                    // skip anything above the requested level
-                    if (level.compareTo(usersLevel) > 0) {
-                        continue;
-                    }
                     if (!localeID.equals("root")) {
                         String localeFound = sourceFile.getSourceLocaleID(path, status);
                         // only count it as missing IF the (localeFound is root or codeFallback) AND the aliasing didn't change the path

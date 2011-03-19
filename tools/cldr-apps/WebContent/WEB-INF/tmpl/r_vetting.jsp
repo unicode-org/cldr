@@ -33,9 +33,8 @@ private synchronized int getMax(CLDRFile f) {
 <%--
     <%@ include file="/WEB-INF/jspf/report_top.jspf" %>
 --%>
-<div id='LoadingMessage'><hr/><h3>Loading Vetting View</h3>...<br/>
+<div class='pager' id='LoadingMessage'><hr/><h3>Loading Vetting View</h3><br/>
 <span id='LoadingBar'>
-    <%= SurveyProgressManager.appendProgressBar(new StringBuffer(),0,100) %>
 </span></div>
 <%
 subCtx.flush();
@@ -92,10 +91,13 @@ viewer.setProgressCallback(new VettingViewer.ProgressCallback(){
     public void done() { }
  }
 );
-viewer.generateHtmlErrorTables(subCtx.getOut(), choiceSet, ctx.getLocale().getBaseName(), VoteResolver.Organization.fromString(ctx.session.user.voterOrg()), usersLevel);
-    // now, enter the close of the form
-    
-    
+
+if(subCtx.userId() == UserRegistry.NO_USER) {
+    out.println("<i>You must be logged in to use this function.</i>");
+} else {
+    viewer.generateHtmlErrorTables(subCtx.getOut(), choiceSet, ctx.getLocale().getBaseName(), VoteResolver.Organization.fromString(ctx.session.user.voterOrg()), usersLevel);
+}
+
     subCtx.flush();
 
 %>

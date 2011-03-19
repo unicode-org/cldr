@@ -81,12 +81,18 @@ public class VettingViewer<T> {
             this.abbreviation = abbreviation;
             this.buttonLabel = TransliteratorUtilities.toHTML.transform(buttonLabel);
             this.description = TransliteratorUtilities.toHTML.transform(description);
-            this.display = "<span title='" + description + "'>" + abbreviation + "</span>";
+            this.display = "<span title='" + description + "'>*" + abbreviation + "*</span>";
         }
 
         public static <T extends Appendable> T appendDisplay(EnumSet<Choice> choices, T target) {
             try {
+                boolean first = true;
                 for (Choice item : choices) {
+                    if (first) {
+                        first = false;
+                    } else {
+                        target.append(' ');
+                    }
                     target.append(item.display);
                 }
                 return target;
@@ -428,7 +434,7 @@ public class VettingViewer<T> {
                 output.append("<tr><td class='tvs-count'>")
                 .append(nf.format(count))
                 .append("</td><td class='tvs-abb'>")
-                .append(choice.abbreviation)
+                .append(choice.display)
                 .append("</td><td class='tvs-desc'>")
                 .append(choice.description)
                 .append("</td></tr>");
@@ -473,7 +479,7 @@ public class VettingViewer<T> {
                 addCell(output, sourceFile.getWinningValue(path), choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                 // Fix?
                 // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                output.append("<td class='tv-fix'><a href='"+baseUrl +"?_=")
+                output.append("<td class='tv-fix'><a target='zoom' href='"+baseUrl +"?_=")
                 .append(localeID)
                 .append("&xpath=")
                 .append(percentEscape.transform(path))

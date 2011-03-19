@@ -5366,7 +5366,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             subCtx.println("</p>");
         }
         
-        if(canModify) {
+        if(canModify && (ctx.session.user.userlevel<=UserRegistry.TC)) {
             String xclass = R_VETTING.equals(ctx.field(QUERY_SECTION))?"selected":"notselected";
             subCtx.println("<a href=\"" + ctx.base()+ "?_=" + subCtx.getLocale() + "&amp;" +  QUERY_SECTION + "="+ R_VETTING + "\" class='"+xclass+"'>Vetting Viewer</a>");
         }

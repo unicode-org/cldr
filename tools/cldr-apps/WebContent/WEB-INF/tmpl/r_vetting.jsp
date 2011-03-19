@@ -92,8 +92,8 @@ viewer.setProgressCallback(new VettingViewer.ProgressCallback(){
  }
 );
 
-if(subCtx.userId() == UserRegistry.NO_USER) {
-    out.println("<i>You must be logged in to use this function.</i>");
+if(subCtx.userId() == UserRegistry.NO_USER || (subCtx.session.user.userlevel>UserRegistry.TC)) {
+    out.println("<i>You must be logged in and a TC to use this function.</i>");
 } else {
     viewer.generateHtmlErrorTables(subCtx.getOut(), choiceSet, ctx.getLocale().getBaseName(), VoteResolver.Organization.fromString(ctx.session.user.voterOrg()), usersLevel);
 }

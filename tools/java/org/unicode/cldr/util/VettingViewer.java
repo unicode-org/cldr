@@ -452,7 +452,7 @@ public class VettingViewer<T> {
             Status status = new Status();
 
             output.append("<h2>Summary</h2>\n")
-            .append("<p>For instuctions, see <a target='_new' href='http://cldr.unicode.org/translation/vetting-view'>Vetting View Instructions</a>.</p>")
+            .append("<p>For instructions, see <a target='_new' href='http://cldr.unicode.org/translation/vetting-view'>Vetting View Instructions</a>.</p>")
             .append("<form name='checkboxes'>\n")
             .append("<table class='tvs-table'>\n")
             .append("<tr class='tvs-tr'>" +

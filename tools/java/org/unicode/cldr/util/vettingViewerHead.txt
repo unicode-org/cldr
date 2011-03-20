@@ -1,28 +1,9 @@
-<style type='text/css'>
-table.tv-table, table.tvs-table {
-    border-collapse:collapse;
-}
-table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, table.tvs-table, tr.tvs-tr, td.tvs-count, td.tvs-abb, td.tvs-desc {
-    border:1px solid gray;
-}
-td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-fix, td.tvs-count, td.tvs-abb, td.tvs-desc {
-    background-color: #FFFFCC;
-}
-td.tv-num {
-    text-align; right;
-}
-th.tv-th, th.tvs-th {
-    background-color: #DDDDDD;
-}
-td.tv-win {
-    background-color: #CCFFCC;
-}
-td.tv-num {
-    text-align: right;
-}
-td.tv-miss, td.tv-null {
-    background-color: #FFCCCC;
-}
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+<script type="text/javascript" src="vettingView.js"></script>
+<link rel="stylesheet" type="text/css" href="vettingView.css"/>
+<style type="text/css">
 .vve {}
 .vvn {}
 .vvl {}
@@ -30,39 +11,5 @@ td.tv-miss, td.tv-null {
 .vvu {}
 .vvw {}
 </style>
-<script type="text/javascript">
-function changeStyle(show) {
-    var theRules;
-    if (document.styleSheets[0].cssRules) {
-        theRules = document.styleSheets[0].cssRules;
-    } else if (document.styleSheets[0].rules) {
-        theRules = document.styleSheets[0].rules;
-    }
-    for (n in theRules) {
-        var rule = theRules[n];
-        var sel = rule.selectorText;
-        if (sel != undefined && sel.match(/vv/))   {
-            if (sel.match(show)) {
-                rule.style.display = 'table-row';
-            } else {
-                rule.style.display = 'none';
-            }
-        }
-    }
-}
-
-function setStyles() {
-    var regexString = "";
-    for (i=0; i < document.checkboxes.elements.length; i++){
-        var item = document.checkboxes.elements[i];
-        if (item.checked) {
-            if (regexString.length != 0) {
-                regexString += "|";
-            }
-            regexString += item.name;
-        }
-    }
-    var myregexp = new RegExp(regexString);
-    changeStyle(myregexp);
-}
-</script>
+</head>
+<body>

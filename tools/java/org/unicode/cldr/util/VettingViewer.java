@@ -571,6 +571,8 @@ public class VettingViewer<T> {
      * @param args
      * @throws IOException
      */
+    static final String myOutputDir = CldrUtility.GEN_DIRECTORY + "temp/";
+
     public static void main(String[] args) throws IOException {
         Timer timer = new Timer();
         timer.start();
@@ -607,9 +609,12 @@ public class VettingViewer<T> {
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");
 
         timer.start();
+        FileUtilities.copyFile(VettingViewer.class, "vettingView.css", myOutputDir);
+        FileUtilities.copyFile(VettingViewer.class, "vettingView.js", myOutputDir);
         writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel);
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");
 
+        // check that the choices work.
         for (Choice choice : choiceSet) {
             timer.start();
             writeFile(tableView, EnumSet.of(choice), "-" + choice.abbreviation, localeStringID, userNumericID, usersLevel);
@@ -631,9 +636,7 @@ public class VettingViewer<T> {
         // open up a file, and output some of the styles to control the table
         // appearance
 
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "temp", "vettingView" + name + ".html");
-        out.println("<html>\n"
-                + "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />\n");
+        PrintWriter out = BagFormatter.openUTF8Writer(myOutputDir, "vettingView" + name + ".html");
         FileUtilities.appendFile(VettingViewer.class, "vettingViewerHead.txt", out);
 
         //                + "<style type='text/css'>\n"
@@ -659,7 +662,7 @@ public class VettingViewer<T> {
         //                + "    background-color: #FFCCCC;\n"
         //                + "}\n"
         //                + "</style>\n"
-        out.println("<body><p>Note: this is just a sample run. The user, locale, user's coverage level, and choices of tests will change the output. In a real ST page using these, the first three would "
+        out.println("<p>Note: this is just a sample run. The user, locale, user's coverage level, and choices of tests will change the output. In a real ST page using these, the first three would "
                 + "come from context, and the choices of tests would be set with radio buttons. Demo settings are: </p>\n<ol>"
                 + "<li>choices: "
                 + choiceSet
@@ -680,7 +683,7 @@ public class VettingViewer<T> {
         // Assuming user can be identified by an int
 
         tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, userNumericID, usersLevel);
-        out.println("</body></html>");
+        out.println("</body>\n</html>\n");
         out.close();
     }
 }

@@ -13,6 +13,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.VettingViewer;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+
 public final class FileUtilities {
 
     public static abstract class SemiFileReader {
@@ -185,6 +189,16 @@ public final class FileUtilities {
             com.ibm.icu.dev.test.util.FileUtilities.appendBufferedReader(openFile(class1, filename, charset), out, replacementList); // closes file
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // wrap darn'd checked exception
+        }
+    }
+
+    public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory) {
+        try {
+            PrintWriter out = BagFormatter.openUTF8Writer(targetDirectory, sourceFile);
+            FileUtilities.appendFile(class1, sourceFile, out);
+            out.close();
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e); // dang'd checked exceptions
         }
     }
 }

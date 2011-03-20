@@ -14,6 +14,7 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCoverage;
@@ -47,29 +48,29 @@ public class VettingViewer<T> {
         /**
          * There is a console-check error
          */
-        error('E', "Detected Error", "The Survey Tool detected an error in the winning value."),
+        error('E', "Error", "The Survey Tool detected an error in the winning value."),
         /**
          * The value changed from the last version of CLDR
          */
-        changedOldValue('O', "Changed from CLDR 1.9", "The winning value changed from the CLDR 1.9 value."),
+        changedOldValue('N', "New", "The winning value was altered from the CLDR 1.9 value."),
         /**
          * My choice is not the winning item
          */
-        weLost('L', "My organization's choice didn’t win", "The value that your organization chose (overall) is not the winning value."),
+        weLost('L', "Losing", "The value that your organization chose (overall) is not the winning value."),
         /**
          * The English value for the path changed AFTER the current value for
          * the locale.
          */
-        missingCoverage('M', "Missing from Coverage", "Your current coverage level requires the item to be present, but it is missing."),
+        missingCoverage('M', "Missing", "Your current coverage level requires the item to be present, but it is missing."),
         /**
          * The English value for the path changed AFTER the current value for
          * the locale.
          */
-        englishChanged('C', "English Changed", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
+        englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
         /**
          * There is a console-check error
          */
-        warning('W', "Detected Warning", "The Survey Tool detected a warning about the winning value."),
+        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
         ;
 
         public final char    abbreviation;
@@ -81,7 +82,7 @@ public class VettingViewer<T> {
             this.abbreviation = abbreviation;
             this.buttonLabel = TransliteratorUtilities.toHTML.transform(buttonLabel);
             this.description = TransliteratorUtilities.toHTML.transform(description);
-            this.display = "<span title='" + description + "'>*" + abbreviation + "*</span>";
+            this.display = "<span title='" + description + "'>" + buttonLabel + "*</span>";
         }
 
         public static <T extends Appendable> T appendDisplay(EnumSet<Choice> choices, T target) {
@@ -91,7 +92,7 @@ public class VettingViewer<T> {
                     if (first) {
                         first = false;
                     } else {
-                        target.append(' ');
+                        target.append(", ");
                     }
                     target.append(item.display);
                 }
@@ -101,7 +102,7 @@ public class VettingViewer<T> {
                 // exceptions
             }
         }
-        
+
         public static Choice fromString(String i) {
             try {
                 return valueOf(i);
@@ -118,6 +119,24 @@ public class VettingViewer<T> {
                     }
                 }
                 throw e;
+            }
+        }
+
+        public static Appendable appendRowStyles(EnumSet<Choice> choices, Appendable target) {
+            try {
+                boolean first = true;
+                for (Choice item : choices) {
+                    if (first) {
+                        first = false;
+                    } else {
+                        target.append(' ');
+                    }
+                    target.append("vv").append(Character.toLowerCase(item.abbreviation));
+                }
+                return target;
+            } catch (IOException e) {
+                throw new IllegalArgumentException(e); // damn'd checked
+                // exceptions
             }
         }
     }
@@ -218,7 +237,7 @@ public class VettingViewer<T> {
         // Initialize
         CoverageLevel2 coverage = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
         CLDRFile lastSourceFile = cldrFactoryOld.make(localeID, true);
-        
+
         // set the following only where needed.
         Status status = null;
         OutdatedPaths outdatedPaths = null;
@@ -261,28 +280,28 @@ public class VettingViewer<T> {
         for (String path : sourceFile) {
             progressCallback.nudge(); // Let the user know we're moving along.
             // note that the value might be missing!
-            
+
             // make sure we only look at the real values
             if (altProposed.reset(path).find()) {
                 continue;
             }
-            
+
             if (path.contains("/exemplarCharacters") || path.contains("/references")) {
                 continue;
             }
-            
+
             Level level = coverage.getLevel(path);
 
             // skip anything above the requested level
             if (level.compareTo(usersLevel) > 0) {
                 continue;
             }
-            
+
             String value = sourceFile.getWinningValue(path);
 
             problems.clear();
             testMessage.setLength(0);
-            
+
             for (Choice choice : choices) {
                 switch (choice) {
                 case changedOldValue:
@@ -294,14 +313,9 @@ public class VettingViewer<T> {
                     break;
                 case missingCoverage:
                     if (!localeID.equals("root")) {
-                        String localeFound = sourceFile.getSourceLocaleID(path, status);
-                        // only count it as missing IF the (localeFound is root or codeFallback) AND the aliasing didn't change the path
-                        if (!path.equals(status.pathWhereFound)) {
-                            if (localeFound.equals("root")
-                                    || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
-                                problems.add(choice);
-                                problemCounter.increment(choice);
-                            }
+                        if (isMissing(sourceFile, path, status)) {
+                            problems.add(choice);
+                            problemCounter.increment(choice);
                         }
                     }
                     break;
@@ -367,6 +381,19 @@ public class VettingViewer<T> {
         writeTables(output, sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID);
     }
 
+    private boolean isMissing(CLDRFile sourceFile, String path, Status status) {
+        String localeFound = sourceFile.getSourceLocaleID(path, status);
+        // only count it as missing IF the (localeFound is root or codeFallback) AND the aliasing didn't change the path
+        boolean missing = false;
+        if (!path.equals(status.pathWhereFound)) {
+            if (localeFound.equals("root")
+                    || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
+                missing = true;
+            }
+        }
+        return missing;
+    }
+
     private StringBuilder appendToMessage(String usersValue, StringBuilder testMessage) {
         if (testMessage.length() != 0) {
             testMessage.append("<br>");
@@ -405,7 +432,7 @@ public class VettingViewer<T> {
         public void done() {}
     }
     private ProgressCallback progressCallback = new ProgressCallback(); // null instance by default
-    
+
     /**
      * Select a new callback
      * 
@@ -413,7 +440,7 @@ public class VettingViewer<T> {
     public void setProgressCallback(ProgressCallback newCallback) {
         progressCallback = newCallback;
     }
-    
+
 
     private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile, 
             TreeMap<String, WritingInfo> sorted,
@@ -422,9 +449,13 @@ public class VettingViewer<T> {
             String localeID) {
         try {
 
-            output.append("<h2>Summary</h2>\n");
-            output.append("<table class='tvs-table'>\n");
-            output.append("<tr class='tvs-tr'>" +
+            Status status = new Status();
+
+            output.append("<h2>Summary</h2>\n")
+            .append("<p>For instuctions, see <a target='_new' href='http://cldr.unicode.org/translation/vetting-view'>Vetting View Instructions</a>.</p>")
+            .append("<form name='checkboxes'>\n")
+            .append("<table class='tvs-table'>\n")
+            .append("<tr class='tvs-tr'>" +
                     "<th class='tv-th'>Count</th>" +
                     "<th class='tv-th'>Abbr.</th>" +
                     "<th class='tv-th'>Description</th>" +
@@ -433,13 +464,17 @@ public class VettingViewer<T> {
                 long count = problemCounter.get(choice);
                 output.append("<tr><td class='tvs-count'>")
                 .append(nf.format(count))
-                .append("</td><td class='tvs-abb'>")
+                .append("</td>\n\t<td class='tvs-abb'>")
+                .append("<input type='checkbox' name='")
+                .append(Character.toLowerCase(choice.abbreviation))
+                .append("' onclick='setStyles()' checked/> ")
                 .append(choice.display)
-                .append("</td><td class='tvs-desc'>")
+                .append("</td>\n\t<td class='tvs-desc'>")
                 .append(choice.description)
-                .append("</td></tr>");
+                .append("</td></tr>\n");
             }
-            output.append("</table>\n");
+            output.append("</table>\n</form>\n");
+
 
             int count = 0;
             String lastSection = "";
@@ -467,14 +502,19 @@ public class VettingViewer<T> {
                 String path = pathInfo.path;
                 EnumSet<Choice> choicesForPath = pathInfo.problems;
 
-                output.append("<tr class='tv-tr'>\n");
+                output.append("<tr class='");
+                Choice.appendRowStyles(choicesForPath, output);
+                output.append("'>\n");
                 addCell(output, nf.format(++count), "tv-num", HTMLType.plain);
                 // path
                 addCell(output, code, "tv-code", HTMLType.plain);
                 // English value
-                addCell(output, englishFile.getStringValue(path), "tv-eng", HTMLType.plain);
+                addCell(output, englishFile.getWinningValue(path), "tv-eng", HTMLType.plain);
                 // value for last version
-                addCell(output, lastSourceFile.getStringValue(path), "tv-last", HTMLType.plain);
+                final String oldStringValue = lastSourceFile.getWinningValue(path);
+                boolean oldValueMissing = isMissing(lastSourceFile, path, status);
+
+                addCell(output, oldStringValue, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
                 // value for last version
                 addCell(output, sourceFile.getWinningValue(path), choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                 // Fix?
@@ -486,7 +526,7 @@ public class VettingViewer<T> {
                 .append("'>");
                 Choice.appendDisplay(choicesForPath, output)
                 .append("</a></td>");
-                
+
                 if (TESTING && !pathInfo.testMessage.isEmpty()) {
                     addCell(output, pathInfo.testMessage, "tv-test", HTMLType.markup);
                 }
@@ -511,7 +551,7 @@ public class VettingViewer<T> {
     }
 
     enum HTMLType {plain, markup}
-    
+
     private void addCell(Appendable output, String value, String classValue, HTMLType htmlType) throws IOException {
         output.append("<td class='")
         .append(classValue);
@@ -521,7 +561,7 @@ public class VettingViewer<T> {
             output
             .append("'>")
             .append(htmlType == HTMLType.markup ? value : TransliteratorUtilities.toHTML.transform(value))
-            .append("</td>");
+            .append("</td>\n");
         }
     }
 
@@ -565,11 +605,11 @@ public class VettingViewer<T> {
         int userNumericID = 666;
         Level usersLevel = Level.MODERN;
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");
-        
+
         timer.start();
         writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel);
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");
-        
+
         for (Choice choice : choiceSet) {
             timer.start();
             writeFile(tableView, EnumSet.of(choice), "-" + choice.abbreviation, localeStringID, userNumericID, usersLevel);
@@ -587,38 +627,39 @@ public class VettingViewer<T> {
     }
 
     private static void writeFile(VettingViewer<Integer> tableView, final EnumSet<Choice> choiceSet, String name, String localeStringID, int userNumericID, Level usersLevel)
-            throws IOException {
+    throws IOException {
         // open up a file, and output some of the styles to control the table
         // appearance
 
         PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "temp", "vettingView" + name + ".html");
         out.println("<html>\n"
-                + "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />\n"
-                + "<base target='_new'>\n"
-                + "<style type='text/css'>\n"
-                + "table.tv-table, table.tvs-table {\n"
-                + "    border-collapse:collapse;\n"
-                + "}\n"
-                + "table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, table.tvs-table, tr.tvs-tr, td.tvs-count, td.tvs-abb, td.tvs-desc {\n"
-                + "    border:1px solid gray;\n"
-                + "}\n"
-                + "td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-fix, td.tvs-count, td.tvs-abb, td.tvs-desc {\n"
-                + "    background-color: #FFFFCC;\n"
-                + "}\n"
-                + "th.tv-th, th.tvs-th {\n"
-                + "    background-color: #DDDDDD;\n"
-                + "}\n"
-                + "td.tv-win {\n"
-                + "    background-color: #CCFFCC;\n"
-                + "}\n"
-                + "td.tv-num {\n"
-                + "    text-align: right;\n"
-                + "}\n"
-                + "td.tv-miss, td.tv-null {\n"
-                + "    background-color: #FFCCCC;\n"
-                + "}\n"
-                + "</style>\n"
-                + "<body><p>Note: this is just a sample run. The user, locale, user's coverage level, and choices of tests will change the output. In a real ST page using these, the first three would "
+                + "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />\n");
+        FileUtilities.appendFile(VettingViewer.class, "vettingViewerHead.txt", out);
+
+        //                + "<style type='text/css'>\n"
+        //                + "table.tv-table, table.tvs-table {\n"
+        //                + "    border-collapse:collapse;\n"
+        //                + "}\n"
+        //                + "table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, table.tvs-table, tr.tvs-tr, td.tvs-count, td.tvs-abb, td.tvs-desc {\n"
+        //                + "    border:1px solid gray;\n"
+        //                + "}\n"
+        //                + "td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-fix, td.tvs-count, td.tvs-abb, td.tvs-desc {\n"
+        //                + "    background-color: #FFFFCC;\n"
+        //                + "}\n"
+        //                + "th.tv-th, th.tvs-th {\n"
+        //                + "    background-color: #DDDDDD;\n"
+        //                + "}\n"
+        //                + "td.tv-win {\n"
+        //                + "    background-color: #CCFFCC;\n"
+        //                + "}\n"
+        //                + "td.tv-num {\n"
+        //                + "    text-align: right;\n"
+        //                + "}\n"
+        //                + "td.tv-miss, td.tv-null {\n"
+        //                + "    background-color: #FFCCCC;\n"
+        //                + "}\n"
+        //                + "</style>\n"
+        out.println("<body><p>Note: this is just a sample run. The user, locale, user's coverage level, and choices of tests will change the output. In a real ST page using these, the first three would "
                 + "come from context, and the choices of tests would be set with radio buttons. Demo settings are: </p>\n<ol>"
                 + "<li>choices: "
                 + choiceSet
@@ -629,8 +670,9 @@ public class VettingViewer<T> {
                 + "</li><li>usersLevel: "
                 + usersLevel
                 + "</ol>"
-                + "<p>Notes: The L value is just a hack, because that information is only available in the ST. " +
-                        "I'm comparing 1.7.2 against trunk, for the same reason. Also, the white cell after the Fix column is just for testing.</p><hr>\n");
+                + "<p>Notes: This is a static version, using old values (1.7.2) and faked values (L) just for testing."
+                + (TESTING ? "Also, the white cell after the Fix column is just for testing." : "")
+                + "</p><hr>\n");
 
         // now generate the table with the desired options
         // The options should come from a GUI; from each you can get a long

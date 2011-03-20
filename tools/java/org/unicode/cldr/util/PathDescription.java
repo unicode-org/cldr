@@ -30,7 +30,7 @@ public class PathDescription {
     private static RegexLookup<String> pathHandling = new RegexLookup<String>().loadFromFile(GenerateXMB.class, "xmbHandling.txt");
 
     // set in construction
-    
+
     private final CLDRFile english;
     private final Map<String, String> extras;
     private final ErrorHandling errorHandling;
@@ -38,13 +38,13 @@ public class PathDescription {
     private final Set<String> allMetazones;
 
     // used on instance
-    
+
     private Matcher metazoneMatcher = METAZONE_PATTERN.matcher("");
     private XPathParts parts = new XPathParts();
     private String starredPathOutput;
     private Output<String[]> pathArguments = new Output<String[]>();
     private EnumSet<Status> status = EnumSet.noneOf(Status.class);
-    
+
     public static final String MISSING_DESCRIPTION = "Before translating, please see cldr.org/translation.";
 
     public PathDescription(SupplementalDataInfo supplementalDataInfo, 
@@ -62,16 +62,16 @@ public class PathDescription {
     public String getStarredPathOutput() {
         return starredPathOutput;
     }
-    
+
     public EnumSet<Status> getStatus() {
         return status;
     }
 
-    public enum Status {SKIP, EMPTY_CONTENT, NOT_REQUIRED}
-    
+    public enum Status {SKIP, NULL_VALUE, EMPTY_CONTENT, NOT_REQUIRED}
+
     public String getDescription(String path, String value, Level level, Object context) {
         status.clear();
-        
+
         String description = pathHandling.get(path, context, pathArguments);
         if (description == null) {
             description = MISSING_DESCRIPTION;
@@ -100,6 +100,10 @@ public class PathDescription {
                     // System.out.println("Missing:    " + path + " :    " + value);
                 }
             }
+            if (value == null) {
+                status.add(Status.NULL_VALUE);
+                return null;
+            }
         }
         if (value.length() == 0) {
             status.add(Status.EMPTY_CONTENT);
@@ -107,10 +111,10 @@ public class PathDescription {
                 return null;
             }
         }
-//        if (GenerateXMB.contentMatcher != null && !GenerateXMB.contentMatcher.reset(value).find()) {
-//            PathDescription.addSkipReasons(reasonsToPaths, "content-parameter", level, path, value);
-//            return null;
-//        }
+        //        if (GenerateXMB.contentMatcher != null && !GenerateXMB.contentMatcher.reset(value).find()) {
+        //            PathDescription.addSkipReasons(reasonsToPaths, "content-parameter", level, path, value);
+        //            return null;
+        //        }
 
         List<String> attributes = addStarredInfo(starredPaths, path);
 
@@ -175,13 +179,13 @@ public class PathDescription {
         Set<String> codes = isMetazone ? allMetazones  
                 : type.equals("timezone") ? STANDARD_CODES.getCanonicalTimeZones() 
                         : STANDARD_CODES.getSurveyToolDisplayCodes(type); 
-        // end
-        boolean isRootCode = codes.contains(code) || code.contains("_");
-        if (!isRootCode && type.equals("language") 
-                && EXTRA_LANGUAGES.contains(code)) {
-            isRootCode = true;
-        }
-        return isRootCode;
+                // end
+                boolean isRootCode = codes.contains(code) || code.contains("_");
+                if (!isRootCode && type.equals("language") 
+                        && EXTRA_LANGUAGES.contains(code)) {
+                    isRootCode = true;
+                }
+                return isRootCode;
     }
 
     private List<String> addStarredInfo(Map<String, List<Set<String>>> starredPaths, String path) {

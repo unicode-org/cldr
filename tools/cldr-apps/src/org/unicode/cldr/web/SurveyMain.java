@@ -221,7 +221,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     File vetdir = null;
     public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
     public static  String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
-    static String fileBase = null; // not static - may change lager
+    static String fileBase = null; // not static - may change later
+    static String fileBaseOld = null; // fileBase + oldVersion
     static String specialMessage = System.getProperty("CLDR_MESSAGE"); //  static - may change later
     static String specialHeader = System.getProperty("CLDR_HEADER"); //  static - may change later
     public static String lockOut = System.getProperty("CLDR_LOCKOUT"); //  static - may change later
@@ -6375,6 +6376,24 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         }
         return gFactory;
     }
+    private CLDRFile.Factory gOldFactory = null;
+
+    private synchronized CLDRFile.Factory getOldFactory() {
+        if(gOldFactory == null) {
+            File oldBase = new File(fileBaseOld);
+            File oldCommon = new File(oldBase,"common/main");
+            if(!oldCommon.isDirectory()) {
+                String verAsMilestone = "release-"+oldVersion.replaceAll("\\.", "-");
+                String msg = ("Could not read old data: you might do 'svn export http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/common "+ oldBase.getAbsolutePath() + "/common' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
+                //svn export http://unicode.org/repos/cldr/tags/release-1-8 1.8
+                
+                busted(msg);
+                throw new InternalError(msg);
+            }
+            gOldFactory = CLDRFile.SimpleFactory.make(oldCommon.getAbsolutePath(),".*");
+        }
+        return gOldFactory;
+    }
 
     public synchronized CLDRFile getBaselineFile(/*CLDRDBSource ourSrc*/) {
         if(gBaselineFile == null) {
@@ -9670,6 +9689,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
             // System.getProperty("CLDR_COMMON") + "/main" is ignored.
             fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
+            fileBaseOld = survprops.getProperty(getOldVersionParam(),cldrHome+"/"+oldVersion); // not static - may change lager
             specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
             specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
             
@@ -9679,6 +9699,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 busted("CLDR_COMMON isn't a directory: " + fileBase);
                 return;
             }
+            
+            getOldFactory(); // check old version
     
             if(!new File(vetweb).isDirectory()) {
                 busted("CLDR_VET_WEB isn't a directory: " + vetweb);
@@ -9762,6 +9784,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         isSetup = true;
     }
 
+    private String getOldVersionParam() {
+        return "CLDR_COMMON"+oldVersion;
+    }
     public static boolean isBusted() {
         return (isBusted != null);
     }
@@ -10807,7 +10832,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             p = openProgress("Setting up vettingViewer...");
             p.update("opening..");
             gVettingViewer = new VettingViewer<VoteResolver.Organization>(
-                    getSupplementalDataInfo(), dbsrcfac, getFactory(),
+                    getSupplementalDataInfo(), dbsrcfac, getOldFactory(),
                     gUsersChoice, "CLDR "+oldVersion, "Winning "+newVersion);
             gVettingViewer.setBaseUrl(ctx.base());
             p.update("OK");

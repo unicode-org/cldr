@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/jspf/stcontext.jspf" %><%-- setup 'ctx' --%>
 <%@ include file="/WEB-INF/jspf/report.jspf"  %>
 <%@ page import="org.unicode.cldr.util.*" %>
-
+</form> <!--  close the ST form -->
 <%
 /* set the '_' parameter, to the current locale */
 subCtx.setQuery(SurveyMain.QUERY_LOCALE,ctx.localeString());
@@ -92,9 +92,9 @@ viewer.setProgressCallback(new VettingViewer.ProgressCallback(){
  }
 );
 
-//if(subCtx.userId() == UserRegistry.NO_USER || (subCtx.session.user.userlevel>UserRegistry.TC)) {
-//    out.println("<i>You must be logged in and a TC to use this function.</i>");
-//} else 
+if(subCtx.userId() == UserRegistry.NO_USER) {
+    out.println("<i>You must be logged in to use this function.</i>");
+} else 
 {
     viewer.generateHtmlErrorTables(subCtx.getOut(), choiceSet, ctx.getLocale().getBaseName(), VoteResolver.Organization.fromString(ctx.session.user.voterOrg()), usersLevel);
 }
@@ -111,3 +111,4 @@ document.getElementById('LoadingMessage').style.display = 'none';
 <hr/>
 Loaded Vetting view in <%= t %><br/>
 
+<form> <!--  re-open the ST form (not used) -->

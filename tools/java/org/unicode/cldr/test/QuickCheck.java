@@ -188,7 +188,7 @@ public class QuickCheck {
           throw new IllegalArgumentException(locale + "\tError: in null value at " + path);
         }
         String displayValue = displayAndInputProcessor.processForDisplay(path, value);
-        if (false && !displayValue.equals(value)) {
+        if (!displayValue.equals(value)) {
           System.out.println("\t" + locale + "\tdisplayAndInputProcessor changes display value <" + value + ">\t=>\t<" + displayValue + ">\t\t" + path);
         }
         String inputValue = displayAndInputProcessor.processInput(path, value, internalException);

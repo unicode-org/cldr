@@ -112,9 +112,7 @@ public class DisplayAndInputProcessor {
             }
 
             // fix date patterns
-            if (path.indexOf("/dates") >= 0
-                    && ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0) || path
-                            .indexOf("/dateFormatItem") >= 0)) {
+            if (hasDatetimePattern(path)) {
                 formatDateParser.set(value);
                 String newValue = formatDateParser.toString();
                 if (!value.equals(newValue)) {
@@ -154,6 +152,12 @@ public class DisplayAndInputProcessor {
             }
             return original;
         }
+    }
+    
+    public static boolean hasDatetimePattern(String path) {
+        return path.indexOf("/dates") >= 0
+        && ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0)
+                || path.indexOf("/dateFormatItem") >= 0);
     }
 
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter, boolean lowercase) {

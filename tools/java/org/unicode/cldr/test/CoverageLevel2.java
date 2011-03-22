@@ -125,8 +125,8 @@ public class CoverageLevel2 {
     public static void main(String[] args) {
         // quick test
         // TODO convert to unit test
-        CoverageLevel2 cv2 = CoverageLevel2.getInstance("en");
-        ULocale uloc = new ULocale("en");
+        CoverageLevel2 cv2 = CoverageLevel2.getInstance("de");
+        ULocale uloc = new ULocale("de");
         TestInfo testInfo = TestAll.TestInfo.getInstance();
         SupplementalDataInfo supplementalDataInfo2 = testInfo.getSupplementalDataInfo();
         CLDRFile englishPaths1 = testInfo.getEnglish();

@@ -8802,7 +8802,7 @@ o	            		}*/
         
 		
 
-        if(zoomedIn && ( (!isPhaseSubmit() && !isPhaseBeta()) || isUnofficial) ) {
+        if(zoomedIn && ( (!isPhaseSubmit() && !isPhaseBeta()) || isUnofficial || true) ) {
 	    
 	    long totals[] = new long[numberedItemsList.size()];
 	    for(int j=0;j<totals.length;j++) {

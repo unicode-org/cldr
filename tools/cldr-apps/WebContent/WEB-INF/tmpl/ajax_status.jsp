@@ -227,4 +227,5 @@ function setStyles() {
 .vvw {}
 </style>
 
+<% if(!SurveyMain.isUnofficial) { out.println(org.unicode.cldr.tool.ShowData.ANALYTICS); } %>
 <!--  end ajax_status.jsp -->

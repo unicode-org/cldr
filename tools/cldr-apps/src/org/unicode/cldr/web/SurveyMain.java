@@ -1343,7 +1343,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
             
-            String aver="1.7"; // TODO: should be from 'new_version'
+            String aver=newVersion; // TODO: should be from 'new_version'
             ctx.println("<h2>Bulk Data Submission Updating for "+aver+"</h2><br/>\n");
            
             Set<UserRegistry.User> updUsers = new HashSet<UserRegistry.User>();
@@ -1392,8 +1392,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
             	int wouldhit=0;
             	
-
-	            for(File file : files ) {
+		CLDRProgressTask progress = openProgress("bulk data import", files.size());
+		int nn=0;
+	        try { for(File file : files ) {
               	  synchronized(vet) {
 	            	CLDRLocale loc = getLocaleOf(file);
 		DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc.toULocale());
@@ -1403,21 +1404,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            	c.loadFromFile(file.getPath(), loc.getBaseName(), CLDRFile.DraftStatus.unconfirmed);
 	            	XPathParts xpp = new XPathParts(null,null);
 	            	
-	            	int countNoAlt = 0;
-	            	int countNoUser = 0;
-	            	int countBadUser = 0;
-	            	int countAlready = 0;
-	            	int countExplicit = 0;
-	            	int countOther = 0;
-	            	int countReady = 0;
-	            	int countDone = 0;
-	            	int countChange =0;
-	            	int countVoteMain= 0;
-	            	int countAdd = 0;
+			OnceWarner warner = new OnceWarner();
 
-			ctx.println("<table border=1>");
-			ctx.println("<tr><th>XPath</th><th>cur</th><th>val</th><th>Msg</th></tr>");
-	            	
+			progress.update(nn++, loc.toString());
 	            	for(String x : c) {
 	            		String full = c.getFullXPath(x);
 	            		String alt = XPathTable.getAlt(full, xpp);
@@ -1426,29 +1415,29 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 				String val = processor.processInput(x, val0, exc);
 	            		if(alt==null||alt.length()==0) {
 	            			if(!full.startsWith("//ldml/identity")) {
-	            				countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt' tag: " + full);
+	            				warner.warnOnce(ctx, "countNoAlt", "warn", "Xpath with no 'alt' tag: " + full);
 	            			}
 	            			continue;
 	            		}
 	            		String altPieces[] = LDMLUtilities.parseAlt(alt);
 	            		if(altPieces[1]==null) {
-            				countNoAlt = addAndWarnOnce(ctx, countNoAlt, "warn", "Xpath with no 'alt-proposed' tag: " + full);
+            				warner.warnOnce(ctx, "countNoAlt", "warn", "Xpath with no 'alt-proposed' tag: " + full);
 	            			continue;
 	            		}
 	            		/*
 	            		if(alt.equals("XXXX")) {
 	            			alt = "proposed-u1-implicit1.7";
 	            			x = XPathTable.removeAlt(x, xpp);
-	            		}*/
+o	            		}*/
 	            		int n = XPathTable.altProposedToUserid(altPieces[1]);
 	            		if(n<0) {
-	            			countNoUser = addAndWarnOnce(ctx, countNoUser, "warn", "Xpath with no userid in 'alt' tag: " + full);
+	            			warner.warnOnce(ctx, "countNoUser", "warn", "Xpath with no userid in 'alt' tag: " + full);
 	            			continue;
 	            		}
 	            		User ui = null;
              		    if(n>=0) ui = reg.getInfo(n);
 	            		if(ui==null) {
-	            			countBadUser = addAndWarnOnce(ctx, countBadUser, "warn", "Bad userid '"+n+"': " + full);
+	            			warner.warnOnce(ctx, "countBadUser", "warn", "Bad userid '"+n+"': " + full);
 	            			continue;
 	            		}
 	            		updUsers.add(ui);
@@ -1464,11 +1453,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            		
 	            		String resultPath = null;
 
-				ctx.println("<tr><th>");				
-					ctx.println("<a href='"+ctx.base()+"?_="+loc+"&xpath="+base_xpath_id+"'>");
-					ctx.println(base_xpath_id+"</a></th>");
-				ctx.println("<td>" + j+"</td><td>"+val+"</td>");
-				ctx.println("<td>");
+//                                 if(warner.count("countAdd")==0 && warner.count("countVoteMain")==0) {
+//                                     ctx.println("<tr><th>");				
+//                                     ctx.println("<a href='"+ctx.base()+"?_="+loc+"&xpath="+base_xpath_id+"'>");
+//                                     ctx.println(base_xpath_id+"</a></th>");
+//                                     ctx.println("<td>" + j+"</td><td>"+val+"</td>");
+//                                     ctx.println("<td>");
+//                                 }
 	
 				if(exc[0]!=null) {
 					ctx.println("Exceptions on DAIP: ");
@@ -1481,17 +1472,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
 
 	            		if(resultPaths.isEmpty()) {
-	            			/*countAdd = */addAndWarnOnce(ctx, countAdd, "zoom", "Value must be added under "+base_xpath+": " + val + "");
+				    warner.warnOnce(ctx, "countAdd", "zoom", "Value must be added", xpt.getPrettyPath(base_xpath)+": " + val );
 	            			if(!doimpbulk) {
-	            				countReady = addAndWarnOnce(ctx, countReady, "okay","<i>Ready to update.</i>");
+	            				warner.warnOnce(ctx, "countReady", "okay","<i>Ready to update.</i>");
 						ctx.println("</td></tr>");
 	            				continue; // don't try to add.
 	            			}
 	            			/* NOW THE FUN PART */
-	            			if(altPieces[0]!=null) {
-	            				throw new InternalError("alt besides proposed not supported, Go Bug Steven ");
-	            			}
-	            			
 	            			for(int i=0;(resultPath==null)&&i<1000;i++) {
 	            				String proposed = "proposed-u"+n+"-b"+i;
 	            				String newAlt = LDMLUtilities.formatAlt(altPieces[0], proposed);
@@ -1505,7 +1492,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            				  toUpdate.add(loc);
 	            				
 	            				resultPath = newxpath;
-						if(countAdd<2) {
+						if(warner.count("countAdd")<2) {
 	            					Set<String> nresultPaths = new HashSet<String>();
 	            					stSource.getPathsWithValue(val, base_xpath, nresultPaths);
 							ctx.println(">> now have " + nresultPaths.size() + " paths with value: <tt>"+base_xpath+"</tt> <ol>");
@@ -1531,7 +1518,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            			for(String path : resultPaths) {
 	            				if(path.equals(base_xpath)) {
 	            					resultPath = path;
-	            					countVoteMain = addAndWarnOnce(ctx, countVoteMain, "squo", "Using base xpath for " + base_xpath);
+	            					warner.warnOnce(ctx, "countVoteMain", "squo", "Using base xpath for " + base_xpath);
 	            				}
 	            			}
 	            			/* #2 look for something with a vote */
@@ -1574,15 +1561,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            		
 	            		
 	                     if(dpathId == j) {
-	                    	/*countAlready =*/ addAndWarnOnce(ctx, countAlready, "squo", "Vote already correct");
+				 warner.warnOnce(ctx, "countAlready", "squo", "Vote already correct");
 //	                    	ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
 //	                    	  already++;
 	                      } else {
 	                          if(j>-1) {
 	                        	  if(vet_type[0]==Vetting.VET_IMPLIED) {
-	                        		  /*countOther = */addAndWarnOnce(ctx, countOther, "okay", "Changing existing implied vote");
+					      warner.warnOnce(ctx, "countOther", "okay", "Changing existing implied vote");
 	                        	  } else {
-	                        		 /* countExplicit = */ addAndWarnOnce(ctx, countExplicit, "warn", "NOT changing existing different vote");
+					      warner.warnOnce(ctx, "countExplicit", "warn", "NOT changing existing different vote");
 					ctx.println("</td></tr>");
 	                        		  continue;
 	                        	  }
@@ -1592,9 +1579,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            			  if(doimpbulk) {
 	            				  vet.vote(loc, base_xpath_id, n, dpathId, Vetting.VET_IMPLIED);
 	            				  toUpdate.add(loc);
-	            				  countReady = addAndWarnOnce(ctx, countReady, "okay","<i>Updating.</i>");
+	            				  warner.warnOnce(ctx, "countReady", "okay","<i>Updating.</i>");
 	            			  } else {
-	            				  countReady = addAndWarnOnce(ctx, countReady, "okay","<i>Ready to update.</i>");
+	            				  warner.warnOnce(ctx, "countReady", "okay","<i>Ready to update.</i>");
 	            				/*  wouldhit++;
 	            				  toUpdate.add(loc);*/
 	            			  }
@@ -1602,7 +1589,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 				ctx.println("</td></tr>");
 	            		  
 	            	  } /* end xpath */
-			ctx.println("</table>");
+// 			ctx.println("</table>");
 	            	  ctx.println("<hr>");
 	            	  /*if(already>0 ) {
 	            		  ctx.println(" "+ctx.iconHtml("squo","current")+""+already+" items already had the correct vote.<br>");
@@ -1637,8 +1624,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 			  ctx.println("Clearing cache: #"+dbsrcfac.update()+"<br>");
 			}
 	            	  toUpdate.clear();
+			  
+			  warner.summarize(ctx);
+
               	    } /* end sync */
 	              } /* end outer loop */
+                } finally {
+                    progress.close();
+                }
 	            ctx.println("<hr>");
 	            ctx.println("<h3>Users involved:</h3>");
 	            for(User auser : updUsers) {
@@ -2253,15 +2246,71 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         	buf.append(info+"<br/>");
         }
      }
-	/* print a warning the first time. */
-    private int addAndWarnOnce(WebContext ctx, int count, String icon,
-			String desc) {
-    	if(count==0) {
-    		 ctx.println(ctx.iconHtml(icon, "counter")+" "+desc+" (this message will only print once)<br>");
-    	}
-    	return ++count;
+    /* print a warning the first time. */
+    
+    public static class OnceWarner {
+	boolean warnOnce;
+	public OnceWarner(boolean warnOnce) {
+	    this.warnOnce = warnOnce;
 	}
-	private static void throwIfBadLocale(String test0) {
+	public OnceWarner() {
+	    this.warnOnce = true;
+	}
+	private class OnceEntry {
+	    /**
+	     * @return # of times we've been nudged, inclusively
+	     */
+	    public int nudge() { return count++;  }
+	    public OnceEntry(String desc) { this.desc = desc; }
+	    public int count() { return count; }
+	    public String desc() { return desc; }
+	    String desc;
+	    int count=0;
+	}
+	private Map<String,OnceEntry> theMap = new TreeMap<String,OnceEntry>();
+	private OnceEntry peekEntry(String key) {
+	    return theMap.get(key);
+	}
+	private OnceEntry getEntry(String key, String desc) {
+	    OnceEntry ent = peekEntry(key);
+	    if(ent==null) {
+		theMap.put(key,(ent=new OnceEntry(desc)));
+	    }
+	    return ent;
+	}
+	public int count(String key) {
+	    OnceEntry ent = peekEntry(key);
+	    if(ent!=null) {
+		return ent.count();
+	    } else {
+		return 0;
+	    }
+	}
+	public int warnOnce(WebContext ctx, String key, String icon, String desc, String longDesc) {
+	    int n = getEntry(key,desc).nudge();
+	    if(n==1 || !warnOnce) {
+		ctx.println(ctx.iconHtml(icon, "counter")+" "+desc+ (warnOnce?" (this message prints only once)":"")+"|"+longDesc+"<br>");
+	    }
+	    return n;
+	}
+	public int warnOnce(WebContext ctx, String key, String icon, String desc) {
+	    return warnOnce(ctx,key,icon,desc,"");
+	}
+	public void summarize(WebContext ctx) {
+	    int n=0;
+	    if(theMap.isEmpty()) return;
+	    ctx.println("<table class='tzbox'><tr><th>var</th><th>#</th><th>desc</th></tr>");
+	    for(Map.Entry<String,OnceEntry> e : theMap.entrySet()) {
+		String k = e.getKey();
+		OnceEntry v = e.getValue();
+
+		ctx.println("<tr class='r"+(n%2)+"'><th>"+k+"</th><td>"+v.count()+"</td><td>"+v.desc()+"</td></tr>");
+	    }
+	    ctx.println("</table>");
+	}
+    }
+
+    private static void throwIfBadLocale(String test0) {
         if(!SurveyMain.getLocalesSet().contains(CLDRLocale.getInstance(test0))) {
             throw new InternalError("Bad locale: "+test0);
         }

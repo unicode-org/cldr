@@ -43,6 +43,7 @@ import com.ibm.icu.util.ULocale;
 public class VettingViewer<T> {
 
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
+    private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
 
     public enum Choice {
         /**
@@ -71,6 +72,10 @@ public class VettingViewer<T> {
          * There is a console-check error
          */
         warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
+        /**
+         * There is a console-check error
+         */
+        other('O', "Other", "Everything else."),
         ;
 
         public final char    abbreviation;
@@ -226,6 +231,10 @@ public class VettingViewer<T> {
      * @param string
      */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
+        generateHtmlErrorTables( output, choices, localeID, user, usersLevel, false);
+    }
+
+    private void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean showAll) {
 
         // first gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -264,6 +273,7 @@ public class VettingViewer<T> {
                 checkCldr.setCldrFileToCheck(sourceFile, options, result);
                 break;
             case weLost:
+            case other:
                 break;
             default:
                 System.out.println(choice + " not implemented yet");
@@ -363,7 +373,11 @@ public class VettingViewer<T> {
                     }
                 }
             }
-            if (!problems.isEmpty()) {
+            if (showAll || !problems.isEmpty()) {
+                if (showAll && problems.isEmpty()) {
+                    problems.add(Choice.other);
+                    problemCounter.increment(Choice.other);
+                }
                 reasonsToPaths.clear();
                 appendToMessage("level:" + level.toString(), testMessage);
                 final String description = pathDescription.getDescription(path, value, level, null);
@@ -378,7 +392,7 @@ public class VettingViewer<T> {
         }
 
         // now write the results out
-        writeTables(output, sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID);
+        writeTables(output, sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID, showAll);
     }
 
     private boolean isMissing(CLDRFile sourceFile, String path, Status status) {
@@ -446,7 +460,8 @@ public class VettingViewer<T> {
             TreeMap<String, WritingInfo> sorted,
             Counter<Choice> problemCounter, 
             EnumSet<Choice> choices,
-            String localeID) {
+            String localeID,
+            boolean showAll) {
         try {
 
             Status status = new Status();
@@ -461,6 +476,9 @@ public class VettingViewer<T> {
                     "<th class='tv-th'>Description</th>" +
             "</tr>\n");
             for (Choice choice : choices) {
+                if (choice == Choice.other && !showAll) {
+                    continue;
+                }
                 long count = problemCounter.get(choice);
                 output.append("<tr><td class='tvs-count'>")
                 .append(nf.format(count))
@@ -682,8 +700,9 @@ public class VettingViewer<T> {
         // description and a button label.
         // Assuming user can be identified by an int
 
-        tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, userNumericID, usersLevel);
+        tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
         out.println("</body>\n</html>\n");
         out.close();
     }
+
 }

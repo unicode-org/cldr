@@ -356,6 +356,11 @@ public class CLDRDBSourceFactory extends Factory {
 		return n;
 	}
 
+	/**
+	 * Return a non-vetted result.
+	 * @param locale
+	 * @return
+	 */
 	XMLSource getInstance(CLDRLocale locale) {
 		return getInstance(locale, false);
 	}

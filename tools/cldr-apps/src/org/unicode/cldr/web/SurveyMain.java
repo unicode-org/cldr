@@ -1342,256 +1342,285 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         } else if(action.equals("bulk_submit")) {
             WebContext subCtx = (WebContext)ctx.clone();
             actionCtx.addQuery("action",action);
-            
+
             String aver=newVersion; // TODO: should be from 'new_version'
             ctx.println("<h2>Bulk Data Submission Updating for "+aver+"</h2><br/>\n");
-           
+
             Set<UserRegistry.User> updUsers = new HashSet<UserRegistry.User>();
-           
-	    // from config 
+
+            // from config 
             String bulkStrOrig = survprops.getProperty(CLDR_BULK_DIR,"");
- 	    // from query if there, else config
-	    if(ctx.hasField(CLDR_BULK_DIR)) {
-		bulkStr = ctx.field(CLDR_BULK_DIR);
-	    }
-	    if(bulkStr == null || bulkStr.length()==0) {
-		bulkStr = bulkStrOrig;
-	    }
+            // from query if there, else config
+            if(ctx.hasField(CLDR_BULK_DIR)) {
+                bulkStr = ctx.field(CLDR_BULK_DIR);
+            }
+            if(bulkStr == null || bulkStr.length()==0) {
+                bulkStr = bulkStrOrig;
+            }
             File bulkDir = null;
             if(bulkStr!=null&&bulkStr.length()>0) {
-            	bulkDir = new File(bulkStr);
-	    }
-	    // dir change form
-	    ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-	    actionCtx.printUrlAsHiddenFields();
-	    ctx.println("<label>Bulk Dir: " +
-		        "<input name='"+CLDR_BULK_DIR+"' value='"+bulkStr+"' size='60'>" +
-			"</label> <input type=submit value='Set'><br>" +
-			"</form><hr/>");
+                bulkDir = new File(bulkStr);
+            }
+            // dir change form
+            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+            actionCtx.printUrlAsHiddenFields();
+            ctx.println("<label>Bulk Dir: " +
+                    "<input name='"+CLDR_BULK_DIR+"' value='"+bulkStr+"' size='60'>" +
+                    "</label> <input type=submit value='Set'><br>" +
+            "</form><hr/>");
             if(bulkDir==null||!bulkDir.exists()||!bulkDir.isDirectory()) {
-            	ctx.println(ctx.iconHtml("stop","could not load bulk data")+"The bulk data dir "+CLDR_BULK_DIR+"="+bulkStr+" either doesn't exist or isn't set in cldr.properties. (Server requires reboot for this parameter to take effect)</i>");
+                ctx.println(ctx.iconHtml("stop","could not load bulk data")+"The bulk data dir "+CLDR_BULK_DIR+"="+bulkStr+" either doesn't exist or isn't set in cldr.properties. (Server requires reboot for this parameter to take effect)</i>");
             } else try {
 
-            	ctx.println("<h3>Bulk dir: "+bulkDir.getAbsolutePath()+"</h3>");
-	            boolean doimpbulk = ctx.hasField("doimpbulk");
-	            ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-	            actionCtx.printUrlAsHiddenFields();
-	            ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
-	            if(!doimpbulk) {
-	            	ctx.print("<i>trial run. press the button to accept these votes.</i>");
-	            }
-	            
-	            Set<File> files = new TreeSet<File>(Arrays.asList(getInFiles(bulkDir)));
-	            
-	            ctx.print("Jump to: ");
-	            for(File file : files) {
-	            	ctx.print("<a href=\"#"+getLocaleOf(file)+"\">"+file.getName()+"</a> ");
-	            }
-	            ctx.println("<br>");
-	            
-	            Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
-            	int wouldhit=0;
-            	
-		CLDRProgressTask progress = openProgress("bulk data import", files.size());
-		int nn=0;
-	        try { for(File file : files ) {
-              	  synchronized(vet) {
-	            	CLDRLocale loc = getLocaleOf(file);
-		DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc.toULocale());
-	            	ctx.println("<a name=\""+loc+"\"><h2>"+file.getName()+" - "+loc.getDisplayName(ctx.displayLocale)+"</h2></a>");
-	            
-	            	CLDRFile c = new CLDRFile(null, false);
-	            	c.loadFromFile(file.getPath(), loc.getBaseName(), CLDRFile.DraftStatus.unconfirmed);
-	            	XPathParts xpp = new XPathParts(null,null);
-	            	
-			OnceWarner warner = new OnceWarner();
+                ctx.println("<h3>Bulk dir: "+bulkDir.getAbsolutePath()+"</h3>");
+                boolean doimpbulk = ctx.hasField("doimpbulk");
+                boolean istrial = ctx.hasField("istrial");
+                ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+                actionCtx.printUrlAsHiddenFields();
+                ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
+                ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+                actionCtx.printUrlAsHiddenFields();
+                ctx.println("<input type=submit value='Do a trial run' name='istrial'></form>");
+                if(istrial) {
+                    ctx.print("<i>trial run. press the button to accept these votes.</i>");
+                } else if(doimpbulk) {
+                    ctx.print("<i>Real run.</i>");
+                } else {
+                    ctx.print("Press one of the buttons to begin.");
+                }
 
-			progress.update(nn++, loc.toString());
-	            	for(String x : c) {
-	            		String full = c.getFullXPath(x);
-	            		String alt = XPathTable.getAlt(full, xpp);
-	            		String val0 = c.getStringValue(x);
-				Exception exc[] = new Exception[1];
-				String val = processor.processInput(x, val0, exc);
-	            		if(alt==null||alt.length()==0) {
-	            			if(!full.startsWith("//ldml/identity")) {
-	            				warner.warnOnce(ctx, "countNoAlt", "warn", "Xpath with no 'alt' tag: " + full);
-	            			}
-	            			continue;
-	            		}
-	            		String altPieces[] = LDMLUtilities.parseAlt(alt);
-	            		if(altPieces[1]==null) {
-            				warner.warnOnce(ctx, "countNoAlt", "warn", "Xpath with no 'alt-proposed' tag: " + full);
-	            			continue;
-	            		}
-	            		/*
+                Set<File> files = new TreeSet<File>(Arrays.asList(getInFiles(bulkDir)));
+
+                ctx.print("Jump to: ");
+                for(File file : files) {
+                    ctx.print("<a href=\"#"+getLocaleOf(file)+"\">"+file.getName()+"</a> ");
+                }
+                ctx.println("<br>");
+
+                Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
+                int wouldhit=0;
+                
+                if(!istrial && !doimpbulk) return;
+
+                CLDRProgressTask progress = openProgress("bulk data import", files.size());
+                int nn=0;
+                try { for(File file : files ) {
+                    /*synchronized(vet) */ {
+                        CLDRLocale loc = getLocaleOf(file);
+                        DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc.toULocale());
+                        ctx.println("<a name=\""+loc+"\"><h2>"+file.getName()+" - "+loc.getDisplayName(ctx.displayLocale)+"</h2></a>");
+
+                        CLDRFile c = new CLDRFile(null, false);
+                        c.loadFromFile(file.getPath(), loc.getBaseName(), CLDRFile.DraftStatus.unconfirmed);
+                        XPathParts xpp = new XPathParts(null,null);
+
+                        OnceWarner warner = new OnceWarner();
+                        XMLSource stSource = dbsrcfac.getInstance(loc);
+
+                        progress.update(nn++, loc.toString());
+                        for(String x : c) {
+                            String full = c.getFullXPath(x);
+                            String alt = XPathTable.getAlt(full, xpp);
+                            String val0 = c.getStringValue(x);
+                            Exception exc[] = new Exception[1];
+                            String val = processor.processInput(x, val0, exc);
+                            if(alt==null||alt.length()==0) {
+                                if(!full.startsWith("//ldml/identity")) {
+                                    warner.warnOnce(ctx, "countNoAlt", "warn", "Xpath with no 'alt' tag: " + full);
+                                }
+                                continue;
+                            }
+                            String altPieces[] = LDMLUtilities.parseAlt(alt);
+                            if(altPieces[1]==null) {
+                                warner.warnOnce(ctx, "countNoAlt", "warn", "Xpath with no 'alt-proposed' tag: " + full);
+                                continue;
+                            }
+                            /*
 	            		if(alt.equals("XXXX")) {
 	            			alt = "proposed-u1-implicit1.7";
 	            			x = XPathTable.removeAlt(x, xpp);
 o	            		}*/
-	            		int n = XPathTable.altProposedToUserid(altPieces[1]);
-	            		if(n<0) {
-	            			warner.warnOnce(ctx, "countNoUser", "warn", "Xpath with no userid in 'alt' tag: " + full);
-	            			continue;
-	            		}
-	            		User ui = null;
-             		    if(n>=0) ui = reg.getInfo(n);
-	            		if(ui==null) {
-	            			warner.warnOnce(ctx, "countBadUser", "warn", "Bad userid '"+n+"': " + full);
-	            			continue;
-	            		}
-	            		updUsers.add(ui);
-	            		XMLSource stSource = dbsrcfac.getInstance(loc);
-	            		String base_xpath = xpt.xpathToBaseXpath(x);
-	            		int base_xpath_id = xpt.getByXpath(base_xpath);
-	            		int vet_type[] = new int[1];
-	            		int j = vet.queryVote(loc, n, base_xpath_id, vet_type);
-	                    //int dpathId = xpt.getByXpath(xpathStr);
-	            		// now, find the ID to vote for.
-	            		Set<String> resultPaths = new HashSet<String>();
-	            		stSource.getPathsWithValue(val, base_xpath, resultPaths);
-	            		
-	            		String resultPath = null;
+                            int n = XPathTable.altProposedToUserid(altPieces[1]);
+                            if(n<0) {
+                                warner.warnOnce(ctx, "countNoUser", "warn", "Xpath with no userid in 'alt' tag: " + full);
+                                continue;
+                            }
+                            User ui = null;
+                            if(n>=0) ui = reg.getInfo(n);
+                            if(ui==null) {
+                                warner.warnOnce(ctx, "countBadUser", "warn", "Bad userid '"+n+"': " + full);
+                                continue;
+                            }
+                            updUsers.add(ui);
+                            String base_xpath = xpt.xpathToBaseXpath(x);
+                            int base_xpath_id = xpt.getByXpath(base_xpath);
+                            int vet_type[] = new int[1];
+                            int j = vet.queryVote(loc, n, base_xpath_id, vet_type);
+                            //int dpathId = xpt.getByXpath(xpathStr);
+                            // now, find the ID to vote for.
+                            Set<String> resultPaths = new HashSet<String>();
+                            String baseNoAlt = xpt.removeAlt(base_xpath);
+                            if(altPieces[0]==null) {
+                                stSource.getPathsWithValue(val, base_xpath, resultPaths);
+                            } else {
+                                Set<String> lotsOfPaths = new HashSet<String>();
+                                stSource.getPathsWithValue(val, baseNoAlt, lotsOfPaths);
+//                                System.err.println("pwv["+val+","+baseNoAlt+",)="+lotsOfPaths.size());
+                                if(!lotsOfPaths.isEmpty()) {
+                                    for(String s : lotsOfPaths) {
+                                        String alt2 = XPathTable.getAlt(s, xpp);
+                                        if(alt2 != null) {
+                                            String altPieces2[] = LDMLUtilities.parseAlt(alt2);
+                                            if(altPieces2[0]!=null && altPieces[0].equals(altPieces[0])) {
+                                                resultPaths.add(s);
+//                                                System.err.println("==match: " + s);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
 
-//                                 if(warner.count("countAdd")==0 && warner.count("countVoteMain")==0) {
-//                                     ctx.println("<tr><th>");				
-//                                     ctx.println("<a href='"+ctx.base()+"?_="+loc+"&xpath="+base_xpath_id+"'>");
-//                                     ctx.println(base_xpath_id+"</a></th>");
-//                                     ctx.println("<td>" + j+"</td><td>"+val+"</td>");
-//                                     ctx.println("<td>");
-//                                 }
-	
-				if(exc[0]!=null) {
-					ctx.println("Exceptions on DAIP: ");
-					for(Exception ex : exc) { 
-						ctx.print(ex.toString()+" ");
-						ex.printStackTrace();
-					}
-					ctx.println("<br>");
-				}
+                            String resultPath = null;
+
+                            //                                 if(warner.count("countAdd")==0 && warner.count("countVoteMain")==0) {
+                            //                                     ctx.println("<tr><th>");				
+                            //                                     ctx.println("<a href='"+ctx.base()+"?_="+loc+"&xpath="+base_xpath_id+"'>");
+                            //                                     ctx.println(base_xpath_id+"</a></th>");
+                            //                                     ctx.println("<td>" + j+"</td><td>"+val+"</td>");
+                            //                                     ctx.println("<td>");
+                            //                                 }
+
+                            if(exc[0]!=null) {
+                                ctx.println("Exceptions on DAIP: ");
+                                for(Exception ex : exc) { 
+                                    ctx.print(ex.toString()+" ");
+                                    ex.printStackTrace();
+                                }
+                                ctx.println("<br>");
+                            }
 
 
-	            		if(resultPaths.isEmpty()) {
-				    warner.warnOnce(ctx, "countAdd", "zoom", "Value must be added", xpt.getPrettyPath(base_xpath)+": " + val );
-	            			if(!doimpbulk) {
-	            				warner.warnOnce(ctx, "countReady", "okay","<i>Ready to update.</i>");
-						ctx.println("</td></tr>");
-	            				continue; // don't try to add.
-	            			}
-	            			/* NOW THE FUN PART */
-	            			for(int i=0;(resultPath==null)&&i<1000;i++) {
-	            				String proposed = "proposed-u"+n+"-b"+i;
-	            				String newAlt = LDMLUtilities.formatAlt(altPieces[0], proposed);
-	            				String newxpath = base_xpath+"[@alt=\"" + newAlt + "\"]";
-	            				String newoxpath = newxpath+"[@draft=\"unconfirmed\"]";
+                            if(resultPaths.isEmpty()) {
+                                warner.warnOnce(ctx, "countAdd", "zoom", "Value must be added", xpt.getPrettyPath(base_xpath)+": " + val );
+                                if(!doimpbulk) {
+                                    warner.warnOnce(ctx, "countReady", "okay","<i>Ready to update.</i>");
+                                    ctx.println("</td></tr>");
+                                    continue; // don't try to add.
+                                }
+                                /* NOW THE FUN PART */
+                                for(int i=0;(resultPath==null)&&i<1000;i++) {
+                                    String proposed = "proposed-u"+n+"-b"+i;
+                                    String newAlt = LDMLUtilities.formatAlt(altPieces[0], proposed);
+                                    String newxpath = baseNoAlt+"[@alt=\"" + newAlt + "\"]";
+                                    String newoxpath = newxpath+"[@draft=\"unconfirmed\"]";
 
-	            				if(stSource.hasValueAtDPath(newxpath)) continue;
-	            				
-	            				/* Write! */
-	            				stSource.putValueAtPath(newoxpath, val);
-	            				  toUpdate.add(loc);
-	            				
-	            				resultPath = newxpath;
-						if(warner.count("countAdd")<2) {
-	            					Set<String> nresultPaths = new HashSet<String>();
-	            					stSource.getPathsWithValue(val, base_xpath, nresultPaths);
-							ctx.println(">> now have " + nresultPaths.size() + " paths with value: <tt>"+base_xpath+"</tt> <ol>");
-							for(String res : nresultPaths) { 
-								ctx.println(" <li>"+res+"</li>\n");
-							}
-							ctx.println("</ol>\n");
-							String nr = stSource.getValueAtDPath(newxpath);
-							if(nr==null) {
-								ctx.println("Couldn't get valueatdpath "+ newxpath+"<br>\n");
-							} else if(nr.equals(val)) {
-							//	ctx.println("RTT ok with " + newxpath + " !<br>\n");
-							} else {
-								ctx.println("RTT not ok!!!!<br>\n");
-							}
-						}
-	            			}
-	            			
-	            			
-	            		} else if(resultPaths.size()>1) {
-	            			/* ok, more than one result. stay cool.. */
-	            			/* #1 - look for the base xpath. */
-	            			for(String path : resultPaths) {
-	            				if(path.equals(base_xpath)) {
-	            					resultPath = path;
-	            					warner.warnOnce(ctx, "countVoteMain", "squo", "Using base xpath for " + base_xpath);
-	            				}
-	            			}
-	            			/* #2 look for something with a vote */
-	            			if(resultPath==null) {
-	            				String winPath = stSource.getWinningPath(base_xpath);
-	            				String winDpath = CLDRFile.getDistinguishingXPath(winPath, null, true);
-	            				for(String path : resultPaths) {
-		            				String aDPath = CLDRFile.getDistinguishingXPath(path, null, true);	
-		            				if(aDPath.equals(winDpath)) {
-		          if(false)  					ctx.println("Using winning dpath " + aDPath +"<br>");
-	            						resultPath = aDPath;
-		            				}
-	            				}
-	            			}
-	            			/* #3 just take the first one */
-	            			if(resultPath==null) {
-		            			resultPath = resultPaths.toArray(new String[0])[0];
-		            			//ctx.println("Using [0] path " + resultPath);
-	            			}
-	            			if(resultPath==null) {
-	            				ctx.println(ctx.iconHtml("stop", "more than one result!")+"More than one result!<br>");
-	            				if(true) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +")<br/>");
-					ctx.println("</td></tr>");
-	            				continue;
-	            			}
-	            		} else{
-	            			resultPath = resultPaths.toArray(new String[0])[0];
-	            		}
+                                    if(stSource.hasValueAtDPath(newxpath)) continue;
 
-	            		/*temp*/if(resultPath == null) {
-					ctx.println("</td></tr>");
-	            			continue; 
-	            		}
-	            		
-	                    String xpathStr = CLDRFile.getDistinguishingXPath(resultPath, null, false);
-	            		int dpathId = xpt.getByXpath(xpathStr);
-	            		if(false) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +"/" + dpathId+" <br/>");
+                                    /* Write! */
+                                    stSource.putValueAtPath(newoxpath, val);
+                                    toUpdate.add(loc);
 
-	            		
-	            		
-	            		
-	                     if(dpathId == j) {
-				 warner.warnOnce(ctx, "countAlready", "squo", "Vote already correct");
-//	                    	ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
-//	                    	  already++;
-	                      } else {
-	                          if(j>-1) {
-	                        	  if(vet_type[0]==Vetting.VET_IMPLIED) {
-					      warner.warnOnce(ctx, "countOther", "okay", "Changing existing implied vote");
-	                        	  } else {
-					      warner.warnOnce(ctx, "countExplicit", "warn", "NOT changing existing different vote");
-					ctx.println("</td></tr>");
-	                        		  continue;
-	                        	  }
-//	            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
-//	            			  different++;
-	                          }
-	            			  if(doimpbulk) {
-	            				  vet.vote(loc, base_xpath_id, n, dpathId, Vetting.VET_IMPLIED);
-	            				  toUpdate.add(loc);
-	            				  warner.warnOnce(ctx, "countReady", "okay","<i>Updating.</i>");
-	            			  } else {
-	            				  warner.warnOnce(ctx, "countReady", "okay","<i>Ready to update.</i>");
-	            				/*  wouldhit++;
+                                    resultPath = newxpath;
+                                    if(warner.count("countAdd")<2) {
+                                        Set<String> nresultPaths = new HashSet<String>();
+                                        stSource.getPathsWithValue(val, base_xpath, nresultPaths);
+                                        ctx.println(">> now have " + nresultPaths.size() + " paths with value: <tt>"+base_xpath+"</tt> <ol>");
+                                        for(String res : nresultPaths) { 
+                                            ctx.println(" <li>"+res+"</li>\n");
+                                        }
+                                        ctx.println("</ol>\n");
+                                        String nr = stSource.getValueAtDPath(newxpath);
+                                        if(nr==null) {
+                                            ctx.println("Couldn't get valueatdpath "+ newxpath+"<br>\n");
+                                        } else if(nr.equals(val)) {
+                                            //	ctx.println("RTT ok with " + newxpath + " !<br>\n");
+                                        } else {
+                                            ctx.println("RTT not ok!!!!<br>\n");
+                                        }
+                                    }
+                                }
+
+
+                            } else if(resultPaths.size()>1) {
+                                /* ok, more than one result. stay cool.. */
+                                /* #1 - look for the base xpath. */
+                                for(String path : resultPaths) {
+                                    if(path.equals(base_xpath)) {
+                                        resultPath = path;
+                                        warner.warnOnce(ctx, "countVoteMain", "squo", "Using base xpath for " + base_xpath);
+                                    }
+                                }
+                                /* #2 look for something with a vote */
+                                if(resultPath==null) {
+                                    String winPath = stSource.getWinningPath(base_xpath);
+                                    String winDpath = CLDRFile.getDistinguishingXPath(winPath, null, true);
+                                    for(String path : resultPaths) {
+                                        String aDPath = CLDRFile.getDistinguishingXPath(path, null, true);	
+                                        if(aDPath.equals(winDpath)) {
+                                            if(false)  					ctx.println("Using winning dpath " + aDPath +"<br>");
+                                            resultPath = aDPath;
+                                        }
+                                    }
+                                }
+                                /* #3 just take the first one */
+                                if(resultPath==null) {
+                                    resultPath = resultPaths.toArray(new String[0])[0];
+                                    //ctx.println("Using [0] path " + resultPath);
+                                }
+                                if(resultPath==null) {
+                                    ctx.println(ctx.iconHtml("stop", "more than one result!")+"More than one result!<br>");
+                                    if(true) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +")<br/>");
+                                    ctx.println("</td></tr>");
+                                    continue;
+                                }
+                            } else{
+                                resultPath = resultPaths.toArray(new String[0])[0];
+                            }
+
+                            /*temp*/if(resultPath == null) {
+                                ctx.println("</td></tr>");
+                                continue; 
+                            }
+
+                            String xpathStr = CLDRFile.getDistinguishingXPath(resultPath, null, false);
+                            int dpathId = xpt.getByXpath(xpathStr);
+                            if(false) ctx.println(loc+" " + xpt.getPrettyPath(base_xpath) + " / "+ alt + " (#"+n+" - " + ui +"/" + dpathId+" <br/>");
+
+
+
+
+                            if(dpathId == j) {
+                                warner.warnOnce(ctx, "countAlready", "squo", "Vote already correct");
+                                //	                    	ctx.println(" "+ctx.iconHtml("squo","current")+" ( == current vote ) <br>");
+                                //	                    	  already++;
+                            } else {
+                                if(j>-1) {
+                                    if(vet_type[0]==Vetting.VET_IMPLIED) {
+                                        warner.warnOnce(ctx, "countOther", "okay", "Changing existing implied vote");
+                                    } else {
+                                        warner.warnOnce(ctx, "countExplicit", "warn", "NOT changing existing different vote");
+                                        ctx.println("</td></tr>");
+                                        continue;
+                                    }
+                                    //	            			  ctx.println(" "+ctx.iconHtml("warn","already")+"Current vote: "+j+"<br>");
+                                    //	            			  different++;
+                                }
+                                if(doimpbulk) {
+                                    vet.vote(loc, base_xpath_id, n, dpathId, Vetting.VET_IMPLIED);
+                                    toUpdate.add(loc);
+                                    warner.warnOnce(ctx, "countReady", "okay","<i>Updating.</i>");
+                                } else {
+                                    warner.warnOnce(ctx, "countReady", "okay","<i>Ready to update.</i>");
+                                    /*  wouldhit++;
 	            				  toUpdate.add(loc);*/
-	            			  }
-	            		  }
-				ctx.println("</td></tr>");
-	            		  
-	            	  } /* end xpath */
-// 			ctx.println("</table>");
-	            	  ctx.println("<hr>");
-	            	  /*if(already>0 ) {
+                                }
+                            }
+                            ctx.println("</td></tr>");
+
+                        } /* end xpath */
+                        // 			ctx.println("</table>");
+                        ctx.println("<hr>");
+                        /*if(already>0 ) {
 	            		  ctx.println(" "+ctx.iconHtml("squo","current")+""+already+" items already had the correct vote.<br>");
 	            	  }
 	            	  if(different>0) {
@@ -1613,40 +1642,40 @@ o	            		}*/
 	                      actionCtx.printUrlAsHiddenFields();
 	                      ctx.println("<input type=submit value='Accept all implied votes' name='doimpbulk'></form>");
 	            	  }*/
-			if(!toUpdate.isEmpty()) {
-			   ctx.println("Updating: ");
-	            	  for(CLDRLocale toul : toUpdate) {
-	            		  this.updateLocale(toul);
-				dbsrcfac.needUpdate(toul);
-				ctx.println(toul+" ");
-	            	  }
-			  ctx.println("<br>");
-			  ctx.println("Clearing cache: #"+dbsrcfac.update()+"<br>");
-			}
-	            	  toUpdate.clear();
-			  
-			  warner.summarize(ctx);
+                        if(!toUpdate.isEmpty()) {
+                            ctx.println("Updating: ");
+                            for(CLDRLocale toul : toUpdate) {
+                                this.updateLocale(toul);
+                                dbsrcfac.needUpdate(toul);
+                                ctx.println(toul+" ");
+                            }
+                            ctx.println("<br>");
+                            ctx.println("Clearing cache: #"+dbsrcfac.update()+"<br>");
+                        }
+                        toUpdate.clear();
 
-              	    } /* end sync */
-	              } /* end outer loop */
+                        warner.summarize(ctx);
+
+                    } /* end sync */
+                } /* end outer loop */
                 } finally {
                     progress.close();
                 }
-	            ctx.println("<hr>");
-	            ctx.println("<h3>Users involved:</h3>");
-	            for(User auser : updUsers) {
-	            	ctx.println(auser.toString());
-	            	ctx.println("<br>");
-	            }
-/*
+                ctx.println("<hr>");
+                ctx.println("<h3>Users involved:</h3>");
+                for(User auser : updUsers) {
+                    ctx.println(auser.toString());
+                    ctx.println("<br>");
+                }
+                /*
             } catch (SQLException t) {
                  t.printStackTrace();
                  ctx.println("<b>Err in bulk import </b> <pre>" + unchainSqlException(t)+"</pre>");
-*/
+                 */
             } catch (Throwable t) {
-		t.printStackTrace();
-		ctx.println("Err : " + t.toString() );
-	    }
+                t.printStackTrace();
+                ctx.println("Err : " + t.toString() );
+            }
         } else if(action.equals("srl")) {
             ctx.println("<h1>"+ctx.iconHtml("warn", "warning")+"Please be careful!</h1>");
         } else if(action.equals("srl_vet_imp")) {

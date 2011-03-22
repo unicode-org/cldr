@@ -14,6 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
@@ -34,12 +35,14 @@ public class TestCoverageLevel extends TestFmwk {
 
     private static TestInfo testInfo = TestInfo.getInstance();
 
-    private CoverageLevel coverageLevel = new CoverageLevel();
+    private CoverageLevel coverageLevel1 = new CoverageLevel();
 
 
     private static int count = 0;
 
     public static void main(String[] args) throws IOException {
+        new TestCoverageLevel().getStarred("de");
+        if (true) return;
         new TestCoverageLevel().run(args);
     }
 
@@ -53,7 +56,7 @@ public class TestCoverageLevel extends TestFmwk {
         ULocale ulocale = new ULocale(locale);
 
         CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
-        coverageLevel.setFile(cldrFileToCheck, options, null, possibleErrors);
+        coverageLevel1.setFile(cldrFileToCheck, options, null, possibleErrors);
 
         Map<Row.R2<Level, Level>, Relation<String, String>> failures = new TreeMap<Row.R2<Level, Level>, Relation<String, String>>(); // Relation.of(new HashMap<Row.R2<Level, Integer>, Set<Relation<String,String>>>(), HashSet.class);
 
@@ -74,7 +77,7 @@ public class TestCoverageLevel extends TestFmwk {
 //            if (path.contains("ethiopic")) {
 //                System.out.println("?");
 //            }
-            Level level = coverageLevel.getCoverageLevel(fullPath);     
+            Level level = coverageLevel1.getCoverageLevel(fullPath);     
             
             Level newLevel = Level.fromLevel(testInfo.getSupplementalDataInfo().getCoverageValue(path, ulocale));
             if (newLevel != level) {
@@ -131,6 +134,47 @@ public class TestCoverageLevel extends TestFmwk {
             }
         }
     }
+    
+    private static void getStarred(String locale) {
+        ULocale ulocale = new ULocale(locale);
+        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(locale);
+
+        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
+
+        Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new HashMap<Row.R2<Level, Integer>, Set<Relation<String,String>>>(), HashSet.class);
+
+        int count = 0;
+        PathStarrer pathStarrer = new PathStarrer();
+
+        for (String path : cldrFileToCheck) {
+            ++count;
+            if (path.contains("/alias")) {
+                continue;
+            }
+            String fullPath = cldrFileToCheck.getFullXPath(path);
+            if (fullPath == null) {
+                continue;
+            }
+//            if (path.contains("ethiopic")) {
+//                System.out.println("?");
+//            }
+            Level level = coverageLevel2.getLevel(path);
+            
+            //R2<Level, Level> key = Row.of(level, newLevel);
+            String starredPath = pathStarrer.set(path);
+            Relation<String, String> starredToAttributes = data.get(level);
+            if (starredToAttributes == null) {
+                data.put(level, starredToAttributes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
+            }
+            starredToAttributes.put(starredPath, pathStarrer.getAttributesString("|"));
+        }
+        for (Entry<Level, Relation<String, String>> entry : data.entrySet()) {
+            final Level level = entry.getKey();
+            for (Entry<String, Set<String>> entry2 : entry.getValue().keyValuesSet()) {
+                System.out.println(level.getLevel() + "\t" + level + "\t" + entry2.getKey() + "\t" + entry2.getValue());
+            }
+        }
+    }
 
     public void TestTime() { 
         checkTime("en");
@@ -144,19 +188,19 @@ public class TestCoverageLevel extends TestFmwk {
         CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
 
         Timer t = new Timer();
-        coverageLevel.setFile(cldrFileToCheck, options, null, possibleErrors);
+        coverageLevel1.setFile(cldrFileToCheck, options, null, possibleErrors);
         for (String path : cldrFileToCheck) {
             String fullPath = cldrFileToCheck.getFullXPath(path);
             if (fullPath == null) {
                 continue;
             }
-            Level level = coverageLevel.getCoverageLevel(fullPath);            
+            Level level = coverageLevel1.getCoverageLevel(fullPath);            
         }
         long oldTime = t.getDuration();
         logln("Old time:\t" + t.toString());
 
         t.start();
-        coverageLevel.setFile(cldrFileToCheck, options, null, possibleErrors);
+        coverageLevel1.setFile(cldrFileToCheck, options, null, possibleErrors);
         for (String path : cldrFileToCheck) {
             String fullPath = cldrFileToCheck.getFullXPath(path);
             if (fullPath == null) {
@@ -185,14 +229,14 @@ public class TestCoverageLevel extends TestFmwk {
 
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
-            coverageLevel.setFile(cldrFileToCheck, options, null, possibleErrors);
+            coverageLevel1.setFile(cldrFileToCheck, options, null, possibleErrors);
             for (String path : cldrFileToCheck) {
                 String fullPath = cldrFileToCheck.getFullXPath(path);
                 if (fullPath == null) {
                     continue;
                 }
                 try {
-                    Level level = coverageLevel.getCoverageLevel(fullPath);
+                    Level level = coverageLevel1.getCoverageLevel(fullPath);
                     values.put(level, path);
                 } catch (Exception e) {
                     String value = cldrFileToCheck.getStringValue(path);

@@ -140,9 +140,12 @@ public class TestUtilities {
             String examples = englishExampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT);
             if (examples != null)
                 result.append(examples).append("<hr>");
-            String helpText = englishExampleGenerator.getHelpHtml(path, null);
-            if (helpText != null)
+            String helpText = englishExampleGenerator.getHelpHtml(path, "@");
+            if (helpText != null) {
                 result.append(helpText).append("<hr>");
+            } else {
+                System.out.println("No help phrase for " + path);
+            }
             if (result.length() != 0) {
                 message_paths.put(result.toString(), path + "\t:\t" + value);
             } else {

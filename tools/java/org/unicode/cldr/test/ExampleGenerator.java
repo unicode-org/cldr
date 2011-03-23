@@ -840,6 +840,9 @@ public class ExampleGenerator {
      * @return null if none available.
      */
     public synchronized String getHelpHtml(String xpath, String value) {
+        
+        // lazy initialization
+        
         if (pathDescription == null) {
             Map<String, List<Set<String>>> starredPaths = new HashMap();
             Map<String, String> extras = new HashMap();
@@ -851,9 +854,12 @@ public class ExampleGenerator {
                 helpMessages = new HelpMessages("test_help_messages.html");
             }
         }
+        
+        // now get the description
+        
         Level level = coverageLevel.getLevel(xpath);
         String description = pathDescription.getDescription(xpath, value, level, null);
-        if (description == null) {
+        if (description == null || description.equals("SKIP")) {
             return null;
         }
         // http://cldr.org/translation/timezones

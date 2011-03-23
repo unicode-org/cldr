@@ -627,7 +627,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 out.println("(Sorry,  we can't automatically retry your "+request.getMethod()+" request - you may attempt Reload in a few seconds "+
                             "<a href='"+base+"'>or click here</a><br>");
             } else {
-                out.println("We will <a href='"+base+"'>reload this page in "+sec+" seconds, or you may click here.</a>");
+                out.println("If this page does not load in "+sec+" seconds, you may <a href='"+base+"'>click here to go to the main Survey Tool page</a>");
             }
             out.print(sysmsg("startup_footer"));
             if(!SurveyMain.isUnofficial) {
@@ -7599,7 +7599,7 @@ o	            		}*/
                 }
             }
             // -----
-            if(!partialPeas) {
+            if(!partialPeas && !(matcher!=null&&matcher.getXPath()!=XPathTable.NO_XPATH)) {
                 skip = showSkipBox(ctx, dSet, oskip);
             } else {
                 skip = 0;
@@ -7709,7 +7709,9 @@ o	            		}*/
                 }
                 
                 
-                /*skip = */ showSkipBox(ctx, dSet, oskip);
+                if(!(matcher!=null&&matcher.getXPath()!=XPathTable.NO_XPATH)) {
+                    /*skip = */ showSkipBox(ctx, dSet, oskip);
+                }
                 
                 if(!canModify) {
                     ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
@@ -8731,7 +8733,7 @@ o	            		}*/
                         ctx.println("</select>");
                     }
                     ctx.print("</label>");
-                } else {
+                } else if(false) {
                     ctx.print("<a "+ctx.atarget("ref_"+ctx.getLocale())+" href='"+refCtx.url()+"'>Add Reference</a>");
                 }
             }
@@ -8961,7 +8963,7 @@ o	            		}*/
 
 	    	ctx.print("<br><hr><i>Voting results by item:</i>");
 	    	ctx.print("<table class='list' border=1 summary='voting results by item'>");
-	    	ctx.print("<tr class='heading'><th>Value</th><th>Item</th><th>Score</th><th>O/N</th><th>Status 1.6</th><th>Status 1.7</th></tr>");
+	    	ctx.print("<tr class='heading'><th>Value</th><th>Item</th><th>Score</th><th>O/N</th><th>Status "+oldVersion+"</th><th>Status "+newVersion+"</th></tr>");
 	    	int nn=0;
 
 	    	int lastReleaseXpath = r.getLastReleaseXpath();
@@ -10499,7 +10501,7 @@ o	            		}*/
 	                    for(CLDRLocale locale : sm.getLocales()) {
 	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
 	                        xctx.setLocale(locale);
-	                    	DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false);
+	                    	DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false, "modern");
 	                    	System.err.println("Made: " + qt.toString() + " -- " + freeMem());
 	                    }
                     }
@@ -10514,7 +10516,7 @@ o	            		}*/
 //	                    for(CLDRLocale locale : sm.getLocales()) {
 	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
 	                        xctx.setLocale(locale);
-	                    	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false);
+	                    	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false,"modern");
 	                        DataSection.DisplaySet set = ds.createDisplaySet(SortMode.getInstance(SurveyMain.PREF_SORTMODE_CODE_CALENDAR), null);
 	                    	System.err.println("Made: " + qt.toString() + " -- " + freeMem());
 //	                    }
@@ -10526,7 +10528,7 @@ o	            		}*/
 	                xctx.session=cs;
 	                CLDRLocale locale = CLDRLocale.getInstance("az_Arab");
                     xctx.setLocale(locale);
-                	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false);
+                	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false,"modern");
                 	long startTime = System.currentTimeMillis();
                     com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName());
 	                for(int jj=0;jj<10000;jj++) {

@@ -634,7 +634,7 @@ public class SurveyForum {
 		if(ssrh == null) {
 			ssrh = new SummarizingSubmissionResultHandler();
 		}
-		ctx.sm.vet.processPodChanges(ctx, DataSection.xpathToSectionBase(baseXpath), ssrh);
+		ctx.sm.vet.processPodChanges(ctx, DataSection.xpathToSectionBase(baseXpath), ssrh, null);
 		return ssrh;
 	}
 
@@ -732,12 +732,12 @@ public class SurveyForum {
 			ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
 
 			ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
-			sm.vet.processPodChanges(ctx, podBase, new DefaultDataSubmissionResultHandler(ctx));
+			sm.vet.processPodChanges(ctx, podBase, new DefaultDataSubmissionResultHandler(ctx), "comprehensive");// always use comprehensive - so no cov filtering
 		} else {
 			//            ctx.println("<br>cant modify " + ctx.locale + "<br>");
 		}
 
-		DataSection section = ctx.getSection(podBase);
+		DataSection section = ctx.getSection(podBase,"comprehensive"); // always use comprehensive - so no cov filtering
 
 		sm.showPeas(ctx, section, canModify, BaseAndPrefixMatcher.getInstance(base_xpath,null), true);
 		sm.printPathListClose(ctx);

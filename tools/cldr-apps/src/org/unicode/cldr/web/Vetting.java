@@ -2776,7 +2776,7 @@ if(true == true)    throw new InternalError("removed from use.");
      */
     public boolean processPodChanges(WebContext inputContext, String podBase) {
     	final WebContext ctx = inputContext;
-    	return processPodChanges(ctx, podBase, new DefaultDataSubmissionResultHandler(ctx));
+    	return processPodChanges(ctx, podBase, new DefaultDataSubmissionResultHandler(ctx), null);
     }
     /**
      * process all changes to this pod
@@ -2786,9 +2786,21 @@ if(true == true)    throw new InternalError("removed from use.");
      * @return true if any changes were processed
      */
     public boolean processPodChanges(WebContext ctx, String podBase, DataSubmissionResultHandler dsrh) {
+        return processPodChanges(ctx, podBase, dsrh, ctx.getEffectiveCoverageLevel());
+    }
+
+    /**
+     * process all changes to this pod
+     * @param ctx WebContext of user
+     * @param podBase the XPATH base of a pod, see DataPod.xpathToPodBase
+     * @param dsrh result handler
+     * @param ptype TODO
+     * @return true if any changes were processed
+     */
+    public boolean processPodChanges(WebContext ctx, String podBase, DataSubmissionResultHandler dsrh, String ptype) {
         synchronized (ctx.session) {
             // first, do submissions.
-            DataSection oldSection = ctx.getExistingSection(podBase);
+            DataSection oldSection = ctx.getExistingSection(podBase,ptype);
             
 //            System.err.println("PPC["+podBase+"] - ges-> " + oldSection);
             

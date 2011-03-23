@@ -1177,7 +1177,7 @@ public class WebContext implements Cloneable {
     DataSection getExistingSection(String prefix) {
         return getExistingSection(prefix, getEffectiveCoverageLevel());
     }
-    
+        
     /**
      * Get the DataSection for the given xpath prefix and default ptype, even if it may be no longer valid.
      * May be null.
@@ -1218,7 +1218,7 @@ public class WebContext implements Cloneable {
         	// TODO: parameterize
         	// test case: make the data section 50x
             for(int q=0;q<50;q++) {
-                DataSection.make(this, locale, prefix, false);
+                DataSection.make(this, locale, prefix, false,ptype);
             }
         }
     
@@ -1236,7 +1236,7 @@ public class WebContext implements Cloneable {
 	                progress.update("<span title='"+sm.xpt.getPrettyPath(prefix)+"'>"+locale+"</span>");
 	                long t0 = System.currentTimeMillis();
 	                ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-	                section = DataSection.make(this, locale, prefix, false);
+	                section = DataSection.make(this, locale, prefix, false,ptype);
 	                if((System.currentTimeMillis()-t0) > 10 * 1000) {
 	                    println("<i><b>" + podTimer + "</b></i><br/>");
 	                }
@@ -1302,10 +1302,10 @@ public class WebContext implements Cloneable {
 	 * @see HelpMessages
 	 */
     public void printHelpHtml(String xpath) {
-        String helpHtml = surveyToolHelpMessages.find(xpath);
+        String helpHtml =         sm.getBaselineExample().getHelpHtml(xpath, "");
         if(helpHtml != null)  {
-            println("<div class='helpHtml'><!-- "+xpath+" -->\n"+helpHtml+"</div>");
-        }        
+            println("<div class='helpHtml'><h3 class='theHelp'>Help with "+sm.xpt.getPrettyPath(xpath)+"</h3><!-- "+xpath+" -->\n"+helpHtml+"</div>");
+        }
     }
     
     /**

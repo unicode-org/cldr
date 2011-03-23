@@ -105,11 +105,14 @@ public class DataSection extends Registerable {
     
     public boolean hasExamples = false;
     
-    public String intgroup; 
-    DataSection(SurveyMain sm, CLDRLocale loc, String prefix) {
+    public String intgroup;
+
+    private String ptype; 
+    DataSection(SurveyMain sm, CLDRLocale loc, String prefix, String ptype) {
         super(sm.lcr,loc); // initialize call to LCR
 
         this.sm = sm;
+        this.ptype = ptype;
         xpathPrefix = prefix;
         fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
         intgroup = loc.getLanguage(); // calculate interest group
@@ -955,7 +958,8 @@ public class DataSection extends Registerable {
 ///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
 
                 if(!matcher.matches(p.xpath(), p.base_xpath)) {
-                	continue;
+                    System.err.println("not match: " + p.base_xpath + " / " + p.xpath());
+                    continue;
                 } else {
                 	newSet.add(p);
                 }
@@ -965,7 +969,7 @@ public class DataSection extends Registerable {
         if(matcher!=null) {
         	matchName = matcher.getName();
         }
-        if(sm.isUnofficial) System.err.println("Loaded "+ newSet.size() + " from " + matchName + " - base xpath = " + this.xpathPrefix);
+        if(sm.isUnofficial) System.err.println("Loaded "+ newSet.size() + " from " + matchName + " - base xpath ("+rowsHash.size()+")  = " + this.xpathPrefix);
         return newSet.toArray(new DataRow[newSet.size()]);
     }
     
@@ -977,8 +981,8 @@ public class DataSection extends Registerable {
 	 * @param prefix XPATH prefix
 	 * @param simple if true, means that data is simply xpath+type. If false, all xpaths under prefix.
 	 */
-	public static DataSection make(WebContext ctx, CLDRLocale locale, String prefix, boolean simple) {
-		DataSection section = new DataSection(ctx.sm, locale, prefix);
+	public static DataSection make(WebContext ctx, CLDRLocale locale, String prefix, boolean simple, String ptype) {
+		DataSection section = new DataSection(ctx.sm, locale, prefix, ptype);
 //        section.simple = simple;
         SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
   
@@ -989,7 +993,7 @@ public class DataSection extends Registerable {
             if(checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-            String workingCoverageLevel = ctx.getEffectiveCoverageLevel();
+            String workingCoverageLevel = section.getPtype();
             com.ibm.icu.dev.test.util.ElapsedTimer cet;
             if(SHOW_TIME) {
                 cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
@@ -1005,12 +1009,15 @@ public class DataSection extends Registerable {
             section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
             if(SHOW_TIME) {
 				int allCount = section.getAll().size();
-                System.err.println("Populate+complete " + locale + " // " + prefix +":"+ctx.getEffectiveCoverageLevel()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
+                System.err.println("Populate+complete " + locale + " // " + prefix +":"+section.getPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
             }
         }
 		return section;
 	}
     
+    private String getPtype() {
+        return ptype;
+    }
     private static boolean isInitted = false;
     
     private static Pattern typeReplacementPattern;

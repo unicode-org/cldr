@@ -22,12 +22,15 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
@@ -41,9 +44,25 @@ public class TestCoverageLevel extends TestFmwk {
     private static int count = 0;
 
     public static void main(String[] args) throws IOException {
-        new TestCoverageLevel().getStarred("de");
+        new TestCoverageLevel().getOrgs("de");
         if (true) return;
+        new TestCoverageLevel().getStarred("de");
         new TestCoverageLevel().run(args);
+    }
+
+    private void getOrgs(String string) {
+        StandardCodes sc = StandardCodes.make();
+        Set<R4<String, Level, String, String>> sorted = new TreeSet<R4<String, Level, String, String>>();
+        for (String org : sc.getLocaleCoverageOrganizations()) {
+            for (String locale : sc.getLocaleCoverageLocales(org)) {
+                Level level = sc.getLocaleCoverageLevel(org, locale);
+                final R4<String, Level, String, String> row = Row.of(org, level, locale, new ULocale(locale).getName());
+                sorted.add(row);
+            }
+        }
+        for (R4<String, Level, String, String> item : sorted) {
+            System.out.println(item);
+        }
     }
 
     public void TestNewVsOld() {

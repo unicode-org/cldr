@@ -254,8 +254,9 @@ LISA	;	ne	;	basic
 LISA	;	kok	;	basic
 LISA	;	sw	;	basic
 
-
+#Google Tier 1
 Google	;	en	;	comprehensive	;	American English
+
 Google	;	en_GB	;	modern	;	British English
 Google	;	fr	;	modern	;	French
 Google	;	de	;	modern	;	German
@@ -273,64 +274,72 @@ Google	;	th	;	modern	;	Thai
 Google	;	zh_Hant	;	modern	;	Traditional Chinese
 Google	;	tr	;	modern	;	Turkish
 
-Google	;	bg	;	moderate	;	Bulgarian
-Google	;	ca	;	moderate	;	Catalan
-Google	;	hr	;	moderate	;	Croatian
-Google	;	cs	;	moderate	;	Czech
-Google	;	da	;	moderate	;	Danish
-Google	;	fil	;	moderate	;	Filipino
-Google	;	fi	;	moderate	;	Finnish
-Google	;	el	;	moderate	;	Greek
-Google	;	he	;	moderate	;	Hebrew
-Google	;	hi	;	moderate	;	Hindi
-Google	;	hu	;	moderate	;	Hungarian
-Google	;	pt_PT	;	moderate	;	Iberian Portuguese
-Google	;	id	;	moderate	;	Indonesian
-Google	;	es_419	;	moderate	;	Latin American Spanish
-Google	;	lv	;	moderate	;	Latvian
-Google	;	lt	;	moderate	;	Lithuanian
-Google	;	nb	;	moderate	;	Norwegian (Bokmål)
-Google	;	fa	;	moderate	;	Persian
-Google	;	ro	;	moderate	;	Romanian
-Google	;	sr	;	moderate	;	Serbian
-Google	;	sk	;	moderate	;	Slovak
-Google	;	sl	;	moderate	;	Slovenian
-Google	;	sv	;	moderate	;	Swedish
-Google	;	uk	;	moderate	;	Ukrainian
-Google	;	vi	;	moderate	;	Vietnamese
+#Google Tier 2
+Google	;	bg	;	modern	;	Bulgarian
+Google	;	ca	;	modern	;	Catalan
+Google	;	hr	;	modern	;	Croatian
+Google	;	cs	;	modern	;	Czech
+Google	;	da	;	modern	;	Danish
+Google	;	fil	;	modern	;	Filipino
+Google	;	fi	;	modern	;	Finnish
+Google	;	el	;	modern	;	Greek
+Google	;	he	;	modern	;	Hebrew
+Google	;	hi	;	modern	;	Hindi
+Google	;	hu	;	modern	;	Hungarian
+Google	;	pt_PT	;	modern	;	Iberian Portuguese
+Google	;	id	;	modern	;	Indonesian
+Google	;	es_419	;	modern	;	Latin American Spanish
+Google	;	lv	;	modern	;	Latvian
+Google	;	lt	;	modern	;	Lithuanian
+Google	;	nb	;	modern	;	Norwegian (Bokmål)
+Google	;	fa	;	modern	;	Persian
+Google	;	ro	;	modern	;	Romanian
+Google	;	sr	;	modern	;	Serbian
+Google	;	sk	;	modern	;	Slovak
+Google	;	sl	;	modern	;	Slovenian
+Google	;	sv	;	modern	;	Swedish
+Google	;	uk	;	modern	;	Ukrainian
+Google	;	vi	;	modern	;	Vietnamese
 
-Google	;	am	;	basic	;	Amharic
-Google	;	eu	;	basic	;	Basque
-Google	;	bn	;	basic	;	Bengali
-Google	;	et	;	basic	;	Estonian
-Google	;	gu	;	basic	;	Gujarati
-Google	;	is	;	basic	;	Icelandic
-Google	;	kn	;	basic	;	Kannada
-Google	;	ms	;	basic	;	Malay
-Google	;	ml	;	basic	;	Malayalam
-Google	;	mr	;	basic	;	Marathi
-Google	;	sw	;	basic	;	Swahili 
-Google	;	ta	;	basic	;	Tamil
-Google	;	te	;	basic	;	Telugu
-Google	;	ur	;	basic	;	Urdu
+#Google Tier 3
+Google  ;   af  ;   modern ;   Afrikaans
+Google	;	am	;	modern	;	Amharic
+Google	;	bn	;	modern	;	Bengali
+Google	;	et	;	modern	;	Estonian
+Google	;	is	;	modern	;	Icelandic
+Google	;	ms	;	modern	;	Malay
+Google	;	mr	;	modern	;	Marathi
+Google	;	sw	;	modern	;	Swahili 
+Google	;	ta	;	modern	;	Tamil
 
-Google	;	af	;	minimal	;	Afrikaans
-Google	;	sq	;	minimal	;	Albanian
-Google	;	hy	;	minimal	;	Armenian
-Google	;	az	;	minimal	;	Azerbaijani
-Google	;	be	;	minimal	;	Belarusian
-Google	;	bs	;	minimal	;	Bosnian
-Google	;	fo	;	minimal	;	Faroese
-Google	;	gl	;	minimal	;	Galician
-Google	;	ka	;	minimal	;	Georgian
-Google	;	ga	;	minimal	;	Irish
-Google	;	kk	;	minimal	;	Kazakh
-Google	;	mk	;	minimal	;	Macedonian
-Google	;	mt	;	minimal	;	Maltese
-Google	;	mn	;	minimal	;	Mongolian
-Google	;	ne	;	minimal	;	Nepali
-Google	;	oc	;	minimal	;	Occitan
-Google	;	cy	;	minimal	;	Welsh
+#Google Tier 4
+Google  ;   te  ;   modern   ;   Telugu
+Google  ;   ur  ;   modern   ;   Urdu
+Google  ;   ml  ;   modern   ;   Malayalam
+Google  ;   kn  ;   modern   ;   Kannada
+Google  ;   gu  ;   modern   ;   Gujarati
+Google  ;   eu  ;   modern   ;   Basque
+Google  ;   gl  ;   modern ;   Galician
+Google  ;   fr_CA  ;   modern ;   Canadian French
+Google  ;   zh-Hant-HK ; modern ; Hong Kong Chinese (T)
+
+#Google Tier 5
+Google  ;   az  ;   basic   ;   Azerbaijani
+Google	;	sq	;	basic	;	Albanian
+Google  ;   ka  ;   basic   ;   Georgian
+Google	;	hy	;	basic	;	Armenian
+Google	;	mn	;	basic	;	Mongolian
+Google	;	be	;	basic	;	Belarusian
+Google  ;   mk  ;   basic   ;   Macedonian
+Google  ;   kk  ;   basic   ;   Kazakh
+Google  ;   mt  ;   basic   ;   Maltese
+Google	;	uz	;	basic	;	Uzbek
+Google	;	si	;	basic	;	Sinhala
+Google	;	km	;	basic	;	Khmer 
+Google	;	cy	;	basic	;	Welsh
+Google  ;   ne  ;   basic   ;   Nepali
+Google  ;   ku  ;   basic   ;   Kurdish
+Google	;	oc	;	basic	;	Occitan
 
 Apple	;	en	;	comprehensive
 Apple	;	da	;	modern

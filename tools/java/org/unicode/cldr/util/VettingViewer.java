@@ -333,7 +333,8 @@ public class VettingViewer<T> {
                     break;
                 case englishChanged:
                     if (outdatedPaths.isOutdated(localeID, path)
-                            || !CharSequences.equals(englishFile.getWinningValue(path), oldEnglishFile.getWinningValue(path))) {
+//                            || !CharSequences.equals(englishFile.getWinningValue(path), oldEnglishFile.getWinningValue(path))
+                            ) {
                         // the outdated paths compares the base value, before
                         // data submission,
                         // so see if the value changed.

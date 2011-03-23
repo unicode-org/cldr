@@ -315,7 +315,10 @@ public class VettingViewer<T> {
 
         // Initialize
         CoverageLevel2 coverage = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
-        CLDRFile lastSourceFile = cldrFactoryOld.make(localeID, true);
+        CLDRFile lastSourceFile = null;
+        try {
+            lastSourceFile = cldrFactoryOld.make(localeID, true);
+        } catch (Exception e) {}
 
         // set the following only where needed.
         Status status = null;
@@ -384,7 +387,7 @@ public class VettingViewer<T> {
             for (Choice choice : choices) {
                 switch (choice) {
                 case changedOldValue:
-                    String oldValue = lastSourceFile.getWinningValue(path);
+                    String oldValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
                     if (oldValue != null && !oldValue.equals(value)) {
                         problems.add(choice);
                         problemCounter.increment(choice);
@@ -405,7 +408,7 @@ public class VettingViewer<T> {
                         // the outdated paths compares the base value, before
                         // data submission,
                         // so see if the value changed.
-                        String lastValue = lastSourceFile.getWinningValue(path);
+                        String lastValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
                         if (CharSequences.equals(value, lastValue)) {
                             problems.add(choice);
                             problemCounter.increment(choice);
@@ -459,6 +462,9 @@ public class VettingViewer<T> {
     }
 
     private boolean isMissing(CLDRFile sourceFile, String path, Status status) {
+        if (sourceFile == null) {
+            return true;
+        }
         String localeFound = sourceFile.getSourceLocaleID(path, status);
         // only count it as missing IF the (localeFound is root or codeFallback) AND the aliasing didn't change the path
         boolean missing = false;
@@ -608,7 +614,7 @@ public class VettingViewer<T> {
                 // English value
                 addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
                 // value for last version
-                final String oldStringValue = lastSourceFile.getWinningValue(path);
+                final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
                 boolean oldValueMissing = isMissing(lastSourceFile, path, status);
 
                 addCell(output, oldStringValue, null, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
@@ -703,7 +709,7 @@ public class VettingViewer<T> {
         // here are per-view parameters
 
         final EnumSet<Choice> choiceSet = EnumSet.allOf(Choice.class);
-        String localeStringID = "de";
+        String localeStringID = "wae";
         int userNumericID = 666;
         Level usersLevel = Level.MODERN;
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");

@@ -177,6 +177,61 @@ public class VettingViewer<T> {
         public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T user);
     }
 
+    public static interface ErrorChecker {
+        enum Status {ok, error, warning}
+        /**
+         * Initialize an error checker with a cldrFile. MUST be called before any getErrorStatus.
+         */
+        public Status initErrorStatus(CLDRFile cldrFile);
+        /**
+         * Return the status, and append the error message to the status message.
+         */
+        public Status getErrorStatus(String path, String value, StringBuilder statusMessage);
+    }
+    
+    public static class DefaultErrorStatus implements ErrorChecker {
+
+        private CheckCLDR checkCldr;
+        private HashMap<String, String> options = new HashMap<String, String>();
+        private ArrayList<CheckStatus> result = new ArrayList<CheckStatus>();
+        private CLDRFile cldrFile;
+        
+        @Override
+        public Status initErrorStatus(CLDRFile cldrFile) {
+            this.cldrFile = cldrFile;
+            options = new HashMap<String, String>();
+            result = new ArrayList<CheckStatus>();
+            checkCldr = CheckCLDR.getCheckAll(".*");
+            checkCldr.setCldrFileToCheck(cldrFile, options, result);
+            return Status.ok;
+        }
+
+        @Override
+        public Status getErrorStatus(String path, String value, StringBuilder statusMessage) {
+            Status result0 = Status.ok;
+            CharSequence errorMessage = null;
+            String fullPath = cldrFile.getFullXPath(path);
+            checkCldr.check(path, fullPath, value, options, result);
+            for (CheckStatus checkStatus : result) {
+                final CheckCLDR cause = checkStatus.getCause();
+                if (cause instanceof CheckCoverage) {
+                    continue;
+                }
+                String statusType = checkStatus.getType();
+                if (statusType.equals(CheckStatus.errorType)) {
+                    result0 = Status.error;
+                    errorMessage = checkStatus.getMessage();
+                    break;
+                } else if (statusType.equals(CheckStatus.warningType)) {
+                    result0 = Status.warning;
+                    errorMessage = checkStatus.getMessage();
+                }
+            }
+            statusMessage.append(errorMessage);
+            return result0;
+        }
+    }
+
     private final Factory              cldrFactory;
     private final Factory              cldrFactoryOld;
     private final CLDRFile             englishFile;
@@ -186,6 +241,7 @@ public class VettingViewer<T> {
     private final String lastVersionTitle;
     private final String currentWinningTitle;
     private final PathDescription pathDescription;
+    private ErrorChecker errorChecker = new DefaultErrorStatus();
 
     /**
      * @param supplementalDataInfo
@@ -252,7 +308,6 @@ public class VettingViewer<T> {
         // set the following only where needed.
         Status status = null;
         OutdatedPaths outdatedPaths = null;
-        CheckCLDR checkCldr = null;
 
         Map<String, String> options = null;
         List<CheckStatus> result = null;
@@ -269,10 +324,7 @@ public class VettingViewer<T> {
                 break;
             case error:
             case warning:
-                checkCldr = CheckCLDR.getCheckAll(".*");
-                options = new HashMap<String, String>();
-                result = new ArrayList<CheckStatus>();
-                checkCldr.setCldrFileToCheck(sourceFile, options, result);
+                errorChecker.initErrorStatus(sourceFile);
                 break;
             case weLost:
             case other:
@@ -288,9 +340,11 @@ public class VettingViewer<T> {
 
         Counter<Choice> problemCounter = new Counter<Choice>();
         StringBuilder testMessage = new StringBuilder();
+        StringBuilder statusMessage = new StringBuilder();
 
         for (String path : sourceFile) {
             progressCallback.nudge(); // Let the user know we're moving along.
+            
             // note that the value might be missing!
 
             // make sure we only look at the real values
@@ -313,6 +367,7 @@ public class VettingViewer<T> {
 
             problems.clear();
             testMessage.setLength(0);
+            boolean haveError = false;
 
             for (Choice choice : choices) {
                 switch (choice) {
@@ -347,25 +402,17 @@ public class VettingViewer<T> {
                     break;
                 case error:
                 case warning:
-                    String fullPath = sourceFile.getFullXPath(path);
-                    checkCldr.check(path, fullPath, value, options, result);
-                    boolean haveItem = false;
-                    for (CheckStatus checkStatus : result) {
-                        final CheckCLDR cause = checkStatus.getCause();
-                        if (cause instanceof CheckCoverage) {
-                            continue;
-                        }
-                        String statusType = checkStatus.getType();
-                        if ((choice == Choice.error && statusType.equals(CheckStatus.errorType))
-                                || (choice == Choice.warning && statusType.equals(CheckStatus.warningType))) {
-                            problems.add(choice);
-                            appendToMessage(checkStatus.getMessage(), testMessage);
-                            haveItem = true;
-                            break;
-                        }
+                    if (haveError) {
+                        break;
                     }
-                    if (haveItem) {
+                    ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage);
+                    if ((choice == Choice.error && errorStatus == ErrorChecker.Status.error)
+                            || (choice == Choice.warning && errorStatus == ErrorChecker.Status.warning)) {
+                        problems.add(choice);
+                        appendToMessage(statusMessage, testMessage);
                         problemCounter.increment(choice);
+                        haveError = true;
+                        break;
                     }
                     break;
                 case weLost:
@@ -412,7 +459,7 @@ public class VettingViewer<T> {
         return missing;
     }
 
-    private StringBuilder appendToMessage(String usersValue, StringBuilder testMessage) {
+    private StringBuilder appendToMessage(CharSequence usersValue, StringBuilder testMessage) {
         if (testMessage.length() != 0) {
             testMessage.append("<br>");
         }
@@ -452,13 +499,29 @@ public class VettingViewer<T> {
     private ProgressCallback progressCallback = new ProgressCallback(); // null instance by default
 
     /**
-     * Select a new callback
+     * Select a new callback. Must be set before running.
+     * @return 
      * 
      */
-    public void setProgressCallback(ProgressCallback newCallback) {
+    public VettingViewer<T> setProgressCallback(ProgressCallback newCallback) {
         progressCallback = newCallback;
+        return this;
     }
 
+    /**
+     * Select a new error checker. Must be set before running.
+     * @return 
+     * 
+     */
+
+    public ErrorChecker getErrorChecker() {
+        return errorChecker;
+    }
+
+    public VettingViewer<T> setErrorChecker(ErrorChecker errorChecker) {
+        this.errorChecker = errorChecker;
+        return this;
+    }
 
     private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile, 
             TreeMap<String, WritingInfo> sorted,

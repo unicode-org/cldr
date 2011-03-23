@@ -189,6 +189,18 @@ public class VettingViewer<T> {
         public Status getErrorStatus(String path, String value, StringBuilder statusMessage);
     }
     
+    public static class NoErrorStatus implements ErrorChecker {
+        @Override
+        public Status initErrorStatus(CLDRFile cldrFile) {
+            return Status.ok;
+        }
+
+        @Override
+        public Status getErrorStatus(String path, String value, StringBuilder statusMessage) {
+            return Status.ok;
+        }
+    }
+    
     public static class DefaultErrorStatus implements ErrorChecker {
 
         private CheckCLDR checkCldr;
@@ -241,7 +253,7 @@ public class VettingViewer<T> {
     private final String lastVersionTitle;
     private final String currentWinningTitle;
     private final PathDescription pathDescription;
-    private ErrorChecker errorChecker = new DefaultErrorStatus();
+    private ErrorChecker errorChecker = new NoErrorStatus(); // new DefaultErrorStatus();
 
     /**
      * @param supplementalDataInfo

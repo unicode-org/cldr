@@ -253,7 +253,7 @@ public class VettingViewer<T> {
     private final String lastVersionTitle;
     private final String currentWinningTitle;
     private final PathDescription pathDescription;
-    private ErrorChecker errorChecker = new NoErrorStatus(); // new DefaultErrorStatus();
+    private ErrorChecker errorChecker = new DefaultErrorStatus(); // new NoErrorStatus(); // for testing
 
     /**
      * @param supplementalDataInfo

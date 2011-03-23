@@ -180,6 +180,7 @@ public class VettingViewer<T> {
     private final Factory              cldrFactory;
     private final Factory              cldrFactoryOld;
     private final CLDRFile             englishFile;
+    private final CLDRFile             oldEnglishFile;
     private final UsersChoice<T>          userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
     private final String lastVersionTitle;
@@ -198,6 +199,7 @@ public class VettingViewer<T> {
         this.cldrFactory = cldrFactory;
         this.cldrFactoryOld = cldrFactoryOld;
         englishFile = cldrFactory.make("en", true);
+        oldEnglishFile = cldrFactoryOld.make("en", true);
         this.userVoteStatus = userVoteStatus;
         this.supplementalDataInfo = supplementalDataInfo;
         this.lastVersionTitle = lastVersionTitle;
@@ -330,7 +332,8 @@ public class VettingViewer<T> {
                     }
                     break;
                 case englishChanged:
-                    if (outdatedPaths.isOutdated(localeID, path)) {
+                    if (outdatedPaths.isOutdated(localeID, path)
+                            || !CharSequences.equals(englishFile.getWinningValue(path), oldEnglishFile.getWinningValue(path))) {
                         // the outdated paths compares the base value, before
                         // data submission,
                         // so see if the value changed.
@@ -523,18 +526,18 @@ public class VettingViewer<T> {
                 output.append("<tr class='");
                 Choice.appendRowStyles(choicesForPath, output);
                 output.append("'>\n");
-                addCell(output, nf.format(++count), "tv-num", HTMLType.plain);
+                addCell(output, nf.format(++count), null, "tv-num", HTMLType.plain);
                 // path
-                addCell(output, code, "tv-code", HTMLType.plain);
+                addCell(output, code, null, "tv-code", HTMLType.plain);
                 // English value
-                addCell(output, englishFile.getWinningValue(path), "tv-eng", HTMLType.plain);
+                addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
                 // value for last version
                 final String oldStringValue = lastSourceFile.getWinningValue(path);
                 boolean oldValueMissing = isMissing(lastSourceFile, path, status);
 
-                addCell(output, oldStringValue, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
+                addCell(output, oldStringValue, null, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
                 // value for last version
-                addCell(output, sourceFile.getWinningValue(path), choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
+                addCell(output, sourceFile.getWinningValue(path), null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                 // Fix?
                 // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
                 output.append("<td class='tv-fix'><a target='zoom' href='"+baseUrl +"?_=")
@@ -546,7 +549,7 @@ public class VettingViewer<T> {
                 .append("</a></td>");
 
                 if (TESTING && !pathInfo.testMessage.isEmpty()) {
-                    addCell(output, pathInfo.testMessage, "tv-test", HTMLType.markup);
+                    addCell(output, pathInfo.testMessage, null, "tv-test", HTMLType.markup);
                 }
                 output.append("</tr>\n");
             }
@@ -570,12 +573,15 @@ public class VettingViewer<T> {
 
     enum HTMLType {plain, markup}
 
-    private void addCell(Appendable output, String value, String classValue, HTMLType htmlType) throws IOException {
+    private void addCell(Appendable output, String value, String title, String classValue, HTMLType htmlType) throws IOException {
         output.append("<td class='")
         .append(classValue);
         if (value == null) {
             output.append(" tv-null'><i>missing</i></td>");
         } else {
+            if (title != null && !title.equals(value)) {
+                output.append("title='").append(TransliteratorUtilities.toHTML.transform(title)).append('\'');
+            }
             output
             .append("'>")
             .append(htmlType == HTMLType.markup ? value : TransliteratorUtilities.toHTML.transform(value))

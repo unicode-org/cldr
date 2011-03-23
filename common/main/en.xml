@@ -1073,12 +1073,43 @@
 		</variants>
 		<keys>
 			<key type="calendar">Calendar</key>
-			<key type="collation">Collation</key>
+			<key type="collation">Sort Order</key>
 			<key type="currency">Currency</key>
             <key type="numbers">Numbers</key>
             <key type="x">Private-Use</key>
+            <key type="colAlternate">Ignore Symbols Sorting</key>
+            <key type="colBackwards">Reversed Accent Sorting</key>
+            <key type="colCaseLevel">Case Sensitive Sorting</key>
+            <key type="colNumeric">Numeric Sorting</key>
+            <key type="colHiraganaQuaternary">Kana Sorting</key>
+            <key type="colNormalization">Normalized Sorting</key>
+            <key type="colCaseFirst">Uppercase/Lowercase Ordering</key>
+            <key type="colStrength">Sorting Strength</key>
+            <key type="variableTop">Sort As Symbols</key>
+            <key type="timezone">Time Zone</key>
+            <key type="va">Locale Variant</key>
 		</keys>
 		<types>
+            <type type="non-ignorable" key="colAlternate">Sort Symbols</type>
+            <type type="shifted" key="colAlternate">Sort Ignoring Symbols</type>
+            <type type="yes" key="colBackwards">Sort Accents Reversed</type>
+            <type type="no" key="colBackwards">Sort Accents Normally</type>
+            <type type="yes" key="colCaseLevel">Sort Case Sensitive</type>
+            <type type="no" key="colCaseLevel">Sort Case Insensitive</type>
+            <type type="yes" key="colNumeric">Sort Digits Numerically</type>
+            <type type="no" key="colNumeric">Sort Digits Individually</type>
+            <type type="yes" key="colHiraganaQuaternary">Sort Kana Differently</type>
+            <type type="no" key="colHiraganaQuaternary">Sort Kana Separately</type>
+            <type type="yes" key="colNormalization">Sort Unicode Normalized</type>
+            <type type="no" key="colNormalization">Sort Without Normalization</type>
+            <type type="upper" key="colCaseFirst">Sort Uppercase First</type>
+            <type type="lower" key="colCaseFirst">Sort Lowercase First</type>
+            <type type="no" key="colCaseFirst">Sort Normal Case Order</type>
+            <type type="primary" key="colStrength">Sort Base Letters Only</type>
+            <type type="secondary" key="colStrength">Sort Accents</type>
+            <type type="tertiary" key="colStrength">Sort Accents/Case/Width</type>
+            <type type="quarternary" key="colStrength">Sort Accents/Case/Width/Kana</type>
+            <type type="identical" key="colStrength">Sort All</type>
 			<type type="arab" key="numbers">Arabic-Indic Digits</type>
 			<type type="arabext" key="numbers">Extended Arabic-Indic Digits</type>
 			<type type="armn" key="numbers">Armenian Numerals</type>

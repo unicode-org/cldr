@@ -68,6 +68,7 @@ public class TestUtilities {
 
     public static void main(String[] args) throws Exception {
         try {
+            testExampleGenerator();
             checkStandardCodes();
             if (true) return;
             for (String lang : Iso639Data.getAvailable()) {

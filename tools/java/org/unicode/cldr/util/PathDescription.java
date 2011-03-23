@@ -93,11 +93,12 @@ public class PathDescription {
                 value = english.getStringValue(xpath);
             } else {
                 if (path.contains("/metazone")) {
-                    metazoneMatcher.reset(path).matches();
-                    String name = metazoneMatcher.group(1);
-                    String type = metazoneMatcher.group(3);
-                    value = name.replace('_', ' ') + (type.equals("generic") ? "" : type.equals("daylight") ? " Summer" : " Winter") + " Time";
-                    // System.out.println("Missing:    " + path + " :    " + value);
+                    if (metazoneMatcher.reset(path).matches()) {
+                        String name = metazoneMatcher.group(1);
+                        String type = metazoneMatcher.group(3);
+                        value = name.replace('_', ' ') + (type.equals("generic") ? "" : type.equals("daylight") ? " Summer" : " Winter") + " Time";
+                        // System.out.println("Missing:    " + path + " :    " + value);
+                    }
                 }
             }
             if (value == null) {

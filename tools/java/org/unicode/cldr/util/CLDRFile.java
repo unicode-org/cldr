@@ -1007,7 +1007,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     return dataSource.iterator();
   }
 
-  public Iterator<String> iterator(String prefix) {
+  public synchronized Iterator<String> iterator(String prefix) {
     return dataSource.iterator(prefix);
   }
 

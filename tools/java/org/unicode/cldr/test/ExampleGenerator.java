@@ -417,7 +417,11 @@ public class ExampleGenerator {
                 //count = Count.one;
                 return null;
             } else {
-                count = Count.valueOf(countString);
+                try {
+                    count = Count.valueOf(countString);
+                } catch (Exception e) {
+                    return null; // counts like 0
+                }
             }
             exampleCount = plurals.getCountToExamplesMap().get(count);
             if (context != null) {

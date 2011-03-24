@@ -310,8 +310,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         LDMLConstants.NUMBERS,
         LDMLConstants.LOCALEDISPLAYPATTERN,
         "units",
-        PathUtilities.xOTHER,
-        "references"
+        PathUtilities.xOTHER
     };
 
     public static final String GREGO_XPATH = "//ldml/dates/"+LDMLConstants.CALENDARS+"/"+LDMLConstants.CALENDAR+"[@type=\"gregorian\"]";

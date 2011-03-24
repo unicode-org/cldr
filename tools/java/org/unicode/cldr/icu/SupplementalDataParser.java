@@ -1,4 +1,4 @@
-// Copyright 2009 Google Inc. All Rights Reserved.
+// Copyright 2009-2011 Google Inc. and others.  All Rights Reserved.
 
 package org.unicode.cldr.icu;
 
@@ -324,20 +324,20 @@ public class SupplementalDataParser {
         ResourceIntVector toRes =  getSeconds(
                 LDMLUtilities.getAttributeValue(node, LDMLConstants.TO));
 
-        if (fromRes != null) {
-          fromRes.name = LDMLConstants.FROM;
-          curr.first = id;
-          id.next = fromRes;
+        if (fromRes == null || ( tender != null && tender.equals("false"))) {
+            fromRes = getSeconds("9999-12-31"); // Set from to a ridiculously high value.
         }
+        
+        fromRes.name = LDMLConstants.FROM;
+        curr.first = id;
+        id.next = fromRes;
+        
         if (toRes != null) {
           toRes.name = LDMLConstants.TO;
           fromRes.next = toRes;
         }
-        if (tender != null && tender.equals("false")) {
-          res = null;
-        } else {
-          res = curr;
-        }
+        
+        res = curr;
       } else {
         log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
         System.exit(-1);

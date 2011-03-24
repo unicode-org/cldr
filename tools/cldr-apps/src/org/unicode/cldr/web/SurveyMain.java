@@ -4505,10 +4505,6 @@ o	            		}*/
         ctx.println("<br>");
         return val;
     }
-    String showListSetting(WebContext ctx, String pref, String what, String[] list) {
-    	return showListSetting(ctx,pref,what,list,false);
-    }
-
     /*
      *             ctx.println("(settings type: " + ctx.settings().getClass().getName()+")<br/>");
             
@@ -4534,6 +4530,9 @@ o	            		}*/
     	return val;
     }
     static void writeMenu(WebContext jout, String title, String field, String current, String items[])  {
+    	writeMenu(jout,title,field,current,items,null);
+    }
+    static void writeMenu(WebContext jout, String title, String field, String current, String items[], String rec)  {
     	String which = current;
 		boolean any = false;
 		for (int i = 0; !any && (i < items.length); i++) {
@@ -4565,7 +4564,13 @@ o	            		}*/
 		for (int i = 0; i < items.length; i++) {
 			WebContext ssc = new WebContext(jout);
 			ssc.setQuery(field, items[i]);
-			jout.print("<option ");
+			String sty = "";
+			if(rec!=null&&rec.equals(items[i])) {
+				//jout.print("<optgroup label=\"Recommended\">");
+				sty="font-weight: bold;";
+			}
+			
+			jout.print("<option style='"+sty+"' ");
 			if (items[i].equals(which)) {
 				jout.print(" selected ");
 			} else {
@@ -4573,12 +4578,27 @@ o	            		}*/
 			}
 			jout.print(">" + items[i]);
 			jout.println("</option>");
+
+//			if(rec!=null&&rec.equals(items[i])) {
+//				jout.print("</optgroup>");
+//			}
+		
 		}
 		jout.println("</select>");
 		jout.println("</label>");
 	}
     
+    String showListSetting(WebContext ctx, String pref, String what, String[] list) {
+    	return showListSetting(ctx,pref,what,list,false);
+    }
+
     String showListSetting(WebContext ctx, String pref, String what, String[] list, boolean doDef) {
+    	return showListSetting(ctx,pref,what,list,doDef,null);
+    }
+    String showListSetting(WebContext ctx, String pref, String what, String[] list, String rec) {
+    	return showListSetting(ctx,pref,what,list,false,rec);
+    }
+    String showListSetting(WebContext ctx, String pref, String what, String[] list, boolean doDef, String rec) {
     	String val = getListSetting(ctx,pref,list,doDef);
         ctx.settings().set(pref, val);
         
@@ -4594,11 +4614,17 @@ o	            		}*/
 	        for(int n=0;n<list.length;n++) {
 	            WebContext nuCtx = (WebContext)ctx.clone();
 	            nuCtx.addQuery(pref, list[n]);
+	            if(rec!=null&&rec.equals(list[n])) {
+	            	ctx.print("<b>");
+	            }
 	            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals(list[n])?"selected":"notselected")+"'>"+list[n]+"</a> ");
+	            if(rec!=null&&rec.equals(list[n])) {
+	            	ctx.print("</b>");
+	            }
 	        }
 	        ctx.println("<br>");
         } else {
-        	writeMenu(ctx,what,pref,val,list);
+        	writeMenu(ctx,what,pref,val,list, rec);
         }
         
         

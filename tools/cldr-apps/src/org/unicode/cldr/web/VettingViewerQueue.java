@@ -23,6 +23,13 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
  *
  */
 public class VettingViewerQueue {
+	
+	static VettingViewerQueue instance = new VettingViewerQueue();
+	
+	public static VettingViewerQueue getInstance() { 
+		return instance;
+	}
+	
     static int gMax = -1;
 
     private int pathCount(CLDRFile f)
@@ -47,7 +54,13 @@ public class VettingViewerQueue {
     public enum Status {
     	READY,
     	PROCESSING,
-    	WAITING
+    	WAITING, STOPPED
+    };
+    
+    public enum LoadingPolicy {
+    	START,
+    	NOSTART,
+    	FORCERESTART,
     };
     
     private class QueueEntry {
@@ -67,7 +80,8 @@ public class VettingViewerQueue {
 		public long rem = -1;
 		final Level usersLevel;
 		final Organization usersOrg;
-		String status = "(Calculating)";
+		String status = "(Waiting for other users)";
+		public Status statusCode = Status.STOPPED;
 		void setStatus(String status) {
 			this.status = status;
 		}
@@ -92,9 +106,13 @@ public class VettingViewerQueue {
 			final CLDRProgressTask progress = openProgress("vv:"+locale,maxn+100);
 						
 			try {
-				progress.update("Waiting for VettingViewer...");
+				statusCode = Status.WAITING;
+				status="Waiting for other users...";
+				progress.update("Waiting for other users...");
 				synchronized(vv) {
+					status="Beginning Process, Calculating";
 					progress.update("Got VettingViewer");
+					statusCode = Status.PROCESSING;
 					start = System.currentTimeMillis();
 					last=start;
 					n=0;
@@ -148,7 +166,7 @@ public class VettingViewerQueue {
 			} catch (RuntimeException re) {
 				// We're done.
 			} finally {
-				progress.close();
+				if(progress!=null) progress.close();
 			}
 		}
 
@@ -168,10 +186,11 @@ public class VettingViewerQueue {
 	 * @param locale
 	 * @return
 	 */
-	public synchronized String getVettingViewerOutput(WebContext ctx, CLDRLocale locale, Status[] status, boolean forceRestart) {
-		QueueEntry entry = getEntry(ctx);
+	public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status, LoadingPolicy forceRestart) {
+		if(sess==null) sess = ctx.session;
+		QueueEntry entry = getEntry(sess);
 		if(status==null) status = new Status[1];
-		if(!forceRestart) {
+		if(forceRestart!=LoadingPolicy.FORCERESTART) {
 			StringBuffer res = entry.output.get(locale);
 			if(res != null) {
 				status[0]=Status.READY;
@@ -189,14 +208,29 @@ public class VettingViewerQueue {
 				status[0]=Status.PROCESSING;
 				if(t.running()) {
 					// get progress from current thread
-					return PRE+"In Progress " + t.status()+POST;
+					status[0]=t.statusCode;
+					return PRE+"In Progress: " + t.status()+POST;
 				} else {
-					return PRE+"Stopped (force restart if stuck) - hit Reload: " + t.status()+POST;
+					return PRE+"Stopped (refresh if stuck) " + t.status()+POST;
+				}
+			} else if(forceRestart==LoadingPolicy.NOSTART){
+				status[0]=Status.STOPPED;
+				if(t.running()) {
+					return PRE+" You have another locale being loaded: " + t.locale+POST;
+				} else {
+					return PRE+"Refresh if stuck."+POST;
 				}
 			} else {
-				didKill = t.locale;
+				if(t.running()) {
+					didKill = t.locale;
+				}
 				stop(ctx, t.locale, entry);
 			}
+		}
+		
+		if(forceRestart==LoadingPolicy.NOSTART){
+			status[0]=Status.STOPPED;
+			return PRE+"Not loading. Click the Refresh button to load."+POST;
 		}
 		
 		t = entry.currentTask = new Task(entry, locale, ctx);
@@ -224,11 +258,11 @@ public class VettingViewerQueue {
     	entry.output.remove(locale);
 	}
 
-	private QueueEntry getEntry(WebContext ctx) {
-    	QueueEntry entry = (QueueEntry)ctx.session.get(KEY);
+	private QueueEntry getEntry(CookieSession session) {
+    	QueueEntry entry = (QueueEntry)session.get(KEY);
     	if(entry==null) {
     		entry = new QueueEntry();
-    		ctx.session.put(KEY, entry);
+    		session.put(KEY, entry);
     	}
     	return entry;
 	}
@@ -244,7 +278,7 @@ public class VettingViewerQueue {
                     ctx.sm.getSupplementalDataInfo(), ctx.sm.dbsrcfac, ctx.sm.getOldFactory(),
                     getUsersChoice(ctx.sm), "CLDR "+ctx.sm.getOldVersion(), "Winning "+ctx.sm.getNewVersion());
             gVettingViewer.setBaseUrl(ctx.base());
-            gVettingViewer.setErrorChecker(ctx.sm.dbsrcfac.getErrorChecker());
+            //gVettingViewer.setErrorChecker(ctx.sm.dbsrcfac.getErrorChecker());
             p.update("OK");
         } finally {
             p.close();

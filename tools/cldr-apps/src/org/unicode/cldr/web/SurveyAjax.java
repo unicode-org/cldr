@@ -96,6 +96,7 @@ public class SurveyAjax extends HttpServlet {
 	public static final String AJAX_STATUS_SCRIPT = "ajax_status.jspf";
 	public static final String WHAT_VERIFY = "verify";
 	public static final String WHAT_PREF = "pref";
+	public static final String WHAT_GETVV = "vettingviewer";
 
 	String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list of prefs OK to get/set
 
@@ -206,6 +207,20 @@ public class SurveyAjax extends HttpServlet {
                         }
                         r.put(SurveyMain.QUERY_VALUE_SUFFIX,mySession.settings().get(pref,null));
                         send(r,out);
+					} else if(what.equals(WHAT_GETVV)) {
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+                        
+                        CLDRLocale locale = CLDRLocale.getInstance(loc);
+                        
+                    	VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
+                    	String str = VettingViewerQueue.getInstance().getVettingViewerOutput(null,mySession,locale,status, 
+								VettingViewerQueue.LoadingPolicy.NOSTART);
+                    	
+                    	r.put("status", status[0]);
+                    	r.put("ret", str);
+                    	
+                    	send(r,out);
 					}
 				}
 			} else {

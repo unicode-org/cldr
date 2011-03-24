@@ -3,7 +3,11 @@
 
 package org.unicode.cldr.test;
 
+import java.util.regex.Pattern;
+
+import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
@@ -73,11 +77,20 @@ public class DisplayAndInputProcessor {
      * @param fullPath
      * @return
      */
-    public String processForDisplay(String path, String value) {
+    public synchronized String processForDisplay(String path, String value) {
         if (path.contains("exemplarCharacters")) {
-            if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
-                return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
+            if (value.startsWith("[") && value.endsWith("]")) {
+                value = value.substring(1, value.length() - 1);
             }
+            
+            value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
+            value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
+
+//            if (RTL.containsSome(value) && value.startsWith("[") && value.endsWith("]")) {
+//                return "\u200E[\u200E" + value.substring(1,value.length()-2) + "\u200E]\u200E";
+//            }
+        } else if (path.contains("stopword")) {
+            return value.trim().isEmpty() ? "NONE" : value;
         }
         return value;
     }
@@ -94,7 +107,7 @@ public class DisplayAndInputProcessor {
      * @param fullPath
      * @return
      */
-    public String processInput(String path, String value, Exception[] internalException) {
+    public synchronized String processInput(String path, String value, Exception[] internalException) {
         String original = value;
         if (internalException != null) {
             internalException[0] = null;
@@ -134,6 +147,9 @@ public class DisplayAndInputProcessor {
                 // first, fix up the '['
                 value = value.trim();
 
+                value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
+                value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
+
                 if (!value.startsWith("[")) {
                     value = "[" + value;
                 }
@@ -143,7 +159,14 @@ public class DisplayAndInputProcessor {
                 }
 
                 UnicodeSet exemplar = new UnicodeSet(value);
-                value = getCleanedUnicodeSet(exemplar, pp, !path.contains("=\"index\""));
+                XPathParts parts = new XPathParts().set(path);
+                final String type = parts.getAttributeValue(-1, "type");
+                ExemplarType exemplarType = type == null ? ExemplarType.main : ExemplarType.valueOf(type);
+                value = getCleanedUnicodeSet(exemplar, pp, exemplarType);
+            } else if (path.contains("stopword")) {
+                if (value.equals("NONE")) {
+                    value ="";
+                }
             }
             return value;
         } catch (RuntimeException e) {
@@ -153,6 +176,19 @@ public class DisplayAndInputProcessor {
             return original;
         }
     }
+    private String replace(Pattern pattern, String value, String replacement) {
+        String value2 = pattern.matcher(value).replaceAll(replacement);
+        if (!value.equals(value2)) {
+            System.out.println("\n" + value + " => " + value2);
+        }
+        return value2;
+    }
+    
+    static Pattern REMOVE_QUOTE1 = Pattern.compile("(\\s)(\\\\[-\\}\\]\\&])()");
+    static Pattern REMOVE_QUOTE2 = Pattern.compile("(\\\\[\\-\\{\\[\\&])(\\s)"); //([^\\])([\\-\\{\\[])(\\s)
+
+    static Pattern NEEDS_QUOTE1 = Pattern.compile("(\\s|$)([-\\}\\]\\&])()");
+    static Pattern NEEDS_QUOTE2 = Pattern.compile("([^\\\\])([\\-\\{\\[\\&])(\\s)"); //([^\\])([\\-\\{\\[])(\\s)
     
     public static boolean hasDatetimePattern(String path) {
         return path.indexOf("/dates") >= 0
@@ -160,22 +196,28 @@ public class DisplayAndInputProcessor {
                 || path.indexOf("/dateFormatItem") >= 0);
     }
 
-    public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter, boolean lowercase) {
+    public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter, ExemplarType exemplarType) {
         String value;
         prettyPrinter.setCompressRanges(exemplar.size() > 100);
         value = exemplar.toPattern(false);
         UnicodeSet toAdd = new UnicodeSet();
 
         for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next(); ) {
-            final String string = usi.getString();
-            if (string.equals("ß")) {
+            String string = usi.getString();
+            if (string.equals("ß") || string.equals("İ")) {
                 continue;
             }
-            final String newString = Normalizer.compose(lowercase ? UCharacter.toLowerCase(ULocale.ENGLISH, string) : UCharacter.toUpperCase(ULocale.ENGLISH, string), false);
-            toAdd.add(newString);
+            if (exemplarType.convertUppercase) {
+                string = UCharacter.toLowerCase(ULocale.ENGLISH, string);
+            }
+            toAdd.add(string);
+            String composed = Normalizer.compose(string, false);
+            if (!string.equals(composed)) {
+                toAdd.add(composed);
+            }
         }
 
-        toAdd.removeAll(CheckExemplars.TO_REMOVE_FROM_EXEMPLARS);
+        toAdd.removeAll(exemplarType.toRemove);
 
         String fixedExemplar = prettyPrinter.format(toAdd);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);

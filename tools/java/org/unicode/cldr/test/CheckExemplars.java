@@ -54,24 +54,26 @@ public class CheckExemplars extends CheckCLDR {
     .addAll(SPECIAL_ALLOW) // add RLM, LRM [\u200C\u200D]‎
     .freeze();
 
-    public static final UnicodeSet TO_REMOVE_FROM_EXEMPLARS = (UnicodeSet) new UnicodeSet(AllowedInExemplars).complement().freeze();
+    public enum ExemplarType {
+        main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true), 
+        punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false), 
+        auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)", true), 
+        index(UAllowedInExemplars, "(specific-script - invisibles)", false), 
+        currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", false);
 
-    enum ExemplarType {
-        main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)"), 
-        punctuation(ALLOWED_IN_PUNCTUATION, "punctuation"), 
-        auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)"), 
-        index(UAllowedInExemplars, "(specific-script - invisibles)"), 
-        currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)");
+        public final UnicodeSet allowed;
+        public final UnicodeSet toRemove;
+        public final String message;
+        public final boolean convertUppercase;
 
-        private final UnicodeSet allowed;
-        private final String message;
-
-        ExemplarType(UnicodeSet allowed, String message) {
+        ExemplarType(UnicodeSet allowed, String message, boolean convertUppercase) {
             if (!allowed.isFrozen()) {
                 throw new IllegalArgumentException("Internal Error");
             }
             this.allowed = allowed;
             this.message = message;
+            this.toRemove = new UnicodeSet(allowed).complement().freeze();
+            this.convertUppercase = convertUppercase;
         }
     }
 

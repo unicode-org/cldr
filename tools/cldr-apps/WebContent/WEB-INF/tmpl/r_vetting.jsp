@@ -83,9 +83,9 @@ function updateVv() {
             }
         },
         error: function(err, ioArgs){
-        	updateIf('vverr','Viewer failed (reload to retry): '+err.name + " <br> " + err.message);
-        	clearInterval(vvId);
-        	vvId=-1;
+        	updateIf('vverr','Couldn't load progress (Will retry): '+err.name + " <br> " + err.message);
+//        	clearInterval(vvId);
+///        	vvId=-1;
         }
     });
 }

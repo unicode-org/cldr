@@ -10,36 +10,15 @@ subCtx.flush();
 %>
 <%@ include file="/WEB-INF/jspf/debug_jsp.jspf" %>
 <%!
-    static int gMax = -1;
-
-private int pathCount(CLDRFile f)
-{
-    int jj=0;
-    for(String s : f) {
-        jj++;
-    }
-    return jj;
-}
-
-private synchronized int getMax(CLDRFile f) {
-    if(gMax==-1) {
-        gMax = pathCount(f);
-    }
-    return gMax;
-}
-
+	VettingViewerQueue vvq = new VettingViewerQueue();
 %>
 
 <%--
     <%@ include file="/WEB-INF/jspf/report_top.jspf" %>
 --%>
-<div class='pager' id='LoadingMessage'><hr/><h3>Loading Vetting View</h3><br/>
-<span id='LoadingBar'>
-</span></div>
 <%
 subCtx.flush();
 out.flush();
-final int maxn = getMax(ctx.sm.getBaselineFile());
     // set up the 'x' parameter to the current secrtion (r_steps, etc)
 subCtx.setQuery(SurveyMain.QUERY_SECTION,subCtx.field(SurveyMain.QUERY_SECTION));
 ctx.setQuery(SurveyMain.QUERY_LOCALE,subCtx.field(SurveyMain.QUERY_LOCALE));
@@ -51,64 +30,27 @@ WebContext topCtx = (WebContext) request.getAttribute(WebContext.CLDR_WEBCONTEXT
 topCtx.setQuery(SurveyMain.QUERY_SECTION, subCtx.field(SurveyMain.QUERY_SECTION));
 topCtx.setQuery(SurveyMain.QUERY_LOCALE, subCtx.field(SurveyMain.QUERY_LOCALE));
 
-
-VettingViewer<VoteResolver.Organization> viewer = subCtx.sm.getVettingViewer(topCtx);
-EnumSet <VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-Level usersLevel = Level.get(ctx.getEffectiveCoverageLevel());
-final com.ibm.icu.dev.test.util.ElapsedTimer t = new com.ibm.icu.dev.test.util.ElapsedTimer();
-final JspWriter mout = out;
-viewer.setProgressCallback(new VettingViewer.ProgressCallback(){
-    int n = 0;
-    int ourmax = maxn;
-    long start = System.currentTimeMillis();
-    long last = start;
-    public void nudge() { 
-        long now = System.currentTimeMillis();
-        n++;
-//        System.err.println("Nudged: " + n);
-        if(n>(ourmax-5)) ourmax=n+10;
-         
-        
-        if((now-last)>1200) {
-            last=now;
-            StringBuffer bar = SurveyProgressManager.appendProgressBar(new StringBuffer(),n,ourmax);
-            long rem = -1;
-            String remStr="";
-            if(n>500) {
-                double per = (double)(now-start)/(double)n;
-                rem = (long)((ourmax-n)*per);
-                remStr = ", " + com.ibm.icu.dev.test.util.ElapsedTimer.elapsedTime(now,now+rem) + " " + /*"("+rem+"/"+per+") "+*/"remaining";
-            }
-            try {
-                mout.println("<script type=\"text/javascript\">document.getElementById('LoadingBar').innerHTML=\""+bar+ " ("+n+" items loaded"  + remStr + ")" + "\";</script>");
-                mout.flush();
-            } catch (java.io.IOException e) {
-                System.err.println("Nudge: got IOException  " + e.toString() + " after " + n);
-                throw new RuntimeException(e); // stop processing
-            }
-        }
-    }
-    public void done() { }
- }
-);
-
 if(subCtx.userId() == UserRegistry.NO_USER) {
     out.println("<i>You must be logged in to use this function.</i>");
 } else 
 {
-    viewer.generateHtmlErrorTables(subCtx.getOut(), choiceSet, ctx.getLocale().getBaseName(), VoteResolver.Organization.fromString(ctx.session.user.voterOrg()), usersLevel);
+	%>
+		<form action="<%= topCtx.url() %>" method="POST">
+			<input type='hidden' value='t' name='VVFORCERESTART'/>
+			<label>To regenerate this page, click <input type='submit' value='Force Restart'/></label>
+		</form>
+	<%
+	
+	VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
+	boolean forceRestart = subCtx.hasField("VVFORCERESTART");
+	subCtx.println(vvq.getVettingViewerOutput(subCtx,subCtx.getLocale(),status, forceRestart));
+	subCtx.println("<br/> Status: " + status[0]);
+	if(status[0]==VettingViewerQueue.Status.PROCESSING) {
+		out.println("<meta http-equiv=\"refresh\" content=\"5\">");
+	}
 }
 
-    subCtx.flush();
-
 %>
-<script type="text/javascript">
-
-document.getElementById('LoadingMessage').style.display = 'none';
-
-</script>
-
 <hr/>
-Loaded Vetting view in <%= t %><br/>
 
 <form> <!--  re-open the ST form (not used) -->

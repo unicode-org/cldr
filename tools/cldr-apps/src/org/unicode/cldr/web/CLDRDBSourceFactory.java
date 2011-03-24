@@ -37,6 +37,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.VettingViewer.ErrorChecker;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -2233,5 +2234,20 @@ public class CLDRDBSourceFactory extends Factory {
     protected Set<String> handleGetAvailable() {
         return (Set<String>)rootDbSource.getAvailableLocales();
     }
+
+	public ErrorChecker getErrorChecker() {
+		return new ErrorChecker(){
+
+			@Override
+			public Status initErrorStatus(CLDRFile cldrFile) {
+				return Status.ok;
+			}
+
+			@Override
+			public Status getErrorStatus(String path, String value,
+					StringBuilder statusMessage) {
+				return Status.ok;
+			}};
+	}
 
 }

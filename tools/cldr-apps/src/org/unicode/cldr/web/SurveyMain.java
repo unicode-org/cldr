@@ -6456,7 +6456,7 @@ o	            		}*/
     }
     private CLDRFile.Factory gOldFactory = null;
 
-    private synchronized CLDRFile.Factory getOldFactory() {
+    synchronized CLDRFile.Factory getOldFactory() {
         if(gOldFactory == null) {
             File oldBase = new File(fileBaseOld);
             File oldCommon = new File(oldBase,"common/main");
@@ -9642,7 +9642,7 @@ o	            		}*/
     /**
      * Class to startup ST in background and perform background operations.
      */
-    SurveyThread startupThread = new SurveyThread(this);
+    public SurveyThread startupThread = new SurveyThread(this);
 
     /**
      * Progress bar manager
@@ -10903,50 +10903,4 @@ o	            		}*/
     private boolean choiceNotEmptyOrAllowedEmpty(String choice_r, String path) {
       return choice_r.length()>0 || ALLOWED_EMPTY.matcher(path).matches();
     }
-    
-    
-    private VettingViewer<VoteResolver.Organization> gVettingViewer = null;
-    public synchronized VettingViewer<VoteResolver.Organization> getVettingViewer(WebContext ctx) {
-        CLDRProgressTask p = null;
-        if(gVettingViewer==null)  try {
-            p = openProgress("Setting up vettingViewer...");
-            p.update("opening..");
-            gVettingViewer = new VettingViewer<VoteResolver.Organization>(
-                    getSupplementalDataInfo(), dbsrcfac, getOldFactory(),
-                    gUsersChoice, "CLDR "+oldVersion, "Winning "+newVersion);
-            gVettingViewer.setBaseUrl(ctx.base());
-            p.update("OK");
-        } finally {
-            p.close();
-        }
-        return gVettingViewer;
-    }
-    private UsersChoice<VoteResolver.Organization> gUsersChoice = 
-        new UsersChoice<VoteResolver.Organization>() {
-            @Override
-            public String getWinningValueForUsersOrganization(
-                    CLDRFile cldrFile, String path, VoteResolver.Organization user) {
-                CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
-                int base_xpath = xpt.xpathToBaseXpathId(path);
-                Race r;
-                Connection conn = null;
-                try { 
-                    conn = dbUtils.getDBConnection();
-                    r = vet.getRace(loc, base_xpath, conn);
-                    VoteResolver.Organization org = (Organization) user;
-                    Race.Chad c =  r.getOrgVote(org);
-                    if(c==null) {
-                        //System.err.println("Error: organization " + org + " vote null for " + path + " [#"+base_xpath+"]");
-                        return null;
-                    }
-                    return c.value;
-                }catch (SQLException e) {
-                    throw new RuntimeException(e);
-                } finally {
-                    DBUtils.closeDBConnection(conn);
-                }
-
-            }
-
-        };
 }

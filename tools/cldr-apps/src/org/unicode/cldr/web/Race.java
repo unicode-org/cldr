@@ -317,6 +317,9 @@ public class Race {
         String nonEmptyValue = valueForLookup;
 
         String full_xpath_string = vet.sm.xpt.getById(full_xpath);
+        if(full_xpath_string==null) {
+        	throw new InternalError("full string for " + full_xpath + " not found for vote_xpath " + vote_xpath);
+        }
         String theReferences = null;
         if (full_xpath_string.indexOf(LDMLConstants.REFERENCES) >= 0) {
             XPathParts xpp = new XPathParts(null, null);

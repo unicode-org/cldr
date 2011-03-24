@@ -161,6 +161,19 @@ public class SurveyThread extends Thread {
 	}
 	
 	/**
+	 * How many tasks of a certain kind are remaining?
+	 */
+	public int tasksRemaining(@SuppressWarnings("rawtypes") Class ofClass) {
+		int ret=0;
+		for(SurveyTask t : tasks) {
+			if(ofClass.isInstance(t)) {
+				ret++;
+			}
+		}
+		return ret;
+	}
+	
+	/**
 	 * The current state of the thread.
 	 */
 	public String toString() {

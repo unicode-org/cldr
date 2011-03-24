@@ -18,6 +18,9 @@ import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
+import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.util.ULocale;
+
 /**
  * @author srl
  *
@@ -103,12 +106,12 @@ public class VettingViewerQueue {
 
 		@Override
 		public void run() throws Throwable {
+			statusCode = Status.WAITING;
 			final CLDRProgressTask progress = openProgress("vv:"+locale,maxn+100);
 						
 			try {
-				statusCode = Status.WAITING;
-				status="Waiting for other users...";
-				progress.update("Waiting for other users...");
+				status="Waiting...";
+				progress.update("Waiting...");
 				synchronized(vv) {
 					status="Beginning Process, Calculating";
 					progress.update("Got VettingViewer");
@@ -120,7 +123,7 @@ public class VettingViewerQueue {
 						public String setRemStr(long now) {
 							double per = (double)(now-start)/(double)n;
 							rem = (long)((maxn-n)*per);
-							String remStr = com.ibm.icu.dev.test.util.ElapsedTimer.elapsedTime(now,now+rem) + " " + /*"("+rem+"/"+per+") "+*/"remaining";
+							String remStr = ElapsedTimer.elapsedTime(now,now+rem) + " " + /*"("+rem+"/"+per+") "+*/"remaining";
 							setStatus(remStr);
 							return remStr;
 						}
@@ -160,6 +163,7 @@ public class VettingViewerQueue {
 
 					vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel);
 					if(running()) {
+						aBuffer.append("<hr/>"+PRE+"Processing time: "+ElapsedTimer.elapsedTime(start)+POST );
 						entry.output.put(locale, aBuffer);
 					}
 				}
@@ -203,13 +207,15 @@ public class VettingViewerQueue {
 		Task t = entry.currentTask;
 		CLDRLocale didKill = null;
 		
-		if(t != null) {
+		if(t != null) { 
+			String waiting = waitingString(t.sm.startupThread);
 			if (t.locale.equals(locale)) {
 				status[0]=Status.PROCESSING;
 				if(t.running()) {
 					// get progress from current thread
 					status[0]=t.statusCode;
-					return PRE+"In Progress: " + t.status()+POST;
+					if(status[0]!=Status.WAITING) waiting="";
+					return PRE+"In Progress: " + waiting+ t.status()+POST;
 				} else {
 					return PRE+"Stopped (refresh if stuck) " + t.status()+POST;
 				}
@@ -239,15 +245,21 @@ public class VettingViewerQueue {
 		status[0] = Status.PROCESSING;
 		String killMsg = "";
 		if(didKill!=null) {
-			killMsg = " (You may only have one locale processing at a time, stopped: "+didKill+")";
+			killMsg = " (Note: Stopped loading: "+didKill.toULocale().getDisplayName(SurveyMain.BASELINE_LOCALE)+")";
 		}
-		return PRE+"Started new task: " + t.status()+"<hr/>"+killMsg+POST;
+		return PRE+"Started new task: " +waitingString(t.sm.startupThread)+ t.status()+"<hr/>"+killMsg+POST;
 	}
 	
 	
 	
 	
-    private void stop(WebContext ctx, CLDRLocale locale, QueueEntry entry) {
+    private String waitingString(SurveyThread startupThread) {
+		int aheadOfMe=(totalUsersWaiting(startupThread));
+		String waiting = (aheadOfMe>0)?(""+aheadOfMe+" users waiting - "):"";
+		return waiting;
+	}
+
+	private void stop(WebContext ctx, CLDRLocale locale, QueueEntry entry) {
     	Task t = entry.currentTask;
     	if(t != null) {
     		if(t.running()) {
@@ -313,5 +325,9 @@ public class VettingViewerQueue {
             }
 
         };
+    }
+    
+    private static int totalUsersWaiting(SurveyThread st) {
+    	return (st.tasksRemaining(Task.class));
     }
 }

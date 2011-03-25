@@ -169,8 +169,8 @@ public class UserSettingsData {
                 return DBUtils.getStringUTF8(rs,1);
             }
         } finally {
+            ps.close();
             DBUtils.closeDBConnection(conn);
-            if(ps!=null && !ps.isClosed()) ps.close();
         }
         return null;
     }

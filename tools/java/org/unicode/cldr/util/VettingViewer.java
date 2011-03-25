@@ -43,7 +43,7 @@ import com.ibm.icu.util.ULocale;
 public class VettingViewer<T> {
 
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
-    private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
+    private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", false);
 
     public enum Choice {
         /**
@@ -170,29 +170,60 @@ public class VettingViewer<T> {
         }
     };
 
+    /**
+     * The status should be computed in the following way:
+     * <ol>
+     * <li>If we voted</li>
+     * <ol>
+     * <li>if we conflicted internally → *disputed*</li>
+     * <li>if our choice lost → losing</li>
+     * <li>if our choice ≤ provisional → provisionalOrWorse</li>
+     * <li>otherwise → *ok*</li>
+     * </ol>
+     * <li>If we didn't vote*</li>
+     * <ol>
+     * <li>the winning value ≤ provisional → *disputed*</li>
+     * <li>there's a tie among others → *disputed*</li>
+     * <li>otherwise → *ok*</li>
+     * </ol>
+     * </ol>
+     * 
+     * @author markdavis
+     * 
+     */
     public enum VoteStatus {
         /**
-         * The user's organization chose the winning value for the path, and
-         * that value is either contributed or approved.
+         * The value for the path is either contributed or approved, and either
+         * the user's organization chose the winning value or didn't vote.
          */
         ok,
+
         /**
          * The user's organization chose the winning value for the path, but
          * that value is neither contributed nor approved.
          */
         provisionalOrWorse,
+
         /**
          * The user's organization's choice is not winning. There may be
          * insufficient votes to overcome a previously approved value, or other
          * organizations may be voting against it.
          */
         losing,
+
         /**
-         * There is a dispute, meaning that either (a) the user's organization
-         * voted but the votes cancel, or (b) the user's organization didn't
-         * vote, and others are disputing the correct value.
+         * There is a dispute, meaning one of the following:
+         * <ol>
+         * <li>the user's organization voted but its votes cancel, or</li>
+         * <li>the user's organization didn't vote, and either
+         * <ol>
+         * <li>others are disputing the correct value, or</li>
+         * <li>there are insufficient votes to do better than provisional.</li>
+         * </ol>
+         * </ol>
          */
-        disputed}
+        disputed
+    }
 
     public static interface UsersChoice<T> {
         /**
@@ -292,13 +323,14 @@ public class VettingViewer<T> {
     private ErrorChecker errorChecker = new DefaultErrorStatus(); // new NoErrorStatus(); // for testing
 
     /**
+     * Create the Vetting Viewer.
      * @param supplementalDataInfo
      * @param cldrFactory
      * @param cldrFactoryOld
-     * @param lastVersionTitle 
-     * @param currentWinningTitle 
+     * @param lastVersionTitle The title of the last released version of CLDR.
+     * @param currentWinningTitle The title of the next version of CLDR to be released.
      */
-    public VettingViewer(SupplementalDataInfo supplementalDataInfo, Factory cldrFactory, Factory cldrFactoryOld, UsersChoice userVoteStatus, String lastVersionTitle, String currentWinningTitle) {
+    public VettingViewer(SupplementalDataInfo supplementalDataInfo, Factory cldrFactory, Factory cldrFactoryOld, UsersChoice<T> userVoteStatus, String lastVersionTitle, String currentWinningTitle) {
         super();
         this.cldrFactory = cldrFactory;
         this.cldrFactoryOld = cldrFactoryOld;
@@ -328,13 +360,13 @@ public class VettingViewer<T> {
     }
 
     /**
-     * Show a table of values, filtering according to the choices.
+     * Show a table of values, filtering according to the choices here and in the constructor.
      * 
      * @param output
-     * @param choices
-     * @param moderate
-     * @param i
-     * @param string
+     * @param choices See the class description for more information.
+     * @param localeId
+     * @param user
+     * @param usersLevel
      */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
         generateHtmlErrorTables( output, choices, localeID, user, usersLevel, false);
@@ -574,6 +606,7 @@ public class VettingViewer<T> {
          */
         public void done() {}
     }
+    
     private ProgressCallback progressCallback = new ProgressCallback(); // null instance by default
 
     /**
@@ -586,19 +619,36 @@ public class VettingViewer<T> {
         return this;
     }
 
+    public ErrorChecker getErrorChecker() {
+        return errorChecker;
+    }
+
     /**
      * Select a new error checker. Must be set before running.
      * @return 
      * 
      */
-
-    public ErrorChecker getErrorChecker() {
-        return errorChecker;
-    }
-
     public VettingViewer<T> setErrorChecker(ErrorChecker errorChecker) {
         this.errorChecker = errorChecker;
         return this;
+    }
+    
+    /**
+     * Provide the styles for inclusion into the ST &lt;head&gt; element.
+     * @return
+     */
+    public static String getHeaderStyles() {
+        return 
+        "<style type='text/css'>\n"
+        +".vve {}\n"
+        +".vvn {}\n"
+        +".vvl {}\n"
+        +".vvm {}\n"
+        +".vvu {}\n"
+        +".vvw {}\n"
+        +".vvd {}\n"
+        +".vvo {}\n"
+        +"</style>";
     }
 
     private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile, 
@@ -751,7 +801,7 @@ public class VettingViewer<T> {
         CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));
 
         // FAKE this, because we don't have access to ST data
-        
+
         UsersChoice<Integer> usersChoice = new UsersChoice<Integer>() {
             // Fake values for now
             public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Integer user) {

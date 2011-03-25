@@ -13,13 +13,12 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
-import com.ibm.icu.util.ULocale;
 
 /**
  * @author srl
@@ -29,21 +28,35 @@ public class VettingViewerQueue {
 	
 	static VettingViewerQueue instance = new VettingViewerQueue();
 	
+	/**
+	 * Get the singleton instance of the queue
+	 * @return
+	 */
 	public static VettingViewerQueue getInstance() { 
 		return instance;
 	}
 	
     static int gMax = -1;
 
-    private int pathCount(CLDRFile f)
+    /**
+     * Count the # of paths in this CLDRFile
+     * @param file
+     * @return
+     */
+    private static int pathCount(CLDRFile f)
     {
         int jj=0;
-        for(String s : f) {
+        for(@SuppressWarnings("unused") String s: f) {
             jj++;
         }
         return jj;
     }
 
+    /**
+     * Get the max expected items in a CLDRFile
+     * @param f
+     * @return
+     */
     private synchronized int getMax(CLDRFile f) {
         if(gMax==-1) {
             gMax = pathCount(f);
@@ -51,22 +64,43 @@ public class VettingViewerQueue {
         return gMax;
     }
 
-	
+	/**
+	 * A unique key for hashes
+	 */
 	private static final String KEY = VettingViewerQueue.class.getName();
     
+	
+	/**
+	 * Status of a Task
+	 * @author srl
+	 *
+	 */
     public enum Status {
-    	READY,
-    	PROCESSING,
-    	WAITING, STOPPED
+    	/** Waiting on other users/tasks */
+    	WAITING, 
+    	/** Processing in progress */
+    	PROCESSING, 
+    	/** Contents are available */
+    	READY, 
+    	/** Stopped, due to some err */
+    	STOPPED 
     };
     
+    /**
+     * What policy should be used when querying the queue?
+     * @author srl
+     *
+     */
     public enum LoadingPolicy {
+    	/** (Default) - start if not started */
     	START,
+    	/** Don't start if not started. Just check. */
     	NOSTART,
+    	/** Force a restart, ignoring old contents */
     	FORCERESTART,
     };
     
-    private class QueueEntry {
+    private static class QueueEntry {
     	public Task currentTask=null;
     	public Map<CLDRLocale,StringBuffer> output = new TreeMap<CLDRLocale,StringBuffer>();
     }
@@ -113,6 +147,11 @@ public class VettingViewerQueue {
 				status="Waiting...";
 				progress.update("Waiting...");
 				synchronized(vv) {
+					if(!running()) { 
+						status="Stopped on request.";
+						statusCode=Status.STOPPED;  
+						return;
+					}
 					status="Beginning Process, Calculating";
 					progress.update("Got VettingViewer");
 					statusCode = Status.PROCESSING;
@@ -159,7 +198,6 @@ public class VettingViewerQueue {
 					});
 					
 					EnumSet <VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-					final com.ibm.icu.dev.test.util.ElapsedTimer t = new com.ibm.icu.dev.test.util.ElapsedTimer();
 
 					vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel);
 					if(running()) {
@@ -290,7 +328,7 @@ public class VettingViewerQueue {
                     ctx.sm.getSupplementalDataInfo(), ctx.sm.dbsrcfac, ctx.sm.getOldFactory(),
                     getUsersChoice(ctx.sm), "CLDR "+ctx.sm.getOldVersion(), "Winning "+ctx.sm.getNewVersion());
             gVettingViewer.setBaseUrl(ctx.base());
-            //gVettingViewer.setErrorChecker(ctx.sm.dbsrcfac.getErrorChecker());
+           // gVettingViewer.setErrorChecker(ctx.sm.dbsrcfac.getErrorChecker());
             p.update("OK");
         } finally {
             p.close();

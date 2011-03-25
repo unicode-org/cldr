@@ -170,7 +170,7 @@ public class UserSettingsData {
             }
         } finally {
             DBUtils.closeDBConnection(conn);
-            ps.close();
+            if(ps!=null && !ps.isClosed()) ps.close();
         }
         return null;
     }

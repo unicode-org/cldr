@@ -638,7 +638,7 @@ public class UserRegistry {
                     return null;
                 }
                 if(!ip.startsWith("RSS@") && !ip.equals(INTERNAL)) {
-                    logger.info("Login: " + email + " @ " + ip);
+//                    logger.info("Login: " + email + " @ " + ip);
                 }
                 
                 return u;

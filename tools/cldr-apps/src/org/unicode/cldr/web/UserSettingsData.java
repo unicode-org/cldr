@@ -170,6 +170,7 @@ public class UserSettingsData {
             }
         } finally {
             DBUtils.closeDBConnection(conn);
+            ps.close();
         }
         return null;
     }

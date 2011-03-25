@@ -16,6 +16,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.Properties;
 
@@ -23,6 +25,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import org.unicode.cldr.util.CLDRLocale;
 
 import com.ibm.icu.text.UnicodeSet;
 
@@ -214,6 +218,13 @@ public class DBUtils {
 		return instance;
 	}
 
+	public static void makeInstanceFrom(DataSource dataSource2) {
+		if(instance==null) {
+			instance = new DBUtils(dataSource2);
+		} else {
+			throw new IllegalArgumentException("Already initted.");
+		}
+	}
 	// fix the UTF-8 fail
 	public static final String getStringUTF8(ResultSet rs, int which)
 			throws SQLException {
@@ -344,15 +355,15 @@ public class DBUtils {
 			}
 		}
 	}
-
-	private String[] arrayOfResult(ResultSet rs) throws SQLException {
-		ResultSetMetaData rsm = rs.getMetaData();
-		String ret[] = new String[rsm.getColumnCount()];
-		for(int i=0;i<ret.length;i++) {
-			ret[i]=rs.getString(i+1);
-		}
-		return ret;
-	}
+//
+//	private String[] arrayOfResult(ResultSet rs) throws SQLException {
+//		ResultSetMetaData rsm = rs.getMetaData();
+//		String ret[] = new String[rsm.getColumnCount()];
+//		for(int i=0;i<ret.length;i++) {
+//			ret[i]=rs.getString(i+1);
+//		}
+//		return ret;
+//	}
 	public String sqlQuery(Connection conn, String str) throws SQLException {
 		return sqlQueryArray(conn,str)[0];
 	}
@@ -444,6 +455,34 @@ public class DBUtils {
 		
 	}
 
+	public DBUtils(DataSource dataSource2) {
+		datasource=dataSource2;
+		Connection c = null;
+		try {
+			if(datasource!=null) {
+				c = datasource.getConnection();
+				DatabaseMetaData dmd = c.getMetaData();
+				dbInfo = dmd.getDatabaseProductName()+" v"+dmd.getDatabaseProductVersion();
+				loadSqlHacks();
+				System.err.println("Metadata: "+ dbInfo);
+			}
+		} catch (SQLException  t) {
+            datasource = null;
+			throw new IllegalArgumentException(getClass().getName()+": WARNING: we require a JNDI datasource.  "
+							+ "'"+JDBC_SURVEYTOOL+"'"
+							+ ".getConnection() returns : "
+							+ t.toString()+"\n"+unchainSqlException(t));
+		} finally {
+			if (c != null)
+				try {
+					c.close();
+				} catch (Throwable tt) {
+					System.err.println("Couldn't close datasource's conn: "
+							+ tt.toString());
+					tt.printStackTrace();
+				}
+		}
+	}
 	private void loadSqlHacks() {
 	    System.err.println("Loading hacks for " + dbInfo);
         if (dbInfo.contains("Derby")) {
@@ -637,5 +676,143 @@ public class DBUtils {
 	}
 	public boolean hasDataSource() {
 		return(datasource!=null);
+	}
+    /**
+	 * @param conn
+	 * @param sql
+	 * @param args
+	 * @return
+	 * @throws SQLException
+	 */
+	public PreparedStatement prepareStatementWithArgs(Connection conn, String sql,
+			Object... args) throws SQLException {
+		PreparedStatement ps;
+		ps = conn.prepareStatement(sql);
+		
+//		while (args!=null&&args.length==1&&args[0] instanceof Object[]) {
+//			System.err.println("Unwrapping " + args + " to " + args[0]);
+//		}
+		if(args!=null&&args.length>0) {
+			for(int i=0;i<args.length;i++) {
+				Object o = args[i];
+				if(o instanceof String) {
+					ps.setString(i+1, (String)o);
+				} else if(o instanceof Integer) {
+					ps.setInt(i+1, (Integer)o);
+				} else if(o instanceof CLDRLocale) { /* toString compatible things */
+					ps.setString(i+1, o.toString());
+				} else {
+					System.err.println("DBUtils: Warning: using toString for unknown object " + o.getClass().getName());
+					ps.setString(i+1, o.toString());
+				}
+			}
+		}
+		return ps;
+	}
+    
+    private String[][] resultToArrayArray(ResultSet rs) throws SQLException {
+		ArrayList<String[]> al = new ArrayList<String[]>();
+		while(rs.next()) {
+			al.add(arrayOfResult(rs));
+		}
+		return al.toArray(new String[al.size()][]);
+	}
+    private Object[][] resultToArrayArrayObj(ResultSet rs) throws SQLException {
+		ArrayList<Object[]> al = new ArrayList<Object[]>();
+		int colCount = rs.getMetaData().getColumnCount();
+		while(rs.next()) {
+			al.add(arrayOfResultObj(rs,colCount));
+		}
+		return al.toArray(new Object[al.size()][]);
+	}
+	@SuppressWarnings("rawtypes")
+	private Map[] resultToArrayAssoc(ResultSet rs) throws SQLException {
+		ResultSetMetaData rsm = rs.getMetaData();
+		ArrayList<Map<String,Object>> al = new ArrayList<Map<String,Object>>();
+		while(rs.next()) {
+			al.add(assocOfResult(rs,rsm));
+		}
+		return al.toArray(new Map[al.size()]);
+	}
+	
+	private Map<String, Object> assocOfResult(ResultSet rs,ResultSetMetaData rsm) throws SQLException {
+		Map<String,Object> m = new HashMap<String,Object>(rsm.getColumnCount());
+		
+		for(int i=1;i<=rsm.getColumnCount();i++) {
+			m.put(rsm.getColumnName(i), rs.getObject(i));
+		}
+		
+		return m;
+	}
+
+	public String sqlQuery(Connection conn, String sql, Object... args) throws SQLException {
+		return sqlQueryArray(conn,sql,args)[0];
+	}
+
+	public String[] sqlQueryArray(Connection conn, String sql, Object... args) throws SQLException {
+		return sqlQueryArrayArray(conn,sql,args)[0];
+	}
+	public String[][] sqlQueryArrayArray(Connection conn, String str, Object... args) throws SQLException {
+		PreparedStatement ps= null;
+		ResultSet rs  = null;
+		try {
+			ps = prepareStatementWithArgs(conn, str, args);
+			
+			rs = ps.executeQuery();
+			return resultToArrayArray(rs);
+		} finally {
+			DBUtils.close(rs,ps);
+		}
+	}
+	public Object[][] sqlQueryArrayArrayObj(Connection conn, String str, Object... args) throws SQLException {
+		PreparedStatement ps= null;
+		ResultSet rs  = null;
+		try {
+			ps = prepareStatementWithArgs(conn, str, args);
+			
+			rs = ps.executeQuery();
+			return resultToArrayArrayObj(rs);
+		} finally {
+			DBUtils.close(rs,ps);
+		}
+	}
+	public int sqlUpdate(Connection conn, String str, Object... args) throws SQLException {
+		PreparedStatement ps= null;
+		try {
+			ps = prepareStatementWithArgs(conn, str, args);
+
+			return(ps.executeUpdate());
+		} finally {
+			DBUtils.close(ps);
+		}
+	}
+	@SuppressWarnings("rawtypes")
+	public Map[] sqlQueryArrayAssoc(Connection conn, String sql,
+			Object... args) throws SQLException {
+		PreparedStatement ps= null;
+		ResultSet rs  = null;
+		try {
+			ps = prepareStatementWithArgs(conn, sql, args);
+			
+			rs = ps.executeQuery();
+			return resultToArrayAssoc(rs);
+		} finally {
+			DBUtils.close(rs,ps);
+		}
+	}		
+	private String[] arrayOfResult(ResultSet rs) throws SQLException {
+		ResultSetMetaData rsm = rs.getMetaData();
+		String ret[] = new String[rsm.getColumnCount()];
+		for(int i=0;i<ret.length;i++) {
+			ret[i]=rs.getString(i+1);
+		}
+		return ret;
+	}
+	private Object[] arrayOfResultObj(ResultSet rs, int colCount) throws SQLException {
+		Object ret[] = new String[colCount];
+		for(int i=0;i<ret.length;i++) {
+			ret[i]=rs.getObject(i+1);
+		}
+		return ret;
 	}
 }

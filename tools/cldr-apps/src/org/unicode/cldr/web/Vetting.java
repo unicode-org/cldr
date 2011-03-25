@@ -1582,7 +1582,7 @@ public class Vetting {
         return getCachedLocaleData(locale).getWinningXPath(base_xpath, type);
     }
     
-    int queryResultInternal(CLDRLocale locale, int base_xpath, int type[]) {
+    public int queryResultInternal(CLDRLocale locale, int base_xpath, int type[]) {
     	// queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
     	try {
     		Connection conn = null;
@@ -1744,7 +1744,7 @@ public class Vetting {
      * @param type either VET_IMPLICIT or VET_EXPLICIT if this is to be recorded as an implicit or explicit vote.
      */
      
-    void vote(CLDRLocale locale, int base_xpath, int submitter, int vote_xpath, int type) {
+    public void vote(CLDRLocale locale, int base_xpath, int submitter, int vote_xpath, int type) {
     	try {
     		Connection conn = null;
     		PreparedStatement queryVoteId = null;
@@ -1852,6 +1852,7 @@ public class Vetting {
 	                    locs++;
 	                }
 	                conn.commit();
+	                s.close();
                 } finally {
                 	DBUtils.close(queryTypes,updateStatus,insertStatus /*,conn */);
                 }
@@ -2324,23 +2325,23 @@ if(true == true)    throw new InternalError("removed from use.");
         IntHash<WinType> winningXpathCache = null;
 
         public int getWinningXPath(int xpath, int[] type) {
-            if(winningXpathCache==null) {
-                winningXpathCache=new IntHash<WinType>();
-            }
-            WinType winning = winningXpathCache.get(xpath);
-            if(winning==null) {
-                if(type==null) type = new int[1];
-                int winner = sm.vet.queryResultInternal(locale, xpath, type);
-                winning = new WinType();
-                winning.win=winner;
-                winning.type = type[0];
-                winningXpathCache.put(xpath, winning);
-            } else {
-		if(type!=null) {
-	    		type[0] = winning.type;
-		}
-	    }
-            return winning.win;
+        	if(winningXpathCache==null) {
+        		winningXpathCache=new IntHash<WinType>();
+        	}
+        	WinType winning = winningXpathCache.get(xpath);
+        	if(winning==null) {
+        		if(type==null) type = new int[1];
+        		int winner = sm.vet.queryResultInternal(locale, xpath, type);
+        		winning = new WinType();
+        		winning.win=winner;
+        		winning.type = type[0];
+        		winningXpathCache.put(xpath, winning);
+        	} else {
+        		if(type!=null) {
+        			type[0] = winning.type;
+        		}
+        	}
+        	return winning.win;
         }
 
         public int getStatus() {

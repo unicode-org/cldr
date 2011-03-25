@@ -958,7 +958,7 @@ public class DataSection extends Registerable {
 ///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
 
                 if(!matcher.matches(p.xpath(), p.base_xpath)) {
-                    System.err.println("not match: " + p.base_xpath + " / " + p.xpath());
+                    //System.err.println("not match: " + p.base_xpath + " / " + p.xpath());
                     continue;
                 } else {
                 	newSet.add(p);

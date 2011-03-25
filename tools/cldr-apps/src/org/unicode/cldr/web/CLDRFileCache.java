@@ -31,7 +31,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
  */
 public class CLDRFileCache {
 	private long startTime = System.currentTimeMillis();
-	static final private boolean DEBUG_INSANE = false;
+	static final private boolean DEBUG_INSANE = true;
 	/**
 	 * @author srl
 	 * 
@@ -780,7 +780,7 @@ public class CLDRFileCache {
 				sources.put(key, src);
 				if(DEBUG_INSANE) System.err.println("## " + serno + " / + " + key);
 		} else {
-			// System.err.println("## " + serno + " / reuse " + key);
+			if(DEBUG_INSANE) System.err.println("## " + serno + " / reuse " + key);
 		}
 		return src;
 	}

@@ -370,9 +370,9 @@ public class CookieSession {
      * @return string
      */
     public static String cheapEncode(long l) {
-        String out = "";
+    	StringBuilder out = new StringBuilder(10);
         if(l < 0) {
-            out = out+"-";
+            out.append("-");
             l = 0 - l;
         } else if (l == 0) {
             return "0";
@@ -382,10 +382,10 @@ public class CookieSession {
             char o;
             c += 'a';
             o = c;
-            out = out + o;
+            out.append(o);
             l /= 26;
         }
-        return out;
+        return out.toString();
     }
     
     

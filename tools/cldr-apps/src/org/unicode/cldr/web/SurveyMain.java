@@ -221,7 +221,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     File vetdir = null;
     public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
     public static  String cldrLoad = System.getProperty("CLDR_LOAD_ALL"); // preload all locales?
-    static String fileBase = null; // not static - may change later
+    public static String fileBase = null; // not static - may change later
     static String fileBaseOld = null; // fileBase + oldVersion
     static String specialMessage = System.getProperty("CLDR_MESSAGE"); //  static - may change later
     static String specialHeader = System.getProperty("CLDR_HEADER"); //  static - may change later
@@ -913,7 +913,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         return twidGetBool(key,false);
 	}
 	
-	void twidPut(String key, boolean val) {
+	public void twidPut(String key, boolean val) {
 		twidHash.put(key, new Boolean(val));
 	}
 	
@@ -7854,12 +7854,15 @@ o	            		}*/
         }
         if(someDidChange) {
         	System.err.println("SomeDidChange: " + oldSection.locale());
+    		int updcount = dbsrcfac.update();
+    		int updcount2 = dbsrcfac.sm.vet.updateResults();
+    		System.err.println("Results updated: " + updcount + ", " + updcount2 + " for " + oldSection.locale());
             updateLocale(oldSection.locale());
         }
         return someDidChange;
     }
 
-    private void updateLocale(CLDRLocale locale) {
+    public void updateLocale(CLDRLocale locale) {
         lcr.invalidateLocale(locale);
         int n = vet.updateImpliedVotes(locale); // first implied votes
         System.err.println("updateLocale:"+locale.toString()+":  vet_imp:"+n);

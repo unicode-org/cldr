@@ -43,6 +43,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
+import org.unicode.cldr.web.ErrorCheckManager.CachingErrorChecker;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -57,7 +58,7 @@ public class CLDRDBSourceFactory extends Factory {
 		private CLDRLocale locale;
 
 		private XMLSource dbSource = null;
-		private XMLSource cachedSource = null;
+		private CacheableXMLSource cachedSource = null;
 		private boolean finalData;
 		/**
 		 * 
@@ -68,6 +69,10 @@ public class CLDRDBSourceFactory extends Factory {
 			this.finalData = finalData;
 			this.dbSource = rootDbSource.make(locale.toString());
 			this.cachedSource = cache.getSource(locale, finalData);
+		}
+		
+		public boolean invalid() {
+			return cachedSource.invalid();
 		}
 
 		/* (non-Javadoc)
@@ -261,7 +266,7 @@ public class CLDRDBSourceFactory extends Factory {
 	/**
 	 * A referece back to the main SurveyMain. (for xpt, etc)
 	 */
-	static SurveyMain sm = null;
+	public static SurveyMain sm = null;
 
 	protected XMLSource rootDbSource = null;
 	protected XMLSource rootDbSourceV = null;
@@ -269,7 +274,7 @@ public class CLDRDBSourceFactory extends Factory {
 	File cacheDir = null;
 	boolean vetterReady = false;
 
-	CLDRDBSourceFactory(SurveyMain sm, String theDir, Logger xlogger, File cacheDir) throws SQLException {
+	public CLDRDBSourceFactory(SurveyMain sm, String theDir, Logger xlogger, File cacheDir) throws SQLException {
 		this.xpt = sm.xpt;
 		this.dir = theDir;
 		Connection sconn = sm.dbUtils.getDBConnection();
@@ -282,6 +287,9 @@ public class CLDRDBSourceFactory extends Factory {
 	}
 
 	public void vetterReady() {
+		vetterReady(null);
+	}
+	public void vetterReady(CLDRProgressIndicator progress) {
 		if(DEBUG) System.err.println("DBSRCFAC: processing vetterReady()... initializing connection");
 //		Connection sconn = sm.dbUtils.getDBConnection();
 		CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(this.dir,".*");
@@ -292,7 +300,7 @@ public class CLDRDBSourceFactory extends Factory {
 		cache= new CLDRFileCache(rootDbSource, rootDbSourceV, cacheDir, sm);
 
 		vetterReady = true;
-		update();
+		update(progress);
 	}
 
 	/**
@@ -312,7 +320,7 @@ public class CLDRDBSourceFactory extends Factory {
 	/**
 	 * Execute deferred updates. Call this at a high level when all updates are complete.
 	 */
-	public int update(SurveyTask surveyTask) {
+	public int update(CLDRProgressIndicator surveyTask) {
 		int n = 0;
 		CLDRProgressTask progress = null;
 		if(surveyTask!=null) progress = surveyTask.openProgress("DeferredUpdates", needUpdate.size());
@@ -334,13 +342,13 @@ public class CLDRDBSourceFactory extends Factory {
 							synchronized(sm.vet) {
 								sm.vet.updateResults(l,conn);
 							}
-							synchronized(this) {
-								XMLSource inst = getInstance(l,false);
-								// TODO: fix broken layering
-								XMLSource cached = ((MuxedSource)inst).cachedSource;
-								((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
-								((CacheableXMLSource)cached).save();
-							}
+//							synchronized(this) {
+//								XMLSource inst = getInstance(l,false);
+//								// TODO: fix broken layering
+//								XMLSource cached = ((MuxedSource)inst).cachedSource;
+//								((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
+//								((CacheableXMLSource)cached).save();
+//							}
 						}
 					} finally {
 						DBUtils.close(conn);
@@ -369,24 +377,29 @@ public class CLDRDBSourceFactory extends Factory {
 	/**
 	 * The Muxed sources automatically are cached on read, and update on write.
 	 */
-	Map<CLDRLocale, XMLSource> mux = new HashMap<CLDRLocale, XMLSource>();
+	Map<CLDRLocale, MuxedSource> mux = new HashMap<CLDRLocale, MuxedSource>();
 
 	public XMLSource  getInstance(CLDRLocale locale, boolean finalData) {
 		if(finalData == true) {
 			return rootDbSourceV.make(locale.toString());
 		} else {
+			//return rootDbSource.make(locale.toString());
 			return getMuxedInstance(locale);
 		}
 	}
 
-	public XMLSource getMuxedInstance(CLDRLocale locale) {
+	public MuxedSource getMuxedInstance(CLDRLocale locale) {
 		//synchronized(mux) {
-			XMLSource src = mux.get(locale);
+			MuxedSource src = mux.get(locale);
+			if(src!=null && src.invalid()) {
+				src = null; // invalid
+				mux.remove(locale);
+			}
 			if(src == null) {
 				CLDRLocale parent = locale.getParent();
 				if(parent != null) {
-					XMLSource ignored = mux.get(parent);
-					if(ignored == null) {
+					MuxedSource ignored = mux.get(parent);
+					if(ignored == null || ignored.invalid()) {
 						if(DEBUG) System.err.println("First loading parent locale "+locale.toString()+"->" + parent.toString());
 						ignored = getMuxedInstance(parent);
 					}
@@ -2220,7 +2233,7 @@ public class CLDRDBSourceFactory extends Factory {
     @Override
     protected CLDRFile handleMake(String localeID, boolean resolved,
             DraftStatus madeWithMinimalDraftStatus) {
-        return new CLDRFile(getInstance(CLDRLocale.getInstance(localeID), true),resolved);
+        return new CLDRFile(getInstance(CLDRLocale.getInstance(localeID), false),resolved);
     }
 
     @Override
@@ -2234,20 +2247,19 @@ public class CLDRDBSourceFactory extends Factory {
     protected Set<String> handleGetAvailable() {
         return (Set<String>)rootDbSource.getAvailableLocales();
     }
+    
+    private ErrorCheckManager ecm = null;
 
-	public ErrorChecker getErrorChecker() {
-		return new ErrorChecker(){
-
-			@Override
-			public Status initErrorStatus(CLDRFile cldrFile) {
-				return Status.ok;
-			}
-
-			@Override
-			public Status getErrorStatus(String path, String value,
-					StringBuilder statusMessage) {
-				return Status.ok;
-			}};
+	public synchronized ErrorCheckManager getErrorCheckManager() {
+		if(ecm == null) {
+			ecm = new ErrorCheckManager(sm);
+		}
+		return ecm;
+	}
+	public synchronized ErrorChecker getErrorChecker() {
+		//return getErrorCheckManager().getErrorChecker();
+		
+		return new CachingErrorChecker(sm);
 	}
 
 }

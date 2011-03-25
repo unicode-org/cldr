@@ -266,7 +266,7 @@ public class CheckForExemplars extends CheckCLDR {
         .setMainType(warningVsError)
         .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
         .setMessage("The characters \u200E{0}\u200E {1} {2}. " +
-                "For what to do, see <a href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Exemplar Characters</a>.", 
+                "For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/characters#TOC-Handing-Warnings'>Exemplar Characters</a>.", 
                 new Object[]{fixedMissing, scriptString, qualifier}));
     }
 

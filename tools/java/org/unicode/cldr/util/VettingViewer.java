@@ -165,6 +165,30 @@ public class VettingViewer<T> {
             return buffer.toString();
         }
     };
+    
+    public enum VoteStatus {
+        /**
+         * The user's organization chose the winning value for the path, and
+         * that value is either contributed or approved.
+         */
+        ok,
+        /**
+         * The user's organization chose the winning value for the path, but
+         * that value is neither contributed nor approved.
+         */
+        provisionalOrWorse,
+        /**
+         * The user's organization's choice is not winning. There may be
+         * insufficient votes to overcome a previously approved value, or other
+         * organizations may be voting against it.
+         */
+        losing,
+        /**
+         * There is a dispute, meaning that either (a) the user's organization
+         * voted but the votes cancel, or (b) the user's organization didn't
+         * vote, and others are disputing the correct value.
+         */
+        disputed}
 
     public static interface UsersChoice<T> {
         /**
@@ -552,7 +576,7 @@ public class VettingViewer<T> {
             Status status = new Status();
 
             output.append("<h2>Summary</h2>\n")
-            .append("<p>For instructions, see <a target='_new' href='http://cldr.unicode.org/translation/vetting-view'>Vetting View Instructions</a>.</p>")
+            .append("<p>For instructions, see <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>Vetting View Instructions</a>.</p>")
             .append("<form name='checkboxes'>\n")
             .append("<table class='tvs-table'>\n")
             .append("<tr class='tvs-tr'>" +
@@ -622,7 +646,7 @@ public class VettingViewer<T> {
                 addCell(output, sourceFile.getWinningValue(path), null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                 // Fix?
                 // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                output.append("<td class='tv-fix'><a target='zoom' href='"+baseUrl +"?_=")
+                output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='"+baseUrl +"?_=")
                 .append(localeID)
                 .append("&xpath=")
                 .append(percentEscape.transform(path))

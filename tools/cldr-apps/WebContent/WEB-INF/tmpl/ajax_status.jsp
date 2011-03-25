@@ -1,3 +1,4 @@
+<%@page import="org.unicode.cldr.util.VettingViewer"%>
 <%@ page import="org.unicode.cldr.web.*" %>
 <!--  begin ajax_status.jsp -->
 <script type='text/javascript' src='<%= request.getContextPath()+"/dojoroot/dojo/dojo.js" %>'
@@ -218,14 +219,7 @@ function setStyles() {
 
 </script>
 <!--  also for vetting viewer -->
-<style type="text/css">
-.vve {}
-.vvn {}
-.vvl {}
-.vvm {}
-.vvu {}
-.vvw {}
-</style>
+<%= VettingViewer.getHeaderStyles() %>
 
 <% if(!SurveyMain.isUnofficial) { out.println(org.unicode.cldr.tool.ShowData.ANALYTICS); } %>
 <!--  end ajax_status.jsp -->

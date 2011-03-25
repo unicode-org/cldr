@@ -14,6 +14,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
+import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
@@ -354,6 +355,25 @@ public class VettingViewerQueue {
                         return null;
                     }
                     return c.value;
+                }catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } finally {
+                    DBUtils.closeDBConnection(conn);
+                }
+
+            }
+            
+            //@Override
+            public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, VoteResolver.Organization orgOfUser) {
+                CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+                int base_xpath = sm.xpt.xpathToBaseXpathId(path);
+                Race r;
+                Connection conn = null;
+                try { 
+                    conn = sm.dbUtils.getDBConnection();
+                    r = sm.vet.getRace(loc, base_xpath, conn);
+                    
+                    return r.getStatusForOrganization(orgOfUser);
                 }catch (SQLException e) {
                     throw new RuntimeException(e);
                 } finally {

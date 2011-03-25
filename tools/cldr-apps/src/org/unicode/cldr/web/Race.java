@@ -16,7 +16,9 @@ import java.util.TreeSet;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.Vetting.Status;
 
@@ -46,7 +48,7 @@ public class Race {
     }
 
     // The vote of a particular organization for this item.
-    class Organization implements Comparable {
+    class OrgVote implements Comparable<OrgVote> {
         String name; // org's name
         Chad vote = null; // the winning item: -1 for unknown
         int strength = 0; // strength of the vote
@@ -55,14 +57,14 @@ public class Race {
 
         Set<Chad> votes = new TreeSet<Chad>(); // the set of chads
 
-        public Organization(String name) {
+        public OrgVote(String name) {
             this.name = name;
         }
 
         /**
          * Factory function - create an existing Vote
          */
-        public Organization(Chad existingItem) {
+        public OrgVote(Chad existingItem) {
             name = Vetting.EXISTING_ITEM_NAME;
             vote = existingItem;
             strength = Vetting.EXISTING_VOTE;
@@ -81,11 +83,11 @@ public class Race {
         }
 
 
-        public int compareTo(Object o) {
+        public int compareTo(OrgVote o) {
             if (o == this) {
                 return 0;
             }
-            Organization other = (Organization) o;
+            OrgVote other = (OrgVote) o;
             if (other.strength > strength) {
                 return 1;
             } else if (other.strength < strength) {
@@ -107,7 +109,7 @@ public class Race {
                                                                                     // voted
                                                                                     // for
                                                                                     // this.
-        public Set<Organization> orgs = new TreeSet<Organization>(); // who
+        public Set<OrgVote> orgs = new TreeSet<OrgVote>(); // who
                                                                         // voted
                                                                         // for
                                                                         // this?
@@ -116,7 +118,7 @@ public class Race {
 
         public String refs = null;
 
-        public Set<Organization> orgsDefaultFor = null; // if non-null: this
+        public Set<OrgVote> orgsDefaultFor = null; // if non-null: this
                                                         // Chad is the default
                                                         // choice for the org[s]
                                                         // involved, iff they
@@ -164,15 +166,15 @@ public class Race {
         /**
          * Call this if the item is a default vote for an organization
          */
-        public void addDefault(Organization org) {
+        public void addDefault(OrgVote org) {
             // do NOT add to 'orgs'
             if (orgsDefaultFor == null) {
-                orgsDefaultFor = new HashSet<Organization>();
+                orgsDefaultFor = new HashSet<OrgVote>();
             }
             orgsDefaultFor.add(org);
         }
 
-        public void add(Organization votes) {
+        public void add(OrgVote votes) {
             orgs.add(votes);
             if (!(disqualified && !Vetting.MARK_NO_DISQUALIFY) && value != null) {
                 score += votes.strength;
@@ -215,7 +217,7 @@ public class Race {
     public Hashtable<Integer, Chad> chads = new Hashtable<Integer, Chad>();
     public Hashtable<String, Chad> chadsByValue = new Hashtable<String, Chad>();
     public Hashtable<String, Chad> chadsByValue2 = new Hashtable<String, Chad>();
-    public Hashtable<String, Organization> orgVotes = new Hashtable<String, Organization>();
+    public Hashtable<String, OrgVote> orgVotes = new Hashtable<String, OrgVote>();
     public Set<Chad> disputes = new TreeSet<Chad>();
 
     // winning info
@@ -361,10 +363,10 @@ public class Race {
         return c;
     }
 
-    private Organization getOrganization(String org) {
-        Organization theirOrg = orgVotes.get(org);
+    private OrgVote getOrganization(String org) {
+        OrgVote theirOrg = orgVotes.get(org);
         if (theirOrg == null) {
-            theirOrg = new Organization(org);
+            theirOrg = new OrgVote(org);
             orgVotes.put(org, theirOrg);
         }
         return theirOrg;
@@ -412,7 +414,7 @@ public class Race {
             c.vote(user);
 
             // add the chad to the set of orgs' chads
-            Organization theirOrg = getOrganization(user.voterOrg()); // we use the VR organization code
+            OrgVote theirOrg = getOrganization(user.voterOrg()); // we use the VR organization code
             theirOrg.add(c);
             if(!c.isDisqualified()) {
                 resolver.add(c.xpath, user.id); /* use chad's xpath- for collision calculation. */
@@ -851,4 +853,12 @@ public class Race {
         if(v==null) return null;
         return chads.get(v);
     }
+
+	public boolean isOrgDispute(VoteResolver.Organization org) {
+		return resolver.getConflictedOrganizations().contains(org);
+	}
+
+	public VoteStatus getStatusForOrganization(Organization orgOfUser) {
+        return resolver.getStatusForOrganization(orgOfUser);
+	}
 }

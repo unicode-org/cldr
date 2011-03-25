@@ -8872,7 +8872,7 @@ o	            		}*/
 	    	ctx.print("<table class='list' border=1 summary='voting results by organization'>");
 	    	ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Item</th><th>Score</th><th>Conflicting Votes</th></tr>");
 	    	int onn=0;
-	    	for(Race.Organization org : r.orgVotes.values()) {
+	    	for(Race.OrgVote org : r.orgVotes.values()) {
 	    		Race.Chad orgVote = r.getOrgVote(org.name);				    
 	    		Map<Integer,Long> o2v = r.getOrgToVotes(org.name);
 	    		/*

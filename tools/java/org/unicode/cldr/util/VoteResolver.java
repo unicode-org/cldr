@@ -17,6 +17,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.VettingViewer.VoteStatus;
+import org.unicode.cldr.util.VoteResolver.Organization;
+
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ULocale;
@@ -970,5 +973,47 @@ public class VoteResolver<T> {
 
   public int size() {
     return values.size();
+  }
+
+
+
+  public VoteStatus getStatusForOrganization(Organization orgOfUser) {
+      if (!resolved) {
+          resolveVotes();
+      }
+      
+      T orgVote = getOrgVote(orgOfUser);
+      T win = getWinningValue();
+      Status winStatus = getWinningStatus();
+      boolean provisionalOrWorse = Status.provisional.compareTo(winStatus)>=0;
+
+      if(orgVote!=null) {
+          //      - *If we voted*
+          if(conflictedOrganizations.contains(orgOfUser)) {
+              //         - if we conflicted internally => *disputed*
+              return VoteStatus.disputed;
+          } else if(win!=orgVote) {
+              //         - if our choice lost => losing
+              return VoteStatus.losing;
+          } else if(provisionalOrWorse) {
+              //         - if our choice <= provisional => provisionalOrWorse
+              return VoteStatus.provisionalOrWorse;          
+          } else {
+              //         - otherwise => *ok*
+              return VoteStatus.ok;
+          }
+      } else {
+          //      - *If we didn't vote*
+          if(provisionalOrWorse) {
+              //         - the winning value <= provisional => *disputed*
+              return VoteStatus.disputed;
+          } else if(valuesWithSameVotes.size()>1) {
+              //         - there's a tie among others => *disputed*
+              return VoteStatus.disputed;
+          } else {
+              //         - otherwise => *ok*
+              return VoteStatus.ok;
+          }
+      }
   }
 }

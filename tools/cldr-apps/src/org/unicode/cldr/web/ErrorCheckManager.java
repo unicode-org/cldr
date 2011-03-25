@@ -109,7 +109,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 	
 		private SurveyMain sm;
 		
-		private final boolean DEBUG=true;
+		private final boolean DEBUG=false;
 	
 		public ErrorCheckManager(SurveyMain sm) {
 			this.sm = sm;

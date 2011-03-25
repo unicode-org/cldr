@@ -31,7 +31,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
  */
 public class CLDRFileCache {
 	private long startTime = System.currentTimeMillis();
-	static final private boolean DEBUG_INSANE = true;
+	static final private boolean DEBUG_INSANE = false;
 	/**
 	 * @author srl
 	 * 

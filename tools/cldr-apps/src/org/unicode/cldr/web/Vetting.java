@@ -34,11 +34,13 @@ import java.util.TreeSet;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -2503,15 +2505,21 @@ if(true == true)    throw new InternalError("removed from use.");
 		Set<String> badLocales = new TreeSet<String>(); 
 		WebContext subCtx = (WebContext)ctx.clone();
 		subCtx.setQuery("do","");
+        int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(ctx.getCoverageSetting());
+        int skippedDueToCoverage = 0;
 		int n = 0;
 		int locs=0;
+		Map<String,CoverageLevel2> covs = new HashMap<String, CoverageLevel2>();
+		Map<String,String> covLvls = new HashMap<String, String>();
 		try {
 			Connection conn = null;
+			Statement s = null;
+			ResultSet rs=null;
+			SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 			try {
 				conn = sm.dbUtils.getDBConnection();
 				// select CLDR_RESULT.locale,CLDR_XPATHS.xpath from CLDR_RESULT,CLDR_XPATHS where CLDR_RESULT.type=4 AND CLDR_RESULT.base_xpath=CLDR_XPATHS.id order by CLDR_RESULT.locale
-				Statement s = conn.createStatement();
-				ResultSet rs;
+				s = conn.createStatement();
 
 				if(ctx.hasField("only_err")) {
 					ctx.println("<h1>Only showing ERROR (disqualified winner) items</h1>");
@@ -2519,11 +2527,31 @@ if(true == true)    throw new InternalError("removed from use.");
 				} else {
 					rs = s.executeQuery("select "+CLDR_RESULT+".locale,"+CLDR_RESULT+".base_xpath from "+CLDR_RESULT+" where ("+CLDR_RESULT+".type>"+RES_INSUFFICIENT+") AND ("+CLDR_RESULT+".type<="+RES_BAD_MAX+")");
 				}
+				
+				
 				while(rs.next()) {
 					n++;
 					String aLoc = rs.getString(1);
 					int aXpath = rs.getInt(2);
 					String path = sm.xpt.getById(aXpath);
+					
+					CoverageLevel2 cov = covs.get(aLoc);
+					String covLvl;
+					if(cov==null) {
+						cov = CoverageLevel2.getInstance(sdi, aLoc);
+						covs.put(aLoc, cov);
+						covLvls.put(aLoc, covLvl = ctx.getEffectiveCoverageLevel(aLoc));
+					} else {
+						covLvl = covLvls.get(aLoc);
+					}
+
+		            int	coverageValue = cov.getIntLevel(path);
+			        if ( coverageValue > workingCoverageValue ) {
+			            if ( coverageValue <= 100 ) {
+			                skippedDueToCoverage++;
+			            } // else: would never be shown, don't care
+			            continue;
+			        }
 					String theMenu = PathUtilities.xpathToMenu(path);
 
 					if(theMenu==null) {
@@ -2546,7 +2574,7 @@ if(true == true)    throw new InternalError("removed from use.");
 				}
 				ctx.println("<hr>"+n+" disputed total in " + m.size() + " locales.<br>");			
 			} finally {
-				DBUtils.close(conn);
+				DBUtils.close(rs,s,conn);
 			}
 		} catch ( SQLException se ) {
 			String complaint = "Vetter:  couldn't do DisputePage - " + DBUtils.unchainSqlException(se);
@@ -2558,6 +2586,9 @@ if(true == true)    throw new InternalError("removed from use.");
 
 		boolean showAllXpaths = ctx.prefBool(sm.PREF_GROTTY);
 
+		if(skippedDueToCoverage>0) {
+			ctx.println("<i>Note: " +skippedDueToCoverage +" items skipped due to coverage level.</i>");
+		}
 		ctx.println("<table class='list'>");
 		ctx.println("<tr class='botbar'>"+
 				//            "<th>Errs</th>" +
@@ -2607,7 +2638,7 @@ if(true == true)    throw new InternalError("removed from use.");
 				if(sm.isUnofficial) {
 					ctx.println("<tr class='row"+(nn++ % 2)+"'>");
 					ctx.print("<th align='left'>"+totalbad+"</th>");
-					ctx.print("<th class='hang' align='left'>");
+					ctx.print("<th class='hang' align='left' title='Coverage: "+covLvls.get(loc)+"'>");
 					sm.printLocaleLink(subCtx,CLDRLocale.getInstance(loc),new ULocale(loc).getDisplayName().replaceAll("\\(",
 					"<br>(")); // subCtx = no 'do' portion, for now.
 					ctx.println("</th>");
@@ -2615,6 +2646,7 @@ if(true == true)    throw new InternalError("removed from use.");
 				}
 				continue;
 			}
+			
 
 			ctx.println("<tr class='row"+(nn++ % 2)+"'>");
 			/*
@@ -2624,7 +2656,7 @@ if(true == true)    throw new InternalError("removed from use.");
                 ctx.print("<th></th>");
             }
 			 */
-			ctx.print("<th align='left'>"+totalbad+"</th>");
+			ctx.print("<th align='left'  title='Coverage: "+covLvls.get(loc)+"'>"+totalbad+"</th>");
 			ctx.print("<th class='hang' align='left'>");
 			sm.printLocaleLink(subCtx,CLDRLocale.getInstance(loc),new ULocale(loc).getDisplayName().replaceAll("\\(",
 			"<br>(")); // subCtx = no 'do' portion, for now.
@@ -2640,6 +2672,7 @@ if(true == true)    throw new InternalError("removed from use.");
 					Set subSet = (Set)ht.get(theMenu);
 					ctx.print("<a href='"+ctx.base()+"?"+
 							"_="+loc+"&amp;x="+theMenu+ 
+							"&amp;p_sort=interest"+
 							/* "&amp;only=disputed"+ */  // disputed only is broken.
 							"#"+DataSection.CHANGES_DISPUTED+"'>"+
 							theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");

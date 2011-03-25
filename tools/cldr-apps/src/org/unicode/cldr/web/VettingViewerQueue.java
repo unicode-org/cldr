@@ -240,6 +240,7 @@ public class VettingViewerQueue {
 			}
 		} else { /* force restart */
 			stop(ctx, locale, entry);
+	    	entry.output.remove(locale);
 		}
 		
 		Task t = entry.currentTask;
@@ -305,7 +306,6 @@ public class VettingViewerQueue {
     		}
     		entry.currentTask=null;
     	}
-    	entry.output.remove(locale);
 	}
 
 	private QueueEntry getEntry(CookieSession session) {

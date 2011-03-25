@@ -2940,7 +2940,7 @@ o	            		}*/
                 printMenu(ctx, doWhat, "list", "Manage " + ctx.session.user.org + " Users", QUERY_DO);
                 ctx.print(" | ");
 //              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
-                printMenu(ctx, doWhat, "disputed", "Disputed (Approximate)", QUERY_DO);
+                printMenu(ctx, doWhat, "disputed", "Dispute Resolution", QUERY_DO);
             } else {
                 if(UserRegistry.userIsVetter(ctx.session.user)) {
                     ctx.print(" | ");
@@ -2967,18 +2967,26 @@ o	            		}*/
         	ctx.println(" | <a class='notselected' href='"+ctx.jspUrl("statistics.jsp")+"'>Statistics</a>");
         }
     }
+    private static final String REDO_FIELD_LIST[] = {
+    	QUERY_LOCALE, QUERY_SECTION, QUERY_DO, "forum"
+    };
     private void showCoverageInHeader(WebContext ctx) {
     	String curSetting = ctx.getCoverageSetting();
     	if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
     		ctx.println("<span style='border: 2px solid blue'>");
     	}
-    	if(ctx.hasField(SurveyMain.QUERY_LOCALE)) {
+    	if(!(ctx.hasField("xpath")||ctx.hasField("forum")) && ( ctx.hasField(SurveyMain.QUERY_LOCALE) || ctx.field(QUERY_DO).equals("disputed"))) {
     		WebContext subCtx = new WebContext(ctx);
-    		subCtx.addQuery(SurveyMain.QUERY_LOCALE, ctx.field(QUERY_LOCALE));
-    		if(ctx.hasField(QUERY_SECTION)) {
-    			subCtx.addQuery(SurveyMain.QUERY_SECTION, ctx.field(QUERY_SECTION));
+    		for(String field : REDO_FIELD_LIST) {
+	    		if(ctx.hasField(field)) {
+	    			subCtx.addQuery(field, ctx.field(field));
+	    		}
     		}
-    		subCtx.showCoverageSettingForLocale();	
+    		if(ctx.hasField(QUERY_LOCALE)) {
+    			subCtx.showCoverageSettingForLocale();	
+    		} else {
+    			subCtx.showCoverageSetting();
+    		}
     	} else {
     		ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
     	}
@@ -6301,19 +6309,36 @@ o	            		}*/
                     ctx.print("<h4><span style='padding: 1px;' class='disputed'>"+(orgDisp)+" items with conflicts among "+ctx.session.user.org+" vetters.</span> "+ctx.iconHtml("disp","Vetter Dispute")+"</h4>");
                     
                     Set<String> disputePaths = vet.getOrgDisputePaths(ctx.session.user.voterOrg(), localeName);
-                    Set<String> odItems = new TreeSet<String>();
+                    Map<String,Set<String>> odItems = new TreeMap<String,Set<String>>();
                     for(String path : disputePaths) {
                     	String theMenu = PathUtilities.xpathToMenu(path);
                     	if(theMenu != null) {
-                    		odItems.add(theMenu);
+                    		Set<String> paths = odItems.get(theMenu);
+                    		if(paths==null) {
+                    			paths=new TreeSet<String>();
+                    			odItems.put(theMenu,paths);
+                    		}
+                    		paths.add(path);
                     	}
                     }
                     WebContext subCtx = (WebContext)ctx.clone();
                     //subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
                     subCtx.removeQuery(QUERY_SECTION);
-                    for(String item : odItems) {
-                        printMenu(subCtx, "", item);
-                        subCtx.print(" | ");
+                    for(Map.Entry<String,Set<String>> e : odItems.entrySet()) {
+                        //printMenu(subCtx, "", e.getKey());
+                    	ctx.println("<h3>"+e.getKey()+"</h3>");
+                        ctx.println("<ol>");
+                        for(String path:e.getValue()) {
+                        	ctx.println("<li>"+
+                        				"<a target='_new' href='"+
+                        					fora.forumUrl(subCtx, ctx.getLocale().toString(), xpt.getByXpath(path))
+                        				+"'>" +
+                        					xpt.getPrettyPath(path) +
+                        					ctx.iconHtml("disp","Vetter Dispute")
+                        				+"</a>" +
+                        				"</li>");
+                        }
+                        ctx.println("</ol>");
                     }
                     ctx.println("<br>");
                 }

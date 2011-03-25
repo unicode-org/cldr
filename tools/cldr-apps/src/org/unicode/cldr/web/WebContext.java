@@ -1061,6 +1061,9 @@ public class WebContext implements Cloneable {
 	
 	
 	public String getEffectiveCoverageLevel() {
+		return getEffectiveCoverageLevel(getLocale().toString());
+	}
+	public String getEffectiveCoverageLevel(String locale) {
 		String level = getCoverageSetting();
 		if((level == null) || (level.equals(COVLEV_RECOMMENDED))||(level.equals("default"))) {
 			// fetch from org
@@ -1068,11 +1071,12 @@ public class WebContext implements Cloneable {
 			if((myOrg == null) || !isCoverageOrganization(myOrg)) {
 				level = COVLEV_DEFAULT_RECOMMENDED_STRING;
 			} else {
-				level = StandardCodes.make().getLocaleCoverageLevel(myOrg, getLocale().toString()).toString() ;
+				level = StandardCodes.make().getLocaleCoverageLevel(myOrg, locale).toString() ;
 			}
 		}
 		return level;
 	}
+	
 	
 	String getRecommendedCoverageLevel() {
 		String  myOrg = getUserOrg();
@@ -1304,7 +1308,7 @@ public class WebContext implements Cloneable {
     public void printHelpHtml(String xpath) {
         String helpHtml =         sm.getBaselineExample().getHelpHtml(xpath, "");
         if(helpHtml != null)  {
-            println("<div class='helpHtml'><h3 class='theHelp'>Help with "+sm.xpt.getPrettyPath(xpath)+"</h3><!-- "+xpath+" -->\n"+helpHtml+"</div>");
+            println("<br/> <div class='helpHtml'><br/><h3 style='display: none;' class='theHelp'>Help with "+sm.xpt.getPrettyPath(xpath)+"</h3><!-- "+xpath+" -->\n"+helpHtml+"</div>");
         }
     }
     

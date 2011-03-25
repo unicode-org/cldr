@@ -561,7 +561,7 @@ public class WebContext implements Cloneable {
      * Get the base URL (servlet path)
      * @return the servlet path in context
      */
-    String base() { 
+    public String base() { 
         return context() + request.getServletPath();
     }
     
@@ -1101,8 +1101,15 @@ public class WebContext implements Cloneable {
 		return sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
 	}
 
-	public static final String COVLEV_RECOMMENDED = "recommended";
-	public static final String PREF_COVLEV_LIST[] = { COVLEV_RECOMMENDED,"comprehensive","modern","moderate","basic","minimal" };
+	public static final String COVLEV_RECOMMENDED = "(default)";
+	public static final String PREF_COVLEV_LIST[] = { COVLEV_RECOMMENDED, 
+								Level.COMPREHENSIVE.toString(), 
+								Level.MODERN.toString(),
+								Level.MODERATE.toString(),
+								Level.BASIC.toString(),
+								Level.MINIMAL.toString()
+								};
+	
 	/**
 	 * The default level, if no organization is available.
 	 */

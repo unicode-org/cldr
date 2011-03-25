@@ -91,7 +91,7 @@ public class URLWebContext extends WebContext {
         }
     }
     
-    String base() {
+    public String base() {
         return context() + "/survey";
     }
 

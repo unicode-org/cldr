@@ -50,7 +50,15 @@
 		}
 		jout.println("</select>");
 		jout.println("</label>");
-	}%>
+	}
+	%>
+	
+	<%
+			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
+	        if(ctx.session.user!=null) {
+	%><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Vetting Viewer</a>
+    <%   } %>
+    
 <%
 	if (!ctx.prefBool(SurveyMain.PREF_NOJAVASCRIPT)) {
 		writeMenu(out, ctx, "Code Lists",

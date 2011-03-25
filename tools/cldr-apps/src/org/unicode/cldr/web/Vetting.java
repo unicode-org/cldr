@@ -2501,11 +2501,13 @@ if(true == true)    throw new InternalError("removed from use.");
      * @param ctx webcontext for IN/OUT stuff
      */
 	void doDisputePage(WebContext ctx) {
-		Map m = new  TreeMap ();
+		Map<String, Map<String, Set<String>>> m = new  TreeMap<String, Map<String, Set<String>>> ();
 		Set<String> badLocales = new TreeSet<String>(); 
 		WebContext subCtx = (WebContext)ctx.clone();
 		subCtx.setQuery("do","");
-        int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(ctx.getCoverageSetting());
+		
+		CLDRLocale onlyLoc = ctx.getLocale();
+		
         int skippedDueToCoverage = 0;
 		int n = 0;
 		int locs=0;
@@ -2532,9 +2534,22 @@ if(true == true)    throw new InternalError("removed from use.");
 				while(rs.next()) {
 					n++;
 					String aLoc = rs.getString(1);
+					
+					if(onlyLoc!=null && !aLoc.equals(onlyLoc.toString())) {
+						continue;
+					}
+					
 					int aXpath = rs.getInt(2);
 					String path = sm.xpt.getById(aXpath);
 					
+					Map<String, Set<String>> ht = m.get(aLoc);
+					if(ht==null) {
+						locs++;
+						ht = new TreeMap<String, Set<String>>();
+						m.put(aLoc,ht);
+						badLocales.add(sm.getLocaleDisplayName(CLDRLocale.getInstance(aLoc)));
+					} // add the locale before showing disputes
+
 					CoverageLevel2 cov = covs.get(aLoc);
 					String covLvl;
 					if(cov==null) {
@@ -2545,6 +2560,7 @@ if(true == true)    throw new InternalError("removed from use.");
 						covLvl = covLvls.get(aLoc);
 					}
 
+			        int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(covLvl);
 		            int	coverageValue = cov.getIntLevel(path);
 			        if ( coverageValue > workingCoverageValue ) {
 			            if ( coverageValue <= 100 ) {
@@ -2558,21 +2574,13 @@ if(true == true)    throw new InternalError("removed from use.");
 						ctx.println("<div class='ferrbox'>Couldn't find menu for " + path + " ("+aLoc+":"+aXpath+")</div><br>");
 						theMenu="unknown";
 					}
-					Hashtable ht = (Hashtable)m.get(aLoc);
-					if(ht==null) {
-						locs++;
-						ht = new Hashtable();
-						m.put(aLoc,ht);
-						badLocales.add(sm.getLocaleDisplayName(CLDRLocale.getInstance(aLoc)));
-					}
-					Set st = (Set)ht.get(theMenu);
+					Set<String> st = ht.get(theMenu);
 					if(st==null) {
-						st = new TreeSet();
+						st = new TreeSet<String>();
 						ht.put(theMenu,st);
 					}
 					st.add(path);
 				}
-				ctx.println("<hr>"+n+" disputed total in " + m.size() + " locales.<br>");			
 			} finally {
 				DBUtils.close(rs,s,conn);
 			}
@@ -2582,12 +2590,52 @@ if(true == true)    throw new InternalError("removed from use.");
 			se.printStackTrace();
 			throw new RuntimeException(complaint);
 		}
-
-
 		boolean showAllXpaths = ctx.prefBool(sm.PREF_GROTTY);
 
+		
+		if(onlyLoc!=null) {
+			if(badLocales.isEmpty())
+			{
+				return;
+			}
+			ctx.println("<h3>Disputed Sections in This Locale</h3>");
+
+			Map<String,Set<String>> ht = m.get(onlyLoc.toString());
+			
+			int jj=0;
+			for(Map.Entry<String, Set<String>> ii : ht.entrySet()) {
+				if((jj++)>0) {
+					ctx.print(", ");
+				}
+				String theMenu = ii.getKey();
+				Set<String> subSet = ii.getValue();
+				ctx.print("<a href='"+ctx.base()+"?"+
+						"_="+onlyLoc+"&amp;x="+theMenu+ 
+						"&amp;p_sort=interest"+
+						/* "&amp;only=disputed"+ */  // disputed only is broken.
+						"#"+DataSection.CHANGES_DISPUTED+"'>"+
+						theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");
+
+				if(showAllXpaths) {
+					ctx.print("<br><pre>");
+					for(Iterator<String> iii = (subSet).iterator();iii.hasNext();) {
+						String xp = (String)iii.next();
+						ctx.println(xp);
+					}
+					ctx.print("</pre>");
+				}
+			}
+			
+			
+			if(skippedDueToCoverage>0) {
+				ctx.println("<i>Note: " +skippedDueToCoverage +" disputed items in this locale not shown due to coverage level.</i>");
+			}
+			return;
+		}
+
+
 		if(skippedDueToCoverage>0) {
-			ctx.println("<i>Note: " +skippedDueToCoverage +" items skipped due to coverage level.</i>");
+			ctx.println("<i>Note: " +skippedDueToCoverage +" items not shown due to coverage level.</i>");
 		}
 		ctx.println("<table class='list'>");
 		ctx.println("<tr class='botbar'>"+
@@ -2617,8 +2665,7 @@ if(true == true)    throw new InternalError("removed from use.");
 			String locName = (String)i.next();
 			String loc = sm.getLocaleCode(locName).toString();
 			if(loc==null) loc = locName;
-			Hashtable ht;
-			ht = (Hashtable)m.get(loc);
+			Map<String, Set<String>> ht = m.get(loc);
 			// calculate the # of total disputed items in this locale
 			int totalbad = 0;
 
@@ -2628,8 +2675,7 @@ if(true == true)    throw new InternalError("removed from use.");
 			//genCount = sm.externalErrorCount(loc);
 
 			if(ht != null) {
-				for(Object o : ht.values()) {
-					Set subSet = (Set)o;
+				for(Set<String> subSet : ht.values()) {
 					totalbad += subSet.size();
 				}
 			}
@@ -2664,12 +2710,12 @@ if(true == true)    throw new InternalError("removed from use.");
 			if(totalbad > 0) {
 				ctx.println("<td>");
 				int jj=0;
-				for(Iterator ii = ht.keySet().iterator();ii.hasNext();) {
+				for(Map.Entry<String, Set<String>> ii : ht.entrySet()) {
 					if((jj++)>0) {
 						ctx.print(", ");
 					}
-					String theMenu = (String)ii.next();
-					Set subSet = (Set)ht.get(theMenu);
+					String theMenu = ii.getKey();
+					Set<String> subSet = ii.getValue();
 					ctx.print("<a href='"+ctx.base()+"?"+
 							"_="+loc+"&amp;x="+theMenu+ 
 							"&amp;p_sort=interest"+
@@ -2679,7 +2725,7 @@ if(true == true)    throw new InternalError("removed from use.");
 
 					if(showAllXpaths) {
 						ctx.print("<br><pre>");
-						for(Iterator iii = (subSet).iterator();iii.hasNext();) {
+						for(Iterator<String> iii = (subSet).iterator();iii.hasNext();) {
 							String xp = (String)iii.next();
 							ctx.println(xp);
 						}
@@ -2691,6 +2737,7 @@ if(true == true)    throw new InternalError("removed from use.");
 			ctx.println("</tr>");
 		}
 		ctx.println("</table>");
+		ctx.println("<hr>"+n+" disputed total in " + m.size() + " locales.<br>");			
 	}
     
     /**

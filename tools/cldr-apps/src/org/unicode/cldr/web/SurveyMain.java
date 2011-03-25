@@ -2940,7 +2940,6 @@ o	            		}*/
                 printMenu(ctx, doWhat, "list", "Manage " + ctx.session.user.org + " Users", QUERY_DO);
                 ctx.print(" | ");
 //              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
-                printMenu(ctx, doWhat, "disputed", "Dispute Resolution", QUERY_DO);
             } else {
                 if(UserRegistry.userIsVetter(ctx.session.user)) {
                     ctx.print(" | ");
@@ -2949,6 +2948,7 @@ o	            		}*/
                     ctx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + ctx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
             }
+            printMenu(ctx, doWhat, "disputed", "Dispute Resolution", QUERY_DO); 
             if(SurveyMain.isPhaseReadonly()) {
 				ctx.println("<br>(The SurveyTool is in a read-only state, no changes may be made.)");
 			} else if(SurveyMain.isPhaseVetting() 
@@ -5478,10 +5478,6 @@ o	            		}*/
             subCtx.println("</p>");
         }
         
-        if(canModify) {
-            String xclass = R_VETTING.equals(ctx.field(QUERY_SECTION))?"selected":"notselected";
-            subCtx.println("<a href=\"" + ctx.base()+ "?_=" + subCtx.getLocale() + "&amp;" +  QUERY_SECTION + "="+ R_VETTING + "\" class='"+xclass+"'>Vetting Viewer</a>");
-        }
 
         subCtx.println("</td></tr></table>");
     }
@@ -6344,8 +6340,10 @@ o	            		}*/
                 }
             }
             
+            vet.doDisputePage(ctx);
             
-            if((UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
+            /*  OLD 'disputed need attention' page. */
+            if(false && (UserRegistry.userIsVetter(ctx.session.user))&&((vetStatus & Vetting.RES_BAD_MASK)>0)) {
                 //int numNoVotes = vet.countResultsByType(ctx.getLocale().toString(),Vetting.RES_NO_VOTES);
                 int numInsufficient = vet.countResultsByType(ctx.getLocale(),Vetting.RES_INSUFFICIENT);
                 int numDisputed = vet.countResultsByType(ctx.getLocale(),Vetting.RES_DISPUTED);

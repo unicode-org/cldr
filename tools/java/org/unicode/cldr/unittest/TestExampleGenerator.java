@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
@@ -17,10 +18,13 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestPaths() {
         showCldrFile(info.getEnglish());
+        showCldrFile(info.getCldrFactory().make("fr", true));
     }
-    
+
     private void showCldrFile(final CLDRFile cldrFile) {
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        checkPathValue(exampleGenerator, "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]", "EEEE d MMMMl y'x'G");
+        
         for (String xpath : cldrFile) {
             String value = cldrFile.getStringValue(xpath);
             checkPathValue(exampleGenerator, xpath, value);
@@ -32,14 +36,16 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     private void checkPathValue(ExampleGenerator exampleGenerator, String xpath, String value) {
-        for (Zoomed zoomed : Zoomed.values()) {
-            try {
-                String text = exampleGenerator.getExampleHtml(xpath, value, zoomed);
-                if (text != null && text.contains("Exception")) {
-                    errln("getExampleHtml\t" + zoomed + "\t" + text);
+        for (ExampleType type : ExampleType.values()) {
+            for (Zoomed zoomed : Zoomed.values()) {
+                try {
+                    String text = exampleGenerator.getExampleHtml(xpath, value, zoomed, null, type);
+                    if (text != null && text.contains("Exception")) {
+                        errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text);
+                    }
+                } catch (Exception e) {
+                    errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + e.getMessage());
                 }
-            } catch (Exception e) {
-                errln("getExampleHtml\t" + zoomed + "\t" + e.getMessage());
             }
         }
         try {

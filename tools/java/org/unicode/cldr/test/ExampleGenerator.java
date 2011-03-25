@@ -872,7 +872,7 @@ public class ExampleGenerator {
         while (URLMatcher.reset(description).find(start)) {
             final String url = URLMatcher.group();
             buffer.append(TransliteratorUtilities.toHTML.transform(description.substring(start, URLMatcher.start())))
-            .append("<a href='")
+            .append("<a target='docs' href='")
             .append(url)
             .append("'>")
             .append(url)

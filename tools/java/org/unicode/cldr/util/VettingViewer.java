@@ -57,7 +57,7 @@ public class VettingViewer<T> {
         /**
          * My choice is not the winning item
          */
-        weLost('L', "Losing", "The value that your organization chose (overall) is not the winning value."),
+        weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn't have enough votes to be approved."),
         /**
          * The English value for the path changed AFTER the current value for
          * the locale.
@@ -72,6 +72,10 @@ public class VettingViewer<T> {
          * There is a console-check error
          */
         warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
+        /**
+         * My choice is not the winning item
+         */
+        hasDispute('D', "Disputed", "There is a dispute between other organizations that needs your help in resolving."),
         /**
          * There is a console-check error
          */
@@ -165,7 +169,7 @@ public class VettingViewer<T> {
             return buffer.toString();
         }
     };
-    
+
     public enum VoteStatus {
         /**
          * The user's organization chose the winning value for the path, and
@@ -199,6 +203,14 @@ public class VettingViewer<T> {
          * @param locale
          */
         public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T user);
+
+        /**
+
+         * Return the vote status
+         * 
+         * @param locale
+         */
+        public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, T user);
     }
 
     public static interface ErrorChecker {
@@ -212,7 +224,7 @@ public class VettingViewer<T> {
          */
         public Status getErrorStatus(String path, String value, StringBuilder statusMessage);
     }
-    
+
     public static class NoErrorStatus implements ErrorChecker {
         @Override
         public Status initErrorStatus(CLDRFile cldrFile) {
@@ -224,14 +236,14 @@ public class VettingViewer<T> {
             return Status.ok;
         }
     }
-    
+
     public static class DefaultErrorStatus implements ErrorChecker {
 
         private CheckCLDR checkCldr;
         private HashMap<String, String> options = new HashMap<String, String>();
         private ArrayList<CheckStatus> result = new ArrayList<CheckStatus>();
         private CLDRFile cldrFile;
-        
+
         @Override
         public Status initErrorStatus(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
@@ -366,6 +378,7 @@ public class VettingViewer<T> {
                 errorChecker.initErrorStatus(sourceFile);
                 break;
             case weLost:
+            case hasDispute:
             case other:
                 break;
             default:
@@ -383,7 +396,7 @@ public class VettingViewer<T> {
 
         for (String path : sourceFile) {
             progressCallback.nudge(); // Let the user know we're moving along.
-            
+
             // note that the value might be missing!
 
             // make sure we only look at the real values
@@ -407,6 +420,7 @@ public class VettingViewer<T> {
             problems.clear();
             testMessage.setLength(0);
             boolean haveError = false;
+            VoteStatus voteStatus = null;
 
             for (Choice choice : choices) {
                 switch (choice) {
@@ -427,8 +441,8 @@ public class VettingViewer<T> {
                     break;
                 case englishChanged:
                     if (outdatedPaths.isOutdated(localeID, path)
-//                            || !CharSequences.equals(englishFile.getWinningValue(path), oldEnglishFile.getWinningValue(path))
-                            ) {
+                            //                            || !CharSequences.equals(englishFile.getWinningValue(path), oldEnglishFile.getWinningValue(path))
+                    ) {
                         // the outdated paths compares the base value, before
                         // data submission,
                         // so see if the value changed.
@@ -455,12 +469,34 @@ public class VettingViewer<T> {
                     }
                     break;
                 case weLost:
-                    String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
-                    if (usersValue != null && !usersValue.equals(value)) {
+                    if (voteStatus == null) {
+                        voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
+                    }
+                    switch (voteStatus) {
+                    case provisionalOrWorse:
+                    case losing: 
+                        if (choice == Choice.weLost) {
+                            problems.add(choice);
+                            problemCounter.increment(choice);
+                            String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
+                            appendToMessage(usersValue, testMessage);
+                        }
+                        break;
+                    }
+                    break;
+                case hasDispute:
+                    if (voteStatus == null) {
+                        voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
+                    }
+                    if (voteStatus == VoteStatus.disputed) {
                         problems.add(choice);
                         problemCounter.increment(choice);
-                        appendToMessage(usersValue, testMessage);
+                        String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
+                        if (usersValue != null) {
+                            appendToMessage(usersValue, testMessage);
+                        }
                     }
+                    break;
                 }
             }
             if (showAll || !problems.isEmpty()) {
@@ -714,13 +750,31 @@ public class VettingViewer<T> {
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
         CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));
 
-        // fake this, because we don't have access to ST data
+        // FAKE this, because we don't have access to ST data
+        
         UsersChoice<Integer> usersChoice = new UsersChoice<Integer>() {
+            // Fake values for now
             public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Integer user) {
-                if (path.contains("\"en")) {
+                if (path.contains("AFN")) {
                     return "dummy ‘losing’ value";
                 }
                 return null; // assume we didn't vote on anything else.
+            }
+            // Fake values for now
+            public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Integer user) {
+                String usersValue = getWinningValueForUsersOrganization(cldrFile, path, user);
+                String winningValue = cldrFile.getWinningValue(path);
+                if (CharSequences.equals(usersValue, winningValue)) {
+                    return VoteStatus.ok;
+                }
+                String fullPath = cldrFile.getFullXPath(path);
+                if (fullPath.contains("AMD") || fullPath.contains("unconfirmed") || fullPath.contains("provisional")) {
+                    return VoteStatus.provisionalOrWorse;
+                }
+                if (fullPath.contains("AED")) {
+                    return VoteStatus.disputed;
+                }
+                return VoteStatus.ok;
             }
         };
 

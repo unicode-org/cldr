@@ -195,6 +195,7 @@
     <target name="all" depends="init" description="build web classes">
         <javac 
             srcdir="${src.dir}"
+        	includes="org/unicode/cldr/web/*.java"
             destdir="${build.dir}"
             classpathref="project.class.path"
             source="1.6"

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -48,7 +49,7 @@ public class GenerateIndexCharacters {
         .setOrdering(collator)
         .setSpaceComparator(collator);
 
-        String cleanedSet = DisplayAndInputProcessor.getCleanedUnicodeSet(uset, pp, false);
+        String cleanedSet = DisplayAndInputProcessor.getCleanedUnicodeSet(uset, pp, ExemplarType.index);
         return cleanedSet;
     }
 }

@@ -6326,7 +6326,7 @@ o	            		}*/
                         ctx.println("<ol>");
                         for(String path:e.getValue()) {
                         	ctx.println("<li>"+
-                        				"<a target='_new' href='"+
+                        				"<a "+ctx.atarget()+" href='"+
                         					fora.forumUrl(subCtx, ctx.getLocale().toString(), xpt.getByXpath(path))
                         				+"'>" +
                         					xpt.getPrettyPath(path) +
@@ -8516,7 +8516,7 @@ o	            		}*/
         ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top'>");
         if(!zoomedIn) {
             if(specialUrl != null) {
-                ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.getLocale().toString())+"' href='"+specialUrl+"'>"+statusIcon+"</a>");
+                ctx.print("<a class='notselected' "+ctx.atarget()+" href='"+specialUrl+"'>"+statusIcon+"</a>");
             } else {
                 fora.showForumLink(ctx,section,p,p.parentRow.base_xpath,statusIcon);
             }
@@ -8757,7 +8757,7 @@ o	            		}*/
                     String refHash = fieldHash;
                     Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = (Hashtable<String, DataSection.DataRow.CandidateItem>)ctx.temporaryStuff.get("refsItemHash");
                     ctx.print("<label>");
-                    ctx.print("<a "+ctx.atarget("ref_"+ctx.getLocale())+" href='"+refCtx.url()+"'>Add/Lookup References</a>");
+                    ctx.print("<a "+ctx.atarget()+" href='"+refCtx.url()+"'>Add/Lookup References</a>");
                     if(areShowingInputBox) {
                         ctx.print("&nbsp;<select name='"+fieldHash+"_r'>");
                         ctx.print("<option value='' SELECTED>(pick reference)</option>");
@@ -8785,7 +8785,7 @@ o	            		}*/
                     }
                     ctx.print("</label>");
                 } else if(false) {
-                    ctx.print("<a "+ctx.atarget("ref_"+ctx.getLocale())+" href='"+refCtx.url()+"'>Add Reference</a>");
+                    ctx.print("<a "+ctx.atarget()+" href='"+refCtx.url()+"'>Add Reference</a>");
                 }
             }
             ctx.println("</td></tr>");
@@ -8841,7 +8841,7 @@ o	            		}*/
                             if(theMenu==null) {
                                 theMenu="raw";
                             }
-                            ctx.print("<a "+ctx.atarget("st:Ex:"+ctx.getLocale())+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.getLocale()+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
+                            ctx.print("<a "+ctx.atarget(WebContext.TARGET_EXAMPLE)+" href='"+ctx.url()+ctx.urlConnector()+"_="+ctx.getLocale()+"&amp;x="+theMenu+"&amp;"+ QUERY_EXAMPLE+"="+e.hash+"'>");
                             ctx.print(ctx.iconHtml("zoom","Zoom into "+cls)+cls);
                             ctx.print("</a>");
                         }
@@ -9259,7 +9259,7 @@ o	            		}*/
         String typeShown = p.type.replaceAll("/","/\u200b");
         if(!zoomedIn) {
             if(specialUrl != null) {
-                ctx.print("<a class='notselected' target='"+ctx.atarget("n:"+ctx.getLocale().toString())+"' href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
+                ctx.print("<a class='notselected' "+ctx.atarget()+" href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
             } else {
                 fora.showForumLink(ctx,p,p.parentRow.base_xpath,typeShown+disputeIcon);
             }

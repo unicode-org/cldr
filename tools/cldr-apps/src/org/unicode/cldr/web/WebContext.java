@@ -53,6 +53,9 @@ public class WebContext implements Cloneable {
     public Hashtable temporaryStuff = new Hashtable();
     public static final String CLDR_WEBCONTEXT="cldr_webcontext";
     
+    public static final String TARGET_ZOOMED = "CLDR-ST-ZOOMED";
+    public static final String TARGET_EXAMPLE = "CLDR-ST-EXAMPLE";
+    
 // private fields
     protected Writer out = null;
     private PrintWriter pw = null;
@@ -446,24 +449,25 @@ public class WebContext implements Cloneable {
     }
     
     /**
-     * Get the target keyword and value for an 'a href' HTML tag.
-     * @return the target to use (defaults to something like  'target=_blank')
-     */
-    String atarget() {
-        return atarget("_blank");
-    }
-    
-    /**
      * Get the target  keyword and value for an 'a href' HTML tag
      * @param target the target name to use
      * @return the 'target=...' string - may be blank if the user has requested no popups
      */
-    public String atarget(String target) {
+    public String atarget(String t) {
         if(prefBool(SurveyMain.PREF_NOPOPUPS)) {
             return "";
         } else {
-            return "target='SurveyTool:"+target+"' ";
+            return "target='"+ t + "' ";
         }
+    }
+
+    /**
+     * Get the target  keyword and value for an 'a href' HTML tag on TARGET_ZOOMED
+     * @return the 'target=...' string - may be blank if the user has requested no popups
+     * @see #TARGET_ZOOMED
+     */
+    public String atarget() {
+        return atarget(TARGET_ZOOMED);
     }
 
     /**

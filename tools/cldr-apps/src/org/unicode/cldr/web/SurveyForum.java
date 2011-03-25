@@ -1307,7 +1307,7 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
 		//        title = null /*+ title*/;
-		ctx.println("<a target='"+ctx.atarget("n:"+ctx.getLocale())+"' class='forumlink' href='"+forumUrl(ctx,p,xpath)+"' >" // title='"+title+"'
+		ctx.println("<a "+ctx.atarget()+" class='forumlink' href='"+forumUrl(ctx,p,xpath)+"' >" // title='"+title+"'
 				+contents+ "</a>");
 	}
 	void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {

@@ -182,8 +182,8 @@ public class VettingViewer<T> {
      * </ol>
      * <li>If we didn't vote*</li>
      * <ol>
-     * <li>the winning value ≤ provisional → *disputed*</li>
      * <li>there's a tie among others → *disputed*</li>
+     * <li>at least one other organization voted, and the winning value ≤ provisional → *disputed*</li>
      * <li>otherwise → *ok*</li>
      * </ol>
      * </ol>
@@ -837,7 +837,7 @@ public class VettingViewer<T> {
         // here are per-view parameters
 
         final EnumSet<Choice> choiceSet = EnumSet.allOf(Choice.class);
-        String localeStringID = "wae";
+        String localeStringID = "fr";
         int userNumericID = 666;
         Level usersLevel = Level.MODERN;
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");

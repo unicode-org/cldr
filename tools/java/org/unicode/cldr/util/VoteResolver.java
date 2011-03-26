@@ -220,7 +220,8 @@ public class VoteResolver<T> {
     private Counter<T>                    totals     = new Counter<T>(true);
     // map an organization to what it voted for.
     private Map<Organization, T>          orgToAdd   = new HashMap<Organization, T>();
-
+    boolean hasVotes = false;
+    
     OrganizationToValueAndVote() {
       for (Organization org : Organization.values()) {
         orgToVotes.put(org, new MaxCounter<T>(true));
@@ -236,6 +237,7 @@ public class VoteResolver<T> {
       }
       orgToAdd.clear();
       orgToMax.clear();
+      hasVotes = false;
     }
 
     /**
@@ -251,6 +253,7 @@ public class VoteResolver<T> {
       }
       final int votes = info.getLevel().getVotes();
       orgToVotes.get(info.getOrganization()).add(value, votes);
+      hasVotes = true;
       // add the new votes to orgToMax, if they are greater that what was there
       Integer max = orgToMax.get(info.getOrganization());
       if (max == null || max < votes) {
@@ -1004,7 +1007,7 @@ public class VoteResolver<T> {
           }
       } else {
           //      - *If we didn't vote*
-          if(provisionalOrWorse) {
+          if (provisionalOrWorse && organizationToValueAndVote.hasVotes) {
               //         - the winning value <= provisional => *disputed*
               return VoteStatus.disputed;
           } else if(valuesWithSameVotes.size()>1) {

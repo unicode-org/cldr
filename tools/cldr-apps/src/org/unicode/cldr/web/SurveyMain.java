@@ -4585,6 +4585,9 @@ o	            		}*/
 				jout.print("value=\"" + ssc.url() + "\" ");
 			}
 			jout.print(">" + items[i]);
+            if(rec!=null&&rec.equals(items[i])) {
+                jout.print("*");
+            }
 			jout.println("</option>");
 
 //			if(rec!=null&&rec.equals(items[i])) {
@@ -4627,7 +4630,7 @@ o	            		}*/
 	            }
 	            ctx.println("<a href='"+nuCtx.url()+"' class='"+(val.equals(list[n])?"selected":"notselected")+"'>"+list[n]+"</a> ");
 	            if(rec!=null&&rec.equals(list[n])) {
-	            	ctx.print("</b>");
+	            	ctx.print("*</b>");
 	            }
 	        }
 	        ctx.println("<br>");

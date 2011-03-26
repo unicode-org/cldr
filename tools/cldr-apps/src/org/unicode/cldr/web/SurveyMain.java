@@ -81,6 +81,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.Race.Chad;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -8874,7 +8875,13 @@ o	            		}*/
 	    	int onn=0;
 	    	for(Race.OrgVote org : r.orgVotes.values()) {
 	    		Race.Chad orgVote = r.getOrgVote(org.name);				    
-	    		Map<Integer,Long> o2v = r.getOrgToVotes(org.name);
+	    		Map<Chad,Long> o2c = r.getOrgToVotes(org.name);
+	    		
+	    		Map<Integer,Long>o2v = new TreeMap<Integer,Long>();
+	    		
+	    		for(Map.Entry<Chad, Long> e : o2c.entrySet()) {
+	    			o2v.put(e.getKey().xpath, e.getValue());
+	    		}
 	    		/*
 		    System.err.println("org:"+org.name);
 		    for(int i : o2v.keySet()) {

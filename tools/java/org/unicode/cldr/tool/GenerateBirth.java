@@ -20,6 +20,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -71,7 +72,8 @@ public class GenerateBirth {
         
         // Set up the binary data file
 
-        File file = new File(myOptions.get("target").getValue() + "outdated.data");
+        final String dataDirectory = myOptions.get("target").getValue();
+        File file = new File(dataDirectory + "/outdated.data");
         final String outputDataFile = file.getCanonicalPath();
         System.out.println("Writing data: " + outputDataFile);
         DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file));
@@ -108,7 +110,7 @@ public class GenerateBirth {
 
         // Doublecheck the data
         
-        OutdatedPaths outdatedPaths = new OutdatedPaths(outputDataFile);
+        OutdatedPaths outdatedPaths = new OutdatedPaths(dataDirectory);
         for (Entry<String, Set<String>> localeAndNewer : localeToNewer.entrySet()) {
             String locale = localeAndNewer.getKey();
             System.out.println("Checking " + locale);
@@ -144,6 +146,7 @@ public class GenerateBirth {
             birthToPaths = Relation.of(new TreeMap<Versions, Set<String>>(), TreeSet.class);
             pathToBirthCurrentPrevious = new HashMap();
             for (String xpath : files[0]) {
+                
                 xpath = xpath.intern();
                 String base = files[0].getStringValue(xpath);
                 String previousValue = null;
@@ -181,9 +184,7 @@ public class GenerateBirth {
                     }
                     R3<Versions, String, String> info = pathToBirthCurrentPrevious.get(xpath);
                     if (onlyNewer != null) {
-                        if (xpath.contains("/exemplarCharacters") || xpath.contains("/references")) {
-                            continue;
-                        }
+                        
                         R3<Versions, String, String> otherInfo = onlyNewer.pathToBirthCurrentPrevious.get(xpath);
                         if (otherInfo == null) {
                             continue;

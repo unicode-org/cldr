@@ -54,7 +54,7 @@ public class VettingViewer<T> {
          * My choice is not the winning item
          */
         weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn't have enough votes to be approved. " +
-        		"This might be due to a dispute between members of your organization."),
+        "This might be due to a dispute between members of your organization."),
         /**
          * There is a dispute.
          */
@@ -385,7 +385,7 @@ public class VettingViewer<T> {
 
         // set the following only where needed.
         Status status = null;
-        OutdatedPaths outdatedPaths = null;
+        OutdatedPaths outdatedPaths = new OutdatedPaths();
 
         Map<String, String> options = null;
         List<CheckStatus> result = null;
@@ -398,7 +398,6 @@ public class VettingViewer<T> {
                 status = new Status();
                 break;
             case englishChanged:
-                outdatedPaths = new OutdatedPaths();
                 break;
             case error:
             case warning:
@@ -488,6 +487,12 @@ public class VettingViewer<T> {
                     ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage);
                     if ((choice == Choice.error && errorStatus == ErrorChecker.Status.error)
                             || (choice == Choice.warning && errorStatus == ErrorChecker.Status.warning)) {
+                        if (choice == Choice.warning) {
+                            // for now, suppress cases where the English changed
+                            if (outdatedPaths.isOutdated(localeID, path)) {
+                                break;
+                            }
+                        }
                         problems.add(choice);
                         appendToMessage(statusMessage, testMessage);
                         problemCounter.increment(choice);
@@ -601,7 +606,7 @@ public class VettingViewer<T> {
          */
         public void done() {}
     }
-    
+
     private ProgressCallback progressCallback = new ProgressCallback(); // null instance by default
 
     /**
@@ -627,7 +632,7 @@ public class VettingViewer<T> {
         this.errorChecker = errorChecker;
         return this;
     }
-    
+
     /**
      * Provide the styles for inclusion into the ST &lt;head&gt; element.
      * @return
@@ -865,7 +870,7 @@ public class VettingViewer<T> {
         FileUtilities.appendFile(VettingViewer.class, "vettingViewerHead.txt", out);
         out.append(getHeaderStyles());
         out.append("</head><body>\n");
-        
+
         out.println("<p>Note: this is just a sample run. The user, locale, user's coverage level, and choices of tests will change the output. In a real ST page using these, the first three would "
                 + "come from context, and the choices of tests would be set with radio buttons. Demo settings are: </p>\n<ol>"
                 + "<li>choices: "

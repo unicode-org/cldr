@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
 
 /**
@@ -92,8 +93,30 @@ public class OutdatedPaths {
             return false;
         }
         long id = StringId.getId(distinguishedPath);
-        return data.contains(id);
+        boolean result = data.contains(id);
+        if (result == false) {
+            return false;
+        }
+        Boolean toSkip = SKIP_PATHS.get(distinguishedPath);
+        if (toSkip != null)  {
+            return false;
+        }
+        return result;
     }
+    
+    static RegexLookup<Boolean> SKIP_PATHS = new RegexLookup<Boolean>()
+    .add("/exemplarCharacters", true)
+    .add("/references", true)
+    .add("/delimiters/[^/]*uotation", true)
+    .add("/posix", true)
+    .add("/pattern", true)
+    .add("/fields/field[^/]*/displayName", true)
+    .add("/dateFormatItem", true)
+    .add("/numbers/symbols", true)
+    .add("/fallback", true)
+    .add("/quarters", true)
+    .add("/months", true)
+    ;
     
     /**
      * Returns the number of outdated paths.

@@ -89,13 +89,13 @@ abstract public class CheckCLDR {
     .add(new CheckExemplars())
     .add(new CheckForExemplars())
     .add(new CheckNumbers())
-    // .add(new CheckZones()) this doesn't work; many spurious errors that user can't correct
+    // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
     .add(new CheckMetazones())
     .add(new CheckAlt())
     .add(new CheckCurrencies())
     .add(new CheckCasing())
-    //.add(new CheckConsistentCasing())
-    //.add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
+    //.add(new CheckConsistentCasing()) //  this doesn't work; many spurious errors that user can't correct
+    .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
     ;
   }
 

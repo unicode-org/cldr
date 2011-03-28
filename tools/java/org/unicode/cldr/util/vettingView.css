@@ -7,17 +7,14 @@ table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last
 td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-fix, td.tvs-count, td.tvs-abb, td.tvs-desc {
     background-color: #FFFFCC;
 }
-td.tv-num {
-    text-align; right;
+td.tv-num, td.tvs-count {
+    text-align: right;
 }
 th.tv-th, th.tvs-th {
     background-color: #DDDDDD;
 }
 td.tv-win {
     background-color: #CCFFCC;
-}
-td.tv-num {
-    text-align: right;
 }
 td.tv-miss, td.tv-null {
     background-color: #FFCCCC;

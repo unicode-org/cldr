@@ -53,7 +53,8 @@ public class VettingViewer<T> {
         /**
          * My choice is not the winning item
          */
-        weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn't have enough votes to be approved."),
+        weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn't have enough votes to be approved. " +
+        		"This might be due to a dispute between members of your organization."),
         /**
          * There is a dispute.
          */
@@ -63,10 +64,6 @@ public class VettingViewer<T> {
          */
         warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
         /**
-         * Given the users coverage, some items are missing.
-         */
-        missingCoverage('M', "Missing", "Your current coverage level requires the item to be present, but it is missing."),
-        /**
          * The value changed from the last version of CLDR
          */
         changedOldValue('N', "New", "The winning value was altered from the CLDR 1.9 value."),
@@ -75,6 +72,10 @@ public class VettingViewer<T> {
          * the locale.
          */
         englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
+        /**
+         * Given the users coverage, some items are missing.
+         */
+        missingCoverage('M', "Missing", "Your current coverage level requires the item to be present, but it is missing."),
         /**
          * There is a console-check error
          */
@@ -672,7 +673,7 @@ public class VettingViewer<T> {
                 long count = problemCounter.get(choice);
                 output.append("<tr><td class='tvs-count'>")
                 .append(nf.format(count))
-                .append("</td>\n\t<td class='tvs-abb'>")
+                .append("</td>\n\t<td nowrap class='tvs-abb'>")
                 .append("<input type='checkbox' name='")
                 .append(Character.toLowerCase(choice.abbreviation))
                 .append("' onclick='setStyles()'/> ")
@@ -865,30 +866,6 @@ public class VettingViewer<T> {
         out.append(getHeaderStyles());
         out.append("</head><body>\n");
         
-
-        //                + "<style type='text/css'>\n"
-        //                + "table.tv-table, table.tvs-table {\n"
-        //                + "    border-collapse:collapse;\n"
-        //                + "}\n"
-        //                + "table.tv-table, th.tv-th, tr.tv-tr, td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-win, td.tv-fix, table.tvs-table, tr.tvs-tr, td.tvs-count, td.tvs-abb, td.tvs-desc {\n"
-        //                + "    border:1px solid gray;\n"
-        //                + "}\n"
-        //                + "td.tv-num, td.tv-code, td.tv-eng, td.tv-last, td.tv-fix, td.tvs-count, td.tvs-abb, td.tvs-desc {\n"
-        //                + "    background-color: #FFFFCC;\n"
-        //                + "}\n"
-        //                + "th.tv-th, th.tvs-th {\n"
-        //                + "    background-color: #DDDDDD;\n"
-        //                + "}\n"
-        //                + "td.tv-win {\n"
-        //                + "    background-color: #CCFFCC;\n"
-        //                + "}\n"
-        //                + "td.tv-num {\n"
-        //                + "    text-align: right;\n"
-        //                + "}\n"
-        //                + "td.tv-miss, td.tv-null {\n"
-        //                + "    background-color: #FFCCCC;\n"
-        //                + "}\n"
-        //                + "</style>\n"
         out.println("<p>Note: this is just a sample run. The user, locale, user's coverage level, and choices of tests will change the output. In a real ST page using these, the first three would "
                 + "come from context, and the choices of tests would be set with radio buttons. Demo settings are: </p>\n<ol>"
                 + "<li>choices: "

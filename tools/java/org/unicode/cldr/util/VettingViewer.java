@@ -51,31 +51,30 @@ public class VettingViewer<T> {
          */
         error('E', "Error", "The Survey Tool detected an error in the winning value."),
         /**
-         * The value changed from the last version of CLDR
-         */
-        changedOldValue('N', "New", "The winning value was altered from the CLDR 1.9 value."),
-        /**
          * My choice is not the winning item
          */
         weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn't have enough votes to be approved."),
         /**
-         * The English value for the path changed AFTER the current value for
-         * the locale.
+         * There is a dispute.
+         */
+        hasDispute('D', "Disputed", "There is a dispute between other organizations that needs your help in resolving to the best value."),
+        /**
+         * There is a console-check warning
+         */
+        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
+        /**
+         * Given the users coverage, some items are missing.
          */
         missingCoverage('M', "Missing", "Your current coverage level requires the item to be present, but it is missing."),
+        /**
+         * The value changed from the last version of CLDR
+         */
+        changedOldValue('N', "New", "The winning value was altered from the CLDR 1.9 value."),
         /**
          * The English value for the path changed AFTER the current value for
          * the locale.
          */
         englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
-        /**
-         * There is a console-check error
-         */
-        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
-        /**
-         * My choice is not the winning item
-         */
-        hasDispute('D', "Disputed", "There is a dispute between other organizations that needs your help in resolving."),
         /**
          * There is a console-check error
          */
@@ -725,7 +724,11 @@ public class VettingViewer<T> {
 
                 addCell(output, oldStringValue, null, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
                 // value for last version
-                addCell(output, sourceFile.getWinningValue(path), null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
+                String newWinningValue = sourceFile.getWinningValue(path);
+                if (CharSequences.equals(newWinningValue, oldStringValue)) {
+                    newWinningValue = "=";
+                }
+                addCell(output, newWinningValue, null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                 // Fix?
                 // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
                 output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='"+baseUrl +"?_=")

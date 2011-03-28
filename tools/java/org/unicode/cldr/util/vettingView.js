@@ -1,4 +1,4 @@
-function changeStyle(show) {
+function changeStyle(hideRegex) {
     for (m in document.styleSheets) {
         var theRules;
         if (document.styleSheets[m].cssRules) {
@@ -10,10 +10,15 @@ function changeStyle(show) {
             var rule = theRules[n];
             var sel = rule.selectorText;
             if (sel != undefined && sel.match(/vv/))   {
-                if (sel.match(show)) {
-                    rule.style.display = 'table-row';
+                var theStyle = rule.style;
+                if (sel.match(hideRegex)) {
+                    if (theStyle.display == 'table-row') {
+                        theStyle.display = null;
+                    }
                 } else {
-                    rule.style.display = 'none';
+                    if (theStyle.display != 'table-row') {
+                        theStyle.display = 'table-row';
+                    }
                 }
             }
         }
@@ -21,16 +26,16 @@ function changeStyle(show) {
 }
 
 function setStyles() {
-    var regexString = "";
+    var hideRegexString = "";
     for (i=0; i < document.checkboxes.elements.length; i++){
         var item = document.checkboxes.elements[i];
-        if (item.checked) {
-            if (regexString.length != 0) {
-                regexString += "|";
+        if (!item.checked) {
+            if (hideRegexString.length != 0) {
+                hideRegexString += "|";
             }
-            regexString += item.name;
+            hideRegexString += item.name;
         }
     }
-    var myregexp = new RegExp(regexString);
-    changeStyle(myregexp);
+    var hideRegex = new RegExp(hideRegexString);
+    changeStyle(hideRegex);
 }

@@ -133,14 +133,9 @@ public class VettingViewer<T> {
 
         public static Appendable appendRowStyles(EnumSet<Choice> choices, Appendable target) {
             try {
-                boolean first = true;
+                target.append("hide");
                 for (Choice item : choices) {
-                    if (first) {
-                        first = false;
-                    } else {
-                        target.append(' ');
-                    }
-                    target.append("vv").append(Character.toLowerCase(item.abbreviation));
+                    target.append(' ').append("vv").append(Character.toLowerCase(item.abbreviation));
                 }
                 return target;
             } catch (IOException e) {
@@ -640,6 +635,7 @@ public class VettingViewer<T> {
     public static String getHeaderStyles() {
         return 
         "<style type='text/css'>\n"
+        +".hide {display:none}\n"
         +".vve {}\n"
         +".vvn {}\n"
         +".vvl {}\n"
@@ -680,7 +676,7 @@ public class VettingViewer<T> {
                 .append("</td>\n\t<td class='tvs-abb'>")
                 .append("<input type='checkbox' name='")
                 .append(Character.toLowerCase(choice.abbreviation))
-                .append("' onclick='setStyles()' checked/> ")
+                .append("' onclick='setStyles()'/> ")
                 .append(choice.display)
                 .append("</td>\n\t<td class='tvs-desc'>")
                 .append(choice.description)
@@ -854,15 +850,6 @@ public class VettingViewer<T> {
             writeFile(tableView, EnumSet.of(choice), "-" + choice.abbreviation, localeStringID, userNumericID, usersLevel);
             System.out.println(timer.getDuration() / 10000000000.0 + " secs");
         }
-        /**
-         * function changeStyle(selectorText) { var theRules = new Array(); if
-         * (document.styleSheets[0].cssRules) { theRules =
-         * document.styleSheets[0].cssRules; } else if
-         * (document.styleSheets[0].rules) { theRules =
-         * document.styleSheets[0].rules; } for (n in theRules) { if
-         * (theRules[n].selectorText == selectorText) { theRules[n].style.color
-         * = 'blue'; } } }
-         */
     }
 
     private static void writeFile(VettingViewer<Integer> tableView, final EnumSet<Choice> choiceSet, String name, String localeStringID, int userNumericID, Level usersLevel)
@@ -872,6 +859,9 @@ public class VettingViewer<T> {
 
         PrintWriter out = BagFormatter.openUTF8Writer(myOutputDir, "vettingView" + name + ".html");
         FileUtilities.appendFile(VettingViewer.class, "vettingViewerHead.txt", out);
+        out.append(getHeaderStyles());
+        out.append("</head><body>\n");
+        
 
         //                + "<style type='text/css'>\n"
         //                + "table.tv-table, table.tvs-table {\n"

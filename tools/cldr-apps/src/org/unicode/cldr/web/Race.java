@@ -547,12 +547,13 @@ public class Race {
     			count++;
     			int submitter = rs.getInt(1);
     			int vote_xpath = rs.getInt(2);
-    			/* String vote_value = rs.getString(4); */
+    			/* String vote_value = rs.getString(4); */ 
     			if (vote_xpath == -1) {
     				continue; // abstention
     			}
 
     			queryValue.setInt(2, vote_xpath);
+        		queryValue.setString(1, locale.toString());
     			ResultSet crs = queryValue.executeQuery();
     			int orig_xpath = vote_xpath;
     			String itemValue = null;

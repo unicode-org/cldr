@@ -916,14 +916,14 @@ public class SurveyForum {
 			ctx.println("<i style='background-color: white;'>Note: This is an old post, from a previous period of CLDR vetting.</i><br><br>");
 		}
 		String name = getNameLinkFromUid(ctx,poster);
-		ctx.println("<div class='person'><a href='"+ctx.url()+"?x=list&u="+poster+"'>"+        name+"</a><br>"+time.toString()+"<br>");
+		ctx.println("<div class='person'><a "+ctx.atarget()+" href='"+ctx.url()+"?x=list&u="+poster+"'>"+        name+"</a><br>"+time.toString()+"<br>");
 		if(loc != null) {
 			ctx.println("<span class='reply'>");
 			sm.printLocaleLink(ctx, loc, loc.toString());
 			ctx.println("</span> * ");
 		}
 		if(xpath != -1) {
-			ctx.println("<span class='reply'><a href='"+
+			ctx.println("<span class='reply'><a "+ctx.atarget()+" href='"+
 					forumUrl(ctx,forum)+"&"+F_DO+"="+F_VIEW+"&id="+id+"'>View Item</a></span> * ");
 		}
 		ctx.println("<span class='reply'><a href='"+

@@ -55,6 +55,7 @@ public class WebContext implements Cloneable {
     
     public static final String TARGET_ZOOMED = "CLDR-ST-ZOOMED";
     public static final String TARGET_EXAMPLE = "CLDR-ST-EXAMPLE";
+    public static final String TARGET_DOCS = "CLDR-ST-DOCS";
     
 // private fields
     protected Writer out = null;

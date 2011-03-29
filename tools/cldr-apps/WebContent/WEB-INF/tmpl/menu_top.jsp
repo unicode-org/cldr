@@ -121,21 +121,19 @@
 
         </p>
         <%
-        	out.flush();
-        		ctx.flush();
-                // commenting out easy steps until we have time to work on it more
-
-        		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
-        %><%
-        	if (canModify) {
-        %><p class='hang'>Forum: <%=forum%>
-                <strong><a href='<%=SurveyForum.forumUrl(subCtx, forum)%>'>Forum: <%=forum%></a></strong>
-             <br> <%=SurveyForum.forumFeedIcon(subCtx, forum)%>
-            </p>
-        <%
-        	}
-        %><%
         	/* END NON JAVASCRIPT */
         	}
-        %>
+			out.flush();
+			ctx.flush();
+			// commenting out easy steps until we have time to work on it more
+			
+			/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
+			%><%
+			if (canModify) {
+			%><p class='hang'><%=SurveyForum.forumLink(subCtx,forum)%>
+			| <%=SurveyForum.forumFeedIcon(subCtx, forum)%>
+			</p>
+			<%
+			}
+%>
 <!--  menu_top.jspf end -->

@@ -282,7 +282,7 @@ public class SurveyForum {
 
 		// User isnt logged in.
 		if(loggedout) {
-			sm.printHeader(ctx,"Fora | Please login.");
+			sm.printHeader(ctx,"Forum | Please login.");
 			sm.printUserTable(ctx);
 			if(sessionMessage != null) {
 				ctx.println(sessionMessage+"<hr>");
@@ -294,7 +294,7 @@ public class SurveyForum {
 
 		// User has an account, but does not have access to this forum.
 		if(!canModify && !(forumNumber==NO_FORUM && UserRegistry.userIsVetter(ctx.session.user))) {
-			sm.printHeader(ctx,"Fora | Access Denied.");
+			sm.printHeader(ctx,"Forum | Access Denied.");
 			sm.printUserTable(ctx);
 			if(sessionMessage != null) {
 				ctx.println(sessionMessage+"<hr>");
@@ -312,7 +312,7 @@ public class SurveyForum {
 		} else if(F_VIEW.equals(pD) && ctx.hasField("id")) {
 			doForumView(ctx, forum, forumNumber);
 		} else if(forumNumber == BAD_FORUM) {
-			sm.printHeader(ctx,"Fora");
+			sm.printHeader(ctx,"Forum");
 			sm.printUserTable(ctx);
 			// no forum or bad forum. Do general stuff.
 			// doForumForum(ctx, pF, pD);
@@ -486,7 +486,7 @@ public class SurveyForum {
 				return;
 
 			} else {
-				sm.printHeader(ctx,"Fora | " + forum + " | Preview post on #" + base_xpath);
+				sm.printHeader(ctx,"Forum | " + forum + " | Preview post on #" + base_xpath);
 				printForumMenu(ctx, forum);
 			}
 
@@ -503,7 +503,7 @@ public class SurveyForum {
 				sm.printHeader(ctx, forum + " | Forum");
 			}
 			printForumMenu(ctx, forum);
-			ctx.println("<a href='"+forumUrl(ctx,forum)+"'>" + forum + " forum</a>");
+			ctx.println(forumLink(ctx,forum));
 			if(prettyPath != null) {
 				ctx.println("<h2>"+prettyPath+"</h2>");
 			}
@@ -768,7 +768,7 @@ public class SurveyForum {
 		int count = 0;
 
 		// print header
-		sm.printHeader(ctx, "Fora | " + forum);
+		sm.printHeader(ctx, "Forum | " + forum);
 		printForumMenu(ctx, forum);
 
 		ctx.print(forumFeedIcon(ctx, forum));
@@ -877,7 +877,7 @@ public class SurveyForum {
 
 				if(doTitle) {
 					// print header
-					sm.printHeader(ctx, "Fora | " + forum + " | Post: " + subj);
+					sm.printHeader(ctx, "Forum | " + forum + " | Post: " + subj);
 					printForumMenu(ctx, forum);
 
 					ctx.println("<hr>");
@@ -1307,7 +1307,7 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
 		//        title = null /*+ title*/;
-		ctx.println("<a "+ctx.atarget()+" class='forumlink' href='"+forumUrl(ctx,p,xpath)+"' >" // title='"+title+"'
+		ctx.println("<a "+ctx.atarget(WebContext.TARGET_ZOOMED)+"  href='"+forumUrl(ctx,p,xpath)+"' >" // title='"+title+"'
 				+contents+ "</a>");
 	}
 	void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
@@ -1335,6 +1335,10 @@ public class SurveyForum {
 	}
 	static public String forumUrl(WebContext ctx, String forum) {
 		return (ctx.base()+"?"+F_FORUM+"="+forum);
+	}
+	static public String forumLink(WebContext ctx, String forum) {
+	    return  "<a "+ctx.atarget(WebContext.TARGET_DOCS)+" class='forumlink' href='"+forumUrl(ctx,forum)+"' >" // title='"+title+"'
+                +"Forum"+ "</a>";
 	}
 	String returnText(WebContext ctx, int base_xpath) {
 		return "Zoom out to <a href='"+returnUrl(ctx,ctx.getLocale(),base_xpath)+"'>"+ctx.iconHtml("zoom","zoom out to " + ctx.getLocale())+" "+ ctx.getLocale()+"</a>";
@@ -1585,7 +1589,7 @@ public class SurveyForum {
 		String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.getLocale().getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
 				ctx.session.user.password+"&amp;");
 
-		return  " <a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"rss</a>"; /* | " +
+		return  " <a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"Forum&nbsp;rss</a>"; /* | " +
                 "<a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 1.0")+"RSS 1.0</a>"; */
 
 	}

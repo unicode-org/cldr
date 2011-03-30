@@ -1343,6 +1343,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
             Set<UserRegistry.User> updUsers = new HashSet<UserRegistry.User>();
 
+            
+            if(true) { ctx.println("Nope, not until you fix http://unicode.org/cldr/trac/ticket/3656#comment:3 in this code."); return; }
+
             // from config 
             String bulkStrOrig = survprops.getProperty(CLDR_BULK_DIR,"");
             // from query if there, else config
@@ -1455,6 +1458,7 @@ o	            		}*/
                             // now, find the ID to vote for.
                             Set<String> resultPaths = new HashSet<String>();
                             String baseNoAlt = xpt.removeAlt(base_xpath);
+                            if(true) throw new InternalError("Nope, not until you fix http://unicode.org/cldr/trac/ticket/3656#comment:3 in this code.");
                             if(altPieces[0]==null) {
                                 stSource.getPathsWithValue(val, base_xpath, resultPaths);
                             } else {

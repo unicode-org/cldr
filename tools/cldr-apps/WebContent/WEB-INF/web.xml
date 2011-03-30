@@ -812,5 +812,9 @@ standard deployment descriptor.
     Container
   </res-auth>
 </resource-ref>
-
+  <listener>
+    <listener-class>
+      org.apache.commons.fileupload.servlet.FileCleanerCleanup
+    </listener-class>
+  </listener>
 </web-app>

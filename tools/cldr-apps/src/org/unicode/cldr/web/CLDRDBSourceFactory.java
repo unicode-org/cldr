@@ -370,7 +370,7 @@ public class CLDRDBSourceFactory extends Factory {
 	 * @param locale
 	 * @return
 	 */
-	XMLSource getInstance(CLDRLocale locale) {
+	public XMLSource getInstance(CLDRLocale locale) {
 		return getInstance(locale, false);
 	}
 

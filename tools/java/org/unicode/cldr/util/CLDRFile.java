@@ -54,6 +54,7 @@ import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.ULocale;
 
 //import javax.xml.parsers.*;
 
@@ -327,6 +328,20 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   public static CLDRFile make(String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
     return make(localeName).load(fileName,localeName, fis, minimalDraftStatus);
   }
+  
+  /**
+   * CLDRFile from a file input stream. Set the locale ID from the same input stream. (Normally a Factory is used to create CLDRFiles.)
+   * @param fileName
+   * @param fis
+   * @param minimalDraftStatus
+   * @return
+   */
+  public static CLDRFile make(String fileName, InputStream fis, DraftStatus minimalDraftStatus) {
+      CLDRFile file = make("und").load(fileName, "und", fis, minimalDraftStatus);
+      file.dataSource.setLocaleID(file.getLocaleIDFromIdentity());
+      return file;
+  }
+  
   /**
    * Load a CLDRFile from a file input stream.
    * @param localeName
@@ -919,6 +934,31 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
    */
   public String getLocaleID() {
     return dataSource.getLocaleID();
+  }
+  
+  /**
+   * @return the Locale ID, as declared in the //ldml/identity element
+   */
+  public String getLocaleIDFromIdentity() {
+      //Map<String,String> parts = new HashMap<String,String>();
+      XPathParts xpp = new XPathParts(null,null);
+      ULocale.Builder lb = new ULocale.Builder();
+      for(Iterator<String> i = iterator("//ldml/identity/");i.hasNext();) {
+          xpp.set(i.next());
+          String k = xpp.getElement(-1);
+          String v = xpp.getAttributeValue(-1,"type");
+          //parts.put(k,v);
+          if(k.equals("language")) {
+              lb = lb.setLanguage(v);
+          } else if(k.equals("script")) {
+              lb = lb.setScript(v);
+          } else if(k.equals("territory")) {
+              lb = lb.setRegion(v);
+          } else if(k.equals("variant")) {
+              lb = lb.setVariant(v);
+          }
+      }
+      return lb.build().toString(); // TODO: CLDRLocale ?
   }
 
   /**

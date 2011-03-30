@@ -1340,6 +1340,13 @@ public class SurveyForum {
 	    return  "<a "+ctx.atarget(WebContext.TARGET_DOCS)+" class='forumlink' href='"+forumUrl(ctx,forum)+"' >" // title='"+title+"'
                 +"Forum"+ "</a>";
 	}
+	static public String forumUrlFragment(String locale, int xpath) {
+		ULocale u = new ULocale(locale);
+		return "?_="+locale+"&"+F_FORUM+"="+u.getLanguage()+"&"+F_XPATH+"="+xpath;
+	}
+	static public String forumUrlFragment(String forum) {
+		return ("?"+F_FORUM+"="+forum);
+	}
 	String returnText(WebContext ctx, int base_xpath) {
 		return "Zoom out to <a href='"+returnUrl(ctx,ctx.getLocale(),base_xpath)+"'>"+ctx.iconHtml("zoom","zoom out to " + ctx.getLocale())+" "+ ctx.getLocale()+"</a>";
 	}

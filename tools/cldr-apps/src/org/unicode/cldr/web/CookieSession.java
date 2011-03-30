@@ -32,6 +32,7 @@ public class CookieSession {
     public Hashtable stuff = new Hashtable();  // user data
     public Hashtable prefs = new Hashtable(); // user prefs
     public UserRegistry.User user = null;
+    public static SurveyMain sm = null;
     
     private Connection conn = null;
     

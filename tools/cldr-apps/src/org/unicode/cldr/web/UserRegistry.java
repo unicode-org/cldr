@@ -1278,7 +1278,7 @@ public class UserRegistry {
         return localeMatchesLocaleList(localeArray, locale);
     }
     
-    static final boolean userCanModifyLocale(User u, CLDRLocale locale) {
+    public static final boolean userCanModifyLocale(User u, CLDRLocale locale) {
         if(u==null) return false; // no user, no dice
 
         if(!userIsStreet(u)) return false; // at least street level

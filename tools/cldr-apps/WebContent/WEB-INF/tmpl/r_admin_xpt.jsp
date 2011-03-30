@@ -16,50 +16,24 @@ if(ctx.session==null||ctx.session.user==null||!(ctx.session.user.userlevel<=User
 <h1>Access denied. Admin use only.</h1>
 <% } else { %>
 
-XPathTable stuff.
-
-XPT.count =
-<%= ctx.sm.xpt.count() %>
-
-Test XPT to the max, within SurveyTool.
-
 
 <pre> 
 
-FreeMem=<%= ctx.sm.freeMem() %>
 <%
-IntHash<String> ih = new IntHash<String>();
-%>
-max=<%= ih.MAX_SIZE %>
-
-<%
-for(int j=0;j<ih.MAX_SIZE;j++) {
-    ih.put(j,CookieSession.cheapEncode(j));
-    if(j%1000==0) {
-        %> .. j=<%= j %> - ih.get(j)=<%= ih.get(j) %>   
-        <%
-    }
-}
+CLDRLocale loc = CLDRLocale.getInstance("sv");
+String path = "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"]";
+XMLSource src =  ctx.sm.dbsrcfac.getInstance(loc,false);
+int xpid = ctx.sm.xpt.getByXpath(path);
+int wxpth = ctx.sm.vet.getWinningXPath(xpid,loc);
+String wxpthn = ctx.sm.xpt.getById(wxpth);
 %>
 
-ih.stats() = <%= ih.stats() %>
-FreeMem=<%= ctx.sm.freeMem() %>
+path= <%= path %>  #<%= xpid %>
+wp = <%=src.getWinningPath(path) %>
+vwp = <%= src.getValueAtDPath(src.getWinningPath(path)) %>
 
-Test.
-
-<%
-
-for(int j=0;j<ih.MAX_SIZE;j++) {
-    String expect = CookieSession.cheapEncode(j);
-    String got=ih.get(j);
-    if(!expect.equals(got)) {
-        %>Error at <%= j %> expect <%= expect %> but got <%= got %>
-        <%
-    }
-}
-%>
-
-Verified OK otherwise.
+--
+wxpth= #<%= wxpth %>  <%= wxpthn %>
 
 </pre>
 

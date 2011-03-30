@@ -101,7 +101,7 @@ public class SurveyThread extends Thread {
 		 * C'tor. The name is the initial name of the task.
 		 * @param taskName
 		 */
-		SurveyTask(String taskName) {
+		public SurveyTask(String taskName) {
 			name = taskName;
 		}
 

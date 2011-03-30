@@ -44,13 +44,11 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -72,13 +70,9 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.Race.Chad;
@@ -367,6 +361,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
     public SurveyMain() {
+    	CookieSession.sm = this;
     	try {
     		dbUtils  = DBUtils.getInstance();
     	} catch(Throwable t) {
@@ -2804,7 +2799,7 @@ o	            		}*/
         if(mySession==null && user==null) {
             mySession = CookieSession.checkForAbuseFrom(ctx.userIP(), BAD_IPS, ctx.request.getHeader("User-Agent"));
             if(mySession!=null) {
-                ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP()) + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag. Going to sleep a bit now.</h1>");
+                ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP()) + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag.</h1>");
                 ctx.flush();
 //                try {
 //                    Thread.sleep(15000);
@@ -2966,6 +2961,9 @@ o	            		}*/
         }
         if(dbUtils.hasDataSource()) {
         	ctx.println(" | <a class='notselected' href='"+ctx.jspUrl("statistics.jsp")+"'>Statistics</a>");
+        }
+        if(isUnofficial && (ctx.session!=null&&ctx.session.user!=null)) {
+        	ctx.println(" | <i>Experimental:</i>&nbsp;<a class='notselected' href='"+ctx.jspUrl("upload.jsp"  )+ "&amp;s=" + ctx.session.id+"'>Upload XML</a>");
         }
     }
     private static final String REDO_FIELD_LIST[] = {

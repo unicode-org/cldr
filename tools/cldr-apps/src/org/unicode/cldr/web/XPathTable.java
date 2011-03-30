@@ -375,7 +375,7 @@ public class XPathTable {
      * note does not remove draft. expects a dpath.
      * @param xpath
      */
-    public String xpathToBaseXpath(String xpath) {
+    public static String xpathToBaseXpath(String xpath) {
         XPathParts xpp = new XPathParts(null,null);
         xpp.clear();
         xpp.initialize(xpath);
@@ -401,7 +401,32 @@ public class XPathTable {
         //System.err.println("xp2Bxp: " + xpath + " --> " + newXpath);
         return newXpath;
     }
-    
+
+    public static String xpathToBaseXpath(String xpath, XPathParts xpp) {
+        xpp.initialize(xpath);
+        Map<String,String> lastAtts = xpp.getAttributes(-1);
+        String oldAlt = (String)lastAtts.get(LDMLConstants.ALT);
+        if(oldAlt == null) {
+            /*
+                String lelement = xpp.getElement(-1);
+            oldAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
+            */
+            return xpath; // no change
+        }
+        
+        String newAlt = LDMLUtilities.parseAlt(oldAlt)[0];  // #0 : altType
+        if(newAlt == null) {
+            lastAtts.remove(LDMLConstants.ALT); // alt dropped out existence
+        } else if(newAlt.equals(oldAlt)) {
+            return xpath; // No change
+        } else {
+            lastAtts.put(LDMLConstants.ALT, newAlt);
+        }
+        String newXpath = xpp.toString();
+        //System.err.println("xp2Bxp: " + xpath + " --> " + newXpath);
+        return newXpath;
+    }
+
     public String whatFromPathToTinyXpath(String path, XPathParts xpp, String what) {
         xpp.clear();
         xpp.initialize(path);

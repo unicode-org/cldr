@@ -220,6 +220,8 @@ public class LDMLConstants {
     public static final String TERRITORY_CONTAINMENT = "territoryContainment";
     public static final String CONTAINS          = "contains";
     public static final String CODE_MAPPINGS     = "codeMappings";
+    public static final String TERRITORY_CODES   = "territoryCodes";
+    public static final String ALPHA3            = "alpha3";
     public static final String LANGUAGE_DATA     = "languageData";
     public static final String TERRITORY_DATA    = "territoryData";
     public static final String TERRITORY_INFO    = "territoryInfo";
@@ -411,6 +413,13 @@ public class LDMLConstants {
     public static final String ALGORITHMIC      = "algorithmic";
     public static final String DEFAULT_NUMBERING_SYSTEM = "defaultNumberingSystem";
 
+    // Supplemental Metadata
+    public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
+    public static final String VALIDITY        = "validity";
+    public static final String VARIABLE        = "variable";
+    public static final String REGION_CODES    = "regionCodes";
+    public static final String TERRITORY_VARIABLE = "$territory";
+    
     //PN added - Open and Close tags
     public static final String VERSION_C       = "</" + VERSION + ">";
     public static final String GENERATION_C    = "</" + GENERATION + ">";

@@ -86,15 +86,16 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final int WRITE_DRAFT = 6;
     private static final int SUPPLEMENTALDIR = 7;
     private static final int SUPPLEMENTALONLY = 8;
-    private static final int METAZONES_ONLY = 9;
-    private static final int LIKELYSUBTAGS_ONLY = 10;
-    private static final int PLURALS_ONLY = 11;
-    private static final int NUMBERS_ONLY = 12;
-    private static final int WRITE_BINARY = 13;
-    private static final int VERBOSE = 14;
-    private static final int ASCII_NUMBERS = 15;
-    private static final int WINDOWSZONES_ONLY = 16;
-    private static final int BCP47_KEY_TYPE = 17;
+    private static final int METADATA_ONLY = 9;
+    private static final int METAZONES_ONLY = 10;
+    private static final int LIKELYSUBTAGS_ONLY = 11;
+    private static final int PLURALS_ONLY = 12;
+    private static final int NUMBERS_ONLY = 13;
+    private static final int WRITE_BINARY = 14;
+    private static final int VERBOSE = 15;
+    private static final int ASCII_NUMBERS = 16;
+    private static final int WINDOWSZONES_ONLY = 17;
+    private static final int BCP47_KEY_TYPE = 18;
 
     private static final UOption[] options = new UOption[] {
         UOption.HELP_H(),
@@ -106,6 +107,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         UOption.create("write-draft", 'f', UOption.NO_ARG),
         UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
         UOption.create("supplemental-only", 'l', UOption.NO_ARG),
+        UOption.create("metadata-only", 'q', UOption.NO_ARG),
         UOption.create("metazones-only", 'z', UOption.NO_ARG),
         UOption.create("likely-only", 't', UOption.NO_ARG),
         UOption.create("plurals-only", 'r', UOption.NO_ARG),
@@ -140,6 +142,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     // TODO: hard-coded file names for now
     private static final String supplementalDataFile = "supplementalData.xml";
+    private static final String supplementalMetadataFile = "supplementalMetadata.xml";
     private static final String metaZonesFile = "metaZones.xml";
     private static final String likelySubtagsFile = "likelySubtags.xml";
     private static final String pluralsFile = "plurals.xml";
@@ -206,6 +209,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             "-f or --write-draft        write data for LDML nodes marked draft.\n" +
             "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
             "-l or --supplemental-only  read " + supplementalDataFile + " file from the given " +
+                                       "directory and write appropriate files to destination " +
+                                       "directory\n" +
+            "-q or --metadata-only     read " + supplementalMetadataFile + " file from the given " +
                                        "directory and write appropriate files to destination " +
                                        "directory\n" +
             "-t or --likely-only        read " + likelySubtagsFile + " file from the given directory " +
@@ -334,6 +340,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if (res != null && ((ResourceTable) res).first != null) {
                 writer.writeResource(res, supplementalDataFile);
             }
+        } else if (options[METADATA_ONLY].doesOccur) {
+            new SupplementalMetadataConverter(log, supplementalMetadataFile, supplementalDir).convert(writer);
         } else if (options[METAZONES_ONLY].doesOccur) {
             new MetaZonesConverter(log, metaZonesFile, supplementalDir).convert(writer);
         } else if (options[WINDOWSZONES_ONLY].doesOccur) {

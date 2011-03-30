@@ -100,7 +100,7 @@ public class SupplementalDataParser {
       } else if (name.equals(LDMLConstants.TERRITORY_INFO)) {
         //Ignore this
       } else if (name.equals(LDMLConstants.CODE_MAPPINGS)) {
-        //Ignore this
+        res = parseCodeMappings(node, xpath);
       } else if (name.equals(LDMLConstants.REFERENCES)) {
         //Ignore this
       } else if (name.equals(LDMLConstants.VERSION)) {
@@ -1542,4 +1542,74 @@ public class SupplementalDataParser {
 
     return table;
   }
+  private Resource parseCodeMappings(Node root, StringBuilder xpath) {
+      int savedLength = xpath.length();
+      LDML2ICUConverter.getXPath(root, xpath);
+      int oldLength = xpath.length();
+      Resource current = null;
+      Resource res = null;
+
+      if (isNodeNotConvertible(root, xpath)) {
+        xpath.setLength(savedLength);
+        return null;
+      }
+
+      ResourceArray codeMappings = new ResourceArray();
+      codeMappings.name = LDMLConstants.CODE_MAPPINGS;
+
+      for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
+        if (node.getNodeType() != Node.ELEMENT_NODE) {
+          continue;
+        }
+
+        String name = node.getNodeName();
+        LDML2ICUConverter.getXPath(node, xpath);
+        if (isNodeNotConvertible(node, xpath)) {
+          xpath.setLength(oldLength);
+          continue;
+        }
+        if (!name.equals(LDMLConstants.TERRITORY_CODES)) {
+          log.error("Encountered unknown " + xpath.toString());
+          System.exit(-1);
+        }
+        String type = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
+        String numeric = LDMLUtilities.getAttributeValue(node, LDMLConstants.NUMERIC);
+        String alpha3 = LDMLUtilities.getAttributeValue(node, LDMLConstants.ALPHA3);
+        // expand territories and create separated ordering array for each
+        
+        if ( type == null || numeric == null || alpha3 == null) {
+            log.warning("Incomplete codeMapping for type " + type + "numeric" + numeric + "alpha3" + alpha3);
+            continue;
+        }
+        
+        ResourceArray mapping = new ResourceArray();
+        ResourceString typeRes = new ResourceString();
+        ResourceString numericRes = new ResourceString();
+        ResourceString alpha3Res = new ResourceString();
+        typeRes.val = type;
+        numericRes.val = numeric;
+        alpha3Res.val = alpha3;
+        mapping.first = typeRes;
+        typeRes.next = numericRes;
+        numericRes.next = alpha3Res;
+        res = mapping;
+        
+        if (current == null) {
+           codeMappings.first = res;
+        } else {
+           current.next = res;
+        }
+        current = res.end();
+        
+        xpath.delete(oldLength, xpath.length());
+      }
+
+      xpath.delete(savedLength, xpath.length());
+      if (codeMappings.first != null) {
+        return codeMappings;
+      }
+
+      return null;
+    }
+
 }

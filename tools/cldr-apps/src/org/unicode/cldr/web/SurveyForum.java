@@ -2,7 +2,7 @@
 //  SurveyForum.java
 //
 //  Created by Steven R. Loomis on 27/10/2006.
-//  Copyright 2006-2010 IBM. All rights reserved.
+//  Copyright 2006-2011 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -274,6 +274,15 @@ public class SurveyForum {
 			// TODO: may need fixup here.
 		}
 
+		// fixup base_xpath - might have alt on it.
+		if(base_xpath!=-1) {
+			String zoom_xpath=sm.xpt.getById(base_xpath);
+			String noalt_base = XPathTable.removeAlt(zoom_xpath);
+			int noalt_base_xpath=sm.xpt.getByXpath(noalt_base);
+			
+			 base_xpath = noalt_base_xpath;
+		}
+		
 		// Are they just zooming in?
 		if(!canModify && (base_xpath!=-1)) {
 			doZoom(ctx, base_xpath, sessionMessage);

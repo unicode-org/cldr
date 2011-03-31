@@ -809,7 +809,7 @@ public class DBUtils {
 		return ret;
 	}
 	private Object[] arrayOfResultObj(ResultSet rs, int colCount) throws SQLException {
-		Object ret[] = new String[colCount];
+		Object ret[] = new Object[colCount];
 		for(int i=0;i<ret.length;i++) {
 			ret[i]=rs.getObject(i+1);
 		}

@@ -150,7 +150,7 @@ public class SurveyThread extends Thread {
 	/**
 	 * Debugging info on the main loop.
 	 */
-	private static boolean DEBUG = true;
+	private static boolean DEBUG = false;
 	
 	/**
 	 * How many tasks are remaining? 0 if none.

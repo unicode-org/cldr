@@ -3,12 +3,14 @@ package org.unicode.cldr.test;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
 
@@ -33,8 +35,13 @@ import org.unicode.cldr.util.StringId;
  * To update the data file, use GenerateBirth.java.
  */
 public class OutdatedPaths {
-    private static final boolean       DEBUG = false;
+    public static final String OUTDATED_ENGLISH_DATA = "outdatedEnglish.data";
+    public static final String OUTDATED_DATA = "outdated.data";
+    
+    private static final boolean       DEBUG = CldrUtility.getProperty("debug", false);
+    
     private final HashMap<String, Set<Long>> localeToData = new HashMap<String, Set<Long>>();
+    private final HashMap<Long,String> pathToPrevious = new HashMap<Long,String>();
 
     /**
      * Creates a new OutdatedPaths, using the data file "outdated.data" in the same directory as this class.
@@ -52,16 +59,14 @@ public class OutdatedPaths {
      */
     public OutdatedPaths(String directory) {
         try {
-            String dataFileName = "outdated.data";
-            InputStream fileInputStream = directory == null 
-            ? OutdatedPaths.class.getResourceAsStream(dataFileName) 
-                    : new FileInputStream(new File(directory, dataFileName));
-
-            DataInputStream dataIn = new DataInputStream(fileInputStream);
+            DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
             while (true) {
                 String locale = dataIn.readUTF();
                 if (locale.equals("$END$")) {
                     break;
+                }
+                if (DEBUG) {
+                    System.out.println("Locale: " + locale);
                 }
                 final HashSet<Long> data = new HashSet<Long>();
                 int size = dataIn.readInt();
@@ -75,9 +80,41 @@ public class OutdatedPaths {
                 localeToData.put(locale, data);
             }
             dataIn.close();
+            
+            // now previous English
+
+            dataIn = openDataInput(directory, OUTDATED_ENGLISH_DATA);
+            int size = dataIn.readInt();
+            if (DEBUG) {
+                System.out.println("English Data");
+            }
+            for (int i = 0; i < size; ++i) {
+                long pathId = dataIn.readLong();
+                String previous = dataIn.readUTF();
+                if (DEBUG) {
+                    System.out.println(pathId + "\t" + previous);
+                }
+                pathToPrevious.put(pathId, previous);
+            }
+            String finalCheck = dataIn.readUTF();
+            if (!finalCheck.equals("$END$")) {
+                throw new IllegalArgumentException("Corrupted " + OUTDATED_ENGLISH_DATA);
+            }
+            dataIn.close();
+
         } catch (IOException e) {
             throw new IllegalArgumentException("Data Not Available", e);
         }
+    }
+
+    private DataInputStream openDataInput(String directory, String filename) throws FileNotFoundException {
+        String dataFileName = filename;
+        InputStream fileInputStream = directory == null 
+        ? OutdatedPaths.class.getResourceAsStream(dataFileName) 
+                : new FileInputStream(new File(directory, dataFileName));
+
+        DataInputStream dataIn = new DataInputStream(fileInputStream);
+        return dataIn;
     }
 
     /**
@@ -102,6 +139,42 @@ public class OutdatedPaths {
             return false;
         }
         return result;
+    }
+    
+    /**
+     * The same as isOutdated, but also returns paths that aren't skipped.
+     * @param locale
+     * @param distinguishedPath
+     * @return
+     */
+    public boolean isRawOutdated(String locale, String distinguishedPath) {
+        Set<Long> data = localeToData.get(locale);
+        if (data == null) {
+            return false;
+        }
+        long id = StringId.getId(distinguishedPath);
+        return data.contains(id);
+    }
+    
+    /**
+     * Is this path to be skipped? (because the English is normally irrelevant).
+     * @param distinguishedPath
+     * @return
+     */
+    public boolean isSkipped(String distinguishedPath) {
+        return SKIP_PATHS.get(distinguishedPath) != null;
+    }
+    
+    /**
+     * Returns true if the value for the path is outdated in trunk. See class
+     * description for more info.
+     * 
+     * @param distinguishedPath
+     * @return true if the string is outdated
+     */
+    public String getPreviousEnglish(String distinguishedPath) {
+        long id = StringId.getId(distinguishedPath);
+        return pathToPrevious.get(id);
     }
     
     static RegexLookup<Boolean> SKIP_PATHS = new RegexLookup<Boolean>()

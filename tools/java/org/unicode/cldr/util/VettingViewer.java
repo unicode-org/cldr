@@ -146,7 +146,8 @@ public class VettingViewer<T> {
     }
 
     static private PrettyPath                      pathTransform         = new PrettyPath();
-    static Pattern                                 breaks                = Pattern.compile("\\|");
+    static final Pattern                                 breaks                = Pattern.compile("\\|");
+    static final OutdatedPaths outdatedPaths = new OutdatedPaths();
 
     private static final UnicodeSet                NEEDS_PERCENT_ESCAPED = new UnicodeSet("[[\\u0000-\\u009F]-[a-zA-z0-9]]");
     private static final Transform<String, String> percentEscape         = new Transform<String, String>() {
@@ -385,7 +386,6 @@ public class VettingViewer<T> {
 
         // set the following only where needed.
         Status status = null;
-        OutdatedPaths outdatedPaths = new OutdatedPaths();
 
         Map<String, String> options = null;
         List<CheckStatus> result = null;
@@ -723,7 +723,19 @@ public class VettingViewer<T> {
                 // path
                 addCell(output, code, null, "tv-code", HTMLType.plain);
                 // English value
-                addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
+                if (choicesForPath.contains(Choice.englishChanged)) {
+                    String winning = englishFile.getWinningValue(path);
+                    String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML.transform(winning);
+                    String previous = outdatedPaths.getPreviousEnglish(path);
+                    if (previous != null) {
+                        cellValue += "<span style='color:#900'><br>" + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
+                    } else {
+                        cellValue += "<br><b><i>missing</i></b>";
+                    }
+                    addCell(output, cellValue, null, "tv-eng", HTMLType.markup);
+                } else {
+                    addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
+                }
                 // value for last version
                 final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
                 boolean oldValueMissing = isMissing(lastSourceFile, path, status);

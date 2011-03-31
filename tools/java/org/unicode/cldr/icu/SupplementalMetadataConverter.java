@@ -18,8 +18,7 @@ public class SupplementalMetadataConverter extends SimpleLDMLConverter {
   @Override
   protected Resource parseInfo(Node root, StringBuilder xpath) {
     Resource current = null;
-    ResourceTable md = new ResourceTable();
-    md.name = LDMLConstants.META_DATA;
+    Resource first = null;
     Resource res = null;
 
     for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
@@ -36,7 +35,7 @@ public class SupplementalMetadataConverter extends SimpleLDMLConverter {
         }
         if (res != null) {
             if (current == null) {
-                current = md.first = res;
+                current = first = res;
             } else {
                 current.next = res;
                 current = current.next;
@@ -45,7 +44,7 @@ public class SupplementalMetadataConverter extends SimpleLDMLConverter {
         }
      
     }
-    return md.first == null ? null : md;
+    return first;
   }
   
   private Resource parseValidity(Node root, StringBuilder xpath) {

@@ -28,6 +28,7 @@ import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Row;
@@ -395,7 +396,7 @@ public class SupplementalDataInfo {
             return null;
         }
     }
-    
+
     /**
      * Class for a range of two dates, refactored to share code.
      * @author markdavis
@@ -405,12 +406,12 @@ public class SupplementalDataInfo {
         static final long END_OF_TIME = Long.MAX_VALUE;
         private final long from;
         private final long to;
-        
+
         public DateRange(String fromString, String toString) {
             from = parseDate(fromString, START_OF_TIME);
             to = parseDate(toString, END_OF_TIME);
         }
-        
+
         public long getFrom() {
             return from;
         }
@@ -424,7 +425,7 @@ public class SupplementalDataInfo {
             new SimpleDateFormat("yyyy-MM-dd"),
             new SimpleDateFormat("yyyy-MM"), 
             new SimpleDateFormat("yyyy"),
-            };
+        };
         static {
             TimeZone gmt = TimeZone.getTimeZone("GMT");
             for (DateFormat format : simpleFormats) {
@@ -451,7 +452,7 @@ public class SupplementalDataInfo {
             }
             throw new IllegalArgumentException(e2);  
         }
-        
+
         public String toString() {
             return 
             "{" + formatDate(from) 
@@ -532,7 +533,7 @@ public class SupplementalDataInfo {
         }
 
     }
-    
+
     public static final class MetaZoneRange implements Comparable<MetaZoneRange> {
         final DateRange dateRange;
         final String metazone;
@@ -558,7 +559,7 @@ public class SupplementalDataInfo {
             return "{" + dateRange + ", " + metazone + "}";
         }
     }
-    
+
     /**
      * Information about telephone code(s) for a given territory
      */
@@ -670,7 +671,7 @@ public class SupplementalDataInfo {
         public final String inTerritory;
         public final Set<String> inTerritorySet;
         private Set<String> inTerritorySetInternal;
-        
+
         public CoverageLevelInfo(String match, int value, String language, String script, String territory) {
             this.inLanguage = language;
             this.inScript = script;
@@ -683,7 +684,7 @@ public class SupplementalDataInfo {
         }
 
         public static final Pattern NON_ASCII_LETTER = Pattern.compile("[^A-Za-z]+");
-        
+
         private Set<String> toSet(String source) {
             if (source == null) {
                 return null;
@@ -710,7 +711,7 @@ public class SupplementalDataInfo {
             if (str.equals("modern")) return 80;
             return 100;
         }
-        
+
         static void fixEU(Collection<CoverageLevelInfo> targets, SupplementalDataInfo info) {
             Set<String> euCountries = info.getContained("EU");
             for (CoverageLevelInfo item : targets) {
@@ -721,7 +722,10 @@ public class SupplementalDataInfo {
             }
         }
     }
-    
+
+    static final String STAR = "*";
+    static final Set<String> STAR_SET = Builder.with(new HashSet<String>()).add("*").freeze();
+
     private Map<String, PopulationData> territoryToPopulationData = new TreeMap();
 
     private Map<String, Map<String, PopulationData>> territoryToLanguageToPopulationData = new TreeMap();
@@ -764,6 +768,7 @@ public class SupplementalDataInfo {
 
     private  Map<String, Map<String, Map<String,String>>> typeToZoneToRegionToZone = new TreeMap<String, Map<String, Map<String,String>>>();
     private Relation<String, MetaZoneRange> zoneToMetaZoneRanges = Relation.of(new TreeMap<String, Set<MetaZoneRange>>(), TreeSet.class);
+    private Map<String,Map<String,Relation<String,String>>> deprecated = new HashMap<String,Map<String,Relation<String,String>>>();
 
     private Map<String, String> metazoneContinentMap = new HashMap<String,String>();
     private Set<String> allMetazones = new TreeSet<String>();
@@ -807,11 +812,11 @@ public class SupplementalDataInfo {
             .initCause(e);
         }
     }
-    
+
     public static SupplementalDataInfo getInstance() {
         return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
     }
-    
+
     public static SupplementalDataInfo getInstance(String supplementalDirectory) {
         synchronized (SupplementalDataInfo.class) {
             SupplementalDataInfo instance = directory_instance
@@ -894,7 +899,7 @@ public class SupplementalDataInfo {
 
         typeToZoneToRegionToZone = CldrUtility.protectCollection(typeToZoneToRegionToZone);
         typeToTagToReplacement = CldrUtility.protectCollection(typeToTagToReplacement);
-        
+
         zoneToMetaZoneRanges.freeze();
 
         containment.freeze();
@@ -941,6 +946,8 @@ public class SupplementalDataInfo {
         bcp47Aliases.freeze();
         CoverageLevelInfo.fixEU(coverageLevels, this);
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
+
+        deprecated = CldrUtility.protectCollection(deprecated);
     }
 
     //private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>> metazoneToRegionToZone) {
@@ -1116,7 +1123,7 @@ public class SupplementalDataInfo {
             CoverageLevelInfo ci = new CoverageLevelInfo(match,value,inLanguage,inScript,inTerritory);
             coverageLevels.add(ci);
         }
-        
+
         private void handleParentLocales() {
             String parent = parts.getAttributeValue(-1,"parent");
             String locales = parts.getAttributeValue(-1,"locales");
@@ -1221,6 +1228,12 @@ public class SupplementalDataInfo {
             return false;
         }
 
+        private Collection<String> getSpaceDelimited(int index, String attribute, Collection<String> defaultValue) {
+            String temp = parts.getAttributeValue(index, attribute);
+            Collection<String> elements = temp == null ? defaultValue : Arrays.asList(temp.split("\\s+"));
+            return elements;
+        }
+
         /*
          * 
 <supplementalData>
@@ -1230,7 +1243,7 @@ public class SupplementalDataInfo {
                 <usesMetazone to="1991-09-22 20:00" mzone="Yerevan"/>
                 <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
          */
-        
+
         private boolean handleMetazoneInfo(String level2, String level3) {
             if (level3.equals("timezone")) {
                 String zone = parts.getAttributeValue(3,"type");
@@ -1243,7 +1256,6 @@ public class SupplementalDataInfo {
             }
             return false;
         }
-
 
         private boolean handleMetadata(String level2, String value) {
             if (parts.contains("defaultContent")) {
@@ -1271,21 +1283,46 @@ public class SupplementalDataInfo {
                 String cleanTag = parts.getAttributeValue(3,"type").replace("-","_");
                 tagToReplacement.put(cleanTag, (R2<List<String>, String>) Row.of(replacementList, reason).freeze());
                 return true;
-            }
-            if (level2.equals("attributeOrder")) {
+            } else if (level2.equals("attributeOrder")) {
                 attributeOrder = Arrays.asList(value.trim().split("\\s+"));
                 return true;
-            }
-            if (level2.equals("elementOrder")) {
+            } else if (level2.equals("elementOrder")) {
                 elementOrder = Arrays.asList(value.trim().split("\\s+"));
                 return true;
-            }
-            if (level2.equals("serialElements")) {
+            } else if (level2.equals("serialElements")) {
                 serialElements = Arrays.asList(value.trim().split("\\s+"));
                 return true;
+            } else if (level2.equals("deprecated")) {
+                //<deprecated>
+                // <deprecatedItems elements="monthNames monthAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
+                // <deprecatedItems type="supplemental" elements="calendar" attributes="territories"/>
+
+                //Map<String, String> attributeSet = parts.getAttributes(-1);
+                Collection<String> types = getSpaceDelimited(-1, "type", STAR_SET);
+                Collection<String> elements = getSpaceDelimited(-1, "elements", STAR_SET);
+                Collection<String> attributes = getSpaceDelimited(-1, "attributes", STAR_SET);
+                Collection<String> values = getSpaceDelimited(-1, "values", STAR_SET);
+                for (String type : types) {
+                    Map<String, Relation<String, String>> dep = deprecated.get(type);
+                    if (dep == null) {
+                        deprecated.put(type, dep = new HashMap<String, Relation<String, String>>());
+                    }
+                    for (String element : elements) {
+                        Relation<String, String> attribute2Values = dep.get(element);
+                        if (attribute2Values == null) {
+                            dep.put(element, attribute2Values = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class));
+                        }
+                        for (String attribute : attributes) {
+                            for (String value0 : values) {
+                                attribute2Values.put(attribute, value0);
+                            }
+                        }
+                    }
+                }
             }
             return false;
         }
+
 
         private boolean handleTerritoryInfo() {
 
@@ -1659,7 +1696,7 @@ public class SupplementalDataInfo {
     public Set<String> getNumberingSystems() {
         return numberingSystems;
     }
-    
+
     public SortedSet<CoverageLevelInfo> getCoverageLevelInfo() {
         return coverageLevels;
     }
@@ -1673,21 +1710,21 @@ public class SupplementalDataInfo {
     public int getCoverageValue(String xpath, ULocale loc) {
         return CoverageLevel2.getInstance(this, loc.getLanguage()).getIntLevel(xpath);
     }
-    
+
     private RegexLookup<Level> coverageLookup = null;
-    
+
     public synchronized RegexLookup<Level> getCoverageLookup() {
         if(coverageLookup==null) {
             RegexLookup<Level> lookup=  new RegexLookup<Level>();
 
 
             Matcher variable = Pattern.compile("\\$\\{[\\-A-Za-z]*\\}").matcher("");
-            
+
             for (CoverageLevelInfo ci : getCoverageLevelInfo()) {
                 String pattern = ci.match.replace('\'','"')
-                        .replace("[@","\\[@") // make sure that attributes are quoted
-                        .replace("(","(?:") // make sure that there are no capturing groups (beyond what we generate below).
-                        ;
+                .replace("[@","\\[@") // make sure that attributes are quoted
+                .replace("(","(?:") // make sure that there are no capturing groups (beyond what we generate below).
+                ;
                 pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
                 String variableType = null;
                 variable.reset(pattern);
@@ -1698,7 +1735,7 @@ public class SupplementalDataInfo {
                         throw new IllegalArgumentException("We can only handle a single variable on a line");
                     }
                 }
-                
+
                 //.replaceAll("\\]","\\\\]");
                 lookup.add(new CoverageLevel2.MyRegexFinder(pattern, variableType, ci), ci.value);
             }
@@ -1706,7 +1743,7 @@ public class SupplementalDataInfo {
         }
         return coverageLookup;
     }
-    
+
     /**
      * This appears to be unused, so didn't provide new version.
      * @param xpath
@@ -1724,7 +1761,7 @@ public class SupplementalDataInfo {
      */
     public int getCoverageValueOld(String xpath, ULocale loc) {
         String targetLanguage = loc.getLanguage();
-       
+
         CoverageVariableInfo cvi = getCoverageVariableInfo(targetLanguage);
         String targetScriptString = toRegexString(cvi.targetScripts);
         String targetTerritoryString = toRegexString(cvi.targetTerritories);
@@ -1736,48 +1773,48 @@ public class SupplementalDataInfo {
             CoverageLevelInfo ci = i.next();
             StringBuilder sb = new StringBuilder(ci.match.replace('\'','"'));
             String regex = "//ldml/"+ci.match.replace('\'','"')
-                                             .replaceAll("\\[","\\\\[")
-                                             .replaceAll("\\]","\\\\]")
-                                             .replace("${Target-Language}", targetLanguage)
-                                             .replace("${Target-Scripts}", targetScriptString)
-                                             .replace("${Target-Territories}", targetTerritoryString)
-                                             .replace("${Target-TimeZones}", targetTimeZoneString)
-                                             .replace("${Target-Currencies}", targetCurrencyString)
-                                             .replace("${Calendar-List}", calendarListString);
+            .replaceAll("\\[","\\\\[")
+            .replaceAll("\\]","\\\\]")
+            .replace("${Target-Language}", targetLanguage)
+            .replace("${Target-Scripts}", targetScriptString)
+            .replace("${Target-Territories}", targetTerritoryString)
+            .replace("${Target-TimeZones}", targetTimeZoneString)
+            .replace("${Target-Currencies}", targetCurrencyString)
+            .replace("${Calendar-List}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
             // to certain territories
             if (ci.inTerritory != null) {
-              if (ci.inTerritory.equals("EU")) {
-                  Set<String> containedTerritories = new HashSet<String>();
-                  containedTerritories.addAll(getContained(ci.inTerritory));
-                  containedTerritories.retainAll(cvi.targetTerritories);                  
-                  if ( containedTerritories.isEmpty())  {
-                   continue;
-                  }
-              }
-              else {
-                  if (!cvi.targetTerritories.contains(ci.inTerritory)) {
-                      continue;
-                  }
-              }
+                if (ci.inTerritory.equals("EU")) {
+                    Set<String> containedTerritories = new HashSet<String>();
+                    containedTerritories.addAll(getContained(ci.inTerritory));
+                    containedTerritories.retainAll(cvi.targetTerritories);                  
+                    if ( containedTerritories.isEmpty())  {
+                        continue;
+                    }
+                }
+                else {
+                    if (!cvi.targetTerritories.contains(ci.inTerritory)) {
+                        continue;
+                    }
+                }
             }
             // Special logic added for coverage fields that are only to be applicable
             // to certain languages         
             if (ci.inLanguage != null && !targetLanguage.matches(ci.inLanguage)) {
                 continue;
             }
-            
+
             // Special logic added for coverage fields that are only to be applicable
             // to certain scripts
             if (ci.inScript != null && !cvi.targetScripts.contains(ci.inScript)) {
                 continue;
             }
-            
+
             if (xpath.matches(regex)) {
                 return ci.value.getLevel();
             }
-            
+
             if (xpath.matches(regex)) {
                 return ci.value.getLevel();
             }
@@ -1800,7 +1837,7 @@ public class SupplementalDataInfo {
         }
         return cvi;
     }
-    
+
     private Set<String> getTargetScripts(String language) {
         Set<BasicLanguageData> langData = getBasicLanguageData(language);
         Set<String> targetScripts = new HashSet<String>();
@@ -1852,7 +1889,7 @@ public class SupplementalDataInfo {
         }
         return targetCalendars;
     }
-    
+
     private Set<String> getCurrentCurrencies(Set<String> territories) {
         Set<String> targetCurrencies = new HashSet<String>();
         Iterator<String> it = territories.iterator();
@@ -1884,7 +1921,7 @@ public class SupplementalDataInfo {
         }
         return targetTimeZones;
     }
-    
+
     public String getParentLocale(String loc) {
         if ( parentLocales.containsKey(loc)) {
             return parentLocales.get(loc);
@@ -2253,7 +2290,7 @@ public class SupplementalDataInfo {
     public PluralInfo getPlurals(String locale) {
         return getPlurals(locale, true);
     }
-    
+
     /**
      * Returns the plural info for a given locale.
      * @param locale
@@ -2348,7 +2385,7 @@ public class SupplementalDataInfo {
     public Relation<R2<String, String>, String> getBcp47Aliases() {
         return bcp47Aliases;
     }
-    
+
     static Set<String> MainTimeZones;;
 
     /**
@@ -2376,6 +2413,77 @@ public class SupplementalDataInfo {
 
     public Set<MetaZoneRange> getMetaZoneRanges(String zone) {
         return zoneToMetaZoneRanges.get(zone);
+    }
+
+    public Map<String, Map<String, Relation<String, String>>> getDeprecationInfo() {
+        return deprecated;
+    }
+
+    /**
+     * returns true if the path contains a deprecated combination of element or attribute or attribute value
+     * @param type
+     * @param parts
+     * @return
+     */
+    public boolean hasDeprecatedItem(String type, XPathParts parts) {
+        if (parts.contains("fallback")) {
+            int x = 3;
+        }
+        Map<String, Relation<String, String>> badStarElements2Attributes2Values = deprecated.get(STAR);
+        if (matchesBad(parts, badStarElements2Attributes2Values)) {
+            return true;
+        }
+        Map<String, Relation<String, String>> badElements2Attributes2Values = deprecated.get(type);
+        if (matchesBad(parts, badElements2Attributes2Values)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean matchesBad(XPathParts parts, Map<String, Relation<String, String>> badElements2Attributes2Values) {
+        if (badElements2Attributes2Values == null) {
+            return false;
+        }
+        Relation<String, String> badStarAttributes2Values = badElements2Attributes2Values.get(STAR);
+        for (int i = 0; i < parts.size(); ++i) {
+            Map<String, String> attributeToValue = parts.getAttributes(i);
+            if (matchesBad(badStarAttributes2Values, attributeToValue)) {
+                return true;
+            }
+            String element = parts.getElement(i);
+            Relation<String, String> badAttributes2Values = badElements2Attributes2Values.get(element);
+            if (matchesBad(badAttributes2Values, attributeToValue)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean matchesBad(Relation<String, String> badStarAttributes2Values, Map<String, String> attributeToValue) {
+        if (badStarAttributes2Values == null) {
+            return false;
+        }
+        Set<String> badStarValues = badStarAttributes2Values.get(STAR);
+        if (badStarValues != null && badStarValues.contains(STAR)) {
+            return true;
+        }
+        // at this point, we know that badStarValues doesn't contain STAR
+        for (Entry<String, String> attributeValue : attributeToValue.entrySet()) {
+            String value = attributeValue.getValue();
+            if (badStarValues != null && badStarValues.contains(value)) {
+                return true;
+            }
+            String attribute = attributeValue.getKey();
+            Set<String> badValues = badStarAttributes2Values.get(attribute);
+            if (badValues == null) {
+                continue;
+            }
+            if (badValues.contains(STAR) || badValues.contains(value)) {
+                return true;
+            }
+
+        }
+        return false;
     }
 }
 

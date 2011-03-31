@@ -265,7 +265,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT deprecatedItems EMPTY >
 <!ATTLIST deprecatedItems draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST deprecatedItems type ( standard | supplemental ) #IMPLIED >
+<!ATTLIST deprecatedItems type ( standard | supplemental | ldml | supplementalData | ldmlBCP47 ) #IMPLIED > <!-- standard | supplemental are deprecated -->
 <!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED >
 <!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED >
 <!ATTLIST deprecatedItems values CDATA #IMPLIED >

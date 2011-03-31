@@ -1503,19 +1503,20 @@
         </alias>
         <deprecated>
             <!-- items deprecated in ldml.dtd -->
+            <deprecatedItems attributes="draft" values="true false"/>
             <deprecatedItems elements="monthNames monthAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
-            <deprecatedItems attributes="standard count time"/>
+            <deprecatedItems attributes="standard time"/> <!-- 'count' was probably in a different dtd -->
             <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
             <deprecatedItems elements="abbreviationFallback default hoursFormat localizedPatternChars mapping measurementSystem preferenceOrdering" attributes="type"/>
-            <deprecatedItems type="supplemental" elements="alternate"/>
-            <deprecatedItems type="supplemental" elements="calendar" attributes="territories"/>
-            <deprecatedItems attributes="draft" values="true false"/>
-            <deprecatedItems type="supplemental" elements="bcp47KeywordMappings mapKeys mapTypes keyMap typeMap"/>
+            <deprecatedItems type="supplementalData" elements="alternate"/>
+            <deprecatedItems type="supplementalData" elements="calendar" attributes="territories"/>
+            <deprecatedItems type="supplementalData" elements="bcp47KeywordMappings mapKeys mapTypes keyMap typeMap"/>
             <deprecatedItems elements="cldrVersion"/>
             <deprecatedItems elements="calendar" attributes="type" values="civil-arabic thai-buddhist"/>
             <deprecatedItems elements="decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup" attributes="numberSystem"/>
             <deprecatedItems elements="q qc"/>
             <deprecatedItems elements="fallback"/>
+            <deprecatedItems type="ldml" elements="references"/>
         </deprecated>
         <distinguishing>
              <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type"/>

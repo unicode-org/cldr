@@ -41,185 +41,76 @@ import org.unicode.cldr.util.VettingViewer.ErrorChecker;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
+import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry.Key;
 import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
+import org.unicode.cldr.web.DBUtils.ConnectionHolder;
+import org.unicode.cldr.web.DBUtils.DBCloseable;
 import org.unicode.cldr.web.ErrorCheckManager.CachingErrorChecker;
-import org.unicode.cldr.web.SurveyThread.SurveyTask;
+import org.unicode.cldr.web.MuxedSource.MuxFactory;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class CLDRDBSourceFactory extends Factory {
-    private static final boolean DEBUG = false;
+public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	/**
+	 * Thread unsafe wrapper for connection state.
 	 * @author srl
 	 *
 	 */
-	public class MuxedSource extends XMLSource {
-		private CLDRLocale locale;
-
-		private XMLSource dbSource = null;
-		private CacheableXMLSource cachedSource = null;
-		private boolean finalData;
-		/**
-		 * 
-		 */
-		public MuxedSource(CLDRLocale locale, boolean finalData) {
-			this.setLocaleID(locale.toString());
-			this.locale = locale;
-			this.finalData = finalData;
-			this.dbSource = rootDbSource.make(locale.toString());
-			this.cachedSource = cache.getSource(locale, finalData);
-		}
-		
-		public boolean invalid() {
-			return cachedSource.invalid();
+    public static class DBEntry implements ConnectionHolder,DBCloseable {
+    	public enum Key { OLDKEYSET };
+    	private Connection conn = null;
+    	
+    	private Set<CLDRDBSource> allSources = new HashSet<CLDRDBSource>();
+    	
+		public DBEntry(CLDRDBSource x) {
+			x.setDBEntry(this);
+			allSources.add(x);
 		}
 
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#getAvailableLocales()
-		 */
 		@Override
-		public Set getAvailableLocales() {
-			return dbSource.getAvailableLocales();
+		public Connection getConnectionAlias() {
+			if(conn==null) {
+				conn = sm.dbUtils.getDBConnection();
+			}
+			return conn;
 		}
 
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
-		 */
 		@Override
-		public String getFullPathAtDPath(String path) {
-			if(false) {  System.err.println("NN: F["+path+"] @"+getLocaleID() + " = " + cachedSource.getFullPathAtDPath(path));    }
-			return cachedSource.getFullPathAtDPath(path);
-		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#getFullPathAtDPath(java.lang.String)
-		 */
-		@Override
-		public String getWinningPath(String path) {
-			//   if(path.indexOf("=\"TR")>0&&path.indexOf("symbol")>0) { /*srl*/
-			//      if(true) {  System.err.println("NN: F["+path+"] @"+getLocaleID() + " WP= " + cachedSource.getWinningPath(path));    }
-			//  } */
-			if(false) {  System.err.println("NN: F["+path+"] @"+getLocaleID() + " = " + cachedSource.getWinningPath(path));    }
-			return cachedSource.getWinningPath(path);
-		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#getSupplementalDirectory()
-		 */
-		@Override
-		public File getSupplementalDirectory() {
-			// TODO Auto-generated method stub
-			return dbSource.getSupplementalDirectory();
-		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#getValueAtDPath(java.lang.String)
-		 */
-		@Override
-		public String getValueAtDPath(String path) {
-			//if(path.contains("gregorian")) throw new InternalError("Who wants to know?");
-			if(false) {  System.err.println("NN: ["+path+"] @"+getLocaleID() + " = " + cachedSource.getValueAtDPath(path));    }
-			return cachedSource.getValueAtDPath(path);
-		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#getXpathComments()
-		 */
-		@Override
-		public Comments getXpathComments() {
-			// TODO Auto-generated method stub
-			return cachedSource.getXpathComments();
-		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#iterator()
-		 */
-		@Override
-		public Iterator<String> iterator() {
-			// TODO Auto-generated method stub
-			if(false) {  System.err.println("NN: @"+getLocaleID());
-			for(Iterator i = (Iterator)cachedSource.iterator();i.hasNext();) {
-				System.err.println("// "+i.next().toString());
-			} }
-			return cachedSource.iterator();
-		}
-
-		public Iterator<String> iterator(String str) {
-			if(false) {  System.err.println("NN: ["+str+"] @"+getLocaleID());
-			for(Iterator i = (Iterator)cachedSource.iterator(str);i.hasNext();) {
-				System.err.println("// "+i.next().toString());
-			} }
-			return cachedSource.iterator(str);
-		}
-		//
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#make(java.lang.String)
-		 */
-		@Override
-		public XMLSource make(String localeID) {
-			if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
-				return dbSource.make(localeID); // will fal through to raw files
-			} else {
-				return getMuxedInstance(CLDRLocale.getInstance(localeID));
+		public void close() throws SQLException {
+			if(conn!=null) {
+				DBUtils.close(conn);
 			}
 		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#putFullPathAtDPath(java.lang.String, java.lang.String)
-		 */
-		@Override
-		public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-			cachedSource.putFullPathAtDPath(distinguishingXPath, fullxpath);
-			dbSource.putFullPathAtDPath(distinguishingXPath, fullxpath);
+		
+		private Map<CLDRLocale,Map<String,Object>> stuff = new HashMap<CLDRLocale, Map<String,Object>>();
+		
+		public Map<String,Object> get(CLDRLocale loc) {
+			Map<String, Object> r = stuff.get(loc);
+			if(r==null) {
+				stuff.put(loc, r = new HashMap<String,Object>());
+			}
+			return r;
+		}
+		public Object get(CLDRLocale loc, String key) {
+			return get(loc).get(key);
+		}
+		public Object put(CLDRLocale loc, String key, Object o) {
+			return get(loc).put(key, o);
 		}
 
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#putValueAtDPath(java.lang.String, java.lang.String)
-		 */
-		@Override
-		public void putValueAtDPath(String distinguishingXPath, String value) {
-			// TODO Auto-generated method stub
-			cachedSource.putValueAtDPath(distinguishingXPath, value);
-			dbSource.putValueAtDPath(distinguishingXPath, value);
+		public Object get(String locale, Key oldkeyset) {
+			return get(CLDRLocale.getInstance(locale),oldkeyset.name());
 		}
 
-		public String putValueAtPath(String x, String v) {
-			cachedSource.putValueAtPath(x, v);
-			return dbSource.putValueAtPath(x, v);
+		public Object put(String locale, Key oldkeyset,Object o) {
+			return put(CLDRLocale.getInstance(locale),oldkeyset.name(),o);
 		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#removeValueAtDPath(java.lang.String)
-		 */
-		@Override
-		public void removeValueAtDPath(String distinguishingXPath) {
-			cachedSource.removeValueAtDPath(distinguishingXPath);
-			dbSource.removeValueAtDPath(distinguishingXPath);
-		}
-
-		/* (non-Javadoc)
-		 * @see org.unicode.cldr.util.XMLSource#setXpathComments(org.unicode.cldr.util.XPathParts.Comments)
-		 */
-		@Override
-		public void setXpathComments(Comments comments) {
-			// TODO Auto-generated method stub
-			throw new InternalError("not imp");
-
-		}
-
-		/**
-		 * @see com.ibm.icu.util.Freezable#freeze()
-		 */
-		public Object freeze() {
-			// TODO Auto-generated method stub
-			//            locked = true;
-			//            return this;
-			throw new InternalError("freeze not suported. [clone and lock?]");
-		}
-
 	}
 
+
+	private static final boolean DEBUG = true;
 	private static final boolean SHOW_TIMES=false;
 	private static final boolean SHOW_DEBUG=false;
 	private static final boolean TRACE_CONN=false;
@@ -383,11 +274,12 @@ public class CLDRDBSourceFactory extends Factory {
 		if(finalData == true) {
 			return rootDbSourceV.make(locale.toString());
 		} else {
-			//return rootDbSource.make(locale.toString());
-			return getMuxedInstance(locale);
+			return rootDbSource.make(locale.toString());
+			//return getMuxedInstance(locale);
 		}
 	}
 
+	@Override
 	public MuxedSource getMuxedInstance(CLDRLocale locale) {
 		//synchronized(mux) {
 			MuxedSource src = mux.get(locale);
@@ -404,7 +296,7 @@ public class CLDRDBSourceFactory extends Factory {
 						ignored = getMuxedInstance(parent);
 					}
 				}
-				src = new MuxedSource(locale, false);
+				src = new MuxedSource(this, locale, false);
 				mux.put(locale, src);
 			}
 			return src;
@@ -475,7 +367,7 @@ public class CLDRDBSourceFactory extends Factory {
 	 * this inner class contains a link to all of the prepared statements needed by the CLDRDBSource.
 	 * it may be shared by certain CLDRDBSources, or lazy initialized.
 	 **/
-	public static class MyStatements { 
+	public static class MyStatements implements DBCloseable { 
 		public Connection conn = null;
 		public PreparedStatement insert = null;
 //		public PreparedStatement queryStmt = null;
@@ -624,6 +516,7 @@ public class CLDRDBSourceFactory extends Factory {
 					"DELETE FROM " + CLDR_DATA + " where locale=? AND xpath=?");
 		}
 
+		@Override
 		public void close() throws SQLException {
 			Connection conn2 = conn;
 			conn = null; // just in case;
@@ -1141,7 +1034,9 @@ public class CLDRDBSourceFactory extends Factory {
 		 * source ID of this CLDRDBSource. 
 		 * @see #getSourceId
 		 */
-		public int srcId = -1; 
+		public int srcId = -1;
+
+		private DBEntry dbEntry; 
 
 		/**
 		 * load and validate the item, if not already in the DB. Sets srcId and other state.
@@ -1285,14 +1180,17 @@ public class CLDRDBSourceFactory extends Factory {
 		}
 
 
+		public void setDBEntry(DBEntry dbEntry) {
+			this.dbEntry = dbEntry;
+		}
+
+
 		/**
 		 * Return the SCM ID of this source.
 		 */
 		public String getSourceRevision() {
 			return CLDRDBSourceFactory.this.getSourceRevision(srcId); // TODO: awkward
 		}
-
-
 
 		/**
 		 * Return the path to supplemental data.
@@ -1620,22 +1518,10 @@ public class CLDRDBSourceFactory extends Factory {
 		/*
 		 * convert a distinguished path to a full path
 		 * @param path cleaned (distinguished) path
-		 * @return the full path
+		 * @return the full path, or null if n/a
 		 */
 		public String getFullPathAtDPath(String path) {
 			String ret =  getOrigXpathFromCache(xpt.getByXpath(path));
-			if(ret == null ) {
-				return path;
-				/*
-//            // Debug / validation
-            String try2 = getOrigXpathString(xpt.getByXpath(path),finalData);
-            if(try2 != null) {
-                System.err.println("Cache failed: was null at " +xpt.getByXpath(path)+":"+ path);
-                ret = try2;
-            } else {
-            	System.err.println("Null gfx:"+xpt.getByXpath(path));
-            }*/
-			}
 			return ret;
 		}
 
@@ -1711,6 +1597,7 @@ public class CLDRDBSourceFactory extends Factory {
 				if(!useFinalData) {
 					stmts.oxpathFromXpath.setInt(1,pathid);
 					stmts.oxpathFromXpath.setString(2,locale);
+					//System.err.println("oxpathFromXpath " + pathid + "  / " + locale);
 					rs = stmts.oxpathFromXpath.executeQuery();
 				} else {
 					stmts.oxpathFromVetXpath.setString(1, locale);
@@ -1720,18 +1607,18 @@ public class CLDRDBSourceFactory extends Factory {
 
 				if(!rs.next()) {
 					rs.close();
-					//System.err.println("getOrigXpath["+finalData+"/"+useFinalData+"] not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
+					//if(DEBUG) System.err.println("getOrigXpath["+finalData+"/"+useFinalData+"] not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
 					return -1;
 					//                    throw new InternalError  /* logger.severe */ ("getOrigXpath["+finalData+"] not found, falling back: " + locale + ":"+pathid+" " + xpt.getById(pathid));
 					//return xpt.getById(pathid); // not found - should be null?
 
 				}
 				int result = rs.getInt(1);
-				/*
-                if(rs.next()) {
+				
+                if(DEBUG&&rs.next()) {
                     logger.severe("getOrigXpath returns two results: " + locale + " " + xpt.getById(pathid));
                     // fail?? what?
-                }*/
+                }
 				rs.close();
 				return result;
 			} catch(SQLException se) {
@@ -1800,9 +1687,10 @@ public class CLDRDBSourceFactory extends Factory {
 		/**
 		 * Return an iterator for the current set.
 		 */
+		@Override
 		public Iterator iterator() {
 			String k = getLocaleID();
-			Set s = (Set)keySets.get(k);
+			Set s = null; // = (Set)keySets.get(k);
 			if(s==null) {
 //				System.err.println("CCLCDRDBSource iterator: " + k);
 				MyStatements stmts = null;
@@ -1812,7 +1700,7 @@ public class CLDRDBSourceFactory extends Factory {
 				} finally {
 					closeOrThrow(stmts);
 				}
-				keySets.put(k,s);
+				//keySets.put(k,s);
 			}
 			return s.iterator();
 		}
@@ -1823,7 +1711,8 @@ public class CLDRDBSourceFactory extends Factory {
 		 * @param prefix prefix of xpaths 
 		 * @return an iterator over the specified paths.
 		 */
-		public Iterator iterator(String prefix) {
+		@Override
+		public Iterator<String> iterator(String prefix) {
 			if(finalData) {
 				return super.iterator(prefix); // no optimization for this, yet
 			} else {
@@ -1844,6 +1733,16 @@ public class CLDRDBSourceFactory extends Factory {
 		private Set oldKeySet(MyStatements stmts) {
 			String locale = getLocaleID();
 			try {
+				Set<String> s = null;
+				
+				if(dbEntry!=null) {
+					s = (Set<String>) dbEntry.get(locale,DBEntry.Key.OLDKEYSET);
+					if(s!=null) {
+						//if(DEBUG) System.err.println("Re-used keyset");
+						return s;
+					}
+				}
+				
 				ResultSet rs;
 				if(finalData==false) {
 					stmts.keySet.setString(1,locale);
@@ -1854,7 +1753,7 @@ public class CLDRDBSourceFactory extends Factory {
 					rs = stmts.keyVettingSet.executeQuery();
 				}
 				// TODO: is there a better way to map a ResultSet into a Set?
-				Set<String> s = new HashSet<String>();
+				s = new HashSet<String>();
 				while(rs.next()) {
 					int xpathid = rs.getInt(1);
 					// if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
@@ -1875,6 +1774,10 @@ public class CLDRDBSourceFactory extends Factory {
 					//rs.getString(2); // origXpath
 				}
 				rs.close();
+				
+				if(dbEntry!=null) {
+					dbEntry.put(locale, DBEntry.Key.OLDKEYSET, s);
+				}
 				// if(finalData) System.err.println("@@ end KS of "+locale);
 				/*
 			// keySet has  prov/unc already.
@@ -2162,6 +2065,7 @@ public class CLDRDBSourceFactory extends Factory {
 				result.finalData = finalData;
 				//            result.vetting = vetting;
 				result.makeHash = makeHash;
+				result.dbEntry = dbEntry;
 				// do something here?
 				return result;
 			} catch (CloneNotSupportedException e) {
@@ -2262,4 +2166,29 @@ public class CLDRDBSourceFactory extends Factory {
 		return new CachingErrorChecker(sm);
 	}
 
+	@Override
+	public XMLSource getRootDbSource() {
+		// TODO Auto-generated method stub
+		return rootDbSource;
+	}
+
+	@Override
+	public CacheableXMLSource getSourceFromCache(CLDRLocale locale,
+			boolean finalData) {
+		// TODO Auto-generated method stub
+		return cache.getSource(locale, finalData);
+	}
+	
+	/**
+	 * Open a 'usage entry' over this 
+	 * @param x
+	 * @return
+	 */
+	public static DBEntry openEntry(XMLSource x) {
+		if(x instanceof CLDRDBSource) {
+			return new DBEntry((CLDRDBSource)x);
+		} else {
+			return null; 
+		}
+	}
 }

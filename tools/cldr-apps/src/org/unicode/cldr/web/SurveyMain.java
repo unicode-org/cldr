@@ -81,6 +81,8 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
+import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.Race.Chad;
@@ -103,6 +105,7 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
+
 	public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
     private static final String STEPSMENU_TOP_JSP = "stepsmenu_top.jsp";
@@ -1151,22 +1154,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		    		}
 		    	});
 		    	ctx.println("10m task added.\n");
-	    } else if(ctx.hasField("p10s")) {
-	    	addPeriodicTask(new SurveyTask("Waste Every 10 Seconds")
-	    	{
-	    		public void run() throws Throwable {
-	    			CLDRProgressTask task = this.openProgress("P:Waste 3 Seconds",10);
-	    			try {
-	    				for(int i=0;i<3;i++) {
-	    					task.update(i);
-		    				Thread.sleep(1000);
-	    				}
-	    			} finally {
-	    				task.close();
-	    			}
-	    		}
-	    	});
-	    	ctx.println("p10s3s task added.\n");
+//	    } else if(ctx.hasField("p10s")) {
+//	    	addPeriodicTask(new TimerTask()
+//	    	{
+//	    		@Override
+//	    		public void run() throws Throwable {
+//	    			CLDRProgressTask task = openProgress("P:Waste 3 Seconds",10);
+//	    			try {
+//	    				for(int i=0;i<3;i++) {
+//	    					task.update(i);
+//		    				Thread.sleep(1000);
+//	    				}
+//	    			} finally {
+//	    				task.close();
+//	    			}
+//	    		}
+//	    	});
+//	    	ctx.println("p10s3s task added.\n");
 	    } else  if(ctx.hasField("tstop")) {
             	if(acurrent!=null) {
 		    acurrent.stop();
@@ -6698,7 +6702,7 @@ o	            		}*/
     }
 
     public static boolean CACHE_VXML_FOR_TESTS = false;
-    public static boolean CACHE_VXML_FOR_EXAMPLES = false;
+//    public static boolean CACHE_VXML_FOR_EXAMPLES = false;
 
     /**
      * Any user of this should be within session sync.
@@ -6714,22 +6718,26 @@ o	            		}*/
         private Registerable exampleIsValid = new Registerable(lcr, locale);
         
         public ExampleGenerator getExampleGenerator() {
-            if(exampleGenerator==null || !exampleIsValid.isValid() ) {
-                CLDRFile fileForGenerator = null;
-                if(CACHE_VXML_FOR_EXAMPLES) {
-                    fileForGenerator = getCLDRFileCache().getCLDRFile(locale, true);
-                } else {
-                 //   System.err.println("!CACHE_VXML_FOR_EXAMPLES");
-                    fileForGenerator = new CLDRFile(dbSource,true);
-                }
-                exampleGenerator = new ExampleGenerator(fileForGenerator, fileBase + "/../supplemental/");
-                exampleGenerator.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
-                //System.err.println("-revalid exgen-"+locale + " - " + exampleIsValid + " in " + this);
-                exampleIsValid.setValid();
-                //System.err.println(" >> "+locale + " - " + exampleIsValid + " in " + this);
-                exampleIsValid.register();
-                //System.err.println(" >>> "+locale + " - " + exampleIsValid + " in " + this);
-            }
+        	if(exampleGenerator==null || !exampleIsValid.isValid() ) {
+        		CLDRFile fileForGenerator = null;
+        		//                if(CACHE_VXML_FOR_EXAMPLES) {
+        		//                    fileForGenerator = getCLDRFileCache().getCLDRFile(locale, true);
+        		//                } else {
+        		//   System.err.println("!CACHE_VXML_FOR_EXAMPLES");
+        		fileForGenerator = new CLDRFile(dbSource,true);
+        		//              }
+
+        		if(fileForGenerator==null) {
+        			System.err.println("Err: fileForGenerator is null for " + dbSource);
+        		}
+        		exampleGenerator = new ExampleGenerator(fileForGenerator, fileBase + "/../supplemental/");
+        		exampleGenerator.setVerboseErrors(twidBool("ExampleGenerator.setVerboseErrors"));
+        		//System.err.println("-revalid exgen-"+locale + " - " + exampleIsValid + " in " + this);
+        		exampleIsValid.setValid();
+        		//System.err.println(" >> "+locale + " - " + exampleIsValid + " in " + this);
+        		exampleIsValid.register();
+        		//System.err.println(" >>> "+locale + " - " + exampleIsValid + " in " + this);
+        	}
             return exampleGenerator;
         }
         
@@ -7400,10 +7408,16 @@ o	            		}*/
     public void showPathList(WebContext ctx, String xpath, XPathMatcher matcher, String lastElement) {
     	/* all simple */
         
-        synchronized(ctx.session) {
-            UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
-            XMLSource ourSrc = uf.dbSource;
-            CLDRFile cf =  uf.cldrfile;
+       // synchronized(ctx.session) {
+//            UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
+//            XMLSource ourSrc = uf.dbSource;
+//            CLDRFile cf =  uf.cldrfile;
+    	DBEntry entry = null;
+    	try {
+	    	XMLSource ourSrc = dbsrcfac.getInstance(ctx.getLocale(),false);
+	    	CLDRFile cf = new CLDRFile(ourSrc,false);
+	    	entry = CLDRDBSourceFactory.openEntry(ourSrc);
+	    	
             String fullThing = xpath + "/" + lastElement;
         //    boolean isTz = xpath.equals("timeZoneNames");
             if(lastElement == null) {
@@ -7433,7 +7447,14 @@ o	            		}*/
                     showPeas(ctx, section, canModify, matcher, false);
                 }
             }
-        }
+        //}
+    	} finally {
+        	try {
+        		if(entry!=null) entry.close();
+        	} catch(SQLException se) {
+        		System.err.println("SQLException when closing dbEntry : " + DBUtils.unchainSqlException(se));
+        	}
+    	}
     }
 
     static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
@@ -8911,14 +8932,6 @@ o	            		}*/
 	    		for(Map.Entry<Chad, Long> e : o2c.entrySet()) {
 	    			o2v.put(e.getKey().xpath, e.getValue());
 	    		}
-	    		/*
-		    System.err.println("org:"+org.name);
-		    for(int i : o2v.keySet()) {
-			long l = o2v.get(i);
-		    	System.err.println(" "+i+"->"+l);
-		     }
-
-	    		 */
 	    		ctx.println("<tr class='row"+(onn++ % 2)+"'>");
 	    		long score=0;
 
@@ -8990,7 +9003,11 @@ o	            		}*/
 	    		}
 	    		ctx.print("</td>");
 
-	    		ctx.print("<td class='warningReference'>#"+on+"</td> ");
+	    		ctx.print("<td class='warningReference'>#"+on);
+	    		if(on==-1) {
+	    			ctx.print("<br/><b class='graybox'>Error: this value is missing.</b>");
+	    		}
+	    		ctx.print("</td> ");
 
 	    		ctx.print("<td>"+score+"</td>");
 
@@ -9727,7 +9744,7 @@ o	            		}*/
     }
     
     Timer surveyTimer = null;
-    private List<SurveyTask> periodicTasks = null;
+//    private List<PeriodicTask> periodicTasks = null;
     
     private synchronized Timer getTimer() {
     	if(surveyTimer==null) {
@@ -9735,32 +9752,52 @@ o	            		}*/
     	}
     	return surveyTimer;
     }
-    
-    public synchronized void addPeriodicTask(SurveyTask task) {
-    	if(periodicTasks==null) {
-    		periodicTasks = new LinkedList<SurveyTask>();
-    		
-    		// spin up the periodic thread
-    		getTimer().schedule(new TimerTask(){
 
-				@Override
-				public void run() {
-			    	synchronized(periodicTasks) {
-				    	for(SurveyTask st : periodicTasks) {
-				    		startupThread.addTask(st);
-				    	}
-			    	}
-			}}, 10000, 10000);
-    	}
-    	synchronized(periodicTasks) {
-    		periodicTasks.add(task);
-    	}
+//	public interface PeriodicTask {
+//		public String name();
+//		public void run() throws Throwable;
+//	}
+
+    public void addPeriodicTask(TimerTask task) {
+		int firstTime=isUnofficial?10000:60000;		
+		int eachTime=isUnofficial?10000:60000;
+		getTimer().schedule(task, firstTime,eachTime);
+//    	if(periodicTasks==null) {
+//    		
+//    		periodicTasks = new LinkedList<PeriodicTask>();
+//    		
+//    		// spin up the periodic thread
+//    		getTimer().schedule(new TimerTask(){
+//
+//				@Override
+//				public void run() {
+//			    	synchronized(periodicTasks) {
+//			    		Set<PeriodicTask> bads = new HashSet<PeriodicTask>();
+//				    	for(PeriodicTask st : periodicTasks) {
+//				    		try {
+//								st.run();
+//							} catch (Throwable e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//								System.err.println("Removing periodic task due to crash: " + st.name());
+//								bads.add(st);
+//							}
+//				    	}
+//				    	for(PeriodicTask st : bads ) {
+//				    		periodicTasks.remove(st);
+//				    	}
+//			    	}
+//			}}, firstTime, eachTime);
+//    	}
+//    	synchronized(periodicTasks) {
+//    		periodicTasks.add(task);
+//    	}
     }
     
     /**
      * Class to startup ST in background and perform background operations.
      */
-    public SurveyThread startupThread = new SurveyThread(this);
+    public transient SurveyThread startupThread = new SurveyThread(this);
 
     /**
      * Progress bar manager
@@ -10000,15 +10037,12 @@ o	            		}*/
     }
     
     boolean fileNeedsUpdate(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
+    	return fileNeedsUpdate(getLocaleTime(conn,loc),loc,kind);
+    }
+    boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
 		File outFile = getDataFile(kind, loc);
 		if(!outFile.exists()) return true;
 		Timestamp theFile = null;
-		Timestamp theDate = null;
-
-		Object[][] o = dbUtils.sqlQueryArrayArrayObj(conn, "select max(modtime) from cldr_result where locale=?", loc);
-		if(o!=null&&o.length>0&&o[0]!=null&&o[0].length>0) {
-			theDate = (Timestamp)o[0][0];
-		}
 
 		long lastMod = outFile.lastModified();
 		if(outFile.exists()) {
@@ -10026,7 +10060,24 @@ o	            		}*/
 		return true;
     }
     
-    /**
+    public Timestamp getLocaleTime(Connection conn, CLDRLocale loc) throws SQLException {
+		Timestamp theDate = null;
+		Object[][] o = dbUtils.sqlQueryArrayArrayObj(conn, "select max(modtime) from cldr_result where locale=?", loc);
+		if(o!=null&&o.length>0&&o[0]!=null&&o[0].length>0) {
+			theDate = (Timestamp)o[0][0];
+		}
+		return theDate;
+	}
+    public Timestamp getLocaleTime(CLDRLocale loc) throws SQLException {
+    	Connection conn = null;
+    	try {
+    		conn = dbUtils.getDBConnection();
+    		return getLocaleTime(conn,loc);
+    	} finally {
+    		DBUtils.close(conn);
+    	}
+	}
+	/**
      * Get output file, creating if necessary
      * @param conn
      * @param loc
@@ -10083,64 +10134,73 @@ o	            		}*/
 	    	throw new InternalError("Don't know how to make kind " + kind + " for loc " + loc);
 	    }
 		
-	    try {
+		try {
 			File outFile = getDataFile(kind, loc);
-	    	PrintWriter utf8OutStream = new PrintWriter(
-	    			new OutputStreamWriter(
-	    					new FileOutputStream(outFile), "UTF8"));
-	    	//synchronized(this.vet) {
-	    		file.write(utf8OutStream);
-	    	//}
-//	    	nrOutFiles++;
-	    	utf8OutStream.close();
-	    	System.err.println("Updater: Wrote: " + kind + "/" + et);
-	    	return outFile;
-//	    	lastfile = null;
-	    	//            } catch (UnsupportedEncodingException e) {
-	    	//                throw new InternalError("UTF8 unsupported?").setCause(e);
-	    } catch (IOException e) {
+			PrintWriter utf8OutStream = new PrintWriter(
+					new OutputStreamWriter(
+							new FileOutputStream(outFile), "UTF8"));
+			file.write(utf8OutStream);
+			utf8OutStream.close();
+			System.err.println("Updater: Wrote: " + kind + "/" + et);
+			return outFile;
+		} catch (IOException e) {
 	    	e.printStackTrace();
 	    	throw new RuntimeException("IO Exception "+e.toString(),e);
-//	    } finally {
-//	    	if(lastfile != null) {
-//	    		System.err.println("Last file written: " + kind + " / " + lastfile);
-//	    	}
 	    }
     }
 
     private void addUpdateTasks() {
-    	addPeriodicTask(new SurveyTask("Updater")
+    	addPeriodicTask(new TimerTask()
     	{
     		int spinner = (int)Math.round(Math.random()*(double)getLocales().length); // Start on a different locale each time.
-    		public void run() throws Throwable {
-    			CLDRLocale locs[] = getLocales();
-    			File outFile = null;
-    			CLDRLocale loc = null;
-				Connection conn = null;
+    		@Override
+    		public void run()  {
+    			Connection conn = null;
+    			CLDRProgressTask progress = openProgress("Updater", 3);
     			try {
+    				CLDRLocale locs[] = getLocales();
+    				File outFile = null;
+    				CLDRLocale loc = null;
     				conn = dbUtils.getDBConnection();
+    				
     				for(int j=0;j< Math.min(16,locs.length);j++) { // Try 16 locales looking for one that doesn't exist. No more, due to load.
     					loc = locs[(spinner++)%locs.length]; // A new one each time.
     					//System.err.println("Updater: Considering: "  +loc);
-
-    					if(!fileNeedsUpdate(conn,loc,"vxml") && !fileNeedsUpdate(conn,loc,"xml")) {
+    					Timestamp localeTime = getLocaleTime(conn,loc);
+    					if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
     						loc=null;
+        					progress.update(0, "Still looking.");
+    					} else {
+        					progress.update(0, "Going to update:"  +loc);
     					}
-
     				}
-    			} finally {
-    				DBUtils.close(conn);
-    			}
-    			
-    			if(loc==null) {
-//    				System.err.println("All " + locs.length + " up to date.");
-    				return; // nothing to do.
-    			}
-    			
 
-    			getOutputFile(loc, "vxml");
-    			getOutputFile(loc, "xml");
+    				if(loc==null) {
+    					progress.update(3, "None to update.");
+    					//    				System.err.println("All " + locs.length + " up to date.");
+    					return; // nothing to do.
+    				}
 
+					progress.update(1, "Writing vxml:"  +loc);
+    				getOutputFile(loc, "vxml");
+    				/*
+					progress.update(2, "Writing xml:"  +loc);
+    				getOutputFile(loc, "xml");
+    				*/
+					progress.update(3, "Done:"  +loc);
+    			} catch (SQLException e) {
+					System.err.println("While running Updater: " + DBUtils.unchainSqlException(e));
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+    				if(progress!=null) progress.close();
+    				try {
+						DBUtils.close(conn);
+					} catch (SQLException e) {
+						System.err.println("While cleaning up after Updater: " + DBUtils.unchainSqlException(e));
+						e.printStackTrace();
+					}
+    			}
     		}
     	});
 	}

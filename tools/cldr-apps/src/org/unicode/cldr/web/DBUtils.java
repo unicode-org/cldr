@@ -39,6 +39,7 @@ import com.ibm.icu.text.UnicodeSet;
  *
  */
 public class DBUtils {
+
 	private static DBUtils instance = null;
 	private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
 	private static DataSource datasource = null;
@@ -656,8 +657,8 @@ public class DBUtils {
 				((Statement)o).close();
 			} else if (o instanceof ResultSet) {
 				((ResultSet)o).close();
-			} else if(o instanceof CLDRDBSourceFactory.MyStatements) {
-			    ((CLDRDBSourceFactory.MyStatements)o).close();
+			} else if(o instanceof DBCloseable) {
+				((DBCloseable)o).close();
 			} else {
 				throw new IllegalArgumentException("Don't know how to close "+an(o.getClass().getSimpleName())+" " + o.getClass().getName());
 			}
@@ -814,5 +815,28 @@ public class DBUtils {
 			ret[i]=rs.getObject(i+1);
 		}
 		return ret;
+	}
+	
+	/**
+	 * Interface to an object that contains a held Connection
+	 * @author srl
+	 *
+	 */
+	public interface ConnectionHolder {
+		/**
+		 * @return alias to held connection
+		 */
+		public Connection getConnectionAlias();
+	}
+	/**
+	 * Interface to an object that DBUtils.close can close.
+	 * @author srl
+	 *
+	 */
+	public interface DBCloseable {
+		/**
+		 * Close this object
+		 */
+		public void close() throws SQLException;
 	}
 }

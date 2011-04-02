@@ -10,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -23,7 +25,10 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
+import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * @author srl
@@ -31,12 +36,11 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
  */
 public class CLDRFileCache {
 	private long startTime = System.currentTimeMillis();
-	static final private boolean DEBUG_INSANE = false;
+	static final private boolean DEBUG_INSANE = true || (System.getProperty("ST_DEBUG")!=null);
 	/**
 	 * @author srl
 	 * 
 	 */
-
 	/** Some ints to twiddle. Used to separate cached. **/
 	private static int nn = 0;
 	/** Some ints to twiddle. Used to separate cached. **/
@@ -84,6 +88,7 @@ public class CLDRFileCache {
 	private class CachedSource extends XMLSource {
 		XMLSource cachedFileSource = null;
 		XMLSource subSource = null;
+		CLDRLocale loc;
 
 		/**
          * 
@@ -102,6 +107,13 @@ public class CLDRFileCache {
 						+ " @ " + cacheDir.getAbsolutePath());
 			setLocaleID(locale);
 			subSource = realSource.make(locale);
+		}
+		
+		@Override
+		public
+		void setLocaleID(String locale) {
+			super.setLocaleID(locale);
+			this.loc = CLDRLocale.getInstance(locale);
 		}
 
 		/*
@@ -281,6 +293,7 @@ public class CLDRFileCache {
 	 */
 	public class CacheableXMLSource extends SimpleXMLSource {
 		private static final int COOKIE = 9295467;
+		CLDRLocale loc;
 		private Registerable token = new Registerable(sm.lcr, CLDRLocale
 				.getInstance(this.getLocaleID())) {
 		};
@@ -292,6 +305,12 @@ public class CLDRFileCache {
 
 		public CacheableXMLSource(Factory factory, CLDRLocale locale) {
 			super(factory, locale.toString());
+		}
+		
+		@Override
+		public void setLocaleID(String locale) {
+			super.setLocaleID(locale);
+			loc = CLDRLocale.getInstance(locale);
 		}
 
 		/**
@@ -381,7 +400,7 @@ public class CLDRFileCache {
 		public void load(File f) throws IOException {
 			FileInputStream fis = new FileInputStream(f);
 			DataInputStream dis = new DataInputStream(fis);
-
+			Timestamp newTime = new Timestamp(f.lastModified());
 			int cookie = dis.readInt();
 			if (cookie != COOKIE) {
 				throw new InternalError("Error: cache " + f
@@ -438,7 +457,8 @@ public class CLDRFileCache {
 			}
 			dis.close();
 			fis.close();
-			if(DEBUG_INSANE) System.err.println("##" + f + " - read " + (n - 1) + " records.");
+			fileTime = newTime;
+			if(DEBUG_INSANE) System.err.println("##" + f + " - read " + (n - 1) + " records. fileTime:" + fileTime);
 		}
 
 		/**
@@ -448,10 +468,44 @@ public class CLDRFileCache {
 			token.register();
 			// this.freeze();
 		}
+		
+		long lastDbCheck = -1;
 
 		public boolean invalid() {
-			return !token.isValid();
+			if(!token.isValid()) return true;
+			
+			
+			
+			long now = System.currentTimeMillis();
+			if((now-lastDbCheck)<100) {
+				//if(DEBUG_INSANE) System.err.println("Not redoing db check @ " + (now-lastDbCheck) + " ms ");
+				//:" + StackTracker.currentStack());
+				return false;
+			}
+			
+			lastDbCheck =now;
+			return forceCheckInvalid();
+			
 		}
+		public boolean forceCheckInvalid() {
+			Timestamp ts = null;
+			try {
+				ts = sm.getLocaleTime(loc);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.err.println("Error trying to get locale time of " + loc + " - " + DBUtils.unchainSqlException(e));
+			}
+			
+			if(ts.after(fileTime)) {
+				token.invalidate();
+				if(DEBUG_INSANE) System.err.println("Discovered out of date: " + loc + " - ");
+				return true;
+			}
+			
+			return false;
+		}
+		
+		Timestamp fileTime = null;
 
 		/**
 		 * Load (copy) from another source.
@@ -459,6 +513,7 @@ public class CLDRFileCache {
 		 * @param from source of data
 		 */
 		public void load(XMLSource from) {
+			Timestamp newTime = getFileTime();
 			Iterator<String> iter = from.iterator();
 			CLDRProgressTask progress = sm.openProgress("Cache " + this.getLocaleID());
 			int n = 0;
@@ -488,12 +543,24 @@ public class CLDRFileCache {
 			} finally {
 				progress.close();
 			}
+			fileTime=newTime;
 			if(DEBUG_INSANE) System.err.println("## WXP load " + this.getLocaleID() + " from "
-					+ from.getClass().getName() + "  - loaded " + n);
+					+ from.getClass().getName() + "  - loaded " + n + " fileTime now: " + fileTime);
+		}
+
+		Timestamp getFileTime() {
+			try {
+				return sm.getLocaleTime(loc);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.err.println("Error trying to get locale time of " + loc + " - " + DBUtils.unchainSqlException(e));
+				throw new RuntimeException(e);
+			}
 		}
 
 		public void reloadWinning(XMLSource from) {
 			Iterator<String> iter = from.iterator();
+			Timestamp newTime = getFileTime();
 
 			// dos.writeInt(COOKIE);
 			int n = 0;
@@ -517,8 +584,9 @@ public class CLDRFileCache {
 				// + fxpath + "\n$>- "+wxpath+"\n<<< "+bxpath);
 				// }
 			}
+			fileTime = newTime;
 			if(DEBUG_INSANE) System.err.println("## WXP reload win " + this.getLocaleID()
-					+ " from " + from.getClass().getName() + "  - loaded " + n);
+					+ " from " + from.getClass().getName() + "  - loaded " + n + " time: " + fileTime);
 		}
 
 		public void initialize() {
@@ -677,7 +745,7 @@ public class CLDRFileCache {
 		this.realVettedSource = subVettedSource;
 		validateCache();
 		if (DEBUG_INSANE)
-			System.err.println("## " + serno + " bootation @ "
+			System.err.println("## " + serno + " Cache Startup @ "
 					+ cacheDir.getAbsolutePath());
 	}
 

@@ -10,6 +10,7 @@
 //  class to get a list of displayable items?
 
 package org.unicode.cldr.web;
+import java.sql.SQLException;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,6 +36,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -48,6 +50,7 @@ import com.ibm.icu.text.RuleBasedCollator;
  **/
 
 public class DataSection extends Registerable {
+    private static final boolean DEBUG = false;
 
     /**
      * Trace in detail time taken to populate?
@@ -57,7 +60,7 @@ public class DataSection extends Registerable {
     /**
      * Show time taken to populate?
      */
-    private static final boolean SHOW_TIME= false || TRACE_TIME;
+    private static final boolean SHOW_TIME= true || TRACE_TIME;
 
     /**
      * Warn user why these messages are showing up.
@@ -186,7 +189,8 @@ public class DataSection extends Registerable {
      *
      */
     public class DataRow {
-        DataRow parentRow = this; // parent - defaults to self if it is a "super" (i.e. parent without any alternate)
+
+		DataRow parentRow = this; // parent - defaults to self if it is a "super" (i.e. parent without any alternate)
         
         // what kind of row is this?
         public boolean confirmOnly = false; // if true: don't accept new data, this row is something that might be confusing to input.
@@ -752,20 +756,20 @@ public class DataSection extends Registerable {
                 List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 
                 for (CandidateItem item : items) {
-		    //if(sm.isUnofficial && false) System.err.println("Considering: " + item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.base_xpath+", ENO="+errorNoOutcome);
-		    // item.toString()
-                    if (((item.xpathId == resultXpath_id) || (resultXpath_id == -1
-                            && item.xpathId == this.base_xpath && !errorNoOutcome))
-                            && // do NOT add as current, if vetting said 'no' to
-                            // current item.
-                            !(item.isFallback || (item.inheritFrom != null))) {
-                        if(!currentItems.isEmpty()) {
-                            throw new InternalError(this.toString()+": can only have one candidate item, not " + currentItems.get(0) +" and " + item);
-                        }
-                        currentItems.add(item);
-                    } else {
-                        proposedItems.add(item);
-                    }
+                	if(sm.isUnofficial && DEBUG) System.err.println("Considering: " + item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.base_xpath+", ENO="+errorNoOutcome);
+                	// item.toString()
+                	if (((item.xpathId == resultXpath_id) || (resultXpath_id == -1
+                			&& item.xpathId == this.base_xpath && !errorNoOutcome))
+                			&& // do NOT add as current, if vetting said 'no' to
+                			// current item.
+                			!(item.isFallback || (item.inheritFrom != null))) {
+                		if(!currentItems.isEmpty()) {
+                			throw new InternalError(this.toString()+": can only have one candidate item, not " + currentItems.get(0) +" and " + item);
+                		}
+                		currentItems.add(item);
+                	} else {
+                		proposedItems.add(item);
+                	}
                 }
                 // if there is an inherited value available - see if we need to
                 // show it.
@@ -986,31 +990,42 @@ public class DataSection extends Registerable {
 //        section.simple = simple;
         SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
   
-        XMLSource ourSrc = uf.dbSource;
+        //XMLSource ourSrc = uf.dbSource;
         
-        synchronized(ourSrc) {
-            CheckCLDR checkCldr = uf.getCheck(ctx);
-            if(checkCldr == null) {
-                throw new InternalError("checkCldr == null");
-            }
-            String workingCoverageLevel = section.getPtype();
-            com.ibm.icu.dev.test.util.ElapsedTimer cet;
-            if(SHOW_TIME) {
-                cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
-                System.err.println("Begin populate of " + locale + " // " + prefix+":"+workingCoverageLevel + " - is:" + ourSrc.getClass().getName());
-            }
-            CLDRFile baselineFile = ctx.sm.getBaselineFile();
-            section.skippedDueToCoverage=0;
-            section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap(), workingCoverageLevel);
-			int popCount = section.getAll().size();
-/*            if(SHOW_TIME) {
-                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
-            }*/
-            section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
-            if(SHOW_TIME) {
-				int allCount = section.getAll().size();
-                System.err.println("Populate+complete " + locale + " // " + prefix +":"+section.getPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
-            }
+        DBEntry entry = null;
+        try {
+	        XMLSource ourSrc = ctx.sm.dbsrcfac.getInstance(locale);
+	        entry = CLDRDBSourceFactory.openEntry(ourSrc);
+	        synchronized(ourSrc) {
+	            CheckCLDR checkCldr = uf.getCheck(ctx);
+	            if(checkCldr == null) {
+	                throw new InternalError("checkCldr == null");
+	            }
+	            String workingCoverageLevel = section.getPtype();
+	            com.ibm.icu.dev.test.util.ElapsedTimer cet;
+	            if(SHOW_TIME) {
+	                cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
+	                System.err.println("Begin populate of " + locale + " // " + prefix+":"+workingCoverageLevel + " - is:" + ourSrc.getClass().getName());
+	            }
+	            CLDRFile baselineFile = ctx.sm.getBaselineFile();
+	            section.skippedDueToCoverage=0;
+	            section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap(), workingCoverageLevel);
+				int popCount = section.getAll().size();
+	/*            if(SHOW_TIME) {
+	                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
+	            }*/
+	            section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
+	            if(SHOW_TIME) {
+					int allCount = section.getAll().size();
+	                System.err.println("Populate+complete " + locale + " // " + prefix +":"+section.getPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
+	            }
+	        }
+        } finally {
+        	try {
+        		if(entry!=null) entry.close();
+        	} catch(SQLException se) {
+        		System.err.println("SQLException when closing dbEntry : " + DBUtils.unchainSqlException(se));
+        	}
         }
 		return section;
 	}

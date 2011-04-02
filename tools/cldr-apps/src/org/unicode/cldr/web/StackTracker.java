@@ -12,7 +12,7 @@ public class StackTracker {
      * @param o
      */
     public void add(Object o) {
-        String stack = stackToString(Thread.currentThread().getStackTrace(),2);
+        String stack = currentStack();
         stacks.put(o, stack);
     }
     
@@ -30,7 +30,7 @@ public class StackTracker {
      * @param skip
      * @return
      */
-    private static String stackToString(StackTraceElement[] stackTrace, int skip) {
+    public static String stackToString(StackTraceElement[] stackTrace, int skip) {
         StringBuffer sb = new StringBuffer();
         for(int i=0;i<stackTrace.length;i++) {
             sb.append(stackTrace[i].toString()+"\n");
@@ -61,5 +61,9 @@ public class StackTracker {
     public void clear() {
         stacks.clear();
         
+    }
+    
+    public static String currentStack() {
+    	return stackToString(Thread.currentThread().getStackTrace(),2);
     }
 }

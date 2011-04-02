@@ -44,6 +44,7 @@ public class VettingViewer<T> {
 
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
     private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", false);
+    private static final String LOCALE = CldrUtility.getProperty("LOCALE", "de");
 
     public enum Choice {
         /**
@@ -75,7 +76,7 @@ public class VettingViewer<T> {
         /**
          * Given the users coverage, some items are missing.
          */
-        missingCoverage('M', "Missing", "Your current coverage level requires the item to be present, but it is missing."),
+        missingCoverage('M', "Missing", "Your current coverage level requires the item to be present, but it is missing. During the vetting phase, this is informational: you can't add new values."),
         /**
          * There is a console-check error
          */
@@ -663,14 +664,17 @@ public class VettingViewer<T> {
             Status status = new Status();
 
             output.append("<h2>Summary</h2>\n")
-            .append("<p>For instructions, see <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>Vetting View Instructions</a>.</p>")
+            .append("<p><i>It is important that you read " +
+            		"<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
+            		"Vetting View Instructions</a> before starting!</i></p>")
             .append("<form name='checkboxes'>\n")
             .append("<table class='tvs-table'>\n")
             .append("<tr class='tvs-tr'>" +
                     "<th class='tv-th'>Count</th>" +
-                    "<th class='tv-th'>Abbr.</th>" +
+                    "<th class='tv-th'>Issue</th>" +
                     "<th class='tv-th'>Description</th>" +
             "</tr>\n");
+            boolean countShown = false;
             for (Choice choice : choices) {
                 if (choice == Choice.other && !showAll) {
                     continue;
@@ -681,13 +685,23 @@ public class VettingViewer<T> {
                 .append("</td>\n\t<td nowrap class='tvs-abb'>")
                 .append("<input type='checkbox' name='")
                 .append(Character.toLowerCase(choice.abbreviation))
-                .append("' onclick='setStyles()'/> ")
+                .append("' onclick='setStyles()'");
+                if (!countShown && count != 0) {
+                    output.append(" checked");
+                    countShown = true;
+                }
+                output.append("/> ")
                 .append(choice.display)
                 .append("</td>\n\t<td class='tvs-desc'>")
                 .append(choice.description)
                 .append("</td></tr>\n");
             }
-            output.append("</table>\n</form>\n");
+            output.append("</table>\n</form>\n"
+                    + "<script type='text/javascript'>\n" +
+                    "<!-- \n" +
+                    "setStyles()\n" +
+                    "-->\n"
+                    + "</script>");
 
 
             int count = 0;
@@ -854,7 +868,7 @@ public class VettingViewer<T> {
         // here are per-view parameters
 
         final EnumSet<Choice> choiceSet = EnumSet.allOf(Choice.class);
-        String localeStringID = "fr";
+        String localeStringID = LOCALE;
         int userNumericID = 666;
         Level usersLevel = Level.MODERN;
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");

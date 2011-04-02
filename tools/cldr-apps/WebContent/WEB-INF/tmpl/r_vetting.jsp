@@ -47,8 +47,8 @@ if(subCtx.userId() == UserRegistry.NO_USER) {
 	
 	
 	subCtx.println("<div id='vvupd'>");
-	subCtx.println(VettingViewerQueue.getInstance().getVettingViewerOutput(subCtx,null,subCtx.getLocale(),status, 
-				forceRestart?VettingViewerQueue.LoadingPolicy.FORCERESTART:VettingViewerQueue.LoadingPolicy.START));
+    VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx,null,subCtx.getLocale(),status, 
+				forceRestart?VettingViewerQueue.LoadingPolicy.FORCERESTART:VettingViewerQueue.LoadingPolicy.START,subCtx);
 	subCtx.println("<br/> Status: " + status[0]);
 	subCtx.println("</div>");
 	if(status[0]==VettingViewerQueue.Status.PROCESSING || status[0]==VettingViewerQueue.Status.WAITING ) {
@@ -69,20 +69,26 @@ function updateVv() {
         load: function(json){
             var st_err =  document.getElementById('vverr');
             if(json.err.length > 0) {
+                window.status= ('Error loading VV content');
                st_err.innerHTML=json.err;
                st_err.className = "ferrbox";
 	           	clearInterval(vvId);
 	        	vvId=-1;
             }
             
-            updateIf('vvupd',json.ret);
             if(json.status == "READY" ) {
-            	clearInterval(vvId);
-            	vvId=-1;
-            	updateIf('vverr',"Loaded.");
+                updateIf('vvupd',"<a href='<%= topCtx.url() %>&amp;vloaded=t'><i>Redirecting to your Vetting View...</i></a>");
+                window.status= ('Done loading VV');
+                clearInterval(vvId);
+                vvId=-1;
+                document.location = "<%= topCtx.url().replaceAll("&amp;","\\&") %>&vloaded=t";
+            } else {
+                updateIf('vvupd',json.ret);
+                window.status = ('VV still processing..');
             }
         },
         error: function(err, ioArgs){
+            window.status = ('Temporary error loading VV - will retry');
         	updateIf('vverr','Couldn\'t load progress (Will retry): '+err.name + " <br> " + err.message);
 //        	clearInterval(vvId);
 ///        	vvId=-1;
@@ -90,8 +96,14 @@ function updateVv() {
     });
 }
 
-vvId = setInterval(updateVv, 1000*5);
-
+<% 
+if(!ctx.hasField("vloaded")) {
+    %>
+        vvId = setInterval(updateVv, 1000*5);
+        window.status = 'Checking on status of VV...';
+<%
+}
+%>
 
 </script>
 

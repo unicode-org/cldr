@@ -3,6 +3,7 @@
  */
 package org.unicode.cldr.web;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.EnumSet;
@@ -119,7 +120,7 @@ public class VettingViewerQueue {
 		final Level usersLevel;
 		final Organization usersOrg;
 		String status = "(Waiting for other users)";
-		public Status statusCode = Status.STOPPED;
+		public Status statusCode = Status.WAITING; // Need to start out as waiting. 
 		void setStatus(String status) {
 			this.status = status;
 		}
@@ -222,14 +223,35 @@ public class VettingViewerQueue {
 	
 	private static final String PRE = "<DIV class='pager'>";
 	private static final String POST = "</DIV>";
+	
+	/**
+	 * Same as getVettingViewerOutput  except that the status message, if present, will be written to the output
+	 * @see #getVettingViewerOutput(WebContext, CookieSession, CLDRLocale, Status[], LoadingPolicy, Appendable)
+	 * @param ctx
+	 * @param sess
+	 * @param locale
+	 * @param status
+	 * @param forceRestart
+	 * @param output
+	 * @throws IOException
+	 */
+	public void writeVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status, LoadingPolicy forceRestart, Appendable output) throws IOException {
+	    String str = getVettingViewerOutput(ctx,sess,locale,status,forceRestart,output);
+	    if(str!=null) {
+	        output.append(str);
+	    }
+	}
+	
 	/**
 	 * Return the status of the vetting viewer output request. 
 	 * If a different locale is requested, the previous request will be cancelled.
 	 * @param ctx
 	 * @param locale
-	 * @return
+	 * @param output if there is output, it will be written here. Or not, if it's null
+	 * @return status message
+	 * @throws IOException 
 	 */
-	public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status, LoadingPolicy forceRestart) {
+	public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status, LoadingPolicy forceRestart, Appendable output) throws IOException {
 		if(sess==null) sess = ctx.session;
 		QueueEntry entry = getEntry(sess);
 		if(status==null) status = new Status[1];
@@ -237,7 +259,10 @@ public class VettingViewerQueue {
 			StringBuffer res = entry.output.get(locale);
 			if(res != null) {
 				status[0]=Status.READY;
-				return res.toString();
+				if(output!=null) {
+				    output.append(res);
+				}
+				return null;
 			}
 		} else { /* force restart */
 			stop(ctx, locale, entry);

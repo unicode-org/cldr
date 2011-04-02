@@ -39,7 +39,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
  * This is the per-client context passed to basically all functions
  * it has print*() like functions, and so can be written to.
  */
-public class WebContext implements Cloneable {
+public class WebContext implements Cloneable, Appendable {
     public static final String TMPL_PATH = "/WEB-INF/tmpl/";
     public static java.util.logging.Logger logger = SurveyMain.logger;
 // USER fields
@@ -1642,6 +1642,25 @@ public class WebContext implements Cloneable {
         Cookie c = new Cookie(id,value);
         c.setMaxAge(expiry);
         response.addCookie(c);
+    }
+
+    @Override
+    public Appendable append(CharSequence csq) throws IOException {
+        pw.append(csq);
+        return this;
+    }
+
+    @Override
+    public Appendable append(char c) throws IOException {
+        pw.append(c);
+        return this;
+    }
+
+    @Override
+    public Appendable append(CharSequence csq, int start, int end)
+            throws IOException {
+        pw.append(csq,start,end);
+        return this;
     }
 
 }

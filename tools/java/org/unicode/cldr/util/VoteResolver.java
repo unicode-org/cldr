@@ -512,7 +512,7 @@ public class VoteResolver<T> {
     oValue = winningValue;
     nValue = value2; // save this
     // here is the meat.
-    winningStatus = computeStatus(weight1, weight2);
+    winningStatus = computeStatus(weight1, weight2, lastReleaseStatus);
     // if we are not as good as the last release, use the last release
     if (winningStatus.compareTo(lastReleaseStatus) < 0) {
       winningStatus = lastReleaseStatus;
@@ -522,19 +522,23 @@ public class VoteResolver<T> {
     }
   }
 
-  private Status computeStatus(long weight1, long weight2) {
-    int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
-    return weight1 > weight2 && (weight1 >= 8 || (weight1 >= 4 && !isEstablished)) ? Status.approved
-         : weight1 >= 2 * weight2 && weight1 >= 2 && orgCount >= 2 ? Status.contributed
-         : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-         : Status.unconfirmed;
+  private Status computeStatus(long weight1, long weight2, Status oldStatus) {
+      int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
+      return weight1 > weight2 && 
+                  (weight1 >= 8 
+               || (weight1 >= 4 && !isEstablished)) ? Status.approved
+              : weight1 > weight2 && 
+                  (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
+                || weight1 >= 2 && orgCount >= 2) ? Status.contributed
+              : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
+              : Status.unconfirmed;
   }
 
   public Status getPossibleWinningStatus() {
     if (!resolved) {
       resolveVotes();
     }
-    Status possibleStatus = computeStatus(organizationToValueAndVote.getBestPossibleVote(), 0);
+    Status possibleStatus = computeStatus(organizationToValueAndVote.getBestPossibleVote(), 0, lastReleaseStatus);
     return possibleStatus.compareTo(winningStatus) > 0 ? possibleStatus : winningStatus;
   }
   

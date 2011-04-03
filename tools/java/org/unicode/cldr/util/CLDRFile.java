@@ -371,8 +371,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       }
       return this;
     } catch (SAXParseException e) {
-      System.out.println(CLDRFile.showSAX(e));
-      throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
+      //System.out.println(CLDRFile.showSAX(e));
+      throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName + "\t" + CLDRFile.showSAX(e)).initCause(e);
     } catch (SAXException e) {
       throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + localeName).initCause(e);
     } catch (IOException e) {

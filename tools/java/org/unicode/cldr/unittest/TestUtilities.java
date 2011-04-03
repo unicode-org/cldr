@@ -156,9 +156,9 @@ public class TestUtilities extends TestFmwk {
   public void TestVoteResolverData() {
     final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
     final PrintWriter logPrintWriter = this.getLogPrintWriter();
-    String userFile = CldrUtility.getProperty("usersxml", CldrUtility.BASE_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
-    String votesDirectory = CldrUtility.getProperty("votesxml", CldrUtility.BASE_DIRECTORY + "/incoming/vetted/votes/");
-    String vettedDirectory = CldrUtility.getProperty("vetted", CldrUtility.BASE_DIRECTORY + "/incoming/vetted/main/");
+    String userFile = CldrUtility.getProperty("usersxml", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
+    String votesDirectory = CldrUtility.getProperty("votesxml", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/votes/");
+    String vettedDirectory = CldrUtility.getProperty("vetted", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/main/");
     
     PathValueInfo.voteInfo = VoteResolver.getIdToPath(votesDirectory + "xpathTable.xml");
     Factory factory = CLDRFile.Factory.make(vettedDirectory, ".*");
@@ -435,6 +435,7 @@ public class TestUtilities extends TestFmwk {
     VoteResolver.setVoterToInfo(testdata);
     VoteResolver<String> resolver = new VoteResolver<String>();
     String[] tests = {
+            "locale=wae",
             // regression case from John Emmons
             "oldValue=2802",
             "oldStatus=approved",
@@ -516,6 +517,37 @@ public class TestUtilities extends TestFmwk {
             "value=primo",
             "status=approved",
             "check",
+
+            "comment=set up vote of 4 in established locale, with old provisional value",
+            "locale=fr",
+            "404=best",
+            "oldStatus=provisional",
+            // expected values
+            "value=best",
+            "sameVotes=best",
+            "status=contributed",
+            "conflicts=[]",
+            "check",
+
+            "comment=now set up vote of 4 in established locale, but with old contributed value",
+            "oldStatus=contributed",
+            // expected values
+            "value=old-value",
+            "sameVotes=old-value",
+            "status=contributed",
+            "conflicts=[]",
+            "check",
+
+            "comment=now set up vote of 1 + 1 in established locale, and with old contributed value",
+            "411=best",
+            "101=best",
+            "oldStatus=contributed",
+            // expected values
+            "value=best",
+            "sameVotes=best",
+            "status=contributed",
+            "conflicts=[]",
+            "check",
     };
     String expectedValue = null;
     String expectedConflicts = null;
@@ -523,6 +555,7 @@ public class TestUtilities extends TestFmwk {
     String oldValue = null;
     Status oldStatus = null;
     List<String> sameVotes = null;
+    String locale = null;
     Map<Integer, String> values = new TreeMap<Integer, String>();
     int counter = -1;
 
@@ -532,8 +565,10 @@ public class TestUtilities extends TestFmwk {
       String value = item.length < 2 ? null : item[1];
       if (name.equalsIgnoreCase("comment")) {
         logln("#\t" + value);
+      } else if (name.equalsIgnoreCase("locale")) {
+          locale = value;
       } else if (name.equalsIgnoreCase("oldValue")) {
-        oldValue = value;
+          oldValue = value;
       } else if (name.equalsIgnoreCase("oldStatus")) {
         oldStatus = Status.valueOf(value);
       } else if (name.equalsIgnoreCase("value")) {
@@ -554,6 +589,7 @@ public class TestUtilities extends TestFmwk {
       } else if (name.equalsIgnoreCase("check")) {
         counter++;
         // load the resolver
+        resolver.setEstablishedFromLocale(locale);
         resolver.setLastRelease(oldValue, oldStatus);
         for (int voter : values.keySet()) {
           resolver.add(values.get(voter), voter);

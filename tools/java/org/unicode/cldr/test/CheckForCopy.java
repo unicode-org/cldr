@@ -42,7 +42,9 @@ public class CheckForCopy extends CheckCLDR {
             "|currency\\[@type=\"[A-Z]+\"]/symbol" +
             "|commonlyUsed" +
             "|pattern" +
-            "|field\\[@type=\"dayperiod\"]/" +
+            "|field\\[@type=\"dayperiod\"]" +
+            "|defaultNumberingSystem" +
+            "|exemplarCharacters" +
             ")", true)
             .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)
             .add("^//ldml/dates/calendars/calendar", true);
@@ -189,13 +191,6 @@ public class CheckForCopy extends CheckCLDR {
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        // Skip if the phase is not final testing
-        if (Phase.FINAL_TESTING == getPhase()) {
-            setSkipTest(false); // ok
-        } else {
-            setSkipTest(true);
-            return this;
-        }
         
         final String localeID = cldrFileToCheck.getLocaleID();
         LanguageTagParser ltp = new LanguageTagParser().set(localeID);

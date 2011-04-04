@@ -136,7 +136,6 @@ public class CheckForCopy extends CheckCLDR {
             Map<String, String> options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
 
-        try {
             Status status = new Status();
 
             String loc = getCldrFileToCheck().getSourceLocaleID(path, status);
@@ -169,9 +168,13 @@ public class CheckForCopy extends CheckCLDR {
                         failure = Failure.ok; // override English test
                         break;
                     }
+                    try {
                     if (value.equals(attributeValue)) {
                         failure = Failure.same_as_code;
                         break;
+                    }
+                    } catch (NullPointerException e) {
+                        throw new IllegalArgumentException("Value: " + value + "\nattributeValue: " + attributeValue + "\nPath: " + path + "\n" + Arrays.asList(e.getStackTrace()).toString(), e);
                     }
                 }
             }
@@ -188,9 +191,6 @@ public class CheckForCopy extends CheckCLDR {
                         .setMessage("The value is the same as the 'code'. For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/equals-english'>Equals English</a>.", new Object[]{}));
                 break;
             }
-        } catch (NullPointerException e) {
-            throw new IllegalArgumentException(Arrays.asList(e.getStackTrace()).toString(), e);
-        }
         return this;
     }
 

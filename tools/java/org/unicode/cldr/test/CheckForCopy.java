@@ -134,63 +134,64 @@ public class CheckForCopy extends CheckCLDR {
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
-        if (fullPath == null) return this; // skip paths that we don't have
+        
+        if (fullPath == null || value == null) return this; // skip paths that we don't have
 
-            Status status = new Status();
+        Status status = new Status();
 
-            String loc = getCldrFileToCheck().getSourceLocaleID(path, status);
-            if (!getCldrFileToCheck().getLocaleID().equals(loc) || !path.equals(status.pathWhereFound)) {
-                return this;
+        String loc = getCldrFileToCheck().getSourceLocaleID(path, status);
+        if (!getCldrFileToCheck().getLocaleID().equals(loc) || !path.equals(status.pathWhereFound)) {
+            return this;
+        }
+
+        if (Boolean.TRUE == skip.get(path)) {
+            return this;
+        }
+
+        Failure failure = Failure.ok;
+
+        String english = getDisplayInformation().getStringValue(path);
+        if (CharSequences.equals(english, value)) {
+            if (ASCII_LETTER.containsSome(english)) {
+                failure = Failure.same_as_english;
             }
+        }
 
-            if (Boolean.TRUE == skip.get(path)) {
-                return this;
-            }
-
-            Failure failure = Failure.ok;
-
-            String english = getDisplayInformation().getStringValue(path);
-            if (CharSequences.equals(english, value)) {
-                if (ASCII_LETTER.containsSome(english)) {
-                    failure = Failure.same_as_english;
+        // Check for attributes.
+        // May override English test
+        parts.set(path);
+        int elementCount = parts.size();
+        for (int i = 2; i < elementCount; ++i) {
+            Map<String, String> attributes = parts.getAttributes(i);
+            for (Entry<String, String> attributeEntry : attributes.entrySet()) {
+                final String attributeValue = attributeEntry.getValue();
+                if (SKIP_TYPES.contains(attributeValue)) {
+                    failure = Failure.ok; // override English test
+                    break;
                 }
-            }
-
-            // Check for attributes.
-            // May override English test
-            parts.set(path);
-            int elementCount = parts.size();
-            for (int i = 2; i < elementCount; ++i) {
-                Map<String, String> attributes = parts.getAttributes(i);
-                for (Entry<String, String> attributeEntry : attributes.entrySet()) {
-                    final String attributeValue = attributeEntry.getValue();
-                    if (SKIP_TYPES.contains(attributeValue)) {
-                        failure = Failure.ok; // override English test
-                        break;
-                    }
-                    try {
+                try {
                     if (value.equals(attributeValue)) {
                         failure = Failure.same_as_code;
                         break;
                     }
-                    } catch (NullPointerException e) {
-                        throw new IllegalArgumentException("Value: " + value + "\nattributeValue: " + attributeValue + "\nPath: " + path + "\n" + Arrays.asList(e.getStackTrace()).toString(), e);
-                    }
+                } catch (NullPointerException e) {
+                    throw new IllegalArgumentException("Value: " + value + "\nattributeValue: " + attributeValue + "\nPath: " + path, e);
                 }
             }
+        }
 
-            switch (failure) {
-            case same_as_english:
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
-                        .setCheckOnSubmit(false)
-                        .setMessage("The value is the same as in English. For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/equals-english'>Equals English</a>.", new Object[]{}));
-                break;
-            case same_as_code:
-                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
-                        .setCheckOnSubmit(false)
-                        .setMessage("The value is the same as the 'code'. For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/equals-english'>Equals English</a>.", new Object[]{}));
-                break;
-            }
+        switch (failure) {
+        case same_as_english:
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
+                    .setCheckOnSubmit(false)
+                    .setMessage("The value is the same as in English. For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/equals-english'>Equals English</a>.", new Object[]{}));
+            break;
+        case same_as_code:
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
+                    .setCheckOnSubmit(false)
+                    .setMessage("The value is the same as the 'code'. For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/equals-english'>Equals English</a>.", new Object[]{}));
+            break;
+        }
         return this;
     }
 

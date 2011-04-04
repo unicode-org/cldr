@@ -49,7 +49,7 @@ import com.ibm.icu.util.ULocale;
  *
  */
 public class ExampleGenerator {
-    private static final Pattern URL_PATTERN = Pattern.compile("http://[\\-a-zA-Z0-9]+(\\.[\\-a-zA-Z0-9]+)*(/[\\-a-zA-Z0-9]+)*");
+    private static final Pattern URL_PATTERN = Pattern.compile("http://[\\-a-zA-Z0-9]+(\\.[\\-a-zA-Z0-9]+)*([/#][\\-a-zA-Z0-9]+)*");
 
     private final static boolean DEBUG_SHOW_HELP = false;
 

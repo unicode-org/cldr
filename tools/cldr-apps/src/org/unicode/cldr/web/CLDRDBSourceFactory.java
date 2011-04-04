@@ -58,7 +58,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 * @author srl
 	 *
 	 */
-    public static class DBEntry implements ConnectionHolder,DBCloseable {
+    public static class DBEntry implements org.unicode.cldr.web.DBUtils.ConnectionHolder,org.unicode.cldr.web.DBUtils.DBCloseable {
     	public enum Key { OLDKEYSET };
     	private Connection conn = null;
     	

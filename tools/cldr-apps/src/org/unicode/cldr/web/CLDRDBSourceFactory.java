@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.VettingViewer.ErrorChecker;
 import org.unicode.cldr.util.XMLSource;
@@ -172,7 +173,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	}
 
 
-	private static final boolean DEBUG = true;
+	private static final boolean DEBUG = CldrUtility.getProperty("TEST", false);
 	private static final boolean SHOW_TIMES=false;
 	private static final boolean SHOW_DEBUG=false;
 	private static final boolean TRACE_CONN=false;

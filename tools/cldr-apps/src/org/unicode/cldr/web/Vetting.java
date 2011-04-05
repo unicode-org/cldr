@@ -2389,7 +2389,7 @@ if(true == true)    throw new InternalError("removed from use.");
     
     Map<CLDRLocale,CachedVettingData> cachedData = new HashMap<CLDRLocale,CachedVettingData>();
     private CachedVettingData getCachedLocaleData(CLDRLocale locale) {
-        synchronized(this) {
+        synchronized(cachedData) {
             CachedVettingData vd = cachedData.get(locale);
             if(vd == null || !vd.isValid()) {
                 if(vd!=null) // reduce noise first time thru
@@ -2401,7 +2401,7 @@ if(true == true)    throw new InternalError("removed from use.");
         }
     }
     public void deleteCachedLocaleData(CLDRLocale locale) {
-        synchronized(this) {
+        synchronized(cachedData) {
             CachedVettingData vd = cachedData.get(locale);
             if(vd!=null && !vd.isValid()) {
             	cachedData.remove(locale);
@@ -2900,7 +2900,7 @@ if(true == true)    throw new InternalError("removed from use.");
      * @return true if any changes were processed
      */
     public boolean processPodChanges(WebContext ctx, String podBase, DataSubmissionResultHandler dsrh, String ptype) {
-        synchronized (ctx.session) {
+        /*synchronized (ctx.session)*/ {
             // first, do submissions.
             DataSection oldSection = ctx.getExistingSection(podBase,ptype);
             

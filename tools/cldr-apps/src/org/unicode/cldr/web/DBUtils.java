@@ -27,6 +27,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.text.UnicodeSet;
 
@@ -39,7 +40,7 @@ import com.ibm.icu.text.UnicodeSet;
  *
  */
 public class DBUtils {
-	private static final boolean DEBUG=false;
+	private static final boolean DEBUG=CldrUtility.getProperty("TEST", false);
 
 	private static DBUtils instance = null;
 	private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
@@ -541,7 +542,7 @@ public class DBUtils {
 
 			if(DEBUG) {
 				long now = System.currentTimeMillis();
-				if(now-lastMsg > (DEBUG?60000:3600000) /*|| (db_number_used==5000)*/) {
+				if(now-lastMsg > (DEBUG?6000:3600000) /*|| (db_number_used==5000)*/) {
 					lastMsg=now;
 					System.err.println("DBUtils: "+ db_number_open+" open, " + db_number_used+" used. " + StackTracker.currentStack());
 				}

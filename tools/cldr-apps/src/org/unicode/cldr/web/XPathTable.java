@@ -47,7 +47,7 @@ public class XPathTable {
                 reg.setupDB();
             }
             
-            if(!sm.isUnofficial) {
+            if(false&&!sm.isUnofficial) { // precache
 	            int n =0;
 	            ElapsedTimer et = new ElapsedTimer("Load all xpaths..");
 	            for(String xpath : sm.getBaselineFile()) {

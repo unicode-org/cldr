@@ -5540,140 +5540,163 @@ o	            		}*/
             doMain(ctx);
             return;
         }
-        /*synchronized (ctx.session) */ { // session sync
-            UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
-            CLDRFile cf = uf.cldrfile;
-            if(cf == null) {
-                throw new InternalError("CLDRFile is null!");
-            }
-            XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
-            if(ourSrc == null) {
-                throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
-            }
-            // Set up checks
-            CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
-            
-            // Locale menu
-            if((which == null) ||
-               which.equals("")) {
-               which = xMAIN;
-            }
-            
-            
+        DBEntry dbEntry = null;
+        UserLocaleStuff uf = null;
+        synchronized (ctx.session) {
+        	try { // session sync
+        		uf = getUserFile(ctx.session, ctx.getLocale());
 
-            if(ctx.hasField(QUERY_EXAMPLE)) {
-                ctx.println("<h3>"+ctx.getLocale()+" "+ctx.getLocale().getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
-            } else if(which.equals(R_STEPS)) {
-                // short menu.
-                ctx.includeFragment(STEPSMENU_TOP_JSP);
-            } else {
-                printLocaleTreeMenu(ctx, which);
-            }
-            
-            // check for errors
-            {
-                List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.getEffectiveCoverageLevel());
+        		// regenerate these. Always.
+        		uf.dbSource = makeDBSource( ctx.getLocale()); // use context's connection.
+        		uf.cldrfile = makeCLDRFile(uf.dbSource);
+        		
+        		dbEntry = dbsrcfac.openEntry(uf.dbSource);
 
-                if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
-                    (/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
-                    ctx.println("<div style='border: 1px dashed olive; padding: 0.2em; background-color: cream; overflow: auto;'>");
-                    ctx.println("<b>Possible problems with locale:</b><br>");   
-                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                        try{ 
-                            if (!status.getType().equals(status.exampleType)) {
-                                String cls = shortClassName(status.getCause());
-                                ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
-                                ctx.println(": ");
-                                printShortened(ctx, status.toString(), LARGER_MAX_CHARS);
-                                ctx.print("<br>");
-                            } else {
-                                ctx.println("<i>example available</i><br>");
-                            }
-                        } catch(Throwable t) {
-                            String result;
-                            try {
-                                result = status.toString();
-                            } catch(Throwable tt) {
-                                tt.printStackTrace();
-                                result = "(Error reading error: " + tt+")";
-                            }
-                            ctx.println("Error reading status item: <br><font size='-1'>"+result+"<br> - <br>" + t.toString()+"<hr><br>");
-                        }
-                    }
-                    ctx.println("</div>");
-                }
-            }
-            
-            
-            // Find which pod they want, and show it.
-            // NB keep these sections in sync with DataPod.xpathToPodBase() 
-            WebContext subCtx = (WebContext)ctx.clone();
-            subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
-            subCtx.addQuery(QUERY_SECTION,which);
-            for(int n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-                if(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
-                    if(which.equals(PathUtilities.CURRENCIES)) {
-                        showPathList(subCtx, "//ldml/"+PathUtilities.NUMBERSCURRENCIES, null);
-                    } else if(which.equals(PathUtilities.TIMEZONES)) {
-                    	try {
-                    		showTimeZones(subCtx);
-                    	} catch(Throwable t) {
-                    		t.printStackTrace();
-                    		System.err.println("Err showing timezones: " + t);                    		
-                    		ctx.println("Error: " + t.toString());
-                    	}
-                    } else {
-                        showLocaleCodeList(subCtx, which);
-                    }
-                    return;
-                }
-            }
+        		CLDRFile cf = uf.cldrfile;
+        		if(cf == null) {
+        			throw new InternalError("CLDRFile is null!");
+        		}
+        		XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+        		if(ourSrc == null) {
+        			throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
+        		}
+        		// Set up checks
+        		CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
 
-            for(int j=0;j<CALENDARS_ITEMS.length;j++) {
-                if(CALENDARS_ITEMS[j].equals(which)) {
-                    String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
-                    showPathList(subCtx, CAL_XPATH, null);
-                    return;
-                }
-            }
+        		// Locale menu
+        		if((which == null) ||
+        				which.equals("")) {
+        			which = xMAIN;
+        		}
 
-            for(int j=0;j<METAZONES_ITEMS.length;j++) {
-                if(METAZONES_ITEMS[j].equals(which)) {
-                    showMetazones(subCtx,which);
-                    return;
-                }
-            }
-            
-            for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
-                if(OTHERROOTS_ITEMS[j].equals(which)) {
-                    if(which.equals(GREGORIAN_CALENDAR)) {
-                        showPathList(subCtx, GREGO_XPATH, null);
-                    } else if(which.equals(OTHER_CALENDARS)) {
-                        showPathList(subCtx, PathUtilities.OTHER_CALENDARS_XPATH, null);
-                    } else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
-                        showPathList(subCtx, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, null);
-                    } else if(which.equals("units")) {
-                        showPathList(subCtx, "//ldml/units", null);
-                    } else if(PathUtilities.xOTHER.equals(which)) {
-                        showPathList(subCtx, "//ldml", null);
-                    } else if(which.equals(LDMLConstants.CHARACTERS)) {
-                        showPathList(subCtx, "//ldml/"+LDMLConstants.CHARACTERS, LDMLConstants.EXEMPLAR_CHARACTERS);
-                    } else {
-                        showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
-                    }
-                    return;
-                }
-            }
-            
-            
-            // fall through if wasn't one of the other roots
-            if(RAW_MENU_ITEM.equals(which)) {
-                doRaw(subCtx);
-            } else if(which.startsWith(REPORT_PREFIX)) {
-                doReport(subCtx, which);
-            } else {
-                doMain(subCtx);
+
+
+        		if(ctx.hasField(QUERY_EXAMPLE)) {
+        			ctx.println("<h3>"+ctx.getLocale()+" "+ctx.getLocale().getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
+        		} else if(which.equals(R_STEPS)) {
+        			// short menu.
+        			ctx.includeFragment(STEPSMENU_TOP_JSP);
+        		} else {
+        			printLocaleTreeMenu(ctx, which);
+        		}
+
+        		// check for errors
+        		{
+        			List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.getEffectiveCoverageLevel());
+
+        			if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
+        					(/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
+        				ctx.println("<div style='border: 1px dashed olive; padding: 0.2em; background-color: cream; overflow: auto;'>");
+        				ctx.println("<b>Possible problems with locale:</b><br>");   
+        				for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+        					CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+        					try{ 
+        						if (!status.getType().equals(status.exampleType)) {
+        							String cls = shortClassName(status.getCause());
+        							ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
+        							ctx.println(": ");
+        							printShortened(ctx, status.toString(), LARGER_MAX_CHARS);
+        							ctx.print("<br>");
+        						} else {
+        							ctx.println("<i>example available</i><br>");
+        						}
+        					} catch(Throwable t) {
+        						String result;
+        						try {
+        							result = status.toString();
+        						} catch(Throwable tt) {
+        							tt.printStackTrace();
+        							result = "(Error reading error: " + tt+")";
+        						}
+        						ctx.println("Error reading status item: <br><font size='-1'>"+result+"<br> - <br>" + t.toString()+"<hr><br>");
+        					}
+        				}
+        				ctx.println("</div>");
+        			}
+        		}
+
+
+        		// Find which pod they want, and show it.
+        		// NB keep these sections in sync with DataPod.xpathToPodBase() 
+        		WebContext subCtx = (WebContext)ctx.clone();
+        		subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
+        		subCtx.addQuery(QUERY_SECTION,which);
+        		for(int n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+        			if(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
+        				if(which.equals(PathUtilities.CURRENCIES)) {
+        					showPathList(subCtx, "//ldml/"+PathUtilities.NUMBERSCURRENCIES, null);
+        				} else if(which.equals(PathUtilities.TIMEZONES)) {
+        					try {
+        						showTimeZones(subCtx);
+        					} catch(Throwable t) {
+        						t.printStackTrace();
+        						System.err.println("Err showing timezones: " + t);                    		
+        						ctx.println("Error: " + t.toString());
+        					}
+        				} else {
+        					showLocaleCodeList(subCtx, which);
+        				}
+        				return;
+        			}
+        		}
+
+        		for(int j=0;j<CALENDARS_ITEMS.length;j++) {
+        			if(CALENDARS_ITEMS[j].equals(which)) {
+        				String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
+        				showPathList(subCtx, CAL_XPATH, null);
+        				return;
+        			}
+        		}
+
+        		for(int j=0;j<METAZONES_ITEMS.length;j++) {
+        			if(METAZONES_ITEMS[j].equals(which)) {
+        				showMetazones(subCtx,which);
+        				return;
+        			}
+        		}
+
+        		for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
+        			if(OTHERROOTS_ITEMS[j].equals(which)) {
+        				if(which.equals(GREGORIAN_CALENDAR)) {
+        					showPathList(subCtx, GREGO_XPATH, null);
+        				} else if(which.equals(OTHER_CALENDARS)) {
+        					showPathList(subCtx, PathUtilities.OTHER_CALENDARS_XPATH, null);
+        				} else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
+        					showPathList(subCtx, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, null);
+        				} else if(which.equals("units")) {
+        					showPathList(subCtx, "//ldml/units", null);
+        				} else if(PathUtilities.xOTHER.equals(which)) {
+        					showPathList(subCtx, "//ldml", null);
+        				} else if(which.equals(LDMLConstants.CHARACTERS)) {
+        					showPathList(subCtx, "//ldml/"+LDMLConstants.CHARACTERS, LDMLConstants.EXEMPLAR_CHARACTERS);
+        				} else {
+        					showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
+        				}
+        				return;
+        			}
+        		}
+
+
+        		// fall through if wasn't one of the other roots
+        		if(RAW_MENU_ITEM.equals(which)) {
+        			doRaw(subCtx);
+        		} else if(which.startsWith(REPORT_PREFIX)) {
+        			doReport(subCtx, which);
+        		} else {
+        			doMain(subCtx);
+        		}
+            } finally {
+            	try {
+            		if(uf!=null) {
+            			uf.clear();
+            		}
+            		if(dbEntry!=null) {
+            			dbEntry.close();
+            		}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         }
     }
@@ -6752,6 +6775,7 @@ o	            		}*/
             // TODO: try just kicking these instead of clearing?
             cldrfile=null;
             dbSource=null;
+            hash.clear();
             setValid();
         }
         
@@ -10775,6 +10799,8 @@ o	            		}*/
         
         try
         {
+        	
+        	dbsrcfac.closeAllEntries();
             // shut down other connections
             try {
                 CookieSession.shutdownDB();

@@ -103,6 +103,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
     	private Set<SubFactory> allFactories = new HashSet<SubFactory>();
 		public DBEntry(CLDRDBSource x) {
 			add(x);
+			allOpen.add(this);
 		}
 		public void add(XMLSource x) {
 			if(x instanceof CLDRDBSource) {
@@ -112,6 +113,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			}
 		}
 		public DBEntry(SubFactory x) {
+			allOpen.add(this);
 			add(x);
 		}
 		
@@ -134,9 +136,16 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		@Override
 		public void close() throws SQLException {
+			if(stmts!=null) {
+				stmts.lockOpen(false);
+				stmts.close();
+				stmts=null;
+			}
 			if(conn!=null) {
 				DBUtils.close(conn);
+				conn=null;
 			}
+			allOpen .remove(this);
 		}
 		
 		private Map<CLDRLocale,Map<String,Object>> stuff = new HashMap<CLDRLocale, Map<String,Object>>();
@@ -170,8 +179,20 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			}
 			return stmts;
 		}
+		
 	}
-
+	public static Set<DBEntry>  allOpen = new HashSet<DBEntry>();
+	public static void closeAllEntries() throws SQLException {
+		if(allOpen.isEmpty()) {
+			System.err.println(DBEntry.class.getName()+": 0 items open.");
+		} else {
+			System.err.println(DBEntry.class.getName()+": Closing " + allOpen.size() + " items.");
+			for(DBEntry e : allOpen) {
+				e.close();
+			}
+			allOpen.clear();
+		}
+	}
 
 	private static final boolean DEBUG = CldrUtility.getProperty("TEST", false);
 	private static final boolean SHOW_TIMES=false;

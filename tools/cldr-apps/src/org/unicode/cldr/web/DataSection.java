@@ -996,6 +996,7 @@ public class DataSection extends Registerable {
         try {
 	        XMLSource ourSrc = ctx.sm.dbsrcfac.getInstance(locale);
 	        entry = ctx.sm.dbsrcfac.openEntry(ourSrc);
+	        uf.dbSource = ourSrc;
 	        synchronized(ourSrc) {
 	            CheckCLDR checkCldr = uf.getCheck(ctx);
 	            if(checkCldr == null) {

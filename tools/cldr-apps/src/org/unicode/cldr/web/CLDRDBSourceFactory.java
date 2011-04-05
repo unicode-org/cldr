@@ -278,7 +278,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		cache= new CLDRFileCache(rootDbSource, rootDbSourceV, cacheDir, sm);
 
 		vetterReady = true;
-		update(progress);
+		update(progress, null);
 	}
 
 	/**
@@ -297,8 +297,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 	/**
 	 * Execute deferred updates. Call this at a high level when all updates are complete.
+	 * @param inConn TODO
 	 */
-	public int update(CLDRProgressIndicator surveyTask) {
+	public int update(CLDRProgressIndicator surveyTask, Connection inConn) {
 		int n = 0;
 		CLDRProgressTask progress = null;
 		if(surveyTask!=null) progress = surveyTask.openProgress("DeferredUpdates", needUpdate.size());
@@ -312,7 +313,11 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				Connection conn = null;
 				try {
 					try {
-						conn = sm.dbUtils.getDBConnection();
+						if(inConn!=null) {
+							conn=inConn;
+						} else {
+							conn = sm.dbUtils.getDBConnection();
+						}
 						for(CLDRLocale l : toUpdate) {
 							n++;
 							if(progress!=null) progress.update(n);
@@ -329,7 +334,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 //							}
 						}
 					} finally {
-						DBUtils.close(conn);
+						if(inConn==null) {
+							DBUtils.close(conn);
+						}
 					}
 				} catch(SQLException sqe) {
 					System.err.println("While doing update(): "+DBUtils.unchainSqlException(sqe));
@@ -1659,7 +1666,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		 * @return the full path, or null if n/a
 		 */
 		public String getFullPathAtDPath(String path) {
-			String ret =  getOrigXpathFromCache(xpt.getByXpath(path));
+			String ret =  getOrigXpathFromCache(xpt.getByXpath(path, getConnectionAlias()));
 			return ret;
 		}
 
@@ -2264,7 +2271,10 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	}
 
 	public int update() {
-		return update(null);
+		return update(null, null);
+	}
+	public int update(Connection inConn) {
+		return update(null, inConn);
 	}
 
     @Override

@@ -44,6 +44,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DBUtils.ConnectionHolder;
 import org.unicode.cldr.web.DataSection.DataRow;
@@ -1065,6 +1066,8 @@ public class Vetting {
     	PreparedStatement queryTypes=null;
     	PreparedStatement updateStatus=null;
     	PreparedStatement insertStatus=null;
+    	DBEntry entry = null;
+    	XMLSource src = null;
     	try {
     		try {
     			rmResultLoc=prepare_rmResultLoc(conn);
@@ -1086,6 +1089,9 @@ public class Vetting {
     				System.err.println("** "+ locale + " - "+del+" results and "+del2+" outputs removed");
     				conn.commit();
     			}            
+    			
+    			src = sm.dbsrcfac.getInstance(locale);
+    			entry = sm.dbsrcfac.openEntry(src);
 
     			//dataByUserAndBase.setString(3, locale);
     			missingResults.setString(1,locale.toString());
@@ -1100,6 +1106,8 @@ public class Vetting {
     			//                ElapsedTimer et_m = new ElapsedTimer();
     			ResultSet rs = missingResults.executeQuery();
     			//                System.err.println("Missing results for " + locale + " found in " + et_m.toString());
+    			
+    			DataTester tester = getTester(src);
     			while(rs.next()) {
     				ncount++;
     				base_xpath = rs.getInt(1);
@@ -1114,6 +1122,7 @@ public class Vetting {
     			        
     			        // Step 0: gather all votes
     					Race r = new Race(this, locale);
+    					r.setTester(tester);
     					r.clear(base_xpath, locale, -1);
     					resultXpath = r.optimal(conn);
     					
@@ -1159,6 +1168,9 @@ public class Vetting {
     			//                System.err.println("Committed or not for " + locale + " after " + et_m.toString());
 
     		} finally {
+    			if(entry!=null) {
+    				entry.close();
+    			}
     			DBUtils.close(queryTypes,updateStatus,insertStatus,rmResultLoc,rmOutputLoc,missingResults,dataByBase,queryVoteForBaseXpath);
     		}
     	} catch ( SQLException se ) {

@@ -2425,7 +2425,7 @@ o	            		}*/
 	        //        closeDBConnection(connx);
 	        logger.info("Loaded all. " + allTime);
 	        //	        if(ctx!=null) ctx.println("Loaded all." + allTime + "<br>");
-	        int n = dbsrcfac.update(surveyTask);
+	        int n = dbsrcfac.update(surveyTask, null);
 	        logger.info("Updated "+n+". " + allTime);
 	        //	        if(ctx!=null) ctx.println("Updated "+n+"." + allTime + "<br>");
 	    } finally {
@@ -7460,8 +7460,8 @@ o	            		}*/
                     if(canModify) {
                         DataSection oldSection = ctx.getExistingSection(fullThing);
                         if(processPeaChanges(ctx, oldSection, cf, ourSrc, new DefaultDataSubmissionResultHandler(ctx))) {
-                            int j = vet.updateResults(oldSection.locale); // bach 'em
-                            int d = this.dbsrcfac.update(); // then the fac so it can update
+                            int j = vet.updateResults(oldSection.locale,entry.getConnectionAlias()); // bach 'em
+                            int d = this.dbsrcfac.update(entry.getConnectionAlias()); // then the fac so it can update
                             System.err.println("sm:ppc:dbsrcfac: "+d+" deferred updates done.");
                             ctx.println("<br> You submitted data or vote changes, <!-- and " + j + " results were updated. As a result, --> your items may show up under the 'priority' or 'proposed' categories.<br>");
                         }
@@ -7953,7 +7953,7 @@ o	            		}*/
         if(someDidChange) {
         	System.err.println("SomeDidChange: " + oldSection.locale());
     		int updcount = dbsrcfac.update();
-    		int updcount2 = dbsrcfac.sm.vet.updateResults();
+    		int updcount2 = dbsrcfac.sm.vet.updateResults(oldSection.locale());
     		System.err.println("Results updated: " + updcount + ", " + updcount2 + " for " + oldSection.locale());
             updateLocale(oldSection.locale());
         }

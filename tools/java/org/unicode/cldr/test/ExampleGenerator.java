@@ -197,7 +197,12 @@ public class ExampleGenerator {
             System.err.println("Failure: in "+cldrFile.getLocaleID()+" examplegenerator- cldrFile.getFullXPath(//ldml/dates/timeZoneNames/singleCountries)==null");
         } else {
             parts.set(singleCountriesPath);
-            singleCountryZones = new HashSet(Arrays.asList(parts.getAttributeValue(-1, "list").trim().split("\\s+")));
+            String listValue = parts.getAttributeValue(-1, "list");
+            if(listValue==null) {
+                System.err.println("Failure: in "+cldrFile.getLocaleID()+" examplegenerator- "+singleCountriesPath+"  has a bad list attribute.");
+            } else {
+                singleCountryZones = new HashSet(Arrays.asList(listValue.trim().split("\\s+")));
+            }
         }
     }
 

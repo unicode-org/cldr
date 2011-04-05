@@ -176,6 +176,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	private static final boolean SHOW_TIMES=false;
 	private static final boolean SHOW_DEBUG=false;
 	private static final boolean TRACE_CONN=false;
+	
+	
+	private static final StackTracker tracker = DEBUG?new StackTracker():null;
 
 	/**
 	 * the logger to use, from SurveyMain
@@ -485,6 +488,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		 * Constructor for the MyStatements 
 		 */
 		MyStatements(Connection conn) {
+			if(tracker!=null) {
+				tracker.add(this);
+			}
 			this.conn = conn;
 			insert = prepareStatement("insert",
 					"INSERT INTO " + CLDR_DATA +
@@ -621,6 +627,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 					removeItem,
 					getSubmitterId,
 					conn2);
+			if(tracker!=null) tracker.remove(this);
 		}
 		public void closeOrThrow() {
 			try {
@@ -1479,34 +1486,36 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			// logger.info(locale + ":" + path);
 			// synchronized (conn) {
 			MyStatements stmts = null;
+			ResultSet rs = null;
 			try {
-				stmts = openStatements(); // TODO: perf.
-				stmts.queryValue.setString(1, locale);
-				stmts.queryValue.setInt(2, pathInt);
-				ResultSet rs = stmts.queryValue.executeQuery();
-				if (rs.next()) {
-					if (SHOW_TIMES)
-						System.err.println("hasValueAtDPath:T " + locale + ":"
-								+ path + " "
-								+ (System.currentTimeMillis() - t0));
-					return true;
-				} else {
-					if (SHOW_TIMES)
-						System.err.println("hasValueAtDPath:F " + locale + ":"
-								+ path + " "
-								+ (System.currentTimeMillis() - t0));
-					return false;
+				try {
+					stmts = openStatements(); // TODO: perf.
+					stmts.queryValue.setString(1, locale);
+					stmts.queryValue.setInt(2, pathInt);
+					rs = stmts.queryValue.executeQuery();
+					if (rs.next()) {
+						if (SHOW_TIMES)
+							System.err.println("hasValueAtDPath:T " + locale + ":"
+									+ path + " "
+									+ (System.currentTimeMillis() - t0));
+						return true;
+					} else {
+						if (SHOW_TIMES)
+							System.err.println("hasValueAtDPath:F " + locale + ":"
+									+ path + " "
+									+ (System.currentTimeMillis() - t0));
+						return false;
+					}
 				}
-				// rs.close();
-				// logger.info(locale + ":" + path+" -> " + rv);
+				finally {
+					DBUtils.close(rs,stmts);
+				}
 			} catch (SQLException se) {
 				logger.severe("CLDRDBSource: Failed to check data (" + tree
 						+ "/" + locale + ":" + path + "): "
 						+ DBUtils.unchainSqlException(se));
 				return false;
-			} finally {
-				closeOrThrow(stmts);
-			}
+			} 
 		}
 
 		public String getWinningPath(String path) 

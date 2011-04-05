@@ -20,6 +20,7 @@ import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
 import org.unicode.cldr.web.CLDRDBSourceFactory.SubFactory;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
@@ -111,6 +112,9 @@ public class VettingViewerQueue {
     }
     
 	public class Task extends SurveyThread.SurveyTask {
+		
+		private static final String OnlyOneVetter="1";
+		
 		public CLDRLocale locale;
 		private QueueEntry entry;
 		SurveyMain sm;
@@ -132,12 +136,13 @@ public class VettingViewerQueue {
 			return ((float)n)/((float)maxn);
 		}
 		StringBuffer aBuffer = new StringBuffer();
+		private String baseUrl;
 		Task(QueueEntry entry, CLDRLocale locale, WebContext ctx) {
 			super("VettingTask:"+locale.toString());
 			this.locale = locale;
 			this.entry = entry;
 			this.sm = ctx.sm;
-			this.vv = getVettingViewer(ctx);
+			this.baseUrl = ctx.base();
 			maxn = getMax(ctx.sm.getBaselineFile());
 			usersLevel = Level.get(ctx.getEffectiveCoverageLevel());
 			usersOrg = VoteResolver.Organization.fromString(ctx.session.user.voterOrg());
@@ -147,17 +152,27 @@ public class VettingViewerQueue {
 		public void run() throws Throwable {
 			statusCode = Status.WAITING;
 			final CLDRProgressTask progress = openProgress("vv:"+locale,maxn+100);
-						
+			
+			DBEntry dbEntry = null;
+			VettingViewer<VoteResolver.Organization> vv = null;
+			
 			try {
 				status="Waiting...";
 				progress.update("Waiting...");
-				synchronized(vv) {
+				synchronized(OnlyOneVetter) {
 					if(!running()) { 
 						status="Stopped on request.";
 						statusCode=Status.STOPPED;  
 						return;
 					}
 					status="Beginning Process, Calculating";
+		            SubFactory ourFactory = sm.dbsrcfac.getFactory(false);
+		            dbEntry = sm.dbsrcfac.openEntry(ourFactory);
+		            
+		            vv = new VettingViewer<VoteResolver.Organization>(
+		                    sm.getSupplementalDataInfo(), ourFactory, sm.getOldFactory(),
+		                    getUsersChoice(sm, dbEntry), "CLDR "+sm.getOldVersion(), "Winning "+sm.getNewVersion());
+		            vv.setBaseUrl(baseUrl);
 					progress.update("Got VettingViewer");
 					statusCode = Status.PROCESSING;
 					start = System.currentTimeMillis();
@@ -220,6 +235,7 @@ public class VettingViewerQueue {
 			} catch (RuntimeException re) {
 				// We're done.
 			} finally {
+				if(dbEntry!=null) dbEntry.close();
 				if(progress!=null) progress.close();
 			}
 		}
@@ -353,39 +369,6 @@ public class VettingViewerQueue {
     	return entry;
 	}
 
-
-	private VettingViewer<VoteResolver.Organization> gVettingViewer = null;
-	private CLDRDBSourceFactory.DBEntry gVettingViewerDBEntry = null;
-    private synchronized VettingViewer<VoteResolver.Organization> getVettingViewer(WebContext ctx) {
-        CLDRProgressTask p = null;
-        if(gVettingViewer==null)  try {
-            p = ctx.sm.openProgress("Setting up vettingViewer...");
-            p.update("opening..");
-            SubFactory ourFactory = ctx.sm.dbsrcfac.getFactory(false);
-            gVettingViewerDBEntry = ctx.sm.dbsrcfac.openEntry(ourFactory);
-            
-            gVettingViewer = new VettingViewer<VoteResolver.Organization>(
-                    ctx.sm.getSupplementalDataInfo(), ourFactory, ctx.sm.getOldFactory(),
-                    getUsersChoice(ctx.sm, gVettingViewerDBEntry), "CLDR "+ctx.sm.getOldVersion(), "Winning "+ctx.sm.getNewVersion());
-            gVettingViewer.setBaseUrl(ctx.base());
-           // gVettingViewer.setErrorChecker(ctx.sm.dbsrcfac.getErrorChecker());
-            p.update("OK");
-        } finally {
-            p.close();
-        }
-        return gVettingViewer;
-    }
-    
-    void shutdown() throws SQLException {
-    	if(gVettingViewer!=null) {
-    		gVettingViewer=null;
-    	}
-    	if(gVettingViewerDBEntry!=null) {
-    		System.err.println("Closing gVVDBentry");
-    		gVettingViewerDBEntry.close();
-    		gVettingViewerDBEntry=null;
-    	}
-    }
     
     private UsersChoice<VoteResolver.Organization> getUsersChoice(final SurveyMain sm, final CLDRDBSourceFactory.DBEntry entry) { 
     	final Map<CLDRLocale,Vetting.DataTester> testMap = new HashMap<CLDRLocale,Vetting.DataTester>();

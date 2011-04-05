@@ -10775,13 +10775,6 @@ o	            		}*/
         
         try
         {
-        	
-            try {
-            	VettingViewerQueue.getInstance().shutdown();
-            } catch(Throwable t) {
-                t.printStackTrace();
-                System.err.println("While shutting down vettingviewer ");
-            }
             // shut down other connections
             try {
                 CookieSession.shutdownDB();

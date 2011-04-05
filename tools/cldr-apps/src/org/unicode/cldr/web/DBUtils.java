@@ -39,6 +39,7 @@ import com.ibm.icu.text.UnicodeSet;
  *
  */
 public class DBUtils {
+	private static final boolean DEBUG=false;
 
 	private static DBUtils instance = null;
 	private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
@@ -70,7 +71,7 @@ public class DBUtils {
 	public static String DB_SQL_BINTRODUCER = "";
 	public static int db_number_open = 0;
 	public static int db_number_used = 0;
-	private static StackTracker tracker = null; // new StackTracker(); - enable, to track unclosed connections
+	private static final StackTracker tracker = DEBUG?new StackTracker():null; // new StackTracker(); - enable, to track unclosed connections
 	
 	public static void closeDBConnection(Connection conn) {
 		if (conn != null) {
@@ -84,16 +85,6 @@ public class DBUtils {
 				e.printStackTrace();
 			}
 			db_number_open--;
-//			if (datasource != null) {
-//				db_number_pool_cons--;
-//			}
-//			if (false && SurveyMain.isUnofficial) {
-//				System.err.println("SQL -conns: "
-//						+ db_number_cons
-//						+ " "
-//						+ ((datasource == null) ? ""
-//								: (" pool:" + db_number_pool_cons)));
-//			}
 		}
 	}
 	public static final String escapeBasic(byte what[]) {
@@ -548,10 +539,12 @@ public class DBUtils {
 			db_number_open++;
 			db_number_used++;
 
-			long now = System.currentTimeMillis();
-			if(now-lastMsg > (3600000) /*|| (db_number_used==5000)*/) {
-				lastMsg=now;
-				System.err.println("DBUtils: "+ db_number_open+" open, " + db_number_used+" used. " + StackTracker.currentStack());
+			if(DEBUG) {
+				long now = System.currentTimeMillis();
+				if(now-lastMsg > (DEBUG?60000:3600000) /*|| (db_number_used==5000)*/) {
+					lastMsg=now;
+					System.err.println("DBUtils: "+ db_number_open+" open, " + db_number_used+" used. " + StackTracker.currentStack());
+				}
 			}
 			
 			Connection c = datasource.getConnection();

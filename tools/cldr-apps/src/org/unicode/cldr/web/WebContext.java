@@ -1251,10 +1251,15 @@ public class WebContext implements Cloneable, Appendable {
                 try {
 	                progress.update("<span title='"+sm.xpt.getPrettyPath(prefix)+"'>"+locale+"</span>");
 	                long t0 = System.currentTimeMillis();
-	                ElapsedTimer podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-	                section = DataSection.make(this, locale, prefix, false,ptype);
+	                ElapsedTimer waitTimer = new ElapsedTimer("There was a delay of {0} waiting in line");
+                        ElapsedTimer podTimer=null;
+                        synchronized(session) {
+                            String waitString = waitTimer.toString();
+                            podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
+                            section = DataSection.make(this, locale, prefix, false,ptype);
+                        }
 	                if((System.currentTimeMillis()-t0) > 10 * 1000) {
-	                    println("<i><b>" + podTimer + "</b></i><br/>");
+	                    println("<i><b>" + waitTimer+"<br/>"+podTimer + "</b></i><br/>");
 	                }
                 } catch (OutOfMemoryError oom) {
                 	System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);

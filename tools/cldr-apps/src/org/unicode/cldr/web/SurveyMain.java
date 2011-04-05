@@ -6801,7 +6801,7 @@ o	            		}*/
                 }
                 //long t0 = System.currentTimeMillis();
                 checkCldr.setCldrFileToCheck(fileForChecks, options, checkCldrResult);
-             //   logger.info("fileToCheck set . . . on "+ checkCldr.toString());
+                //   logger.info("fileToCheck set . . . on "+ checkCldr.toString());
                 hash.put(CHECKCLDR+ptype, checkCldr);
                 if(!checkCldrResult.isEmpty()) {
                     hash.put(CHECKCLDR_RES+ptype, checkCldrResult);
@@ -9783,8 +9783,8 @@ o	            		}*/
 //	}
 
     public void addPeriodicTask(TimerTask task) {
-		int firstTime=isUnofficial?10000:60000;		
-		int eachTime=isUnofficial?10000:60000;
+		int firstTime=isUnofficial?10000:999000;		
+		int eachTime= isUnofficial?10000:765000;
 		getTimer().schedule(task, firstTime,eachTime);
 //    	if(periodicTasks==null) {
 //    		

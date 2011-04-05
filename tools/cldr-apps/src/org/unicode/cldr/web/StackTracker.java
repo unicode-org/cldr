@@ -27,12 +27,12 @@ public class StackTracker {
     /**
      * internal - convert a stack to string
      * @param stackTrace
-     * @param skip
+     * @param skip start at this index (skip the top stuff)
      * @return
      */
     public static String stackToString(StackTraceElement[] stackTrace, int skip) {
         StringBuffer sb = new StringBuffer();
-        for(int i=0;i<stackTrace.length;i++) {
+        for(int i=skip;i<stackTrace.length;i++) {
             sb.append(stackTrace[i].toString()+"\n");
         }
         return sb.toString();

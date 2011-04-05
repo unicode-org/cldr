@@ -60,7 +60,7 @@ public class DataSection extends Registerable {
     /**
      * Show time taken to populate?
      */
-    private static final boolean SHOW_TIME= true || TRACE_TIME;
+    private static final boolean SHOW_TIME= false || TRACE_TIME;
 
     /**
      * Warn user why these messages are showing up.
@@ -995,7 +995,7 @@ public class DataSection extends Registerable {
         DBEntry entry = null;
         try {
 	        XMLSource ourSrc = ctx.sm.dbsrcfac.getInstance(locale);
-	        entry = CLDRDBSourceFactory.openEntry(ourSrc);
+	        entry = ctx.sm.dbsrcfac.openEntry(ourSrc);
 	        synchronized(ourSrc) {
 	            CheckCLDR checkCldr = uf.getCheck(ctx);
 	            if(checkCldr == null) {
@@ -1142,402 +1142,405 @@ public class DataSection extends Registerable {
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
     
     private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
-        init();
-        XPathParts xpp = new XPathParts(null,null);
-//        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
-        CLDRFile aFile = new CLDRFile(ourSrc, true);
-        List examplesResult = new ArrayList();
-        SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
-        long lastTime = -1;
-        String workPrefix = xpathPrefix;
-        long nextTime = -1;
-        int count=0;
-        long countStart = 0;
-        if(SHOW_TIME) {
-            lastTime = countStart = System.currentTimeMillis();
-        }
-        
-        int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
-        // what to exclude under 'misc'
-        
-        CLDRFile vettedParent = null;
-        CLDRLocale parentLoc = locale.getParent();
-        if(parentLoc != null) {
-            XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /*finalData*/);
-            vettedParent = new CLDRFile(vettedParentSource,true);
-        }
-            
-        int pn;
-        boolean excludeCurrencies = false;
-        boolean excludeCalendars = false;
-        boolean excludeGrego = false;
-        boolean excludeTimeZones = false;
-        boolean excludeMetaZones = false;
-        boolean useShorten = false; // 'shorten' xpaths instead of extracting type
-        boolean keyTypeSwap = false;
-        boolean excludeMost = false;
-        boolean doExcludeAlways = true;
-        boolean isReferences = false;
-        String removePrefix = null;
-        String continent = null;
-        if(xpathPrefix.equals("//ldml")) {
-            excludeMost = true;
-            useShorten = true;
-            removePrefix="//ldml/";
-        }else if(xpathPrefix.startsWith("//ldml/units")) {
-            canName=false;
-            excludeMost=false;
-            doExcludeAlways=false;
-            removePrefix = "//ldml/units/";
-            useShorten=true;
-        }else if(xpathPrefix.startsWith("//ldml/numbers")) {
-            if(-1 == xpathPrefix.indexOf("currencies")) {
-                doExcludeAlways=false;
-                excludeCurrencies=true; // = "//ldml/numbers/currencies";
-                removePrefix = "//ldml/numbers/";
-                canName = false;  // sort numbers by code
-                useShorten = true;
-            } else {
-                removePrefix = "//ldml/numbers/currencies/currency";
-                useShorten = true;
-                canName = false; // because symbols are included
-//                hackCurrencyDisplay = true;
-            }
-        } else if(xpathPrefix.startsWith("//ldml/dates")) {
-            useShorten = true;
-            if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
-                removePrefix = "//ldml/dates/timeZoneNames/zone";
-//        System.err.println("ZZ0");
-                excludeTimeZones = false;
-            } else if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
-                removePrefix = "//ldml/dates/timeZoneNames/metazone";
-                excludeMetaZones = false;
-                int continentStart = xpathPrefix.indexOf("_");
-                if(continentStart>0) {
-		    continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
-                }
-		if(false) System.err.println(xpathPrefix+": -> continent " + continent);
-                workPrefix = "//ldml/dates/timeZoneNames/metazone";
-//        System.err.println("ZZ1");
-            } else {
-                removePrefix = "//ldml/dates/calendars/calendar";
-                excludeTimeZones = true;
-                excludeMetaZones = true;
-                if(xpathPrefix.indexOf("gregorian")==-1) {
-                    excludeGrego = true; 
-                    // nongreg
-                } else {
-                    removePrefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]";
-                    
-                    // Add the fake 'dateTimes/availableDateFormats/new'
-                    DataRow myp = getDataRow(FAKE_FLEX_THING);
-                    String spiel = "<i>add</i>"; //Use this item to add a new availableDateFormat
-                    myp.xpathSuffix = FAKE_FLEX_SUFFIX;
-                    canName=false;
-                    myp.displayName = spiel;
-//                    myp.addItem(spiel, null, null);
-                }
-            }
-        } else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
-            useShorten = true;
-            removePrefix = "//ldml/localeDisplayNames/types/type";
-            keyTypeSwap = true; //these come in reverse order  (type/key) i.e. buddhist/calendar, pinyin/collation.  Reverse this for sorting...
-        } else if(xpathPrefix.equals("//ldml/references")) {
-            isReferences = true;
-            canName = false; // disable 'view by name'  for references
-        }
-        
-        isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
+        DBEntry vettedParentEntry = null;
+        try  {
+        	init();
+        	XPathParts xpp = new XPathParts(null,null);
+        	//        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
+        	CLDRFile aFile = new CLDRFile(ourSrc, true);
+        	List examplesResult = new ArrayList();
+        	SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
+        	long lastTime = -1;
+        	String workPrefix = xpathPrefix;
+        	long nextTime = -1;
+        	int count=0;
+        	long countStart = 0;
+        	if(SHOW_TIME) {
+        		lastTime = countStart = System.currentTimeMillis();
+        	}
 
-        List checkCldrResult = new ArrayList();
-        
-        // iterate over everything in this prefix ..
-        Set<String> baseXpaths = new HashSet<String>();
-        for(Iterator<String> it = aFile.iterator(workPrefix);it.hasNext();) {
-            String xpath = (String)it.next();
-            
-            baseXpaths.add(xpath);
-        }
-        Set<String> allXpaths = new HashSet<String>();
-        Set<String> extraXpaths = new HashSet<String>();
+        	int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
+        	// what to exclude under 'misc'
 
-        allXpaths.addAll(baseXpaths);
-        aFile.getExtraPaths(workPrefix,extraXpaths);
-        extraXpaths.removeAll(baseXpaths);
-        allXpaths.addAll(extraXpaths);
+        	CLDRFile vettedParent = null;
+        	CLDRLocale parentLoc = locale.getParent();
+        	if(parentLoc != null) {
+        		XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /*finalData*/);            
+        		vettedParent = new CLDRFile(vettedParentSource,true);
+        		vettedParentEntry = sm.dbsrcfac.openEntry(vettedParentSource);
+        	}
 
-//        // Process extra paths.
-//        System.err.println("@@X@ base: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
-//        addExtraPaths(aFile, src, checkCldr, baselineFile, options, extraXpaths);
-        
-        for(String xpath : allXpaths) {
-            boolean confirmOnly = false;
-            String isToggleFor= null;
-            if(xpath.equals(null)) {
-            	throw new InternalError("null xpath in allXpaths");
-            }
-            if(!xpath.startsWith(workPrefix)) {
-                if(false && SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
-                continue;
-            } else if(aFile.isPathExcludedForSurvey(xpath)) {
-                if(false && SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
-                continue;
-            } else if(false) {
-		        System.err.println("allPath: " + xpath);
-	        }
+        	int pn;
+        	boolean excludeCurrencies = false;
+        	boolean excludeCalendars = false;
+        	boolean excludeGrego = false;
+        	boolean excludeTimeZones = false;
+        	boolean excludeMetaZones = false;
+        	boolean useShorten = false; // 'shorten' xpaths instead of extracting type
+        	boolean keyTypeSwap = false;
+        	boolean excludeMost = false;
+        	boolean doExcludeAlways = true;
+        	boolean isReferences = false;
+        	String removePrefix = null;
+        	String continent = null;
+        	if(xpathPrefix.equals("//ldml")) {
+        		excludeMost = true;
+        		useShorten = true;
+        		removePrefix="//ldml/";
+        	}else if(xpathPrefix.startsWith("//ldml/units")) {
+        		canName=false;
+        		excludeMost=false;
+        		doExcludeAlways=false;
+        		removePrefix = "//ldml/units/";
+        		useShorten=true;
+        	}else if(xpathPrefix.startsWith("//ldml/numbers")) {
+        		if(-1 == xpathPrefix.indexOf("currencies")) {
+        			doExcludeAlways=false;
+        			excludeCurrencies=true; // = "//ldml/numbers/currencies";
+        			removePrefix = "//ldml/numbers/";
+        			canName = false;  // sort numbers by code
+        			useShorten = true;
+        		} else {
+        			removePrefix = "//ldml/numbers/currencies/currency";
+        			useShorten = true;
+        			canName = false; // because symbols are included
+        			//                hackCurrencyDisplay = true;
+        		}
+        	} else if(xpathPrefix.startsWith("//ldml/dates")) {
+        		useShorten = true;
+        		if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
+        			removePrefix = "//ldml/dates/timeZoneNames/zone";
+        			//        System.err.println("ZZ0");
+        			excludeTimeZones = false;
+        		} else if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+        			removePrefix = "//ldml/dates/timeZoneNames/metazone";
+        			excludeMetaZones = false;
+        			int continentStart = xpathPrefix.indexOf("_");
+        			if(continentStart>0) {
+        				continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
+        			}
+        			if(false) System.err.println(xpathPrefix+": -> continent " + continent);
+        			workPrefix = "//ldml/dates/timeZoneNames/metazone";
+        			//        System.err.println("ZZ1");
+        		} else {
+        			removePrefix = "//ldml/dates/calendars/calendar";
+        			excludeTimeZones = true;
+        			excludeMetaZones = true;
+        			if(xpathPrefix.indexOf("gregorian")==-1) {
+        				excludeGrego = true; 
+        				// nongreg
+        			} else {
+        				removePrefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]";
 
-            boolean isExtraPath = extraXpaths.contains(xpath); // 'extra' paths get shim treatment
-///*srl*/  if(xpath.indexOf("Adak")!=-1)
-///*srl*/   {ndebug=true;System.err.println("p] "+xpath + " - xtz = "+excludeTimeZones+"..");}
-                
-            
-            if(SHOW_TIME) {
-                count++;
-				nextTime = System.currentTimeMillis();
-				if((nextTime - lastTime) > 10000) {
-					lastTime = nextTime;
-                    System.err.println("[] " + locale + ":"+xpathPrefix +" #"+count+", or "+
-                        (((double)(System.currentTimeMillis()-countStart))/count)+"ms per.");
-                }
-            }
+        				// Add the fake 'dateTimes/availableDateFormats/new'
+        				DataRow myp = getDataRow(FAKE_FLEX_THING);
+        				String spiel = "<i>add</i>"; //Use this item to add a new availableDateFormat
+        				myp.xpathSuffix = FAKE_FLEX_SUFFIX;
+        				canName=false;
+        				myp.displayName = spiel;
+        				//                    myp.addItem(spiel, null, null);
+        			}
+        		}
+        	} else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
+        		useShorten = true;
+        		removePrefix = "//ldml/localeDisplayNames/types/type";
+        		keyTypeSwap = true; //these come in reverse order  (type/key) i.e. buddhist/calendar, pinyin/collation.  Reverse this for sorting...
+        	} else if(xpathPrefix.equals("//ldml/references")) {
+        		isReferences = true;
+        		canName = false; // disable 'view by name'  for references
+        	}
 
-            if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
-// if(ndebug && (xpath.indexOf("Adak")!=-1))    System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-                continue;
-            } else if(excludeMost && mostPattern.matcher(xpath).matches()) {
-//if(ndebug)     System.err.println("ns1 2 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-                continue;
-            } else if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
-//if(ndebug)     System.err.println("ns1 3 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-                continue;
-            } else if(excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
-//if(ndebug)     System.err.println("ns1 4 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-                continue;
-            } else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
-//if(ndebug && (xpath.indexOf("Adak")!=-1))     System.err.println("ns1 5 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-                continue;
-/*            } else if(exemplarCityOnly && (xpath.indexOf("exemplarCity")==-1)) {
+        	isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
+
+        	List checkCldrResult = new ArrayList();
+
+        	// iterate over everything in this prefix ..
+        	Set<String> baseXpaths = new HashSet<String>();
+        	for(Iterator<String> it = aFile.iterator(workPrefix);it.hasNext();) {
+        		String xpath = (String)it.next();
+
+        		baseXpaths.add(xpath);
+        	}
+        	Set<String> allXpaths = new HashSet<String>();
+        	Set<String> extraXpaths = new HashSet<String>();
+
+        	allXpaths.addAll(baseXpaths);
+        	aFile.getExtraPaths(workPrefix,extraXpaths);
+        	extraXpaths.removeAll(baseXpaths);
+        	allXpaths.addAll(extraXpaths);
+
+        	//        // Process extra paths.
+        	//        System.err.println("@@X@ base: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
+        	//        addExtraPaths(aFile, src, checkCldr, baselineFile, options, extraXpaths);
+
+        	for(String xpath : allXpaths) {
+        		boolean confirmOnly = false;
+        		String isToggleFor= null;
+        		if(xpath.equals(null)) {
+        			throw new InternalError("null xpath in allXpaths");
+        		}
+        		if(!xpath.startsWith(workPrefix)) {
+        			if(false && SurveyMain.isUnofficial) System.err.println("@@ BAD XPATH " + xpath);
+        			continue;
+        		} else if(aFile.isPathExcludedForSurvey(xpath)) {
+        			if(false && SurveyMain.isUnofficial) System.err.println("@@ excluded:" + xpath);
+        			continue;
+        		} else if(false) {
+        			System.err.println("allPath: " + xpath);
+        		}
+
+        		boolean isExtraPath = extraXpaths.contains(xpath); // 'extra' paths get shim treatment
+        		///*srl*/  if(xpath.indexOf("Adak")!=-1)
+        		///*srl*/   {ndebug=true;System.err.println("p] "+xpath + " - xtz = "+excludeTimeZones+"..");}
+
+
+        		if(SHOW_TIME) {
+        			count++;
+        			nextTime = System.currentTimeMillis();
+        			if((nextTime - lastTime) > 10000) {
+        				lastTime = nextTime;
+        				System.err.println("[] " + locale + ":"+xpathPrefix +" #"+count+", or "+
+        						(((double)(System.currentTimeMillis()-countStart))/count)+"ms per.");
+        			}
+        		}
+
+        		if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
+        			// if(ndebug && (xpath.indexOf("Adak")!=-1))    System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			continue;
+        		} else if(excludeMost && mostPattern.matcher(xpath).matches()) {
+        			//if(ndebug)     System.err.println("ns1 2 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			continue;
+        		} else if(excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
+        			//if(ndebug)     System.err.println("ns1 3 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			continue;
+        		} else if(excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
+        			//if(ndebug)     System.err.println("ns1 4 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			continue;
+        		} else if(excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
+        			//if(ndebug && (xpath.indexOf("Adak")!=-1))     System.err.println("ns1 5 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			continue;
+        			/*            } else if(exemplarCityOnly && (xpath.indexOf("exemplarCity")==-1)) {
                 continue;*/
-            } else if(excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
-//if(ndebug&& (xpath.indexOf("Adak")!=-1))     System.err.println("ns1 6 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-                continue;
-            } else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
-//if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-                continue;
-            } else if( continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
-//		if(false) System.err.println("Wanted " + continent +" but got " + sm.getMetazoneContinent(xpath) +" for " + xpath);
-                continue;
-            } 
-//            else if(false && continent != null) {
-//		System.err.println("Got " + continent +" for " + xpath);
-//	    }
-            
-            if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
-//if(TRACE_TIME)                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-//		if(false) System.err.println("CheckCLDR.skipShowingInSurvey match for "+xpath);
-                continue;
-            }
+        		} else if(excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
+        			//if(ndebug&& (xpath.indexOf("Adak")!=-1))     System.err.println("ns1 6 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			continue;
+        		} else if(!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
+        			//if(ndebug)     System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			continue;
+        		} else if( continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
+        			//		if(false) System.err.println("Wanted " + continent +" but got " + sm.getMetazoneContinent(xpath) +" for " + xpath);
+        			continue;
+        		} 
+        		//            else if(false && continent != null) {
+        		//		System.err.println("Got " + continent +" for " + xpath);
+        		//	    }
 
-            String fullPath = aFile.getFullXPath(xpath);
-            //int xpath_id = src.xpt.getByXpath(fullPath);
-            int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
-            String baseXpath = sm.xpt.getById(base_xpath);
+        		if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
+        			//if(TRACE_TIME)                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
+        			//		if(false) System.err.println("CheckCLDR.skipShowingInSurvey match for "+xpath);
+        			continue;
+        		}
 
-            // Filter out data that is higher than the desired coverage level
-            int	coverageValue = sdi.getCoverageValue(baseXpath,locale.toULocale());
-	        if ( coverageValue > workingCoverageValue ) {
-	            if ( coverageValue <= 100 ) {
-	                skippedDueToCoverage++;
-	            } // else: would never be shown, don't care
-	            continue;
-	        }
-	        
-            if(fullPath == null) { 
-                if(isExtraPath) {
-                    fullPath=xpath; // (this is normal for 'extra' paths)
-                } else {
-                    //System.err.println("Extrapath: " +isExtraPath + ", base:"+baseXpath);
-                    
-                    System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
-                    //continue;
-                    fullPath = xpath;
-                }
-            }
+        		String fullPath = aFile.getFullXPath(xpath);
+        		//int xpath_id = src.xpt.getByXpath(fullPath);
+        		int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
+        		String baseXpath = sm.xpt.getById(base_xpath);
 
-            if(needFullPathPattern.matcher(xpath).matches()) {
-                //  we are going to turn on shorten, in case a non-shortened xpath is added someday.
-                useShorten = true;
-            }           
+        		// Filter out data that is higher than the desired coverage level
+        		int	coverageValue = sdi.getCoverageValue(baseXpath,locale.toULocale());
+        		if ( coverageValue > workingCoverageValue ) {
+        			if ( coverageValue <= 100 ) {
+        				skippedDueToCoverage++;
+        			} // else: would never be shown, don't care
+        			continue;
+        		}
 
-            if(TRACE_TIME)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
-            boolean mixedType = false;
-            String type;
-            String lastType = sm.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
-            String displaySuffixXpath;
-            String peaSuffixXpath = null; // if non null:  write to suffixXpath
-            
-            // these need to work on the base
-            String fullSuffixXpath = baseXpath.substring(workPrefix.length(),baseXpath.length());
-            if((removePrefix == null)||!baseXpath.startsWith(removePrefix)) {  
-                displaySuffixXpath = baseXpath;
-            } else {
-                displaySuffixXpath = baseXpath.substring(removePrefix.length(),baseXpath.length());
-            }
-            if(useShorten == false) {
-                type = lastType;
-                if(type == null) {
-                    peaSuffixXpath = displaySuffixXpath; // Mixed pea
-                    if(xpath.startsWith("//ldml/characters")) {
-                        type = "standard";
-                    } else {
-                        type = displaySuffixXpath;
-                        mixedType = true;
-                    }
-                }
-            } else {
-                // shorten
-                peaSuffixXpath = displaySuffixXpath; // always mixed pea if we get here
-                    
-                Matcher m = typeReplacementPattern.matcher(displaySuffixXpath);
-                type = m.replaceAll("/$1");
-                Matcher n = noisePattern.matcher(type);
-                type = n.replaceAll("");
-                if(keyTypeSwap) { // see above
-                    Matcher o = keyTypeSwapPattern.matcher(type);
-                    type = o.replaceAll("$2/$1");
-                }
+        		if(fullPath == null) { 
+        			if(isExtraPath) {
+        				fullPath=xpath; // (this is normal for 'extra' paths)
+        			} else {
+        				//System.err.println("Extrapath: " +isExtraPath + ", base:"+baseXpath);
 
-                for(pn=0;pn<fromto.length/2;pn++) {
-//                    String oldType = type;
-                    type = fromto_p[pn].matcher(type).replaceAll(fromto[(pn*2)+1]);
-                    // who caused the change?
-//                    if((type.indexOf("ldmls/")>0)&&(oldType.indexOf("ldmls/")<0)) {
-//                        System.err.println("ldmls @ #"+pn+", "+fromto[pn*2]+" -> " + fromto[(pn*2)+1]);
-//                    }
-                }
+        				System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+        				//continue;
+        				fullPath = xpath;
+        			}
+        		}
 
-            }
-            
-            if(TRACE_TIME)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
-            
-            String value = isExtraPath?null:aFile.getStringValue(xpath);
+        		if(needFullPathPattern.matcher(xpath).matches()) {
+        			//  we are going to turn on shorten, in case a non-shortened xpath is added someday.
+        			useShorten = true;
+        		}           
 
-//if(ndebug)     System.err.println("n01  "+(System.currentTimeMillis()-nextTime));
+        		if(TRACE_TIME)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
+        		boolean mixedType = false;
+        		String type;
+        		String lastType = sm.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
+        		String displaySuffixXpath;
+        		String peaSuffixXpath = null; // if non null:  write to suffixXpath
 
-            if( xpath.indexOf("default[@type")!=-1 ) {
-                peaSuffixXpath = displaySuffixXpath;
-                int n = type.lastIndexOf('/');
-                if(n==-1) {
-                    type = "(default type)";
-                } else {
-                    type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
-                }
-//                if(isExtraPath && SurveyMain.isUnofficial) System.err.println("About to replace ["+value+"] value: " + xpath);
-                value = lastType;
-                confirmOnly = true; // can't acccept new data for this.
-            }
-            
-            if(useShorten) {
-                if((xpath.indexOf("/orientation")!=-1)||
-                   (xpath.indexOf("/alias")!=-1)) {
-                    if((value !=null)&&(value.length()>0)) {
-                        throw new InternalError("Shouldn't have a value for " + xpath + " but have '"+value+"'.");
-                    }
-                    peaSuffixXpath = displaySuffixXpath;
-                    int n = type.indexOf('[');
-                    if(n!=-1) {
-                        value = type.substring(n,type.length());
-                        type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)                        
-                        //value = lastType;
-                        confirmOnly = true; // can't acccept new data for this.
-                    }
-                }
-            }
-            
-            if(value == null) {
-                value = "(NOTHING)";  /* This is set to prevent crashes.. */
-            }
-            
-            // determine 'alt' param
-            String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
+        		// these need to work on the base
+        		String fullSuffixXpath = baseXpath.substring(workPrefix.length(),baseXpath.length());
+        		if((removePrefix == null)||!baseXpath.startsWith(removePrefix)) {  
+        			displaySuffixXpath = baseXpath;
+        		} else {
+        			displaySuffixXpath = baseXpath.substring(removePrefix.length(),baseXpath.length());
+        		}
+        		if(useShorten == false) {
+        			type = lastType;
+        			if(type == null) {
+        				peaSuffixXpath = displaySuffixXpath; // Mixed pea
+        				if(xpath.startsWith("//ldml/characters")) {
+        					type = "standard";
+        				} else {
+        					type = displaySuffixXpath;
+        					mixedType = true;
+        				}
+        			}
+        		} else {
+        			// shorten
+        			peaSuffixXpath = displaySuffixXpath; // always mixed pea if we get here
 
-//    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
-    
-            /* FULL path processing (references.. alt proposed.. ) */
-            xpp.clear();
-            xpp.initialize(fullPath);
-            String lelement = xpp.getElement(-1);
-            String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
-            String eRefs = xpp.findAttributeValue(lelement,  LDMLConstants.REFERENCES);
-            String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
-            if(TRACE_TIME) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
-            
-            String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
-            String altProposed = typeAndProposed[1];
-            String altType = typeAndProposed[0];
-            
-            // Now we are ready to add the data
-            
-            // Load the 'data row' which represents one user visible row of options 
-            // (may be nested in the case of alt types)
-            DataRow p = getDataRow(type, altType);
-            p.base_xpath = base_xpath;
-            p.winningXpathId = sm.dbsrcfac.getWinningPathId(base_xpath, locale, false);
+        			Matcher m = typeReplacementPattern.matcher(displaySuffixXpath);
+        			type = m.replaceAll("/$1");
+        			Matcher n = noisePattern.matcher(type);
+        			type = n.replaceAll("");
+        			if(keyTypeSwap) { // see above
+        				Matcher o = keyTypeSwapPattern.matcher(type);
+        				type = o.replaceAll("$2/$1");
+        			}
 
-            p.coverageValue=coverageValue;
-            
-            DataRow superP = getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
-            superP.coverageValue=coverageValue;
-            peaSuffixXpath = fullSuffixXpath; // for now...
-            
-            if(peaSuffixXpath!=null) {
-                p.xpathSuffix = peaSuffixXpath;
-                superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath); // initialize parent row without alt
-            }
+        			for(pn=0;pn<fromto.length/2;pn++) {
+        				//                    String oldType = type;
+        				type = fromto_p[pn].matcher(type).replaceAll(fromto[(pn*2)+1]);
+        				// who caused the change?
+        				//                    if((type.indexOf("ldmls/")>0)&&(oldType.indexOf("ldmls/")<0)) {
+        				//                        System.err.println("ldmls @ #"+pn+", "+fromto[pn*2]+" -> " + fromto[(pn*2)+1]);
+        				//                    }
+        			}
 
-            if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
-                p.zoomOnly = superP.zoomOnly = true;
-            }
-            p.confirmOnly = superP.confirmOnly = confirmOnly;
+        		}
 
-            if(isExtraPath) {
-                // Set up 'shim' tests, to display coverage
-                p.setShimTests(base_xpath,this.sm.xpt.getById(base_xpath),checkCldr,options);
-         //       System.err.println("Shimmed! "+xpath);
-            } else if(!isReferences) {
-                if(p.inheritedValue == null) {
-                    p.updateInheritedValue(vettedParent);
-                }
-                if(superP.inheritedValue == null) {
-                    superP.updateInheritedValue(vettedParent);
-                }
-            }
-            
-            // voting 
-            // bitwise OR in the voting types. Needed for sorting.
-            if(p.voteType == 0) {
-                int vtypes[] = new int[1];
-                vtypes[0]=0;
-                /* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
-                p.confirmStatus = sm.vet.queryResultStatus(locale, base_xpath);
-                p.allVoteType |= vtypes[0];
-                superP.allVoteType |= p.allVoteType;
-                p.voteType = vtypes[0]; // no mask
-            }
-//            System.out.println("@@V "+type+"  v: " + value + " - base"+base_xpath+" , win: " + p.voteType);
+        		if(TRACE_TIME)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
 
-//            // Is this a toggle pair with another item?
-//            if(isToggleFor != null) {
-//                if(superP.toggleWith == null) {
-//                    superP.updateToggle(fullPath, isToggleFor);
-//                }
-//                if(p.toggleWith == null) {
-//                    p.updateToggle(fullPath, isToggleFor);
-//                }
-//            }
-            
-            // Is it an attribute choice? (obsolete)
-/*            if(attributeChoice != null) {
+        		String value = isExtraPath?null:aFile.getStringValue(xpath);
+
+        		//if(ndebug)     System.err.println("n01  "+(System.currentTimeMillis()-nextTime));
+
+        		if( xpath.indexOf("default[@type")!=-1 ) {
+        			peaSuffixXpath = displaySuffixXpath;
+        			int n = type.lastIndexOf('/');
+        			if(n==-1) {
+        				type = "(default type)";
+        			} else {
+        				type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
+        			}
+        			//                if(isExtraPath && SurveyMain.isUnofficial) System.err.println("About to replace ["+value+"] value: " + xpath);
+        			value = lastType;
+        			confirmOnly = true; // can't acccept new data for this.
+        		}
+
+        		if(useShorten) {
+        			if((xpath.indexOf("/orientation")!=-1)||
+        					(xpath.indexOf("/alias")!=-1)) {
+        				if((value !=null)&&(value.length()>0)) {
+        					throw new InternalError("Shouldn't have a value for " + xpath + " but have '"+value+"'.");
+        				}
+        				peaSuffixXpath = displaySuffixXpath;
+        				int n = type.indexOf('[');
+        				if(n!=-1) {
+        					value = type.substring(n,type.length());
+        					type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)                        
+        					//value = lastType;
+        					confirmOnly = true; // can't acccept new data for this.
+        				}
+        			}
+        		}
+
+        		if(value == null) {
+        			value = "(NOTHING)";  /* This is set to prevent crashes.. */
+        		}
+
+        		// determine 'alt' param
+        		String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
+
+        		//    System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
+
+        		/* FULL path processing (references.. alt proposed.. ) */
+        		xpp.clear();
+        		xpp.initialize(fullPath);
+        		String lelement = xpp.getElement(-1);
+        		String eAlt = xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+        		String eRefs = xpp.findAttributeValue(lelement,  LDMLConstants.REFERENCES);
+        		String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
+        		if(TRACE_TIME) System.err.println("n04  "+(System.currentTimeMillis()-nextTime));
+
+        		String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
+        		String altProposed = typeAndProposed[1];
+        		String altType = typeAndProposed[0];
+
+        		// Now we are ready to add the data
+
+        		// Load the 'data row' which represents one user visible row of options 
+        		// (may be nested in the case of alt types)
+        		DataRow p = getDataRow(type, altType);
+        		p.base_xpath = base_xpath;
+        		p.winningXpathId = sm.dbsrcfac.getWinningPathId(base_xpath, locale, false);
+
+        		p.coverageValue=coverageValue;
+
+        		DataRow superP = getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
+        		superP.coverageValue=coverageValue;
+        		peaSuffixXpath = fullSuffixXpath; // for now...
+
+        		if(peaSuffixXpath!=null) {
+        			p.xpathSuffix = peaSuffixXpath;
+        			superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath); // initialize parent row without alt
+        		}
+
+        		if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
+        			p.zoomOnly = superP.zoomOnly = true;
+        		}
+        		p.confirmOnly = superP.confirmOnly = confirmOnly;
+
+        		if(isExtraPath) {
+        			// Set up 'shim' tests, to display coverage
+        			p.setShimTests(base_xpath,this.sm.xpt.getById(base_xpath),checkCldr,options);
+        			//       System.err.println("Shimmed! "+xpath);
+        		} else if(!isReferences) {
+        			if(p.inheritedValue == null) {
+        				p.updateInheritedValue(vettedParent);
+        			}
+        			if(superP.inheritedValue == null) {
+        				superP.updateInheritedValue(vettedParent);
+        			}
+        		}
+
+        		// voting 
+        		// bitwise OR in the voting types. Needed for sorting.
+        		if(p.voteType == 0) {
+        			int vtypes[] = new int[1];
+        			vtypes[0]=0;
+        			/* res = */ sm.vet.queryResult(locale, base_xpath, vtypes);
+        			p.confirmStatus = sm.vet.queryResultStatus(locale, base_xpath);
+        			p.allVoteType |= vtypes[0];
+        			superP.allVoteType |= p.allVoteType;
+        			p.voteType = vtypes[0]; // no mask
+        		}
+        		//            System.out.println("@@V "+type+"  v: " + value + " - base"+base_xpath+" , win: " + p.voteType);
+
+        		//            // Is this a toggle pair with another item?
+        		//            if(isToggleFor != null) {
+        		//                if(superP.toggleWith == null) {
+        		//                    superP.updateToggle(fullPath, isToggleFor);
+        		//                }
+        		//                if(p.toggleWith == null) {
+        		//                    p.updateToggle(fullPath, isToggleFor);
+        		//                }
+        		//            }
+
+        		// Is it an attribute choice? (obsolete)
+        		/*            if(attributeChoice != null) {
                 p.attributeChoice = attributeChoice;
                 p.valuesList = p.attributeChoice.valuesList;
 
@@ -1546,211 +1549,221 @@ public class DataSection extends Registerable {
                     superP.valuesList = p.valuesList;
                 }
             }*/
-            
-            // Some special cases.. a popup menu of values
-            if(p.type.startsWith("layout/inText")) {
-                p.valuesList = LAYOUT_INTEXT_VALUES;
-                superP.valuesList = p.valuesList;
-            } else if(p.type.startsWith("defaultNumberingSystem")) { 
-                // Not all available numbering systems are good candidates for default numbering system.
-                // Things like "roman" shouldn't really be an option.  So, in the interest of simplicity,
-                // we are hard-coding the choices here.
-                String [] values = { "latn", "arab", "arabext", "armn", "beng", "deva", "ethi", "geor", "gujr", "guru", "hans", "hant", "hebr", "jpan", "khmr", "knda", "laoo", "mlym", "mong", "orya", "tamldec", "telu", "thai", "tibt" };
-                p.valuesList = values;
-                superP.valuesList = p.valuesList;
-            } else if(p.type.indexOf("commonlyUsed")!=-1) { 
-                p.valuesList = METAZONE_COMMONLYUSED_VALUES;
-                superP.valuesList = p.valuesList;
-            } else if(p.type.startsWith("layout/inList")) {
-                p.valuesList = LAYOUT_INLIST_VALUES;
-                superP.valuesList = p.valuesList;
-            }
-            
 
-            if(TRACE_TIME) System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
+        		// Some special cases.. a popup menu of values
+        		if(p.type.startsWith("layout/inText")) {
+        			p.valuesList = LAYOUT_INTEXT_VALUES;
+        			superP.valuesList = p.valuesList;
+        		} else if(p.type.startsWith("defaultNumberingSystem")) { 
+        			// Not all available numbering systems are good candidates for default numbering system.
+        			// Things like "roman" shouldn't really be an option.  So, in the interest of simplicity,
+        			// we are hard-coding the choices here.
+        			String [] values = { "latn", "arab", "arabext", "armn", "beng", "deva", "ethi", "geor", "gujr", "guru", "hans", "hant", "hebr", "jpan", "khmr", "knda", "laoo", "mlym", "mong", "orya", "tamldec", "telu", "thai", "tibt" };
+        			p.valuesList = values;
+        			superP.valuesList = p.valuesList;
+        		} else if(p.type.indexOf("commonlyUsed")!=-1) { 
+        			p.valuesList = METAZONE_COMMONLYUSED_VALUES;
+        			superP.valuesList = p.valuesList;
+        		} else if(p.type.startsWith("layout/inList")) {
+        			p.valuesList = LAYOUT_INLIST_VALUES;
+        			superP.valuesList = p.valuesList;
+        		}
 
-            // make sure the superP has its display name
-            if(isReferences) {
-                String eUri = xpp.findAttributeValue(lelement,"uri");
-               if((eUri!=null)&&eUri.length()>0) {
-                   if(eUri.startsWith("isbn:")) {
-                        // linkbaton doesn't have ads, and lets you choose which provider to go to (including LOC).  
-                        // could also go to wikipedia's  ISBN special page.              
-						p.uri = "http://my.linkbaton.com/isbn/"+
-                            eUri.substring(5,eUri.length());
-                        p.displayName = eUri;
-                    } else {
-						p.uri = eUri;
-						p.displayName = eUri.replaceAll("(/|&)","\u200b$0");  //  put zwsp before "/" or "&"
-                        //p.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
-                    }
-                } else {
-                    p.displayName = null;
-                }
-                if(superP.displayName == null) {
-                    superP.displayName = p.displayName;
-                }
-            } else {
-                if(superP.displayName == null) {
-                    superP.displayName = baselineFile.getStringValue(xpath(superP)); 
-                }
-                if(p.displayName == null) {
-                    p.displayName = baselineFile.getStringValue(baseXpath);
-                }
-            }
-    
-            if((superP.displayName == null) ||
-                (p.displayName == null)) {
-                canName = false; // disable 'view by name' if not all have names.
-            }
-            if(TRACE_TIME) System.err.println("n06  "+(System.currentTimeMillis()-nextTime));
-            
-            // If it is draft and not proposed.. make it proposed-draft 
-            if( ((eDraft!=null)&&(!eDraft.equals("false"))) &&
-                (altProposed == null) ) {
-                altProposed = SurveyMain.PROPOSED_DRAFT;
-            }
-            
-            // Inherit display names.
-            if((superP != p) && (p.displayName == null)) {
-                p.displayName = baselineFile.getStringValue(baseXpath); 
-                if(p.displayName == null) {
-                    p.displayName = superP.displayName; // too: unscramble this a little bit
-                }
-            }
-            if(TRACE_TIME) System.err.println("n06a  "+(System.currentTimeMillis()-nextTime));
 
-            CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
-            if(TRACE_TIME) System.err.println("n06b  "+(System.currentTimeMillis()-nextTime));
-            String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
-            if(TRACE_TIME) System.err.println("n06c  "+(System.currentTimeMillis()-nextTime));
-            boolean isInherited = !(sourceLocale.equals(locale.toString()));
-            if(TRACE_TIME) System.err.println("n06d  "+(System.currentTimeMillis()-nextTime));
+        		if(TRACE_TIME) System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
 
-            // with xpath munging, attributeChoice items show up as code fallback. Correct it.
-/*            if(attributeChoice!=null && isInherited) {
+        		// make sure the superP has its display name
+        		if(isReferences) {
+        			String eUri = xpp.findAttributeValue(lelement,"uri");
+        			if((eUri!=null)&&eUri.length()>0) {
+        				if(eUri.startsWith("isbn:")) {
+        					// linkbaton doesn't have ads, and lets you choose which provider to go to (including LOC).  
+        					// could also go to wikipedia's  ISBN special page.              
+        					p.uri = "http://my.linkbaton.com/isbn/"+
+        					eUri.substring(5,eUri.length());
+        					p.displayName = eUri;
+        				} else {
+        					p.uri = eUri;
+        					p.displayName = eUri.replaceAll("(/|&)","\u200b$0");  //  put zwsp before "/" or "&"
+        					//p.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
+        				}
+        			} else {
+        				p.displayName = null;
+        			}
+        			if(superP.displayName == null) {
+        				superP.displayName = p.displayName;
+        			}
+        		} else {
+        			if(superP.displayName == null) {
+        				superP.displayName = baselineFile.getStringValue(xpath(superP)); 
+        			}
+        			if(p.displayName == null) {
+        				p.displayName = baselineFile.getStringValue(baseXpath);
+        			}
+        		}
+
+        		if((superP.displayName == null) ||
+        				(p.displayName == null)) {
+        			canName = false; // disable 'view by name' if not all have names.
+        		}
+        		if(TRACE_TIME) System.err.println("n06  "+(System.currentTimeMillis()-nextTime));
+
+        		// If it is draft and not proposed.. make it proposed-draft 
+        		if( ((eDraft!=null)&&(!eDraft.equals("false"))) &&
+        				(altProposed == null) ) {
+        			altProposed = SurveyMain.PROPOSED_DRAFT;
+        		}
+
+        		// Inherit display names.
+        		if((superP != p) && (p.displayName == null)) {
+        			p.displayName = baselineFile.getStringValue(baseXpath); 
+        			if(p.displayName == null) {
+        				p.displayName = superP.displayName; // too: unscramble this a little bit
+        			}
+        		}
+        		if(TRACE_TIME) System.err.println("n06a  "+(System.currentTimeMillis()-nextTime));
+
+        		CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+        		if(TRACE_TIME) System.err.println("n06b  "+(System.currentTimeMillis()-nextTime));
+        		String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
+        		if(TRACE_TIME) System.err.println("n06c  "+(System.currentTimeMillis()-nextTime));
+        		boolean isInherited = !(sourceLocale.equals(locale.toString()));
+        		if(TRACE_TIME) System.err.println("n06d  "+(System.currentTimeMillis()-nextTime));
+
+        		// with xpath munging, attributeChoice items show up as code fallback. Correct it.
+        		/*            if(attributeChoice!=null && isInherited) {
                 if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) {
                     isInherited = false;
                     sourceLocale = locale;
                 }
             }*/
-            // ** IF it is inherited, do NOT add any Items.   
-            if(isInherited) {
-                if(TRACE_TIME) System.err.println("n06da  [src:"+sourceLocale+" vs " + locale+ ", sttus:"+sourceLocaleStatus+"] "+(System.currentTimeMillis()-nextTime));
-                if(!isReferences) {
-                    if(TRACE_TIME) System.err.println("n06db  "+(System.currentTimeMillis()-nextTime));
-                    p.updateInheritedValue(vettedParent, checkCldr, options); // update the tests
-                    if(TRACE_TIME) System.err.println("n06dc  "+(System.currentTimeMillis()-nextTime));
-                }
-                continue;
-            }
-            if(TRACE_TIME) System.err.println("n06e  "+(System.currentTimeMillis()-nextTime));
-            
-            
-            if(TRACE_TIME) System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
-    
-            // ?? simplify this.
-            if(altProposed == null) {
-                if(!isInherited) {
-                    //superP.hasInherited=false;
-                    //p.hasInherited=false;
-                } else {
-                    p.hasInherited = true;
-                    superP.hasInherited=true;
-                }
-            } else {
-                if(!isInherited) {
-                    p.hasProps = true;
-                    if(altProposed != SurveyMain.PROPOSED_DRAFT) {  // 'draft=true'
-                        p.hasMultipleProposals = true; 
-                    }
-                    superP.hasProps = true;
-                } else {
-                    // inherited, proposed
-                   // p.hasProps = true; // Don't mark as a proposal.
-                   // superP.hasProps = true;
-                   p.hasInherited=true;
-                   superP.hasInherited=true;
-                }
-            }
-            
-            
-            String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.
-//            boolean isCodeFallback = (setInheritFrom!=null)&&
-//                (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
-            
-            if(isExtraPath) { // No real data items if it's an extra path.
-              //  System.err.println("ExtraPath: "+xpath);
-                continue; 
-            }
-            
-            // ***** Set up Candidate Items *****
-            // These are the items users may choose between
-            //
-            if((checkCldr != null)/*&&(altProposed == null)*/) {
-                checkCldr.check(xpath, fullPath, isExtraPath?null:value, options, checkCldrResult);
-                checkCldr.getExamples(xpath, fullPath, isExtraPath?null:value, options, examplesResult);
-            }
-            DataSection.DataRow.CandidateItem myItem = null;
-            
-/*            if(p.attributeChoice != null) {
+        		// ** IF it is inherited, do NOT add any Items.   
+        		if(isInherited) {
+        			if(TRACE_TIME) System.err.println("n06da  [src:"+sourceLocale+" vs " + locale+ ", sttus:"+sourceLocaleStatus+"] "+(System.currentTimeMillis()-nextTime));
+        			if(!isReferences) {
+        				if(TRACE_TIME) System.err.println("n06db  "+(System.currentTimeMillis()-nextTime));
+        				p.updateInheritedValue(vettedParent, checkCldr, options); // update the tests
+        				if(TRACE_TIME) System.err.println("n06dc  "+(System.currentTimeMillis()-nextTime));
+        			}
+        			continue;
+        		}
+        		if(TRACE_TIME) System.err.println("n06e  "+(System.currentTimeMillis()-nextTime));
+
+
+        		if(TRACE_TIME) System.err.println("n07  "+(System.currentTimeMillis()-nextTime));
+
+        		// ?? simplify this.
+        		if(altProposed == null) {
+        			if(!isInherited) {
+        				//superP.hasInherited=false;
+        				//p.hasInherited=false;
+        			} else {
+        				p.hasInherited = true;
+        				superP.hasInherited=true;
+        			}
+        		} else {
+        			if(!isInherited) {
+        				p.hasProps = true;
+        				if(altProposed != SurveyMain.PROPOSED_DRAFT) {  // 'draft=true'
+        					p.hasMultipleProposals = true; 
+        				}
+        				superP.hasProps = true;
+        			} else {
+        				// inherited, proposed
+        				// p.hasProps = true; // Don't mark as a proposal.
+        				// superP.hasProps = true;
+        				p.hasInherited=true;
+        				superP.hasInherited=true;
+        			}
+        		}
+
+
+        		String setInheritFrom = (isInherited)?sourceLocale:null; // no inherit if it's current.
+        		//            boolean isCodeFallback = (setInheritFrom!=null)&&
+        		//                (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't flag errors from code fallback.
+
+        		if(isExtraPath) { // No real data items if it's an extra path.
+        			//  System.err.println("ExtraPath: "+xpath);
+        			continue; 
+        		}
+
+        		// ***** Set up Candidate Items *****
+        		// These are the items users may choose between
+        		//
+        		if((checkCldr != null)/*&&(altProposed == null)*/) {
+        			checkCldr.check(xpath, fullPath, isExtraPath?null:value, options, checkCldrResult);
+        			checkCldr.getExamples(xpath, fullPath, isExtraPath?null:value, options, examplesResult);
+        		}
+        		DataSection.DataRow.CandidateItem myItem = null;
+
+        		/*            if(p.attributeChoice != null) {
                 String newValue = p.attributeChoice.valueOfXpath(fullPath);
 //       System.err.println("ac:"+fullPath+" -> " + newValue);
                 value = newValue;
             }*/
-            if(TRACE_TIME) System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
-            myItem = p.addItem( value, altProposed, null);
-//if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
-            
-            myItem.xpath = xpath;
-            myItem.xpathId = sm.xpt.getByXpath(xpath);
-            if(myItem.xpathId == base_xpath) {
-                p.previousItem = myItem; // did have a previous item.
-            }
+        		if(TRACE_TIME) System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
+        		myItem = p.addItem( value, altProposed, null);
+        		//if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
 
-            if(!checkCldrResult.isEmpty()) {
-                myItem.setTests(checkCldrResult);
-                // set the parent
-                checkCldrResult = new ArrayList(); // can't reuse it if nonempty
-            }
-            /*
+        		myItem.xpath = xpath;
+        		myItem.xpathId = sm.xpt.getByXpath(xpath);
+        		if(myItem.xpathId == base_xpath) {
+        			p.previousItem = myItem; // did have a previous item.
+        		}
+
+        		if(!checkCldrResult.isEmpty()) {
+        			myItem.setTests(checkCldrResult);
+        			// set the parent
+        			checkCldrResult = new ArrayList(); // can't reuse it if nonempty
+        		}
+        		/*
                 Was this item submitted via SurveyTool? Let's find out.
-            */
-            myItem.submitter = sm.dbsrcfac.getSubmitterId(locale, myItem.xpathId);
-            if(myItem.submitter != -1) {
-///*srl*/                System.err.println("submitter set: " + myItem.submitter + " @ " + locale + ":"+ xpath);
-            }
+        		 */
+        		myItem.submitter = sm.dbsrcfac.getSubmitterId(locale, myItem.xpathId);
+        		if(myItem.submitter != -1) {
+        			///*srl*/                System.err.println("submitter set: " + myItem.submitter + " @ " + locale + ":"+ xpath);
+        		}
 
-            if(sourceLocaleStatus!=null && sourceLocaleStatus.pathWhereFound!=null && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
-//System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);
-                myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
-                // set up Pod alias-ness
-                p.aliasFromLocale = sourceLocale;
-                p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
-            }
-            myItem.inheritFrom = setInheritFrom;
-            // store who voted for what. [ this could be loaded at displaytime..]
-           //myItem.votes = sm.vet.gatherVotes(locale, xpath);
-            
-            if(!examplesResult.isEmpty()) {
-                // reuse the same ArrayList  unless it contains something                
-                if(myItem.examples == null) {
-                    myItem.examples = new Vector();
-                }
-                for (Iterator it3 = examplesResult.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();                
-                    myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
-                }
-   //             myItem.examplesList = examplesResult;
-   //             examplesResult = new ArrayList(); // getExamples will clear it.
-            }
+        		if(sourceLocaleStatus!=null && sourceLocaleStatus.pathWhereFound!=null && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+        			//System.err.println("PWF diff: " + xpath + " vs " + sourceLocaleStatus.pathWhereFound);
+        			myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+        			// set up Pod alias-ness
+        			p.aliasFromLocale = sourceLocale;
+        			p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
+        		}
+        		myItem.inheritFrom = setInheritFrom;
+        		// store who voted for what. [ this could be loaded at displaytime..]
+        		//myItem.votes = sm.vet.gatherVotes(locale, xpath);
 
-            if((eRefs != null) && (!isInherited)) {
-                myItem.references = eRefs;
-            }
-            
-        }
-//        aFile.close();
+        		if(!examplesResult.isEmpty()) {
+        			// reuse the same ArrayList  unless it contains something                
+        			if(myItem.examples == null) {
+        				myItem.examples = new Vector();
+        			}
+        			for (Iterator it3 = examplesResult.iterator(); it3.hasNext();) {
+        				CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();                
+        				myItem.examples.add(addExampleEntry(new ExampleEntry(this,p,myItem,status)));
+        			}
+        			//             myItem.examplesList = examplesResult;
+        			//             examplesResult = new ArrayList(); // getExamples will clear it.
+        		}
+
+        		if((eRefs != null) && (!isInherited)) {
+        			myItem.references = eRefs;
+        		}
+
+        	}
+        	//        aFile.close();
+        } finally {
+    	if(vettedParentEntry!=null) {
+    		try {
+				vettedParentEntry.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    }
     }
 
 //    /**

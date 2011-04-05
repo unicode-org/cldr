@@ -68,9 +68,9 @@ public class DBUtils {
 	public static String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
 	public static String DB_SQL_BINCOLLATE = "";
 	public static String DB_SQL_BINTRODUCER = "";
-	static int db_number_cons = 0;
-	static int db_number_pool_cons = 0;
-    private static StackTracker tracker = null; // new StackTracker(); - enable, to track unclosed connections
+	public static int db_number_open = 0;
+	public static int db_number_used = 0;
+	private static StackTracker tracker = null; // new StackTracker(); - enable, to track unclosed connections
 	
 	public static void closeDBConnection(Connection conn) {
 		if (conn != null) {
@@ -83,17 +83,17 @@ public class DBUtils {
 				System.err.println(DBUtils.unchainSqlException(e));
 				e.printStackTrace();
 			}
-			db_number_cons--;
-			if (datasource != null) {
-				db_number_pool_cons--;
-			}
-			if (false && SurveyMain.isUnofficial) {
-				System.err.println("SQL -conns: "
-						+ db_number_cons
-						+ " "
-						+ ((datasource == null) ? ""
-								: (" pool:" + db_number_pool_cons)));
-			}
+			db_number_open--;
+//			if (datasource != null) {
+//				db_number_pool_cons--;
+//			}
+//			if (false && SurveyMain.isUnofficial) {
+//				System.err.println("SQL -conns: "
+//						+ db_number_cons
+//						+ " "
+//						+ ((datasource == null) ? ""
+//								: (" pool:" + db_number_pool_cons)));
+//			}
 		}
 	}
 	public static final String escapeBasic(byte what[]) {
@@ -464,8 +464,12 @@ public class DBUtils {
 				c = datasource.getConnection();
 				DatabaseMetaData dmd = c.getMetaData();
 				dbInfo = dmd.getDatabaseProductName()+" v"+dmd.getDatabaseProductVersion();
+				boolean autoCommit = c.getAutoCommit();
+				if(autoCommit==true) {
+					throw new IllegalArgumentException("autoCommit was true, expected false. Check your configuration.");
+				}
 				loadSqlHacks();
-				System.err.println("Metadata: "+ dbInfo);
+				System.err.println("Metadata: "+ dbInfo + ", autocommit: " + autoCommit);
 			}
 		} catch (SQLException  t) {
             datasource = null;
@@ -511,8 +515,8 @@ public class DBUtils {
     }
     public void doShutdown() throws SQLException {
 		datasource = null;
-		if(this.db_number_cons>0) {
-		    System.err.println("DBUtils: removing my instance. " + this.db_number_cons + " still open?\n"+tracker);
+		if(this.db_number_open>0) {
+		    System.err.println("DBUtils: removing my instance. " + this.db_number_open + " still open?\n"+tracker);
 		}
 		if(tracker!=null) tracker.clear();
 		instance = null;
@@ -536,22 +540,23 @@ public class DBUtils {
 		return getDBConnection(options);
 	}
 	
+	long lastMsg = -1;
+	
+	
 	public Connection getDBConnection(String options) {
 		try {
-			db_number_cons++;
+			db_number_open++;
+			db_number_used++;
 
-			if (datasource != null) {
-				db_number_pool_cons++;
-				if (false&&SurveyMain.isUnofficial) {
-					System.err.println("SQL  +conns: " + db_number_cons
-							+ " Pconns: " + db_number_pool_cons);
-				}
-				Connection c = datasource.getConnection();
-				c.setAutoCommit(false);
-				if(SurveyMain.isUnofficial&&tracker!=null) tracker.add(c);
-				return c;
+			long now = System.currentTimeMillis();
+			if(now-lastMsg > (3600000) /*|| (db_number_used==5000)*/) {
+				lastMsg=now;
+				System.err.println("DBUtils: "+ db_number_open+" open, " + db_number_used+" used. " + StackTracker.currentStack());
 			}
-			throw new InternalError("Error: we only support JNDI datasources. Contact srl.\n");
+			
+			Connection c = datasource.getConnection();
+			if(SurveyMain.isUnofficial&&tracker!=null) tracker.add(c);
+			return c;
 		} catch (SQLException se) {
 			se.printStackTrace();
 			SurveyMain.busted("Fatal in getDBConnection", se);

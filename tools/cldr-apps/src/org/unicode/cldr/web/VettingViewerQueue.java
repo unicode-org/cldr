@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -18,6 +19,8 @@ import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.web.CLDRDBSourceFactory.SubFactory;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -165,6 +168,9 @@ public class VettingViewerQueue {
 							double per = (double)(now-start)/(double)n;
 							rem = (long)((maxn-n)*per);
 							String remStr = ElapsedTimer.elapsedTime(now,now+rem) + " " + /*"("+rem+"/"+per+") "+*/"remaining";
+							if(rem <= 1500) {
+								remStr = "Finishing...";
+							}
 							setStatus(remStr);
 							return remStr;
 						}
@@ -175,8 +181,12 @@ public class VettingViewerQueue {
 							long now = System.currentTimeMillis();
 							n++;
 							//        System.err.println("Nudged: " + n);
-							if(n>(maxn-5)) maxn=n+10;
-
+							if(n>(maxn-5)) {
+								maxn=n+10;
+								if(n>gMax) {
+									gMax=n;
+								}
+							}
 
 							if((now-last)>1200) {
 								last=now;
@@ -345,14 +355,18 @@ public class VettingViewerQueue {
 
 
 	private VettingViewer<VoteResolver.Organization> gVettingViewer = null;
+	private CLDRDBSourceFactory.DBEntry gVettingViewerDBEntry = null;
     private synchronized VettingViewer<VoteResolver.Organization> getVettingViewer(WebContext ctx) {
         CLDRProgressTask p = null;
         if(gVettingViewer==null)  try {
             p = ctx.sm.openProgress("Setting up vettingViewer...");
             p.update("opening..");
+            SubFactory ourFactory = ctx.sm.dbsrcfac.getFactory(false);
+            gVettingViewerDBEntry = ctx.sm.dbsrcfac.openEntry(ourFactory);
+            
             gVettingViewer = new VettingViewer<VoteResolver.Organization>(
-                    ctx.sm.getSupplementalDataInfo(), ctx.sm.dbsrcfac, ctx.sm.getOldFactory(),
-                    getUsersChoice(ctx.sm), "CLDR "+ctx.sm.getOldVersion(), "Winning "+ctx.sm.getNewVersion());
+                    ctx.sm.getSupplementalDataInfo(), ourFactory, ctx.sm.getOldFactory(),
+                    getUsersChoice(ctx.sm, gVettingViewerDBEntry), "CLDR "+ctx.sm.getOldVersion(), "Winning "+ctx.sm.getNewVersion());
             gVettingViewer.setBaseUrl(ctx.base());
            // gVettingViewer.setErrorChecker(ctx.sm.dbsrcfac.getErrorChecker());
             p.update("OK");
@@ -361,9 +375,34 @@ public class VettingViewerQueue {
         }
         return gVettingViewer;
     }
-    private UsersChoice<VoteResolver.Organization> getUsersChoice(final SurveyMain sm) { 
+    
+    void shutdown() throws SQLException {
+    	if(gVettingViewer!=null) {
+    		gVettingViewer=null;
+    	}
+    	if(gVettingViewerDBEntry!=null) {
+    		System.err.println("Closing gVVDBentry");
+    		gVettingViewerDBEntry.close();
+    		gVettingViewerDBEntry=null;
+    	}
+    }
+    
+    private UsersChoice<VoteResolver.Organization> getUsersChoice(final SurveyMain sm, final CLDRDBSourceFactory.DBEntry entry) { 
+    	final Map<CLDRLocale,Vetting.DataTester> testMap = new HashMap<CLDRLocale,Vetting.DataTester>();
+    	
         return new UsersChoice<VoteResolver.Organization>() {
-            @Override
+            private Vetting.DataTester getTester(CLDRLocale loc) {
+            	Vetting.DataTester tester = testMap.get(loc);
+            	if(tester==null) {
+                	final XMLSource fac = sm.dbsrcfac.getInstance(loc);
+                	entry.add(fac);
+            		tester = sm.vet.getTester(fac);
+            		testMap.put(loc, tester);
+            	}
+            	return tester;
+            }
+        	
+        	@Override
             public String getWinningValueForUsersOrganization(
                     CLDRFile cldrFile, String path, VoteResolver.Organization user) {
                 CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
@@ -371,8 +410,14 @@ public class VettingViewerQueue {
                 Race r;
                 Connection conn = null;
                 try { 
-                    conn = sm.dbUtils.getDBConnection();
-                    r = sm.vet.getRace(loc, base_xpath, conn);
+                	if(entry!=null) {
+                		conn = entry.getConnectionAlias();
+                	} else {
+                		conn = sm.dbUtils.getDBConnection();
+                	}
+                	Vetting.DataTester tester = getTester(loc);
+                	
+                	r = sm.vet.getRace(loc, base_xpath, conn, tester);
                     VoteResolver.Organization org = (Organization) user;
                     Race.Chad c =  r.getOrgVote(org);
                     if(c==null) {
@@ -383,7 +428,9 @@ public class VettingViewerQueue {
                 }catch (SQLException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    DBUtils.closeDBConnection(conn);
+                	if(entry==null) {
+                		DBUtils.closeDBConnection(conn);
+                	}
                 }
 
             }
@@ -395,14 +442,21 @@ public class VettingViewerQueue {
                 Race r;
                 Connection conn = null;
                 try { 
-                    conn = sm.dbUtils.getDBConnection();
-                    r = sm.vet.getRace(loc, base_xpath, conn);
-                    
+                	if(entry==null) {
+                		conn = sm.dbUtils.getDBConnection();
+                	} else {
+                		conn = entry.getConnectionAlias();
+                	}
+                	Vetting.DataTester tester = getTester(loc);
+                	
+                	r = sm.vet.getRace(loc, base_xpath, conn, tester);
                     return r.getStatusForOrganization(orgOfUser);
                 }catch (SQLException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    DBUtils.closeDBConnection(conn);
+                	if(entry==null) {
+                		DBUtils.closeDBConnection(conn);
+                	}
                 }
 
             }

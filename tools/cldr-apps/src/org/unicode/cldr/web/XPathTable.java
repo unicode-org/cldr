@@ -22,6 +22,8 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.dev.test.util.ElapsedTimer;
+
 /**
  * This class maps between full and partial xpaths, and the small integers which are actually stored in the database.
  * It keeps an in-memory cache which is populated as ids are requested.
@@ -44,14 +46,24 @@ public class XPathTable {
             if(isNew) {
                 reg.setupDB();
             }
-    //        logger.info("XPathTable DB: Created.");
+            
+            if(!sm.isUnofficial) {
+	            int n =0;
+	            ElapsedTimer et = new ElapsedTimer("Load all xpaths..");
+	            for(String xpath : sm.getBaselineFile()) {
+	            	reg.getByXpath(xpath,ourConn);
+	            	n++;
+	            }
+	            System.err.println(et+" ("+n+" xpaths from "+sm.BASELINE_ID+") " + reg.statistics());
+            }
+            
             return reg;
         } finally {
             DBUtils.closeDBConnection(ourConn);
         }
     }
     
-    /**
+	/**
      * Called by SM to shutdown
      * @deprecated unneeded
      */
@@ -136,7 +148,7 @@ public class XPathTable {
      * Bottleneck for adding xpaths
      * @return the xpath's id (as an Integer)
      */
-    private synchronized Integer addXpath(String xpath, boolean addIfNotFound)   {
+    private synchronized Integer addXpath(String xpath, boolean addIfNotFound, Connection inConn)   {
     	Integer nid = (Integer)stringToId.get(xpath); // double check
     	if(nid != null) {
     		return nid;
@@ -146,8 +158,12 @@ public class XPathTable {
     	PreparedStatement queryStmt = null;
     	PreparedStatement insertStmt = null;
     	try {
-    		conn = sm.dbUtils.getDBConnection();
-            queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + 
+    		if(inConn!=null) {
+    			conn = inConn;
+    		} else {
+    			conn = sm.dbUtils.getDBConnection();
+    		}
+    		queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + 
                     " where XPATH="+DBUtils.DB_SQL_BINTRODUCER+" ? "+DBUtils.DB_SQL_BINCOLLATE);
     		queryStmt.setString(1,xpath);
     		// First, try to query it back from the DB.
@@ -189,6 +205,9 @@ public class XPathTable {
     		sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
     	} finally {
     		try {
+    			if(inConn!=null) {
+    				conn = null; // don't close
+    			}
     			DBUtils.close(insertStmt,queryStmt,conn);
     		} catch(SQLException sqe) {
     			System.err.println("xpath ["+xpath+"] len " + xpath.length());
@@ -219,12 +238,15 @@ public class XPathTable {
         }
     }
     
-    private String fetchByID(int id) {
+    private String fetchByID(int id, Connection inConn) {
     	Connection conn=null;
     	PreparedStatement queryIdStmt = null;
     	try {
-    		conn = sm.dbUtils.getDBConnection();
-
+    		if(inConn==null) {
+    			conn = sm.dbUtils.getDBConnection();
+    		} else {
+    			conn = inConn;
+    		}
             queryIdStmt = conn.prepareStatement("SELECT XPATH FROM " + CLDR_XPATHS + "   " + 
                                         " where ID=?");
     		queryIdStmt.setInt(1,id);
@@ -256,6 +278,9 @@ public class XPathTable {
     		return null;
     	} finally {
     		try {
+    			if(inConn!=null) {
+    				conn = null; // already closed
+    			}
     			DBUtils.close(queryIdStmt,conn);
     		} catch(SQLException sqe) {
         		logger.severe("XPathTable: Failed ingetByID (ID: "+ id+"): " + DBUtils.unchainSqlException(sqe) );
@@ -275,36 +300,73 @@ public class XPathTable {
         if(s!=null) {
             return s;
         }
-        return fetchByID(id);
+        return fetchByID(id, null);
     }
     
-   /**
-    * get an xpath id by value, add it if not found
-    * @param xpath string string to add
-    * @return the id for the specified path
-    */
-    public final int getByXpath(String xpath) {
-        Integer nid = (Integer)stringToId.get(xpath);
-        if(nid != null) {
-            return nid.intValue();
-        } else {
-            return addXpath(xpath, true).intValue();
+    public final String getById(int id, Connection conn) {
+        if(id==-1) {
+            return null;
         }
+        String s = idToString_get(id);
+        if(s!=null) {
+            return s;
+        }
+        return fetchByID(id, conn);
     }
-
     /**
-     * Look up xpath id by value. Return -1 if not found
-     * @param xpath
-     * @return id, or -1 if not found
+     * get an xpath id by value, add it if not found
+     * @param xpath string string to add
+     * @return the id for the specified path
      */
-    public final int peekByXpath(String xpath) {
-        Integer nid = (Integer)stringToId.get(xpath);
-        if(nid != null) {
-            return nid.intValue();
-        } else {
-            return addXpath(xpath, false).intValue();
-        }
-    }
+     public final int getByXpath(String xpath) {
+         Integer nid = (Integer)stringToId.get(xpath);
+         if(nid != null) {
+             return nid.intValue();
+         } else {
+             return addXpath(xpath, true, null).intValue();
+         }
+     }
+
+     /**
+      * Look up xpath id by value. Return -1 if not found
+      * @param xpath
+      * @return id, or -1 if not found
+      */
+     public final int peekByXpath(String xpath) {
+         Integer nid = (Integer)stringToId.get(xpath);
+         if(nid != null) {
+             return nid.intValue();
+         } else {
+             return addXpath(xpath, false, null).intValue();
+         }
+     }
+     /**
+      * get an xpath id by value, add it if not found
+      * @param xpath string string to add
+      * @return the id for the specified path
+      */
+      public final int getByXpath(String xpath, Connection conn) {
+          Integer nid = (Integer)stringToId.get(xpath);
+          if(nid != null) {
+              return nid.intValue();
+          } else {
+              return addXpath(xpath, true, conn).intValue();
+          }
+      }
+
+      /**
+       * Look up xpath id by value. Return -1 if not found
+       * @param xpath
+       * @return id, or -1 if not found
+       */
+      public final int peekByXpath(String xpath, Connection conn) {
+          Integer nid = (Integer)stringToId.get(xpath);
+          if(nid != null) {
+              return nid.intValue();
+          } else {
+              return addXpath(xpath, false, conn).intValue();
+          }
+      }
 
     public String pathToTinyXpath(String path) {
         return pathToTinyXpath(path, new XPathParts(null,null));

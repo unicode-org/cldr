@@ -41,8 +41,6 @@ import org.unicode.cldr.util.VettingViewer.ErrorChecker;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
-import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
-import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry.Key;
 import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DBUtils.ConnectionHolder;
@@ -53,22 +51,78 @@ import org.unicode.cldr.web.MuxedSource.MuxFactory;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CLDRDBSourceFactory extends Factory implements MuxFactory {
+	public class SubFactory extends Factory {
+		public boolean finalData = false;
+		private DBEntry dbEntry = null;
+		public SubFactory(boolean finalData) {
+			this.finalData=finalData;
+		}
+
+		@Override
+		public String getSourceDirectory() {
+			return CLDRDBSourceFactory.this.getSourceDirectory();
+		}
+
+		@Override
+		protected CLDRFile handleMake(String localeID, boolean resolved,
+				DraftStatus madeWithMinimalDraftStatus) {
+			XMLSource source = getInstance(CLDRLocale.getInstance(localeID), false);
+			if(dbEntry!=null) dbEntry.add(source);
+			return new CLDRFile(source,resolved);
+		}
+
+		@Override
+		protected DraftStatus getMinimalDraftStatus() {
+			return CLDRDBSourceFactory.this.getMinimalDraftStatus();
+		}
+
+		@Override
+		protected Set<String> handleGetAvailable() {
+			return CLDRDBSourceFactory.this.handleGetAvailable();
+		}
+
+		public void setDBEntry(DBEntry dbEntry) {
+			this.dbEntry  = dbEntry;
+		}
+
+	}
+
+	public enum Key { OLDKEYSET };
+
 	/**
 	 * Thread unsafe wrapper for connection state.
 	 * @author srl
 	 *
 	 */
-    public static class DBEntry implements org.unicode.cldr.web.DBUtils.ConnectionHolder,org.unicode.cldr.web.DBUtils.DBCloseable {
-    	public enum Key { OLDKEYSET };
+    public class DBEntry implements org.unicode.cldr.web.DBUtils.ConnectionHolder,org.unicode.cldr.web.DBUtils.DBCloseable {
     	private Connection conn = null;
+    	private MyStatements stmts = null;
     	
     	private Set<CLDRDBSource> allSources = new HashSet<CLDRDBSource>();
-    	
+    	private Set<SubFactory> allFactories = new HashSet<SubFactory>();
 		public DBEntry(CLDRDBSource x) {
+			add(x);
+		}
+		public void add(XMLSource x) {
+			if(x instanceof CLDRDBSource) {
+				add((CLDRDBSource)x);
+			} else {
+				throw new IllegalArgumentException("Can't cast a " + x.getClass().getName() + " to a CLDRDBSource");
+			}
+		}
+		public DBEntry(SubFactory x) {
+			add(x);
+		}
+		
+		public void add(CLDRDBSource x) {
 			x.setDBEntry(this);
 			allSources.add(x);
 		}
-
+		public void add(SubFactory x) {
+			x.setDBEntry(this);
+			allFactories.add(x);
+		}
+		
 		@Override
 		public Connection getConnectionAlias() {
 			if(conn==null) {
@@ -106,6 +160,14 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		public Object put(String locale, Key oldkeyset,Object o) {
 			return put(CLDRLocale.getInstance(locale),oldkeyset.name(),o);
+		}
+		public MyStatements openStatements() {
+			if(stmts==null) {
+				MyStatements newStmts = CLDRDBSourceFactory.this.openStatements();
+				newStmts.lockOpen(true);
+				stmts=newStmts;
+			}
+			return stmts;
 		}
 	}
 
@@ -367,7 +429,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 * this inner class contains a link to all of the prepared statements needed by the CLDRDBSource.
 	 * it may be shared by certain CLDRDBSources, or lazy initialized.
 	 **/
-	public static class MyStatements implements DBCloseable { 
+	public static class MyStatements implements DBCloseable, ConnectionHolder { 
 		public Connection conn = null;
 		public PreparedStatement insert = null;
 //		public PreparedStatement queryStmt = null;
@@ -391,6 +453,8 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		public PreparedStatement keyNoVotesSet = null;
 		public PreparedStatement removeItem = null;
 		public PreparedStatement getSubmitterId = null;
+		private boolean lockedOpen = false;
+		private int avoidedClose;
 
 		/**
 		 * called to initialize one of the preparedstatement fields
@@ -408,6 +472,13 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				throw new InternalError(complaint);
 			}
 			return ps;
+		}
+
+		public void lockOpen(boolean b) {
+			if(b==false && avoidedClose>0 && DEBUG) {
+				System.err.println("Stmts: avoidedclose " + avoidedClose);
+			}
+			lockedOpen =b;
 		}
 
 		/** 
@@ -518,6 +589,12 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		@Override
 		public void close() throws SQLException {
+			if(lockedOpen) {
+				avoidedClose++;
+				//if(DEBUG) System.err.println("avoidedClose: " + avoidedClose);
+				return;
+			}
+			
 			Connection conn2 = conn;
 			conn = null; // just in case;
 			DBUtils.close(
@@ -553,6 +630,11 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				System.err.println(complaint);
 				throw new InternalError(complaint);
 			}
+		}
+
+		@Override
+		public Connection getConnectionAlias() {
+			return conn;
 		}
 
 	}
@@ -922,6 +1004,10 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
 	//if(showDebug) /*srl*/logger.info(locale + ":" + path);
 	public int getWinningPathId(int xpath, CLDRLocale locale, boolean finalData) {
+		return getWinningPathId(xpath, locale, finalData, null);
+	}
+	
+	public int getWinningPathId(int xpath, CLDRLocale locale, boolean finalData, ConnectionHolder ch) {
 		if(finalData) {
 			return sm.xpt.xpathToBaseXpathId(xpath);
 		}
@@ -954,12 +1040,12 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		//              throw new InternalError("Failed to getWinningPath ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+DBUtils.unchainSqlException(se));
 		//          }
 		//      } else {
-		return sm.vet.getWinningXPath(xpath, locale);
+		return sm.vet.getWinningXPath(xpath, locale, ch);
 		//      }
 	}
 
-	public String getWinningPath(int xpath, CLDRLocale locale, boolean finalData) {
-		int rp = getWinningPathId(xpath, locale, finalData);
+	public String getWinningPath(int xpath, CLDRLocale locale, boolean finalData, ConnectionHolder ch) {
+		int rp = getWinningPathId(xpath, locale, finalData, ch);
 		if(rp > 0) {
 			return xpt.getById(rp);
 		} else {
@@ -1037,6 +1123,14 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		public int srcId = -1;
 
 		private DBEntry dbEntry; 
+		
+		private MyStatements openStatements() {
+			if(dbEntry!=null) {
+				return dbEntry.openStatements();
+			} else {
+				return CLDRDBSourceFactory.this.openStatements();
+			}
+		}
 
 		/**
 		 * load and validate the item, if not already in the DB. Sets srcId and other state.
@@ -1051,7 +1145,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		    CLDRProgressTask progress = null;
 		    MyStatements stmts = null;
 		    synchronized (this) { try {
-		        stmts = openStatements();
+		    	stmts = openStatements();
 		        //        	synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
 		        // double check..
 		        srcId = getSourceId(tree, locale, stmts); // double checked lock- noone else loaded the src since then
@@ -1377,7 +1471,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				return rv;
 			}
 
-			int pathInt = xpt.getByXpath(path);
+			int pathInt = xpt.getByXpath(path, getConnectionAlias());
 			if (SHOW_TIMES)
 				System.err.println("hasValueAtDPath:>> " + locale + ":"
 						+ pathInt + " " + (System.currentTimeMillis() - t0));
@@ -1417,11 +1511,12 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		public String getWinningPath(String path) 
 		{
-			int xpath=xpt.xpathToBaseXpathId(path);
+			String baseXpath = XPathTable.xpathToBaseXpath(path);
+			int xpath=xpt.getByXpath(baseXpath,getConnectionAlias());
 
 			// look for it in parents
 			for(CLDRLocale locale : CLDRLocale.getInstance(getLocaleID()).getParentIterator()) {
-				String rv = CLDRDBSourceFactory.this.getWinningPath(xpath, locale, finalData);
+				String rv = CLDRDBSourceFactory.this.getWinningPath(xpath, locale, finalData, dbEntry);
 
 				if(rv != null) {
 					return rv;
@@ -1431,6 +1526,18 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			//    throw new InternalError("Can't find winning path for getWinningPath("+path + "#"+xpath+","+getLocaleID()+")");
 		}
 
+
+		/**
+		 * 
+		 * @return null if no dbEntry
+		 */
+		private Connection getConnectionAlias() {
+			if(dbEntry==null) {
+				return null;
+			} else {
+				return dbEntry.getConnectionAlias();
+			}
+		}
 
 		/**
 		 * XMLSource API. Returns the value of a distringuished path
@@ -1447,7 +1554,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 //			}
 
 			String locale = getLocaleID();
-			int xpath = xpt.getByXpath(path);
+			int xpath = xpt.getByXpath(path,getConnectionAlias());
 			if(SHOW_TIMES) System.err.println("getValueAtDPath:>> "+locale + ":" + xpath + " " + (System.currentTimeMillis()-t0));
 
 			///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
@@ -1583,7 +1690,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		private final String getOrigXpathString(int pathid, boolean useFinalData) {
 			int n = getOrigXpathId(pathid, useFinalData);
-			return sm.xpt.getById(n);
+			return sm.xpt.getById(n, dbEntry!=null?dbEntry.getConnectionAlias():null);
 		}
 
 		public int getOrigXpathId(int pathid, boolean useFinalData) {
@@ -1736,7 +1843,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				Set<String> s = null;
 				
 				if(dbEntry!=null) {
-					s = (Set<String>) dbEntry.get(locale,DBEntry.Key.OLDKEYSET);
+					s = (Set<String>) dbEntry.get(locale,Key.OLDKEYSET);
 					if(s!=null) {
 						//if(DEBUG) System.err.println("Re-used keyset");
 						return s;
@@ -1758,7 +1865,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 					int xpathid = rs.getInt(1);
 					// if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
 
-					String xpath = (xpt.getById(xpathid));
+					String xpath = (xpt.getById(xpathid, stmts.getConnectionAlias()));
 					if(finalData==true) {
 
 						//                       System.err.println("Path: " +xpath);
@@ -1776,7 +1883,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				rs.close();
 				
 				if(dbEntry!=null) {
-					dbEntry.put(locale, DBEntry.Key.OLDKEYSET, s);
+					dbEntry.put(locale, Key.OLDKEYSET, s);
 				}
 				// if(finalData) System.err.println("@@ end KS of "+locale);
 				/*
@@ -2184,11 +2291,28 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 * @param x
 	 * @return
 	 */
-	public static DBEntry openEntry(XMLSource x) {
+	public DBEntry openEntry(XMLSource x) {
 		if(x instanceof CLDRDBSource) {
 			return new DBEntry((CLDRDBSource)x);
 		} else {
 			return null; 
 		}
+	}
+	/**
+	 * Open a 'usage entry' over this 
+	 * @param x
+	 * @return
+	 */
+	public DBEntry openEntry(Factory x) {
+		if(x instanceof SubFactory) {
+			return new DBEntry((SubFactory)x);
+		} else {
+			return null; 
+		}
+	}
+
+	
+	public SubFactory getFactory(final boolean finalData) {
+		return new SubFactory(finalData);
 	}
 }

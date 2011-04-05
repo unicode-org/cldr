@@ -145,7 +145,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 					logln(l+": vet wxp("+baseXpid+") = " + win+"="+winx);
 				}
 				
-				int uwin = CLDRDBSourceFactory.sm.vet.queryResultInternal(l, baseXpid, junkType);
+				int uwin = CLDRDBSourceFactory.sm.vet.queryResultInternal(l, baseXpid, junkType, null);
 				if(uwin!=win) {
 					errln(l+": " + baseXpid + " Bad deal: cache says win="+win+" but direct says " + uwin);
 				} else {
@@ -189,7 +189,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 				}  else {
 					logln(l+": vet wxp("+baseXpid+") = " + win);
 				}
-				int uwin = CLDRDBSourceFactory.sm.vet.queryResultInternal(l, baseXpid, junkType);
+				int uwin = CLDRDBSourceFactory.sm.vet.queryResultInternal(l, baseXpid, junkType, null);
 				if(uwin!=win) {
 					errln(l+": " + baseXpid + " Bad deal: cache says win="+win+" but direct says " + uwin);
 				} else {
@@ -234,7 +234,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 				}  else {
 					logln(l+": vet wxp("+baseXpid+") = " + win);
 				}
-				int uwin = CLDRDBSourceFactory.sm.vet.queryResultInternal(l, baseXpid, junkType);
+				int uwin = CLDRDBSourceFactory.sm.vet.queryResultInternal(l, baseXpid, junkType, null);
 				if(uwin!=win) {
 					errln(l+": " + baseXpid + " Bad deal: cache says win="+win+" but direct says " + uwin);
 				} else {

@@ -45,8 +45,10 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
+import org.unicode.cldr.web.DBUtils.ConnectionHolder;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.Vetting.DataTester;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;
@@ -1541,9 +1543,16 @@ public class Vetting {
         return rbc;
     }
 	
+
     public Race getRace(CLDRLocale locale, int base_xpath,Connection conn) throws SQLException {
+    	return getRace(locale,base_xpath,conn,null);
+    }
+    public Race getRace(CLDRLocale locale, int base_xpath,Connection conn, Vetting.DataTester tester) throws SQLException {
     	// Step 0: gather all votes
     	Race r = new Race(this, locale);
+    	if(tester!=null) {
+    		r.setTester(tester);
+    	}
     	r.clear(base_xpath, locale);
     	r.optimal(conn);
     	return r;
@@ -1581,16 +1590,24 @@ public class Vetting {
      * @see updateResults
      */
     int queryResult(CLDRLocale locale, int base_xpath, int type[]) {
-        return getCachedLocaleData(locale).getWinningXPath(base_xpath, type);
+        return getCachedLocaleData(locale).getWinningXPath(base_xpath, type, null);
     }
     
     public int queryResultInternal(CLDRLocale locale, int base_xpath, int type[]) {
+		return queryResultInternal(locale, base_xpath, type, null);
+	}
+
+	public int queryResultInternal(CLDRLocale locale, int base_xpath, int type[], ConnectionHolder ch) {
     	// queryResult:    "select CLDR_RESULT.vote_xpath,CLDR_RESULT.type from "+CLDR_RESULT+" where (locale=?) AND (base_xpath=?)");
     	try {
     		Connection conn = null;
     		PreparedStatement queryResult = null;
     		try {
-    			conn = sm.dbUtils.getDBConnection();
+    			if(ch==null) {
+    				conn = sm.dbUtils.getDBConnection();
+    			} else {
+    				conn = ch.getConnectionAlias();
+    			}
     			queryResult = prepare_queryResult(conn);
     			queryResult.setString(1, locale.toString());
     			queryResult.setInt(2, base_xpath);
@@ -1612,6 +1629,7 @@ public class Vetting {
     			rs.close();
     			return rv;
     		} finally {
+    			if(ch!=null) conn=null; // already closed
     			DBUtils.close(queryResult,conn);
     		}
     	} catch ( SQLException se ) {
@@ -1875,8 +1893,11 @@ public class Vetting {
     int status(CLDRLocale locale) {
             return getCachedLocaleData(locale).getStatus();
     }
+    public int getWinningXPath(int xpath, CLDRLocale locale, ConnectionHolder ch) {
+        return getCachedLocaleData(locale).getWinningXPath(xpath, null, ch);
+    }
     public int getWinningXPath(int xpath, CLDRLocale locale) {
-        return getCachedLocaleData(locale).getWinningXPath(xpath, null);
+        return getCachedLocaleData(locale).getWinningXPath(xpath, null, null);
     }
     private int handleStatus(CLDRLocale locale) {
     	// missing ones 
@@ -2326,14 +2347,14 @@ if(true == true)    throw new InternalError("removed from use.");
         }
         IntHash<WinType> winningXpathCache = null;
 
-        public int getWinningXPath(int xpath, int[] type) {
+		public int getWinningXPath(int xpath, int[] type, ConnectionHolder ch) {
         	if(winningXpathCache==null) {
         		winningXpathCache=new IntHash<WinType>();
         	}
         	WinType winning = winningXpathCache.get(xpath);
         	if(winning==null) {
         		if(type==null) type = new int[1];
-        		int winner = sm.vet.queryResultInternal(locale, xpath, type);
+        		int winner = sm.vet.queryResultInternal(locale, xpath, type, ch);
         		winning = new WinType();
         		winning.win=winner;
         		winning.type = type[0];
@@ -2932,7 +2953,7 @@ if(true == true)    throw new InternalError("removed from use.");
         return tester.test(xpath, fxpath, value);
     }
 
-    private DataTester get(CLDRLocale locale) {
+    public DataTester get(CLDRLocale locale) {
         Reference<DataTester> ref = hash.get(locale);
         DataTester d = null;
         if(ref != null) {
@@ -2954,7 +2975,7 @@ if(true == true)    throw new InternalError("removed from use.");
         return d;
     }
 
-    private class DataTester extends Registerable {
+    public class DataTester extends Registerable {
 
         //////
         
@@ -2965,22 +2986,17 @@ if(true == true)    throw new InternalError("removed from use.");
         Map options = sm.basicOptionsMap();
         
         void reset() {
-//            System.err.println("vetting::checker reset " + locale);
-            XMLSource dbSource = sm.makeDBSource( locale);
-//            CLDRDBSourceFactory.vettingMode(sm.vet);
-            //if(resolved == false) {
-                file = sm.makeCLDRFile(dbSource);
-            //} else { 
-            //    file = new CLDRFile(dbSource,true);
-            //}
-            
-            // [md] Set the coverage level to minimal and organization to none. That will override the organization and be consistent across all users.
-
-            overallResults.clear();
-            check = sm.createCheckWithoutCollisions();
-            check.setCldrFileToCheck(file, options, overallResults);
-            setValid();
-            register();
+        	XMLSource dbSource = sm.makeDBSource( locale);
+        	reset(dbSource);
+        }
+        
+        void reset(XMLSource dbSource) {
+        	file = sm.makeCLDRFile(dbSource);
+        	overallResults.clear();
+        	check = sm.createCheckWithoutCollisions();
+        	check.setCldrFileToCheck(file, options, overallResults);
+        	setValid();
+        	register();
         }
         
         private DataTester(CLDRLocale locale) 
@@ -2991,6 +3007,15 @@ if(true == true)    throw new InternalError("removed from use.");
             options.put("CoverageLevel.localeType","");
 
             reset();
+        }
+        DataTester(CLDRLocale locale, XMLSource src) 
+        {
+            super(sm.lcr, locale);
+
+            options.put("CheckCoverage.requiredLevel","minimal");
+            options.put("CoverageLevel.localeType","");
+
+            reset(src);
         }
         //String f2 = sm.xpt.getById(85048);
         boolean test(String xpath, String fxpath, String value) {
@@ -3246,6 +3271,7 @@ if(true == true)    throw new InternalError("removed from use.");
 		}
 	}
 
-
-
+	public DataTester getTester(XMLSource fac) {
+		return new DataTester(CLDRLocale.getInstance(fac.getLocaleID()),fac);
+	}
 }

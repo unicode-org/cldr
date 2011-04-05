@@ -39,6 +39,11 @@ public class Race {
      */
     private final Vetting vet;
 
+    private Vetting.DataTester tester = null;
+    public void setTester(Vetting.DataTester tester) {
+    	this.tester = tester;
+    }
+
     /**
      * @param vetting
      */
@@ -143,6 +148,7 @@ public class Race {
             this.value = value;
 
         }
+        
 
         public boolean isDisqualified() {
             if(checkedDisqualified) {
@@ -161,7 +167,11 @@ public class Race {
                 disqualified=false;
                 return false;
             }
-            disqualified = Race.this.vet.test(locale, xpath, full_xpath, value);
+            if(tester!=null) {
+            	disqualified = tester.test(vet.sm.xpt.getById(xpath), vet.sm.xpt.getById(full_xpath), value);
+            } else {
+            	disqualified = Race.this.vet.test(locale, xpath, full_xpath, value);
+            }
             checkedDisqualified=true;
             if (disqualified && !Vetting.MARK_NO_DISQUALIFY) {
                 score = 0;
@@ -551,6 +561,7 @@ public class Race {
     			if (vote_xpath == -1) {
     				continue; // abstention
     			}
+				vet.sm.xpt.getById(vote_xpath,conn);
 
     			queryValue.setInt(2, vote_xpath);
         		queryValue.setString(1, locale.toString());
@@ -560,8 +571,8 @@ public class Race {
     			if (crs.next()) {
     				itemValue = DBUtils.getStringUTF8(crs, 1);
     				orig_xpath = crs.getInt(2);
-
-
+    				vet.sm.xpt.getById(orig_xpath,conn);
+    				
     				UserRegistry.User u = vet.sm.reg.getInfo(submitter);
     				vote(u, vote_xpath, orig_xpath, itemValue);
     			}
@@ -596,6 +607,7 @@ public class Race {
     			int origXpath = rs.getInt(2);
     			// 3 : alt_type
     			String value = DBUtils.getStringUTF8(rs, 4);
+    			vet.sm.xpt.getById(origXpath,conn);  // for caching
     			Chad cc = getChad(xpath, origXpath, value);
     			possibles.put(cc,xpath);
     			//	            if(c.xpath != xpath) {

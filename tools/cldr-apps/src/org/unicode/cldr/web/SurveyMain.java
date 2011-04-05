@@ -7416,7 +7416,7 @@ o	            		}*/
     	try {
 	    	XMLSource ourSrc = dbsrcfac.getInstance(ctx.getLocale(),false);
 	    	CLDRFile cf = new CLDRFile(ourSrc,false);
-	    	entry = CLDRDBSourceFactory.openEntry(ourSrc);
+	    	entry = dbsrcfac.openEntry(ourSrc);
 	    	
             String fullThing = xpath + "/" + lastElement;
         //    boolean isTz = xpath.equals("timeZoneNames");
@@ -7829,46 +7829,46 @@ o	            		}*/
         
         String refs[] = new String[0];
         
-        // calculate references
-        if(section.xpathPrefix.indexOf("references")==-1) { // if this is NOT the references section, itself:
-            Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
-            Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
-
-            Set refsSet = new TreeSet();
-            WebContext refCtx = (WebContext)ctx.clone();
-            refCtx.setQuery("_",ctx.getLocale().getLanguage());
-            refCtx.setLocale(CLDRLocale.getInstance(ctx.getLocale().getLanguage())); // ensure it is from the language
-            DataSection refSection = refCtx.getSection("//ldml/references");
-            //int rType[] = new int[1];
-            for(DataSection.DataRow p : refSection.getAll()) {
-                // look for winning item
-                int vetResultId =  ctx.sm.vet.getWinningXPath(p.base_xpath, refSection.locale);
-                DataSection.DataRow.CandidateItem winner = null;
-                DataSection.DataRow.CandidateItem someItem = null;
-                for(Iterator j = p.items.iterator();j.hasNext();) {
-                    DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
-                    if(item.inheritFrom == null) {
-                        refsSet.add(p.type);
-                        refsHash.put(p.type, p);
-                        if(item.xpathId == vetResultId) {
-                            winner = item;
-                        }
-                        someItem = item;
-                    }
-                }
-                if(winner == null) {
-                    winner = someItem; // pick a random item. 
-                }
-                if(winner != null) {
-                    refsItemHash.put(p.type, winner);
-                }
-            }
-            if(!refsSet.isEmpty()) {
-                refs = (String[])refsSet.toArray((Object[]) refs);
-                ctx.temporaryStuff.put("refsHash",refsHash);
-                ctx.temporaryStuff.put("refsItemHash",refsItemHash);
-            }
-        }
+        // calculate references (references are deprecated)
+//        if(false && (section.xpathPrefix.indexOf("references")==-1)) { // if this is NOT the references section, itself:
+//            Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
+//            Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
+//
+//            Set refsSet = new TreeSet();
+//            WebContext refCtx = (WebContext)ctx.clone();
+//            refCtx.setQuery("_",ctx.getLocale().getLanguage());
+//            refCtx.setLocale(CLDRLocale.getInstance(ctx.getLocale().getLanguage())); // ensure it is from the language
+//            DataSection refSection = refCtx.getSection("//ldml/references");
+//            //int rType[] = new int[1];
+//            for(DataSection.DataRow p : refSection.getAll()) {
+//                // look for winning item
+//                int vetResultId =  ctx.sm.vet.getWinningXPath(p.base_xpath, refSection.locale);
+//                DataSection.DataRow.CandidateItem winner = null;
+//                DataSection.DataRow.CandidateItem someItem = null;
+//                for(Iterator j = p.items.iterator();j.hasNext();) {
+//                    DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
+//                    if(item.inheritFrom == null) {
+//                        refsSet.add(p.type);
+//                        refsHash.put(p.type, p);
+//                        if(item.xpathId == vetResultId) {
+//                            winner = item;
+//                        }
+//                        someItem = item;
+//                    }
+//                }
+//                if(winner == null) {
+//                    winner = someItem; // pick a random item. 
+//                }
+//                if(winner != null) {
+//                    refsItemHash.put(p.type, winner);
+//                }
+//            }
+//            if(!refsSet.isEmpty()) {
+//                refs = (String[])refsSet.toArray((Object[]) refs);
+//                ctx.temporaryStuff.put("refsHash",refsHash);
+//                ctx.temporaryStuff.put("refsItemHash",refsItemHash);
+//            }
+//        }
         
         return refs;
 	}
@@ -10000,6 +10000,7 @@ o	            		}*/
             
             doStartupDB(); // will take over progress 50-60
             
+            
             progress.update("Making your Survey Tool happy..");
             
             addUpdateTasks();
@@ -10774,6 +10775,13 @@ o	            		}*/
         
         try
         {
+        	
+            try {
+            	VettingViewerQueue.getInstance().shutdown();
+            } catch(Throwable t) {
+                t.printStackTrace();
+                System.err.println("While shutting down vettingviewer ");
+            }
             // shut down other connections
             try {
                 CookieSession.shutdownDB();

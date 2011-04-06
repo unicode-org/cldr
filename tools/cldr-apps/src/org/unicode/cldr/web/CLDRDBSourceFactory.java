@@ -15,6 +15,7 @@ package org.unicode.cldr.web;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -2405,5 +2406,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	
 	public SubFactory getFactory(final boolean finalData) {
 		return new SubFactory(finalData);
+	}
+
+	public Appendable stats(Appendable output) throws IOException {
+		return output.append("DBSrc: #OpenEntries"+allOpen.size());
 	}
 }

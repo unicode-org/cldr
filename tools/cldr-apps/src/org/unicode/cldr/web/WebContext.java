@@ -14,6 +14,7 @@ import java.util.*;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
+import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.test.*;
@@ -768,7 +769,7 @@ public class WebContext implements Cloneable, Appendable {
     }
     
     /**
-     * Close the stream. Normally not called directly.
+     * Close the stream. Normally not called directly, except in outermost processor.
      * @throws IOException
      */
     void close() throws IOException {
@@ -776,7 +777,7 @@ public class WebContext implements Cloneable, Appendable {
             out.close();
             out = null;
         } else {
-            // ? 
+    		closeUserFile();
         }
     }
     
@@ -1566,9 +1567,24 @@ public class WebContext implements Cloneable, Appendable {
     }
     
     public SurveyMain.UserLocaleStuff getUserFile() {
-    	return sm.getUserFile(session, getLocale());
+    	SurveyMain.UserLocaleStuff uf  = peekUserFile();
+    	if(uf==null) {
+    		uf = sm.getUserFile(session, getLocale());
+    		put("UserFile",uf);
+    	}
+    	return uf;
     }
-    public CLDRFile getCLDRFile() {
+    private UserLocaleStuff peekUserFile() {
+		return  (UserLocaleStuff) get("UserFile");
+	}
+    public void closeUserFile() {
+    	UserLocaleStuff uf = (UserLocaleStuff)temporaryStuff.remove("UserFile");
+    	if(uf!=null) {
+    		uf.close();
+		}
+    }
+
+	public CLDRFile getCLDRFile() {
     	return getUserFile().cldrfile;
     }
     

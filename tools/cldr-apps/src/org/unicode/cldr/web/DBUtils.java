@@ -4,6 +4,7 @@
 package org.unicode.cldr.web;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
@@ -40,8 +41,10 @@ import com.ibm.icu.text.UnicodeSet;
  *
  */
 public class DBUtils {
-	private static final boolean DEBUG=CldrUtility.getProperty("TEST", false);
+	private static final boolean DEBUG=true; //CldrUtility.getProperty("TEST", false);
+	private static final boolean DEBUG_QUICKLY=false; //CldrUtility.getProperty("TEST", false);
 
+	
 	private static DBUtils instance = null;
 	private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
 	private static DataSource datasource = null;
@@ -73,6 +76,11 @@ public class DBUtils {
 	public static int db_number_open = 0;
 	public static int db_number_used = 0;
 	private static final StackTracker tracker = DEBUG?new StackTracker():null; // new StackTracker(); - enable, to track unclosed connections
+	
+	public Appendable stats(Appendable output) throws IOException {
+		return output.append("DBUtils: currently open: "+db_number_open)
+					.append(", total used: " + db_number_used);
+	}
 	
 	public static void closeDBConnection(Connection conn) {
 		if (conn != null) {
@@ -542,7 +550,7 @@ public class DBUtils {
 
 			if(DEBUG) {
 				long now = System.currentTimeMillis();
-				if(now-lastMsg > (DEBUG?6000:3600000) /*|| (db_number_used==5000)*/) {
+				if(now-lastMsg > (DEBUG_QUICKLY?6000:3600000) /*|| (db_number_used==5000)*/) {
 					lastMsg=now;
 					System.err.println("DBUtils: "+ db_number_open+" open, " + db_number_used+" used. " + StackTracker.currentStack());
 				}

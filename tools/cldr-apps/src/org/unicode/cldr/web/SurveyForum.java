@@ -705,7 +705,8 @@ public class SurveyForum {
 	 * Get CLDR File
 	 */
 	public static CLDRFile getCLDRFile(WebContext ctx) {
-		return ctx.sm.getCLDRFile(ctx.session, ctx.getLocale());
+		return ctx.getUserFile().cldrfile;
+		//return ctx.sm.getCLDRFile(ctx.session, ctx.getLocale());
 	}
 
 	public static void showSubmitButton(WebContext baseCtx) {

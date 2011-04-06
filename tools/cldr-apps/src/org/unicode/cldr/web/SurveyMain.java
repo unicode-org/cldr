@@ -35,6 +35,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -526,7 +527,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            doSql(ctx); // SQL interface
 	        } else {
 	        	Thread.currentThread().setName(baseThreadName+" ST ");
-	            doSession(ctx); // Session-based Survey main
+	        	doSession(ctx); // Session-based Survey main
 	        }
         } catch (Throwable t) {
         	ctx.println("<div class='ferrbox'><h2>Error processing session: </h2><pre>" + t.toString()+"</pre></div>");
@@ -1056,6 +1057,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         		ctx.println("baselinecache info: " + (gBaselineHash.size()) + " items."  +"<br>");
         	}
         	ctx.println("CLDRFile.distinguishedXPathStats(): " + CLDRFile.distinguishedXPathStats() + "<br>");
+        	
+        	try {
+				dbsrcfac.stats(ctx).append("<br>");
+	        	dbUtils.stats(ctx).append("<br>");
+			} catch (IOException e) {
+				ctx.println("Error " + e + " loading other stats<br/>");
+				e.printStackTrace();
+				
+			}
+        	ctx.println("Open user files: " + allUserLocaleStuffs.size()+"<br/>");
         	ctx.println("</div>");
 
         	StringBuffer buf = new StringBuffer();
@@ -1186,9 +1197,24 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("<hr>");
             ctx.println("<h2>Threads</h2>");
             Map<Thread, StackTraceElement[]> s = Thread.getAllStackTraces();
-            ctx.print("<ul>");
-            for(Thread t : s.keySet()) {
-            	ctx.println("<li><a href='#"+t.getId()+"'>"+t.getName()+"</a>  - "+t.getState().toString()+"</li>");
+            ctx.print("<ul id='threadList'>");
+            
+            Set<Thread> threadSet = new TreeSet<Thread>(new Comparator<Thread>() {
+				@Override
+				public int compare(Thread o1, Thread o2) {
+					int rc = 0;
+					rc = o1.getState().compareTo(o2.getState());
+					if(rc==0) {
+						rc = o1.getName().compareTo(o2.getName());
+					}
+					return rc;
+				}
+			});
+            threadSet.addAll(s.keySet());
+            
+            for(Thread t : threadSet) {
+            	ctx.println("<li class='"+t.getState().toString()+"'><a href='#"+t.getId()+"'>"+t.getName()+"</a>  - "+t.getState().toString());
+            	ctx.println("</li>");
             }
             ctx.println("</ul>");
            	// detect deadlocks
@@ -1206,7 +1232,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             
             
             // show all threads
-            for(Thread t : s.keySet()) {
+            for(Thread t : threadSet) {
 		    if(t == startupThread) { 
 			ctx.println("<a name='currentTask'></a>");
 		    }
@@ -1226,7 +1252,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     	} catch(Throwable tt) {
                     		ctx.println("[caught exception " + tt.toString()+"]<br>");
                     	}
-                    	
                     }
                     
             	}
@@ -5533,172 +5558,151 @@ o	            		}*/
      */
     public void showLocale(WebContext ctx, String which)
     {
-        if(HAVE_REMOVE&&which.equals(xREMOVE)) {
-            ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
-            ctx.session.getLocales().remove(ctx.field(QUERY_LOCALE));
-            ctx.println("<h2>Your session for " + ctx.field(QUERY_LOCALE) + " has been removed.</h2>");
-            doMain(ctx);
-            return;
-        }
-        DBEntry dbEntry = null;
-        UserLocaleStuff uf = null;
-        synchronized (ctx.session) {
-        	try { // session sync
-        		uf = getUserFile(ctx.session, ctx.getLocale());
+    	if(HAVE_REMOVE&&which.equals(xREMOVE)) {
+    		ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
+    		ctx.session.getLocales().remove(ctx.field(QUERY_LOCALE));
+    		ctx.println("<h2>Your session for " + ctx.field(QUERY_LOCALE) + " has been removed.</h2>");
+    		doMain(ctx);
+    		return;
+    	}
+    	UserLocaleStuff uf = null;
+    	synchronized (ctx.session) {
+    		uf = ctx.getUserFile();
 
-        		// regenerate these. Always.
-        		uf.dbSource = makeDBSource( ctx.getLocale()); // use context's connection.
-        		uf.cldrfile = makeCLDRFile(uf.dbSource);
-        		
-        		dbEntry = dbsrcfac.openEntry(uf.dbSource);
+    		CLDRFile cf = uf.cldrfile;
+    		if(cf == null) {
+    			throw new InternalError("CLDRFile is null!");
+    		}
+    		XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
+    		if(ourSrc == null) {
+    			throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
+    		}
+    		// Set up checks
+    		CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
 
-        		CLDRFile cf = uf.cldrfile;
-        		if(cf == null) {
-        			throw new InternalError("CLDRFile is null!");
-        		}
-        		XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
-        		if(ourSrc == null) {
-        			throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
-        		}
-        		// Set up checks
-        		CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
-
-        		// Locale menu
-        		if((which == null) ||
-        				which.equals("")) {
-        			which = xMAIN;
-        		}
+    		// Locale menu
+    		if((which == null) ||
+    				which.equals("")) {
+    			which = xMAIN;
+    		}
 
 
 
-        		if(ctx.hasField(QUERY_EXAMPLE)) {
-        			ctx.println("<h3>"+ctx.getLocale()+" "+ctx.getLocale().getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
-        		} else if(which.equals(R_STEPS)) {
-        			// short menu.
-        			ctx.includeFragment(STEPSMENU_TOP_JSP);
-        		} else {
-        			printLocaleTreeMenu(ctx, which);
-        		}
+    		if(ctx.hasField(QUERY_EXAMPLE)) {
+    			ctx.println("<h3>"+ctx.getLocale()+" "+ctx.getLocale().getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
+    		} else if(which.equals(R_STEPS)) {
+    			// short menu.
+    			ctx.includeFragment(STEPSMENU_TOP_JSP);
+    		} else {
+    			printLocaleTreeMenu(ctx, which);
+    		}
 
-        		// check for errors
-        		{
-        			List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.getEffectiveCoverageLevel());
+    		// check for errors
+    		{
+    			List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.getEffectiveCoverageLevel());
 
-        			if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
-        					(/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
-        				ctx.println("<div style='border: 1px dashed olive; padding: 0.2em; background-color: cream; overflow: auto;'>");
-        				ctx.println("<b>Possible problems with locale:</b><br>");   
-        				for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-        					CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-        					try{ 
-        						if (!status.getType().equals(status.exampleType)) {
-        							String cls = shortClassName(status.getCause());
-        							ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
-        							ctx.println(": ");
-        							printShortened(ctx, status.toString(), LARGER_MAX_CHARS);
-        							ctx.print("<br>");
-        						} else {
-        							ctx.println("<i>example available</i><br>");
-        						}
-        					} catch(Throwable t) {
-        						String result;
-        						try {
-        							result = status.toString();
-        						} catch(Throwable tt) {
-        							tt.printStackTrace();
-        							result = "(Error reading error: " + tt+")";
-        						}
-        						ctx.println("Error reading status item: <br><font size='-1'>"+result+"<br> - <br>" + t.toString()+"<hr><br>");
-        					}
-        				}
-        				ctx.println("</div>");
-        			}
-        		}
-
-
-        		// Find which pod they want, and show it.
-        		// NB keep these sections in sync with DataPod.xpathToPodBase() 
-        		WebContext subCtx = (WebContext)ctx.clone();
-        		subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
-        		subCtx.addQuery(QUERY_SECTION,which);
-        		for(int n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-        			if(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
-        				if(which.equals(PathUtilities.CURRENCIES)) {
-        					showPathList(subCtx, "//ldml/"+PathUtilities.NUMBERSCURRENCIES, null);
-        				} else if(which.equals(PathUtilities.TIMEZONES)) {
-        					try {
-        						showTimeZones(subCtx);
-        					} catch(Throwable t) {
-        						t.printStackTrace();
-        						System.err.println("Err showing timezones: " + t);                    		
-        						ctx.println("Error: " + t.toString());
-        					}
-        				} else {
-        					showLocaleCodeList(subCtx, which);
-        				}
-        				return;
-        			}
-        		}
-
-        		for(int j=0;j<CALENDARS_ITEMS.length;j++) {
-        			if(CALENDARS_ITEMS[j].equals(which)) {
-        				String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
-        				showPathList(subCtx, CAL_XPATH, null);
-        				return;
-        			}
-        		}
-
-        		for(int j=0;j<METAZONES_ITEMS.length;j++) {
-        			if(METAZONES_ITEMS[j].equals(which)) {
-        				showMetazones(subCtx,which);
-        				return;
-        			}
-        		}
-
-        		for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
-        			if(OTHERROOTS_ITEMS[j].equals(which)) {
-        				if(which.equals(GREGORIAN_CALENDAR)) {
-        					showPathList(subCtx, GREGO_XPATH, null);
-        				} else if(which.equals(OTHER_CALENDARS)) {
-        					showPathList(subCtx, PathUtilities.OTHER_CALENDARS_XPATH, null);
-        				} else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
-        					showPathList(subCtx, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, null);
-        				} else if(which.equals("units")) {
-        					showPathList(subCtx, "//ldml/units", null);
-        				} else if(PathUtilities.xOTHER.equals(which)) {
-        					showPathList(subCtx, "//ldml", null);
-        				} else if(which.equals(LDMLConstants.CHARACTERS)) {
-        					showPathList(subCtx, "//ldml/"+LDMLConstants.CHARACTERS, LDMLConstants.EXEMPLAR_CHARACTERS);
-        				} else {
-        					showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
-        				}
-        				return;
-        			}
-        		}
+    			if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
+    					(/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
+    				ctx.println("<div style='border: 1px dashed olive; padding: 0.2em; background-color: cream; overflow: auto;'>");
+    				ctx.println("<b>Possible problems with locale:</b><br>");   
+    				for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+    					CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+    					try{ 
+    						if (!status.getType().equals(status.exampleType)) {
+    							String cls = shortClassName(status.getCause());
+    							ctx.printHelpLink("/"+cls,"<!-- help with -->"+cls, true);
+    							ctx.println(": ");
+    							printShortened(ctx, status.toString(), LARGER_MAX_CHARS);
+    							ctx.print("<br>");
+    						} else {
+    							ctx.println("<i>example available</i><br>");
+    						}
+    					} catch(Throwable t) {
+    						String result;
+    						try {
+    							result = status.toString();
+    						} catch(Throwable tt) {
+    							tt.printStackTrace();
+    							result = "(Error reading error: " + tt+")";
+    						}
+    						ctx.println("Error reading status item: <br><font size='-1'>"+result+"<br> - <br>" + t.toString()+"<hr><br>");
+    					}
+    				}
+    				ctx.println("</div>");
+    			}
+    		}
 
 
-        		// fall through if wasn't one of the other roots
-        		if(RAW_MENU_ITEM.equals(which)) {
-        			doRaw(subCtx);
-        		} else if(which.startsWith(REPORT_PREFIX)) {
-        			doReport(subCtx, which);
-        		} else {
-        			doMain(subCtx);
-        		}
-            } finally {
-            	try {
-            		if(uf!=null) {
-            			uf.clear();
-            		}
-            		if(dbEntry!=null) {
-            			dbEntry.close();
-            		}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-            }
-        }
+    		// Find which pod they want, and show it.
+    		// NB keep these sections in sync with DataPod.xpathToPodBase() 
+    		WebContext subCtx = (WebContext)ctx.clone();
+    		subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
+    		subCtx.addQuery(QUERY_SECTION,which);
+    		for(int n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
+    			if(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
+    				if(which.equals(PathUtilities.CURRENCIES)) {
+    					showPathList(subCtx, "//ldml/"+PathUtilities.NUMBERSCURRENCIES, null);
+    				} else if(which.equals(PathUtilities.TIMEZONES)) {
+    					try {
+    						showTimeZones(subCtx);
+    					} catch(Throwable t) {
+    						t.printStackTrace();
+    						System.err.println("Err showing timezones: " + t);                    		
+    						ctx.println("Error: " + t.toString());
+    					}
+    				} else {
+    					showLocaleCodeList(subCtx, which);
+    				}
+    				return;
+    			}
+    		}
+
+    		for(int j=0;j<CALENDARS_ITEMS.length;j++) {
+    			if(CALENDARS_ITEMS[j].equals(which)) {
+    				String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
+    				showPathList(subCtx, CAL_XPATH, null);
+    				return;
+    			}
+    		}
+
+    		for(int j=0;j<METAZONES_ITEMS.length;j++) {
+    			if(METAZONES_ITEMS[j].equals(which)) {
+    				showMetazones(subCtx,which);
+    				return;
+    			}
+    		}
+
+    		for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
+    			if(OTHERROOTS_ITEMS[j].equals(which)) {
+    				if(which.equals(GREGORIAN_CALENDAR)) {
+    					showPathList(subCtx, GREGO_XPATH, null);
+    				} else if(which.equals(OTHER_CALENDARS)) {
+    					showPathList(subCtx, PathUtilities.OTHER_CALENDARS_XPATH, null);
+    				} else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
+    					showPathList(subCtx, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, null);
+    				} else if(which.equals("units")) {
+    					showPathList(subCtx, "//ldml/units", null);
+    				} else if(PathUtilities.xOTHER.equals(which)) {
+    					showPathList(subCtx, "//ldml", null);
+    				} else if(which.equals(LDMLConstants.CHARACTERS)) {
+    					showPathList(subCtx, "//ldml/"+LDMLConstants.CHARACTERS, LDMLConstants.EXEMPLAR_CHARACTERS);
+    				} else {
+    					showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
+    				}
+    				return;
+    			}
+    		}
+
+
+    		// fall through if wasn't one of the other roots
+    		if(RAW_MENU_ITEM.equals(which)) {
+    			doRaw(subCtx);
+    		} else if(which.startsWith(REPORT_PREFIX)) {
+    			doReport(subCtx, which);
+    		} else {
+    			doMain(subCtx);
+    		}
+    	}
     }
     
     private static Pattern reportSuffixPattern = Pattern.compile("^[0-9a-z]([0-9a-z_]*)$");
@@ -6593,6 +6597,8 @@ o	            		}*/
     
     HashMap<String,String> gBaselineHash = new HashMap<String,String>();
 
+	Set<UserLocaleStuff> allUserLocaleStuffs = new HashSet<UserLocaleStuff>();
+
     /* Sentinel value indicating that there was no baseline string available. */
     private static final String NULL_STRING = "";
 
@@ -6733,21 +6739,27 @@ o	            		}*/
      *
      */
     public class UserLocaleStuff extends Registerable {
+    	private DBEntry dbEntry = null;
         public CLDRFile cldrfile = null;
         private CLDRFile cachedCldrFile = null; /* If not null: use this for tests. Readonly. */
         public XMLSource dbSource = null;
         public Hashtable hash = new Hashtable();
         private ExampleGenerator exampleGenerator = null;
         private Registerable exampleIsValid = new Registerable(lcr, locale);
+		private int use;
+		CLDRFile fileForGenerator = null;
+
+		public void open() {
+			use++;
+			System.err.println("uls: open="+use);
+		}
         
         public ExampleGenerator getExampleGenerator() {
         	if(exampleGenerator==null || !exampleIsValid.isValid() ) {
-        		CLDRFile fileForGenerator = null;
         		//                if(CACHE_VXML_FOR_EXAMPLES) {
         		//                    fileForGenerator = getCLDRFileCache().getCLDRFile(locale, true);
         		//                } else {
         		//   System.err.println("!CACHE_VXML_FOR_EXAMPLES");
-        		fileForGenerator = new CLDRFile(dbSource,true);
         		//              }
 
         		if(fileForGenerator==null) {
@@ -6764,10 +6776,47 @@ o	            		}*/
             return exampleGenerator;
         }
         
-        public UserLocaleStuff(CLDRLocale locale) {
+        private String closeStack = null;
+        
+        public void close() {
+        	if(use<=0) {
+        		throw new InternalError("Already closed! use="+use+", closeStack:"+closeStack);
+        	}
+			use--;
+			closeStack = true?StackTracker.currentStack():null;
+			System.err.println("uls: close="+use);
+        	if(use>0) {
+        		return;
+        	}
+        	internalClose();
+			// TODO Auto-generated method stub
+            synchronized(allUserLocaleStuffs) {
+            	allUserLocaleStuffs.remove(this);
+            }
+		}
+        
+        public void internalClose() {
+            this.dbSource=null;
+            try {
+				this.dbEntry.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
+        
+        public boolean isClosed() {
+        	return this.dbSource==null;
+        }
+
+		public UserLocaleStuff(CLDRLocale locale) {
             super(lcr, locale);
             exampleIsValid.register();
 //    System.err.println("Adding ULS:"+locale);
+            synchronized(allUserLocaleStuffs) {
+            	allUserLocaleStuffs.add(this);
+            }
+            complete(locale);
         }
         
         public void clear() {
@@ -6831,13 +6880,15 @@ o	            		}*/
          * @param user
          * @param locale
          */
-        public void complete(CLDRLocale locale) {
+        private void complete(CLDRLocale locale) {
             // TODO: refactor.
             UserLocaleStuff uf = this;
             if(uf.cldrfile == null) {
                 uf.dbSource = makeDBSource( locale); // use context's connection.
+            	uf.dbEntry= dbsrcfac.openEntry(uf.dbSource);
                 uf.cldrfile = makeCLDRFile(uf.dbSource);
                 uf.cachedCldrFile = uf.makeCachedCLDRFile(uf.dbSource);
+        		fileForGenerator = new CLDRFile(dbSource,true);
             }
         }
     };
@@ -6867,36 +6918,30 @@ o	            		}*/
 //        return dbsrcfac.getCLDRFileCache();
     }
 
-	public CLDRFile getCLDRFile(CookieSession session, CLDRLocale locale) {
-        synchronized (session) { // session sync
-            UserLocaleStuff uf = getUserFile( session, locale);
-            CLDRFile cf = uf.cldrfile;
-            return cf;
-        }
-	}
-
     /**
      * Return the UserLocaleStuff for the current context.
-     * Any user of this should be within session sync (ctx.session)
+     * Any user of this should be within session sync (ctx.session) and must be balanced with calls to close();
      * @param ctx
      * @param user
      * @param locale
+     * @see UserLocaleStuff#close()
+     * @see WebContext#getUserFile()
      */
     public UserLocaleStuff getUserFile(CookieSession session,  CLDRLocale locale) {
         // has this locale been invalidated?
-        UserLocaleStuff uf = getOldUserFile(session, locale);
         //UserLocaleStuff uf = null;
-        if(uf == null) {
+        UserLocaleStuff uf = null; //getOldUserFile(session, locale);
+//        if(uf!=null && !uf.isValid()) {
+//        	uf.close();
+//        	uf = null;
+//        }
+//        if(uf == null) {
             uf = new UserLocaleStuff(locale);
-            session.putByLocale(USER_FILE_KEY, locale.toString(),uf);
-            uf.register(); // register with lcr
-        } else if(!uf.isValid()) {
-    //        System.err.println("Invalid, clearing: "+ uf.toString());
-            uf.clear();
-            uf.register(); // reregister
-        }
+//            session.putByLocale(USER_FILE_KEY, locale.toString(),uf);
+//            uf.register(); // register with lcr
+//        }
+        uf.open(); // incr count.
         
-        uf.complete( locale);
         int n = dbsrcfac.update();
         if(n>0) System.err.println("getUserFile() updated " + n + " locales.");
         return uf;
@@ -7437,6 +7482,15 @@ o	            		}*/
 //            XMLSource ourSrc = uf.dbSource;
 //            CLDRFile cf =  uf.cldrfile;
     	DBEntry entry = null;
+    	Thread curThread = Thread.currentThread();
+    	String threadName = curThread.getName();
+    	if(matcher!=null) {
+    		curThread.setName(threadName + ":" + ctx.getLocale() + ":" + matcher.toString());
+    	} else if(xpath!=null) {
+    		curThread.setName(threadName + ":" + ctx.getLocale() + ":" + xpt.getPrettyPath(xpath));
+    	} else {
+    		curThread.setName(threadName + ":" + ctx.getLocale() );
+    	}
     	try {
 	    	XMLSource ourSrc = dbsrcfac.getInstance(ctx.getLocale(),false);
 	    	CLDRFile cf = new CLDRFile(ourSrc,false);
@@ -7478,6 +7532,7 @@ o	            		}*/
         	} catch(SQLException se) {
         		System.err.println("SQLException when closing dbEntry : " + DBUtils.unchainSqlException(se));
         	}
+        	curThread.setName(threadName);
     	}
     }
 
@@ -7665,8 +7720,10 @@ o	            		}*/
         
         //boolean partialPeas = (matcher != null); // true if we are filtering the section
         boolean partialPeas = false; // TODO: always nonpartial
+        UserLocaleStuff uf = null;
         synchronized(ctx.session) {
-            UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
+            uf = ctx.getUserFile();
+
             CLDRFile cf = uf.cldrfile;
             XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
             CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
@@ -8278,12 +8335,14 @@ o	            		}*/
             // don't print 'new value' here until it is successful.
 
             boolean doFail = false;
+            UserLocaleStuff uf = null;
 
             // Test: is the value valid?
-            {
+            synchronized(ctx.session){
                 /* cribbed from elsewhere */
                 // The enclosion function already holds session sync
-                UserLocaleStuff uf = getUserFile(ctx.session, ctx.getLocale());
+                
+                uf=ctx.getUserFile();
                 // Set up checks
                 CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
                 List checkCldrResult = new ArrayList();
@@ -10800,6 +10859,8 @@ o	            		}*/
         try
         {
         	
+        	closeOpenUserLocaleStuff(true);
+        	
         	dbsrcfac.closeAllEntries();
             // shut down other connections
             try {
@@ -10837,7 +10898,17 @@ o	            		}*/
         }
     }
 
-    public static void main(String args[]) {
+    private void closeOpenUserLocaleStuff(boolean closeAll) {
+    	if(allUserLocaleStuffs.isEmpty()) return;
+    	System.err.println("Closing " + allUserLocaleStuffs.size() + " user files.");
+    	for(UserLocaleStuff uf : allUserLocaleStuffs) {
+    		if(!uf.isClosed()) {
+    			uf.internalClose();
+    		}
+    	}
+	}
+    
+	public static void main(String args[]) {
         System.out.println("Starting some test of SurveyTool locally....");
         try{
             cldrHome=getHome()+"/cldr";
@@ -10949,7 +11020,11 @@ o	            		}*/
                 } else if(xctx.field("sql").equals(vap)) {
                     sm.doSql(xctx);
                 } else {
-                    sm.doSession(xctx); // Session-based Survey main
+                	try {
+                		sm.doSession(xctx); // Session-based Survey main
+                	} finally {
+                		xctx.closeUserFile();
+                	}
                 }
                 //xctx.close();
                 System.err.println("\n\n"+reqTimer+" for " + arg);

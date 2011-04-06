@@ -62,6 +62,7 @@ public class JspWebContext extends WebContext {
 
 	/**
 	 * @return the non-resolved CLDRFile for the current locale.
+	 * @deprecated leaks UserFile
 	 */
 	public CLDRFile cldrFile() {
 		return SurveyForum.getCLDRFile(this);
@@ -72,8 +73,7 @@ public class JspWebContext extends WebContext {
 	 * @see SupplementalDataInfo
 	 */
 	public SupplementalDataInfo supplementalDataInfo() {
-		SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFile().getSupplementalDirectory());
-		return supplementalData;
+		return sm.getSupplementalDataInfo();
 	}
 	
 	/**

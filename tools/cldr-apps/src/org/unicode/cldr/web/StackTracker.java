@@ -66,4 +66,8 @@ public class StackTracker {
     public static String currentStack() {
     	return stackToString(Thread.currentThread().getStackTrace(),2);
     }
+
+	public boolean isEmpty() {
+		return stacks.isEmpty();
+	}
 }

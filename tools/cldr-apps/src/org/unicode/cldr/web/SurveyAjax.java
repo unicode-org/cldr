@@ -176,20 +176,30 @@ public class SurveyAjax extends HttpServlet {
                         List<CheckStatus> result = new ArrayList<CheckStatus>();
                         //CLDRFile file = CLDRFile.make(loc);
                         //CLDRFile file = mySession.
-                        CLDRFile file = sm.getUserFile(mySession, CLDRLocale.getInstance(loc)).cldrfile;
-                        cc.setCldrFileToCheck(file, SurveyMain.basicOptionsMap(), result);
-                        cc.check(xp, file.getFullXPath(xp), val, options, result);
-
+                        SurveyMain.UserLocaleStuff uf = null;
+                        boolean dataEmpty;
                         JSONWriter r = newJSONStatus(sm);
-                        r.put(SurveyMain.QUERY_FIELDHASH, fieldHash);
-
-                        r.put("testResults", JSONWriter.wrap(result));
-                        r.put("testsRun", cc.toString());
-                        r.put("testsV", val);
-                        r.put("testsLoc", loc);
-                        r.put("xpathTested", xp);
-                        r.put("dataEmpty", Boolean.toString(file.isEmpty()));
-
+                        synchronized(mySession) {
+	                        try {
+		                        uf = sm.getUserFile(mySession, CLDRLocale.getInstance(loc));
+		                        CLDRFile file = uf.cldrfile;
+		                        cc.setCldrFileToCheck(file, SurveyMain.basicOptionsMap(), result);
+		                        cc.check(xp, file.getFullXPath(xp), val, options, result);
+		                        dataEmpty = file.isEmpty();
+	                        
+		                        r.put(SurveyMain.QUERY_FIELDHASH, fieldHash);
+		
+		                        r.put("testResults", JSONWriter.wrap(result));
+		                        r.put("testsRun", cc.toString());
+		                        r.put("testsV", val);
+		                        r.put("testsLoc", loc);
+		                        r.put("xpathTested", xp);
+		                        r.put("dataEmpty", Boolean.toString(dataEmpty));
+	                        } finally {
+	                        	uf.close();
+	                        }
+                        }
+                        
                         send(r,out);
                     } else if(what.equals(WHAT_PREF)) {
                         String pref = request.getParameter("pref");

@@ -2918,7 +2918,7 @@ if(true == true)    throw new InternalError("removed from use.");
             
 //            System.err.println("PPC["+podBase+"] - ges-> " + oldSection);
             
-            SurveyMain.UserLocaleStuff uf = sm.getUserFile(ctx.session, ctx.getLocale());
+            SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
             CLDRFile cf = uf.cldrfile;
             if(cf == null) {
                 throw new InternalError("CLDRFile is null!");

@@ -49,6 +49,8 @@ import org.unicode.cldr.web.DBUtils.DBCloseable;
 import org.unicode.cldr.web.ErrorCheckManager.CachingErrorChecker;
 import org.unicode.cldr.web.MuxedSource.MuxFactory;
 
+import com.ibm.icu.dev.test.util.ElapsedTimer;
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CLDRDBSourceFactory extends Factory implements MuxFactory {
@@ -149,6 +151,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		}
 		
 		private Map<CLDRLocale,Map<String,Object>> stuff = new HashMap<CLDRLocale, Map<String,Object>>();
+		public String stack = DEBUG?StackTracker.currentStack():null;
 		
 		public Map<String,Object> get(CLDRLocale loc) {
 			Map<String, Object> r = stuff.get(loc);
@@ -181,6 +184,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		}
 		
 	}
+    
+	private static final boolean DEBUG = CldrUtility.getProperty("TEST", false);
+
 	public static Set<DBEntry>  allOpen = new HashSet<DBEntry>();
 	public static void closeAllEntries() throws SQLException {
 		if(allOpen.isEmpty()) {
@@ -189,12 +195,18 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			System.err.println(DBEntry.class.getName()+": Closing " + allOpen.size() + " items.");
 			for(DBEntry e : allOpen) {
 				e.close();
+				if(e.stack!=null) {
+					System.err.println("DBEntry still open: " + e.stack);
+				}
 			}
 			allOpen.clear();
 		}
+		
+		if(tracker!=null&&!tracker.isEmpty()) {
+			System.err.println("Open MyStatements: " + tracker);
+		}
 	}
 
-	private static final boolean DEBUG = CldrUtility.getProperty("TEST", false);
 	private static final boolean SHOW_TIMES=false;
 	private static final boolean SHOW_DEBUG=false;
 	private static final boolean TRACE_CONN=false;
@@ -462,6 +474,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 * it may be shared by certain CLDRDBSources, or lazy initialized.
 	 **/
 	public static class MyStatements implements DBCloseable, ConnectionHolder { 
+		public String stack = DEBUG?StackTracker.currentStack():null;
 		public Connection conn = null;
 		public PreparedStatement insert = null;
 //		public PreparedStatement queryStmt = null;
@@ -1309,6 +1322,43 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		    }
 		}
 
+		@Override
+	    public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+			if(pathPrefix!=null) {
+	    		super.getPathsWithValue(valueToMatch, pathPrefix, result);
+	    		return;
+			}
+
+			long t0 = System.currentTimeMillis();
+			
+			//super.getPathsWithValue(valueToMatch, pathPrefix, result);
+		    MyStatements stmts = null;
+		    try {
+		    	stmts = openStatements();
+			
+		    	
+		    	Object[][] array;
+		    	
+		    	if(pathPrefix==null) {
+		    		array = sm.dbUtils.sqlQueryArrayArrayObj(stmts.getConnectionAlias(), "select xpath from cldr_data where cldr_data.locale=? and cldr_data.value=?",
+		    					getLocaleID(), valueToMatch);
+		    	} else {
+		    		throw new InternalError("Not handled here"); //dead
+		    	}
+		    	
+		    	for(int i=0;i<array.length;i++) {
+		    		result.add(xpt.getById((Integer)array[i][0],stmts.getConnectionAlias()));
+		    	}
+		    	
+		    } catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+		    	stmts.closeOrThrow();
+		    }
+			
+			System.err.println("GPWV: " +getLocaleID()+ valueToMatch + "  - " + result.size() + " results in " + ElapsedTimer.elapsedTime(t0));
+		}
 
 		public void setDBEntry(DBEntry dbEntry) {
 			this.dbEntry = dbEntry;

@@ -1010,11 +1010,14 @@ public class DataSection extends Registerable {
 	            }
 	            CLDRFile baselineFile = ctx.sm.getBaselineFile();
 	            section.skippedDueToCoverage=0;
+            	ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Populating...';</script>"); ctx.flush();
+
 	            section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap(), workingCoverageLevel);
 				int popCount = section.getAll().size();
 	/*            if(SHOW_TIME) {
 	                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
 	            }*/
+            	ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."+popCount+" items';</script>"); ctx.flush();
 	            section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
 	            if(SHOW_TIME) {
 					int allCount = section.getAll().size();

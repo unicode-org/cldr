@@ -1322,7 +1322,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		    }
 		    }
 		}
-
+/*
 		@Override
 	    public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
 			if(pathPrefix!=null) {
@@ -1360,6 +1360,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			
 			System.err.println("GPWV: " +getLocaleID()+ valueToMatch + "  - " + result.size() + " results in " + ElapsedTimer.elapsedTime(t0));
 		}
+*/
 
 		public void setDBEntry(DBEntry dbEntry) {
 			this.dbEntry = dbEntry;
@@ -1558,7 +1559,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				return rv;
 			}
 
-			int pathInt = xpt.getByXpath(path, getConnectionAlias());
+			int pathInt = xpt.getByXpath(path);
 			if (SHOW_TIMES)
 				System.err.println("hasValueAtDPath:>> " + locale + ":"
 						+ pathInt + " " + (System.currentTimeMillis() - t0));
@@ -1601,7 +1602,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		public String getWinningPath(String path) 
 		{
 			String baseXpath = XPathTable.xpathToBaseXpath(path);
-			int xpath=xpt.getByXpath(baseXpath,getConnectionAlias());
+			int xpath=xpt.getByXpath(baseXpath);
 
 			// look for it in parents
 			for(CLDRLocale locale : CLDRLocale.getInstance(getLocaleID()).getParentIterator()) {

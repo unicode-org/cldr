@@ -41,8 +41,8 @@ import com.ibm.icu.text.UnicodeSet;
  *
  */
 public class DBUtils {
-	private static final boolean DEBUG=true; //CldrUtility.getProperty("TEST", false);
-	private static final boolean DEBUG_QUICKLY=false; //CldrUtility.getProperty("TEST", false);
+	private static final boolean DEBUG=CldrUtility.getProperty("TEST", false);
+	private static final boolean DEBUG_QUICKLY=CldrUtility.getProperty("TEST", false);
 
 	
 	private static DBUtils instance = null;

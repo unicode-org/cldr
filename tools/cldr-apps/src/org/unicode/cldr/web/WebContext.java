@@ -1241,7 +1241,11 @@ public class WebContext implements Cloneable, Appendable {
     
         String loadString = "data was loaded.";
         DataSection section = null;
+        
+        println("<i id='loadSection'>Loading, please wait...</i>");
+        
         synchronized(this) {
+        	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Checking cache';</script>"); flush();
             section = getExistingSection(prefix, ptype);
             if((section != null) && (!section.isValid())) {
                 section = null;
@@ -1250,15 +1254,18 @@ public class WebContext implements Cloneable, Appendable {
             if(section == null) {
                 CLDRProgressTask progress = sm.openProgress("Loading");
                 try {
-                	progress.update("<span title='"+sm.xpt.getPrettyPath(prefix)+"'>"+locale+"</span>");
+                	progress.update("<span title='"+sm.xpt.getPrettyPath(prefix)+"'>"+locale+"</span>"); flush();
                 	long t0 = System.currentTimeMillis();
                 	ElapsedTimer waitTimer = new ElapsedTimer("There was a delay of {0} waiting for your other windows");
                 	ElapsedTimer podTimer=null;
                 	String waitString;
+                	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Waiting for other windows';</script>"); flush();
                 	synchronized(session) {
                 		waitString = waitTimer.toString();
                 		podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
+                    	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading data...';</script>"); flush();
                 		section = DataSection.make(this, locale, prefix, false,ptype);
+                    	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>"); flush();
                 	}
                 	if((System.currentTimeMillis()-t0) > 10 * 1000) {
                 		println("<i><b>" + waitString+"<br/>"+podTimer + "</b></i><br/>");
@@ -1273,7 +1280,10 @@ public class WebContext implements Cloneable, Appendable {
                 	this.println("Error loading " + prefix + " / " + ptype + " in " + locale + " - " + t.toString());
                 } finally {
                 	progress.close();
+                	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>"); flush();
                 }
+            } else {
+            	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>"); flush();
             }
             section.register();
 //                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******

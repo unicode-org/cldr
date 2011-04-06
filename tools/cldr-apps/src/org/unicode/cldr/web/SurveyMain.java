@@ -74,6 +74,7 @@ import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CachingEntityResolver;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
@@ -153,6 +154,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }; 
     
     // ===== Configuration state
+	private static final boolean DEBUG=CldrUtility.getProperty("TEST", false);
     private static Phase currentPhase = null; /** set by CLDR_PHASE property. **/
     private static String oldVersion;
     private static String newVersion;
@@ -6783,7 +6785,7 @@ o	            		}*/
         		throw new InternalError("Already closed! use="+use+", closeStack:"+closeStack);
         	}
 			use--;
-			closeStack = true?StackTracker.currentStack():null;
+			closeStack = DEBUG?StackTracker.currentStack():null;
 			System.err.println("uls: close="+use);
         	if(use>0) {
         		return;
@@ -7512,14 +7514,20 @@ o	            		}*/
                 } else {
                     // first, do submissions.
                     if(canModify) {
-                        DataSection oldSection = ctx.getExistingSection(fullThing);
-                        if(processPeaChanges(ctx, oldSection, cf, ourSrc, new DefaultDataSubmissionResultHandler(ctx))) {
-                            int j = vet.updateResults(oldSection.locale,entry.getConnectionAlias()); // bach 'em
-                            int d = this.dbsrcfac.update(entry.getConnectionAlias()); // then the fac so it can update
-                            System.err.println("sm:ppc:dbsrcfac: "+d+" deferred updates done.");
-                            ctx.println("<br> You submitted data or vote changes, <!-- and " + j + " results were updated. As a result, --> your items may show up under the 'priority' or 'proposed' categories.<br>");
+                        ctx.println("<i id='processPea'>Processing submitted data...</i><br/>");ctx.flush();
+                        try {
+	                        DataSection oldSection = ctx.getExistingSection(fullThing);
+	                        if(processPeaChanges(ctx, oldSection, cf, ourSrc, new DefaultDataSubmissionResultHandler(ctx))) {
+	                            int j = vet.updateResults(oldSection.locale,entry.getConnectionAlias()); // bach 'em
+	                            int d = this.dbsrcfac.update(entry.getConnectionAlias()); // then the fac so it can update
+	                            System.err.println("sm:ppc:dbsrcfac: "+d+" deferred updates done.");
+	                            ctx.println("<br> You submitted data or vote changes, <!-- and " + j + " results were updated. As a result, --> your items may show up under the 'priority' or 'proposed' categories.<br>");
+	                        }
+                        } finally {
+                        	ctx.println("<script type=\"text/javascript\">document.getElementById('processPea').innerHTML='';</script>"); ctx.flush();
                         }
                     }
+                    ctx.flush(); // give them some status.
             //        System.out.println("Pod's full thing: " + fullThing);
                     DataSection section = ctx.getSection(fullThing); // we load a new pod here - may be invalid by the modifications above.
                     showPeas(ctx, section, canModify, matcher, false);
@@ -8999,9 +9007,11 @@ o	            		}*/
 	    ctx.print("<tr>");
 	    ctx.print("<th colspan=2>Votes</th>");
 	    ctx.print("<td colspan="+(PODTABLE_WIDTH-2)+">");
-			
+		
+	    Vetting.DataTester tester  = null;
 	    try {
-	    	Race r =  vet.getRace(section.locale, p.base_xpath);
+	    	tester = vet.getTester(uf.dbSource);
+	    	Race r =  vet.getRace(section.locale, p.base_xpath,uf.dbEntry.getConnectionAlias(),tester);
 	    	ctx.println("<i>Voting results by organization:</i><br>");
 	    	ctx.print("<table class='list' border=1 summary='voting results by organization'>");
 	    	ctx.print("<tr class='heading'><th>Organization</th><th>Organization's Vote</th><th>Item</th><th>Score</th><th>Conflicting Votes</th></tr>");

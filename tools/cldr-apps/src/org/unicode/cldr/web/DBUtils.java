@@ -41,8 +41,8 @@ import com.ibm.icu.text.UnicodeSet;
  *
  */
 public class DBUtils {
-	private static final boolean DEBUG=CldrUtility.getProperty("TEST", false);
-	private static final boolean DEBUG_QUICKLY=CldrUtility.getProperty("TEST", false);
+	private static final boolean DEBUG=false;//CldrUtility.getProperty("TEST", false);
+	private static final boolean DEBUG_QUICKLY=false;//CldrUtility.getProperty("TEST", false);
 
 	
 	private static DBUtils instance = null;
@@ -79,7 +79,12 @@ public class DBUtils {
 	
 	public Appendable stats(Appendable output) throws IOException {
 		return output.append("DBUtils: currently open: "+db_number_open)
-					.append(", total used: " + db_number_used);
+		.append(", max open: " + db_max_open)
+		.append(", total used: " + db_number_used);
+	}
+	public Appendable statsShort(Appendable output) throws IOException {
+		return output.append(""+db_number_open)
+		.append("/" + db_max_open);
 	}
 	
 	public static void closeDBConnection(Connection conn) {
@@ -212,6 +217,9 @@ public class DBUtils {
 		return out.toString();
 	}
 
+	public static DBUtils peekInstance() {
+		return instance;
+	}
 	public synchronized static DBUtils getInstance() {
 		if (instance == null) {
 			instance = new DBUtils();
@@ -464,11 +472,14 @@ public class DBUtils {
 				c = datasource.getConnection();
 				DatabaseMetaData dmd = c.getMetaData();
 				dbInfo = dmd.getDatabaseProductName()+" v"+dmd.getDatabaseProductVersion();
+				loadSqlHacks();
+				if(db_Derby) {
+					c.setAutoCommit(false);
+				}
 				boolean autoCommit = c.getAutoCommit();
 				if(autoCommit==true) {
 					throw new IllegalArgumentException("autoCommit was true, expected false. Check your configuration.");
 				}
-				loadSqlHacks();
 				System.err.println("Metadata: "+ dbInfo + ", autocommit: " + autoCommit);
 			}
 		} catch (SQLException  t) {
@@ -541,22 +552,26 @@ public class DBUtils {
 	}
 	
 	long lastMsg = -1;
+	private int db_max_open=0;
 	
 	
 	public Connection getDBConnection(String options) {
 		try {
-			db_number_open++;
+			db_max_open=Math.max(db_max_open, db_number_open++);
 			db_number_used++;
 
 			if(DEBUG) {
 				long now = System.currentTimeMillis();
 				if(now-lastMsg > (DEBUG_QUICKLY?6000:3600000) /*|| (db_number_used==5000)*/) {
 					lastMsg=now;
-					System.err.println("DBUtils: "+ db_number_open+" open, " + db_number_used+" used. " + StackTracker.currentStack());
+					System.err.println("DBUtils: "+ db_number_open+" open, "+ db_max_open+" max,  " + db_number_used+" used. " + StackTracker.currentStack());
 				}
 			}
 			
 			Connection c = datasource.getConnection();
+			if(db_Derby) {
+				c.setAutoCommit(false);
+			}
 			if(SurveyMain.isUnofficial&&tracker!=null) tracker.add(c);
 			return c;
 		} catch (SQLException se) {

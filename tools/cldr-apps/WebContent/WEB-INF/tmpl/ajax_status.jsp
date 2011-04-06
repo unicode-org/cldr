@@ -115,13 +115,17 @@ function do_change(fieldhash, value, xpid, locale, session) {
 			e_div.innerHTML = newHtml;
         },
         error: function(err, ioArgs){
-            var st_err =  document.getElementById('st_err');
-            wasBusted = true;
-            st_err.className = "ferrbox";
-            st_err.innerHTML="Disconnected from Survey Tool while processing a field: "+err.name + " <br> " + err.message;
-            updateIf('progress','<hr><i>(disconnected from Survey Tool)</i></hr>');
-            updateIf('uptime','down');
-            updateIf('visitors','nobody');
+        	e_div.innerHTML = '';
+        	e_div.className="";
+//			v_td.className="v_warn";
+			v_tr.className="";
+//            var st_err =  document.getElementById('st_err');
+//            wasBusted = true;
+//            st_err.className = "ferrbox";
+//            st_err.innerHTML="Disconnected from Survey Tool while processing a field: "+err.name + " <br> " + err.message;
+//            updateIf('progress','<hr><i>(disconnected from Survey Tool)</i></hr>');
+//            updateIf('uptime','down');
+//            updateIf('visitors','nobody');
         }
     });
 }

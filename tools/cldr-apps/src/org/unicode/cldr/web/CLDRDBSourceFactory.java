@@ -30,6 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.logging.Logger;
 
 import org.unicode.cldr.icu.LDMLConstants;
@@ -131,10 +132,12 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		
 		@Override
 		public Connection getConnectionAlias() {
-			if(conn==null) {
-				conn = sm.dbUtils.getDBConnection();
-			}
-			return conn;
+			return openStatements().getConnectionAlias();
+//			if(conn==null) {
+//				conn = 
+//				conn = sm.dbUtils.getDBConnection();
+//			}
+//			return conn;
 		}
 
 		@Override
@@ -150,32 +153,48 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			}
 			allOpen .remove(this);
 		}
+
+		@Override
+		public String toString() {
+			return "{DBEntry: (stmts:" + stmts+"), (conn:"+conn+"), isInAllOpen:"+allOpen.contains(this)+", }";
+		}
 		
-		private Map<CLDRLocale,Map<String,Object>> stuff = new HashMap<CLDRLocale, Map<String,Object>>();
+		private final class LocaleEntry extends Registerable{
+			protected LocaleEntry(LocaleChangeRegistry lcr, CLDRLocale locale) {
+				super(lcr, locale);
+				register();
+			}
+
+			public Map<String,Object> entries = new TreeMap<String,Object>();
+		}
+		private Map<CLDRLocale,LocaleEntry> stuff = new HashMap<CLDRLocale,LocaleEntry>();
+		
 		public String stack = DEBUG?StackTracker.currentStack():null;
 		
-		public Map<String,Object> get(CLDRLocale loc) {
-			Map<String, Object> r = stuff.get(loc);
-			if(r==null) {
-				stuff.put(loc, r = new HashMap<String,Object>());
+		public final Map<String,Object> get(CLDRLocale loc) {
+			LocaleEntry rr = stuff.get(loc);
+			if(rr==null||!rr.isValid()) { 
+				// TODO: revalidate (save an obj)
+				rr = new LocaleEntry(sm.lcr,loc);
+				stuff.put(loc, rr);
 			}
-			return r;
+			return rr.entries;
 		}
-		public Object get(CLDRLocale loc, String key) {
+		public final Object get(CLDRLocale loc, String key) {
 			return get(loc).get(key);
 		}
-		public Object put(CLDRLocale loc, String key, Object o) {
+		public final Object put(CLDRLocale loc, String key, Object o) {
 			return get(loc).put(key, o);
 		}
 
-		public Object get(String locale, Key oldkeyset) {
+		public final Object get(String locale, Key oldkeyset) {
 			return get(CLDRLocale.getInstance(locale),oldkeyset.name());
 		}
 
-		public Object put(String locale, Key oldkeyset,Object o) {
+		public final Object put(String locale, Key oldkeyset,Object o) {
 			return put(CLDRLocale.getInstance(locale),oldkeyset.name(),o);
 		}
-		public MyStatements openStatements() {
+		public final MyStatements openStatements() {
 			if(stmts==null) {
 				MyStatements newStmts = CLDRDBSourceFactory.this.openStatements();
 				newStmts.lockOpen(true);
@@ -519,7 +538,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			}
 			return ps;
 		}
-
+		
 		public void lockOpen(boolean b) {
 			if(b==false && avoidedClose>0 && DEBUG) {
 				System.err.println("Stmts: avoidedclose " + avoidedClose);
@@ -1559,7 +1578,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				return rv;
 			}
 
-			int pathInt = xpt.getByXpath(path);
+			int pathInt = xpt.getByXpath(path,getConnectionAlias());
 			if (SHOW_TIMES)
 				System.err.println("hasValueAtDPath:>> " + locale + ":"
 						+ pathInt + " " + (System.currentTimeMillis() - t0));
@@ -1602,7 +1621,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		public String getWinningPath(String path) 
 		{
 			String baseXpath = XPathTable.xpathToBaseXpath(path);
-			int xpath=xpt.getByXpath(baseXpath);
+			int xpath=xpt.getByXpath(baseXpath,getConnectionAlias());
 
 			// look for it in parents
 			for(CLDRLocale locale : CLDRLocale.getInstance(getLocaleID()).getParentIterator()) {
@@ -1621,7 +1640,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		 * 
 		 * @return null if no dbEntry
 		 */
-		private Connection getConnectionAlias() {
+		private final Connection getConnectionAlias() {
 			if(dbEntry==null) {
 				return null;
 			} else {

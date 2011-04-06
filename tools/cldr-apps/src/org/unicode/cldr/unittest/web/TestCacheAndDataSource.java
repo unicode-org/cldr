@@ -72,7 +72,9 @@ public class TestCacheAndDataSource  extends TestFmwk {
 		int myuserId = dbsrcfac.sm.reg.get(null,"admin@","[::1]",true).id;
 		int[] junkType = new int[1];
 		
-		dbsrcfac.sm.vet.updateResults();
+		for(String s : someLocales ) {	
+			dbsrcfac.sm.vet.updateResults(CLDRLocale.getInstance(s));
+		}
 		int updcount;
 		updcount= dbsrcfac.update();
 		logln("update: " + updcount);
@@ -104,7 +106,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 			}
 			updcount= dbsrcfac.update();
 			logln("added & voted alt, update: " + updcount);
-			updcount = dbsrcfac.sm.vet.updateResults();
+			updcount = dbsrcfac.sm.vet.updateResults(l);
 			logln("Results updated: " + updcount);
 			CLDRDBSourceFactory.sm.updateLocale(l);
 		}
@@ -157,7 +159,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 			}
 			updcount = dbsrcfac.update();
 			logln("changed to (base), updates: " + updcount);
-			updcount = dbsrcfac.sm.vet.updateResults();
+			updcount = dbsrcfac.sm.vet.updateResults(l);
 			logln("Results updated: " + updcount);
 			CLDRDBSourceFactory.sm.updateLocale(l);
 		}
@@ -202,7 +204,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 			}
 			updcount = dbsrcfac.update();
 			logln("changed to (unvote), updates: " + updcount);
-			updcount = dbsrcfac.sm.vet.updateResults();
+			updcount = dbsrcfac.sm.vet.updateResults(l);
 			logln("Results updated: " + updcount);
 			CLDRDBSourceFactory.sm.updateLocale(l);
 		}
@@ -245,7 +247,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 			}
 			updcount = dbsrcfac.update();
 			logln("changed to (unvote), updates: " + updcount);
-			updcount = dbsrcfac.sm.vet.updateResults();
+			updcount = dbsrcfac.sm.vet.updateResults(l);
 			logln("Results updated: " + updcount);
 			CLDRDBSourceFactory.sm.updateLocale(l);
 		}

@@ -976,7 +976,6 @@ public class DataSection extends Registerable {
         if(sm.isUnofficial) System.err.println("Loaded "+ newSet.size() + " from " + matchName + " - base xpath ("+rowsHash.size()+")  = " + this.xpathPrefix);
         return newSet.toArray(new DataRow[newSet.size()]);
     }
-    
 
 	/**
 	 * Create, populate, and complete a DataSection given the specified locale and prefix
@@ -985,54 +984,41 @@ public class DataSection extends Registerable {
 	 * @param prefix XPATH prefix
 	 * @param simple if true, means that data is simply xpath+type. If false, all xpaths under prefix.
 	 */
-	public static DataSection make(WebContext ctx, CLDRLocale locale, String prefix, boolean simple, String ptype) {
-		DataSection section = new DataSection(ctx.sm, locale, prefix, ptype);
-//        section.simple = simple;
-        SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
-  
-        //XMLSource ourSrc = uf.dbSource;
-        
-        DBEntry entry = null;
-        try {
-	        XMLSource ourSrc = ctx.sm.dbsrcfac.getInstance(locale);
-	        entry = ctx.sm.dbsrcfac.openEntry(ourSrc);
-	        uf.dbSource = ourSrc;
-	        synchronized(ourSrc) {
-	            CheckCLDR checkCldr = uf.getCheck(ctx);
-	            if(checkCldr == null) {
-	                throw new InternalError("checkCldr == null");
-	            }
-	            String workingCoverageLevel = section.getPtype();
-	            com.ibm.icu.dev.test.util.ElapsedTimer cet;
-	            if(SHOW_TIME) {
-	                cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
-	                System.err.println("Begin populate of " + locale + " // " + prefix+":"+workingCoverageLevel + " - is:" + ourSrc.getClass().getName());
-	            }
-	            CLDRFile baselineFile = ctx.sm.getBaselineFile();
-	            section.skippedDueToCoverage=0;
-            	ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Populating...';</script>"); ctx.flush();
+    public static DataSection make(WebContext ctx, CLDRLocale locale, String prefix, boolean simple, String ptype) {
+    	DataSection section = new DataSection(ctx.sm, locale, prefix, ptype);
+    	//        section.simple = simple;
+    	SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
 
-	            section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap(), workingCoverageLevel);
-				int popCount = section.getAll().size();
-	/*            if(SHOW_TIME) {
+    	XMLSource ourSrc = uf.dbSource;
+    	synchronized(ctx.session) {
+    		CheckCLDR checkCldr = uf.getCheck(ctx);
+    		if(checkCldr == null) {
+    			throw new InternalError("checkCldr == null");
+    		}
+    		String workingCoverageLevel = section.getPtype();
+    		com.ibm.icu.dev.test.util.ElapsedTimer cet;
+    		if(SHOW_TIME) {
+    			cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
+    			System.err.println("Begin populate of " + locale + " // " + prefix+":"+workingCoverageLevel + " - is:" + ourSrc.getClass().getName());
+    		}
+    		CLDRFile baselineFile = ctx.sm.getBaselineFile();
+    		section.skippedDueToCoverage=0;
+    		ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Populating...';</script>"); ctx.flush();
+
+    		section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap(), workingCoverageLevel);
+    		int popCount = section.getAll().size();
+    		/*            if(SHOW_TIME) {
 	                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
 	            }*/
-            	ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."+popCount+" items';</script>"); ctx.flush();
-	            section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
-	            if(SHOW_TIME) {
-					int allCount = section.getAll().size();
-	                System.err.println("Populate+complete " + locale + " // " + prefix +":"+section.getPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
-	            }
-	        }
-        } finally {
-        	try {
-        		if(entry!=null) entry.close();
-        	} catch(SQLException se) {
-        		System.err.println("SQLException when closing dbEntry : " + DBUtils.unchainSqlException(se));
-        	}
-        }
-		return section;
-	}
+    		ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."+popCount+" items';</script>"); ctx.flush();
+    		section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
+    		if(SHOW_TIME) {
+    			int allCount = section.getAll().size();
+    			System.err.println("Populate+complete " + locale + " // " + prefix +":"+section.getPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
+    		}
+    	}
+    	return section;
+    }
     
     private String getPtype() {
         return ptype;

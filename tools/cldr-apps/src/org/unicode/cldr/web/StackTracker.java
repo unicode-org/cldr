@@ -1,10 +1,11 @@
 package org.unicode.cldr.web;
 
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Map;
 
 
-public class StackTracker {
+public class StackTracker implements Iterable<Object>{
     private Hashtable<Object,String> stacks = new Hashtable<Object,String>();
     
     /**
@@ -69,5 +70,10 @@ public class StackTracker {
 
 	public boolean isEmpty() {
 		return stacks.isEmpty();
+	}
+
+	@Override
+	public Iterator<Object> iterator() {
+		return stacks.keySet().iterator();
 	}
 }

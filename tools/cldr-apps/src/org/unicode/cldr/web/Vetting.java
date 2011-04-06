@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1048,7 +1049,6 @@ public class Vetting {
     	int ncount = 0; // new count
     	int ucount = 0; // update count
     	int updates = 0;
-    	int base_xpath=-1;
     	// two lists here.
     	//  #1  results that are missing (unique CLDR_DATA.base_xpath but no CLDR_RESULT).  Use 'insert' instead of 'update', no 'old' data.
     	//  #2  results that are out of date (CLDR_VET with same base_xpath but later modtime.).  Use 'update' instead of 'insert'. (better yet, use an updatable resultset).
@@ -1068,6 +1068,7 @@ public class Vetting {
     	PreparedStatement insertStatus=null;
     	DBEntry entry = null;
     	XMLSource src = null;
+    	int last_base_xpath=-1;
     	try {
     		try {
     			rmResultLoc=prepare_rmResultLoc(conn);
@@ -1106,34 +1107,41 @@ public class Vetting {
     			//                ElapsedTimer et_m = new ElapsedTimer();
     			ResultSet rs = missingResults.executeQuery();
     			//                System.err.println("Missing results for " + locale + " found in " + et_m.toString());
-    			
-    			DataTester tester = getTester(src);
+    			List<Integer> missingResultsList = new LinkedList<Integer>();
     			while(rs.next()) {
+    		    	int base_xpath=-1;
     				ncount++;
-    				base_xpath = rs.getInt(1);
+    				last_base_xpath = base_xpath = rs.getInt(1);
 
+    				missingResultsList.add(base_xpath);
     				//todoPaths.remove(new Integer(base_xpath));
-    				{
-    			        int resultXpath = -1;
-    			        int fallbackXpath = -1;
+    			}
+    			
+    			if(!missingResultsList.isEmpty()) {
+	    			DataTester tester = getTester(src);
+					for(int base_xpath : missingResultsList)
+					{
+						last_base_xpath=base_xpath;
 
-    			        boolean disputed = false; 
-    			        //queryValue.setString(1,locale.toString());
-    			        
-    			        // Step 0: gather all votes
-    					Race r = new Race(this, locale);
-    					r.setTester(tester);
-    					r.clear(base_xpath, locale, -1);
-    					resultXpath = r.optimal(conn);
-    					
-    			        racesToUpdate.add(r);
-    			        
-    					// make the Race update itself ( we don't do this if it's just investigatory)
-                        synchronized (this) {
-                            int rc = r.updateDB(conn);
-                            updates |= rc;
-                        }
-    				}
+						int resultXpath = -1;
+				        int fallbackXpath = -1;
+				        boolean disputed = false; 
+				        //queryValue.setString(1,locale.toString());
+				        
+				        // Step 0: gather all votes
+						Race r = new Race(this, locale);
+						r.setTester(tester);
+						r.clear(base_xpath, locale, -1);
+						resultXpath = r.optimal(conn);
+						
+				        racesToUpdate.add(r);
+				        
+						// make the Race update itself ( we don't do this if it's just investigatory)
+	                    synchronized (this) {
+	                        int rc = r.updateDB(conn);
+	                        updates |= rc;
+	                    }
+					}
     			}
     			//                System.err.println("Missing results "+ncount+" for " + locale + " updated in " + et_m.toString());
     			// out of date results..
@@ -1175,7 +1183,7 @@ public class Vetting {
     		}
     	} catch ( SQLException se ) {
     		String complaint = "Vetter:  couldn't update vote results for  " + locale + " - " + DBUtils.unchainSqlException(se) + 
-    		"base_xpath#"+base_xpath+" "+sm.xpt.getById(base_xpath);
+    		"last base_xpath#"+last_base_xpath+" "+sm.xpt.getById(last_base_xpath);
     		logger.severe(complaint);
     		se.printStackTrace();
     		throw new RuntimeException(complaint);

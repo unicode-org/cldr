@@ -1184,6 +1184,8 @@ public class WebContext implements Cloneable, Appendable {
     
 // DataPod functions
     private static final String DATA_POD = "DataPod_";
+    private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
+
     
     /**
      * Get the DataSection for the given xpath prefix and default ptype, even if it may be no longer valid.
@@ -1231,67 +1233,70 @@ public class WebContext implements Cloneable, Appendable {
      * @param prefix
      */
     DataSection getSection(String prefix, String ptype) {
-        if(hasField("srl_veryslow")&&sm.isUnofficial) {
-        	// TODO: parameterize
-        	// test case: make the data section 50x
-            for(int q=0;q<50;q++) {
-                DataSection.make(this, locale, prefix, false,ptype);
-            }
-        }
-    
-        String loadString = "data was loaded.";
-        DataSection section = null;
-        
-        println("<i id='loadSection'>Loading, please wait...</i>");
-        
-        synchronized(this) {
-        	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Checking cache';</script>"); flush();
-            section = getExistingSection(prefix, ptype);
-            if((section != null) && (!section.isValid())) {
-                section = null;
-                loadString = "data was re-loaded due to a new user submission.";
-            }
-            if(section == null) {
-                CLDRProgressTask progress = sm.openProgress("Loading");
-                try {
-                	progress.update("<span title='"+sm.xpt.getPrettyPath(prefix)+"'>"+locale+"</span>"); flush();
-                	long t0 = System.currentTimeMillis();
-                	ElapsedTimer waitTimer = new ElapsedTimer("There was a delay of {0} waiting for your other windows");
-                	ElapsedTimer podTimer=null;
-                	String waitString;
-                	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Waiting for other windows';</script>"); flush();
-                	synchronized(session) {
-                		waitString = waitTimer.toString();
-                		podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
-                    	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading data...';</script>"); flush();
-                		section = DataSection.make(this, locale, prefix, false,ptype);
-                    	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>"); flush();
-                	}
-                	if((System.currentTimeMillis()-t0) > 10 * 1000) {
-                		println("<i><b>" + waitString+"<br/>"+podTimer + "</b></i><br/>");
-                	}
-                } catch (OutOfMemoryError oom) {
-                	System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);
-                	oom.printStackTrace();
-                	this.println("Error loading " + prefix + " / " + ptype + " in " + locale + " - " + oom.toString());
-                } catch (Throwable t) {
-                	System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);
-                	t.printStackTrace();
-                	this.println("Error loading " + prefix + " / " + ptype + " in " + locale + " - " + t.toString());
-                } finally {
-                	progress.close();
-                	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>"); flush();
-                }
-            } else {
-            	println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>"); flush();
-            }
-            section.register();
-//                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
-	}
-            putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference<DataSection>(section)); // PUT******
-            putByLocale("__keeper:"+prefix+":"+ptype, section); // put into user's hash so it wont go out of scope
-            section.touch();
-            return section;
+    	if(hasField("srl_veryslow")&&sm.isUnofficial) {
+    		// TODO: parameterize
+    		// test case: make the data section 50x
+    		for(int q=0;q<50;q++) {
+    			DataSection.make(this, locale, prefix, false,ptype);
+    		}
+    	}
+
+    	String loadString = "data was loaded.";
+    	DataSection section = null;
+
+    	println("<i id='loadSection'>Loading, please wait...</i>");
+
+    	synchronized(this) {
+    		println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Checking cache';</script>"); flush();
+    		section = getExistingSection(prefix, ptype);
+    		if((section != null) && (!section.isValid())) {
+    			section = null;
+    			loadString = "data was re-loaded due to a new user submission.";
+    		}
+    		if(section == null) {
+    			CLDRProgressTask progress = sm.openProgress("Loading");
+    			try {
+    				progress.update("<span title='"+sm.xpt.getPrettyPath(prefix)+"'>"+locale+"</span>"); flush();
+    				long t0 = System.currentTimeMillis();
+    				ElapsedTimer waitTimer = new ElapsedTimer("There was a delay of {0} waiting for your other windows");
+    				ElapsedTimer podTimer=null;
+    				String waitString;
+    				println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Waiting for other windows';</script>"); flush();
+    				synchronized(session) {
+    					waitString = waitTimer.toString();
+    					podTimer = new ElapsedTimer("There was a delay of {0} as " + loadString);
+    					println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading data...';</script>"); flush();
+    					section = DataSection.make(this, locale, prefix, false,ptype);
+    					println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>"); flush();
+    				}
+    				if((System.currentTimeMillis()-t0) > 10 * 1000) {
+    					println("<i><b>" + waitString+"<br/>"+podTimer + "</b></i><br/>");
+    				}
+    			} catch (OutOfMemoryError oom) {
+    				System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);
+    				oom.printStackTrace();
+    				this.println("Error loading " + prefix + " / " + ptype + " in " + locale + " - " + oom.toString());
+    			} catch (Throwable t) {
+    				System.err.println("Error loading " + prefix + " / " + ptype + " in " + locale);
+    				t.printStackTrace();
+    				this.println("Error loading " + prefix + " / " + ptype + " in " + locale + " - " + t.toString());
+    			} finally {
+    				progress.close();
+    				println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>"); flush();
+    			}
+    		} else {
+    			if(DEBUG) {
+    				System.err.println("Re-using cached section: " + section.toString());
+    			}
+    			println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='';</script>"); flush();
+    		}
+    		section.register();
+    		//                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
+    	}
+    	putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference<DataSection>(section)); // PUT******
+    	putByLocale("__keeper:"+prefix+":"+ptype, section); // put into user's hash so it wont go out of scope
+    	section.touch();
+    	return section;
     }
 
 // Internal Utils

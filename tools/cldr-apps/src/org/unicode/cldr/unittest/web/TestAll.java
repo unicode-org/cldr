@@ -226,6 +226,7 @@ public static void main(String[] args) {
 	  Properties props = new Properties();
 	  props.put("poolPreparedStatements","true");
 	  props.put("maxOpenPreparedStatements","150");
+	  props.put("defaultAutoCommit", "false");
 	  /*
 	   * 			            maxActive="8"
 			            maxIdle="4"

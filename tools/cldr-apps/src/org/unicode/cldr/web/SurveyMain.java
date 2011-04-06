@@ -2708,7 +2708,7 @@ o	            		}*/
         if(load>0.0) {
             int n=256-(int)Math.floor((load/procs)*256.0);
             String asTwoHexString=Integer.toHexString(n);
-        	out.append("/<span style='background-color: #ff");
+        	out.append("/<span title='Total System Load' style='background-color: #ff");
 	        if(asTwoHexString.length()==1) {
 	        	out.append("0");
 	        	out.append(asTwoHexString);
@@ -2719,6 +2719,18 @@ o	            		}*/
 	        	out.append(asTwoHexString);
 	        }
 	        out.append("'>load:"+(int)Math.floor(load*100.0)+"%</span>");
+        }
+        {
+        	DBUtils theDb = DBUtils.peekInstance();
+        	if(theDb!=null) {
+        		try {
+        			out.append(" <span title='DB Connections/Max Connections'>db:");
+					theDb.statsShort(out);
+					out.append("</span>");
+				} catch (IOException e) {
+					//e.printStackTrace();
+				}
+        	}
         }
         return out.toString();
     }

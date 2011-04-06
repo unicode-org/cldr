@@ -483,6 +483,8 @@ public class Race {
      */
     private int gatherVotes(Connection conn) throws SQLException {
     	PreparedStatement queryVoteForBaseXpath=null, queryValue=null, dataByBase=null;
+		Map<Chad,Integer> possibles = new HashMap<Chad,Integer>(); // checking if it is disqualified could load other bundles, leading to contention on dataByBase's RS
+		int count = 0;
     	try {
     		queryVoteForBaseXpath = Vetting.prepare_queryVoteForBaseXpath(conn); 
     		queryValue=Vetting.prepare_queryValue(conn);
@@ -552,7 +554,6 @@ public class Race {
 
     		// Now, fetch all votes for this path.
     		rs = queryVoteForBaseXpath.executeQuery();
-    		int count = 0;
     		while (rs.next()) {
     			count++;
     			int submitter = rs.getInt(1);
@@ -597,7 +598,6 @@ public class Race {
 
     		// Now, add ALL other possible items.
 
-    		Map<Chad,Integer> possibles = new HashMap<Chad,Integer>(); // checking if it is disqualified could load other bundles, leading to contention on dataByBase's RS
 
     		dataByBase.setString(1, locale.toString());
     		dataByBase.setInt(2, base_xpath);
@@ -614,18 +614,15 @@ public class Race {
     			//	            	throw new InternalError("Chad has xpath " + c.xpath+" but supposed to be + " + xpath);
     			//	            }
     		}
-
-
-    		for(Map.Entry<Race.Chad,Integer> e : possibles.entrySet()) {        	
-    			if(!e.getKey().isDisqualified()) {
-    				resolver.add(e.getKey());
-    			}
-    		}
-
-    		return count;
     	} finally {
     		DBUtils.close(queryVoteForBaseXpath, queryValue, dataByBase);
     	}
+		for(Map.Entry<Race.Chad,Integer> e : possibles.entrySet()) {        	
+			if(!e.getKey().isDisqualified()) {
+				resolver.add(e.getKey());
+			}
+		}
+		return count;
     }
     
     

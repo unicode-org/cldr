@@ -23,7 +23,7 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.TimeZone;
 
 public class CheckDisplayCollisions extends CheckCLDR {
-    static final boolean USE_OLD_COLLISION = CldrUtility.getProperty("OLD_COLLISION", false);
+    static final boolean USE_OLD_COLLISION = CldrUtility.getProperty("OLD_COLLISION", true);
     
     // TODO probably need to fix this to be more accurate over time
     static long year = (long)(365.2425 * 86400 * 1000); // can be approximate

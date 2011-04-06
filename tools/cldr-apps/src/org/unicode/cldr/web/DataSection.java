@@ -30,6 +30,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
@@ -50,7 +51,7 @@ import com.ibm.icu.text.RuleBasedCollator;
  **/
 
 public class DataSection extends Registerable {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = false; // || CldrUtility.getProperty("TEST", false);
 
     /**
      * Trace in detail time taken to populate?
@@ -60,7 +61,7 @@ public class DataSection extends Registerable {
     /**
      * Show time taken to populate?
      */
-    private static final boolean SHOW_TIME= false || TRACE_TIME;
+    private static final boolean SHOW_TIME= false || TRACE_TIME ||  DEBUG || CldrUtility.getProperty("TEST", false);
 
     /**
      * Warn user why these messages are showing up.
@@ -996,7 +997,7 @@ public class DataSection extends Registerable {
     			throw new InternalError("checkCldr == null");
     		}
     		String workingCoverageLevel = section.getPtype();
-    		com.ibm.icu.dev.test.util.ElapsedTimer cet;
+    		com.ibm.icu.dev.test.util.ElapsedTimer cet = null;
     		if(SHOW_TIME) {
     			cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
     			System.err.println("Begin populate of " + locale + " // " + prefix+":"+workingCoverageLevel + " - is:" + ourSrc.getClass().getName());
@@ -1681,7 +1682,9 @@ public class DataSection extends Registerable {
         		// These are the items users may choose between
         		//
         		if((checkCldr != null)/*&&(altProposed == null)*/) {
+            		if(TRACE_TIME) System.err.println("n07.1  (check) "+(System.currentTimeMillis()-nextTime));
         			checkCldr.check(xpath, fullPath, isExtraPath?null:value, options, checkCldrResult);
+            		if(TRACE_TIME) System.err.println("n07.2  (check) "+(System.currentTimeMillis()-nextTime));
         			checkCldr.getExamples(xpath, fullPath, isExtraPath?null:value, options, examplesResult);
         		}
         		DataSection.DataRow.CandidateItem myItem = null;
@@ -1691,7 +1694,7 @@ public class DataSection extends Registerable {
 //       System.err.println("ac:"+fullPath+" -> " + newValue);
                 value = newValue;
             }*/
-        		if(TRACE_TIME) System.err.println("n08  "+(System.currentTimeMillis()-nextTime));
+        		if(TRACE_TIME) System.err.println("n08  (check) "+(System.currentTimeMillis()-nextTime));
         		myItem = p.addItem( value, altProposed, null);
         		//if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
 

@@ -1341,7 +1341,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		    }
 		    }
 		}
-/*
+		/*
 		@Override
 	    public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
 			if(pathPrefix!=null) {
@@ -1351,7 +1351,11 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 			long t0 = System.currentTimeMillis();
 			
-			//super.getPathsWithValue(valueToMatch, pathPrefix, result);
+			super.getPathsWithValue(valueToMatch, pathPrefix, result);
+			
+			System.err.println("PWV: super took " + ElapsedTimer.elapsedTime(t0));
+			return;
+		}
 		    MyStatements stmts = null;
 		    try {
 		    	stmts = openStatements();

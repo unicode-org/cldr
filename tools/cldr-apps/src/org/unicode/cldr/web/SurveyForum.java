@@ -732,8 +732,10 @@ public class SurveyForum {
 		// Show the Pod in question:
 		//        ctx.println("<hr> \n This post Concerns:<p>");
 		boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
-		String podBase = DataSection.xpathToSectionBase(xpath);
-
+		
+		//String podBase = DataSection.xpathToSectionBase(xpath);
+		String podBase = XPathTable.xpathToBaseXpath(xpath); // each zoom-in in its own spot.
+		
 		sm.printPathListOpen(ctx);
 
 		if(canModify) {

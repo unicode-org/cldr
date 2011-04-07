@@ -8968,9 +8968,12 @@ o	            		}*/
                             }
                             ctx.print(status.toString());
                             ctx.println("</span>");
-                            if(cls != null) {
-                                ctx.printHelpLink("/"+cls+"","Help");
-                            }
+                            
+                            ctx.println(" For help, see <a " + ctx.atarget(WebContext.TARGET_DOCS) + 
+                            		" href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>");
+//                            if(cls != null) {
+//                                ctx.printHelpLink("/"+cls+"","Help");
+//                            }
                             ctx.print("<br>");
                         }
                     }

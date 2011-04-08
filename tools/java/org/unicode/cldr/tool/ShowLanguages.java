@@ -38,6 +38,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -70,6 +71,7 @@ import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
     public static final String CHART_DISPLAY_VERSION = "2.0\u03B1"; // "1.8\u03B2"; // \u03B2 is beta - β, \u03b1 is alpha - α
+    private static final String CHART_TARGET_DIR = CldrUtility.CHART_DIRECTORY + "/supplemental/";
 
     private static final boolean SHOW_NATIVE = true;
 
@@ -87,6 +89,7 @@ public class ShowLanguages {
     public static void main(String[] args) throws IOException {
         cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         english = cldrFactory.make("en", true);
+        org.unicode.cldr.draft.FileUtilities.copyFile(ShowLanguages.class, "index.css", CHART_TARGET_DIR);
         printLanguageData(cldrFactory, "index.html");
         //cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
         //printLanguageData(cldrFactory, "language_info2.txt");
@@ -591,7 +594,7 @@ public class ShowLanguages {
 
         public void close() throws IOException {
             out.write("</div>");
-            PrintWriter pw2 = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "/supplemental/", filename);
+            PrintWriter pw2 = BagFormatter.openUTF8Writer(CHART_TARGET_DIR, filename);
             String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
             final String templateFileName = "../../tool/chart-template.html";
             FileUtilities.appendBufferedReader(CldrUtility.getUTF8Data(templateFileName), pw2, replacements);
@@ -1983,6 +1986,8 @@ public class ShowLanguages {
                 }
             }
             pw.println(tablePrinter.toTable());
+            pw.println("<h2>Comparison</h2>");
+            PluralSnapshot.writeTables(english, pw);
             pw.close();
         }
 

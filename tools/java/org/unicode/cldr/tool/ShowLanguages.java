@@ -1987,6 +1987,9 @@ public class ShowLanguages {
             }
             pw.println(tablePrinter.toTable());
             pw.println("<h2>Comparison</h2>");
+            pw.println("<p style='text-align:left'>The plural forms are abbreviated by first letter, with 'x' for 'other'. " +
+            		"If values are made redundant by explicit 0 and 1, they are underlined. " +
+            		"The fractional and integral results are separated for clarity.</p>");
             PluralSnapshot.writeTables(english, pw);
             pw.close();
         }

@@ -39,7 +39,9 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
     }
 
     public enum Integral {integer, fraction}
-    static final int LEN = 121;
+    
+    static final int LEN = 128;
+    
     static Set<Double> zeroOne = new TreeSet<Double>();
     static {
         zeroOne.add(0.0d);
@@ -106,8 +108,9 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
                 if (integral == Integral.fraction) {
                     result.append(".x");
                 }
-                if (next != i+1 && next != -1) {
-                    result.append("-").append(String.valueOf(next-1)
+                int vnext = next == -1 ? LEN : next;
+                if (vnext > i+1) {
+                    result.append("-").append(String.valueOf(vnext-1)
                         + (integral == Integral.fraction ? ".x" : ""));
                 }
                 result.append("</th>");

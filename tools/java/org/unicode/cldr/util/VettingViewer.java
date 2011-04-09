@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +19,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCoverage;
+import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -26,6 +28,8 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.NumberFormat;
@@ -54,7 +58,7 @@ public class VettingViewer<T> {
         /**
          * My choice is not the winning item
          */
-        weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn't have enough votes to be approved. " +
+        weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. " +
         "This might be due to a dispute between members of your organization."),
         /**
          * There is a dispute.
@@ -86,16 +90,14 @@ public class VettingViewer<T> {
         public final char    abbreviation;
         public final String  buttonLabel;
         public final String  description;
-        private final String display;
 
         Choice(char abbreviation, String buttonLabel, String description) {
             this.abbreviation = abbreviation;
             this.buttonLabel = TransliteratorUtilities.toHTML.transform(buttonLabel);
             this.description = TransliteratorUtilities.toHTML.transform(description);
-            this.display = "<span title='" + description + "'>" + buttonLabel + "*</span>";
         }
 
-        public static <T extends Appendable> T appendDisplay(EnumSet<Choice> choices, T target) {
+        public static <T extends Appendable> T appendDisplay(EnumSet<Choice> choices, String htmlMessage, T target) {
             try {
                 boolean first = true;
                 for (Choice item : choices) {
@@ -104,13 +106,25 @@ public class VettingViewer<T> {
                     } else {
                         target.append(", ");
                     }
-                    target.append(item.display);
+                    item.appendDisplay(htmlMessage, target);
                 }
                 return target;
             } catch (IOException e) {
                 throw new IllegalArgumentException(e); // damn'd checked
                 // exceptions
             }
+        }
+
+        private <T extends Appendable> void appendDisplay(String htmlMessage, T target) throws IOException {
+            target.append("<span title='")
+            .append(description);
+            if (!htmlMessage.isEmpty()) {
+                target.append(": ")
+                .append(htmlMessage);
+            }
+            target.append("'>")
+            .append(buttonLabel)
+            .append("*</span>");
         }
 
         public static Choice fromString(String i) {
@@ -285,25 +299,30 @@ public class VettingViewer<T> {
         @Override
         public Status getErrorStatus(String path, String value, StringBuilder statusMessage) {
             Status result0 = Status.ok;
-            CharSequence errorMessage = null;
+            StringBuilder errorMessage = new StringBuilder();
             String fullPath = cldrFile.getFullXPath(path);
             checkCldr.check(path, fullPath, value, options, result);
             for (CheckStatus checkStatus : result) {
                 final CheckCLDR cause = checkStatus.getCause();
-                if (cause instanceof CheckCoverage) {
+                if (cause instanceof CheckCoverage || cause instanceof CheckNew) {
                     continue;
                 }
                 String statusType = checkStatus.getType();
                 if (statusType.equals(CheckStatus.errorType)) {
                     result0 = Status.error;
-                    errorMessage = checkStatus.getMessage();
+                    // throw away any accumulated error messages
+                    errorMessage.setLength(0);
+                    appendToMessage(checkStatus.getMessage(), errorMessage);
                     break;
                 } else if (statusType.equals(CheckStatus.warningType)) {
                     result0 = Status.warning;
-                    errorMessage = checkStatus.getMessage();
+                    // accumulate all the warning messages
+                    appendToMessage(checkStatus.getMessage(), errorMessage);
                 }
             }
-            statusMessage.append(errorMessage);
+            if (result0 != Status.ok) {
+                appendToMessage(errorMessage, statusMessage);
+            }
             return result0;
         }
     }
@@ -343,16 +362,31 @@ public class VettingViewer<T> {
         this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths, PathDescription.ErrorHandling.CONTINUE);
     }
 
-    static class WritingInfo {
+    class WritingInfo implements Comparable<WritingInfo> {
+        final String codeOutput;
         final String path;
         final EnumSet<Choice> problems;
-        final String testMessage;
+        final String htmlMessage;
 
-        public WritingInfo(String path, EnumSet<Choice> problems, CharSequence testMessage) {
+        public WritingInfo(String codeOutput, String path, EnumSet<Choice> problems, CharSequence htmlMessage) {
             super();
+            this.codeOutput = codeOutput;
             this.path = path;
             this.problems = problems.clone();
-            this.testMessage = testMessage.toString();
+            this.htmlMessage = htmlMessage.toString();
+        }
+
+        @Override
+        public int compareTo(WritingInfo other) {
+            int diff = codeOutput.compareTo(other.codeOutput);
+            if (diff == 0) return diff;
+            return path.compareTo(other.path);
+        }
+
+        public String getUrl() {
+            String menu = PathUtilities.xpathToMenu(path);
+            String url = baseUrl + "&x=" + menu;
+            return url;
         }
     }
 
@@ -415,10 +449,10 @@ public class VettingViewer<T> {
 
         // now look through the paths
 
-        TreeMap<String, WritingInfo> sorted = new TreeMap<String, WritingInfo>();
+        Relation<R2<String, String>, WritingInfo> sorted = Relation.of(new TreeMap<R2<String, String>,Set<WritingInfo>>(), TreeSet.class);
 
         Counter<Choice> problemCounter = new Counter<Choice>();
-        StringBuilder testMessage = new StringBuilder();
+        StringBuilder htmlMessage = new StringBuilder();
         StringBuilder statusMessage = new StringBuilder();
 
         for (String path : sourceFile) {
@@ -445,7 +479,7 @@ public class VettingViewer<T> {
             String value = sourceFile.getWinningValue(path);
 
             problems.clear();
-            testMessage.setLength(0);
+            htmlMessage.setLength(0);
             boolean haveError = false;
             VoteStatus voteStatus = null;
 
@@ -459,7 +493,7 @@ public class VettingViewer<T> {
                     }
                     break;
                 case missingCoverage:
-                    if (!localeID.equals("root")) {
+                    if (showAll && !localeID.equals("root")) {
                         if (isMissing(sourceFile, path, status)) {
                             problems.add(choice);
                             problemCounter.increment(choice);
@@ -485,6 +519,7 @@ public class VettingViewer<T> {
                     if (haveError) {
                         break;
                     }
+                    statusMessage.setLength(0);
                     ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage);
                     if ((choice == Choice.error && errorStatus == ErrorChecker.Status.error)
                             || (choice == Choice.warning && errorStatus == ErrorChecker.Status.warning)) {
@@ -495,7 +530,7 @@ public class VettingViewer<T> {
                             }
                         }
                         problems.add(choice);
-                        appendToMessage(statusMessage, testMessage);
+                        appendToMessage(statusMessage, htmlMessage);
                         problemCounter.increment(choice);
                         haveError = true;
                         break;
@@ -512,7 +547,7 @@ public class VettingViewer<T> {
                             problems.add(choice);
                             problemCounter.increment(choice);
                             String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
-                            appendToMessage(usersValue, testMessage);
+                            //appendToMessage(usersValue, testMessage);
                         }
                         break;
                     }
@@ -526,7 +561,7 @@ public class VettingViewer<T> {
                         problemCounter.increment(choice);
                         String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
                         if (usersValue != null) {
-                            appendToMessage(usersValue, testMessage);
+                            //appendToMessage(usersValue, testMessage);
                         }
                     }
                     break;
@@ -538,15 +573,29 @@ public class VettingViewer<T> {
                     problemCounter.increment(Choice.other);
                 }
                 reasonsToPaths.clear();
-                appendToMessage("level:" + level.toString(), testMessage);
-                final String description = pathDescription.getDescription(path, value, level, null);
-                if (!reasonsToPaths.isEmpty()) {
-                    appendToMessage(level + " " + TransliteratorUtilities.toHTML.transform(reasonsToPaths.toString()), testMessage);
-                }
-                if (description != null && !description.equals("SKIP")) {
-                    appendToMessage(TransliteratorUtilities.toHTML.transform(description), testMessage);
-                }
-                sorted.put(pathTransform.getPrettyPath(path), new WritingInfo(path, problems, testMessage));
+                //appendToMessage("level:" + level.toString(), testMessage);
+                //                final String description = pathDescription.getDescription(path, value, level, null);
+                //                if (!reasonsToPaths.isEmpty()) {
+                //                    appendToMessage(level + " " + TransliteratorUtilities.toHTML.transform(reasonsToPaths.toString()), testMessage);
+                //                }
+                //                if (description != null && !description.equals("SKIP")) {
+                //                    appendToMessage(TransliteratorUtilities.toHTML.transform(description), testMessage);
+                //                }
+                final String prettyPath = pathTransform.getPrettyPath(path);
+                //                String[] pathParts = breaks.split(prettyPath);
+                //                String section = pathParts.length == 3 ? pathParts[0] : "Unknown";
+                //                String subsection = pathParts.length == 3 ? pathParts[1] : "Unknown";
+                //                String code = pathParts.length == 3 ? pathParts[2] : pretty;
+
+                String pretty = pathTransform.getOutputForm(prettyPath);
+                String[] pathParts = breaks.split(pretty);
+                String sectionOutput = pathParts.length == 3 ? pathParts[0] : "Unknown";
+                String subsectionOutput = pathParts.length == 3 ? pathParts[1] : "Unknown";
+                String codeOutput = pathParts.length == 3 ? pathParts[2] : pretty;
+
+                R2<String, String> group = Row.of(sectionOutput, subsectionOutput);
+
+                sorted.put(group, new WritingInfo(codeOutput, path, problems, htmlMessage));
             }
         }
 
@@ -570,7 +619,10 @@ public class VettingViewer<T> {
         return missing;
     }
 
-    private StringBuilder appendToMessage(CharSequence usersValue, StringBuilder testMessage) {
+    private static StringBuilder appendToMessage(CharSequence usersValue, StringBuilder testMessage) {
+        if (usersValue.length() == 0) {
+            return testMessage;
+        }
         if (testMessage.length() != 0) {
             testMessage.append("<br>");
         }
@@ -654,7 +706,7 @@ public class VettingViewer<T> {
     }
 
     private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile, 
-            TreeMap<String, WritingInfo> sorted,
+            Relation<R2<String, String>, WritingInfo> sorted,
             Counter<Choice> problemCounter, 
             EnumSet<Choice> choices,
             String localeID,
@@ -665,8 +717,8 @@ public class VettingViewer<T> {
 
             output.append("<h2>Summary</h2>\n")
             .append("<p><i>It is important that you read " +
-            		"<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
-            		"Vetting View Instructions</a> before starting!</i></p>")
+                    "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
+            "Vetting View Instructions</a> before starting!</i></p>")
             .append("<form name='checkboxes'>\n")
             .append("<table class='tvs-table'>\n")
             .append("<tr class='tvs-tr'>" +
@@ -676,7 +728,7 @@ public class VettingViewer<T> {
             "</tr>\n");
             boolean countShown = false;
             for (Choice choice : choices) {
-                if (choice == Choice.other && !showAll) {
+                if (!showAll && (choice == Choice.other || choice == Choice.missingCoverage)) {
                     continue;
                 }
                 long count = problemCounter.get(choice);
@@ -690,9 +742,9 @@ public class VettingViewer<T> {
                     output.append(" checked");
                     countShown = true;
                 }
-                output.append("/> ")
-                .append(choice.display)
-                .append("</td>\n\t<td class='tvs-desc'>")
+                output.append("/> ");
+                choice.appendDisplay("", output);
+                output.append("</td>\n\t<td class='tvs-desc'>")
                 .append(choice.description)
                 .append("</td></tr>\n");
             }
@@ -705,78 +757,80 @@ public class VettingViewer<T> {
 
 
             int count = 0;
-            String lastSection = "";
-            String lastSubsection = "";
-            for (Entry<String, WritingInfo> entry : sorted.entrySet()) {
-                String pretty = pathTransform.getOutputForm(entry.getKey());
-                String[] pathParts = breaks.split(pretty);
-                String section = pathParts.length == 3 ? pathParts[0] : "Unknown";
-                String subsection = pathParts.length == 3 ? pathParts[1] : "Unknown";
-                String code = pathParts.length == 3 ? pathParts[2] : pretty;
-                if (!lastSection.equals(section) || !lastSubsection.equals(subsection)) {
-                    if (!lastSection.isEmpty()) {
-                        output.append("</table>\n");
-                    }
-                    output.append("\n<h2 class='tv-s'>Section: ")
-                    .append(section)
-                    .append(" — <i>Subsection: ")
-                    .append(subsection)
-                    .append("</i></h3>\n");
-                    startTable(output);
-                    lastSection = section;
-                    lastSubsection = subsection;
-                }
-                WritingInfo pathInfo = entry.getValue();
-                String path = pathInfo.path;
-                EnumSet<Choice> choicesForPath = pathInfo.problems;
+            for (Entry<R2<String, String>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
+                String section = entry0.getKey().get0();
+                String subsection = entry0.getKey().get1();
+                final Set<WritingInfo> rows = entry0.getValue();
 
-                output.append("<tr class='");
-                Choice.appendRowStyles(choicesForPath, output);
-                output.append("'>\n");
-                addCell(output, nf.format(++count), null, "tv-num", HTMLType.plain);
-                // path
-                addCell(output, code, null, "tv-code", HTMLType.plain);
-                // English value
-                if (choicesForPath.contains(Choice.englishChanged)) {
-                    String winning = englishFile.getWinningValue(path);
-                    String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML.transform(winning);
-                    String previous = outdatedPaths.getPreviousEnglish(path);
-                    if (previous != null) {
-                        cellValue += "<span style='color:#900'><br>" + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
+                String url = rows.iterator().next().getUrl();
+                // http://kwanyin.unicode.org/cldr-apps/survey?_=ur&x=scripts
+                // http://unicode.org/cldr-apps/survey?_=ur&x=scripts
+
+                output.append("\n<h2 class='tv-s'>Section: ")
+                .append(section)
+                .append(" — <i><a target='CLDR_ST-SECTION' href='")
+                .append(url)
+                .append("'>Subsection: ")
+                .append(subsection)
+                .append("</a></i> (" + rows.size() +  ")</h3>\n");
+                startTable(output);
+
+                for (WritingInfo pathInfo : rows) {
+                    String code = pathInfo.codeOutput;
+                    String path = pathInfo.path;
+                    EnumSet<Choice> choicesForPath = pathInfo.problems;
+
+                    output.append("<tr class='");
+                    Choice.appendRowStyles(choicesForPath, output);
+                    output.append("'>\n");
+                    addCell(output, nf.format(++count), null, "tv-num", HTMLType.plain);
+                    // path
+                    addCell(output, code, null, "tv-code", HTMLType.plain);
+                    // English value
+                    if (choicesForPath.contains(Choice.englishChanged)) {
+                        String winning = englishFile.getWinningValue(path);
+                        String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML.transform(winning);
+                        String previous = outdatedPaths.getPreviousEnglish(path);
+                        if (previous != null) {
+                            cellValue += "<span style='color:#900'><br>" + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
+                        } else {
+                            cellValue += "<br><b><i>missing</i></b>";
+                        }
+                        addCell(output, cellValue, null, "tv-eng", HTMLType.markup);
                     } else {
-                        cellValue += "<br><b><i>missing</i></b>";
+                        addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
                     }
-                    addCell(output, cellValue, null, "tv-eng", HTMLType.markup);
-                } else {
-                    addCell(output, englishFile.getWinningValue(path), null, "tv-eng", HTMLType.plain);
-                }
-                // value for last version
-                final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-                boolean oldValueMissing = isMissing(lastSourceFile, path, status);
+                    // value for last version
+                    final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
+                    boolean oldValueMissing = isMissing(lastSourceFile, path, status);
 
-                addCell(output, oldStringValue, null, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
-                // value for last version
-                String newWinningValue = sourceFile.getWinningValue(path);
-                if (CharSequences.equals(newWinningValue, oldStringValue)) {
-                    newWinningValue = "=";
+                    addCell(output, oldStringValue, null, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
+                    // value for last version
+                    String newWinningValue = sourceFile.getWinningValue(path);
+                    if (CharSequences.equals(newWinningValue, oldStringValue)) {
+                        newWinningValue = "=";
+                    }
+                    addCell(output, newWinningValue, null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
+                    // Fix?
+                    // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
+                    output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='"+baseUrl +"?_=")
+                    .append(localeID)
+                    .append("&xpath=")
+                    .append(percentEscape.transform(path))
+                    .append("'>");
+                    Choice.appendDisplay(choicesForPath, "", output);
+                    String otherUrl = pathInfo.getUrl();
+                    output.append("</a></td>");
+                    if (!otherUrl.equals(url)) {
+                        output.append("<td><a target='CLDR_ST-SECTION' href='").append(otherUrl).append("'><i>Section*</i></a></td>");
+                    }
+                    if (!pathInfo.htmlMessage.isEmpty()) {
+                        addCell(output, pathInfo.htmlMessage, null, "tv-test", HTMLType.markup);
+                    }
+                    output.append("</tr>\n");
                 }
-                addCell(output, newWinningValue, null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
-                // Fix?
-                // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='"+baseUrl +"?_=")
-                .append(localeID)
-                .append("&xpath=")
-                .append(percentEscape.transform(path))
-                .append("'>");
-                Choice.appendDisplay(choicesForPath, output)
-                .append("</a></td>");
-
-                if (TESTING && !pathInfo.testMessage.isEmpty()) {
-                    addCell(output, pathInfo.testMessage, null, "tv-test", HTMLType.markup);
-                }
-                output.append("</tr>\n");
+                output.append("</table>\n");
             }
-            output.append("</table>\n");
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // damn'ed checked exceptions
         }
@@ -872,8 +926,10 @@ public class VettingViewer<T> {
         int userNumericID = 666;
         Level usersLevel = Level.MODERN;
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");
+        tableView.setBaseUrl("http://kwanyin.unicode.org/cldr-apps/survey?_=" + LOCALE);
+        http://unicode.org/cldr-apps/survey?_=ur
 
-        timer.start();
+            timer.start();
         FileUtilities.copyFile(VettingViewer.class, "vettingView.css", myOutputDir);
         FileUtilities.copyFile(VettingViewer.class, "vettingView.js", myOutputDir);
         writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel);

@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -36,6 +37,7 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
@@ -2122,6 +2124,8 @@ public class SupplementalDataInfo {
             zero, one, two, few, many, other;
         }
         static final Pattern pluralPaths = Pattern.compile(".*pluralRule.*");
+        static final int fractDecrement = 13;
+        static final int fractStart = 20;
 
         private final Map<Count,List<Double>> countToExampleList;
         private final Map<Count,String> countToStringExample;
@@ -2131,6 +2135,8 @@ public class SupplementalDataInfo {
 
         private PluralInfo(Map<Count,String> countToRule) {
             // now build rules
+            NumberFormat nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
+            nf.setMaximumFractionDigits(2);
             StringBuilder pluralRuleBuilder = new StringBuilder();
             XPathParts parts = new XPathParts();
             for (Count count : countToRule.keySet()) {
@@ -2163,6 +2169,7 @@ public class SupplementalDataInfo {
 
             // add fractional samples
             Map<Count,String> countToStringExampleRaw = new TreeMap<Count,String>();
+            int fractionValue = fractStart + fractDecrement;
             for (Count type : typeToExamples2.keySet()) {
                 UnicodeSet uset = typeToExamples2.get(type);
                 int sample = uset.getRangeStart(0);
@@ -2178,7 +2185,11 @@ public class SupplementalDataInfo {
                 arrayList.add((double)sample);
 
                 // add fractional examples
-                final double fraction = (sample + 0.31d);
+                fractionValue -= fractDecrement;
+                if (fractionValue < 0) {
+                    fractionValue += 100;
+                }
+                final double fraction = (sample + (fractionValue/100.0d));
                 Count fracType = Count.valueOf(pluralRules.select(fraction));
                 boolean addCurrentFractionalExample = false;
 
@@ -2187,7 +2198,7 @@ public class SupplementalDataInfo {
                     if (otherFractionalExamples.length() != 0) {
                         otherFractionalExamples += ", ";
                     }
-                    otherFractionalExamples += fraction;
+                    otherFractionalExamples += nf.format(fraction);
                 } else if (fracType == type) {
                     arrayList.add(fraction);
                     addCurrentFractionalExample = true;
@@ -2222,7 +2233,7 @@ public class SupplementalDataInfo {
                     if (b.length() != 0) {
                         b.append(", ");
                     }
-                    b.append(fraction).append("...");
+                    b.append(nf.format(fraction)).append("...");
                 } else if (addEllipsis) {
                     b.append("...");
                 }

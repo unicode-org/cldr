@@ -39,9 +39,9 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
     }
 
     public enum Integral {integer, fraction}
-    
+
     static final int LEN = 128;
-    
+
     static Set<Double> zeroOne = new TreeSet<Double>();
     static {
         zeroOne.add(0.0d);
@@ -97,7 +97,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
             }
             return result.toString();
         }
-        
+
         public String toHtmlStringHeader() {
             StringBuilder result = new StringBuilder();
             result.append("<tr><th class='h'></th>");
@@ -111,7 +111,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
                 int vnext = next == -1 ? LEN : next;
                 if (vnext > i+1) {
                     result.append("-").append(String.valueOf(vnext-1)
-                        + (integral == Integral.fraction ? ".x" : ""));
+                            + (integral == Integral.fraction ? ".x" : ""));
                 }
                 result.append("</th>");
             }
@@ -266,32 +266,35 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
     public static void writeTables(CLDRFile english, PrintWriter out) {
         for (Integral integral : Integral.values()) {
             SnapshotInfo info = PluralSnapshot.getInstance(integral);
-            
+
             System.out.println("\n" + integral + "\n");
             System.out.println(info.toOverview());
-            
+
             out.println("<h3>" + integral + "</h3>");
             out.println("<table class='pluralComp'>");
             int lastCount = -1;
             int lastCount01 = -1;
+
+            out.println(info.toHtmlStringHeader());
+
             for (Entry<PluralSnapshot, Set<String>> ruleEntry : info) {
                 PluralSnapshot ss = ruleEntry.getKey();
                 Set<String> locales = ruleEntry.getValue();
                 System.out.println();
                 System.out.println(locales);
                 System.out.println(ss);
-                if (ss.count != lastCount) {
-                    out.println(info.toHtmlStringHeader());
-                    lastCount = ss.count;
-                    lastCount01 = ss.count01;
-                }
+                //                if (ss.count != lastCount) {
+                //                    out.println(info.toHtmlStringHeader());
+                //                    lastCount = ss.count;
+                //                    lastCount01 = ss.count01;
+                //                }
                 Map<String,String> fullLocales = new TreeMap<String,String>();
                 for (String localeId : locales) {
                     String name = english.getName(localeId);
                     fullLocales.put(name, localeId);
                 }
                 out.print("<tr><td rowSpan='2'>" + ss.count +
-                        "</td><td class='l' colSpan='121' title=>");
+                "</td><td class='l' colSpan='121' title=>");
                 int count = 0;
                 for (Entry<String, String> entry : fullLocales.entrySet()) {
                     out.print("<span title='" + entry.getValue() + "'>"
@@ -301,6 +304,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
                 }
                 out.println("</td></tr>");
                 out.println(ss.toHtmlString());
+                out.println(info.toHtmlStringHeader());
             }
             out.println("</table>");
         }

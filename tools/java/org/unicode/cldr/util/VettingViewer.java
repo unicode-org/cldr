@@ -69,14 +69,14 @@ public class VettingViewer<T> {
          */
         warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
         /**
-         * The value changed from the last version of CLDR
-         */
-        changedOldValue('N', "New", "The winning value was altered from the CLDR 1.9 value."),
-        /**
          * The English value for the path changed AFTER the current value for
          * the locale.
          */
         englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
+        /**
+         * The value changed from the last version of CLDR
+         */
+        changedOldValue('N', "New", "The winning value was altered from the CLDR 1.9 value."),
         /**
          * Given the users coverage, some items are missing.
          */
@@ -400,9 +400,9 @@ public class VettingViewer<T> {
             return path.compareTo(other.path);
         }
 
-        public String getUrl() {
+        public String getUrl(String locale) {
             String menu = PathUtilities.xpathToMenu(path);
-            String url = baseUrl + "&x=" + menu;
+            String url = baseUrl + "?_=" + locale + "&x=" + menu;
             return url;
         }
     }
@@ -803,7 +803,7 @@ public class VettingViewer<T> {
                 String subsection = entry0.getKey().get1();
                 final Set<WritingInfo> rows = entry0.getValue();
 
-                String url = rows.iterator().next().getUrl();
+                String url = rows.iterator().next().getUrl(sourceFile.getLocaleID());
                 // http://kwanyin.unicode.org/cldr-apps/survey?_=ur&x=scripts
                 // http://unicode.org/cldr-apps/survey?_=ur&x=scripts
 
@@ -860,10 +860,10 @@ public class VettingViewer<T> {
                             .append(percentEscape.transform(path))
                             .append("'>");
                     Choice.appendDisplay(choicesForPath, "", output);
-                    String otherUrl = pathInfo.getUrl();
+                    String otherUrl = pathInfo.getUrl(sourceFile.getLocaleID());
                     output.append("</a></td>");
                     if (!otherUrl.equals(url)) {
-                        output.append("<td><a target='CLDR_ST-SECTION' href='").append(otherUrl).append("'><i>Section*</i></a></td>");
+                        output.append("<td class='tv-test'><a target='CLDR_ST-SECTION' href='").append(otherUrl).append("'><i>Section*</i></a></td>");
                     }
                     if (!pathInfo.htmlMessage.isEmpty()) {
                         addCell(output, pathInfo.htmlMessage, null, "tv-test", HTMLType.markup);
@@ -971,7 +971,7 @@ public class VettingViewer<T> {
         int userNumericID = 666;
         Level usersLevel = Level.MODERN;
         System.out.println(timer.getDuration() / 10000000000.0 + " secs");
-        tableView.setBaseUrl("http://kwanyin.unicode.org/cldr-apps/survey?_=" + LOCALE);
+        tableView.setBaseUrl("http://kwanyin.unicode.org/cldr-apps/survey");
         http: // unicode.org/cldr-apps/survey?_=ur
 
         timer.start();

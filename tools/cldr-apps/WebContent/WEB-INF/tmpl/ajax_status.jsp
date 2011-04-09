@@ -178,20 +178,17 @@ function changeStyle(hideRegex) {
 }
 
 function setStyles() {
-    var hideRegexString = "";
+    var hideRegexString = "X1234X";
     for (i=0; i < document.checkboxes.elements.length; i++){
         var item = document.checkboxes.elements[i];
         if (!item.checked) {
-            if (hideRegexString.length != 0) {
-                hideRegexString += "|";
-            }
+            hideRegexString += "|";
             hideRegexString += item.name;
         }
     }
     var hideRegex = new RegExp(hideRegexString);
     changeStyle(hideRegex);
 }
-
 
 </script>
 <!--  also for vetting viewer -->

@@ -114,32 +114,31 @@
             <variable id="$territory" type="choice">
                 001 002 003 005 009 011 013 014 015 017 018 019 021 029 030 034 035 039 053 054
                 057 061 062
-                142 143 145 150 151 154 155 172
-                419
-                AA AC AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ
-                BA BB BD BE BF BG BH BI BJ BL BM BN BO BR BS BT BU BV BW BY BZ
+                142 143 145 150 151 154 155 419
+                172 200 830
+                AC AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ
+                BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BU BV BW BY BZ
                 CA CC CD CF CG CH CI CK CL CM CN CO CP CR CS CU CV CX CY CZ
-                DD DE DG DJ DK DM DO DZ
+                DD DE DG DJ DK DM DO DY DZ
                 EA EC EE EG EH ER ES ET EU
-                FI FJ FK FM FO FR FX
+                FI FJ FK FM FO FQ FR FX
                 GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY
-                HK HM HN HR HT HU
+                HK HM HN HR HT HU HV
                 IC ID IE IL IM IN IO IQ IR IS IT
-                JE JM JO JP
+                JE JM JO JP JT
                 KE KG KH KI KM KN KP KR KW KY KZ
                 LA LB LC LI LK LR LS LT LU LV LY
-                MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ
-                NA NC NE NF NG NI NL NO NP NR NT NU NZ
+                MA MC MD ME MF MG MH MI MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ
+                NA NC NE NF NG NH NI NL NO NP NQ NR NT NU NZ
                 OM
-                PA PE PF PG PH PK PL PM PN PR PS PT PW PY
-                QA QM QN QO QP QQ QR QS QT QU QV QW QX QY QZ
+                PA PC PE PF PG PH PK PL PM PN PR PS PT PU PW PY PZ
+                QA QO QU
                 RE RO RS RU RW
                 SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SU SV SY SZ
                 TA TC TD TF TG TH TJ TK TL TM TN TO TP TR TT TV TW TZ
                 UA UG UM US UY UZ
                 VA VC VE VG VI VN VU
                 WF WS
-                XA XB XC XD XE XF XG XH XI XJ XK XL XM XN XO XP XQ XR XS XT XU XV XW XX XY XZ
                 YD YE YT YU
                 ZA ZM ZR ZW ZZ
             </variable>
@@ -840,7 +839,7 @@
             <territoryAlias type="MI" replacement="UM" reason="deprecated"/> <!-- CLDR: Midway Islands -->
             <territoryAlias type="NH" replacement="VU" reason="deprecated"/> <!-- CLDR:Vanuatu -->
             <territoryAlias type="NQ" replacement="AQ" reason="deprecated"/> <!-- CLDR: Dronning Maud Land -->
-            <territoryAlias type="NT" replacement="IQ SA" reason="deprecated"/> <!-- Neutral Zone -->
+            <territoryAlias type="NT" replacement="SA IQ" reason="deprecated"/> <!-- Neutral Zone -->
             <territoryAlias type="PC" replacement="FM MH MP PW" reason="deprecated"/> <!-- CLDR: Pacific Islands Trust Territory (divided into FM, MH, MP, and PW) -->
             <territoryAlias type="PU" replacement="UM" reason="deprecated"/> <!-- CLDR: U.S. Miscellaneous Pacific Islands -->
             <territoryAlias type="PZ" replacement="PA" reason="deprecated"/> <!-- CLDR: Panama Canal Zone -->
@@ -855,7 +854,7 @@
             <territoryAlias type="YU" replacement="RS ME" reason="deprecated"/> <!-- Yugoslavia -->
             <territoryAlias type="ZR" replacement="CD" reason="deprecated"/> <!-- Zaire -->
             <territoryAlias type="062" replacement="034 143" reason="deprecated"/> <!-- South-Central Asia -->
-            <territoryAlias type="172" replacement="AM AZ BY GE KG KZ MD RU TJ TM UA UZ" reason="deprecated"/> <!-- 172 not part of BCP47 -->
+            <territoryAlias type="172" replacement="RU AM AZ BY GE KG KZ MD TJ TM UA UZ" reason="deprecated"/> <!-- 172 not part of BCP47 -->
             <territoryAlias type="200" replacement="CZ SK" reason="deprecated"/> <!-- Czechoslovakia -->
             <territoryAlias type="230" replacement="ET" reason="deprecated"/> <!-- Ethiopia (pre-1993) -->
             <territoryAlias type="280" replacement="DE" reason="deprecated"/> <!-- West Germany (pre-1990) -->
@@ -865,7 +864,6 @@
             <territoryAlias type="886" replacement="YE" reason="deprecated"/> <!-- Yemen (pre-1990) -->
             <territoryAlias type="890" replacement="RS ME SI HR MK BA" reason="deprecated"/> <!-- Yugoslavia (pre-1992) -->
             <!-- incorrect ISO code values -->
-            <territoryAlias type="AAA" replacement="AA" reason="overlong"/> <!-- null -->
             <territoryAlias type="ASC" replacement="AC" reason="overlong"/> <!-- Ascension Island -->
             <territoryAlias type="AND" replacement="AD" reason="overlong"/> <!-- Andorra -->
             <territoryAlias type="ARE" replacement="AE" reason="overlong"/> <!-- United Arab Emirates -->
@@ -900,7 +898,7 @@
             <territoryAlias type="BRA" replacement="BR" reason="overlong"/> <!-- Brazil -->
             <territoryAlias type="BHS" replacement="BS" reason="overlong"/> <!-- Bahamas -->
             <territoryAlias type="BTN" replacement="BT" reason="overlong"/> <!-- Bhutan -->
-            <territoryAlias type="BUR" replacement="MM" reason="overlong"/> <!-- null -->
+            <territoryAlias type="BUR" replacement="MM" reason="overlong"/> <!-- Burma (Myanmar) -->
             <territoryAlias type="BVT" replacement="BV" reason="overlong"/> <!-- Bouvet Island -->
             <territoryAlias type="BWA" replacement="BW" reason="overlong"/> <!-- Botswana -->
             <territoryAlias type="BLR" replacement="BY" reason="overlong"/> <!-- Belarus -->
@@ -1041,7 +1039,7 @@
             <territoryAlias type="NOR" replacement="NO" reason="overlong"/> <!-- Norway -->
             <territoryAlias type="NPL" replacement="NP" reason="overlong"/> <!-- Nepal -->
             <territoryAlias type="NRU" replacement="NR" reason="overlong"/> <!-- Nauru -->
-            <territoryAlias type="NTZ" replacement="IQ SA" reason="overlong"/> <!-- Neutral Zone -->
+            <territoryAlias type="NTZ" replacement="SA IQ" reason="overlong"/> <!-- Neutral Zone -->
             <territoryAlias type="NIU" replacement="NU" reason="overlong"/> <!-- Niue -->
             <territoryAlias type="NZL" replacement="NZ" reason="overlong"/> <!-- New Zealand -->
             <territoryAlias type="OMN" replacement="OM" reason="overlong"/> <!-- Oman -->
@@ -1060,18 +1058,6 @@
             <territoryAlias type="PLW" replacement="PW" reason="overlong"/> <!-- Palau -->
             <territoryAlias type="PRY" replacement="PY" reason="overlong"/> <!-- Paraguay -->
             <territoryAlias type="QAT" replacement="QA" reason="overlong"/> <!-- Qatar -->
-            <territoryAlias type="QMM" replacement="QM" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QNN" replacement="QN" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QPP" replacement="QP" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QQQ" replacement="QQ" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QRR" replacement="QR" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QSS" replacement="QS" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QTT" replacement="QT" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QVV" replacement="QV" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QWW" replacement="QW" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QXX" replacement="QX" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QYY" replacement="QY" reason="overlong"/> <!-- null -->
-            <territoryAlias type="QZZ" replacement="QZ" reason="overlong"/> <!-- null -->
             <territoryAlias type="REU" replacement="RE" reason="overlong"/> <!-- Réunion -->
             <territoryAlias type="ROU" replacement="RO" reason="overlong"/> <!-- Romania -->
             <territoryAlias type="SRB" replacement="RS" reason="overlong"/> <!-- Serbia -->
@@ -1109,7 +1095,7 @@
             <territoryAlias type="TKM" replacement="TM" reason="overlong"/> <!-- Turkmenistan -->
             <territoryAlias type="TUN" replacement="TN" reason="overlong"/> <!-- Tunisia -->
             <territoryAlias type="TON" replacement="TO" reason="overlong"/> <!-- Tonga -->
-            <territoryAlias type="TMP" replacement="TL" reason="overlong"/> <!-- null -->
+            <territoryAlias type="TMP" replacement="TL" reason="overlong"/> <!-- Timor-Leste -->
             <territoryAlias type="TUR" replacement="TR" reason="overlong"/> <!-- Turkey -->
             <territoryAlias type="TTO" replacement="TT" reason="overlong"/> <!-- Trinidad and Tobago -->
             <territoryAlias type="TUV" replacement="TV" reason="overlong"/> <!-- Tuvalu -->
@@ -1130,42 +1116,15 @@
             <territoryAlias type="VUT" replacement="VU" reason="overlong"/> <!-- Vanuatu -->
             <territoryAlias type="WLF" replacement="WF" reason="overlong"/> <!-- Wallis and Futuna -->
             <territoryAlias type="WSM" replacement="WS" reason="overlong"/> <!-- Samoa -->
-            <territoryAlias type="XAA" replacement="XA" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XBB" replacement="XB" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XCC" replacement="XC" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XDD" replacement="XD" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XEE" replacement="XE" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XFF" replacement="XF" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XGG" replacement="XG" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XHH" replacement="XH" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XII" replacement="XI" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XJJ" replacement="XJ" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XKK" replacement="XK" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XLL" replacement="XL" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XMM" replacement="XM" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XNN" replacement="XN" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XOO" replacement="XO" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XPP" replacement="XP" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XQQ" replacement="XQ" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XRR" replacement="XR" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XSS" replacement="XS" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XTT" replacement="XT" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XUU" replacement="XU" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XVV" replacement="XV" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XWW" replacement="XW" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XXX" replacement="XX" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XYY" replacement="XY" reason="overlong"/> <!-- null -->
-            <territoryAlias type="XZZ" replacement="XZ" reason="overlong"/> <!-- null -->
             <territoryAlias type="YMD" replacement="YE" reason="overlong"/> <!-- People's Democratic Republic of Yemen -->
             <territoryAlias type="YEM" replacement="YE" reason="overlong"/> <!-- Yemen -->
             <territoryAlias type="MYT" replacement="YT" reason="overlong"/> <!-- Mayotte -->
-            <territoryAlias type="YUG" replacement="RS ME" reason="overlong"/> <!-- null -->
+            <territoryAlias type="YUG" replacement="RS ME" reason="overlong"/> <!-- Yugoslavia -->
             <territoryAlias type="ZAF" replacement="ZA" reason="overlong"/> <!-- South Africa -->
             <territoryAlias type="ZMB" replacement="ZM" reason="overlong"/> <!-- Zambia -->
-            <territoryAlias type="ZAR" replacement="CD" reason="overlong"/> <!-- null -->
+            <territoryAlias type="ZAR" replacement="CD" reason="overlong"/> <!-- Zaire -->
             <territoryAlias type="ZWE" replacement="ZW" reason="overlong"/> <!-- Zimbabwe -->
             <territoryAlias type="ZZZ" replacement="ZZ" reason="overlong"/> <!-- Unknown or Invalid Region -->
-            <territoryAlias type="958" replacement="AA" reason="overlong"/> <!-- null -->
             <territoryAlias type="020" replacement="AD" reason="overlong"/> <!-- Andorra -->
             <territoryAlias type="784" replacement="AE" reason="overlong"/> <!-- United Arab Emirates -->
             <territoryAlias type="004" replacement="AF" reason="overlong"/> <!-- Afghanistan -->
@@ -1199,7 +1158,6 @@
             <territoryAlias type="076" replacement="BR" reason="overlong"/> <!-- Brazil -->
             <territoryAlias type="044" replacement="BS" reason="overlong"/> <!-- Bahamas -->
             <territoryAlias type="064" replacement="BT" reason="overlong"/> <!-- Bhutan -->
-            <territoryAlias type="104" replacement="MM" reason="overlong"/> <!-- null -->
             <territoryAlias type="074" replacement="BV" reason="overlong"/> <!-- Bouvet Island -->
             <territoryAlias type="072" replacement="BW" reason="overlong"/> <!-- Botswana -->
             <territoryAlias type="112" replacement="BY" reason="overlong"/> <!-- Belarus -->
@@ -1338,7 +1296,7 @@
             <territoryAlias type="578" replacement="NO" reason="overlong"/> <!-- Norway -->
             <territoryAlias type="524" replacement="NP" reason="overlong"/> <!-- Nepal -->
             <territoryAlias type="520" replacement="NR" reason="overlong"/> <!-- Nauru -->
-            <territoryAlias type="536" replacement="IQ SA" reason="overlong"/> <!-- Neutral Zone -->
+            <territoryAlias type="536" replacement="SA IQ" reason="overlong"/> <!-- Neutral Zone -->
             <territoryAlias type="570" replacement="NU" reason="overlong"/> <!-- Niue -->
             <territoryAlias type="554" replacement="NZ" reason="overlong"/> <!-- New Zealand -->
             <territoryAlias type="512" replacement="OM" reason="overlong"/> <!-- Oman -->
@@ -1357,18 +1315,6 @@
             <territoryAlias type="585" replacement="PW" reason="overlong"/> <!-- Palau -->
             <territoryAlias type="600" replacement="PY" reason="overlong"/> <!-- Paraguay -->
             <territoryAlias type="634" replacement="QA" reason="overlong"/> <!-- Qatar -->
-            <territoryAlias type="959" replacement="QM" reason="overlong"/> <!-- null -->
-            <territoryAlias type="960" replacement="QN" reason="overlong"/> <!-- null -->
-            <territoryAlias type="962" replacement="QP" reason="overlong"/> <!-- null -->
-            <territoryAlias type="963" replacement="QQ" reason="overlong"/> <!-- null -->
-            <territoryAlias type="964" replacement="QR" reason="overlong"/> <!-- null -->
-            <territoryAlias type="965" replacement="QS" reason="overlong"/> <!-- null -->
-            <territoryAlias type="966" replacement="QT" reason="overlong"/> <!-- null -->
-            <territoryAlias type="968" replacement="QV" reason="overlong"/> <!-- null -->
-            <territoryAlias type="969" replacement="QW" reason="overlong"/> <!-- null -->
-            <territoryAlias type="970" replacement="QX" reason="overlong"/> <!-- null -->
-            <territoryAlias type="971" replacement="QY" reason="overlong"/> <!-- null -->
-            <territoryAlias type="972" replacement="QZ" reason="overlong"/> <!-- null -->
             <territoryAlias type="638" replacement="RE" reason="overlong"/> <!-- Réunion -->
             <territoryAlias type="642" replacement="RO" reason="overlong"/> <!-- Romania -->
             <territoryAlias type="688" replacement="RS" reason="overlong"/> <!-- Serbia -->
@@ -1405,7 +1351,6 @@
             <territoryAlias type="795" replacement="TM" reason="overlong"/> <!-- Turkmenistan -->
             <territoryAlias type="788" replacement="TN" reason="overlong"/> <!-- Tunisia -->
             <territoryAlias type="776" replacement="TO" reason="overlong"/> <!-- Tonga -->
-            <territoryAlias type="626" replacement="TL" reason="overlong"/> <!-- null -->
             <territoryAlias type="792" replacement="TR" reason="overlong"/> <!-- Turkey -->
             <territoryAlias type="780" replacement="TT" reason="overlong"/> <!-- Trinidad and Tobago -->
             <territoryAlias type="798" replacement="TV" reason="overlong"/> <!-- Tuvalu -->
@@ -1426,39 +1371,11 @@
             <territoryAlias type="548" replacement="VU" reason="overlong"/> <!-- Vanuatu -->
             <territoryAlias type="876" replacement="WF" reason="overlong"/> <!-- Wallis and Futuna -->
             <territoryAlias type="882" replacement="WS" reason="overlong"/> <!-- Samoa -->
-            <territoryAlias type="973" replacement="XA" reason="overlong"/> <!-- null -->
-            <territoryAlias type="974" replacement="XB" reason="overlong"/> <!-- null -->
-            <territoryAlias type="975" replacement="XC" reason="overlong"/> <!-- null -->
-            <territoryAlias type="976" replacement="XD" reason="overlong"/> <!-- null -->
-            <territoryAlias type="977" replacement="XE" reason="overlong"/> <!-- null -->
-            <territoryAlias type="978" replacement="XF" reason="overlong"/> <!-- null -->
-            <territoryAlias type="979" replacement="XG" reason="overlong"/> <!-- null -->
-            <territoryAlias type="980" replacement="XH" reason="overlong"/> <!-- null -->
-            <territoryAlias type="981" replacement="XI" reason="overlong"/> <!-- null -->
-            <territoryAlias type="982" replacement="XJ" reason="overlong"/> <!-- null -->
-            <territoryAlias type="983" replacement="XK" reason="overlong"/> <!-- null -->
-            <territoryAlias type="984" replacement="XL" reason="overlong"/> <!-- null -->
-            <territoryAlias type="985" replacement="XM" reason="overlong"/> <!-- null -->
-            <territoryAlias type="986" replacement="XN" reason="overlong"/> <!-- null -->
-            <territoryAlias type="987" replacement="XO" reason="overlong"/> <!-- null -->
-            <territoryAlias type="988" replacement="XP" reason="overlong"/> <!-- null -->
-            <territoryAlias type="989" replacement="XQ" reason="overlong"/> <!-- null -->
-            <territoryAlias type="990" replacement="XR" reason="overlong"/> <!-- null -->
-            <territoryAlias type="991" replacement="XS" reason="overlong"/> <!-- null -->
-            <territoryAlias type="992" replacement="XT" reason="overlong"/> <!-- null -->
-            <territoryAlias type="993" replacement="XU" reason="overlong"/> <!-- null -->
-            <territoryAlias type="994" replacement="XV" reason="overlong"/> <!-- null -->
-            <territoryAlias type="995" replacement="XW" reason="overlong"/> <!-- null -->
-            <territoryAlias type="996" replacement="XX" reason="overlong"/> <!-- null -->
-            <territoryAlias type="997" replacement="XY" reason="overlong"/> <!-- null -->
-            <territoryAlias type="998" replacement="XZ" reason="overlong"/> <!-- null -->
             <territoryAlias type="720" replacement="YE" reason="overlong"/> <!-- People's Democratic Republic of Yemen -->
             <territoryAlias type="887" replacement="YE" reason="overlong"/> <!-- Yemen -->
             <territoryAlias type="175" replacement="YT" reason="overlong"/> <!-- Mayotte -->
-            <!-- <territoryAlias type="891" replacement="RS ME" reason="overlong"/>  --> <!-- null -->
             <territoryAlias type="710" replacement="ZA" reason="overlong"/> <!-- South Africa -->
             <territoryAlias type="894" replacement="ZM" reason="overlong"/> <!-- Zambia -->
-            <territoryAlias type="180" replacement="CD" reason="overlong"/> <!-- null -->
             <territoryAlias type="716" replacement="ZW" reason="overlong"/> <!-- Zimbabwe -->
             <territoryAlias type="999" replacement="ZZ" reason="overlong"/> <!-- Unknown or Invalid Region -->
             <!-- variants -->

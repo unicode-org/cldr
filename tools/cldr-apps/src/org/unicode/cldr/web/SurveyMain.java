@@ -8070,7 +8070,7 @@ o	            		}*/
         String choice_v = ctx.field(fieldHash+QUERY_VALUE_SUFFIX); // choice + value
         String choice_r = ctx.field(fieldHash+"_r"); // choice + value
         String choice_refDisplay = ""; // display value for ref
-        boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || p.hasProps || p.hasErrors;
+        boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || p.hasProps || p.hasErrors || p.hasWarnings;
         
         //NOT a toggle.. proceed 'normally'
         
@@ -8765,7 +8765,7 @@ o	            		}*/
 			|| UserRegistry.userIsTC(ctx.session.user)
 			|| ( UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(section.locale))
             || ((isPhaseVetting() || isPhaseVettingClosed()) && ( p.hasErrors  ||
-                                  p.hasProps ||  (p.getResultType()== Vetting.RES_DISPUTED) ))) {
+                                  p.hasProps  || p.hasWarnings||  (p.getResultType()== Vetting.RES_DISPUTED) ))) {
             String changetoBox = "<td id='i_"+p.fullFieldHash()+"' width='1%' class='noborder' rowspan='"+rowSpan+"' valign='top'>";
             // ##7 Change
             if(canModify && canSubmit && (zoomedIn||!p.zoomOnly)) {

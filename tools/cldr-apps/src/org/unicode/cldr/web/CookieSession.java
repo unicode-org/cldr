@@ -423,6 +423,7 @@ public class CookieSession {
     public static final int GUEST_TO_40 =  0; /** Expire Guest sessions immediately **/
     
     public static final int USER_TO =  1 * 60 * MILLIS_IN_MIN; /** Expire non-guest sessions after 1 hours **/
+    public static final int USER_TO_10 =  1 * 20 * MILLIS_IN_MIN; /** Expire non-guest sessions after 20 minutes **/
     public static final int REAP_TO = 4 * MILLIS_IN_MIN; /** Only reap once every 4 mintutes **/
     public static final int REAP_TO_10 = 30*1000; /** Only reap once every 4 mintutes **/
     public static final int REAP_TO_40 = 0; /** Only reap once every 4 mintutes **/
@@ -451,7 +452,10 @@ public class CookieSession {
             } else if(allCount > 10) {
                 guest_to = GUEST_TO_10;
             }
-            
+            int user_to = USER_TO;
+            if(allCount>10) {
+            	user_to=USER_TO_10;
+            }
             long elapsed = (System.currentTimeMillis()-lastReap);
             
 //            System.err.println("reap: elapsed " + elapsed + ", nGuests " + nGuests +", reap_to:"+reap_to+", guest_to:"+guest_to + ", gHash count: " + gHash.size());
@@ -480,7 +484,7 @@ public class CookieSession {
                         guests++;
                     }
                 } else {
-                    if(cs.age() > USER_TO) {
+                    if(cs.age() > user_to) {
 //                        System.out.println("Reaped users session: " + cs.id + " (" + cs.user.email + ") after  " + SurveyMain.timeDiff(cs.last) +" inactivity.");
                         cs.remove();
                         // concurrent modify . . . (i.e. rescan.)

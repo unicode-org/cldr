@@ -11,7 +11,7 @@ import com.ibm.icu.util.ULocale;
  * Immutable class for formatting a list, using data from CLDR (or supplied separately). The class is currently not subclassable.
  * @author markdavis
  */
-final public class ListFormatter {
+final public class ListFormatter implements Transform<Collection<String>, String>{
     // TODO optimize this for the common case that the patterns are all of the form {0}<sometext>{1}.
     // For now, we avoid MessageFormat, because there is no "sub" formatting.
     private final String two;
@@ -86,5 +86,10 @@ final public class ListFormatter {
     private String format2(String pattern, Object a, Object b) {
         // TODO: make slightly faster by using single pass.
         return pattern.replace("{0}", a.toString()).replace("{1}", b.toString());
+    }
+
+    @Override
+    public String transform(Collection<String> source) {
+        return format(source);
     }
 }

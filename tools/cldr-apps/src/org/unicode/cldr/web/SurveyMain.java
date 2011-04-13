@@ -5772,7 +5772,7 @@ o	            		}*/
     public static final String RXML_PREFIX="/rxml/main";
     public static final String FEED_PREFIX="/feed";
     
-    private int doOutput(String kind) {
+    private int doOutput(String kind) throws InternalError {
         boolean vetted=false;
         boolean resolved=false;
         boolean users=false;
@@ -5885,6 +5885,12 @@ o	            		}*/
 						inFiles, nrInFiles, progress);
                 
                 
+            } catch(SQLException se) {
+            	busted("Writing files:"+kind,se);
+            	throw new RuntimeException("Writing files:"+kind,se);
+            } catch(IOException se) {
+            	busted("Writing files:"+kind,se);
+            	throw new RuntimeException("Writing files:"+kind,se);
             } finally {
                 progress.close();
             }
@@ -5907,11 +5913,13 @@ o	            		}*/
 	 * @param progress
 	 * @return
 	 * @throws InternalError
+	 * @throws SQLException 
+	 * @throws IOException 
 	 */
 	private int writeDataFile(String kind, boolean vetted, boolean resolved,
 			String ourDate, int nrOutFiles, File outdir, File voteDir,
 			long lastTime, long countStart, File[] inFiles, int nrInFiles,
-			CLDRProgressTask progress) throws InternalError {
+			CLDRProgressTask progress) throws InternalError, IOException, SQLException {
 		String lastfile;
 		//Set<Integer> xpathSet = new TreeSet<Integer>();
 		boolean xpathSet[] = new boolean[0];
@@ -5923,8 +5931,14 @@ o	            		}*/
 		    progress.update(i,localeName);
 		    lastfile = fileName;
 		    File outFile = new File(outdir, fileName);
+		    CLDRLocale loc = CLDRLocale.getInstance(localeName);
+		    if(kind.equals("vxml")||kind.equals("xml")) {
+		    	getOutputFile(conn,loc,kind);
+				continue; // use cache
+		    }
 		    
-		    XMLSource dbSource = makeDBSource( CLDRLocale.getInstance(localeName), vetted);
+		    
+		    XMLSource dbSource = makeDBSource( loc, vetted);
 		    CLDRFile file;
 		    
 		    if(resolved == false) {
@@ -10111,8 +10125,9 @@ o	            		}*/
             
             progress.update("Making your Survey Tool happy..");
             
-            addUpdateTasks();
-            
+            if(!CldrUtility.getProperty("CLDR_NOUPDATE", false)) {
+            	addUpdateTasks();
+            }
         } catch(Throwable t) {
 	        t.printStackTrace();
 	        busted("Error on startup: ", t);
@@ -10145,7 +10160,7 @@ o	            		}*/
     	return new File(getDataDir(kind),loc.toString()+".xml");
     }
     
-    boolean fileNeedsUpdate(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
+    public boolean fileNeedsUpdate(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
     	return fileNeedsUpdate(getLocaleTime(conn,loc),loc,kind);
     }
     boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
@@ -10219,6 +10234,25 @@ o	            		}*/
 			DBUtils.close(conn);
 		}
     }
+    
+    /**
+     * 
+     * @param loc
+     * @param kind
+     * @return
+     * @throws IOException
+     * @throws SQLException
+     */
+    boolean fileNeedsUpdate(CLDRLocale loc, String kind) throws IOException, SQLException {
+		Connection conn = null;
+		try {
+			conn = dbUtils.getDBConnection();
+			return fileNeedsUpdate(conn,loc,kind);
+		} finally {
+			DBUtils.close(conn);
+		}
+    }
+
     
     /**
      * Write out the specified file

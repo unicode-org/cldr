@@ -16,6 +16,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
@@ -430,8 +431,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                	System.err.println("Error on doRawXML: " + t.toString());
                	t.printStackTrace();
                	response.setContentType("text/plain");
-               	response.getWriter().println("Error processing raw XML:\n\n");
-               	t.printStackTrace(response.getWriter());
+               	ServletOutputStream os = response.getOutputStream();
+               	os.println("Error processing raw XML:\n\n");
+               	t.printStackTrace(new PrintStream(os));
             	xpages++;
             	return;
             }
@@ -5856,7 +5858,7 @@ o	            		}*/
         if(!outdir.exists() && !outdir.mkdir()) {
             throw new InternalError("Can't create outdir " + outdir.getAbsolutePath());
         }
-        if(voteDir!=null && !outdir.exists() && !voteDir.mkdir()) {
+        if(voteDir!=null && !voteDir.exists() && !voteDir.mkdir()) {
             throw new InternalError("Can't create voteDir " + voteDir.getAbsolutePath());
         }
         
@@ -6222,6 +6224,7 @@ o	            		}*/
                 response.sendRedirect(ctx.schemeHostPort()+ctx.base()+RXML_PREFIX+"/");
                 return true;
             }
+            kind="rxml"; // cached
             s = s.substring(RXML_PREFIX.length()+1,s.length()); //   "foo.xml"
         } else if(s.startsWith(TXML_PREFIX)) {
             finalData = true;
@@ -10252,7 +10255,7 @@ o	            		}*/
      * @throws IOException
      * @throws SQLException
      */
-    File getOutputFile(Connection conn, CLDRLocale loc, String kind) throws IOException, SQLException {
+    synchronized File getOutputFile(Connection conn, CLDRLocale loc, String kind) throws IOException, SQLException {
     	if(fileNeedsUpdate(conn,loc,kind)) {
     		return writeOutputFile(loc,kind);
     	} else {
@@ -10297,13 +10300,14 @@ o	            		}*/
 
     
     /**
-     * Write out the specified file
+     * Write out the specified file. 
      * @param loc
      * @param kind
      * @return
      */
-    File writeOutputFile(CLDRLocale loc, String  kind) {
-		ElapsedTimer et = new ElapsedTimer("Output "+loc);
+    private File writeOutputFile(CLDRLocale loc, String  kind) {
+    	long st = System.currentTimeMillis();
+		//ElapsedTimer et = new ElapsedTimer("Output "+loc);
 		XMLSource dbSource;
 	    CLDRFile file;
 		if(kind.equals("vxml")) {
@@ -10322,19 +10326,29 @@ o	            		}*/
 	    		throw new InternalError("Don't know how to make kind " + kind + " for loc " + loc + " - isCacheableKind() out of sync with writeOutputFile()");
 	    	}
 	    }
-		
+		DBEntry dbEntry = null;
 		try {
+			dbEntry = dbsrcfac.openEntry(dbSource);
 			File outFile = getDataFile(kind, loc);
 			PrintWriter utf8OutStream = new PrintWriter(
 					new OutputStreamWriter(
 							new FileOutputStream(outFile), "UTF8"));
 			file.write(utf8OutStream);
 			utf8OutStream.close();
-			System.err.println("Updater: Wrote: " + kind + "/" + et);
+			System.err.println("Updater: Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
 			return outFile;
 		} catch (IOException e) {
 	    	e.printStackTrace();
 	    	throw new RuntimeException("IO Exception "+e.toString(),e);
+	    } finally {
+	    	if(dbEntry!=null) {
+				try {
+					dbEntry.close();
+				} catch (SQLException e) {
+					System.err.println("Error in " + kind + "/" + loc + " _ " + e.toString());
+					e.printStackTrace();
+				}
+	    	}
 	    }
     }
 

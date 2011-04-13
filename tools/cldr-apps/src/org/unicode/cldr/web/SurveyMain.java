@@ -420,10 +420,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             response.setHeader("Robots", "noindex,nofollow");
             
             // handle raw xml
-            if(doRawXml(request,response)) {
-                // not counted.
-                xpages++;
-                return; 
+            try {
+	            if(doRawXml(request,response)) {
+	                // not counted.
+	                xpages++;
+	                return; 
+	            }
+            } catch(Throwable t) {
+               	System.err.println("Error on doRawXML: " + t.toString());
+               	t.printStackTrace();
+               	response.setContentType("text/plain");
+               	response.getWriter().println("Error processing raw XML:\n\n");
+               	t.printStackTrace(response.getWriter());
+            	xpages++;
+            	return;
             }
             pages++;
             
@@ -5808,7 +5818,7 @@ o	            		}*/
         File outdir = new File(vetdir, kind);
         File voteDir = null;
         if(data) voteDir = new File(outdir, "votes");
-        if(outdir.exists() && outdir.isDirectory()) {
+        if(outdir.exists() && outdir.isDirectory() && !(isCacheableKind(kind))) {
             File backup = new File(vetdir, kind+".old");
             
             // delete backup
@@ -5843,10 +5853,10 @@ o	            		}*/
             }
         }
         
-        if(!outdir.mkdir()) {
+        if(!outdir.exists() && !outdir.mkdir()) {
             throw new InternalError("Can't create outdir " + outdir.getAbsolutePath());
         }
-        if(voteDir!=null && !voteDir.mkdir()) {
+        if(voteDir!=null && !outdir.exists() && !voteDir.mkdir()) {
             throw new InternalError("Can't create voteDir " + voteDir.getAbsolutePath());
         }
         
@@ -5900,6 +5910,13 @@ o	            		}*/
     }
 	/**
 	 * @param kind
+	 * @return
+	 */
+	private boolean isCacheableKind(String kind) {
+		return kind.equals("vxml")||kind.equals("xml")||kind.equals("rxml");
+	}
+	/**
+	 * @param kind
 	 * @param vetted
 	 * @param resolved
 	 * @param ourDate
@@ -5932,7 +5949,7 @@ o	            		}*/
 		    lastfile = fileName;
 		    File outFile = new File(outdir, fileName);
 		    CLDRLocale loc = CLDRLocale.getInstance(localeName);
-		    if(kind.equals("vxml")||kind.equals("xml")) {
+		    if(isCacheableKind(kind)) {
 		    	getOutputFile(conn,loc,kind);
 				continue; // use cache
 		    }
@@ -6592,6 +6609,15 @@ o	            		}*/
         return gFactory;
     }
     private CLDRFile.Factory gOldFactory = null;
+    
+    /**
+     * Return the actual XML file on disk
+     * @param loc
+     * @return
+     */
+    public File getBaseFile(CLDRLocale loc) {
+    	return new File(fileBase,loc.getBaseName()+".xml");
+    }
 
     synchronized CLDRFile.Factory getOldFactory() {
         if(gOldFactory == null) {
@@ -9806,7 +9832,7 @@ o	            		}*/
     /**
     * Main setup
      */
-    static  boolean isSetup = false;
+    static public boolean isSetup = false;
 
     private void createBasicCldr(File homeFile) {
         System.err.println("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
@@ -10163,7 +10189,7 @@ o	            		}*/
     public boolean fileNeedsUpdate(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
     	return fileNeedsUpdate(getLocaleTime(conn,loc),loc,kind);
     }
-    boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
+    public boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
 		File outFile = getDataFile(kind, loc);
 		if(!outFile.exists()) return true;
 		Timestamp theFile = null;
@@ -10180,7 +10206,7 @@ o	            		}*/
 			//System.err.println(" .. OK, up to date.");
 			return false;
 		}
-		System.err.println("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
+		if(false) System.err.println("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
 		return true;
     }
     
@@ -10190,6 +10216,22 @@ o	            		}*/
 		if(o!=null&&o.length>0&&o[0]!=null&&o[0].length>0) {
 			theDate = (Timestamp)o[0][0];
 		}
+		File svnFile = getBaseFile(loc);
+		if(svnFile.exists()) {
+			Timestamp fileTimestamp = new Timestamp(svnFile.lastModified());
+			if(theDate==null || fileTimestamp.after(theDate)) {
+				theDate = fileTimestamp;
+			}
+		}
+		
+		CLDRLocale parLoc = loc.getParent();
+		if(parLoc!=null) {
+			Timestamp parTimestamp = getLocaleTime(conn,parLoc);
+			if(theDate==null || parTimestamp.after(theDate)) {
+				theDate = parTimestamp;
+			}
+		}
+		
 		return theDate;
 	}
     public Timestamp getLocaleTime(CLDRLocale loc) throws SQLException {
@@ -10274,7 +10316,11 @@ o	            		}*/
 			dbSource = makeDBSource(loc, false);
 	    	file = new CLDRFile(dbSource,false);
 	    } else {
-	    	throw new InternalError("Don't know how to make kind " + kind + " for loc " + loc);
+	    	if(!isCacheableKind(kind)) {
+	    		throw new InternalError("Can't (yet) cache kind " + kind + " for loc " + loc);
+	    	} else {
+	    		throw new InternalError("Don't know how to make kind " + kind + " for loc " + loc + " - isCacheableKind() out of sync with writeOutputFile()");
+	    	}
 	    }
 		
 		try {

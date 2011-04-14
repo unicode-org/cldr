@@ -3050,7 +3050,11 @@ o	            		}*/
         	ctx.println(" | <a class='notselected' href='"+ctx.jspUrl("statistics.jsp")+"'>Statistics</a>");
         }
         if(isUnofficial && (ctx.session!=null&&ctx.session.user!=null)) {
-        	ctx.println(" | <i>Experimental:</i>&nbsp;<a class='notselected' href='"+ctx.jspUrl("upload.jsp"  )+ "&amp;s=" + ctx.session.id+"'>Upload XML</a>");
+        	ctx.println(" | <i>Experimental:</i>&nbsp;");
+        	ctx.println("<a class='notselected' href='"+ctx.jspUrl("upload.jsp"  )+ "&amp;s=" + ctx.session.id+"'>Upload XML</a>");
+        	if(ctx.session.user.userlevel<=UserRegistry.TC) {
+        		ctx.println("| <a class='notselected' href='"+ctx.jspUrl("vsummary.jsp"  )+ "&amp;s=" + ctx.session.id+"'>Vetting Summary</a>");
+        	}
         }
     }
     private static final String REDO_FIELD_LIST[] = {

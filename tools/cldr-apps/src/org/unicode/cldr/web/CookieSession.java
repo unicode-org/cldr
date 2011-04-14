@@ -239,7 +239,7 @@ public class CookieSession {
      * @param key the key to set
      * @param value object to be set
      */
-    void put(String key, Object value) {
+    public void put(String key, Object value) {
         synchronized(stuff) {
             stuff.put(key,value);
         }

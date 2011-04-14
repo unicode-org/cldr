@@ -13,6 +13,7 @@ import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
@@ -25,12 +26,17 @@ import org.unicode.cldr.web.CLDRDBSourceFactory.SubFactory;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.util.ULocale;
 
 /**
  * @author srl
  *
  */
 public class VettingViewerQueue {
+	
+	public static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
+	
+	public static CLDRLocale SUMMARY_LOCALE = CLDRLocale.getInstance(ULocale.forLanguageTag("und-x-summary"));
 	
 	static VettingViewerQueue instance = new VettingViewerQueue();
 	
@@ -39,6 +45,7 @@ public class VettingViewerQueue {
 	 * @return
 	 */
 	public static VettingViewerQueue getInstance() { 
+		//if(DEBUG) System.err.println("SUMMARY_LOCALE="+SUMMARY_LOCALE.toString());
 		return instance;
 	}
 	
@@ -137,15 +144,20 @@ public class VettingViewerQueue {
 		}
 		StringBuffer aBuffer = new StringBuffer();
 		private String baseUrl;
-		Task(QueueEntry entry, CLDRLocale locale, WebContext ctx) {
+		public Task(QueueEntry entry, CLDRLocale locale, SurveyMain sm, String baseUrl, Level usersLevel, VoteResolver.Organization usersOrg) {
 			super("VettingTask:"+locale.toString());
+			if(DEBUG) System.err.println("Creating task " + locale.toString());
+			
+			if(DEBUG && locale.toString().length()==0) {
+				System.err.println("@ summary task");
+			}
 			this.locale = locale;
 			this.entry = entry;
-			this.sm = ctx.sm;
-			this.baseUrl = ctx.base();
-			maxn = getMax(ctx.sm.getBaselineFile());
-			usersLevel = Level.get(ctx.getEffectiveCoverageLevel());
-			usersOrg = VoteResolver.Organization.fromString(ctx.session.user.voterOrg());
+			this.sm = sm;
+			this.baseUrl = baseUrl;
+			maxn = getMax(sm.getBaselineFile());
+			this.usersLevel = usersLevel; // Level.get(ctx.getEffectiveCoverageLevel());
+			this.usersOrg = usersOrg; // VoteResolver.Organization.fromString(ctx.session.user.voterOrg());
 		}
 
 		@Override
@@ -155,6 +167,8 @@ public class VettingViewerQueue {
 			
 			DBEntry dbEntry = null;
 			VettingViewer<VoteResolver.Organization> vv = null;
+			
+			if(DEBUG) System.err.println("Starting up vv task:"+locale);
 			
 			try {
 				status="Waiting...";
@@ -226,7 +240,12 @@ public class VettingViewerQueue {
 					
 					EnumSet <VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
 
-					vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel);
+					if(locale.toString().length()>0) {
+						vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel);
+					} else {
+						if(DEBUG) System.err.println("Starting summary gen..");
+						vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, VettingViewer.HackIncludeLocalesWithVotes);
+					}
 					if(running()) {
 						aBuffer.append("<hr/>"+PRE+"Processing time: "+ElapsedTimer.elapsedTime(start)+POST );
 						entry.output.put(locale, aBuffer);
@@ -277,8 +296,10 @@ public class VettingViewerQueue {
 	 * @return status message
 	 * @throws IOException 
 	 */
-	public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status, LoadingPolicy forceRestart, Appendable output) throws IOException {
+	public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status, 
+			LoadingPolicy forceRestart, Appendable output) throws IOException {
 		if(sess==null) sess = ctx.session;
+		SurveyMain sm = sess.sm;
 		QueueEntry entry = getEntry(sess);
 		if(status==null) status = new Status[1];
 		if(forceRestart!=LoadingPolicy.FORCERESTART) {
@@ -330,8 +351,21 @@ public class VettingViewerQueue {
 			return PRE+"Not loading. Click the Refresh button to load."+POST;
 		}
 		
-		t = entry.currentTask = new Task(entry, locale, ctx);
-		ctx.sm.startupThread.addTask(entry.currentTask);
+		String baseUrl = "http://example.com";
+		Level usersLevel;
+		Organization usersOrg;
+		if(ctx!=null) {
+			baseUrl = ctx.base();
+			usersLevel =  Level.get(ctx.getEffectiveCoverageLevel());
+		} else {
+			baseUrl = (String)sess.get("BASE_URL");
+			String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);;
+			usersLevel = Level.get(levelString);
+		}
+		usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
+
+		t = entry.currentTask = new Task(entry, locale, sm,baseUrl,usersLevel,usersOrg);
+		sm.startupThread.addTask(entry.currentTask);
 		
 		status[0] = Status.PROCESSING;
 		String killMsg = "";

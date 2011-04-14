@@ -988,12 +988,28 @@ public class VoteResolver<T> {
       if (!resolved) {
           resolveVotes();
       }
-      
-      T orgVote = getOrgVote(orgOfUser);
+
       T win = getWinningValue();
       Status winStatus = getWinningStatus();
       boolean provisionalOrWorse = Status.provisional.compareTo(winStatus)>=0;
+      
+        /*
+         * * <li>If the user is null (only the winning value matters) <ol>
+         * <li>If the winning value > provisional → *ok*</li> <li>Elseif at
+         * least one organization voted → *disputed*</li> <li>Else →
+         * *provisionalOrWorse*</li> </ol>
+         */
+        if (orgOfUser == null) {
+            if (!provisionalOrWorse) {
+                return VoteStatus.ok;
+            } else if (organizationToValueAndVote.hasVotes) {
+                return VoteStatus.disputed;
+            } else {
+                return VoteStatus.provisionalOrWorse;
+            }
+        }
 
+      T orgVote = getOrgVote(orgOfUser);
       if(orgVote!=null) {
           //      - *If we voted*
           if(conflictedOrganizations.contains(orgOfUser)) {

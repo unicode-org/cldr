@@ -15,7 +15,7 @@ if(!SurveyMain.isSetup ||
 	return;
 }
 
-cs.put("BASE_URL",request.getContextPath()+"/survey");
+cs.put("BASE_URL","http://unicode.org/cldr/apps/survey");
 
 %>
 

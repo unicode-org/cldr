@@ -5782,6 +5782,7 @@ o	            		}*/
     public static final String VXML_PREFIX="/vxml/main";
     public static final String TXML_PREFIX="/txml/main";
     public static final String RXML_PREFIX="/rxml/main";
+    public static final String FXML_PREFIX="/fxml/main";
     public static final String FEED_PREFIX="/feed";
     
     private int doOutput(String kind) throws InternalError {
@@ -5915,7 +5916,7 @@ o	            		}*/
 	 * @return
 	 */
 	private boolean isCacheableKind(String kind) {
-		return kind.equals("vxml")||kind.equals("xml")||kind.equals("rxml");
+		return kind.equals("vxml")||kind.equals("xml")||kind.equals("rxml")||kind.equals("fxml");
 	}
 	/**
 	 * @param kind
@@ -6189,7 +6190,9 @@ o	            		}*/
         throws IOException, ServletException {
         String s = request.getPathInfo();
         
-        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(ZXML_PREFIX)||s.startsWith(ZVXML_PREFIX)||s.startsWith(VXML_PREFIX)||s.startsWith(RXML_PREFIX)||s.startsWith(TXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
+        if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(ZXML_PREFIX)||s.startsWith(ZVXML_PREFIX)||s.startsWith(VXML_PREFIX)||
+        		s.startsWith(FXML_PREFIX) ||
+        			s.startsWith(RXML_PREFIX)||s.startsWith(TXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
             return false;
         }
         
@@ -6226,6 +6229,16 @@ o	            		}*/
             }
             kind="rxml"; // cached
             s = s.substring(RXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+        } else if(s.startsWith(FXML_PREFIX)) {
+            finalData = true;
+
+            if(s.equals(FXML_PREFIX)) {
+                WebContext ctx = new WebContext(request,response);
+                response.sendRedirect(ctx.schemeHostPort()+ctx.base()+FXML_PREFIX+"/");
+                return true;
+            }
+            kind="fxml"; // cached
+            s = s.substring(FXML_PREFIX.length()+1,s.length()); //   "foo.xml"
         } else if(s.startsWith(TXML_PREFIX)) {
             finalData = true;
             resolved=false;
@@ -7290,7 +7303,7 @@ o	            		}*/
     }
 
     public void showMetazones(WebContext ctx, String continent) {
-        showPathList(ctx, "//ldml/dates/timeZoneNames/metazone_"+continent,null);
+        showPathList(ctx, "//ldml/dates/timeZoneNames/metazone"+DataSection.CONTINENT_DIVIDER+continent,null);
     }
 
     /**
@@ -10310,9 +10323,14 @@ o	            		}*/
 		//ElapsedTimer et = new ElapsedTimer("Output "+loc);
 		XMLSource dbSource;
 	    CLDRFile file;
+	    boolean isFlat = false;
 		if(kind.equals("vxml")) {
 			dbSource = makeDBSource(loc, true);
 		    file = makeCLDRFile(dbSource);
+		} else if(kind.equals("fxml")) {
+				dbSource = makeDBSource(loc, true);
+			    file = makeCLDRFile(dbSource);
+			    isFlat=true;
 		} else if(kind.equals("rxml")) {
 			dbSource = makeDBSource(loc, true);
 	    	file = new CLDRFile(dbSource,true);
@@ -10330,11 +10348,26 @@ o	            		}*/
 		try {
 			dbEntry = dbsrcfac.openEntry(dbSource);
 			File outFile = getDataFile(kind, loc);
-			PrintWriter utf8OutStream = new PrintWriter(
+			PrintWriter u8out = new PrintWriter(
 					new OutputStreamWriter(
 							new FileOutputStream(outFile), "UTF8"));
-			file.write(utf8OutStream);
-			utf8OutStream.close();
+			if(!isFlat) {
+				file.write(u8out);
+			} else {
+				Set<String> keys = new TreeSet<String>();
+				for(String k : file) {
+					keys.add(k);
+				}
+				u8out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+				u8out.println("<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">"); 
+				u8out.println("<comment>"+loc+"</comment>");
+				u8out.println("<properties>");
+				for(String k:keys) {
+					u8out.println(" <entry key=\""+k.replaceAll("\"", "\\\"")+"\">"+file.getStringValue(k)+"</entry>");
+				}
+				u8out.println("</properties>");
+			}
+			u8out.close();
 			System.err.println("Updater: Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
 			return outFile;
 		} catch (IOException e) {

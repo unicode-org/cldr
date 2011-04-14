@@ -24,7 +24,7 @@ if(sm==null || !sm.isSetup) {
 	out.println("<i>Not booted yet, come back later.</i>");
 	return;
 }
-String kinds[] = { "vxml", "xml", "rxml" };
+String kinds[] = { "vxml", "xml", "rxml","fxml" };
 int totals[] = new int[kinds.length];
 %>
 

@@ -51,7 +51,7 @@ import com.ibm.icu.text.RuleBasedCollator;
  **/
 
 public class DataSection extends Registerable {
-    private static final boolean DEBUG = false; // || CldrUtility.getProperty("TEST", false);
+    private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
 
     /**
      * Trace in detail time taken to populate?
@@ -963,8 +963,9 @@ public class DataSection extends Registerable {
 ///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
 
                 if(!matcher.matches(p.xpath(), p.base_xpath)) {
-                    //System.err.println("not match: " + p.base_xpath + " / " + p.xpath());
+                    if(DEBUG) System.err.println("not match: " + p.base_xpath + " / " + p.xpath());
                     continue;
+                    
                 } else {
                 	newSet.add(p);
                 }
@@ -1131,6 +1132,11 @@ public class DataSection extends Registerable {
     public static final String FAKE_FLEX_THING = "available date formats: add NEW item";
     public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
     public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
+
+    /**
+     * Divider denoting a specific Continent division.
+     */
+	public static final String CONTINENT_DIVIDER = "\u2603";
     
     private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
         DBEntry vettedParentEntry = null;
@@ -1206,12 +1212,14 @@ public class DataSection extends Registerable {
         		} else if(xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
         			removePrefix = "//ldml/dates/timeZoneNames/metazone";
         			excludeMetaZones = false;
-        			int continentStart = xpathPrefix.indexOf("_");
+        			int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
         			if(continentStart>0) {
-        				continent = xpathPrefix.substring(xpathPrefix.indexOf("_")+1);
+        				continent = xpathPrefix.substring(xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER)+1);
         			}
         			if(false) System.err.println(xpathPrefix+": -> continent " + continent);
-        			workPrefix = "//ldml/dates/timeZoneNames/metazone";
+        			if(!xpathPrefix.contains("@type")) { // if it's not a zoom-in..
+        				workPrefix = "//ldml/dates/timeZoneNames/metazone";
+        			}
         			//        System.err.println("ZZ1");
         		} else {
         			removePrefix = "//ldml/dates/calendars/calendar";
@@ -1261,7 +1269,7 @@ public class DataSection extends Registerable {
         	allXpaths.addAll(extraXpaths);
 
         	//        // Process extra paths.
-        	//        System.err.println("@@X@ base: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
+        	if(DEBUG) System.err.println("@@X@ base["+workPrefix+"]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
         	//        addExtraPaths(aFile, src, checkCldr, baselineFile, options, extraXpaths);
 
         	for(String xpath : allXpaths) {
@@ -1788,6 +1796,14 @@ public class DataSection extends Registerable {
      * Makes sure this pod contains the peas we'd like to see.
      */
     private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
+    	
+    	if(xpathPrefix.contains("@type")) {
+    		if(DEBUG) System.err.println("Bailing- no reason to complete a type-specifix xpath");
+    		return; // don't try to complete if it's a specific item.
+    	} else if(DEBUG) {
+    		System.err.println("Completing: " + xpathPrefix);
+    	}
+    	
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
         if(xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames")) {

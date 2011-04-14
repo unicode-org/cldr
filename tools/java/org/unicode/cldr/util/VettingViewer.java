@@ -810,8 +810,16 @@ public class VettingViewer<T> {
 
         }
     }
+    
+    public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
+        Set<String> hackHasVotes = new HashSet(Arrays.asList("af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO".split("\\s")));
+        @Override
+        public boolean is(String localeId) {
+            return hackHasVotes.contains(localeId);
+        }
+    };
 
-    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Pattern localeIDRegex) {
+    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
         try {
             output.append("<p>The following summarizes the issues across locales. " +
             		"It uses the Modern coverage, and is not user/organization specific. " +
@@ -835,13 +843,9 @@ public class VettingViewer<T> {
             headerRow.append("</tr>\n");
             String header = headerRow.toString();
 
-            Matcher matcher = localeIDRegex.matcher("");
-
             Map<String, String> sortedNames = new TreeMap(Collator.getInstance());
             Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
             
-            Set<String> hackHasVotes = new HashSet(Arrays.asList("af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO".split("\\s")));
-
             Relation<String, String> localeToDefaultContents = Relation.of(new HashMap<String, Set<String>>(), LinkedHashSet.class);
 
             for (String defaultContentLocale : defaultContentLocales) {
@@ -851,8 +855,7 @@ public class VettingViewer<T> {
             for (String localeID : cldrFactory.getAvailable()) {
                 if (defaultContentLocales.contains(localeID) 
                         || localeID.equals("en") 
-                        || !hackHasVotes.contains(localeID)
-                        || !matcher.reset(localeID).matches()) {
+                        || !includeLocale.is(localeID)) {
                     continue;
                 }
                 
@@ -1354,7 +1357,7 @@ public class VettingViewer<T> {
             tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
             break;
         case summary:
-            tableView.generateSummaryHtmlErrorTables(out, choiceSet, Pattern.compile(".*"));
+            tableView.generateSummaryHtmlErrorTables(out, choiceSet, HackIncludeLocalesWithVotes);
             break;
         }
         out.println("</body>\n</html>\n");

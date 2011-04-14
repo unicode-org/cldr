@@ -17,6 +17,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.unittest.TestLdml2ICU.IcuValues;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
@@ -41,7 +42,8 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     public static void main(String[] args) {
-        factory = CLDRFile.Factory.make("/Users/markdavis/Documents/workspace/cldr-1.9.0/common/main/", ".*", DraftStatus.contributed);
+        // "/Users/markdavis/Documents/workspace/cldr-1.9.0/common/main/"
+        factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.contributed);
         new TestLdml2ICU().run(args);
     }
 

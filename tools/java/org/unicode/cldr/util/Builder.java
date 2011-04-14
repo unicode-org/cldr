@@ -11,6 +11,8 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 
+import org.unicode.cldr.util.Builder.CBuilder;
+
 import com.ibm.icu.text.Transform;
 
 /**
@@ -136,14 +138,16 @@ public final class Builder {
             return this;
         }
 
-        public <T> CBuilder<E, U> addAll(Collection<T> available, Transform<T, E> transform) {
-            for (T item : available) {
-                E made = transform.transform(item);
-                if (made != null) {
-                    collection.add(made);
-                }
-            }
-            return this;
+        public <T> CBuilder<E,U> addAll(Transform<T, E> transform, Iterable<? extends T> c) {
+            return addAll(Transformer.iterator(transform, c));
+        }
+
+        public <T> CBuilder<E, U> addAll(Transform<T, E> transform, T... items) {
+            return addAll(Transformer.iterator(transform, items));
+        }
+
+        public <T> CBuilder<E, U> addAll(Transform<T, E> transform, Iterator<T> items) {
+            return addAll(Transformer.iterator(transform, items));
         }
 
         public CBuilder<E, U> remove(E o) {

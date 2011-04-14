@@ -483,9 +483,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     XPathParts current = new XPathParts(attributeOrdering, defaultSuppressionMap);
     XPathParts lastFiltered = new XPathParts(attributeOrdering, defaultSuppressionMap);
     XPathParts currentFiltered = new XPathParts(attributeOrdering, defaultSuppressionMap);
+    boolean isResolved = dataSource.isResolving();
 
     for (Iterator it2 = identitySet.iterator(); it2.hasNext();) {
       String xpath = (String)it2.next();
+      if (isResolved && xpath.contains("/alias")) {
+          continue;
+      }
       currentFiltered.set(xpath);
       current.set(xpath);
       current.writeDifference(pw, currentFiltered, last, lastFiltered, "", tempComments);
@@ -500,6 +504,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     for (Iterator it2 = orderedSet.iterator(); it2.hasNext();) {
       String xpath = (String)it2.next();
+      if (isResolved && xpath.contains("/alias")) {
+          continue;
+      }
       //Value v = (Value) getXpath_value().get(xpath);
       currentFiltered.set(xpath);
       if (currentFiltered.getElement(1).equals("identity")) continue;

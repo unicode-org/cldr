@@ -721,17 +721,13 @@ public class VettingViewer<T> {
 
             String oldValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
             if (oldValue != null && !oldValue.equals(value)) {
-                if (problems != null) {
-                    problems.add(Choice.changedOldValue);
-                }
+                problems.add(Choice.changedOldValue);
                 problemCounter.increment(Choice.changedOldValue);
             }
 
             if (showAll && !localeID.equals("root")) {
                 if (isMissing(sourceFile, path, status)) {
-                    if (problems != null) {
-                        problems.add(Choice.missingCoverage);
-                    }
+                    problems.add(Choice.missingCoverage);
                     problemCounter.increment(Choice.missingCoverage);
                 }
             }
@@ -742,9 +738,7 @@ public class VettingViewer<T> {
                 // so see if the value changed.
                 //String lastValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
                 if (CharSequences.equals(value, oldValue)) {
-                    if (problems != null) {
-                        problems.add(Choice.englishChanged);
-                    }
+                    problems.add(Choice.englishChanged);
                     problemCounter.increment(Choice.englishChanged);
                 }
             }
@@ -756,9 +750,7 @@ public class VettingViewer<T> {
                         : errorStatus == ErrorChecker.Status.warning ? Choice.warning
                                 : null;
                 if (choice != null) {
-                    if (problems != null) {
-                        problems.add(choice);
-                    }
+                    problems.add(choice);
                     appendToMessage(statusMessage, htmlMessage);
                     problemCounter.increment(choice);
                     haveError = true;
@@ -772,17 +764,13 @@ public class VettingViewer<T> {
             switch (voteStatus) {
             case losing:
             case provisionalOrWorse:
-                if (problems != null) {
-                    problems.add(Choice.weLost);
-                }
+                problems.add(Choice.weLost);
                 problemCounter.increment(Choice.weLost);
                 //String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
                 // appendToMessage(usersValue, testMessage);
                 break;
             case disputed:
-                if (problems != null) {
-                    problems.add(Choice.hasDispute);
-                }
+                problems.add(Choice.hasDispute);
                 problemCounter.increment(Choice.hasDispute);
                 break;
             }
@@ -810,9 +798,12 @@ public class VettingViewer<T> {
 
         }
     }
-    
+
     public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
-        Set<String> hackHasVotes = new HashSet(Arrays.asList("af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO".split("\\s")));
+        Set<String> hackHasVotes = new HashSet(Arrays.asList(
+                "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
+             // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
+                .split("\\s")));
         @Override
         public boolean is(String localeId) {
             return hackHasVotes.contains(localeId);
@@ -822,10 +813,10 @@ public class VettingViewer<T> {
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
         try {
             output.append("<p>The following summarizes the issues across locales. " +
-            		"It uses the Modern coverage, and is not user/organization specific. " +
-            		"That means it does not cover Losing* items, " +
-            		"and the Disputed* items are those that have at least one vote from someone " +
-            		"but not enough votes for approval.</p>\n");
+                    "It uses the Modern coverage, and is not user/organization specific. " +
+                    "That means it does not cover Losing* items, " +
+                    "and the Disputed* items are those that have at least one vote from someone " +
+            "but not enough votes for approval.</p>\n");
             // Gather the relevant paths
             // each one will be marked with the choice that it triggered.
             Counter<Choice> problemCounter = new Counter<Choice>();
@@ -845,7 +836,7 @@ public class VettingViewer<T> {
 
             Map<String, String> sortedNames = new TreeMap(Collator.getInstance());
             Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
-            
+
             Relation<String, String> localeToDefaultContents = Relation.of(new HashMap<String, Set<String>>(), LinkedHashSet.class);
 
             for (String defaultContentLocale : defaultContentLocales) {
@@ -858,7 +849,7 @@ public class VettingViewer<T> {
                         || !includeLocale.is(localeID)) {
                     continue;
                 }
-                
+
                 sortedNames.put(getName(localeID, localeToDefaultContents), localeID);
             }
 
@@ -884,14 +875,14 @@ public class VettingViewer<T> {
                     output.append(header);
                     lastChar = nextChar;
                 }
-                
+
 
                 output.append("<tr>");
                 output.append("<th class='tv-th' style='text-align:left'>" +
-                		"<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
-                .append(localeID).append("'>")
-                .append(TransliteratorUtilities.toHTML.transform(name.replace('\uFFFE', ' ')))
-                .append("</a></th>");
+                        "<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
+                        .append(localeID).append("'>")
+                        .append(TransliteratorUtilities.toHTML.transform(name.replace('\uFFFE', ' ')))
+                        .append("</a></th>");
                 for (Choice choice : choices) {
                     long count = problemCounter.get(choice);
                     output.append("<td class='tvs-count'>");
@@ -943,7 +934,7 @@ public class VettingViewer<T> {
                 + ", " + oldEnglishFile.getName(CLDRFile.TERRITORY_NAME, region) + ")";
             }
         }
-                
+
         name += "\uFFFE[" + localeIDs + "]";
         return name;
     }

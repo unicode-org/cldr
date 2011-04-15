@@ -25,7 +25,7 @@ cs.put("BASE_URL",BASE_URL);
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SurveyTool | Vetting Summary</title>
+<title>CLDR SurveyTool | Vetting Summary</title>
 
 <% if(!isVloaded) { %>
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
@@ -44,7 +44,7 @@ cs.put("BASE_URL",BASE_URL);
 <% } %>
 <div id='restart'>
 
-<a href="<%=(isVloaded?(BASE_URL):(request.getContextPath()+"/survey"))%>">Return to the SurveyTool <img src='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/STLogo.png' style='float:right;' /></a>
+<a href='<%=(isVloaded?(BASE_URL):(request.getContextPath()+"/survey"))%>'>Return to the SurveyTool <img src='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/STLogo.png' style='float: right;' alt=""/></a>
 <h2>Vetting Summary | <%= new java.util.Date() %></h2>
 
 

@@ -812,11 +812,7 @@ public class VettingViewer<T> {
 
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
         try {
-            output.append("<p>The following summarizes the issues across locales. " +
-                    "It uses the Modern coverage, and is not user/organization specific. " +
-                    "That means it does not cover Losing* items, " +
-                    "and the Disputed* items are those that have at least one vote from someone " +
-            "but not enough votes for approval.</p>\n");
+            output.append("<p>The following summarizes the issues across locales. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Vetting Summary</a>.</p>\n");
             // Gather the relevant paths
             // each one will be marked with the choice that it triggered.
             Counter<Choice> problemCounter = new Counter<Choice>();

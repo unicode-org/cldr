@@ -88,7 +88,7 @@ public class VettingViewer<T> {
                  * Given the users coverage, some items are missing.
                  */
                 missingCoverage('M', "Missing",
-                "Your current coverage level requires the item to be present, but it is missing. During the vetting phase, this is informational: you can't add new values."),
+                "Your current coverage level requires the item to be present, but it is missing. During the vetting phase, this is informational: you can’t add new values."),
                 /**
                  * There is a console-check error
                  */
@@ -422,7 +422,7 @@ public class VettingViewer<T> {
 
         public String getUrl(String locale) {
             String menu = PathUtilities.xpathToMenu(path);
-            String url = baseUrl + "?_=" + locale + "&x=" + menu;
+            String url = baseUrl + "?_=" + locale + "&amp;=" + menu;
             return url;
         }
     }
@@ -878,7 +878,7 @@ public class VettingViewer<T> {
                         "<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
                         .append(localeID).append("'>")
                         .append(TransliteratorUtilities.toHTML.transform(name.replace('\uFFFE', ' ')))
-                        .append("</a></th>");
+                        .append("</a></th>\n");
                 for (Choice choice : choices) {
                     long count = problemCounter.get(choice);
                     output.append("<td class='tvs-count'>");
@@ -889,7 +889,7 @@ public class VettingViewer<T> {
                     }
                     output.append("</td>\n");
                 }
-                output.append("</tr>");
+                output.append("</tr>\n");
 
                 if (output instanceof Writer) {
                     ((Writer) output).flush();
@@ -1065,7 +1065,7 @@ public class VettingViewer<T> {
             .append("<p><i>It is important that you read " +
                     "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
             "Vetting View Instructions</a> before starting!</i></p>")
-            .append("<form name='checkboxes'>\n")
+            .append("<form name='checkboxes' action='#'>\n")
             .append("<table class='tvs-table'>\n")
             .append("<tr class='tvs-tr'>" +
                     "<th class='tv-th'>Count</th>" +
@@ -1088,7 +1088,7 @@ public class VettingViewer<T> {
                     output.append(" checked");
                     countShown = true;
                 }
-                output.append("/> ");
+                output.append(">");
                 choice.appendDisplay("", output);
                 output.append("</td>\n\t<td class='tvs-desc'>")
                 .append(choice.description)
@@ -1117,7 +1117,7 @@ public class VettingViewer<T> {
                 .append(url)
                 .append("'>Subsection: ")
                 .append(subsection)
-                .append("</a></i> (" + rows.size() + ")</h3>\n");
+                .append("</a></i> (" + rows.size() + ")</h2>\n");
                 startTable(output);
 
                 for (WritingInfo pathInfo : rows) {
@@ -1160,7 +1160,7 @@ public class VettingViewer<T> {
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
                     output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='" + baseUrl + "?_=")
                     .append(localeID)
-                    .append("&xpath=")
+                    .append("&amp;xpath=")
                     .append(percentEscape.transform(path))
                     .append("'>");
                     Choice.appendDisplay(choicesForPath, "", output);

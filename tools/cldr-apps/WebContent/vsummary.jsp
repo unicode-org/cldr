@@ -31,7 +31,7 @@ cs.put("BASE_URL",BASE_URL);
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
 <%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 <% } else { %>
-		<link rel='stylesheet' type='text/css' href='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/surveytool.css' />
+		<link rel='stylesheet' type='text/css' href='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/surveytool.css' >
 <% } %>
 
 <% /* calls: org.unicode.cldr.util.VettingViewer.getHeaderStyles() */ %>
@@ -42,9 +42,8 @@ cs.put("BASE_URL",BASE_URL);
 <% } else { %>
 <body>
 <% } %>
-<div id='restart'>
 
-<a href='<%=(isVloaded?(BASE_URL):(request.getContextPath()+"/survey"))%>'>Return to the SurveyTool <img src='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/STLogo.png' style='float: right;' alt=""/></a>
+<a href="<%=(isVloaded?(BASE_URL):(request.getContextPath()+"/survey"))%>">Return to the SurveyTool <img alt='(Survey Tool Logo)' src='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/STLogo.png' style='float:right;'></a>
 <h2>Vetting Summary | <%= new java.util.Date() %></h2>
 
 
@@ -58,7 +57,6 @@ cs.put("BASE_URL",BASE_URL);
 			<input type='hidden' name='s' value='<%= sid %>'/>
 			<label>To regenerate this page, click <input type='submit' value='Refresh Values'/></label>
 		</form>
-	</div>
 	</div>
 <% } %>
 	<%

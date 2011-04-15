@@ -43,7 +43,11 @@ public class StatisticsUtils {
 
 			@Override
 			public int compare(di arg0, di arg1) {
-				return arg1.d-arg0.d;
+				int rc = arg1.d-arg0.d;
+				if(rc==0) {
+					rc = arg0.s.compareTo(arg1.s);
+				}
+				return rc;
 			}});
 		asSet.addAll(all.values());
 		

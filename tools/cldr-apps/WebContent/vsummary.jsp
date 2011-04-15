@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="org.unicode.cldr.web.*"
-    %>
-<%
+    %><%
 String sid = request.getParameter("s");
 CookieSession cs;
 
@@ -15,34 +14,54 @@ if(!SurveyMain.isSetup ||
 	return;
 }
 
-cs.put("BASE_URL","http://unicode.org/cldr/apps/survey");
+String doneurl = (request.getContextPath()+request.getServletPath())+"?s="+sid;
+String vloaded = doneurl+"&vloaded=t";
+boolean isVloaded = request.getParameter("vloaded")!=null;
+boolean needLoad = !isVloaded;
+String BASE_URL="http://unicode.org/cldr/apps/survey";
+cs.put("BASE_URL",BASE_URL);
 
-%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+%><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SurveyTool | Vetting Summary</title>
+
+<% if(!isVloaded) { %>
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
 <%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
+<% } else { %>
+		<link rel='stylesheet' type='text/css' href='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/surveytool.css' />
+<% } %>
+
 <% /* calls: org.unicode.cldr.util.VettingViewer.getHeaderStyles() */ %>
 </head>
+<% if(!isVloaded) { %>
+<body onload='setTimerOn();' style='margin-top: 2em; padding-top: 2em;'>
+<%@ include file="/WEB-INF/tmpl/stnotices.jspf" %>
+<% } else { %>
 <body>
+<% } %>
+<div id='restart'>
 
-<a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
-<h2>Vetting Summary | <%= cs.user.name  %> | <%= cs.user.org %></h2>
+<a href="<%=(isVloaded?(BASE_URL):(request.getContextPath()+"/survey"))%>">Return to the SurveyTool <img src='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/STLogo.png' style='float:right;' /></a>
+<h2>Vetting Summary | <%= new java.util.Date() %></h2>
 
 
 <%
 	VettingViewerQueue vvq = VettingViewerQueue.getInstance();
 %>
-
+<% if(!isVloaded) { %>
+	<div  style='width: 20%;' class='pager'>
+	<a style='float:right;' href='javascript:(function(){document.getElementById("restart").innerHTML="";})();'>X</a>
 		<form action="<%= request.getContextPath()+request.getServletPath() %>" method="POST">
 			<input type='hidden' value='t' name='VVFORCERESTART'/>
-			<input type='hidden' value='s' name='<%= sid %>'/>
+			<input type='hidden' name='s' value='<%= sid %>'/>
 			<label>To regenerate this page, click <input type='submit' value='Refresh Values'/></label>
 		</form>
+	</div>
+	</div>
+<% } %>
 	<%
 	
 	VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
@@ -53,12 +72,14 @@ cs.put("BASE_URL","http://unicode.org/cldr/apps/survey");
 <%
     VettingViewerQueue.getInstance().writeVettingViewerOutput(null,cs,VettingViewerQueue.SUMMARY_LOCALE,status, 
 				forceRestart?VettingViewerQueue.LoadingPolicy.FORCERESTART:VettingViewerQueue.LoadingPolicy.START,out);
-	out.println("<br/> Status: " + status[0]);
-	out.println("</div>");
+	if(!isVloaded) out.println("<br/> Status: " + status[0]);
+	 %>
+	 </div>
+	 <%
 	if(status[0]==VettingViewerQueue.Status.PROCESSING || status[0]==VettingViewerQueue.Status.WAITING ) {
 	//	out.println("<meta http-equiv=\"refresh\" content=\"5\">");
 	String theUrl = request.getContextPath() +"/SurveyAjax?what=vettingviewer&_="+VettingViewerQueue.SUMMARY_LOCALE+"&s="+sid;
-	 %>
+	%>
 	 <noscript>
 	 	<i>You must manually reload this page.</i>
 	 </noscript>
@@ -81,11 +102,11 @@ function updateVv() {
             }
             
             if(json.status == "READY" ) {
-                updateIf('vvupd',"<a href='<%= (request.getServletPath()+request.getContextPath()) %>&amp;vloaded=t'><i>Redirecting to your Vetting View...</i></a>");
+                //updateIf('vvupd',"<a href='<%= (request.getServletPath()+request.getContextPath()) %>&amp;vloaded=t'><i>Redirecting to your Vetting View...</i></a>");
                 window.status= ('Done loading VV');
                 clearInterval(vvId);
                 vvId=-1;
-                document.location = "<%= (request.getServletPath()+request.getContextPath()).replaceAll("&amp;","\\&") %>&vloaded=t";
+                document.location = "<%= (doneurl).replaceAll("&amp;","\\&") %>#done";
             } else {
                 updateIf('vvupd',json.ret);
                 window.status = ('VV still processing..');
@@ -101,17 +122,29 @@ function updateVv() {
 }
 
 <% 
-		if(request.getParameter("vloaded")!=null) {
+		if(needLoad) {
 		    %>
 		        vvId = setInterval(updateVv, 1000*5);
 		        window.status = 'Checking on status of VV...';
 		<%
 		} /* end '!vloaded' */
-
+%>
+</script>
+	<div id='vverr'></div>
+	<div id='progress'></div>
+	<div id='uptime'></div>
+	<span id='visitors'></span>
+	<div id='st_err'></div>
+<% 
 	} /* end 'still waiting' */
+	else  if(!isVloaded) {
+%>
+	<h1><a href='<%= vloaded.replaceAll("&","&amp;") %>'>LGTM, clean it up.</a></h1>
+<%
+	}
 %>
 
-</script>
+
 
 
 </body>

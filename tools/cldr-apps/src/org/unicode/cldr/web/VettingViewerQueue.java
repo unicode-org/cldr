@@ -118,6 +118,8 @@ public class VettingViewerQueue {
     	public Map<CLDRLocale,StringBuffer> output = new TreeMap<CLDRLocale,StringBuffer>();
     }
     
+    public static QueueEntry summaryEntry = null;
+    
 	public class Task extends SurveyThread.SurveyTask {
 		
 		private static final String OnlyOneVetter="1";
@@ -128,6 +130,7 @@ public class VettingViewerQueue {
 		VettingViewer<VoteResolver.Organization> vv;
 		public int maxn;
 		public int n=0;
+		public boolean isSummary = false;
 		public long start =-1;
 		public long last;
 		public long rem = -1;
@@ -148,14 +151,23 @@ public class VettingViewerQueue {
 			super("VettingTask:"+locale.toString());
 			if(DEBUG) System.err.println("Creating task " + locale.toString());
 			
-			if(DEBUG && locale.toString().length()==0) {
-				System.err.println("@ summary task");
+			int baseMax = getMax(sm.getBaselineFile());
+			if(locale.toString().length()==0) {
+				isSummary=true;
+				maxn=0;
+				// use the hack set
+				for(CLDRLocale l : sm.getLocalesSet()) {
+					if(VettingViewer.HackIncludeLocalesWithVotes.is(l.toString())) {
+						maxn += baseMax;
+					}
+				}
+			} else {
+				maxn = baseMax;
 			}
 			this.locale = locale;
 			this.entry = entry;
 			this.sm = sm;
 			this.baseUrl = baseUrl;
-			maxn = getMax(sm.getBaselineFile());
 			this.usersLevel = usersLevel; // Level.get(ctx.getEffectiveCoverageLevel());
 			this.usersOrg = usersOrg; // VoteResolver.Organization.fromString(ctx.session.user.voterOrg());
 		}
@@ -212,7 +224,7 @@ public class VettingViewerQueue {
 							//        System.err.println("Nudged: " + n);
 							if(n>(maxn-5)) {
 								maxn=n+10;
-								if(n>gMax) {
+								if(!isSummary && n>gMax) {
 									gMax=n;
 								}
 							}
@@ -255,7 +267,9 @@ public class VettingViewerQueue {
 				// We're done.
 			} finally {
 				if(dbEntry!=null) dbEntry.close();
+				dbEntry=null;
 				if(progress!=null) progress.close();
+				vv=null; // release vv
 			}
 		}
 
@@ -300,7 +314,13 @@ public class VettingViewerQueue {
 			LoadingPolicy forceRestart, Appendable output) throws IOException {
 		if(sess==null) sess = ctx.session;
 		SurveyMain sm = sess.sm;
-		QueueEntry entry = getEntry(sess);
+		boolean isSummary = locale.toString().length()==0;
+		QueueEntry entry = null;
+		if(!isSummary) {
+			entry = getEntry(sess);
+		} else {
+			entry = getSummaryEntry();
+		}
 		if(status==null) status = new Status[1];
 		if(forceRestart!=LoadingPolicy.FORCERESTART) {
 			StringBuffer res = entry.output.get(locale);
@@ -375,9 +395,6 @@ public class VettingViewerQueue {
 		return PRE+"Started new task: " +waitingString(t.sm.startupThread)+ t.status()+"<hr/>"+killMsg+POST;
 	}
 	
-	
-	
-	
     private String waitingString(SurveyThread startupThread) {
 		int aheadOfMe=(totalUsersWaiting(startupThread));
 		String waiting = (aheadOfMe>0)?(""+aheadOfMe+" users waiting - "):"";
@@ -399,6 +416,14 @@ public class VettingViewerQueue {
     	if(entry==null) {
     		entry = new QueueEntry();
     		session.put(KEY, entry);
+    	}
+    	return entry;
+	}
+	
+	private QueueEntry getSummaryEntry() {
+    	QueueEntry entry = summaryEntry;
+    	if(summaryEntry==null) {
+    		entry=summaryEntry = new QueueEntry();
     	}
     	return entry;
 	}

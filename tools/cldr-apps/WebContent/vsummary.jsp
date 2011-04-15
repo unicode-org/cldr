@@ -53,7 +53,6 @@ cs.put("BASE_URL",BASE_URL);
 %>
 <% if(!isVloaded) { %>
 	<div  style='width: 20%;' class='pager'>
-	<a style='float:right;' href='javascript:(function(){document.getElementById("restart").innerHTML="";})();'>X</a>
 		<form action="<%= request.getContextPath()+request.getServletPath() %>" method="POST">
 			<input type='hidden' value='t' name='VVFORCERESTART'/>
 			<input type='hidden' name='s' value='<%= sid %>'/>

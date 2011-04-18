@@ -59,7 +59,7 @@ public class PathUtilities {
       theMenu = "units";
     } else if (path.startsWith("//ldml/" + "dates/timeZoneNames/metazone")) {
       theMenu = METAZONES;
-    } else if (path.startsWith("//ldml/" + LDMLConstants.CHARACTERS)) {
+    } else if (path.startsWith("//ldml/" + LDMLConstants.CHARACTERS+"/"+LDMLConstants.EXEMPLAR_CHARACTERS)) {
       theMenu = LDMLConstants.CHARACTERS;
     } else if (path.startsWith("//ldml/" + LDMLConstants.NUMBERS)) {
       theMenu = LDMLConstants.NUMBERS;

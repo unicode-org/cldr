@@ -655,6 +655,10 @@ public class VettingViewer<T> {
         generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, false);
     }
 
+    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean showAll) {
+        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, showAll);
+    }
+
     private void generateHtmlErrorTablesNew(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean showAll) {
 
         // Gather the relevant paths

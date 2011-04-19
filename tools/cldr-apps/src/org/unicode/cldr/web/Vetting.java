@@ -2658,12 +2658,11 @@ if(true == true)    throw new InternalError("removed from use.");
 						theMenu.replaceAll(" ","\\&nbsp;")+"</a>&nbsp;("+ subSet.size()+")");
 
 				if(showAllXpaths) {
-					ctx.print("<br><pre>");
+					ctx.print("<br>");
 					for(Iterator<String> iii = (subSet).iterator();iii.hasNext();) {
 						String xp = (String)iii.next();
-						ctx.println(xp);
+						ctx.println("&nbsp;<a "+ subCtx.atarget()+" href='"+SurveyForum.forumUrl(subCtx, onlyLoc.toString(), sm.xpt.getByXpath(xp)) + "'>"+  xp + "</a><br>");
 					}
-					ctx.print("</pre>");
 				}
 			}
 			

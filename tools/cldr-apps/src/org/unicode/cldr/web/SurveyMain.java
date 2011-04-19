@@ -313,7 +313,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public static final String OTHER_CALENDARS = "other calendars";
     // 
     public static String CALENDARS_ITEMS[] = PathUtilities.getCalendarsItems();
-    public static String METAZONES_ITEMS[] = getMetazonesItems();
+    public static String METAZONES_ITEMS[] = PathUtilities.getMetazonesItems();
 
     public static final String OTHERROOTS_ITEMS[] = {
         LDMLConstants.CHARACTERS,
@@ -5575,12 +5575,6 @@ o	            		}*/
         subCtx.println("</td></tr></table>");
     }
     
-    private static String[] getMetazonesItems()
-    {
-        String defaultMetazonesItems= "Africa America Antarctica Asia Australia Europe Atlantic Indian Pacific";
-        return ( defaultMetazonesItems.split(" ") );
-    }
-
     /**
      * show the actual locale data..
      * @param ctx context

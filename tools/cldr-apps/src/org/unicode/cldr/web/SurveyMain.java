@@ -9921,8 +9921,8 @@ o	            		}*/
 //	}
 
     public void addPeriodicTask(TimerTask task) {
-		int firstTime=isUnofficial?10000:999000;		
-		int eachTime= isUnofficial?10000:765000;
+		int firstTime=isUnofficial?10000:99000;		
+		int eachTime= isUnofficial?10000:76000;
 		getTimer().schedule(task, firstTime,eachTime);
 //    	if(periodicTasks==null) {
 //    		

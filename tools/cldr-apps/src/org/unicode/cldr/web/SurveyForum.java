@@ -381,6 +381,14 @@ public class SurveyForum {
 		sm.printFooter(ctx);
 	}
 
+	/**
+	 * Called when user has permission to modify and is zoomed in.
+	 * @param ctx
+	 * @param forum
+	 * @param forumNumber
+	 * @param base_xpath
+	 * @throws IOException
+	 */
 	void doXpathPost(WebContext ctx, String forum, int forumNumber, int base_xpath) throws IOException {
 		String xpath = sm.xpt.getById(base_xpath);
 		int replyTo = ctx.fieldInt("replyto",-1);
@@ -581,6 +589,42 @@ public class SurveyForum {
 		}
 
 		if(base_xpath != -1) {
+			
+			
+			try {
+				Connection conn = null;
+				try {
+					conn = sm.dbUtils.getDBConnection();
+					
+					Object[][] o = sm.dbUtils.sqlQueryArrayArrayObj(conn, "select " + pAllResultFora + "  FROM " + DB_POSTS +  " WHERE (" + DB_POSTS
+									+ ".forum =? AND " + DB_POSTS + " .xpath =?) ORDER BY " + DB_POSTS
+				+ ".last_time DESC", forumNumber, base_xpath);
+					
+					//private final static String pAllResult = DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
+					if(o!=null)  {
+						for(int i=0;i<o.length;i++) {
+							int poster = (Integer)o[i][0];
+							String subj2 = (String)o[i][1];
+							String text2 = (String)o[i][2];
+							Timestamp lastDate = (Timestamp)o[i][3];
+							int id = (Integer)o[i][4];
+
+							if(lastDate.after(oldOnOrBefore) || false) {
+								showPost(ctx, forum, poster, subj2, text2, id, lastDate, ctx.getLocale(), base_xpath);
+							}
+						}
+					}
+					System.err.println("Got: " + o + " for fn " + forumNumber + " and " + base_xpath);
+				} finally {
+					DBUtils.close(conn);
+				}
+			} catch (SQLException se) {
+				String complaint = "SurveyForum:  Couldn't show posts in forum " +forum + " - " + DBUtils.unchainSqlException(se) + " - fGetByLoc";
+				logger.severe(complaint);
+//				ctx.println("<br>"+complaint+"</br>");
+				throw new RuntimeException(complaint);
+			}
+			
 			boolean nopopups = ctx.prefBool(SurveyMain.PREF_NOPOPUPS);
 			String returnText = returnText(ctx, base_xpath);
 			if(nopopups) {
@@ -897,9 +941,7 @@ public class SurveyForum {
 					//                    ctx.println("<b>Posted your response.</b><hr>");
 					//                }
 				}
-
 				showPost(ctx, forum, poster, subj, text, id, lastDate, CLDRLocale.getInstance(loc), xpath);
-
 				if(xpath != -1) {
 					String xpath_string = sm.xpt.getById(xpath);
 					if(xpath_string != null) {
@@ -1203,6 +1245,7 @@ public class SurveyForum {
 	//    }
 
 	private final static String pAllResult = DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
+	private final static String pAllResultFora = DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id";
 
 	public static PreparedStatement prepare_fGetById(Connection conn)
 	throws SQLException {

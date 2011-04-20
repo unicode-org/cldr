@@ -742,9 +742,10 @@ public class DBUtils {
 	}
     private Object[][] resultToArrayArrayObj(ResultSet rs) throws SQLException {
 		ArrayList<Object[]> al = new ArrayList<Object[]>();
-		int colCount = rs.getMetaData().getColumnCount();
+		ResultSetMetaData rsm = rs.getMetaData();
+		int colCount =rsm.getColumnCount();
 		while(rs.next()) {
-			al.add(arrayOfResultObj(rs,colCount));
+			al.add(arrayOfResultObj(rs,colCount,rsm));
 		}
 		return al.toArray(new Object[al.size()][]);
 	}
@@ -831,10 +832,17 @@ public class DBUtils {
 		}
 		return ret;
 	}
-	private Object[] arrayOfResultObj(ResultSet rs, int colCount) throws SQLException {
+	private Object[] arrayOfResultObj(ResultSet rs, int colCount, ResultSetMetaData rsm) throws SQLException {
 		Object ret[] = new Object[colCount];
 		for(int i=0;i<ret.length;i++) {
-			ret[i]=rs.getObject(i+1);
+			if(rsm.getColumnType(i+1)==java.sql.Types.BLOB) {
+				ret[i]=DBUtils.getStringUTF8(rs, i+1);
+			} else {
+				ret[i]=rs.getObject(i+1);
+				if(ret[i].getClass().isArray()) {
+					ret[i]=DBUtils.getStringUTF8(rs, i+1);
+				}
+			}
 		}
 		return ret;
 	}

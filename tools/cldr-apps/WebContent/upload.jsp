@@ -15,11 +15,12 @@ import="org.unicode.cldr.web.*"
 
 <%
 String sid = request.getParameter("s");
-CookieSession cs = CookieSession.retrieve(sid);
-if(cs==null) {
+CookieSession cs;
+if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null) {
 	response.sendRedirect(request.getContextPath()+"/survey");
 	return;
 }
+
 
 %>
 

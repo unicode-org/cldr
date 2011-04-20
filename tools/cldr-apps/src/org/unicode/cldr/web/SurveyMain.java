@@ -3174,7 +3174,7 @@ o	            		}*/
 
         ctx.println("<a href='" + ctx.jspLink("adduser.jsp") 
                 + "&amp;defaultorg="+defaultorg
-                +"'>[Add User]</a> |");
+                +"'>Add User</a> |");
     }
     
     public void doCoverage(WebContext ctx) {
@@ -3770,6 +3770,12 @@ o	            		}*/
         printUserTableWithHelp(ctx, "/AddModifyUser");
         ctx.print(" | ");
         printMenu(ctx, doWhat, "coverage", "Show Vetting Participation", QUERY_DO);                    
+        
+        if(reg.userIsTC(ctx.session.user)) {
+    		ctx.println("| <a class='notselected' href='"+ctx.jspUrl("tc-emaillist.jsp"  ) +"'>Email Address of Users Who Participated</a>");
+        	ctx.print(" | ");
+        }
+        
         if(reg.userCanCreateUsers(ctx.session.user)) {
             showAddUser(ctx);
 //            ctx.println("<a href='" + ctx.jspLink("adduser.jsp") +"'>[Add User]</a> |");

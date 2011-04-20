@@ -2573,7 +2573,6 @@ if(true == true)    throw new InternalError("removed from use.");
 				
 				
 				while(rs.next()) {
-					n++;
 					String aLoc = rs.getString(1);
 					
 					if(onlyLoc!=null && !aLoc.equals(onlyLoc.toString())) {
@@ -2583,13 +2582,6 @@ if(true == true)    throw new InternalError("removed from use.");
 					int aXpath = rs.getInt(2);
 					String path = sm.xpt.getById(aXpath);
 					
-					Map<String, Set<String>> ht = m.get(aLoc);
-					if(ht==null) {
-						locs++;
-						ht = new TreeMap<String, Set<String>>();
-						m.put(aLoc,ht);
-						badLocales.add(sm.getLocaleDisplayName(CLDRLocale.getInstance(aLoc)));
-					} // add the locale before showing disputes
 
 					CoverageLevel2 cov = covs.get(aLoc);
 					String covLvl;
@@ -2609,6 +2601,17 @@ if(true == true)    throw new InternalError("removed from use.");
 			            } // else: would never be shown, don't care
 			            continue;
 			        }
+
+			        n++;
+			        
+					Map<String, Set<String>> ht = m.get(aLoc);
+					if(ht==null) {
+						locs++;
+						ht = new TreeMap<String, Set<String>>();
+						m.put(aLoc,ht);
+						badLocales.add(sm.getLocaleDisplayName(CLDRLocale.getInstance(aLoc)));
+					} // add the locale before showing disputes
+
 					String theMenu = PathUtilities.xpathToMenu(path);
 
 					if(theMenu==null) {

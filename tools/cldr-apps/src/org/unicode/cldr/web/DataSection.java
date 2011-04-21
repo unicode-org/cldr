@@ -1797,18 +1797,19 @@ public class DataSection extends Registerable {
      */
     private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
     	
-    	if(xpathPrefix.contains("@type")) {
-    		if(DEBUG) System.err.println("Bailing- no reason to complete a type-specifix xpath");
-    		return; // don't try to complete if it's a specific item.
-    	} else if(DEBUG) {
-    		System.err.println("Completing: " + xpathPrefix);
-    	}
+//    	if(xpathPrefix.contains("@type")) {
+//    		if(DEBUG) System.err.println("Bailing- no reason to complete a type-specifix xpath");
+//    		return; // don't try to complete if it's a specific item.
+//    	} else if(DEBUG) {
+//    		System.err.println("Completing: " + xpathPrefix);
+//    	}
     	
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
         if(xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames")) {
             // work on zones
             boolean isMetazones = xpathPrefix.startsWith("//ldml/"+"dates/timeZoneNames/metazone");
+            boolean isSingleXPath = false;
             // Make sure the pod contains the peas we'd like to see.
             // regular zone
             
@@ -1819,8 +1820,15 @@ public class DataSection extends Registerable {
                     String [] pieces = xpathPrefix.split(CONTINENT_DIVIDER,2);
                     xpathPrefix = pieces[0];
                     zoneIterator = sm.getMetazones(pieces[1]).iterator();
-                } else {
-                    zoneIterator = sm.getMetazones().iterator();
+                } else { // This is just a single metazone from a zoom-in
+                    Set<String> singleZone = new HashSet<String>();
+                    XPathParts xpp = new XPathParts();
+                    xpp.set(xpathPrefix);
+                    String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
+                    singleZone.add(singleMetazoneName);
+                    zoneIterator = singleZone.iterator();
+                    
+                    isSingleXPath = true;
                 }
             } else {
                 zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid").iterator();
@@ -1867,6 +1875,11 @@ public class DataSection extends Registerable {
                 for(int i=0;i<suffs.length;i++) {
                     String suff = suffs[i];
                     
+                    if ( isSingleXPath && !xpathPrefix.contains(suff)) { // For a single xpath ( zoom-in ) only try to synthesize the one we need.
+                        continue;
+                    } else {
+                        podBase = "//ldml/dates/timeZoneNames/metazone";
+                    }
                     // synthesize a new pea..
                     String rowXpath = zone+suff;
                     String base_xpath_string = podBase+ourSuffix+suff;

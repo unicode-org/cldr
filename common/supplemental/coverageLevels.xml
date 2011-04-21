@@ -192,7 +192,7 @@
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='.*']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='.*']"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='.*']"/>
-		<coverageLevel value="100" match="numbers/currencies/currency[@type='.*']/(symbol|displayName.*?)"/>
+		<coverageLevel value="100" match="numbers/currencies/currency[@type='.*']/(symbol|displayName)(.*)?"/>
 		<coverageLevel value="100" match="numbers/currencyFormats/currencySpacing/(before|after)Currency/(insertBetween|(currency|surrounding)Match)"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/era(Names|Narrow)/era[@type='(0|1)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='(wide|narrow)']/dayPeriod[@type='.*']"/>

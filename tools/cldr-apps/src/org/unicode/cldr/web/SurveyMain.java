@@ -7219,8 +7219,8 @@ o	            		}*/
     public Set<String> getMetazones(String subclass) {
 	Set<String> subSet = new TreeSet<String>();
 	for(String zone : supplementalDataInfo.getAllMetazones()) {
-	    if(zone.startsWith(subclass)) {
-		subSet.add(zone);
+	    if(subclass.equals(supplementalDataInfo.getMetazoneToContinentMap().get(zone))) {
+		    subSet.add(zone);
 	    }
 	}
 	return subSet;

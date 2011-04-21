@@ -1815,8 +1815,8 @@ public class DataSection extends Registerable {
             Iterator zoneIterator;
             
             if(isMetazones) {
-                if ( xpathPrefix.indexOf('_') > 0 ) {
-                    String [] pieces = xpathPrefix.split("_",2);
+                if ( xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0 ) {
+                    String [] pieces = xpathPrefix.split(CONTINENT_DIVIDER,2);
                     xpathPrefix = pieces[0];
                     zoneIterator = sm.getMetazones(pieces[1]).iterator();
                 } else {

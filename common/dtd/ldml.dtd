@@ -251,7 +251,7 @@ $Date$
 <!ATTLIST moreInformation references CDATA #IMPLIED >
 <!ATTLIST moreInformation alt NMTOKENS #IMPLIED >
 
-<!ELEMENT stopwords ( stopwordList ) >
+<!ELEMENT stopwords ( stopwordList* ) >
 <!ELEMENT stopwordList ( #PCDATA ) >
 <!ATTLIST stopwordList type NMTOKEN #REQUIRED >
 <!ATTLIST stopwordList draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >

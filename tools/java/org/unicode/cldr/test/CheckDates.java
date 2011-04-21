@@ -114,15 +114,15 @@ public class CheckDates extends CheckCLDR {
     Status status = new Status();
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
-        if (fullPath == null) return this; // skip paths that we don't have
+        if (fullPath == null) {
+            return this; // skip paths that we don't have
+        }
+
         if (path.indexOf("/dates") < 0) return this;
 
         final String sourceLocaleID = getCldrFileToCheck().getSourceLocaleID(path, status);
 
         try {
-            if (value == null) {
-                throw new  java.util.MissingResourceException( "xpath has null value: "+fullPath, "CheckCLDR", fullPath);
-            }
             if (path.equals(status.pathWhereFound) && path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
                 String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                 String wideValue = getCldrFileToCheck().getStringValue(pathToWide);

@@ -1060,21 +1060,6 @@ public class StandardCodes {
         // TODO fix QU => EU
         if (type.equals("language")) return filteredLanguages;
         if (type.equals("script")) return filteredScripts;
-        if (type.equals("currency")) {
-            synchronized (StandardCodes.class) {
-                if (filteredCurrencies == null) {
-                    filteredCurrencies = new TreeSet();
-                    for (String country : make().getGoodAvailableCodes("territory")) {
-                        Set mainCurrencies = getMainCurrencies(country);
-                        if (mainCurrencies != null) {
-                            filteredCurrencies.addAll(mainCurrencies);
-                        }
-                    }
-                    filteredCurrencies = Collections.unmodifiableSet(filteredCurrencies);
-                }
-            }
-            return filteredCurrencies;
-        }
         return getGoodAvailableCodes(type);
     }
 

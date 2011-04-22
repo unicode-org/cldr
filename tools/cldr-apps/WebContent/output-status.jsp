@@ -24,8 +24,7 @@ if(sm==null || !sm.isSetup) {
 	out.println("<i>Not booted yet, come back later.</i>");
 	return;
 }
-String kinds[] = { "vxml", "xml", "rxml","fxml" };
-int totals[] = new int[kinds.length];
+int totals[] = new int[SurveyMain.CacheableKinds.values().length];
 %>
 
 <table class='sqlbox' style='float: left; font-size: 140%;'>
@@ -55,8 +54,8 @@ boolean flip=false;
 			<td><%= locTime %></td>
 			<% 
 				int j=0;
-				for(String kind : kinds) {
-				boolean nu = sm.fileNeedsUpdate(locTime,loc,kind);
+				for(SurveyMain.CacheableKinds kind : SurveyMain.CacheableKinds.values()) {
+				boolean nu = sm.fileNeedsUpdate(locTime,loc,kind.name());
 				if(nu) totals[j]++;
 				j++;
 				%>

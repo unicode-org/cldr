@@ -759,11 +759,22 @@ public class DBUtils {
 		return al.toArray(new Map[al.size()]);
 	}
 	
+	
 	private Map<String, Object> assocOfResult(ResultSet rs,ResultSetMetaData rsm) throws SQLException {
 		Map<String,Object> m = new HashMap<String,Object>(rsm.getColumnCount());
 		
 		for(int i=1;i<=rsm.getColumnCount();i++) {
-			m.put(rsm.getColumnName(i), rs.getObject(i));
+			Object obj = null;
+			
+			if(rsm.getColumnType(i)==java.sql.Types.BLOB) {
+				obj=DBUtils.getStringUTF8(rs, i);
+			} else {
+				obj=rs.getObject(i);
+				if(obj!=null && obj.getClass().isArray()) {
+					obj=DBUtils.getStringUTF8(rs, i);
+				}
+			}
+			m.put(rsm.getColumnName(i), obj);
 		}
 		
 		return m;

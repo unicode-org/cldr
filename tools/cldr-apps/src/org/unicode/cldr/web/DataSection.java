@@ -337,6 +337,7 @@ public class DataSection extends Registerable {
                     } else /* if (!(isCodeFallback &&
                         (status.getCause() instanceof org.unicode.cldr.test.CheckForExemplars))) */ { 
                         // skip codefallback exemplar complaints (i.e. 'JPY' isn't in exemplars).. they'll show up in missing
+                    	if(DEBUG) System.err.println("err: " + status.getMessage() + ", test: " + status.getClass() + ", cause: " + status.getCause() + " on " + this.xpath);
                         weHaveTests = true;
                         if(status.getType().equals(status.errorType)) {
                             errorCount++;

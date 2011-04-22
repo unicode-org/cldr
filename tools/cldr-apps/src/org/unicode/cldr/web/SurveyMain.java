@@ -1942,98 +1942,162 @@ o	            		}*/
             
 		} else if (action.equals("srl_crash")) {
 		    this.busted("User clicked 'Crash Survey Tool'");
-        } else if(action.equals("srl_output")) {
-            WebContext subCtx = (WebContext)ctx.clone();
-            subCtx.addQuery("dump",vap);
-            subCtx.addQuery("action",action);
-            
-            String output = actionCtx.field("output");
+		} else if(action.equals("srl_output")) {
+			WebContext subCtx = (WebContext)ctx.clone();
+			subCtx.addQuery("dump",vap);
+			subCtx.addQuery("action",action);
 
-	    boolean isImmediate = actionCtx.hasField("immediate");
-            
-            ctx.println("<br>");
-            ctx.print("<b>Output:</b> ");
-            printMenu(subCtx, output, "xml", "XML", "output");
-            subCtx.print(" | ");
-            printMenu(subCtx, output, "vxml", "VXML", "output");
-            subCtx.print(" | ");
-            printMenu(subCtx, output, "rxml", "RXML", "output");
-            subCtx.print(" | ");
-            printMenu(subCtx, output, "sql", "SQL", "output");
-            subCtx.print(" | ");
-            printMenu(subCtx, output, "misc", "MISC", "output");
-            subCtx.print(" | ");
-            printMenu(subCtx, output, "daily", "DAILY", "output");
-            subCtx.print(" | ");
-            
-            ctx.println("<br>");
+			final String output = actionCtx.field("output");
 
-            ElapsedTimer aTimer = new ElapsedTimer();
-            int files = 0;
-            boolean daily = false;
-            if(output.equals("daily")) {
-                daily = true;
-            }
+			boolean isImmediate = actionCtx.hasField("immediate");
+			
+			int totalLocs = getLocales().length;
+			int need[] = new int[CacheableKinds.values().length];
+			
+			// calculate
+			if(!isImmediate) {
+				try {
+					Connection conn = null;
+					try {
+						conn = dbUtils.getDBConnection();
+						for (CLDRLocale loc : getLocales()) {
+							Timestamp locTime = getLocaleTime(conn, loc);
+							for(SurveyMain.CacheableKinds kind : SurveyMain.CacheableKinds.values()) {
+								boolean nu = fileNeedsUpdate(locTime,loc,kind.name());
+								if(nu) need[kind.ordinal()]++;
+							}
+						}
+					} finally {
+						DBUtils.close(conn);
+					}
+				} catch (IOException e) {
+					ctx.println("<i>err getting locale counts: " + e +"</i><br>");
+					e.printStackTrace();
+				} catch(SQLException se) {
+					ctx.println("<i>err getting locale counts: " + dbUtils.unchainSqlException(se)+"</i><br>");
+				}
+			}
 
-	    if(daily && !isImmediate) {
-            	startupThread.addTask(new SurveyThread.SurveyTask("daily xml output")
-            	{
-                    final String dailyList[] = {
-                            "xml",
-                            "vxml",
-                            "users",
-                            "usersa",
-                            "translators"
-                    };          
-            	    public void run() throws Throwable 
-            	    {
-            	        CLDRProgressTask progress = openProgress("xml output", dailyList.length);
-            	        try {
+			ctx.println("<br>");
+			ctx.print("<b>Output: (/"+totalLocs+")</b> ");
+			printMenu(subCtx, output, "xml", "XML ("+need[CacheableKinds.xml.ordinal()]+"/)", "output");
+			subCtx.print(" | ");
+			printMenu(subCtx, output, "vxml", "VXML ("+need[CacheableKinds.vxml.ordinal()]+"/)", "output");
+			subCtx.print(" | ");
+			printMenu(subCtx, output, "rxml", "RXML (SLOW!) ("+need[CacheableKinds.rxml.ordinal()]+"/)", "output");
+			subCtx.print(" | ");
+			printMenu(subCtx, output, "sql", "SQL", "output");
+			subCtx.print(" | ");
+			printMenu(subCtx, output, "misc", "MISC", "output");
+			subCtx.print(" | ");
+			printMenu(subCtx, output, "daily", "DAILY", "output");
+			subCtx.print(" | ");
 
-            	            String origName = name;
-            	            for(int i=0;running()&&(i<dailyList.length);i++) {
-            	                String what = dailyList[i];
-            	                progress.update(i,what);
-            	                doOutput(what);
-            	            }
-            	        } finally {
-            	            progress.close();
-            	        }
-            	    }
-            	});
-		ctx.println("<h2>Task Queued.</h2>");
-	    } else {
-		if(daily || output.equals("xml")) {
-		    files += doOutput("xml");
-		    ctx.println("xml" + "<br>");
-		}
-		if(daily || output.equals("vxml")) {
-		    files += doOutput("vxml");
-		    ctx.println("vxml" + "<br>");
-		}
-		if(output.equals("rxml")) {
-		    files += doOutput("rxml");
-		    ctx.println("rxml" + "<br>");
-		}
-		if(output.equals("sql")) {
-		    files += doOutput("sql");
-		    ctx.println("sql" + "<br>");
-		}
-		if(daily || output.equals("misc")) {
-		    files += doOutput("users");
-		    ctx.println("users" + "<br>");
-		    files += doOutput("usersa");
-		    ctx.println("usersa" + "<br>");
-		    files += doOutput("translators");
-		    ctx.println("translators" + "<br>");
-		}
-                
-		if(output.length()>0) {
-		    ctx.println("<hr>"+output+" completed with " + files + " files in "+aTimer+"<br>");
-		}
-	    }
-            
-        } else if(action.equals("srl_db_update")) {
+			ctx.println("<br>");
+
+			ElapsedTimer aTimer = new ElapsedTimer();
+			int files = 0;
+			final boolean daily = output.equals("daily");
+
+			if(daily && !isImmediate) {
+				startupThread.addTask(new SurveyThread.SurveyTask("daily xml output")
+				{
+					final String dailyList[] = {
+							"xml",
+							"vxml",
+							"users",
+							"usersa",
+							"translators"
+					};          
+					public void run() throws Throwable 
+					{
+						CLDRProgressTask progress = openProgress("xml output", dailyList.length);
+						try {
+
+							String origName = name;
+							for(int i=0;running()&&(i<dailyList.length);i++) {
+								String what = dailyList[i];
+								progress.update(i,what);
+								doOutput(what);
+							}
+						} finally {
+							progress.close();
+						}
+					}
+				});
+				ctx.println("<h2>Task Queued.</h2>");
+			} else {
+				if(isImmediate) {
+					if(daily || output.equals("xml")) {
+						files += doOutput("xml");
+						ctx.println("xml" + "<br>");
+					}
+					if(daily || output.equals("vxml")) {
+						files += doOutput("vxml");
+						ctx.println("vxml" + "<br>");
+					}
+					if(output.equals("rxml")) {
+						files += doOutput("rxml");
+						ctx.println("rxml" + "<br>");
+					}
+					if(output.equals("sql")) {
+						files += doOutput("sql");
+						ctx.println("sql" + "<br>");
+					}
+					if(daily || output.equals("misc")) {
+						files += doOutput("users");
+						ctx.println("users" + "<br>");
+						files += doOutput("usersa");
+						ctx.println("usersa" + "<br>");
+						files += doOutput("translators");
+						ctx.println("translators" + "<br>");
+					}
+
+					if(output.length()>0) {
+						ctx.println("<hr>"+output+" completed with " + files + " files in "+aTimer+"<br>");
+					}
+				} else {
+					startupThread.addTask(new SurveyThread.SurveyTask("admin output")
+					{
+						public void run() throws Throwable 
+						{
+							int files=0;
+							CLDRProgressTask progress = openProgress("admin output", 9);
+							try {
+								progress.update("xml?");
+								if(daily || output.equals("xml")) {
+									files += doOutput("xml");
+								}
+								progress.update("vxml?");
+								if(daily || output.equals("vxml")) {
+									files += doOutput("vxml");
+								}
+								progress.update("rxml?");
+								if(output.equals("rxml")) {
+									files += doOutput("rxml");
+								}
+								progress.update("sql?");
+								if(output.equals("sql")) {
+									files += doOutput("sql");
+								}
+								progress.update("misc?");
+								if(daily || output.equals("misc")) {
+									progress.update("users?");
+									files += doOutput("users");
+									progress.update("usersa?");
+									files += doOutput("usersa");
+									progress.update("translators?");
+									files += doOutput("translators");
+								}
+								progress.update("finishing");
+							} finally {
+								progress.close();
+							}
+						}
+					});
+				}      
+			}
+		} else if(action.equals("srl_db_update")) {
             WebContext subCtx = (WebContext)ctx.clone();
             subCtx.addQuery("dump",vap);
             subCtx.addQuery("action","srl_db_update");
@@ -5915,12 +5979,21 @@ o	            		}*/
         System.err.println("output: " + kind + " - DONE, files: " + nrOutFiles);
         return nrOutFiles;
     }
+    
+    public enum CacheableKinds {
+    	vxml, xml, rxml, fxml
+    };
 	/**
 	 * @param kind
-	 * @return
+	 * @return true if this kind is cacheable
 	 */
-	private boolean isCacheableKind(String kind) {
-		return kind.equals("vxml")||kind.equals("xml")||kind.equals("rxml")||kind.equals("fxml");
+	public static boolean isCacheableKind(String kind) {
+    	try {
+    		CacheableKinds.valueOf(kind);
+    		return true;
+    	} catch(IllegalArgumentException iae) {
+    		return false;
+    	}
 	}
 	/**
 	 * @param kind
@@ -9318,7 +9391,14 @@ o	            		}*/
 	    			if(citem.inheritFrom!=null) {
 	    				ctx.println("<td colspan=4><i>Inherited from "+citem.inheritFrom+"</i></td>");
 	    			} else {
-	    				ctx.println("<td colspan=4><i>Item not found!</i></td>");
+	    				ctx.println("<td colspan=4><i>Item not found!</i>");
+		    			if(isUnofficial) {
+		    				ctx.println("Looking for xpid " + citem.xpathId+"=="+xpt.getById(citem.xpathId)+"<br/>");
+		    				for(Race.Chad anitem : r.chads.values()) {
+		    					ctx.println(anitem+"="+anitem.xpath+"=="+xpt.getById(anitem.xpath)+"<br/>");
+			    			}
+		    			}
+	    				ctx.println("</td>");
 	    			}
 	    		}
 	    		ctx.print("</tr>");
@@ -10396,7 +10476,7 @@ o	            		}*/
     		@Override
     		public void run()  {
     			Connection conn = null;
-    			CLDRProgressTask progress = openProgress("Updater", 3);
+    			CLDRProgressTask progress = null;
     			try {
     				CLDRLocale locs[] = getLocales();
     				File outFile = null;
@@ -10409,19 +10489,17 @@ o	            		}*/
     					Timestamp localeTime = getLocaleTime(conn,loc);
     					if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
     						loc=null;
-        					progress.update(0, "Still looking.");
-    					} else {
-        					progress.update(0, "Going to update:"  +loc);
+//        					progress.update(0, "Still looking.");
     					}
     				}
 
     				if(loc==null) {
-    					progress.update(3, "None to update.");
+    					//progress.update(3, "None to update.");
     					//    				System.err.println("All " + locs.length + " up to date.");
     					return; // nothing to do.
     				}
-
-					progress.update(1, "Writing vxml:"  +loc);
+					progress = openProgress("Updater", 3);
+					progress.update(1, "Update vxml:"  +loc);
     				getOutputFile(loc, "vxml");
     				/*
 					progress.update(2, "Writing xml:"  +loc);

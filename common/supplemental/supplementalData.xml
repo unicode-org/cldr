@@ -1176,15 +1176,15 @@ XXX Code for transations where no currency is involved
         <group type="155" contains="AT BE CH DE FR LI LU MC NL"/> <!--Western Europe -->
         <group type="017" contains="AO CD CF CG CM GA GQ ST TD"/> <!--Middle Africa -->
         <group type="018" contains="BW LS NA SZ ZA"/> <!--Southern Africa -->
-        <group type="019" contains="003 005"/> <!--Americas -->
+        <group type="019" contains="021 013 029 005"/> <!--Americas -->
         <group type="002" contains="011 014 015 017 018"/> <!--Africa -->
         <group type="021" contains="BM CA GL PM US"/> <!--Northern America -->
         <group type="029" contains="AG AI AN AW BB BL BS CU DM DO GD GP HT JM KN KY LC MF MQ MS PR TC TT VC VG VI"/> <!--Caribbean -->
-        <group type="003" contains="013 021 029"/> <!--North America -->
+        <group type="003" contains="013 021 029" grouping="true"/> <!--North America -->
         <group type="030" contains="CN HK JP KP KR MN MO TW"/> <!--Eastern Asia -->
         <group type="035" contains="BN ID KH LA MM MY PH SG TH TL VN"/> <!--South-Eastern Asia -->
         <group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT RS PT SI SM VA"/> <!--Southern Europe -->
-        <group type="419" contains="005 013 029"/> <!--Latin America and the Caribbean -->
+        <group type="419" contains="005 013 029" grouping="true"/> <!--Latin America and the Caribbean -->
         <group type="005" contains="AR BO BR CL CO EC FK GF GY PE PY SR UY VE"/> <!--South America -->
         <group type="053" contains="AU NF NZ"/> <!--Australia and New Zealand -->
         <group type="054" contains="FJ NC PG SB VU"/> <!--Melanesia -->
@@ -1193,7 +1193,7 @@ XXX Code for transations where no currency is involved
         <group type="034" contains="AF BD BT IN IR LK MV NP PK"/> <!--Southern Asia -->
         <group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
         <group type="QO" contains="AQ BV CC CX GS HM IO TF UM AC CP DG TA"/> <!--Outlying Oceania -->
-        <group type="EU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
+        <group type="EU" contains="AT BE CY CZ DE DK EE ES FI FR GB GR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO" grouping="true"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
     </territoryContainment>
     <!-- Start of Generated Data: see http://unicode.org/cldr/data/tools/java/org/unicode/cldr/tool/package.html -->
 	<languageData>

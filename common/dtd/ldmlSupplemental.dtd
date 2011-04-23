@@ -55,6 +55,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT group EMPTY >
 <!ATTLIST group type NMTOKEN #REQUIRED >
 <!ATTLIST group contains NMTOKENS #IMPLIED >
+<!ATTLIST group grouping ( true | false )  #IMPLIED >
 <!ATTLIST group draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST group references CDATA #IMPLIED >
 

@@ -521,6 +521,7 @@ public class SupplementalDataParser {
 
     ResourceTable table = new ResourceTable();
     table.name = LDMLConstants.TERRITORY_CONTAINMENT;
+    StringBuilder groupingRegions = new StringBuilder();
 
     for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
       if (node.getNodeType()!= Node.ELEMENT_NODE) {
@@ -534,9 +535,16 @@ public class SupplementalDataParser {
         continue;
       }
       if (name.equals(LDMLConstants.GROUP)) {
-        String cnt = LDMLUtilities.getAttributeValue(node, LDMLConstants.CONTAINS);
+        String cont = LDMLUtilities.getAttributeValue(node, LDMLConstants.CONTAINS);
         String value = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
-        res = LDML2ICUConverter.getResourceArray(cnt, value);
+        String grouping = LDMLUtilities.getAttributeValue(node, LDMLConstants.GROUPING);
+        if ( "true".equals(grouping)) {
+            if ( groupingRegions.length() > 0 ) {
+                groupingRegions.append(' ');
+            }
+            groupingRegions.append(value);
+        }
+        res = LDML2ICUConverter.getResourceArray(cont, value);
       } else {
         log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
         System.exit(-1);
@@ -556,6 +564,11 @@ public class SupplementalDataParser {
 
     xpath.delete(savedLength, xpath.length());
     if (table.first != null) {
+      if ( groupingRegions.length() > 0 ) {
+          res = LDML2ICUConverter.getResourceArray(groupingRegions.toString(),LDMLConstants.GROUPING);
+          res.next = table.first;
+          table.first = res;
+      }
       return table;
     }
 

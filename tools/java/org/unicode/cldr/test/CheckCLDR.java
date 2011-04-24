@@ -94,7 +94,7 @@ abstract public class CheckCLDR {
     .add(new CheckAlt())
     .add(new CheckCurrencies())
     .add(new CheckCasing())
-    //.add(new CheckConsistentCasing()) //  this doesn't work; many spurious errors that user can't correct
+    .add(new CheckConsistentCasing()) //  this doesn't work; many spurious errors that user can't correct
     .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
     ;
   }

@@ -367,7 +367,6 @@
 			<language type="pau">палауански</language>
 			<language type="peo">стар персиски</language>
 			<language type="phi">филипински јазик</language>
-			<language type="phi" alt="proposed-x1001" draft="unconfirmed">филипински</language>
 			<language type="phn">феникиски</language>
 			<language type="pi">пали</language>
 			<language type="pl">полски</language>
@@ -870,7 +869,10 @@
 			<type type="big5han" key="collation">Традиционално кинеско сортирање</type>
 			<type type="buddhist" key="calendar">Будистички календар</type>
 			<type type="chinese" key="calendar">Кинески календар</type>
+			<type type="coptic" key="calendar">Коптски календар</type>
 			<type type="direct" key="collation">Директно сортирање</type>
+			<type type="ethiopic" key="calendar">Етиопски календар</type>
+			<type type="ethiopic-amete-alem" key="calendar">Етиопски Амет Алем календар</type>
 			<type type="gb2312han" key="collation">Поедноставено кинеско сортирање</type>
 			<type type="gregorian" key="calendar">Грегоријански календар</type>
 			<type type="hebrew" key="calendar">Еврејски календар</type>
@@ -878,6 +880,7 @@
 			<type type="islamic" key="calendar">Исламски календар</type>
 			<type type="islamic-civil" key="calendar">Исламски граѓански календар</type>
 			<type type="japanese" key="calendar">Јапонски календар</type>
+			<type type="latn" key="numbers">арапски броеви</type>
 			<type type="phonebook" key="collation">Азбучен редослед</type>
 			<type type="pinyin" key="collation">Сортирање Pinyin</type>
 			<type type="roc" key="calendar">Календар на Република Кина</type>
@@ -1837,7 +1840,7 @@
 				<long>
 					<generic>Атлантско време</generic>
 					<standard>Атлантско стандардно време</standard>
-					<daylight>Атлантско летно сметање на времето</daylight>
+					<daylight>Атлантско дневно време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bering">
@@ -1926,8 +1929,8 @@
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard>Западно-европско време</standard>
-					<daylight>Западно-европско летно сметање на времето</daylight>
+					<standard>Западноевропско време</standard>
+					<daylight>Западноевропско летно време</daylight>
 				</long>
 			</metazone>
 			<metazone type="French_Guiana">
@@ -2678,6 +2681,14 @@
 			<unitPattern count="one">{0} ден</unitPattern>
 			<unitPattern count="other">{0} денови</unitPattern>
 		</unit>
+		<unit type="day-future">
+			<unitPattern count="one">за {0} ден</unitPattern>
+			<unitPattern count="other">за {0} денови</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="one">пред {0} ден</unitPattern>
+			<unitPattern count="other">пред {0} денови</unitPattern>
+		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} час</unitPattern>
 			<unitPattern count="other">{0} часови</unitPattern>
@@ -2710,4 +2721,3 @@
 		</messages>
 	</posix>
 </ldml>
-

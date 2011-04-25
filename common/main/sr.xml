@@ -8,7 +8,7 @@
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="provisional">{0} ({1})</localePattern>
+			<localePattern draft="contributed">{0} ({1})</localePattern>
 			<localeSeparator>, </localeSeparator>
 		</localeDisplayPattern>
 		<languages>
@@ -45,8 +45,9 @@
 			<language type="aus">Аустралијски језик</language>
 			<language type="av">Аварски</language>
 			<language type="awa">Aвaдхи</language>
-			<language type="ay">Aјмaрa</language>
+			<language type="ay">ајмара</language>
 			<language type="az">Азербејџански</language>
+			<language type="az" alt="short" draft="contributed">азерски</language>
 			<language type="ba">Башкир</language>
 			<language type="bad">Бaндa</language>
 			<language type="bai">Бaмилеке</language>
@@ -72,7 +73,6 @@
 			<language type="br">Бретонски</language>
 			<language type="bra">Брaј</language>
 			<language type="bs">Босански</language>
-			<language type="bs" alt="proposed-x1001" draft="unconfirmed">Бошњачки</language>
 			<language type="btk">Бaтaк</language>
 			<language type="bua">Буриaт</language>
 			<language type="bug">Бугинежaнски</language>
@@ -107,9 +107,7 @@
 			<language type="crp">креолски или пиџин</language>
 			<language type="cs">Чешки</language>
 			<language type="csb">Кaшубијaнски</language>
-			<language type="csb" alt="proposed-x1001" draft="unconfirmed">Кашупски</language>
 			<language type="cu">Старословенски</language>
-			<language type="cu" alt="proposed-x1001" draft="unconfirmed">Црквенословенски</language>
 			<language type="cus">Кушитички језик</language>
 			<language type="cv">Чувaшки</language>
 			<language type="cy">Велшки</language>
@@ -120,6 +118,7 @@
 			<language type="de">Немачки</language>
 			<language type="de_AT">Аустријски немачки</language>
 			<language type="de_CH">Швaјцaрски високи немaчки</language>
+			<language type="de_CH" alt="proposed-x1001" draft="unconfirmed">швајцарски високи немачки</language>
 			<language type="del">Делавер</language>
 			<language type="den">Слaвски</language>
 			<language type="dgr">Догриб</language>
@@ -163,7 +162,9 @@
 			<language type="fon">Фон</language>
 			<language type="fr">Француски</language>
 			<language type="fr_CA">Кaнaдски француски</language>
+			<language type="fr_CA" alt="proposed-x1001" draft="unconfirmed">канадски француски</language>
 			<language type="fr_CH">Швaјцaрски фрaнцуски</language>
+			<language type="fr_CH" alt="proposed-x1001" draft="unconfirmed">швајцарски француски</language>
 			<language type="frm">Средњи фрaнцуски</language>
 			<language type="fro">Старофранцуски</language>
 			<language type="frr">Северно-фризијски</language>
@@ -175,8 +176,6 @@
 			<language type="gay">Гaјо</language>
 			<language type="gba">Гбaјa</language>
 			<language type="gd">Шкотски Галски</language>
-			<language type="gd" alt="proposed-x1001" draft="unconfirmed">Шкотски гелски</language>
-			<language type="gd" alt="proposed-x1002" draft="unconfirmed">Шкотски галски</language>
 			<language type="gem">Германски језик</language>
 			<language type="gez">Џиз</language>
 			<language type="gil">Гилбертшки</language>
@@ -205,9 +204,7 @@
 			<language type="ho">Хири Моту</language>
 			<language type="hr">Хрватски</language>
 			<language type="hsb">Горњи сорбијски</language>
-			<language type="hsb" alt="proposed-x1001" draft="unconfirmed">Горњи лужичкосрпски</language>
 			<language type="ht">Хаитски</language>
-			<language type="ht" alt="proposed-x1001" draft="unconfirmed">Хаићански</language>
 			<language type="hu">Мађарски</language>
 			<language type="hup">Хупа</language>
 			<language type="hy">Јерменски</language>
@@ -385,14 +382,17 @@
 			<language type="pra">Пракритски</language>
 			<language type="pro">Старопровансалски</language>
 			<language type="ps">Паштунски</language>
+			<language type="ps" alt="variant" draft="contributed">пашто</language>
 			<language type="pt">Португалски</language>
 			<language type="pt_BR">Бразилски португалски</language>
 			<language type="pt_PT">Иберијски португалски</language>
 			<language type="qu">Квенчa</language>
+			<language type="qu" alt="proposed-x1001" draft="unconfirmed">кечуа</language>
 			<language type="raj">Рaђaстaни</language>
 			<language type="rap">Рaпaнуи</language>
 			<language type="rar">Рaротонгaн</language>
 			<language type="rm">Рето-Романски</language>
+			<language type="rm" alt="proposed-x1001" draft="unconfirmed">романш</language>
 			<language type="rn">Рунди</language>
 			<language type="ro">Румунски</language>
 			<language type="roa">Ромaнски језик</language>
@@ -404,6 +404,7 @@
 			<language type="sa">Санскрит</language>
 			<language type="sad">Сaндaве</language>
 			<language type="sah">Јaкут</language>
+			<language type="sah" alt="proposed-x1001" draft="unconfirmed">сакха</language>
 			<language type="sai">Језик јужноамеричких Индијанаца</language>
 			<language type="sal">Сaлишaнски језик</language>
 			<language type="sam">Сaмaритaнски aрaмејски</language>
@@ -414,6 +415,7 @@
 			<language type="sco">Шкотски</language>
 			<language type="sd">Синди</language>
 			<language type="se">Северни сaми</language>
+			<language type="se" alt="proposed-x1001" draft="unconfirmed">северни сами</language>
 			<language type="sel">Селкaп</language>
 			<language type="sem">Семитски језик</language>
 			<language type="sg">Санго</language>
@@ -422,6 +424,7 @@
 			<language type="sh">Српскохрватски</language>
 			<language type="shn">Шaн</language>
 			<language type="si">Сингалески</language>
+			<language type="si" alt="proposed-x1001" draft="unconfirmed">сингалески</language>
 			<language type="sid">Сидамо</language>
 			<language type="sio">Сиуaнски језик</language>
 			<language type="sit">Сино-тибетански језик</language>
@@ -435,6 +438,7 @@
 			<language type="smn">Инaри сaми</language>
 			<language type="sms">Сколтски језик</language>
 			<language type="sn">Шонa</language>
+			<language type="sn" alt="proposed-x1001" draft="unconfirmed">шона</language>
 			<language type="snk">Сонинке</language>
 			<language type="so">Сомалски</language>
 			<language type="sog">Соџијенски</language>
@@ -444,6 +448,7 @@
 			<language type="srn">Срaнaнски тонго</language>
 			<language type="srr">Серер</language>
 			<language type="ss">Свaти</language>
+			<language type="ss" alt="proposed-x1001" draft="unconfirmed">свати</language>
 			<language type="ssa">Нило-сaхaрски језик</language>
 			<language type="st">Сесото</language>
 			<language type="su">Судански</language>
@@ -473,11 +478,14 @@
 			<language type="tli">Тлингит</language>
 			<language type="tmh">Тaмaшек</language>
 			<language type="tn">Тсвaнa</language>
+			<language type="tn" alt="proposed-x1001" draft="unconfirmed">цвана</language>
 			<language type="to">Тонгa</language>
+			<language type="to" alt="proposed-x1001" draft="unconfirmed">тонга</language>
 			<language type="tog">Њaсa тонгa</language>
 			<language type="tpi">Ток Писин</language>
 			<language type="tr">Турски</language>
 			<language type="ts">Тсонгa</language>
+			<language type="ts" alt="proposed-x1001" draft="unconfirmed">цонга</language>
 			<language type="tsi">Тсимшиaн</language>
 			<language type="tt">Татарски</language>
 			<language type="tum">Тумбукa</language>
@@ -489,14 +497,17 @@
 			<language type="tyv">Тувинијски</language>
 			<language type="udm">Удмурт</language>
 			<language type="ug">Ујгурски</language>
+			<language type="ug" alt="variant" draft="contributed">ујгурски</language>
 			<language type="uga">Угaритски</language>
 			<language type="uk">Украјински</language>
 			<language type="umb">Умбунду</language>
 			<language type="und">Непознат или неважећи језик</language>
+			<language type="und" alt="proposed-x1001" draft="unconfirmed">Непознат језик</language>
 			<language type="ur">Урду</language>
 			<language type="uz">Узбечки</language>
 			<language type="vai">Вaи</language>
 			<language type="ve">Вендa</language>
+			<language type="ve" alt="proposed-x1001" draft="unconfirmed">венда</language>
 			<language type="vi">Вијетнамски</language>
 			<language type="vo">Волапук</language>
 			<language type="vot">Вотски</language>
@@ -530,6 +541,7 @@
 		</languages>
 		<scripts>
 			<script type="Arab">арапско писмо</script>
+			<script type="Arab" alt="variant" draft="contributed">персијско-арапско</script>
 			<script type="Armi">империјско арамејско писмо</script>
 			<script type="Armn">јерменско писмо</script>
 			<script type="Avst">авестанско писмо</script>
@@ -569,7 +581,11 @@
 			<script type="Hani">хан</script>
 			<script type="Hano">хануно</script>
 			<script type="Hans">поједностављено кинеско писмо</script>
+			<script type="Hans" alt="proposed-x1001" draft="unconfirmed">поједностављено</script>
+			<script type="Hans" alt="stand-alone" draft="contributed">поједностављени хан</script>
 			<script type="Hant">традиционално кинеско писмо</script>
+			<script type="Hant" alt="proposed-x1001" draft="unconfirmed">традиционално</script>
+			<script type="Hant" alt="stand-alone" draft="contributed">традиционални хан</script>
 			<script type="Hebr">хебрејско писмо</script>
 			<script type="Hira">Хирагана</script>
 			<script type="Hmng">пахав хмонг писмо</script>
@@ -659,6 +675,7 @@
 			<script type="Zxxx">Неписани језик</script>
 			<script type="Zyyy">заједничко писмо</script>
 			<script type="Zzzz">Непознато или неважеће писмо</script>
+			<script type="Zzzz" alt="proposed-x1001" draft="unconfirmed">Непознато писмо</script>
 		</scripts>
 		<territories>
 			<territory type="001">Свет</territory>
@@ -692,8 +709,8 @@
 			<territory type="154">Северна Европа</territory>
 			<territory type="155">Западна Европа</territory>
 			<territory type="172">Комонвелт независних држава</territory>
-			<territory type="172" alt="proposed-x1001" draft="unconfirmed">Заједница независних држава</territory>
 			<territory type="419">Латинска Америка и Кариби</territory>
+			<territory type="419" alt="proposed-x1001" draft="unconfirmed">Латинска Америка</territory>
 			<territory type="830">Каналска острва</territory>
 			<territory type="AC">Острво Асенсион</territory>
 			<territory type="AD">Андора</territory>
@@ -703,7 +720,6 @@
 			<territory type="AI">Ангвила</territory>
 			<territory type="AL">Албанија</territory>
 			<territory type="AM">Арменија</territory>
-			<territory type="AM" alt="proposed-x1001" draft="unconfirmed">Јерменија</territory>
 			<territory type="AN">Холандски Антили</territory>
 			<territory type="AO">Ангола</territory>
 			<territory type="AQ">Антарктик</territory>
@@ -736,11 +752,9 @@
 			<territory type="BZ">Белизе</territory>
 			<territory type="CA">Канада</territory>
 			<territory type="CC">Кокос (Келинг) Острва</territory>
-			<territory type="CC" alt="proposed-x1001" draft="unconfirmed">Кокос [Келинг] Острва</territory>
 			<territory type="CD">Конго - Киншаса</territory>
-			<territory type="CD" alt="variant" draft="provisional">Конго [Д.Р.К.]</territory>
+			<territory type="CD" alt="variant" draft="contributed">Конго [ДРК]</territory>
 			<territory type="CF">Централно Афричка Република</territory>
-			<territory type="CF" alt="proposed-x1001" draft="unconfirmed">Централноафричка Република</territory>
 			<territory type="CG">Конго - Бразавил</territory>
 			<territory type="CG" alt="variant" draft="contributed">Конго [Република]</territory>
 			<territory type="CH">Швајцарска</territory>
@@ -756,8 +770,6 @@
 			<territory type="CS">Србија и Црна Гора</territory>
 			<territory type="CU">Куба</territory>
 			<territory type="CV">Капе Верде</territory>
-			<territory type="CV" alt="proposed-x1001" draft="unconfirmed">Зеленортска Острва</territory>
-			<territory type="CV" alt="proposed-x1002" draft="unconfirmed">Кап Верде</territory>
 			<territory type="CX">Божићна острва</territory>
 			<territory type="CY">Кипар</territory>
 			<territory type="CZ">Чешка</territory>
@@ -779,10 +791,8 @@
 			<territory type="EU">Европска Унија</territory>
 			<territory type="FI">Финска</territory>
 			<territory type="FJ">Фиџи</territory>
-			<territory type="FK">Фолкландска Острва</territory>
-			<territory type="FK" alt="proposed-x1001" draft="unconfirmed">Фолкландска острва</territory>
-			<territory type="FK" alt="proposed-x1002" draft="unconfirmed">Фокландска oстрва</territory>
-			<territory type="FK" alt="variant" draft="contributed">Фокландска oстрва [Малвинска oстрва]</territory>
+			<territory type="FK">Фокландска острва</territory>
+			<territory type="FK" alt="variant">Фокландска (Малвинска) острва</territory>
 			<territory type="FM">Микронезија</territory>
 			<territory type="FO">Фарска Острва</territory>
 			<territory type="FR">Француска</territory>
@@ -829,7 +839,6 @@
 			<territory type="JP">Јапан</territory>
 			<territory type="KE">Кенија</territory>
 			<territory type="KG">Киргизстан</territory>
-			<territory type="KG" alt="proposed-x1001" draft="unconfirmed">Киргистан</territory>
 			<territory type="KH">Камбоџа</territory>
 			<territory type="KI">Кирибати</territory>
 			<territory type="KM">Коморска Острва</territory>
@@ -858,8 +867,7 @@
 			<territory type="MG">Мадагаскар</territory>
 			<territory type="MH">Маршалска Острва</territory>
 			<territory type="MK">Македонија</territory>
-			<territory type="MK" alt="variant" draft="provisional">BJR Makedonija</territory>
-			<territory type="MK" alt="variant-proposed-x1001" draft="unconfirmed">Македонија [БЈР]</territory>
+			<territory type="MK" alt="variant" draft="contributed">Македонија</territory>
 			<territory type="ML">Мали</territory>
 			<territory type="MM">Мијанмар [Бурма]</territory>
 			<territory type="MN">Монголија</territory>
@@ -919,7 +927,6 @@
 			<territory type="SH">Света Јелена</territory>
 			<territory type="SI">Словенија</territory>
 			<territory type="SJ">Свалбард и Јанмајен Острва</territory>
-			<territory type="SJ" alt="proposed-x1001" draft="unconfirmed">Свалбард и Јан Мајен острва</territory>
 			<territory type="SK">Словачка</territory>
 			<territory type="SL">Сијера Леоне</territory>
 			<territory type="SM">Сан Марино</territory>
@@ -969,6 +976,7 @@
 			<territory type="ZM">Замбија</territory>
 			<territory type="ZW">Зимбабве</territory>
 			<territory type="ZZ">Непозната или неважећа област</territory>
+			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">Непозната област</territory>
 		</territories>
 		<variants>
 			<variant type="1901">Традиционална немачка ортографија</variant>
@@ -1007,41 +1015,92 @@
 			<key type="calendar">Календар</key>
 			<key type="collation">Сортирање</key>
 			<key type="currency">Валута</key>
+			<key type="numbers" draft="contributed">Бројеви</key>
+			<key type="x" draft="contributed">Приватна употреба</key>
 		</keys>
 		<types>
+			<type type="arab" key="numbers" draft="contributed">арапско-индијске цифре</type>
+			<type type="arabext" key="numbers" draft="contributed">продужене арапско-индијске цифре</type>
+			<type type="armn" key="numbers" draft="contributed">јерменски бројеви</type>
+			<type type="armnlow" key="numbers" draft="contributed">мали јерменски бројеви</type>
+			<type type="beng" key="numbers" draft="contributed">бенгалске цифре</type>
 			<type type="big5han" key="collation">Традиционално кинеско сортирање</type>
 			<type type="buddhist" key="calendar">Будистички календар</type>
 			<type type="chinese" key="calendar">Кинески календар</type>
+			<type type="coptic" key="calendar" draft="contributed">коптски календар</type>
+			<type type="deva" key="numbers" draft="contributed">девангари цифре</type>
+			<type type="dictionary" key="collation" draft="contributed">Редослед сортирања у речнику</type>
 			<type type="direct" key="collation">Директно сортирање</type>
+			<type type="ducet" key="collation" draft="contributed">Подразумевани Unicode редослед сортирања</type>
+			<type type="ethi" key="numbers" draft="contributed">етиопски бројеви</type>
+			<type type="ethiopic" key="calendar" draft="contributed">етиопски календар</type>
+			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">етиопски амет алем календар</type>
+			<type type="fullwide" key="numbers" draft="contributed">цифре пуне ширине</type>
 			<type type="gb2312han" key="collation">Поједностављено кинеско сортирање</type>
+			<type type="geor" key="numbers" draft="contributed">грузијски бројеви</type>
 			<type type="gregorian" key="calendar">Грегоријански календар</type>
+			<type type="grek" key="numbers" draft="contributed">грчки бројеви</type>
+			<type type="greklow" key="numbers" draft="contributed">мали грчки бројеви</type>
+			<type type="gujr" key="numbers" draft="contributed">гуџаратске цифре</type>
+			<type type="guru" key="numbers" draft="contributed">гурмуки цифре</type>
+			<type type="hanidec" key="numbers" draft="contributed">кинески децимални бројеви</type>
+			<type type="hans" key="numbers" draft="contributed">поједностављени кинески бројеви</type>
+			<type type="hansfin" key="numbers" draft="contributed">поједностављени кинески финансијски бројеви</type>
+			<type type="hant" key="numbers" draft="contributed">традиционални кинески бројеви</type>
+			<type type="hantfin" key="numbers" draft="contributed">традиционални кинески финансијски бројеви</type>
+			<type type="hebr" key="numbers" draft="contributed">хебрејски бројеви</type>
 			<type type="hebrew" key="calendar">Хебрејски календар</type>
 			<type type="indian" key="calendar">Индијски национални календар</type>
 			<type type="islamic" key="calendar">Исламски календар</type>
 			<type type="islamic-civil" key="calendar">Исламски цивилни календар</type>
 			<type type="japanese" key="calendar">Јапански календар</type>
+			<type type="jpan" key="numbers" draft="contributed">јапански бројеви</type>
+			<type type="jpanfin" key="numbers" draft="contributed">јапански финансијски бројеви</type>
+			<type type="khmr" key="numbers" draft="contributed">кмерске цифре</type>
+			<type type="knda" key="numbers" draft="contributed">канада цифре</type>
+			<type type="laoo" key="numbers" draft="contributed">лаошке цифре</type>
+			<type type="latn" key="numbers" draft="contributed">западне цифре</type>
+			<type type="mlym" key="numbers" draft="contributed">малајалам цифре</type>
+			<type type="mong" key="numbers" draft="contributed">монголске цифре</type>
+			<type type="mymr" key="numbers" draft="contributed">мијанмарске цифре</type>
+			<type type="orya" key="numbers" draft="contributed">орија цифре</type>
+			<type type="persian" key="calendar" draft="contributed">персијски календар</type>
 			<type type="phonebook" key="collation">Сортирање као телефонски именик</type>
-			<type type="phonebook" key="collation" alt="proposed-x1001" draft="unconfirmed">Речничко сортирање</type>
 			<type type="pinyin" key="collation">Пињин сортирање</type>
-			<type type="pinyin" key="collation" alt="proposed-x1001" draft="unconfirmed">Поједностављено кинеско пинјин сортирање</type>
+			<type type="reformed" key="collation" draft="contributed">Реформисани редослед сортирања</type>
 			<type type="roc" key="calendar">Календар Републике Кине</type>
+			<type type="roman" key="numbers" draft="contributed">римски бројеви</type>
+			<type type="romanlow" key="numbers" draft="contributed">мали римски бројеви</type>
+			<type type="search" key="collation" draft="contributed">Опште намењена претрага</type>
 			<type type="stroke" key="collation">Сортирање по броју црта</type>
-			<type type="stroke" key="collation" alt="proposed-x1001" draft="unconfirmed">Традиционално кинеско сортирање по броју потеза</type>
+			<type type="taml" key="numbers" draft="contributed">тамилски бројеви</type>
+			<type type="telu" key="numbers" draft="contributed">телугу цифре</type>
+			<type type="thai" key="numbers" draft="contributed">тајске цифре</type>
+			<type type="tibt" key="numbers" draft="contributed">тибетанске цифре</type>
 			<type type="traditional" key="collation">Традиционално сортирање</type>
+			<type type="unihan" key="collation" draft="contributed">Редослед сортирања радикалним цртицама</type>
 		</types>
+		<transformNames>
+			<transformName type="BGN" draft="contributed">БГН (BGN)</transformName>
+			<transformName type="Numeric" draft="contributed">Нумеричка</transformName>
+			<transformName type="Tone" draft="contributed">Тон</transformName>
+			<transformName type="UNGEGN" draft="contributed">УНГЕГН (BGN)</transformName>
+			<transformName type="x-Accents" draft="contributed">Акценти</transformName>
+			<transformName type="x-Fullwidth" draft="contributed">пуна ширина</transformName>
+			<transformName type="x-Halfwidth" draft="contributed">пола ширине</transformName>
+			<transformName type="x-Jamo" draft="contributed">Џамо</transformName>
+			<transformName type="x-Pinyin" draft="contributed">Пинјин</transformName>
+			<transformName type="x-Publishing" draft="contributed">Издавачки</transformName>
+		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрички</measurementSystemName>
+			<measurementSystemName type="UK" draft="contributed">империјални</measurementSystemName>
 			<measurementSystemName type="US">САД</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">{0}</codePattern>
-			<codePattern type="language" alt="proposed-x1001" draft="unconfirmed">Језик: {0}</codePattern>
 			<codePattern type="script">{0}</codePattern>
-			<codePattern type="script" alt="proposed-x1001" draft="unconfirmed">Скрипт: {0}</codePattern>
-			<codePattern type="script" alt="proposed-x1002" draft="unconfirmed">Писмо: {0}</codePattern>
 			<codePattern type="territory">{0}</codePattern>
-			<codePattern type="territory" alt="proposed-x1001" draft="unconfirmed">Регион: {0}</codePattern>
-			<codePattern type="territory" alt="proposed-x1002" draft="unconfirmed">Област: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -1049,6 +1108,8 @@
 		<exemplarCharacters type="auxiliary">[a á à ă â å ä ā æ b c ç d e é è ĕ ê ë ē f g h i í ì ĭ î ï ī j k l m n ñ o ó ò ŏ ô ö ø ō œ p q r s t u ú ù ŭ û ü ū v w x y ÿ z]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a b c č d e f g h i j k l ł m n o º p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[А Б В Г Д Ђ Е Ж З И Ј К Л Љ М Н Њ О П Р С Т Ћ У Ф Х Ц Ч Џ Ш]</exemplarCharacters>
+		<ellipsis type="final" draft="contributed">{0}...</ellipsis>
+		<ellipsis type="initial" draft="contributed">...{0}</ellipsis>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1197,6 +1258,12 @@
 							<quarter type="3">К3</quarter>
 							<quarter type="4">К4</quarter>
 						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1.</quarter>
+							<quarter type="2" draft="contributed">2.</quarter>
+							<quarter type="3" draft="contributed">3.</quarter>
+							<quarter type="4" draft="contributed">4.</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Прво тромесечје</quarter>
 							<quarter type="2">Друго тромесечје</quarter>
@@ -1204,13 +1271,27 @@
 							<quarter type="4">Четврто тромесечје</quarter>
 						</quarterWidth>
 					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1.</quarter>
+							<quarter type="2" draft="contributed">2.</quarter>
+							<quarter type="3" draft="contributed">3.</quarter>
+							<quarter type="4" draft="contributed">4.</quarter>
+						</quarterWidth>
+					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="noon" draft="contributed">подне</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="noon" draft="contributed">п</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">пре подне</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">подне</dayPeriod>
 							<dayPeriod type="pm">поподне</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">по подне</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1279,12 +1360,9 @@
 						<dateFormatItem id="EEEd">d. EEE</dateFormatItem>
 						<dateFormatItem id="h">hh a</dateFormatItem>
 						<dateFormatItem id="hm">hh.mm a</dateFormatItem>
-						<dateFormatItem id="hm" alt="proposed-x1001" draft="unconfirmed">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
 						<dateFormatItem id="hms">hh.mm.ss a</dateFormatItem>
-						<dateFormatItem id="hms" alt="proposed-x1001" draft="unconfirmed">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
-						<dateFormatItem id="Hms" alt="proposed-x1001" draft="unconfirmed">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
@@ -1299,8 +1377,10 @@
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="y">y.</dateFormatItem>
 						<dateFormatItem id="yM">y-M</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">d. M. y.</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d. M. yyyy.</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQ">y Q</dateFormatItem>
@@ -1420,12 +1500,21 @@
 					</field>
 					<field type="year">
 						<displayName>година</displayName>
+						<relative type="-1" draft="contributed">Прошле године</relative>
+						<relative type="0" draft="contributed">Ове године</relative>
+						<relative type="1" draft="contributed">Следеће године</relative>
 					</field>
 					<field type="month">
 						<displayName>месец</displayName>
+						<relative type="-1" draft="contributed">Прошлог месеца</relative>
+						<relative type="0" draft="contributed">Овог месеца</relative>
+						<relative type="1" draft="contributed">Следећег месеца</relative>
 					</field>
 					<field type="week">
 						<displayName>недеља</displayName>
+						<relative type="-1" draft="contributed">Прошле недеље</relative>
+						<relative type="0" draft="contributed">Ове недеље</relative>
+						<relative type="1" draft="contributed">Следеће недеље</relative>
 					</field>
 					<field type="day">
 						<displayName>дан</displayName>
@@ -1860,12 +1949,98 @@
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat draft="contributed">Време у земљи: {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackRegionFormat draft="contributed">Време у земљи: {1} ({0})</fallbackRegionFormat>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity draft="contributed">Бијула, Северна Дакота</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity draft="contributed">GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity draft="contributed">GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity draft="contributed">GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity draft="contributed">GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity draft="contributed">GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity draft="contributed">GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity draft="contributed">GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity draft="contributed">GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity draft="contributed">GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity draft="contributed">GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity draft="contributed">GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity draft="contributed">GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity draft="contributed">GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity draft="contributed">GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity draft="contributed">GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity draft="contributed">GMT</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Непознат или неважећи град</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity draft="contributed">GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity draft="contributed">GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity draft="contributed">GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity draft="contributed">GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity draft="contributed">GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity draft="contributed">GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity draft="contributed">GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity draft="contributed">GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity draft="contributed">GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity draft="contributed">GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity draft="contributed">GMT-11</exemplarCity>
+			</zone>
 			<zone type="Europe/Andorra">
-				<exemplarCity draft="provisional">Андора</exemplarCity>
+				<exemplarCity draft="contributed">Андора</exemplarCity>
 			</zone>
 			<zone type="Asia/Dubai">
 				<exemplarCity>Дубаи</exemplarCity>
@@ -1880,10 +2055,10 @@
 				<exemplarCity>Ангвила</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
-				<exemplarCity draft="provisional">Тирана</exemplarCity>
+				<exemplarCity draft="contributed">Тирана</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
-				<exemplarCity draft="provisional">Јереван</exemplarCity>
+				<exemplarCity draft="contributed">Јереван</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
 				<exemplarCity>Кирасо</exemplarCity>
@@ -1961,7 +2136,7 @@
 				<exemplarCity>Паго Паго</exemplarCity>
 			</zone>
 			<zone type="Europe/Vienna">
-				<exemplarCity draft="provisional">Беч</exemplarCity>
+				<exemplarCity draft="contributed">Беч</exemplarCity>
 			</zone>
 			<zone type="Australia/Perth">
 				<exemplarCity>Перт</exemplarCity>
@@ -2002,8 +2177,14 @@
 			<zone type="America/Aruba">
 				<exemplarCity>Аруба</exemplarCity>
 			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity draft="contributed">Марихамн</exemplarCity>
+			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Баку</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity draft="contributed">Сарајево</exemplarCity>
 			</zone>
 			<zone type="America/Barbados">
 				<exemplarCity>Барбадос</exemplarCity>
@@ -2012,13 +2193,13 @@
 				<exemplarCity>Дака</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
-				<exemplarCity draft="provisional">Брисел</exemplarCity>
+				<exemplarCity draft="contributed">Брисел</exemplarCity>
 			</zone>
 			<zone type="Africa/Ouagadougou">
 				<exemplarCity>Уагадугу</exemplarCity>
 			</zone>
 			<zone type="Europe/Sofia">
-				<exemplarCity draft="provisional">Софија</exemplarCity>
+				<exemplarCity draft="contributed">Софија</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity>Бахреин</exemplarCity>
@@ -2029,8 +2210,11 @@
 			<zone type="Africa/Porto-Novo">
 				<exemplarCity>Порто Ново</exemplarCity>
 			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity draft="contributed">Св. Бартоломeј</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Bermuda">
-				<exemplarCity draft="provisional">Бермуди</exemplarCity>
+				<exemplarCity draft="contributed">Бермуда</exemplarCity>
 			</zone>
 			<zone type="Asia/Brunei">
 				<exemplarCity>Брунеји</exemplarCity>
@@ -2090,13 +2274,13 @@
 				<exemplarCity>Насау</exemplarCity>
 			</zone>
 			<zone type="Asia/Thimphu">
-				<exemplarCity draft="provisional">Тхимпху</exemplarCity>
+				<exemplarCity draft="contributed">Тимпу</exemplarCity>
 			</zone>
 			<zone type="Africa/Gaborone">
 				<exemplarCity>Габорон</exemplarCity>
 			</zone>
 			<zone type="Europe/Minsk">
-				<exemplarCity draft="provisional">Минск</exemplarCity>
+				<exemplarCity draft="contributed">Минск</exemplarCity>
 			</zone>
 			<zone type="America/Belize">
 				<exemplarCity>Белизе</exemplarCity>
@@ -2117,7 +2301,7 @@
 				<exemplarCity>Досон Крик</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
-				<exemplarCity draft="provisional">Јелонајф</exemplarCity>
+				<exemplarCity draft="contributed">Јелоунајф</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>Едмонтон</exemplarCity>
@@ -2183,7 +2367,7 @@
 				<exemplarCity>Св. Џон</exemplarCity>
 			</zone>
 			<zone type="Indian/Cocos">
-				<exemplarCity draft="provisional">Кокосова острва</exemplarCity>
+				<exemplarCity draft="contributed">Кокос</exemplarCity>
 			</zone>
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Киншаса</exemplarCity>
@@ -2198,7 +2382,7 @@
 				<exemplarCity>Бразавил</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
-				<exemplarCity draft="provisional">Цирих</exemplarCity>
+				<exemplarCity draft="contributed">Цирих</exemplarCity>
 			</zone>
 			<zone type="Africa/Abidjan">
 				<exemplarCity>Абиџан</exemplarCity>
@@ -2240,22 +2424,25 @@
 				<exemplarCity>Хавана</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
-				<exemplarCity draft="provisional">Капе Верде</exemplarCity>
+				<exemplarCity draft="contributed">Зеленортска Острва</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
-				<exemplarCity draft="provisional">Божићно острво</exemplarCity>
+				<exemplarCity draft="contributed">Божић</exemplarCity>
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Никозија</exemplarCity>
 			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity draft="contributed">Праг</exemplarCity>
+			</zone>
 			<zone type="Europe/Berlin">
-				<exemplarCity draft="provisional">Берлин</exemplarCity>
+				<exemplarCity draft="contributed">Берлин</exemplarCity>
 			</zone>
 			<zone type="Africa/Djibouti">
 				<exemplarCity>Џибути</exemplarCity>
 			</zone>
 			<zone type="Europe/Copenhagen">
-				<exemplarCity draft="provisional">Копенхаген</exemplarCity>
+				<exemplarCity draft="contributed">Копенхаген</exemplarCity>
 			</zone>
 			<zone type="America/Dominica">
 				<exemplarCity>Доминика</exemplarCity>
@@ -2273,7 +2460,7 @@
 				<exemplarCity>Гвајакил</exemplarCity>
 			</zone>
 			<zone type="Europe/Tallinn">
-				<exemplarCity draft="provisional">Талин</exemplarCity>
+				<exemplarCity draft="contributed">Талин</exemplarCity>
 			</zone>
 			<zone type="Africa/Cairo">
 				<exemplarCity>Каиро</exemplarCity>
@@ -2291,19 +2478,19 @@
 				<exemplarCity>Сеута</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
-				<exemplarCity draft="provisional">Мадрид</exemplarCity>
+				<exemplarCity draft="contributed">Мадрид</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Адис Абеба</exemplarCity>
 			</zone>
 			<zone type="Europe/Helsinki">
-				<exemplarCity draft="provisional">Хелсинки</exemplarCity>
+				<exemplarCity draft="contributed">Хелсинки</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fiji">
-				<exemplarCity draft="provisional">Фиџи</exemplarCity>
+				<exemplarCity draft="contributed">Фиџи</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Stanley">
-				<exemplarCity draft="provisional">Стенли</exemplarCity>
+				<exemplarCity draft="contributed">Стенли</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
 				<exemplarCity>Трук</exemplarCity>
@@ -2315,37 +2502,40 @@
 				<exemplarCity>Кошре</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
-				<exemplarCity draft="provisional">Фарска Острва</exemplarCity>
+				<exemplarCity draft="contributed">Фарска острва</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
-				<exemplarCity draft="provisional">Париз</exemplarCity>
+				<exemplarCity draft="contributed">Париз</exemplarCity>
 			</zone>
 			<zone type="Africa/Libreville">
 				<exemplarCity>Либревил</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<exemplarCity draft="provisional">Лондон</exemplarCity>
+				<exemplarCity draft="contributed">Лондон</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>Гренада</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
-				<exemplarCity draft="provisional">Тбилиси</exemplarCity>
+				<exemplarCity draft="contributed">Тбилиси</exemplarCity>
 			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>Кајен</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity draft="contributed">Гернзи</exemplarCity>
 			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity>Акра</exemplarCity>
 			</zone>
 			<zone type="Europe/Gibraltar">
-				<exemplarCity draft="provisional">Гибралтар</exemplarCity>
+				<exemplarCity draft="contributed">Гибралтар</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
 				<exemplarCity>Туле</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity draft="provisional">Нук</exemplarCity>
+				<exemplarCity draft="contributed">Готхаб</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
 				<exemplarCity>Скорезбисунд</exemplarCity>
@@ -2366,10 +2556,10 @@
 				<exemplarCity>Малабо</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
-				<exemplarCity draft="provisional">Атина</exemplarCity>
+				<exemplarCity draft="contributed">Атина</exemplarCity>
 			</zone>
 			<zone type="Atlantic/South_Georgia">
-				<exemplarCity draft="provisional">Јужна Џорџија</exemplarCity>
+				<exemplarCity draft="contributed">Јужна Џорџија</exemplarCity>
 			</zone>
 			<zone type="America/Guatemala">
 				<exemplarCity>Гватемала</exemplarCity>
@@ -2386,11 +2576,17 @@
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Хонг Конг</exemplarCity>
 			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity draft="contributed">Тегусигалпа</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity draft="contributed">Загреб</exemplarCity>
+			</zone>
 			<zone type="America/Port-au-Prince">
 				<exemplarCity>Порт-о-Пренс</exemplarCity>
 			</zone>
 			<zone type="Europe/Budapest">
-				<exemplarCity draft="provisional">Будимпешта</exemplarCity>
+				<exemplarCity draft="contributed">Будимпешта</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Џакарта</exemplarCity>
@@ -2405,22 +2601,34 @@
 				<exemplarCity>Џајапура</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<exemplarCity draft="provisional">Даблин</exemplarCity>
+				<exemplarCity draft="contributed">Даблин</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity draft="contributed">Јерусалим</exemplarCity>
+			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity draft="contributed">Острво Ман</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity draft="contributed">Калкута</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
-				<exemplarCity draft="provisional">Чагос</exemplarCity>
+				<exemplarCity draft="contributed">Чагос</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Багдад</exemplarCity>
 			</zone>
 			<zone type="Asia/Tehran">
-				<exemplarCity draft="provisional">Техеран</exemplarCity>
+				<exemplarCity draft="contributed">Техеран</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Reykjavik">
-				<exemplarCity draft="provisional">Рејкјавик</exemplarCity>
+				<exemplarCity draft="contributed">Рејкјавик</exemplarCity>
 			</zone>
 			<zone type="Europe/Rome">
-				<exemplarCity draft="provisional">Рим</exemplarCity>
+				<exemplarCity draft="contributed">Рим</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity draft="contributed">Џерси</exemplarCity>
 			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity>Јамајка</exemplarCity>
@@ -2429,7 +2637,7 @@
 				<exemplarCity>Аман</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
-				<exemplarCity draft="provisional">Токио</exemplarCity>
+				<exemplarCity draft="contributed">Токио</exemplarCity>
 			</zone>
 			<zone type="Africa/Nairobi">
 				<exemplarCity>Најроби</exemplarCity>
@@ -2450,7 +2658,7 @@
 				<exemplarCity>Тарава</exemplarCity>
 			</zone>
 			<zone type="Indian/Comoro">
-				<exemplarCity draft="provisional">Коморо</exemplarCity>
+				<exemplarCity draft="contributed">Коморо</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>Сент Китс</exemplarCity>
@@ -2459,7 +2667,7 @@
 				<exemplarCity>Пјонгјанг</exemplarCity>
 			</zone>
 			<zone type="Asia/Seoul">
-				<exemplarCity draft="provisional">Сеул</exemplarCity>
+				<exemplarCity draft="contributed">Сеул</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuwait">
 				<exemplarCity>Кувајт</exemplarCity>
@@ -2483,7 +2691,7 @@
 				<exemplarCity>Алмати</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
-				<exemplarCity draft="provisional">Вијетијан</exemplarCity>
+				<exemplarCity draft="contributed">Вијентијан</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
 				<exemplarCity>Бејрут</exemplarCity>
@@ -2492,7 +2700,7 @@
 				<exemplarCity>Св. Луција</exemplarCity>
 			</zone>
 			<zone type="Europe/Vaduz">
-				<exemplarCity draft="provisional">Вадуц</exemplarCity>
+				<exemplarCity draft="contributed">Вадуз</exemplarCity>
 			</zone>
 			<zone type="Asia/Colombo">
 				<exemplarCity>Коломбо</exemplarCity>
@@ -2504,13 +2712,13 @@
 				<exemplarCity>Масеру</exemplarCity>
 			</zone>
 			<zone type="Europe/Vilnius">
-				<exemplarCity draft="provisional">Виљнус</exemplarCity>
+				<exemplarCity draft="contributed">Виљнус</exemplarCity>
 			</zone>
 			<zone type="Europe/Luxembourg">
-				<exemplarCity draft="provisional">Луксембург</exemplarCity>
+				<exemplarCity draft="contributed">Луксембург</exemplarCity>
 			</zone>
 			<zone type="Europe/Riga">
-				<exemplarCity draft="provisional">Рига</exemplarCity>
+				<exemplarCity draft="contributed">Рига</exemplarCity>
 			</zone>
 			<zone type="Africa/Tripoli">
 				<exemplarCity>Триполи</exemplarCity>
@@ -2519,13 +2727,19 @@
 				<exemplarCity>Казабланка</exemplarCity>
 			</zone>
 			<zone type="Europe/Monaco">
-				<exemplarCity draft="provisional">Монако</exemplarCity>
+				<exemplarCity draft="contributed">Монако</exemplarCity>
 			</zone>
 			<zone type="Europe/Chisinau">
-				<exemplarCity draft="provisional">Кишњев</exemplarCity>
+				<exemplarCity draft="contributed">Кишињев</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity draft="contributed">Подгорица</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity draft="contributed">Мариго</exemplarCity>
 			</zone>
 			<zone type="Indian/Antananarivo">
-				<exemplarCity draft="provisional">Антананариво</exemplarCity>
+				<exemplarCity draft="contributed">Антананариво</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kwajalein">
 				<exemplarCity>Кваџалејин</exemplarCity>
@@ -2533,11 +2747,14 @@
 			<zone type="Pacific/Majuro">
 				<exemplarCity>Мајуро</exemplarCity>
 			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity draft="contributed">Скопље</exemplarCity>
+			</zone>
 			<zone type="Africa/Bamako">
 				<exemplarCity>Бамако</exemplarCity>
 			</zone>
 			<zone type="Asia/Rangoon">
-				<exemplarCity draft="provisional">Рангун</exemplarCity>
+				<exemplarCity draft="contributed">Рангун</exemplarCity>
 			</zone>
 			<zone type="Asia/Hovd">
 				<exemplarCity>Ховд</exemplarCity>
@@ -2564,13 +2781,13 @@
 				<exemplarCity>Монтсерат</exemplarCity>
 			</zone>
 			<zone type="Europe/Malta">
-				<exemplarCity draft="provisional">Малта</exemplarCity>
+				<exemplarCity draft="contributed">Малта</exemplarCity>
 			</zone>
 			<zone type="Indian/Mauritius">
-				<exemplarCity draft="provisional">Маурицијус</exemplarCity>
+				<exemplarCity draft="contributed">Маурицијус</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
-				<exemplarCity draft="provisional">Малдиви</exemplarCity>
+				<exemplarCity draft="contributed">Малдиви</exemplarCity>
 			</zone>
 			<zone type="Africa/Blantyre">
 				<exemplarCity>Блантир</exemplarCity>
@@ -2627,10 +2844,10 @@
 				<exemplarCity>Манагва</exemplarCity>
 			</zone>
 			<zone type="Europe/Amsterdam">
-				<exemplarCity draft="provisional">Амстердам</exemplarCity>
+				<exemplarCity draft="contributed">Амстердам</exemplarCity>
 			</zone>
 			<zone type="Europe/Oslo">
-				<exemplarCity draft="provisional">Осло</exemplarCity>
+				<exemplarCity draft="contributed">Осло</exemplarCity>
 			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Катманду</exemplarCity>
@@ -2645,7 +2862,7 @@
 				<exemplarCity>Катхам</exemplarCity>
 			</zone>
 			<zone type="Pacific/Auckland">
-				<exemplarCity draft="provisional">Окланд</exemplarCity>
+				<exemplarCity draft="contributed">Окланд</exemplarCity>
 			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>Мускат</exemplarCity>
@@ -2675,7 +2892,7 @@
 				<exemplarCity>Карачи</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
-				<exemplarCity draft="provisional">Варшава</exemplarCity>
+				<exemplarCity draft="contributed">Варшава</exemplarCity>
 			</zone>
 			<zone type="America/Miquelon">
 				<exemplarCity>Микелон</exemplarCity>
@@ -2693,10 +2910,10 @@
 				<exemplarCity>Азори</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
-				<exemplarCity draft="provisional">Португалија (Мадеира)</exemplarCity>
+				<exemplarCity draft="contributed">Мадера</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity draft="provisional">Лисабон</exemplarCity>
+				<exemplarCity draft="contributed">Лисабон</exemplarCity>
 			</zone>
 			<zone type="Pacific/Palau">
 				<exemplarCity>Палау</exemplarCity>
@@ -2705,13 +2922,16 @@
 				<exemplarCity>Асунсион</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
-				<exemplarCity draft="provisional">Катар</exemplarCity>
+				<exemplarCity draft="contributed">Катар</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity draft="provisional">Уједињење</exemplarCity>
+				<exemplarCity draft="contributed">Реунион</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
-				<exemplarCity draft="provisional">Букурешт</exemplarCity>
+				<exemplarCity draft="contributed">Букурешт</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity draft="contributed">Београд</exemplarCity>
 			</zone>
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Калининград</exemplarCity>
@@ -2762,28 +2982,40 @@
 				<exemplarCity>Кигали</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
-				<exemplarCity draft="provisional">Ријад</exemplarCity>
+				<exemplarCity draft="contributed">Ријад</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guadalcanal">
-				<exemplarCity draft="provisional">Гвадалканал</exemplarCity>
+				<exemplarCity draft="contributed">Гвадалканал</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
-				<exemplarCity draft="provisional">Махе</exemplarCity>
+				<exemplarCity draft="contributed">Махе</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Картум</exemplarCity>
 			</zone>
 			<zone type="Europe/Stockholm">
-				<exemplarCity draft="provisional">Стокхолм</exemplarCity>
+				<exemplarCity draft="contributed">Стокхолм</exemplarCity>
 			</zone>
 			<zone type="Asia/Singapore">
-				<exemplarCity draft="provisional">Сингапур</exemplarCity>
+				<exemplarCity draft="contributed">Сингапур</exemplarCity>
 			</zone>
 			<zone type="Atlantic/St_Helena">
-				<exemplarCity draft="provisional">Света Јелена</exemplarCity>
+				<exemplarCity draft="contributed">Св. Јелена</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity draft="contributed">Љубљана</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity draft="contributed">Лонгјербјен</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity draft="contributed">Братислава</exemplarCity>
 			</zone>
 			<zone type="Africa/Freetown">
 				<exemplarCity>Фритаун</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity draft="contributed">Сан Марино</exemplarCity>
 			</zone>
 			<zone type="Africa/Dakar">
 				<exemplarCity>Дакар</exemplarCity>
@@ -2813,7 +3045,7 @@
 				<exemplarCity>Нџамена</exemplarCity>
 			</zone>
 			<zone type="Indian/Kerguelen">
-				<exemplarCity draft="provisional">Кергелен</exemplarCity>
+				<exemplarCity draft="contributed">Кергелен</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
 				<exemplarCity>Ломе</exemplarCity>
@@ -2825,7 +3057,7 @@
 				<exemplarCity>Душанбе</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fakaofo">
-				<exemplarCity draft="provisional">Факаофо</exemplarCity>
+				<exemplarCity draft="contributed">Факаофо</exemplarCity>
 			</zone>
 			<zone type="Asia/Dili">
 				<exemplarCity>Дили</exemplarCity>
@@ -2840,16 +3072,16 @@
 				<exemplarCity>Тонгатапу</exemplarCity>
 			</zone>
 			<zone type="Europe/Istanbul">
-				<exemplarCity draft="provisional">Истанбул</exemplarCity>
+				<exemplarCity draft="contributed">Истанбул</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
-				<exemplarCity draft="provisional">Порт оф Спејн</exemplarCity>
+				<exemplarCity draft="contributed">Порт оф Спејн</exemplarCity>
 			</zone>
 			<zone type="Pacific/Funafuti">
-				<exemplarCity draft="provisional">Фанафути</exemplarCity>
+				<exemplarCity draft="contributed">Фунафути</exemplarCity>
 			</zone>
 			<zone type="Asia/Taipei">
-				<exemplarCity draft="provisional">Тајпеј</exemplarCity>
+				<exemplarCity draft="contributed">Тајпеј</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Дар-ес-Салам</exemplarCity>
@@ -2891,7 +3123,7 @@
 				<exemplarCity>Енкориџ</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
-				<exemplarCity draft="provisional">Јакутат</exemplarCity>
+				<exemplarCity draft="contributed">Јакутат</exemplarCity>
 			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>Жуно</exemplarCity>
@@ -2968,6 +3200,9 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Ташкент</exemplarCity>
 			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity draft="contributed">Ватикан</exemplarCity>
+			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity>Сент Винсент</exemplarCity>
 			</zone>
@@ -2980,20 +3215,23 @@
 			<zone type="America/St_Thomas">
 				<exemplarCity>Св. Тома</exemplarCity>
 			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity draft="contributed">Хо Ши Мин</exemplarCity>
+			</zone>
 			<zone type="Pacific/Efate">
-				<exemplarCity draft="provisional">Ефате</exemplarCity>
+				<exemplarCity draft="contributed">Ефат</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wallis">
 				<exemplarCity>Валис</exemplarCity>
 			</zone>
 			<zone type="Pacific/Apia">
-				<exemplarCity draft="provisional">Апија</exemplarCity>
+				<exemplarCity draft="contributed">Апија</exemplarCity>
 			</zone>
 			<zone type="Asia/Aden">
 				<exemplarCity>Аден</exemplarCity>
 			</zone>
 			<zone type="Indian/Mayotte">
-				<exemplarCity draft="provisional">Мајоте</exemplarCity>
+				<exemplarCity draft="contributed">Мајот</exemplarCity>
 			</zone>
 			<zone type="Africa/Johannesburg">
 				<exemplarCity>Јоханесбург</exemplarCity>
@@ -3052,9 +3290,9 @@
 			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic draft="provisional">Аљаска време</generic>
-					<standard draft="provisional">Аљаска стандардно време</standard>
-					<daylight draft="provisional">Аљаска летње рачунање времена</daylight>
+					<generic draft="contributed">аљашко време</generic>
+					<standard draft="contributed">аљашко стандардно време</standard>
+					<daylight draft="contributed">аљашко летње време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
@@ -3072,6 +3310,7 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
+					<generic draft="contributed">амазонско време</generic>
 					<standard>Амазон време</standard>
 					<daylight>Амазон летње рачунање времена</daylight>
 				</long>
@@ -3118,6 +3357,7 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
+					<generic draft="contributed">анадирско време</generic>
 					<standard>Анадир време</standard>
 					<daylight>Анадир летње рачунање времена</daylight>
 				</long>
@@ -3156,13 +3396,16 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
+					<generic draft="contributed">аргентинско време</generic>
 					<standard>Аргентина време</standard>
 					<daylight>Аргентина летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
+					<generic draft="contributed">аргентинско западно време</generic>
 					<standard>Западна Аргентина време</standard>
+					<daylight draft="contributed">аргентинско западно летње време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -3276,6 +3519,7 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
+					<generic draft="contributed">бразилијско време</generic>
 					<standard>Бразилија време</standard>
 					<daylight>Бразилија летње рачунање времена</daylight>
 				</long>
@@ -3331,6 +3575,7 @@
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
+					<generic draft="contributed">чојбалсанско време</generic>
 					<standard>Чојбалсан време</standard>
 					<daylight>Чојбалсан летње рачунање времена</daylight>
 				</long>
@@ -3517,6 +3762,7 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
+					<generic draft="contributed">хавајско алеутско време</generic>
 					<standard>Хавајско-алеућанско стандардно време</standard>
 				</long>
 			</metazone>
@@ -3528,6 +3774,7 @@
 			</metazone>
 			<metazone type="Hovd">
 				<long>
+					<generic draft="contributed">ховдско време</generic>
 					<standard>Ховд време</standard>
 					<daylight>Ховд летње рачунање времена</daylight>
 				</long>
@@ -3549,16 +3796,19 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
+					<generic draft="contributed">индонезијско централно време</generic>
 					<standard>Централно-индонезијско време</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
+					<generic draft="contributed">индонезијско источно време</generic>
 					<standard>Источно-индонезијско време</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
+					<generic draft="contributed">индонезијско западно време</generic>
 					<standard>Западно-индонезијско време</standard>
 				</long>
 			</metazone>
@@ -3570,6 +3820,7 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
+					<generic draft="contributed">иркутско време</generic>
 					<standard>Иркуцк време</standard>
 					<daylight>Иркуцк летње рачунање времена</daylight>
 				</long>
@@ -3590,6 +3841,7 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
+					<generic draft="contributed">камчатско време</generic>
 					<standard>Петропавловско-камчатско време</standard>
 					<daylight>Петропавловско-камчатско летње рачунање вемена</daylight>
 				</long>
@@ -3608,12 +3860,14 @@
 				<long>
 					<generic>Источно-казахстанско време</generic>
 					<standard>Источно-казахстанско стандардно време</standard>
+					<daylight draft="contributed">казахстанско источно летње време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<generic>Западно-казахстанско време</generic>
 					<standard>Западно-казахстанско стандардно време</standard>
+					<daylight draft="contributed">казахстанско западно летње време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kizilorda">
@@ -3636,6 +3890,7 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
+					<generic draft="contributed">краснојарско време</generic>
 					<standard>Краснојарск време</standard>
 					<daylight>Краснојарсклетње рачунање времена</daylight>
 				</long>
@@ -3684,10 +3939,16 @@
 					<daylight>Макао летње рачунање вемена</daylight>
 				</long>
 			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<generic draft="contributed">макверијско време</generic>
+				</long>
+			</metazone>
 			<metazone type="Magadan">
 				<long>
+					<generic draft="contributed">магаданско време</generic>
 					<standard>Магадан време</standard>
-					<daylight draft="provisional">Магадан летње рачунање вемена</daylight>
+					<daylight draft="contributed">магаданско летње време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Malaya">
@@ -3729,6 +3990,7 @@
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
+					<generic draft="contributed">монголско време</generic>
 					<standard>Улан Батор време</standard>
 					<daylight>Улан Батор летње рачунање времена</daylight>
 				</long>
@@ -3790,6 +4052,7 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
+					<generic draft="contributed">нороњско време</generic>
 					<standard>Фернандо де Нороња време</standard>
 					<daylight>Фернандо де Нороња летње рачунање времена</daylight>
 				</long>
@@ -3801,12 +4064,14 @@
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
+					<generic draft="contributed">новосибирско време</generic>
 					<standard>Новосибирск време</standard>
 					<daylight>Новосибирск летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
+					<generic draft="contributed">омско време</generic>
 					<standard>Омск време</standard>
 					<daylight>Омск летње рачунање времена</daylight>
 				</long>
@@ -3885,6 +4150,7 @@
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
+					<generic draft="contributed">сахалинско време</generic>
 					<standard>Сахалин време</standard>
 					<daylight>Сахалин летње рачунање времена</daylight>
 				</long>
@@ -4057,12 +4323,14 @@
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
+					<generic draft="contributed">владивосточко време</generic>
 					<standard>Владивосток време</standard>
 					<daylight>Владивосток летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
+					<generic draft="contributed">волгоградско време</generic>
 					<standard>Волгоград време</standard>
 					<daylight>Волгоград летње рачунање времена</daylight>
 				</long>
@@ -4084,12 +4352,14 @@
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
+					<generic draft="contributed">јакутско време</generic>
 					<standard>Јакутск време</standard>
 					<daylight>Јакутск летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
+					<generic draft="contributed">јекатеринбуршко време</generic>
 					<standard>Јекатеринбург време</standard>
 					<daylight>Јекатеринбург летње рачунање времена</daylight>
 				</long>
@@ -4128,6 +4398,22 @@
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" draft="contributed">0.0 хиљ</pattern>
+					<pattern type="10000" draft="contributed">00 хиљ</pattern>
+					<pattern type="100000" draft="contributed">000 хиљ</pattern>
+					<pattern type="1000000" draft="contributed">0.0 мил</pattern>
+					<pattern type="10000000" draft="contributed">00 мил</pattern>
+					<pattern type="100000000" draft="contributed">000 мил</pattern>
+					<pattern type="1000000000" draft="contributed">0</pattern>
+					<pattern type="10000000000" draft="contributed">0</pattern>
+					<pattern type="100000000000" draft="contributed">0</pattern>
+					<pattern type="1000000000000" draft="contributed">0</pattern>
+					<pattern type="10000000000000" draft="contributed">0</pattern>
+					<pattern type="100000000000000" draft="contributed">0</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4170,8 +4456,6 @@
 				<displayName count="many">УАЕ дирама</displayName>
 				<displayName count="one">УАЕ дирам</displayName>
 				<displayName count="other">УАЕ дирама</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Уједињеноарапскоемиратски дирхам</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">дирхем Уједињених Арапских Емирата</displayName>
 			</currency>
 			<currency type="AFA">
 				<displayName>Авганистански авган (1927-2002)</displayName>
@@ -4213,16 +4497,13 @@
 				<displayName count="many">холандско-антилских гилдера</displayName>
 				<displayName count="one">холандско-антилски гилдер</displayName>
 				<displayName count="other">холандско-антилских гилдера</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Холандскоантилски гилдер</displayName>
 			</currency>
 			<currency type="AOA">
-				<displayName>aнголијска кванза</displayName>
+				<displayName>анголска кванза</displayName>
 				<displayName count="few">анголијске кванзе</displayName>
 				<displayName count="many">анголијских кванзи</displayName>
 				<displayName count="one">анголијска кванза</displayName>
 				<displayName count="other">анголијских кванзи</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Анголска кванза</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">анголска кванза</displayName>
 			</currency>
 			<currency type="AOK">
 				<displayName>aнголијска кванза (1977-1990)</displayName>
@@ -4230,8 +4511,6 @@
 				<displayName count="many">анголијских кванзи (AOK)</displayName>
 				<displayName count="one">анголијска кванза (AOK)</displayName>
 				<displayName count="other">анголијских кванзи (AOK)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">анголска кванза (1977-1990)</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">Анголска кванза (1977-1990)</displayName>
 			</currency>
 			<currency type="AON">
 				<displayName>Анголијска нова кванза (1990-2000)</displayName>
@@ -4239,8 +4518,6 @@
 				<displayName count="many">анголијских нових кванзи</displayName>
 				<displayName count="one">анголијска нова кванза</displayName>
 				<displayName count="other">анголијских нових кванзи</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Анголска нова кванза (1990-2000)</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">анголска нова кванза (1990-2000)</displayName>
 			</currency>
 			<currency type="AOR">
 				<displayName>Анголска кванза реађустадо (1995-1999)</displayName>
@@ -4274,7 +4551,6 @@
 				<displayName count="many">аргентинских пезоса (ARP)</displayName>
 				<displayName count="one">аргентински пезо</displayName>
 				<displayName count="other">аргентинских пезоса (ARP)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Аргентински пезос (1983-1985)</displayName>
 			</currency>
 			<currency type="ARS">
 				<displayName>aргентински пезо</displayName>
@@ -4282,7 +4558,6 @@
 				<displayName count="many">аргентинских пезоса</displayName>
 				<displayName count="one">аргентински пезос</displayName>
 				<displayName count="other">аргентинских пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Аргентински пезос</displayName>
 			</currency>
 			<currency type="ATS">
 				<displayName>Аустријски шилинг</displayName>
@@ -4304,7 +4579,6 @@
 				<displayName count="many">арубанских флорина</displayName>
 				<displayName count="one">арубански флорин</displayName>
 				<displayName count="other">арубанских флорина</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Арупски флорин</displayName>
 			</currency>
 			<currency type="AZM">
 				<displayName>Азербејџански манат (1993-2006)</displayName>
@@ -4326,8 +4600,6 @@
 				<displayName count="many">босанско-херцеговачких динара</displayName>
 				<displayName count="one">босанско-херцеговачки динар</displayName>
 				<displayName count="other">босанско-херцеговачких динара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Босанскохерцеговачки динар</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">босанско-херцеговачки динар</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>Конвертибилна марка</displayName>
@@ -4335,7 +4607,6 @@
 				<displayName count="many">босанско-херцеговачких конвертабилних марака</displayName>
 				<displayName count="one">босанско-херцеговачка конвертибилна марка</displayName>
 				<displayName count="other">босанско-херцеговачких конвертибилних марака</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Босанскохерцеговачка конвертибилна марка</displayName>
 			</currency>
 			<currency type="BAN">
 				<displayName count="few" draft="provisional">босанско-херцеговачка нова динара</displayName>
@@ -4438,7 +4709,6 @@
 				<displayName count="many">боливијских боливиана</displayName>
 				<displayName count="one">боливијски боливиано</displayName>
 				<displayName count="other">боливијских боливиана</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Боливијски боливијано</displayName>
 			</currency>
 			<currency type="BOL">
 				<displayName count="few" draft="provisional">стара боливијска боливијана</displayName>
@@ -4452,7 +4722,6 @@
 				<displayName count="many">боливијских пезоса</displayName>
 				<displayName count="one">боливијски пезо</displayName>
 				<displayName count="other">боливијских пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Боливијски пезос</displayName>
 			</currency>
 			<currency type="BOV">
 				<displayName>Боливијски мвдол</displayName>
@@ -4467,7 +4736,6 @@
 				<displayName count="many">бразилских нових крузеира</displayName>
 				<displayName count="one">бразилски нови крузеиро</displayName>
 				<displayName count="other">бразилских нових крузеира</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Бразилски нови крузеирос (1967-1986)</displayName>
 			</currency>
 			<currency type="BRC">
 				<displayName>Бразилијски крузадо</displayName>
@@ -4475,7 +4743,6 @@
 				<displayName count="many">бразилских крузадоса</displayName>
 				<displayName count="one">бразилски крузадос</displayName>
 				<displayName count="other">бразилских крузадоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Бразилски крузадос</displayName>
 			</currency>
 			<currency type="BRE">
 				<displayName>Бразилски крузеиро (1990-1993)</displayName>
@@ -4483,7 +4750,6 @@
 				<displayName count="many">бразилских крузеира (BRE)</displayName>
 				<displayName count="one">бразилски крузеиро (BRE)</displayName>
 				<displayName count="other">бразилских крузеира (BRE)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Бразилски крузеирос (1990-1993)</displayName>
 			</currency>
 			<currency type="BRL">
 				<displayName>Бразилски Реал</displayName>
@@ -4491,8 +4757,6 @@
 				<displayName count="many">бразилских реала</displayName>
 				<displayName count="one">бразилски реал</displayName>
 				<displayName count="other">бразилских реала</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">бразилски реал</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">Бразилски реал</displayName>
 			</currency>
 			<currency type="BRN">
 				<displayName>Бразилијски нови крузадо</displayName>
@@ -4500,7 +4764,6 @@
 				<displayName count="many">бразилских нових крузада</displayName>
 				<displayName count="one">бразилски нови крузадо</displayName>
 				<displayName count="other">бразилских нових крузада</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Бразилски нови крузадос</displayName>
 			</currency>
 			<currency type="BRR">
 				<displayName>Бразилски крузеиро</displayName>
@@ -4508,7 +4771,6 @@
 				<displayName count="many">бразилских крузеира</displayName>
 				<displayName count="one">бразилски крузеиро</displayName>
 				<displayName count="other">бразилских крузеира</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Бразилски крузеирос</displayName>
 			</currency>
 			<currency type="BRZ">
 				<displayName count="few" draft="provisional">стара бразилска крузеира</displayName>
@@ -4564,7 +4826,6 @@
 				<displayName count="many">белизеанских долара</displayName>
 				<displayName count="one">белизеански долар</displayName>
 				<displayName count="other">белизеанских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Белишки долар</displayName>
 			</currency>
 			<currency type="CAD">
 				<displayName>Канадски долар</displayName>
@@ -4613,7 +4874,6 @@
 				<displayName count="many">чилеанских унидадес де фомента</displayName>
 				<displayName count="one">чилеански унидадес де фоменто</displayName>
 				<displayName count="other">чилеански унидадеси де фоменто</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Чилеански унидадес де фоменто</displayName>
 			</currency>
 			<currency type="CLP">
 				<displayName>Чилеански пезо</displayName>
@@ -4621,7 +4881,6 @@
 				<displayName count="many">чилеанских пезоса</displayName>
 				<displayName count="one">чилеански пезо</displayName>
 				<displayName count="other">чилеански пезоси</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Чилеански пезос</displayName>
 			</currency>
 			<currency type="CNX">
 				<displayName count="few" draft="provisional">долара кинеске народне банке</displayName>
@@ -4635,6 +4894,7 @@
 				<displayName count="many">кинеских јуанa</displayName>
 				<displayName count="one">кинески јуан</displayName>
 				<displayName count="other">кинеских јуанa</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">кинески јуан</displayName>
 			</currency>
 			<currency type="COP">
 				<displayName>Колумбијски пезо</displayName>
@@ -4642,7 +4902,6 @@
 				<displayName count="many">колумбијских пезоса</displayName>
 				<displayName count="one">колумбијски пезо</displayName>
 				<displayName count="other" draft="provisional">колумбијских пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Колумбијски пезос</displayName>
 			</currency>
 			<currency type="COU">
 				<displayName>Унидад де валоршки реал</displayName>
@@ -4673,12 +4932,11 @@
 				<displayName count="other">чехословачких тврдих круна</displayName>
 			</currency>
 			<currency type="CUC">
-				<displayName draft="provisional">Кубански конвертибилни пезо</displayName>
-				<displayName count="few" draft="provisional">CUC</displayName>
-				<displayName count="many" draft="provisional">CUC</displayName>
-				<displayName count="one" draft="provisional">CUC</displayName>
-				<displayName count="other" draft="provisional">CUC</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Кубански конвертибилни пезос</displayName>
+				<displayName draft="contributed">кубански конвертибилни песо</displayName>
+				<displayName count="few" draft="contributed">кубански конвертибилни пезос</displayName>
+				<displayName count="many" draft="contributed">кубанских конвертибилних пезоса</displayName>
+				<displayName count="one" draft="contributed">кубански конвертибилни песо</displayName>
+				<displayName count="other" draft="contributed">кубански конвертибилни пезос</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName>Кубански пезо</displayName>
@@ -4686,7 +4944,6 @@
 				<displayName count="many">кубанских пезоса</displayName>
 				<displayName count="one">кубански пезос</displayName>
 				<displayName count="other">кубанских пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Кубански пезос</displayName>
 			</currency>
 			<currency type="CVE">
 				<displayName>Зеленортски ескудо</displayName>
@@ -4716,7 +4973,6 @@
 				<displayName count="many">источно-немачких марака</displayName>
 				<displayName count="one">источно-немачка марка</displayName>
 				<displayName count="other">источно-немачких марака</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Источнонемачка марка</displayName>
 			</currency>
 			<currency type="DEM">
 				<displayName>Немачка марка</displayName>
@@ -4731,7 +4987,6 @@
 				<displayName count="many">џибутских франака</displayName>
 				<displayName count="one">џибутски франак</displayName>
 				<displayName count="other">џибутски франци</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Џибутски франак</displayName>
 			</currency>
 			<currency type="DKK">
 				<displayName>Данска круна</displayName>
@@ -4746,7 +5001,6 @@
 				<displayName count="many">доминиканских пезоса</displayName>
 				<displayName count="one">доминикански пезо</displayName>
 				<displayName count="other">доминиканских пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Доминикански пезос</displayName>
 			</currency>
 			<currency type="DZD">
 				<displayName>Алжирски динар</displayName>
@@ -4775,7 +5029,6 @@
 				<displayName count="many">естонских круна</displayName>
 				<displayName count="one">естонска круна</displayName>
 				<displayName count="other">естонских круна</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Естонска круна</displayName>
 			</currency>
 			<currency type="EGP">
 				<displayName>Египатска фунта</displayName>
@@ -4790,7 +5043,7 @@
 				<displayName count="many">еритрејских накфи</displayName>
 				<displayName count="one">еритрејска накфа</displayName>
 				<displayName count="other">еритреанских накфки</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Еритрејска накфа</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">еритрејска накфа</displayName>
 			</currency>
 			<currency type="ESA">
 				<displayName>Шпанска пезета (рачун)</displayName>
@@ -4798,7 +5051,6 @@
 				<displayName count="many">шпанских пезета (А рачун)</displayName>
 				<displayName count="one">шпанска пезета (А рачун)</displayName>
 				<displayName count="other">шпанских пезета (А рачун)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Шпанска пезета (А рачун)</displayName>
 			</currency>
 			<currency type="ESB">
 				<displayName>Шпанска пезета (конвертибилнирачун)</displayName>
@@ -4806,7 +5058,6 @@
 				<displayName count="many">шпанских пезета (конвертибилан рачун)</displayName>
 				<displayName count="one">шпанска пезета (конвертибилан рачун)</displayName>
 				<displayName count="other">шпанских пезета</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Шпанска пезета (конвертибилни рачун)</displayName>
 			</currency>
 			<currency type="ESP">
 				<displayName>Шпанска пезета</displayName>
@@ -4821,7 +5072,6 @@
 				<displayName count="many">етиопијских бира</displayName>
 				<displayName count="one">етиопијски бир</displayName>
 				<displayName count="other">етиопијских бира</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Етиопски бир</displayName>
 			</currency>
 			<currency type="EUR">
 				<displayName>Евро</displayName>
@@ -4843,6 +5093,7 @@
 				<displayName count="many">фиџи долара</displayName>
 				<displayName count="one">фиџи долар</displayName>
 				<displayName count="other">фиџи долара</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">фиџијски долар</displayName>
 			</currency>
 			<currency type="FKP">
 				<displayName>Фокландска острва фунта</displayName>
@@ -4850,7 +5101,7 @@
 				<displayName count="many">фолкландских фунти</displayName>
 				<displayName count="one">фолкландска фунта</displayName>
 				<displayName count="other">фолкландских фунти</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Фолкландскоострвска фунта</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">фолкландскоострвска фунта</displayName>
 			</currency>
 			<currency type="FRF">
 				<displayName>Француски франак</displayName>
@@ -4886,7 +5137,6 @@
 				<displayName count="many">ганских цеда (GHC)</displayName>
 				<displayName count="one">гански цед (GHC)</displayName>
 				<displayName count="other">ганских цеда (GHC)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Гански цеди (1979-2007)</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName>Гански цеди</displayName>
@@ -4901,7 +5151,7 @@
 				<displayName count="many">гибралтарских фунти</displayName>
 				<displayName count="one">гибралтарска фунта</displayName>
 				<displayName count="other">гибралтарских фунти</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Гибралтарска фунта</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">гибралтарска фунта</displayName>
 			</currency>
 			<currency type="GMD">
 				<displayName>Гамбијски даласи</displayName>
@@ -4930,7 +5180,6 @@
 				<displayName count="many">екваторијално-гвинејских еквела</displayName>
 				<displayName count="one">екваторијално-гвинејски еквеле</displayName>
 				<displayName count="other">екваторијално-гвинејских еквела</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Екваторијалногвинејски еквеле</displayName>
 			</currency>
 			<currency type="GRD">
 				<displayName>Грчка драхма</displayName>
@@ -4945,7 +5194,6 @@
 				<displayName count="many">гватемалских квецала</displayName>
 				<displayName count="one">гватемалски квецал</displayName>
 				<displayName count="other">гватемалских квецала</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Гватемалски кецал</displayName>
 			</currency>
 			<currency type="GWE">
 				<displayName>португалска гвинеја ескудо</displayName>
@@ -4953,7 +5201,6 @@
 				<displayName count="many">португалских гвинеја ескудо</displayName>
 				<displayName count="one">португалско-гвинејски ескудо</displayName>
 				<displayName count="other">португалско-гвинејских ескуда</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Португалскогвинејски ескудо</displayName>
 			</currency>
 			<currency type="GWP">
 				<displayName>Гвинеја Бисао Пезо</displayName>
@@ -4961,7 +5208,6 @@
 				<displayName count="many">гвинеја-бисаошких пезоса</displayName>
 				<displayName count="one">гвинеја-бисаошки пезо</displayName>
 				<displayName count="other">гвинеја-бисаошких пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Гвинеја Бисао пезос</displayName>
 			</currency>
 			<currency type="GYD">
 				<displayName>Гујански долар</displayName>
@@ -4969,7 +5215,8 @@
 				<displayName count="many">гвајанских долара</displayName>
 				<displayName count="one">гвајански долар</displayName>
 				<displayName count="other">GYD</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Гвајански долар</displayName>
+				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">гвајански долар</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">гвајански долар</displayName>
 			</currency>
 			<currency type="HKD">
 				<displayName>Хонгконшки долар</displayName>
@@ -5019,8 +5266,6 @@
 				<displayName count="many">индонежанских рупија</displayName>
 				<displayName count="one">индонежанска рупија</displayName>
 				<displayName count="other">индонежанске рупије</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">индонезијска рупија</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">Индонезијска рупија</displayName>
 			</currency>
 			<currency type="IEP">
 				<displayName>Ирска фунта</displayName>
@@ -5042,7 +5287,6 @@
 				<displayName count="many">стари израелски шекели</displayName>
 				<displayName count="one">стари израелски шекели</displayName>
 				<displayName count="other">стари израелски шекели</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Стари израелски шекел</displayName>
 			</currency>
 			<currency type="ILS">
 				<displayName>Израелски нови шекел</displayName>
@@ -5057,7 +5301,6 @@
 				<displayName count="many">индијских рупија</displayName>
 				<displayName count="one">индијска рупија</displayName>
 				<displayName count="other">индијских рупија</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Индијска рупија</displayName>
 			</currency>
 			<currency type="IQD">
 				<displayName>Ирачки динар</displayName>
@@ -5072,8 +5315,6 @@
 				<displayName count="many">иранских ријала</displayName>
 				<displayName count="one">ирански ријал</displayName>
 				<displayName count="other">иранијски ријали</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">ирански ријал</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">Ирански ријал</displayName>
 			</currency>
 			<currency type="ISJ">
 				<displayName>стара исландска круна</displayName>
@@ -5081,7 +5322,6 @@
 				<displayName count="many">стара исландска круна</displayName>
 				<displayName count="one">стара исландска круна</displayName>
 				<displayName count="other">стара исландска круна</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Стара исландска круна</displayName>
 			</currency>
 			<currency type="ISK">
 				<displayName>Исландска круна</displayName>
@@ -5103,7 +5343,6 @@
 				<displayName count="many">јамајских долара</displayName>
 				<displayName count="one">јамајски долар</displayName>
 				<displayName count="other">јамајских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Јамајчански долар</displayName>
 			</currency>
 			<currency type="JOD">
 				<displayName>Јордански динар</displayName>
@@ -5140,7 +5379,6 @@
 				<displayName count="many">камбоџанских ријела</displayName>
 				<displayName count="one">камбоџански ријел</displayName>
 				<displayName count="other">камбоџанских ријела</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Камбоџански ријал</displayName>
 			</currency>
 			<currency type="KMF">
 				<displayName>Коморски франак</displayName>
@@ -5174,7 +5412,6 @@
 				<displayName count="many">јужнокорејских вона</displayName>
 				<displayName count="one">јужнокорејски вон</displayName>
 				<displayName count="other">јужнокорејски вон</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Јужнокорејски вон</displayName>
 			</currency>
 			<currency type="KWD">
 				<displayName>Кувајтски динар</displayName>
@@ -5189,15 +5426,15 @@
 				<displayName count="many">кајманских долара</displayName>
 				<displayName count="one">кајмански долар</displayName>
 				<displayName count="other">кајманских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Кајманскоострвски долар</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>Казахстански тенџ</displayName>
 				<displayName count="few">казахстанске тенџе</displayName>
 				<displayName count="many">казахстанских тенџи</displayName>
 				<displayName count="one">казахстанска тенџа</displayName>
+				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">казахстански тенџ</displayName>
 				<displayName count="other">казахстанских тенџи</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Казахстански тенџе</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">казахстански тенџ</displayName>
 			</currency>
 			<currency type="LAK">
 				<displayName>Лаошки кип</displayName>
@@ -5212,15 +5449,15 @@
 				<displayName count="many">лебанских фунти</displayName>
 				<displayName count="one">лебанска фунта</displayName>
 				<displayName count="other">лебанске фунте</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Либанска фунта</displayName>
 			</currency>
 			<currency type="LKR">
 				<displayName>Шриланкански рупи</displayName>
 				<displayName count="few">шриланканска рупија</displayName>
 				<displayName count="many">шриланканских рупија</displayName>
 				<displayName count="one">шриланкански рупиј</displayName>
+				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">шриланкански рупи</displayName>
 				<displayName count="other">шриланканских рупија</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Шриланканска рупија</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">шриланкански рупи</displayName>
 			</currency>
 			<currency type="LRD">
 				<displayName>Либеријски долар</displayName>
@@ -5242,6 +5479,7 @@
 				<displayName count="many">литванских литаса</displayName>
 				<displayName count="one">литвански литас</displayName>
 				<displayName count="other">литванских литаса</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">литвански литас</displayName>
 			</currency>
 			<currency type="LTT">
 				<displayName>Литвански талонас</displayName>
@@ -5284,7 +5522,6 @@
 				<displayName count="many">латвијских рубљи</displayName>
 				<displayName count="one">латвијска рубља</displayName>
 				<displayName count="other">латвијских рубљи</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Латвијска рубља</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>Либијски динар</displayName>
@@ -5325,7 +5562,6 @@
 				<displayName count="many">молдовских леија</displayName>
 				<displayName count="one">молдовски леи</displayName>
 				<displayName count="other">молдовских леија</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Молдавски леј</displayName>
 			</currency>
 			<currency type="MGA">
 				<displayName>Малагасијски ариари</displayName>
@@ -5360,7 +5596,6 @@
 				<displayName count="many">малијских франака</displayName>
 				<displayName count="one">малијски франак</displayName>
 				<displayName count="other">малијских франака</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Малијски франак</displayName>
 			</currency>
 			<currency type="MMK">
 				<displayName>Мјанмашки кјат</displayName>
@@ -5368,7 +5603,6 @@
 				<displayName count="many">мијанмашких кјата</displayName>
 				<displayName count="one">мијанмашки кјат</displayName>
 				<displayName count="other">мијанмашки кјати</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Мјанмарски кјат</displayName>
 			</currency>
 			<currency type="MNT">
 				<displayName>Монголски тугрик</displayName>
@@ -5383,7 +5617,6 @@
 				<displayName count="many">маканешких патака</displayName>
 				<displayName count="one">маканешка патака</displayName>
 				<displayName count="other">маканешких патака</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Маканешка петака</displayName>
 			</currency>
 			<currency type="MRO">
 				<displayName>Мауританијска угвија</displayName>
@@ -5391,8 +5624,6 @@
 				<displayName count="many">мауританијских угвиља</displayName>
 				<displayName count="one">мауританијска угвиља</displayName>
 				<displayName count="other">мауританијске угвиље</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Мауританска угља</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">мауританска угвија</displayName>
 			</currency>
 			<currency type="MTL">
 				<displayName>Малтешка лира</displayName>
@@ -5414,7 +5645,6 @@
 				<displayName count="many">мауританијских рупија</displayName>
 				<displayName count="one">мауританијска рупија</displayName>
 				<displayName count="other">мауританијске рупије</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Маурицијска рупија</displayName>
 			</currency>
 			<currency type="MVR">
 				<displayName>Малдивијска руфија</displayName>
@@ -5436,7 +5666,6 @@
 				<displayName count="many">мексичких пезоса</displayName>
 				<displayName count="one">мексички пезо</displayName>
 				<displayName count="other">мексичких пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Мексички пезос</displayName>
 			</currency>
 			<currency type="MXP">
 				<displayName>Мексички сребрни пезо (1861-1992)</displayName>
@@ -5444,7 +5673,6 @@
 				<displayName count="many">мексичких сребрних пезоса</displayName>
 				<displayName count="one">мексички сребрни пезо</displayName>
 				<displayName count="other">мексичких сребрних пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Мексички сребрни пезос (1861-1992)</displayName>
 			</currency>
 			<currency type="MXV">
 				<displayName>Мексички унидад де инверсион (UDI)</displayName>
@@ -5466,7 +5694,6 @@
 				<displayName count="many">мозамбијских ескуда</displayName>
 				<displayName count="one">мозамбијски ескудо</displayName>
 				<displayName count="other">мозамбијских ескуда</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Мозамбички ескудос</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>Стари мозамбијски метикал</displayName>
@@ -5481,7 +5708,6 @@
 				<displayName count="many">мозамбијских метикала</displayName>
 				<displayName count="one">мозамбијски метикал</displayName>
 				<displayName count="other">мозамбијских метикала</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Мозамбички ескудос</displayName>
 			</currency>
 			<currency type="NAD">
 				<displayName>намбијски долар</displayName>
@@ -5489,7 +5715,6 @@
 				<displayName count="many">намибијских долара</displayName>
 				<displayName count="one">намибијски долар</displayName>
 				<displayName count="other">намибијских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Намибијски долар</displayName>
 			</currency>
 			<currency type="NGN">
 				<displayName>Нигеријска наира</displayName>
@@ -5510,7 +5735,10 @@
 				<displayName count="few">никарагванске златне кордобе</displayName>
 				<displayName count="many">никарагванских златних кордоба</displayName>
 				<displayName count="one">никарагванска златна кордоба</displayName>
+				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">никарагванска кордоба</displayName>
 				<displayName count="other">никарагванских златних кордоба</displayName>
+				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">никарагванских кордоба</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">никарагванска кордоба</displayName>
 			</currency>
 			<currency type="NLG">
 				<displayName>Холандски гулден</displayName>
@@ -5532,7 +5760,6 @@
 				<displayName count="many">непалских рупија</displayName>
 				<displayName count="one">непалска рупија</displayName>
 				<displayName count="other">непалских рупија</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Непалска рупија</displayName>
 			</currency>
 			<currency type="NZD">
 				<displayName>Новозеландски долар</displayName>
@@ -5568,6 +5795,7 @@
 				<displayName count="many">перуанских нуево сола</displayName>
 				<displayName count="one">перуански нуево сол</displayName>
 				<displayName count="other">перуанских нуево сола</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">перуански нови сол</displayName>
 			</currency>
 			<currency type="PES">
 				<displayName>Перуански сол</displayName>
@@ -5589,7 +5817,6 @@
 				<displayName count="many">филипинских пезоса</displayName>
 				<displayName count="one">филипински пезо</displayName>
 				<displayName count="other">филипинских пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Филипински пезос</displayName>
 			</currency>
 			<currency type="PKR">
 				<displayName>Пакистански рупи</displayName>
@@ -5597,7 +5824,7 @@
 				<displayName count="many">пакистанских рупија</displayName>
 				<displayName count="one">пакистанска рупија</displayName>
 				<displayName count="other">пакистанске рупије</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Пакистанска рупија</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">пакистански рупи</displayName>
 			</currency>
 			<currency type="PLN">
 				<displayName>Пољски злот</displayName>
@@ -5613,7 +5840,6 @@
 				<displayName count="many">пољских злота (PLZ)</displayName>
 				<displayName count="one">пољски злот (PLZ)</displayName>
 				<displayName count="other">пољских злота (PLZ)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Пољски злот (1950-1995)</displayName>
 			</currency>
 			<currency type="PTE">
 				<displayName>Португалски ескудо</displayName>
@@ -5628,7 +5854,6 @@
 				<displayName count="many">парагвајских гваранија</displayName>
 				<displayName count="one">парагвајски гвараниј</displayName>
 				<displayName count="other">парагвајски гваранији</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Парагвајски гварани</displayName>
 			</currency>
 			<currency type="QAR">
 				<displayName>Катаршки ријал</displayName>
@@ -5636,7 +5861,6 @@
 				<displayName count="many">катарских ријала</displayName>
 				<displayName count="one">катарски ријал</displayName>
 				<displayName count="other">катарских ријала</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Катарски ријал</displayName>
 			</currency>
 			<currency type="RHD">
 				<displayName>Родејскидолар</displayName>
@@ -5644,7 +5868,6 @@
 				<displayName count="many">родежанских долара</displayName>
 				<displayName count="one">родежански долар</displayName>
 				<displayName count="other">родежанских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Родезијски долар</displayName>
 			</currency>
 			<currency type="ROL">
 				<displayName>Стари румунски љу</displayName>
@@ -5652,7 +5875,6 @@
 				<displayName count="many">старих румунских леија</displayName>
 				<displayName count="one">стари румунски леиј</displayName>
 				<displayName count="other">старих румунских леија</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Стари румунски леј</displayName>
 			</currency>
 			<currency type="RON">
 				<displayName>Румунски леу</displayName>
@@ -5660,7 +5882,6 @@
 				<displayName count="many">румунских леија</displayName>
 				<displayName count="one">румунски леи</displayName>
 				<displayName count="other">румунских леија</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Румунски леј</displayName>
 			</currency>
 			<currency type="RSD">
 				<displayName>Српски динар</displayName>
@@ -5704,7 +5925,6 @@
 				<displayName count="many">соломонско-острвских долара</displayName>
 				<displayName count="one">соломонско-острвски долар</displayName>
 				<displayName count="other">соломонско-острвских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Соломонскоострвски долар</displayName>
 			</currency>
 			<currency type="SCR">
 				<displayName>Сејшелска рупија</displayName>
@@ -5754,7 +5974,6 @@
 				<displayName count="many">св. јеленских фунти</displayName>
 				<displayName count="one">св. јеленска фунта</displayName>
 				<displayName count="other">св. јеленских фунти</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Светојеленска фунта</displayName>
 			</currency>
 			<currency type="SIT">
 				<displayName>Словеначки толар</displayName>
@@ -5776,7 +5995,6 @@
 				<displayName count="many">сијералеонских леона</displayName>
 				<displayName count="one">сијералеонски леоне</displayName>
 				<displayName count="other">сијералеонски леони</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Сијеролеоншки леоне</displayName>
 			</currency>
 			<currency type="SOS">
 				<displayName>СОмалијски шилинг</displayName>
@@ -5784,7 +6002,6 @@
 				<displayName count="many">сомалијских шилинга</displayName>
 				<displayName count="one">сомалијски шилинг</displayName>
 				<displayName count="other">сомалијски шилинзи</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Сомалијски шилинг</displayName>
 			</currency>
 			<currency type="SRD">
 				<displayName>СУринамски долар</displayName>
@@ -5792,7 +6009,6 @@
 				<displayName count="many">суринамских долара</displayName>
 				<displayName count="one">суринамски долар</displayName>
 				<displayName count="other">суринамских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Суринамски долар</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>Суринамски гилдер</displayName>
@@ -5842,7 +6058,6 @@
 				<displayName count="many">таи бахта</displayName>
 				<displayName count="one">таи бахт</displayName>
 				<displayName count="other">таи бахта</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Таи бат</displayName>
 			</currency>
 			<currency type="TJR">
 				<displayName>Таџихистанска рубља</displayName>
@@ -5850,7 +6065,6 @@
 				<displayName count="many">таџихистанских рубљи</displayName>
 				<displayName count="one">таџихистанска рубља</displayName>
 				<displayName count="other">таџихистанских рубљи</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Таџикистанска рубља</displayName>
 			</currency>
 			<currency type="TJS">
 				<displayName>Таљихистански сомони</displayName>
@@ -5858,7 +6072,6 @@
 				<displayName count="many">таџихистанских сомона</displayName>
 				<displayName count="one">таџихистански сомон</displayName>
 				<displayName count="other">таџихистанских сомона</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Таџикистански сомони</displayName>
 			</currency>
 			<currency type="TMM">
 				<displayName>Туркменистански манат</displayName>
@@ -5869,10 +6082,11 @@
 			</currency>
 			<currency type="TMT">
 				<displayName draft="contributed">Туркменистански нови манат</displayName>
-				<displayName count="few" draft="provisional">TMT</displayName>
-				<displayName count="many" draft="provisional">TMT</displayName>
-				<displayName count="one" draft="provisional">TMT</displayName>
-				<displayName count="other" draft="provisional">TMT</displayName>
+				<displayName count="few" draft="contributed">туркменистански манат</displayName>
+				<displayName count="many" draft="contributed">туркменистанских маната</displayName>
+				<displayName count="one" draft="contributed">туркменистански манат</displayName>
+				<displayName count="other" draft="contributed">туркменистанских маната</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">туркменистански манат</displayName>
 			</currency>
 			<currency type="TND">
 				<displayName>Тунизијски долар</displayName>
@@ -5880,7 +6094,6 @@
 				<displayName count="many">тунежанских динара</displayName>
 				<displayName count="one">тунежанских динара</displayName>
 				<displayName count="other">тунежанских динара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Туниски долар</displayName>
 			</currency>
 			<currency type="TOP">
 				<displayName>Тонгоншка Панга</displayName>
@@ -5888,8 +6101,6 @@
 				<displayName count="many">тонгашких панга</displayName>
 				<displayName count="one">тонгашка панга</displayName>
 				<displayName count="other">тонгашких панга</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">тонганска панга</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">Тонганска паанга</displayName>
 			</currency>
 			<currency type="TPE">
 				<displayName>Тиморшки ескудо</displayName>
@@ -5919,7 +6130,6 @@
 				<displayName count="many">тринидад-тобагошких долара</displayName>
 				<displayName count="one">тринидад-тобагошки долар</displayName>
 				<displayName count="other">тринидад-тобагошких долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Тринидадтобагошки долар</displayName>
 			</currency>
 			<currency type="TWD">
 				<displayName>Нови тајвански долар</displayName>
@@ -5927,6 +6137,7 @@
 				<displayName count="many">нових тајванских долара</displayName>
 				<displayName count="one">нови тајвански долар</displayName>
 				<displayName count="other">нови тајвански долари</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">нови тајвански долар</displayName>
 			</currency>
 			<currency type="TZS">
 				<displayName>Танзанијски шилинг</displayName>
@@ -5941,7 +6152,6 @@
 				<displayName count="many">украјинских кривњи</displayName>
 				<displayName count="one">украјинска кривња</displayName>
 				<displayName count="other">украјинских кривњи</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Украјинска гривна</displayName>
 			</currency>
 			<currency type="UAK">
 				<displayName>Украјински карбованети</displayName>
@@ -5949,7 +6159,6 @@
 				<displayName count="many">украјинских карбованцива</displayName>
 				<displayName count="one">украјински карбованец</displayName>
 				<displayName count="other">украјинских карбованцива</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Украјински карбованец</displayName>
 			</currency>
 			<currency type="UGS">
 				<displayName>Угандски шилинг (1966-1987)</displayName>
@@ -5978,7 +6187,6 @@
 				<displayName count="many">САД долара (следећи дан)</displayName>
 				<displayName count="one">САД долар (следећи дан)</displayName>
 				<displayName count="other">САД долара (следећи дан)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Амерички долар (следећи дан)</displayName>
 			</currency>
 			<currency type="USS">
 				<displayName>САД долар (исти дан)</displayName>
@@ -5986,7 +6194,6 @@
 				<displayName count="many">САД долара (исти дан)</displayName>
 				<displayName count="one">САД долар (исти дан)</displayName>
 				<displayName count="other">САД долара (исти дан)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Амерички долар (исти дан)</displayName>
 			</currency>
 			<currency type="UYI">
 				<displayName>Уругвајски пезо ен унидадес индексадас</displayName>
@@ -6001,7 +6208,6 @@
 				<displayName count="many">уругвајских пезоса (UYP)</displayName>
 				<displayName count="one">уругвајски пезо (UYP)</displayName>
 				<displayName count="other">уругвајских пезоса (UYP)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Уругвајски пезос (1975-1993)</displayName>
 			</currency>
 			<currency type="UYU">
 				<displayName>Уругвајски пезо</displayName>
@@ -6009,7 +6215,6 @@
 				<displayName count="many">уругвајских пезоса</displayName>
 				<displayName count="one">уругвајски пезо</displayName>
 				<displayName count="other">уругвајских пезоса</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Уругвајски пезос</displayName>
 			</currency>
 			<currency type="UZS">
 				<displayName>Узбекистански сом</displayName>
@@ -6017,7 +6222,6 @@
 				<displayName count="many">узбекистанских сома</displayName>
 				<displayName count="one">узбекистански сом</displayName>
 				<displayName count="other">узбекистански сом</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Узбекистански сум</displayName>
 			</currency>
 			<currency type="VEB">
 				<displayName>Венецуелански боливар</displayName>
@@ -6031,7 +6235,10 @@
 				<displayName count="few">венецуеланска боливара фуертес</displayName>
 				<displayName count="many">венецуеланских боливара фуертес</displayName>
 				<displayName count="one">венецуелански боливар фуертес</displayName>
+				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">венецуелански боливар</displayName>
 				<displayName count="other">венецуеланских боливара фуертес</displayName>
+				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">венецуеланских боливара</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">венецуелански боливар</displayName>
 			</currency>
 			<currency type="VND">
 				<displayName>Вијетнамски донг</displayName>
@@ -6115,7 +6322,6 @@
 				<displayName count="many">источно-карибских долара</displayName>
 				<displayName count="one">источно-карибски долар</displayName>
 				<displayName count="other">источно-карибских долара</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Источнокарипски долар</displayName>
 			</currency>
 			<currency type="XDR">
 				<displayName>Посебна цртаћа права</displayName>
@@ -6123,7 +6329,6 @@
 				<displayName count="many">посебних цртаћих права</displayName>
 				<displayName count="one">посебно цртаће право</displayName>
 				<displayName count="other">посебних цртаћих права</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Посебна права повлачења</displayName>
 			</currency>
 			<currency type="XEU">
 				<displayName>Европска валутна јединица</displayName>
@@ -6194,6 +6399,7 @@
 				<displayName count="many">непознатих или неважећих валута</displayName>
 				<displayName count="one">непозната или неважећа валута</displayName>
 				<displayName count="other">непознатих или неважећих валута</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">Непозната валута</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Јеменски динар</displayName>
@@ -6242,7 +6448,6 @@
 				<displayName count="many">јужноафричких ранда (финансијских)</displayName>
 				<displayName count="one">јужноафрички ранд (финансијски)</displayName>
 				<displayName count="other">јужноафричких ранда (финансијских)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Јужноафрички ранд (финансијски)</displayName>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Јужно-афрички ранд</displayName>
@@ -6250,7 +6455,6 @@
 				<displayName count="many">јужно-афричких ранда</displayName>
 				<displayName count="one">јужно-афрички ранд</displayName>
 				<displayName count="other">јужно-афричких ранда</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Јужноафрички ранд</displayName>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Замбијска квача</displayName>
@@ -6278,9 +6482,7 @@
 				<displayName count="few">зимбабвејска долара</displayName>
 				<displayName count="many">зимбабвејских долара</displayName>
 				<displayName count="one">зимбабвејски долар</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Зимбабвеански долар</displayName>
 				<displayName count="other">зимбабвејски долари</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Зимбабвеански долар</displayName>
 			</currency>
 			<currency type="ZWL">
 				<displayName>Зимбабвеански долар (2009)</displayName>
@@ -6288,7 +6490,6 @@
 				<displayName count="many" draft="provisional">ZWL</displayName>
 				<displayName count="one" draft="provisional">ZWL</displayName>
 				<displayName count="other" draft="provisional">ZWL</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Зимбабвејски долар</displayName>
 			</currency>
 			<currency type="ZWR">
 				<displayName count="few" draft="provisional">зимбабвејска долара (2008)</displayName>
@@ -6307,8 +6508,35 @@
 			<unitPattern count="one">{0} дан</unitPattern>
 			<unitPattern count="one" alt="short">{0} дан</unitPattern>
 			<unitPattern count="other">{0} дан</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} дана</unitPattern>
 			<unitPattern count="other" alt="short">{0} дан</unitPattern>
+		</unit>
+		<unit type="day-future">
+			<unitPattern count="0">за 0 дана</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">За 0 дана</unitPattern>
+			<unitPattern count="1">за 1 дан</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">За 1 дан</unitPattern>
+			<unitPattern count="few">за {0} дана</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">За {0} дана</unitPattern>
+			<unitPattern count="many">за {0} дана</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">За {0} дана</unitPattern>
+			<unitPattern count="one">за {0} дан</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">За {0} дан</unitPattern>
+			<unitPattern count="other">за {0} дана</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">За {0} дана</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="0">пре 0 дана</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">Пре 0 дана</unitPattern>
+			<unitPattern count="1">пре 1 дан</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">Пре 1 дан</unitPattern>
+			<unitPattern count="few">пре {0} дана</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Пре {0} дана</unitPattern>
+			<unitPattern count="many">пре {0} дана</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Пре {0} дана</unitPattern>
+			<unitPattern count="one">пре {0} дан</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Пре {0} дан</unitPattern>
+			<unitPattern count="other">пре {0} дана</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Пре {0} дана</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="few">{0} сата</unitPattern>
@@ -6318,8 +6546,35 @@
 			<unitPattern count="one">{0} сат</unitPattern>
 			<unitPattern count="one" alt="short">{0} сат</unitPattern>
 			<unitPattern count="other">{0} сат</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} сати</unitPattern>
 			<unitPattern count="other" alt="short">{0} сат</unitPattern>
+		</unit>
+		<unit type="hour-future">
+			<unitPattern count="0">за 0 сати</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">За 0 сати</unitPattern>
+			<unitPattern count="1">за 1 сат</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">За 1 сат</unitPattern>
+			<unitPattern count="few">за {0} сата</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">За {0} сата</unitPattern>
+			<unitPattern count="many">за {0} сати</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">За {0} сати</unitPattern>
+			<unitPattern count="one">за {0} сат</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">За {0} сат</unitPattern>
+			<unitPattern count="other">за {0} сати</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">За {0} сати</unitPattern>
+		</unit>
+		<unit type="hour-past">
+			<unitPattern count="0">пре 0 сати</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">Пре 0 сати</unitPattern>
+			<unitPattern count="1">пре 1 сат</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">Пре 1 сат</unitPattern>
+			<unitPattern count="few">пре {0} сата</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Пре {0} сата</unitPattern>
+			<unitPattern count="many">пре {0} сати</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Пре {0} сати</unitPattern>
+			<unitPattern count="one">пре {0} сат</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Пре {0} сат</unitPattern>
+			<unitPattern count="other">пре {0} сати</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Пре {0} сати</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="few">{0} минута</unitPattern>
@@ -6329,8 +6584,35 @@
 			<unitPattern count="one">{0} минут</unitPattern>
 			<unitPattern count="one" alt="short">{0} мин</unitPattern>
 			<unitPattern count="other">{0} минут</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} минута</unitPattern>
 			<unitPattern count="other" alt="short">{0} мин</unitPattern>
+		</unit>
+		<unit type="minute-future">
+			<unitPattern count="0">за 0 минута</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">За 0 минута</unitPattern>
+			<unitPattern count="1">за 1 минут</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">За 1 минут</unitPattern>
+			<unitPattern count="few">за {0} минута</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">За {0} минута</unitPattern>
+			<unitPattern count="many">за {0} минута</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">За {0} минута</unitPattern>
+			<unitPattern count="one">за {0} минут</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">За {0} минут</unitPattern>
+			<unitPattern count="other">за {0} минута</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">За {0} минута</unitPattern>
+		</unit>
+		<unit type="minute-past">
+			<unitPattern count="0">пре 0 минута</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">Пре 0 минута</unitPattern>
+			<unitPattern count="1">пре 1 минут</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">Пре 1 минут</unitPattern>
+			<unitPattern count="few">пре {0} минута</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Пре {0} минута</unitPattern>
+			<unitPattern count="many">пре {0} минута</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Пре {0} минута</unitPattern>
+			<unitPattern count="one">пре {0} минут</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Пре {0} минут</unitPattern>
+			<unitPattern count="other">пре {0} минута</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Пре {0} минута</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="few">{0} месеца</unitPattern>
@@ -6340,8 +6622,35 @@
 			<unitPattern count="one">{0} месец</unitPattern>
 			<unitPattern count="one" alt="short">{0} мес</unitPattern>
 			<unitPattern count="other">{0} месец</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} месеци</unitPattern>
 			<unitPattern count="other" alt="short">{0} мес</unitPattern>
+		</unit>
+		<unit type="month-future">
+			<unitPattern count="0">за 0 месеци</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">За 0 месеци</unitPattern>
+			<unitPattern count="1">за 1 месец</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">За 1 месец</unitPattern>
+			<unitPattern count="few">за {0} месеца</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">За {0} месеца</unitPattern>
+			<unitPattern count="many">за {0} месеци</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">За {0} месеци</unitPattern>
+			<unitPattern count="one">за {0} месец</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">За {0} месец</unitPattern>
+			<unitPattern count="other">за {0} месеци</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">За {0} месеци</unitPattern>
+		</unit>
+		<unit type="month-past">
+			<unitPattern count="0">пре 0 месеци</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">Пре 0 месеци</unitPattern>
+			<unitPattern count="1">пре 1 месец</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">Пре 1 месец</unitPattern>
+			<unitPattern count="few">пре {0} месеца</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Пре {0} месеца</unitPattern>
+			<unitPattern count="many">пре {0} месеци</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Пре {0} месеци</unitPattern>
+			<unitPattern count="one">пре {0} месец</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Пре {0} месец</unitPattern>
+			<unitPattern count="other">пре {0} месеци</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Пре {0} месеци</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="few">{0} секунде</unitPattern>
@@ -6351,8 +6660,35 @@
 			<unitPattern count="one">{0} секунда</unitPattern>
 			<unitPattern count="one" alt="short">{0} сек</unitPattern>
 			<unitPattern count="other">{0} секунда</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} секунди</unitPattern>
 			<unitPattern count="other" alt="short">{0} сек</unitPattern>
+		</unit>
+		<unit type="second-future">
+			<unitPattern count="0">за 0 секунди</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">За 0 секунди</unitPattern>
+			<unitPattern count="1">за 1 секунду</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">За 1 секунду</unitPattern>
+			<unitPattern count="few">за {0} секунде</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">За {0} секунде</unitPattern>
+			<unitPattern count="many">за {0} секунди</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">За {0} секунди</unitPattern>
+			<unitPattern count="one">за {0} секунд</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">За {0} секунду</unitPattern>
+			<unitPattern count="other">за {0} секунди</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">За {0} секунди</unitPattern>
+		</unit>
+		<unit type="second-past">
+			<unitPattern count="0">пре 0 секунди</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">Пре 0 секунди</unitPattern>
+			<unitPattern count="1">пре 1 секунду</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">Пре 1 секунду</unitPattern>
+			<unitPattern count="few">пре {0} секунде</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Пре {0} секунде</unitPattern>
+			<unitPattern count="many">пре {0} секунди</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Пре {0} секунди</unitPattern>
+			<unitPattern count="one">пре {0} секунд</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Пре {0} секунду</unitPattern>
+			<unitPattern count="other">пре {0} секунди</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Пре {0} секунди</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="few">{0} недеље</unitPattern>
@@ -6364,6 +6700,34 @@
 			<unitPattern count="other">{0} недеља</unitPattern>
 			<unitPattern count="other" alt="short">{0} нед</unitPattern>
 		</unit>
+		<unit type="week-future">
+			<unitPattern count="0">за 0 недеља</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">За 0 недеља</unitPattern>
+			<unitPattern count="1">за 1 недељу</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">За 1 недељу</unitPattern>
+			<unitPattern count="few">за {0} недеље</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">За {0} недеље</unitPattern>
+			<unitPattern count="many">за {0} недеља</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">За {0} недеља</unitPattern>
+			<unitPattern count="one">за {0} недељу</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">За {0} недељу</unitPattern>
+			<unitPattern count="other">за {0} недеља</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">За {0} недеља</unitPattern>
+		</unit>
+		<unit type="week-past">
+			<unitPattern count="0">пре 0 недеља</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">Пре 0 недеља</unitPattern>
+			<unitPattern count="1">пре 1 недељу</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">Пре 1 недељу</unitPattern>
+			<unitPattern count="few">пре {0} недеље</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Пре {0} недеље</unitPattern>
+			<unitPattern count="many">пре {0} недеља</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Пре {0} недеља</unitPattern>
+			<unitPattern count="one">пре {0} недељу</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Пре {0} недељу</unitPattern>
+			<unitPattern count="other">пре {0} недеља</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Пре {0} недеља</unitPattern>
+		</unit>
 		<unit type="year">
 			<unitPattern count="few">{0} године</unitPattern>
 			<unitPattern count="few" alt="short">{0} год</unitPattern>
@@ -6373,6 +6737,34 @@
 			<unitPattern count="one" alt="short">{0} год</unitPattern>
 			<unitPattern count="other">{0} година</unitPattern>
 			<unitPattern count="other" alt="short">{0} год</unitPattern>
+		</unit>
+		<unit type="year-future">
+			<unitPattern count="0">за 0 година</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">За 0 година</unitPattern>
+			<unitPattern count="1">за 1 годину</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">За 1 годину</unitPattern>
+			<unitPattern count="few">за {0} године</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">За {0} године</unitPattern>
+			<unitPattern count="many">за {0} година</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">За {0} година</unitPattern>
+			<unitPattern count="one">за {0} годину</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">За {0} годину</unitPattern>
+			<unitPattern count="other">за {0} година</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">За {0} година</unitPattern>
+		</unit>
+		<unit type="year-past">
+			<unitPattern count="0">пре 0 година</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">Пре 0 година</unitPattern>
+			<unitPattern count="1">пре 1 годину</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">Пре 1 годину</unitPattern>
+			<unitPattern count="few">пре {0} године</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Пре {0} године</unitPattern>
+			<unitPattern count="many">пре {0} година</unitPattern>
+			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Пре {0} година</unitPattern>
+			<unitPattern count="one">пре {0} годину</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Пре {0} годину</unitPattern>
+			<unitPattern count="other">пре {0} година</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Пре {0} година</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
@@ -6388,4 +6780,3 @@
 		</messages>
 	</posix>
 </ldml>
-

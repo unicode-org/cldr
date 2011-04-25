@@ -11,7 +11,7 @@
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>, </localeSeparator>
-            <localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
@@ -44,11 +44,11 @@
 	<characters>
 		<exemplarCharacters>[]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
-        <exemplarCharacters type="punctuation">[\- , ; \: ! ? . ( ) \[ \] \{ \}]</exemplarCharacters>
-        <exemplarCharacters type="currencySymbol">[a b c č d e f g h i j k l ł m n o º p q r s t u v w x y z]</exemplarCharacters>
-        <ellipsis type="initial">…{0}</ellipsis>
-        <ellipsis type="medial">{0}…{1}</ellipsis>
+		<exemplarCharacters type="currencySymbol">[a b c č d e f g h i j k l ł m n o º p q r s t u v w x y z]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- , ; \: ! ? . ( ) \[ \] \{ \}]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -847,20 +847,20 @@
 						<monthWidth type="abbreviated">
 							<alias source="locale" path="../monthWidth[@type='wide']"/>
 						</monthWidth>
-                        <monthWidth type="narrow">
-                            <month type="1">1</month>
-                            <month type="2">2</month>
-                            <month type="3">3</month>
-                            <month type="4">4</month>
-                            <month type="5">5</month>
-                            <month type="6">6</month>
-                            <month type="7">7</month>
-                            <month type="8">8</month>
-                            <month type="9">9</month>
-                            <month type="10">10</month>
-                            <month type="11">11</month>
-                            <month type="12">12</month>
-                            <month type="13">13</month>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+							<month type="13">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tishri</month>
@@ -1643,57 +1643,41 @@
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>({0})</regionFormat>
-            <fallbackFormat>{1} ({0})</fallbackFormat>
-            <fallbackRegionFormat>{1} ({0})</fallbackRegionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackRegionFormat>{1} ({0})</fallbackRegionFormat>
 			<singleCountries list="Europe/Kiev Pacific/Majuro Africa/Bamako America/Godthab America/Santiago America/Guayaquil Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"/>
-			<zone type="Etc/Unknown">
-				<exemplarCity>Unknown</exemplarCity>
-			</zone>
-
-			<zone type="Africa/Asmera">
-				<exemplarCity>Asmara</exemplarCity>
-			</zone>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity>Atikokan</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Knox">
-				<exemplarCity>Knox, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Marengo">
-				<exemplarCity>Marengo, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Petersburg">
-				<exemplarCity>Petersburg, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tell City, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>Vincennes, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Vevay, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>Monticello, Kentucky</exemplarCity>
-			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, North Dakota</exemplarCity>
 			</zone>
-			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Center, North Dakota</exemplarCity>
+			<zone type="Etc/Unknown">
+				<exemplarCity>Unknown</exemplarCity>
 			</zone>
-			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity>New Salem, North Dakota</exemplarCity>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity>Dumont d'Urville</exemplarCity>
 			</zone>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>St. Barthelemy</exemplarCity>
 			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>Atikokan</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. John's</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity>Asmara</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity>Chuuk</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity>Pohnpei</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity>Faroe</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity>Kolkata</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>St. Kitts</exemplarCity>
@@ -1701,37 +1685,51 @@
 			<zone type="America/St_Lucia">
 				<exemplarCity>St. Lucia</exemplarCity>
 			</zone>
-			<zone type="America/St_Thomas">
-				<exemplarCity>St. Thomas</exemplarCity>
-			</zone>
-			<zone type="America/St_Vincent">
-				<exemplarCity>St. Vincent</exemplarCity>
-			</zone>
-			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Dumont d'Urville</exemplarCity>
-			</zone>
-			<zone type="Asia/Calcutta">
-				<exemplarCity>Kolkata</exemplarCity>
-			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Kathmandu</exemplarCity>
-			</zone>
-			<zone type="Asia/Saigon">
-				<exemplarCity>Ho Chi Minh</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Faeroe">
-				<exemplarCity>Faroe</exemplarCity>
 			</zone>
 			<zone type="Atlantic/St_Helena">
 				<exemplarCity>St. Helena</exemplarCity>
 			</zone>
-			<zone type="Pacific/Ponape">
-				<exemplarCity>Pohnpei</exemplarCity>
+			<zone type="America/North_Dakota/New_Salem">
+				<exemplarCity>New Salem, North Dakota</exemplarCity>
 			</zone>
-			<zone type="Pacific/Truk">
-				<exemplarCity>Chuuk</exemplarCity>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity>Center, North Dakota</exemplarCity>
 			</zone>
-
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity>Vincennes, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity>Petersburg, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity>Tell City, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity>Knox, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity>Winamac, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity>Marengo, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity>Vevay, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity>Monticello, Kentucky</exemplarCity>
+			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity>St. Vincent</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity>St. Thomas</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity>Ho Chi Minh</exemplarCity>
+			</zone>
 			<metazone type="Acre">
 				<short>
 					<standard>ACT (Acre)</standard>
@@ -2792,22 +2790,22 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
-            <decimalFormatLength type="short">
-                <decimalFormat>
-                    <pattern type="1000">0.0K</pattern>
-                    <pattern type="10000">00K</pattern>
-                    <pattern type="100000">000K</pattern>
-                    <pattern type="1000000">0.0M</pattern>
-                    <pattern type="10000000">00M</pattern>
-                    <pattern type="100000000">000M</pattern>
-                    <pattern type="1000000000">0.0G</pattern>
-                    <pattern type="10000000000">00G</pattern>
-                    <pattern type="100000000000">000G</pattern>
-                    <pattern type="1000000000000">0.0T</pattern>
-                    <pattern type="10000000000000">00T</pattern>
-                    <pattern type="100000000000000">000T</pattern>
-                </decimalFormat>
-            </decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000">0.0K</pattern>
+					<pattern type="10000">00K</pattern>
+					<pattern type="100000">000K</pattern>
+					<pattern type="1000000">0.0M</pattern>
+					<pattern type="10000000">00M</pattern>
+					<pattern type="100000000">000M</pattern>
+					<pattern type="1000000000">0.0G</pattern>
+					<pattern type="10000000000">00G</pattern>
+					<pattern type="100000000000">000G</pattern>
+					<pattern type="1000000000000">0.0T</pattern>
+					<pattern type="10000000000000">00T</pattern>
+					<pattern type="100000000000000">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
 			<scientificFormatLength>
@@ -3334,69 +3332,69 @@
 	</numbers>
 	<units>
 		<!-- http://physics.nist.gov/cuu/Units/outside.html -->
-        <unit type="day">
-            <unitPattern count="other">{0} d</unitPattern>
-        </unit>
-        <unit type="day-past">
-            <unitPattern count="other">-{0} d</unitPattern>
-        </unit>
-        <unit type="day-future">
-            <unitPattern count="other">+{0} d</unitPattern>
-        </unit>
-        <unit type="hour">
-            <unitPattern count="other">{0} h</unitPattern>
-        </unit>
-        <unit type="hour-past">
-            <unitPattern count="other">-{0} h</unitPattern>
-        </unit>
-        <unit type="hour-future">
-            <unitPattern count="other">+{0} h</unitPattern>
-        </unit>
-        <unit type="minute">
-            <unitPattern count="other">{0} min</unitPattern>
-        </unit>
-        <unit type="minute-past">
-            <unitPattern count="other">-{0} min</unitPattern>
-        </unit>
-        <unit type="minute-future">
-            <unitPattern count="other">+{0} min</unitPattern>
-        </unit>
-        <unit type="month">
-            <unitPattern count="other">{0} m</unitPattern>
-        </unit>
-        <unit type="month-past">
-            <unitPattern count="other">-{0} m</unitPattern>
-        </unit>
-        <unit type="month-future">
-            <unitPattern count="other">+{0} m</unitPattern>
-        </unit>
-        <unit type="second">
-            <unitPattern count="other">{0} s</unitPattern>
-        </unit>
-        <unit type="second-past">
-            <unitPattern count="other">-{0} s</unitPattern>
-        </unit>
-        <unit type="second-future">
-            <unitPattern count="other">+{0} s</unitPattern>
-        </unit>
-        <unit type="week">
-            <unitPattern count="other">{0} w</unitPattern>
-        </unit>
-        <unit type="week-past">
-            <unitPattern count="other">-{0} w</unitPattern>
-        </unit>
-        <unit type="week-future">
-            <unitPattern count="other">+{0} w</unitPattern>
-        </unit>
-        <unit type="year">
-            <unitPattern count="other">{0} y</unitPattern>
-        </unit>
-        <unit type="year-past">
-            <unitPattern count="other">-{0} y</unitPattern>
-        </unit>
-        <unit type="year-future">
-            <unitPattern count="other">+{0} y</unitPattern>
-        </unit>
+		<unit type="day">
+			<unitPattern count="other">{0} d</unitPattern>
+		</unit>
+		<unit type="day-future">
+			<unitPattern count="other">+{0} d</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="other">-{0} d</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="other">{0} h</unitPattern>
+		</unit>
+		<unit type="hour-future">
+			<unitPattern count="other">+{0} h</unitPattern>
+		</unit>
+		<unit type="hour-past">
+			<unitPattern count="other">-{0} h</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="other">{0} min</unitPattern>
+		</unit>
+		<unit type="minute-future">
+			<unitPattern count="other">+{0} min</unitPattern>
+		</unit>
+		<unit type="minute-past">
+			<unitPattern count="other">-{0} min</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="other">{0} m</unitPattern>
+		</unit>
+		<unit type="month-future">
+			<unitPattern count="other">+{0} m</unitPattern>
+		</unit>
+		<unit type="month-past">
+			<unitPattern count="other">-{0} m</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="other">{0} s</unitPattern>
+		</unit>
+		<unit type="second-future">
+			<unitPattern count="other">+{0} s</unitPattern>
+		</unit>
+		<unit type="second-past">
+			<unitPattern count="other">-{0} s</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="other">{0} w</unitPattern>
+		</unit>
+		<unit type="week-future">
+			<unitPattern count="other">+{0} w</unitPattern>
+		</unit>
+		<unit type="week-past">
+			<unitPattern count="other">-{0} w</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="other">{0} y</unitPattern>
+		</unit>
+		<unit type="year-future">
+			<unitPattern count="other">+{0} y</unitPattern>
+		</unit>
+		<unit type="year-past">
+			<unitPattern count="other">-{0} y</unitPattern>
+		</unit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -3413,4 +3411,3 @@
 		</messages>
 	</posix>
 </ldml>
-

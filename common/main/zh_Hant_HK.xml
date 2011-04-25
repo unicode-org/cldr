@@ -10,12 +10,41 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="az" alt="short" draft="contributed">阿澤里</language>
+			<language type="de_CH" draft="contributed">瑞士德語</language>
+			<language type="en_CA" draft="contributed">加拿大英語</language>
+			<language type="fr_CA" draft="contributed">加拿大法語</language>
 			<language type="it" draft="contributed">意大利文</language>
 			<language type="lol" draft="contributed">蒙古語</language>
+			<language type="ps" alt="variant" draft="contributed">普什圖語</language>
+			<language type="pt_BR" draft="contributed">巴西葡萄牙語</language>
+			<language type="ug" alt="variant" draft="contributed">維吾爾語</language>
 		</languages>
 		<scripts>
+			<script type="Arab" alt="variant" draft="contributed">波斯阿拉伯語</script>
+			<script type="Cyrl" draft="contributed">西里爾語字母</script>
 			<script type="Hang">韓文字母</script>
+			<script type="Hans" alt="stand-alone" draft="contributed">簡體中文</script>
+			<script type="Hant" alt="stand-alone" draft="contributed">繁體漢字</script>
+			<script type="Zsym" draft="contributed">符號</script>
 		</scripts>
+		<territories>
+			<territory type="001" draft="contributed">世界</territory>
+			<territory type="002" draft="contributed">非洲</territory>
+			<territory type="003" draft="contributed">北美洲</territory>
+			<territory type="005" draft="contributed">南美洲</territory>
+			<territory type="009" draft="contributed">大洋洲</territory>
+			<territory type="011" draft="contributed">西非</territory>
+			<territory type="013" draft="contributed">中美洲</territory>
+			<territory type="015" draft="contributed">北非</territory>
+			<territory type="017" draft="contributed">中非</territory>
+			<territory type="019" draft="contributed">美洲地區</territory>
+			<territory type="021" draft="contributed">北美洲</territory>
+			<territory type="029" draft="contributed">加勒比</territory>
+			<territory type="419" draft="contributed">拉丁美洲</territory>
+			<territory type="EA" draft="contributed">瑟塔與梅利拉</territory>
+			<territory type="FK" alt="variant" draft="contributed">福克蘭群島 [馬爾維納斯群島]</territory>
+		</territories>
 		<variants>
 			<variant type="1901" draft="contributed">傳統德國拼字法</variant>
 			<variant type="1996" draft="contributed">1996 德國拼字法</variant>
@@ -23,16 +52,93 @@
 			<variant type="REVISED" draft="contributed">已修訂拼字法</variant>
 			<variant type="SCOTLAND" draft="contributed">蘇格蘭標準英語</variant>
 		</variants>
+		<keys>
+			<key type="numbers" draft="contributed">數字</key>
+			<key type="x" draft="contributed">專用區</key>
+		</keys>
 		<types>
+			<type type="arab" key="numbers" draft="contributed">阿拉伯印度語位數</type>
+			<type type="arabext" key="numbers" draft="contributed">擴展阿拉伯語印度語位數</type>
+			<type type="armn" key="numbers" draft="contributed">亞美尼亞數字</type>
+			<type type="armnlow" key="numbers" draft="contributed">亞美尼亞小寫數字</type>
+			<type type="beng" key="numbers" draft="contributed">孟加拉語位數</type>
 			<type type="big5han" key="collation">繁體中文順序 - Big5</type>
+			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">繁體中文排序 - 大五碼</type>
+			<type type="coptic" key="calendar" draft="contributed">科普特曆</type>
+			<type type="deva" key="numbers" draft="contributed">梵文位數</type>
+			<type type="dictionary" key="collation" draft="contributed">詞典排序</type>
+			<type type="ducet" key="collation" draft="contributed">預設統一碼排序</type>
+			<type type="ethi" key="numbers" draft="contributed">埃塞俄比亞數詞</type>
+			<type type="ethiopic" key="calendar" draft="contributed">埃及曆</type>
+			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">埃塞俄比亞阿美德阿萊姆曆</type>
+			<type type="fullwide" key="numbers" draft="contributed">全寬位數</type>
 			<type type="gb2312han" key="collation">簡體中文順序 - GB2312</type>
+			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">簡體中文排序 - GB2312</type>
+			<type type="geor" key="numbers" draft="contributed">格魯吉亞數字</type>
+			<type type="grek" key="numbers" draft="contributed">希臘語數字</type>
+			<type type="greklow" key="numbers" draft="contributed">希臘小寫數字</type>
+			<type type="gujr" key="numbers" draft="contributed">古加拉特語位數</type>
+			<type type="guru" key="numbers" draft="contributed">果魯穆奇語位數</type>
+			<type type="hanidec" key="numbers" draft="contributed">中文小數位</type>
+			<type type="hans" key="numbers" draft="contributed">簡體中文數字</type>
+			<type type="hansfin" key="numbers" draft="contributed">簡體中文金融數字</type>
+			<type type="hant" key="numbers" draft="contributed">繁體中文數字</type>
+			<type type="hantfin" key="numbers" draft="contributed">繁體中文金融數字</type>
+			<type type="hebr" key="numbers" draft="contributed">希伯萊語數字</type>
+			<type type="jpan" key="numbers" draft="contributed">日本數字</type>
+			<type type="jpanfin" key="numbers" draft="contributed">日本金融數字</type>
+			<type type="khmr" key="numbers" draft="contributed">高棉位數</type>
+			<type type="knda" key="numbers" draft="contributed">卡納達語位數</type>
+			<type type="laoo" key="numbers" draft="contributed">老撾文位數</type>
+			<type type="latn" key="numbers" draft="contributed">西方位數</type>
+			<type type="mlym" key="numbers" draft="contributed">馬來亞位數</type>
+			<type type="mong" key="numbers" draft="contributed">蒙古文位數</type>
+			<type type="mymr" key="numbers" draft="contributed">緬甸語位數</type>
+			<type type="orya" key="numbers" draft="contributed">奧里亞語位數</type>
+			<type type="persian" key="calendar" draft="contributed">波斯曆</type>
+			<type type="reformed" key="collation" draft="contributed">改革版排序</type>
+			<type type="roman" key="numbers" draft="contributed">羅馬數字</type>
+			<type type="romanlow" key="numbers" draft="contributed">羅馬小寫數字</type>
+			<type type="search" key="collation" draft="contributed">一般用途搜索</type>
+			<type type="taml" key="numbers" draft="contributed">泰米爾語數字</type>
+			<type type="telu" key="numbers" draft="contributed">泰盧固語位數</type>
+			<type type="thai" key="numbers" draft="contributed">泰文位數</type>
+			<type type="tibt" key="numbers" draft="contributed">藏文位數</type>
+			<type type="unihan" key="collation" draft="contributed">筆劃排序</type>
 		</types>
+		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
+			<transformName type="Numeric" draft="contributed">數值</transformName>
+			<transformName type="Tone" draft="contributed">聲調</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
+			<transformName type="x-Accents" draft="contributed">重音</transformName>
+			<transformName type="x-Fullwidth" draft="contributed">全形</transformName>
+			<transformName type="x-Halfwidth" draft="contributed">半形</transformName>
+			<transformName type="x-Jamo" draft="contributed">韓文</transformName>
+			<transformName type="x-Pinyin" draft="contributed">拼音</transformName>
+			<transformName type="x-Publishing" draft="contributed">出版</transformName>
+		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="contributed">十進制</measurementSystemName>
+			<measurementSystemName type="UK" draft="contributed">英國</measurementSystemName>
+			<measurementSystemName type="US" draft="contributed">美國</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
+	<characters>
+		<stopwords>
+			<stopwordList type="collation" draft="contributed">a an the</stopwordList>
+		</stopwords>
+	</characters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">M-d（E）</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="chinese">
 				<dateTimeFormats>
 					<availableFormats>
@@ -41,6 +147,47 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">1月</month>
+							<month type="2" draft="contributed">2月</month>
+							<month type="3" draft="contributed">3月</month>
+							<month type="4" draft="contributed">4月</month>
+							<month type="5" draft="contributed">5月</month>
+							<month type="6" draft="contributed">6月</month>
+							<month type="7" draft="contributed">7月</month>
+							<month type="8" draft="contributed">8月</month>
+							<month type="9" draft="contributed">9月</month>
+							<month type="10" draft="contributed">10月</month>
+							<month type="11" draft="contributed">11月</month>
+							<month type="12" draft="contributed">12月</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1</quarter>
+							<quarter type="2" draft="contributed">2</quarter>
+							<quarter type="3" draft="contributed">3</quarter>
+							<quarter type="4" draft="contributed">4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="noon" draft="contributed">正午</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="noon" draft="contributed">n</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="noon" draft="contributed">正午</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -64,6 +211,16 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm:ss [zzzz]</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm:ss [z]</pattern>
+						</timeFormat>
+					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>ahh:mm:ss</pattern>
@@ -71,6 +228,16 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>{1}{0}</pattern>
@@ -84,49 +251,562 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="EEEd" draft="contributed">d EEE</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="provisional">yyyy/M</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
-							<greatestDifference id="h" draft="unconfirmed">ah至h時</greatestDifference>
+							<greatestDifference id="h" draft="contributed">時–時 a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a" draft="contributed">時時–時時</greatestDifference>
+							<greatestDifference id="H" draft="contributed">時時–時時</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a" draft="contributed">時時:分分–時時:分分</greatestDifference>
+							<greatestDifference id="H" draft="contributed">時時:分分–時時:分分</greatestDifference>
+							<greatestDifference id="m" draft="contributed">時時:分分–時時:分分</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="unconfirmed">ah:mm至ah:mmv</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">ah:mm至h:mmv</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">ah:mm至h:mmv</greatestDifference>
+							<greatestDifference id="a">ah:mm至ah:mm [v]</greatestDifference>
+							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">時:分分 a – 時:分分 a v</greatestDifference>
+							<greatestDifference id="h">ah:mm至h:mm [v]</greatestDifference>
+							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">時:分分–時:分分 a v</greatestDifference>
+							<greatestDifference id="m">ah:mm至h:mm [v]</greatestDifference>
+							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">時:分分–時:分分 a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a" draft="contributed">時時:分分–時時:分分 v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">時時:分分–時時:分分 v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">時時:分分–時時:分分 v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="unconfirmed">ah時至ah時v</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">ah至h時v</greatestDifference>
+							<greatestDifference id="a">ah時至ah時 [v]</greatestDifference>
+							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">時 a – 時 a v</greatestDifference>
+							<greatestDifference id="h">ah時至h時 [v]</greatestDifference>
+							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">時–時 a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a" draft="contributed">時時–時時 v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">時時–時時 v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d" draft="unconfirmed">M月d日至d日</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">M月d日至M月d日</greatestDifference>
+							<greatestDifference id="d" draft="contributed">月/日 – 月/日</greatestDifference>
+							<greatestDifference id="M" draft="contributed">月/日 – 月/日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d" draft="unconfirmed">M月d日E至d日E</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">M月d日E至M月d日E</greatestDifference>
+							<greatestDifference id="d" draft="contributed">星期幾，月/日 – 星期幾，月/日</greatestDifference>
+							<greatestDifference id="M" draft="contributed">星期幾，月/日 – 星期幾，月/日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="unconfirmed">yy年M月至M月</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yy年M月至yy年M月</greatestDifference>
+							<greatestDifference id="M" draft="contributed">月/年年 – 月/年年</greatestDifference>
+							<greatestDifference id="y" draft="contributed">月/年年 – 月/年年</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="unconfirmed">yy年M月d日至d日</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">yy年M月d日至M月d日</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yy年M月d日至yy年M月d日</greatestDifference>
+							<greatestDifference id="d" draft="contributed">月/日/年年 – 月/日/年年</greatestDifference>
+							<greatestDifference id="M" draft="contributed">月/日/年年 – 月/日/年年</greatestDifference>
+							<greatestDifference id="y" draft="contributed">月/日/年年 – 月/日/年年</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="unconfirmed">yy年M月d日E至d日E</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">yy年M月d日E至M月d日E</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">yy年M月d日E至yy年M月d日E</greatestDifference>
+							<greatestDifference id="d" draft="contributed">星期幾，月/日/年年 – 星期幾，月/日/年年</greatestDifference>
+							<greatestDifference id="M" draft="contributed">星期幾，月/日/年年 – 星期幾，月/日/年年</greatestDifference>
+							<greatestDifference id="y" draft="contributed">星期幾，月/日/年年 – 星期幾，月/日/年年</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="year">
+						<relative type="-1" draft="contributed">上年</relative>
+						<relative type="0" draft="contributed">本年</relative>
+						<relative type="1" draft="contributed">下年</relative>
+					</field>
+					<field type="month">
+						<relative type="-1" draft="contributed">上月</relative>
+						<relative type="0" draft="contributed">本月</relative>
+						<relative type="1" draft="contributed">下月</relative>
+					</field>
+					<field type="week">
+						<relative type="-1" draft="contributed">上週</relative>
+						<relative type="0" draft="contributed">本週</relative>
+						<relative type="1" draft="contributed">下週</relative>
+					</field>
+					<field type="day">
+						<relative type="-3" draft="contributed">Three days ago</relative>
+						<relative type="3" draft="contributed">Three days from now</relative>
+					</field>
+				</fields>
+			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="7" draft="contributed" yeartype="leap">亞達月 II</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="roc">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md" draft="contributed">d-M</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">d-M（E）</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<fallbackRegionFormat draft="contributed">{1} 時間（{0}）</fallbackRegionFormat>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity draft="contributed">比尤拉，北達科他州</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity>GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity>GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity>GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity>GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity>GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity>GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity>GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity>GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity>GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity>GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity>GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity>GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity>GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity>GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity>GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity>GMT</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity>GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity>GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity>GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity>GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity>GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity>GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity>GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity>GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity>GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity>GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity>GMT-11</exemplarCity>
+			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity draft="contributed">地拉那</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity draft="contributed">耶烈萬</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity draft="contributed">巴哥巴哥</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity draft="contributed">維也納</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity draft="contributed">馬里漢姆</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity draft="contributed">巴庫</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity draft="contributed">薩拉熱窩</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity draft="contributed">達卡</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity draft="contributed">索非亞</exemplarCity>
+			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity draft="contributed">聖巴夫林米</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity draft="contributed">拿索</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity draft="contributed">阿蒂科肯</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity draft="contributed">布拉柴維爾</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity draft="contributed">蘇黎世</exemplarCity>
+			</zone>
+			<zone type="Africa/Abidjan">
+				<exemplarCity draft="contributed">阿比贊</exemplarCity>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity draft="contributed">拉羅湯加</exemplarCity>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity draft="contributed">尼科西亞</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity draft="contributed">布拉格</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity draft="contributed">聖多明哥</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity draft="contributed">阿爾及爾</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity draft="contributed">開羅</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity draft="contributed">阿斯馬拉</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity draft="contributed">亞的斯亞貝巴</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="contributed">赫爾辛基</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity draft="contributed">史坦雷</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity draft="contributed">利布維</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity draft="contributed">德國</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity draft="contributed">班竹</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity draft="contributed">柯那克里</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity draft="contributed">馬拉波</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity draft="contributed">布達佩斯</exemplarCity>
+			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity draft="contributed">曼島</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity draft="contributed">德黑蘭</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity draft="contributed">澤西</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity draft="contributed">比斯凱克</exemplarCity>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity draft="contributed">金邊</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity draft="contributed">科摩羅</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity draft="contributed">永珍</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity draft="contributed">貝魯特</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity draft="contributed">馬塞魯</exemplarCity>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<exemplarCity draft="contributed">基希訥烏</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity draft="contributed">波德戈里察</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity draft="contributed">馬里戈特</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity draft="contributed">斯科普里</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity draft="contributed">諾克少</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity draft="contributed">馬普托</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity draft="contributed">溫特和克</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity draft="contributed">尼亞美</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity draft="contributed">莫爾斯比港</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity draft="contributed">卡拉奇</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity draft="contributed">華沙</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity draft="contributed">貝爾格萊德</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity draft="contributed">瓜達爾卡納爾</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity draft="contributed">馬希</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity draft="contributed">喀土木</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity draft="contributed">盧布爾雅那</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity draft="contributed">伯拉第斯拉瓦</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity draft="contributed">達卡</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity draft="contributed">墨巴本</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity draft="contributed">恩賈梅納</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity draft="contributed">凱爾蓋朗</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity draft="contributed">杜尚別</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity draft="contributed">湯加塔布</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity draft="contributed">富那富提</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity draft="contributed">達累斯薩拉姆</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity draft="contributed">蒙特維多</exemplarCity>
+			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity draft="contributed">聖文森特</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity draft="contributed">托爾托拉</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity draft="contributed">阿皮亞</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity draft="contributed">約翰尼斯堡</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity draft="contributed">盧薩卡</exemplarCity>
+			</zone>
+			<metazone type="Amazon">
+				<long>
+					<generic draft="contributed">亞馬遜時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<generic draft="contributed">阿納德爾時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic draft="contributed">阿根廷時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic draft="contributed">阿根廷西部時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic draft="contributed">巴西利亞時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<generic draft="contributed">喬巴山時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic draft="contributed">夏威夷阿留申時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic draft="contributed">科布多時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<generic draft="contributed">印尼中部時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<generic draft="contributed">印尼東部時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<generic draft="contributed">印尼西部時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic draft="contributed">伊爾庫茨克時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic draft="contributed">堪察加時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<daylight draft="contributed">哈薩克斯坦東部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<daylight draft="contributed">哈薩克斯坦西部夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic draft="contributed">克拉斯諾亞爾斯克時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<generic draft="contributed">麥格理時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic draft="contributed">馬加丹時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic draft="contributed">蒙古時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic draft="contributed">諾羅尼亞時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic draft="contributed">新西伯利亞時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic draft="contributed">鄂木斯克時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic draft="contributed">薩哈林時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic draft="contributed">薩馬拉時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic draft="contributed">海參崴時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic draft="contributed">伏爾加格勒時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic draft="contributed">雅庫茨克時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic draft="contributed">葉卡捷琳堡時間</generic>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<decimalFormats>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000000000" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" draft="contributed">00B</pattern>
+					<pattern type="100000000000" draft="contributed">000B</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -167,16 +847,96 @@
 				<displayName draft="contributed">新台幣</displayName>
 			</currency>
 			<currency type="USD">
+				<displayName draft="contributed">美元</displayName>
 				<symbol>US$</symbol>
+			</currency>
+			<currency type="XAF">
+				<displayName draft="contributed">中非法郎</displayName>
+			</currency>
+			<currency type="XOF">
+				<displayName draft="contributed">多哥非洲共同體法郎</displayName>
+			</currency>
+			<currency type="XPF">
+				<displayName draft="contributed">太平洋法郎</displayName>
 			</currency>
 		</currencies>
 	</numbers>
 	<units>
+		<unit type="day-future">
+			<unitPattern count="0" draft="contributed">0 日後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 日後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 日後</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="0" draft="contributed">0 日前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 日前</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 日前</unitPattern>
+		</unit>
 		<unit type="hour">
 			<unitPattern count="other">{0}時</unitPattern>
 		</unit>
+		<unit type="hour-future">
+			<unitPattern count="0" draft="contributed">0 小時後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 小時後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 小時後</unitPattern>
+		</unit>
+		<unit type="hour-past">
+			<unitPattern count="0" draft="contributed">0 小時前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 小時前</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 小時前</unitPattern>
+		</unit>
+		<unit type="minute-future">
+			<unitPattern count="0" draft="contributed">0 分鐘後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 分鐘後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 分鐘後</unitPattern>
+		</unit>
+		<unit type="minute-past">
+			<unitPattern count="0" draft="contributed">0 分鐘前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 分鐘前</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 分鐘前</unitPattern>
+		</unit>
+		<unit type="month-future">
+			<unitPattern count="0" draft="contributed">0 個月後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 個月後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 個月後</unitPattern>
+		</unit>
+		<unit type="month-past">
+			<unitPattern count="0" draft="contributed">0 月前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 月前</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 月前</unitPattern>
+		</unit>
+		<unit type="second-future">
+			<unitPattern count="0" draft="contributed">0 秒後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 秒後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 秒後</unitPattern>
+		</unit>
+		<unit type="second-past">
+			<unitPattern count="0" draft="contributed">0 秒前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 秒前</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 秒前</unitPattern>
+		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0}星期</unitPattern>
+		</unit>
+		<unit type="week-future">
+			<unitPattern count="0" draft="contributed">0 週後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 週後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 週後</unitPattern>
+		</unit>
+		<unit type="week-past">
+			<unitPattern count="0" draft="contributed">0 週前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 週前</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 週前</unitPattern>
+		</unit>
+		<unit type="year-future">
+			<unitPattern count="0" draft="contributed">0 年後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 年後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 年後</unitPattern>
+		</unit>
+		<unit type="year-past">
+			<unitPattern count="0" draft="contributed">0 年前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 年前</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 年前</unitPattern>
 		</unit>
 	</units>
 	<posix>
@@ -186,4 +946,3 @@
 		</messages>
 	</posix>
 </ldml>
-

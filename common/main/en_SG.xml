@@ -9,8 +9,57 @@
 	</identity>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/yy GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d MMM, y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d/M/yy</pattern>
@@ -21,6 +70,8 @@
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d/M/yyyy</dateFormatItem>
 					</availableFormats>
@@ -33,6 +84,14 @@
 							<greatestDifference id="d">E, d/M – E, d/M</greatestDifference>
 							<greatestDifference id="M">E, d/M – E, d/M</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d-d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d">d/M/yy – d/M/yy</greatestDifference>
 							<greatestDifference id="M">d/M/yy – d/M/yy</greatestDifference>
@@ -42,6 +101,16 @@
 							<greatestDifference id="d">E, d/M/yy – E, d/M/yy</greatestDifference>
 							<greatestDifference id="M">E, d/M/yy – E, d/M/yy</greatestDifference>
 							<greatestDifference id="y">E, d/M/yy – E, d/M/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d-d MMM, y</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM, y</greatestDifference>
+							<greatestDifference id="y">d MMM, y – d MMM, y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d MMM  – E, d MMM, y</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM, y</greatestDifference>
+							<greatestDifference id="y">E, d MMM, y – E, d MMM, y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -70,7 +139,122 @@
 					</dateFormatLength>
 				</dateFormats>
 			</calendar>
+			<calendar type="roc">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>d/M/yy GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<zone type="Etc/GMT+12">
+				<exemplarCity>GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity>GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity>GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity>GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity>GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity>GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity>GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity>GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity>GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity>GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity>GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity>GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity>GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity>GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity>GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity>GMT</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity>GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity>GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity>GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity>GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity>GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity>GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity>GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity>GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity>GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity>GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity>GMT-11</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencies>

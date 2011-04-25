@@ -19,7 +19,8 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<dateFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+				<dateFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y G</pattern>
@@ -41,7 +42,8 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+				<dateTimeFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
@@ -194,6 +196,14 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="day">
+						<relative type="-3">Three days ago</relative>
+						<relative type="-2">The day before yesterday</relative>
+						<relative type="2">The day after tomorrow</relative>
+						<relative type="3">Three days from now</relative>
+					</field>
+				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -214,9 +224,6 @@
 							<month type="11">Dhuʻl-Q.</month>
 							<month type="12">Dhuʻl-H.</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Muharram</month>
 							<month type="2">Safar</month>
@@ -233,9 +240,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -250,23 +254,15 @@
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
-						<monthWidth type="wide">
-							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
-						</monthWidth>
 					</monthContext>
 				</months>
 				<eras>
-					<eraNames>
-						<alias source="locale" path="../eraAbbr"/>
-					</eraNames>
 					<eraAbbr>
 						<era type="0">AH</era>
 					</eraAbbr>
-					<eraNarrow>
-						<alias source="locale" path="../eraAbbr"/>
-					</eraNarrow>
 				</eras>
-				<dateFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+				<dateFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y G</pattern>
@@ -288,7 +284,8 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+				<dateTimeFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
@@ -307,7 +304,8 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
-				<dateFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+				<dateFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y G</pattern>
@@ -329,7 +327,8 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+				<dateTimeFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
@@ -347,8 +346,9 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="roc"> 
-				<dateFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+			<calendar type="roc">
+				<dateFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y G</pattern>
@@ -370,7 +370,8 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats> <!-- per cldrbug 2835, added from gregorian and adjusted for G -->
+				<dateTimeFormats>
+					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
@@ -390,6 +391,37 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<metazone type="Amazon">
+				<long>
+					<generic>Amazon Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<generic>Anadyr Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic>Argentina Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic>Argentina Western Time</generic>
+					<daylight>Argentina Western Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic>Brasilia Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<generic>Choibalsan Time</generic>
+				</long>
+			</metazone>
 			<metazone type="Europe_Central">
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -398,6 +430,116 @@
 			</metazone>
 			<metazone type="Europe_Western">
 				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>Hawaii Aleutian Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic>Hovd Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<generic>Indonesia Central Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<generic>Indonesia Eastern Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<generic>Indonesia Western Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic>Irkutsk Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic>Kamchatka Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<daylight>Kazakhstan Eastern Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<daylight>Kazakhstan Western Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>Krasnoyarsk Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<generic>Macquarie Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>Magadan Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic>Mongolia Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic>Noronha Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>Novosibirsk Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic>Omsk Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic>Sakhalin Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic>Samara Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>Vladivostok Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic>Volgograd Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic>Yakutsk Time</generic>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>Yekaterinburg Time</generic>
+				</long>
 			</metazone>
 		</timeZoneNames>
 	</dates>
@@ -411,4 +553,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

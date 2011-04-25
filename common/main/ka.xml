@@ -504,11 +504,16 @@
 			<type type="roc" key="calendar" draft="contributed">ჩინეთის რესპუბლიკის კალენდარი</type>
 			<type type="traditional" key="collation">ტრადიციული</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">მეტრული</measurementSystemName>
+			<measurementSystemName type="US">ანგლო-ამერიკული</measurementSystemName>
+		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[ა ბ გ დ ე ვ ზ ჱ თ ი კ ლ მ ნ ჲ ო პ ჟ რ ს ტ ჳ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჴ ჯ ჰ ჵ ჶ ჷ ჸ ჹ ჺ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ⴀ ⴁ ⴂ ⴃ ⴄ ⴅ ⴆ ⴡ ⴇ ⴈ ⴉ ⴊ ⴋ ⴌ ⴢ ⴍ ⴎ ⴏ ⴐ ⴑ ⴒ ⴣ ⴓ ⴔ ⴕ ⴖ ⴗ ⴘ ⴙ ⴚ ⴛ ⴜ ⴝ ⴞ ⴤ ⴟ ⴠ ⴥ]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[ა ბ გ დ ე ვ ზ ჱ თ ი კ ლ მ ნ ჲ ო პ ჟ რ ს ტ ჳ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჴ ჯ ჰ ჵ ჶ ჷ ჸ ჹ ჺ]</exemplarCharacters>
+		<exemplarCharacters type="currencySymbol">[ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ]</exemplarCharacters>
+		<exemplarCharacters type="index">[ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="contributed">“</quotationStart>
@@ -522,48 +527,63 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="provisional">იან</month>
-							<month type="2" draft="provisional">თებ</month>
-							<month type="3" draft="provisional">მარ</month>
-							<month type="4" draft="provisional">აპრ</month>
-							<month type="5" draft="provisional">მაი</month>
-							<month type="6" draft="provisional">ივნ</month>
-							<month type="7" draft="provisional">ივლ</month>
-							<month type="8" draft="provisional">აგვ</month>
-							<month type="9" draft="provisional">სექ</month>
-							<month type="10" draft="provisional">ოქტ</month>
-							<month type="11" draft="provisional">ნოე</month>
-							<month type="12" draft="provisional">დეკ</month>
+							<month type="1">იან</month>
+							<month type="2">თებ</month>
+							<month type="3">მარ</month>
+							<month type="4">აპრ</month>
+							<month type="5">მაი</month>
+							<month type="6">ივნ</month>
+							<month type="7">ივლ</month>
+							<month type="8">აგვ</month>
+							<month type="9">სექ</month>
+							<month type="10">ოქტ</month>
+							<month type="11">ნოე</month>
+							<month type="12">დეკ</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="provisional">იანვარი</month>
-							<month type="2" draft="provisional">თებერვალი</month>
-							<month type="3" draft="provisional">მარტი</month>
-							<month type="4" draft="provisional">აპრილი</month>
-							<month type="5" draft="provisional">მაისი</month>
-							<month type="6" draft="provisional">ივნისი</month>
-							<month type="7" draft="provisional">ივლისი</month>
-							<month type="8" draft="provisional">აგვისტო</month>
-							<month type="9" draft="provisional">სექტემბერი</month>
-							<month type="10" draft="provisional">ოქტომბერი</month>
-							<month type="11" draft="provisional">ნოემბერი</month>
-							<month type="12" draft="provisional">დეკემბერი</month>
+							<month type="1">იანვარი</month>
+							<month type="2">თებერვალი</month>
+							<month type="3">მარტი</month>
+							<month type="4">აპრილი</month>
+							<month type="5">მაისი</month>
+							<month type="6">ივნისი</month>
+							<month type="7">ივლის</month>
+							<month type="8">აგვისტო</month>
+							<month type="9">სექტემბერი</month>
+							<month type="10">ოქტომბერი</month>
+							<month type="11">ნოემბერი</month>
+							<month type="12">დეკემბერი</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">იან</month>
+							<month type="2">თებ</month>
+							<month type="3">მარ</month>
+							<month type="4">აპრ</month>
+							<month type="6">ივნ</month>
+							<month type="7">ივლ</month>
+							<month type="8">აგვ</month>
+							<month type="9">სექ</month>
+							<month type="11">ნოე</month>
+							<month type="12">დეკ</month>
+						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" draft="provisional">ი</month>
-							<month type="2" draft="provisional">თ</month>
-							<month type="3" draft="provisional">მ</month>
-							<month type="4" draft="provisional">ა</month>
-							<month type="5" draft="provisional">მ</month>
-							<month type="6" draft="provisional">ი</month>
+							<month type="1">ი</month>
+							<month type="2">თ</month>
+							<month type="3">მ</month>
+							<month type="4">ა</month>
+							<month type="5">მ</month>
+							<month type="6">ი</month>
 							<month type="7" draft="provisional">ი</month>
-							<month type="8" draft="provisional">ა</month>
-							<month type="9" draft="provisional">ს</month>
-							<month type="10" draft="provisional">ო</month>
-							<month type="11" draft="provisional">ნ</month>
-							<month type="12" draft="provisional">დ</month>
+							<month type="8">ა</month>
+							<month type="9">ს</month>
+							<month type="10">ო</month>
+							<month type="11">ნ</month>
+							<month type="12">დ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="4">აპრილი</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -571,32 +591,32 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun" draft="provisional">კვი</day>
-							<day type="mon" draft="provisional">ორშ</day>
-							<day type="tue" draft="provisional">სამ</day>
-							<day type="wed" draft="provisional">ოთხ</day>
-							<day type="thu" draft="provisional">ხუთ</day>
-							<day type="fri" draft="provisional">პარ</day>
-							<day type="sat" draft="provisional">შაბ</day>
+							<day type="mon">ორშ</day>
+							<day type="tue">სამ</day>
+							<day type="wed">ოთხ</day>
+							<day type="thu">ხუთ</day>
+							<day type="fri">პარ</day>
+							<day type="sat">შაბ</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="provisional">კვირა</day>
+							<day type="sun">კვირა</day>
 							<day type="mon" draft="provisional">ორშაბათი</day>
-							<day type="tue" draft="provisional">სამშაბათი</day>
-							<day type="wed" draft="provisional">ოთხშაბათი</day>
-							<day type="thu" draft="provisional">ხუთშაბათი</day>
-							<day type="fri" draft="provisional">პარასკევი</day>
-							<day type="sat" draft="provisional">შაბათი</day>
+							<day type="tue">სამშაბათი</day>
+							<day type="wed">ოთხშაბათი</day>
+							<day type="thu">ხუთშაბათი</day>
+							<day type="fri">პარასკევი</day>
+							<day type="sat">შაბათი</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun" draft="provisional">კ</day>
+							<day type="sun">კ</day>
 							<day type="mon" draft="provisional">ო</day>
-							<day type="tue" draft="provisional">ს</day>
+							<day type="tue">ს</day>
 							<day type="wed" draft="provisional">ო</day>
-							<day type="thu" draft="provisional">ხ</day>
+							<day type="thu">ხ</day>
 							<day type="fri" draft="provisional">პ</day>
-							<day type="sat" draft="provisional">შ</day>
+							<day type="sat">შ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -634,8 +654,8 @@
 				</dayPeriods>
 				<eras>
 					<eraAbbr>
-						<era type="0" draft="provisional">ჩვენს წელთაღრიცხვამდე</era>
-						<era type="1" draft="provisional">ჩვენი წელთაღრიცხვით</era>
+						<era type="0">ჩვენს წელთაღრიცხვამდე</era>
+						<era type="1">ჩვენი წელთაღრიცხვით</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -682,46 +702,106 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md">d.M.</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="yM">M.y</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d.M.y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d MMM y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M.-M.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd.MM. - dd.MM.</greatestDifference>
+							<greatestDifference id="M">dd.MM. - dd.MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E, dd.MM. - E, dd.MM.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM. - E, dd.MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM-MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d-d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM - d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d - E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM - E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM.yy - MM.yy</greatestDifference>
+							<greatestDifference id="y">MM.yy - MM.yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd.MM.yy - dd.MM.yy</greatestDifference>
+							<greatestDifference id="M">dd.MM.yy - dd.MM.yy</greatestDifference>
+							<greatestDifference id="y">dd.MM.yy - dd.MM.yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, dd.MM.yy - E, dd.MM.yy</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.yy - E, dd.MM.yy</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.yy - E, dd.MM.yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">MMM-MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y - MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d - E, d MMM y</greatestDifference>
+							<greatestDifference id="M">E, d MMM - E, d MMM y</greatestDifference>
+							<greatestDifference id="y">E, d MMM y - E, d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MM – MM.yyyy</greatestDifference>
+							<greatestDifference id="y">MM.yyyy – MM.yyyy</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
 				<fields>
 					<field type="era">
-						<displayName draft="provisional">ხანა</displayName>
+						<displayName>ერა</displayName>
 					</field>
 					<field type="year">
-						<displayName draft="provisional">წელი</displayName>
+						<displayName>წელი</displayName>
 					</field>
 					<field type="month">
-						<displayName draft="provisional">თვე</displayName>
+						<displayName>თვე</displayName>
 					</field>
 					<field type="week">
-						<displayName draft="provisional">კვირა</displayName>
+						<displayName>კვირა</displayName>
 					</field>
 					<field type="day">
-						<displayName draft="provisional">დღე</displayName>
+						<displayName>დღე</displayName>
 						<relative type="-3" draft="provisional">სამი დღის წინ</relative>
 						<relative type="-2" draft="provisional">გუშინწინ</relative>
-						<relative type="-1" draft="provisional">გუშინ</relative>
-						<relative type="0" draft="provisional">დღეს</relative>
-						<relative type="1" draft="provisional">ხვალ</relative>
+						<relative type="-1">გუშინ</relative>
+						<relative type="0">დღეს</relative>
+						<relative type="1">ხვალ</relative>
 						<relative type="2" draft="provisional">ზეგ</relative>
 						<relative type="3" draft="provisional">სამი დღის შემდეგ</relative>
 					</field>
 					<field type="weekday">
-						<displayName draft="provisional">კვირის დღე</displayName>
+						<displayName>კვირის დღე</displayName>
 					</field>
 					<field type="dayperiod">
-						<displayName draft="provisional">დღის პერიოდი</displayName>
+						<displayName>AM/PM</displayName>
 					</field>
 					<field type="hour">
-						<displayName draft="provisional">საათი</displayName>
+						<displayName>საათი</displayName>
 					</field>
 					<field type="minute">
-						<displayName draft="provisional">წუთი</displayName>
+						<displayName>წუთი</displayName>
 					</field>
 					<field type="second">
-						<displayName draft="provisional">წამი</displayName>
+						<displayName>წამი</displayName>
 					</field>
 					<field type="zone">
-						<displayName draft="provisional">ზონა</displayName>
+						<displayName>სასაათო სარტყელი</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -1495,21 +1575,21 @@
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="provisional">#,##0.###</pattern>
+					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="provisional">#,##0%</pattern>
+					<pattern>#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern draft="provisional">¤ #,##0.00</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
@@ -2104,27 +2184,33 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="other" draft="contributed">{0} დღე</unitPattern>
+			<unitPattern count="other">{0} დღე</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="other" draft="contributed">{0} საათი</unitPattern>
+			<unitPattern count="other">{0} საათი</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="other" draft="contributed">{0} წუთი</unitPattern>
+			<unitPattern count="other">{0} წუთი</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="other" draft="contributed">{0} თვე</unitPattern>
+			<unitPattern count="other">{0} თვე</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="other" draft="contributed">{0} წამი</unitPattern>
+			<unitPattern count="other">{0} წამი</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="other" draft="contributed">{0} კვირა</unitPattern>
+			<unitPattern count="other">{0} კვირა</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="other" draft="contributed">{0} წელი</unitPattern>
+			<unitPattern count="other">{0} წელი</unitPattern>
 		</unit>
 	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="2">{0} და {1}</listPatternPart>
+			<listPatternPart type="end">{0} და {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr draft="contributed">დიახ</yesstr>
@@ -2132,4 +2218,3 @@
 		</messages>
 	</posix>
 </ldml>
-

@@ -107,7 +107,7 @@
 			<language type="tw" draft="unconfirmed">Twi</language>
 			<language type="ug" draft="unconfirmed">Ujgur</language>
 			<language type="uk" draft="unconfirmed">Ukrainisht</language>
-			<language type="und" draft="provisional">Unknown or Invalid Language</language>
+			<language type="und">und</language>
 			<language type="ur" draft="unconfirmed">Urdu</language>
 			<language type="uz" draft="unconfirmed">Uzbekistanisht</language>
 			<language type="vi" draft="unconfirmed">Vietnamisht</language>
@@ -119,7 +119,7 @@
 		<scripts>
 			<script type="Latn">Latine</script>
 			<script type="Zxxx" draft="contributed">I pashkruar</script>
-			<script type="Zzzz" draft="contributed">Skript i panjohur ose i pavlefshëm</script>
+			<script type="Zzzz">Skript i panjohur</script>
 		</scripts>
 		<territories>
 			<territory type="AD">Andorrë</territory>
@@ -278,7 +278,7 @@
 			<territory type="ZA">Afrika e Jugut</territory>
 			<territory type="ZM">Zambi</territory>
 			<territory type="ZW">Zimbabve</territory>
-			<territory type="ZZ" draft="contributed">Rajon i panjohur ose i pavlefshëm</territory>
+			<territory type="ZZ">Rajon i panjohur</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
@@ -538,7 +538,7 @@
 		</calendars>
 		<timeZoneNames>
 			<zone type="Etc/Unknown">
-				<exemplarCity draft="provisional">Unknown</exemplarCity>
+				<exemplarCity>I panjohur</exemplarCity>
 			</zone>
 			<metazone type="Europe_Central">
 				<long>
@@ -633,4 +633,3 @@
 		</messages>
 	</posix>
 </ldml>
-

@@ -7,6 +7,9 @@
 		<language type="lt"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localeSeparator>,</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="aa">afarų</language>
 			<language type="ab">abchazų</language>
@@ -31,7 +34,6 @@
 			<language type="apa">apačių kalba</language>
 			<language type="ar">arabų</language>
 			<language type="arc">aramaikų</language>
-			<language type="arc" alt="proposed-x1001" draft="unconfirmed">senoji aramaikų</language>
 			<language type="arn">araukanų</language>
 			<language type="arp">arapahų</language>
 			<language type="art">dirbtinė kalba</language>
@@ -44,6 +46,7 @@
 			<language type="awa">avadhi</language>
 			<language type="ay">aimarų</language>
 			<language type="az">azerbaidžaniečių</language>
+			<language type="az" alt="short">Azeri k.</language>
 			<language type="ba">baškirų</language>
 			<language type="bad">bandų</language>
 			<language type="bai">bamilekų kalba</language>
@@ -88,7 +91,6 @@
 			<language type="chk">čukesų</language>
 			<language type="chm">mari</language>
 			<language type="chn">činuk žargonas</language>
-			<language type="chn" alt="proposed-x1001" draft="unconfirmed">činuk wawa</language>
 			<language type="cho">čoktau</language>
 			<language type="chp">čipvėjų</language>
 			<language type="chr">čerokių</language>
@@ -97,15 +99,11 @@
 			<language type="co">korsikiečių</language>
 			<language type="cop">koptų</language>
 			<language type="cpe">kreolų arba pidžinų kalba pagal anglų</language>
-			<language type="cpe" alt="proposed-x1001" draft="unconfirmed">kreolų ir pidžinų kalba pagal anglų</language>
 			<language type="cpf">kreolų arba pidžinų kalba pagal prancūzų</language>
-			<language type="cpf" alt="proposed-x1001" draft="unconfirmed">kreolų ir pidžinų kalba pagal prancūzų</language>
 			<language type="cpp">kreolų arba pidžinų kalba pagal portugalų</language>
-			<language type="cpp" alt="proposed-x1001" draft="unconfirmed">kreolų ir pidžinų kalba pagal portugalų</language>
 			<language type="cr">kry</language>
 			<language type="crh">krymo turkų</language>
 			<language type="crp">kreolų arba pidžinų kalba</language>
-			<language type="crp" alt="proposed-x1001" draft="unconfirmed">kreolų ir pidžinų</language>
 			<language type="cs">čekų</language>
 			<language type="csb">kašubų</language>
 			<language type="cu">bažnytinė slavų</language>
@@ -126,10 +124,8 @@
 			<language type="doi">dogri</language>
 			<language type="dra">dravidų kalba</language>
 			<language type="dsb">Žemutinės Serbijos</language>
-			<language type="dsb" alt="proposed-x1001" draft="unconfirmed">žemutinės serbijos</language>
 			<language type="dua">dualų</language>
 			<language type="dum">Vidurio Vokietijos</language>
-			<language type="dum" alt="proposed-x1001" draft="unconfirmed">vidurio olandų</language>
 			<language type="dv">divehi</language>
 			<language type="dyu">dyulų</language>
 			<language type="dz">svazilando</language>
@@ -140,13 +136,11 @@
 			<language type="el">graikų</language>
 			<language type="elx">elamitų</language>
 			<language type="en">anglų</language>
-			<language type="en_AU" draft="unconfirmed">anglų kalba (Australija)</language>
+			<language type="en_AU">anglų kalba (Australija)</language>
 			<language type="en_CA">Kanados anglų</language>
-			<language type="en_CA" alt="proposed-x1001" draft="unconfirmed">anglų (Kanados)</language>
 			<language type="en_GB">anglų (britų)</language>
 			<language type="en_US">anglų (amerikiečių)</language>
 			<language type="enm">Vidurio Anglijos</language>
-			<language type="enm" alt="proposed-x1001" draft="unconfirmed">vidurio anglų</language>
 			<language type="eo">esperanto</language>
 			<language type="es">ispanų</language>
 			<language type="es_419">Lotynų Amerikos ispanų</language>
@@ -160,17 +154,14 @@
 			<language type="ff">fulahų</language>
 			<language type="fi">suomių</language>
 			<language type="fil">tagalų</language>
-			<language type="fil" alt="proposed-x1001" draft="unconfirmed">filipinų</language>
 			<language type="fiu">finougrų kalba</language>
 			<language type="fj">fidžio</language>
 			<language type="fo">farerų kalba</language>
 			<language type="fon">fon</language>
 			<language type="fr">prancūzų</language>
 			<language type="fr_CA">Kanados prancūzų</language>
-			<language type="fr_CA" alt="proposed-x1001" draft="unconfirmed">prancūzų (Kanados)</language>
 			<language type="fr_CH">Šveicarijos prancūzų</language>
 			<language type="frm">Vidurio Prancūzijos</language>
-			<language type="frm" alt="proposed-x1001" draft="unconfirmed">vidurio prancūzų</language>
 			<language type="fro">senoji prancūzų</language>
 			<language type="frr">šiaurinių fryzų</language>
 			<language type="frs">rytų fryzų</language>
@@ -181,16 +172,13 @@
 			<language type="gay">gajo</language>
 			<language type="gba">gbaja</language>
 			<language type="gd">škotų (gėlų)</language>
-			<language type="gd" alt="proposed-x1001" draft="unconfirmed">škotų gėlų</language>
 			<language type="gem">germanų kalba</language>
 			<language type="gez">gyz</language>
 			<language type="gil">kiribati</language>
 			<language type="gl">galisų</language>
 			<language type="gmh">Vidurio aukštosios Vokietijos</language>
-			<language type="gmh" alt="proposed-x1001" draft="unconfirmed">vidurio vokiečių</language>
 			<language type="gn">gvaranių</language>
 			<language type="goh">Senoji Aukštosios Vokietijos</language>
-			<language type="goh" alt="proposed-x1001" draft="unconfirmed">senoji vokiečių</language>
 			<language type="gon">gondi</language>
 			<language type="gor">gorontalo</language>
 			<language type="got">gotų</language>
@@ -221,7 +209,6 @@
 			<language type="iba">iban</language>
 			<language type="id">indoneziečių</language>
 			<language type="ie">interkalba</language>
-			<language type="ie" alt="proposed-x1001" draft="unconfirmed">interlingue</language>
 			<language type="ig">igbo</language>
 			<language type="ii">sičuan ji</language>
 			<language type="ijo">ijo</language>
@@ -232,7 +219,6 @@
 			<language type="inh">ingušų</language>
 			<language type="io">ido</language>
 			<language type="ira">iraniečių kalba</language>
-			<language type="ira" alt="proposed-x1001" draft="unconfirmed">Iraniečių</language>
 			<language type="iro">irako kalba</language>
 			<language type="is">islandų</language>
 			<language type="it">italų</language>
@@ -312,9 +298,7 @@
 			<language type="men">mende</language>
 			<language type="mg">malagasijos</language>
 			<language type="mga">Vidurio Airijos</language>
-			<language type="mga" alt="proposed-x1001" draft="unconfirmed">vidurio airių</language>
 			<language type="mh">Maršalo salų</language>
-			<language type="mh" alt="proposed-x1001" draft="unconfirmed">maršalų</language>
 			<language type="mi">maorių</language>
 			<language type="mic">mikmak</language>
 			<language type="min">minankabu</language>
@@ -347,7 +331,6 @@
 			<language type="nb">Norvegijos bokmal</language>
 			<language type="nd">šiaurės ndebelų</language>
 			<language type="nds">Žemutinės Vokietijos</language>
-			<language type="nds" alt="proposed-x1001" draft="unconfirmed">žemutinės vokietijos</language>
 			<language type="ne">nepalų</language>
 			<language type="new">nevari</language>
 			<language type="ng">ndongų</language>
@@ -357,7 +340,6 @@
 			<language type="nl">olandų</language>
 			<language type="nl_BE">flamandų</language>
 			<language type="nn">naujoji norvegų</language>
-			<language type="nn" alt="proposed-x1001" draft="unconfirmed">naujoji-norvegų</language>
 			<language type="no">norvegų</language>
 			<language type="nog">nogų</language>
 			<language type="non">norsu</language>
@@ -396,6 +378,7 @@
 			<language type="pra">prakrit kalba</language>
 			<language type="pro">senovės provansalų</language>
 			<language type="ps">puštūnų</language>
+			<language type="ps" alt="variant">Puštūnų k.</language>
 			<language type="pt">portugalų</language>
 			<language type="pt_BR">portugalų (Brazilijos)</language>
 			<language type="pt_PT">Iberijos portugalų</language>
@@ -413,7 +396,6 @@
 			<language type="rup">aromanių</language>
 			<language type="rw">kinjarvanda</language>
 			<language type="sa">sanskritas</language>
-			<language type="sa" alt="proposed-x1001" draft="unconfirmed">sanskritų</language>
 			<language type="sad">sandavi</language>
 			<language type="sah">jakutų</language>
 			<language type="sai">Pietų Amerikos indėnų kalba</language>
@@ -465,7 +447,6 @@
 			<language type="sv">švedų</language>
 			<language type="sw">svahili</language>
 			<language type="swb">Comorian</language>
-			<language type="swb" alt="proposed-x1001" draft="unconfirmed">šimaorų</language>
 			<language type="syc">klasikinė siriečių</language>
 			<language type="syr">sirų</language>
 			<language type="ta">tamilų</language>
@@ -483,7 +464,6 @@
 			<language type="tkl">tokelau</language>
 			<language type="tl">tagalogų</language>
 			<language type="tlh">„žvaigždžių kelionių“</language>
-			<language type="tlh" alt="proposed-x1001" draft="unconfirmed">kelionių</language>
 			<language type="tli">tlingit</language>
 			<language type="tmh">tamašek</language>
 			<language type="tn">tsvana</language>
@@ -503,11 +483,11 @@
 			<language type="tyv">tuvių</language>
 			<language type="udm">udmurtų</language>
 			<language type="ug">uigūrų</language>
+			<language type="ug" alt="variant">Uigūrų</language>
 			<language type="uga">ugaritic</language>
 			<language type="uk">ukrainiečių</language>
 			<language type="umb">umbundu</language>
-			<language type="und">nenustatyta kalba</language>
-			<language type="und" alt="proposed-x1001" draft="unconfirmed">(nenustatyta kalba)</language>
+			<language type="und">nežinoma kalba</language>
 			<language type="ur">urdų</language>
 			<language type="uz">uzbekų</language>
 			<language type="vai">vai</language>
@@ -530,25 +510,22 @@
 			<language type="yo">joruba</language>
 			<language type="ypk">jupik kalba</language>
 			<language type="yue">kinų kalbos Kantono tarmė</language>
-			<language type="yue" alt="proposed-x1001" draft="unconfirmed">yue kinų</language>
-			<language type="yue" alt="proposed-x1002" draft="unconfirmed">Kinų kalbos Kantono tarmė</language>
 			<language type="za">chuang</language>
 			<language type="zap">zapotekų</language>
 			<language type="zbl">„Bliss“ simbolių kalba</language>
-			<language type="zbl" alt="proposed-x1001" draft="unconfirmed">bliss simbolių</language>
 			<language type="zen">zenaga</language>
 			<language type="zh">kinų</language>
-			<language type="zh_Hans">kinų supaprastinta</language>
-			<language type="zh_Hant">kinų tradicinė</language>
+			<language type="zh_Hans">kinų (supaprastinta)</language>
+			<language type="zh_Hant">kinų (tradicinė)</language>
 			<language type="znd">zande</language>
 			<language type="zu">zulų</language>
 			<language type="zun">zuni</language>
 			<language type="zxx">Nėra kalbinio turinio</language>
-			<language type="zxx" alt="proposed-x1001" draft="unconfirmed">(nėra kalbinio turinio)</language>
 			<language type="zza">zaza</language>
 		</languages>
 		<scripts>
 			<script type="Arab">arabų</script>
+			<script type="Arab" alt="variant">Persų–arabų</script>
 			<script type="Armi">imperinė aramaikų</script>
 			<script type="Armn">armėnų</script>
 			<script type="Avst">avestano</script>
@@ -556,7 +533,6 @@
 			<script type="Batk">batak</script>
 			<script type="Beng">bengalų</script>
 			<script type="Blis">„Bliss“ simboliai</script>
-			<script type="Blis" alt="proposed-x1001" draft="unconfirmed">bliss simboliai</script>
 			<script type="Bopo">bopomofo</script>
 			<script type="Brah">brahmi</script>
 			<script type="Brai">brailio</script>
@@ -588,13 +564,14 @@
 			<script type="Hang">hangul</script>
 			<script type="Hani">han</script>
 			<script type="Hano">hanuno</script>
-			<script type="Hans">supaprastinta han</script>
-			<script type="Hant">tradicinė han</script>
+			<script type="Hans">supaprastinta</script>
+			<script type="Hans" alt="stand-alone">Supaprastintas Han</script>
+			<script type="Hant">tradicinė</script>
+			<script type="Hant" alt="stand-alone">Tradicinis Han</script>
 			<script type="Hebr">hebrajų</script>
 			<script type="Hira">hiragana</script>
 			<script type="Hmng">pahav hmong</script>
 			<script type="Hrkt">katakana / hiragana</script>
-			<script type="Hrkt" alt="proposed-x1001" draft="unconfirmed">katakana/hiragana</script>
 			<script type="Hung">senasis vengrų</script>
 			<script type="Inds">indus</script>
 			<script type="Ital">senasis italų</script>
@@ -679,11 +656,10 @@
 			<script type="Zsym">simbolių</script>
 			<script type="Zxxx">neparašyta</script>
 			<script type="Zyyy">bendras</script>
-			<script type="Zzzz">nežinomi arba neteisingi rašmenys</script>
+			<script type="Zzzz">nežinomi rašmenys</script>
 		</scripts>
 		<territories>
 			<territory type="001">Pasaulis</territory>
-			<territory type="001" alt="proposed-x1001" draft="unconfirmed">pasaulis</territory>
 			<territory type="002">Afrika</territory>
 			<territory type="003">Šiaurės Amerika</territory>
 			<territory type="005">Pietų Amerika</territory>
@@ -694,7 +670,6 @@
 			<territory type="015">Šiaurės Afrika</territory>
 			<territory type="017">Vidurio Afrika</territory>
 			<territory type="018">Pietų Afrika [018]</territory>
-			<territory type="018" alt="proposed-x1001" draft="unconfirmed">Pietūs Afrika</territory>
 			<territory type="019">Amerika</territory>
 			<territory type="021">Šiaurinė Amerika</territory>
 			<territory type="029">Karibai</territory>
@@ -734,7 +709,6 @@
 			<territory type="AU">Australija</territory>
 			<territory type="AW">Aruba</territory>
 			<territory type="AX">Alandų salos</territory>
-			<territory type="AX" alt="proposed-x1001" draft="unconfirmed">Åland</territory>
 			<territory type="AZ">Azerbaidžanas</territory>
 			<territory type="BA">Bosnija ir Hercegovina</territory>
 			<territory type="BB">Barbadosas</territory>
@@ -746,7 +720,6 @@
 			<territory type="BI">Burundis</territory>
 			<territory type="BJ">Beninas</territory>
 			<territory type="BL">Švento Baltramiejaus sala</territory>
-			<territory type="BL" alt="proposed-x1001" draft="unconfirmed">Sent Bartelmi</territory>
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunėjus</territory>
 			<territory type="BO">Bolivija</territory>
@@ -760,16 +733,10 @@
 			<territory type="CA">Kanada</territory>
 			<territory type="CC">Kokosų salos</territory>
 			<territory type="CD">Kongo Demokratinė Respublika</territory>
-			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">Kongo-Kinshasa</territory>
-			<territory type="CD" alt="proposed-x1002" draft="unconfirmed">Kongas - Kinšasa</territory>
 			<territory type="CD" alt="variant">Kongo-Kinshasa</territory>
-			<territory type="CD" alt="variant-proposed-x1001" draft="unconfirmed">Kongo Demokratinė Respublika</territory>
 			<territory type="CF">Centrinės Afrikos Respublika</territory>
 			<territory type="CG">Kongas</territory>
-			<territory type="CG" alt="proposed-x1001" draft="unconfirmed">Kongas - Brazavilis</territory>
-			<territory type="CG" alt="proposed-x1002" draft="unconfirmed">Kongo-Brazzaville</territory>
 			<territory type="CG" alt="variant">Kongo-Brazzaville</territory>
-			<territory type="CG" alt="variant-proposed-x1001" draft="unconfirmed">Kongo Respublika</territory>
 			<territory type="CH">Šveicarija</territory>
 			<territory type="CI">Dramblio Kaulo Krantas</territory>
 			<territory type="CI" alt="variant">Dramblio Kaulo Krantas</territory>
@@ -788,7 +755,6 @@
 			<territory type="CZ">Čekija</territory>
 			<territory type="DE">Vokietija</territory>
 			<territory type="DG">Diego Garcia</territory>
-			<territory type="DG" alt="proposed-x1001" draft="unconfirmed">DG</territory>
 			<territory type="DJ">Džibutis</territory>
 			<territory type="DK">Danija</territory>
 			<territory type="DM">Dominika</territory>
@@ -831,7 +797,6 @@
 			<territory type="GW">Bisau Gvinėja</territory>
 			<territory type="GY">Gajana</territory>
 			<territory type="HK">Kinijos S. A. R. Honkongas</territory>
-			<territory type="HK" alt="proposed-x1001" draft="unconfirmed">Honkongas</territory>
 			<territory type="HK" alt="short">Honkongas</territory>
 			<territory type="HM">Heardo ir McDonaldo Salų Sritis</territory>
 			<territory type="HN">Hondūras</territory>
@@ -855,7 +820,6 @@
 			<territory type="JP">Japonija</territory>
 			<territory type="KE">Kenija</territory>
 			<territory type="KG">Kirgiztanas</territory>
-			<territory type="KG" alt="proposed-x1001" draft="unconfirmed">Kirgizija</territory>
 			<territory type="KH">Kambodža</territory>
 			<territory type="KI">Kiribatis</territory>
 			<territory type="KM">Komorai</territory>
@@ -865,11 +829,9 @@
 			<territory type="KW">Kuveitas</territory>
 			<territory type="KY">Kaimanų salos</territory>
 			<territory type="KZ">Kazachstanas</territory>
-			<territory type="KZ" alt="proposed-x1001" draft="unconfirmed">Kazachija</territory>
 			<territory type="LA">Laosas</territory>
 			<territory type="LB">Libanas</territory>
 			<territory type="LC">Šventoji Liucija</territory>
-			<territory type="LC" alt="proposed-x1001" draft="unconfirmed">Sent Lusija</territory>
 			<territory type="LI">Lichtenšteinas</territory>
 			<territory type="LK">Šri Lanka</territory>
 			<territory type="LR">Liberija</territory>
@@ -883,15 +845,12 @@
 			<territory type="MD">Moldova</territory>
 			<territory type="ME">Juodkalnija</territory>
 			<territory type="MF">Saint-Martin</territory>
-			<territory type="MF" alt="proposed-x1001" draft="unconfirmed">Sent Martenas</territory>
 			<territory type="MG">Madagaskaras</territory>
 			<territory type="MH">Maršalo Salos</territory>
 			<territory type="MK">Makedonija</territory>
 			<territory type="MK" alt="variant">Makedonija</territory>
 			<territory type="ML">Malis</territory>
 			<territory type="MM">Mianmaras</territory>
-			<territory type="MM" alt="proposed-x1001" draft="unconfirmed">Mianmaras [Burma]</territory>
-			<territory type="MM" alt="proposed-x1002" draft="unconfirmed">Burma</territory>
 			<territory type="MN">Mongolija</territory>
 			<territory type="MO">Macao</territory>
 			<territory type="MO" alt="short">Macao</territory>
@@ -902,7 +861,6 @@
 			<territory type="MT">Malta</territory>
 			<territory type="MU">Mauricijus</territory>
 			<territory type="MV">Maldivai</territory>
-			<territory type="MV" alt="proposed-x1001" draft="unconfirmed">Maldyvai</territory>
 			<territory type="MW">Malavis</territory>
 			<territory type="MX">Meksika</territory>
 			<territory type="MY">Malaizija</territory>
@@ -928,7 +886,6 @@
 			<territory type="PK">Pakistanas</territory>
 			<territory type="PL">Lenkija</territory>
 			<territory type="PM">Sen Pjeras ir Mikelonas</territory>
-			<territory type="PM" alt="proposed-x1001" draft="unconfirmed">Sent Pjeras ir Mikelonas</territory>
 			<territory type="PN">Pitkernas</territory>
 			<territory type="PR">Puerto Rikas</territory>
 			<territory type="PS">Palestinos teritorija</territory>
@@ -949,18 +906,15 @@
 			<territory type="SE">Švedija</territory>
 			<territory type="SG">Singapūras</territory>
 			<territory type="SH">Šventoji Elena</territory>
-			<territory type="SH" alt="proposed-x1001" draft="unconfirmed">Sent Helenas</territory>
 			<territory type="SI">Slovėnija</territory>
 			<territory type="SJ">Svalbardo ir Jan Majen salos</territory>
 			<territory type="SK">Slovakija</territory>
 			<territory type="SL">Siera Leonė</territory>
 			<territory type="SM">San Marinas</territory>
-			<territory type="SM" alt="proposed-x1001" draft="unconfirmed">Sent Marinas</territory>
 			<territory type="SN">Senegalas</territory>
 			<territory type="SO">Somalis</territory>
 			<territory type="SR">Surinamas</territory>
 			<territory type="ST">San Tomė ir Principė</territory>
-			<territory type="ST" alt="proposed-x1001" draft="unconfirmed">Sent Tomė ir Principė</territory>
 			<territory type="SV">Salvadoras</territory>
 			<territory type="SY">Sirija</territory>
 			<territory type="SZ">Svazilendas</territory>
@@ -990,7 +944,6 @@
 			<territory type="UZ">Uzbekistanas</territory>
 			<territory type="VA">Vatikanas</territory>
 			<territory type="VC">Šventasis Vincentas ir Grenadinai</territory>
-			<territory type="VC" alt="proposed-x1001" draft="unconfirmed">Sent Vinsentas ir Grenadinai</territory>
 			<territory type="VE">Venesuela</territory>
 			<territory type="VG">Didžiosios Britanijos Mergelių salos</territory>
 			<territory type="VI">Mergelių salos (JAV)</territory>
@@ -1000,13 +953,10 @@
 			<territory type="WS">Samoa</territory>
 			<territory type="YE">Jemenas</territory>
 			<territory type="YT">Mayotte’as</territory>
-			<territory type="YT" alt="proposed-x1001" draft="unconfirmed">Majota</territory>
 			<territory type="ZA">Pietų Afrika</territory>
-			<territory type="ZA" alt="proposed-x1001" draft="unconfirmed">Pietų Afrikos Respublika</territory>
 			<territory type="ZM">Zambija</territory>
 			<territory type="ZW">Zimbabvė</territory>
-			<territory type="ZZ">Nežinoma ar neteisinga sritis</territory>
-			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">(nežinoma sritis)</territory>
+			<territory type="ZZ">nežinoma sritis</territory>
 		</territories>
 		<variants>
 			<variant type="1901">Įprasta vokiečių rašyba</variant>
@@ -1029,7 +979,6 @@
 			<variant type="NJIVA">Gniva / Njiva tarmė</variant>
 			<variant type="OSOJS">Oseacco / Osojane tarmė</variant>
 			<variant type="PINYIN">Kinų hieroglifų vertimo sistema Romanization</variant>
-			<variant type="PINYIN" alt="proposed-x1001" draft="unconfirmed">pinyin</variant>
 			<variant type="POLYTON">Polytonic</variant>
 			<variant type="POSIX">Kompiuteris</variant>
 			<variant type="REVISED">Ištaisyta rašyba</variant>
@@ -1043,36 +992,92 @@
 			<variant type="UCRCOR">Suvienodinta ištaisyta rašyba</variant>
 			<variant type="VALENCIA">Valenciečiai</variant>
 			<variant type="WADEGILE">Wade-Giles Romanization</variant>
-			<variant type="WADEGILE" alt="proposed-x1001" draft="unconfirmed">Wade-Giles</variant>
 		</variants>
 		<keys>
 			<key type="calendar">kalendorius</key>
 			<key type="collation">lyginimas</key>
 			<key type="currency">valiuta</key>
+			<key type="numbers">Skaičiai</key>
+			<key type="x">Naudoti privačiai</key>
 		</keys>
 		<types>
+			<type type="arab" key="numbers">Arabiški–indiški skaitmenys</type>
+			<type type="arabext" key="numbers">Išplėstiniai arabiški–indiški skaitmenys</type>
+			<type type="armn" key="numbers">Armėnų k. skaitmenys</type>
+			<type type="armnlow" key="numbers">Armėnų k. skaitmenys mažosiomis raidėmis</type>
+			<type type="beng" key="numbers">Bengalų k. skaitmenys</type>
 			<type type="big5han" key="collation">Įprasta kiniška rūšiavimo tvarka - Big5</type>
 			<type type="buddhist" key="calendar">Budistų kalendorius</type>
 			<type type="chinese" key="calendar">Kinų kalendorius</type>
+			<type type="coptic" key="calendar">Koptų kalendorius</type>
+			<type type="deva" key="numbers">Devanagari k. skaitmenys</type>
+			<type type="dictionary" key="collation">Žodyno rūšiavimo tvarka</type>
 			<type type="direct" key="collation">Tiesioginė rūšiavimo tvarka</type>
+			<type type="ducet" key="collation">Numatytojo unikodo rūšiavimo tvarka</type>
+			<type type="ethi" key="numbers">Amharų k. skaitmenys</type>
+			<type type="ethiopic" key="calendar">Etiopijos kalendorius</type>
+			<type type="ethiopic-amete-alem" key="calendar">Etiopijos „Amete Alem“ kalendorius</type>
+			<type type="fullwide" key="numbers">Viso pločio skaitmenys</type>
 			<type type="gb2312han" key="collation">Supaprastinta kiniška rūšiavimo tvarka - GB2312</type>
+			<type type="geor" key="numbers">Gruzinų k. skaitmenys</type>
 			<type type="gregorian" key="calendar">Grigaliaus kalendorius</type>
+			<type type="grek" key="numbers">Graikų k. skaitmenys</type>
+			<type type="greklow" key="numbers">Graikiški skaitmenys mažosiomis raidėmis</type>
+			<type type="gujr" key="numbers">Gudžaratų k. skaitmenys</type>
+			<type type="guru" key="numbers">Gurmuki k. skaitmenys</type>
+			<type type="hanidec" key="numbers">Kinų k. dešimtainiai skaitmenys</type>
+			<type type="hans" key="numbers">Supaprastintos kinų k. skaitmenys</type>
+			<type type="hansfin" key="numbers">Supaprastintos kinų k. finans. skaitmenys</type>
+			<type type="hant" key="numbers">Tradicinės kinų k. skaitmenys</type>
+			<type type="hantfin" key="numbers">Tradicinės kinų k. finans. skaitmenys</type>
+			<type type="hebr" key="numbers">Hebrajų k. skaitmenys</type>
 			<type type="hebrew" key="calendar">Hebrajų kalendorius</type>
 			<type type="indian" key="calendar">Nacionalinis indų kalendorius</type>
 			<type type="islamic" key="calendar">Islamo kalendorius</type>
 			<type type="islamic-civil" key="calendar">Pilietinis islamo kalendorius</type>
 			<type type="japanese" key="calendar">Japonų kalendorius</type>
+			<type type="jpan" key="numbers">Japonų k. skaitmenys</type>
+			<type type="jpanfin" key="numbers">Japonų k. finans. skaitmenys</type>
+			<type type="khmr" key="numbers">Khmerų k. skaitmenys</type>
+			<type type="knda" key="numbers">Kanadų k. skaitmenys</type>
+			<type type="laoo" key="numbers">Laosiečių k. skaitmenys</type>
+			<type type="latn" key="numbers">Lotyniški skaitmenys</type>
+			<type type="mlym" key="numbers">Malajalių k. skaitmenys</type>
+			<type type="mong" key="numbers">Mongolų k. skaitmenys</type>
+			<type type="mymr" key="numbers">Mianmariečių k. skaitmenys</type>
+			<type type="orya" key="numbers">Oriya skaitmenys</type>
+			<type type="persian" key="calendar">Persų kalendorius</type>
 			<type type="phonebook" key="collation">Telefonų knygos rūšiavimo tvarka</type>
 			<type type="pinyin" key="collation">Supaprastinta kiniškų hieroglifų vertimo sistemos rūšiavimo tvarka</type>
+			<type type="reformed" key="collation">Reformuota rūšiavimo tvarka</type>
 			<type type="roc" key="calendar">Kinijos Respublikos kalendorius</type>
+			<type type="roman" key="numbers">Romėniškieji skaitmenys</type>
+			<type type="romanlow" key="numbers">Romėniškieji skaitmenys mažosiomis raidėmis</type>
+			<type type="search" key="collation">Bendro tikslo paieška</type>
 			<type type="stroke" key="collation">Įprasta kiniško požymio rūšiavimo tvarka</type>
+			<type type="taml" key="numbers">Tamilų k. skaitmenys</type>
+			<type type="telu" key="numbers">Telugų k. skaitmenys</type>
+			<type type="thai" key="numbers">Tajų k. skaitmenys</type>
+			<type type="tibt" key="numbers">Tibetiečių k. skaitmenys</type>
 			<type type="traditional" key="collation">Įprasta rūšiavimo tvarka</type>
+			<type type="unihan" key="collation">Šaknies ženklų ir brūkšnių rūšiavimo tvarka</type>
 		</types>
+		<transformNames>
+			<transformName type="BGN">BGN simboliai</transformName>
+			<transformName type="Numeric">Skaitinis</transformName>
+			<transformName type="Tone">Tonas</transformName>
+			<transformName type="UNGEGN">UNGEGN simboliai</transformName>
+			<transformName type="x-Accents">Kirčiai</transformName>
+			<transformName type="x-Fullwidth">Viso pločio</transformName>
+			<transformName type="x-Halfwidth">Vidutinio pločio</transformName>
+			<transformName type="x-Jamo">Jamo simboliai</transformName>
+			<transformName type="x-Pinyin">Pinjino simboliai</transformName>
+			<transformName type="x-Publishing">Skelbimas</transformName>
+		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrinė</measurementSystemName>
-			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">SI-vienetai</measurementSystemName>
+			<measurementSystemName type="UK">Nemetrinė JK matavimo sistema</measurementSystemName>
 			<measurementSystemName type="US">JAV</measurementSystemName>
-			<measurementSystemName type="US" alt="proposed-x1001" draft="unconfirmed">US-vienetai</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Kalba: {0}</codePattern>
@@ -1085,16 +1090,15 @@
 		<exemplarCharacters type="auxiliary">[{į\u0307} {i\u0307} {i\u0307\u0301} {i\u0307\u0300} {i\u0307\u0303} {j\u0307} q w x]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a ą b c č d e ę ė f g h i į y j k l m n o p r s š t u ų ū v z ž]</exemplarCharacters>
 		<exemplarCharacters type="index">[A Ą B C Č D E Ę Ė F G H I Į Y J K L M N O P R S Š T U Ų Ū V Z Ž]</exemplarCharacters>
-		<exemplarCharacters type="index" alt="proposed-x1001" draft="unconfirmed">[A B C Č D E F G H I Y J K L M N O P Q R S Š T U V W X Z Ž]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[a ą b c č d e ę ė f g h i į y j k l m n o p r s š t u ų ū v z ž]</exemplarCharacters>
+		<stopwords>
+			<stopwordList type="collation">a an the</stopwordList>
+		</stopwords>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
 		<quotationEnd>“</quotationEnd>
 		<alternateQuotationStart>„</alternateQuotationStart>
-		<alternateQuotationStart alt="proposed-x1001" draft="unconfirmed">‚</alternateQuotationStart>
 		<alternateQuotationEnd>“</alternateQuotationEnd>
-		<alternateQuotationEnd alt="proposed-x1001" draft="unconfirmed">‘</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<dateRangePattern>{0}−{1}</dateRangePattern>
@@ -1112,109 +1116,62 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">Sau</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">sau</month>
-							<month type="1" alt="proposed-x1002" draft="unconfirmed">Saus</month>
-							<month type="1" alt="proposed-x1003" draft="unconfirmed">Saus.</month>
+							<month type="1">Saus.</month>
 							<month type="2">Vas</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">vas</month>
-							<month type="2" alt="proposed-x1002" draft="unconfirmed">Vas.</month>
-							<month type="3">Kov</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">Kov.</month>
-							<month type="3" alt="proposed-x1002" draft="unconfirmed">kov</month>
-							<month type="4">Bal</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">Bal.</month>
-							<month type="4" alt="proposed-x1002" draft="unconfirmed">bal</month>
-							<month type="5">Geg</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">Geg.</month>
-							<month type="5" alt="proposed-x1002" draft="unconfirmed">geg</month>
-							<month type="6">Bir</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">Bir.</month>
-							<month type="6" alt="proposed-x1002" draft="unconfirmed">bir</month>
-							<month type="7">Lie</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">Liep.</month>
-							<month type="7" alt="proposed-x1002" draft="unconfirmed">lie</month>
-							<month type="8">Rgp</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">Rugpj.</month>
-							<month type="8" alt="proposed-x1002" draft="unconfirmed">rgp</month>
-							<month type="9">Rgs</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">Rugs.</month>
-							<month type="9" alt="proposed-x1002" draft="unconfirmed">rgs</month>
-							<month type="10">Spl</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">spl</month>
-							<month type="10" alt="proposed-x1002" draft="unconfirmed">Spal.</month>
-							<month type="11">Lap</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">lap</month>
-							<month type="11" alt="proposed-x1002" draft="unconfirmed">Lapkr.</month>
-							<month type="12">Grd</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">grd</month>
-							<month type="12" alt="proposed-x1002" draft="unconfirmed">Gruod.</month>
+							<month type="3">Kov.</month>
+							<month type="4">Bal.</month>
+							<month type="5">Geg.</month>
+							<month type="6">Bir.</month>
+							<month type="7">Liep.</month>
+							<month type="8">Rugp.</month>
+							<month type="9">Rugs.</month>
+							<month type="10">Spal.</month>
+							<month type="11">Lapkr.</month>
+							<month type="12">Gruod.</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">S</month>
+							<month type="2">V</month>
+							<month type="3">K</month>
+							<month type="4">B</month>
+							<month type="5">G</month>
+							<month type="6">B</month>
+							<month type="7">L</month>
+							<month type="8">R</month>
+							<month type="9">R</month>
+							<month type="10">S</month>
+							<month type="11">L</month>
+							<month type="12">G</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">sausis</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">sausio</month>
+							<month type="1">sausio</month>
 							<month type="2">vasaris</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">vasario</month>
 							<month type="3">kovas</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">kovo</month>
 							<month type="4">balandis</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">balandžis</month>
-							<month type="4" alt="proposed-x1002" draft="unconfirmed">balandžio</month>
 							<month type="5">gegužė</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">gegužės</month>
 							<month type="6">birželis</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">birželio</month>
 							<month type="7">liepa</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">liepos</month>
 							<month type="8">rugpjūtis</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">rugpjūčio</month>
 							<month type="9">rugsėjis</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">rugsėjo</month>
 							<month type="10">spalis</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">spalio</month>
 							<month type="11">lapkritis</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">lapkričio</month>
 							<month type="12">gruodis</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">gruodžio</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1">Saus.</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">Sau</month>
-							<month type="1" alt="proposed-x1002" draft="unconfirmed">sau</month>
 							<month type="2">Vas.</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">vas</month>
-							<month type="2" alt="proposed-x1002" draft="unconfirmed">Vas</month>
-							<month type="3">kov</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">Kov</month>
+							<month type="3">Kov.</month>
 							<month type="4">Bal.</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">Bal</month>
-							<month type="4" alt="proposed-x1002" draft="unconfirmed">bal</month>
 							<month type="5">Geg.</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">Geg</month>
-							<month type="5" alt="proposed-x1002" draft="unconfirmed">geg</month>
 							<month type="6">Bir.</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">Bir</month>
-							<month type="6" alt="proposed-x1002" draft="unconfirmed">bir</month>
 							<month type="7">Liep.</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">Lie</month>
-							<month type="7" alt="proposed-x1002" draft="unconfirmed">L</month>
-							<month type="8">Rugpj.</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">rgp</month>
-							<month type="8" alt="proposed-x1002" draft="unconfirmed">Rgp</month>
+							<month type="8">Rugp.</month>
 							<month type="9">Rugs.</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">Rgs</month>
-							<month type="9" alt="proposed-x1002" draft="unconfirmed">rgs</month>
 							<month type="10">Spal.</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">spl</month>
-							<month type="10" alt="proposed-x1002" draft="unconfirmed">Spl</month>
 							<month type="11">Lapkr.</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">lap</month>
-							<month type="11" alt="proposed-x1002" draft="unconfirmed">Lap</month>
 							<month type="12">Gruod.</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">Grd</month>
-							<month type="12" alt="proposed-x1002" draft="unconfirmed">grd</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">S</month>
@@ -1232,29 +1189,17 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Sausis</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">sausis</month>
 							<month type="2">Vasaris</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">vasaris</month>
 							<month type="3">Kovas</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">kovas</month>
 							<month type="4">Balandis</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">balandis</month>
 							<month type="5">Gegužė</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">gegužė</month>
 							<month type="6">Birželis</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">birželis</month>
 							<month type="7">Liepa</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">liepa</month>
 							<month type="8">Rugpjūtis</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">rugpjūtis</month>
 							<month type="9">Rugsėjis</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">rugsėjis</month>
 							<month type="10">Spalis</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">spalis</month>
 							<month type="11">Lapkritis</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">lapkritis</month>
 							<month type="12">Gruodis</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">gruodis</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1269,6 +1214,15 @@
 							<day type="fri">Pn</day>
 							<day type="sat">Št</day>
 						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">P</day>
+							<day type="tue">A</day>
+							<day type="wed">T</day>
+							<day type="thu">K</day>
+							<day type="fri">P</day>
+							<day type="sat">Š</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">sekmadienis</day>
 							<day type="mon">pirmadienis</day>
@@ -1282,17 +1236,12 @@
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
 							<day type="sun">Sk</day>
-							<day type="mon">Pi</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">Pr</day>
-							<day type="tue">A</day>
-							<day type="wed">T</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">Tr</day>
-							<day type="thu">K</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">Kt</day>
-							<day type="fri">Pe</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">Pn</day>
-							<day type="sat">Š</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">Št</day>
+							<day type="mon">Pr</day>
+							<day type="tue">An</day>
+							<day type="wed">Tr</day>
+							<day type="thu">Kt</day>
+							<day type="fri">Pn</day>
+							<day type="sat">Št</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -1303,33 +1252,55 @@
 							<day type="fri">P</day>
 							<day type="sat">Š</day>
 						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sekmadienis</day>
+							<day type="mon">pirmadienis</day>
+							<day type="tue">antradienis</day>
+							<day type="wed">trečiadienis</day>
+							<day type="thu">ketvirtadienis</day>
+							<day type="fri">penktadienis</day>
+							<day type="sat">šeštadienis</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
+							<quarter type="1">I k.</quarter>
+							<quarter type="2">II k.</quarter>
+							<quarter type="3">III k.</quarter>
+							<quarter type="4">IV ketv.</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">I</quarter>
+							<quarter type="2">II</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">IV</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">pirmas ketvirtis</quarter>
-							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">1. ketvirtis</quarter>
-							<quarter type="2">antras ketvirtis</quarter>
-							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">2. ketvirtis</quarter>
-							<quarter type="3">trečias ketvirtis</quarter>
-							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">3. ketvirtis</quarter>
-							<quarter type="4">ketvirtas ketvirtis</quarter>
-							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">4. ketvirtis</quarter>
+							<quarter type="1">I ketvirtis</quarter>
+							<quarter type="2">II ketvirtis</quarter>
+							<quarter type="3">III ketvirtis</quarter>
+							<quarter type="4">IV ketvirtis</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">1K</quarter>
-							<quarter type="2">2K</quarter>
-							<quarter type="3">3K</quarter>
-							<quarter type="4">4K</quarter>
+							<quarter type="1">I ketv.</quarter>
+							<quarter type="2">II ketv.</quarter>
+							<quarter type="3">III ketv.</quarter>
+							<quarter type="4">IV ketv.</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">I</quarter>
+							<quarter type="2">II</quarter>
+							<quarter type="4">IV</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">I ketvirtis</quarter>
+							<quarter type="2">II ketvirtis</quarter>
+							<quarter type="3">III ketvirtis</quarter>
+							<quarter type="4">IV ketvirtis</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1337,10 +1308,15 @@
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">pr.p.</dayPeriod>
+							<dayPeriod type="noon">vidurdienis</dayPeriod>
 							<dayPeriod type="pm">pop.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="noon">vid.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">priešpiet</dayPeriod>
+							<dayPeriod type="noon">vidurdienis</dayPeriod>
 							<dayPeriod type="pm">popiet</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -1358,7 +1334,7 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>y 'm'. MMMM d 'd'.,EEEE</pattern>
+							<pattern>y 'm'. MMMM d 'd'., EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -1368,7 +1344,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy.MM.dd</pattern>
+							<pattern>y MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1406,96 +1382,107 @@
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="MEd">M-d, E</dateFormatItem>
 						<dateFormatItem id="MMdd">MM.dd</dateFormatItem>
 						<dateFormatItem id="MMMdd">MMM-dd</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM d, E</dateFormatItem>
+						<dateFormatItem id="yMd">m-M-d</dateFormatItem>
+						<dateFormatItem id="yMEd">y-M-d EEE</dateFormatItem>
+						<dateFormatItem id="yMMMd">m MMM d</dateFormatItem>
+						<dateFormatItem id="yMMMEd">y MMM d, EEE</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">yyyy.MM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d">d-d</greatestDifference>
+							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="h">h-h a</greatestDifference>
+							<greatestDifference id="a">H–H</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH-HH</greatestDifference>
+							<greatestDifference id="H">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm-HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm-HH:mm</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm-HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm-HH:mm v</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="h">h-h a v</greatestDifference>
+							<greatestDifference id="a">H–H v</greatestDifference>
+							<greatestDifference id="h">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH-HH v</greatestDifference>
+							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
-							<greatestDifference id="M">M-M</greatestDifference>
+							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">MM-dd - MM-dd</greatestDifference>
-							<greatestDifference id="M">MM-dd - MM-dd</greatestDifference>
+							<greatestDifference id="d">MM-dd – MM-dd</greatestDifference>
+							<greatestDifference id="M">MM-dd – MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">MM-ddE - MM-ddE</greatestDifference>
-							<greatestDifference id="M">MM-ddE - MM-ddE</greatestDifference>
+							<greatestDifference id="d">MM-dd, E – MM-dd, E</greatestDifference>
+							<greatestDifference id="M">MM-dd, E – MM-dd, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">MMM-MMM</greatestDifference>
+							<greatestDifference id="M">LLL–LLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">MMM d 'd'.-d 'd'.</greatestDifference>
-							<greatestDifference id="M">MMM d 'd'. - MMM d 'd'.</greatestDifference>
+							<greatestDifference id="d">MMM. d 'd'.–d 'd'</greatestDifference>
+							<greatestDifference id="M">MMM d 'd'.– MMM d 'd'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">MMM d 'd'.E - d 'd'.E</greatestDifference>
-							<greatestDifference id="M">MMM d 'd'.E - MMM d 'd'.E</greatestDifference>
+							<greatestDifference id="d">MMM d 'd'. E. – d 'd'. E.</greatestDifference>
+							<greatestDifference id="M">MMM d 'd'. E. - MMM d 'd'. E.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y-y</greatestDifference>
+							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">yyyy-MM - yyyy-MM</greatestDifference>
-							<greatestDifference id="y">yyyy-MM - yyyy-MM</greatestDifference>
+							<greatestDifference id="M">yyyy-MM – yyyy-MM</greatestDifference>
+							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">yyyy-MM-dd - yyyy-MM-dd</greatestDifference>
-							<greatestDifference id="M">yyyy-MM-dd - yyyy-MM-dd</greatestDifference>
-							<greatestDifference id="y">yyyy-MM-dd - yyyy-MM-dd</greatestDifference>
+							<greatestDifference id="d">yyyy-MM-dd–yyyy-MM-dd</greatestDifference>
+							<greatestDifference id="M">yyyy-MM-dd– yyyy-MM-dd</greatestDifference>
+							<greatestDifference id="y">yyyy-MM-dd – yyyy-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">yyyy-MM-ddE - yyyy-MM-ddE</greatestDifference>
-							<greatestDifference id="M">yyyy-MM-ddE - yyyy-MM-ddE</greatestDifference>
-							<greatestDifference id="y">yyyy-MM-ddE - yyyy-MM-ddE</greatestDifference>
+							<greatestDifference id="d">yyyy-MM-dd E. – yyyy-MM-dd E.</greatestDifference>
+							<greatestDifference id="M">yyyy-MM-dd E. – yyyy-MM-dd E.</greatestDifference>
+							<greatestDifference id="y">yyyy-MM-dd E. – yyyy-MM-dd E.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y 'm'. MMM-MMM</greatestDifference>
-							<greatestDifference id="y">y 'm'. MMM - y 'm'. MMM</greatestDifference>
+							<greatestDifference id="y">yyyy-MM – yyyy-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">y 'm'. MMM d 'd'.-d 'd'.</greatestDifference>
-							<greatestDifference id="M">y 'm'. MMM d 'd'. - MMM d 'd'.</greatestDifference>
-							<greatestDifference id="y">y 'm'. MMM d 'd'. - y 'm'. MMM d 'd'.</greatestDifference>
+							<greatestDifference id="d">y 'm'. MMM d 'd.'–d 'd'.</greatestDifference>
+							<greatestDifference id="M">yyyy-MM-dd – MM-d</greatestDifference>
+							<greatestDifference id="y">yyyy-MM-dd – yyyy-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">y 'm'. MMM d 'd'.,E - d 'd'.,E</greatestDifference>
-							<greatestDifference id="M">y 'm'. MMM d 'd'.,E - MMM d 'd'.,E</greatestDifference>
-							<greatestDifference id="y">y 'm'. MMM d 'd'.,E - y 'm'. MMM d 'd'.,E</greatestDifference>
+							<greatestDifference id="d">yyyy-MM-dd E. –  yyyy-MM-dd E.</greatestDifference>
+							<greatestDifference id="M">yyyy-MM-dd E. –  yyyy-MM-dd E.</greatestDifference>
+							<greatestDifference id="y">yyyy-MM-dd E. –  yyyy-MM-dd E.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">yyyy-MM– MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1505,12 +1492,21 @@
 					</field>
 					<field type="year">
 						<displayName>metai</displayName>
+						<relative type="-1">Praėjusiais metais</relative>
+						<relative type="0">Šiais metais</relative>
+						<relative type="1">Kitais metais</relative>
 					</field>
 					<field type="month">
 						<displayName>mėnuo</displayName>
+						<relative type="-1">Praėjusį mėnesį</relative>
+						<relative type="0">Šį mėnesį</relative>
+						<relative type="1">Kitą mėnesį</relative>
 					</field>
 					<field type="week">
 						<displayName>savaitė</displayName>
+						<relative type="-1">Praėjusią savaitę</relative>
+						<relative type="0">Šią savaitę</relative>
+						<relative type="1">Kitą savaitę</relative>
 					</field>
 					<field type="day">
 						<displayName>diena</displayName>
@@ -1527,7 +1523,6 @@
 					</field>
 					<field type="dayperiod">
 						<displayName>dienos metas</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">dienų laikotarpis</displayName>
 					</field>
 					<field type="hour">
 						<displayName>valanda</displayName>
@@ -1539,8 +1534,7 @@
 						<displayName>sekundė</displayName>
 					</field>
 					<field type="zone">
-						<displayName>juosta</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">laiko juosta</displayName>
+						<displayName>laiko juosta</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -1548,12 +1542,13 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<regionFormat>Laikas ({0})</regionFormat>
 			<fallbackFormat>{0} ({1})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nežinoma</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
-				<exemplarCity draft="provisional">Andora</exemplarCity>
+				<exemplarCity>Andora</exemplarCity>
 			</zone>
 			<zone type="Asia/Dubai">
 				<exemplarCity>Dubajus</exemplarCity>
@@ -1790,7 +1785,7 @@
 				<exemplarCity>Kosta Rika</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
-				<exemplarCity draft="provisional">Kalėdų sala</exemplarCity>
+				<exemplarCity>Kalėdų Sala</exemplarCity>
 			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity>Nikosija</exemplarCity>
@@ -1886,10 +1881,10 @@
 				<exemplarCity>Konakris</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
-				<exemplarCity draft="provisional">Gvadelupė</exemplarCity>
+				<exemplarCity>Gvadalupė</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
-				<exemplarCity draft="provisional">Atėnai</exemplarCity>
+				<exemplarCity>Atėnai</exemplarCity>
 			</zone>
 			<zone type="America/Guatemala">
 				<exemplarCity>Gvatemala</exemplarCity>
@@ -1999,6 +1994,9 @@
 			<zone type="Africa/Monrovia">
 				<exemplarCity>Monrovija</exemplarCity>
 			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity>Vilnius</exemplarCity>
+			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity>Liuksemburgas</exemplarCity>
 			</zone>
@@ -2042,7 +2040,7 @@
 				<exemplarCity>Mauricijus</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
-				<exemplarCity draft="provisional">Maldyvai</exemplarCity>
+				<exemplarCity>Maldyvai</exemplarCity>
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>Tichuana</exemplarCity>
@@ -2093,7 +2091,7 @@
 				<exemplarCity>Varšuva</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
-				<exemplarCity draft="unconfirmed">Pitcairno salos</exemplarCity>
+				<exemplarCity>Pitkerno Salos</exemplarCity>
 			</zone>
 			<zone type="America/Puerto_Rico">
 				<exemplarCity>Puerto Rikas</exemplarCity>
@@ -2237,7 +2235,7 @@
 				<exemplarCity>Zaporožė</exemplarCity>
 			</zone>
 			<zone type="Pacific/Midway">
-				<exemplarCity>Jungtinių Valstijų mažosios aplinkinės salos (Midway</exemplarCity>
+				<exemplarCity>Jungtinių Valstijų mažosios aplinkinės salos (Midway)</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>Džonstonas</exemplarCity>
@@ -2306,7 +2304,7 @@
 				<exemplarCity>Niujorkas</exemplarCity>
 			</zone>
 			<zone type="America/Montevideo">
-				<exemplarCity>Montevidëjas</exemplarCity>
+				<exemplarCity>Montevidėjas</exemplarCity>
 			</zone>
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Samarkandas</exemplarCity>
@@ -2393,6 +2391,7 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
+					<generic>Amazonės laikas</generic>
 					<standard>Amazonės laikas</standard>
 					<daylight>Amazonės vasaros laikas</daylight>
 				</long>
@@ -2411,6 +2410,13 @@
 					<daylight>Rytų vasaros laikas</daylight>
 				</long>
 			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>Kalnų laikas</generic>
+					<standard>Kalnų standartinis laikas</standard>
+					<daylight>Kalnų dienos laikas</daylight>
+				</long>
+			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<generic>Ramiojo vandenyno laikas</generic>
@@ -2420,6 +2426,7 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
+					<generic>Anadyro laikas</generic>
 					<standard>Anadyrės laikas</standard>
 					<daylight>Anadyrės vasaros laikas</daylight>
 				</long>
@@ -2446,13 +2453,16 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
+					<generic>Argentinos laikas</generic>
 					<standard>Argentinos laikas</standard>
 					<daylight>Argentinos vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
+					<generic>Argentinos vakarų laikas</generic>
 					<standard>Vakarų Argentinos laikas</standard>
+					<daylight>Argentinos vakarų vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -2473,6 +2483,7 @@
 					<standard>Atlanto žiemos laikas</standard>
 					<daylight>Atlanto vasaros laikas</daylight>
 				</long>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2551,6 +2562,7 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
+					<generic>Brazilijos laikas</generic>
 					<standard>Brazilijos laikas</standard>
 					<daylight>Brazilijos vasaros laikas</daylight>
 				</long>
@@ -2602,6 +2614,7 @@
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
+					<generic>Čoibalsano laikas</generic>
 					<standard>Choibalsan laikas</standard>
 					<daylight>Choibalsan vasaros laikas</daylight>
 				</long>
@@ -2672,12 +2685,21 @@
 					<standard>Vidurio Europos laikas</standard>
 					<daylight>Vidurio Europos vasaros laikas</daylight>
 				</long>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Rytų Europos laikas</standard>
 					<daylight>Rytų Europos vasaros laikas</daylight>
 				</long>
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<standard>Vakarų Europos laikas</standard>
+					<daylight>Vakarų Europos vasaros laikas</daylight>
+				</long>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2764,6 +2786,7 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
+					<generic>Havajų–Aleutų laikas</generic>
 					<standard>Havajų-Aleutian žiemos laikas</standard>
 				</long>
 			</metazone>
@@ -2775,6 +2798,7 @@
 			</metazone>
 			<metazone type="Hovd">
 				<long>
+					<generic>Kobdo laikas</generic>
 					<standard>Hovd laikas</standard>
 					<daylight>Hovd vasaros laikas</daylight>
 				</long>
@@ -2791,16 +2815,19 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
+					<generic>Indonezijos centrinis laikas</generic>
 					<standard>Centrinės Indokinijos laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
+					<generic>Indonezijos rytų laikas</generic>
 					<standard>Rytų Indonezijos laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
+					<generic>Indonezijos vakarų laikas</generic>
 					<standard>Vakarų Indonezijos laikas</standard>
 				</long>
 			</metazone>
@@ -2812,6 +2839,7 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
+					<generic>Irkutsko laikas</generic>
 					<standard>Irkutsko laikas</standard>
 					<daylight>Irkutsko vasaros laikas</daylight>
 				</long>
@@ -2829,6 +2857,7 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
+					<generic>Kamčiatkos laikas</generic>
 					<standard>Kamčiatkos Petropavlovsko laikas</standard>
 					<daylight>Kamčiatkos Petropavlovsko vasaros laikas</daylight>
 				</long>
@@ -2847,12 +2876,14 @@
 				<long>
 					<generic>Rytų Kazachstano laikas</generic>
 					<standard>Rytų Kazachstano žiemos laikas</standard>
+					<daylight>Kazachstano rytų vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<generic>Vakarų Kazachstano laikas</generic>
 					<standard>Vakarų Kazachstano žiemos laikas</standard>
+					<daylight>Kazachstano vakarų vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kizilorda">
@@ -2874,6 +2905,7 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
+					<generic>Krasnojarsko laikas</generic>
 					<standard>Krasnojarsko laikas</standard>
 					<daylight>Krasnojarsko vasaros laikas</daylight>
 				</long>
@@ -2922,8 +2954,14 @@
 					<daylight>Macau vasaros laikas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<generic>Makvario laikas</generic>
+				</long>
+			</metazone>
 			<metazone type="Magadan">
 				<long>
+					<generic>Magadano laikas</generic>
 					<standard>Magadano laikas</standard>
 					<daylight>Magadano vasaros laikas</daylight>
 				</long>
@@ -2961,6 +2999,7 @@
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
+					<generic>Mongolijos laikas</generic>
 					<standard>Ulan Batoro laikas</standard>
 					<daylight>Ulan Batoro vasaros laikas</daylight>
 				</long>
@@ -3017,6 +3056,13 @@
 					<standard>Norfolko salų laikas</standard>
 				</long>
 			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic>Noronjos laikas</generic>
+					<standard>Fernando de Noronjos laikas</standard>
+					<daylight>Fernando de Noronjos vasaros laikas</daylight>
+				</long>
+			</metazone>
 			<metazone type="North_Mariana">
 				<long>
 					<standard>Šiaurės Marianos salų laikas</standard>
@@ -3024,12 +3070,14 @@
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
+					<generic>Novosibirsko laikas</generic>
 					<standard>Novosibirsko laikas</standard>
 					<daylight>Novosibirsko vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
+					<generic>Omsko laikas</generic>
 					<standard>Omsko laikas</standard>
 					<daylight>Omsko vasaros laikas</daylight>
 				</long>
@@ -3096,12 +3144,14 @@
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
+					<generic>Sachalino laikas</generic>
 					<standard>Sachalino laikas</standard>
 					<daylight>Sachalino vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
+					<generic>Samaros laikas</generic>
 					<standard>Samaros laikas</standard>
 					<daylight>Samaros vasaros laikas</daylight>
 				</long>
@@ -3256,12 +3306,14 @@
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
+					<generic>Vladivostoko laikas</generic>
 					<standard>Vladivostoko laikas</standard>
 					<daylight>Vladivostoko vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
+					<generic>Volgogrado laikas</generic>
 					<standard>Volgogrado laikas</standard>
 					<daylight>Volgogrado vasaros laikas</daylight>
 				</long>
@@ -3278,12 +3330,14 @@
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
+					<generic>Jakutsko laikas</generic>
 					<standard>Jakutsko laikas</standard>
 					<daylight>Jakutsko vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
+					<generic>Jekaterinburgo laikas</generic>
 					<standard>Jekaterinburgo laikas</standard>
 					<daylight>Jekaterinburgo vasaros laikas</daylight>
 				</long>
@@ -3297,11 +3351,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem alt="proposed-x1001" draft="unconfirmed">arab</defaultNumberingSystem>
 		<symbols>
-			<decimal>,</decimal>
-			<group>.</group>
-			<group alt="proposed-x1001" draft="unconfirmed">,</group>
-			<group alt="proposed-x1002" draft="unconfirmed"> </group>
+			<decimal>.</decimal>
+			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<nativeZeroDigit>0</nativeZeroDigit>
@@ -3319,6 +3372,22 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000">0.0 tūkst'.'</pattern>
+					<pattern type="10000">00 tūkst'.'</pattern>
+					<pattern type="100000">000 tūkst'.'</pattern>
+					<pattern type="1000000">0.0 mln'.'</pattern>
+					<pattern type="10000000">00 mln'.'</pattern>
+					<pattern type="100000000">000 mln'.'</pattern>
+					<pattern type="1000000000">0.0 mlrd'.'</pattern>
+					<pattern type="10000000000">00 mlrd'.'</pattern>
+					<pattern type="100000000000">000 mlrd'.'</pattern>
+					<pattern type="1000000000000">0.0 trln'.'</pattern>
+					<pattern type="10000000000000">00 trln'.'</pattern>
+					<pattern type="100000000000000">000 trln'.'</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats>
 			<scientificFormatLength>
@@ -3330,8 +3399,7 @@
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
-					<pattern alt="proposed-x1001" draft="unconfirmed">#,##0 %</pattern>
+					<pattern>#,##0 %</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -3621,6 +3689,7 @@
 				<displayName count="few">Brazilijos realai</displayName>
 				<displayName count="one">Brazilijos realas</displayName>
 				<displayName count="other">Brazilijos realai</displayName>
+				<symbol>BRL</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brazilijos naujasis kruzadas</displayName>
@@ -3737,10 +3806,11 @@
 				<displayName count="other">Kinijos &quot;People&quot; banko doleriai</displayName>
 			</currency>
 			<currency type="CNY">
-				<displayName>Ženminbi juanis</displayName>
+				<displayName>Kinijos juanis</displayName>
 				<displayName count="few">Kinijos juanis</displayName>
 				<displayName count="one">Kinijos juanis</displayName>
 				<displayName count="other">Kinijos juaniai</displayName>
+				<symbol>CNY</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Kolumbijos pesas</displayName>
@@ -3894,13 +3964,10 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Euras</displayName>
-				<displayName count="few">Eurai</displayName>
-				<displayName count="few" alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<displayName count="one">Euras</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<displayName count="other">Eurai</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">euro</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">euro</displayName>
+				<displayName count="few">eurai</displayName>
+				<displayName count="one">euras</displayName>
+				<displayName count="other">EUR</displayName>
+				<symbol>EUR</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Suomijos markė</displayName>
@@ -3927,10 +3994,11 @@
 				<displayName count="other">Prancūzijos frankai</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName>Svaras sterlingų</displayName>
-				<displayName count="few">Britanijos svaro sterlingai</displayName>
+				<displayName>Didžiosios Britanijos svaras sterlingų</displayName>
+				<displayName count="few">Didžiosios Britanijos svaro sterlingai</displayName>
 				<displayName count="one">Didžiosios Britanijos svaras sterlingų</displayName>
 				<displayName count="other">Didžiosios Britanijos svarai sterlingų</displayName>
+				<symbol>GBP</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Gruzinų kupon larits</displayName>
@@ -4087,6 +4155,7 @@
 				<displayName count="few">Indijos rupijos</displayName>
 				<displayName count="one">Indijos rupija</displayName>
 				<displayName count="other">Indijos rupijos</displayName>
+				<symbol>INR</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irako dinaras</displayName>
@@ -4131,10 +4200,11 @@
 				<displayName count="other">Jordanijos dinarai</displayName>
 			</currency>
 			<currency type="JPY">
-				<displayName>Jena</displayName>
-				<displayName count="few">Japonijos jena</displayName>
+				<displayName>Japonijos jena</displayName>
+				<displayName count="few">Japonijos jenos</displayName>
 				<displayName count="one">Japonijos jena</displayName>
-				<displayName count="other">Japonijos jena</displayName>
+				<displayName count="other">Japonijos jenų</displayName>
+				<symbol>JPY</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Kenijos šilingas</displayName>
@@ -4236,7 +4306,8 @@
 				<displayName>Litas</displayName>
 				<displayName count="few">Lietuvos litai</displayName>
 				<displayName count="one">Lietuvos litas</displayName>
-				<displayName count="other">Lietuvos litai</displayName>
+				<displayName count="other">Lietuvos litų</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Lietuvos talonas</displayName>
@@ -4590,7 +4661,8 @@
 				<displayName>Rusijos rublis</displayName>
 				<displayName count="few">Rusijos rubliai</displayName>
 				<displayName count="one">Rusijos rublis</displayName>
-				<displayName count="other">Rusijos rubliai</displayName>
+				<displayName count="other">Rusijos rublių</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rusijos rublis (1991-1998)</displayName>
@@ -4753,7 +4825,6 @@
 				<displayName count="few">Naujasis Turkmėnistano manatas</displayName>
 				<displayName count="one">Naujasis Turkmėnistano manatas</displayName>
 				<displayName count="other">Naujasis Turkmėnistano manatas</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">NaujasisTurkmėnistano manatas</displayName>
 			</currency>
 			<currency type="TND">
 				<displayName>Tuniso dinaras</displayName>
@@ -4778,8 +4849,6 @@
 				<displayName count="few">Senoji Turkijos lira</displayName>
 				<displayName count="one">Senoji Turkijos lira</displayName>
 				<displayName count="other">Senoji Turkijos lira</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Turkijos lira</displayName>
-				<displayName alt="proposed-x1002" draft="unconfirmed">senasis turkijos lira</displayName>
 			</currency>
 			<currency type="TRY">
 				<displayName>Naujoji Turkijos lira</displayName>
@@ -4833,7 +4902,8 @@
 				<displayName>JAV doleris</displayName>
 				<displayName count="few">JAV doleriai</displayName>
 				<displayName count="one">JAV doleris</displayName>
-				<displayName count="other">JAV doleriai</displayName>
+				<displayName count="other">JAV dolerių</displayName>
+				<symbol>USD</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>JAV doleris (kitos dienos)</displayName>
@@ -4916,22 +4986,14 @@
 			<currency type="XAG">
 				<displayName>Sidabras</displayName>
 				<displayName count="few">Sidabras</displayName>
-				<displayName count="few" alt="proposed-x1001" draft="unconfirmed">uncijų sidabro</displayName>
 				<displayName count="one">Sidabras</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">uncija sidabro</displayName>
 				<displayName count="other">Sidabras</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uncijų sidabro</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">uncija sidabro</displayName>
 			</currency>
 			<currency type="XAU">
 				<displayName>Auksas</displayName>
 				<displayName count="few">Auksas</displayName>
-				<displayName count="few" alt="proposed-x1001" draft="unconfirmed">uncijų aukso</displayName>
 				<displayName count="one">Auksas</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">uncija aukso</displayName>
 				<displayName count="other">Auksas</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uncijų aukso</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">uncija aukso</displayName>
 			</currency>
 			<currency type="XBA">
 				<displayName>Europos suvestinės vienetas</displayName>
@@ -4954,11 +5016,8 @@
 			<currency type="XBD">
 				<displayName>Europos valiutos / apskaitos vienetas (XBD)</displayName>
 				<displayName count="few">Europos valiutos / apskaitos vienetas (XBD)</displayName>
-				<displayName count="few" alt="proposed-x1001" draft="unconfirmed">Europos valiutos / apskaitos vienetas (XBC)</displayName>
 				<displayName count="one">Europos valiutos / apskaitos vienetas (XBD)</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Europos valiutos / apskaitos vienetas (XBC)</displayName>
 				<displayName count="other">Europos valiutos / apskaitos vienetai (XBD)</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Europos valiutos / apskaitos vienetai (XBC)</displayName>
 			</currency>
 			<currency type="XCD">
 				<displayName>Rytų Karibų doleris</displayName>
@@ -4996,12 +5055,8 @@
 			<currency type="XPD">
 				<displayName>Paladis</displayName>
 				<displayName count="few">Paladis</displayName>
-				<displayName count="few" alt="proposed-x1001" draft="unconfirmed">uncijų paladžio</displayName>
 				<displayName count="one">Paladis</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">uncija paladžio</displayName>
 				<displayName count="other">Paladis</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uncijų paladžio</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">uncija paladžio</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP frankas</displayName>
@@ -5012,12 +5067,8 @@
 			<currency type="XPT">
 				<displayName>Platina</displayName>
 				<displayName count="few">Platina</displayName>
-				<displayName count="few" alt="proposed-x1001" draft="unconfirmed">uncijų platinos</displayName>
 				<displayName count="one">Platina</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">uncija platinos</displayName>
 				<displayName count="other">Platina</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">uncijų platinos</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">uncija platinos</displayName>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET fondai</displayName>
@@ -5032,7 +5083,7 @@
 				<displayName count="other">Tikrinamas valiutos kodas</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>Nežinoma arba neteisinga valiuta</displayName>
+				<displayName>Nežinoma valiuta</displayName>
 				<displayName count="few">Nežinoma arba neteisinga valiuta</displayName>
 				<displayName count="one">Nežinoma arba neteisinga valiuta</displayName>
 				<displayName count="other">Nežinoma arba neteisinga valiuta</displayName>
@@ -5126,65 +5177,282 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="few">{0} dienos</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} d.</unitPattern>
 			<unitPattern count="few" alt="short">{0} d.</unitPattern>
 			<unitPattern count="one">{0} diena</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0} d.</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">{0} dieną</unitPattern>
 			<unitPattern count="one" alt="short">{0} d.</unitPattern>
 			<unitPattern count="other">{0} dienų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} d.</unitPattern>
 			<unitPattern count="other" alt="short">{0} d.</unitPattern>
+		</unit>
+		<unit type="day-future">
+			<unitPattern count="0">Po 0 dienų</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Po 1 dienos</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">po {0} dienos</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">In {0} days</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">per {0} d.</unitPattern>
+			<unitPattern count="one">po {0} dieną</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Po {0} dienos</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">per {0} d.</unitPattern>
+			<unitPattern count="other">po {0} dienų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">per {0} d.</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="0">Prieš 0 dienų</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Prieš 1 dieną</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">prieš {0} dienos</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} days ago</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">prieš {0} d.</unitPattern>
+			<unitPattern count="one">prieš {0} dieną</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">prieš {0} d.</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">Prieš {0} dieną</unitPattern>
+			<unitPattern count="other">prieš {0} dienų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">prieš {0} d.</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="few">{0} valandos</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} val.</unitPattern>
 			<unitPattern count="few" alt="short">{0} val.</unitPattern>
-			<unitPattern count="one">{0} valanda</unitPattern>
+			<unitPattern count="one">{0} valandą</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0} val.</unitPattern>
 			<unitPattern count="one" alt="short">{0} val.</unitPattern>
 			<unitPattern count="other">{0} valandų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} val.</unitPattern>
 			<unitPattern count="other" alt="short">{0} val.</unitPattern>
+		</unit>
+		<unit type="hour-future">
+			<unitPattern count="0">Po 0 valandų</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Po 1 valandos</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">po {0} valandos</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">In {0} hours</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">per {0} val.</unitPattern>
+			<unitPattern count="one">po {0} valandą</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">per {0} val.</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">Po {0} valandos</unitPattern>
+			<unitPattern count="other">po {0} valandų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">per {0} val.</unitPattern>
+		</unit>
+		<unit type="hour-past">
+			<unitPattern count="0">Prieš 0 valandų</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Prieš 1 valandą</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">prieš {0} valandos</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">prieš {0} val.</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">{0} hours ao</unitPattern>
+			<unitPattern count="one">prieš {0} valandą</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prieš {0} valandą</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">prieš {0} val.</unitPattern>
+			<unitPattern count="other">prieš {0} valandų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">prieš {0} val.</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="few">{0} minutės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} min.</unitPattern>
 			<unitPattern count="few" alt="short">{0} min.</unitPattern>
 			<unitPattern count="one">{0} minutė</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0} min.</unitPattern>
 			<unitPattern count="one" alt="short">{0} min.</unitPattern>
 			<unitPattern count="other">{0} minučių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} min.</unitPattern>
 			<unitPattern count="other" alt="short">{0} min.</unitPattern>
+		</unit>
+		<unit type="minute-future">
+			<unitPattern count="0">Po 0 minučių</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Po 1 minutės</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">po {0} minutės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">In {0} minutes</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">per {0} min.</unitPattern>
+			<unitPattern count="one">po {0} minutę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">per {0} min.</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">Po {0} minutės</unitPattern>
+			<unitPattern count="other">po {0} minučių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">per {0} min.</unitPattern>
+		</unit>
+		<unit type="minute-past">
+			<unitPattern count="0">Prieš 0 minučių</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Prieš 1 minutę</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">prieš {0} minutės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} minutes ago</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">prieš {0} min.</unitPattern>
+			<unitPattern count="one">prieš {0} minutę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">prieš {0} min.</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">Prieš {0} minutę</unitPattern>
+			<unitPattern count="other">prieš {0} minučių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">prieš {0} min.</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="few">{0} mėnesiai</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} mėn.</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">{0} mėnesį</unitPattern>
 			<unitPattern count="few" alt="short">{0} mėn.</unitPattern>
-			<unitPattern count="one">{0} mėnuo</unitPattern>
+			<unitPattern count="one">{0} mėnesio</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0} mėn.</unitPattern>
 			<unitPattern count="one" alt="short">{0} mėn.</unitPattern>
 			<unitPattern count="other">{0} mėnesių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} mėn.</unitPattern>
 			<unitPattern count="other" alt="short">{0} mėn.</unitPattern>
+		</unit>
+		<unit type="month-future">
+			<unitPattern count="0">Po 0 mėnesių</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Po 1 mėnesio</unitPattern>
+			<unitPattern count="few">po {0} mėnesį</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">In {0} months</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">per {0} mėn.</unitPattern>
+			<unitPattern count="one">po {0} mėnesio</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">per {0} mėn.</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">Po {0} mėnesio</unitPattern>
+			<unitPattern count="other">po {0} mėnesių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">per {0} mėn.</unitPattern>
+		</unit>
+		<unit type="month-past">
+			<unitPattern count="0">Prieš 0 mėnesių</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Prieš 1 mėnesį</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">prieš {0} mėnesį</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} months ago</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">prieš {0} mėn.</unitPattern>
+			<unitPattern count="one">prieš {0} mėnesio</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">prieš {0} mėn.</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">Prieš {0} mėnesį</unitPattern>
+			<unitPattern count="other">prieš {0} mėnesių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">prieš {0} mėn.</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="few">{0} sekundės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} sek.</unitPattern>
 			<unitPattern count="few" alt="short">{0} sek.</unitPattern>
-			<unitPattern count="one">{0} sekundė</unitPattern>
+			<unitPattern count="one">{0} sekundę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0} sek.</unitPattern>
 			<unitPattern count="one" alt="short">{0} sek.</unitPattern>
 			<unitPattern count="other">{0} sekundžių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} sek.</unitPattern>
 			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
+		</unit>
+		<unit type="second-future">
+			<unitPattern count="0">Po 0 sekundžių</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Po 1 sekundės</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">po {0} sekundės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">In {0} seconds</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">per {0} sek.</unitPattern>
+			<unitPattern count="one">po {0} sekundę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Po {0} sekundės</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">per {0} sek.</unitPattern>
+			<unitPattern count="other">po {0} sekundžių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">per {0} sek.</unitPattern>
+		</unit>
+		<unit type="second-past">
+			<unitPattern count="0">Prieš 0 sekundžių</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Prieš 1 sekundę</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">prieš {0} sekundės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">prieš {0} sek.</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">{0} seconds ago</unitPattern>
+			<unitPattern count="one">prieš {0} sekundę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prieš {0} sekundę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">prieš {0} sek.</unitPattern>
+			<unitPattern count="other">prieš {0} sekundžių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">prieš {0} sek.</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="few">{0} savaitės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} sav.</unitPattern>
 			<unitPattern count="few" alt="short">{0} sav.</unitPattern>
 			<unitPattern count="one">{0} savaitė</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0} sav.</unitPattern>
 			<unitPattern count="one" alt="short">{0} sav.</unitPattern>
 			<unitPattern count="other">{0} savaičių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} sav.</unitPattern>
 			<unitPattern count="other" alt="short">{0} sav.</unitPattern>
+		</unit>
+		<unit type="week-future">
+			<unitPattern count="0">Po 0 savaičių</unitPattern>
+			<unitPattern count="1">Po 1 savaitės</unitPattern>
+			<unitPattern count="few">po {0} savaitės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">In {0} weeks</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">per {0} sav.</unitPattern>
+			<unitPattern count="one">po {0} savaitę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Po {0} savaitės</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">per {0} sav.</unitPattern>
+			<unitPattern count="other">po {0} savaičių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">per {0} sav.</unitPattern>
+		</unit>
+		<unit type="week-past">
+			<unitPattern count="0">Prieš 0 savaičių</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Prieš 1 savaitę</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">prieš {0} savaitės</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">prieš {0} sav.</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">{0} weeks ago</unitPattern>
+			<unitPattern count="one">prieš {0} savaitę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prieš {0} savaitę</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">prieš {0} sav.</unitPattern>
+			<unitPattern count="other">prieš {0} savaičių</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">prieš {0} sav.</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="few">{0} metai</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} m.</unitPattern>
 			<unitPattern count="few" alt="short">{0} m.</unitPattern>
 			<unitPattern count="one">{0} metai</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">{0} metus</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">{0} m.</unitPattern>
 			<unitPattern count="one" alt="short">{0} m.</unitPattern>
 			<unitPattern count="other">{0} metų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} m.</unitPattern>
 			<unitPattern count="other" alt="short">{0} m.</unitPattern>
+		</unit>
+		<unit type="year-future">
+			<unitPattern count="0">Po 0 metų</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Po 1 metų</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">po {0} metai</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">In {0} years</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">per {0} m.</unitPattern>
+			<unitPattern count="one">po {0} metus</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Po {0} metų</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">per {0} m.</unitPattern>
+			<unitPattern count="other">po {0} metų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">per {0} m.</unitPattern>
+		</unit>
+		<unit type="year-past">
+			<unitPattern count="0">Prieš 0 metų</unitPattern>
+			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="1">Prieš 1 metus</unitPattern>
+			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">! please delete all count=0 and count=1</unitPattern>
+			<unitPattern count="few">prieš {0} metai</unitPattern>
+			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">{0} years ago</unitPattern>
+			<unitPattern count="few" alt="proposed-x1002" draft="unconfirmed">prieš {0} m.</unitPattern>
+			<unitPattern count="one">prieš {0} metus</unitPattern>
+			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prieš {0} metus</unitPattern>
+			<unitPattern count="one" alt="proposed-x1002" draft="unconfirmed">prieš {0} m.</unitPattern>
+			<unitPattern count="other">prieš {0} metų</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">prieš {0} m.</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="2" draft="contributed">{0} ir {1}</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0} ir {1}</listPatternPart>
+			<listPatternPart type="2">{0} ir {1}</listPatternPart>
+			<listPatternPart type="end">{0} ir {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
@@ -5199,4 +5467,3 @@
 		<reference type="RP1" uri="http://unicode.org/Public/UNIDATA/SpecialCasing.txt">Unicode Special Casing</reference>
 	</references>
 </ldml>
-

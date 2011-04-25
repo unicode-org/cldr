@@ -9,9 +9,7 @@
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0}({1})</localePattern>
-			<localePattern alt="proposed-x1001" draft="unconfirmed">{0}（{1}）</localePattern>
 			<localeSeparator>，</localeSeparator>
-			<localeSeparator alt="proposed-x1001" draft="unconfirmed">、</localeSeparator>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">アファル語</language>
@@ -42,6 +40,7 @@
 			<language type="art">人工諸語</language>
 			<language type="arw">アラワク語</language>
 			<language type="as">アッサム語</language>
+			<language type="asa">アス語</language>
 			<language type="ast">アストゥリアス語</language>
 			<language type="ath">アサパスカン語族</language>
 			<language type="aus">オーストラリア語族</language>
@@ -49,6 +48,7 @@
 			<language type="awa">アワディー語</language>
 			<language type="ay">アイマラ語</language>
 			<language type="az">アゼルバイジャン語</language>
+			<language type="az" alt="short" draft="contributed">アゼリー語</language>
 			<language type="ba">バシキール語</language>
 			<language type="bad">バンダ語</language>
 			<language type="bai">バミレケ語族</language>
@@ -60,6 +60,7 @@
 			<language type="bej">ベジャ語</language>
 			<language type="bem">ベンバ語</language>
 			<language type="ber">ベルベル諸語</language>
+			<language type="bez">ベナ語</language>
 			<language type="bg">ブルガリア語</language>
 			<language type="bh">ビハール語</language>
 			<language type="bho">ボージプリー語</language>
@@ -73,6 +74,7 @@
 			<language type="bo">チベット語</language>
 			<language type="br">ブルトン語</language>
 			<language type="bra">ブラジ語</language>
+			<language type="brx">ボド語</language>
 			<language type="bs">ボスニア語</language>
 			<language type="btk">バタク語</language>
 			<language type="bua">ブリヤート語</language>
@@ -117,8 +119,8 @@
 			<language type="dar">ダルガン語</language>
 			<language type="day">ダヤク語</language>
 			<language type="de">ドイツ語</language>
-			<language type="de_AT">ドイツ語（オーストリア）</language>
-			<language type="de_CH">正統ドイツ語（スイス）</language>
+			<language type="de_AT">ドイツ語[オーストリア]</language>
+			<language type="de_CH">正統ドイツ語[スイス]</language>
 			<language type="del">デラウェア語</language>
 			<language type="den">スレイビー語</language>
 			<language type="dgr">ドグリブ語</language>
@@ -131,6 +133,7 @@
 			<language type="dv">ディベヒ語</language>
 			<language type="dyu">デゥウラ語</language>
 			<language type="dz">ゾンカ語</language>
+			<language type="ebu">エンブ語</language>
 			<language type="ee">エウェ語</language>
 			<language type="efi">エフィック語</language>
 			<language type="egy">古代エジプト語</language>
@@ -138,16 +141,15 @@
 			<language type="el">ギリシャ語</language>
 			<language type="elx">エラム語</language>
 			<language type="en">英語</language>
-			<language type="en_AU" draft="provisional">英語（オーストラリア）</language>
+			<language type="en_AU">オーストラリア英語</language>
 			<language type="en_CA">カナダ英語</language>
 			<language type="en_GB">イギリス英語</language>
 			<language type="en_US">アメリカ英語</language>
-			<language type="en_US" alt="proposed-x1001" draft="unconfirmed">英語 (アメリカ)</language>
 			<language type="enm">中世英語</language>
 			<language type="eo">エスペラント語</language>
 			<language type="es">スペイン語</language>
-			<language type="es_419">スペイン語（ラテンアメリカ）</language>
-			<language type="es_ES">スペイン語（イベリア半島）</language>
+			<language type="es_419">スペイン語[ラテンアメリカ]</language>
+			<language type="es_ES">スペイン語[イベリア半島]</language>
 			<language type="et">エストニア語</language>
 			<language type="eu">バスク語</language>
 			<language type="ewo">エウォンド語</language>
@@ -162,8 +164,8 @@
 			<language type="fo">フェロー語</language>
 			<language type="fon">フォン語</language>
 			<language type="fr">フランス語</language>
-			<language type="fr_CA">フランス語（カナダ）</language>
-			<language type="fr_CH">フランス語（スイス）</language>
+			<language type="fr_CA">フランス語[カナダ]</language>
+			<language type="fr_CH">フランス語[スイス]</language>
 			<language type="frm">中期フランス語</language>
 			<language type="fro">古フランス語</language>
 			<language type="frs">東フリジア語</language>
@@ -186,7 +188,7 @@
 			<language type="got">ゴート語</language>
 			<language type="grb">グレボ語</language>
 			<language type="grc">古代ギリシャ語</language>
-			<language type="gsw">スイスドイツ語（スイス）</language>
+			<language type="gsw">スイスドイツ語</language>
 			<language type="gu">グジャラート語</language>
 			<language type="gv">マン島語</language>
 			<language type="gwi">グウィッチン語</language>
@@ -240,6 +242,7 @@
 			<language type="kaw">カウィ語</language>
 			<language type="kbd">カバルド語</language>
 			<language type="kcg">カタブ語</language>
+			<language type="kea">カーボベルデ・クレオール語</language>
 			<language type="kfo">コロ語</language>
 			<language type="kg">コンゴ語</language>
 			<language type="kha">カシ語</language>
@@ -287,6 +290,7 @@
 			<language type="lun">ルンダ語</language>
 			<language type="luo">ルオ語</language>
 			<language type="lus">ルシャイ語</language>
+			<language type="luy">ルヒヤ語</language>
 			<language type="lv">ラトビア語</language>
 			<language type="mad">マドゥラ語</language>
 			<language type="mag">マガヒー語</language>
@@ -330,7 +334,8 @@
 			<language type="nah">ナワトル語</language>
 			<language type="nai">北米インディアン諸語</language>
 			<language type="nap">ナポリ語</language>
-			<language type="nb">ノルウェー語 (ブークモール)</language>
+			<language type="nb">ノルウェー語[ブークモール]</language>
+			<language type="nb" alt="proposed-x1001" draft="unconfirmed">ノルウェー語（ブークモール）</language>
 			<language type="nd">北ンデベレ語</language>
 			<language type="nds">低地ドイツ語、低地サクソン語</language>
 			<language type="ne">ネパール語</language>
@@ -341,7 +346,8 @@
 			<language type="niu">ニウーエイ語</language>
 			<language type="nl">オランダ語</language>
 			<language type="nl_BE">フレミッシュ語</language>
-			<language type="nn">ノルウェー語 (ニーノシュク)</language>
+			<language type="nn">ノルウェー語[ニーノシュク]</language>
+			<language type="nn" alt="proposed-x1001" draft="unconfirmed">ノルウェー語（ニーノシュク）</language>
 			<language type="no">ノルウェー語</language>
 			<language type="nog">ノガイ語</language>
 			<language type="non">古ノルド語</language>
@@ -380,9 +386,10 @@
 			<language type="pra">プラークリット語族</language>
 			<language type="pro">古期プロバンス語</language>
 			<language type="ps">パシュトゥー語</language>
+			<language type="ps" alt="variant" draft="contributed">パシュトゥ語</language>
 			<language type="pt">ポルトガル語</language>
-			<language type="pt_BR">ポルトガル語 (ブラジル)</language>
-			<language type="pt_PT">ポルトガル語（イベリア半島）</language>
+			<language type="pt_BR">ポルトガル語[ブラジル]</language>
+			<language type="pt_PT">ポルトガル語[イベリア半島]</language>
 			<language type="qu">ケチュア語</language>
 			<language type="raj">ラージャスターン語</language>
 			<language type="rap">ラパヌイ語</language>
@@ -391,11 +398,13 @@
 			<language type="rn">ルンディ語</language>
 			<language type="ro">ルーマニア語</language>
 			<language type="roa">ロマンス諸語</language>
+			<language type="rof">ロンボ語</language>
 			<language type="rom">ロマーニー語</language>
 			<language type="root">ルート</language>
 			<language type="ru">ロシア語</language>
 			<language type="rup">アルーマニア語</language>
 			<language type="rw">ルワンダ語</language>
+			<language type="rwk">ルワ語</language>
 			<language type="sa">サンスクリット語</language>
 			<language type="sad">サンダウェ語</language>
 			<language type="sah">ヤクート語</language>
@@ -468,7 +477,7 @@
 			<language type="tmh">タマシェク語</language>
 			<language type="tn">ツワナ語</language>
 			<language type="to">トンガ語</language>
-			<language type="tog">トンガ語 (ニアサ)</language>
+			<language type="tog">トンガ語[ニアサ]</language>
 			<language type="tpi">トク・ピシン語</language>
 			<language type="tr">トルコ語</language>
 			<language type="ts">ツォンガ語</language>
@@ -483,6 +492,7 @@
 			<language type="tyv">トゥヴァ語</language>
 			<language type="udm">ウドムルト語</language>
 			<language type="ug">ウイグル語</language>
+			<language type="ug" alt="variant" draft="contributed">ウイグル</language>
 			<language type="uga">ウガリト語</language>
 			<language type="uk">ウクライナ語</language>
 			<language type="umb">ウンブンドゥ語</language>
@@ -495,6 +505,7 @@
 			<language type="vo">ボラピュク語</language>
 			<language type="vot">ボート語</language>
 			<language type="wa">ワロン語</language>
+			<language type="wae">ヴァリス語</language>
 			<language type="wak">ワカシ語族</language>
 			<language type="wal">ワッラモ語</language>
 			<language type="war">ワライ語</language>
@@ -518,10 +529,12 @@
 			<language type="znd">ザンデ語</language>
 			<language type="zu">ズールー語</language>
 			<language type="zun">ズニ語</language>
-			<language type="zxx" draft="provisional">言語的内容なし</language>
+			<language type="zxx">言語的内容なし</language>
+			<language type="zxx" alt="proposed-x1001" draft="unconfirmed">言語コンテンツではありません</language>
 		</languages>
 		<scripts>
 			<script type="Arab">アラビア文字</script>
+			<script type="Arab" alt="variant" draft="contributed">ペルソ・アラビア</script>
 			<script type="Armn">アルメニア文字</script>
 			<script type="Bali">バリ文字</script>
 			<script type="Batk">バタク文字</script>
@@ -540,14 +553,14 @@
 			<script type="Copt">コプト文字</script>
 			<script type="Cprt">キプロス文字</script>
 			<script type="Cyrl">キリル文字</script>
-			<script type="Cyrs">キリル文字 (古代教会スラブ語の文字)</script>
+			<script type="Cyrs">キリル文字[古代教会スラブ語の文字]</script>
 			<script type="Deva">デーバナーガリー文字</script>
 			<script type="Dsrt">デセレット文字</script>
 			<script type="Egyd">エジプト民衆文字</script>
 			<script type="Egyh">エジプト神官文字</script>
 			<script type="Egyp">エジプト聖刻文字</script>
 			<script type="Ethi">エチオピア文字</script>
-			<script type="Geok">グルジア文字（フツリ）</script>
+			<script type="Geok">グルジア文字[フツリ]</script>
 			<script type="Geor">グルジア文字</script>
 			<script type="Glag">グラゴール文字</script>
 			<script type="Goth">ゴート文字</script>
@@ -558,13 +571,15 @@
 			<script type="Hani">漢字</script>
 			<script type="Hano">ハヌノオ文字</script>
 			<script type="Hans">簡体字</script>
+			<script type="Hans" alt="stand-alone" draft="contributed">漢字（簡体字）</script>
 			<script type="Hant">繁体字</script>
+			<script type="Hant" alt="stand-alone" draft="contributed">漢字（繁体字）</script>
 			<script type="Hebr">ヘブライ文字</script>
 			<script type="Hira">ひらがな</script>
 			<script type="Hmng">パハウ・フモン文字</script>
 			<script type="Hrkt">カタカナとひらがな</script>
 			<script type="Hung">古代ハンガリー文字</script>
-			<script type="Inds">インダス文字 (ハラッパ文字)</script>
+			<script type="Inds">インダス文字</script>
 			<script type="Ital">古代イタリアの文字</script>
 			<script type="Java">ジャワ文字</script>
 			<script type="Jpan">日本語の文字</script>
@@ -575,10 +590,10 @@
 			<script type="Knda">カンナダ文字</script>
 			<script type="Kore">韓国語の文字</script>
 			<script type="Laoo">ラオ文字</script>
-			<script type="Latf">ラテン文字 (ドイツ文字)</script>
-			<script type="Latg" draft="provisional">ラテン文字 (ゲール文字)</script>
+			<script type="Latf">ラテン文字[ドイツ文字]</script>
+			<script type="Latg">ラテン文字 [ゲール文字]</script>
 			<script type="Latn">ラテン文字</script>
-			<script type="Lepc">レプチャ文字 (ロン文字)</script>
+			<script type="Lepc">レプチャ文字</script>
 			<script type="Limb">リンブ文字</script>
 			<script type="Lina">線文字A</script>
 			<script type="Linb">線文字B</script>
@@ -607,16 +622,17 @@
 			<script type="Sinh">シンハラ文字</script>
 			<script type="Sylo">シロティ・ナグリ文字</script>
 			<script type="Syrc">シリア文字</script>
-			<script type="Syre">シリア文字 (エストランゲロ文字)</script>
-			<script type="Syrj">シリア文字 (西方シリア文字)</script>
-			<script type="Syrn">シリア文字 (東方シリア文字)</script>
+			<script type="Syre">シリア文字[エストランゲロ文字]</script>
+			<script type="Syrj">シリア文字[西方シリア文字]</script>
+			<script type="Syrn">シリア文字[東方シリア文字]</script>
 			<script type="Tagb">タグバンワ文字</script>
 			<script type="Tale">タイレ文字</script>
 			<script type="Talu">新タイ・ルー文字</script>
 			<script type="Taml">タミール文字</script>
 			<script type="Telu">テルグ文字</script>
 			<script type="Teng">テングワール文字</script>
-			<script type="Tfng">ティフナグ文字 (ベルベル文字)</script>
+			<script type="Tfng">ティフナグ文字</script>
+			<script type="Tfng" alt="proposed-x1001" draft="unconfirmed">ティフナグ文字（ベルベル文字）</script>
 			<script type="Tglg">タガログ文字</script>
 			<script type="Thaa">ターナ文字</script>
 			<script type="Thai">タイ文字</script>
@@ -627,17 +643,18 @@
 			<script type="Xpeo">古代ペルシア文字</script>
 			<script type="Xsux">シュメール＝アッカド語楔形文字</script>
 			<script type="Yiii">イ文字</script>
-			<script type="Zinh" draft="unconfirmed">系統</script>
-			<script type="Zsym" draft="provisional">記号</script>
-			<script type="Zxxx">口承言語のコード</script>
-			<script type="Zyyy">共通コード</script>
-			<script type="Zzzz" draft="provisional">不明または無効な文字</script>
+			<script type="Zinh">基底文字の種別を継承する結合文字</script>
+			<script type="Zsym">記号文字</script>
+			<script type="Zsym" alt="proposed-x1001" draft="unconfirmed">記号</script>
+			<script type="Zxxx">非表記文字</script>
+			<script type="Zyyy">共用文字</script>
+			<script type="Zzzz">言語不明または無効な文字</script>
+			<script type="Zzzz" alt="proposed-x1001" draft="unconfirmed">不明な文字</script>
 		</scripts>
 		<territories>
 			<territory type="001">世界</territory>
 			<territory type="002">アフリカ</territory>
-			<territory type="003">北米</territory>
-			<territory type="003" alt="proposed-x1001" draft="unconfirmed">北アメリカ</territory>
+			<territory type="003">北アメリカ大陸</territory>
 			<territory type="005">南アメリカ</territory>
 			<territory type="009">オセアニア</territory>
 			<territory type="011">西アフリカ</territory>
@@ -648,15 +665,14 @@
 			<territory type="018">南部アフリカ</territory>
 			<territory type="019">アメリカ大陸</territory>
 			<territory type="021">北アメリカ</territory>
-			<territory type="021" alt="proposed-x1001" draft="unconfirmed">北米</territory>
-			<territory type="029">カリブ海</territory>
+			<territory type="029">カリブ</territory>
 			<territory type="030">東アジア</territory>
 			<territory type="034">南アジア</territory>
 			<territory type="035">東南アジア</territory>
 			<territory type="039">南ヨーロッパ</territory>
 			<territory type="053">オーストラリア・ニュージーランド</territory>
 			<territory type="054">メラネシア</territory>
-			<territory type="057">ミクロネシア地域</territory>
+			<territory type="057">ミクロネシア</territory>
 			<territory type="061">ポリネシア</territory>
 			<territory type="062">南中央アジア</territory>
 			<territory type="142">アジア</territory>
@@ -667,7 +683,7 @@
 			<territory type="154">北ヨーロッパ</territory>
 			<territory type="155">西ヨーロッパ</territory>
 			<territory type="172">独立国家共同体</territory>
-			<territory type="419">ラテンアメリカ・カリブ地域</territory>
+			<territory type="419">ラテンアメリカ</territory>
 			<territory type="830">チャネル諸島</territory>
 			<territory type="AC">アセンション島</territory>
 			<territory type="AD">アンドラ</territory>
@@ -679,7 +695,7 @@
 			<territory type="AM">アルメニア</territory>
 			<territory type="AN">オランダ領アンティル諸島</territory>
 			<territory type="AO">アンゴラ</territory>
-			<territory type="AQ">南極大陸</territory>
+			<territory type="AQ">南極</territory>
 			<territory type="AR">アルゼンチン</territory>
 			<territory type="AS">米領サモア</territory>
 			<territory type="AT">オーストリア</territory>
@@ -708,15 +724,19 @@
 			<territory type="BY">ベラルーシ</territory>
 			<territory type="BZ">ベリーズ</territory>
 			<territory type="CA">カナダ</territory>
-			<territory type="CC">ココス (キーリング) 諸島</territory>
-			<territory type="CD">コンゴ民主共和国 (キンシャサ)</territory>
+			<territory type="CC">ココス[キーリング]諸島</territory>
+			<territory type="CC" alt="proposed-x1001" draft="unconfirmed">ココス（キーリング）諸島</territory>
+			<territory type="CD">コンゴ民主共和国[キンシャサ]</territory>
+			<territory type="CD" alt="proposed-x1001" draft="unconfirmed">コンゴ民主共和国（キンシャサ）</territory>
 			<territory type="CD" alt="variant">コンゴ民主共和国</territory>
 			<territory type="CF">中央アフリカ共和国</territory>
-			<territory type="CG">コンゴ共和国 (ブラザビル)</territory>
+			<territory type="CG">コンゴ共和国[ブラザビル]</territory>
+			<territory type="CG" alt="proposed-x1001" draft="unconfirmed">コンゴ共和国（ブラザビル）</territory>
 			<territory type="CG" alt="variant">コンゴ共和国</territory>
 			<territory type="CH">スイス</territory>
 			<territory type="CI">コートジボワール</territory>
 			<territory type="CI" alt="variant">象牙海岸</territory>
+			<territory type="CI" alt="variant-proposed-x1001" draft="unconfirmed">コートジボワール</territory>
 			<territory type="CK">クック諸島</territory>
 			<territory type="CL">チリ</territory>
 			<territory type="CM">カメルーン</territory>
@@ -749,8 +769,9 @@
 			<territory type="FI">フィンランド</territory>
 			<territory type="FJ">フィジー</territory>
 			<territory type="FK">フォークランド諸島</territory>
-			<territory type="FK" alt="variant" draft="provisional">フォークランド諸島（マルビナス諸島）</territory>
-			<territory type="FM">ミクロネシア</territory>
+			<territory type="FK" alt="variant">フォークランド諸島[マルビナス諸島]</territory>
+			<territory type="FK" alt="variant-proposed-x1001" draft="unconfirmed">フォークランド諸島（マルビナス諸島）</territory>
+			<territory type="FM">ミクロネシア連邦</territory>
 			<territory type="FO">フェロー諸島</territory>
 			<territory type="FR">フランス</territory>
 			<territory type="GA">ガボン</territory>
@@ -768,13 +789,12 @@
 			<territory type="GQ">赤道ギニア</territory>
 			<territory type="GR">ギリシャ</territory>
 			<territory type="GS">南ジョージア島・南サンドイッチ諸島</territory>
-			<territory type="GS" alt="proposed-x1001" draft="unconfirmed">サウスジョージア・サウスサンドウィッチ諸島</territory>
 			<territory type="GT">グアテマラ</territory>
 			<territory type="GU">グアム</territory>
 			<territory type="GW">ギニアビサウ</territory>
 			<territory type="GY">ガイアナ</territory>
 			<territory type="HK">中華人民共和国香港特別行政区</territory>
-			<territory type="HK" alt="short" draft="contributed">香港</territory>
+			<territory type="HK" alt="short">香港</territory>
 			<territory type="HM">ハード島・マクドナルド諸島</territory>
 			<territory type="HN">ホンジュラス</territory>
 			<territory type="HR">クロアチア</territory>
@@ -824,14 +844,14 @@
 			<territory type="MF">セント・マーチン</territory>
 			<territory type="MG">マダガスカル</territory>
 			<territory type="MH">マーシャル諸島共和国</territory>
-			<territory type="MH" alt="proposed-x1001" draft="unconfirmed">マーシャル諸島</territory>
 			<territory type="MK">マケドニア</territory>
-			<territory type="MK" alt="variant" draft="provisional">マケドニア旧ユーゴスラヴィア共和国</territory>
+			<territory type="MK" alt="variant">マケドニア[旧ユーゴスラヴィア共和国]</territory>
+			<territory type="MK" alt="variant-proposed-x1001" draft="unconfirmed">マケドニア（FYROM）</territory>
 			<territory type="ML">マリ</territory>
 			<territory type="MM">ミャンマー</territory>
 			<territory type="MN">モンゴル</territory>
 			<territory type="MO">中華人民共和国マカオ特別行政区</territory>
-			<territory type="MO" alt="short" draft="contributed">マカオ</territory>
+			<territory type="MO" alt="short">マカオ</territory>
 			<territory type="MP">北マリアナ諸島</territory>
 			<territory type="MQ">マルティニーク島</territory>
 			<territory type="MR">モーリタニア</territory>
@@ -840,7 +860,6 @@
 			<territory type="MU">モーリシャス</territory>
 			<territory type="MV">モルジブ</territory>
 			<territory type="MW">マラウィ</territory>
-			<territory type="MW" alt="proposed-x1001" draft="unconfirmed">マラウイ</territory>
 			<territory type="MX">メキシコ</territory>
 			<territory type="MY">マレーシア</territory>
 			<territory type="MZ">モザンビーク</territory>
@@ -900,14 +919,13 @@
 			<territory type="TA">トリスタン・ダ・クーニャ</territory>
 			<territory type="TC">タークス諸島・カイコス諸島</territory>
 			<territory type="TD">チャド</territory>
-			<territory type="TF">フランス領極南諸島</territory>
-			<territory type="TF" alt="proposed-x1001" draft="unconfirmed">仏領極南諸島</territory>
+			<territory type="TF">仏領極南諸島</territory>
 			<territory type="TG">トーゴ</territory>
 			<territory type="TH">タイ</territory>
 			<territory type="TJ">タジキスタン</territory>
 			<territory type="TK">トケラウ諸島</territory>
 			<territory type="TL">東ティモール</territory>
-			<territory type="TL" alt="variant" draft="provisional">東ティモール</territory>
+			<territory type="TL" alt="variant" draft="contributed">東ティモール</territory>
 			<territory type="TM">トルクメニスタン</territory>
 			<territory type="TN">チュニジア</territory>
 			<territory type="TO">トンガ</territory>
@@ -919,21 +937,18 @@
 			<territory type="UA">ウクライナ</territory>
 			<territory type="UG">ウガンダ</territory>
 			<territory type="UM">米領太平洋諸島</territory>
-			<territory type="UM" alt="proposed-x1001" draft="unconfirmed">合衆国領有小離島</territory>
 			<territory type="US">アメリカ合衆国</territory>
+			<territory type="US" alt="proposed-x1001" draft="unconfirmed">アメリカ</territory>
 			<territory type="UY">ウルグアイ</territory>
 			<territory type="UZ">ウズベキスタン</territory>
 			<territory type="VA">バチカン市国</territory>
 			<territory type="VC">セントビンセント・グレナディーン諸島</territory>
 			<territory type="VE">ベネズエラ</territory>
 			<territory type="VG">英領ヴァージン諸島</territory>
-			<territory type="VI">アメリカ領ヴァージン諸島</territory>
-			<territory type="VI" alt="proposed-x1001" draft="unconfirmed">米領ヴァージン諸島</territory>
+			<territory type="VI">米領ヴァージン諸島</territory>
 			<territory type="VN">ベトナム</territory>
 			<territory type="VU">バヌアツ</territory>
 			<territory type="WF">ウォリス・フツナ</territory>
-			<territory type="WF" alt="proposed-x1001" draft="unconfirmed">ワリス・フテュナ諸島</territory>
-			<territory type="WF" alt="proposed-x1002" draft="unconfirmed">ワリー・エ・フトゥーナ諸島</territory>
 			<territory type="WS">サモア</territory>
 			<territory type="YE">イエメン</territory>
 			<territory type="YT">マヨット島</territory>
@@ -943,10 +958,10 @@
 			<territory type="ZZ">不明な地域</territory>
 		</territories>
 		<variants>
-			<variant type="1901">伝統的ドイツ語正書法（1901）</variant>
+			<variant type="1901">伝統的ドイツ語正書法[1901]</variant>
 			<variant type="1994" draft="provisional">標準レージア方言正書法</variant>
 			<variant type="1996">ドイツ語正書法（1996）</variant>
-			<variant type="1606NICT">後期中世フランス語（〜1606）</variant>
+			<variant type="1606NICT">後期中世フランス語[〜1606]</variant>
 			<variant type="1694ACAD">初期現代フランス語</variant>
 			<variant type="1959ACAD" draft="provisional">標準ベラルーシ語 (1959)</variant>
 			<variant type="AREVELA">東アルメニア文語</variant>
@@ -962,13 +977,11 @@
 			<variant type="NEDIS">ナティゾーネ方言</variant>
 			<variant type="NJIVA" draft="provisional">ニヴァ方言</variant>
 			<variant type="OSOJS" draft="provisional">オゼアッコ/オソヤネ方言</variant>
-			<variant type="PINYIN">ピン音 (ローマ字表記法)</variant>
+			<variant type="PINYIN">ピン音[ローマ字表記法]</variant>
 			<variant type="POLYTON">ポリトニック</variant>
 			<variant type="POSIX">コンピュータ</variant>
 			<variant type="REVISED">改訂版</variant>
-			<variant type="REVISED" alt="proposed-x1001" draft="unconfirmed">改訂アルメニア語</variant>
 			<variant type="ROZAJ">レシア方言</variant>
-			<variant type="ROZAJ" alt="proposed-x1001" draft="unconfirmed">レージア方言</variant>
 			<variant type="SAAHO">サホ語</variant>
 			<variant type="SCOTLAND" draft="provisional">スコットランド標準英語</variant>
 			<variant type="SCOUSE">リバプール方言</variant>
@@ -983,28 +996,111 @@
 			<key type="calendar">暦法</key>
 			<key type="collation">照合</key>
 			<key type="currency">通貨</key>
+			<key type="numbers">数値書式</key>
+			<key type="numbers" alt="proposed-x1001" draft="unconfirmed">数字</key>
+			<key type="x" draft="contributed">私用</key>
 		</keys>
 		<types>
-			<type type="big5han" key="collation">繁体字中国語 (Big5)</type>
+			<type type="arab" key="numbers">アラビア・インド数字</type>
+			<type type="arabext" key="numbers">ペルシア数字</type>
+			<type type="arabext" key="numbers" alt="proposed-x1001" draft="unconfirmed">拡張アラビア・インド数字</type>
+			<type type="armn" key="numbers">アルメニア数字</type>
+			<type type="armnlow" key="numbers">アルメニア数字[小文字]</type>
+			<type type="armnlow" key="numbers" alt="proposed-x1001" draft="unconfirmed">英数字（小文字）</type>
+			<type type="beng" key="numbers">ベンガル数字</type>
+			<type type="big5han" key="collation">繁体字中国語順[Big5]</type>
+			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">繁体字中国語（Big5）での並べ替え順</type>
 			<type type="buddhist" key="calendar">タイ仏教暦</type>
 			<type type="chinese" key="calendar">中国暦</type>
-			<type type="direct" key="collation">直接著錄</type>
-			<type type="gb2312han" key="collation">簡体字中国語 (GB2312)</type>
-			<type type="gregorian" key="calendar">西暦 (グレゴリオ暦)</type>
+			<type type="coptic" key="calendar">コプト暦</type>
+			<type type="deva" key="numbers">デーヴァナーガリー数字</type>
+			<type type="deva" key="numbers" alt="proposed-x1001" draft="unconfirmed">デーバナーガリ数字</type>
+			<type type="dictionary" key="collation">辞書順</type>
+			<type type="dictionary" key="collation" alt="proposed-x1001" draft="unconfirmed">辞書での並べ替え順</type>
+			<type type="direct" key="collation">直接著録</type>
+			<type type="ducet" key="collation">ユニコード照合順</type>
+			<type type="ducet" key="collation" alt="proposed-x1001" draft="unconfirmed">デフォルトの Unicode での並べ替え順</type>
+			<type type="ethi" key="numbers">エチオピア数字</type>
+			<type type="ethiopic" key="calendar">エチオピア暦</type>
+			<type type="ethiopic-amete-alem" key="calendar">エチオピア創世紀元暦</type>
+			<type type="ethiopic-amete-alem" key="calendar" alt="proposed-x1001" draft="unconfirmed">エチオピア暦（Amete Alem）</type>
+			<type type="fullwide" key="numbers">全角数字</type>
+			<type type="gb2312han" key="collation">簡体字中国語順[GB2312]</type>
+			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">簡体字中国語（GB2312）での並べ替え順</type>
+			<type type="geor" key="numbers">グルジア数字</type>
+			<type type="gregorian" key="calendar">西暦[グレゴリオ暦]</type>
+			<type type="gregorian" key="calendar" alt="proposed-x1001" draft="unconfirmed">西暦（グレゴリオ暦）</type>
+			<type type="grek" key="numbers">ギリシャ数字</type>
+			<type type="greklow" key="numbers">ギリシャ数字[小文字]</type>
+			<type type="greklow" key="numbers" alt="proposed-x1001" draft="unconfirmed">ギリシャ数字（小文字）</type>
+			<type type="gujr" key="numbers">グジャラート数字</type>
+			<type type="guru" key="numbers">グルムキー数字</type>
+			<type type="hanidec" key="numbers">漢数字(位取り記数法)</type>
+			<type type="hanidec" key="numbers" alt="proposed-x1001" draft="unconfirmed">中国十進法</type>
+			<type type="hans" key="numbers">簡体漢数字</type>
+			<type type="hans" key="numbers" alt="proposed-x1001" draft="unconfirmed">簡体字中国語数字</type>
+			<type type="hansfin" key="numbers">簡体大字</type>
+			<type type="hansfin" key="numbers" alt="proposed-x1001" draft="unconfirmed">簡体字中国語数字（大写）</type>
+			<type type="hant" key="numbers">繁体漢数字</type>
+			<type type="hant" key="numbers" alt="proposed-x1001" draft="unconfirmed">繁体字中国語数字</type>
+			<type type="hantfin" key="numbers">繁体大字</type>
+			<type type="hantfin" key="numbers" alt="proposed-x1001" draft="unconfirmed">繁体字中国語数字（大写）</type>
+			<type type="hebr" key="numbers">ヘブライ数字</type>
 			<type type="hebrew" key="calendar">ユダヤ暦</type>
-			<type type="indian" key="calendar" draft="provisional">インド国定暦</type>
+			<type type="indian" key="calendar">インド国定暦</type>
 			<type type="islamic" key="calendar">イスラム暦</type>
 			<type type="islamic-civil" key="calendar">太陽イスラム暦</type>
 			<type type="japanese" key="calendar">和暦</type>
-			<type type="phonebook" key="collation">電話帳方式</type>
+			<type type="jpan" key="numbers">漢数字</type>
+			<type type="jpanfin" key="numbers">大字</type>
+			<type type="jpanfin" key="numbers" alt="proposed-x1001" draft="unconfirmed">漢数字（大字）</type>
+			<type type="khmr" key="numbers">クメール数字</type>
+			<type type="knda" key="numbers">カンナダ数字</type>
+			<type type="laoo" key="numbers">ラオ数字</type>
+			<type type="latn" key="numbers">算用数字</type>
+			<type type="latn" key="numbers" alt="proposed-x1001" draft="unconfirmed">西洋数字</type>
+			<type type="mlym" key="numbers">マラヤーラム数字</type>
+			<type type="mong" key="numbers">モンゴル数字</type>
+			<type type="mymr" key="numbers">ミャンマー数字</type>
+			<type type="orya" key="numbers">オリヤー数字</type>
+			<type type="persian" key="calendar">ペルシア暦</type>
+			<type type="phonebook" key="collation">電話帳順</type>
 			<type type="pinyin" key="collation">ピンイン順</type>
-			<type type="roc" key="calendar" draft="provisional">中華民国暦</type>
+			<type type="pinyin" key="collation" alt="proposed-x1001" draft="unconfirmed">ピンイン</type>
+			<type type="reformed" key="collation">リフォーム</type>
+			<type type="reformed" key="collation" alt="proposed-x1001" draft="unconfirmed">改良された並べ替え順</type>
+			<type type="roc" key="calendar">中華民国暦</type>
+			<type type="roman" key="numbers">ローマ数字</type>
+			<type type="romanlow" key="numbers">ローマ数字[小文字]</type>
+			<type type="romanlow" key="numbers" alt="proposed-x1001" draft="unconfirmed">ローマ数字（小文字）</type>
+			<type type="search" key="collation">汎用検索</type>
 			<type type="stroke" key="collation">画数順</type>
-			<type type="traditional" key="collation">旧式</type>
+			<type type="stroke" key="collation" alt="proposed-x1001" draft="unconfirmed">画数</type>
+			<type type="taml" key="numbers">タミール数字</type>
+			<type type="taml" key="numbers" alt="proposed-x1001" draft="unconfirmed">タミル数字</type>
+			<type type="telu" key="numbers">テルグ数字</type>
+			<type type="thai" key="numbers">タイ数字</type>
+			<type type="tibt" key="numbers">チベット数字</type>
+			<type type="traditional" key="collation">トラディッショナル</type>
+			<type type="unihan" key="collation">部首順</type>
+			<type type="unihan" key="collation" alt="proposed-x1001" draft="unconfirmed">画数での並べ替え順</type>
 		</types>
+		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
+			<transformName type="Numeric" draft="contributed">数字</transformName>
+			<transformName type="Tone" draft="contributed">声調</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
+			<transformName type="x-Accents" draft="contributed">アクセント</transformName>
+			<transformName type="x-Fullwidth" draft="contributed">全角</transformName>
+			<transformName type="x-Halfwidth" draft="contributed">半角</transformName>
+			<transformName type="x-Jamo" draft="contributed">字母</transformName>
+			<transformName type="x-Pinyin" draft="contributed">ピンイン</transformName>
+			<transformName type="x-Publishing" draft="contributed">出版</transformName>
+		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">メートル法</measurementSystemName>
-			<measurementSystemName type="US">ヤード・ポンド法</measurementSystemName>
+			<measurementSystemName type="UK">英ヤード・ポンド法</measurementSystemName>
+			<measurementSystemName type="US">米ヤード・ポンド法</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">言語: {0}</codePattern>
@@ -1017,6 +1113,9 @@
 		<exemplarCharacters type="auxiliary">[兌 拼 楔 錄 鳯]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a b c č d e f g h i j k l ł m n o º p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[あ か さ た な は ま や ら わ]</exemplarCharacters>
+		<ellipsis type="final" draft="contributed">{0}...</ellipsis>
+		<ellipsis type="initial" draft="contributed">...{0}</ellipsis>
+		<ellipsis type="medial" draft="contributed">{0}...{1}</ellipsis>
 	</characters>
 	<delimiters>
 		<quotationStart>「</quotationStart>
@@ -1027,7 +1126,8 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<dateFormats> <!-- per cldrbug 2835, copied from roc -->
+				<dateFormats>
+					<!-- per cldrbug 2835, copied from roc -->
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日EEEE</pattern>
@@ -1049,7 +1149,8 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats> <!-- per cldrbug 2835, copied from japanese -->
+				<dateTimeFormats>
+					<!-- per cldrbug 2835, copied from japanese -->
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
@@ -1080,6 +1181,142 @@
 						<dateFormatItem id="yyyyQ">Gyy/Q</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+			</calendar>
+			<calendar type="coptic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">トウト</month>
+							<month type="2" draft="contributed">ババ</month>
+							<month type="3" draft="contributed">ハトール</month>
+							<month type="4" draft="contributed">キアック</month>
+							<month type="5" draft="contributed">トーバ</month>
+							<month type="6" draft="contributed">アムシール</month>
+							<month type="7" draft="contributed">バラムハート</month>
+							<month type="8" draft="contributed">バラモウダ</month>
+							<month type="9" draft="contributed">バシャンス</month>
+							<month type="10" draft="contributed">パオーナ</month>
+							<month type="11" draft="contributed">エペープ</month>
+							<month type="12" draft="contributed">メスラ</month>
+							<month type="13" draft="contributed">ナシエ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">トウト</month>
+							<month type="2" draft="contributed">ババ</month>
+							<month type="3" draft="contributed">ハトール</month>
+							<month type="4" draft="contributed">キアック</month>
+							<month type="5" draft="contributed">トーバ</month>
+							<month type="6" draft="contributed">アムシール</month>
+							<month type="7" draft="contributed">バラムハート</month>
+							<month type="8" draft="contributed">バラモウダ</month>
+							<month type="9" draft="contributed">バシャンス</month>
+							<month type="10" draft="contributed">パオーナ</month>
+							<month type="11" draft="contributed">エペープ</month>
+							<month type="12" draft="contributed">メスラ</month>
+							<month type="13" draft="contributed">ナシエ</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">トウト</month>
+							<month type="2" draft="contributed">ババ</month>
+							<month type="3" draft="contributed">ハトール</month>
+							<month type="4" draft="contributed">キアック</month>
+							<month type="5" draft="contributed">トーバ</month>
+							<month type="6" draft="contributed">アムシール</month>
+							<month type="7" draft="contributed">バラムハート</month>
+							<month type="8" draft="contributed">バラモウダ</month>
+							<month type="9" draft="contributed">バシャンス</month>
+							<month type="10" draft="contributed">パオーナ</month>
+							<month type="11" draft="contributed">エペープ</month>
+							<month type="12" draft="contributed">メスラ</month>
+							<month type="13" draft="contributed">ナシエ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">トウト</month>
+							<month type="2" draft="contributed">ババ</month>
+							<month type="3" draft="contributed">ハトール</month>
+							<month type="4" draft="contributed">キアック</month>
+							<month type="5" draft="contributed">トーバ</month>
+							<month type="6" draft="contributed">アムシール</month>
+							<month type="7" draft="contributed">バラムハート</month>
+							<month type="8" draft="contributed">バラモウダ</month>
+							<month type="9" draft="contributed">バシャンス</month>
+							<month type="10" draft="contributed">パオーナ</month>
+							<month type="11" draft="contributed">エペープ</month>
+							<month type="12" draft="contributed">メスラ</month>
+							<month type="13" draft="contributed">ナシエ</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">メスケレム</month>
+							<month type="2" draft="contributed">テケムト</month>
+							<month type="3" draft="contributed">ヘダル</month>
+							<month type="4" draft="contributed">ターサス</month>
+							<month type="5" draft="contributed">テル</month>
+							<month type="6" draft="contributed">イェカティト</month>
+							<month type="7" draft="contributed">メガビト</month>
+							<month type="8" draft="contributed">ミアジア</month>
+							<month type="9" draft="contributed">ゲンボト</month>
+							<month type="10" draft="contributed">セネ</month>
+							<month type="11" draft="contributed">ハムレ</month>
+							<month type="12" draft="contributed">ネハッセ</month>
+							<month type="13" draft="contributed">パグメン</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">メスケレム</month>
+							<month type="2" draft="contributed">テケムト</month>
+							<month type="3" draft="contributed">ヘダル</month>
+							<month type="4" draft="contributed">ターサス</month>
+							<month type="5" draft="contributed">テル</month>
+							<month type="6" draft="contributed">イェカティト</month>
+							<month type="7" draft="contributed">メガビト</month>
+							<month type="8" draft="contributed">ミアジア</month>
+							<month type="9" draft="contributed">ゲンボト</month>
+							<month type="10" draft="contributed">セネ</month>
+							<month type="11" draft="contributed">ハムレ</month>
+							<month type="12" draft="contributed">ネハッセ</month>
+							<month type="13" draft="contributed">パグメン</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">メスケレム</month>
+							<month type="2" draft="contributed">テケムト</month>
+							<month type="3" draft="contributed">ヘダル</month>
+							<month type="4" draft="contributed">ターサス</month>
+							<month type="5" draft="contributed">テル</month>
+							<month type="6" draft="contributed">イェカティト</month>
+							<month type="7" draft="contributed">メガビト</month>
+							<month type="8" draft="contributed">ミアジア</month>
+							<month type="9" draft="contributed">ゲンボト</month>
+							<month type="10" draft="contributed">セネ</month>
+							<month type="11" draft="contributed">ハムレ</month>
+							<month type="12" draft="contributed">ネハッセ</month>
+							<month type="13" draft="contributed">パグメン</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">メスケレム</month>
+							<month type="2" draft="contributed">テケムト</month>
+							<month type="3" draft="contributed">ヘダル</month>
+							<month type="4" draft="contributed">ターサス</month>
+							<month type="5" draft="contributed">テル</month>
+							<month type="6" draft="contributed">イェカティト</month>
+							<month type="7" draft="contributed">メガビト</month>
+							<month type="8" draft="contributed">ミアジア</month>
+							<month type="9" draft="contributed">ゲンボト</month>
+							<month type="10" draft="contributed">セネ</month>
+							<month type="11" draft="contributed">ハムレ</month>
+							<month type="12" draft="contributed">ネハッセ</month>
+							<month type="13" draft="contributed">パグメン</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1157,6 +1394,12 @@
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1</quarter>
+							<quarter type="2" draft="contributed">2</quarter>
+							<quarter type="3" draft="contributed">3</quarter>
+							<quarter type="4" draft="contributed">4</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">第1四半期</quarter>
 							<quarter type="2">第2四半期</quarter>
@@ -1164,11 +1407,26 @@
 							<quarter type="4">第4四半期</quarter>
 						</quarterWidth>
 					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="contributed">Q1</quarter>
+							<quarter type="2" draft="contributed">Q2</quarter>
+							<quarter type="3" draft="contributed">Q3</quarter>
+							<quarter type="4" draft="contributed">Q4</quarter>
+						</quarterWidth>
+					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="noon" draft="contributed">正午</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="noon" draft="contributed">正午</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">午前</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">正午</dayPeriod>
 							<dayPeriod type="pm">午後</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -1209,25 +1467,21 @@
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>H時mm分ss秒 zzzz</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">aH時mm分ss秒 zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
 							<pattern>H:mm:ss z</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
 							<pattern>H:mm:ss</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
 							<pattern>H:mm</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">HH:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1255,7 +1509,8 @@
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
-						<dateFormatItem id="EEEd" draft="provisional">d (EEE)</dateFormatItem>
+						<dateFormatItem id="EEEd">d日(EEE)</dateFormatItem>
+						<dateFormatItem id="EEEd" alt="proposed-x1001" draft="unconfirmed">d 日（E）</dateFormatItem>
 						<dateFormatItem id="GGGGyMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="h">ah時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
@@ -1394,22 +1649,31 @@
 					</field>
 					<field type="year">
 						<displayName>年</displayName>
+						<relative type="-1" draft="contributed">昨年</relative>
+						<relative type="0" draft="contributed">今年</relative>
+						<relative type="1" draft="contributed">翌年</relative>
 					</field>
 					<field type="month">
 						<displayName>月</displayName>
+						<relative type="-1" draft="contributed">先月</relative>
+						<relative type="0" draft="contributed">今月</relative>
+						<relative type="1" draft="contributed">翌月</relative>
 					</field>
 					<field type="week">
 						<displayName>週</displayName>
+						<relative type="-1" draft="contributed">先週</relative>
+						<relative type="0" draft="contributed">今週</relative>
+						<relative type="1" draft="contributed">翌週</relative>
 					</field>
 					<field type="day">
 						<displayName>日</displayName>
-						<relative type="-3" draft="provisional">3日前</relative>
+						<relative type="-3" draft="contributed">3 日前</relative>
 						<relative type="-2">一昨日</relative>
 						<relative type="-1">昨日</relative>
 						<relative type="0">今日</relative>
 						<relative type="1">明日</relative>
 						<relative type="2">明後日</relative>
-						<relative type="3" draft="provisional">3日後</relative>
+						<relative type="3" draft="contributed">3 日後</relative>
 					</field>
 					<field type="weekday">
 						<displayName>曜日</displayName>
@@ -1430,6 +1694,232 @@
 						<displayName>タイムゾーン</displayName>
 					</field>
 				</fields>
+			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ティスレ</month>
+							<month type="2" draft="contributed">へシボン</month>
+							<month type="3" draft="contributed">キスレブ</month>
+							<month type="4" draft="contributed">テベット</month>
+							<month type="5" draft="contributed">シバット</month>
+							<month type="6" draft="contributed">アダル I</month>
+							<month type="7" draft="contributed">アダル</month>
+							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="8" draft="contributed">ニサン</month>
+							<month type="9" draft="contributed">イヤル</month>
+							<month type="10" draft="contributed">シバン</month>
+							<month type="11" draft="contributed">タムズ</month>
+							<month type="12" draft="contributed">アヴ</month>
+							<month type="13" draft="contributed">エルル</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="7" yeartype="leap">7</month>
+							<month type="12" alt="proposed-x1001" draft="unconfirmed">アヴ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ティスレ</month>
+							<month type="2" draft="contributed">へシボン</month>
+							<month type="3" draft="contributed">キスレブ</month>
+							<month type="4" draft="contributed">テベット</month>
+							<month type="5" draft="contributed">シバット</month>
+							<month type="6" draft="contributed">アダル I</month>
+							<month type="7" draft="contributed">アダル</month>
+							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="8" draft="contributed">ニサン</month>
+							<month type="9" draft="contributed">イヤル</month>
+							<month type="10" draft="contributed">シバン</month>
+							<month type="11" draft="contributed">タムズ</month>
+							<month type="12" draft="contributed">アヴ</month>
+							<month type="13" draft="contributed">エルル</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ティスレ</month>
+							<month type="2" draft="contributed">へシボン</month>
+							<month type="3" draft="contributed">キスレブ</month>
+							<month type="4" draft="contributed">テベット</month>
+							<month type="5" draft="contributed">シバット</month>
+							<month type="6" draft="contributed">アダル I</month>
+							<month type="7" draft="contributed">アダル</month>
+							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="8" draft="contributed">ニサン</month>
+							<month type="9" draft="contributed">イヤル</month>
+							<month type="10" draft="contributed">シバン</month>
+							<month type="11" draft="contributed">タムズ</month>
+							<month type="12" draft="contributed">アヴ</month>
+							<month type="13" draft="contributed">エルル</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="7" yeartype="leap">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+							<month type="12" alt="proposed-x1001" draft="unconfirmed">アヴ</month>
+							<month type="13">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ティスレ</month>
+							<month type="2" draft="contributed">へシボン</month>
+							<month type="3" draft="contributed">キスレブ</month>
+							<month type="4" draft="contributed">テベット</month>
+							<month type="5" draft="contributed">シバット</month>
+							<month type="6" draft="contributed">アダル I</month>
+							<month type="7" draft="contributed">アダル</month>
+							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="8" draft="contributed">ニサン</month>
+							<month type="9" draft="contributed">イヤル</month>
+							<month type="10" draft="contributed">シバン</month>
+							<month type="11" draft="contributed">タムズ</month>
+							<month type="12" draft="contributed">アヴ</month>
+							<month type="13" draft="contributed">エルル</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="indian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">カイトラ</month>
+							<month type="2" draft="contributed">ヴァイサカ</month>
+							<month type="3" draft="contributed">ジャイスタ</month>
+							<month type="4" draft="contributed">アーサダ</month>
+							<month type="5" draft="contributed">スラバナ</month>
+							<month type="6" draft="contributed">バードラ</month>
+							<month type="7" draft="contributed">アスビナ</month>
+							<month type="8" draft="contributed">カルディカ</month>
+							<month type="9" draft="contributed">アヴラハヤナ</month>
+							<month type="10" draft="contributed">パウサ</month>
+							<month type="11" draft="contributed">マーガ</month>
+							<month type="12" draft="contributed">パルグナ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">カイトラ</month>
+							<month type="2" draft="contributed">ヴァイサカ</month>
+							<month type="3" draft="contributed">ジャイスタ</month>
+							<month type="4" draft="contributed">アーサダ</month>
+							<month type="5" draft="contributed">スラバナ</month>
+							<month type="6" draft="contributed">バードラ</month>
+							<month type="7" draft="contributed">アスビナ</month>
+							<month type="8" draft="contributed">カルディカ</month>
+							<month type="9" draft="contributed">アヴラハヤナ</month>
+							<month type="10" draft="contributed">パウサ</month>
+							<month type="11" draft="contributed">マーガ</month>
+							<month type="12" draft="contributed">パルグナ</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">カイトラ</month>
+							<month type="2" draft="contributed">ヴァイサカ</month>
+							<month type="3" draft="contributed">ジャイスタ</month>
+							<month type="4" draft="contributed">アーサダ</month>
+							<month type="5" draft="contributed">スラバナ</month>
+							<month type="6" draft="contributed">バードラ</month>
+							<month type="7" draft="contributed">アスビナ</month>
+							<month type="8" draft="contributed">カルディカ</month>
+							<month type="9" draft="contributed">アヴラハヤナ</month>
+							<month type="10" draft="contributed">パウサ</month>
+							<month type="11" draft="contributed">マーガ</month>
+							<month type="12" draft="contributed">パルグナ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">カイトラ</month>
+							<month type="2" draft="contributed">ヴァイサカ</month>
+							<month type="3" draft="contributed">ジャイスタ</month>
+							<month type="4" draft="contributed">アーサダ</month>
+							<month type="5" draft="contributed">スラバナ</month>
+							<month type="6" draft="contributed">バードラ</month>
+							<month type="7" draft="contributed">アスビナ</month>
+							<month type="8" draft="contributed">カルディカ</month>
+							<month type="9" draft="contributed">アヴラハヤナ</month>
+							<month type="10" draft="contributed">パウサ</month>
+							<month type="11" draft="contributed">マーガ</month>
+							<month type="12" draft="contributed">パルグナ</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="contributed">サカ</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ムハッラム</month>
+							<month type="2" draft="contributed">サフアル</month>
+							<month type="3" draft="contributed">ラビー・ウル・アウワル</month>
+							<month type="4" draft="contributed">ラビー・ウッ・サーニー</month>
+							<month type="5" draft="contributed">ジュマーダル・アウワル</month>
+							<month type="6" draft="contributed">ジュマーダッサーニー</month>
+							<month type="7" draft="contributed">ラジャブ</month>
+							<month type="8" draft="contributed">シャアバーン</month>
+							<month type="9" draft="contributed">ラマダーン</month>
+							<month type="10" draft="contributed">シャウワール</month>
+							<month type="11" draft="contributed">ズル・カイダ</month>
+							<month type="12" draft="contributed">ズル・ヒッジャ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ムハッラム</month>
+							<month type="2" draft="contributed">サフアル</month>
+							<month type="3" draft="contributed">ラビー・ウル・アウワル</month>
+							<month type="4" draft="contributed">ラビー・ウッ・サーニー</month>
+							<month type="5" draft="contributed">ジュマーダル・アウワル</month>
+							<month type="6" draft="contributed">ジュマーダッサーニー</month>
+							<month type="7" draft="contributed">ラジャブ</month>
+							<month type="8" draft="contributed">シャアバーン</month>
+							<month type="9" draft="contributed">ラマダーン</month>
+							<month type="10" draft="contributed">シャウワール</month>
+							<month type="11" draft="contributed">ズル・カイダ</month>
+							<month type="12" draft="contributed">ズル・ヒッジャ</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ムハッラム</month>
+							<month type="2" draft="contributed">サフアル</month>
+							<month type="3" draft="contributed">ラビー・ウル・アウワル</month>
+							<month type="4" draft="contributed">ラビー・ウッ・サーニー</month>
+							<month type="5" draft="contributed">ジュマーダル・アウワル</month>
+							<month type="6" draft="contributed">ジュマーダッサーニー</month>
+							<month type="7" draft="contributed">ラジャブ</month>
+							<month type="8" draft="contributed">シャアバーン</month>
+							<month type="9" draft="contributed">ラマダーン</month>
+							<month type="10" draft="contributed">シャウワール</month>
+							<month type="11" draft="contributed">ズル・カイダ</month>
+							<month type="12" draft="contributed">ズル・ヒッジャ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ムハッラム</month>
+							<month type="2" draft="contributed">サフアル</month>
+							<month type="3" draft="contributed">ラビー・ウル・アウワル</month>
+							<month type="4" draft="contributed">ラビー・ウッ・サーニー</month>
+							<month type="5" draft="contributed">ジュマーダル・アウワル</month>
+							<month type="6" draft="contributed">ジュマーダッサーニー</month>
+							<month type="7" draft="contributed">ラジャブ</month>
+							<month type="8" draft="contributed">シャアバーン</month>
+							<month type="9" draft="contributed">ラマダーン</month>
+							<month type="10" draft="contributed">シャウワール</month>
+							<month type="11" draft="contributed">ズル・カイダ</month>
+							<month type="12" draft="contributed">ズル・ヒッジャ</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -1667,9 +2157,13 @@
 						<era type="230">元治</era>
 						<era type="231">慶応</era>
 						<era type="232">明治</era>
+						<era type="232" alt="proposed-x1001" draft="unconfirmed">M</era>
 						<era type="233">大正</era>
+						<era type="233" alt="proposed-x1001" draft="unconfirmed">T</era>
 						<era type="234">昭和</era>
+						<era type="234" alt="proposed-x1001" draft="unconfirmed">S</era>
 						<era type="235">平成</era>
+						<era type="235" alt="proposed-x1001" draft="unconfirmed">H</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1685,12 +2179,13 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>Gyy/MM/dd</pattern>
+							<pattern>Gy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>Gyy/MM/dd</pattern>
+							<pattern alt="proposed-x1001" draft="unconfirmed">GGGGG.yy/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1723,6 +2218,70 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ファルヴァルディーン</month>
+							<month type="2" draft="contributed">オルディーベヘシュト</month>
+							<month type="3" draft="contributed">ホルダード</month>
+							<month type="4" draft="contributed">ティール</month>
+							<month type="5" draft="contributed">モルダード</month>
+							<month type="6" draft="contributed">シャハリーヴァル</month>
+							<month type="7" draft="contributed">メフル</month>
+							<month type="8" draft="contributed">アーバーン</month>
+							<month type="9" draft="contributed">アーザル</month>
+							<month type="10" draft="contributed">デイ</month>
+							<month type="11" draft="contributed">バフマン</month>
+							<month type="12" draft="contributed">エスファンド</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ファルヴァルディーン</month>
+							<month type="2" draft="contributed">オルディーベヘシュト</month>
+							<month type="3" draft="contributed">ホルダード</month>
+							<month type="4" draft="contributed">ティール</month>
+							<month type="5" draft="contributed">モルダード</month>
+							<month type="6" draft="contributed">シャハリーヴァル</month>
+							<month type="7" draft="contributed">メフル</month>
+							<month type="8" draft="contributed">アーバーン</month>
+							<month type="9" draft="contributed">アーザル</month>
+							<month type="10" draft="contributed">デイ</month>
+							<month type="11" draft="contributed">バフマン</month>
+							<month type="12" draft="contributed">エスファンド</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">ファルヴァルディーン</month>
+							<month type="2" draft="contributed">オルディーベヘシュト</month>
+							<month type="3" draft="contributed">ホルダード</month>
+							<month type="4" draft="contributed">ティール</month>
+							<month type="5" draft="contributed">モルダード</month>
+							<month type="6" draft="contributed">シャハリーヴァル</month>
+							<month type="7" draft="contributed">メフル</month>
+							<month type="8" draft="contributed">アーバーン</month>
+							<month type="9" draft="contributed">アーザル</month>
+							<month type="10" draft="contributed">デイ</month>
+							<month type="11" draft="contributed">バフマン</month>
+							<month type="12" draft="contributed">エスファンド</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">ファルヴァルディーン</month>
+							<month type="2" draft="contributed">オルディーベヘシュト</month>
+							<month type="3" draft="contributed">ホルダード</month>
+							<month type="4" draft="contributed">ティール</month>
+							<month type="5" draft="contributed">モルダード</month>
+							<month type="6" draft="contributed">シャハリーヴァル</month>
+							<month type="7" draft="contributed">メフル</month>
+							<month type="8" draft="contributed">アーバーン</month>
+							<month type="9" draft="contributed">アーザル</month>
+							<month type="10" draft="contributed">デイ</month>
+							<month type="11" draft="contributed">バフマン</month>
+							<month type="12" draft="contributed">エスファンド</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
 			<calendar type="roc">
 				<eras>
 					<eraAbbr>
@@ -1738,7 +2297,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>Gy年M月d日EEEE</pattern>
+							<pattern>Gy年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1752,7 +2311,8 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats> <!-- per cldrbug 2835, copied from japanese -->
+				<dateTimeFormats>
+					<!-- per cldrbug 2835, copied from japanese -->
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(EEE)</dateFormatItem>
@@ -1786,70 +2346,159 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat alt="proposed-x1001" draft="unconfirmed">GMT（グリニッジ標準時）</gmtZeroFormat>
 			<regionFormat>{0}時間</regionFormat>
-			<fallbackFormat draft="provisional">{1}（{0}）</fallbackFormat>
+			<fallbackFormat>{1}（{0}）</fallbackFormat>
+			<fallbackRegionFormat>{1}時間({0})</fallbackRegionFormat>
+			<fallbackRegionFormat alt="proposed-x1001" draft="unconfirmed">{1}時間（{0}）</fallbackRegionFormat>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity>ノースダコタ州ビューラー</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ベウラ、ノースダコタ</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity draft="contributed">GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity draft="contributed">GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity draft="contributed">GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity draft="contributed">GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity draft="contributed">GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity draft="contributed">GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity draft="contributed">GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity draft="contributed">GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity draft="contributed">GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity draft="contributed">GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity draft="contributed">GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity draft="contributed">GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity draft="contributed">GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity draft="contributed">GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity draft="contributed">GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity>GMT</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">GMT（グリニッジ標準時）</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
-				<exemplarCity>不明</exemplarCity>
+				<exemplarCity>地域不明</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity draft="contributed">GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity draft="contributed">GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity draft="contributed">GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity draft="contributed">GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity draft="contributed">GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity draft="contributed">GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity draft="contributed">GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity draft="contributed">GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity draft="contributed">GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity draft="contributed">GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity draft="contributed">GMT-11</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
-				<exemplarCity draft="provisional">アンドラ公国</exemplarCity>
+				<exemplarCity>アンドラ</exemplarCity>
 			</zone>
 			<zone type="Asia/Dubai">
-				<exemplarCity draft="provisional">ドバイ</exemplarCity>
+				<exemplarCity>ドバイ</exemplarCity>
 			</zone>
 			<zone type="Asia/Kabul">
-				<exemplarCity draft="provisional">カブール</exemplarCity>
+				<exemplarCity>カブール</exemplarCity>
 			</zone>
 			<zone type="America/Antigua">
-				<exemplarCity draft="provisional">アンチグア</exemplarCity>
+				<exemplarCity>アンティグア</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
-				<exemplarCity draft="provisional">アンギラ</exemplarCity>
+				<exemplarCity>アンギラ</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
-				<exemplarCity draft="provisional">チラナ</exemplarCity>
+				<exemplarCity>ティラナ</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
-				<exemplarCity draft="provisional">エレバン</exemplarCity>
+				<exemplarCity>エレバン</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity draft="provisional">キュラソー</exemplarCity>
+				<exemplarCity>キュラソー</exemplarCity>
 			</zone>
 			<zone type="Africa/Luanda">
-				<exemplarCity draft="provisional">ルアンダ</exemplarCity>
+				<exemplarCity>ルアンダ</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Rothera">
-				<exemplarCity>ロデラ</exemplarCity>
+				<exemplarCity>ロゼラ基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Palmer">
-				<exemplarCity>パーマー</exemplarCity>
+				<exemplarCity>パーマー基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/South_Pole">
-				<exemplarCity>南極点</exemplarCity>
+				<exemplarCity>サウスポール基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>昭和基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
-				<exemplarCity>モーソン</exemplarCity>
+				<exemplarCity>モーソン基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Davis">
-				<exemplarCity>デービス</exemplarCity>
+				<exemplarCity>デービス基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Vostok">
-				<exemplarCity>ボストーク</exemplarCity>
+				<exemplarCity>ボストーク基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Casey">
-				<exemplarCity>ケーシー</exemplarCity>
+				<exemplarCity>ケーシー基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>デュモン デュルビル</exemplarCity>
+				<exemplarCity>デュモン・デュルビル基地</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
-				<exemplarCity>マクムード</exemplarCity>
+				<exemplarCity>マクマード基地</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity>リオガイェゴス</exemplarCity>
+				<exemplarCity>リオガジェゴス</exemplarCity>
 			</zone>
 			<zone type="America/Mendoza">
 				<exemplarCity>メンドーサ</exemplarCity>
@@ -1870,7 +2519,7 @@
 				<exemplarCity>カタマルカ</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Salta">
-				<exemplarCity draft="provisional">サルタ</exemplarCity>
+				<exemplarCity>サルタ</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
 				<exemplarCity>フフイ</exemplarCity>
@@ -1885,10 +2534,10 @@
 				<exemplarCity>ブエノスアイレス</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pago_Pago">
-				<exemplarCity draft="provisional">パゴパゴ</exemplarCity>
+				<exemplarCity>パゴパゴ</exemplarCity>
 			</zone>
 			<zone type="Europe/Vienna">
-				<exemplarCity draft="provisional">ウィーン</exemplarCity>
+				<exemplarCity>ウィーン</exemplarCity>
 			</zone>
 			<zone type="Australia/Perth">
 				<exemplarCity>パース</exemplarCity>
@@ -1927,43 +2576,54 @@
 				<exemplarCity>ロードハウ</exemplarCity>
 			</zone>
 			<zone type="America/Aruba">
-				<exemplarCity draft="provisional">アルバ</exemplarCity>
+				<exemplarCity>アルバ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">アルバ島</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>マリエハムン</exemplarCity>
 			</zone>
 			<zone type="Asia/Baku">
-				<exemplarCity draft="provisional">バクー</exemplarCity>
+				<exemplarCity>バクー</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity>サラエボ</exemplarCity>
 			</zone>
 			<zone type="America/Barbados">
-				<exemplarCity draft="provisional">バルバドス</exemplarCity>
+				<exemplarCity>バルバドス</exemplarCity>
 			</zone>
 			<zone type="Asia/Dhaka">
-				<exemplarCity draft="provisional">ダッカ</exemplarCity>
+				<exemplarCity>ダッカ</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
-				<exemplarCity draft="provisional">ブリュッセル</exemplarCity>
+				<exemplarCity>ブリュッセル</exemplarCity>
 			</zone>
 			<zone type="Africa/Ouagadougou">
-				<exemplarCity draft="provisional">ワガドゥグー</exemplarCity>
+				<exemplarCity>ワガドゥグー</exemplarCity>
 			</zone>
 			<zone type="Europe/Sofia">
-				<exemplarCity draft="provisional">ソフィア</exemplarCity>
+				<exemplarCity>ソフィア</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
-				<exemplarCity draft="provisional">バーレーン国</exemplarCity>
+				<exemplarCity>バーレーン</exemplarCity>
 			</zone>
 			<zone type="Africa/Bujumbura">
-				<exemplarCity draft="provisional">ブジュンブラ</exemplarCity>
+				<exemplarCity>ブジュンブラ</exemplarCity>
 			</zone>
 			<zone type="Africa/Porto-Novo">
-				<exemplarCity draft="provisional">ポルトノボ</exemplarCity>
+				<exemplarCity>ポルトノボ</exemplarCity>
+			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity>サン・バルテルミ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">サンバルテルミー</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
-				<exemplarCity draft="provisional">バミューダ</exemplarCity>
+				<exemplarCity>バミューダ</exemplarCity>
 			</zone>
 			<zone type="Asia/Brunei">
-				<exemplarCity draft="provisional">ブルネイ</exemplarCity>
+				<exemplarCity>ブルネイ</exemplarCity>
 			</zone>
 			<zone type="America/La_Paz">
-				<exemplarCity draft="provisional">ラパス</exemplarCity>
+				<exemplarCity>ラパス</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>エイルネペ</exemplarCity>
@@ -1984,7 +2644,8 @@
 				<exemplarCity>クイアバ</exemplarCity>
 			</zone>
 			<zone type="America/Santarem">
-				<exemplarCity draft="provisional">サンタレム</exemplarCity>
+				<exemplarCity>サンタレム</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">サンタレン</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity>カンポグランデ</exemplarCity>
@@ -2011,22 +2672,22 @@
 				<exemplarCity>レシフェ</exemplarCity>
 			</zone>
 			<zone type="America/Noronha">
-				<exemplarCity>ノロニャ</exemplarCity>
+				<exemplarCity>ノローニャ</exemplarCity>
 			</zone>
 			<zone type="America/Nassau">
-				<exemplarCity draft="provisional">ナッサウ</exemplarCity>
+				<exemplarCity>ナッソー</exemplarCity>
 			</zone>
 			<zone type="Asia/Thimphu">
-				<exemplarCity draft="provisional">ティンプー</exemplarCity>
+				<exemplarCity>ティンプー</exemplarCity>
 			</zone>
 			<zone type="Africa/Gaborone">
-				<exemplarCity draft="provisional">ガボローネ</exemplarCity>
+				<exemplarCity>ハボローネ</exemplarCity>
 			</zone>
 			<zone type="Europe/Minsk">
-				<exemplarCity draft="provisional">ミンスク</exemplarCity>
+				<exemplarCity>ミンスク</exemplarCity>
 			</zone>
 			<zone type="America/Belize">
-				<exemplarCity draft="provisional">ベリーズ</exemplarCity>
+				<exemplarCity>ベリーズ</exemplarCity>
 			</zone>
 			<zone type="America/Dawson">
 				<exemplarCity>ドーソン</exemplarCity>
@@ -2068,10 +2729,10 @@
 				<exemplarCity>レイニーリバー</exemplarCity>
 			</zone>
 			<zone type="America/Rankin_Inlet">
-				<exemplarCity>ランキン湾</exemplarCity>
+				<exemplarCity>ランキンインレット</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
-				<exemplarCity>コーラルハーバー</exemplarCity>
+				<exemplarCity>アティコカン</exemplarCity>
 			</zone>
 			<zone type="America/Thunder_Bay">
 				<exemplarCity>サンダーベイ</exemplarCity>
@@ -2110,7 +2771,8 @@
 				<exemplarCity>セントジョンズ</exemplarCity>
 			</zone>
 			<zone type="Indian/Cocos">
-				<exemplarCity draft="provisional">ココス</exemplarCity>
+				<exemplarCity>ココス諸島</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ココス</exemplarCity>
 			</zone>
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>キンシャサ</exemplarCity>
@@ -2119,19 +2781,19 @@
 				<exemplarCity>ルブンバシ</exemplarCity>
 			</zone>
 			<zone type="Africa/Bangui">
-				<exemplarCity draft="provisional">バンギ</exemplarCity>
+				<exemplarCity>バンギ</exemplarCity>
 			</zone>
 			<zone type="Africa/Brazzaville">
-				<exemplarCity draft="provisional">ブラザビル</exemplarCity>
+				<exemplarCity>ブラザビル</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
-				<exemplarCity draft="provisional">チューリッヒ</exemplarCity>
+				<exemplarCity>チューリッヒ</exemplarCity>
 			</zone>
 			<zone type="Africa/Abidjan">
-				<exemplarCity draft="provisional">アビジャン</exemplarCity>
+				<exemplarCity>アビジャン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Rarotonga">
-				<exemplarCity draft="provisional">ラロトンガ</exemplarCity>
+				<exemplarCity>ラロトンガ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>イースター島</exemplarCity>
@@ -2140,10 +2802,10 @@
 				<exemplarCity>アメリカ/サンチアゴ</exemplarCity>
 			</zone>
 			<zone type="Africa/Douala">
-				<exemplarCity draft="provisional">ドゥアラ</exemplarCity>
+				<exemplarCity>ドゥアラ</exemplarCity>
 			</zone>
 			<zone type="Asia/Kashgar">
-				<exemplarCity>カシガル</exemplarCity>
+				<exemplarCity>カシュガル</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
 				<exemplarCity>ウルムチ</exemplarCity>
@@ -2158,40 +2820,45 @@
 				<exemplarCity>ハルビン</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
-				<exemplarCity draft="provisional">ボゴタ</exemplarCity>
+				<exemplarCity>ボゴタ</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
-				<exemplarCity draft="provisional">コスタリカ共和国</exemplarCity>
+				<exemplarCity>コスタリカ</exemplarCity>
 			</zone>
 			<zone type="America/Havana">
-				<exemplarCity draft="provisional">ハバナ</exemplarCity>
+				<exemplarCity>ハバナ</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
-				<exemplarCity draft="provisional">カボベルデ共和国</exemplarCity>
+				<exemplarCity>カーボベルデ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">カーボヴェルデ</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
-				<exemplarCity draft="provisional">クリスマス</exemplarCity>
+				<exemplarCity>クリスマス島</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">クリスマス</exemplarCity>
 			</zone>
 			<zone type="Asia/Nicosia">
-				<exemplarCity draft="provisional">ニコシア</exemplarCity>
+				<exemplarCity>ニコシア</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity>プラハ</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
-				<exemplarCity draft="provisional">ベルリン</exemplarCity>
+				<exemplarCity>ベルリン</exemplarCity>
 			</zone>
 			<zone type="Africa/Djibouti">
-				<exemplarCity draft="provisional">ジブチ共和国</exemplarCity>
+				<exemplarCity>ジブチ</exemplarCity>
 			</zone>
 			<zone type="Europe/Copenhagen">
-				<exemplarCity draft="provisional">コペンハーゲン</exemplarCity>
+				<exemplarCity>コペンハーゲン</exemplarCity>
 			</zone>
 			<zone type="America/Dominica">
-				<exemplarCity draft="provisional">ドミニカ国</exemplarCity>
+				<exemplarCity>ドミニカ</exemplarCity>
 			</zone>
 			<zone type="America/Santo_Domingo">
-				<exemplarCity draft="provisional">サントドミンゴ</exemplarCity>
+				<exemplarCity>サントドミンゴ</exemplarCity>
 			</zone>
 			<zone type="Africa/Algiers">
-				<exemplarCity draft="provisional">アルジェ</exemplarCity>
+				<exemplarCity>アルジェ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Galapagos">
 				<exemplarCity>ガラパゴス</exemplarCity>
@@ -2200,19 +2867,19 @@
 				<exemplarCity>アメリカ/グアヤキル</exemplarCity>
 			</zone>
 			<zone type="Europe/Tallinn">
-				<exemplarCity draft="provisional">タリン</exemplarCity>
+				<exemplarCity>タリン</exemplarCity>
 			</zone>
 			<zone type="Africa/Cairo">
-				<exemplarCity draft="provisional">カイロ</exemplarCity>
+				<exemplarCity>カイロ</exemplarCity>
 			</zone>
 			<zone type="Africa/El_Aaiun">
-				<exemplarCity draft="provisional">アイウン</exemplarCity>
+				<exemplarCity>アイウン</exemplarCity>
 			</zone>
 			<zone type="Africa/Asmera">
-				<exemplarCity draft="provisional">アスマラ</exemplarCity>
+				<exemplarCity>アスマラ</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Canary">
-				<exemplarCity>カナリア諸島</exemplarCity>
+				<exemplarCity>カナリア</exemplarCity>
 			</zone>
 			<zone type="Africa/Ceuta">
 				<exemplarCity>セウタ</exemplarCity>
@@ -2221,52 +2888,57 @@
 				<exemplarCity>ヨーロッパ/マドリード</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
-				<exemplarCity draft="provisional">アジスアベバ</exemplarCity>
+				<exemplarCity>アジスアベバ</exemplarCity>
 			</zone>
 			<zone type="Europe/Helsinki">
-				<exemplarCity draft="provisional">ヘルシンキ</exemplarCity>
+				<exemplarCity>ヘルシンキ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fiji">
-				<exemplarCity draft="provisional">フィジー共和国</exemplarCity>
+				<exemplarCity>フィジー</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Stanley">
-				<exemplarCity draft="provisional">スタンリー</exemplarCity>
+				<exemplarCity>スタンレー</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">スタンリー</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity>トラック</exemplarCity>
+				<exemplarCity>チューク</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity>ポナペ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
-				<exemplarCity>コシャエ</exemplarCity>
+				<exemplarCity>コスラエ</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
-				<exemplarCity draft="provisional">フェロー</exemplarCity>
+				<exemplarCity>フェロー</exemplarCity>
 			</zone>
 			<zone type="Europe/Paris">
 				<exemplarCity>パリ</exemplarCity>
 			</zone>
 			<zone type="Africa/Libreville">
-				<exemplarCity draft="provisional">リーブルビル</exemplarCity>
+				<exemplarCity>リーブルヴィル</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">リーブルビル</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>ヨーロッパ/ロンドン</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
-				<exemplarCity draft="provisional">グレナダ</exemplarCity>
+				<exemplarCity>グレナダ</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
-				<exemplarCity draft="provisional">トビリシ</exemplarCity>
+				<exemplarCity>トビリシ</exemplarCity>
 			</zone>
 			<zone type="America/Cayenne">
-				<exemplarCity draft="provisional">カイエンヌ</exemplarCity>
+				<exemplarCity>カイエンヌ</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity>ガーンジー</exemplarCity>
 			</zone>
 			<zone type="Africa/Accra">
-				<exemplarCity draft="provisional">アクラ</exemplarCity>
+				<exemplarCity>アクラ</exemplarCity>
 			</zone>
 			<zone type="Europe/Gibraltar">
-				<exemplarCity draft="provisional">ジブラルタル</exemplarCity>
+				<exemplarCity>ジブラルタル</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
 				<exemplarCity>チューレ</exemplarCity>
@@ -2275,55 +2947,64 @@
 				<exemplarCity>アメリカ/ゴッドホープ</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity>スコレスビスン</exemplarCity>
+				<exemplarCity>スコルズビスーン</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
 				<exemplarCity>デンマークシャウン</exemplarCity>
 			</zone>
 			<zone type="Africa/Banjul">
-				<exemplarCity draft="provisional">バンジュル</exemplarCity>
+				<exemplarCity>バンジュール</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">バンジュル</exemplarCity>
 			</zone>
 			<zone type="Africa/Conakry">
-				<exemplarCity draft="provisional">コナクリ</exemplarCity>
+				<exemplarCity>コナクリ</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
-				<exemplarCity draft="provisional">グアダループ</exemplarCity>
+				<exemplarCity>グアダループ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">グアドループ</exemplarCity>
 			</zone>
 			<zone type="Africa/Malabo">
-				<exemplarCity draft="provisional">マラボ</exemplarCity>
+				<exemplarCity>マラボ</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
-				<exemplarCity draft="provisional">アテネ</exemplarCity>
+				<exemplarCity>アテネ</exemplarCity>
 			</zone>
 			<zone type="Atlantic/South_Georgia">
-				<exemplarCity draft="provisional">南ジョージア島</exemplarCity>
+				<exemplarCity>サウスジョージア</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">南ジョージア</exemplarCity>
 			</zone>
 			<zone type="America/Guatemala">
-				<exemplarCity draft="provisional">グァテマラ共和国</exemplarCity>
+				<exemplarCity>グアテマラ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guam">
-				<exemplarCity draft="provisional">グアム</exemplarCity>
+				<exemplarCity>グアム</exemplarCity>
 			</zone>
 			<zone type="Africa/Bissau">
-				<exemplarCity draft="provisional">ビサウ</exemplarCity>
+				<exemplarCity>ビサウ</exemplarCity>
 			</zone>
 			<zone type="America/Guyana">
-				<exemplarCity draft="provisional">ガイアナ</exemplarCity>
+				<exemplarCity>ガイアナ</exemplarCity>
 			</zone>
 			<zone type="Asia/Hong_Kong">
-				<exemplarCity draft="provisional">香港</exemplarCity>
+				<exemplarCity>香港</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity>テグシガルパ</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity>ザグレブ</exemplarCity>
 			</zone>
 			<zone type="America/Port-au-Prince">
-				<exemplarCity draft="provisional">ポルトープランス</exemplarCity>
+				<exemplarCity>ポルトープランス</exemplarCity>
 			</zone>
 			<zone type="Europe/Budapest">
-				<exemplarCity draft="provisional">ブダペスト</exemplarCity>
+				<exemplarCity>ブダペスト</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>ジャカルタ</exemplarCity>
 			</zone>
 			<zone type="Asia/Pontianak">
-				<exemplarCity>ポンティアナク</exemplarCity>
+				<exemplarCity>ポンティアナック</exemplarCity>
 			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>マカッサル</exemplarCity>
@@ -2332,70 +3013,80 @@
 				<exemplarCity>ジャヤプラ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<exemplarCity draft="provisional">ダブリン</exemplarCity>
+				<exemplarCity>ダブリン</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>エルサレム</exemplarCity>
 			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity>マン島</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity>コルカタ</exemplarCity>
+			</zone>
 			<zone type="Indian/Chagos">
-				<exemplarCity draft="provisional">チャゴス</exemplarCity>
+				<exemplarCity>チャゴス</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
-				<exemplarCity draft="provisional">バグダッド</exemplarCity>
+				<exemplarCity>バグダッド</exemplarCity>
 			</zone>
 			<zone type="Asia/Tehran">
-				<exemplarCity draft="provisional">テヘラン</exemplarCity>
+				<exemplarCity>テヘラン</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Reykjavik">
-				<exemplarCity draft="provisional">レイキャビーク</exemplarCity>
+				<exemplarCity>レイキャビク</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">レイキャビーク</exemplarCity>
 			</zone>
 			<zone type="Europe/Rome">
-				<exemplarCity draft="provisional">ローマ</exemplarCity>
+				<exemplarCity>ローマ</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity>ジャージー</exemplarCity>
 			</zone>
 			<zone type="America/Jamaica">
-				<exemplarCity draft="provisional">ジャマイカ</exemplarCity>
+				<exemplarCity>ジャマイカ</exemplarCity>
 			</zone>
 			<zone type="Asia/Amman">
-				<exemplarCity draft="provisional">アンマン</exemplarCity>
+				<exemplarCity>アンマン</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<exemplarCity>東京</exemplarCity>
 			</zone>
 			<zone type="Africa/Nairobi">
-				<exemplarCity draft="provisional">ナイロビ</exemplarCity>
+				<exemplarCity>ナイロビ</exemplarCity>
 			</zone>
 			<zone type="Asia/Bishkek">
-				<exemplarCity draft="provisional">ビシュケク</exemplarCity>
+				<exemplarCity>ビシュケク</exemplarCity>
 			</zone>
 			<zone type="Asia/Phnom_Penh">
-				<exemplarCity draft="provisional">プノンペン</exemplarCity>
+				<exemplarCity>プノンペン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>エンダベリー</exemplarCity>
+				<exemplarCity>エンダーベリー島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
-				<exemplarCity>キリティマティ</exemplarCity>
+				<exemplarCity>キリスィマスィ島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
 				<exemplarCity>タラワ</exemplarCity>
 			</zone>
 			<zone type="Indian/Comoro">
-				<exemplarCity draft="provisional">コモロ</exemplarCity>
+				<exemplarCity>コモロ</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
-				<exemplarCity draft="provisional">セントキッツネイビス</exemplarCity>
+				<exemplarCity>セントキッツ</exemplarCity>
 			</zone>
 			<zone type="Asia/Pyongyang">
-				<exemplarCity draft="provisional">平壌</exemplarCity>
+				<exemplarCity>平壌</exemplarCity>
 			</zone>
 			<zone type="Asia/Seoul">
-				<exemplarCity draft="provisional">ソウル</exemplarCity>
+				<exemplarCity>ソウル</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuwait">
-				<exemplarCity draft="provisional">クウェート国</exemplarCity>
+				<exemplarCity>クウェート</exemplarCity>
 			</zone>
 			<zone type="America/Cayman">
-				<exemplarCity draft="provisional">ケイマン</exemplarCity>
+				<exemplarCity>ケイマン</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>アクタウ</exemplarCity>
@@ -2413,61 +3104,70 @@
 				<exemplarCity>アルマトイ</exemplarCity>
 			</zone>
 			<zone type="Asia/Vientiane">
-				<exemplarCity draft="provisional">ビエンチャン</exemplarCity>
+				<exemplarCity>ビエンチャン</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
-				<exemplarCity draft="provisional">ベイルート</exemplarCity>
+				<exemplarCity>ベイルート</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
-				<exemplarCity draft="provisional">セントルシア</exemplarCity>
+				<exemplarCity>セントルシア</exemplarCity>
 			</zone>
 			<zone type="Europe/Vaduz">
-				<exemplarCity draft="provisional">ファドゥーツ</exemplarCity>
+				<exemplarCity>ファドゥーツ</exemplarCity>
 			</zone>
 			<zone type="Asia/Colombo">
-				<exemplarCity draft="provisional">コロンボ</exemplarCity>
+				<exemplarCity>コロンボ</exemplarCity>
 			</zone>
 			<zone type="Africa/Monrovia">
-				<exemplarCity draft="provisional">モンロビア</exemplarCity>
+				<exemplarCity>モンロビア</exemplarCity>
 			</zone>
 			<zone type="Africa/Maseru">
-				<exemplarCity draft="provisional">マセル</exemplarCity>
+				<exemplarCity>マセル</exemplarCity>
 			</zone>
 			<zone type="Europe/Vilnius">
-				<exemplarCity draft="provisional">ヴィルニアス</exemplarCity>
+				<exemplarCity>ヴィリニュス</exemplarCity>
 			</zone>
 			<zone type="Europe/Luxembourg">
-				<exemplarCity draft="provisional">ルクセンブルグ大公国</exemplarCity>
+				<exemplarCity>ルクセンブルグ</exemplarCity>
 			</zone>
 			<zone type="Europe/Riga">
-				<exemplarCity draft="provisional">リガ</exemplarCity>
+				<exemplarCity>リガ</exemplarCity>
 			</zone>
 			<zone type="Africa/Tripoli">
-				<exemplarCity draft="provisional">トリポリ</exemplarCity>
+				<exemplarCity>トリポリ</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<exemplarCity>カサブランカ</exemplarCity>
 			</zone>
 			<zone type="Europe/Monaco">
-				<exemplarCity draft="provisional">モナコ公国</exemplarCity>
+				<exemplarCity>モナコ</exemplarCity>
 			</zone>
 			<zone type="Europe/Chisinau">
-				<exemplarCity draft="provisional">キシナウ</exemplarCity>
+				<exemplarCity>キシナウ</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity>ポドゴリツァ</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity>マリゴ</exemplarCity>
 			</zone>
 			<zone type="Indian/Antananarivo">
-				<exemplarCity draft="provisional">アンタナナリボ</exemplarCity>
+				<exemplarCity>アンタナナリボ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kwajalein">
-				<exemplarCity>クワジェリン</exemplarCity>
+				<exemplarCity>クェゼリン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Majuro">
 				<exemplarCity>マジュロ</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity>スコピエ</exemplarCity>
 			</zone>
 			<zone type="Africa/Bamako">
 				<exemplarCity>アフリカ/バマコ</exemplarCity>
 			</zone>
 			<zone type="Asia/Rangoon">
-				<exemplarCity draft="provisional">ラングーン</exemplarCity>
+				<exemplarCity>ラングーン</exemplarCity>
 			</zone>
 			<zone type="Asia/Hovd">
 				<exemplarCity>ホブド</exemplarCity>
@@ -2479,31 +3179,33 @@
 				<exemplarCity>チョイバルサン</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
-				<exemplarCity draft="provisional">マカオ</exemplarCity>
+				<exemplarCity>マカオ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Saipan">
-				<exemplarCity draft="provisional">サイパン</exemplarCity>
+				<exemplarCity>サイパン</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
-				<exemplarCity draft="provisional">マルチニーク</exemplarCity>
+				<exemplarCity>マルチニーク</exemplarCity>
 			</zone>
 			<zone type="Africa/Nouakchott">
-				<exemplarCity draft="provisional">ヌアクショット</exemplarCity>
+				<exemplarCity>ヌアクショット</exemplarCity>
 			</zone>
 			<zone type="America/Montserrat">
-				<exemplarCity draft="provisional">モントセラト島</exemplarCity>
+				<exemplarCity>モントセラト</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">モントセラット</exemplarCity>
 			</zone>
 			<zone type="Europe/Malta">
-				<exemplarCity draft="provisional">マルタ共和国</exemplarCity>
+				<exemplarCity>マルタ</exemplarCity>
 			</zone>
 			<zone type="Indian/Mauritius">
-				<exemplarCity draft="provisional">モーリシャス共和国</exemplarCity>
+				<exemplarCity>モーリシャス</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
-				<exemplarCity draft="provisional">モルディブ共和国</exemplarCity>
+				<exemplarCity>モルディブ</exemplarCity>
 			</zone>
 			<zone type="Africa/Blantyre">
-				<exemplarCity draft="provisional">ブランタイア</exemplarCity>
+				<exemplarCity>ブランタイヤ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ブランタイア</exemplarCity>
 			</zone>
 			<zone type="America/Tijuana">
 				<exemplarCity>ティフアナ</exemplarCity>
@@ -2536,40 +3238,41 @@
 				<exemplarCity>クチン</exemplarCity>
 			</zone>
 			<zone type="Africa/Maputo">
-				<exemplarCity draft="provisional">マプト</exemplarCity>
+				<exemplarCity>マプト</exemplarCity>
 			</zone>
 			<zone type="Africa/Windhoek">
-				<exemplarCity draft="provisional">ビントフック</exemplarCity>
+				<exemplarCity>ウィントフック</exemplarCity>
 			</zone>
 			<zone type="Pacific/Noumea">
-				<exemplarCity draft="provisional">ヌメア</exemplarCity>
+				<exemplarCity>ヌメア</exemplarCity>
 			</zone>
 			<zone type="Africa/Niamey">
-				<exemplarCity draft="provisional">ニアメー</exemplarCity>
+				<exemplarCity>ニアメー</exemplarCity>
 			</zone>
 			<zone type="Pacific/Norfolk">
-				<exemplarCity draft="provisional">ノーフォーク</exemplarCity>
+				<exemplarCity>ノーフォーク島</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ノーフォーク</exemplarCity>
 			</zone>
 			<zone type="Africa/Lagos">
-				<exemplarCity draft="provisional">ラゴス</exemplarCity>
+				<exemplarCity>ラゴス</exemplarCity>
 			</zone>
 			<zone type="America/Managua">
-				<exemplarCity draft="provisional">マナグア</exemplarCity>
+				<exemplarCity>マナグア</exemplarCity>
 			</zone>
 			<zone type="Europe/Amsterdam">
-				<exemplarCity draft="provisional">アムステルダム</exemplarCity>
+				<exemplarCity>アムステルダム</exemplarCity>
 			</zone>
 			<zone type="Europe/Oslo">
-				<exemplarCity draft="provisional">オスロ</exemplarCity>
+				<exemplarCity>オスロ</exemplarCity>
 			</zone>
 			<zone type="Asia/Katmandu">
-				<exemplarCity draft="provisional">カトマンズ</exemplarCity>
+				<exemplarCity>カトマンズ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Nauru">
-				<exemplarCity draft="provisional">ナウル共和国</exemplarCity>
+				<exemplarCity>ナウル</exemplarCity>
 			</zone>
 			<zone type="Pacific/Niue">
-				<exemplarCity draft="provisional">ニウエ</exemplarCity>
+				<exemplarCity>ニウエ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
 				<exemplarCity>チャタム</exemplarCity>
@@ -2578,49 +3281,50 @@
 				<exemplarCity>太平洋/オークランド</exemplarCity>
 			</zone>
 			<zone type="Asia/Muscat">
-				<exemplarCity draft="provisional">マスカット</exemplarCity>
+				<exemplarCity>マスカット</exemplarCity>
 			</zone>
 			<zone type="America/Panama">
-				<exemplarCity draft="provisional">パナマ共和国</exemplarCity>
+				<exemplarCity>パナマ</exemplarCity>
 			</zone>
 			<zone type="America/Lima">
-				<exemplarCity draft="provisional">リマ</exemplarCity>
+				<exemplarCity>リマ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>太平洋/タヒチ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
-				<exemplarCity>マルケサス</exemplarCity>
+				<exemplarCity>マルキーズ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Gambier">
-				<exemplarCity>ガンビア</exemplarCity>
+				<exemplarCity>ガンビエ諸島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Port_Moresby">
-				<exemplarCity draft="provisional">ポートモレスビー</exemplarCity>
+				<exemplarCity>ポートモレスビー</exemplarCity>
 			</zone>
 			<zone type="Asia/Manila">
-				<exemplarCity draft="provisional">マニラ</exemplarCity>
+				<exemplarCity>マニラ</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
-				<exemplarCity draft="provisional">カラチ</exemplarCity>
+				<exemplarCity>カラチ</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
-				<exemplarCity draft="provisional">ワルシャワ</exemplarCity>
+				<exemplarCity>ワルシャワ</exemplarCity>
 			</zone>
 			<zone type="America/Miquelon">
-				<exemplarCity draft="provisional">ミクロン</exemplarCity>
+				<exemplarCity>ミクロン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
-				<exemplarCity draft="provisional">ピトケアン島</exemplarCity>
+				<exemplarCity>ピトケアン諸島</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ピトケアン島</exemplarCity>
 			</zone>
 			<zone type="America/Puerto_Rico">
-				<exemplarCity draft="provisional">プエルトリコ</exemplarCity>
+				<exemplarCity>プエルトリコ</exemplarCity>
 			</zone>
 			<zone type="Asia/Gaza">
-				<exemplarCity draft="provisional">ガザ</exemplarCity>
+				<exemplarCity>ガザ</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
-				<exemplarCity>アゾレス諸島</exemplarCity>
+				<exemplarCity>アゾレス</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>マデイラ</exemplarCity>
@@ -2629,19 +3333,22 @@
 				<exemplarCity>ヨーロッパ/リスボン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Palau">
-				<exemplarCity draft="provisional">パラオ共和国</exemplarCity>
+				<exemplarCity>パラオ</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity draft="provisional">アスンシオン</exemplarCity>
+				<exemplarCity>アスンシオン</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
-				<exemplarCity draft="provisional">カタール</exemplarCity>
+				<exemplarCity>カタール</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity draft="provisional">レユニオン</exemplarCity>
+				<exemplarCity>レユニオン</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>ブカレスト</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity>ベオグラード</exemplarCity>
 			</zone>
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>カリーニングラード</exemplarCity>
@@ -2662,7 +3369,7 @@
 				<exemplarCity>オムスク</exemplarCity>
 			</zone>
 			<zone type="Asia/Novosibirsk">
-				<exemplarCity>ノボシビルスク</exemplarCity>
+				<exemplarCity>ノヴォシビルスク</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>クラスノヤルスク</exemplarCity>
@@ -2686,136 +3393,149 @@
 				<exemplarCity>カムチャッカ</exemplarCity>
 			</zone>
 			<zone type="Asia/Anadyr">
-				<exemplarCity>アナジル</exemplarCity>
+				<exemplarCity>アナディリ</exemplarCity>
 			</zone>
 			<zone type="Africa/Kigali">
-				<exemplarCity draft="provisional">キガリ</exemplarCity>
+				<exemplarCity>キガリ</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
-				<exemplarCity draft="provisional">リヤド</exemplarCity>
+				<exemplarCity>リヤド</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guadalcanal">
-				<exemplarCity draft="provisional">ガダルカナル</exemplarCity>
+				<exemplarCity>ガダルカナル</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ガタルカナル</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
-				<exemplarCity draft="provisional">マエ</exemplarCity>
+				<exemplarCity>マヘ</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
-				<exemplarCity draft="provisional">ハルツーム</exemplarCity>
+				<exemplarCity>ハルツーム</exemplarCity>
 			</zone>
 			<zone type="Europe/Stockholm">
-				<exemplarCity draft="provisional">ストックホルム</exemplarCity>
+				<exemplarCity>ストックホルム</exemplarCity>
 			</zone>
 			<zone type="Asia/Singapore">
-				<exemplarCity draft="provisional">シンガポール</exemplarCity>
+				<exemplarCity>シンガポール</exemplarCity>
 			</zone>
 			<zone type="Atlantic/St_Helena">
-				<exemplarCity draft="provisional">セントヘレナ</exemplarCity>
+				<exemplarCity>セントヘレナ</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity>リュブリャナ</exemplarCity>
 			</zone>
 			<zone type="Arctic/Longyearbyen">
-				<exemplarCity>北極/ロングイヤービーエン</exemplarCity>
+				<exemplarCity>ロングイヤービーエン</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity>ブラスティラバ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ブラチスラバ</exemplarCity>
 			</zone>
 			<zone type="Africa/Freetown">
-				<exemplarCity draft="provisional">フリータウン</exemplarCity>
+				<exemplarCity>フリータウン</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity>サンマリノ</exemplarCity>
 			</zone>
 			<zone type="Africa/Dakar">
-				<exemplarCity draft="provisional">ダカール</exemplarCity>
+				<exemplarCity>ダカール</exemplarCity>
 			</zone>
 			<zone type="Africa/Mogadishu">
-				<exemplarCity draft="provisional">モガディシュ</exemplarCity>
+				<exemplarCity>モガディシオ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">モガディシュ</exemplarCity>
 			</zone>
 			<zone type="America/Paramaribo">
-				<exemplarCity draft="provisional">パラマリボ</exemplarCity>
+				<exemplarCity>パラマリボ</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity draft="provisional">サントメ</exemplarCity>
+				<exemplarCity>サントメ</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
-				<exemplarCity draft="provisional">サルバドル</exemplarCity>
+				<exemplarCity>エルサルバドル</exemplarCity>
 			</zone>
 			<zone type="Asia/Damascus">
-				<exemplarCity draft="provisional">ダマスカス</exemplarCity>
+				<exemplarCity>ダマスカス</exemplarCity>
 			</zone>
 			<zone type="Africa/Mbabane">
-				<exemplarCity draft="provisional">ムババネ</exemplarCity>
+				<exemplarCity>ムババーネ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ムババネ</exemplarCity>
 			</zone>
 			<zone type="America/Grand_Turk">
-				<exemplarCity draft="provisional">グランドターク</exemplarCity>
+				<exemplarCity>グランドターク</exemplarCity>
 			</zone>
 			<zone type="Africa/Ndjamena">
-				<exemplarCity draft="provisional">ンジャメナ</exemplarCity>
+				<exemplarCity>ンジャメナ</exemplarCity>
 			</zone>
 			<zone type="Indian/Kerguelen">
-				<exemplarCity draft="provisional">ケルゲレーヌ</exemplarCity>
+				<exemplarCity>ケルゲレン</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
-				<exemplarCity draft="provisional">ロメ</exemplarCity>
+				<exemplarCity>ロメ</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
-				<exemplarCity draft="provisional">バンコク</exemplarCity>
+				<exemplarCity>バンコク</exemplarCity>
 			</zone>
 			<zone type="Asia/Dushanbe">
-				<exemplarCity draft="provisional">ドゥシャンベ</exemplarCity>
+				<exemplarCity>ドゥシャンベ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fakaofo">
-				<exemplarCity draft="provisional">ファカオフォ</exemplarCity>
+				<exemplarCity>ファカオフォ</exemplarCity>
 			</zone>
 			<zone type="Asia/Dili">
-				<exemplarCity draft="provisional">ディリ</exemplarCity>
+				<exemplarCity>ディリ</exemplarCity>
 			</zone>
 			<zone type="Asia/Ashgabat">
-				<exemplarCity draft="provisional">アシガバード</exemplarCity>
+				<exemplarCity>アシガバード</exemplarCity>
 			</zone>
 			<zone type="Africa/Tunis">
-				<exemplarCity draft="provisional">チュニジア</exemplarCity>
+				<exemplarCity>チュニス</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tongatapu">
-				<exemplarCity draft="provisional">トンガタプ</exemplarCity>
+				<exemplarCity>トンガタプ</exemplarCity>
 			</zone>
 			<zone type="Europe/Istanbul">
-				<exemplarCity draft="provisional">イスタンブール</exemplarCity>
+				<exemplarCity>イスタンブール</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
-				<exemplarCity draft="provisional">ポートオブスペイン</exemplarCity>
+				<exemplarCity>ポートオブスペイン</exemplarCity>
 			</zone>
 			<zone type="Pacific/Funafuti">
-				<exemplarCity draft="provisional">フナフティ</exemplarCity>
+				<exemplarCity>フナフティ</exemplarCity>
 			</zone>
 			<zone type="Asia/Taipei">
-				<exemplarCity draft="provisional">台北</exemplarCity>
+				<exemplarCity>台北</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
-				<exemplarCity draft="provisional">ダルエスサラーム</exemplarCity>
+				<exemplarCity>ダルエスサラーム</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity>ウジゴロド</exemplarCity>
+				<exemplarCity>ウージュホロド</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>キエフ</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
-				<exemplarCity>シンフェローポリ</exemplarCity>
+				<exemplarCity>シンフェロポリ</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
-				<exemplarCity>ザポロージェ</exemplarCity>
+				<exemplarCity>ザポリージャ</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
-				<exemplarCity draft="provisional">カンパラ</exemplarCity>
+				<exemplarCity>カンパラ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Midway">
 				<exemplarCity>ミッドウェー</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
-				<exemplarCity>ジョンストン</exemplarCity>
+				<exemplarCity>ジョンストン島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
-				<exemplarCity>ウェーク</exemplarCity>
+				<exemplarCity>ウェーク島</exemplarCity>
 			</zone>
 			<zone type="America/Adak">
 				<exemplarCity>アダック</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity>ノーメ</exemplarCity>
+				<exemplarCity>ノーム</exemplarCity>
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>ホノルル</exemplarCity>
@@ -2878,7 +3598,7 @@
 				<exemplarCity>インディアナポリス</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
-				<exemplarCity>ルイスビル</exemplarCity>
+				<exemplarCity>ルイビル</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vevay">
 				<exemplarCity>インディアナ州ビベー</exemplarCity>
@@ -2893,7 +3613,7 @@
 				<exemplarCity>ニューヨーク</exemplarCity>
 			</zone>
 			<zone type="America/Montevideo">
-				<exemplarCity draft="provisional">モンテビデオ</exemplarCity>
+				<exemplarCity>モンテビデオ</exemplarCity>
 			</zone>
 			<zone type="Asia/Samarkand">
 				<exemplarCity>サマルカンド</exemplarCity>
@@ -2901,70 +3621,80 @@
 			<zone type="Asia/Tashkent">
 				<exemplarCity>アジア/タシケント</exemplarCity>
 			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity>バチカン</exemplarCity>
+			</zone>
 			<zone type="America/St_Vincent">
-				<exemplarCity draft="provisional">セントヴィンセント</exemplarCity>
+				<exemplarCity>セントビンセント</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">セントヴィンセント</exemplarCity>
 			</zone>
 			<zone type="America/Caracas">
-				<exemplarCity draft="provisional">カラカス</exemplarCity>
+				<exemplarCity>カラカス</exemplarCity>
 			</zone>
 			<zone type="America/Tortola">
-				<exemplarCity draft="provisional">トルトーラ</exemplarCity>
+				<exemplarCity>トルトーラ</exemplarCity>
 			</zone>
 			<zone type="America/St_Thomas">
-				<exemplarCity draft="provisional">セントトマス</exemplarCity>
+				<exemplarCity>セントトーマス</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">セントトマス</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
-				<exemplarCity draft="provisional">サイゴン</exemplarCity>
+				<exemplarCity>ホーチミン</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ホーチミン市</exemplarCity>
 			</zone>
 			<zone type="Pacific/Efate">
-				<exemplarCity draft="provisional">エファテ</exemplarCity>
+				<exemplarCity>エフェテ島</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">エファテ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wallis">
-				<exemplarCity draft="provisional">ワリー</exemplarCity>
+				<exemplarCity>ウォリス諸島</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ワリー</exemplarCity>
 			</zone>
 			<zone type="Pacific/Apia">
-				<exemplarCity draft="provisional">アピーア</exemplarCity>
+				<exemplarCity>アピア</exemplarCity>
 			</zone>
 			<zone type="Asia/Aden">
-				<exemplarCity draft="provisional">アデン</exemplarCity>
+				<exemplarCity>アデン</exemplarCity>
 			</zone>
 			<zone type="Indian/Mayotte">
-				<exemplarCity draft="provisional">マイヨット島</exemplarCity>
+				<exemplarCity>マヨット</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">マイヨット</exemplarCity>
 			</zone>
 			<zone type="Africa/Johannesburg">
-				<exemplarCity draft="provisional">ヨハネスブルグ</exemplarCity>
+				<exemplarCity>ヨハネスブルグ</exemplarCity>
 			</zone>
 			<zone type="Africa/Lusaka">
-				<exemplarCity draft="provisional">ルサカ</exemplarCity>
+				<exemplarCity>ルサカ</exemplarCity>
 			</zone>
 			<zone type="Africa/Harare">
-				<exemplarCity draft="provisional">ハラーレ</exemplarCity>
+				<exemplarCity>ハラレ</exemplarCity>
+				<exemplarCity alt="proposed-x1001" draft="unconfirmed">ハラーレ</exemplarCity>
 			</zone>
 			<metazone type="Acre">
 				<long>
-					<standard draft="provisional">アクレ時間</standard>
-					<daylight draft="provisional">アクレ夏時間</daylight>
+					<standard>アクレ標準時</standard>
+					<daylight>アクレ夏時間</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">ACT（アクレ）</standard>
-					<daylight draft="provisional">ACST（アクレ）</daylight>
+					<standard>ACT（アクレ）</standard>
+					<daylight>ACST（アクレ）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
-					<standard draft="provisional">アフガニスタン時間</standard>
+					<standard>アフガニスタン標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<generic>中央アフリカ時間</generic>
-					<standard>中央アフリカ時間</standard>
+					<standard>中央アフリカ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<generic>東アフリカ時間</generic>
-					<standard>東アフリカ時間</standard>
+					<standard>東アフリカ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Southern">
@@ -2976,14 +3706,14 @@
 			<metazone type="Africa_Western">
 				<long>
 					<generic>西アフリカ時間</generic>
-					<standard>西アフリカ時間</standard>
+					<standard>西アフリカ標準時</standard>
 					<daylight>西アフリカ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
-					<standard draft="provisional">アクチュービンスク時間</standard>
-					<daylight draft="provisional">アクチュービンスク夏時間</daylight>
+					<standard>アクチュービンスク標準時</standard>
+					<daylight>アクチュービンスク夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -2998,20 +3728,21 @@
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
-					<generic draft="provisional">アラスカ−ハワイ時間</generic>
-					<standard draft="provisional">アラスカ−ハワイ標準時</standard>
-					<daylight draft="provisional">アラスカ−ハワイ夏時間</daylight>
+					<generic>アラスカ−ハワイ時間</generic>
+					<standard>アラスカ−ハワイ標準時</standard>
+					<daylight>アラスカ−ハワイ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Almaty">
 				<long>
-					<standard draft="provisional">アルマトイ時間</standard>
-					<daylight draft="provisional">アルマトイ夏時間</daylight>
+					<standard>アルトマイ標準時</standard>
+					<daylight>アルマトイ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<standard>アマゾン時間</standard>
+					<generic>アマゾン時間</generic>
+					<standard>アマゾン標準時</standard>
 					<daylight>アマゾン夏時間</daylight>
 				</long>
 			</metazone>
@@ -3045,68 +3776,73 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<standard draft="provisional">アナディリ時間</standard>
-					<daylight draft="provisional">アナディリ夏時間</daylight>
+					<generic draft="contributed">アナジル時間</generic>
+					<standard draft="contributed">アナジル時間</standard>
+					<daylight draft="contributed">アナジル夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
-					<standard draft="provisional">アクタウ時間</standard>
-					<daylight draft="provisional">アクタウ夏時間</daylight>
+					<standard>アクタウ標準時</standard>
+					<daylight>アクタウ夏時間</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">AQTT（アクタウ）</standard>
-					<daylight draft="provisional">AQTST（アクタウ）</daylight>
+					<standard>AQTT（アクタウ）</standard>
+					<daylight>AQTST（アクタウ）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
-					<standard draft="provisional">アクトベ時間</standard>
-					<daylight draft="provisional">アクトベ夏時間</daylight>
+					<standard>アクトベ標準時</standard>
+					<daylight>アクトベ夏時間</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">AQTT（アクトベ）</standard>
-					<daylight draft="provisional">AQTST（アクトベ）</daylight>
+					<standard>AQTT（アクトベ）</standard>
+					<daylight>AQTST（アクトベ）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
-					<generic draft="provisional">アラブ時間</generic>
-					<standard draft="provisional">アラブ標準時</standard>
-					<daylight draft="provisional">アラブ夏時間</daylight>
+					<generic>アラブ時間</generic>
+					<standard>アラブ標準時</standard>
+					<daylight>アラブ夏時間</daylight>
 				</long>
 				<short>
-					<generic draft="provisional">AT（アラブ）</generic>
-					<standard draft="provisional">AST（アラブ）</standard>
-					<daylight draft="provisional">ADT（アラブ）</daylight>
+					<generic>AT（アラブ）</generic>
+					<standard>AST（アラブ）</standard>
+					<daylight>ADT（アラブ）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>アルゼンチン時間</generic>
-					<standard draft="provisional">アルゼンチン時間</standard>
+					<standard>アルゼンチン標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">アルゼンチン時間</standard>
 					<daylight>アルゼンチン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<standard draft="provisional">アルゼンチン西部時間</standard>
+					<generic>アルゼンチン西部時間</generic>
+					<standard>アルゼンチン西部標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">アルゼンチン西部時間</standard>
+					<daylight>アルゼンチン西部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
-					<standard draft="provisional">アルメニア時間</standard>
-					<daylight draft="provisional">アルメニア夏時間</daylight>
+					<standard>アルメニア標準時</standard>
+					<daylight>アルメニア夏時間</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">AMT（アルメニア）</standard>
-					<daylight draft="provisional">AMST（アルメニア）</daylight>
+					<standard>AMT（アルメニア）</standard>
+					<daylight>AMST（アルメニア）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
-					<standard draft="provisional">アシガバート時間</standard>
-					<daylight draft="provisional">アシガバート夏時間</daylight>
+					<standard>アシガバート標準時</standard>
+					<daylight>アシガバート夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -3118,99 +3854,101 @@
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
-					<generic draft="provisional">オーストラリア中部時間</generic>
-					<standard draft="provisional">オーストラリア中部標準時</standard>
-					<daylight draft="provisional">オーストラリア中部夏時間</daylight>
+					<generic>オーストラリア中部時間</generic>
+					<standard>オーストラリア中部標準時</standard>
+					<daylight>オーストラリア中部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
-					<generic draft="provisional">オーストラリア中西部時間</generic>
-					<standard draft="provisional">オーストラリア中西部標準時</standard>
-					<daylight draft="provisional">オーストラリア中西部夏時間</daylight>
+					<generic>オーストラリア中西部時間</generic>
+					<standard>オーストラリア中西部標準時</standard>
+					<daylight>オーストラリア中西部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
-					<generic draft="provisional">オーストラリア東部時間</generic>
-					<standard draft="provisional">オーストラリア東部標準時</standard>
-					<daylight draft="provisional">オーストラリア東部標準時</daylight>
+					<generic>オーストラリア東部時間</generic>
+					<standard>オーストラリア東部標準時</standard>
+					<daylight>オーストラリア東部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
-					<generic draft="provisional">西オーストラリア時間</generic>
-					<standard draft="provisional">オーストラリア西部標準時</standard>
-					<daylight draft="provisional">オーストラリア西部夏時間</daylight>
+					<generic>オーストラリア西部時間</generic>
+					<generic alt="proposed-x1001" draft="unconfirmed">西オーストラリア時間</generic>
+					<standard>オーストラリア西部標準時</standard>
+					<daylight>オーストラリア西部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
-					<standard draft="provisional">アゼルバイジャン時間</standard>
-					<daylight draft="provisional">アゼルバイジャン夏時間</daylight>
+					<standard>アゼルバイジャン標準時</standard>
+					<daylight>アゼルバイジャン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azores">
 				<long>
-					<standard draft="provisional">アゾレス時間</standard>
-					<daylight draft="provisional">アゾレス夏時間</daylight>
+					<standard>アゾレス標準時</standard>
+					<daylight>アゾレス夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Baku">
 				<long>
-					<standard draft="provisional">バクー時間</standard>
-					<daylight draft="provisional">バクー夏時間</daylight>
+					<standard>バクー標準時</standard>
+					<daylight>バクー夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
-					<standard draft="provisional">バングラデシュ時間</standard>
-					<daylight draft="provisional">バングラデシュ夏時間</daylight>
+					<standard>バングラデシュ標準時</standard>
+					<daylight>バングラデシュ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bering">
 				<long>
-					<generic draft="provisional">ベーリング時間</generic>
-					<standard draft="provisional">ベーリング標準時</standard>
-					<daylight draft="provisional">ベーリング夏時間</daylight>
+					<generic>ベーリング時間</generic>
+					<standard>ベーリング標準時</standard>
+					<daylight>ベーリング夏時間</daylight>
 				</long>
 				<short>
-					<generic draft="provisional">BT（ベーリング）</generic>
-					<standard draft="provisional">BST（ベーリング）</standard>
-					<daylight draft="provisional">BDT（ベーリング）</daylight>
+					<generic>BT（ベーリング）</generic>
+					<standard>BST（ベーリング）</standard>
+					<daylight>BDT（ベーリング）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
-					<standard draft="provisional">ブータン時間</standard>
+					<standard>ブータン標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
-					<standard draft="provisional">ボリビア時間</standard>
+					<standard>ボリビア標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Borneo">
 				<long>
-					<standard draft="provisional">ボルネオ時間</standard>
-					<daylight draft="provisional">ボルネオ夏時間</daylight>
+					<standard>ボルネオ標準時</standard>
+					<daylight>ボルネオ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<standard>ブラジリア時間</standard>
+					<generic>ブラジリア時間</generic>
+					<standard>ブラジリア標準時</standard>
 					<daylight>ブラジリア夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
-					<standard draft="provisional">ブルネイ・ダルサラーム時間</standard>
+					<standard>ブルネイ・ダルサラーム標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
-					<standard draft="provisional">カーボベルデ時間</standard>
-					<daylight draft="provisional">カーボベルデ夏時間</daylight>
+					<standard>カーボベルデ標準時</standard>
+					<daylight>カーボベルデ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
@@ -3221,7 +3959,7 @@
 			</metazone>
 			<metazone type="Changbai">
 				<long>
-					<standard draft="provisional">チャンバイ時間</standard>
+					<standard>チャンバイ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
@@ -3232,44 +3970,44 @@
 			</metazone>
 			<metazone type="Chile">
 				<long>
-					<standard draft="provisional">チリ時間</standard>
-					<daylight draft="provisional">チリ夏時間</daylight>
+					<standard>チリ標準時</standard>
+					<daylight>チリ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
-					<generic draft="provisional">中華人民共和国時間</generic>
+					<generic>中国時間</generic>
 					<standard>中国標準時</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">中華人民共和国標準時</standard>
 					<daylight>中国夏時間</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">中華人民共和国夏時間</daylight>
 				</long>
 				<short>
-					<generic draft="provisional">CT（中華人民共和国）</generic>
-					<standard draft="provisional">CST（中華人民共和国）</standard>
-					<daylight draft="provisional">CDT（中華人民共和国）</daylight>
+					<generic>CT(中国)</generic>
+					<standard>CST(中国)</standard>
+					<daylight>CDT(中国)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<standard draft="provisional">チョイバルサン時間</standard>
-					<daylight draft="provisional">チョイバルサン夏時間</daylight>
+					<generic>チョイバルサン時間</generic>
+					<standard>チョイバルサン標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">チョイバルサン時間</standard>
+					<daylight>チョイバルサン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
 				<long>
-					<standard draft="provisional">クリスマス島時間</standard>
+					<standard>クリスマス島標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
-					<standard draft="provisional">ココス諸島時間</standard>
+					<standard>ココス諸島標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Colombia">
 				<long>
-					<standard draft="provisional">コロンビア時間</standard>
-					<daylight draft="provisional">コロンビア夏時間</daylight>
+					<standard>コロンビア標準時</standard>
+					<daylight>コロンビア夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cook">
@@ -3279,44 +4017,45 @@
 			</metazone>
 			<metazone type="Cuba">
 				<long>
-					<generic draft="provisional">キューバ時間</generic>
-					<standard draft="provisional">キューバ標準時</standard>
-					<daylight draft="provisional">キューバ夏時間</daylight>
+					<generic>キューバ時間</generic>
+					<standard>キューバ標準時</standard>
+					<daylight>キューバ夏時間</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">CST（キューバ）</standard>
-					<daylight draft="provisional">CDT（キューバ）</daylight>
+					<generic draft="contributed">CT（キューバ）</generic>
+					<standard>CST（キューバ）</standard>
+					<daylight>CDT（キューバ）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Dacca">
 				<long>
-					<standard draft="provisional">ダッカ時間</standard>
+					<standard>ダッカ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Davis">
 				<long>
-					<standard draft="provisional">デービス基地時間</standard>
+					<standard>デービス基地時間</standard>
 				</long>
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard draft="provisional">デュモン・デュルヴィル基地時間</standard>
+					<standard>デュモン・デュルヴィル基地時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
-					<standard draft="provisional">ドゥシャンベ時間</standard>
-					<daylight draft="provisional">ドゥシャンベ夏時間</daylight>
+					<standard>ドゥシャンベ標準時</standard>
+					<daylight>ドゥシャンベ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Dutch_Guiana">
 				<long>
-					<standard draft="provisional">オランダ領ギアナ時間</standard>
+					<standard>オランダ領ギアナ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
-					<standard draft="provisional">東ティモール時間</standard>
+					<standard>東ティモール標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Easter">
@@ -3327,31 +4066,33 @@
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
-					<standard draft="provisional">エクアドル時間</standard>
+					<standard>エクアドル標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard>中欧標準時</standard>
-					<daylight>中欧夏時間</daylight>
+					<standard>中央ヨーロッパ標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">中央ヨーロッパ時間</standard>
+					<daylight>中央ヨーロッパ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard>東欧標準時</standard>
-					<daylight>東欧夏時間</daylight>
+					<standard>東ヨーロッパ標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">東ヨーロッパ時間</standard>
+					<daylight>東ヨーロッパ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard draft="provisional">西ヨーロッパ時間</standard>
-					<daylight draft="provisional">西ヨーロッパ夏時間</daylight>
+					<standard>西ヨーロッパ標準時</standard>
+					<daylight>西ヨーロッパ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<standard draft="provisional">フォークランド諸島時間</standard>
-					<daylight draft="provisional">フォークランド諸島夏時間</daylight>
+					<standard>フォークランド諸島標準時</standard>
+					<daylight>フォークランド諸島夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
@@ -3362,18 +4103,18 @@
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
-					<standard draft="provisional">仏領ギアナ時間</standard>
+					<standard>仏領ギアナ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard draft="provisional">フランス領南方・南極時間</standard>
+					<standard>フランス領南方・南極地域標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Frunze">
 				<long>
-					<standard draft="provisional">フルンゼ時間</standard>
-					<daylight draft="provisional">フルンゼ夏時間</daylight>
+					<standard>フルンゼ標準時</standard>
+					<daylight>フルンゼ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -3388,8 +4129,8 @@
 			</metazone>
 			<metazone type="Georgia">
 				<long>
-					<standard draft="provisional">グルジア時間</standard>
-					<daylight draft="provisional">グルジア夏時間</daylight>
+					<standard>グルジア標準時</standard>
+					<daylight>グルジア夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Gilbert_Islands">
@@ -3404,20 +4145,20 @@
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
-					<standard draft="provisional">グリーンランド中部時間</standard>
-					<daylight draft="provisional">グリーンランド中部夏時間</daylight>
+					<standard>グリーンランド中部標準時</standard>
+					<daylight>グリーンランド中部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
-					<standard draft="provisional">グリーンランド東部時間</standard>
-					<daylight draft="provisional">グリーンランド東部夏時間</daylight>
+					<standard>グリーンランド東部標準時</standard>
+					<daylight>グリーンランド東部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
-					<standard draft="provisional">グリーンランド西部時間</standard>
-					<daylight draft="provisional">グリーンランド西部夏時間</daylight>
+					<standard>グリーンランド西部標準時</standard>
+					<daylight>グリーンランド西部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Guam">
@@ -3430,87 +4171,95 @@
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<generic draft="provisional">湾岸時間</generic>
-					<standard draft="provisional">湾岸標準時</standard>
+					<generic>湾岸時間</generic>
+					<standard>湾岸標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
-					<standard draft="provisional">ギアナ時間</standard>
+					<standard>ギアナ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<standard draft="provisional">ハワイ−アリューシャン時間</standard>
+					<generic draft="contributed">ハワイ アリューシャン標準時</generic>
+					<standard draft="contributed">ハワイ−アリューシャン標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<standard draft="provisional">香港時間</standard>
-					<daylight draft="provisional">香港夏時間</daylight>
+					<standard>香港標準時</standard>
+					<daylight>香港夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<standard draft="provisional">ホブド時間</standard>
-					<daylight draft="provisional">ホブド夏時間</daylight>
+					<generic>ホブト時間</generic>
+					<standard>ホブト標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">ホブト時間</standard>
+					<daylight>ホブト夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard draft="provisional">インド標準時</standard>
+					<standard>インド標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
-					<standard draft="provisional">インド洋時間</standard>
+					<standard>英領インド洋地域標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
-					<standard draft="provisional">インドシナ時間</standard>
+					<standard>インドシナ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<standard draft="provisional">インドネシア中部標準時</standard>
+					<generic>インドネシア中部時間</generic>
+					<standard>インドネシア中部標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<standard draft="provisional">インドネシア東部時間</standard>
+					<generic>インドネシア東部時間</generic>
+					<standard>インドネシア東部標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<standard draft="provisional">インドネシア西部時間</standard>
+					<generic>インドネシア西部時間</generic>
+					<standard>インドネシア西部標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Iran">
 				<long>
-					<standard draft="provisional">イラン標準時</standard>
-					<daylight draft="provisional">イラン夏時間</daylight>
+					<standard>イラン標準時</standard>
+					<daylight>イラン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<standard draft="provisional">イルクーツク時間</standard>
-					<daylight draft="provisional">イルクーツク夏時間</daylight>
+					<generic>イルクーツク時間</generic>
+					<standard>イルクーツク標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">イルクーツク時間</standard>
+					<daylight>イルクーツク夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
-					<generic draft="provisional">イスラエル時間</generic>
+					<generic>イスラエル時間</generic>
 					<standard>イスラエル標準時</standard>
 					<daylight>イスラエル夏時間</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">IST（イスラエル）</standard>
+					<standard>IST（イスラエル）</standard>
 				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
-					<generic draft="provisional">日本時間</generic>
+					<generic>日本時間</generic>
 					<standard>日本標準時</standard>
 					<daylight>日本夏時間</daylight>
 				</long>
@@ -3518,35 +4267,40 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<standard draft="provisional">ペトロパブロフスク・カムチャツキー時間</standard>
-					<daylight draft="provisional">ペトロパブロフスク・カムチャツキー夏時間</daylight>
+					<generic draft="contributed">カムチャッカ時間</generic>
+					<standard draft="contributed">ペトロパブロフスク カムチャツキー時間</standard>
+					<daylight draft="contributed">ペトロパブロフスク カムチャツキー夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Karachi">
 				<long>
-					<standard draft="provisional">カラチ時間</standard>
+					<standard>カラチ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Kashgar">
 				<long>
-					<standard draft="provisional">カシュガル時間</standard>
+					<standard>カシュガル標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="provisional">カザフスタン東部時間</generic>
-					<standard draft="provisional">カザフスタン東部標準時</standard>
+					<generic>カザフスタン東部時間</generic>
+					<standard>カザフスタン東部標準時</standard>
+					<daylight>カザフスタン東部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="provisional">カザフスタン西部時間</generic>
-					<standard draft="provisional">カザフスタン西部標準時</standard>
+					<generic>カザフスタン西部時間</generic>
+					<generic alt="proposed-x1001" draft="unconfirmed">西部カザフスタン時間</generic>
+					<standard>カザフスタン西部標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">西部カザフスタン標準時</standard>
+					<daylight>カザフスタン西部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
-					<standard draft="provisional">大韓民国標準時</standard>
+					<standard>韓国標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -3554,10 +4308,18 @@
 					<standard draft="provisional">コスラエ時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>クラスノヤルスク時間</generic>
+					<standard>クラスノヤルスク標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">クラスノヤルスク時間</standard>
+					<daylight>クラスノヤルスク夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
-					<standard draft="provisional">クイビシェフ時間</standard>
-					<daylight draft="provisional">クイビシェフ夏時間</daylight>
+					<standard>クイビシェフ標準時</standard>
+					<daylight>クイビシェフ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kwajalein">
@@ -3572,17 +4334,30 @@
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
-					<generic draft="provisional">ロードハウ時間</generic>
-					<standard draft="provisional">ロードハウ標準時</standard>
-					<daylight draft="provisional">ロードハウ夏時間</daylight>
+					<generic>ロードハウ時間</generic>
+					<standard>ロードハウ標準時</standard>
+					<daylight>ロードハウ夏時間</daylight>
 				</long>
 				<short>
 					<generic draft="provisional">LHT</generic>
 				</short>
 			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<generic>マッコーリー時間</generic>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>マガダン時間</generic>
+					<standard>マガダン標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">マガダン時間</standard>
+					<daylight>マガダン夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Maldives">
 				<long>
-					<standard draft="provisional">モルディブ時間</standard>
+					<standard>モルディブ標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Marquesas">
@@ -3597,20 +4372,29 @@
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
-					<standard draft="provisional">モーリシャス時間</standard>
-					<daylight draft="provisional">モーリシャス夏時間</daylight>
+					<standard>モーリシャス標準時</standard>
+					<daylight>モーリシャス夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mawson">
 				<long>
-					<standard draft="provisional">モーソン基地時間</standard>
+					<standard>モーソン基地時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic>ウランバートル時間</generic>
+					<generic alt="proposed-x1001" draft="unconfirmed">モンゴル時間</generic>
+					<standard>ウランバートル標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">ウランバートル時間</standard>
+					<daylight>ウランバートル夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
-					<generic draft="provisional">モスクワ時間</generic>
-					<standard draft="provisional">モスクワ標準時</standard>
-					<daylight draft="provisional">モスクワ夏時間</daylight>
+					<generic>モスクワ時間</generic>
+					<standard>モスクワ標準時</standard>
+					<daylight>モスクワ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Nauru">
@@ -3633,7 +4417,7 @@
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
-					<generic draft="provisional">ニューファンドランド時間</generic>
+					<generic draft="contributed">ニューファンドランド島時間</generic>
 					<standard>ニューファンドランド島標準時</standard>
 					<daylight>ニューファンドランド島夏時間</daylight>
 				</long>
@@ -3645,18 +4429,35 @@
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard draft="provisional">ノーフォーク島時間</standard>
+					<standard draft="contributed">ノーフォーク諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<standard draft="provisional">フェルナンド・デ・ ノローニャ時間</standard>
-					<daylight draft="provisional">フェルナンド・デ・ ノローニャ夏時間</daylight>
+					<generic draft="contributed">ノロニャ時間</generic>
+					<standard draft="contributed">フェルナンド ド ノローニャ時間</standard>
+					<daylight draft="contributed">フェルナンド ド ノローニャ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
 					<standard draft="provisional">北マリアナ諸島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>ノボシビルスク時間</generic>
+					<standard>ノボシビルスク標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">ノボシビルスク時間</standard>
+					<daylight>ノボシビルスク夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic>オムスク時間</generic>
+					<standard>オムスク標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">オムスク時間</standard>
+					<daylight>オムスク夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Palau">
@@ -3671,14 +4472,14 @@
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
-					<standard draft="provisional">パラグアイ時間</standard>
-					<daylight draft="provisional">パラグアイ夏時間</daylight>
+					<standard>パラグアイ標準時</standard>
+					<daylight>パラグアイ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Peru">
 				<long>
-					<standard draft="provisional">ペルー時間</standard>
-					<daylight draft="provisional">ペルー夏時間</daylight>
+					<standard>ペルー標準時</standard>
+					<daylight>ペルー夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Phoenix_Islands">
@@ -3705,24 +4506,33 @@
 			</metazone>
 			<metazone type="Reunion">
 				<long>
-					<standard draft="provisional">レユニオン時間</standard>
+					<standard>レユニオン標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Rothera">
 				<long>
-					<standard draft="provisional">ロゼラ研究基地時間</standard>
+					<standard>ロゼラ研究基地時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic>サハリン時間</generic>
+					<standard>サハリン標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">サハリン時間</standard>
+					<daylight>サハリン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<standard draft="provisional">サマラ時間</standard>
-					<daylight draft="provisional">サマラ夏時間</daylight>
+					<generic draft="contributed">サマラ時間</generic>
+					<standard draft="contributed">サマラ時間</standard>
+					<daylight draft="contributed">サマラ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samarkand">
 				<short>
-					<standard draft="provisional">SAMT（サマルカンド）</standard>
-					<daylight draft="provisional">SAMST（サマルカンド）</daylight>
+					<standard>SAMT（サマルカンド）</standard>
+					<daylight>SAMST（サマルカンド）</daylight>
 				</short>
 			</metazone>
 			<metazone type="Samoa">
@@ -3732,7 +4542,7 @@
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
-					<standard draft="provisional">セーシェル時間</standard>
+					<standard>セーシェル標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
@@ -3742,20 +4552,20 @@
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
-					<standard draft="provisional">サウスジョージア時間</standard>
+					<standard>サウスジョージア標準時</standard>
 				</long>
 				<short>
-					<standard draft="provisional">GST（サウスジョージア）</standard>
+					<standard>GST（サウスジョージア）</standard>
 				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
-					<standard draft="provisional">スリナム時間</standard>
+					<standard>スリナム標準時</standard>
 				</long>
 			</metazone>
 			<metazone type="Syowa">
 				<long>
-					<standard draft="provisional">昭和基地時間</standard>
+					<standard>昭和基地時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Tahiti">
@@ -3765,9 +4575,9 @@
 			</metazone>
 			<metazone type="Taipei">
 				<short>
-					<generic draft="provisional">CT（台北）</generic>
-					<standard draft="provisional">CST（台北）</standard>
-					<daylight draft="provisional">CDT（台北）</daylight>
+					<generic>CT(台湾)</generic>
+					<standard>CST(台湾)</standard>
+					<daylight>CDT(台湾)</daylight>
 				</short>
 			</metazone>
 			<metazone type="Tokelau">
@@ -3788,8 +4598,8 @@
 			</metazone>
 			<metazone type="Turkey">
 				<long>
-					<standard draft="provisional">トルコ時間</standard>
-					<daylight draft="provisional">トルコ夏時間</daylight>
+					<standard>トルコ標準時</standard>
+					<daylight>トルコ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tuvalu">
@@ -3799,8 +4609,8 @@
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
-					<standard draft="provisional">ウルグアイ時間</standard>
-					<daylight draft="provisional">ウルグアイ夏時間</daylight>
+					<standard>ウルグアイ標準時</standard>
+					<daylight>ウルグアイ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vanuatu">
@@ -3811,18 +4621,28 @@
 			</metazone>
 			<metazone type="Venezuela">
 				<long>
-					<standard draft="provisional">ベネズエラ時間</standard>
+					<standard>ベネズエラ標準時</standard>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>ウラジオストク時間</generic>
+					<standard>ウラジオストク標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">ウラジオストク時間</standard>
+					<daylight>ウラジオストク夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<standard draft="provisional">ヴォルゴグラード時間</standard>
-					<daylight draft="provisional">ヴォルゴグラード夏時間</daylight>
+					<generic>ボルゴグラード時間</generic>
+					<standard>ボルゴグラード標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">ボルゴグラード時間</standard>
+					<daylight>ボルゴグラード夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vostok">
 				<long>
-					<standard draft="provisional">ボストーク基地時間</standard>
+					<standard>ボストーク基地時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Wake">
@@ -3835,11 +4655,27 @@
 					<standard draft="provisional">ワリス・フテュナ時間</standard>
 				</long>
 			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic>ヤクーツク時間</generic>
+					<standard>ヤクーツク標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">ヤクーツク時間</standard>
+					<daylight>ヤクーツク夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>エカテリンブルグ時間</generic>
+					<standard>エカテリンブルグ標準時</standard>
+					<standard alt="proposed-x1001" draft="unconfirmed">エカテリンブルグ時間</standard>
+					<daylight>エカテリンブルグ夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Yukon">
 				<long>
-					<generic draft="provisional">ユーコン時間</generic>
-					<standard draft="provisional">ユーコン標準時</standard>
-					<daylight draft="provisional">ユーコン夏時間</daylight>
+					<generic>ユーコン時間</generic>
+					<standard>ユーコン標準時</standard>
+					<daylight>ユーコン夏時間</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -3848,11 +4684,40 @@
 		<symbols>
 			<decimal>.</decimal>
 			<group>,</group>
+			<nan draft="contributed">NaN（非数）</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000">0</pattern>
+					<pattern type="1000" alt="proposed-x1001" draft="unconfirmed">0.0 千</pattern>
+					<pattern type="10000">0.0万</pattern>
+					<pattern type="10000" alt="proposed-x1001" draft="unconfirmed">00 千</pattern>
+					<pattern type="100000">00万</pattern>
+					<pattern type="100000" alt="proposed-x1001" draft="unconfirmed">000 千</pattern>
+					<pattern type="1000000">000万</pattern>
+					<pattern type="1000000" alt="proposed-x1001" draft="unconfirmed">0.0 百万</pattern>
+					<pattern type="10000000">0000万</pattern>
+					<pattern type="10000000" alt="proposed-x1001" draft="unconfirmed">00 百万</pattern>
+					<pattern type="100000000">0.0億</pattern>
+					<pattern type="100000000" alt="proposed-x1001" draft="unconfirmed">000 百万</pattern>
+					<pattern type="1000000000">00億</pattern>
+					<pattern type="1000000000" alt="proposed-x1001" draft="unconfirmed">0.0 十億</pattern>
+					<pattern type="10000000000">000億</pattern>
+					<pattern type="10000000000" alt="proposed-x1001" draft="unconfirmed">00 十億</pattern>
+					<pattern type="100000000000">0000億</pattern>
+					<pattern type="100000000000" alt="proposed-x1001" draft="unconfirmed">000 十億</pattern>
+					<pattern type="1000000000000">0.0兆</pattern>
+					<pattern type="1000000000000" alt="proposed-x1001" draft="unconfirmed">0.0 兆</pattern>
+					<pattern type="10000000000000">00兆</pattern>
+					<pattern type="10000000000000" alt="proposed-x1001" draft="unconfirmed">00 兆</pattern>
+					<pattern type="100000000000000">000兆</pattern>
+					<pattern type="100000000000000" alt="proposed-x1001" draft="unconfirmed">000 兆</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3883,6 +4748,7 @@
 			</currency>
 			<currency type="AED">
 				<displayName>UAE ディルハム</displayName>
+				<displayName alt="proposed-x1001" draft="unconfirmed">アラブ首長国連邦ディルハム</displayName>
 			</currency>
 			<currency type="AFA">
 				<displayName>アフガニー (1927-2002)</displayName>
@@ -4702,29 +5568,106 @@
 			<unitPattern count="other">{0}日</unitPattern>
 			<unitPattern count="other" alt="short">{0}日</unitPattern>
 		</unit>
+		<unit type="day-future">
+			<unitPattern count="0" draft="contributed">0 日後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 日後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 日後</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="0" draft="contributed">0 日前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 日前</unitPattern>
+			<unitPattern count="other">{0}日前</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} 日前</unitPattern>
+		</unit>
 		<unit type="hour">
 			<unitPattern count="other">{0}時間</unitPattern>
 			<unitPattern count="other" alt="short">{0}時間</unitPattern>
+		</unit>
+		<unit type="hour-future">
+			<unitPattern count="0" draft="contributed">0 時間後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 時間後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 時間後</unitPattern>
+		</unit>
+		<unit type="hour-past">
+			<unitPattern count="0" draft="contributed">0 時間前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 時間前</unitPattern>
+			<unitPattern count="other">{0}時間前</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} 時間前</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="other">{0}分</unitPattern>
 			<unitPattern count="other" alt="short">{0}分</unitPattern>
 		</unit>
+		<unit type="minute-future">
+			<unitPattern count="0" draft="contributed">0 分後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 分後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 分後</unitPattern>
+		</unit>
+		<unit type="minute-past">
+			<unitPattern count="0" draft="contributed">0 分前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 分前</unitPattern>
+			<unitPattern count="other">{0}分前</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} 分前</unitPattern>
+		</unit>
 		<unit type="month">
 			<unitPattern count="other">{0}か月</unitPattern>
 			<unitPattern count="other" alt="short">{0}か月</unitPattern>
+		</unit>
+		<unit type="month-future">
+			<unitPattern count="0" draft="contributed">0 か月後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 か月後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} か月後</unitPattern>
+		</unit>
+		<unit type="month-past">
+			<unitPattern count="0" draft="contributed">0 か月前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 か月前</unitPattern>
+			<unitPattern count="other">{0}か月前</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} か月前</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="other">{0}秒</unitPattern>
 			<unitPattern count="other" alt="short">{0}秒</unitPattern>
 		</unit>
+		<unit type="second-future">
+			<unitPattern count="0" draft="contributed">0 秒後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 秒後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 秒後</unitPattern>
+		</unit>
+		<unit type="second-past">
+			<unitPattern count="0" draft="contributed">0 秒前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 秒前</unitPattern>
+			<unitPattern count="other">{0}秒前</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} 秒前</unitPattern>
+		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0}週</unitPattern>
 			<unitPattern count="other" alt="short">{0}週</unitPattern>
 		</unit>
+		<unit type="week-future">
+			<unitPattern count="0" draft="contributed">0 週間後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 週間後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 週間後</unitPattern>
+		</unit>
+		<unit type="week-past">
+			<unitPattern count="0" draft="contributed">0 週間前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 週間前</unitPattern>
+			<unitPattern count="other">{0}週前</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} 週間前</unitPattern>
+		</unit>
 		<unit type="year">
 			<unitPattern count="other">{0}年</unitPattern>
 			<unitPattern count="other" alt="short">{0}年</unitPattern>
+		</unit>
+		<unit type="year-future">
+			<unitPattern count="0" draft="contributed">0 年後</unitPattern>
+			<unitPattern count="1" draft="contributed">1 年後</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} 年後</unitPattern>
+		</unit>
+		<unit type="year-past">
+			<unitPattern count="0" draft="contributed">0 年前</unitPattern>
+			<unitPattern count="1" draft="contributed">1 年前</unitPattern>
+			<unitPattern count="other">{0}年前</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} 年前</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
@@ -4738,9 +5681,7 @@
 	<posix>
 		<messages>
 			<yesstr>はい:ハイ</yesstr>
-			<yesstr alt="proposed-x1001" draft="unconfirmed">はい:○</yesstr>
 			<nostr>いいえ:イイエ</nostr>
-			<nostr alt="proposed-x1001" draft="unconfirmed">いいえ:×</nostr>
 		</messages>
 	</posix>
 	<references>
@@ -4752,4 +5693,3 @@
 		<reference type="RP5" uri="http://www.sanseido.co.jp/publ/dicts/gengogaku.html#4">三省堂言語学大事典・言語一覧</reference>
 	</references>
 </ldml>
-

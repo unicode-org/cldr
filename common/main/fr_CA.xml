@@ -7,9 +7,102 @@
 		<language type="fr"/>
 		<territory type="CA"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="az" alt="short" draft="contributed">Azéri</language>
+			<language type="ps" alt="variant" draft="contributed">ps</language>
+			<language type="ug" alt="variant" draft="contributed">Ouïghour</language>
+		</languages>
+		<scripts>
+			<script type="Arab" alt="variant" draft="contributed">Perso-arabe</script>
+			<script type="Hans" alt="stand-alone" draft="contributed">Chinois simplifié</script>
+			<script type="Hant" alt="stand-alone" draft="contributed">Chinois traditionnel</script>
+		</scripts>
+		<keys>
+			<key type="numbers" draft="contributed">Chiffres</key>
+			<key type="x" draft="contributed">Usage privé</key>
+		</keys>
+		<types>
+			<type type="arab" key="numbers" draft="contributed">Chiffres indo-arabes</type>
+			<type type="arabext" key="numbers" draft="contributed">Chiffres indo-arabes étendus</type>
+			<type type="armn" key="numbers" draft="contributed">Chiffres arméniens</type>
+			<type type="armnlow" key="numbers" draft="contributed">Chiffres minuscules arméniens</type>
+			<type type="beng" key="numbers" draft="contributed">Chiffres bengali</type>
+			<type type="coptic" key="calendar" draft="contributed">Calendrier copte</type>
+			<type type="deva" key="numbers" draft="contributed">Chiffres devanagari</type>
+			<type type="dictionary" key="collation" draft="contributed">Ordre de tri du dictionnaire</type>
+			<type type="ducet" key="collation" draft="contributed">Ordre de tri Unicode par défaut</type>
+			<type type="ethi" key="numbers" draft="contributed">Chiffre éthiopiens</type>
+			<type type="ethiopic" key="calendar" draft="contributed">Calendrier éthiopien</type>
+			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Calendrier éthiopien de l'An de grâce</type>
+			<type type="fullwide" key="numbers" draft="contributed">Chiffre pleine largeur</type>
+			<type type="geor" key="numbers" draft="contributed">Chiffres géorgiens</type>
+			<type type="grek" key="numbers" draft="contributed">Chiffres grecs</type>
+			<type type="greklow" key="numbers" draft="contributed">Chiffres minuscules grecs</type>
+			<type type="gujr" key="numbers" draft="contributed">Chiffres gujarati</type>
+			<type type="guru" key="numbers" draft="contributed">Chiffres gurmukhī</type>
+			<type type="hanidec" key="numbers" draft="contributed">Chiffres numériques chinois</type>
+			<type type="hans" key="numbers" draft="contributed">Chiffres chinois simplifiés</type>
+			<type type="hansfin" key="numbers" draft="contributed">Chiffres monétaires chinois simplifiés</type>
+			<type type="hant" key="numbers" draft="contributed">Chiffres chinois traditionnels</type>
+			<type type="hantfin" key="numbers" draft="contributed">Chiffres financiers en chinois traditionnel</type>
+			<type type="hebr" key="numbers" draft="contributed">Chiffre hébreux</type>
+			<type type="jpan" key="numbers" draft="contributed">Chiffres japonais</type>
+			<type type="jpanfin" key="numbers" draft="contributed">Chiffres monétaires japonais</type>
+			<type type="khmr" key="numbers" draft="contributed">Chiffres khmer</type>
+			<type type="knda" key="numbers" draft="contributed">Chiffres canara</type>
+			<type type="laoo" key="numbers" draft="contributed">Chiffres laotiens</type>
+			<type type="latn" key="numbers" draft="contributed">Chiffres occidentaux</type>
+			<type type="mlym" key="numbers" draft="contributed">Chiffres malayâlam</type>
+			<type type="mong" key="numbers" draft="contributed">Chiffres mongols</type>
+			<type type="mymr" key="numbers" draft="contributed">Chiffres birmans</type>
+			<type type="orya" key="numbers" draft="contributed">Chiffres oriya</type>
+			<type type="persian" key="calendar" draft="contributed">Calendrier perse</type>
+			<type type="reformed" key="collation" draft="contributed">Ordre de tri réformé</type>
+			<type type="roman" key="numbers" draft="contributed">Chiffres romains</type>
+			<type type="romanlow" key="numbers" draft="contributed">Chiffres minuscules romains</type>
+			<type type="search" key="collation" draft="contributed">Recherche générale</type>
+			<type type="taml" key="numbers" draft="contributed">Chiffres tamoul</type>
+			<type type="telu" key="numbers" draft="contributed">Chiffres telugu</type>
+			<type type="thai" key="numbers" draft="contributed">Chiffres thaïlandais</type>
+			<type type="tibt" key="numbers" draft="contributed">Chiffres tibétains</type>
+			<type type="unihan" key="collation" draft="contributed">Ordre de tri radical et trait</type>
+		</types>
+		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
+			<transformName type="Numeric" draft="contributed">Chiffres</transformName>
+			<transformName type="Tone" draft="contributed">Ton</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
+			<transformName type="x-Accents" draft="contributed">Accents</transformName>
+			<transformName type="x-Fullwidth" draft="contributed">Pleine largeur</transformName>
+			<transformName type="x-Halfwidth" draft="contributed">Demie largeur</transformName>
+			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
+			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
+			<transformName type="x-Publishing" draft="contributed">Édition</transformName>
+		</transformNames>
+		<measurementSystemNames>
+			<measurementSystemName type="UK" draft="contributed">R-U</measurementSystemName>
+		</measurementSystemNames>
+	</localeDisplayNames>
+	<characters>
+		<stopwords>
+			<stopwordList type="collation" draft="contributed">le la les</stopwordList>
+		</stopwords>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="contributed"/>
+							<dayPeriod type="pm" draft="contributed"/>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="pm" draft="contributed">p</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
@@ -31,6 +124,11 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="EEEd" draft="contributed"/>
+						<dateFormatItem id="h" alt="proposed-x1001" draft="unconfirmed">hh mm</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed"/>
+						<dateFormatItem id="hm" alt="proposed-x1001" draft="unconfirmed">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms" alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="MEd">EEE M-d</dateFormatItem>
 						<dateFormatItem id="MMd">MM-d</dateFormatItem>
@@ -117,9 +215,178 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
+				<fields>
+					<field type="year">
+						<relative type="-1" draft="contributed">L'année dernière</relative>
+						<relative type="0" draft="contributed">Cette année</relative>
+						<relative type="1" draft="contributed">L'année prochaine</relative>
+					</field>
+					<field type="month">
+						<relative type="-1" draft="contributed">Le mois dernier</relative>
+						<relative type="0" draft="contributed">Ce mois-ci</relative>
+						<relative type="1" draft="contributed">Le mois prochain</relative>
+					</field>
+					<field type="week">
+						<relative type="-1" draft="contributed">La semaine dernière</relative>
+						<relative type="0" draft="contributed">Cette semaine</relative>
+						<relative type="1" draft="contributed">La semaine prochaine</relative>
+					</field>
+				</fields>
+			</calendar>
+			<calendar type="islamic">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="EEEd" draft="contributed">EEE d</dateFormatItem>
+						<dateFormatItem id="h" draft="contributed">HH mm</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<regionFormat draft="contributed">Heure de {0}</regionFormat>
+			<fallbackRegionFormat draft="contributed">Heure de {1} ({0})</fallbackRegionFormat>
+			<zone type="Asia/Dhaka">
+				<exemplarCity draft="contributed">Dacca</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity draft="contributed">Brunei</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity draft="contributed">Thimphu</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity draft="contributed">Îles Cocos</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity draft="contributed">Costa Rica</exemplarCity>
+			</zone>
+			<zone type="Indian/Christmas">
+				<exemplarCity draft="contributed">Île Christmas</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity draft="contributed">Saint-Domingue</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity draft="contributed">Tallinn</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity draft="contributed">Îles Féroé</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity draft="contributed">Guernesey</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="contributed">Nuuk</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity draft="contributed">Guadeloupe</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity draft="contributed">Guam</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity draft="contributed">Guyana</exemplarCity>
+			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity draft="contributed">Île de Man</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity draft="contributed">Archipel des Chagos</exemplarCity>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity draft="contributed">Baghdad</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity draft="contributed">Reykjavik</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity draft="contributed">Jersey</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity draft="contributed">Union des Comores</exemplarCity>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity draft="contributed">Saint-Christophe-et-Niévès</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity draft="contributed">Îles Caïmans</exemplarCity>
+			</zone>
+			<zone type="America/Martinique">
+				<exemplarCity draft="contributed">Martinique</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity draft="contributed">Montserrat</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity draft="contributed">Maurice</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity draft="contributed">Maldives</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity draft="contributed">Île Norfolk</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity draft="contributed">Nauru</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity draft="contributed">Niue</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity draft="contributed">Panama</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity draft="contributed">Karachi</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity draft="contributed">Miquelon</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<exemplarCity draft="contributed">Île Pitcairn</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity draft="contributed">Palau</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity draft="contributed">Qatar</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity draft="contributed">Réunion</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity draft="contributed">Guadalcanal</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity draft="contributed">Grand Turk</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity draft="contributed">Îles Kerguelen</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity draft="contributed">Tongatapu</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity draft="contributed">Port-d'Espagne</exemplarCity>
+			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity draft="contributed">Vatican</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity draft="contributed">Tortola</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity draft="contributed">Saint Thomas</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity draft="contributed">Éfaté</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity draft="contributed">Uvéa</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity draft="contributed">Mayotte</exemplarCity>
+			</zone>
 			<metazone type="Alaska">
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -138,18 +405,109 @@
 			<metazone type="Atlantic">
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<generic draft="contributed">Heure de Choibalsan</generic>
+					<standard draft="contributed">Heure de Choibalsan</standard>
+					<daylight draft="contributed">Heure avancée de Choibalsan</daylight>
+				</long>
+			</metazone>
 			<metazone type="Europe_Central">
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
+			<metazone type="Lord_Howe">
+				<long>
+					<generic draft="contributed">Heure de l'île Lord Howe</generic>
+					<standard draft="contributed">Heure normale de l'île Lord Howe</standard>
+					<daylight draft="contributed">Heure avancée de l'île Lord Howe</daylight>
+				</long>
+			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<generic draft="contributed">Heure de l'Île Macquarie</generic>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic draft="contributed">Heure de Magadan</generic>
+					<standard draft="contributed">Heure de Magadan</standard>
+					<daylight draft="contributed">Heure avancée de Magadan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic draft="contributed">Heure de Mongolie</generic>
+					<standard draft="contributed">Heure d'Oulan-Bator</standard>
+					<daylight draft="contributed">Heure avancée d'Oulan-Bator</daylight>
+				</long>
+			</metazone>
 			<metazone type="Newfoundland">
 				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic draft="contributed">Heure de Fernando de Noronha</generic>
+					<standard draft="contributed">Heure de Fernando de Noronha</standard>
+					<daylight draft="contributed">Heure avancée de Fernando de Noronha</daylight>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic draft="contributed">Heure de Novosibirsk</generic>
+					<standard draft="contributed">Heure de Novosibirsk</standard>
+					<daylight draft="contributed">Heure d'été de Novosibirsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic draft="contributed">Heure d'Omsk</generic>
+					<standard draft="contributed">Heure d'Omsk</standard>
+					<daylight draft="contributed">Heure avancée d'Omsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic draft="contributed">Heure de Sakhaline</generic>
+					<standard draft="contributed">Heure de Sakhaline</standard>
+					<daylight draft="contributed">Heure avancée de Sakhaline</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic draft="contributed">Heure de Vladivostok</generic>
+					<standard draft="contributed">Heure de Vladivostok</standard>
+					<daylight draft="contributed">Heure avancée de Vladivostok</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic draft="contributed">Heure de Yakutsk</generic>
+					<standard draft="contributed">Heure de Yakutsk</standard>
+					<daylight draft="contributed">Heure d'été de Yakutsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic draft="contributed">Heure de Iekaterinbourg</generic>
+					<standard draft="contributed">Heure de Iekaterinbourg</standard>
+					<daylight draft="contributed">Heure avancée d'Iekaterinbourg</daylight>
+				</long>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<decimalFormats>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000000000" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" draft="contributed">00B</pattern>
+					<pattern type="100000000000" draft="contributed">000B</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -163,4 +521,90 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unit type="day-future">
+			<unitPattern count="0" draft="contributed">Dans 0 jour</unitPattern>
+			<unitPattern count="1" draft="contributed">Dans 1 jour</unitPattern>
+			<unitPattern count="one" draft="contributed">Dans {0} jour</unitPattern>
+			<unitPattern count="other" draft="contributed">Dans {0} jours</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="0" draft="contributed">Il y a 0 jour</unitPattern>
+			<unitPattern count="1" draft="contributed">Il y a 1 jour</unitPattern>
+			<unitPattern count="one" draft="contributed">Il y a {0} jour</unitPattern>
+			<unitPattern count="other" draft="contributed">Il y a {0} jours</unitPattern>
+		</unit>
+		<unit type="hour-future">
+			<unitPattern count="0" draft="contributed">Dans 0 heure</unitPattern>
+			<unitPattern count="1" draft="contributed">Dans 1 heure</unitPattern>
+			<unitPattern count="one" draft="contributed">Dans {0} heure</unitPattern>
+			<unitPattern count="other" draft="contributed">Dans {0} heures</unitPattern>
+		</unit>
+		<unit type="hour-past">
+			<unitPattern count="0" draft="contributed">Il y a 0 heure</unitPattern>
+			<unitPattern count="1" draft="contributed">Il y a 1 heure</unitPattern>
+			<unitPattern count="one" draft="contributed">Il y a {0} heure</unitPattern>
+			<unitPattern count="other" draft="contributed">Il y a {0} heures</unitPattern>
+		</unit>
+		<unit type="minute-future">
+			<unitPattern count="0" draft="contributed">Dans 0 minute</unitPattern>
+			<unitPattern count="1" draft="contributed">Dans 1 minute</unitPattern>
+			<unitPattern count="one" draft="contributed">Dans {0} minute</unitPattern>
+			<unitPattern count="other" draft="contributed">Dans {0} minutes</unitPattern>
+		</unit>
+		<unit type="minute-past">
+			<unitPattern count="0" draft="contributed">Il y a 0 minute</unitPattern>
+			<unitPattern count="1" draft="contributed">Il y a 1 minute</unitPattern>
+			<unitPattern count="one" draft="contributed">Il y a {0} minute</unitPattern>
+			<unitPattern count="other" draft="contributed">Il y a {0} minutes</unitPattern>
+		</unit>
+		<unit type="month-future">
+			<unitPattern count="0" draft="contributed">Dans 0 mois</unitPattern>
+			<unitPattern count="1" draft="contributed">Dans 1 mois</unitPattern>
+			<unitPattern count="one" draft="contributed">Dans {0} mois</unitPattern>
+			<unitPattern count="other" draft="contributed">Dans {0} mois</unitPattern>
+		</unit>
+		<unit type="month-past">
+			<unitPattern count="0" draft="contributed">Il y a 0 mois</unitPattern>
+			<unitPattern count="1" draft="contributed">Il y a 1 mois</unitPattern>
+			<unitPattern count="one" draft="contributed">Il y a {0} mois</unitPattern>
+			<unitPattern count="other" draft="contributed">Il y a {0} mois</unitPattern>
+		</unit>
+		<unit type="second-future">
+			<unitPattern count="0" draft="contributed">Dans 0 seconde</unitPattern>
+			<unitPattern count="1" draft="contributed">Dans 1 seconde</unitPattern>
+			<unitPattern count="one" draft="contributed">Dans {0} seconde</unitPattern>
+			<unitPattern count="other" draft="contributed">Dans {0} secondes</unitPattern>
+		</unit>
+		<unit type="second-past">
+			<unitPattern count="0" draft="contributed">Il y a 0 seconde</unitPattern>
+			<unitPattern count="1" draft="contributed">Il y a 1 seconde</unitPattern>
+			<unitPattern count="one" draft="contributed">Il y a {0} seconde</unitPattern>
+			<unitPattern count="other" draft="contributed">Il y a {0} secondes</unitPattern>
+		</unit>
+		<unit type="week-future">
+			<unitPattern count="0" draft="contributed">Dans 0 semaine</unitPattern>
+			<unitPattern count="1" draft="contributed">Dans 1 semaine</unitPattern>
+			<unitPattern count="one" draft="contributed">Dans {0} semaine</unitPattern>
+			<unitPattern count="other" draft="contributed">Dans {0} semaines</unitPattern>
+		</unit>
+		<unit type="week-past">
+			<unitPattern count="0" draft="contributed">Il y a 0 semaine</unitPattern>
+			<unitPattern count="1" draft="contributed">Il y a 1 semaine</unitPattern>
+			<unitPattern count="one" draft="contributed">Il y a {0} semaine</unitPattern>
+			<unitPattern count="other" draft="contributed">Il y a {0} semaines</unitPattern>
+		</unit>
+		<unit type="year-future">
+			<unitPattern count="0" draft="contributed">Dans 0 an</unitPattern>
+			<unitPattern count="1" draft="contributed">Dans 1 an</unitPattern>
+			<unitPattern count="one" draft="contributed">Dans {0} an</unitPattern>
+			<unitPattern count="other" draft="contributed">Dans {0} ans</unitPattern>
+		</unit>
+		<unit type="year-past">
+			<unitPattern count="0" draft="contributed">Il y a 0 an</unitPattern>
+			<unitPattern count="1" draft="contributed">Il y a 1 an</unitPattern>
+			<unitPattern count="one" draft="contributed">Il y a {0} an</unitPattern>
+			<unitPattern count="other" draft="contributed">Il y a {0} ans</unitPattern>
+		</unit>
+	</units>
 </ldml>

@@ -8,8 +8,9 @@
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="unconfirmed">{0} ({1})</localePattern>
-			<localeSeparator draft="unconfirmed">, </localeSeparator>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>,</localeSeparator>
+			<localeSeparator alt="proposed-x1001" draft="unconfirmed">, </localeSeparator>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">అఫార్</language>
@@ -47,6 +48,7 @@
 			<language type="awa">అవధి</language>
 			<language type="ay">ఐమారా</language>
 			<language type="az">అజర్బైజాని</language>
+			<language type="az" alt="short">అజెరి</language>
 			<language type="ba">బష్కిర్</language>
 			<language type="bad">బాండా</language>
 			<language type="bai">బమిలేకే భాష</language>
@@ -115,7 +117,7 @@
 			<language type="dar">డార్గ్వా</language>
 			<language type="day">దయక్</language>
 			<language type="de">ఙర్మన్</language>
-			<language type="de_AT" draft="unconfirmed">ఆస్ట్రియా జర్మన్</language>
+			<language type="de_AT">ఆస్ట్రేలియన్ జర్మన్</language>
 			<language type="de_CH">స్విస్ హై జర్మన్</language>
 			<language type="del">డెలావేర్</language>
 			<language type="den">స్లేవ్</language>
@@ -136,10 +138,10 @@
 			<language type="el">గ్రీక్</language>
 			<language type="elx">ఎలామైట్</language>
 			<language type="en">ఆంగ్లం</language>
-			<language type="en_AU" draft="unconfirmed">ఆష్ట్రేలియా ఆంగ్లం</language>
-			<language type="en_CA" draft="unconfirmed">కెనడా ఆంగ్లం</language>
-			<language type="en_GB" draft="unconfirmed">బ్రిటీషు ఆంగ్లం</language>
-			<language type="en_US" draft="unconfirmed">అమెరికా అంగ్లం</language>
+			<language type="en_AU">ఆస్ట్రేలియన్ ఇంగ్లీష్</language>
+			<language type="en_CA">కెనడియన్ ఇంగ్లీష్</language>
+			<language type="en_GB">బ్రిటిష్ ఇంగ్లీష్</language>
+			<language type="en_US">యు.ఎస్ ఇంగ్లీష్</language>
 			<language type="enm">మధ్యమ ఆంగ్లం</language>
 			<language type="eo">ఎస్పరెన్టొ</language>
 			<language type="es">స్పానిష్</language>
@@ -378,6 +380,7 @@
 			<language type="pra">ప్రాక్రిత్ భాష</language>
 			<language type="pro">ప్రాచీన ప్రోవెంసాల్</language>
 			<language type="ps">పాష్టో</language>
+			<language type="ps" alt="variant">పుష్టో</language>
 			<language type="pt">పోర్చుగీస్</language>
 			<language type="pt_BR">బ్రెజీలియన్ పోర్చుగీస్</language>
 			<language type="pt_PT">ఐబీరియన్ పోర్చుగీస్</language>
@@ -440,10 +443,12 @@
 			<language type="ssa">నీలో సహారా భాష</language>
 			<language type="st">దక్షిణ సోతో</language>
 			<language type="su">సుడానీస్</language>
+			<language type="su" alt="proposed-x1001" draft="unconfirmed">సూడానీ</language>
 			<language type="suk">సుకుమా</language>
 			<language type="sus">సుసు</language>
 			<language type="sux">సుమేరియాన్</language>
 			<language type="sv">స్వీడిష్</language>
+			<language type="sv" alt="proposed-x1001" draft="unconfirmed">స్వీడీ</language>
 			<language type="sw">స్వాహిలి</language>
 			<language type="swb">కొమొరియన్</language>
 			<language type="syc">సాంప్రదాయ సిరియాక్</language>
@@ -482,15 +487,18 @@
 			<language type="tyv">టువినియన్</language>
 			<language type="udm">ఉడ్ముర్ట్</language>
 			<language type="ug">ఉయ్ఘుర్</language>
+			<language type="ug" alt="variant">యుజుర్</language>
 			<language type="uga">ఉగారిటిక్</language>
 			<language type="uk">యుక్రేనియాన్</language>
 			<language type="umb">ఉమ్బుండు</language>
 			<language type="und">తెలియని లేదా చెల్లని భాష</language>
+			<language type="und" alt="proposed-x1001" draft="unconfirmed">తెలియని భాష</language>
 			<language type="ur">ఉర్దూ</language>
 			<language type="uz">ఉజ్బెక్</language>
 			<language type="vai">వాయి</language>
 			<language type="ve">వెండా</language>
 			<language type="vi">వియత్నామీస్</language>
+			<language type="vi" alt="proposed-x1001" draft="unconfirmed">వియెత్నామీ</language>
 			<language type="vo">వోలాపుక్</language>
 			<language type="vot">వోటిక్</language>
 			<language type="wa">వాలూన్</language>
@@ -523,6 +531,7 @@
 		</languages>
 		<scripts>
 			<script type="Arab">అరబిక్</script>
+			<script type="Arab" alt="variant">పెర్‌సో-అరబిక్</script>
 			<script type="Armi">ఇంపీరియల్ అరామాక్</script>
 			<script type="Armn">అర్మేనియన్</script>
 			<script type="Avst">అవేస్టాన్</script>
@@ -562,7 +571,10 @@
 			<script type="Hani">హాన్</script>
 			<script type="Hano">హనునూ</script>
 			<script type="Hans">సరళీక్రితమైన హాన్</script>
+			<script type="Hans" alt="proposed-x1001" draft="unconfirmed">సరళీకృత హాన్</script>
+			<script type="Hans" alt="stand-alone">సరళీకృతం చెయ్యబడిన హ్యాన్</script>
 			<script type="Hant">సాంప్రదాయ హాన్</script>
+			<script type="Hant" alt="stand-alone">సాంప్రదాయ హ్యాన్</script>
 			<script type="Hebr">హీబ్రు</script>
 			<script type="Hira">హిరాగాన</script>
 			<script type="Hmng">పాహవా హ్మోంగ్</script>
@@ -572,6 +584,7 @@
 			<script type="Ital">ప్రాచిన ఐటాలిక్</script>
 			<script type="Java">జావనీస్</script>
 			<script type="Jpan">జాపనీస్</script>
+			<script type="Jpan" alt="proposed-x1001" draft="unconfirmed">జపనీ</script>
 			<script type="Kali">కాయాహ్ లి</script>
 			<script type="Kana">కాటాకాన</script>
 			<script type="Khar">ఖరోషథి</script>
@@ -657,40 +670,57 @@
 			<territory type="001">ప్రపంచం</territory>
 			<territory type="002">ఆఫ్రికా</territory>
 			<territory type="003">ఉత్తర అమెరికా ఖండము</territory>
+			<territory type="003" alt="proposed-x1001" draft="unconfirmed">ఉత్తర అమెరిగా</territory>
 			<territory type="005">దక్షిణ అమెరికా</territory>
 			<territory type="009">ఒషేనియ</territory>
+			<territory type="009" alt="proposed-x1001" draft="unconfirmed">ఓషియానియా</territory>
 			<territory type="011">పడమటి ఆఫ్రికా</territory>
+			<territory type="011" alt="proposed-x1001" draft="unconfirmed">పశ్చిమ ఆఫ్రికా</territory>
 			<territory type="013">మధ్యమ అమెరికా</territory>
+			<territory type="013" alt="proposed-x1001" draft="unconfirmed">మధ్య అమెరికా</territory>
 			<territory type="014">తూర్పు ఆఫ్రికా</territory>
 			<territory type="015">ఉత్తర ఆఫ్రికా</territory>
 			<territory type="017">మధ్యమ ఆఫ్రికా</territory>
+			<territory type="017" alt="proposed-x1001" draft="unconfirmed">మధ్య ఆఫ్రికా</territory>
 			<territory type="018">దక్షిణ ఆఫ్రికా</territory>
 			<territory type="019">అమెరికాలు</territory>
 			<territory type="021">ఉత్తర అమెరికా</territory>
 			<territory type="029">కరిబ్బియన్</territory>
+			<territory type="029" alt="proposed-x1001" draft="unconfirmed">కరీబియన్</territory>
 			<territory type="030">తూర్పు ఆశియా</territory>
+			<territory type="030" alt="proposed-x1001" draft="unconfirmed">తూర్పు ఆసియా</territory>
 			<territory type="034">దక్షిణ ఆశియా</territory>
+			<territory type="034" alt="proposed-x1001" draft="unconfirmed">దక్షిణ ఆసియా</territory>
 			<territory type="035">నైరుతి ఆశియా</territory>
+			<territory type="035" alt="proposed-x1001" draft="unconfirmed">నైరుతి ఆసియా</territory>
 			<territory type="039">దక్షిణ ఐరోపా</territory>
 			<territory type="053">ఆస్ట్రేలియా మరియు న్యూజిలాండ్</territory>
 			<territory type="054">మెలనేశియ</territory>
+			<territory type="054" alt="proposed-x1001" draft="unconfirmed">మలనేసియా</territory>
 			<territory type="057">మైక్రోనేశియ ప్రాంతం</territory>
+			<territory type="057" alt="proposed-x1001" draft="unconfirmed">మైక్రోనేసియా ప్రాంతం</territory>
 			<territory type="061">పాలినేషియా</territory>
 			<territory type="062">దక్షిణ మధ్యమ ఆశియా</territory>
+			<territory type="062" alt="proposed-x1001" draft="unconfirmed">దక్షిణ-మధ్య ఆసియా</territory>
 			<territory type="142">ఆశియా</territory>
 			<territory type="142" alt="proposed-x1001" draft="unconfirmed">ఆసియా</territory>
 			<territory type="143">మధ్యమ ఆశియా</territory>
+			<territory type="143" alt="proposed-x1001" draft="unconfirmed">మధ్య ఆసియా</territory>
 			<territory type="145">పడమటి ఆశియా</territory>
+			<territory type="145" alt="proposed-x1001" draft="unconfirmed">పశ్చిమ ఆసియా</territory>
 			<territory type="150">ఐరోపా</territory>
 			<territory type="151">తూర్పు ఐరోపా</territory>
 			<territory type="154">ఉత్తర ఐరోపా</territory>
 			<territory type="155">పడమటి ఐరోపా</territory>
+			<territory type="155" alt="proposed-x1001" draft="unconfirmed">పశ్చిమ ఐరోపా</territory>
 			<territory type="172">స్వతంత్ర రాష్ట్రాల కామన్ వెల్త్</territory>
 			<territory type="200">చెకస్లొవేకియ</territory>
 			<territory type="419">లాటిన్ అమెరికా మరియు కేరబ్బియన్</territory>
+			<territory type="419" alt="proposed-x1001" draft="unconfirmed">లాటిన్ అమెరికా</territory>
 			<territory type="830">చానెల్ దీవులు</territory>
 			<territory type="AC">ఎసెషన్ దీవి</territory>
 			<territory type="AD">అన్డోరా</territory>
+			<territory type="AD" alt="proposed-x1001" draft="unconfirmed">అండోరా</territory>
 			<territory type="AE">యునైటెడ్ ఆరబ్ ఎమిరేట్స్</territory>
 			<territory type="AF">ఆఫ్ఘానిస్తాన్</territory>
 			<territory type="AG">ఆంటిగ్వా మరియు బార్బుడా</territory>
@@ -732,6 +762,7 @@
 			<territory type="CD">కాంగో- కిన్షాసా</territory>
 			<territory type="CD" alt="variant">కాంగో[డి ఆర్ సి]</territory>
 			<territory type="CF">మధ్యమ ఆఫ్రికా రిపబ్లిక్</territory>
+			<territory type="CF" alt="proposed-x1001" draft="unconfirmed">మధ్య ఆఫ్రికా గణతంత్రం</territory>
 			<territory type="CG">కాంగో- బ్రాజావిల్లి</territory>
 			<territory type="CG" alt="variant">కాంగో[గణరాజ్యం]</territory>
 			<territory type="CH">స్విట్జర్లేండ్</territory>
@@ -847,6 +878,7 @@
 			<territory type="MK" alt="variant">మేసెడోనియా[ఫైరోమ్]</territory>
 			<territory type="ML">మాలి</territory>
 			<territory type="MM">మ్యాన్మార్</territory>
+			<territory type="MM" alt="proposed-x1001" draft="unconfirmed">మియన్మార్ [బర్మా]</territory>
 			<territory type="MN">మంగోలియా</territory>
 			<territory type="MO">మాకావ్ సార్ చైనా</territory>
 			<territory type="MO" alt="short">మాకావ్</territory>
@@ -895,6 +927,7 @@
 			<territory type="RS">సెర్బియా</territory>
 			<territory type="RU">రష్య</territory>
 			<territory type="RW">ర్వాండా</territory>
+			<territory type="RW" alt="proposed-x1001" draft="unconfirmed">రువాండా</territory>
 			<territory type="SA">సౌదీ అరేబియా</territory>
 			<territory type="SB">సోలోమన్ దీవులు</territory>
 			<territory type="SC">సీషెల్స్</territory>
@@ -961,6 +994,94 @@
 			<variant type="REVISED">సవరించబడిన వర్ణక్రమం</variant>
 			<variant type="WADEGILE">వేడ్-గైల్స్ రోమనైజేషన్</variant>
 		</variants>
+		<keys>
+			<key type="calendar">Calendar</key>
+			<key type="collation">కొలేషన్</key>
+			<key type="currency">కరెన్సీ</key>
+			<key type="numbers">సంఖ్యలు</key>
+			<key type="x">ప్రైవేట్-ఉపయోగం</key>
+		</keys>
+		<types>
+			<type type="arab" key="numbers">అరబిక్-ఇండిక్ అంకెలు</type>
+			<type type="arabext" key="numbers">పొడిగించబడిన అరబిక్-ఇండిక్ అంకెలు</type>
+			<type type="armn" key="numbers">అమెరికా సంఖ్యలు</type>
+			<type type="armnlow" key="numbers">అమెరికన్ చిన్న సంఖ్యలు</type>
+			<type type="beng" key="numbers">బెంగాలీ అంకెలు</type>
+			<type type="big5han" key="collation">సాంప్రదాయ చైనీయుల క్రమబద్ధీకరణ క్రమం - Big5</type>
+			<type type="buddhist" key="calendar">బుద్ధుల క్యాలెండర్‌</type>
+			<type type="chinese" key="calendar">చైనీస్ క్యాలెండర్</type>
+			<type type="coptic" key="calendar">కాప్టిక్ క్యాలెండర్</type>
+			<type type="deva" key="numbers">దేవనాగరి అంకెలు</type>
+			<type type="dictionary" key="collation">నిఘంటువు క్రమబద్ధీకరణ క్రమం</type>
+			<type type="direct" key="collation">ప్రత్యక్ష క్రమబద్ధీకరణ క్రమం</type>
+			<type type="ducet" key="collation">డిఫాల్ట్ యూనీకోడ్ క్రమబద్ధీకరణ క్రమం</type>
+			<type type="ducet" key="collation" alt="proposed-x1001" draft="unconfirmed">అప్రమేయ యూనికోడ్ క్రమం</type>
+			<type type="ethi" key="numbers">ఎథియోపిక్ సంఖ్యలు</type>
+			<type type="ethiopic" key="calendar">ఎపోథిక్ క్యాలెండర్</type>
+			<type type="ethiopic-amete-alem" key="calendar">ఎథోపిక్ అమేటే అలెమ్ క్యాలెండర్</type>
+			<type type="fullwide" key="numbers">పూర్తి వెడల్పు అంకెలు</type>
+			<type type="gb2312han" key="collation">సరళీకృతం చెయ్యబడిన క్రమబద్ధీకరణ క్రమం - GB2312</type>
+			<type type="geor" key="numbers">జార్జియన్ సంఖ్యలు</type>
+			<type type="gregorian" key="calendar">గ్రేగోరియన్ క్యాలెండర్</type>
+			<type type="gregorian" key="calendar" alt="proposed-x1001" draft="unconfirmed">గ్రెగోరియన్ కాలెండర్</type>
+			<type type="grek" key="numbers">గ్రీక్ సంఖ్యలు</type>
+			<type type="greklow" key="numbers">గ్రీక్ చిన్న సంఖ్యలు</type>
+			<type type="gujr" key="numbers">గుజరాతీ అంకెలు</type>
+			<type type="guru" key="numbers">గుర్ముఖీ అంకెలు</type>
+			<type type="hanidec" key="numbers">చైనీయుల దశాంశ సంఖ్యలు</type>
+			<type type="hans" key="numbers">సరళీకృతం చెయ్యబడిన చైనీయుల సంఖ్యలు</type>
+			<type type="hansfin" key="numbers">సరళీకృతం చెయ్యబడిన చైనీయుల ఆర్థిక సంఖ్యలు</type>
+			<type type="hant" key="numbers">సాంప్రదాయ చైనీయుల సంఖ్యలు</type>
+			<type type="hantfin" key="numbers">సాంప్రదాయ చైనీయుల ఆర్థిక సంఖ్యలు</type>
+			<type type="hebr" key="numbers">హెర్బ్యూ సంఖ్యలు</type>
+			<type type="hebrew" key="calendar">హెబ్ర్యూ క్యాలెండర్</type>
+			<type type="indian" key="calendar">భారతీయ జాతీయ క్యాలెండర్</type>
+			<type type="islamic" key="calendar">ఇస్లామిక్ క్యాలెండర్</type>
+			<type type="islamic-civil" key="calendar">ఇస్లామిక్-సివిల్ క్యాలెండర్</type>
+			<type type="japanese" key="calendar">జపానీయుల క్యాలెండర్</type>
+			<type type="jpan" key="numbers">జపానీయుల సంఖ్యలు</type>
+			<type type="jpanfin" key="numbers">జపానీయలు ఆర్థిక సంఖ్యలు</type>
+			<type type="khmr" key="numbers">ఖ్మీర్ అంకెలు</type>
+			<type type="knda" key="numbers">కన్నడ అంకెలు</type>
+			<type type="laoo" key="numbers">లావో అంకెలు</type>
+			<type type="latn" key="numbers">పశ్చిమ అంకెలు</type>
+			<type type="latn" key="numbers" alt="proposed-x1001" draft="unconfirmed">అరబిక్ అంకెలు</type>
+			<type type="mlym" key="numbers">మలయాళం అంకెలు</type>
+			<type type="mong" key="numbers">మంగోలియన్ అంకెలు</type>
+			<type type="mymr" key="numbers">మియన్మార్ అంకెలు</type>
+			<type type="orya" key="numbers">ఒరియా అంకెలు</type>
+			<type type="persian" key="calendar">పర్షియన్ క్యాలెండర్</type>
+			<type type="phonebook" key="collation">ఫోన్‌బుక్ క్రమబద్ధీకరణ క్రమం</type>
+			<type type="pinyin" key="collation">పిన్‌యిన్ క్రమబద్ధీకరణ క్రమం</type>
+			<type type="reformed" key="collation">మళ్ళీ ఆకృతీకరించబడిన క్రమబద్ధీకరణ క్రమం</type>
+			<type type="roc" key="calendar">మింగ్యూ క్యాలెండర్</type>
+			<type type="roman" key="numbers">రోమన్ సంఖ్యలు</type>
+			<type type="romanlow" key="numbers">రోమన్ చిన్న సంఖ్యలు</type>
+			<type type="search" key="collation">సాధారణ-ప్రయోజన శోధన</type>
+			<type type="stroke" key="collation">స్ట్రోక్ క్రమబద్ధీకరణ క్రమం</type>
+			<type type="taml" key="numbers">తమళ సంఖ్యలు</type>
+			<type type="telu" key="numbers">తెలుగు అంకెలు</type>
+			<type type="thai" key="numbers">థై అంకెలు</type>
+			<type type="tibt" key="numbers">టిబిటన్ అంకెలు</type>
+			<type type="traditional" key="collation">సాంప్రదాయ క్రమబద్ధీకరణ క్రమం</type>
+			<type type="unihan" key="collation">రాడికల్-స్ట్రోక్ క్రమబద్ధీకరణ క్రమం</type>
+		</types>
+		<transformNames>
+			<transformName type="BGN">BGN</transformName>
+			<transformName type="Numeric">సంఖ్య</transformName>
+			<transformName type="Tone">టోన్</transformName>
+			<transformName type="UNGEGN">UNGEGN</transformName>
+			<transformName type="x-Accents">గాఢతలు</transformName>
+			<transformName type="x-Fullwidth">పూర్తి వెడల్పు</transformName>
+			<transformName type="x-Halfwidth">సగం వెడల్పు</transformName>
+			<transformName type="x-Jamo">జమో</transformName>
+			<transformName type="x-Pinyin">Pinyin</transformName>
+			<transformName type="x-Publishing">ప్రచురించబడుతోంది</transformName>
+		</transformNames>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">దశాంశం</measurementSystemName>
+			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">మెట్రిక్</measurementSystemName>
+		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="unconfirmed">భాష: {0}</codePattern>
 			<codePattern type="script" draft="unconfirmed">లిపి: {0}</codePattern>
@@ -968,27 +1089,39 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[అ ఆ ఇ ఈ ఉ ఊ ఋ ౠ ఌ ౡ ఎ ఏ ఐ ఒ ఓ ఔ క ఖ గ ఘ ఙ చ ఛ జ ఝ ఞ ట ఠ డ ఢ ణ త థ ద ధ న ప ఫ బ భ మ య ర ఱ ల వ శ ష స హ ఁ ం ః \u0C4D ళ \u0C3E \u0C3F \u0C40 ు ూ ృ ౄ \u0C46 \u0C47 \u0C48 \u0C4A \u0C4B \u0C4C \u0C55 \u0C56]</exemplarCharacters>
+		<exemplarCharacters>[అ ఆ ఇ ఈ ఉ ఊ ఋ ౠ ఌ ౡ ఎ ఏ ఐ ఒ ఓ ఔ ఁ ం ః క ఖ గ ఘ ఙ చ ఛ జ ఝ ఞ ట ఠ డ ఢ ణ త థ ద ధ న ప ఫ బ భ మ య ర ఱ ల వ శ ష స హ ళ \u0C3E \u0C3F \u0C40 ు ూ ృ ౄ \u0C46 \u0C47 \u0C48 \u0C4A \u0C4B \u0C4C \u0C4D \u0C55 \u0C56]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C\u200D ౦-౯]</exemplarCharacters>
 		<exemplarCharacters type="index">[అ ఆ ఇ ఈ ఉ ఊ ఋ ౠ ఎ ఏ ఐ ఒ ఓ ఔ క ఖ గ ఘ ఙ చ ఛ జ ఝ ఞ ట ఠ డ ఢ ణ త థ ద ధ న ప ఫ బ భ మ య ర ఱ ల వ శ ష స హ ళ]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[అ ఆ ఇ ఈ ఉ ఊ ఋ ౠ ఎ ఏ ఐ ఒ ఓ ఔ క ఖ గ ఘ ఙ చ ఛ జ ఝ ఞ ట ఠ డ ఢ ణ త థ ద ధ న ప ఫ బ భ మ య ర ఱ ల వ శ ష స హ ళ]</exemplarCharacters>
+		<stopwords>
+			<stopwordList type="collation">a an the</stopwordList>
+		</stopwords>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">'</quotationStart>
-		<quotationEnd draft="unconfirmed">'</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">&quot;</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">&quot;</alternateQuotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">జన</month>
+							<month type="2" draft="unconfirmed">ఫిబ్ర</month>
+							<month type="4" draft="unconfirmed">ఏప్రి</month>
+							<month type="5">మే</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="3" draft="unconfirmed">మా</month>
+							<month type="4" draft="unconfirmed">ఏ</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">జనవరి</month>
 							<month type="2">ఫిబ్రవరి</month>
 							<month type="3">మార్చి</month>
-							<month type="4">ఏప్రిల్</month>
+							<month type="4">ఎప్రిల్</month>
 							<month type="5">మే</month>
 							<month type="6">జూన్</month>
 							<month type="7">జూలై</month>
@@ -1000,6 +1133,12 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">జన</month>
+							<month type="2" draft="unconfirmed">ఫిబ్ర</month>
+							<month type="4" draft="unconfirmed">ఏప్రి</month>
+							<month type="5">మే</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">జ</month>
 							<month type="2">ఫి</month>
@@ -1008,15 +1147,27 @@
 							<month type="4">ఎ</month>
 							<month type="4" alt="proposed-x1001" draft="unconfirmed">ఏ</month>
 							<month type="5">మె</month>
-							<month type="5" alt="proposed-x1001" draft="unconfirmed">మే</month>
 							<month type="6">జు</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">జూ</month>
 							<month type="7">జు</month>
 							<month type="8">ఆ</month>
 							<month type="9">సె</month>
 							<month type="10">అ</month>
 							<month type="11">న</month>
 							<month type="12">డి</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">జనవరి</month>
+							<month type="2">ఫిబ్రవరి</month>
+							<month type="3">మార్చి</month>
+							<month type="4">ఎప్రిల్</month>
+							<month type="5">మే</month>
+							<month type="6">జూన్</month>
+							<month type="7">జూలై</month>
+							<month type="8">ఆగస్టు</month>
+							<month type="9">సెప్టెంబర్</month>
+							<month type="10">అక్టోబర్</month>
+							<month type="11">నవంబర్</month>
+							<month type="12">డిసెంబర్</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1047,28 +1198,48 @@
 							<day type="mon">సో</day>
 							<day type="tue">మ</day>
 							<day type="wed">భు</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">బు</day>
 							<day type="thu">గు</day>
 							<day type="fri">శు</day>
 							<day type="sat">శ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">ఆదివారం</day>
+							<day type="mon">సోమవారం</day>
+							<day type="tue">మంగళవారం</day>
+							<day type="wed">బుధవారం</day>
+							<day type="thu">గురువారం</day>
+							<day type="fri">శుక్రవారం</day>
+							<day type="sat">శనివారం</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">ఒకటి 1</quarter>
 							<quarter type="2">రెండు 2</quarter>
 							<quarter type="3">మూడు 3</quarter>
 							<quarter type="4">నాలుగు 4</quarter>
+							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">4వ త్రైమాసికం</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">1వ త్రైమాసికం</quarter>
-							<quarter type="2" draft="unconfirmed">2వ త్రైమాసికం</quarter>
-							<quarter type="3" draft="unconfirmed">3వ త్రైమాసికం</quarter>
-							<quarter type="4" draft="unconfirmed">4వ త్రైమాసికం</quarter>
+							<quarter type="1">మొదటి త్రైమాసికం</quarter>
+							<quarter type="1" alt="proposed-x1001" draft="unconfirmed">1వ వంతు</quarter>
+							<quarter type="2">రెండవ త్రైమాసికం</quarter>
+							<quarter type="2" alt="proposed-x1001" draft="unconfirmed">2వ వంతు</quarter>
+							<quarter type="3">మూడవ త్రైమాసికం</quarter>
+							<quarter type="3" alt="proposed-x1001" draft="unconfirmed">3వ వంతు</quarter>
+							<quarter type="4">నాల్గవ త్రైమాసికం</quarter>
+							<quarter type="4" alt="proposed-x1001" draft="unconfirmed">4వ వంతు</quarter>
+							<quarter type="4" alt="proposed-x1002" draft="unconfirmed">4వ త్రైమాసికం</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1076,22 +1247,20 @@
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="afternoon">రాత్రి</dayPeriod>
-							<dayPeriod type="am">ఉ</dayPeriod>
+							<dayPeriod type="am">పూర్వాహ్నం</dayPeriod>
 							<dayPeriod type="earlyMorning">ఉదయం</dayPeriod>
 							<dayPeriod type="evening">అర్ధరాత్రి</dayPeriod>
 							<dayPeriod type="morning">మధ్యాహ్నం</dayPeriod>
 							<dayPeriod type="night">తెల్లవారుఝాము</dayPeriod>
 							<dayPeriod type="noon">సాయంకాలం</dayPeriod>
-							<dayPeriod type="pm">సా</dayPeriod>
+							<dayPeriod type="pm">అపరాహ్నం</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">ఈసాపూర్వ.</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">క్రీస్తుపూర్యం</era>
 						<era type="1">సన్.</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">క్రీస్తుశకం</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ఈసాపూర్వ.</era>
@@ -1144,38 +1313,141 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="d">రో</dateFormatItem>
+						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="M">ఓ</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="y">సం.</dateFormatItem>
+						<dateFormatItem id="yM">M/y</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d/M/y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d, MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d, MMM y</dateFormatItem>
+						<dateFormatItem id="yQ">Q y</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM-yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
 					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">d/M – d/M</greatestDifference>
+							<greatestDifference id="M">d/M – d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E, d/M – E, d/M</greatestDifference>
+							<greatestDifference id="M">E, d/M – E, d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM–MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d MMM–d</greatestDifference>
+							<greatestDifference id="M">d MMM– d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">M/yy – M/yy</greatestDifference>
+							<greatestDifference id="y">M/yy – M/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">M/d/yy – M/d/yy</greatestDifference>
+							<greatestDifference id="M">d/M/yy - d/M/yy</greatestDifference>
+							<greatestDifference id="y">d/M/yy – d/M/yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, d/M/yy – E, d/M/yy</greatestDifference>
+							<greatestDifference id="M">E, d/M/yy – E, d/M/yy</greatestDifference>
+							<greatestDifference id="y">తూ, సో//రో/ – తూ, సో//రో/</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d MMM–d, y</greatestDifference>
+							<greatestDifference id="M">d MMM – d, MMM y</greatestDifference>
+							<greatestDifference id="y">d, MMM y - d, MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d MMM – E, d, MMM y</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d, MMM y</greatestDifference>
+							<greatestDifference id="y">E, d, MMM y – E, d, MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 				<fields>
 					<field type="era">
-						<displayName draft="unconfirmed">శకం</displayName>
+						<displayName>యుగం, శకము</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">ఎరా</displayName>
 					</field>
 					<field type="year">
-						<displayName draft="unconfirmed">సంవత్సరం</displayName>
+						<displayName>సంవత్సరం</displayName>
+						<relative type="-1">మునుపటి సంవత్సరం</relative>
+						<relative type="0">ఈ సంవత్సరం</relative>
+						<relative type="1">తర్వాతి సంవత్సరం</relative>
 					</field>
 					<field type="month">
-						<displayName draft="unconfirmed">నెల</displayName>
+						<displayName>నెల</displayName>
+						<relative type="-1">గత నెల</relative>
+						<relative type="0">ఈ నెల</relative>
+						<relative type="1">తర్వాతి నెల</relative>
 					</field>
 					<field type="week">
-						<displayName draft="unconfirmed">వారం</displayName>
+						<displayName>వారము</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">వారం</displayName>
+						<relative type="-1">గత వారం</relative>
+						<relative type="0">ఈ వారం</relative>
+						<relative type="1">తదుపరి వారం</relative>
 					</field>
 					<field type="day">
-						<relative type="-1" draft="unconfirmed">నిన్న</relative>
-						<relative type="1" draft="unconfirmed">రేపు</relative>
+						<displayName>దినం</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">రోజు</displayName>
+						<relative type="-3">మూడు రోజుల ముందు</relative>
+						<relative type="-3" alt="proposed-x1001" draft="unconfirmed">మూడు రోజుల క్రితం</relative>
+						<relative type="-2">మొన్న</relative>
+						<relative type="-1">నిన్న</relative>
+						<relative type="0">ఈ రోజు</relative>
+						<relative type="0" alt="proposed-x1001" draft="unconfirmed">ఈరోజు</relative>
+						<relative type="1">రేపు</relative>
+						<relative type="2">ఎల్లుండి</relative>
+						<relative type="3">మూడు రోజుల తర్వాత</relative>
+						<relative type="3" alt="proposed-x1001" draft="unconfirmed">ఈ రోజు నుండి మూడు రోజులు</relative>
+					</field>
+					<field type="weekday">
+						<displayName>వారంలో రోజు</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">వారపు రోజు</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName>AM/PM</displayName>
 					</field>
 					<field type="hour">
-						<displayName draft="unconfirmed">గంట</displayName>
+						<displayName>గంట</displayName>
 					</field>
 					<field type="minute">
-						<displayName draft="unconfirmed">నిమిషం</displayName>
+						<displayName>నిమిషము</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">నిమిషం</displayName>
 					</field>
 					<field type="second">
-						<displayName draft="unconfirmed">క్షణం</displayName>
+						<displayName>క్షణం</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">సెకన్</displayName>
+					</field>
+					<field type="zone">
+						<displayName>మండలం</displayName>
+						<displayName alt="proposed-x1001" draft="unconfirmed">టైమ్ జోన్</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -1197,27 +1469,1297 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<regionFormat draft="unconfirmed">{0} సమయం</regionFormat>
+			<regionFormat>{0}సమయం</regionFormat>
+			<fallbackRegionFormat>{1} సమయం ({0})</fallbackRegionFormat>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity>బ్యులా, ఉత్తర డకోట</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity>GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity>GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity>GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity>GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity>GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity>GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity>GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity>GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity>GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity>GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity>GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity>GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity>GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity>GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity>GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity>GMT</exemplarCity>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>తెలియని నగరం</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity>GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity>GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity>GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity>GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity>GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity>GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity>GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity>GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity>GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity>GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity>GMT-11</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity>అండోరా</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity>దుబాయి</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity>కాబుల్</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity>అంటిగ్వా</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity>ఆంగ్విలా</exemplarCity>
+			</zone>
+			<zone type="Europe/Tirane">
+				<exemplarCity>టిరేన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity>యెరెవన్</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity>కురాకో</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity>లువాండా</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity>రొతేరా</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity>పామెర్</exemplarCity>
+			</zone>
+			<zone type="Antarctica/South_Pole">
+				<exemplarCity>దక్షిణ ధృవం</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity>స్యోవా</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity>మాసన్</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity>డేవిస్</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity>వోస్టోక్</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity>కేసీ</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity>డ్యుమాంట్ డ్యుర్విల్లీ</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity>మెక్ముర్డో</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity>రియో గల్లేగోస్</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>మెండోజా</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>సాన్ జ్యాన్</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity>ఉష్యూయ</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity>లా రియోజ</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity>శాన్ లూయిస్</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>కటమార్కా</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>సల్టా</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>జుజుయ్</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>టుకుమన్</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>కోర్బోడా</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>బ్యూనోస్ ఎయిర్స్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity>పాగో పాగో</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity>వియన్నా</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity>పెర్త్</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity>యుక్లా</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>డార్విన్</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity>అడెలైడ్</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>విరిగిన హిల్</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>కుర్రియే</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity>మెల్బోర్నే</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity>హోబర్ట్</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity>లిండేమాన్</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity>సిడ్నీ</exemplarCity>
+			</zone>
 			<zone type="Australia/Brisbane">
-				<exemplarCity draft="unconfirmed">బ్రిస్బేన్</exemplarCity>
+				<exemplarCity>బ్రిస్‌బెయిన్</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity>లార్డ్ హౌ</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity>అరుబా</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>మారీయుహమ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity>బాకు</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity>సరాజోవో</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity>బార్బడోస్</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity>ఢాకా</exemplarCity>
+			</zone>
+			<zone type="Europe/Brussels">
+				<exemplarCity>బ్రస్సెల్స్</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity>ఔగాడౌగోవ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity>సోఫియా</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity>బహరేన్</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity>బుజమ్బురా</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity>పోర్టో-నోవో</exemplarCity>
+			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity>సెయింట్. బర్ధెలెమి</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity>బెర్ముడా</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity>బ్రూనై</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity>లా పాజ్</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity>ఇరునెప్</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity>రియో బ్రాంకో</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity>పోర్టో వెల్హో</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity>బోవా విస్టా</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity>మనాస్</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity>కుయోబే</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity>సాంటరెమ్</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity>కాంపో గ్రాండ్</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity>బెలెమ్</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity>అరాగ్వేయీనా</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity>సావో పాలో</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity>బహియ</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity>ఫార్ట్లెజా</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity>మాసియో</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity>రెసిఫీ</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity>నరోన్హా</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity>నాస్సావ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity>థింఫు</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity>గబోరోన్</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity>మిన్స్క్</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity>బెలీజ్</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity>డవ్‌సన్</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity>వైట్‌హార్స్</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>ఇనువిక్</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity>వాన్కూవర్</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity>డౌసన్ క్రీక్</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity>ఎల్లోనైఫ్</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity>ఎడ్మోంటన్</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity>స్విఫ్ట్ కరెంట్</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity>కేంబ్రిడ్జ్ బేయ్</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity>రెజీనా</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>విన్నిపెగ్</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity>రిజల్యూట్</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity>వర్షపు నది</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity>రన్‌కిన్ ఇన్‌లెట్</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>అటికోకన్</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity>థండర్ బే</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity>నిపిగోన్</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>టురొంటో</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity>మోన్‌ట్రియల్</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity>ఇక్వాలిట్</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity>పాంగ్‌నీర్‌టుంగ్</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity>మోన్‌క్టోన్</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity>హలుఫాక్స్</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity>గూస్ బే</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity>గ్లేస్ బే</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity>బ్లాంక్-సబ్లోన్</exemplarCity>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity>సెయింట్. జాన్స్</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity>కోకాస్</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity>కిన్షాసా</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity>లుబంబాషి</exemplarCity>
+			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity>బాంగుయ్</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity>బ్రాజావిల్లి</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity>జ్యూరిచ్</exemplarCity>
+			</zone>
+			<zone type="Africa/Abidjan">
+				<exemplarCity>అబిడ్జాన్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity>రరోటోంగా</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>ఈస్టర్</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity>శాంటియాగో</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity>డౌఆలా</exemplarCity>
+			</zone>
+			<zone type="Asia/Kashgar">
+				<exemplarCity>కాష్‌గర్</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity>ఉరుమ్‌కీ</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity>చోంగో‌క్వింగ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity>షాంగాయ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity>హర్బిన్</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity>బగోటా</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity>కోస్టా రికా</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity>హవానా</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<exemplarCity>కేప్ వెర్డె</exemplarCity>
+			</zone>
+			<zone type="Indian/Christmas">
+				<exemplarCity>క్రిస్మస్</exemplarCity>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity>నికోసియా</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity>ప్రాగ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity>బెర్లిన్</exemplarCity>
+			</zone>
+			<zone type="Africa/Djibouti">
+				<exemplarCity>డిజ్బౌటి</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity>కోపెన్హాగన్</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity>డొమినికా</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity>శాంటో డోమింగో</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity>అల్జియర్స్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>గాలాపాగోస్</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity>గువాయాక్విల్</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity>తాల్లిన్</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity>కైరో</exemplarCity>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity>ఎల్ ఎయున్</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity>అస్మారా</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity>కెనరీ</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity>స్యూటా</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity>మాడ్రిడ్</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity>యాడిస్ అబాబా</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>హెల్సింకి</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity>ఫీజీ</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity>స్టాన్లీ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity>చుక్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity>పోన్‌పై</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity>కోస్రే</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity>ఫరోయ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity>ప్యారిస్</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity>లైబర్విల్</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity>లండన్</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity>గ్రెనడా</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity>టిబిలిసి</exemplarCity>
+			</zone>
+			<zone type="America/Cayenne">
+				<exemplarCity>కయేన్</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity>గ్వెర్న్సే</exemplarCity>
+			</zone>
+			<zone type="Africa/Accra">
+				<exemplarCity>అక్రా</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity>జిబ్రాల్టర్</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity>ధులే</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity>గాడ్తాబ్</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity>స్కోర్స్బైసుండ్</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity>డెన్మార్క్శ్వాన్</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity>బంజూల్</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity>కోనాక్రీ</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity>గ్వాడెలోప్</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity>మలాబో</exemplarCity>
+			</zone>
+			<zone type="Europe/Athens">
+				<exemplarCity>ఏథెన్స్</exemplarCity>
+			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity>దక్షిణ జార్జియా</exemplarCity>
+			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity>గ్వాటిమాలా</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity>గ్వామ్</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity>బిస్సావ్</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity>గయానా</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity>హాంకాంగ్</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity>తెగుసిగల్పా</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity>జాగ్రెబ్</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity>పోర్ట్-అవ్-ప్రిన్స్</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity>బుడాపెస్ట్</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
-				<exemplarCity draft="unconfirmed">జకర్తా</exemplarCity>
+				<exemplarCity>జకార్తా</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity>పొన్టియనాక్</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity>మకాస్సర్</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity>జయపుర</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<exemplarCity>డబ్లిన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity>జరూసలేం</exemplarCity>
+			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity>ఐల్ ఆఫ్ మేన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity>కోల్‌కతా</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity>చాగోస్</exemplarCity>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity>బాగ్దాద్</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity>టెహ్రాన్</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity>రెక్జావిక్</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity>రోమ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity>జెర్సీ</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity>జమైకా</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity>అమ్మన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity>టోక్యో</exemplarCity>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity>నైరోబీ</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity>బిష్కెక్</exemplarCity>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity>నమ్ పెన్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity>ఎండర్బెరీ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>కిరీటిమాటి</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity>టరావా</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity>కొమోరో</exemplarCity>
+			</zone>
+			<zone type="America/St_Kitts">
+				<exemplarCity>సెయింట్ కిట్స్</exemplarCity>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<exemplarCity>ప్యోంగాంగ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity>సియోల్</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity>కువైట్</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity>కేమాన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity>అక్టావ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity>ఓరల్</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity>అక్టోబ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity>క్విజిలోర్డా</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity>ఆల్మాటి</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity>వియన్టైన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity>బీరట్</exemplarCity>
+			</zone>
+			<zone type="America/St_Lucia">
+				<exemplarCity>సెయింట్ లూసియా</exemplarCity>
+			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity>వాడుజ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Colombo">
+				<exemplarCity>కొలంబో</exemplarCity>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity>మోన్రోవియా</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity>మసేరు</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity>విల్నియస్</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity>లక్సెంబర్గ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity>రీగా</exemplarCity>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<exemplarCity>ట్రిపోలి</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity>కాసాబ్లాంకా</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity>మొనాకో</exemplarCity>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<exemplarCity>చిసినావ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity>పోడ్గోరికా</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity>మారిగోట్</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity>అంటానానారివో</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity>క్వాజాలైన్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity>మజురో</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity>స్కోప్‌యే</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity>బామాకో</exemplarCity>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<exemplarCity>రంగూన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity>హోవడ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity>ఉలాన్బాటర్</exemplarCity>
+			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity>చోయిబాల్సన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity>మకావ్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity>సాయ్పాన్</exemplarCity>
+			</zone>
+			<zone type="America/Martinique">
+				<exemplarCity>మార్టినీక్</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity>న్వాక్షోట్</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity>మోంటిసిరాట్</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity>మాల్టా</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity>మోరిషస్</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity>మాల్దీవులు</exemplarCity>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity>బ్లాన్టైర్</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity>తిజ్యునా</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity>హెర్మోసిల్లో</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity>మాసట్‌లాన్</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity>చిహువా</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity>మోన్‌టురెయ్</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity>మెక్సికో నగరం</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>మెరిడా</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity>కన్‌కూన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity>కౌలాలంపూర్</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity>కుచింగ్</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity>మాపుటో</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity>విండ్హోక్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Noumea">
+				<exemplarCity>నౌమియా</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity>నియామే</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity>నోర్ఫోక్</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity>లాగోస్</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity>మనాగువా</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity>ఆమ్‌స్టర్‌డామ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>ఓస్లో</exemplarCity>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<exemplarCity>ఖాట్మండు</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity>నౌరు</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity>నియూ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity>ఛతం</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity>ఆక్లాండ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity>మస్కట్</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity>పనామా</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity>లిమా</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity>తహితి</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity>మార్క్వేసాస్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity>గాంబియేర్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity>పోర్ట్ మోరెస్బే</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity>మనీలా</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity>కరాచీ</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity>వార్షా</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity>మిక్వెలాన్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<exemplarCity>పిట్కేరన్</exemplarCity>
+			</zone>
+			<zone type="America/Puerto_Rico">
+				<exemplarCity>ప్యూర్టో రికో</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity>గాజా</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity>అజోర్స్</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>మదైరా</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity>లిస్బన్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity>పాలావ్</exemplarCity>
+			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity>అసన్షియన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity>ఖతార్</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity>రీయూనియన్</exemplarCity>
+			</zone>
+			<zone type="Europe/Bucharest">
+				<exemplarCity>బుకారెస్ట్</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity>బెల్‌గ్రేడ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity>కలినిన్‌గ్రద్</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity draft="unconfirmed">మాస్కో</exemplarCity>
+				<exemplarCity>మాస్కో</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity>వోల్గోగ్రాడ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>సమార</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity>యెకటెరింగ్‌బర్గ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity>ఓమ్స్క్</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>నవోసిబిర్స్క్</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity>క్రసనోయార్స్క్</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity>ఇర్కుట్స్క్</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity>యకుట్స్క్</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity>వ్లాడివోస్టోక్</exemplarCity>
+			</zone>
+			<zone type="Asia/Sakhalin">
+				<exemplarCity>సఖాలిన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity>మగడాన్</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity>కమ్‌చత్కా</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity>అనడైర్</exemplarCity>
+			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity>కీగలి</exemplarCity>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<exemplarCity>రియాధ్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity>గ్వాడల్కెనాల్</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity>మాహె</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity>ఖార్టోమ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity>స్టాక్హోమ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Singapore">
+				<exemplarCity>సింగపూర్</exemplarCity>
+			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity>సెయింట్ హెలెనా</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity>ల్యూబ్ల్యానా</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity>లాంగ్‌యియర్‌బైయన్</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity>బ్రటీష్‌వాలా</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity>ఫ్రీటౌన్</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity>శాన్ మారినో</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity>డకార్</exemplarCity>
+			</zone>
+			<zone type="Africa/Mogadishu">
+				<exemplarCity>మోగాదిషు</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity>పరామారిబో</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity>సావో టోమ్</exemplarCity>
+			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity>ఎల్ సాల్వడోర్</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity>డమాస్కస్</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity>బాబెన్</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity>గ్రాండ్ టర్క్</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity>డ్జామెనా</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity>కెర్గ్యూలెన్</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity>లోమ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity>బ్యాంకాక్</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity>డుషన్బీ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity>ఫాకావ్ఫో</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity>డిలి</exemplarCity>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<exemplarCity>యాష్గాబాట్</exemplarCity>
+			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity>ట్యునిస్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity>టోంగాటాపు</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity>ఇస్తాంబుల్</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity>పోర్ట్ ఆఫ్ స్పెయిన్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity>ఫునాఫుటి</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity>తైపీ</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity>దార్ ఎ సలామ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Uzhgorod">
+				<exemplarCity>ఉజుగోరోడ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>కీవ్</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>సిమ్‌ఫెరోపోల్</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity>జపరోజై</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity>కంపాలా</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity>మిడ్వే</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>జాన్సటన్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity>వేక్</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity>అడాక్</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity>నోమ్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>హోనోలులు</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity>ఎంకొరేజ్</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity>యకుటాట్</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity>జోనొవ్</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>లాస్ ఏంజల్స్</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity>బొయిసీ</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>ఫోనిక్స్</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity>షిప్‌రోక్</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<exemplarCity draft="unconfirmed">డెన్వర్</exemplarCity>
+				<exemplarCity>డెన్వెర్</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/New_Salem">
+				<exemplarCity>న్యూ సలేమ్, దక్షిణ దకోట</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity>సెంట్రల్, ఉత్తర డకోటా</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<exemplarCity draft="unconfirmed">చికాగో</exemplarCity>
+				<exemplarCity>చికాగో</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity>మెనోమియీ</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity>విన్‌సెన్నెస్, ఇండియాన</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity>పెటెర్స్‌బుర్గ్, ఇండియాన</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity>టెల్ నగరం, ఇండియాన</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity>నోక్స్, ఇండియాన</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity>వినిమాక్, ఇండియాన</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity>మరెంగో, ఇండియాన</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>ఇండోనెపోలిస్</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity>లూయివిల్</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity>వెవయ్, ఇండియాన</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity>మోంటిసెల్లో, కెన్‌టుక్కీ</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
-				<exemplarCity draft="unconfirmed">డెట్రాయిట్</exemplarCity>
+				<exemplarCity>డిట్రోయిట్</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<exemplarCity draft="unconfirmed">న్యూయార్క్</exemplarCity>
+				<exemplarCity>న్యూయార్క్</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity>మోంటెవీడియో</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity>సమర్కాండ్</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>తాష్కెంట్</exemplarCity>
+			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity>వాటికన్</exemplarCity>
+			</zone>
+			<zone type="America/St_Vincent">
+				<exemplarCity>సెయింట్ విన్సెంట్</exemplarCity>
+			</zone>
+			<zone type="America/Caracas">
+				<exemplarCity>కారాకస్</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity>టోర్టోలా</exemplarCity>
+			</zone>
+			<zone type="America/St_Thomas">
+				<exemplarCity>సెయింట్ థామస్</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity>హో చి మిన్హ్ నగరం</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity>ఇఫేట్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity>వాల్లిస్</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity>ఏపియా</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity>ఎడెన్</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity>మయోట్టి</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity>జోహన్నెస్‌బర్గ్</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity>లుసాకా</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity>హరారే</exemplarCity>
 			</zone>
 			<metazone type="Acre">
 				<long>
@@ -1280,6 +2822,7 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
+					<generic>అమజాన్ సమయం</generic>
 					<standard>అమాజాన్ సమయం</standard>
 					<daylight>అమాజాన్ వేసవి సమయం</daylight>
 				</long>
@@ -1314,6 +2857,7 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
+					<generic>అనడైర్ సమయం</generic>
 					<standard>అనాన్డ్రి సమయం</standard>
 					<daylight>అనాన్డ్రి వేసవి సమయం</daylight>
 				</long>
@@ -1339,13 +2883,16 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
+					<generic>అర్జెంటీనా సమయం</generic>
 					<standard>ఆర్జెంటీనా సమయం</standard>
 					<daylight>ఆర్జెంటీనా వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
+					<generic>అర్జెంటీనా పశ్చిమ సమయం</generic>
 					<standard>పశ్చిమ ఆర్జెంటీనా సమయం</standard>
+					<daylight>అర్జెంటీనా పశ్చిమ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -1444,6 +2991,7 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
+					<generic>బ్రెజిలియా సమయం</generic>
 					<standard>బ్రెసిలియా సమయం</standard>
 					<daylight>బ్రెసిలియా వేసవి సమయం</daylight>
 				</long>
@@ -1489,11 +3037,12 @@
 					<daylight>చైనా పగటి సమయం</daylight>
 				</long>
 				<short>
-					<standard draft="unconfirmed">CST (చైనా)</standard>
+					<standard draft="unconfirmed">చైప్రాస (చైనా)</standard>
 				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
+					<generic>చోయిబాల్సన్ సమయం</generic>
 					<standard>చోయిబల్సాన్ సమయం</standard>
 					<daylight>చోయిబల్సాన్ వేసవి సమయం</daylight>
 				</long>
@@ -1677,6 +3226,7 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
+					<generic>హవాయి అల్యూటియన్ సమయం</generic>
 					<standard>హవాయి-ఆల్యుటియన్ ప్రామాణిక సమయం</standard>
 				</long>
 			</metazone>
@@ -1688,6 +3238,7 @@
 			</metazone>
 			<metazone type="Hovd">
 				<long>
+					<generic>హోవ్డ్ సమయం</generic>
 					<standard>హోడ్ సమయం</standard>
 					<daylight>హోడ్ వేసవి సమయం</daylight>
 				</long>
@@ -1695,7 +3246,6 @@
 			<metazone type="India">
 				<long>
 					<standard>భారతీయ ప్రామాణిక సమయం</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">భారత ప్రామాణిక సమయం</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -1710,16 +3260,19 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
+					<generic>ఇండోనేషియా సెంట్రల్ సమయం</generic>
 					<standard>మధ్యమ ఇండోనేషియా సమయం</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
+					<generic>ఇండోనేషియా తూర్పు సమయం</generic>
 					<standard>తూర్పు ఇండోనేషియా సమయం</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
+					<generic>ఇండోనేషియా పశ్చిమ సమయం</generic>
 					<standard>పశ్చిమ ఇండోనేషియా సమయం</standard>
 				</long>
 			</metazone>
@@ -1731,6 +3284,7 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
+					<generic>ఇరక్వుట్స్క్ సమయం</generic>
 					<standard>ఇర్కుట్ష్క్ సమయం</standard>
 					<daylight>ఇర్కుట్ష్క్ వేసవి  సమయం</daylight>
 				</long>
@@ -1751,6 +3305,7 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
+					<generic>కమ్‌చత్కా సమయం</generic>
 					<standard>పెట్రోపావ్లోవ్స్క్-కామ్ఛాట్స్కిసమయం</standard>
 					<daylight>పెట్రోపావ్లోవ్స్క్-కామ్ఛాట్స్కి వేసవి  సమయం</daylight>
 				</long>
@@ -1769,12 +3324,14 @@
 				<long>
 					<generic>తూర్పు కాజాకస్థాన్ సమయం</generic>
 					<standard>తూర్పు కాజాకస్థాన్ ప్రామాణిక  సమయం</standard>
+					<daylight>ఖజికిస్థాన్ తూర్పు వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<generic>పశ్చిమ కాజాకస్థాన్ సమయం</generic>
 					<standard>పశ్చిమ కాజాకస్థాన్ ప్రామాణిక  సమయం</standard>
+					<daylight>ఖజికిస్థాన్ పశ్చిమ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kizilorda">
@@ -1797,6 +3354,7 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
+					<generic>క్రస్నోయార్స్క్ సమయం</generic>
 					<standard>క్రాస్నోయార్స్క్ సమయం</standard>
 					<daylight>క్రాస్నోయార్స్క్ వేసవి సమయం</daylight>
 				</long>
@@ -1845,8 +3403,14 @@
 					<daylight>మకావ్ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
+			<metazone type="Macquarie">
+				<long>
+					<generic>మాక్వారియి సమయం</generic>
+				</long>
+			</metazone>
 			<metazone type="Magadan">
 				<long>
+					<generic>మగడాన్ సమయం</generic>
 					<standard>మగాడాన్ సమయం</standard>
 					<daylight>మగాడాన్ వేసవి సమయం</daylight>
 				</long>
@@ -1889,6 +3453,7 @@
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
+					<generic>మంగోలియా సమయం</generic>
 					<standard>యులాన్ బాటోర్ సమయం</standard>
 					<daylight>యులాన్ బాటోర్ వేసవి సమయం</daylight>
 				</long>
@@ -1947,6 +3512,7 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
+					<generic>నరోన్హా సమయం</generic>
 					<standard>ఫెర్డినాన్డో డి నోరోన్హా సమయం</standard>
 					<daylight>ఫెర్డినాన్డో డి నోరోన్హా పగటి సమయం</daylight>
 				</long>
@@ -1958,12 +3524,14 @@
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
+					<generic>నోవోసిబిర్స్క్ సమయం</generic>
 					<standard>నోవోసిబిర్స్క్ సమయం</standard>
 					<daylight>నోవోసిబిర్స్క్ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
+					<generic>ఓమ్స్క్ సమయం</generic>
 					<standard>ఓమ్స్క్ సమయం</standard>
 					<daylight>ఓమ్స్క్ వేసవి సమయం</daylight>
 				</long>
@@ -2041,12 +3609,14 @@
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
+					<generic>సఖిలిన్ సమయం</generic>
 					<standard>సఖాలిన్ సమయం</standard>
 					<daylight>సఖాలిన్ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
+					<generic>సమార సమయం</generic>
 					<standard>సమారా సమయం</standard>
 					<daylight>సమారా వేసవి సమయం</daylight>
 				</long>
@@ -2186,12 +3756,14 @@
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
+					<generic>వ్లాడివోస్టోక్ సమయం</generic>
 					<standard>వ్లాడివోస్టోక్ సమయం</standard>
 					<daylight>వ్లాడివోస్టోక్ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
+					<generic>వోల్గుగ్రాడ్ సమయం</generic>
 					<standard>వోల్గోగ్రాడ్ సమయం</standard>
 					<daylight>వోల్గోగ్రాడ్ వేసవి సమయం</daylight>
 				</long>
@@ -2213,12 +3785,14 @@
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
+					<generic>యాకుట్స్క్ సమయం</generic>
 					<standard>యాకుట్స్క్ సమయం</standard>
 					<daylight>యాకుట్స్క్ వేసవి సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
+					<generic>యెకటెరింగ్‌బర్గ్ సమయం</generic>
 					<standard>ఏకాటెరిన్బర్గ్ సమయం</standard>
 					<daylight>ఏకాటెరిన్బర్గ్ వేసవి సమయం</daylight>
 				</long>
@@ -2232,10 +3806,30 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem>telu</defaultNumberingSystem>
+		<symbols>
+			<exponential>తూ</exponential>
+		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000">0</pattern>
+					<pattern type="10000">0</pattern>
+					<pattern type="100000">0</pattern>
+					<pattern type="1000000">0</pattern>
+					<pattern type="10000000">0</pattern>
+					<pattern type="100000000">0</pattern>
+					<pattern type="1000000000">0</pattern>
+					<pattern type="10000000000">0</pattern>
+					<pattern type="100000000000">0</pattern>
+					<pattern type="1000000000000">0</pattern>
+					<pattern type="10000000000000">0</pattern>
+					<pattern type="100000000000000">0</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -2254,40 +3848,451 @@
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
+			<currency type="AED">
+				<displayName>యునైటెడ్ ఆరబ్ ఎమిరేట్స్ దిరామ్</displayName>
+			</currency>
 			<currency type="AFN">
 				<displayName>ఆఫ్ఘాన్ ఆఫ్ఘాని</displayName>
+			</currency>
+			<currency type="ALL">
+				<displayName>ఆల్బేనియన్ లేక్</displayName>
+			</currency>
+			<currency type="AMD">
+				<displayName>అమెరికన్ డ్రామ్</displayName>
+			</currency>
+			<currency type="ANG">
+				<displayName>నెధర్లాండ్స్ ఏంటీల్లియన్ గిల్‌డూర్</displayName>
+			</currency>
+			<currency type="AOA">
+				<displayName>అంగోలాన్ క్వాన్‌జా</displayName>
+			</currency>
+			<currency type="ARS">
+				<displayName>అర్జెంటీనా పెసో</displayName>
+			</currency>
+			<currency type="AUD">
+				<displayName>ఆస్ట్రేలియన్ డాలర్</displayName>
+			</currency>
+			<currency type="AWG">
+				<displayName>అరుబన్ ఫ్లోరిన్</displayName>
+			</currency>
+			<currency type="AZN">
+				<displayName>అజర్బైజాన్ మానట్</displayName>
+			</currency>
+			<currency type="BAM">
+				<displayName>బోస్నియా-హెర్జగోవినా మార్పిడి చెయ్యగలిగే గుర్తు</displayName>
+			</currency>
+			<currency type="BBD">
+				<displayName>బర్బాడియన్ డాలర్</displayName>
+			</currency>
+			<currency type="BDT">
+				<displayName>బాంగ్లాదేశ్ టాకా</displayName>
+			</currency>
+			<currency type="BGN">
+				<displayName>బల్గేరియన్ లేవ్</displayName>
+			</currency>
+			<currency type="BHD">
+				<displayName>బహ్రైని దీనార్</displayName>
+			</currency>
+			<currency type="BIF">
+				<displayName>బురిండియన్ ఫ్రాంక్</displayName>
+			</currency>
+			<currency type="BMD">
+				<displayName>బెర్ముడన్ డాలర్</displayName>
+			</currency>
+			<currency type="BND">
+				<displayName>బ్రూనై డాలర్</displayName>
+			</currency>
+			<currency type="BOB">
+				<displayName>బొలీవియన్ బొలీవియానో</displayName>
 			</currency>
 			<currency type="BRL">
 				<displayName>బ్రజిలియన్ రియల్</displayName>
 			</currency>
+			<currency type="BSD">
+				<displayName>బహామియన్ డాలర్</displayName>
+			</currency>
+			<currency type="BTN">
+				<displayName>భూటానీయుల గుల్‌ట్రుమ్</displayName>
+			</currency>
+			<currency type="BWP">
+				<displayName>బోట్స్‌వానా పులా</displayName>
+			</currency>
+			<currency type="BYR">
+				<displayName>బెలరూసియన్ రూబుల్</displayName>
+			</currency>
+			<currency type="BZD">
+				<displayName>బెలీజ్ డాలర్</displayName>
+			</currency>
+			<currency type="CAD">
+				<displayName>కెనడియన్ డాలర్</displayName>
+			</currency>
+			<currency type="CDF">
+				<displayName>కొంగోలిస్ ఫ్రాంక్</displayName>
+			</currency>
 			<currency type="CHF">
-				<displayName draft="unconfirmed">స్విస్ ఫ్రాంక్</displayName>
+				<displayName>స్విస్ ఫ్రాంక్</displayName>
+			</currency>
+			<currency type="CLP">
+				<displayName>చిలియన్ పెసో</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>చైనా దేశ యువాన్ రెన్‌మిన్‌బి</displayName>
 			</currency>
+			<currency type="COP">
+				<displayName>కొలంబియన్ పెసో</displayName>
+			</currency>
+			<currency type="CRC">
+				<displayName>కోస్టా రిసన్ కోలోన్</displayName>
+			</currency>
+			<currency type="CUC">
+				<displayName>కుబన్ మార్పిడి చెయ్యగలిగే పెసో</displayName>
+			</currency>
+			<currency type="CUP">
+				<displayName>క్యూబన్ పెసో</displayName>
+			</currency>
+			<currency type="CVE">
+				<displayName>కేప్ వెర్డియన్ ఎస్కుడో</displayName>
+			</currency>
+			<currency type="CZK">
+				<displayName>చెక్ రిపబ్లిక్ కోరునా</displayName>
+			</currency>
+			<currency type="DJF">
+				<displayName>జిబోటియన్ ఫ్రాంక్</displayName>
+			</currency>
+			<currency type="DKK">
+				<displayName>డానిష్ క్రోన్</displayName>
+			</currency>
+			<currency type="DOP">
+				<displayName>డోమినికన్ పెసో</displayName>
+			</currency>
+			<currency type="DZD">
+				<displayName>ఆల్గేరియన్ దీనార్</displayName>
+			</currency>
+			<currency type="EGP">
+				<displayName>ఈజిప్షియన్ పౌండ్</displayName>
+			</currency>
+			<currency type="ERN">
+				<displayName>ఎరిట్రీన్ నక్ఫా</displayName>
+			</currency>
+			<currency type="ETB">
+				<displayName>ఇథియోపియన్ బుర్</displayName>
+			</currency>
 			<currency type="EUR">
 				<displayName>యురొ</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">యూరో</displayName>
+			</currency>
+			<currency type="FJD">
+				<displayName>ఫీజియన్ డాలర్</displayName>
+			</currency>
+			<currency type="FKP">
+				<displayName>ఫాక్‌ల్యాండ్ దీవులు పౌండ్</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>బ్రిటిష్ పౌండ్ స్టెర్లింగ్</displayName>
+			</currency>
+			<currency type="GEL">
+				<displayName>జార్జియన్ లారి</displayName>
+			</currency>
+			<currency type="GHS">
+				<displayName>గానెయన్ సెడి</displayName>
+			</currency>
+			<currency type="GIP">
+				<displayName>జిబ్రల్‌టూర్ పౌండ్</displayName>
+			</currency>
+			<currency type="GMD">
+				<displayName>గాంబియన్ దలాసి</displayName>
+			</currency>
+			<currency type="GNF">
+				<displayName>గ్వినియన్ ఫ్రాంక్</displayName>
+			</currency>
+			<currency type="GTQ">
+				<displayName>గ్యుటెమాలన్ క్వెట్‌జిల్</displayName>
+			</currency>
+			<currency type="GYD">
+				<displayName>గుయనియాస్ డాలర్</displayName>
+			</currency>
+			<currency type="HKD">
+				<displayName>హాంకాంగ్ డాలర్</displayName>
+			</currency>
+			<currency type="HNL">
+				<displayName>హోండ్రురన్ లెమిపిరా</displayName>
+			</currency>
+			<currency type="HRK">
+				<displayName>క్రొయేషియన్ క్యూన</displayName>
+			</currency>
+			<currency type="HTG">
+				<displayName>హైటియన్ గ్వోర్డే</displayName>
+			</currency>
+			<currency type="HUF">
+				<displayName>హంగేరియన్ ఫోరిన్ట్</displayName>
+			</currency>
+			<currency type="IDR">
+				<displayName>ఇండోనేషియా రూపాయి</displayName>
+			</currency>
+			<currency type="ILS">
+				<displayName>ఐరాయిలి న్యూ షెక్యెల్</displayName>
 			</currency>
 			<currency type="INR">
 				<displayName>రూపాయి</displayName>
 				<symbol>రూ.</symbol>
 			</currency>
+			<currency type="IQD">
+				<displayName>ఇరాకీ డైనర్</displayName>
+			</currency>
+			<currency type="IRR">
+				<displayName>ఇరానియన్ రీయల్</displayName>
+			</currency>
+			<currency type="ISK">
+				<displayName>ఐస్లాండిక్ క్రోనా</displayName>
+			</currency>
+			<currency type="JMD">
+				<displayName>జమైకన్ డాలర్</displayName>
+			</currency>
+			<currency type="JOD">
+				<displayName>జోర్‌డానియన్ డైనర్</displayName>
+			</currency>
 			<currency type="JPY">
 				<displayName>జపాను దేశ యెస్</displayName>
 			</currency>
+			<currency type="KES">
+				<displayName>కెన్యాన్ షిల్లింగ్</displayName>
+			</currency>
+			<currency type="KGS">
+				<displayName>కిర్గిస్థాని సౌమ్</displayName>
+			</currency>
+			<currency type="KHR">
+				<displayName>కాంబోడియన్ రీల్</displayName>
+			</currency>
+			<currency type="KMF">
+				<displayName>కొమోరియన్ ఫ్రాంక్</displayName>
+			</currency>
+			<currency type="KPW">
+				<displayName>ఉత్తర కొరియా వోన్</displayName>
+			</currency>
+			<currency type="KRW">
+				<displayName>దక్షిణ కొరియా వోన్</displayName>
+			</currency>
+			<currency type="KWD">
+				<displayName>కువైట్ దీనార్</displayName>
+			</currency>
+			<currency type="KYD">
+				<displayName>కేమాన్ దీవుల  డాలర్</displayName>
+			</currency>
+			<currency type="KZT">
+				<displayName>ఖజికిస్థాన్ టెంగే</displayName>
+			</currency>
+			<currency type="LAK">
+				<displayName>లాటియన్ కిప్</displayName>
+			</currency>
+			<currency type="LBP">
+				<displayName>లెబనీస్ పౌండ్</displayName>
+			</currency>
 			<currency type="LKR">
-				<displayName draft="unconfirmed">శ్లీలంక రూపాయి</displayName>
+				<displayName>శ్రీలంక రూపాయి</displayName>
+			</currency>
+			<currency type="LRD">
+				<displayName>లిబేరియన్ డాలర్</displayName>
+			</currency>
+			<currency type="LSL">
+				<displayName>లెసోధో లోటి</displayName>
+			</currency>
+			<currency type="LTL">
+				<displayName>లిథోనియన్ లీటాస్</displayName>
+			</currency>
+			<currency type="LVL">
+				<displayName>లాత్వియన్ లాట్స్</displayName>
+			</currency>
+			<currency type="LYD">
+				<displayName>లిబియన్ దీనార్</displayName>
+			</currency>
+			<currency type="MAD">
+				<displayName>మోరోకన్ దిర్హుమ్</displayName>
+			</currency>
+			<currency type="MDL">
+				<displayName>మోల్‌డోవన్ ల్యూ</displayName>
+			</currency>
+			<currency type="MGA">
+				<displayName>మలగసీ అరియరీ</displayName>
+			</currency>
+			<currency type="MKD">
+				<displayName>మసిడోనియన్ దినార్</displayName>
+			</currency>
+			<currency type="MMK">
+				<displayName>మ్యాన్మా క్యాట్</displayName>
+			</currency>
+			<currency type="MNT">
+				<displayName>మంగోలియన్ టుగ్రిక్</displayName>
+			</currency>
+			<currency type="MOP">
+				<displayName>మకనీస్ పటాక</displayName>
+			</currency>
+			<currency type="MRO">
+				<displayName>మౌరిటానియన్ ఒగ్యియా</displayName>
+			</currency>
+			<currency type="MUR">
+				<displayName>మారిషన్ రూపాయి</displayName>
+			</currency>
+			<currency type="MVR">
+				<displayName>మాల్దీవియన్ రుఫియా</displayName>
+			</currency>
+			<currency type="MWK">
+				<displayName>మలావియన్ క్వాచా</displayName>
+			</currency>
+			<currency type="MXN">
+				<displayName>మెక్సికన్ పెసో</displayName>
+			</currency>
+			<currency type="MYR">
+				<displayName>మలేషియా రింగ్గిట్</displayName>
+			</currency>
+			<currency type="NAD">
+				<displayName>నమిబియన్ డాలర్</displayName>
+			</currency>
+			<currency type="NGN">
+				<displayName>నైజీరియన్ నెరు</displayName>
+			</currency>
+			<currency type="NIO">
+				<displayName>నికరగ్యుయన్
+					కొర్‌డుబు</displayName>
+			</currency>
+			<currency type="NOK">
+				<displayName>నార్వేజీయన్ క్రోన్</displayName>
+			</currency>
+			<currency type="NPR">
+				<displayName>నేపాలీయుల రూపాయి</displayName>
+			</currency>
+			<currency type="NZD">
+				<displayName>న్యూజిలాండ్ డాలర్</displayName>
+			</currency>
+			<currency type="OMR">
+				<displayName>ఒమాని రీయల్</displayName>
+			</currency>
+			<currency type="PAB">
+				<displayName>పనామనియన్ బల్బోయ</displayName>
+			</currency>
+			<currency type="PEN">
+				<displayName>పెరువియన్ న్యూవో సోల్</displayName>
+			</currency>
+			<currency type="PGK">
+				<displayName>పప్యూ న్యూ గ్యినియన్ కినా</displayName>
+			</currency>
+			<currency type="PHP">
+				<displayName>ఫిలిప్పిన్ పెసో</displayName>
+			</currency>
+			<currency type="PKR">
+				<displayName>పాకిస్థాన్ రూపాయి</displayName>
+			</currency>
+			<currency type="PLN">
+				<displayName>పోలిష్ జ్లోటీ</displayName>
+			</currency>
+			<currency type="PYG">
+				<displayName>పరగ్వాయన్ గ్వారని</displayName>
+			</currency>
+			<currency type="QAR">
+				<displayName>క్వాటరి రీయల్</displayName>
+			</currency>
+			<currency type="RSD">
+				<displayName>సెర్బియన్ దీనార్</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>రష్యా రూబల్</displayName>
 			</currency>
+			<currency type="RWF">
+				<displayName>ర్వానడాన్ ఫ్రాంక్</displayName>
+			</currency>
+			<currency type="SAR">
+				<displayName>సౌది రియల్</displayName>
+			</currency>
+			<currency type="SBD">
+				<displayName>సోలోమన్ ఐలాండ్స్ డాలర్</displayName>
+			</currency>
+			<currency type="SCR">
+				<displayName>సెయిచెల్లోయిస్ రూపాయి</displayName>
+			</currency>
+			<currency type="SDG">
+				<displayName>సుడానీస్ పౌండ్</displayName>
+			</currency>
+			<currency type="SEK">
+				<displayName>స్వీడిష్ క్రోనా</displayName>
+			</currency>
+			<currency type="SGD">
+				<displayName>సింగపూర్ డాలర్</displayName>
+			</currency>
+			<currency type="SHP">
+				<displayName>సెయింట్ హెలెనా పౌండ్</displayName>
+			</currency>
+			<currency type="SLL">
+				<displayName>సీయిరు లియోనియన్ లీయోన్</displayName>
+			</currency>
+			<currency type="SOS">
+				<displayName>సొమాలి షిల్లింగ్</displayName>
+			</currency>
+			<currency type="SRD">
+				<displayName>సురినామీయుల డాలర్</displayName>
+			</currency>
+			<currency type="STD">
+				<displayName>సావో టోమ్ మరియు ప్రిన్సిపి డోబ్రా</displayName>
+			</currency>
+			<currency type="SYP">
+				<displayName>సిరీయన్ పౌండ్</displayName>
+			</currency>
+			<currency type="SZL">
+				<displayName>స్వాజి లిలాన్గేని</displayName>
+			</currency>
+			<currency type="THB">
+				<displayName>థై బాట్</displayName>
+			</currency>
+			<currency type="TJS">
+				<displayName>తజికిస్థాన్ సమోని</displayName>
+			</currency>
+			<currency type="TMT">
+				<displayName>టుర్క్‌మెనిస్థాని మనాట్</displayName>
+			</currency>
+			<currency type="TND">
+				<displayName>తునీషియన్ దీనార్</displayName>
+			</currency>
+			<currency type="TOP">
+				<displayName>టోంగాన్ పాంʻగా</displayName>
+			</currency>
+			<currency type="TRY">
+				<displayName>తుర్కిష్ లిరా</displayName>
+			</currency>
+			<currency type="TTD">
+				<displayName>ట్రినిడాడ్ మరియు టొబాగో డాలర్</displayName>
+			</currency>
+			<currency type="TWD">
+				<displayName>క్రొత్త తైవాన్ డాలర్</displayName>
+			</currency>
+			<currency type="TZS">
+				<displayName>టాంజానియన్ షిల్లింగ్</displayName>
+			</currency>
+			<currency type="UAH">
+				<displayName>ఉక్రయినియన్ హ్రివ్‌నియా</displayName>
+			</currency>
+			<currency type="UGX">
+				<displayName>యుగండన్ షిల్లింగ్</displayName>
+			</currency>
 			<currency type="USD">
 				<displayName>ఐక్య రాష్ట్ర అమెరిక డాలర్</displayName>
+			</currency>
+			<currency type="UYU">
+				<displayName>ఉరుగ్వెయన్ పెసో</displayName>
+			</currency>
+			<currency type="UZS">
+				<displayName>ఉజ్‌బెకిస్తాన్ సౌమ్</displayName>
+			</currency>
+			<currency type="VEF">
+				<displayName>వెనుజులా బోలివర్</displayName>
+			</currency>
+			<currency type="VND">
+				<displayName>వియత్నామీయుల డాంగ్</displayName>
+			</currency>
+			<currency type="VUV">
+				<displayName>వవాటు వటు</displayName>
+			</currency>
+			<currency type="WST">
+				<displayName>సమోయన్ తాలా</displayName>
+			</currency>
+			<currency type="XAF">
+				<displayName>సిఎఫ్‌ఎ ఫ్రాంక్ బిఇఏసి</displayName>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="unconfirmed">వెండి</displayName>
@@ -2295,52 +4300,184 @@
 			<currency type="XAU">
 				<displayName draft="unconfirmed">బంగారం</displayName>
 			</currency>
+			<currency type="XCD">
+				<displayName>తూర్పు కరిబ్బియన్ డాలర్</displayName>
+			</currency>
+			<currency type="XOF">
+				<displayName>సిఎఫ్‌ఎ ఫ్రాంక్ బిసిఈఏఓ</displayName>
+			</currency>
+			<currency type="XPF">
+				<displayName>సిఎఫ్‌పి ఫ్రాంక్</displayName>
+			</currency>
 			<currency type="XPT">
 				<displayName draft="unconfirmed">ప్లాటినం</displayName>
+			</currency>
+			<currency type="XXX">
+				<displayName>తెలియని కరెన్సీ</displayName>
+			</currency>
+			<currency type="YER">
+				<displayName>ఎమునీ రీయల్</displayName>
+			</currency>
+			<currency type="ZAR">
+				<displayName>దక్షిణ ఆఫ్రికా ర్యాండ్</displayName>
+			</currency>
+			<currency type="ZMK">
+				<displayName>జాంబియన్ క్వాచా</displayName>
 			</currency>
 		</currencies>
 	</numbers>
 	<units>
 		<unit type="day">
+			<unitPattern count="0">0 రోజులు</unitPattern>
+			<unitPattern count="0" alt="short">0 రోజులు</unitPattern>
+			<unitPattern count="1">1 రోజు</unitPattern>
+			<unitPattern count="1" alt="short">1 రోజు</unitPattern>
 			<unitPattern count="one" draft="unconfirmed">{0} రోజు</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} రోజులు</unitPattern>
+			<unitPattern count="other">{0} days</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} రోజులు</unitPattern>
+			<unitPattern count="other" alt="short">{0} days</unitPattern>
+			<unitPattern count="other" alt="short-proposed-x1001" draft="unconfirmed">{0} రోజులు</unitPattern>
+		</unit>
+		<unit type="day-future">
+			<unitPattern count="0">0 రోజుల్లో</unitPattern>
+			<unitPattern count="1">1 రోజులో</unitPattern>
+			<unitPattern count="other">{0} రోజుల్లో</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} రోజులలో</unitPattern>
+		</unit>
+		<unit type="day-past">
+			<unitPattern count="0">0 రోజుల క్రితం</unitPattern>
+			<unitPattern count="1">1 రోజు క్రితం</unitPattern>
+			<unitPattern count="other">{0} రోజుల క్రితం</unitPattern>
 		</unit>
 		<unit type="hour">
+			<unitPattern count="0">0 గంటలు</unitPattern>
+			<unitPattern count="0" alt="short">0 గంటలు</unitPattern>
+			<unitPattern count="1">1 గంట</unitPattern>
+			<unitPattern count="1" alt="short">1 గంట</unitPattern>
 			<unitPattern count="one" draft="unconfirmed">{0} గంట</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} గంటలు</unitPattern>
+			<unitPattern count="other">{0} గంటలు</unitPattern>
+			<unitPattern count="other" alt="short">{0} గంటలు</unitPattern>
+		</unit>
+		<unit type="hour-future">
+			<unitPattern count="0">0 గంటల్లో</unitPattern>
+			<unitPattern count="1">1 గంటలో</unitPattern>
+			<unitPattern count="other">{0} గంటల్లో</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} గంటలలో</unitPattern>
+		</unit>
+		<unit type="hour-past">
+			<unitPattern count="0">0 గంటల క్రితం</unitPattern>
+			<unitPattern count="1">1 గంట క్రితం</unitPattern>
+			<unitPattern count="other">{0} గంటల క్రితం</unitPattern>
 		</unit>
 		<unit type="minute">
+			<unitPattern count="0">0 నిమిషాలు</unitPattern>
+			<unitPattern count="0" alt="short">0 నిమిషాలు</unitPattern>
+			<unitPattern count="1">1 నిమిషం</unitPattern>
+			<unitPattern count="1" alt="short">1 నిమిషం</unitPattern>
 			<unitPattern count="one" draft="unconfirmed">{0} నిమిషం</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} నిమిషాలు</unitPattern>
+			<unitPattern count="other">{0} నిమిషాలు</unitPattern>
+			<unitPattern count="other" alt="short">{0} నిమిషాలు</unitPattern>
+		</unit>
+		<unit type="minute-future">
+			<unitPattern count="0">0 నిమిషాల్లో</unitPattern>
+			<unitPattern count="1">1 నిమిషంలో</unitPattern>
+			<unitPattern count="other">{0} నిమిషాల్లో</unitPattern>
+		</unit>
+		<unit type="minute-past">
+			<unitPattern count="0">0 నిమిషాల క్రితం</unitPattern>
+			<unitPattern count="1">1 నిమిషం క్రితం</unitPattern>
+			<unitPattern count="other">{0} నిమిషాల క్రితం</unitPattern>
 		</unit>
 		<unit type="month">
+			<unitPattern count="0">0 నెలలు</unitPattern>
+			<unitPattern count="0" alt="short">0 నెలలు</unitPattern>
+			<unitPattern count="1">1 నెల</unitPattern>
+			<unitPattern count="1" alt="short">1 నెల</unitPattern>
 			<unitPattern count="one" draft="unconfirmed">{0} నెల</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} నెలలు</unitPattern>
+			<unitPattern count="other">{0} నెలలు</unitPattern>
+			<unitPattern count="other" alt="short">{0} నెలలు</unitPattern>
+		</unit>
+		<unit type="month-future">
+			<unitPattern count="0">0 నెలల్లో</unitPattern>
+			<unitPattern count="1">1 నెలలో</unitPattern>
+			<unitPattern count="other">{0} నెలల్లో</unitPattern>
+		</unit>
+		<unit type="month-past">
+			<unitPattern count="0">0 నెలల క్రితం</unitPattern>
+			<unitPattern count="1">1 నెల క్రితం</unitPattern>
+			<unitPattern count="other">{0} నెలల క్రితం</unitPattern>
 		</unit>
 		<unit type="second">
+			<unitPattern count="0">0 సెకన్లు</unitPattern>
+			<unitPattern count="0" alt="short">0 సెకన్లు</unitPattern>
+			<unitPattern count="1">1 సెకన్</unitPattern>
+			<unitPattern count="1" alt="short">1 సెకను</unitPattern>
 			<unitPattern count="one" draft="unconfirmed">{0} క్షణం</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} క్షణాలు</unitPattern>
+			<unitPattern count="other">{0} సెకన్లు</unitPattern>
+			<unitPattern count="other" alt="short">{0} సెకన్లు</unitPattern>
+		</unit>
+		<unit type="second-future">
+			<unitPattern count="0">0 సెకన్లలో</unitPattern>
+			<unitPattern count="1">1 సెకన్‌లో</unitPattern>
+			<unitPattern count="other">{0} సెకన్లలో</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} క్షణాల్లో</unitPattern>
+		</unit>
+		<unit type="second-past">
+			<unitPattern count="0">0 సెకన్ల క్రితం</unitPattern>
+			<unitPattern count="1">1 సెకను క్రితం</unitPattern>
+			<unitPattern count="other">{0} సెకన్ల క్రితం</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} క్షణాల క్రితం</unitPattern>
 		</unit>
 		<unit type="week">
+			<unitPattern count="0">0 వారాలు</unitPattern>
+			<unitPattern count="0" alt="short">0 వారాలు</unitPattern>
+			<unitPattern count="1">1 వారం</unitPattern>
+			<unitPattern count="1" alt="short">1 వా</unitPattern>
 			<unitPattern count="one" draft="unconfirmed">{0} వారం</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} వారాలు</unitPattern>
+			<unitPattern count="other">{0} weeks</unitPattern>
+			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">{0} వారాలు</unitPattern>
+			<unitPattern count="other" alt="short">{0} వారాలు</unitPattern>
+		</unit>
+		<unit type="week-future">
+			<unitPattern count="0">0 వారాల్లో</unitPattern>
+			<unitPattern count="1">1 వారంలో</unitPattern>
+			<unitPattern count="other">{0} వారాల్లో</unitPattern>
+		</unit>
+		<unit type="week-past">
+			<unitPattern count="0">0 వారాల క్రితం</unitPattern>
+			<unitPattern count="1">1 వారం క్రితం</unitPattern>
+			<unitPattern count="other">{0} వారాల క్రితం</unitPattern>
 		</unit>
 		<unit type="year">
+			<unitPattern count="0">0 సంవత్సరాలు</unitPattern>
+			<unitPattern count="0" alt="short">0 సంవత్సరాలు</unitPattern>
+			<unitPattern count="1">1 సంవత్సరం</unitPattern>
+			<unitPattern count="1" alt="short">1 సంవత్సరం</unitPattern>
 			<unitPattern count="one" draft="unconfirmed">{0} సంవత్సరం</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} సంవత్సరాలు</unitPattern>
+			<unitPattern count="other">{0} సంవత్సరాలు</unitPattern>
+			<unitPattern count="other" alt="short">{0} సంవత్సరాలు</unitPattern>
+		</unit>
+		<unit type="year-future">
+			<unitPattern count="0">0 సంవత్సరాల్లో</unitPattern>
+			<unitPattern count="1">1 సంవత్సరంలో</unitPattern>
+			<unitPattern count="other">{0} సంవత్సరాల్లో</unitPattern>
+		</unit>
+		<unit type="year-past">
+			<unitPattern count="0">0 సంవత్సరాల క్రితం</unitPattern>
+			<unitPattern count="1">1 సంవత్సరం క్రితం</unitPattern>
+			<unitPattern count="other">{0} సంవత్సరాల క్రితం</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="2" draft="unconfirmed">{0} మరియు {1}</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">{0}, మరియు {1}</listPatternPart>
+			<listPatternPart type="2">{0} మరియు {1}</listPatternPart>
+			<listPatternPart type="end">{0} మరియు {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
 		<messages>
-			<yesstr draft="unconfirmed">అవును:అ</yesstr>
-			<nostr draft="unconfirmed">కాదు:కా</nostr>
+			<yesstr>అవును:అ</yesstr>
+			<nostr>వద్దు:వ</nostr>
 		</messages>
 	</posix>
 </ldml>
-

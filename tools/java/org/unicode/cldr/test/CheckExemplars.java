@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import java.util.BitSet;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,8 @@ import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterDirection;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -121,6 +124,10 @@ public class CheckExemplars extends CheckCLDR {
                 }
             } else { // auxiliary
                 UnicodeSet auxiliarySet = new UnicodeSet(value);
+                
+                UnicodeSet combined = new UnicodeSet(mainSet).addAll(auxiliarySet);
+                checkMixedScripts("main+auxiliary", combined, result);
+                
                 if (false && auxiliarySet.containsSome(mainSet)) {
                     UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
                     if (overlap.size() != 0) {
@@ -162,6 +169,57 @@ public class CheckExemplars extends CheckCLDR {
         } catch (Exception e) {} // if these didn't parse, checkExemplar will be called anyway at some point
         return this;
     }
+    
+    static final BitSet Japn = new BitSet();
+    static final BitSet Kore = new BitSet();
+    static {
+        Japn.set(UScript.HAN);
+        Japn.set(UScript.HIRAGANA);
+        Japn.set(UScript.KATAKANA);
+        Kore.set(UScript.HAN);
+        Kore.set(UScript.HANGUL);
+    }
+    
+    private void checkMixedScripts(String title, UnicodeSet set, List<CheckStatus> result) {
+        BitSet s = new BitSet();
+        for (String item : set) {
+            int script = UScript.getScript(item.codePointAt(0));
+            if (script != UScript.COMMON && script != UScript.INHERITED) {
+                s.set(script);
+            }
+        }
+        if (s.cardinality() < 2) {
+            return;
+        }
+        // allowable combinations
+        if (s.equals(Japn) || s.equals(Kore)) {
+            return;
+        }
+        StringBuilder scripts = new StringBuilder();
+        for (int i = s.nextSetBit(0); i >= 0; i = s.nextSetBit(i+1)) {
+            if (scripts.length() != 0) {
+                scripts.append(", ");
+            }
+            scripts.append(UScript.getName(i));
+            UnicodeSet inSet = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT, i).retainAll(set);
+            int count = 0;
+            scripts.append(" (");
+            for (String cp : inSet) {
+                if (count != 0) {
+                    scripts.append(",");
+                }
+                scripts.append(cp);
+                count++;
+                if (count > 3) {
+                    break;
+                }
+            }
+            scripts.append(")");
+        }
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalExemplarSet)
+                .setMessage("{0} exemplars contain multiple scripts: {1}", new Object[]{title, scripts}));
+        return;
+    }
 
     private void checkExemplar(String v, List<CheckStatus> result, ExemplarType exemplarType) {
         if (v == null) return;
@@ -174,6 +232,10 @@ public class CheckExemplars extends CheckCLDR {
             return;
         }
 
+        // check for mixed scripts
+        
+        checkMixedScripts(exemplarType.toString(), exemplar1, result);
+        
         // check that the formatting is correct
 
         String fixedExemplar1 = prettyPrinter.format(exemplar1);

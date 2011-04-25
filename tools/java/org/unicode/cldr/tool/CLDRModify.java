@@ -389,14 +389,16 @@ public class CLDRModify {
    */
 
   static class RetainCoveragePredicate implements Predicate<String> {
-    private CoverageLevel coverage = new CoverageLevel();
+    //private CoverageLevel coverage = new CoverageLevel();
     public RetainCoveragePredicate setFile(CLDRFile file) {
-      coverage.setFile(file, null, null, new ArrayList());
+//      coverage.setFile(file, null, null, new ArrayList());
       return this;
     }
     public boolean is(String path) {
-      Level pathLevel = coverage.getCoverageLevel(path);
-      return Level.BASIC.compareTo(pathLevel) >= 0;
+//      Level pathLevel = coverage.getCoverageLevel(path);
+//      boolean result = Level.BASIC.compareTo(pathLevel) >= 0;
+        // return result;
+      return true;
     }
   };
 

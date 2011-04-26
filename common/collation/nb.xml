@@ -123,8 +123,7 @@
 						<i>ᅱ</i>
 					<!-- Above are the standard root search collator rules -->
 					<!-- Below are the rules specific to nb. -->
-					<!-- Per Apple language group, these are modified from standard rules below -->
-					<!-- to make aa primary equal to å (as in da) so old name spellings match. -->
+					<!-- These match standard rules below. -->
 					<reset>D</reset>
 					<s>đ</s>
 					<t>Đ</t>
@@ -156,7 +155,7 @@
 					<t>Œ</t>
 					<p>å</p>
 					<t>Å</t>
-					<t>aa</t>
+					<s>aa</s>
 					<t>Aa</t>
 					<t>AA</t>
 				</rules>
@@ -194,6 +193,9 @@
 					<t>Œ</t>
 					<p>å</p>
 					<t>Å</t>
+					<s>aa</s>
+					<t>Aa</t>
+					<t>AA</t>
 				</rules>
 			</collation  >
 		</collations>

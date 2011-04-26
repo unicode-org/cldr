@@ -284,7 +284,7 @@
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á ă â ä ā b ɓ c d e é ĕ ê ē ǝ {ǝ́} {ǝ̆} {ǝ̂} {ǝ̄} ɛ {ɛ́} {ɛ̆} {ɛ̂} {ɛ̄} f g h i í ĭ î ï ī j k l m n ń ŋ o ó ŏ ô ö ō ɔ {ɔ́} {ɔ̆} {ɔ̂} {ɔ̄} p r ŕ s t u ú ŭ û ū v w y]</exemplarCharacters>
+		<exemplarCharacters>[a á ă â ä ā b ɓ c d e é ĕ ê ē ǝ {ǝ\u0301} {ǝ\u0306} {ǝ\u0302} {ǝ\u0304} ɛ {ɛ\u0301} {ɛ\u0306} {ɛ\u0302} {ɛ\u0304} f g h i í ĭ î ï ī j k l m n ń ŋ o ó ŏ ô ö ō ɔ {ɔ\u0301} {ɔ\u0306} {ɔ\u0302} {ɔ\u0304} p r ŕ s t u ú ŭ û ū v w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q x z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B Ɓ C D E Ǝ Ɛ F G H I J K L M N Ŋ O Ɔ P R S T U V W Y]</exemplarCharacters>
 	</characters>
@@ -708,3 +708,4 @@
 		</messages>
 	</posix>
 </ldml>
+

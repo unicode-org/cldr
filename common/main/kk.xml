@@ -518,7 +518,7 @@
 					<availableFormats>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="yMMMd" draft="unconfirmed">14 'қыр'. 1999</dateFormatItem>
-						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">'сс'., 14 'қыр'., 1999</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">'сс'., 14 'қыр'., 1999</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -1876,8 +1876,8 @@
 					<daylight>Орталық Еуропа жаздық уақыты</daylight>
 				</long>
 				<short>
-					<standard alt="proposed-x1001" draft="unconfirmed">Орталық Еуропа уақыты</standard>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Орталық Еуропа жаздық уақыты</daylight>
+					<standard draft="unconfirmed">Орталық Еуропа уақыты</standard>
+					<daylight draft="unconfirmed">Орталық Еуропа жаздық уақыты</daylight>
 				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
@@ -1886,8 +1886,8 @@
 					<daylight>Шығыс Еуропа жаздық уақыты</daylight>
 				</long>
 				<short>
-					<standard alt="proposed-x1001" draft="unconfirmed">Шығыс Еуропа уақыты</standard>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Шығыс Еуропа жаздық уақыты</daylight>
+					<standard draft="unconfirmed">Шығыс Еуропа уақыты</standard>
+					<daylight draft="unconfirmed">Шығыс Еуропа жаздық уақыты</daylight>
 				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -2169,3 +2169,4 @@
 		</messages>
 	</posix>
 </ldml>
+

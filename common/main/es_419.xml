@@ -9,18 +9,15 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
-			<language type="az" alt="short" draft="contributed">Azerí</language>
 			<language type="ps" alt="variant" draft="contributed">Pastú</language>
 			<language type="ug" alt="variant" draft="contributed">Uyghur</language>
 		</languages>
 		<scripts>
-			<script type="Arab" alt="variant" draft="contributed">Perso-arábigo</script>
 			<script type="Hans" alt="stand-alone" draft="contributed">Han simplificado</script>
 			<script type="Hant" alt="stand-alone" draft="contributed">Han tradicional</script>
 		</scripts>
 		<keys>
 			<key type="numbers" draft="contributed">Números</key>
-			<key type="x" draft="contributed">Uso privado</key>
 		</keys>
 		<types>
 			<type type="arab" key="numbers" draft="contributed">Dígitos arábigo-índicos</type>
@@ -69,16 +66,7 @@
 			<type type="unihan" key="collation" draft="contributed">Orden de clasificación de trazos radicales</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Numéricas</transformName>
-			<transformName type="Tone" draft="contributed">Tono</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
-			<transformName type="x-Accents" draft="contributed">Acentos</transformName>
-			<transformName type="x-Fullwidth" draft="contributed">Ancho completo</transformName>
-			<transformName type="x-Halfwidth" draft="contributed">Ancho medio</transformName>
-			<transformName type="x-Jamo" draft="contributed">Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
-			<transformName type="x-Publishing" draft="contributed">Publicación</transformName>
 		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="UK" draft="contributed">Reino Unido</measurementSystemName>
@@ -107,9 +95,6 @@
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="noon" draft="contributed">tarde</dayPeriod>
 						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="noon" draft="contributed">n</dayPeriod>
-						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="noon" draft="contributed">tarde</dayPeriod>
 						</dayPeriodWidth>
@@ -136,47 +121,15 @@
 		</calendars>
 		<timeZoneNames>
 			<fallbackRegionFormat draft="contributed">{1} Hora ({0})</fallbackRegionFormat>
-			<zone type="America/El_Salvador">
-				<exemplarCity draft="contributed">El Salvador</exemplarCity>
-			</zone>
-			<metazone type="Amazon">
-				<long>
-					<generic draft="contributed">Hora del Amazonas</generic>
-				</long>
-			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic draft="contributed">Hora de Anadyr</generic>
-					<standard draft="contributed">Hora de Anadyr</standard>
 					<daylight draft="contributed">Hora de Verano de Anadyr</daylight>
-				</long>
-			</metazone>
-			<metazone type="Argentina">
-				<long>
-					<generic draft="contributed">Hora de Argentina</generic>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic draft="contributed">Hora del Oeste de Argentina</generic>
 					<daylight draft="contributed">Hora de verano en el oeste de Argentina</daylight>
-				</long>
-			</metazone>
-			<metazone type="Brasilia">
-				<long>
-					<generic draft="contributed">Hora de Brasilia</generic>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="contributed">Hora de Choibalsan</generic>
-				</long>
-			</metazone>
-			<metazone type="Hovd">
-				<long>
-					<generic draft="contributed">Hora de Hovd</generic>
-					<standard draft="contributed">Hora de Hovd</standard>
-					<daylight draft="contributed">Hora de verano de Hovd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
@@ -194,16 +147,8 @@
 					<generic draft="contributed">Indonesia, hora del oeste</generic>
 				</long>
 			</metazone>
-			<metazone type="Irkutsk">
-				<long>
-					<generic draft="contributed">Hora de Irkutsk</generic>
-					<standard draft="contributed">Hora de Irkutsk</standard>
-					<daylight draft="contributed">Hora de verano de Irkutsk</daylight>
-				</long>
-			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">Hora de Kamchatka</generic>
 					<standard draft="contributed">Hora de Petropávlovsk-Kamchatski</standard>
 					<daylight draft="contributed">Hora de verano de Petropávlovsk-Kamchatski</daylight>
 				</long>
@@ -220,83 +165,14 @@
 					<daylight draft="contributed">Hora de Verano en el oeste de Kazajistán</daylight>
 				</long>
 			</metazone>
-			<metazone type="Krasnoyarsk">
-				<long>
-					<generic draft="contributed">Hora de Krasnoyarsk</generic>
-					<standard draft="contributed">Hora de Krasnoyarsk</standard>
-					<daylight draft="contributed">Hora de verano de Krasnoyarsk</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<generic draft="contributed">Hora de Macquarie</generic>
-				</long>
-			</metazone>
-			<metazone type="Magadan">
-				<long>
-					<generic draft="contributed">Hora de Magadán</generic>
-					<standard draft="contributed">Hora de Magadán</standard>
-					<daylight draft="contributed">Hora de verano de Magadán</daylight>
-				</long>
-			</metazone>
-			<metazone type="Mongolia">
-				<long>
-					<generic draft="contributed">Hora de Mongolia</generic>
-				</long>
-			</metazone>
-			<metazone type="Noronha">
-				<long>
-					<generic draft="contributed">Hora de Noronha</generic>
-				</long>
-			</metazone>
-			<metazone type="Novosibirsk">
-				<long>
-					<generic draft="contributed">Hora de Novosibirsk</generic>
-					<standard draft="contributed">Hora de Novosibirsk</standard>
-					<daylight draft="contributed">Hora de verano de Novosibirsk</daylight>
-				</long>
-			</metazone>
 			<metazone type="Omsk">
 				<long>
-					<generic draft="contributed">Hora de Omsk</generic>
-					<standard draft="contributed">Hora de Omsk</standard>
 					<daylight draft="contributed">Hora de Verano de Omsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
-					<generic draft="contributed">Hora de Sajalín</generic>
-					<standard draft="contributed">Hora de Sajalín</standard>
 					<daylight draft="contributed">Hora de Verano de Sajalín</daylight>
-				</long>
-			</metazone>
-			<metazone type="Samara">
-				<long>
-					<generic draft="contributed">Hora de Samara</generic>
-				</long>
-			</metazone>
-			<metazone type="Vladivostok">
-				<long>
-					<generic draft="contributed">Hora de Vladivostok</generic>
-					<standard draft="contributed">Hora de Vladivostok</standard>
-					<daylight draft="contributed">Hora de verano de Vladivostok</daylight>
-				</long>
-			</metazone>
-			<metazone type="Volgograd">
-				<long>
-					<generic draft="contributed">Hora de Volgogrado</generic>
-				</long>
-			</metazone>
-			<metazone type="Yakutsk">
-				<long>
-					<generic draft="contributed">Hora de Yakutsk</generic>
-					<standard draft="contributed">Hora de Yakutsk</standard>
-					<daylight draft="contributed">Hora de verano de Yakutsk</daylight>
-				</long>
-			</metazone>
-			<metazone type="Yekaterinburg">
-				<long>
-					<generic draft="contributed">Hora de Ekaterimburgo</generic>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -306,15 +182,6 @@
 			<decimal>.</decimal>
 			<group>,</group>
 		</symbols>
-		<decimalFormats>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000000000" draft="contributed">0.0B</pattern>
-					<pattern type="10000000000" draft="contributed">00B</pattern>
-					<pattern type="100000000000" draft="contributed">000B</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>
@@ -322,29 +189,6 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
-		<currencies>
-			<currency type="AFN">
-				<symbol draft="contributed">Af</symbol>
-			</currency>
-			<currency type="ANG">
-				<symbol draft="contributed">NAf.</symbol>
-			</currency>
-			<currency type="AOA">
-				<symbol draft="contributed">Kz</symbol>
-			</currency>
-			<currency type="ARS">
-				<symbol draft="contributed">AR$</symbol>
-			</currency>
-			<currency type="AUD">
-				<symbol draft="contributed">AU$</symbol>
-			</currency>
-			<currency type="AWG">
-				<symbol draft="contributed">Afl.</symbol>
-			</currency>
-			<currency type="AZN">
-				<symbol draft="contributed">man.</symbol>
-			</currency>
-		</currencies>
 	</numbers>
 	<units>
 		<unit type="day-future">
@@ -354,10 +198,7 @@
 			<unitPattern count="other" draft="contributed">En {0} días</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">Hace 0 días</unitPattern>
-			<unitPattern count="1" draft="contributed">Hace 1 día</unitPattern>
 			<unitPattern count="one" draft="contributed">Hace {0} día</unitPattern>
-			<unitPattern count="other" draft="contributed">Hace {0} días</unitPattern>
 		</unit>
 		<unit type="hour-future">
 			<unitPattern count="0" draft="contributed">En 0 horas</unitPattern>
@@ -366,10 +207,7 @@
 			<unitPattern count="other" draft="contributed">En {0} horas</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0" draft="contributed">Hace 0 horas</unitPattern>
-			<unitPattern count="1" draft="contributed">Hace 1 hora</unitPattern>
 			<unitPattern count="one" draft="contributed">Hace {0} hora</unitPattern>
-			<unitPattern count="other" draft="contributed">Hace {0} horas</unitPattern>
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="0" draft="contributed">En 0 minutos</unitPattern>
@@ -378,10 +216,7 @@
 			<unitPattern count="other" draft="contributed">En {0} minutos</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0" draft="contributed">Hace 0 minutos</unitPattern>
-			<unitPattern count="1" draft="contributed">Hace 1 minuto</unitPattern>
 			<unitPattern count="one" draft="contributed">Hace {0} minuto</unitPattern>
-			<unitPattern count="other" draft="contributed">Hace {0} minutos</unitPattern>
 		</unit>
 		<unit type="month-future">
 			<unitPattern count="0" draft="contributed">En 0 meses</unitPattern>
@@ -390,10 +225,7 @@
 			<unitPattern count="other" draft="contributed">En {0} meses</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0" draft="contributed">Hace 0 meses</unitPattern>
-			<unitPattern count="1" draft="contributed">Hace 1 mes</unitPattern>
 			<unitPattern count="one" draft="contributed">Hace {0} mes</unitPattern>
-			<unitPattern count="other" draft="contributed">Hace {0} meses</unitPattern>
 		</unit>
 		<unit type="second-future">
 			<unitPattern count="0" draft="contributed">En 0 segundos</unitPattern>
@@ -402,10 +234,7 @@
 			<unitPattern count="other" draft="contributed">En {0} segundos</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0" draft="contributed">Hace 0 segundos</unitPattern>
-			<unitPattern count="1" draft="contributed">Hace 1 segundo</unitPattern>
 			<unitPattern count="one" draft="contributed">Hace {0} segundo</unitPattern>
-			<unitPattern count="other" draft="contributed">Hace {0} segundos</unitPattern>
 		</unit>
 		<unit type="week-future">
 			<unitPattern count="0" draft="contributed">En 0 semanas</unitPattern>
@@ -414,10 +243,7 @@
 			<unitPattern count="other" draft="contributed">En {0} semanas</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0" draft="contributed">Hace 0 semanas</unitPattern>
-			<unitPattern count="1" draft="contributed">Hace 1 semana</unitPattern>
 			<unitPattern count="one" draft="contributed">Hace {0} semana</unitPattern>
-			<unitPattern count="other" draft="contributed">Hace {0} semanas</unitPattern>
 		</unit>
 		<unit type="year-future">
 			<unitPattern count="0" draft="contributed">En 0 años</unitPattern>
@@ -426,10 +252,8 @@
 			<unitPattern count="other" draft="contributed">En {0} años</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0" draft="contributed">Hace 0 años</unitPattern>
-			<unitPattern count="1" draft="contributed">Hace 1 año</unitPattern>
 			<unitPattern count="one" draft="contributed">Hace {0} año</unitPattern>
-			<unitPattern count="other" draft="contributed">Hace {0} años</unitPattern>
 		</unit>
 	</units>
 </ldml>
+

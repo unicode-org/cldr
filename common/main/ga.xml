@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="ga"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ba">Baiscíris</language>
+			<language type="be">Bealarúisis</language>
+			<language type="bs">Boisnis</language>
+			<language type="da">Danmhairgis</language>
+			<language type="eo">Esperanto</language>
+			<language type="et">Eastóinis</language>
+			<language type="fil">fil</language>
+			<language type="haw">Haváíais</language>
+			<language type="it">Iodáilis</language>
+			<language type="jv">Iávais</language>
+			<language type="lb">Leitseabuirgis</language>
+			<language type="mo">Moldáivis</language>
+		</languages>
+		<scripts>
+			<script type="Latn" draft="unconfirmed">Laidineach</script>
+		</scripts>
+		<territories>
+			<territory type="054">An Mheilinéis</territory>
+			<territory type="BG">An Bhulgáir</territory>
+			<territory type="BI">An Bhurúin</territory>
+			<territory type="BY">An Bhealarúis</territory>
+			<territory type="FR">An Fhrainc</territory>
+			<territory type="HK">R.R.S. na Síne Hong Cong</territory>
+			<territory type="ID">An Indinéis</territory>
+			<territory type="IL">Iosrael</territory>
+			<territory type="MD">An Mholdóiv</territory>
+			<territory type="ML">Mailí</territory>
+			<territory type="MN">An Mhongóil</territory>
+			<territory type="NU">Nívé</territory>
+			<territory type="SD">An tSúdáin</territory>
+			<territory type="SM">San Mairíne</territory>
+			<territory type="SO">An tSomáil</territory>
+		</territories>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a á b c d e é f g h i í l m n o ó p r s t u ú]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[j k q v w x y z ḃ ċ ḋ ḟ ġ ṁ ṗ ṡ ṫ]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+	</characters>
+		<dates>
+		<calendars>
+			<calendar type="buddhist">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE d MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="2">Feabhra</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="fri">Dé hAoine</day>
+							<day type="sat">Dé Sathairn</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="wide">
+							<quarter type="1">1ú ráithe</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<fields>
+					<field type="era">
+						<displayName draft="unconfirmed">Ré</displayName>
+					</field>
+				</fields>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<currencies>
+			<currency type="AFN">
+				<displayName>Afgainí</displayName>
+			</currency>
+			<currency type="BRN">
+				<displayName>Cruzado Novo Brasaíleach</displayName>
+			</currency>
+			<currency type="BYB">
+				<displayName>Rúbal Nua Béalarúiseach (1994-1999)</displayName>
+			</currency>
+			<currency type="CSK">
+				<displayName>Koruna Crua na Seicslóvaice</displayName>
+			</currency>
+			<currency type="GEK">
+				<displayName>Kupon Larit na Grúise</displayName>
+			</currency>
+			<currency type="IQD">
+				<displayName>Dínear Irácach</displayName>
+			</currency>
+			<currency type="MZE">
+				<displayName>Escudo Mósaimbíce</displayName>
+			</currency>
+			<currency type="NIC">
+				<displayName>Cordoba Nicearagua</displayName>
+			</currency>
+			<currency type="ROL">
+				<displayName>Leu Rómánach</displayName>
+			</currency>
+			<currency type="UAH">
+				<displayName>Hryvnia Úcránach</displayName>
+			</currency>
+			<currency type="WST">
+				<displayName>Tala Samó Thiar</displayName>
+			</currency>
+			<currency type="YUD">
+				<displayName>Dínear Crua Iúgslavach</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

@@ -42,6 +42,7 @@ public class CheckForExemplars extends CheckCLDR {
     static final UnicodeSet START_PAREN = new UnicodeSet("[(\\[（［]").freeze();
     static final UnicodeSet END_PAREN = new UnicodeSet("[)\\]］）]").freeze();
     private UnicodeSet exemplars;
+    private UnicodeSet exemplarsPlusAscii;
     private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplars = new UnicodeSet("[()（）;,；，]").freeze();
     private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplarsWithParens = new UnicodeSet("[;,；，]").freeze();
     private UnicodeSet currencySymbolExemplars;
@@ -114,6 +115,7 @@ public class CheckForExemplars extends CheckCLDR {
         UnicodeSet auxiliary = safeGetExemplars("auxiliary", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
         if (auxiliary != null) exemplars.addAll(auxiliary);
         exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
+        exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
         currencySymbolExemplars = safeGetExemplars("currencySymbol", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
         if (currencySymbolExemplars == null) {
@@ -196,21 +198,21 @@ public class CheckForExemplars extends CheckCLDR {
         }
 
         if (path.startsWith("//ldml/posix/messages")) return this;
-
+        UnicodeSet disallowed;
+        
         if (path.contains("/currency") && path.endsWith("/symbol")) {
-            if (!containsAllCountingParens(currencySymbolExemplars, value)) {
+            if (null != (disallowed = containsAllCountingParens(currencySymbolExemplars, exemplarsPlusAscii, value))) {
                 UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(currencySymbolExemplars);
                 addMissingMessage(missing, CheckStatus.warningType, Subtype.charactersNotInCurrencyExemplars, Subtype.asciiCharactersNotInCurrencyExemplars, "are not in the currency exemplar characters", result);
             }
         } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
             // test first for outside of the set.
-            if (!containsAllCountingParens(exemplars, value)) {
-                UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
-                addMissingMessage(missing, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
+            if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
+                addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
             }
             UnicodeSet disallowedInExemplars = path.contains("_") ? DISALLOWED_IN_scriptRegionExemplarsWithParens : DISALLOWED_IN_scriptRegionExemplars;
             if (disallowedInExemplars.containsSome(value)) {
-                UnicodeSet disallowed = new UnicodeSet().addAll(value).retainAll(disallowedInExemplars);
+                disallowed = new UnicodeSet().addAll(value).retainAll(disallowedInExemplars);
                 addMissingMessage(disallowed, CheckStatus.warningType, Subtype.discouragedCharactersInTranslation, Subtype.discouragedCharactersInTranslation, "should not be used in this context", result);
                 //
                 //                String fixedMissing = prettyPrint
@@ -220,9 +222,8 @@ public class CheckForExemplars extends CheckCLDR {
                 //                        .setMessage("The characters \u200E{1}\u200E are discouraged in display names. Please avoid these characters.", new Object[]{null,fixedMissing}));
                 //                // note: we are using {1} so that we don't include these in the console summary of bad characters.
             }
-        } else if (!containsAllCountingParens(exemplars, value)) {
-            UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(exemplars);
-            addMissingMessage(missing, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
+        } else if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
+            addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
         }
 
         // check for spaces 
@@ -233,10 +234,15 @@ public class CheckForExemplars extends CheckCLDR {
                         .setMessage("This item must not start or end with whitespace, or be empty."));
             }
         }
+//        if (value.contains("  ")) {
+//                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.mustNotStartOrEndWithSpace)
+//                        .setMessage("This item must not contain two space characters in a row."));
+//        }
         return this;
     }
 
     static final String TEST = "؉";
+    
     private void addMissingMessage(UnicodeSet missing, String warningVsError, Subtype subtype, Subtype subtypeAscii, String qualifier, List<CheckStatus> result) {
         if (missing.containsAll(TEST)) {
             int x = 1;
@@ -272,9 +278,16 @@ public class CheckForExemplars extends CheckCLDR {
 
     static final Normalizer2 NFC = Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.COMPOSE);
     
-    private boolean containsAllCountingParens(UnicodeSet exemplarSet, String value) {
+    /**
+     * Return null if ok, otherwise UnicodeSet of bad characters
+     * @param exemplarSet
+     * @param value
+     * @return
+     */
+    private UnicodeSet containsAllCountingParens(UnicodeSet exemplarSet, UnicodeSet exemplarSetPlusASCII, String value) {
+        UnicodeSet result = null;
         if (exemplarSet.containsAll(value)) {
-            return true;
+            return result;
         }
 
         // Normalize
@@ -286,9 +299,7 @@ public class CheckForExemplars extends CheckCLDR {
         while (true) {
             int start = START_PAREN.findIn(value, lastPos, false);
             String outside = value.substring(lastPos, start);
-            if (!exemplarSet.containsAll(outside)) {
-                return false;
-            }
+            result = addDisallowedItems(exemplarSet, outside, result);
             if (start == value.length()) {
                 break; // all done
             }
@@ -296,14 +307,22 @@ public class CheckForExemplars extends CheckCLDR {
             int end = END_PAREN.findIn(value, start, false);
             // don't worry about mixed brackets
             String inside = value.substring(start, end);
-            if (!exemplarSet.containsAll(inside) && !ASCII.containsAll(inside)) {
-                return false;
-            }
+            result = addDisallowedItems(exemplarSetPlusASCII, inside, result);
             if (end == value.length()) {
                 break; // all done
             }
             lastPos = end + 1;
         }
-        return true;
+        return result;
+    }
+
+    private UnicodeSet addDisallowedItems(UnicodeSet exemplarSet, String outside, UnicodeSet result) {
+        if (!exemplarSet.containsAll(outside)) {
+            if (result == null) {
+                result = new UnicodeSet();
+            }
+            result.addAll(new UnicodeSet().addAll(outside).removeAll(exemplarSet));
+        }
+        return result;
     }
 }

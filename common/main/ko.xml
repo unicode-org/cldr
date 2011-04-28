@@ -620,8 +620,8 @@
 			<script type="Latn">로마자</script>
 			<script type="Lepc">렙차 문자</script>
 			<script type="Limb">림부 문자</script>
-			<script type="Lina">선형 문자 A</script>
-			<script type="Linb">선형 문자 B</script>
+			<script type="Lina">선형 문자(A)</script>
+			<script type="Linb">선형 문자(B)</script>
 			<script type="Lyci">리키아 문자</script>
 			<script type="Lydi">리디아 문자</script>
 			<script type="Mand">만다이아 문자</script>
@@ -1059,7 +1059,7 @@
 			<type type="armn" key="numbers">아르메니아 숫자</type>
 			<type type="armnlow" key="numbers">아르메니아 소문자 숫자</type>
 			<type type="beng" key="numbers">뱅골 숫자</type>
-			<type type="big5han" key="collation">중국어 번체 정렬 순서 - Big5</type>
+			<type type="big5han" key="collation">중국어 번체 정렬 순서 [Big5]</type>
 			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">번체 정렬순 - Big5</type>
 			<type type="buddhist" key="calendar">불교력</type>
 			<type type="chinese" key="calendar">중국력</type>
@@ -1074,7 +1074,7 @@
 			<type type="ethiopic" key="calendar">에티오피아력</type>
 			<type type="ethiopic-amete-alem" key="calendar">에티오피아 아메테 알렘력</type>
 			<type type="fullwide" key="numbers">전체 숫자</type>
-			<type type="gb2312han" key="collation">중국어 간체 정렬 순서 - GB2312</type>
+			<type type="gb2312han" key="collation">중국어 간체 정렬 순서 [GB2312]</type>
 			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">간체 정렬순 - GB2312</type>
 			<type type="geor" key="numbers">그루지아 숫자</type>
 			<type type="gregorian" key="calendar">태양력</type>
@@ -1126,7 +1126,6 @@
 			<type type="unihan" key="collation" alt="proposed-x1001" draft="unconfirmed">부수-획수 정렬 순서</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">숫자</transformName>
 			<transformName type="Tone" draft="contributed">성조</transformName>
 			<transformName type="UNGEGN" draft="contributed">유엔지명전문가회의(UNGEGN)</transformName>
@@ -4623,9 +4622,6 @@
 			<currency type="AON">
 				<displayName>앙골라 신콴자 (1990-2000)</displayName>
 			</currency>
-			<currency type="AOR">
-				<displayName>앙골라 콴자 Reajustado (1995-1999)</displayName>
-			</currency>
 			<currency type="ARA">
 				<displayName>아르헨티나 오스트랄</displayName>
 			</currency>
@@ -4748,16 +4744,16 @@
 				<displayName>콩고 프랑 콩골라스</displayName>
 			</currency>
 			<currency type="CHE">
-				<displayName>WIR 유로</displayName>
+				<displayName>유로 (WIR)</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName>스위스 프랑</displayName>
 			</currency>
 			<currency type="CHW">
-				<displayName>WIR 프랑</displayName>
+				<displayName>프랑 (WIR)</displayName>
 			</currency>
 			<currency type="CLF">
-				<displayName>칠레 UF (Unidades de Fomento)</displayName>
+				<displayName>칠레 (UF)</displayName>
 			</currency>
 			<currency type="CLP">
 				<displayName>칠레 페소</displayName>
@@ -4768,9 +4764,6 @@
 			</currency>
 			<currency type="COP">
 				<displayName>콜롬비아 페소</displayName>
-			</currency>
-			<currency type="COU">
-				<displayName>UVR (Unidad de Valor Real)</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>코스타리카 콜론</displayName>
@@ -4819,7 +4812,7 @@
 				<displayName>에쿠아도르 수크레</displayName>
 			</currency>
 			<currency type="ECV">
-				<displayName>에콰도르 UVC(Unidad de Valor Constante)</displayName>
+				<displayName>에콰도르 (UVC)</displayName>
 			</currency>
 			<currency type="EEK">
 				<displayName>에스토니아 크룬</displayName>
@@ -5089,7 +5082,7 @@
 				<displayName>멕시코 실버 페소 (1861-1992)</displayName>
 			</currency>
 			<currency type="MXV">
-				<displayName>멕시코 UDI(Unidad de Inversion)</displayName>
+				<displayName>멕시코 (UDI)</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName>말레이시아 링깃</displayName>
@@ -5311,7 +5304,7 @@
 				<displayName>미국 달러(당일)</displayName>
 			</currency>
 			<currency type="UYI">
-				<displayName>우루과이 페소 UI (Unidades Indexadas)</displayName>
+				<displayName>우루과이 페소 (UI)</displayName>
 			</currency>
 			<currency type="UYP">
 				<displayName>우루과이 페소 (1975-1993)</displayName>
@@ -5340,7 +5333,7 @@
 				<displayName>서 사모아 탈라</displayName>
 			</currency>
 			<currency type="XAF">
-				<displayName>CFA 프랑 BEAC</displayName>
+				<displayName>프랑 (CFA-BEAC)</displayName>
 			</currency>
 			<currency type="XAG">
 				<displayName>은화</displayName>
@@ -5370,19 +5363,19 @@
 				<displayName>유럽 환율 단위</displayName>
 			</currency>
 			<currency type="XFO">
-				<displayName>프랑스 Gold 프랑</displayName>
+				<displayName>프랑스 프랑 (Gold)</displayName>
 			</currency>
 			<currency type="XFU">
-				<displayName>프랑스 UIC-프랑</displayName>
+				<displayName>프랑스 프랑 (UIC)</displayName>
 			</currency>
 			<currency type="XOF">
-				<displayName>CFA 프랑 BCEAO</displayName>
+				<displayName>프랑 (CFA-BCEAO)</displayName>
 			</currency>
 			<currency type="XPD">
 				<displayName>팔라듐</displayName>
 			</currency>
 			<currency type="XPF">
-				<displayName>CFP 프랑</displayName>
+				<displayName>프랑 (CFP)</displayName>
 			</currency>
 			<currency type="XPT">
 				<displayName>백금</displayName>

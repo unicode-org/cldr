@@ -73,13 +73,48 @@ public class LocaleIDParser {
 	private String script;
 	private String region;
 	private String[] variants;
-	
 	public static final List<String> CROSS_SCRIPT_LOCALES = Arrays.asList(
-	        new String[] {
-	                "az_Arab","az_Cyrl","en_Dsrt","en_Shaw","ha_Arab","ku_Latn","mn_Mong","pa_Arab","sh","shi_Tfng","sr_Latn","uz_Arab","uz_Latn","vai_Latn","zh_Hant"
-	        }
-	);
-	// TODO, Make this data driven instead of a hard-coded list.
+	       new String[] {
+	    "az_Arab","az_Cyrl","en_Dsrt","en_Shaw","ha_Arab","ku_Latn","mn_Mong","pa_Arab","sh","shi_Tfng","sr_Latn","uz_Arab","uz_Latn","vai_Latn","zh_Hant"}
+	    );
+	
+	public static final Map<String,String> EXPLICIT_PARENT_LOCALES = Builder.with(new HashMap<String,String>())
+	.put("az_Cyrl", "root" )
+	.put("ha_Arab", "root" )
+    .put("ku_Latn", "root" )
+    .put("mn_Mong", "root" )
+    .put("pa_Arab", "root" )
+    .put("shi_Tfng", "root" )
+    .put("sr_Latn", "root" )
+    .put("uz_Arab", "root" )
+    .put("uz_Latn", "root" )
+    .put("vai_Latn", "root" )
+    .put("zh_Hant", "root" )
+    .put("es_AR", "es_419" )
+    .put("es_BO", "es_419" )
+    .put("es_CL", "es_419" )
+    .put("es_CO", "es_419" )
+    .put("es_CR", "es_419" )
+    .put("es_DO", "es_419" )
+    .put("es_EC", "es_419" )
+    .put("es_GT", "es_419" )
+    .put("es_HN", "es_419" )
+    .put("es_MX", "es_419" )
+    .put("es_NI", "es_419" )
+    .put("es_PA", "es_419" )
+    .put("es_PE", "es_419" )
+    .put("es_PR", "es_419" )
+    .put("es_PY", "es_419" )
+    .put("es_SV", "es_419" )
+    .put("es_US", "es_419" )
+    .put("es_UY", "es_419" )
+    .put("es_VE", "es_419" )
+    .put("pt_AO", "pt_PT" )
+    .put("pt_GW", "pt_PT" )
+    .put("pt_MZ", "pt_PT" )
+    .put("pt_ST", "pt_PT" )
+    .freeze();
+	// TODO, Make this data driven using a SupplementalDataInfo instead of a hard coded list.
 	
     public static final Map<String,String> TOP_LEVEL_ALIAS_LOCALES = Builder.with(new HashMap<String,String>())
     .put("az_AZ", "az_Latn")
@@ -161,9 +196,10 @@ public class LocaleIDParser {
 	 */
 	public static String getParent(String localeName) {
 	    int pos = localeName.lastIndexOf('_');
-	    if (pos >= 0) { 
-	        if (CROSS_SCRIPT_LOCALES.contains(localeName)) {
-	          return "root";
+	    if (pos >= 0) {
+	        String explicitParent = EXPLICIT_PARENT_LOCALES.get(localeName);
+	        if ( explicitParent != null ) {
+	            return explicitParent;
 	        }
 	        String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
 	        if (other != null) {
@@ -211,9 +247,10 @@ public class LocaleIDParser {
     String localeName = toString();
     int pos = localeName.lastIndexOf('_');
     if (pos >= 0) {
-      if (CROSS_SCRIPT_LOCALES.contains(localeName)) {
-          return "root";
-      }
+        String explicitParent = EXPLICIT_PARENT_LOCALES.get(localeName);
+        if ( explicitParent != null ) {
+            return explicitParent;
+        }
       String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
       if (other != null) {
           return other;

@@ -134,7 +134,7 @@ public class CldrUtility {
 
 
   /** If the generated BAT files are to work, this needs to be set right */
-  public static final String COMPARE_PROGRAM = "\"C:\\Program Files\\Compare It!\\wincmp3.exe\"";
+  public static final String COMPARE_PROGRAM = "\"C:\\Program Files (x86)\\Compare It!\\wincmp3.exe\"";
 
   public static final List<String> MINIMUM_LANGUAGES = Arrays.asList(new String[] {"ar", "en", "de", "fr", "hi", "it", "es", "pt", "ru", "zh", "ja"}); // plus language itself
   public static final List<String> MINIMUM_TERRITORIES = Arrays.asList(new String[] {"US", "GB", "DE", "FR", "IT", "JP", "CN", "IN", "RU", "BR"});

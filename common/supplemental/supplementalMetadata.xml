@@ -1436,7 +1436,7 @@
             <deprecatedItems type="ldml" elements="references"/>
         </deprecated>
         <distinguishing>
-             <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type"/>
+             <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem"/>
              <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>
          </distinguishing>
         <blocking>

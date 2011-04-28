@@ -3876,12 +3876,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String pathToTest;
         
         for ( String sym : sym_paths ) {
-            if ( !ns.equals("latn")) {
-                pathToTest = xpath + "[@numberSystem=\"" + ns + "\"]";
-            } else {
-                pathToTest = xpath;
-            }
-            pathToTest = pathToTest + "/" + sym;
+            pathToTest = xpath + "[@numberSystem=\"" + ns + "\"]/" + sym;
             
             String value = loc.getFile().getWinningValue(pathToTest);
             if (loc.isPathNotConvertible(pathToTest) || value == null) {

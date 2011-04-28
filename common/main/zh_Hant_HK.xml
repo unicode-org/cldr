@@ -44,7 +44,7 @@
 			<type type="arabext" key="numbers" draft="contributed">擴展阿拉伯語印度語位數</type>
 			<type type="armnlow" key="numbers" draft="contributed">亞美尼亞小寫數字</type>
 			<type type="beng" key="numbers" draft="contributed">孟加拉語位數</type>
-			<type type="big5han" key="collation">繁體中文順序 - Big5</type>
+			<type type="big5han" key="collation">繁體中文順序 (Big5)</type>
 			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">繁體中文排序 - 大五碼</type>
 			<type type="deva" key="numbers" draft="contributed">梵文位數</type>
 			<type type="dictionary" key="collation" draft="contributed">詞典排序</type>
@@ -53,7 +53,7 @@
 			<type type="ethiopic" key="calendar" draft="contributed">埃及曆</type>
 			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">埃塞俄比亞阿美德阿萊姆曆</type>
 			<type type="fullwide" key="numbers" draft="contributed">全寬位數</type>
-			<type type="gb2312han" key="collation">簡體中文順序 - GB2312</type>
+			<type type="gb2312han" key="collation">簡體中文順序 (GB2312)</type>
 			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">簡體中文排序 - GB2312</type>
 			<type type="geor" key="numbers" draft="contributed">格魯吉亞數字</type>
 			<type type="grek" key="numbers" draft="contributed">希臘語數字</type>
@@ -86,9 +86,7 @@
 			<type type="unihan" key="collation" draft="contributed">筆劃排序</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">數值</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">重音</transformName>
 			<transformName type="x-Jamo" draft="contributed">韓文</transformName>
 		</transformNames>
@@ -286,10 +284,6 @@
 					<field type="month">
 						<relative type="-1" draft="contributed">上月</relative>
 						<relative type="1" draft="contributed">下月</relative>
-					</field>
-					<field type="day">
-						<relative type="-3" draft="contributed">Three days ago</relative>
-						<relative type="3" draft="contributed">Three days from now</relative>
 					</field>
 				</fields>
 			</calendar>

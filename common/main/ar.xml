@@ -3810,7 +3810,7 @@
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>arab</defaultNumberingSystem>
-		<symbols>
+		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<decimal alt="proposed-x1001" draft="unconfirmed">.</decimal>
 			<group>.</group>
@@ -3831,8 +3831,11 @@
 			<group>٬</group>
 			<list>؛</list>
 			<percentSign>٪</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
 			<exponential>اس</exponential>
 			<perMille>؉</perMille>
+			<infinity>∞</infinity>
 			<nan>ليس رقم</nan>
 		</symbols>
 		<decimalFormats>

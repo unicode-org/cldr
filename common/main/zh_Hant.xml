@@ -213,11 +213,11 @@
 			<language type="hup">胡帕文</language>
 			<language type="hy">亞美尼亞文</language>
 			<language type="hz">赫雷羅文</language>
-			<language type="ia">國際文A</language>
+			<language type="ia">國際文（A）</language>
 			<language type="ia" alt="proposed-x1001" draft="unconfirmed">國際文 A</language>
 			<language type="iba">伊班文</language>
 			<language type="id">印尼文</language>
-			<language type="ie">國際文E</language>
+			<language type="ie">國際文（E）</language>
 			<language type="ie" alt="proposed-x1001" draft="unconfirmed">國際文 E</language>
 			<language type="ig">伊布文</language>
 			<language type="ii">四川彝文</language>
@@ -512,7 +512,7 @@
 			<language type="und">不確定語言</language>
 			<language type="ur">烏爾都文</language>
 			<language type="uz">烏茲別克文</language>
-			<language type="vai">越南文 Vai</language>
+			<language type="vai">越南文 (Vai)</language>
 			<language type="ve">溫達文</language>
 			<language type="vi">越南文</language>
 			<language type="vo">沃拉普克文</language>
@@ -615,8 +615,8 @@
 			<script type="Latn">拉丁文</script>
 			<script type="Lepc">雷布查文</script>
 			<script type="Limb">林佈文</script>
-			<script type="Lina">線性文字 A</script>
-			<script type="Linb">線性文字 B</script>
+			<script type="Lina">線性文字（A）</script>
+			<script type="Linb">線性文字（B）</script>
 			<script type="Lyci">呂西亞語</script>
 			<script type="Lydi">里底亞語</script>
 			<script type="Mand">曼安底文</script>
@@ -625,7 +625,6 @@
 			<script type="Mero">麥羅埃文</script>
 			<script type="Mlym">馬來亞拉姆文</script>
 			<script type="Mong">蒙古文</script>
-			<script type="Moon" draft="contributed">Moon</script>
 			<script type="Mtei">曼尼普爾文</script>
 			<script type="Mymr">緬甸文</script>
 			<script type="Nkoo">西非書面語言 (N’Ko)</script>
@@ -1001,7 +1000,7 @@
 			<type type="armn" key="numbers">亞美尼亞數字</type>
 			<type type="armnlow" key="numbers">小寫亞美尼亞數字</type>
 			<type type="beng" key="numbers">孟加拉數字</type>
-			<type type="big5han" key="collation">繁體中文排序 - Big5</type>
+			<type type="big5han" key="collation">繁體中文排序 (Big5)</type>
 			<type type="buddhist" key="calendar">佛教曆法</type>
 			<type type="buddhist" key="calendar" alt="proposed-x1001" draft="unconfirmed">佛曆</type>
 			<type type="chinese" key="calendar">農曆</type>
@@ -1015,7 +1014,7 @@
 			<type type="ethiopic" key="calendar">衣索比亞曆</type>
 			<type type="ethiopic-amete-alem" key="calendar">衣索比亞曆 (Amete Alem)</type>
 			<type type="fullwide" key="numbers">全形數字</type>
-			<type type="gb2312han" key="collation">簡體中文排序 - GB2312</type>
+			<type type="gb2312han" key="collation">簡體中文排序 (GB2312)</type>
 			<type type="geor" key="numbers">喬治亞數字</type>
 			<type type="gregorian" key="calendar">公曆</type>
 			<type type="grek" key="numbers">希臘數字</type>
@@ -5919,13 +5918,13 @@
 				<displayName>剛果法郎</displayName>
 			</currency>
 			<currency type="CHE">
-				<displayName draft="contributed">WIR 歐元</displayName>
+				<displayName draft="contributed">歐元 (WIR)</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName>瑞士法郎</displayName>
 			</currency>
 			<currency type="CHW">
-				<displayName draft="contributed">WIR 法郎</displayName>
+				<displayName draft="contributed">法郎 (WIR)</displayName>
 			</currency>
 			<currency type="CLF">
 				<displayName>卡林油達佛曼跎</displayName>
@@ -6490,10 +6489,7 @@
 				<displayName>西薩摩亞塔拉</displayName>
 			</currency>
 			<currency type="XAF">
-				<displayName>CFA 法郎 BEAC</displayName>
-			</currency>
-			<currency type="XAG">
-				<displayName>XAG</displayName>
+				<displayName>法郎 (CFA-BEAC)</displayName>
 			</currency>
 			<currency type="XAU">
 				<displayName>黃金</displayName>
@@ -6502,8 +6498,7 @@
 				<displayName>歐洲綜合單位</displayName>
 			</currency>
 			<currency type="XBB">
-				<displayName>歐洲貨幣單位 XBB</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">歐洲貨幣單位 (XBB)</displayName>
+				<displayName>歐洲貨幣單位 (XBB)</displayName>
 			</currency>
 			<currency type="XBC">
 				<displayName>歐洲會計單位 (XBC)</displayName>
@@ -6518,23 +6513,22 @@
 				<displayName>特殊提款權</displayName>
 			</currency>
 			<currency type="XEU">
-				<displayName>歐洲貨幣單位 XEU</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">歐洲貨幣單位 (XEU)</displayName>
+				<displayName>歐洲貨幣單位 (XEU)</displayName>
 			</currency>
 			<currency type="XFO">
 				<displayName>法國金法郎</displayName>
 			</currency>
 			<currency type="XFU">
-				<displayName>法國 UIC 法郎</displayName>
+				<displayName>法國法郎 (UIC)</displayName>
 			</currency>
 			<currency type="XOF">
-				<displayName>CFA 法郎 BCEAO</displayName>
+				<displayName>法郎 (CFA-BCEAO)</displayName>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="provisional">帕拉狄昂</displayName>
 			</currency>
 			<currency type="XPF">
-				<displayName>CFP 法郎</displayName>
+				<displayName>法郎 (CFP)</displayName>
 				<displayName alt="proposed-x1001" draft="unconfirmed">太平洋法郎</displayName>
 			</currency>
 			<currency type="XPT">
@@ -6542,12 +6536,6 @@
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET 基金</displayName>
-			</currency>
-			<currency type="XTS">
-				<displayName>XTS</displayName>
-			</currency>
-			<currency type="XXX">
-				<displayName>XXX</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>葉門第納爾</displayName>

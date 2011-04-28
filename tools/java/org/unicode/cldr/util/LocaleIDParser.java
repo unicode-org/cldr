@@ -76,7 +76,7 @@ public class LocaleIDParser {
 	
 	public static final List<String> CROSS_SCRIPT_LOCALES = Arrays.asList(
 	        new String[] {
-	                "az_Arab","az_Cyrl","en_Dsrt","en_Shaw","ha_Arab","ku_Latn","mn_Mong","pa_Arab","sh","shi_Tfng","sr_Latn","uz_Arab","uz_Latn","zh_Hant"
+	                "az_Arab","az_Cyrl","en_Dsrt","en_Shaw","ha_Arab","ku_Latn","mn_Mong","pa_Arab","sh","shi_Tfng","sr_Latn","uz_Arab","uz_Latn","vai_Latn","zh_Hant"
 	        }
 	);
 	// TODO, Make this data driven instead of a hard-coded list.
@@ -117,6 +117,7 @@ public class LocaleIDParser {
     .put("ug_CN", "ug_Arab")
     .put("uz_AF", "uz_Arab")
     .put("uz_UZ", "uz_Cyrl")
+    .put("vai_LR", "vai_Vaii")
     .put("wo_SN", "wo_Latn")
     .put("zh_CN", "zh_Hans")
     .put("zh_HK", "zh_Hant")

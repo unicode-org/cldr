@@ -591,10 +591,8 @@
 			<type type="unihan" key="collation">اساسی-سٹروک کی چھٹنی کی ترتیب</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">عددی</transformName>
 			<transformName type="Tone">ٹون</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">لہجے</transformName>
 			<transformName type="x-Fullwidth">پورا عرض</transformName>
 			<transformName type="x-Halfwidth">نصف عرض</transformName>
@@ -636,20 +634,6 @@
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">s</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جنوری</month>
 							<month type="2">فروری</month>
@@ -665,34 +649,9 @@
 							<month type="12">دسمبر</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
-						</monthWidth>
-					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">اتوار</day>
 							<day type="mon">پير</day>
@@ -703,45 +662,14 @@
 							<day type="sat">ہفتہ</day>
 						</dayWidth>
 					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">پہلی سہ ماہی</quarter>
 							<quarter type="2">دوسری سہ ماہی</quarter>
 							<quarter type="3">تيسری سہ ماہی</quarter>
 							<quarter type="4">چوتهی سہ ماہی</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -750,10 +678,6 @@
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="am">دن</dayPeriod>
 							<dayPeriod type="pm">رات</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">a</dayPeriod>
-							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">دن</dayPeriod>

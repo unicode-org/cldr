@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.XMLFileReader;
@@ -30,30 +31,41 @@ public class SearchXml {
     private static boolean levelExclude = false;
     private static boolean valueExclude = false;
     private static boolean fileExclude = false;
+    
+    final static Options myOptions = new Options()
+    .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
+    .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
+    .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+    .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
+    .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
+    .add("count", ".*", null, "only count items")
+    ;
 
     public static void main(String[] args) throws IOException {
-        String sourceDirectory = CldrUtility.getProperty("SOURCE", CldrUtility.MAIN_DIRECTORY);
+        myOptions.parse(args, true);
+
+        String sourceDirectory = myOptions.get("source").getValue();
         if (sourceDirectory == null) {
             System.out.println("Need Source Directory! ");
             return;
         }
         Output<Boolean> exclude = new Output<Boolean>();
-        fileMatcher = getMatcher(CldrUtility.getProperty("FILE", null), exclude);
+        fileMatcher = getMatcher(myOptions.get("file").getValue(), exclude);
         fileExclude = exclude.value;
         
-        pathMatcher = getMatcher(CldrUtility.getProperty("XPATH", null), exclude);
+        pathMatcher = getMatcher(myOptions.get("path").getValue(), exclude);
         pathExclude = exclude.value;
         
-        valueMatcher = getMatcher(CldrUtility.getProperty("VALUE", null), exclude);
+        valueMatcher = getMatcher(myOptions.get("value").getValue(), exclude);
         valueExclude = exclude.value;
         
-        levelMatcher = getMatcher(CldrUtility.getProperty("LEVEL", null), exclude);
+        levelMatcher = getMatcher(myOptions.get("level").getValue(), exclude);
         levelExclude = exclude.value;
         
-        countOnly = CldrUtility.getProperty("COUNT", true);
+        countOnly = myOptions.get("count").doesOccur();
 
-        showFiles = CldrUtility.getProperty("SHOWFILES", false);
-        showValues = CldrUtility.getProperty("SHOWVALUES", false);
+//        showFiles = myOptions.get("showFiles").doesOccur();
+//        showValues = myOptions.get("showValues").doesOccur();
 
         double startTime = System.currentTimeMillis();
         File src = new File(sourceDirectory);

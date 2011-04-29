@@ -1075,15 +1075,12 @@
 			<type type="unihan" key="collation" draft="contributed">Σειρά ταξινόμησης ριζικής αρίθμησης</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Αριθμητικό</transformName>
 			<transformName type="Tone" draft="contributed">Τόνος</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Σημεία τονισμού</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Πλήρους πλάτους</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Μισού πλάτους</transformName>
-			<transformName type="x-Jamo" draft="contributed">(Τζάμο) Jamo</transformName>
-			<transformName type="x-Pinyin" draft="contributed">Pinyin</transformName>
+			<transformName type="x-Jamo" draft="contributed">Τζάμο [Jamo]</transformName>
 			<transformName type="x-Publishing" draft="contributed">Έκδοση</transformName>
 		</transformNames>
 		<measurementSystemNames>
@@ -2823,7 +2820,7 @@
 				<exemplarCity>Ταϊπέι</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
-				<exemplarCity draft="contributed">Νταρ Eς Σαλάμ</exemplarCity>
+				<exemplarCity draft="contributed">Νταρ Ες Σαλάμ</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Ουζκόροντ</exemplarCity>
@@ -3505,11 +3502,6 @@
 				<displayName count="one">νέο κουάνζα Ανγκόλας (AON)</displayName>
 				<displayName count="other" draft="provisional">νέα κουάνζα Ανγκόλας (AON)</displayName>
 			</currency>
-			<currency type="AOR">
-				<displayName>Κουάνζα Reajustado Ανγκόλας (1995-1999)</displayName>
-				<displayName count="one">κουάνζα Reajustado Ανγκόλας (AOR)</displayName>
-				<displayName count="other">κουάνζα Reajustado Ανγκόλας (AOR)</displayName>
-			</currency>
 			<currency type="ARA">
 				<displayName>Ωστράλ Αργετινής</displayName>
 				<displayName count="one">αουστράλ Αργεντινής</displayName>
@@ -3518,10 +3510,6 @@
 			<currency type="ARL">
 				<displayName count="one" draft="provisional">Πέσο λέι Αργετινής</displayName>
 				<displayName count="other" draft="provisional">Πέσο λέι Αργετινής</displayName>
-			</currency>
-			<currency type="ARM">
-				<displayName count="one" draft="provisional">Πέσο moneda nacional Αργετινής</displayName>
-				<displayName count="other" draft="provisional">Πέσο moneda nacional Αργετινής</displayName>
 			</currency>
 			<currency type="ARP">
 				<displayName>Πέσο Αργεντινής (1983-1985)</displayName>
@@ -3771,7 +3759,6 @@
 				<displayName count="other" draft="provisional">Εσκούδο Χιλής</displayName>
 			</currency>
 			<currency type="CLF">
-				<displayName>Unidades de Fomento Χιλής</displayName>
 				<displayName count="one">ουνιδάδες ντε φομέντο Χιλής</displayName>
 				<displayName count="other">ουνιδάδες ντε φομέντο Χιλής</displayName>
 			</currency>
@@ -3796,11 +3783,6 @@
 				<displayName count="one">πέσο Κολομβίας</displayName>
 				<displayName count="other">πέσο Κολομβίας</displayName>
 				<symbol draft="contributed">COP</symbol>
-			</currency>
-			<currency type="COU">
-				<displayName>unidad de valor real</displayName>
-				<displayName count="one">unidad de valor real</displayName>
-				<displayName count="other">unidad de valor reals</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>Κολόν Κόστα Ρίκα</displayName>
@@ -3884,11 +3866,6 @@
 				<displayName>Σούκρε Εκουαδόρ</displayName>
 				<displayName count="one">σούκρε Εκουαδόρ</displayName>
 				<displayName count="other">σούκρε Εκουαδόρ</displayName>
-			</currency>
-			<currency type="ECV">
-				<displayName>Unidad de Valor Constante (UVC) Ισημερινού</displayName>
-				<displayName count="one">Unidad de Valor Constante (UVC) Ισημερινού</displayName>
-				<displayName count="other">Unidads de Valor Constante (UVC) Ισημερινού</displayName>
 			</currency>
 			<currency type="EEK">
 				<displayName>Κορόνα Εσθονίας</displayName>
@@ -4240,8 +4217,6 @@
 			</currency>
 			<currency type="LUC">
 				<displayName>Μετατρέψιμο Φράγκο Λουξεμβούργου</displayName>
-				<displayName count="one">LUC</displayName>
-				<displayName count="other">LUC</displayName>
 			</currency>
 			<currency type="LUF">
 				<displayName>Φράγκο Λουξεμβούργου</displayName>
@@ -4250,14 +4225,11 @@
 			</currency>
 			<currency type="LUL">
 				<displayName>Οικονομικό Φράγκο Λουξεμβούργου</displayName>
-				<displayName count="one">LUL</displayName>
-				<displayName count="other">LUL</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>Λατς Λετονίας</displayName>
 				<displayName count="one">λατς Λετονίας</displayName>
 				<displayName count="other">λατς Λετονίας</displayName>
-				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Ρούβλι Λετονίας</displayName>
@@ -4372,11 +4344,6 @@
 				<displayName>Ασημένιο Πέσο Μεξικού (1861-1992)</displayName>
 				<displayName count="one">ασημένιο πέσο Μεξικού (MXP)</displayName>
 				<displayName count="other">ασημένια πέσο Μεξικού (MXP)</displayName>
-			</currency>
-			<currency type="MXV">
-				<displayName>Unidad de Inversion (UDI) Μεξικού</displayName>
-				<displayName count="one">Unidad de Inversion (UDI) Μεξικού</displayName>
-				<displayName count="other">Unidads de Inversion (UDI) Μεξικού</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName>Ρινγκίτ Μαλαισίας</displayName>
@@ -4758,11 +4725,6 @@
 				<displayName count="one">δολάριο Η.Π.Α. (ίδια ημέρα)</displayName>
 				<displayName count="other">δολάρια Η.Π.Α. (ίδια ημέρα)</displayName>
 			</currency>
-			<currency type="UYI">
-				<displayName>Peso en Unidades Indexadas Ουρουγουάης</displayName>
-				<displayName count="one">peso en unidades indexadas Ουρουγκουάης</displayName>
-				<displayName count="other">pesos en unidades indexadas Ουρουγκουάης</displayName>
-			</currency>
 			<currency type="UYP">
 				<displayName>Πέσο Ουρουγουάης (1975-1993)</displayName>
 				<displayName count="one">πέσο Ουρουγουάης (UYP)</displayName>
@@ -4816,15 +4778,6 @@
 				<displayName count="other">Φράγκα Κεντρικής Αφρικής</displayName>
 				<symbol draft="contributed">XAF</symbol>
 			</currency>
-			<currency type="XAG">
-				<displayName count="one" draft="provisional">XAG</displayName>
-				<displayName count="other" draft="provisional">XAG</displayName>
-			</currency>
-			<currency type="XAU">
-				<displayName>Χρυσός</displayName>
-				<displayName count="one">XAU</displayName>
-				<displayName count="other">XAU</displayName>
-			</currency>
 			<currency type="XBA">
 				<displayName>Ευρωπαϊκή Σύνθετη Μονάδα</displayName>
 				<displayName count="one">ευρωπαϊκή σύνθετη μονάδα</displayName>
@@ -4877,27 +4830,15 @@
 				<displayName count="other">φράγκα BCEAO CFA</displayName>
 				<symbol draft="contributed">XOF</symbol>
 			</currency>
-			<currency type="XPD">
-				<displayName count="one" draft="provisional">XPD</displayName>
-				<displayName count="other" draft="provisional">XPD</displayName>
-			</currency>
 			<currency type="XPF">
 				<displayName>Φράγκο CFP</displayName>
 				<displayName count="one">φράγκο CFP</displayName>
 				<displayName count="other">φράγκα CFP</displayName>
 				<symbol draft="contributed">XPF</symbol>
 			</currency>
-			<currency type="XPT">
-				<displayName count="one" draft="provisional">XPT</displayName>
-				<displayName count="other" draft="provisional">XPT</displayName>
-			</currency>
 			<currency type="XRE">
 				<displayName count="one" draft="provisional">Ταμείο RINET</displayName>
 				<displayName count="other" draft="provisional">Ταμείο RINET</displayName>
-			</currency>
-			<currency type="XTS">
-				<displayName count="one" draft="provisional">XTS</displayName>
-				<displayName count="other" draft="provisional">XTS</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName>Άγνωστο ή μη έγκυρο νόμισμα</displayName>

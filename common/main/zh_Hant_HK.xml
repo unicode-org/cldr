@@ -45,7 +45,6 @@
 			<type type="armnlow" key="numbers" draft="contributed">亞美尼亞小寫數字</type>
 			<type type="beng" key="numbers" draft="contributed">孟加拉語位數</type>
 			<type type="big5han" key="collation">繁體中文順序 (Big5)</type>
-			<type type="big5han" key="collation" alt="proposed-x1001" draft="unconfirmed">繁體中文排序 - 大五碼</type>
 			<type type="deva" key="numbers" draft="contributed">梵文位數</type>
 			<type type="dictionary" key="collation" draft="contributed">詞典排序</type>
 			<type type="ducet" key="collation" draft="contributed">預設統一碼排序</type>
@@ -54,7 +53,6 @@
 			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">埃塞俄比亞阿美德阿萊姆曆</type>
 			<type type="fullwide" key="numbers" draft="contributed">全寬位數</type>
 			<type type="gb2312han" key="collation">簡體中文順序 (GB2312)</type>
-			<type type="gb2312han" key="collation" alt="proposed-x1001" draft="unconfirmed">簡體中文排序 - GB2312</type>
 			<type type="geor" key="numbers" draft="contributed">格魯吉亞數字</type>
 			<type type="grek" key="numbers" draft="contributed">希臘語數字</type>
 			<type type="greklow" key="numbers" draft="contributed">希臘小寫數字</type>
@@ -190,13 +188,11 @@
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>{1}{0}</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1}{0}</pattern>
-							<pattern alt="proposed-x1001" draft="unconfirmed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -220,11 +216,8 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">ah:mm至ah:mm [v]</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">時:分分 a – 時:分分 a v</greatestDifference>
 							<greatestDifference id="h">ah:mm至h:mm [v]</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">時:分分–時:分分 a v</greatestDifference>
 							<greatestDifference id="m">ah:mm至h:mm [v]</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">時:分分–時:分分 a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a" draft="contributed">時時:分分–時時:分分 v</greatestDifference>
@@ -233,9 +226,7 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">ah時至ah時 [v]</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">時 a – 時 a v</greatestDifference>
 							<greatestDifference id="h">ah時至h時 [v]</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">時–時 a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="a" draft="contributed">時時–時時 v</greatestDifference>

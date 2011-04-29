@@ -997,31 +997,40 @@ public class CLDRModify {
     });
 
     fixList.add('w', "fix alt='...proposed' when there is no alternative", new CLDRFilter() {
-      private XPathParts parts = new XPathParts();
-      private Set<String> newFullXPathSoFar = new HashSet<String>();
-      public void handlePath(String xpath) {
-        if (xpath.indexOf("proposed") < 0) return;
-        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-        String newFullXPath = parts.set(fullXPath).removeProposed().toString();
-        // now see if there is an uninherited value
-        String value = cldrFileToFilter.getStringValue(xpath);
-        String baseValue = cldrFileToFilter.getStringValue(newFullXPath);
-        if (baseValue != null) {
-          // if the value AND the fullxpath are the same as what we have, then delete
-          if (value.equals(baseValue)) {
-            String baseFullXPath = cldrFileToFilter.getFullXPath(newFullXPath);
-            if (baseFullXPath.equals(newFullXPath)) {
-              remove(xpath, "alt=base");
+        private XPathParts parts = new XPathParts();
+        private Set<String> newFullXPathSoFar = new HashSet<String>();
+        public void handlePath(String xpath) {
+          if (xpath.indexOf("proposed") < 0) return;
+          String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+          String newFullXPath = parts.set(fullXPath).removeProposed().toString();
+          // now see if there is an uninherited value
+          String value = cldrFileToFilter.getStringValue(xpath);
+          String baseValue = cldrFileToFilter.getStringValue(newFullXPath);
+          if (baseValue != null) {
+            // if the value AND the fullxpath are the same as what we have, then delete
+            if (value.equals(baseValue)) {
+              String baseFullXPath = cldrFileToFilter.getFullXPath(newFullXPath);
+              if (baseFullXPath.equals(newFullXPath)) {
+                remove(xpath, "alt=base");
+              }
             }
+            return; // there is, so skip
           }
-          return; // there is, so skip
+          // there isn't, so modif if we haven't done so already
+          if (!newFullXPathSoFar.contains(newFullXPath)) {
+            replace(fullXPath, newFullXPath, value);
+            newFullXPathSoFar.add(newFullXPath);
+          }
         }
-        // there isn't, so modif if we haven't done so already
-        if (!newFullXPathSoFar.contains(newFullXPath)) {
-          replace(fullXPath, newFullXPath, value);
-          newFullXPathSoFar.add(newFullXPath);
+      });
+    
+    fixList.add('l', "Remove losing items", new CLDRFilter() {
+        public void handlePath(String xpath) {
+            String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+            if (fullXPath.indexOf("proposed-x10") < 0) return;
+            if (fullXPath.indexOf("unconfirmed") < 0) return;
+                remove(fullXPath, "Losing item");
         }
-      }
     });
 
     if (false) fixList.add('z', "fix ZZ", new CLDRFilter() {

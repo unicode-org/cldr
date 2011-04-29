@@ -331,18 +331,18 @@
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>arabext</defaultNumberingSystem>
+		<symbols numberSystem="arabext">
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<exponential>×۱۰^</exponential>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
 			<percentSign>%</percentSign>
 			<minusSign>−</minusSign>
 			<exponential>E</exponential>
-		</symbols>
-		<symbols numberSystem="arabext">
-			<decimal>٫</decimal>
-			<group>٬</group>
-			<percentSign>٪</percentSign>
-			<exponential>×۱۰^</exponential>
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
@@ -362,3 +362,4 @@
 		<reference type="R212" uri="http://www.evertype.com/standards/af/">Computer Locale Requirements for Afghanistan</reference>
 	</references>
 </ldml>
+

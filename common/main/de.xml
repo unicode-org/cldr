@@ -55,7 +55,6 @@
 			<language type="bal">Belutschisch</language>
 			<language type="ban">Balinesisch</language>
 			<language type="bas">Basaa-Sprache</language>
-			<language type="bas" alt="proposed-x1001" draft="unconfirmed">Basaa (Kamerun)</language>
 			<language type="bat">Baltisch</language>
 			<language type="be">Weißrussisch</language>
 			<language type="bej">Bedauye</language>
@@ -126,7 +125,6 @@
 			<language type="dgr">Dogrib</language>
 			<language type="din">Dinka-Sprache</language>
 			<language type="doi">Dogri</language>
-			<language type="doi" alt="proposed-x1001" draft="unconfirmed">Dogri-Kangri</language>
 			<language type="dra">Drawidisch</language>
 			<language type="dsb">Niedersorbisch</language>
 			<language type="dua">Duala</language>
@@ -719,7 +717,6 @@
 			<territory type="AX">Alandinseln</territory>
 			<territory type="AZ">Aserbaidschan</territory>
 			<territory type="BA">Bosnien und Herzegowina</territory>
-			<territory type="BA" alt="proposed-x1001" draft="unconfirmed">Bosnien u. Herzegowina</territory>
 			<territory type="BB">Barbados</territory>
 			<territory type="BD">Bangladesch</territory>
 			<territory type="BE">Belgien</territory>
@@ -782,7 +779,6 @@
 			<territory type="FJ">Fidschi</territory>
 			<territory type="FK">Falklandinseln</territory>
 			<territory type="FK" alt="variant">Falklandinseln</territory>
-			<territory type="FK" alt="variant-proposed-x1001" draft="unconfirmed">Falklandinseln [Malwinen]</territory>
 			<territory type="FM">Mikronesien</territory>
 			<territory type="FO">Färöer</territory>
 			<territory type="FR">Frankreich</territory>
@@ -937,7 +933,6 @@
 			<territory type="TJ">Tadschikistan</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Osttimor</territory>
-			<territory type="TL" alt="proposed-x1001" draft="unconfirmed">Timor-Leste</territory>
 			<territory type="TL" alt="variant">Osttimor</territory>
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunesien</territory>
@@ -993,14 +988,12 @@
 			<variant type="POLYTON">Polytonisch</variant>
 			<variant type="POSIX">Posix</variant>
 			<variant type="REVISED">Revidierte Rechtschreibung</variant>
-			<variant type="REVISED" alt="proposed-x1001" draft="unconfirmed">Überarbeitete Rechtschreibung</variant>
 			<variant type="ROZAJ">Resianisch</variant>
 			<variant type="SAAHO">Saho</variant>
 			<variant type="SCOTLAND">Schottisches Standardenglisch</variant>
 			<variant type="SCOUSE">Scouse-Dialekt</variant>
 			<variant type="SOLBA">Solbica-Dialekt</variant>
 			<variant type="TARASK">Taraskievica-Orthographie</variant>
-			<variant type="TARASK" alt="proposed-x1001" draft="unconfirmed">Taraskievica-Rechtschreibung</variant>
 			<variant type="UCCOR" draft="contributed">Vereinheitlichte Rechtschreibung</variant>
 			<variant type="UCRCOR" draft="contributed">Vereinheitlichte überarbeitete Rechtschreibung</variant>
 			<variant type="VALENCIA">Valencianisch</variant>
@@ -1090,7 +1083,6 @@
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrisch</measurementSystemName>
 			<measurementSystemName type="US">Angloamerikanisch</measurementSystemName>
-			<measurementSystemName type="US" alt="proposed-x1001" draft="unconfirmed">US</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Sprache: {0}</codePattern>
@@ -1102,18 +1094,13 @@
 		<exemplarCharacters>[a ä b c d e f g h i j k l m n o ö p q r s t u ü v w x y z ß]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ø ō œ ú ù ŭ û ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
-		<exemplarCharacters type="currencySymbol" alt="proposed-x1001" draft="unconfirmed">[a b c č d e f g h i j k l ł m n o º p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ‚ &quot; “ „ « » ( ) \[ \] \{ \} @ * / \&amp; # §]</exemplarCharacters>
 		<ellipsis type="final">{0} …</ellipsis>
-		<ellipsis type="final" alt="proposed-x1001" draft="unconfirmed">{0}...</ellipsis>
 		<ellipsis type="initial">… {0}</ellipsis>
-		<ellipsis type="initial" alt="proposed-x1001" draft="unconfirmed">...{0}</ellipsis>
 		<ellipsis type="medial">{0} … {1}</ellipsis>
-		<ellipsis type="medial" alt="proposed-x1001" draft="unconfirmed">{0}...{1}</ellipsis>
 		<stopwords>
 			<stopwordList type="collation">der die das</stopwordList>
-			<stopwordList type="collation" alt="proposed-x1001" draft="unconfirmed">einer eine ein are also count words (as in ein zwei drei...) and must NOT be ignored (i.e. NOT be stopwords)</stopwordList>
 		</stopwords>
 	</characters>
 	<delimiters>
@@ -1193,7 +1180,6 @@
 							<month type="1">Jan</month>
 							<month type="2">Feb</month>
 							<month type="3">Mär</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">Mrz</month>
 							<month type="4">Apr</month>
 							<month type="5">Mai</month>
 							<month type="6">Jun</month>
@@ -1222,16 +1208,11 @@
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
 							<month type="1">Jan</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">Jan.</month>
 							<month type="2">Feb</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">Feb.</month>
 							<month type="3">Mär</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">Mrz</month>
 							<month type="4">Apr</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">Apr.</month>
 							<month type="5">Mai</month>
 							<month type="6">Jun</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">Juni</month>
 							<month type="7">Jul</month>
 							<month type="8">Aug</month>
 							<month type="9">Sep</month>
@@ -1346,9 +1327,7 @@
 				<eras>
 					<eraNames>
 						<era type="0">v. Chr.</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">vor Christus</era>
 						<era type="1">n. Chr.</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">nach Christus</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">v. Chr.</era>
@@ -1404,13 +1383,10 @@
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d.</dateFormatItem>
-						<dateFormatItem id="h" alt="proposed-x1001" draft="unconfirmed">H</dateFormatItem>
 						<dateFormatItem id="H">HH 'Uhr'</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="hm" alt="proposed-x1001" draft="unconfirmed">HH:MM</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="hms" alt="proposed-x1001" draft="unconfirmed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
@@ -1550,49 +1526,34 @@
 					<field type="year">
 						<displayName>Jahr</displayName>
 						<relative type="-1">Letztes Jahr</relative>
-						<relative type="-1" alt="proposed-x1001" draft="unconfirmed">letztes Jahr</relative>
 						<relative type="0">Dieses Jahr</relative>
-						<relative type="0" alt="proposed-x1001" draft="unconfirmed">dieses Jahr</relative>
 						<relative type="1">Nächstes Jahr</relative>
-						<relative type="1" alt="proposed-x1001" draft="unconfirmed">nächstes Jahr</relative>
 					</field>
 					<field type="month">
 						<displayName>Monat</displayName>
 						<relative type="-1">Letzter Monat</relative>
-						<relative type="-1" alt="proposed-x1001" draft="unconfirmed">letzter Monat</relative>
 						<relative type="0">Dieser Monat</relative>
-						<relative type="0" alt="proposed-x1001" draft="unconfirmed">dieser Monat</relative>
 						<relative type="1">Nächster Monat</relative>
-						<relative type="1" alt="proposed-x1001" draft="unconfirmed">nächster Monat</relative>
 					</field>
 					<field type="week">
 						<displayName>Woche</displayName>
 						<relative type="-1">Letzte Woche</relative>
-						<relative type="-1" alt="proposed-x1001" draft="unconfirmed">letzte Woche</relative>
 						<relative type="0">Diese Woche</relative>
-						<relative type="0" alt="proposed-x1001" draft="unconfirmed">diese Woche</relative>
 						<relative type="1">Nächste Woche</relative>
-						<relative type="1" alt="proposed-x1001" draft="unconfirmed">dächste Woche</relative>
 					</field>
 					<field type="day">
 						<displayName>Tag</displayName>
 						<relative type="-2">Vorgestern</relative>
-						<relative type="-2" alt="proposed-x1001" draft="unconfirmed">vorgestern</relative>
 						<relative type="-1">Gestern</relative>
-						<relative type="-1" alt="proposed-x1001" draft="unconfirmed">gestern</relative>
 						<relative type="0">Heute</relative>
-						<relative type="0" alt="proposed-x1001" draft="unconfirmed">heute</relative>
 						<relative type="1">Morgen</relative>
-						<relative type="1" alt="proposed-x1001" draft="unconfirmed">morgen</relative>
 						<relative type="2">Übermorgen</relative>
-						<relative type="2" alt="proposed-x1001" draft="unconfirmed">übermorgen</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Wochentag</displayName>
 					</field>
 					<field type="dayperiod">
 						<displayName>Tageshälfte</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">Tage-Frist</displayName>
 					</field>
 					<field type="hour">
 						<displayName>Stunde</displayName>
@@ -1605,7 +1566,6 @@
 					</field>
 					<field type="zone">
 						<displayName>Zone</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">Zeitzone</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -1882,7 +1842,6 @@
 			</zone>
 			<zone type="Africa/Ouagadougou">
 				<exemplarCity>Wagadugu</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Ouagadougou</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity>Bermudas</exemplarCity>
@@ -2015,7 +1974,6 @@
 			</zone>
 			<zone type="Africa/Niamey">
 				<exemplarCity>Niger</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Niamey</exemplarCity>
 			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>Muskat</exemplarCity>
@@ -2073,7 +2031,6 @@
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Khartum</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Khartoum</exemplarCity>
 			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity>Singapur</exemplarCity>
@@ -2089,7 +2046,6 @@
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>Salvador</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">El Salvador</exemplarCity>
 			</zone>
 			<zone type="Asia/Damascus">
 				<exemplarCity>Damaskus</exemplarCity>
@@ -2108,7 +2064,6 @@
 			</zone>
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Uschgorod</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Uschhorod</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiew</exemplarCity>
@@ -2156,13 +2111,11 @@
 				<long>
 					<generic>Südafrikanische Zeit</generic>
 					<standard>Südafrikanische Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Südafrikanische Standardzeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>Westafrikanische Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Westafrikanische Zeit</standard>
 					<daylight>Westafrikanische Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2175,12 +2128,8 @@
 			<metazone type="Alaska">
 				<long>
 					<generic>Alaska Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Alaska-Zeit</generic>
 					<standard>Alaska Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Alaska-Standardzeit</standard>
 					<daylight>Alaska Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Alaska-Sommerzeit</daylight>
-					<daylight alt="proposed-x1002" draft="unconfirmed">Sommerzeit in Alaska</daylight>
 				</long>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -2199,52 +2148,36 @@
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonas Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Amazon-Standardzeit</generic>
-					<generic alt="proposed-x1002" draft="unconfirmed">Amazonas-Standardzeit</generic>
 					<standard>Amazonas Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Amazonas-Zeit</standard>
 					<daylight>Amazonas Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Amazonas-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
 					<generic>Chicago Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Central-Standardzeit</generic>
 					<standard>Chicago Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Central-Winterzeit</standard>
 					<daylight>Chicago Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Central-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
 					<generic>New York Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Östliche Zeit in den USA und Kanada</generic>
 					<standard>New York Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Winterzeit der östlichen Standardzeit in den USA und Kanada</standard>
 					<daylight>New York Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Sommerzeit der östlichen Standardzeit in den USA und Kanada</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
 					<generic>Denver Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Mountain-Standardzeit</generic>
 					<standard>Denver Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Mountain-Standardzeit</standard>
 					<daylight>Denver Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Mountain-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<generic>Los Angeles Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Pacific Time (Pazifik-Standardzeit)</generic>
 					<standard>Los Angeles Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Winterzeit der Pazifik-Standardzeit</standard>
 					<daylight>Los Angeles Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Sommerzeit der Pazifik-Standardzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
@@ -2264,31 +2197,21 @@
 			<metazone type="Argentina">
 				<long>
 					<generic>Argentinische Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Standardzeit in Argentinien</generic>
-					<generic alt="proposed-x1002" draft="unconfirmed">Argentinische Standardzeit</generic>
 					<standard>Argentinische Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Winterzeit in Argentinien</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">Argentinische Zeit</standard>
 					<daylight>Argentinische Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>West-Argentinische Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">West-Argentinische Standardzeit</generic>
-					<generic alt="proposed-x1002" draft="unconfirmed">Standardzeit in West-Argentinien</generic>
 					<standard>West-Argentinische Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">West-Argentinische Zeit</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">Winterzeit in West-Argentinien</standard>
 					<daylight>West-Argentinische Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Sommerzeit in West-Argentinien</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>Atlantik-Zeit</generic>
 					<standard>Atlantik-Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Atlantik-Standardzeit</standard>
 					<daylight>Atlantik-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2329,9 +2252,7 @@
 			<metazone type="Brasilia">
 				<long>
 					<generic>Brasilianische Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Standardzeit in Brasilia</generic>
 					<standard>Brasilianische Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Brasilianische Zeit</standard>
 					<daylight>Brasilianische Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2655,26 +2576,15 @@
 			<metazone type="Newfoundland">
 				<long>
 					<generic>Neufundland-Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Neufundland Zeit</generic>
-					<generic alt="proposed-x1002" draft="unconfirmed">Standardzeit in Neufundland</generic>
 					<standard>Neufundland-Standardzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Winterzeit in Neufundland</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">Neufundland Winterzeit</standard>
 					<daylight>Neufundland-Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Sommerzeit in Neufundland</daylight>
-					<daylight alt="proposed-x1002" draft="unconfirmed">Neufundland Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
 					<generic>Fernando de Noronha Zeit</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Standardzeit in Noronha</generic>
-					<generic alt="proposed-x1002" draft="unconfirmed">Noronha-Standardzeit</generic>
 					<standard>Fernando de Noronha Winterzeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Winterzeit in Fernando de Noronha</standard>
-					<standard alt="proposed-x1002" draft="unconfirmed">Fernando de Noronha Zeit</standard>
 					<daylight>Fernando de Noronha Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Sommerzeit in Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -2712,9 +2622,7 @@
 				<long>
 					<generic draft="contributed">Standardzeit in Samara</generic>
 					<standard draft="provisional">Samara-Zeit</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Winterzeit in Samara</standard>
 					<daylight draft="provisional">Samara-Sommerzeit</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Sommerzeit in Samara</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -2777,18 +2685,14 @@
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
-			<group alt="proposed-x1001" draft="unconfirmed">  </group>
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
-			<minusSign alt="proposed-x1001" draft="unconfirmed">−</minusSign>
 			<exponential>E</exponential>
-			<exponential alt="proposed-x1001" draft="unconfirmed">×10^</exponential>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
-			<nan alt="proposed-x1001" draft="unconfirmed">¤¤¤</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -2845,8 +2749,6 @@
 				<displayName>UAE Dirham</displayName>
 				<displayName count="one" draft="contributed">Dirham</displayName>
 				<displayName count="other">UAE Dirham</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Dirham</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Dirham</displayName>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afghani (1927-2002)</displayName>
@@ -2861,13 +2763,11 @@
 				<displayName>Lek</displayName>
 				<displayName count="one" draft="contributed">Lek</displayName>
 				<displayName count="other">Albanische Lek</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Lek</displayName>
 			</currency>
 			<currency type="AMD">
 				<displayName>Dram</displayName>
 				<displayName count="one" draft="contributed">Dram</displayName>
 				<displayName count="other">Armenische Dram</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Dram</displayName>
 			</currency>
 			<currency type="ANG">
 				<displayName>Niederländische-Antillen-Gulden</displayName>
@@ -2878,7 +2778,6 @@
 				<displayName>Kwanza</displayName>
 				<displayName count="one" draft="contributed">Kwanza</displayName>
 				<displayName count="other">Angolanische Kwanza</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Kwanza</displayName>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angolanischer Kwanza (1977-1990)</displayName>
@@ -2937,7 +2836,6 @@
 				<displayName>Konvertierbare Mark</displayName>
 				<displayName count="one" draft="contributed">Konvertierbare Mark</displayName>
 				<displayName count="other">Bosnien und Herzegowina Konvertierbare Mark</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Konvertierbare Mark</displayName>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbados-Dollar</displayName>
@@ -3019,7 +2917,6 @@
 				<displayName>Real</displayName>
 				<displayName count="one" draft="contributed">Real</displayName>
 				<displayName count="other">Brasilianische Real</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Real</displayName>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brasilianischer Cruzado Novo</displayName>
@@ -3047,7 +2944,6 @@
 				<displayName>Pula</displayName>
 				<displayName count="one" draft="contributed">Pula</displayName>
 				<displayName count="other">Botswanische Pula</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Pula</displayName>
 			</currency>
 			<currency type="BYB">
 				<displayName>Belarus Rubel (alt)</displayName>
@@ -3194,7 +3090,6 @@
 				<displayName>Nakfa</displayName>
 				<displayName count="one" draft="contributed">Nakfa</displayName>
 				<displayName count="other">Eritreische Nakfa</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Nakfa</displayName>
 			</currency>
 			<currency type="ESA">
 				<displayName references="R021">Spanische Peseta (A-Konten)</displayName>
@@ -3212,7 +3107,6 @@
 				<displayName>Birr</displayName>
 				<displayName count="one" draft="contributed">Birr</displayName>
 				<displayName count="other">Äthiopische Birr</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Birr</displayName>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
@@ -3380,7 +3274,6 @@
 				<displayName>Jamaika-Dollar</displayName>
 				<displayName count="one" draft="contributed">Jamaika-Dollar</displayName>
 				<displayName count="other">Jamaika Dollar</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Jamaika-Dollar</displayName>
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordanischer Dinar</displayName>
@@ -3601,8 +3494,6 @@
 			<currency type="MZN">
 				<displayName>Metical</displayName>
 				<displayName count="other">Metical</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Neue Meticais</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Neuer Metical</displayName>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibia-Dollar</displayName>
@@ -3717,8 +3608,6 @@
 				<displayName>Russischer Rubel (neu)</displayName>
 				<displayName count="one" draft="contributed">Russischer Rubel</displayName>
 				<displayName count="other">Russische Rubel (neu)</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Russische Rubel</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Russischer Rubel</displayName>
 			</currency>
 			<currency type="RUR">
 				<displayName>Russischer Rubel (alt)</displayName>
@@ -3727,7 +3616,6 @@
 			<currency type="RWF">
 				<displayName>Ruanda-Franc</displayName>
 				<displayName count="other">Ruanda-Franc</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Ruanda-Francs</displayName>
 			</currency>
 			<currency type="SAR">
 				<displayName>Saudi Riyal</displayName>
@@ -3834,7 +3722,6 @@
 				<displayName>Tadschikistan Somoni</displayName>
 				<displayName count="one" draft="contributed">Tadschikistan-Somoni</displayName>
 				<displayName count="other">Tadschikistan-Somoni</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Tadschikistan-Somoni</displayName>
 			</currency>
 			<currency type="TMM">
 				<displayName>Turkmenistan-Manat</displayName>
@@ -3872,7 +3759,6 @@
 			<currency type="TTD">
 				<displayName>Trinidad- und Tobago-Dollar</displayName>
 				<displayName count="other">Trinidad und Tobago-Dollar</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Trinidad und Tobago-Dollar</displayName>
 			</currency>
 			<currency type="TWD">
 				<displayName>Neuer Taiwan-Dollar</displayName>
@@ -3961,20 +3847,16 @@
 				<displayName>CFA Franc (Äquatorial)</displayName>
 				<displayName count="one" draft="contributed">CFA-Franc (BEAC)</displayName>
 				<displayName count="other">CFA-Franc (BEAC)</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">CFA-Francs (BEAC)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">CFA-Franc (BEAC)</displayName>
 			</currency>
 			<currency type="XAG">
 				<displayName>Unze Silber</displayName>
 				<displayName count="one">Unze Silber</displayName>
 				<displayName count="other">Silber</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unzen Silber</displayName>
 			</currency>
 			<currency type="XAU">
 				<displayName>Unze Gold</displayName>
 				<displayName count="one">Unze Gold</displayName>
 				<displayName count="other">Gold</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unzen Gold</displayName>
 			</currency>
 			<currency type="XBA">
 				<displayName>Europäische Rechnungseinheit</displayName>
@@ -4017,26 +3899,21 @@
 				<displayName>CFA Franc (West)</displayName>
 				<displayName count="one" draft="contributed">CFA-Franc (BCEAO)</displayName>
 				<displayName count="other">CFA-Franc (BCEAO)</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">CFA-Francs (BCEAO)</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">CFA-Franc (BCEAO)</displayName>
 			</currency>
 			<currency type="XPD">
 				<displayName>Unze Palladium</displayName>
 				<displayName count="one">Unze Palladium</displayName>
 				<displayName count="other">Palladium</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unzen Palladium</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP-Franc</displayName>
 				<displayName count="one" draft="contributed">CFP-Franc</displayName>
 				<displayName count="other">CFP-Franc</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">CFP-Francs</displayName>
 			</currency>
 			<currency type="XPT">
 				<displayName>Unze Platin</displayName>
 				<displayName count="one">Unze Platin</displayName>
 				<displayName count="other">Platin</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Unzen Platin</displayName>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET Funds</displayName>
@@ -4080,9 +3957,7 @@
 			<currency type="ZAR">
 				<displayName>Südafrikanischer Rand</displayName>
 				<displayName count="one">Südafrikanischer Rand</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">Rand</displayName>
 				<displayName count="other">Rand</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Rand</displayName>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Kwacha</displayName>
@@ -4117,23 +3992,15 @@
 		</unit>
 		<unit type="day-future">
 			<unitPattern count="0">In 0 Tagen</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">In 1 Tag</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">In {0} Tag</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">in {0} Tag</unitPattern>
 			<unitPattern count="other" draft="contributed">In {0} Tagen</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">In {0} Tagen</unitPattern>
 		</unit>
 		<unit type="day-past">
 			<unitPattern count="0">Vor 0 Tagen</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">Vor 1 Tag</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">Vor {0} Tag</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">vor {0} Tag</unitPattern>
 			<unitPattern count="other" draft="contributed">Vor {0} Tagen</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Vor {0} Tagen</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} Stunde</unitPattern>
@@ -4143,23 +4010,15 @@
 		</unit>
 		<unit type="hour-future">
 			<unitPattern count="0">In 0 Stunden</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">In 1 Stunde</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">In {0} Stunde</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">in {0} Stunde</unitPattern>
 			<unitPattern count="other" draft="contributed">In {0} Stunden</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">In {0} Stunden</unitPattern>
 		</unit>
 		<unit type="hour-past">
 			<unitPattern count="0">Vor 0 Stunden</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">Vor 1 Stunde</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">Vor {0} Stunde</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">vor {0} Stunde</unitPattern>
 			<unitPattern count="other" draft="contributed">Vor {0} Stunden</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Vor {0} Stunden</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} Minute</unitPattern>
@@ -4169,23 +4028,15 @@
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="0">In 0 Minuten</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">In 1 Minute</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">In {0} Minute</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">in {0} Minute</unitPattern>
 			<unitPattern count="other" draft="contributed">In {0} Minuten</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">In {0} Minuten</unitPattern>
 		</unit>
 		<unit type="minute-past">
 			<unitPattern count="0">Vor 0 Minuten</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">Vor 1 Minute</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">Vor {0} Minute</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">vor {0} Minute</unitPattern>
 			<unitPattern count="other" draft="contributed">Vor {0} Minuten</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Vor {0} Minuten</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} Monat</unitPattern>
@@ -4195,23 +4046,15 @@
 		</unit>
 		<unit type="month-future">
 			<unitPattern count="0">In 0 Monaten</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">In 1 Monat</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">In {0} Monat</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">in {0} Monat</unitPattern>
 			<unitPattern count="other" draft="contributed">In {0} Monaten</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">In {0} Monaten</unitPattern>
 		</unit>
 		<unit type="month-past">
 			<unitPattern count="0">Vor 0 Monaten</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">Vor 1 Monat</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">Vor {0} Monat</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">vor {0} Monat</unitPattern>
 			<unitPattern count="other" draft="contributed">Vor {0} Monaten</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Vor {0} Monaten</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} Sekunde</unitPattern>
@@ -4221,23 +4064,15 @@
 		</unit>
 		<unit type="second-future">
 			<unitPattern count="0">In 0 Sekunden</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">In 1 Sekunde</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">In {0} Sekunde</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">in {0} Sekunde</unitPattern>
 			<unitPattern count="other" draft="contributed">In {0} Sekunden</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">In {0} Sekunden</unitPattern>
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="0">Vor 0 Sekunden</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">Vor 1 Sekunde</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">Vor {0} Sekunde</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">vor {0} Sekunde</unitPattern>
 			<unitPattern count="other" draft="contributed">Vor {0} Sekunden</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Vor {0} Sekunden</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} Woche</unitPattern>
@@ -4247,23 +4082,15 @@
 		</unit>
 		<unit type="week-future">
 			<unitPattern count="0">In 0 Wochen</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">In 1 Woche</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">In {0} Woche</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">in {0} Woche</unitPattern>
 			<unitPattern count="other" draft="contributed">In {0} Wochen</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">In {0} Wochen</unitPattern>
 		</unit>
 		<unit type="week-past">
 			<unitPattern count="0">Vor 0 Wochen</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">Vor 1 Woche</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">Vor {0} Woche</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">vor {0} Woche</unitPattern>
 			<unitPattern count="other" draft="contributed">Vor {0} Wochen</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Vor {0} Wochen</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} Jahr</unitPattern>
@@ -4273,23 +4100,15 @@
 		</unit>
 		<unit type="year-future">
 			<unitPattern count="0">In 0 Jahren</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">In 1 Jahr</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">In {0} Jahr</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">in {0} Jahr</unitPattern>
 			<unitPattern count="other" draft="contributed">In {0} Jahren</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">In {0} Jahren</unitPattern>
 		</unit>
 		<unit type="year-past">
 			<unitPattern count="0">Vor 0 Jahren</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="1">Vor 1 Jahr</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">please delete all count=0 and count=1</unitPattern>
 			<unitPattern count="one" draft="contributed">Vor {0} Jahr</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">vor {0} Jahr</unitPattern>
 			<unitPattern count="other" draft="contributed">Vor {0} Jahren</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">Vor {0} Jahren</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
@@ -4325,3 +4144,4 @@
 		<reference type="RP7" uri="http://waldkauz.bibliothek.uni-augsburg.de/kfe/kkb_mab_037.html">Sprachencode nach ISO 639.2</reference>
 	</references>
 </ldml>
+

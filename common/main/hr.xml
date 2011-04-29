@@ -982,7 +982,6 @@
 			<variant type="PINYIN">Pinyin romanizacija</variant>
 			<variant type="POLYTON">politono</variant>
 			<variant type="POSIX">računalo</variant>
-			<variant type="POSIX" alt="proposed-x1001" draft="unconfirmed">Računalo</variant>
 			<variant type="REVISED">izmijenjen pravopis</variant>
 			<variant type="ROZAJ">resian</variant>
 			<variant type="SAAHO">saho</variant>
@@ -1014,10 +1013,8 @@
 			<type type="coptic" key="calendar">Koptski kalendar</type>
 			<type type="deva" key="numbers">Znamenke pisma devanagari</type>
 			<type type="dictionary" key="collation">rječničko razvrstavanje</type>
-			<type type="dictionary" key="collation" alt="proposed-x1001" draft="unconfirmed">Rječnički redoslijed razvrstavanja</type>
 			<type type="direct" key="collation">izravno razvrstavanje</type>
 			<type type="ducet" key="collation">zadano Unicode razvrstavanje</type>
-			<type type="ducet" key="collation" alt="proposed-x1001" draft="unconfirmed">Zadani Unicode redoslijed razvrstavanja</type>
 			<type type="ethi" key="numbers">Etiopski brojevi</type>
 			<type type="ethiopic" key="calendar">Etiopski kalendar</type>
 			<type type="ethiopic-amete-alem" key="calendar">Etiopski kalendar &quot;Amete Alem&quot;</type>
@@ -1054,21 +1051,17 @@
 			<type type="phonebook" key="collation">razvrstavanje po abecedi</type>
 			<type type="pinyin" key="collation">Pinyin razvrstavanje</type>
 			<type type="reformed" key="collation">reformirano razvrstavanje</type>
-			<type type="reformed" key="collation" alt="proposed-x1001" draft="unconfirmed">Reformirani redoslijed razvrstavanja</type>
 			<type type="roc" key="calendar">kalendar Republike Kine</type>
 			<type type="roman" key="numbers">Rimski brojevi</type>
 			<type type="romanlow" key="numbers">Mali rimski brojevi</type>
 			<type type="search" key="collation">općenito pretraživanje</type>
-			<type type="search" key="collation" alt="proposed-x1001" draft="unconfirmed">Općenito pretraživanje</type>
 			<type type="stroke" key="collation">razvrstavanje po redoslijedu poteza za kineski</type>
-			<type type="stroke" key="collation" alt="proposed-x1001" draft="unconfirmed">razvrstavanje po redoslijedu poteza za tradicionalni kineski</type>
 			<type type="taml" key="numbers">Tamilski brojevi</type>
 			<type type="telu" key="numbers">Znamenke teluškog pisma</type>
 			<type type="thai" key="numbers">Tajske znamenke</type>
 			<type type="tibt" key="numbers">Tibetske znamenke</type>
 			<type type="traditional" key="collation">tradicionalno razvrstavanje</type>
 			<type type="unihan" key="collation">razvrstavanje prema korijenu i potezu</type>
-			<type type="unihan" key="collation" alt="proposed-x1001" draft="unconfirmed">Redoslijed razvrstavanja prema korijenu i potezu</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="contributed">BGN</transformName>
@@ -1084,7 +1077,6 @@
 		</transformNames>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrički</measurementSystemName>
-			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">metrički sustav</measurementSystemName>
 			<measurementSystemName type="UK">imperijalni sustav</measurementSystemName>
 			<measurementSystemName type="US">američki sustav</measurementSystemName>
 		</measurementSystemNames>
@@ -1380,7 +1372,6 @@
 							<dayPeriod type="am">prije podne</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">podne</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">poslije podne</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -2197,7 +2188,6 @@
 					<generic>atlantsko vrijeme</generic>
 					<standard>atlantsko standardno vrijeme</standard>
 					<daylight>atlantsko dnevno vrijeme</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">atlantsko ljetno vrijeme</daylight>
 				</long>
 				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
@@ -4232,7 +4222,6 @@
 				<displayName count="one">japanski jen</displayName>
 				<displayName count="other">japanskih jena</displayName>
 				<symbol>¥</symbol>
-				<symbol alt="proposed-x1001" draft="unconfirmed">JPY</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>kenijski šiling</displayName>
@@ -5382,22 +5371,16 @@
 			<unitPattern count="0" draft="contributed">Za 0 dana</unitPattern>
 			<unitPattern count="1" draft="contributed">Za 1 dan</unitPattern>
 			<unitPattern count="few">za {0} dana</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj dana: {0}</unitPattern>
 			<unitPattern count="many">za {0} dana</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj dana: {0}</unitPattern>
 			<unitPattern count="one">za {0} dan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj dana: {0}</unitPattern>
 			<unitPattern count="other">za {0} dana</unitPattern>
 		</unit>
 		<unit type="day-past">
 			<unitPattern count="0" draft="contributed">Prije 0 dana</unitPattern>
 			<unitPattern count="1" draft="contributed">Prije 1 dana</unitPattern>
 			<unitPattern count="few">prije {0} dana</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko dana: {0}</unitPattern>
 			<unitPattern count="many">prije {0} dana</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko dana: {0}</unitPattern>
 			<unitPattern count="one">prije {0} dan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prije {0} dana</unitPattern>
 			<unitPattern count="other">Prije ovoliko dana: {0}</unitPattern>
 		</unit>
 		<unit type="hour">
@@ -5414,22 +5397,16 @@
 			<unitPattern count="0" draft="contributed">Za 0 sati</unitPattern>
 			<unitPattern count="1" draft="contributed">Za 1 sat</unitPattern>
 			<unitPattern count="few">za {0} sata</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Za {0} sata</unitPattern>
 			<unitPattern count="many">za {0} sati</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Za {0} sati</unitPattern>
 			<unitPattern count="one">za {0} sat</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj sati: {0}</unitPattern>
 			<unitPattern count="other">Za {0} sati</unitPattern>
 		</unit>
 		<unit type="hour-past">
 			<unitPattern count="0" draft="contributed">Prije 0 sati</unitPattern>
 			<unitPattern count="1" draft="contributed">Prije 1 h</unitPattern>
 			<unitPattern count="few">prije {0} sata</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Prije {0} sata</unitPattern>
 			<unitPattern count="many">prije {0} sati</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Prije {0} sati</unitPattern>
 			<unitPattern count="one">prije {0} sat</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prije {0} sat</unitPattern>
 			<unitPattern count="other">Prije {0} sati</unitPattern>
 		</unit>
 		<unit type="minute">
@@ -5446,22 +5423,16 @@
 			<unitPattern count="0" draft="contributed">Za 0 minuta</unitPattern>
 			<unitPattern count="1" draft="contributed">Za 1 min</unitPattern>
 			<unitPattern count="few">za {0} minute</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Za {0} minute</unitPattern>
 			<unitPattern count="many">za {0} minuta</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Za {0} minuta</unitPattern>
 			<unitPattern count="one">za {0} minutu</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Za {0} minutu</unitPattern>
 			<unitPattern count="other">Za {0} minuta</unitPattern>
 		</unit>
 		<unit type="minute-past">
 			<unitPattern count="0" draft="contributed">Prije 0 minuta</unitPattern>
 			<unitPattern count="1" draft="contributed">Prije 1 minutu</unitPattern>
 			<unitPattern count="few">prije {0} minute</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Prije {0} minute</unitPattern>
 			<unitPattern count="many">prije {0} minuta</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Prije {0} minuta</unitPattern>
 			<unitPattern count="one">prije {0} minutu</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prije {0} minutu</unitPattern>
 			<unitPattern count="other">Prije {0} minuta</unitPattern>
 		</unit>
 		<unit type="month">
@@ -5478,22 +5449,16 @@
 			<unitPattern count="0" draft="contributed">Za 0 mjeseci</unitPattern>
 			<unitPattern count="1" draft="contributed">Za 1 mjesec</unitPattern>
 			<unitPattern count="few">za {0} mjeseca</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj mjeseci: {0}</unitPattern>
 			<unitPattern count="many">za {0} mjeseci</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj mjeseci: {0}</unitPattern>
 			<unitPattern count="one">za {0} mjesec</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Za {0} mjesec</unitPattern>
 			<unitPattern count="other">Za sljedeći broj mjeseci: {0}</unitPattern>
 		</unit>
 		<unit type="month-past">
 			<unitPattern count="0" draft="contributed">Prije 0 mjeseci</unitPattern>
 			<unitPattern count="1" draft="contributed">Prije 1 mjeseca</unitPattern>
 			<unitPattern count="few">prije {0} mjeseca</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko mjeseci: {0}</unitPattern>
 			<unitPattern count="many">prije {0} mjeseci</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko mjeseci: {0}</unitPattern>
 			<unitPattern count="one">prije {0} mjesec</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko mjeseci: {0}</unitPattern>
 			<unitPattern count="other">Prije ovoliko mjeseci: {0}</unitPattern>
 		</unit>
 		<unit type="second">
@@ -5510,22 +5475,16 @@
 			<unitPattern count="0" draft="contributed">Za 0 sekundi</unitPattern>
 			<unitPattern count="1" draft="contributed">Za 1 sekundu</unitPattern>
 			<unitPattern count="few">za {0} sekunde</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Za {0} sekunde</unitPattern>
 			<unitPattern count="many">za {0} sekundi</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj sekundi: {0}</unitPattern>
 			<unitPattern count="one">za {0} sekundu</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Za {0} sekundu</unitPattern>
 			<unitPattern count="other">Za {0} sekundi</unitPattern>
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="0" draft="contributed">Prije 0 sekundi</unitPattern>
 			<unitPattern count="1" draft="contributed">Prije 1 sekundu</unitPattern>
 			<unitPattern count="few">prije {0} sekunde</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Prije {0} sekunde</unitPattern>
 			<unitPattern count="many">prije {0} sekundi</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Prije sljedećeg broja sekundi: {0}</unitPattern>
 			<unitPattern count="one">prije {0} sekundu</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prije {0} sekundu</unitPattern>
 			<unitPattern count="other">Prije {0} sekundi</unitPattern>
 		</unit>
 		<unit type="week">
@@ -5542,22 +5501,16 @@
 			<unitPattern count="0" draft="contributed">Za 0 tjedana</unitPattern>
 			<unitPattern count="1" draft="contributed">Za 1 tjedan</unitPattern>
 			<unitPattern count="few">za {0} tjedna</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj tjedana: {0}</unitPattern>
 			<unitPattern count="many">za {0} tjedana</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Za sljedeći broj tjedana: {0}</unitPattern>
 			<unitPattern count="one">za {0} tjedan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Za {0} tjedan</unitPattern>
 			<unitPattern count="other">Za sljedeći broj tjedana: {0}</unitPattern>
 		</unit>
 		<unit type="week-past">
 			<unitPattern count="0" draft="contributed">Prije 0 tjedana</unitPattern>
 			<unitPattern count="1" draft="contributed">Prije 1 tjedna</unitPattern>
 			<unitPattern count="few">prije {0} tjedna</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko tjedana: {0}</unitPattern>
 			<unitPattern count="many">prije {0} tjedana</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko tjedana: {0}</unitPattern>
 			<unitPattern count="one">prije {0} tjedan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko tjedana: {0}</unitPattern>
 			<unitPattern count="other">Prije ovoliko tjedana: {0}</unitPattern>
 		</unit>
 		<unit type="year">
@@ -5574,22 +5527,16 @@
 			<unitPattern count="0" draft="contributed">Za 0 g.</unitPattern>
 			<unitPattern count="1" draft="contributed">Za 1 godinu</unitPattern>
 			<unitPattern count="few">za {0} godine</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Za {0} godine</unitPattern>
 			<unitPattern count="many">za {0} godina</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Za {0} godina</unitPattern>
 			<unitPattern count="one">za {0} godinu</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Za {0} g.</unitPattern>
 			<unitPattern count="other">Za {0} godina</unitPattern>
 		</unit>
 		<unit type="year-past">
 			<unitPattern count="0" draft="contributed">Prije 0 godina</unitPattern>
 			<unitPattern count="1" draft="contributed">Prije 1 godine</unitPattern>
 			<unitPattern count="few">prije {0} godine</unitPattern>
-			<unitPattern count="few" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko godina: {0}</unitPattern>
 			<unitPattern count="many">prije {0} godina</unitPattern>
-			<unitPattern count="many" alt="proposed-x1001" draft="unconfirmed">Prije ovoliko godina: {0}</unitPattern>
 			<unitPattern count="one">prije {0} godinu</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">Prije {0} g.</unitPattern>
 			<unitPattern count="other">Prije ovoliko godina: {0}</unitPattern>
 		</unit>
 	</units>

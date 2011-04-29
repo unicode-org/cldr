@@ -1042,7 +1042,6 @@
 			<type type="knda" key="numbers" draft="contributed">knda</type>
 			<type type="laoo" key="numbers" draft="contributed">laoo</type>
 			<type type="latn" key="numbers">Nombres aràbics</type>
-			<type type="latn" key="numbers" alt="proposed-x1001" draft="unconfirmed">latn</type>
 			<type type="mlym" key="numbers" draft="contributed">mlym</type>
 			<type type="mong" key="numbers" draft="contributed">mong</type>
 			<type type="mymr" key="numbers" draft="contributed">mymr</type>
@@ -1846,7 +1845,6 @@
 				<long>
 					<generic draft="contributed">Hora d'Àfrica Austral</generic>
 					<standard>Hora d'Àfrica Austral</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Hora estàndard d'Àfrica Austral</standard>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
@@ -1941,42 +1939,31 @@
 				<long>
 					<generic>Hora d'Austràlia Central</generic>
 					<standard>Hora estàndard d'Austràlia Central</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Hora estàndard central d'Austràlia</standard>
 					<daylight>Hora d'estiu d'Austràlia Central</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Horari d'estiu central d'Austràlia</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
 					<generic>Hora d'Austràlia centre-occidental</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Hora de l'oest central d'Austràlia</generic>
 					<standard>Hora estàndard d'Austràlia centre-occidental</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Hora estàndard de l'oest central d'Austràlia</standard>
 					<daylight>Hora d'estiu d'Austràlia centre-occidental</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Horari d'estiu de l'oest central d'Austràlia</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>Hora d'Austràlia Oriental</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Hora de l'est d'Austràlia</generic>
 					<standard>Hora estàndard d'Austràlia Oriental</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Hora estàndard de l'est d'Austràlia</standard>
 					<daylight>Hora d'estiu d'Austràlia Oriental</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Horari d'estiu de l'est d'Austràlia</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
 					<generic>Hora d'Austràlia Occidental</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Hora de l'oest d'Austràlia</generic>
 					<standard>Hora estàndard d'Austràlia Occidental</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Hora estàndard de l'oest d'Austràlia</standard>
 					<daylight>Hora d'estiu d'Austràlia Occidental</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Horari d'estiu de l'oest d'Austràlia</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
@@ -2255,20 +2242,14 @@
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000">0.0 m</pattern>
-					<pattern type="1000" alt="proposed-x1001" draft="unconfirmed">0.0k</pattern>
 					<pattern type="10000">00 m</pattern>
-					<pattern type="10000" alt="proposed-x1001" draft="unconfirmed">00k</pattern>
 					<pattern type="100000">000 m</pattern>
-					<pattern type="100000" alt="proposed-x1001" draft="unconfirmed">000k</pattern>
 					<pattern type="1000000">0.0 M</pattern>
 					<pattern type="10000000">00 M</pattern>
 					<pattern type="100000000">000 M</pattern>
 					<pattern type="1000000000">0.0 Md</pattern>
-					<pattern type="1000000000" alt="proposed-x1001" draft="unconfirmed">0.0B</pattern>
 					<pattern type="10000000000">00 Md</pattern>
-					<pattern type="10000000000" alt="proposed-x1001" draft="unconfirmed">00B</pattern>
 					<pattern type="100000000000">000 Md</pattern>
-					<pattern type="100000000000" alt="proposed-x1001" draft="unconfirmed">000B</pattern>
 					<pattern type="1000000000000">0.0 B</pattern>
 					<pattern type="10000000000000">00 B</pattern>
 					<pattern type="100000000000000">000 B</pattern>
@@ -3908,3 +3889,4 @@
 		<reference type="RP6" uri="http://ca.wikipedia.org/wiki/ISO_4217" draft="contributed">ISO 4217: noms de les monedes</reference>
 	</references>
 </ldml>
+

@@ -1015,7 +1015,6 @@
 			<type type="dictionary" key="collation">Sözlük Sıralama Düzeni</type>
 			<type type="direct" key="collation">Düz Sıralama</type>
 			<type type="ducet" key="collation">Saptanmış Unicode Sıralaması</type>
-			<type type="ducet" key="collation" alt="proposed-x1001" draft="unconfirmed">Varsayılan Unicode Sıralama Düzeni</type>
 			<type type="ethi" key="numbers">Etiyopik Rakamlar</type>
 			<type type="ethiopic" key="calendar">Etiyopik Takvim</type>
 			<type type="ethiopic-amete-alem" key="calendar">Etiyopik Amete Alem Takvimi</type>
@@ -3413,23 +3412,14 @@
 					<pattern type="10000">00 bin</pattern>
 					<pattern type="100000">000 bin</pattern>
 					<pattern type="1000000">0.0Mln</pattern>
-					<pattern type="1000000" alt="proposed-x1001" draft="unconfirmed">0.0 milyon</pattern>
 					<pattern type="10000000">00Mln</pattern>
-					<pattern type="10000000" alt="proposed-x1001" draft="unconfirmed">00 milyon</pattern>
 					<pattern type="100000000">000Mln</pattern>
-					<pattern type="100000000" alt="proposed-x1001" draft="unconfirmed">000 milyon</pattern>
 					<pattern type="1000000000">0.0Mly</pattern>
-					<pattern type="1000000000" alt="proposed-x1001" draft="unconfirmed">0.0 milyar</pattern>
 					<pattern type="10000000000">00Mly</pattern>
-					<pattern type="10000000000" alt="proposed-x1001" draft="unconfirmed">00 milyar</pattern>
 					<pattern type="100000000000">000Mly</pattern>
-					<pattern type="100000000000" alt="proposed-x1001" draft="unconfirmed">000 milyar</pattern>
 					<pattern type="1000000000000">0.0Tln</pattern>
-					<pattern type="1000000000000" alt="proposed-x1001" draft="unconfirmed">0.0 trilyon</pattern>
 					<pattern type="10000000000000">00Tln</pattern>
-					<pattern type="10000000000000" alt="proposed-x1001" draft="unconfirmed">00 trilyon</pattern>
 					<pattern type="100000000000000">000Tln</pattern>
-					<pattern type="100000000000000" alt="proposed-x1001" draft="unconfirmed">000 trilyon</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4286,9 +4276,7 @@
 		</unit>
 		<unit type="day-future">
 			<unitPattern count="0">0 gün sonra</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">0 gün içinde</unitPattern>
 			<unitPattern count="1">1 gün sonra</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">1 gün içinde</unitPattern>
 			<unitPattern count="other">{0} gün sonra</unitPattern>
 		</unit>
 		<unit type="day-past">
@@ -4302,9 +4290,7 @@
 		</unit>
 		<unit type="hour-future">
 			<unitPattern count="0">0 saat sonra</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">0 saat içinde</unitPattern>
 			<unitPattern count="1">1 saat sonra</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">1 saat içinde</unitPattern>
 			<unitPattern count="other">{0} saat sonra</unitPattern>
 		</unit>
 		<unit type="hour-past">
@@ -4318,9 +4304,7 @@
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="0">0 dakika sonra</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">0 dakika içinde</unitPattern>
 			<unitPattern count="1">1 dakika sonra</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">1 dakika içinde</unitPattern>
 			<unitPattern count="other">{0} dakika sonra</unitPattern>
 		</unit>
 		<unit type="minute-past">
@@ -4334,9 +4318,7 @@
 		</unit>
 		<unit type="month-future">
 			<unitPattern count="0">0 ay sonra</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">0 ay içinde</unitPattern>
 			<unitPattern count="1">1 ay sonra</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">1 ay içinde</unitPattern>
 			<unitPattern count="other">{0} ay sonra</unitPattern>
 		</unit>
 		<unit type="month-past">
@@ -4350,9 +4332,7 @@
 		</unit>
 		<unit type="second-future">
 			<unitPattern count="0">0 saniye sonra</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">0 saniye içinde</unitPattern>
 			<unitPattern count="1">1 saniye sonra</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">1 saniye içinde</unitPattern>
 			<unitPattern count="other">{0} saniye sonra</unitPattern>
 		</unit>
 		<unit type="second-past">
@@ -4366,9 +4346,7 @@
 		</unit>
 		<unit type="week-future">
 			<unitPattern count="0">0 hafta sonra</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">0 hafta içinde</unitPattern>
 			<unitPattern count="1">1 hafta sonra</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">1 hafta içinde</unitPattern>
 			<unitPattern count="other">{0} hafta sonra</unitPattern>
 		</unit>
 		<unit type="week-past">
@@ -4382,9 +4360,7 @@
 		</unit>
 		<unit type="year-future">
 			<unitPattern count="0">0 yıl sonra</unitPattern>
-			<unitPattern count="0" alt="proposed-x1001" draft="unconfirmed">0 yıl içinde</unitPattern>
 			<unitPattern count="1">1 yıl sonra</unitPattern>
-			<unitPattern count="1" alt="proposed-x1001" draft="unconfirmed">1 yıl içinde</unitPattern>
 			<unitPattern count="other">{0} yıl sonra</unitPattern>
 		</unit>
 		<unit type="year-past">
@@ -4406,3 +4382,4 @@
 		</messages>
 	</posix>
 </ldml>
+

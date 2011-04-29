@@ -12,7 +12,6 @@
 			<language type="af">afrikaans</language>
 			<language type="art">idioma artifical</language>
 			<language type="awa">Awadhi</language>
-			<language type="awa" alt="proposed-x1001" draft="unconfirmed">awadhi</language>
 			<language type="az" alt="short" draft="contributed">Azerbaijano</language>
 			<language type="bai">bamileke Languages</language>
 			<language type="bug">Buginese</language>
@@ -453,10 +452,8 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1002" draft="unconfirmed">H:mm – H:mm v</greatestDifference>
 							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">H:mm–H:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
@@ -2051,25 +2048,14 @@
 					<pattern type="10000">00 mil</pattern>
 					<pattern type="100000">000 mil</pattern>
 					<pattern type="1000000">0.0 M</pattern>
-					<pattern type="1000000" alt="proposed-x1001" draft="unconfirmed">0.0 milhão/milhões</pattern>
 					<pattern type="10000000">00 M</pattern>
-					<pattern type="10000000" alt="proposed-x1001" draft="unconfirmed">00 milhão/milhões</pattern>
 					<pattern type="100000000">000 M</pattern>
-					<pattern type="100000000" alt="proposed-x1001" draft="unconfirmed">000 milhão/milhões</pattern>
 					<pattern type="1000000000">0.0 mM</pattern>
-					<pattern type="1000000000" alt="proposed-x1001" draft="unconfirmed">0.0 mil milhões</pattern>
 					<pattern type="10000000000">00 mM</pattern>
-					<pattern type="10000000000" alt="proposed-x1001" draft="unconfirmed">00 mil milhões</pattern>
 					<pattern type="100000000000">000 mM</pattern>
-					<pattern type="100000000000" alt="proposed-x1001" draft="unconfirmed">000 mil milhões</pattern>
-					<pattern type="100000000000" alt="proposed-x1002" draft="unconfirmed">mM</pattern>
 					<pattern type="1000000000000">0.0 B</pattern>
-					<pattern type="1000000000000" alt="proposed-x1001" draft="unconfirmed">B</pattern>
-					<pattern type="1000000000000" alt="proposed-x1002" draft="unconfirmed">0.0 bilião/biliões</pattern>
 					<pattern type="10000000000000">00 B</pattern>
-					<pattern type="10000000000000" alt="proposed-x1001" draft="unconfirmed">00 bilião/biliões</pattern>
 					<pattern type="100000000000000">000 B</pattern>
-					<pattern type="100000000000000" alt="proposed-x1001" draft="unconfirmed">000 bilião/biliões</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -2169,7 +2155,6 @@
 			</currency>
 			<currency type="PLN">
 				<displayName>Zloti polaco</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Zloti Polaco</displayName>
 			</currency>
 			<currency type="PLZ">
 				<displayName draft="unconfirmed">Zloti polaco (1950-1995)</displayName>
@@ -2320,8 +2305,8 @@
 	</units>
 </ldml>
 <!-- Comments without bases
-
 per cldrbug 2835, copy from buddhist	 - was on: //ldml/dates/calendars/calendar[@type="roc"]/dateFormats/dateFormatLength[@type="full"]
 per cldrbug 2835, change to match gregorian, like the alt proposed unconfirmed	 - was on: //ldml/dates/calendars/calendar[@type="buddhist"]/dateFormats/dateFormatLength[@type="full"]
-per cldrbug 2835, copy from buddhist	 - was on: //ldml/dates/calendars/calendar[@type="islamic"]/dateFormats/dateFormatLength[@type="full"] -->
+per cldrbug 2835, copy from buddhist	 - was on: //ldml/dates/calendars/calendar[@type="islamic"]/dateFormats/dateFormatLength[@type="full"]
+-->
 

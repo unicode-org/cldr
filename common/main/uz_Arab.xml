@@ -143,16 +143,16 @@
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>arabext</defaultNumberingSystem>
-		<symbols numberSystem="latn">
-			<decimal>,</decimal>
-			<group>.</group>
-			<minusSign>−</minusSign>
-		</symbols>
 		<symbols numberSystem="arabext">
 			<decimal>٫</decimal>
 			<group>٬</group>
 			<percentSign>٪</percentSign>
 			<exponential>×۱۰^</exponential>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group>.</group>
+			<minusSign>−</minusSign>
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
@@ -165,7 +165,7 @@
 			<currency type="AFN">
 				<displayName>افغانی</displayName>
 				<symbol>؋</symbol>
-				</currency>
+			</currency>
 		</currencies>
 	</numbers>
 </ldml>

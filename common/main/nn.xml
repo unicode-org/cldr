@@ -16,7 +16,6 @@
 			<language type="aa">afar</language>
 			<language type="ab">abkhasisk</language>
 			<language type="ace">achinesisk</language>
-			<language type="ace" alt="proposed-x1001" draft="unconfirmed">acehnesisk</language>
 			<language type="ach">acoli</language>
 			<language type="ada">adangme</language>
 			<language type="ady">adyghe</language>
@@ -36,10 +35,8 @@
 			<language type="ang">gammalengelsk</language>
 			<language type="anp">angika</language>
 			<language type="apa">apache-språk</language>
-			<language type="apa" alt="proposed-x1001" draft="unconfirmed">apachespråk</language>
 			<language type="ar">arabisk</language>
 			<language type="arc">arameisk</language>
-			<language type="arc" alt="proposed-x1001" draft="unconfirmed">klassisk arameisk</language>
 			<language type="arn">araukansk</language>
 			<language type="arp">arapaho</language>
 			<language type="art">kunstig språk</language>
@@ -55,13 +52,10 @@
 			<language type="az">aserbajdsjansk</language>
 			<language type="ba">basjkirsk</language>
 			<language type="bad">banda</language>
-			<language type="bad" alt="proposed-x1001" draft="unconfirmed">bandaspråk</language>
 			<language type="bai">bamilekisk språk</language>
 			<language type="bal">baluchi</language>
-			<language type="bal" alt="proposed-x1001" draft="unconfirmed">baluchisk</language>
 			<language type="ban">balinesisk</language>
 			<language type="bas">basa</language>
-			<language type="bas" alt="proposed-x1001" draft="unconfirmed">basaa</language>
 			<language type="bat">baltisk språk</language>
 			<language type="be">kviterussisk</language>
 			<language type="bej">beja</language>
@@ -114,7 +108,6 @@
 			<language type="cpp">portugisiskbasert kreol- eller pidginspråk</language>
 			<language type="cr">cree</language>
 			<language type="crh">krimtatarisk</language>
-			<language type="crh" alt="proposed-x1001" draft="unconfirmed">krimturkisk</language>
 			<language type="crp">kreol- eller pidginspråk</language>
 			<language type="cs">tsjekkisk</language>
 			<language type="csb">kasjubisk</language>
@@ -263,7 +256,6 @@
 			<language type="kj">kuanyama</language>
 			<language type="kk">kasakhisk</language>
 			<language type="kl">kalaallisut; grønlandsk</language>
-			<language type="kl" alt="proposed-x1001" draft="unconfirmed">grønlandsk</language>
 			<language type="km">khmer</language>
 			<language type="kmb">kimbundu</language>
 			<language type="kn">kannada</language>
@@ -416,7 +408,6 @@
 			<language type="root">rot</language>
 			<language type="ru">russisk</language>
 			<language type="rup">aromansk</language>
-			<language type="rup" alt="proposed-x1001" draft="unconfirmed">arumensk</language>
 			<language type="rw">kinjarwanda</language>
 			<language type="rwk">rwa</language>
 			<language type="sa">sanskrit</language>
@@ -494,7 +485,6 @@
 			<language type="tn">tswana</language>
 			<language type="to">tonga (Tonga-øyane)</language>
 			<language type="tog">tonga (Nyasa)</language>
-			<language type="tog" alt="proposed-x1001" draft="unconfirmed">tongansk (Moçambique)</language>
 			<language type="tpi">tok pisin</language>
 			<language type="tr">tyrkisk</language>
 			<language type="ts">tsonga</language>
@@ -514,7 +504,6 @@
 			<language type="uk">ukrainsk</language>
 			<language type="umb">umbundu</language>
 			<language type="und">ukjent språk</language>
-			<language type="und" alt="proposed-x1001" draft="unconfirmed">(ukjent språk)</language>
 			<language type="ur">urdu</language>
 			<language type="uz">usbekisk</language>
 			<language type="vai">vai</language>
@@ -1025,7 +1014,6 @@
 			<type type="chinese" key="calendar">kinesisk kalender</type>
 			<type type="direct" key="collation">direkte sortering</type>
 			<type type="ducet" key="collation">grunnleggjande Unicode-sorteringsrekkjefølgje</type>
-			<type type="ducet" key="collation" alt="proposed-x1001" draft="unconfirmed">grunnleggande Unicode-sorteringsrekkefølgje</type>
 			<type type="ethiopic" key="calendar">etiopisk kalender</type>
 			<type type="ethiopic-amete-alem" key="calendar">etiopisk amete-alem-kalender</type>
 			<type type="gb2312han" key="collation">forenkla kinesisk sortering</type>
@@ -1040,17 +1028,13 @@
 			<type type="pinyin" key="collation">pinyin-sortering</type>
 			<type type="roc" key="calendar">kalender for Republikken Kina</type>
 			<type type="search" key="collation">søksorteringsrekkjefølgje etter CLDR</type>
-			<type type="search" key="collation" alt="proposed-x1001" draft="unconfirmed">søksorteringsrekkefølgje etter CLDR</type>
 			<type type="stroke" key="collation">streksortering</type>
 			<type type="traditional" key="collation">tradisjonell sortering</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrisk</measurementSystemName>
-			<measurementSystemName type="metric" alt="proposed-x1001" draft="unconfirmed">SI-einingar</measurementSystemName>
 			<measurementSystemName type="UK">engelsk</measurementSystemName>
-			<measurementSystemName type="UK" alt="proposed-x1001" draft="unconfirmed">engelske einingar</measurementSystemName>
 			<measurementSystemName type="US">amerikansk</measurementSystemName>
-			<measurementSystemName type="US" alt="proposed-x1001" draft="unconfirmed">USA-einingar</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Språk: {0}</codePattern>
@@ -1071,9 +1055,7 @@
 		<quotationStart>«</quotationStart>
 		<quotationEnd>»</quotationEnd>
 		<alternateQuotationStart>“</alternateQuotationStart>
-		<alternateQuotationStart alt="proposed-x1001" draft="unconfirmed">’</alternateQuotationStart>
 		<alternateQuotationEnd>”</alternateQuotationEnd>
-		<alternateQuotationEnd alt="proposed-x1001" draft="unconfirmed">’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<dateRangePattern>{0}−{1}</dateRangePattern>
@@ -1083,28 +1065,17 @@
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">jan.</month>
-							<month type="1" alt="proposed-x1001" draft="unconfirmed">jan</month>
 							<month type="2">feb.</month>
-							<month type="2" alt="proposed-x1001" draft="unconfirmed">feb</month>
 							<month type="3">mars</month>
-							<month type="3" alt="proposed-x1001" draft="unconfirmed">mar</month>
 							<month type="4">apr.</month>
-							<month type="4" alt="proposed-x1001" draft="unconfirmed">apr</month>
 							<month type="5" references="R208">mai</month>
 							<month type="6">juni</month>
-							<month type="6" alt="proposed-x1001" draft="unconfirmed">jun</month>
 							<month type="7">juli</month>
-							<month type="7" alt="proposed-x1001" draft="unconfirmed">jul</month>
 							<month type="8">aug.</month>
-							<month type="8" alt="proposed-x1001" draft="unconfirmed">aug</month>
 							<month type="9">sep.</month>
-							<month type="9" alt="proposed-x1001" draft="unconfirmed">sep</month>
 							<month type="10">okt.</month>
-							<month type="10" alt="proposed-x1001" draft="unconfirmed">okt</month>
 							<month type="11">nov.</month>
-							<month type="11" alt="proposed-x1001" draft="unconfirmed">nov</month>
 							<month type="12">des.</month>
-							<month type="12" alt="proposed-x1001" draft="unconfirmed">des</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
@@ -1155,19 +1126,12 @@
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
 							<day type="sun">sø.</day>
-							<day type="sun" alt="proposed-x1001" draft="unconfirmed">søn</day>
 							<day type="mon">må.</day>
-							<day type="mon" alt="proposed-x1001" draft="unconfirmed">mån</day>
 							<day type="tue">ty.</day>
-							<day type="tue" alt="proposed-x1001" draft="unconfirmed">tys</day>
 							<day type="wed">on.</day>
-							<day type="wed" alt="proposed-x1001" draft="unconfirmed">ons</day>
 							<day type="thu">to.</day>
-							<day type="thu" alt="proposed-x1001" draft="unconfirmed">tor</day>
 							<day type="fri">fr.</day>
-							<day type="fri" alt="proposed-x1001" draft="unconfirmed">fre</day>
 							<day type="sat">la.</day>
-							<day type="sat" alt="proposed-x1001" draft="unconfirmed">lau</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">søndag</day>
@@ -1228,18 +1192,14 @@
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">formiddag</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">på formiddagen</dayPeriod>
 							<dayPeriod type="pm">ettermiddag</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">på ettermiddagen</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">f.Kr.</era>
-						<era type="0" alt="proposed-x1001" draft="unconfirmed">før Kristus</era>
 						<era type="1">e.Kr.</era>
-						<era type="1" alt="proposed-x1001" draft="unconfirmed">etter Kristus</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">f.Kr.</era>
@@ -1429,7 +1389,6 @@
 					</field>
 					<field type="dayperiod">
 						<displayName>f.m./e.m.-val</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">døgnsperiode</displayName>
 					</field>
 					<field type="hour">
 						<displayName>time</displayName>
@@ -1442,14 +1401,12 @@
 					</field>
 					<field type="zone">
 						<displayName>sone</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">tidssone</displayName>
 					</field>
 				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -1618,11 +1575,9 @@
 			<plusSign>+</plusSign>
 			<minusSign>−</minusSign>
 			<exponential>E</exponential>
-			<exponential alt="proposed-x1001" draft="unconfirmed">×10^</exponential>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
-			<nan alt="proposed-x1001" draft="unconfirmed">¤¤¤</nan>
 		</symbols>
 		<decimalFormats>
 			<decimalFormatLength>
@@ -2988,15 +2943,11 @@
 		</unit>
 		<unit type="day-future">
 			<unitPattern count="one">om {0} dag</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">om {0} døgn</unitPattern>
 			<unitPattern count="other">om {0} dagar</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">om {0} døgn</unitPattern>
 		</unit>
 		<unit type="day-past">
 			<unitPattern count="one">for {0} dag sidan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">for {0} døgn siden</unitPattern>
 			<unitPattern count="other">for {0} dagar sidan</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">for {0} døgn siden</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} time</unitPattern>
@@ -3008,9 +2959,7 @@
 		</unit>
 		<unit type="hour-past">
 			<unitPattern count="one">for {0} time sidan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">for {0} time siden</unitPattern>
 			<unitPattern count="other">for {0} timar sidan</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">for {0} timar siden</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minutt</unitPattern>
@@ -3022,9 +2971,7 @@
 		</unit>
 		<unit type="minute-past">
 			<unitPattern count="one">for {0} minutt sidan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">for {0} minutt siden</unitPattern>
 			<unitPattern count="other">for {0} minutt sidan</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">for {0} minutt siden</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} månad</unitPattern>
@@ -3036,9 +2983,7 @@
 		</unit>
 		<unit type="month-past">
 			<unitPattern count="one">for {0} månad sidan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">for {0} månad siden</unitPattern>
 			<unitPattern count="other">for {0} månader sidan</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">for {0} månader siden</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} sekund</unitPattern>
@@ -3050,9 +2995,7 @@
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="one">for {0} sekund sidan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">for {0} sekund siden</unitPattern>
 			<unitPattern count="other">for {0} sekund sidan</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">for {0} sekund siden</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} veke</unitPattern>
@@ -3064,9 +3007,7 @@
 		</unit>
 		<unit type="week-past">
 			<unitPattern count="one">for {0} veke sidan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">for {0} veke siden</unitPattern>
 			<unitPattern count="other">for {0} veker sidan</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">for {0} veker siden</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} år</unitPattern>
@@ -3078,9 +3019,7 @@
 		</unit>
 		<unit type="year-past">
 			<unitPattern count="one">for {0} år sidan</unitPattern>
-			<unitPattern count="one" alt="proposed-x1001" draft="unconfirmed">for {0} år siden</unitPattern>
 			<unitPattern count="other">for {0} år sidan</unitPattern>
-			<unitPattern count="other" alt="proposed-x1001" draft="unconfirmed">for {0} år siden</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
@@ -3099,3 +3038,4 @@
 		<reference type="R208" uri="URN:ISBN:82-03-32936-5">Vinje, Finn-Erik, Skriveregler (1994)</reference>
 	</references>
 </ldml>
+

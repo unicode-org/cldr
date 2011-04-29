@@ -332,10 +332,8 @@
 			<script type="Hang" draft="contributed">Hangul</script>
 			<script type="Hani" draft="contributed">Han</script>
 			<script type="Hans">Zjednodušené čínske</script>
-			<script type="Hans" alt="proposed-x1001" draft="unconfirmed">Zjednodušená</script>
 			<script type="Hans" alt="stand-alone" draft="contributed">Han (zjednodušené)</script>
 			<script type="Hant">Tradičné čínske</script>
-			<script type="Hant" alt="proposed-x1001" draft="unconfirmed">Tradičné</script>
 			<script type="Hant" alt="stand-alone" draft="contributed">Han (tradičné)</script>
 			<script type="Hebr" draft="contributed">hebrejský</script>
 			<script type="Hira" draft="contributed">Hiragana</script>
@@ -370,8 +368,6 @@
 			<territory type="001">Svet</territory>
 			<territory type="002">Afrika</territory>
 			<territory type="003">Severná Amerika [003]</territory>
-			<territory type="003" alt="proposed-x1001" draft="unconfirmed">Severná Amerika</territory>
-			<territory type="003" alt="proposed-x1002" draft="unconfirmed">Severná Amerika (003)</territory>
 			<territory type="005">Južná Amerika</territory>
 			<territory type="009">Oceánia</territory>
 			<territory type="011">Západná Afrika</territory>
@@ -390,7 +386,6 @@
 			<territory type="053">Austrália a Nový Zéland</territory>
 			<territory type="054">Melanézia</territory>
 			<territory type="057">Mikronézia – oblasť</territory>
-			<territory type="057" alt="proposed-x1001" draft="unconfirmed">Mikronézia</territory>
 			<territory type="061">Polynézia</territory>
 			<territory type="062">Stredná a južná Ázia</territory>
 			<territory type="142">Ázia</territory>
@@ -415,7 +410,6 @@
 			<territory type="AN">Holandské Antily</territory>
 			<territory type="AO">Angola</territory>
 			<territory type="AQ">Antarctica</territory>
-			<territory type="AQ" alt="proposed-x1001" draft="unconfirmed">Antarktída</territory>
 			<territory type="AR">Argentína</territory>
 			<territory type="AS">Americká Samoa</territory>
 			<territory type="AT">Rakúsko</territory>
@@ -774,17 +768,12 @@
 		<exemplarCharacters>[a á ä b c č d ď e é f g h {ch} i í j k l ĺ ľ m n ň o ó ô p q r ŕ s š t ť u ú v w x y ý z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="contributed">[à ă â å ā æ ç è ĕ ê ë ē ì ĭ î ï ī ñ ò ŏ ö ø ō œ ř ù ŭ û ü ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A Ä B C Č D Ď E F G H {CH} I J K L Ľ M N O Ô P Q R S Š T Ť U V W X Y Z Ž]</exemplarCharacters>
-		<exemplarCharacters alt="proposed-x1001" draft="unconfirmed">[a á ä b c č d ď e é f g h {ch} i í j k l ĺ ľ m n ň o ó ô p r ŕ s š t ť u ú v x y ý z ž]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>‚</quotationStart>
-		<quotationStart alt="proposed-x1001" draft="unconfirmed">„</quotationStart>
 		<quotationEnd>‘</quotationEnd>
-		<quotationEnd alt="proposed-x1001" draft="unconfirmed">“</quotationEnd>
 		<alternateQuotationStart>„</alternateQuotationStart>
-		<alternateQuotationStart alt="proposed-x1001" draft="unconfirmed">‚</alternateQuotationStart>
 		<alternateQuotationEnd>“</alternateQuotationEnd>
-		<alternateQuotationEnd alt="proposed-x1001" draft="unconfirmed">‘</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -978,9 +967,7 @@
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">dopoludnia</dayPeriod>
-							<dayPeriod type="am" alt="proposed-x1001" draft="unconfirmed">dop.</dayPeriod>
 							<dayPeriod type="pm">popoludní</dayPeriod>
-							<dayPeriod type="pm" alt="proposed-x1001" draft="unconfirmed">odp.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1046,9 +1033,7 @@
 						<dateFormatItem id="MEd">E, d.M.</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">LLL.</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMd" alt="proposed-x1001" draft="unconfirmed">d. MMM.</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd" alt="proposed-x1001" draft="unconfirmed">E, d. MMM.</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
@@ -1057,10 +1042,8 @@
 						<dateFormatItem id="yMd" draft="contributed">d.M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d.M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
-						<dateFormatItem id="yMMM" alt="proposed-x1001" draft="unconfirmed">LLL. y</dateFormatItem>
 						<dateFormatItem id="yMMMd" draft="contributed">d.M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d. MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd" alt="proposed-x1001" draft="unconfirmed">EEE, d. MMM. y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yQ">Q yyyy</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
@@ -1071,60 +1054,43 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
-						<intervalFormatFallback alt="proposed-x1001" draft="unconfirmed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d. – d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a - h a</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">h a – h a</greatestDifference>
 							<greatestDifference id="h">h – h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="a" draft="contributed">H-H</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">H – H</greatestDifference>
 							<greatestDifference id="H">HH – HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a - h:mm a</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h">h:mm - h:mm a</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h:mm – h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm - h:mm a</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">h:mm – h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
 							<greatestDifference id="a">H:mm - H:mm</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH:mm – HH:mm</greatestDifference>
 							<greatestDifference id="H">H:mm - H:mm</greatestDifference>
-							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">H:mm – HH:mm</greatestDifference>
 							<greatestDifference id="m">H:mm - H:mm</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">HH:mm – HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a - h:mm a v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm - h:mm a v</greatestDifference>
-							<greatestDifference id="h" alt="proposed-x1001" draft="unconfirmed">h:mm – h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm - h:mm a v</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">h:mm – h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a">H:mm - H:mm v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH:mm – HH:mm v</greatestDifference>
 							<greatestDifference id="H">H:mm - H:mm v</greatestDifference>
-							<greatestDifference id="H" alt="proposed-x1001" draft="unconfirmed">HH:mm – HH:mm v</greatestDifference>
 							<greatestDifference id="m">H:mm - H:mm v</greatestDifference>
-							<greatestDifference id="m" alt="proposed-x1001" draft="unconfirmed">HH:mm – HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="contributed">h a - h a v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h – h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="a" draft="contributed">H-H v</greatestDifference>
-							<greatestDifference id="a" alt="proposed-x1001" draft="unconfirmed">HH – HH v</greatestDifference>
 							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
@@ -1132,95 +1098,66 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d.M. - d.M.</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d. M. – d. M.</greatestDifference>
 							<greatestDifference id="M">d.M. - d.M.</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">d. M. – d. M.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">E, d.M. - E, d.M.</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E, d. M. – E, d. M.</greatestDifference>
 							<greatestDifference id="M">E, d.M. - E, d.M.</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E, d. M. – E, d. M.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">LLL. – LLL.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">d. - d. MMM</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d. – d. MMM.</greatestDifference>
 							<greatestDifference id="M">d. MMM - d. MMM</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">d. MMM. – d. MMM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, d. - E, d. MMM</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E, d. – E, d. MMM.</greatestDifference>
 							<greatestDifference id="M">E, d. MMM - E, d. MMM</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E, d. MMM. – E, d. MMM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M" draft="contributed">LLLL-LLLL</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLLL – LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y - y</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">y – y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M.yyyy - M.yyyy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">M. yyyy – M. yyyy</greatestDifference>
 							<greatestDifference id="y">M.yyyy - M.yyyy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">M. yyyy – M. yyyy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d">d.M.yy - d.M.yy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">yyyy-MM-dd – dd</greatestDifference>
 							<greatestDifference id="M">d.M.yy - d.M.yy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">yyyy-MM-dd – MM-dd</greatestDifference>
 							<greatestDifference id="y">d.M.yy - d.M.yy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">yyyy-MM-dd – yyyy-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
 							<greatestDifference id="d">E, d.M.yy - E, d.M.yy</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E, yyyy-MM-dd – E, yyyy-MM-dd</greatestDifference>
 							<greatestDifference id="M">E, d.M.yy - E, d.M.yy</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E, yyyy-MM-dd – E, yyyy-MM-dd</greatestDifference>
 							<greatestDifference id="y">E, d.M.yy - E, d.M.yy</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E, yyyy-MM-dd – E, yyyy-MM-dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">LLL - LLL y</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLL. – LLL. y</greatestDifference>
 							<greatestDifference id="y">LLL y - LLL y</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLL. y – LLL. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d">d. - d. MMM y</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">d. – d. MMM. y</greatestDifference>
 							<greatestDifference id="M">d. MMM - d. MMM y</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">d. MMM. – d. MMM. y</greatestDifference>
 							<greatestDifference id="y">d. MMM y - d. MMM y</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">d. MMM. y – d. MMM. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, d. - E, d. MMM y</greatestDifference>
-							<greatestDifference id="d" alt="proposed-x1001" draft="unconfirmed">E, d. – E, d. MMM. y</greatestDifference>
 							<greatestDifference id="M">E, d. MMM - E, d. MMM y</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">E, d. MMM. – E, d. MMM. y</greatestDifference>
 							<greatestDifference id="y">E, d. MMM y - E, d. MMM y</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">E, d. MMM. y – E, d. MMM. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">LLLL - LLLL y</greatestDifference>
-							<greatestDifference id="M" alt="proposed-x1001" draft="unconfirmed">LLLL – LLLL y</greatestDifference>
 							<greatestDifference id="y">LLLL y - LLLL y</greatestDifference>
-							<greatestDifference id="y" alt="proposed-x1001" draft="unconfirmed">LLLL y – LLLL y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 				<fields>
 					<field type="era">
 						<displayName>Éra</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">Obdobie</displayName>
 					</field>
 					<field type="year">
 						<displayName>Rok</displayName>
@@ -1267,14 +1204,12 @@
 					</field>
 					<field type="zone">
 						<displayName>Pásmo</displayName>
-						<displayName alt="proposed-x1001" draft="unconfirmed">Časové pásmo</displayName>
 					</field>
 				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
-			<hourFormat alt="proposed-x1001" draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0}</regionFormat>
 			<zone type="Etc/Unknown">
@@ -1518,9 +1453,7 @@
 				<long>
 					<generic>Atlantický čas</generic>
 					<standard>Atlantický štandardný čas</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Atlantický čas (normálny)</standard>
 					<daylight>Atlantický letný čas</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Atlantický čas (letný)</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
@@ -1528,20 +1461,15 @@
 				<long>
 					<generic>Stredoaustrálsky čas</generic>
 					<standard>Stredoaustrálsky čas (normálny)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Austrálsky centrálny štandardný čas</standard>
 					<daylight>Stredoaustrálsky letný čas</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Austrálsky centrálny čas (letný)</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
 					<generic>Stredozápadný austrálsky čas</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Austrálsky centrálny západný čas</generic>
 					<standard>Stredozápadný austrálsky čas (normálny)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Austrálsky centrálny západný štandardný čas</standard>
 					<daylight>Stredozápadný austrálsky letný čas</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Austrálsky centrálny západný čas (letný)</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
@@ -1549,9 +1477,7 @@
 				<long>
 					<generic>Východoaustrálsky čas</generic>
 					<standard>Východoaustrálsky čas (normálny)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Austrálsky východný štandardný čas</standard>
 					<daylight>Východoaustrálsky letný čas</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Austrálsky východný čas (letný)</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
@@ -1559,9 +1485,7 @@
 				<long>
 					<generic>Západoaustrálsky čas</generic>
 					<standard>Západoaustrálsky čas (normálny)</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Austrálsky západný štandardný čas</standard>
 					<daylight>Západoaustrálsky letný čas</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Austrálsky západný čas (letný)</daylight>
 				</long>
 				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
@@ -1940,7 +1864,6 @@
 				<displayName count="few" draft="contributed">brazílske realy</displayName>
 				<displayName count="one" draft="contributed">brazílsky real</displayName>
 				<displayName count="other" draft="contributed">brazílskych realov, brazílskeho realu</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">brazílsky real</displayName>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brazílske Cruzado Novo</displayName>
@@ -2668,13 +2591,10 @@
 		<unit type="day">
 			<unitPattern count="few">{0} dni</unitPattern>
 			<unitPattern count="few" alt="short">{0} d.</unitPattern>
-			<unitPattern count="few" alt="short-proposed-x1001" draft="unconfirmed">{0} d</unitPattern>
 			<unitPattern count="one">{0} deň</unitPattern>
 			<unitPattern count="one" alt="short">{0} d.</unitPattern>
-			<unitPattern count="one" alt="short-proposed-x1001" draft="unconfirmed">{0} d</unitPattern>
 			<unitPattern count="other">{0} dní</unitPattern>
 			<unitPattern count="other" alt="short">{0} d.</unitPattern>
-			<unitPattern count="other" alt="short-proposed-x1001" draft="unconfirmed">{0} d</unitPattern>
 		</unit>
 		<unit type="day-future">
 			<unitPattern count="0" draft="contributed">O 0 dní</unitPattern>
@@ -2836,3 +2756,4 @@
 		</messages>
 	</posix>
 </ldml>
+

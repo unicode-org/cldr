@@ -140,7 +140,6 @@
 			<language type="en_AU">Αγγλικά Αυστραλίας</language>
 			<language type="en_CA">Αγγλικά Καναδά</language>
 			<language type="en_GB">Αγγλικά Ηνωμένου Βασιλείου</language>
-			<language type="en_GB" alt="proposed-x1001" draft="unconfirmed">Βρετανικά Αγγλικά</language>
 			<language type="en_US">Αγγλικά Η.Π.Α.</language>
 			<language type="enm">Μέσα Αγγλικά</language>
 			<language type="eo">Εσπεράντο</language>
@@ -533,7 +532,6 @@
 		<scripts>
 			<script type="Arab">Αραβικό</script>
 			<script type="Arab" alt="variant">Περσικά-Αραβικά</script>
-			<script type="Arab" alt="variant-proposed-x1001" draft="unconfirmed">Περσικό-Αραβικό</script>
 			<script type="Armi">Αυτοκρατορικό Αραμαϊκό</script>
 			<script type="Armn">Αρμενικό</script>
 			<script type="Avst">Αβεστάν</script>
@@ -665,7 +663,6 @@
 			<script type="Zxxx">Άγραφο</script>
 			<script type="Zyyy">Κοινό</script>
 			<script type="Zzzz">Άγνωστη ή ακατάλληλη γραφή</script>
-			<script type="Zzzz" alt="proposed-x1001" draft="unconfirmed">Άγνωστο σύστημα γραφής</script>
 		</scripts>
 		<territories>
 			<territory type="001">Κόσμος</territory>
@@ -691,7 +688,6 @@
 			<territory type="057">Περιοχή Μικρονησίας</territory>
 			<territory type="061">Πολυνησία</territory>
 			<territory type="062">Νότια Κεντρική Ασία</territory>
-			<territory type="062" alt="proposed-x1001" draft="unconfirmed">Νοτιοκεντρική Ασία</territory>
 			<territory type="142">Ασία</territory>
 			<territory type="143">Κεντρική Ασία</territory>
 			<territory type="145">Δυτική Ασία</territory>
@@ -701,7 +697,6 @@
 			<territory type="155">Δυτική Ευρώπη</territory>
 			<territory type="172">Κοινοπολιτεία Ανεξαρτήτων Πολιτειών</territory>
 			<territory type="419">Λατινική Αμερική και Καραϊβική</territory>
-			<territory type="419" alt="proposed-x1001" draft="unconfirmed">Λατινική Αμερική</territory>
 			<territory type="830">Νησιά Τσάνελ</territory>
 			<territory type="AC">Νήσος Ασενσιόν</territory>
 			<territory type="AD">Ανδόρα</territory>
@@ -968,7 +963,6 @@
 			<territory type="ZM">Ζάμπια</territory>
 			<territory type="ZW">Ζιμπάμπουε</territory>
 			<territory type="ZZ">Άγνωστη ή μη έγκυρη περιοχή</territory>
-			<territory type="ZZ" alt="proposed-x1001" draft="unconfirmed">Άγνωστη περιοχή</territory>
 		</territories>
 		<variants>
 			<variant type="1901">Παραδοσιακή γερμανική ορθογραφία</variant>
@@ -1087,7 +1081,6 @@
 			<measurementSystemName type="metric">Μετρικό</measurementSystemName>
 			<measurementSystemName type="UK">Βρετανικό</measurementSystemName>
 			<measurementSystemName type="US">Αγγλοσαξωνικό</measurementSystemName>
-			<measurementSystemName type="US" alt="proposed-x1001" draft="unconfirmed">Αμερικανικό</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Γλώσσα: {0}</codePattern>
@@ -1101,7 +1094,6 @@
 	<characters>
 		<exemplarCharacters>[α ά β γ δ ε έ ζ η ή θ ι ί ϊ ΐ κ λ μ ν ξ ο ό π ρ σ ς τ υ ύ ϋ ΰ φ χ ψ ω ώ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" alt="proposed-x1001" draft="unconfirmed">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω]</exemplarCharacters>
 		<exemplarCharacters type="index">[Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! . … &quot; ( ) \[ \] @ * / \\ \&amp; §]</exemplarCharacters>
@@ -1740,7 +1732,6 @@
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Άγνωστη</exemplarCity>
-				<exemplarCity alt="proposed-x1001" draft="unconfirmed">Άγνωστη πόλη</exemplarCity>
 			</zone>
 			<zone type="Etc/GMT-1">
 				<exemplarCity draft="contributed">GMT-1</exemplarCity>
@@ -3101,22 +3092,16 @@
 			<metazone type="Australia_Central">
 				<long>
 					<generic>Ώρα Κεντρικής Αυστραλίας</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Ώρα κεντρικής Αυστραλίας</generic>
 					<standard>Χειμερινή ώρα Κεντρικής Αυστραλίας</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Κεντρική χειμερινή ώρα Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Κεντρικής Αυστραλίας</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Κεντρική θερινή ώρα Αυστραλίας</daylight>
 				</long>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
 					<generic>Ώρα Κεντροδυτικής Αυστραλίας</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Κεντρο-δυτική ώρα Αυστραλίας</generic>
 					<standard>Χειμερινή ώρα Κεντροδυτικής Αυστραλίας</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Κεντρο-δυτική χειμερινή ώρα Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Κεντροδυτικής Αυστραλίας</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Κεντρο-δυτική θερινή ώρα Αυστραλίας</daylight>
 				</long>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
@@ -3124,20 +3109,15 @@
 				<long>
 					<generic>Ώρα Ανατολικής Αυστραλίας</generic>
 					<standard>Χειμερινή ώρα Ανατολικής Αυστραλίας</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Ανατολική χειμερινή ώρα Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Ανατολικής Αυστραλίας</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Ανατολική θερινή ώρα Αυστραλίας</daylight>
 				</long>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
 					<generic>Ώρα Δυτικής Αυστραλίας</generic>
-					<generic alt="proposed-x1001" draft="unconfirmed">Ώρα δυτικής Αυστραλίας</generic>
 					<standard>Χειμερινή ώρα Δυτικής Αυστραλίας</standard>
-					<standard alt="proposed-x1001" draft="unconfirmed">Δυτική χειμερινή ώρα Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Δυτικής Αυστραλίας</daylight>
-					<daylight alt="proposed-x1001" draft="unconfirmed">Δυτική θερινή ώρα Αυστραλίας</daylight>
 				</long>
 				<commonlyUsed>false</commonlyUsed>
 			</metazone>
@@ -3388,7 +3368,6 @@
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>e</exponential>
-			<exponential alt="proposed-x1001" draft="unconfirmed">E</exponential>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -3402,29 +3381,17 @@
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000">0.0 χιλ'.'</pattern>
-					<pattern type="1000" alt="proposed-x1001" draft="unconfirmed">0.0 χιλιάδες</pattern>
 					<pattern type="10000">00 χιλ'.'</pattern>
-					<pattern type="10000" alt="proposed-x1001" draft="unconfirmed">00 χιλιάδες</pattern>
 					<pattern type="100000">000 χιλ'.'</pattern>
-					<pattern type="100000" alt="proposed-x1001" draft="unconfirmed">000 χιλιάδες</pattern>
 					<pattern type="1000000">0.0 εκ'.'</pattern>
-					<pattern type="1000000" alt="proposed-x1001" draft="unconfirmed">0.0 εκατομμύρια</pattern>
 					<pattern type="10000000">00 εκ'.'</pattern>
-					<pattern type="10000000" alt="proposed-x1001" draft="unconfirmed">00 εκατομμύρια</pattern>
 					<pattern type="100000000">000 εκ'.'</pattern>
-					<pattern type="100000000" alt="proposed-x1001" draft="unconfirmed">000 εκατομμύρια</pattern>
 					<pattern type="1000000000">0.0 δις</pattern>
-					<pattern type="1000000000" alt="proposed-x1001" draft="unconfirmed">0.0 δισεκατομμύρια</pattern>
 					<pattern type="10000000000">00 δις</pattern>
-					<pattern type="10000000000" alt="proposed-x1001" draft="unconfirmed">00 δισεκατομμύρια</pattern>
 					<pattern type="100000000000">000 δις</pattern>
-					<pattern type="100000000000" alt="proposed-x1001" draft="unconfirmed">000 δισεκατομμύρια</pattern>
 					<pattern type="1000000000000">0.0 τρις</pattern>
-					<pattern type="1000000000000" alt="proposed-x1001" draft="unconfirmed">0.0 τρισεκατομμύρια</pattern>
 					<pattern type="10000000000000">00 τρις</pattern>
-					<pattern type="10000000000000" alt="proposed-x1001" draft="unconfirmed">00 τρισεκατομμύρια</pattern>
 					<pattern type="100000000000000">000 τρις</pattern>
-					<pattern type="100000000000000" alt="proposed-x1001" draft="unconfirmed">000 τρισεκατομμύρια</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3558,7 +3525,6 @@
 				<displayName>Μετατρέψιμο Μάρκο Βοσνίας-Ερζεγοβίνης</displayName>
 				<displayName count="one">μάρκο Βοσνίας-Ερζεγοβίνης</displayName>
 				<displayName count="other">μάρκα Βοσνίας-Ερζεγοβίνης</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Μετατρέψιμο μάρκο Βοσνίας-Ερζεγοβίνης</displayName>
 			</currency>
 			<currency type="BAN">
 				<displayName count="one" draft="provisional">Νέο δινάριο Βοσνίας-Ερζεγοβίνης</displayName>
@@ -3603,7 +3569,6 @@
 				<displayName>Νέο Λεβ Βουλγαρίας</displayName>
 				<displayName count="one">νέο λεβ Βουλγαρίας</displayName>
 				<displayName count="other">νέα λεβ Βουλγαρίας</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Λεβ Βουλγαρίας</displayName>
 				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BGO">
@@ -4171,7 +4136,6 @@
 				<displayName>Δολάριο Νήσων Κάιμαν</displayName>
 				<displayName count="one">δολάριο Νήσων Κάιμαν</displayName>
 				<displayName count="other">δολάρια Νήσων Κάιμαν</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Δολάριο Νησιών Κέιμαν</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>Τένγκε Καζακστάν</displayName>
@@ -4453,9 +4417,7 @@
 			<currency type="PLN">
 				<displayName>Ζλότυ Πολωνίας</displayName>
 				<displayName count="one">ζλότυ Πολωνίας</displayName>
-				<displayName count="one" alt="proposed-x1001" draft="unconfirmed">ζλότι Πολωνίας</displayName>
 				<displayName count="other">ζλότυ Πολωνίας</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">ζλότι Πολωνίας</displayName>
 				<symbol draft="contributed">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
@@ -4844,8 +4806,6 @@
 				<displayName>Άγνωστο ή μη έγκυρο νόμισμα</displayName>
 				<displayName count="one">άγνωστο/μη έγκυρο νόμισμα</displayName>
 				<displayName count="other">Άγνωστο ή μη έγκυρο νόμισμα</displayName>
-				<displayName count="other" alt="proposed-x1001" draft="unconfirmed">Άγνωστο νόμισμα</displayName>
-				<displayName alt="proposed-x1001" draft="unconfirmed">Άγνωστο νόμισμα</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Δηνάριο Υεμένης</displayName>
@@ -5066,3 +5026,4 @@
 		</messages>
 	</posix>
 </ldml>
+

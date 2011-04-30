@@ -1737,8 +1737,8 @@
 							<greatestDifference id="M" draft="contributed">d MMM - d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d" draft="contributed">d-d MMM</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM - d MMM</greatestDifference>
+							<greatestDifference id="d" draft="contributed">ccc, d - EEE, d MMM</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, d MMM - ccc, d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M" draft="contributed">LLLL-LLLL</greatestDifference>
@@ -1756,9 +1756,9 @@
 							<greatestDifference id="y" draft="contributed">dd.MM.yy - dd.MM.yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="contributed">dd.MM.yy - dd.MM.yy</greatestDifference>
-							<greatestDifference id="M" draft="contributed">dd.MM.yy - dd.MM.yy</greatestDifference>
-							<greatestDifference id="y" draft="contributed">dd.MM.yy - dd.MM.yy</greatestDifference>
+							<greatestDifference id="d" draft="contributed">ccc, dd.MM.yy - ccc, dd.MM.yy</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, dd.MM.yy - ccc, dd.MM.yy</greatestDifference>
+							<greatestDifference id="y" draft="contributed">ccc, dd.MM.yy - ccc, dd.MM.yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" draft="contributed">LLL-LLL y 'г'.</greatestDifference>
@@ -1770,9 +1770,9 @@
 							<greatestDifference id="y" draft="contributed">d MMM y - d MMM y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="contributed">d-d MMM y 'г'.</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM - d MMM y 'г'.</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y - d MMM y 'г'.</greatestDifference>
+							<greatestDifference id="d" draft="contributed">ccc, d - ccc, d MMM y 'г'.</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, d MMM - ccc, d MMM y 'г'.</greatestDifference>
+							<greatestDifference id="y" draft="contributed">ccc, d MMM y - ccc, d MMM y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M" draft="contributed">LLLL-LLLL y 'г'.</greatestDifference>

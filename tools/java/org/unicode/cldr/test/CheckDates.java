@@ -21,6 +21,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateIntervalFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -33,7 +34,6 @@ public class CheckDates extends CheckCLDR {
     PatternMatcher m;
     DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
-
 
     static String[] samples = {
         //"AD 1970-01-01T00:00:00Z",
@@ -122,8 +122,13 @@ public class CheckDates extends CheckCLDR {
 
         final String sourceLocaleID = getCldrFileToCheck().getSourceLocaleID(path, status);
 
+        if (!path.equals(status.pathWhereFound)) {
+            return this;
+        }
+
         try {
-            if (path.equals(status.pathWhereFound) && path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
+
+            if (path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
                 String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                 String wideValue = getCldrFileToCheck().getStringValue(pathToWide);
                 if (wideValue != null && value.length() > wideValue.length()) {
@@ -132,6 +137,7 @@ public class CheckDates extends CheckCLDR {
                     result.add(item);
                 }
             }
+
             if (path.indexOf("[@type=\"narrow\"]") >= 0 && !path.contains("dayPeriod")) {
                 int end = isNarrowEnough(value, bi);
                 String locale = getCldrFileToCheck().getLocaleID();
@@ -147,7 +153,9 @@ public class CheckDates extends CheckCLDR {
             if (DisplayAndInputProcessor.hasDatetimePattern(path)) {
                 boolean patternBasicallyOk = false;
                 try {
-                    SimpleDateFormat sdf = new SimpleDateFormat(value);
+                    if (!path.contains("intervalFormatItem")) {
+                        SimpleDateFormat sdf = new SimpleDateFormat(value);
+                    }
                     formatParser.set(value);
                     patternBasicallyOk = true;
                 } catch (RuntimeException e) {
@@ -211,19 +219,25 @@ public class CheckDates extends CheckCLDR {
     }
 
     private void checkPattern(String path, String fullPath, String value, List result) throws ParseException {
-        String skeleton = dateTimePatternGenerator.getSkeleton(value);
+        String skeleton = dateTimePatternGenerator.getSkeletonAllowingDuplicates(value);
 
         pathParts.set(path);
-        if (pathParts.containsElement("dateFormatItem")) {
-
-            String id = pathParts.getAttributeValue(-1,"id");
-            //String baseSkeleton = dateTimePatternGenerator.getBaseSkeleton(value);
-            if (!dateTimePatternGenerator.skeletonsAreSimilar(id,skeleton)) {
+        final boolean isIntervalFormat = pathParts.contains("intervalFormatItem");
+        if (pathParts.containsElement("dateFormatItem") || isIntervalFormat) {
+            int idIndex = isIntervalFormat ? -2 : -1;
+            String id = pathParts.getAttributeValue(idIndex,"id");
+            if (skeleton.isEmpty()) {
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.incorrectDatePattern)
+                        // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
+                        .setMessage("Your pattern ({1}) is incorrect for ID ({0}). " +
+                                "You need to supply a pattern according to http://cldr.org/translation/date-time-patterns.",
+                                id, value));                  
+            } if (!dateTimePatternGenerator.skeletonsAreSimilar(id,skeleton)) {
                 String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.incorrectDatePattern)
                         // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
                         .setMessage("Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). " +
-                                "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language.",
+                                "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language. See http://cldr.org/translation/date-time-patterns.",
                                 id, skeleton, value, fixedValue));                  
             }
             String failureMessage = (String) flexInfo.getFailurePath(path);
@@ -231,6 +245,7 @@ public class CheckDates extends CheckCLDR {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
                         .setMessage("{0}", new Object[]{failureMessage}));          
             }
+
             //      if (redundants.contains(value)) {
             //        result.add(new CheckStatus().setCause(this).setType(CheckStatus.errorType)
             //            .setMessage("Redundant with some pattern (or combination)", new Object[]{}));          
@@ -305,7 +320,7 @@ public class CheckDates extends CheckCLDR {
         //  result.add(item);			
         //  }
     }
-    
+
     int findMismatch(Pattern p, String s) {
         Matcher m = p.matcher("");
         int i;
@@ -322,25 +337,25 @@ public class CheckDates extends CheckCLDR {
     enum DateTimeLengths {SHORT, MEDIUM, LONG, FULL};
 
     static final Pattern[] dateTimePatterns = {
-            Pattern.compile("(h|hh|H|HH)(m|mm)"), // time-short
-            Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
-            Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-long
-            Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-full
-            Pattern.compile("G*y(y(yy)?)?M{1,2}(d|dd)"), // date-short
-            Pattern.compile("G*y(yyy)?M{1,3}(d|dd)"), // date-medium
-            Pattern.compile("G*y(yyy)?M{1,4}(d|dd)"), // date-long
-            Pattern.compile("G*y(yyy)?M{1,4}((E*)|(c*))(d|dd)"), // date-full
+        Pattern.compile("(h|hh|H|HH)(m|mm)"), // time-short
+        Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)"), // time-medium
+        Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-long
+        Pattern.compile("(h|hh|H|HH)(m|mm)(s|ss)(z+)"), // time-full
+        Pattern.compile("G*y(y(yy)?)?M{1,2}(d|dd)"), // date-short
+        Pattern.compile("G*y(yyy)?M{1,3}(d|dd)"), // date-medium
+        Pattern.compile("G*y(yyy)?M{1,4}(d|dd)"), // date-long
+        Pattern.compile("G*y(yyy)?M{1,4}((E*)|(c*))(d|dd)"), // date-full
     };
 
     static final String[] dateTimeMessage = {
-            "hours (H, HH, h, or hh), and minutes (m or mm)", // time-short
-            "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss)", // time-medium
-            "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss); optionally timezone (z or zzzz)", // time-long
-            "hours (H, HH, h, or hh), minutes (m or mm), seconds (s or ss), and timezone (z or zzzz)", // time-full
-            "year (yy or yyyy), month (M or MM), and day (d or dd); optionally era (G)", // date-short
-            "year (yyyy), month (M, MM, or MMM), and day (d or dd); optionally era (G)", // date-medium
-            "year (yyyy), month (M, ... MMMM), and day (d or dd); optionally era (G)", // date-long
-            "year (yyyy), month (M, ... MMMM), and day (d or dd); optionally day of week (EEEE or cccc) or era (G)", // date-full
+        "hours (H, HH, h, or hh), and minutes (m or mm)", // time-short
+        "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss)", // time-medium
+        "hours (H, HH, h, or hh), minutes (m or mm), and seconds (s or ss); optionally timezone (z or zzzz)", // time-long
+        "hours (H, HH, h, or hh), minutes (m or mm), seconds (s or ss), and timezone (z or zzzz)", // time-full
+        "year (yy or yyyy), month (M or MM), and day (d or dd); optionally era (G)", // date-short
+        "year (yyyy), month (M, MM, or MMM), and day (d or dd); optionally era (G)", // date-medium
+        "year (yyyy), month (M, ... MMMM), and day (d or dd); optionally era (G)", // date-long
+        "year (yyyy), month (M, ... MMMM), and day (d or dd); optionally day of week (EEEE or cccc) or era (G)", // date-full
     };
 
 

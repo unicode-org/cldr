@@ -193,7 +193,8 @@ public class DisplayAndInputProcessor {
     public static boolean hasDatetimePattern(String path) {
         return path.indexOf("/dates") >= 0
         && ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0)
-                || path.indexOf("/dateFormatItem") >= 0);
+                || path.indexOf("/dateFormatItem") >= 0
+                || path.contains("/intervalFormatItem"));
     }
 
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter, ExemplarType exemplarType) {

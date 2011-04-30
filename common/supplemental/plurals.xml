@@ -13,7 +13,7 @@
             <pluralRule count="few">n mod 100 in 3..10</pluralRule>
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
         </pluralRules>
-        <pluralRules locales="af bem bg bn brx ca chr da de ee el en eo es et eu fi fo fur fy gl gsw gu ha he is it ku lb ml mn mr nah nb ne nl nn no om or pa pap ps pt rm so sq sv sw ta te tk ur wae zu">
+        <pluralRules locales="af bem bg bn brx ca cgg chr da de dv ee el en eo es et eu fi fo fur fy gl gsw gu ha haw he is it kk kl ku lb lg mas ml mn mr nah nb ne nl nn no nyn om or pa pap ps pt rm saq so sq ssy sv sw syr ta te tk ur wae xog zu">
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="ak am bh fil tl guw hi ln mg nso ti wa">
@@ -26,7 +26,7 @@
             <pluralRule count="zero">n is 0</pluralRule>
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
         </pluralRules>
-        <pluralRules locales="ga se sma smi smj smn sms">
+        <pluralRules locales="ga iu kw se sma smi smj smn sms">
             <pluralRule count="one">n is 1</pluralRule>
             <pluralRule count="two">n is 2</pluralRule>
         </pluralRules>
@@ -93,6 +93,14 @@
         <pluralRules locales="ksh">
             <pluralRule count="zero">n is 0</pluralRule>
             <pluralRule count="one">n is 1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="tzm">
+            <pluralRule count="one">n in 0..1</pluralRule>
+            <pluralRule count="few">n in 2..10</pluralRule>
+            <pluralRule count="many">n in 11..99</pluralRule>
+        </pluralRules>
+        <pluralRules locales="gv">
+            <pluralRule count="one">n mod 10 in 1..2 or n mod 20 is 0</pluralRule>
         </pluralRules>
     </plurals>
 </supplementalData>

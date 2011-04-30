@@ -525,9 +525,9 @@ public class CLDRModify {
       toBeReplaced.add(newFullPath, newValue);
       String oldValue = cldrFileToFilter.getStringValue(oldFullPath);
       if (oldValue != null && !newValue.equals(oldValue)) {
-        System.out.println("%" + localeID + "\t" + reason + "\tReplacing: <" + oldValue + ">\tby <" + newValue + ">\t at: " + newFullPath);
+        System.out.println("%" + localeID + "\t" + reason + "\tReplacing:\t<" + oldValue + ">\tby\t<" + newValue + ">\t at: " + newFullPath);
       } else {
-        System.out.println("%" + localeID + "\t" + reason + "\tAdding: <" + newValue + ">\t at: " + newFullPath);
+        System.out.println("%" + localeID + "\t" + reason + "\tAdding:\t<" + newValue + ">\t at: " + newFullPath);
       }
     }
     public CLDRFile getReplacementFile() {

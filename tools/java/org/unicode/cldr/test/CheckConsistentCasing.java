@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PrettyPath;
@@ -25,7 +26,8 @@ import com.ibm.icu.util.ULocale;
 
 public class CheckConsistentCasing extends CheckCLDR {
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
+    
     private static final double MIN_FACTOR = 2.5;
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*Currencies.*
@@ -36,7 +38,7 @@ public class CheckConsistentCasing extends CheckCLDR {
     private String locale;
     private CLDRFile resolvedCldrFileToCheck2;
     PrettyPath pretty = new PrettyPath();
-
+    Set<String> wasMissing = new HashSet();
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
@@ -146,6 +148,7 @@ public class CheckConsistentCasing extends CheckCLDR {
     .add("//ldml/dates/calendars/calendar.*/quarters.*abbreviated", 15)
     .add("//ldml/dates/calendars/calendar.*/quarters.*format", 16)
     .add("//ldml/dates/calendars/calendar.*/quarters", 17)
+    .add("//ldml/.*/relative", 28)
     .add("//ldml/dates/calendars/calendar.*/fields", 18)
     .add("//ldml/dates/timeZoneNames/zone.*/exemplarCity", 19)
     .add("//ldml/dates/timeZoneNames/zone.*/short", 20)
@@ -156,14 +159,15 @@ public class CheckConsistentCasing extends CheckCLDR {
     .add("//ldml/numbers/currencies/currency.*/symbol", 25)
     .add("//ldml/numbers/currencies/currency.*/displayName.*@count", 26)
     .add("//ldml/numbers/currencies/currency.*/displayName", 27)
-    .add("//ldml/units/unit.*/unitPattern", 28)
+    .add("//ldml/units/unit.*/unitPattern.*(past|future)", 28)
+    .add("//ldml/units/unit.*/unitPattern", 29)
     //ldml/localeDisplayNames/keys/key[@type=".*"]
-//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
-//ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
+    //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
+    //ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
 
     
     ;
-    static final int LIMIT_COUNT = 29;
+    static final int LIMIT_COUNT = 30;
 
     FirstLetterType[] types = new FirstLetterType[LIMIT_COUNT];
     String[] percent = new String[LIMIT_COUNT];
@@ -194,8 +198,8 @@ public class CheckConsistentCasing extends CheckCLDR {
         CollectionUtilities.addAll(it, items);
         unresolved.getExtraPaths(items);
         boolean isRoot = "root".equals(unresolved.getLocaleID());
-        PathStarrer starrer = DEBUG ? null : new PathStarrer();
-        Set<String> missing = DEBUG ? null : new TreeSet<String>();
+        PathStarrer starrer = !DEBUG ? null : new PathStarrer();
+        Set<String> missing = !DEBUG ? null : new TreeSet<String>();
 
         for (String path : items) {
             //      if (path.contains("displayName") && path.contains("count")) {
@@ -245,7 +249,9 @@ public class CheckConsistentCasing extends CheckCLDR {
             }
         }
         if (DEBUG && missing.size() != 0) {
-            System.out.println(CollectionUtilities.join(missing, "\n"));
+            missing.removeAll(wasMissing);
+            System.out.println("Paths skipped:\n" + CollectionUtilities.join(missing, "\n"));
+            wasMissing.addAll(missing);
         }
     }
 

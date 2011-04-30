@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
+import sun.text.normalizer.UTF16;
+
 import com.ibm.icu.lang.CharSequences;
 
 /**
@@ -87,8 +89,16 @@ public final class With<V> implements Iterable<V> {
         return CharSequences.codePoints(source);
     }
 
-    With(Iterator<V> iterator) {
+    public static With<CharSequence> inCP(CharSequence source) {
+        return new With(new CharSequenceSimpleIterator(source));
+    }
+
+    private With(Iterator<V> iterator) {
         this.iterator = iterator;
+    }
+
+    private With(SimpleIterator<V> iterator) {
+        this.iterator = new IteratorWrapper<V>(iterator);
     }
 
     @Override
@@ -102,5 +112,60 @@ public final class With<V> implements Iterable<V> {
             result.add(iterator.next());
         }
         return result;
+    }
+    
+    public interface SimpleIterator<T> {
+        /**
+         * Returns null when done
+         * @return object, or null when done.
+         */
+        public T next();
+    }
+    
+    public static class CharSequenceSimpleIterator implements SimpleIterator<CharSequence> {
+        private int position;
+        private CharSequence source;
+        public CharSequenceSimpleIterator(CharSequence source) {
+            this.source = source;
+        }
+        @Override
+        public CharSequence next() {
+            // TODO optimize
+            if (position >= source.length()) {
+                return null;
+            }
+            int codePoint = Character.codePointAt(source, position);
+            position += Character.charCount(codePoint);
+            return UTF16.valueOf(codePoint);
+        }
+    }
+    
+    public static class IteratorWrapper<T> implements Iterator<T> {
+        private final SimpleIterator<T> simpleIterator;
+        private T current;
+        /**
+         * @param simpleIterator
+         */
+        public IteratorWrapper(SimpleIterator<T> simpleIterator) {
+            this.simpleIterator = simpleIterator;
+            current = simpleIterator.next();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            T result = current;
+            current = simpleIterator.next();
+            return result;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }

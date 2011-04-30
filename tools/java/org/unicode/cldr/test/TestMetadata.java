@@ -132,11 +132,11 @@ public class TestMetadata {
 	}
 
 
-	private static String showDifference(Collection a, Collection b, String separator) {
-	        Differ differ = new Differ(300, 3);
+	public static <T> String showDifference(Iterable<T> a, Iterable<T> b, String separator) {
+	        Differ<T> differ = new Differ<T>(300, 3);
 	        StringBuffer out = new StringBuffer();
-	        Iterator ai = a.iterator();
-	        Iterator bi = b.iterator();
+	        Iterator<T> ai = a.iterator();
+	        Iterator<T> bi = b.iterator();
 	        boolean first = true;
 	        while (true) {
 	        	boolean done = true;

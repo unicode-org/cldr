@@ -3,13 +3,20 @@
 
 package org.unicode.cldr.test;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.CodePoints;
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.impl.Differ;
+import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
@@ -24,6 +31,8 @@ import com.ibm.icu.util.ULocale;
  */
 public class DisplayAndInputProcessor {
 
+    public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
+    
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]").freeze();
 
     public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
@@ -220,14 +229,27 @@ public class DisplayAndInputProcessor {
         }
 
         toAdd.removeAll(exemplarType.toRemove);
+        
+        if (DEBUG_DAIP && !toAdd.equals(exemplar)) {
+            UnicodeSet oldOnly = new UnicodeSet(exemplar).removeAll(toAdd);
+            UnicodeSet newOnly = new UnicodeSet(toAdd).removeAll(exemplar);
+            System.out.println("Exemplar:\t" + exemplarType + ",\tremoved\t" + oldOnly + ",\tadded\t" + newOnly);
+        }
 
         String fixedExemplar = prettyPrinter.format(toAdd);
         UnicodeSet doubleCheck = new UnicodeSet(fixedExemplar);
         if (!toAdd.equals(doubleCheck)) {
             // something went wrong, leave as is
         } else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
+            if (DEBUG_DAIP) {
+                System.out.println(TestMetadata.showDifference(
+                        With.inCP(value), 
+                        With.inCP(fixedExemplar),
+                        "\n"));
+            }
             value = fixedExemplar;
         }
         return value;
     }
+    
 }

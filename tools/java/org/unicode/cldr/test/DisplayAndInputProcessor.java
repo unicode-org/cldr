@@ -206,6 +206,7 @@ public class DisplayAndInputProcessor {
         for (UnicodeSetIterator usi = new UnicodeSetIterator(exemplar); usi.next(); ) {
             String string = usi.getString();
             if (string.equals("ß") || string.equals("İ")) {
+                toAdd.add(string);
                 continue;
             }
             if (exemplarType.convertUppercase) {

@@ -232,7 +232,7 @@ public class CheckDates extends CheckCLDR {
                         .setMessage("Your pattern ({1}) is incorrect for ID ({0}). " +
                                 "You need to supply a pattern according to http://cldr.org/translation/date-time-patterns.",
                                 id, value));                  
-            } if (!dateTimePatternGenerator.skeletonsAreSimilar(id,skeleton)) {
+            } else if (!dateTimePatternGenerator.skeletonsAreSimilar(id,skeleton)) {
                 String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.incorrectDatePattern)
                         // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +

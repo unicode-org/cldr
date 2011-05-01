@@ -98,8 +98,6 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="EEEd" draft="contributed"/>
-						<dateFormatItem id="H" draft="contributed"/>
 						<dateFormatItem id="hm" draft="unconfirmed">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
@@ -202,13 +200,6 @@
 						<relative type="1" draft="contributed">La semaine prochaine</relative>
 					</field>
 				</fields>
-			</calendar>
-			<calendar type="islamic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="h" draft="contributed">HH mm</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

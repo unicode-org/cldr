@@ -440,8 +440,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // if ldml has any attributes, get them.
     Set identitySet = new TreeSet(ldmlComparator);
     if (isNonInheriting()) {
-      //identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$" + "Revision: 1.142 $\"]");
-      //identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$" + "Date: 2009/03/27 00:39:03 $\"]");
+      //identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$" + "Revision: $\"]");
+      //identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/generation[@date=\"$" + "Date: $\"]");
     } else {
       String ldml_identity = "//ldml/identity";
       if (firstFullPath != null) { // if we had a path
@@ -452,8 +452,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
       }
 
-      identitySet.add(ldml_identity + "/version[@number=\"$" + "Revision: 1.142 $\"]");
-      identitySet.add(ldml_identity + "/generation[@date=\"$" + "Date: 2009/03/27 00:39:03 $\"]");
+      identitySet.add(ldml_identity + "/version[@number=\"$" + "Revision: $\"]");
+      identitySet.add(ldml_identity + "/generation[@date=\"$" + "Date: $\"]");
       LocaleIDParser lip = new LocaleIDParser();
       lip.set(dataSource.getLocaleID());
       identitySet.add(ldml_identity + "/language[@type=\"" + lip.getLanguage() + "\"]");

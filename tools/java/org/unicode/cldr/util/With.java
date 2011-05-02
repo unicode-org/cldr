@@ -92,7 +92,7 @@ public final class With<V> implements Iterable<V> {
         return new With(new CharSequenceSimpleIterator(source));
     }
 
-    private With(Iterator<V> iterator) {
+    public With(Iterator<V> iterator) {
         this.iterator = iterator;
     }
 

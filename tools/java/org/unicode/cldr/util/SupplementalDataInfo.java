@@ -725,8 +725,8 @@ public class SupplementalDataInfo {
         }
     }
 
-    static final String STAR = "*";
-    static final Set<String> STAR_SET = Builder.with(new HashSet<String>()).add("*").freeze();
+    public static final String STAR = "*";
+    public static final Set<String> STAR_SET = Builder.with(new HashSet<String>()).add("*").freeze();
 
     private Map<String, PopulationData> territoryToPopulationData = new TreeMap();
 

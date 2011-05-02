@@ -7,7 +7,6 @@
 package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,24 +20,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CLDRTest;
-import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
-import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
@@ -219,8 +217,8 @@ public class CLDRModify {
 			   testSet = new TreeSet(Arrays.asList(quicktest));
 			   }
          */
-        Set locales = new TreeSet(cldrFactory.getAvailable());
-        System.out.format("Locales:\t%s\n", locales.toString());
+        Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
+        System.out.format(locales.size()+" Locales:\t%s\n", locales.toString());
         if (mergeFactory != null) {
           Set temp = new TreeSet(mergeFactory.getAvailable());
           Set locales3 = new TreeSet();
@@ -235,10 +233,18 @@ public class CLDRModify {
         new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
 
         RetainCoveragePredicate minimalCoverage = null;
+        
+        fixList.handleSetup();
 
-        for (Iterator it = locales.iterator(); it.hasNext();) {
-
-          String test = (String) it.next();
+        long lastTime = System.currentTimeMillis();
+        int spin = 0;
+        for (String test: locales) {
+            spin++;
+            long now = System.currentTimeMillis();
+            if(now-lastTime>5000) {
+                System.out.println(" .. still processing " + test + " ["+spin+"/"+locales.size()+"]");
+                lastTime=now;
+            }
           //testJavaSemantics();
 
           // TODO parameterize the directory and filter
@@ -345,7 +351,6 @@ public class CLDRModify {
             System.out.println("Done Printing Raw File:");
           }
 
-
           k.write(pw);
           pw.println();
           pw.close();
@@ -369,6 +374,7 @@ public class CLDRModify {
           System.out.println("Total Skeletons" + totalSkeletons);
         }
       } finally {
+        fixList.handleCleanup();
         Log.close();
         System.out.println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime)/60000.0) + " minutes");
       }
@@ -533,6 +539,14 @@ public class CLDRModify {
     public CLDRFile getReplacementFile() {
       return toBeReplaced;
     }
+    public void handleCleanup() {
+        // TODO Auto-generated method stub
+        
+    }
+    public void handleSetup() {
+        // TODO Auto-generated method stub
+        
+    }
   }
 
   static class FixList {
@@ -543,6 +557,20 @@ public class CLDRModify {
 
     void add(char letter, String help) {
       add(letter, help, null);
+    }
+    public void handleSetup() {
+        for (int i = 0; i < filters.length; ++i) {
+            if (filters[i] != null) {
+                filters[i].handleSetup();
+            }
+        }
+    }
+    public void handleCleanup() {
+        for (int i = 0; i < filters.length; ++i) {
+            if (filters[i] != null) {
+                filters[i].handleCleanup();
+            }
+        }
     }
     public UnicodeSet getOptions() {
       return options;
@@ -612,6 +640,137 @@ public class CLDRModify {
     rootUnitMap.put("month", "m");
     rootUnitMap.put("year", "y");
 
+    fixList.add('z', "remove metaData deprecated", new CLDRFilter(){
+
+        Set<String> didRemove = new TreeSet<String>();
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        Map<String,Map<String,Relation<String,String>>> deprecationInfo = sdi.getDeprecationInfo();
+
+
+        Map ourTypes[] = null;
+
+        @Override
+        public void handleSetup() {
+            super.handleSetup();
+
+            // initialize list of types we are interested in
+            ourTypes = new Map[]
+                               { deprecationInfo.get("ldml"),
+                deprecationInfo.get("*")} ;
+
+            // verify types
+            for(Map<String,Relation<String,String>> m : ourTypes ) {
+                if(m==null) continue;
+                Relation<String,String> r = m.get(SupplementalDataInfo.STAR);                
+                if(r!=null && r.containsKey(SupplementalDataInfo.STAR)) {
+                    throw new InternalError("This filter doesn't support deprecating all elements.");
+                }
+            }
+
+            if(false) { // dump deprecates
+                for(Map.Entry<String, Map<String, Relation<String, String>>> e : deprecationInfo.entrySet()) {
+                    System.out.println("DEPR type=" + e.getKey());
+                    Map<String,Relation<String,String>> m  = e.getValue();
+                    for(Map.Entry<String,Relation<String,String>> ee : m.entrySet()) {
+                        System.out.print("  <" + ee.getKey() + "   ");
+                        for(Map.Entry<String,String> eee : ee.getValue().entrySet()) {
+                            System.out.print("   " + eee.getKey() + " = " + eee.getValue());
+                        }
+                        System.out.println();
+                    }
+                }
+            }
+        }
+
+
+
+        @Override
+        public void handlePath(String xpath) {
+            XPathParts xpp = new XPathParts(null,null);
+            //xpp.clear();
+            String fullPath = cldrFileToFilter.getFullXPath(xpath);
+            xpp.initialize(fullPath);
+            boolean changed[] = { false };
+
+            for(Map<String,Relation<String,String>> type : ourTypes) {
+                if(type==null) continue;
+                Relation<String,String> attribs = type.get(xpp.getElement(-1)); // current leaf element                
+                if(attribs!=null) {
+                    xpp = handleAttribs(xpath,xpp,attribs, changed);
+                    if(xpp==null) return; // removed
+                }
+                Relation<String,String> star = type.get(SupplementalDataInfo.STAR); // catchall
+                if(star!=null) {
+                    xpp = handleAttribs(xpath,xpp,star, changed);
+                    if(xpp==null) return; // removed
+                }
+            }
+
+            if(changed[0]) {
+                String v = cldrFileToFilter.getStringValue(xpath);
+                replace(fullPath, xpp.toString(), v, "Removed deprecated attribute");
+            }
+            //             replace(fullPath,newFullPath,value);         
+            // remove(xpath, "Message", reason);
+        }
+
+        private XPathParts handleAttribs(String xpath, XPathParts xpp, Relation<String, String> attribs, boolean changed[]) {
+            if(attribs==null) return xpp; // no change
+
+            Set<String> star = attribs.get(SupplementalDataInfo.STAR);
+
+            if(star!=null) {
+                if(star.contains(SupplementalDataInfo.STAR)) {
+                    didRemove.add("Element: "+xpp.getElement(-1));
+                    remove(xpath, "Deprecated Element: " + xpp.getElement(-1));
+                    return null;
+                }
+            }
+            Map<String, String> xattribs = xpp.getAttributes(-1);
+            Set<String> removeThese = null;
+            for(Map.Entry<String, String> e : xattribs.entrySet()) {
+                String attr = e.getKey();
+                Set<String> thiAttrib = attribs.get(attr);
+                if(thiAttrib!=null) {
+                    if(thiAttrib.contains(SupplementalDataInfo.STAR) || thiAttrib.contains(e.getValue())) {
+                        // remove "foo=*" or "foo=bar" attribute
+                        if(removeThese==null) removeThese=new HashSet<String>();
+                        removeThese.add(attr);
+                        continue;
+                    }
+                }
+                if(star!=null&&star.contains(e.getValue())) {
+                    // remove  "*=foo" attribute. Needed?
+                    if(removeThese==null) removeThese=new HashSet<String>();
+                    removeThese.add(attr);
+                    continue;
+                }
+            }
+            if(removeThese!=null) {
+                changed[0]=true;
+                for(String attr : removeThese) {
+                    xpp.putAttributeValue(-1, attr, null);
+                    didRemove.add("Attribute: "+attr);
+                }
+                changed[0]=true;
+            }
+
+            return xpp; // continue
+        }
+        @Override
+        public void handleCleanup() {
+            super.handleCleanup();
+
+            if(!didRemove.isEmpty()) {
+                System.out.print(  " -fz: Removed these deprecated items:  ");
+                for(String s : didRemove) {
+                    System.out.print(s+", ");
+                }
+                System.out.println();
+            }
+        }
+    });
+    
     fixList.add('y', "remove deprecated", new CLDRFilter() {
       Map remapAppend = CollectionUtilities.asMap(new String[][] {
               {"G", "Era"}, {"y", "Year"}, {"Q", "Quarter"}, {"M", "Month"}, {"w", "Week"}, {"E", "Day-Of-Week"}, {"d", "Day"}, {"H", "Hour"}, {"m", "Minute"}, {"s", "Second"}, {"v", "Timezone"}
@@ -1708,13 +1867,17 @@ public class CLDRModify {
 
     if (true) {
       if (removal.size() != 0 || !replacements.isEmpty()) {
-        System.out.println("Removals:");
-        for (Iterator it3 = removal.iterator(); it3.hasNext();) {	
-          String path = (String)it3.next();
-          System.out.println(path + " =\t " + k.getStringValue(path));
+        if(!removal.isEmpty()) {
+            System.out.println("Removals:");
+            for (Iterator it3 = removal.iterator(); it3.hasNext();) {	
+              String path = (String)it3.next();
+              System.out.println(path + " =\t " + k.getStringValue(path));
+            }
         }
-        System.out.println("Additions/Replacements:");
-        System.out.println(replacements.toString().replaceAll("\u00A0", "<NBSP>"));
+        if(!replacements.isEmpty()) {
+            System.out.println("Additions/Replacements:");
+            System.out.println(replacements.toString().replaceAll("\u00A0", "<NBSP>"));            
+        }
       }
     }
     if (removal.size() != 0) {

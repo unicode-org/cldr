@@ -3878,15 +3878,15 @@ XXX Code for transations where no currency is involved
     </calendarPreferenceData>
 
     <weekData>
-          <minDays count="4" territories="001" />
+          <minDays count="1" territories="001 GU UM US VI" />
+          <minDays count="4" territories="AD AN AT AX BE BG CH CZ DE DK EE ES FI FJ FO FR GB GF GP GR IE IS IT LI LT LU MC MQ NL NO PL PT RE SE SK SM VA" />
 
           <!-- Note, this firstDay is for the first day of the week in a calendar page view. -->
           <!-- The first workday of the week (after the weekend) is distinct, and can be determined as the day after the weekendEnd day.  -->
-          <!-- Currently there is no separate information for the first day of the week in local day-of-week numbering, this is inferred from firstDay.  -->
-          <firstDay day="mon"  territories="001" />
-          <firstDay day="fri"  territories="MV" />
-          <firstDay day="sat"  territories="AE AF BH DJ DZ EG ER ET IQ IR JO KE KW LY MA OM QA SA SD SO SY TN YE" />
-          <firstDay day="sun"  territories="AR AS AZ BW CA CN FO GE GL GU HK IL IN JM JP KG KR LA MH MN MO MP MT NZ PH PK SG TH TT TW UM US UZ VI ZW" />
+          <firstDay day="mon"  territories="001 AD AI AL AM AN AT AX AZ BA BE BG BM BN CH CL CM CR CY CZ DE DK EC EE ES FI FJ FO FR GB GE GF GP GR HR HU IE IS IT KG KZ LB LI LK LT LU LV MC MD ME MK MN MQ MY NL NO PL PT RE RO RS RU SE SI SK SM TJ TM TR UA UY UZ VA VN" />
+          <firstDay day="fri"  territories="BD MV" />
+          <firstDay day="sat"  territories="AE AF BH DJ DZ EG IQ IR JO KW LY MA OM QA SA SD SY YE" />
+          <firstDay day="sun"  territories="AG AR AS AU BR BS BT BW BY BZ CA CN CO DM DO ET GT GU HK HN ID IL IN JM JP KE KH KR LA MH MM MO MT MX MZ NI NP NZ PA PE PH PK PR PY SG SV TH TN TT TW UM US VE VI WS ZA ZW" />
           <firstDay day="sun"  territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
         
           <weekendStart day="thu"  territories="AF DZ IR OM SA YE"/>

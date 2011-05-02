@@ -9,6 +9,8 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.Output;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.XMLFileReader;
 
 public class SearchXml {
@@ -26,6 +28,7 @@ public class SearchXml {
     private static int total = 0;
 
     private static boolean countOnly = false;
+    private static boolean verbose = false;
 
     private static boolean pathExclude = false;
     private static boolean levelExclude = false;
@@ -38,7 +41,8 @@ public class SearchXml {
     .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
     .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
     .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
-    .add("count", ".*", null, "only count items")
+    .add("count", null, null, "only count items")
+    .add("Verbose", null, null, "verbose output")
     ;
 
     public static void main(String[] args) throws IOException {
@@ -69,6 +73,15 @@ public class SearchXml {
 
         double startTime = System.currentTimeMillis();
         File src = new File(sourceDirectory);
+        
+        if (countOnly) {
+            System.out.print("file");
+            for (Level cLevel : Level.values()) {
+                System.out.print("\t" + cLevel);
+            }
+            System.out.println();
+        }
+        
         processDirectory(src);
 
         double deltaTime = System.currentTimeMillis() - startTime;
@@ -94,26 +107,35 @@ public class SearchXml {
                 processDirectory(file);
                 continue;
             }
-            if (file.length() == 0)
+            if (file.length() == 0) {
                 continue;
+            }
+            
+            String fileName = file.getName();
             String canonicalFile = file.getCanonicalPath();
-            if (!canonicalFile.endsWith(".xml")) {
+
+            if (!fileName.endsWith(".xml")) {
                 continue;
             }
-            if (fileMatcher != null && fileExclude == fileMatcher.reset(canonicalFile).find()) {
+            
+            fileName = fileName.substring(0,fileName.length()-4); // remove .xml
+            
+            if (fileMatcher != null && fileExclude == fileMatcher.reset(fileName).find()) {
+                if (verbose) {
+                    System.out.println("Skipping " + canonicalFile);
+                }
                 continue;
             }
+
+
             if (showFiles) {
                 System.out.println("* " + canonicalFile);
             }
-            String fileName = file.getName();
 
-            fileName = fileName.substring(0,fileName.length()-4); // remove .xml
-
-            myHandler.count = 0;
+            myHandler.levelCounter.clear();
             myHandler.firstMessage = "* " + canonicalFile;
             myHandler.file = fileName;
-            if (levelMatcher != null) {
+            if (levelMatcher != null || countOnly) {
                 myHandler.level = CoverageLevel2.getInstance(fileName);
            }
 
@@ -125,7 +147,11 @@ public class SearchXml {
                 e.printStackTrace();
             }
             if (countOnly) {
-                System.out.println(myHandler.count + "\t" + fileName);
+                System.out.print(fileName);
+                for (Level cLevel : Level.values()) {
+                    System.out.print("\t" + myHandler.levelCounter.get(cLevel));
+                }
+                System.out.println();
             }
             System.out.flush();
         }
@@ -141,7 +167,7 @@ public class SearchXml {
         CoverageLevel2 level;
         String firstMessage;
         String file;
-        int count = 0;
+        Counter<Level> levelCounter = new Counter<Level>();
 
         public void handlePathValue(String path, String value) {
 
@@ -149,7 +175,14 @@ public class SearchXml {
                 return;
             }
 
-            if (levelMatcher != null && levelExclude == levelMatcher.reset(level.getLevel(path).toString()).find()) {
+            Level pathLevel = null;
+            
+            if (level != null) {
+                pathLevel = level.getLevel(path);
+                levelCounter.add(pathLevel, 1);
+            }
+            
+            if (levelMatcher != null && levelExclude == levelMatcher.reset(pathLevel.toString()).find()) {
                 return;
             }
 
@@ -161,7 +194,6 @@ public class SearchXml {
                 return;
             }
             
-            ++count;
             ++total;
 
             if (firstMessage != null) {

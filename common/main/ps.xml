@@ -121,7 +121,7 @@
 			<language type="zu" draft="unconfirmed">زولو</language>
 		</languages>
 		<scripts>
-			<script type="Arab" references="R212">عربي</script>
+			<script type="Arab">عربي</script>
 		</scripts>
 		<territories>
 			<territory type="AF">افغانستان</territory>
@@ -305,25 +305,25 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1" references="R212">وری</month>
-							<month type="2" references="R212">غویی</month>
-							<month type="3" references="R212">غبرګولی</month>
-							<month type="4" references="R212">چنګاښ</month>
-							<month type="5" references="R212">زمری</month>
-							<month type="6" references="R212">وږی</month>
-							<month type="7" references="R212">تله</month>
-							<month type="8" references="R212">لړم</month>
-							<month type="9" references="R212">لیندۍ</month>
-							<month type="10" references="R212">مرغومی</month>
-							<month type="11" references="R212">سلواغه</month>
-							<month type="12" references="R212">کب</month>
+							<month type="1">وری</month>
+							<month type="2">غویی</month>
+							<month type="3">غبرګولی</month>
+							<month type="4">چنګاښ</month>
+							<month type="5">زمری</month>
+							<month type="6">وږی</month>
+							<month type="7">تله</month>
+							<month type="8">لړم</month>
+							<month type="9">لیندۍ</month>
+							<month type="10">مرغومی</month>
+							<month type="11">سلواغه</month>
+							<month type="12">کب</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<regionFormat references="R212">د {0} په وخت</regionFormat>
+			<regionFormat>د {0} په وخت</regionFormat>
 			<zone type="Asia/Kabul">
 				<exemplarCity>کابل</exemplarCity>
 			</zone>
@@ -354,12 +354,9 @@
 		<currencies>
 			<currency type="AFN">
 				<displayName>افغانۍ</displayName>
-				<symbol references="R212">؋</symbol>
+				<symbol>؋</symbol>
 			</currency>
 		</currencies>
 	</numbers>
-	<references>
-		<reference type="R212" uri="http://www.evertype.com/standards/af/">Computer Locale Requirements for Afghanistan</reference>
-	</references>
 </ldml>
 

@@ -616,7 +616,7 @@
 			<measurementSystemName type="US" draft="unconfirmed">USA</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" references="R069" draft="unconfirmed">Lenghe: {0}</codePattern>
+			<codePattern type="language" draft="unconfirmed">Lenghe: {0}</codePattern>
 			<codePattern type="script" draft="unconfirmed">Scriture: {0}</codePattern>
 			<codePattern type="territory" draft="unconfirmed">Regjon: {0}</codePattern>
 		</codePatterns>
@@ -1517,8 +1517,5 @@
 			<nostr draft="unconfirmed">no:n</nostr>
 		</messages>
 	</posix>
-	<references>
-		<reference type="R069" uri="http://en.wikipedia.org/wiki/Friulian#Writing_systems">Wikipedia on Friulian writing</reference>
-		<reference type="RP1" uri="http://www.geocities.com/rpontisso/alphabet.html" draft="unconfirmed">Page about Friulian writing and phonology</reference>
-	</references>
 </ldml>
+

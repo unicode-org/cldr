@@ -1398,18 +1398,18 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" references="R215">янв.</month>
-							<month type="2" references="R215">февр.</month>
-							<month type="3" references="R215">марта</month>
-							<month type="4" references="R215">апр.</month>
-							<month type="5" references="R215">мая</month>
-							<month type="6" references="R215">июня</month>
-							<month type="7" references="R215">июля</month>
-							<month type="8" references="R215">авг.</month>
-							<month type="9" references="R215">сент.</month>
-							<month type="10" references="R215">окт.</month>
-							<month type="11" references="R215">нояб.</month>
-							<month type="12" references="R215">дек.</month>
+							<month type="1">янв.</month>
+							<month type="2">февр.</month>
+							<month type="3">марта</month>
+							<month type="4">апр.</month>
+							<month type="5">мая</month>
+							<month type="6">июня</month>
+							<month type="7">июля</month>
+							<month type="8">авг.</month>
+							<month type="9">сент.</month>
+							<month type="10">окт.</month>
+							<month type="11">нояб.</month>
+							<month type="12">дек.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="contributed">Я</month>
@@ -1662,9 +1662,9 @@
 						<dateFormatItem id="yM" draft="contributed">M.y</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">EEE, d.M.y</dateFormatItem>
-						<dateFormatItem id="yMMM" references="RP6" draft="contributed">LLL y</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="contributed">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y 'г'.</dateFormatItem>
-						<dateFormatItem id="yMMMEd" references="RP6" draft="contributed">E, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="contributed">E, d MMM y</dateFormatItem>
 						<dateFormatItem id="yQ">QQQ y 'г'.</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">MM.yy</dateFormatItem>
@@ -6311,17 +6311,5 @@
 			<nostr>нет:н</nostr>
 		</messages>
 	</posix>
-	<references>
-		<reference type="R215" uri="http://www.bibliography.ru/method/gosts/7-12/7_12.htm">http://www.gsnti-norms.ru/norms/common/doc.asp?0&amp;/norms/stands/7_12.htm</reference>
-		<reference type="R216" uri="http://www.spravka.gramota.ru/pravila.html?perenos.htm">Правила переносов</reference>
-		<reference type="R415" uri="http://www.bibliography.ru/method/gosts/7-12/7_12.htm">ГОСТ 7.12-93</reference>
-		<reference type="RP1" uri="http://www.gsnti-norms.ru/norms/common/doc.asp?2&amp;/norms/stands/7_75.htm" draft="provisional">ГОСТ 7.75-97 Коды наименований языков</reference>
-		<reference type="RP2" uri="http://money.rin.ru/content/?id=1075" draft="provisional">Общероссийский классификатор валют</reference>
-		<reference type="RP3" draft="contributed">Румынский лей: старый и новый</reference>
-		<reference type="RP4" uri="http://www.rba.ru/rusmarc/rusmarc/supa/supa21.htm#k" draft="unconfirmed">МИНИСТЕРСТВО КУЛЬТУРЫ РОССИЙСКОЙ ФЕДЕРАЦИИ РОССИЙСКАЯ БИБЛИОТЕЧНАЯ АССОЦИАЦИЯ</reference>
-		<reference type="RP5" uri="http://en.wikipedia.org/wiki/List_of_ISO_15924_codes">List of ISO 15924 codes</reference>
-		<reference type="RP6" uri="http://ru.wikipedia.org/wiki/%D0%94%D0%B0%D1%82%D0%B0_%28%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D0%BD%D0%B0%D1%8F%29" draft="contributed">Дата (календарная)</reference>
-		<reference type="RP7" draft="contributed">http://www.anaharsis.ru/ornam/orn_3.htm</reference>
-	</references>
 </ldml>
 

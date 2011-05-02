@@ -26,7 +26,7 @@
 			<language type="ain">ainu</language>
 			<language type="ak">àkan</language>
 			<language type="akk">accadi</language>
-			<language type="ale" references="R012">aleuta</language>
+			<language type="ale">aleuta</language>
 			<language type="alg">llengua algonquina</language>
 			<language type="alt">altaic meridional</language>
 			<language type="am">amhàric</language>
@@ -59,7 +59,7 @@
 			<language type="be">bielorús</language>
 			<language type="bej">beja</language>
 			<language type="bem">bemba</language>
-			<language type="ber" references="R012">berber</language>
+			<language type="ber">berber</language>
 			<language type="bg">búlgar</language>
 			<language type="bh">bihari</language>
 			<language type="bho">bhojpuri</language>
@@ -151,7 +151,7 @@
 			<language type="eu">basc</language>
 			<language type="ewo">ewondo</language>
 			<language type="fa">persa</language>
-			<language type="fan" references="R012">fang</language>
+			<language type="fan">fang</language>
 			<language type="fat">fanti</language>
 			<language type="ff">ful</language>
 			<language type="fi">finès</language>
@@ -167,7 +167,7 @@
 			<language type="fro">francès antic</language>
 			<language type="frr">frisó septentrional</language>
 			<language type="frs">frisó occidental</language>
-			<language type="fur" references="R012">friülà</language>
+			<language type="fur">friülà</language>
 			<language type="fy">frisó oriental</language>
 			<language type="ga">irlandès</language>
 			<language type="gaa">ga</language>
@@ -516,7 +516,7 @@
 			<language type="zap">zapoteca</language>
 			<language type="zbl">símbols Bliss</language>
 			<language type="zen">zenaga</language>
-			<language type="zh" references="R012">xinès</language>
+			<language type="zh">xinès</language>
 			<language type="zh_Hans">xinès simplificat</language>
 			<language type="zh_Hant">xinès tradicional</language>
 			<language type="znd">zande</language>
@@ -844,7 +844,7 @@
 			<territory type="MC">Mònaco</territory>
 			<territory type="MD">Moldàvia</territory>
 			<territory type="ME">Montenegro</territory>
-			<territory type="MF" references="RP3">Saint Martin</territory>
+			<territory type="MF">Saint Martin</territory>
 			<territory type="MG">Madagascar</territory>
 			<territory type="MH">Illes Marshall</territory>
 			<territory type="MK">Macedònia</territory>
@@ -854,7 +854,7 @@
 			<territory type="MN">Mongòlia</territory>
 			<territory type="MO">Regió administrativa especial xinesa de Macau</territory>
 			<territory type="MO" alt="short">Macau</territory>
-			<territory type="MP" references="RP3">Illes Mariannes del Nord</territory>
+			<territory type="MP">Illes Mariannes del Nord</territory>
 			<territory type="MQ">Martinica</territory>
 			<territory type="MR">Mauritània</territory>
 			<territory type="MS">Montserrat</territory>
@@ -1314,8 +1314,8 @@
 						<era type="1" draft="provisional">després de Crist</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" references="R012">aC</era>
-						<era type="1" references="R012">dC</era>
+						<era type="0">aC</era>
+						<era type="1">dC</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -3879,14 +3879,5 @@
 			<nostr>no:n</nostr>
 		</messages>
 	</posix>
-	<references>
-		<reference type="R012" uri="http://www.termcat.net">l'Institut d'Estudis Catalans</reference>
-		<reference type="RP1" uri="http://www.termcat.net">Termcat</reference>
-		<reference type="RP2" uri="http://dlc.iec.cat/">Diccionari de la Llengua Catalana de l'Institut d'Estudis Catalans</reference>
-		<reference type="RP3" uri="http://www.grec.net/home/cel/dicc.htm">Diccionari d'Enciclopèdia Catalana</reference>
-		<reference type="RP4" uri="http://ca.wikipedia.org/wiki/Llista_de_lleng%C3%BCes_del_m%C3%B3n" draft="contributed">Llista de llengües del món</reference>
-		<reference type="RP5" uri="http://ca.wikipedia.org/wiki/ISO_3166-1" draft="contributed">ISO 3166-1: codis per als estats i territoris</reference>
-		<reference type="RP6" uri="http://ca.wikipedia.org/wiki/ISO_4217" draft="contributed">ISO 4217: noms de les monedes</reference>
-	</references>
 </ldml>
 

@@ -14,7 +14,7 @@
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">afar</language>
-			<language type="ab" references="RP2">abchaziska</language>
+			<language type="ab">abchaziska</language>
 			<language type="ace">acehnesiska</language>
 			<language type="ach">acholi</language>
 			<language type="ada">adangme</language>
@@ -717,7 +717,7 @@
 			<territory type="AC">Ascension</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Förenade Arabemiraten</territory>
-			<territory type="AF" references="R222">Afghanistan</territory>
+			<territory type="AF">Afghanistan</territory>
 			<territory type="AG">Antigua och Barbuda</territory>
 			<territory type="AI">Anguilla</territory>
 			<territory type="AL">Albanien</territory>
@@ -960,8 +960,8 @@
 			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM" references="R221">USA:s yttre öar</territory>
-			<territory type="US" references="R217">USA</territory>
+			<territory type="UM">USA:s yttre öar</territory>
+			<territory type="US">USA</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatikanstaten</territory>
@@ -1023,7 +1023,7 @@
 			<variant type="ROZAJ">resisk dialekt</variant>
 			<variant type="RUMGR" draft="contributed">grischun-dialekt</variant>
 			<variant type="SAAHO">saho-dialekt</variant>
-			<variant type="SCOTLAND" references="RP2" draft="contributed">skotska</variant>
+			<variant type="SCOTLAND" draft="contributed">skotska</variant>
 			<variant type="SCOUSE">scouse</variant>
 			<variant type="SOLBA">Solbica-dialekt</variant>
 			<variant type="SURMIRAN" draft="contributed">surmiran-dialekt</variant>
@@ -1454,13 +1454,13 @@
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" references="R218">sön</day>
-							<day type="mon" references="R218">mån</day>
-							<day type="tue" references="R218">tis</day>
-							<day type="wed" references="R218">ons</day>
-							<day type="thu" references="R218">tors</day>
-							<day type="fri" references="R218">fre</day>
-							<day type="sat" references="R218">lör</day>
+							<day type="sun">sön</day>
+							<day type="mon">mån</day>
+							<day type="tue">tis</day>
+							<day type="wed">ons</day>
+							<day type="thu">tors</day>
+							<day type="fri">fre</day>
+							<day type="sat">lör</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -1483,13 +1483,13 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun" references="R218">sön</day>
-							<day type="mon" references="R218">mån</day>
-							<day type="tue" references="R218">tis</day>
-							<day type="wed" references="R218">ons</day>
+							<day type="sun">sön</day>
+							<day type="mon">mån</day>
+							<day type="tue">tis</day>
+							<day type="wed">ons</day>
 							<day type="thu">tor</day>
-							<day type="fri" references="R218">fre</day>
-							<day type="sat" references="R218">lör</day>
+							<day type="fri">fre</day>
+							<day type="sat">lör</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
@@ -1604,7 +1604,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern references="R217">d MMM y</pattern>
+							<pattern>d MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -2783,9 +2783,9 @@
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
-					<generic references="RP1" draft="contributed">azerbajdzjansk tid</generic>
-					<standard references="RP1" draft="contributed">azerbajdzjansk normaltid</standard>
-					<daylight references="RP1" draft="contributed">azerbajdzjansk sommartid</daylight>
+					<generic draft="contributed">azerbajdzjansk tid</generic>
+					<standard draft="contributed">azerbajdzjansk normaltid</standard>
+					<daylight draft="contributed">azerbajdzjansk sommartid</daylight>
 				</long>
 				<short>
 					<generic draft="contributed">AZT</generic>
@@ -4493,7 +4493,7 @@
 				<displayName>bosnisk-hercegovinsk dinar</displayName>
 				<displayName count="one">bosnisk-hercegovinsk dinar</displayName>
 				<displayName count="other">bosnisk-hercegovinska dinarer</displayName>
-				<symbol references="R219">BAD</symbol>
+				<symbol>BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>bosnisk-hercegovinsk mark (konvertibel)</displayName>
@@ -5147,7 +5147,7 @@
 				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
-				<displayName references="R219">Cayman-dollar</displayName>
+				<displayName>Cayman-dollar</displayName>
 				<displayName count="one">Cayman-dollar</displayName>
 				<displayName count="other">Cayman-dollar</displayName>
 				<symbol>KYD</symbol>
@@ -6144,19 +6144,5 @@
 			<nostr>nej:n</nostr>
 		</messages>
 	</posix>
-	<references>
-		<reference type="R217">Svenska skrivregler</reference>
-		<reference type="R218">Svenska språknämnden</reference>
-		<reference type="R219">Länder och valutor</reference>
-		<reference type="R220" uri="http://www.libris.kb.se/tjanster/katalogisering/formathandbok/sprakkoder.htm">LIBRIS språkkoder</reference>
-		<reference type="R221">Landskoder på Internet</reference>
-		<reference type="R222">Utrikes namnbok</reference>
-		<reference type="R223" uri="http://www.kb.se/">Kungliga bibliotekets protokoll över ämnesord</reference>
-		<reference type="R423">Finlands Statskalender 2006</reference>
-		<reference type="RP1" uri="http://sv.wikipedia.org/wiki" draft="contributed">Wikipedia</reference>
-		<reference type="RP2" uri="http://www.ne.se/" draft="contributed">Nationalencyklopedin</reference>
-		<reference type="RP3" uri="http://www.sprakradet.se/" draft="contributed">Språkrådet</reference>
-		<reference type="RP4" draft="contributed">Norstedts stora engelsk-svenska ordbok</reference>
-	</references>
 </ldml>
 

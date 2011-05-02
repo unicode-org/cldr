@@ -5,8 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
-import sun.text.normalizer.UTF16;
-
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.lang.CharSequences;
 
 /**

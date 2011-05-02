@@ -45,7 +45,7 @@ public class CheckDates extends CheckCLDR {
         //+ Utility.LINE_SEPARATOR + "\t\u200E{1}\u200E" + Utility.LINE_SEPARATOR + "\t\u200E{2}\u200E" + Utility.LINE_SEPARATOR + "\t\u200E{3}\u200E"
         ; // keep aligned with previous
 
-    private static final String DECIMAL_XPATH = "//ldml/numbers/symbols/decimal";
+    private static final String DECIMAL_XPATH = "//ldml/numbers/symbols[@numberSystem='latn']/decimal";
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;

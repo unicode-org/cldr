@@ -559,7 +559,7 @@ public class ICUServiceBuilder {
     // symbols.setSignificantDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/patternDigit"));
     
     symbols.setDecimalSeparator(getSymbolCharacter("decimal"));
-    symbols.setDigit(getSymbolCharacter("patternDigit"));
+//    symbols.setDigit(getSymbolCharacter("patternDigit"));
     symbols.setExponentSeparator(getSymbolString("exponential"));
     symbols.setGroupingSeparator(getSymbolCharacter("group"));
     symbols.setInfinity(getSymbolString("infinity"));
@@ -569,7 +569,7 @@ public class ICUServiceBuilder {
     symbols.setPercent(getSymbolCharacter("percentSign"));
     symbols.setPerMill(getSymbolCharacter("perMille"));
     symbols.setPlusSign(getSymbolCharacter("plusSign"));
-    symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit"));
+//    symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit"));
     
     try {
         symbols.setMonetaryDecimalSeparator(getSymbolCharacter("currencyDecimal"));
@@ -603,12 +603,14 @@ public class ICUServiceBuilder {
   
   private String getSymbolString(String key) {
     String value = null;
+    String numsys = null;
     try {
-      value = cldrFile.getWinningValue("//ldml/numbers/symbols/" + key);
+      numsys = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem"); 
+      value = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);
       value.charAt(0); // just throw error if not big enough or null
       return value;
     } catch (RuntimeException e) {
-      throw new IllegalArgumentException("Illegal value <" + value + "> at " + "//ldml/numbers/symbols/" + key);
+      throw new IllegalArgumentException("Illegal value <" + value + "> at " + "//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);
     }
   }
 

@@ -7,8 +7,7 @@
 		<language type="ln"/> 
 	</identity>
 	<collations validSubLocales="ln_CD ln_CG">
-        <default type="alphanumeric"/>
-		<collation type="alphanumeric" draft="unconfirmed" alt="proposed">
+		<collation type="standard">
 			<rules>
 				<reset>E</reset>
 				<p>ɛ</p>
@@ -18,7 +17,7 @@
 				<t>Ɔ</t>
 			</rules>
 		</collation>
-		<collation type="phonemic" draft="unconfirmed" alt="proposed">
+		<collation type="phonemic">
 			<rules>
 				<reset>E</reset>
 				<p>ɛ</p>

@@ -19,7 +19,7 @@
 			<language type="ja">yaponcha</language>
 			<language type="pt">portugalcha</language>
 			<language type="ru">ruscha</language>
-			<language type="uz">o'zbekcha</language>
+			<language type="uz">oʼzbekcha</language>
 			<language type="zh">xitoycha</language>
 		</languages>
 		<scripts>
@@ -27,7 +27,7 @@
 			<script type="Latn">Lotin</script>
 		</scripts>
 		<territories>
-			<territory type="AF">Afgʿoniston</territory>
+			<territory type="AF">Afgʼoniston</territory>
 			<territory type="BR">Braziliya</territory>
 			<territory type="CN">Xitoy</territory>
 			<territory type="DE">Olmoniya</territory>
@@ -37,13 +37,14 @@
 			<territory type="IT">Italiya</territory>
 			<territory type="JP">Yaponiya</territory>
 			<territory type="RU">Rossiya</territory>
-			<territory type="US">Qo'shma Shtatlar</territory>
-			<territory type="UZ">Oʿzbekiston</territory>
+			<territory type="US">Qoʼshma Shtatlar</territory>
+			<territory type="UZ">Oʼzbekiston</territory>
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a b c d e f g h i j k l m n o p q r s t u v x y z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters>[a {aʼ} b d e {eʼ} f g h i {iʼ} j k l m n o p q r s t u {uʼ} v x y z {oʼ} {gʼ} {sh} {ch}]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[c w]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B D E F G H I J K L M N O P Q R S T U V X Y Z {Oʼ} {Gʼ} {SH} {CH}]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -51,67 +52,81 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">Yanv</month>
-							<month type="2" draft="unconfirmed">Fev</month>
-							<month type="3" draft="unconfirmed">Mar</month>
-							<month type="4" draft="unconfirmed">Apr</month>
-							<month type="5" draft="unconfirmed">May</month>
-							<month type="6" draft="unconfirmed">Iyun</month>
-							<month type="7" draft="unconfirmed">Iyul</month>
-							<month type="8" draft="unconfirmed">Avg</month>
-							<month type="9" draft="unconfirmed">Sen</month>
-							<month type="10" draft="unconfirmed">Okt</month>
-							<month type="11" draft="unconfirmed">Noya</month>
-							<month type="12" draft="unconfirmed">Dek</month>
+							<month type="1">Yanv</month>
+							<month type="2">Fev</month>
+							<month type="3">Mar</month>
+							<month type="4">Apr</month>
+							<month type="5">May</month>
+							<month type="6">Iyun</month>
+							<month type="7">Iyul</month>
+							<month type="8">Avg</month>
+							<month type="9">Sen</month>
+							<month type="10">Okt</month>
+							<month type="11">Noya</month>
+							<month type="12">Dek</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Yanvar</month>
+							<month type="2">Fevral</month>
+							<month type="3">Mart</month>
+							<month type="4">Aprel</month>
+							<month type="5">May</month>
+							<month type="6">Iyun</month>
+							<month type="7">Iyul</month>
+							<month type="8">Avgust</month>
+							<month type="9">Sentyabr</month>
+							<month type="10">Oktyabr</month>
+							<month type="11">Noyabr</month>
+							<month type="12">Dekabr</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">Y</month>
-							<month type="2" draft="unconfirmed">F</month>
-							<month type="3" draft="unconfirmed">M</month>
-							<month type="4" draft="unconfirmed">A</month>
-							<month type="5" draft="unconfirmed">M</month>
-							<month type="6" draft="unconfirmed">I</month>
-							<month type="7" draft="unconfirmed">I</month>
-							<month type="8" draft="unconfirmed">A</month>
-							<month type="9" draft="unconfirmed">S</month>
-							<month type="10" draft="unconfirmed">O</month>
-							<month type="11" draft="unconfirmed">N</month>
-							<month type="12" draft="unconfirmed">D</month>
+							<month type="1">Y</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">I</month>
+							<month type="7">I</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">Yaksh</day>
-							<day type="mon" draft="unconfirmed">Dush</day>
-							<day type="tue" draft="unconfirmed">Sesh</day>
-							<day type="wed" draft="unconfirmed">Chor</day>
-							<day type="thu" draft="unconfirmed">Pay</day>
-							<day type="fri" draft="unconfirmed">Jum</day>
-							<day type="sat" draft="unconfirmed">Shan</day>
+							<day type="sun">Yaksh</day>
+							<day type="mon">Dush</day>
+							<day type="tue">Sesh</day>
+							<day type="wed">Chor</day>
+							<day type="thu">Pay</day>
+							<day type="fri">Cum</day>
+							<day type="sat">Shan</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">yakshanba</day>
-							<day type="mon" draft="unconfirmed">dushanba</day>
-							<day type="tue" draft="unconfirmed">seshanba</day>
-							<day type="wed" draft="unconfirmed">chorshanba</day>
-							<day type="thu" draft="unconfirmed">payshanba</day>
-							<day type="fri" draft="unconfirmed">juma</day>
-							<day type="sat" draft="unconfirmed">shanba</day>
+							<day type="sun">yakshanba</day>
+							<day type="mon">dushanba</day>
+							<day type="tue">seshanba</day>
+							<day type="wed">chorshanba</day>
+							<day type="thu">payshanba</day>
+							<day type="fri">cuma</day>
+							<day type="sat">shanba</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">Y</day>
-							<day type="mon" draft="unconfirmed">D</day>
-							<day type="tue" draft="unconfirmed">S</day>
-							<day type="wed" draft="unconfirmed">C</day>
-							<day type="thu" draft="unconfirmed">P</day>
-							<day type="fri" draft="unconfirmed">J</day>
-							<day type="sat" draft="unconfirmed">S</day>
+							<day type="sun">Y</day>
+							<day type="mon">D</day>
+							<day type="tue">S</day>
+							<day type="wed">C</day>
+							<day type="thu">P</day>
+							<day type="fri">C</day>
+							<day type="sat">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -168,10 +183,10 @@
 							<month type="4" draft="unconfirmed">Rabiul-oxir</month>
 							<month type="5" draft="unconfirmed">Jumodiul-ulo</month>
 							<month type="6" draft="unconfirmed">Jumodiul-uxro</month>
-							<month type="8" draft="unconfirmed">Shaʿbon</month>
+							<month type="8" draft="unconfirmed">Shaʼbon</month>
 							<month type="9" draft="unconfirmed">Ramazon</month>
 							<month type="10" draft="unconfirmed">Shavvol</month>
-							<month type="11" draft="unconfirmed">Zil-qaʿda</month>
+							<month type="11" draft="unconfirmed">Zil-qaʼda</month>
 							<month type="12" draft="unconfirmed">Zil-hijja</month>
 						</monthWidth>
 					</monthContext>
@@ -210,8 +225,8 @@
 				<displayName draft="unconfirmed">AQSH dollari</displayName>
 			</currency>
 			<currency type="UZS">
-				<displayName draft="unconfirmed">Oʿzbekiston soʿm</displayName>
-				<symbol draft="unconfirmed">soʿm</symbol>
+				<displayName draft="unconfirmed">Oʼzbekiston soʼm</displayName>
+				<symbol draft="unconfirmed">soʼm</symbol>
 			</currency>
 		</currencies>
 	</numbers>

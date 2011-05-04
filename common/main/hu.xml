@@ -1832,9 +1832,6 @@
 							<month type="12" draft="contributed">Áv</month>
 							<month type="13" draft="contributed">Elul</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="12" draft="contributed">Áv</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Tisri</month>
 							<month type="2">Hesván</month>
@@ -1847,7 +1844,9 @@
 							<month type="8">Niszán</month>
 							<month type="9">Ijár</month>
 							<month type="10">Sziván</month>
+							<month type="11">Tamuz</month>
 							<month type="12">Áv</month>
+							<month type="13">Elul</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1866,9 +1865,6 @@
 							<month type="11" draft="contributed">Tamuz</month>
 							<month type="12" draft="contributed">Áv</month>
 							<month type="13" draft="contributed">Elul</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="12" draft="contributed">Áv</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Tisri</month>
@@ -1961,10 +1957,6 @@
 			<calendar type="islamic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="11" draft="contributed">Dsül-Q.</month>
-							<month type="12" draft="contributed">Dsül-H.</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="contributed">1</month>
 							<month type="2" draft="contributed">2</month>
@@ -1981,6 +1973,7 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Moharrem</month>
+							<month type="2">Safar</month>
 							<month type="3">Rébi el avvel</month>
 							<month type="4">Rébi el accher</month>
 							<month type="5">Dsemádi el avvel</month>

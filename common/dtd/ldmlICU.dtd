@@ -42,7 +42,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT icu:boundaries (alias | (icu:grapheme?, icu:word?, icu:line?, icu:sentence?, icu:title?, icu:xgc?)) >
 
-<!ELEMENT icu:dictionaries (alias | (icu:dictionary?)) >
+<!ELEMENT icu:dictionaries (alias | (icu:dictionary*)) >
 
 <!ELEMENT icu:dictionary ( #PCDATA ) >
 <!ATTLIST icu:dictionary icu:dependency NMTOKEN #IMPLIED >

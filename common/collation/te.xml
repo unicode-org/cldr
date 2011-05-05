@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="te" /> 
+	</identity>
+	<collations  validSubLocales="te_IN">
+		<collation type="standard" references="Brown: Telugu-English Dictionary ISBN:8120600371">
+			<settings normalization="on"/>
+			<rules>
+			<!--
+			The following tailoring is an adjustment of the
+			DUCET collation order for CANDRABINDU, ANUSVARA,
+			and VISARGA. Instead of being sorted with secondary
+			weights, they are collated on primary level between
+			the independent vowels and the consonants.
+			-->
+				<reset>ఔ</reset>
+					<p>ఁ</p>
+					<p>ం</p>
+					<p>ః</p>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

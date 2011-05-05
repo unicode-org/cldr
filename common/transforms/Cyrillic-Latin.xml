@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Cyrillic" target="Latin" direction="both">
+			<comment># TODO: add remaining characters</comment>
+			<comment># Should add variants for Russian-English, Russian-German</comment>
+			<comment># Those can use this as a base, and then remap cases</comment>
+			<comment># like a $hat to ya or ja.</comment>
+			<comment># :: [\u0000-\u007E ʹ ʺ [:Cyrillic:] [:Latin:] [:nonspacing mark:]] ;</comment>
+			<comment>### WARNING, ̈ must be added to the generated filters, in both directions ###</comment>
+			<comment># MINIMAL FILTER</comment>
+			<tRule>:: [Ққ̈Ă-ăĔ-ĕĞ-ğĬ-ĭŎ-ŏŬ-ŭ̆Ѐ-џҐ-ҕҘ-ҙӁ-ӂӐ-ӟӢ-ӧӬ-ӵӸ-ӹḜ-ḝẮ-ặᾰᾸῐῘῠῨ] ;</tRule>
+			<tRule>:: NFD (NFC) ;</tRule>
+			<tRule>$modprime = ʹ;</tRule>
+			<tRule>$modprime2 = ʺ;</tRule>
+			<tRule>$grave = ̀;</tRule>
+			<tRule>$acute = ́;</tRule>
+			<tRule>$hat = ̂;</tRule>
+			<tRule>$breve = ̆ ;</tRule>
+			<tRule>$dot = ̇ ;</tRule>
+			<tRule>$caron = ̌ ;</tRule>
+			<tRule>$comma = ̦ ;</tRule>
+			<tRule>$under = ̱ ;</tRule>
+			<tRule>$descender = ˌ;</tRule>
+			<comment># move up so not masked</comment>
+			<tRule>я ↔ a  $hat ; # CYRILLIC SMALL LETTER YA</tRule>
+			<tRule>Я ↔  A $hat ; # CYRILLIC CAPITAL LETTER YA</tRule>
+			<tRule>ч ↔ c $caron ; # CYRILLIC SMALL LETTER CHE</tRule>
+			<tRule>Ч ↔ C $caron; # CYRILLIC CAPITAL LETTER CHE</tRule>
+			<comment># ҷ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH DESCENDER</comment>
+			<comment># Ҷ ↔ XXX ; # CYRILLIC CAPITAL LETTER CHE WITH DESCENDER</comment>
+			<comment># ӌ ↔ XXX ; # CYRILLIC SMALL LETTER KHAKASSIAN CHE</comment>
+			<comment># Ӌ ↔ XXX ; # CYRILLIC CAPITAL LETTER KHAKASSIAN CHE</comment>
+			<comment># ҹ ↔ XXX ; # CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE</comment>
+			<comment># Ҹ ↔ XXX ; # CYRILLIC CAPITAL LETTER CHE WITH VERTICAL STROKE</comment>
+			<tRule>э ↔ e $acute; # CYRILLIC SMALL LETTER E</tRule>
+			<tRule>Э ↔ E $acute; # CYRILLIC CAPITAL LETTER E</tRule>
+			<tRule>є ↔ e $hat; # CYRILLIC SMALL LETTER UKRAINIAN IE</tRule>
+			<tRule>Є ↔ E $hat; # CYRILLIC CAPITAL LETTER UKRAINIAN IE</tRule>
+			<tRule>ш ↔ s $caron ; # CYRILLIC SMALL LETTER SHA</tRule>
+			<tRule>Ш ↔ S $caron ; # CYRILLIC CAPITAL LETTER SHA</tRule>
+			<tRule>щ ↔ s $hat ; # CYRILLIC SMALL LETTER SHCHA</tRule>
+			<tRule>Щ ↔ S $hat; # CYRILLIC CAPITAL LETTER SHCHA</tRule>
+			<tRule>ѕ ↔ z $hat ; # CYRILLIC SMALL LETTER DZE</tRule>
+			<tRule>Ѕ ↔ Z $hat; # CYRILLIC CAPITAL LETTER DZE</tRule>
+			<comment># ӡ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN DZE</comment>
+			<comment># Ӡ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN DZE</comment>
+			<tRule>ю ↔ u $hat ; # CYRILLIC SMALL LETTER YU</tRule>
+			<tRule>Ю ↔  U $hat ; # CYRILLIC CAPITAL LETTER YU</tRule>
+			<tRule>і ↔ i $acute; # CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I</tRule>
+			<tRule>І ↔ I $acute; # CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I</tRule>
+			<tRule>ј ↔ j $caron; # CYRILLIC SMALL LETTER JE</tRule>
+			<tRule>Ј ↔ J $caron; # CYRILLIC CAPITAL LETTER JE</tRule>
+			<tRule>љ ↔ l $hat ; # CYRILLIC SMALL LETTER LJE</tRule>
+			<tRule>Љ ↔ L $hat ; # CYRILLIC CAPITAL LETTER LJE</tRule>
+			<tRule>њ ↔ n $hat ; # CYRILLIC SMALL LETTER NJE</tRule>
+			<tRule>Њ ↔ N $hat ; # CYRILLIC CAPITAL LETTER NJE</tRule>
+			<tRule>ћ ↔ c $acute ; # CYRILLIC SMALL LETTER TSHE</tRule>
+			<tRule>Ћ ↔ C $acute ; # CYRILLIC CAPITAL LETTER TSHE</tRule>
+			<tRule>џ ↔ d $hat ; # CYRILLIC SMALL LETTER DZHE</tRule>
+			<tRule>Џ ↔ D $hat ; # CYRILLIC CAPITAL LETTER DZHE</tRule>
+			<comment># Normal order</comment>
+			<tRule>а ↔ a ; # CYRILLIC SMALL LETTER A</tRule>
+			<tRule>А ↔ A ; # CYRILLIC CAPITAL LETTER A</tRule>
+			<tRule>ә ↔  ə ; # CYRILLIC SMALL LETTER SCHWA</tRule>
+			<tRule>Ә ↔ Ə ; # CYRILLIC CAPITAL LETTER SCHWA</tRule>
+			<tRule>ӕ ↔ æ ; # CYRILLIC SMALL LIGATURE A IE</tRule>
+			<tRule>Ӕ ↔ Æ ; # CYRILLIC CAPITAL LIGATURE A IE</tRule>
+			<tRule>б ↔ b ; # CYRILLIC SMALL LETTER BE</tRule>
+			<tRule>Б ↔ B ; # CYRILLIC CAPITAL LETTER BE</tRule>
+			<tRule>в ↔ v ; # CYRILLIC SMALL LETTER VE</tRule>
+			<tRule>В ↔ V ; # CYRILLIC CAPITAL LETTER VE</tRule>
+			<tRule>ґ ↔ g $grave ; # CYRILLIC SMALL LETTER GHE WITH UPTURN</tRule>
+			<tRule>Ґ ↔ G $grave ; # CYRILLIC CAPITAL LETTER GHE WITH UPTURN</tRule>
+			<tRule>ғ ↔ g $dot ; # CYRILLIC SMALL LETTER GHE WITH STROKE</tRule>
+			<tRule>Ғ ↔ G $dot; # CYRILLIC CAPITAL LETTER GHE WITH STROKE</tRule>
+			<tRule>ҕ ↔ g $breve; # CYRILLIC SMALL LETTER GHE WITH MIDDLE HOOK</tRule>
+			<tRule>Ҕ ↔ G $breve; # CYRILLIC CAPITAL LETTER GHE WITH MIDDLE HOOK</tRule>
+			<tRule>г ↔ g ; # CYRILLIC SMALL LETTER GHE</tRule>
+			<tRule>Г ↔ G ; # CYRILLIC CAPITAL LETTER GHE</tRule>
+			<tRule>д ↔ d; # CYRILLIC SMALL LETTER DE</tRule>
+			<tRule>Д ↔ D; # CYRILLIC CAPITAL LETTER DE</tRule>
+			<tRule>ђ ↔ đ ; # CYRILLIC SMALL LETTER DJE</tRule>
+			<tRule>Ђ ↔ Đ ; # CYRILLIC CAPITAL LETTER DJE</tRule>
+			<tRule>ҙ ↔ z $comma ; # CYRILLIC SMALL LETTER ZE WITH DESCENDER</tRule>
+			<tRule>Ҙ ↔ Z $comma ; # CYRILLIC CAPITAL LETTER ZE WITH DESCENDER</tRule>
+			<tRule>е ↔ e ; # CYRILLIC SMALL LETTER IE</tRule>
+			<tRule>Е ↔ E; # CYRILLIC CAPITAL LETTER IE</tRule>
+			<tRule>ж ↔ z $caron; # CYRILLIC SMALL LETTER ZHE</tRule>
+			<tRule>Ж ↔ Z $caron; # CYRILLIC CAPITAL LETTER ZHE</tRule>
+			<comment># җ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE WITH DESCENDER</comment>
+			<comment># Җ ↔ XXX ; # CYRILLIC CAPITAL LETTER ZHE WITH DESCENDER</comment>
+			<tRule>з ↔ z ; # CYRILLIC SMALL LETTER ZE</tRule>
+			<tRule>З ↔ Z; # CYRILLIC CAPITAL LETTER ZE</tRule>
+			<tRule>й ↔ j ; # CYRILLIC SMALL LETTER I</tRule>
+			<tRule>Й ↔ J ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>и ↔ i ; # CYRILLIC SMALL LETTER I</tRule>
+			<tRule>И ↔ I ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>қ ↔ k $descender ; # CYRILLIC SMALL LETTER KA WITH DESCENDER</tRule>
+			<tRule>Қ ↔ K $descender ; # CYRILLIC CAPITAL LETTER KA WITH DESCENDER</tRule>
+			<tRule>к ↔ k ; # CYRILLIC SMALL LETTER KA</tRule>
+			<tRule>К ↔ K; # CYRILLIC CAPITAL LETTER KA</tRule>
+			<comment># ӄ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH HOOK</comment>
+			<comment># Ӄ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH HOOK</comment>
+			<comment># ҡ ↔ XXX ; # CYRILLIC SMALL LETTER BASHKIR KA</comment>
+			<comment># Ҡ ↔ XXX ; # CYRILLIC CAPITAL LETTER BASHKIR KA</comment>
+			<comment># ҟ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH STROKE</comment>
+			<comment># Ҟ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH STROKE</comment>
+			<comment># ҝ ↔ XXX ; # CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE</comment>
+			<comment># Ҝ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE</comment>
+			<tRule>л ↔ l ; # CYRILLIC SMALL LETTER EL</tRule>
+			<tRule>Л ↔ L; # CYRILLIC CAPITAL LETTER EL</tRule>
+			<tRule>м ↔ m ; # CYRILLIC SMALL LETTER EM</tRule>
+			<tRule>М ↔ M ; # CYRILLIC CAPITAL LETTER EM</tRule>
+			<tRule>н ↔ n ; # CYRILLIC SMALL LETTER EN</tRule>
+			<tRule>Н ↔ N; # CYRILLIC CAPITAL LETTER EN</tRule>
+			<comment># ң ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH DESCENDER</comment>
+			<comment># Ң ↔ XXX ; # CYRILLIC CAPITAL LETTER EN WITH DESCENDER</comment>
+			<comment># ӈ ↔ XXX ; # CYRILLIC SMALL LETTER EN WITH HOOK</comment>
+			<comment># Ӈ ↔ XXX ; # CYRILLIC CAPITAL LETTER EN WITH HOOK</comment>
+			<comment># ҥ ↔ XXX ; # CYRILLIC SMALL LIGATURE EN GHE</comment>
+			<comment># Ҥ ↔ XXX ; # CYRILLIC CAPITAL LIGATURE EN GHE</comment>
+			<tRule>о ↔ o ; # CYRILLIC SMALL LETTER O</tRule>
+			<tRule>О ↔ O ; # CYRILLIC CAPITAL LETTER O</tRule>
+			<comment># ө ↔ XXX ; # CYRILLIC SMALL LETTER BARRED O</comment>
+			<comment># Ө ↔ XXX ; # CYRILLIC CAPITAL LETTER BARRED O</comment>
+			<tRule>п ↔ p ; # CYRILLIC SMALL LETTER PE</tRule>
+			<tRule>П ↔ P ; # CYRILLIC CAPITAL LETTER PE</tRule>
+			<comment># ҧ ↔ XXX ; # CYRILLIC SMALL LETTER PE WITH MIDDLE HOOK</comment>
+			<comment># Ҧ ↔ XXX ; # CYRILLIC CAPITAL LETTER PE WITH MIDDLE HOOK</comment>
+			<comment># ҁ ↔ XXX ; # CYRILLIC SMALL LETTER KOPPA</comment>
+			<comment># Ҁ ↔ XXX ; # CYRILLIC CAPITAL LETTER KOPPA</comment>
+			<tRule>р ↔ r ; # CYRILLIC SMALL LETTER ER</tRule>
+			<tRule>Р ↔ R ; # CYRILLIC CAPITAL LETTER ER</tRule>
+			<comment># ҏ ↔ XXX ; # CYRILLIC SMALL LETTER ER WITH TICK</comment>
+			<comment># Ҏ ↔ XXX ; # CYRILLIC CAPITAL LETTER ER WITH TICK</comment>
+			<tRule>с ↔ s ; # CYRILLIC SMALL LETTER ES</tRule>
+			<tRule>С ↔ S ; # CYRILLIC CAPITAL LETTER ES</tRule>
+			<comment># ҫ ↔ XXX ; # CYRILLIC SMALL LETTER ES WITH DESCENDER</comment>
+			<comment># Ҫ ↔ XXX ; # CYRILLIC CAPITAL LETTER ES WITH DESCENDER</comment>
+			<tRule>т ↔ t ; # CYRILLIC SMALL LETTER TE</tRule>
+			<tRule>Т ↔ T ; # CYRILLIC CAPITAL LETTER TE</tRule>
+			<comment># ҭ ↔ XXX ; # CYRILLIC SMALL LETTER TE WITH DESCENDER</comment>
+			<comment># Ҭ ↔ XXX ; # CYRILLIC CAPITAL LETTER TE WITH DESCENDER</comment>
+			<tRule>у ↔ u ; # CYRILLIC SMALL LETTER U</tRule>
+			<tRule>У ↔ U ; # CYRILLIC CAPITAL LETTER U</tRule>
+			<comment># ү ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U</comment>
+			<comment># Ү ↔ XXX ; # CYRILLIC CAPITAL LETTER STRAIGHT U</comment>
+			<comment># ұ ↔ XXX ; # CYRILLIC SMALL LETTER STRAIGHT U WITH STROKE</comment>
+			<comment># Ұ ↔ XXX ; # CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE</comment>
+			<comment># ѹ ↔ XXX ; # CYRILLIC SMALL LETTER UK</comment>
+			<comment># Ѹ ↔ XXX ; # CYRILLIC CAPITAL LETTER UK</comment>
+			<tRule>ф ↔ f ; # CYRILLIC SMALL LETTER EF</tRule>
+			<tRule>Ф ↔ F ; # CYRILLIC CAPITAL LETTER EF</tRule>
+			<tRule>х ↔ h ; # CYRILLIC SMALL LETTER HA</tRule>
+			<tRule>Х ↔ H; # CYRILLIC CAPITAL LETTER HA</tRule>
+			<comment># ҳ ↔ XXX ; # CYRILLIC SMALL LETTER HA WITH DESCENDER</comment>
+			<comment># Ҳ ↔ XXX ; # CYRILLIC CAPITAL LETTER HA WITH DESCENDER</comment>
+			<comment># һ ↔ XXX ; # CYRILLIC SMALL LETTER SHHA</comment>
+			<comment># Һ ↔ XXX ; # CYRILLIC CAPITAL LETTER SHHA</comment>
+			<comment># ѡ ↔ XXX ; # CYRILLIC SMALL LETTER OMEGA</comment>
+			<comment># Ѡ ↔ XXX ; # CYRILLIC CAPITAL LETTER OMEGA</comment>
+			<comment># ѿ ↔ XXX ; # CYRILLIC SMALL LETTER OT</comment>
+			<comment># Ѿ ↔ XXX ; # CYRILLIC CAPITAL LETTER OT</comment>
+			<comment># ѽ ↔ XXX ; # CYRILLIC SMALL LETTER OMEGA WITH TITLO</comment>
+			<comment># Ѽ ↔ XXX ; # CYRILLIC CAPITAL LETTER OMEGA WITH TITLO</comment>
+			<comment># ѻ ↔ XXX ; # CYRILLIC SMALL LETTER ROUND OMEGA</comment>
+			<comment># Ѻ ↔ XXX ; # CYRILLIC CAPITAL LETTER ROUND OMEGA</comment>
+			<tRule>ц ↔ c ; # CYRILLIC SMALL LETTER TSE</tRule>
+			<tRule>Ц ↔ C; # CYRILLIC CAPITAL LETTER TSE</tRule>
+			<comment># ҵ ↔ XXX ; # CYRILLIC SMALL LIGATURE TE TSE</comment>
+			<comment># Ҵ ↔ XXX ; # CYRILLIC CAPITAL LIGATURE TE TSE</comment>
+			<comment># ҽ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN CHE</comment>
+			<comment># Ҽ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN CHE</comment>
+			<comment># ҿ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN CHE WITH DESCENDER</comment>
+			<comment># Ҿ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN CHE WITH DESCENDER</comment>
+			<tRule>Ъ ↔ $modprime2 $under ; # CYRILLIC CAPITAL LETTER HARD SIGN</tRule>
+			<tRule>ъ ↔  $modprime2 ; # CYRILLIC SMALL LETTER HARD SIGN</tRule>
+			<tRule>Ь ↔ $modprime $under ; # CYRILLIC CAPITAL LETTER SOFT SIGN</tRule>
+			<tRule>ь ↔  $modprime ; # CYRILLIC SMALL LETTER SOFT SIGN</tRule>
+			<tRule>ы ↔ y ; # CYRILLIC SMALL LETTER YERU</tRule>
+			<tRule>Ы ↔ Y ; # CYRILLIC CAPITAL LETTER YERU</tRule>
+			<comment># ҍ ↔ XXX ; # CYRILLIC SMALL LETTER SEMISOFT SIGN</comment>
+			<comment># Ҍ ↔ XXX ; # CYRILLIC CAPITAL LETTER SEMISOFT SIGN</comment>
+			<comment># ѣ ↔ XXX ; # CYRILLIC SMALL LETTER YAT</comment>
+			<comment># Ѣ ↔ XXX ; # CYRILLIC CAPITAL LETTER YAT</comment>
+			<comment># ѥ ↔ XXX ; # CYRILLIC SMALL LETTER IOTIFIED E</comment>
+			<comment># Ѥ ↔ XXX ; # CYRILLIC CAPITAL LETTER IOTIFIED E</comment>
+			<comment># ѧ ↔ XXX ; # CYRILLIC SMALL LETTER LITTLE YUS</comment>
+			<comment># Ѧ ↔ XXX ; # CYRILLIC CAPITAL LETTER LITTLE YUS</comment>
+			<comment># ѫ ↔ XXX ; # CYRILLIC SMALL LETTER BIG YUS</comment>
+			<comment># Ѫ ↔ XXX ; # CYRILLIC CAPITAL LETTER BIG YUS</comment>
+			<comment># ѩ ↔ XXX ; # CYRILLIC SMALL LETTER IOTIFIED LITTLE YUS</comment>
+			<comment># Ѩ ↔ XXX ; # CYRILLIC CAPITAL LETTER IOTIFIED LITTLE YUS</comment>
+			<comment># ѭ ↔ XXX ; # CYRILLIC SMALL LETTER IOTIFIED BIG YUS</comment>
+			<comment># Ѭ ↔ XXX ; # CYRILLIC CAPITAL LETTER IOTIFIED BIG YUS</comment>
+			<comment># ѯ ↔ XXX ; # CYRILLIC SMALL LETTER KSI</comment>
+			<comment># Ѯ ↔ XXX ; # CYRILLIC CAPITAL LETTER KSI</comment>
+			<comment># ѱ ↔ XXX ; # CYRILLIC SMALL LETTER PSI</comment>
+			<comment># Ѱ ↔ XXX ; # CYRILLIC CAPITAL LETTER PSI</comment>
+			<comment># ѳ ↔ XXX ; # CYRILLIC SMALL LETTER FITA</comment>
+			<comment># Ѳ ↔ XXX ; # CYRILLIC CAPITAL LETTER FITA</comment>
+			<comment># ѵ ↔ XXX ; # CYRILLIC SMALL LETTER IZHITSA</comment>
+			<comment># Ѵ ↔ XXX ; # CYRILLIC CAPITAL LETTER IZHITSA</comment>
+			<comment># ҩ ↔ XXX ; # CYRILLIC SMALL LETTER ABKHASIAN HA</comment>
+			<comment># Ҩ ↔ XXX ; # CYRILLIC CAPITAL LETTER ABKHASIAN HA</comment>
+			<comment># Ӏ ↔ XXX ; # CYRILLIC LETTER PALOCHKA</comment>
+			<comment>### ӑ ↔ XXX ; # CYRILLIC SMALL LETTER A</comment>
+			<comment>### Ӑ ↔ XXX ; # CYRILLIC CAPITAL LETTER A</comment>
+			<comment>### ӓ ↔ XXX ; # CYRILLIC SMALL LETTER A</comment>
+			<comment>### Ӓ ↔ XXX ; # CYRILLIC CAPITAL LETTER A</comment>
+			<comment>### ӛ ↔ XXX ; # CYRILLIC SMALL LETTER SCHWA</comment>
+			<comment>### Ӛ ↔ XXX ; # CYRILLIC CAPITAL LETTER SCHWA</comment>
+			<comment>### ѓ ↔ XXX ; # CYRILLIC SMALL LETTER GHE</comment>
+			<comment>### Ѓ ↔ XXX ; # CYRILLIC CAPITAL LETTER GHE</comment>
+			<comment>### ѐ ↔ XXX ; # CYRILLIC SMALL LETTER IE</comment>
+			<comment>### Ѐ ↔ XXX ; # CYRILLIC CAPITAL LETTER IE</comment>
+			<comment>### ё ↔ XXX ; # CYRILLIC SMALL LETTER IE</comment>
+			<comment>### Ё ↔ XXX ; # CYRILLIC CAPITAL LETTER IE</comment>
+			<comment>### ӗ ↔ XXX ; # CYRILLIC SMALL LETTER IE</comment>
+			<comment>### Ӗ ↔ XXX ; # CYRILLIC CAPITAL LETTER IE</comment>
+			<comment>### ӂ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE</comment>
+			<comment>### Ӂ ↔ XXX ; # CYRILLIC CAPITAL LETTER ZHE</comment>
+			<comment>### ӝ ↔ XXX ; # CYRILLIC SMALL LETTER ZHE</comment>
+			<comment>### Ӝ ↔ XXX ; # CYRILLIC CAPITAL LETTER ZHE</comment>
+			<comment>### ӟ ↔ XXX ; # CYRILLIC SMALL LETTER ZE</comment>
+			<comment>### Ӟ ↔ XXX ; # CYRILLIC CAPITAL LETTER ZE</comment>
+			<comment>### ѝ ↔ XXX ; # CYRILLIC SMALL LETTER I</comment>
+			<comment>### Ѝ ↔ XXX ; # CYRILLIC CAPITAL LETTER I</comment>
+			<comment>### ӣ ↔ XXX ; # CYRILLIC SMALL LETTER I</comment>
+			<comment>### Ӣ ↔ XXX ; # CYRILLIC CAPITAL LETTER I</comment>
+			<comment>### ӥ ↔ XXX ; # CYRILLIC SMALL LETTER I</comment>
+			<comment>### Ӥ ↔ XXX ; # CYRILLIC CAPITAL LETTER I</comment>
+			<comment>### ї ↔ XXX ; # CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I</comment>
+			<comment>### Ї ↔ XXX ; # CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I</comment>
+			<comment>### ӧ ↔ XXX ; # CYRILLIC SMALL LETTER O</comment>
+			<comment>### Ӧ ↔ XXX ; # CYRILLIC CAPITAL LETTER O</comment>
+			<comment>### ӫ ↔ XXX ; # CYRILLIC SMALL LETTER BARRED O</comment>
+			<comment>### Ӫ ↔ XXX ; # CYRILLIC CAPITAL LETTER BARRED O</comment>
+			<comment>### ќ ↔ XXX ; # CYRILLIC SMALL LETTER KA</comment>
+			<comment>### Ќ ↔ XXX ; # CYRILLIC CAPITAL LETTER KA</comment>
+			<comment>### ӯ ↔ XXX ; # CYRILLIC SMALL LETTER U</comment>
+			<comment>### Ӯ ↔ XXX ; # CYRILLIC CAPITAL LETTER U</comment>
+			<comment>### ў ↔ XXX ; # CYRILLIC SMALL LETTER U</comment>
+			<comment>### Ў ↔ XXX ; # CYRILLIC CAPITAL LETTER U</comment>
+			<comment>### ӱ ↔ XXX ; # CYRILLIC SMALL LETTER U</comment>
+			<comment>### Ӱ ↔ XXX ; # CYRILLIC CAPITAL LETTER U</comment>
+			<comment>### ӳ ↔ XXX ; # CYRILLIC SMALL LETTER U</comment>
+			<comment>### Ӳ ↔ XXX ; # CYRILLIC CAPITAL LETTER U</comment>
+			<comment>### ӵ ↔ XXX ; # CYRILLIC SMALL LETTER CHE</comment>
+			<comment>### Ӵ ↔ XXX ; # CYRILLIC CAPITAL LETTER CHE</comment>
+			<comment>### ӹ ↔ XXX ; # CYRILLIC SMALL LETTER YERU</comment>
+			<comment>### Ӹ ↔ XXX ; # CYRILLIC CAPITAL LETTER YERU</comment>
+			<comment>### ӭ ↔ XXX ; # CYRILLIC SMALL LETTER E</comment>
+			<comment>### Ӭ ↔ XXX ; # CYRILLIC CAPITAL LETTER E</comment>
+			<comment>### ѷ ↔ XXX ; # CYRILLIC SMALL LETTER IZHITSA</comment>
+			<comment>### Ѷ ↔ XXX ; # CYRILLIC CAPITAL LETTER IZHITSA</comment>
+			<comment># Completeness</comment>
+			<tRule>$ignore = [[:Mark:]''] * ;</tRule>
+			<tRule>| k ← q ;</tRule>
+			<tRule>| K ← Q ;</tRule>
+			<tRule>| u ← w ;</tRule>
+			<tRule>| U ← W ;</tRule>
+			<tRule>| KS ← X } $ignore [:UppercaseLetter:] ;</tRule>
+			<tRule>| KS ← [:UppercaseLetter:] $ignore { X ;</tRule>
+			<tRule>| Ks ← X ;</tRule>
+			<tRule>| ks ← x ;</tRule>
+			<tRule>:: NFC (NFD) ;</tRule>
+			<comment># note: a global filter is more efficient, but MUST include all source chars!!</comment>
+			<comment># :: ([\u0000-\u007E ʹ ʺ [:Cyrillic:] [:Latin:] [:nonspacing mark:]]);</comment>
+			<comment># MINIMAL FILTER: Latin-Cyrillic</comment>
+			<tRule>:: ( [ˌ̈A-Za-zÀ-ÏÑ-ÖÙ-Ýà-ïñ-öù-ýÿ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƏƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǰǴ-ǵǸ-țȞ-ȟȦ-ȳəʹ-ʺ̀-̂̆-̦̱̇̌̀-́̈́ʹ΅-ΆΈ-ΊΌΎ-ΐά-ΰό-ώϓЀЃЌ-ЎЙйѐѓќ-ўӁ-ӂӐ-ӑӖ-ӗḀ-ẙẛẠ-ỹἂ-ἅἊ-Ἅἒ-ἕἚ-Ἕἢ-ἥἪ-Ἥἲ-ἵἺ-Ἵὂ-ὅὊ-Ὅὒ-ὕὛὝὢ-ὥὪ-Ὥὰ-ώᾂ-ᾅᾊ-ᾍᾒ-ᾕᾚ-ᾝᾢ-ᾥᾪ-ᾭᾰᾲᾴᾸᾺ-ΆῂῄῈ-Ή῍-῎ῐῒ-ΐῘῚ-Ί῝-῞ῠῢ-ΰῨῪ-Ύ῭-΅ῲῴῸ-ΏK-Å] ) ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

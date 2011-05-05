@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="es" target="ja" direction="forward">
+			<comment>
+			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+			# Author: sascha@google.com (Sascha Brawer)
+			#
+			</comment>
+			<tRule>::es-es_FONIPA;</tRule>
+			<tRule>::es_FONIPA-ja;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

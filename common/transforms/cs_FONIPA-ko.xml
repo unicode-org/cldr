@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="cs_FONIPA" target="ko" direction="forward">
+			<comment>
+			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+			# Author: sascha@google.com (Sascha Brawer)
+			# Transliteration of Phonemic Czech (cs_FONIPA) to Korean (ko).
+			#
+			# First pass: Phonemic Czech (cs_FONIPA) to Latinized Korean (ko_Latn).
+			</comment>
+			<tRule>$vowel = [aeɛiɪoux];</tRule>
+			<tRule>$start = [\u0020$];</tRule>
+			<tRule>$end = [\u0020$];</tRule>
+			<tRule>b } $end   → peu ;</tRule>
+			<tRule>b } $vowel → b ;</tRule>
+			<tRule>bj } $vowel → b ;  # objɛc → obeti</tRule>
+			<tRule>b          → beu ;</tRule>
+			<tRule>c } $end   → ti ;</tRule>
+			<tRule>c          → t ;</tRule>
+			<tRule>d͡z         → deuj ;</tRule>
+			<tRule>d } $end   → teu ;</tRule>
+			<tRule>d } $vowel → d ;</tRule>
+			<tRule>d          → deu ;</tRule>
+			<tRule>ɛ          → e ;</tRule>
+			<tRule>f } $vowel → p ;</tRule>
+			<tRule>f          → peu ;</tRule>
+			<tRule>ɡ } $vowel → g ;</tRule>
+			<tRule>ɡ          → geu ;</tRule>
+			<tRule>ɦ } $vowel → h ;</tRule>
+			<tRule>ɦ          → heu ;</tRule>
+			<tRule>h } $vowel → h ;</tRule>
+			<tRule>h          → heu ;</tRule>
+			<tRule>i          → i ;</tRule>
+			<tRule>ɪ          → i ;</tRule>
+			<tRule>j } $end   → i ;  # pokoj → pokoi</tRule>
+			<tRule>j          → y ;</tRule>
+			<tRule>kvu        → keub ;  # kvuasɪ → keubasi</tRule>
+			<tRule>ks } $end  → gseu ;  # ksɛroks → jelogseu</tRule>
+			<tRule>$start { ks → j ;  # ksɛroks → jelogseu</tRule>
+			<tRule>ks         → gs ;  # saksofoːn → sagsopon</tRule>
+			<tRule>k } $vowel → k ;</tRule>
+			<tRule>k          → keu ;</tRule>
+			<tRule>$vowel { l } $vowel → ll ;</tRule>
+			<tRule>lz         → lj ;</tRule>
+			<tRule>m } $end   → m ;</tRule>
+			<tRule>m } $vowel → m ;</tRule>
+			<tRule>m } [l]    → m ;</tRule>
+			<tRule>m          → meu ;</tRule>
+			<tRule>ɲ          → n ;</tRule>
+			<tRule>ŋ          → n ;</tRule>
+			<tRule>p } $vowel → p ;</tRule>
+			<tRule>p } t      → b ;  # koroptɛv</tRule>
+			<tRule>p          → peu ;</tRule>
+			<tRule>r̝ } $end   → leusi ; # kour̝ → kouleusi</tRule>
+			<tRule>r̝ } $vowel → leuj ;</tRule>
+			<tRule>r̝ } k      → leusyu ;  # ɦor̝kiː → holeusyuki</tRule>
+			<tRule>r̝          → leuju ;</tRule>
+			<tRule>r } $vowel → l ;</tRule>
+			<tRule>r          → leu ;</tRule>
+			<tRule>s } $vowel → s ;</tRule>
+			<tRule>s          → seu ;</tRule>
+			<tRule>ʃ } $end   → si ;</tRule>
+			<tRule>ʃ } $vowel → sy ;</tRule>
+			<tRule>ʃ          → syu ;</tRule>
+			<tRule>t͡s} $vowel → ch ;</tRule>
+			<tRule>t͡s         → cheu ;</tRule>
+			<tRule>t͡ʃ} $vowel → ch ;</tRule>
+			<tRule>t͡ʃ         → chi ;</tRule>
+			<tRule>t } $vowel → t ;</tRule>
+			<tRule>t          → teu ;</tRule>
+			<tRule>vj         → b ;    # ʒvjɛr̝ɪna → jubeleujina</tRule>
+			<tRule>v } $end   → peu ;</tRule>
+			<tRule>v } $vowel → b ;</tRule>
+			<tRule>v          → beu ;</tRule>
+			<tRule>x } $vowel → h ;</tRule>
+			<tRule>x          → heu ;</tRule>
+			<tRule>ɣ } $vowel → h ;</tRule>
+			<tRule>ɣ          → heu ;</tRule>
+			<tRule>z } $vowel → j ;    # zaːmɛk → jamekeu</tRule>
+			<tRule>z } $end   → seu ;  # ɦmɪz → heumiseu</tRule>
+			<tRule>z          → jeu ;  # pozdniː → pojeudeuni</tRule>
+			<tRule>ʒ } $vowel → j ;    # ʒɪʒka → jisyuka (first ʒ)</tRule>
+			<tRule>ʒ } v      → ju ;   # ʒvjɛr̝ɪna → jubeleujina</tRule>
+			<tRule>ʒ } $end   → si ;   # broʒ → beulosi</tRule>
+			<tRule>ʒ          → syu ;  # ʒɪʒka → jisyuka (second ʒ)</tRule>
+			<tRule>ɟ } $vowel → dy ;</tRule>
+			<tRule>ɟ          → ti ;</tRule>
+			<tRule>ː          → ;</tRule>
+			<tRule>\u0020     → ;  # space</tRule>
+			<comment>
+			#
+			# Second pass.
+			</comment>
+			<tRule>:: Latin-Hangul ();</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

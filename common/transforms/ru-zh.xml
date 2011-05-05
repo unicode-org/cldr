@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="ru" target="zh" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Author: mjansche@google.com (Martin Jansche)
+			#
+			# Transliteration of Russian into Mandarin written in simplified Chinese.
+			#
+			# TODO(mjansche): Implement exception rules from GB/T 17693.4-2009 section 5.3.
+			# TODO(anyone): Simplify.
+			#
+			</comment>
+			<tRule>$bow = [-\ $];  # Word boundary.</tRule>
+			<tRule>$vowel = [аеийоуыьэюяё];</tRule>
+			<tRule>$not_vowel = [^$vowel];</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::NFC;</tRule>
+			<tRule>::Lower;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>аа → а;</tRule>
+			<tRule>бб → б;</tRule>
+			<tRule>вв → в;</tRule>
+			<tRule>гг → г;</tRule>
+			<tRule>дд → д;</tRule>
+			<tRule>жж → ж;</tRule>
+			<tRule>зз → з;</tRule>
+			<tRule>ии → и;</tRule>
+			<tRule>кк → к;</tRule>
+			<tRule>лл → л;</tRule>
+			<tRule>мм → | м;</tRule>
+			<tRule>м } [бп] → н;</tRule>
+			<tRule>$vowel { нь → н;</tRule>
+			<tRule>пп → п;</tRule>
+			<tRule>рр → р;</tRule>
+			<tRule>сс → с;</tRule>
+			<tRule>тт → т;</tRule>
+			<tRule>уу → у;</tRule>
+			<tRule>фф → ф;</tRule>
+			<tRule>хх → х;</tRule>
+			<tRule>цц → ц;</tRule>
+			<tRule>чч → ч;</tRule>
+			<tRule>шш → ш;</tRule>
+			<tRule>щщ → щ;</tRule>
+			<comment>
+			#
+			## иа → я;  ## TODO: Figure out if/when this applies.
+			#
+			</comment>
+			<tRule>::Null;</tRule>
+			<comment>
+			#
+			# Special exceptions, per GB/T 17693.4-2009 表 1, 注 8:
+			</comment>
+			<tRule>бург } $bow       → 堡 ;</tRule>
+			<tRule>град } $bow       → 格勒 ;</tRule>
+			<tRule>город } $bow     → 哥罗德 ;</tRule>
+			<tRule>цов } $bow        → 佐夫 ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>аи                 → 艾 ;</tRule>
+			<tRule>ай                 → 艾 ;</tRule>
+			<tRule>ан } $not_vowel    → 安 ;</tRule>
+			<tRule>ао                 → 奥 ;</tRule>
+			<tRule>ау                 → 奥 ;</tRule>
+			<tRule>а                  → 阿 ;</tRule>
+			<tRule>баи                → 拜 ;</tRule>
+			<tRule>бай                → 拜 ;</tRule>
+			<tRule>бан } $not_vowel   → 班 ;</tRule>
+			<tRule>бао                → 包 ;</tRule>
+			<tRule>бау                → 包 ;</tRule>
+			<tRule>ба                 → 巴 ;</tRule>
+			<tRule>бен } $not_vowel   → 边 ;</tRule>
+			<tRule>бе                 → 别 ;</tRule>
+			<tRule>бий                → 比 ;</tRule>
+			<tRule>бин } $not_vowel   → 宾 ;</tRule>
+			<tRule>би                 → 比 ;</tRule>
+			<tRule>бйо                → 比奥 ;</tRule>
+			<tRule>бон } $not_vowel   → 邦 ;</tRule>
+			<tRule>бо                 → 博 ;</tRule>
+			<tRule>буй                → 布伊 ;</tRule>
+			<tRule>бун } $not_vowel   → 本 ;</tRule>
+			<tRule>бу                 → 布 ;</tRule>
+			<tRule>бый                → 贝 ;</tRule>
+			<tRule>бын } $not_vowel   → 本 ;</tRule>
+			<tRule>бы                 → 贝 ;</tRule>
+			<tRule>бьи                → 比 ;</tRule>
+			<tRule>бью                → 比尤 ;</tRule>
+			<tRule>бь                 → 比 ;</tRule>
+			<tRule>бэй                → 贝 ;</tRule>
+			<tRule>бэн } $not_vowel   → 本 ;</tRule>
+			<tRule>бэ                 → 贝 ;</tRule>
+			<tRule>бю                 → 比尤 ;</tRule>
+			<tRule>бян } $not_vowel   → 比扬 ;</tRule>
+			<tRule>бя                 → 比亚 ;</tRule>
+			<tRule>бё                 → 比奥 ;</tRule>
+			<tRule>б                  → 布 ;</tRule>
+			<tRule>ваи                → 瓦伊 ;</tRule>
+			<tRule>вай                → 瓦伊 ;</tRule>
+			<tRule>ван } $not_vowel   → 万 ;</tRule>
+			<tRule>вао                → 沃 ;</tRule>
+			<tRule>вау                → 沃 ;</tRule>
+			<tRule>ва                 → 瓦 ;</tRule>
+			<tRule>вен } $not_vowel   → 文 ;</tRule>
+			<tRule>ве                 → 韦 ;</tRule>
+			<tRule>вий                → 维 ;</tRule>
+			<tRule>вин } $not_vowel   → 温 ;</tRule>
+			<tRule>ви                 → 维 ;</tRule>
+			<tRule>вйо                → 维奥 ;</tRule>
+			<tRule>вон } $not_vowel   → 翁 ;</tRule>
+			<tRule>во                 → 沃 ;</tRule>
+			<tRule>вуй                → 维 ;</tRule>
+			<tRule>вун } $not_vowel   → 文 ;</tRule>
+			<tRule>ву                 → 武 ;</tRule>
+			<tRule>вый                → 维 ;</tRule>
+			<tRule>вын } $not_vowel   → 文 ;</tRule>
+			<tRule>вы                 → 维 ;</tRule>
+			<tRule>вьи                → 维 ;</tRule>
+			<tRule>вью                → 维尤 ;</tRule>
+			<tRule>вь                 → 维 ;</tRule>
+			<tRule>вэй                → 韦 ;</tRule>
+			<tRule>вэн } $not_vowel   → 文 ;</tRule>
+			<tRule>вэ                 → 韦 ;</tRule>
+			<tRule>вю                 → 维尤 ;</tRule>
+			<tRule>вян } $not_vowel   → 维扬 ;</tRule>
+			<tRule>вя                 → 维亚 ;</tRule>
+			<tRule>вё                 → 维奥 ;</tRule>
+			<tRule>в                  → 夫 ;</tRule>
+			<tRule>гаи                → 盖 ;</tRule>
+			<tRule>гай                → 盖 ;</tRule>
+			<tRule>ган } $not_vowel   → 甘 ;</tRule>
+			<tRule>гао                → 高 ;</tRule>
+			<tRule>гау                → 高 ;</tRule>
+			<tRule>га                 → 加 ;</tRule>
+			<tRule>ген } $not_vowel   → 根 ;</tRule>
+			<tRule>ге                 → 格 ;</tRule>
+			<tRule>гий                → 吉 ;</tRule>
+			<tRule>гин } $not_vowel   → 金 ;</tRule>
+			<tRule>ги                 → 吉 ;</tRule>
+			<tRule>гйо                → 吉奥 ;</tRule>
+			<tRule>гон } $not_vowel   → 贡 ;</tRule>
+			<tRule>го                 → 戈 ;</tRule>
+			<tRule>гуй                → 圭 ;</tRule>
+			<tRule>гун } $not_vowel   → 贡 ;</tRule>
+			<tRule>гу                 → 古 ;</tRule>
+			<tRule>гый                → 格 ;</tRule>
+			<tRule>гын } $not_vowel   → 根 ;</tRule>
+			<tRule>гы                 → 格 ;</tRule>
+			<tRule>гьи                → 吉 ;</tRule>
+			<tRule>гью                → 久 ;</tRule>
+			<tRule>гь                 → 吉 ;</tRule>
+			<tRule>гэй                → 盖 ;</tRule>
+			<tRule>гэн } $not_vowel   → 根 ;</tRule>
+			<tRule>гэ                 → 盖 ;</tRule>
+			<tRule>гю                 → 久 ;</tRule>
+			<tRule>гян } $not_vowel   → 吉扬 ;</tRule>
+			<tRule>гя                 → 吉亚 ;</tRule>
+			<tRule>гё                 → 吉奥 ;</tRule>
+			<tRule>г                  → 格 ;</tRule>
+			<tRule>даи                → 代 ;</tRule>
+			<tRule>дай                → 代 ;</tRule>
+			<tRule>дан } $not_vowel   → 丹 ;</tRule>
+			<tRule>дао                → 道 ;</tRule>
+			<tRule>дау                → 道 ;</tRule>
+			<tRule>да                 → 达 ;</tRule>
+			<tRule>ден } $not_vowel   → 坚 ;</tRule>
+			<tRule>де                 → 杰 ;</tRule>
+			<tRule>джаи               → 贾伊 ;</tRule>
+			<tRule>джай               → 贾伊 ;</tRule>
+			<tRule>джан } $not_vowel  → 占 ;</tRule>
+			<tRule>джао               → 焦 ;</tRule>
+			<tRule>джау               → 焦 ;</tRule>
+			<tRule>джа                → 贾 ;</tRule>
+			<tRule>джен } $not_vowel  → 真 ;</tRule>
+			<tRule>дже                → 杰 ;</tRule>
+			<tRule>джий               → 吉 ;</tRule>
+			<tRule>джин } $not_vowel  → 金 ;</tRule>
+			<tRule>джи                → 吉 ;</tRule>
+			<tRule>джйо               → 焦 ;</tRule>
+			<tRule>джон } $not_vowel  → 忠 ;</tRule>
+			<tRule>джо                → 焦 ;</tRule>
+			<tRule>джуй               → 朱伊 ;</tRule>
+			<tRule>джун } $not_vowel  → 准 ;</tRule>
+			<tRule>джу                → 朱 ;</tRule>
+			<tRule>джый               → 吉 ;</tRule>
+			<tRule>джын } $not_vowel  → 真 ;</tRule>
+			<tRule>джы                → 吉 ;</tRule>
+			<tRule>джьи               → 吉 ;</tRule>
+			<tRule>джью               → 久 ;</tRule>
+			<tRule>джь                → 吉 ;</tRule>
+			<tRule>джэй               → 杰 ;</tRule>
+			<tRule>джэн } $not_vowel  → 真 ;</tRule>
+			<tRule>джэ                → 杰 ;</tRule>
+			<tRule>джю                → 久 ;</tRule>
+			<tRule>джян } $not_vowel  → 江 ;</tRule>
+			<tRule>джя                → 贾 ;</tRule>
+			<tRule>джё                → 焦 ;</tRule>
+			<tRule>дж                 → 季 ;</tRule>
+			<tRule>дзаи               → 宰 ;</tRule>
+			<tRule>дзай               → 宰 ;</tRule>
+			<tRule>дзан } $not_vowel  → 赞 ;</tRule>
+			<tRule>дзао               → 藻 ;</tRule>
+			<tRule>дзау               → 藻 ;</tRule>
+			<tRule>дза                → 扎 ;</tRule>
+			<tRule>дзен } $not_vowel  → 津 ;</tRule>
+			<tRule>дзе                → 泽 ;</tRule>
+			<tRule>дзий               → 济 ;</tRule>
+			<tRule>дзин } $not_vowel  → 津 ;</tRule>
+			<tRule>дзи                → 济 ;</tRule>
+			<tRule>дзйо               → 焦 ;</tRule>
+			<tRule>дзон } $not_vowel  → 宗 ;</tRule>
+			<tRule>дзо                → 佐 ;</tRule>
+			<tRule>дзуй               → 祖伊 ;</tRule>
+			<tRule>дзун } $not_vowel  → 尊 ;</tRule>
+			<tRule>дзу                → 祖 ;</tRule>
+			<tRule>дзый               → 济 ;</tRule>
+			<tRule>дзын } $not_vowel  → 曾 ;</tRule>
+			<tRule>дзы                → 济 ;</tRule>
+			<tRule>дзьи               → 济 ;</tRule>
+			<tRule>дзью               → 久 ;</tRule>
+			<tRule>дзь                → 济 ;</tRule>
+			<tRule>дзэй               → 泽 ;</tRule>
+			<tRule>дзэн } $not_vowel  → 曾 ;</tRule>
+			<tRule>дзэ                → 泽 ;</tRule>
+			<tRule>дзю                → 久 ;</tRule>
+			<tRule>дзян } $not_vowel  → 江 ;</tRule>
+			<tRule>дзя                → 贾 ;</tRule>
+			<tRule>дзё                → 焦 ;</tRule>
+			<tRule>дз                 → 兹 ;</tRule>
+			<tRule>дий                → 季 ;</tRule>
+			<tRule>дин } $not_vowel   → 金 ;</tRule>
+			<tRule>ди                 → 季 ;</tRule>
+			<tRule>дйо                → 焦 ;</tRule>
+			<tRule>дон } $not_vowel   → 东 ;</tRule>
+			<tRule>до                 → 多 ;</tRule>
+			<tRule>дсаи               → 采 ;</tRule>
+			<tRule>дсай               → 采 ;</tRule>
+			<tRule>дсан } $not_vowel  → 灿 ;</tRule>
+			<tRule>дсао               → 曹 ;</tRule>
+			<tRule>дсау               → 曹 ;</tRule>
+			<tRule>дса                → 察 ;</tRule>
+			<tRule>дсен } $not_vowel  → 岑 ;</tRule>
+			<tRule>дсе                → 采 ;</tRule>
+			<tRule>дсий               → 齐 ;</tRule>
+			<tRule>дсин } $not_vowel  → 钦 ;</tRule>
+			<tRule>дси                → 齐 ;</tRule>
+			<tRule>дсон } $not_vowel  → 聪 ;</tRule>
+			<tRule>дсо                → 措 ;</tRule>
+			<tRule>дсуй               → 崔 ;</tRule>
+			<tRule>дсун } $not_vowel  → 聪 ;</tRule>
+			<tRule>дсу                → 楚 ;</tRule>
+			<tRule>дсый               → 齐 ;</tRule>
+			<tRule>дсын } $not_vowel  → 岑 ;</tRule>
+			<tRule>дсы                → 齐 ;</tRule>
+			<tRule>дсьи               → 齐 ;</tRule>
+			<tRule>дсью               → 秋 ;</tRule>
+			<tRule>дсь                → 齐 ;</tRule>
+			<tRule>дсэй               → 采 ;</tRule>
+			<tRule>дсэн } $not_vowel  → 岑 ;</tRule>
+			<tRule>дсэ                → 采 ;</tRule>
+			<tRule>дсю                → 秋 ;</tRule>
+			<tRule>дся                → 齐亚 ;</tRule>
+			<tRule>дс                 → 茨 ;</tRule>
+			<tRule>дуй                → 杜伊 ;</tRule>
+			<tRule>дун } $not_vowel   → 敦 ;</tRule>
+			<tRule>ду                 → 杜 ;</tRule>
+			<tRule>дцаи               → 采 ;</tRule>
+			<tRule>дцай               → 采 ;</tRule>
+			<tRule>дцан } $not_vowel  → 灿 ;</tRule>
+			<tRule>дцао               → 曹 ;</tRule>
+			<tRule>дцау               → 曹 ;</tRule>
+			<tRule>дца                → 察 ;</tRule>
+			<tRule>дцен } $not_vowel  → 岑 ;</tRule>
+			<tRule>дце                → 采 ;</tRule>
+			<tRule>дций               → 齐 ;</tRule>
+			<tRule>дцин } $not_vowel  → 钦 ;</tRule>
+			<tRule>дци                → 齐 ;</tRule>
+			<tRule>дцон } $not_vowel  → 聪 ;</tRule>
+			<tRule>дцо                → 措 ;</tRule>
+			<tRule>дцуй               → 崔 ;</tRule>
+			<tRule>дцун } $not_vowel  → 聪 ;</tRule>
+			<tRule>дцу                → 楚 ;</tRule>
+			<tRule>дцый               → 齐 ;</tRule>
+			<tRule>дцын } $not_vowel  → 岑 ;</tRule>
+			<tRule>дцы                → 齐 ;</tRule>
+			<tRule>дцьи               → 齐 ;</tRule>
+			<tRule>дцью               → 秋 ;</tRule>
+			<tRule>дць                → 齐 ;</tRule>
+			<tRule>дцэй               → 采 ;</tRule>
+			<tRule>дцэн } $not_vowel  → 岑 ;</tRule>
+			<tRule>дцэ                → 采 ;</tRule>
+			<tRule>дцю                → 秋 ;</tRule>
+			<tRule>дця                → 齐亚 ;</tRule>
+			<tRule>дц                 → 茨 ;</tRule>
+			<tRule>дчаи               → 柴 ;</tRule>
+			<tRule>дчай               → 柴 ;</tRule>
+			<tRule>дчан } $not_vowel  → 昌 ;</tRule>
+			<tRule>дчао               → 乔 ;</tRule>
+			<tRule>дчау               → 乔 ;</tRule>
+			<tRule>дча                → 恰 ;</tRule>
+			<tRule>дчен } $not_vowel  → 琴 ;</tRule>
+			<tRule>дче                → 切 ;</tRule>
+			<tRule>дчий               → 奇 ;</tRule>
+			<tRule>дчин } $not_vowel  → 钦 ;</tRule>
+			<tRule>дчи                → 奇 ;</tRule>
+			<tRule>дчйо               → 乔 ;</tRule>
+			<tRule>дчон } $not_vowel  → 琼 ;</tRule>
+			<tRule>дчо                → 乔 ;</tRule>
+			<tRule>дчуй               → 崔 ;</tRule>
+			<tRule>дчун } $not_vowel  → 春 ;</tRule>
+			<tRule>дчу                → 丘 ;</tRule>
+			<tRule>дчый               → 奇 ;</tRule>
+			<tRule>дчын } $not_vowel  → 琴 ;</tRule>
+			<tRule>дчы                → 奇 ;</tRule>
+			<tRule>дчьи               → 奇 ;</tRule>
+			<tRule>дчь                → 奇 ;</tRule>
+			<tRule>дчэй               → 切 ;</tRule>
+			<tRule>дчэн } $not_vowel  → 琴 ;</tRule>
+			<tRule>дчэ                → 切 ;</tRule>
+			<tRule>дчян } $not_vowel  → 强 ;</tRule>
+			<tRule>дчё                → 乔 ;</tRule>
+			<tRule>дч                 → 奇 ;</tRule>
+			<tRule>дый                → 德 ;</tRule>
+			<tRule>дын } $not_vowel   → 登 ;</tRule>
+			<tRule>ды                 → 德 ;</tRule>
+			<tRule>дьи                → 季 ;</tRule>
+			<tRule>дью                → 久 ;</tRule>
+			<tRule>дь                 → 季 ;</tRule>
+			<tRule>дэй                → 代 ;</tRule>
+			<tRule>дэн } $not_vowel   → 登 ;</tRule>
+			<tRule>дэ                 → 代 ;</tRule>
+			<tRule>дюн } $not_vowel   → 久恩 ;</tRule>
+			<tRule>дю                 → 久 ;</tRule>
+			<tRule>дян } $not_vowel   → 江 ;</tRule>
+			<tRule>дя                 → 佳 ;</tRule>
+			<tRule>дё                 → 焦 ;</tRule>
+			<tRule>д                  → 德 ;</tRule>
+			<tRule>ен } $not_vowel    → 延 ;</tRule>
+			<tRule>е                  → 耶 ;</tRule>
+			<tRule>жаи                → 扎伊 ;</tRule>
+			<tRule>жай                → 扎伊 ;</tRule>
+			<tRule>жан } $not_vowel   → 然 ;</tRule>
+			<tRule>жао                → 饶 ;</tRule>
+			<tRule>жау                → 饶 ;</tRule>
+			<tRule>жа                 → 扎 ;</tRule>
+			<tRule>жен } $not_vowel   → 任 ;</tRule>
+			<tRule>же                 → 热 ;</tRule>
+			<tRule>жий                → 日 ;</tRule>
+			<tRule>жин } $not_vowel   → 任 ;</tRule>
+			<tRule>жи                 → 日 ;</tRule>
+			<tRule>жйо                → 若 ;</tRule>
+			<tRule>жон } $not_vowel   → 容 ;</tRule>
+			<tRule>жо                 → 若 ;</tRule>
+			<tRule>жуй                → 瑞 ;</tRule>
+			<tRule>жун } $not_vowel   → 容 ;</tRule>
+			<tRule>жу                 → 茹 ;</tRule>
+			<tRule>жый                → 日 ;</tRule>
+			<tRule>жын } $not_vowel   → 任 ;</tRule>
+			<tRule>жы                 → 日 ;</tRule>
+			<tRule>жьи                → 日 ;</tRule>
+			<tRule>жью                → 茹 ;</tRule>
+			<tRule>жь                 → 日 ;</tRule>
+			<tRule>жэй                → 热 ;</tRule>
+			<tRule>жэн } $not_vowel   → 任 ;</tRule>
+			<tRule>жэ                 → 热 ;</tRule>
+			<tRule>жю                 → 茹 ;</tRule>
+			<tRule>жян } $not_vowel   → 让 ;</tRule>
+			<tRule>жя                 → 扎 ;</tRule>
+			<tRule>жё                 → 若 ;</tRule>
+			<tRule>ж                  → 日 ;</tRule>
+			<tRule>заи                → 宰 ;</tRule>
+			<tRule>зай                → 宰 ;</tRule>
+			<tRule>зан } $not_vowel   → 赞 ;</tRule>
+			<tRule>зао                → 藻 ;</tRule>
+			<tRule>зау                → 藻 ;</tRule>
+			<tRule>за                 → 扎 ;</tRule>
+			<tRule>зен } $not_vowel   → 津 ;</tRule>
+			<tRule>зе                 → 泽 ;</tRule>
+			<tRule>зий                → 济 ;</tRule>
+			<tRule>зин } $not_vowel   → 津 ;</tRule>
+			<tRule>зи                 → 济 ;</tRule>
+			<tRule>зйо                → 焦 ;</tRule>
+			<tRule>зон } $not_vowel   → 宗 ;</tRule>
+			<tRule>зо                 → 佐 ;</tRule>
+			<tRule>зуй                → 祖伊 ;</tRule>
+			<tRule>зун } $not_vowel   → 尊 ;</tRule>
+			<tRule>зу                 → 祖 ;</tRule>
+			<tRule>зый                → 济 ;</tRule>
+			<tRule>зын } $not_vowel   → 曾 ;</tRule>
+			<tRule>зы                 → 济 ;</tRule>
+			<tRule>зьи                → 济 ;</tRule>
+			<tRule>зью                → 久 ;</tRule>
+			<tRule>зь                 → 济 ;</tRule>
+			<tRule>зэй                → 泽 ;</tRule>
+			<tRule>зэн } $not_vowel   → 曾 ;</tRule>
+			<tRule>зэ                 → 泽 ;</tRule>
+			<tRule>зю                 → 久 ;</tRule>
+			<tRule>зян } $not_vowel   → 江 ;</tRule>
+			<tRule>зя                 → 贾 ;</tRule>
+			<tRule>зё                 → 焦 ;</tRule>
+			<tRule>з                  → 兹 ;</tRule>
+			<tRule>ий                 → 伊 ;</tRule>
+			<tRule>ин } $not_vowel    → 因 ;</tRule>
+			<tRule>и                  → 伊 ;</tRule>
+			<tRule>йо                 → 约 ;</tRule>
+			<tRule>й                  → 伊 ;</tRule>
+			<tRule>каи                → 凯 ;</tRule>
+			<tRule>кай                → 凯 ;</tRule>
+			<tRule>кан } $not_vowel   → 坎 ;</tRule>
+			<tRule>као                → 考 ;</tRule>
+			<tRule>кау                → 考 ;</tRule>
+			<tRule>ка                 → 卡 ;</tRule>
+			<tRule>кен } $not_vowel   → 肯 ;</tRule>
+			<tRule>ке                 → 克 ;</tRule>
+			<tRule>кий                → 基 ;</tRule>
+			<tRule>кин } $not_vowel   → 金 ;</tRule>
+			<tRule>ки                 → 基 ;</tRule>
+			<tRule>кйо                → 基奥 ;</tRule>
+			<tRule>кон } $not_vowel   → 孔 ;</tRule>
+			<tRule>ко                 → 科 ;</tRule>
+			<tRule>куй                → 奎 ;</tRule>
+			<tRule>кун } $not_vowel   → 昆 ;</tRule>
+			<tRule>ку                 → 库 ;</tRule>
+			<tRule>кый                → 克 ;</tRule>
+			<tRule>кын } $not_vowel   → 肯 ;</tRule>
+			<tRule>кы                 → 克 ;</tRule>
+			<tRule>кьи                → 基 ;</tRule>
+			<tRule>кью                → 丘 ;</tRule>
+			<tRule>кь                 → 基 ;</tRule>
+			<tRule>кэй                → 凯 ;</tRule>
+			<tRule>кэн } $not_vowel   → 肯 ;</tRule>
+			<tRule>кэ                 → 凯 ;</tRule>
+			<tRule>кю                 → 丘 ;</tRule>
+			<tRule>кян } $not_vowel   → 基扬 ;</tRule>
+			<tRule>кя                 → 基亚 ;</tRule>
+			<tRule>кё                 → 基奥 ;</tRule>
+			<tRule>к                  → 克 ;</tRule>
+			<tRule>лаи                → 莱 ;</tRule>
+			<tRule>лай                → 莱 ;</tRule>
+			<tRule>лан } $not_vowel   → 兰 ;</tRule>
+			<tRule>лао                → 劳 ;</tRule>
+			<tRule>лау                → 劳 ;</tRule>
+			<tRule>ла                 → 拉 ;</tRule>
+			<tRule>лен } $not_vowel   → 连 ;</tRule>
+			<tRule>ле                 → 列 ;</tRule>
+			<tRule>лий                → 利 ;</tRule>
+			<tRule>лин } $not_vowel   → 林 ;</tRule>
+			<tRule>ли                 → 利 ;</tRule>
+			<tRule>лйо                → 廖 ;</tRule>
+			<tRule>лон } $not_vowel   → 隆 ;</tRule>
+			<tRule>ло                 → 洛 ;</tRule>
+			<tRule>луй                → 卢伊 ;</tRule>
+			<tRule>лун } $not_vowel   → 伦 ;</tRule>
+			<tRule>лу                 → 卢 ;</tRule>
+			<tRule>лый                → 雷 ;</tRule>
+			<tRule>лын } $not_vowel   → 伦 ;</tRule>
+			<tRule>лы                 → 雷 ;</tRule>
+			<tRule>льи                → 利 ;</tRule>
+			<tRule>лью                → 柳 ;</tRule>
+			<tRule>ль                 → 利 ;</tRule>
+			<tRule>лэй                → 莱 ;</tRule>
+			<tRule>лэн } $not_vowel   → 伦 ;</tRule>
+			<tRule>лэ                 → 莱 ;</tRule>
+			<tRule>лю                 → 柳 ;</tRule>
+			<tRule>лян } $not_vowel   → 良 ;</tRule>
+			<tRule>ля                 → 利亚 ;</tRule>
+			<tRule>лё                 → 廖 ;</tRule>
+			<comment>
+			## $not_vowel { л     → 勒 ;  ## FIXME: Figure out if/when this applies.
+			</comment>
+			<tRule>л                  → 尔 ;</tRule>
+			<tRule>маи                → 迈 ;</tRule>
+			<tRule>май                → 迈 ;</tRule>
+			<tRule>ман } $not_vowel   → 曼 ;</tRule>
+			<tRule>мао                → 毛 ;</tRule>
+			<tRule>мау                → 毛 ;</tRule>
+			<tRule>ма                 → 马 ;</tRule>
+			<tRule>мен } $not_vowel   → 缅 ;</tRule>
+			<tRule>ме                 → 梅 ;</tRule>
+			<tRule>мий                → 米 ;</tRule>
+			<tRule>мин } $not_vowel   → 明 ;</tRule>
+			<tRule>ми                 → 米 ;</tRule>
+			<tRule>мйо                → 苗 ;</tRule>
+			<tRule>мон } $not_vowel   → 蒙 ;</tRule>
+			<tRule>мо                 → 莫 ;</tRule>
+			<tRule>муй                → 穆伊 ;</tRule>
+			<tRule>мун } $not_vowel   → 蒙 ;</tRule>
+			<tRule>му                 → 穆 ;</tRule>
+			<tRule>мый                → 梅 ;</tRule>
+			<tRule>мын } $not_vowel   → 门 ;</tRule>
+			<tRule>мы                 → 梅 ;</tRule>
+			<tRule>мьи                → 米 ;</tRule>
+			<tRule>мью                → 缪 ;</tRule>
+			<tRule>мь                 → 米 ;</tRule>
+			<tRule>мэй                → 梅 ;</tRule>
+			<tRule>мэн } $not_vowel   → 门 ;</tRule>
+			<tRule>мэ                 → 梅 ;</tRule>
+			<tRule>мюн } $not_vowel   → 敏 ;</tRule>
+			<tRule>мю                 → 缪 ;</tRule>
+			<tRule>мян } $not_vowel   → 米扬 ;</tRule>
+			<tRule>мя                 → 米亚 ;</tRule>
+			<tRule>мё                 → 苗 ;</tRule>
+			<tRule>м                  → 姆 ;</tRule>
+			<tRule>наи                → 奈 ;</tRule>
+			<tRule>най                → 奈 ;</tRule>
+			<tRule>нан } $not_vowel   → 南 ;</tRule>
+			<tRule>нао                → 瑙 ;</tRule>
+			<tRule>нау                → 瑙 ;</tRule>
+			<tRule>на                 → 纳 ;</tRule>
+			<tRule>нен } $not_vowel   → 年 ;</tRule>
+			<tRule>не                 → 涅 ;</tRule>
+			<tRule>ний                → 尼 ;</tRule>
+			<tRule>нин } $not_vowel   → 宁 ;</tRule>
+			<tRule>ни                 → 尼 ;</tRule>
+			<tRule>нйо                → 尼奥 ;</tRule>
+			<tRule>нон } $not_vowel   → 农 ;</tRule>
+			<tRule>но                 → 诺 ;</tRule>
+			<tRule>нуй                → 努伊 ;</tRule>
+			<tRule>нун } $not_vowel   → 农 ;</tRule>
+			<tRule>ну                 → 努 ;</tRule>
+			<tRule>ный                → 内 ;</tRule>
+			<tRule>нын } $not_vowel   → 嫩 ;</tRule>
+			<tRule>ны                 → 内 ;</tRule>
+			<tRule>нь } $not_vowel    → 尼 ;</tRule>
+			<tRule>нэй                → 内 ;</tRule>
+			<tRule>нэн } $not_vowel   → 嫩 ;</tRule>
+			<tRule>нэ                 → 内 ;</tRule>
+			<tRule>нюн } $not_vowel   → 纽恩 ;</tRule>
+			<tRule>ню                 → 纽 ;</tRule>
+			<tRule>нян } $not_vowel   → 尼扬 ;</tRule>
+			<tRule>ня                 → 尼亚 ;</tRule>
+			<tRule>нё                 → 尼奥 ;</tRule>
+			<tRule>н } $not_vowel     → 恩 ;</tRule>
+			<tRule>он } $not_vowel    → 翁 ;</tRule>
+			<tRule>о                  → 奥 ;</tRule>
+			<tRule>паи                → 派 ;</tRule>
+			<tRule>пай                → 派 ;</tRule>
+			<tRule>пан } $not_vowel   → 潘 ;</tRule>
+			<tRule>пао                → 保 ;</tRule>
+			<tRule>пау                → 保 ;</tRule>
+			<tRule>па                 → 帕 ;</tRule>
+			<tRule>пен } $not_vowel   → 片 ;</tRule>
+			<tRule>пе                 → 佩 ;</tRule>
+			<tRule>пий                → 皮 ;</tRule>
+			<tRule>пин } $not_vowel   → 平 ;</tRule>
+			<tRule>пи                 → 皮 ;</tRule>
+			<tRule>пйо                → 皮奥 ;</tRule>
+			<tRule>пон } $not_vowel   → 蓬 ;</tRule>
+			<tRule>по                 → 波 ;</tRule>
+			<tRule>пуй                → 普伊 ;</tRule>
+			<tRule>пун } $not_vowel   → 蓬 ;</tRule>
+			<tRule>пу                 → 普 ;</tRule>
+			<tRule>пый                → 佩 ;</tRule>
+			<tRule>пын } $not_vowel   → 彭 ;</tRule>
+			<tRule>пы                 → 佩 ;</tRule>
+			<tRule>пьи                → 皮 ;</tRule>
+			<tRule>пью                → 皮尤 ;</tRule>
+			<tRule>пь                 → 皮 ;</tRule>
+			<tRule>пэй                → 佩 ;</tRule>
+			<tRule>пэн } $not_vowel   → 彭 ;</tRule>
+			<tRule>пэ                 → 佩 ;</tRule>
+			<tRule>пю                 → 皮尤 ;</tRule>
+			<tRule>пян } $not_vowel   → 皮扬 ;</tRule>
+			<tRule>пя                 → 皮亚 ;</tRule>
+			<tRule>пё                 → 皮奥 ;</tRule>
+			<tRule>п                  → 普 ;</tRule>
+			<tRule>раи                → 赖 ;</tRule>
+			<tRule>рай                → 赖 ;</tRule>
+			<tRule>ран } $not_vowel   → 兰 ;</tRule>
+			<tRule>рао                → 劳 ;</tRule>
+			<tRule>рау                → 劳 ;</tRule>
+			<tRule>ра                 → 拉 ;</tRule>
+			<tRule>рен } $not_vowel   → 连 ;</tRule>
+			<tRule>ре                 → 列 ;</tRule>
+			<tRule>рий                → 里 ;</tRule>
+			<tRule>рин } $not_vowel   → 林 ;</tRule>
+			<tRule>ри                 → 里 ;</tRule>
+			<tRule>рйо                → 廖 ;</tRule>
+			<tRule>рон } $not_vowel   → 龙 ;</tRule>
+			<tRule>ро                 → 罗 ;</tRule>
+			<tRule>руй                → 鲁伊 ;</tRule>
+			<tRule>рун } $not_vowel   → 伦 ;</tRule>
+			<tRule>ру                 → 鲁 ;</tRule>
+			<tRule>рый                → 雷 ;</tRule>
+			<tRule>рын } $not_vowel   → 伦 ;</tRule>
+			<tRule>ры                 → 雷 ;</tRule>
+			<tRule>рьи                → 里 ;</tRule>
+			<tRule>рью                → 留 ;</tRule>
+			<tRule>рь                 → 里 ;</tRule>
+			<tRule>рэй                → 雷 ;</tRule>
+			<tRule>рэн } $not_vowel   → 伦 ;</tRule>
+			<tRule>рэ                 → 雷 ;</tRule>
+			<tRule>рю                 → 留 ;</tRule>
+			<tRule>рян } $not_vowel   → 良 ;</tRule>
+			<tRule>ря                 → 里亚 ;</tRule>
+			<tRule>рё                 → 廖 ;</tRule>
+			<comment>
+			## $not_vowel { р     → 勒 ;  ## FIXME: Figure out if/when this applies.
+			</comment>
+			<tRule>р                  → 尔 ;</tRule>
+			<tRule>саи                → 赛 ;</tRule>
+			<tRule>сай                → 赛 ;</tRule>
+			<tRule>сан } $not_vowel   → 桑 ;</tRule>
+			<tRule>сао                → 绍 ;</tRule>
+			<tRule>сау                → 绍 ;</tRule>
+			<tRule>са                 → 萨 ;</tRule>
+			<tRule>сен } $not_vowel   → 先 ;</tRule>
+			<tRule>се                 → 谢 ;</tRule>
+			<tRule>сий                → 西 ;</tRule>
+			<tRule>син } $not_vowel   → 辛 ;</tRule>
+			<tRule>си                 → 西 ;</tRule>
+			<tRule>сйо                → 肖 ;</tRule>
+			<tRule>сон } $not_vowel   → 松 ;</tRule>
+			<tRule>со                 → 索 ;</tRule>
+			<tRule>суй                → 绥 ;</tRule>
+			<tRule>сун } $not_vowel   → 孙 ;</tRule>
+			<tRule>су                 → 苏 ;</tRule>
+			<tRule>счаи               → 夏伊 ;</tRule>
+			<tRule>счай               → 夏伊 ;</tRule>
+			<tRule>счан } $not_vowel  → 先 ;</tRule>
+			<tRule>счао               → 肖 ;</tRule>
+			<tRule>счау               → 肖 ;</tRule>
+			<tRule>сча                → 夏 ;</tRule>
+			<tRule>счен } $not_vowel  → 先 ;</tRule>
+			<tRule>сче                → 谢 ;</tRule>
+			<tRule>счий               → 希 ;</tRule>
+			<tRule>счин } $not_vowel  → 辛 ;</tRule>
+			<tRule>счи                → 希 ;</tRule>
+			<tRule>счйо               → 晓 ;</tRule>
+			<tRule>счон } $not_vowel  → 雄 ;</tRule>
+			<tRule>счо                → 晓 ;</tRule>
+			<tRule>счуй               → 休伊 ;</tRule>
+			<tRule>счун } $not_vowel  → 逊 ;</tRule>
+			<tRule>счу                → 休 ;</tRule>
+			<tRule>счын } $not_vowel  → 欣 ;</tRule>
+			<tRule>счьи               → 希 ;</tRule>
+			<tRule>счью               → 休 ;</tRule>
+			<tRule>счь                → 希 ;</tRule>
+			<tRule>счэн } $not_vowel  → 欣 ;</tRule>
+			<tRule>счю                → 休 ;</tRule>
+			<tRule>счё                → 晓 ;</tRule>
+			<tRule>сч                 → 希 ;</tRule>
+			<tRule>сый                → 瑟 ;</tRule>
+			<tRule>сын } $not_vowel   → 森 ;</tRule>
+			<tRule>сы                 → 瑟 ;</tRule>
+			<tRule>сьи                → 西 ;</tRule>
+			<tRule>сью                → 休 ;</tRule>
+			<tRule>сь                 → 西 ;</tRule>
+			<tRule>сэй                → 塞 ;</tRule>
+			<tRule>сэн } $not_vowel   → 森 ;</tRule>
+			<tRule>сэ                 → 塞 ;</tRule>
+			<tRule>сюн } $not_vowel   → 雄 ;</tRule>
+			<tRule>сю                 → 休 ;</tRule>
+			<tRule>сян } $not_vowel   → 相 ;</tRule>
+			<tRule>ся                 → 贾 ;</tRule>
+			<tRule>сё                 → 肖 ;</tRule>
+			<tRule>с                  → 斯 ;</tRule>
+			<tRule>таи                → 泰 ;</tRule>
+			<tRule>тай                → 泰 ;</tRule>
+			<tRule>тан } $not_vowel   → 坦 ;</tRule>
+			<tRule>тао                → 陶 ;</tRule>
+			<tRule>тау                → 陶 ;</tRule>
+			<tRule>та                 → 塔 ;</tRule>
+			<tRule>тен } $not_vowel   → 坚 ;</tRule>
+			<tRule>те                 → 捷 ;</tRule>
+			<tRule>тий                → 季 ;</tRule>
+			<tRule>тин } $not_vowel   → 京 ;</tRule>
+			<tRule>ти                 → 季 ;</tRule>
+			<tRule>тйо                → 乔 ;</tRule>
+			<tRule>тон } $not_vowel   → 通 ;</tRule>
+			<tRule>то                 → 托 ;</tRule>
+			<tRule>тсаи               → 采 ;</tRule>
+			<tRule>тсай               → 采 ;</tRule>
+			<tRule>тсан } $not_vowel  → 灿 ;</tRule>
+			<tRule>тсао               → 曹 ;</tRule>
+			<tRule>тсау               → 曹 ;</tRule>
+			<tRule>тса                → 察 ;</tRule>
+			<tRule>тсен } $not_vowel  → 岑 ;</tRule>
+			<tRule>тсе                → 采 ;</tRule>
+			<tRule>тсий               → 齐 ;</tRule>
+			<tRule>тсин } $not_vowel  → 钦 ;</tRule>
+			<tRule>тси                → 齐 ;</tRule>
+			<tRule>тсон } $not_vowel  → 聪 ;</tRule>
+			<tRule>тсо                → 措 ;</tRule>
+			<tRule>тсуй               → 崔 ;</tRule>
+			<tRule>тсун } $not_vowel  → 聪 ;</tRule>
+			<tRule>тсу                → 楚 ;</tRule>
+			<tRule>тсый               → 齐 ;</tRule>
+			<tRule>тсын } $not_vowel  → 岑 ;</tRule>
+			<tRule>тсы                → 齐 ;</tRule>
+			<tRule>тсьи               → 齐 ;</tRule>
+			<tRule>тсью               → 秋 ;</tRule>
+			<tRule>тсь                → 齐 ;</tRule>
+			<tRule>тсэй               → 采 ;</tRule>
+			<tRule>тсэн } $not_vowel  → 岑 ;</tRule>
+			<tRule>тсэ                → 采 ;</tRule>
+			<tRule>тсю                → 秋 ;</tRule>
+			<tRule>тся                → 齐亚 ;</tRule>
+			<tRule>тс                 → 茨 ;</tRule>
+			<tRule>туй                → 图伊 ;</tRule>
+			<tRule>тун } $not_vowel   → 通 ;</tRule>
+			<tRule>ту                 → 图 ;</tRule>
+			<tRule>тцаи               → 采 ;</tRule>
+			<tRule>тцай               → 采 ;</tRule>
+			<tRule>тцан } $not_vowel  → 灿 ;</tRule>
+			<tRule>тцао               → 曹 ;</tRule>
+			<tRule>тцау               → 曹 ;</tRule>
+			<tRule>тца                → 察 ;</tRule>
+			<tRule>тцен } $not_vowel  → 岑 ;</tRule>
+			<tRule>тце                → 采 ;</tRule>
+			<tRule>тций               → 齐 ;</tRule>
+			<tRule>тцин } $not_vowel  → 钦 ;</tRule>
+			<tRule>тци                → 齐 ;</tRule>
+			<tRule>тцон } $not_vowel  → 聪 ;</tRule>
+			<tRule>тцо                → 措 ;</tRule>
+			<tRule>тцуй               → 崔 ;</tRule>
+			<tRule>тцун } $not_vowel  → 聪 ;</tRule>
+			<tRule>тцу                → 楚 ;</tRule>
+			<tRule>тцый               → 齐 ;</tRule>
+			<tRule>тцын } $not_vowel  → 岑 ;</tRule>
+			<tRule>тцы                → 齐 ;</tRule>
+			<tRule>тцьи               → 齐 ;</tRule>
+			<tRule>тцью               → 秋 ;</tRule>
+			<tRule>тць                → 齐 ;</tRule>
+			<tRule>тцэй               → 采 ;</tRule>
+			<tRule>тцэн } $not_vowel  → 岑 ;</tRule>
+			<tRule>тцэ                → 采 ;</tRule>
+			<tRule>тцю                → 秋 ;</tRule>
+			<tRule>тця                → 齐亚 ;</tRule>
+			<tRule>тц                 → 茨 ;</tRule>
+			<tRule>тчаи               → 柴 ;</tRule>
+			<tRule>тчай               → 柴 ;</tRule>
+			<tRule>тчан } $not_vowel  → 昌 ;</tRule>
+			<tRule>тчао               → 乔 ;</tRule>
+			<tRule>тчау               → 乔 ;</tRule>
+			<tRule>тча                → 恰 ;</tRule>
+			<tRule>тчен } $not_vowel  → 琴 ;</tRule>
+			<tRule>тче                → 切 ;</tRule>
+			<tRule>тчий               → 奇 ;</tRule>
+			<tRule>тчин } $not_vowel  → 钦 ;</tRule>
+			<tRule>тчи                → 奇 ;</tRule>
+			<tRule>тчйо               → 乔 ;</tRule>
+			<tRule>тчон } $not_vowel  → 琼 ;</tRule>
+			<tRule>тчо                → 乔 ;</tRule>
+			<tRule>тчуй               → 崔 ;</tRule>
+			<tRule>тчун } $not_vowel  → 春 ;</tRule>
+			<tRule>тчу                → 丘 ;</tRule>
+			<tRule>тчый               → 奇 ;</tRule>
+			<tRule>тчын } $not_vowel  → 琴 ;</tRule>
+			<tRule>тчы                → 奇 ;</tRule>
+			<tRule>тчьи               → 奇 ;</tRule>
+			<tRule>тчь                → 奇 ;</tRule>
+			<tRule>тчэй               → 切 ;</tRule>
+			<tRule>тчэн } $not_vowel  → 琴 ;</tRule>
+			<tRule>тчэ                → 切 ;</tRule>
+			<tRule>тчян } $not_vowel  → 强 ;</tRule>
+			<tRule>тчё                → 乔 ;</tRule>
+			<tRule>тч                 → 奇 ;</tRule>
+			<tRule>тый                → 特 ;</tRule>
+			<tRule>тын } $not_vowel   → 滕 ;</tRule>
+			<tRule>ты                 → 特 ;</tRule>
+			<tRule>тьи                → 季 ;</tRule>
+			<tRule>тью                → 秋 ;</tRule>
+			<tRule>ть                 → 季 ;</tRule>
+			<tRule>тэй                → 泰 ;</tRule>
+			<tRule>тэн } $not_vowel   → 滕 ;</tRule>
+			<tRule>тэ                 → 泰 ;</tRule>
+			<tRule>тюн } $not_vowel   → 琼 ;</tRule>
+			<tRule>тю                 → 秋 ;</tRule>
+			<tRule>тян } $not_vowel   → 强 ;</tRule>
+			<tRule>тя                 → 佳 ;</tRule>
+			<tRule>тё                 → 乔 ;</tRule>
+			<tRule>т                  → 特 ;</tRule>
+			<tRule>уй                 → 维 ;</tRule>
+			<tRule>ун } $not_vowel    → 温 ;</tRule>
+			<tRule>у                  → 乌 ;</tRule>
+			<tRule>фаи                → 法伊 ;</tRule>
+			<tRule>фай                → 法伊 ;</tRule>
+			<tRule>фан } $not_vowel   → 凡 ;</tRule>
+			<tRule>фао                → 福 ;</tRule>
+			<tRule>фау                → 福 ;</tRule>
+			<tRule>фа                 → 法 ;</tRule>
+			<tRule>фен } $not_vowel   → 芬 ;</tRule>
+			<tRule>фе                 → 费 ;</tRule>
+			<tRule>фий                → 菲 ;</tRule>
+			<tRule>фин } $not_vowel   → 芬 ;</tRule>
+			<tRule>фи                 → 菲 ;</tRule>
+			<tRule>фйо                → 菲奥 ;</tRule>
+			<tRule>фон } $not_vowel   → 丰 ;</tRule>
+			<tRule>фо                 → 福 ;</tRule>
+			<tRule>фуй                → 富伊 ;</tRule>
+			<tRule>фун } $not_vowel   → 丰 ;</tRule>
+			<tRule>фу                 → 富 ;</tRule>
+			<tRule>фый                → 菲 ;</tRule>
+			<tRule>фын } $not_vowel   → 芬 ;</tRule>
+			<tRule>фы                 → 菲 ;</tRule>
+			<tRule>фьи                → 菲 ;</tRule>
+			<tRule>фью                → 菲尤 ;</tRule>
+			<tRule>фь                 → 菲 ;</tRule>
+			<tRule>фэй                → 费 ;</tRule>
+			<tRule>фэн } $not_vowel   → 芬 ;</tRule>
+			<tRule>фэ                 → 费 ;</tRule>
+			<tRule>фю                 → 菲尤 ;</tRule>
+			<tRule>фя                 → 菲亚 ;</tRule>
+			<tRule>фё                 → 菲奥 ;</tRule>
+			<tRule>ф                  → 夫 ;</tRule>
+			<tRule>хаи                → 海 ;</tRule>
+			<tRule>хай                → 海 ;</tRule>
+			<tRule>хан } $not_vowel   → 汉 ;</tRule>
+			<tRule>хао                → 豪 ;</tRule>
+			<tRule>хау                → 豪 ;</tRule>
+			<tRule>ха                 → 哈 ;</tRule>
+			<tRule>хен } $not_vowel   → 亨 ;</tRule>
+			<tRule>хе                 → 赫 ;</tRule>
+			<tRule>хий                → 希 ;</tRule>
+			<tRule>хин } $not_vowel   → 欣 ;</tRule>
+			<tRule>хи                 → 希 ;</tRule>
+			<tRule>хон } $not_vowel   → 洪 ;</tRule>
+			<tRule>хо                 → 霍 ;</tRule>
+			<tRule>хуй                → 惠 ;</tRule>
+			<tRule>хун } $not_vowel   → 洪 ;</tRule>
+			<tRule>ху                 → 胡 ;</tRule>
+			<tRule>хый                → 黑 ;</tRule>
+			<tRule>хын } $not_vowel   → 亨 ;</tRule>
+			<tRule>хы                 → 黑 ;</tRule>
+			<tRule>хьи                → 希 ;</tRule>
+			<tRule>хью                → 休 ;</tRule>
+			<tRule>хь                 → 希 ;</tRule>
+			<tRule>хэй                → 黑 ;</tRule>
+			<tRule>хэн } $not_vowel   → 亨 ;</tRule>
+			<tRule>хэ                 → 海 ;</tRule>
+			<tRule>хю                 → 休 ;</tRule>
+			<tRule>хян } $not_vowel   → 希扬 ;</tRule>
+			<tRule>хя                 → 希亚 ;</tRule>
+			<tRule>х                  → 赫 ;</tRule>
+			<tRule>цаи                → 采 ;</tRule>
+			<tRule>цай                → 采 ;</tRule>
+			<tRule>цан } $not_vowel   → 灿 ;</tRule>
+			<tRule>цао                → 曹 ;</tRule>
+			<tRule>цау                → 曹 ;</tRule>
+			<tRule>ца                 → 察 ;</tRule>
+			<tRule>цен } $not_vowel   → 岑 ;</tRule>
+			<tRule>це                 → 采 ;</tRule>
+			<tRule>ций                → 齐 ;</tRule>
+			<tRule>цин } $not_vowel   → 钦 ;</tRule>
+			<tRule>ци                 → 齐 ;</tRule>
+			<tRule>цон } $not_vowel   → 聪 ;</tRule>
+			<tRule>цо                 → 措 ;</tRule>
+			<tRule>цсаи               → 采 ;</tRule>
+			<tRule>цсай               → 采 ;</tRule>
+			<tRule>цсан } $not_vowel  → 灿 ;</tRule>
+			<tRule>цсао               → 曹 ;</tRule>
+			<tRule>цсау               → 曹 ;</tRule>
+			<tRule>цса                → 察 ;</tRule>
+			<tRule>цсен } $not_vowel  → 岑 ;</tRule>
+			<tRule>цсе                → 采 ;</tRule>
+			<tRule>цсий               → 齐 ;</tRule>
+			<tRule>цсин } $not_vowel  → 钦 ;</tRule>
+			<tRule>цси                → 齐 ;</tRule>
+			<tRule>цсон } $not_vowel  → 聪 ;</tRule>
+			<tRule>цсо                → 措 ;</tRule>
+			<tRule>цсуй               → 崔 ;</tRule>
+			<tRule>цсун } $not_vowel  → 聪 ;</tRule>
+			<tRule>цсу                → 楚 ;</tRule>
+			<tRule>цсый               → 齐 ;</tRule>
+			<tRule>цсын } $not_vowel  → 岑 ;</tRule>
+			<tRule>цсы                → 齐 ;</tRule>
+			<tRule>цсьи               → 齐 ;</tRule>
+			<tRule>цсью               → 秋 ;</tRule>
+			<tRule>цсь                → 齐 ;</tRule>
+			<tRule>цсэй               → 采 ;</tRule>
+			<tRule>цсэн } $not_vowel  → 岑 ;</tRule>
+			<tRule>цсэ                → 采 ;</tRule>
+			<tRule>цсю                → 秋 ;</tRule>
+			<tRule>цся                → 齐亚 ;</tRule>
+			<tRule>цс                 → 茨 ;</tRule>
+			<tRule>цуй                → 崔 ;</tRule>
+			<tRule>цун } $not_vowel   → 聪 ;</tRule>
+			<tRule>цу                 → 楚 ;</tRule>
+			<tRule>цый                → 齐 ;</tRule>
+			<tRule>цын } $not_vowel   → 岑 ;</tRule>
+			<tRule>цы                 → 齐 ;</tRule>
+			<tRule>цьи                → 齐 ;</tRule>
+			<tRule>цью                → 秋 ;</tRule>
+			<tRule>ць                 → 齐 ;</tRule>
+			<tRule>цэй                → 采 ;</tRule>
+			<tRule>цэн } $not_vowel   → 岑 ;</tRule>
+			<tRule>цэ                 → 采 ;</tRule>
+			<tRule>цю                 → 秋 ;</tRule>
+			<tRule>ця                 → 齐亚 ;</tRule>
+			<tRule>ц                  → 茨 ;</tRule>
+			<tRule>чаи                → 柴 ;</tRule>
+			<tRule>чай                → 柴 ;</tRule>
+			<tRule>чан } $not_vowel   → 昌 ;</tRule>
+			<tRule>чао                → 乔 ;</tRule>
+			<tRule>чау                → 乔 ;</tRule>
+			<tRule>ча                 → 恰 ;</tRule>
+			<tRule>чен } $not_vowel   → 琴 ;</tRule>
+			<tRule>че                 → 切 ;</tRule>
+			<tRule>чий                → 奇 ;</tRule>
+			<tRule>чин } $not_vowel   → 钦 ;</tRule>
+			<tRule>чи                 → 奇 ;</tRule>
+			<tRule>чйо                → 乔 ;</tRule>
+			<tRule>чон } $not_vowel   → 琼 ;</tRule>
+			<tRule>чо                 → 乔 ;</tRule>
+			<tRule>чуй                → 崔 ;</tRule>
+			<tRule>чун } $not_vowel   → 春 ;</tRule>
+			<tRule>чу                 → 丘 ;</tRule>
+			<tRule>чый                → 奇 ;</tRule>
+			<tRule>чын } $not_vowel   → 琴 ;</tRule>
+			<tRule>чы                 → 奇 ;</tRule>
+			<tRule>чьи                → 奇 ;</tRule>
+			<tRule>чь                 → 奇 ;</tRule>
+			<tRule>чэй                → 切 ;</tRule>
+			<tRule>чэн } $not_vowel   → 琴 ;</tRule>
+			<tRule>чэ                 → 切 ;</tRule>
+			<tRule>чян } $not_vowel   → 强 ;</tRule>
+			<tRule>чё                 → 乔 ;</tRule>
+			<tRule>ч                  → 奇 ;</tRule>
+			<tRule>шаи                → 沙伊 ;</tRule>
+			<tRule>шай                → 沙伊 ;</tRule>
+			<tRule>шан } $not_vowel   → 尚 ;</tRule>
+			<tRule>шао                → 绍 ;</tRule>
+			<tRule>шау                → 绍 ;</tRule>
+			<tRule>ша                 → 沙 ;</tRule>
+			<tRule>шен } $not_vowel   → 申 ;</tRule>
+			<tRule>ше                 → 舍 ;</tRule>
+			<tRule>ший                → 希 ;</tRule>
+			<tRule>шин } $not_vowel   → 申 ;</tRule>
+			<tRule>ши                 → 希 ;</tRule>
+			<tRule>шйо                → 绍 ;</tRule>
+			<tRule>шон } $not_vowel   → 雄 ;</tRule>
+			<tRule>шо                 → 绍 ;</tRule>
+			<tRule>шуй                → 舒伊 ;</tRule>
+			<tRule>шун } $not_vowel   → 顺 ;</tRule>
+			<tRule>шу                 → 舒 ;</tRule>
+			<tRule>шый                → 希 ;</tRule>
+			<tRule>шын } $not_vowel   → 申 ;</tRule>
+			<tRule>шы                 → 希 ;</tRule>
+			<tRule>шьи                → 希 ;</tRule>
+			<tRule>шью                → 舒 ;</tRule>
+			<tRule>шь                 → 希 ;</tRule>
+			<tRule>шэй                → 舍 ;</tRule>
+			<tRule>шэн } $not_vowel   → 申 ;</tRule>
+			<tRule>шэ                 → 舍 ;</tRule>
+			<tRule>шю                 → 舒 ;</tRule>
+			<tRule>шян } $not_vowel   → 尚 ;</tRule>
+			<tRule>шя                 → 沙 ;</tRule>
+			<tRule>шё                 → 绍 ;</tRule>
+			<tRule>ш                  → 什 ;</tRule>
+			<tRule>щаи                → 夏伊 ;</tRule>
+			<tRule>щай                → 夏伊 ;</tRule>
+			<tRule>щан } $not_vowel   → 先 ;</tRule>
+			<tRule>щао                → 肖 ;</tRule>
+			<tRule>щау                → 肖 ;</tRule>
+			<tRule>ща                 → 夏 ;</tRule>
+			<tRule>щен } $not_vowel   → 先 ;</tRule>
+			<tRule>ще                 → 谢 ;</tRule>
+			<tRule>щий                → 希 ;</tRule>
+			<tRule>щин } $not_vowel   → 辛 ;</tRule>
+			<tRule>щи                 → 希 ;</tRule>
+			<tRule>щйо                → 晓 ;</tRule>
+			<tRule>щон } $not_vowel   → 雄 ;</tRule>
+			<tRule>що                 → 晓 ;</tRule>
+			<tRule>щуй                → 休伊 ;</tRule>
+			<tRule>щун } $not_vowel   → 逊 ;</tRule>
+			<tRule>щу                 → 休 ;</tRule>
+			<tRule>щын } $not_vowel   → 欣 ;</tRule>
+			<tRule>щьи                → 希 ;</tRule>
+			<tRule>щью                → 休 ;</tRule>
+			<tRule>щь                 → 希 ;</tRule>
+			<tRule>щэн } $not_vowel   → 欣 ;</tRule>
+			<tRule>щю                 → 休 ;</tRule>
+			<tRule>щё                 → 晓 ;</tRule>
+			<tRule>щ                  → 希 ;</tRule>
+			<tRule>ъ                  → ;</tRule>
+			<tRule>ый                 → 厄 ;</tRule>
+			<tRule>ын } $not_vowel    → 恩 ;</tRule>
+			<tRule>ы                  → 厄 ;</tRule>
+			<tRule>ьи                 → 伊 ;</tRule>
+			<tRule>ью                 → 尤 ;</tRule>
+			<tRule>ь                  → 伊 ;</tRule>
+			<tRule>эй                 → 埃 ;</tRule>
+			<tRule>эн } $not_vowel    → 恩 ;</tRule>
+			<tRule>э                  → 埃 ;</tRule>
+			<tRule>юн } $not_vowel    → 云 ;</tRule>
+			<tRule>ю                  → 尤 ;</tRule>
+			<tRule>ян } $not_vowel    → 扬 ;</tRule>
+			<tRule>я                  → 亚 ;</tRule>
+			<tRule>ё                  → 约 ;</tRule>
+			<comment>
+			#
+			# Dong-nan-xi-hai pass.  Per GB/T 17693.4-2009 表 1, 注 4, replace confusing
+			# characters at the beginning and end of a word.
+			</comment>
+			<tRule>:: Null ();</tRule>
+			<tRule>$bow { 耶 → 叶 ;</tRule>
+			<tRule>$bow { 夫 → 弗 ;</tRule>
+			<tRule>$bow { 东 → 栋 ;</tRule>
+			<tRule>$bow { 南 → 楠 ;</tRule>
+			<tRule>$bow { 西 → 锡 ;</tRule>
+			<tRule>江 } $bow → 姜 ;</tRule>
+			<tRule>海 } $bow → 亥 ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

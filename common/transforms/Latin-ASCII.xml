@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision: 5092 $"/>
+	<generation date="$Date: 2010-10-12 9:39:00 -0700 (Tue, 12 Oct 2010) $"/>
+	<transforms>
+		<transform source="Latin" target="ASCII" direction="both">
+			<comment># This handles only Latin, Common, and IDEOGRAPHIC NUMBER ZERO (Han).</comment>
+			<comment>#</comment>
+			<tRule>:: [[:Latin:][:Common:][:Inherited:][〇]] ;</tRule>
+			<comment>#</comment>
+			<comment># Don't want NFKD, because that would convert things like superscripts and</comment>
+			<comment># subscripts, which we do not want. So the individual transforms below</comment>
+			<comment># include an appropriate subset of the NFKD ones.</comment>
+			<comment># Here we remove accents from Latin characters. We then recompose to permit rules</comment>
+			<comment># such as mapping NOT EQUAL TO to an ASCII equivalent e.g. "!=" if we choose to.</comment>
+			<comment>#</comment>
+			<tRule>:: NFD() ;</tRule>
+			<tRule>[:Latin:] { [:Mn:]+ → ; # maps to nothing; remove all Mn following Latin letter</tRule>
+			<tRule>:: NFC() ;</tRule>
+			<comment>#</comment>
+			<comment># Some of the following mappings (noted) are from CLDR ‹character-fallback› data.</comment>
+			<comment># (Note, here "‹character-fallback›" uses U+2039/U+203A to avoid XML issues)</comment>
+			<comment>#</comment>
+			<comment># Latin letters and IPA</comment>
+			<comment>#</comment>
+			<tRule>Æ → AE ; # 00C6;LATIN CAPITAL LETTER AE (from ‹character-fallback›)</tRule>
+			<tRule>Ð → D ; # 00D0;LATIN CAPITAL LETTER ETH</tRule>
+			<tRule>Ø → O ; # 00D8;LATIN CAPITAL LETTER O WITH STROKE</tRule>
+			<tRule>Þ → TH ; # 00DE;LATIN CAPITAL LETTER THORN</tRule>
+			<tRule>ß → ss ; # 00DF;LATIN SMALL LETTER SHARP S (from ‹character-fallback›)</tRule>
+			<tRule>æ → ae ; # 00E6;LATIN SMALL LETTER AE (from ‹character-fallback›)</tRule>
+			<tRule>ð → d ; # 00F0;LATIN SMALL LETTER ETH</tRule>
+			<tRule>ø → o ; # 00F8;LATIN SMALL LETTER O WITH STROKE</tRule>
+			<tRule>þ → th ; # 00FE;LATIN SMALL LETTER THORN</tRule>
+			<tRule>Đ → D ; # 0110;LATIN CAPITAL LETTER D WITH STROKE</tRule>
+			<tRule>đ → d ; # 0111;LATIN SMALL LETTER D WITH STROKE</tRule>
+			<tRule>Ħ → H ; # 0126;LATIN CAPITAL LETTER H WITH STROKE</tRule>
+			<tRule>ħ → h ; # 0126;LATIN CAPITAL LETTER H WITH STROKE</tRule>
+			<tRule>ı → i ; # 0131;LATIN SMALL LETTER DOTLESS I</tRule>
+			<tRule>Ĳ → IJ ; # 0132;LATIN CAPITAL LIGATURE IJ (compat)</tRule>
+			<tRule>ĳ → ij ; # 0133;LATIN SMALL LIGATURE IJ (compat)</tRule>
+			<tRule>ĸ → q ; # 0138;LATIN SMALL LETTER KRA (collates with q in DUCET)</tRule>
+			<tRule>Ŀ → L ; # 013F;LATIN CAPITAL LETTER L WITH MIDDLE DOT (compat)</tRule>
+			<tRule>ŀ → l ; # 0140;LATIN SMALL LETTER L WITH MIDDLE DOT (compat)</tRule>
+			<tRule>Ł → L ; # 0141;LATIN CAPITAL LETTER L WITH STROKE</tRule>
+			<tRule>ł → l ; # 0142;LATIN SMALL LETTER L WITH STROKE</tRule>
+			<tRule>ŉ → \'n ; # 0149;LATIN SMALL LETTER N PRECEDED BY APOSTROPHE (from ‹character-fallback›)</tRule>
+			<tRule>Ŋ → N ; # 014A;LATIN CAPITAL LETTER ENG</tRule>
+			<tRule>ŋ → n ; # 014B;LATIN SMALL LETTER ENG</tRule>
+			<tRule>Œ → OE ; # 0152;LATIN CAPITAL LIGATURE OE (from ‹character-fallback›)</tRule>
+			<tRule>œ → oe ; # 0153;LATIN SMALL LIGATURE OE (from ‹character-fallback›)</tRule>
+			<tRule>Ŧ → T ; # 0166;LATIN CAPITAL LETTER T WITH STROKE</tRule>
+			<tRule>ŧ → t ; # 0167;LATIN SMALL LETTER T WITH STROKE</tRule>
+			<tRule>ſ → s ; # 017F;LATIN SMALL LETTER LONG S (compat)</tRule>
+			<tRule>ƀ → b ; # 0180;LATIN SMALL LETTER B WITH STROKE</tRule>
+			<tRule>Ɓ → B ; # 0181;LATIN CAPITAL LETTER B WITH HOOK</tRule>
+			<tRule>Ƃ → B ; # 0182;LATIN CAPITAL LETTER B WITH TOPBAR</tRule>
+			<tRule>ƃ → b ; # 0183;LATIN SMALL LETTER B WITH TOPBAR</tRule>
+			<tRule>Ƈ → C ; # 0187;LATIN CAPITAL LETTER C WITH HOOK</tRule>
+			<tRule>ƈ → c ; # 0188;LATIN SMALL LETTER C WITH HOOK</tRule>
+			<tRule>Ɖ → D ; # 0189;LATIN CAPITAL LETTER AFRICAN D</tRule>
+			<tRule>Ɗ → D ; # 018A;LATIN CAPITAL LETTER D WITH HOOK</tRule>
+			<tRule>Ƌ → D ; # 018B;LATIN CAPITAL LETTER D WITH TOPBAR</tRule>
+			<tRule>ƌ → d ; # 018C;LATIN SMALL LETTER D WITH TOPBAR</tRule>
+			<tRule>Ɛ → E ; # 0190;LATIN CAPITAL LETTER OPEN E</tRule>
+			<tRule>Ƒ → F ; # 0191;LATIN CAPITAL LETTER F WITH HOOK</tRule>
+			<tRule>ƒ → f ; # 0192;LATIN SMALL LETTER F WITH HOOK</tRule>
+			<tRule>Ɠ → G ; # 0193;LATIN CAPITAL LETTER G WITH HOOK</tRule>
+			<tRule>ƕ → hv ; # 0195;LATIN SMALL LETTER HV</tRule>
+			<tRule>Ɩ → I ; # 0196;LATIN CAPITAL LETTER IOTA</tRule>
+			<tRule>Ɨ → I ; # 0197;LATIN CAPITAL LETTER I WITH STROKE</tRule>
+			<tRule>Ƙ → K ; # 0198;LATIN CAPITAL LETTER K WITH HOOK</tRule>
+			<tRule>ƙ → k ; # 0199;LATIN SMALL LETTER K WITH HOOK</tRule>
+			<tRule>ƚ → l ; # 019A;LATIN SMALL LETTER L WITH BAR</tRule>
+			<tRule>Ɲ → N ; # 019D;LATIN CAPITAL LETTER N WITH LEFT HOOK</tRule>
+			<tRule>ƞ → n ; # 019E;LATIN SMALL LETTER N WITH LONG RIGHT LEG</tRule>
+			<tRule>Ƣ → OI ; # 01A2;LATIN CAPITAL LETTER OI</tRule>
+			<tRule>ƣ → oi ; # 01A3;LATIN SMALL LETTER OI</tRule>
+			<tRule>Ƥ → P ; # 01A4;LATIN CAPITAL LETTER P WITH HOOK</tRule>
+			<tRule>ƥ → p ; # 01A5;LATIN SMALL LETTER P WITH HOOK</tRule>
+			<tRule>ƫ → t ; # 01AB;LATIN SMALL LETTER T WITH PALATAL HOOK</tRule>
+			<tRule>Ƭ → T ; # 01AC;LATIN CAPITAL LETTER T WITH HOOK</tRule>
+			<tRule>ƭ → t ; # 01AD;LATIN SMALL LETTER T WITH HOOK</tRule>
+			<tRule>Ʈ → T ; # 01AE;LATIN CAPITAL LETTER T WITH RETROFLEX HOOK</tRule>
+			<tRule>Ʋ → V ; # 01B2;LATIN CAPITAL LETTER V WITH HOOK</tRule>
+			<tRule>Ƴ → Y ; # 01B3;LATIN CAPITAL LETTER Y WITH HOOK</tRule>
+			<tRule>ƴ → y ; # 01B4;LATIN SMALL LETTER Y WITH HOOK</tRule>
+			<tRule>Ƶ → Z ; # 01B5;LATIN CAPITAL LETTER Z WITH STROKE</tRule>
+			<tRule>ƶ → z ; # 01B6;LATIN SMALL LETTER Z WITH STROKE</tRule>
+			<tRule>Ǆ → DZ ; # 01C4;LATIN CAPITAL LETTER DZ WITH CARON (compat)</tRule>
+			<tRule>ǅ → Dz ; # 01C5;LATIN CAPITAL LETTER D WITH SMALL LETTER Z WITH CARON (compat)</tRule>
+			<tRule>ǆ → dz ; # 01C6;LATIN SMALL LETTER DZ WITH CARON (compat)</tRule>
+			<tRule>Ǉ → LJ ; # 01C7;LATIN CAPITAL LETTER LJ (compat)</tRule>
+			<tRule>ǈ → Lj ; # 01C8;LATIN CAPITAL LETTER L WITH SMALL LETTER J (compat)</tRule>
+			<tRule>ǉ → lj ; # 01C9;LATIN SMALL LETTER LJ (compat)</tRule>
+			<tRule>Ǌ → NJ ; # 01CA;LATIN CAPITAL LETTER NJ (compat)</tRule>
+			<tRule>ǋ → Nj ; # 01CB;LATIN CAPITAL LETTER N WITH SMALL LETTER J (compat)</tRule>
+			<tRule>ǌ → nj ; # 01CC;LATIN SMALL LETTER NJ (compat)</tRule>
+			<tRule>Ǥ → G ; # 01E4;LATIN CAPITAL LETTER G WITH STROKE</tRule>
+			<tRule>ǥ → g ; # 01E5;LATIN SMALL LETTER G WITH STROKE</tRule>
+			<tRule>Ǳ → DZ ; # 01F1;LATIN CAPITAL LETTER DZ (compat)</tRule>
+			<tRule>ǲ → Dz ; # 01F2;LATIN CAPITAL LETTER D WITH SMALL LETTER Z (compat)</tRule>
+			<tRule>ǳ → dz ; # 01F3;LATIN SMALL LETTER DZ (compat)</tRule>
+			<tRule>ȡ → d ; # 0221;LATIN SMALL LETTER D WITH CURL</tRule>
+			<tRule>Ȥ → Z ; # 0224;LATIN CAPITAL LETTER Z WITH HOOK</tRule>
+			<tRule>ȥ → z ; # 0225;LATIN SMALL LETTER Z WITH HOOK</tRule>
+			<tRule>ȴ → l ; # 0234;LATIN SMALL LETTER L WITH CURL</tRule>
+			<tRule>ȵ → n ; # 0235;LATIN SMALL LETTER N WITH CURL</tRule>
+			<tRule>ȶ → t ; # 0236;LATIN SMALL LETTER T WITH CURL</tRule>
+			<tRule>ȷ → j ; # 0237;LATIN SMALL LETTER DOTLESS J</tRule>
+			<tRule>ȸ → db ; # 0238;LATIN SMALL LETTER DB DIGRAPH</tRule>
+			<tRule>ȹ → qp ; # 0239;LATIN SMALL LETTER QP DIGRAPH</tRule>
+			<tRule>Ⱥ → A ; # 023A;LATIN CAPITAL LETTER A WITH STROKE</tRule>
+			<tRule>Ȼ → C ; # 023B;LATIN CAPITAL LETTER C WITH STROKE</tRule>
+			<tRule>ȼ → c ; # 023C;LATIN SMALL LETTER C WITH STROKE</tRule>
+			<tRule>Ƚ → L ; # 023D;LATIN CAPITAL LETTER L WITH BAR</tRule>
+			<tRule>Ⱦ → T ; # 023E;LATIN CAPITAL LETTER T WITH DIAGONAL STROKE</tRule>
+			<tRule>ȿ → s ; # 023F;LATIN SMALL LETTER S WITH SWASH TAIL</tRule>
+			<tRule>ɀ → z ; # 0240;LATIN SMALL LETTER Z WITH SWASH TAIL</tRule>
+			<tRule>Ƀ → B ; # 0243;LATIN CAPITAL LETTER B WITH STROKE</tRule>
+			<tRule>Ʉ → U ; # 0244;LATIN CAPITAL LETTER U BAR</tRule>
+			<tRule>Ɇ → E ; # 0246;LATIN CAPITAL LETTER E WITH STROKE</tRule>
+			<tRule>ɇ → e ; # 0247;LATIN SMALL LETTER E WITH STROKE</tRule>
+			<tRule>Ɉ → J ; # 0248;LATIN CAPITAL LETTER J WITH STROKE</tRule>
+			<tRule>ɉ → j ; # 0249;LATIN SMALL LETTER J WITH STROKE</tRule>
+			<tRule>Ɍ → R ; # 024C;LATIN CAPITAL LETTER R WITH STROKE</tRule>
+			<tRule>ɍ → r ; # 024D;LATIN SMALL LETTER R WITH STROKE</tRule>
+			<tRule>Ɏ → Y ; # 024E;LATIN CAPITAL LETTER Y WITH STROKE</tRule>
+			<tRule>ɏ → y ; # 024F;LATIN SMALL LETTER Y WITH STROKE</tRule>
+			<tRule>ɓ → b ; # 0253;LATIN SMALL LETTER B WITH HOOK</tRule>
+			<tRule>ɕ → c ; # 0255;LATIN SMALL LETTER C WITH CURL</tRule>
+			<tRule>ɖ → d ; # 0256;LATIN SMALL LETTER D WITH TAIL</tRule>
+			<tRule>ɗ → d ; # 0257;LATIN SMALL LETTER D WITH HOOK</tRule>
+			<tRule>ɛ → e ; # 025B;LATIN SMALL LETTER OPEN E</tRule>
+			<tRule>ɟ → j ; # 025F;LATIN SMALL LETTER DOTLESS J WITH STROKE</tRule>
+			<tRule>ɠ → g ; # 0260;LATIN SMALL LETTER G WITH HOOK</tRule>
+			<tRule>ɡ → g ; # 0261;LATIN SMALL LETTER SCRIPT G</tRule>
+			<tRule>ɢ → G ; # 0262;LATIN LETTER SMALL CAPITAL G</tRule>
+			<tRule>ɦ → h ; # 0266;LATIN SMALL LETTER H WITH HOOK</tRule>
+			<tRule>ɧ → h ; # 0267;LATIN SMALL LETTER HENG WITH HOOK</tRule>
+			<tRule>ɨ → i ; # 0268;LATIN SMALL LETTER I WITH STROKE</tRule>
+			<tRule>ɪ → I ; # 026A;LATIN LETTER SMALL CAPITAL I</tRule>
+			<tRule>ɫ → l ; # 026B;LATIN SMALL LETTER L WITH MIDDLE TILDE</tRule>
+			<tRule>ɬ → l ; # 026C;LATIN SMALL LETTER L WITH BELT</tRule>
+			<tRule>ɭ → l ; # 026D;LATIN SMALL LETTER L WITH RETROFLEX HOOK</tRule>
+			<tRule>ɱ → m ; # 0271;LATIN SMALL LETTER M WITH HOOK</tRule>
+			<tRule>ɲ → n ; # 0272;LATIN SMALL LETTER N WITH LEFT HOOK</tRule>
+			<tRule>ɳ → n ; # 0273;LATIN SMALL LETTER N WITH RETROFLEX HOOK</tRule>
+			<tRule>ɴ → N ; # 0274;LATIN LETTER SMALL CAPITAL N</tRule>
+			<tRule>ɶ → OE ; # 0276;LATIN LETTER SMALL CAPITAL OE</tRule>
+			<tRule>ɼ → r ; # 027C;LATIN SMALL LETTER R WITH LONG LEG</tRule>
+			<tRule>ɽ → r ; # 027D;LATIN SMALL LETTER R WITH TAIL</tRule>
+			<tRule>ɾ → r ; # 027E;LATIN SMALL LETTER R WITH FISHHOOK</tRule>
+			<tRule>ʀ → R ; # 0280;LATIN LETTER SMALL CAPITAL R</tRule>
+			<tRule>ʂ → s ; # 0282;LATIN SMALL LETTER S WITH HOOK</tRule>
+			<tRule>ʈ → t ; # 0288;LATIN SMALL LETTER T WITH RETROFLEX HOOK</tRule>
+			<tRule>ʉ → u ; # 0289;LATIN SMALL LETTER U BAR</tRule>
+			<tRule>ʋ → v ; # 028B;LATIN SMALL LETTER V WITH HOOK</tRule>
+			<tRule>ʏ → Y ; # 028F;LATIN LETTER SMALL CAPITAL Y</tRule>
+			<tRule>ʐ → z ; # 0290;LATIN SMALL LETTER Z WITH RETROFLEX HOOK</tRule>
+			<tRule>ʑ → z ; # 0291;LATIN SMALL LETTER Z WITH CURL</tRule>
+			<tRule>ʙ → B ; # 0299;LATIN LETTER SMALL CAPITAL B</tRule>
+			<tRule>ʛ → G ; # 029B;LATIN LETTER SMALL CAPITAL G WITH HOOK</tRule>
+			<tRule>ʜ → H ; # 029C;LATIN LETTER SMALL CAPITAL H</tRule>
+			<tRule>ʝ → j ; # 029D;LATIN SMALL LETTER J WITH CROSSED-TAIL</tRule>
+			<tRule>ʟ → L ; # 029F;LATIN LETTER SMALL CAPITAL L</tRule>
+			<tRule>ʠ → q ; # 02A0;LATIN SMALL LETTER Q WITH HOOK</tRule>
+			<tRule>ʣ → dz ; # 02A3;LATIN SMALL LETTER DZ DIGRAPH</tRule>
+			<tRule>ʥ → dz ; # 02A5;LATIN SMALL LETTER DZ DIGRAPH WITH CURL</tRule>
+			<tRule>ʦ → ts ; # 02A6;LATIN SMALL LETTER TS DIGRAPH</tRule>
+			<tRule>ʪ → ls ; # 02AA;LATIN SMALL LETTER LS DIGRAPH</tRule>
+			<tRule>ʫ → lz ; # 02AB;LATIN SMALL LETTER LZ DIGRAPH</tRule>
+			<tRule>ᴀ → A ; # 1D00;LATIN LETTER SMALL CAPITAL A</tRule>
+			<tRule>ᴁ → AE ; # 1D01;LATIN LETTER SMALL CAPITAL AE</tRule>
+			<tRule>ᴃ → B ; # 1D03;LATIN LETTER SMALL CAPITAL BARRED B</tRule>
+			<tRule>ᴄ → C ; # 1D04;LATIN LETTER SMALL CAPITAL C</tRule>
+			<tRule>ᴅ → D ; # 1D05;LATIN LETTER SMALL CAPITAL D</tRule>
+			<tRule>ᴆ → D ; # 1D06;LATIN LETTER SMALL CAPITAL ETH</tRule>
+			<tRule>ᴇ → E ; # 1D07;LATIN LETTER SMALL CAPITAL E</tRule>
+			<tRule>ᴊ → J ; # 1D0A;LATIN LETTER SMALL CAPITAL J</tRule>
+			<tRule>ᴋ → K ; # 1D0B;LATIN LETTER SMALL CAPITAL K</tRule>
+			<tRule>ᴌ → L ; # 1D0C;LATIN LETTER SMALL CAPITAL L WITH STROKE</tRule>
+			<tRule>ᴍ → M ; # 1D0D;LATIN LETTER SMALL CAPITAL M</tRule>
+			<tRule>ᴏ → O ; # 1D0F;LATIN LETTER SMALL CAPITAL O</tRule>
+			<tRule>ᴘ → P ; # 1D18;LATIN LETTER SMALL CAPITAL P</tRule>
+			<tRule>ᴛ → T ; # 1D1B;LATIN LETTER SMALL CAPITAL T</tRule>
+			<tRule>ᴜ → U ; # 1D1C;LATIN LETTER SMALL CAPITAL U</tRule>
+			<tRule>ᴠ → V ; # 1D20;LATIN LETTER SMALL CAPITAL V</tRule>
+			<tRule>ᴡ → W ; # 1D21;LATIN LETTER SMALL CAPITAL W</tRule>
+			<tRule>ᴢ → Z ; # 1D22;LATIN LETTER SMALL CAPITAL Z</tRule>
+			<tRule>ᵫ → ue ; # 1D6B;LATIN SMALL LETTER UE</tRule>
+			<tRule>ᵬ → b ; # 1D6C;LATIN SMALL LETTER B WITH MIDDLE TILDE</tRule>
+			<tRule>ᵭ → d ; # 1D6D;LATIN SMALL LETTER D WITH MIDDLE TILDE</tRule>
+			<tRule>ᵮ → f ; # 1D6E;LATIN SMALL LETTER F WITH MIDDLE TILDE</tRule>
+			<tRule>ᵯ → m ; # 1D6F;LATIN SMALL LETTER M WITH MIDDLE TILDE</tRule>
+			<tRule>ᵰ → n ; # 1D70;LATIN SMALL LETTER N WITH MIDDLE TILDE</tRule>
+			<tRule>ᵱ → p ; # 1D71;LATIN SMALL LETTER P WITH MIDDLE TILDE</tRule>
+			<tRule>ᵲ → r ; # 1D72;LATIN SMALL LETTER R WITH MIDDLE TILDE</tRule>
+			<tRule>ᵳ → r ; # 1D73;LATIN SMALL LETTER R WITH FISHHOOK AND MIDDLE TILDE</tRule>
+			<tRule>ᵴ → s ; # 1D74;LATIN SMALL LETTER S WITH MIDDLE TILDE</tRule>
+			<tRule>ᵵ → t ; # 1D75;LATIN SMALL LETTER T WITH MIDDLE TILDE</tRule>
+			<tRule>ᵶ → z ; # 1D76;LATIN SMALL LETTER Z WITH MIDDLE TILDE</tRule>
+			<tRule>ᵺ → th ; # 1D7A;LATIN SMALL LETTER TH WITH STRIKETHROUGH</tRule>
+			<tRule>ᵻ → I ; # 1D7B;LATIN SMALL CAPITAL LETTER I WITH STROKE</tRule>
+			<tRule>ᵽ → p ; # 1D7D;LATIN SMALL LETTER P WITH STROKE</tRule>
+			<tRule>ᵾ → U ; # 1D7E;LATIN SMALL CAPITAL LETTER U WITH STROKE</tRule>
+			<tRule>ᶀ → b ; # 1D80;LATIN SMALL LETTER B WITH PALATAL HOOK</tRule>
+			<tRule>ᶁ → d ; # 1D81;LATIN SMALL LETTER D WITH PALATAL HOOK</tRule>
+			<tRule>ᶂ → f ; # 1D82;LATIN SMALL LETTER F WITH PALATAL HOOK</tRule>
+			<tRule>ᶃ → g ; # 1D83;LATIN SMALL LETTER G WITH PALATAL HOOK</tRule>
+			<tRule>ᶄ → k ; # 1D84;LATIN SMALL LETTER K WITH PALATAL HOOK</tRule>
+			<tRule>ᶅ → l ; # 1D85;LATIN SMALL LETTER L WITH PALATAL HOOK</tRule>
+			<tRule>ᶆ → m ; # 1D86;LATIN SMALL LETTER M WITH PALATAL HOOK</tRule>
+			<tRule>ᶇ → n ; # 1D87;LATIN SMALL LETTER N WITH PALATAL HOOK</tRule>
+			<tRule>ᶈ → p ; # 1D88;LATIN SMALL LETTER P WITH PALATAL HOOK</tRule>
+			<tRule>ᶉ → r ; # 1D89;LATIN SMALL LETTER R WITH PALATAL HOOK</tRule>
+			<tRule>ᶊ → s ; # 1D8A;LATIN SMALL LETTER S WITH PALATAL HOOK</tRule>
+			<tRule>ᶌ → v ; # 1D8C;LATIN SMALL LETTER V WITH PALATAL HOOK</tRule>
+			<tRule>ᶍ → x ; # 1D8D;LATIN SMALL LETTER X WITH PALATAL HOOK</tRule>
+			<tRule>ᶎ → z ; # 1D8E;LATIN SMALL LETTER Z WITH PALATAL HOOK</tRule>
+			<tRule>ᶏ → a ; # 1D8F;LATIN SMALL LETTER A WITH RETROFLEX HOOK</tRule>
+			<tRule>ᶑ → d ; # 1D91;LATIN SMALL LETTER D WITH HOOK AND TAIL</tRule>
+			<tRule>ᶒ → e ; # 1D92;LATIN SMALL LETTER E WITH RETROFLEX HOOK</tRule>
+			<tRule>ᶓ → e ; # 1D93;LATIN SMALL LETTER OPEN E WITH RETROFLEX HOOK</tRule>
+			<tRule>ᶖ → i ; # 1D96;LATIN SMALL LETTER I WITH RETROFLEX HOOK</tRule>
+			<tRule>ᶙ → u ; # 1D99;LATIN SMALL LETTER U WITH RETROFLEX HOOK</tRule>
+			<tRule>ẚ → a ; # 1E9A;LATIN SMALL LETTER A WITH RIGHT HALF RING</tRule>
+			<tRule>ẜ → s ; # 1E9C;LATIN SMALL LETTER LONG S WITH DIAGONAL STROKE</tRule>
+			<tRule>ẝ → s ; # 1E9D;LATIN SMALL LETTER LONG S WITH HIGH STROKE</tRule>
+			<tRule>ẞ → SS ; # 1E9E;LATIN CAPITAL LETTER SHARP S</tRule>
+			<tRule>Ỻ → LL ; # 1EFA;LATIN CAPITAL LETTER MIDDLE-WELSH LL</tRule>
+			<tRule>ỻ → ll ; # 1EFB;LATIN SMALL LETTER MIDDLE-WELSH LL</tRule>
+			<tRule>Ỽ → V ; # 1EFC;LATIN CAPITAL LETTER MIDDLE-WELSH V</tRule>
+			<tRule>ỽ → v ; # 1EFD;LATIN SMALL LETTER MIDDLE-WELSH V</tRule>
+			<tRule>Ỿ → Y ; # 1EFE;LATIN CAPITAL LETTER Y WITH LOOP</tRule>
+			<tRule>ỿ → y ; # 1EFF;LATIN SMALL LETTER Y WITH LOOP</tRule>
+			<comment># Presentation forms</comment>
+			<tRule>ﬀ → ff ; # FB00;LATIN SMALL LIGATURE FF (compat)</tRule>
+			<tRule>ﬁ → fi ; # FB01;LATIN SMALL LIGATURE FI (compat)</tRule>
+			<tRule>ﬂ → fl ; # FB02;LATIN SMALL LIGATURE FL (compat)</tRule>
+			<tRule>ﬃ → ffi ; # FB03;LATIN SMALL LIGATURE FFI (compat)</tRule>
+			<tRule>ﬄ → ffl ; # FB04;LATIN SMALL LIGATURE FFL (compat)</tRule>
+			<tRule>ﬅ → st ; # FB05;LATIN SMALL LIGATURE LONG S T (compat)</tRule>
+			<tRule>ﬆ → st ; # FB06;LATIN SMALL LIGATURE ST (compat)</tRule>
+			<comment># Fullwidth</comment>
+			<tRule>Ａ → A ; # FF21;FULLWIDTH LATIN CAPITAL LETTER A (compat)</tRule>
+			<tRule>Ｂ → B ; # FF22;FULLWIDTH LATIN CAPITAL LETTER B (compat)</tRule>
+			<tRule>Ｃ → C ; # FF23;FULLWIDTH LATIN CAPITAL LETTER C (compat)</tRule>
+			<tRule>Ｄ → D ; # FF24;FULLWIDTH LATIN CAPITAL LETTER D (compat)</tRule>
+			<tRule>Ｅ → E ; # FF25;FULLWIDTH LATIN CAPITAL LETTER E (compat)</tRule>
+			<tRule>Ｆ → F ; # FF26;FULLWIDTH LATIN CAPITAL LETTER F (compat)</tRule>
+			<tRule>Ｇ → G ; # FF27;FULLWIDTH LATIN CAPITAL LETTER G (compat)</tRule>
+			<tRule>Ｈ → H ; # FF28;FULLWIDTH LATIN CAPITAL LETTER H (compat)</tRule>
+			<tRule>Ｉ → I ; # FF29;FULLWIDTH LATIN CAPITAL LETTER I (compat)</tRule>
+			<tRule>Ｊ → J ; # FF2A;FULLWIDTH LATIN CAPITAL LETTER J (compat)</tRule>
+			<tRule>Ｋ → K ; # FF2B;FULLWIDTH LATIN CAPITAL LETTER K (compat)</tRule>
+			<tRule>Ｌ → L ; # FF2C;FULLWIDTH LATIN CAPITAL LETTER L (compat)</tRule>
+			<tRule>Ｍ → M ; # FF2D;FULLWIDTH LATIN CAPITAL LETTER M (compat)</tRule>
+			<tRule>Ｎ → N ; # FF2E;FULLWIDTH LATIN CAPITAL LETTER N (compat)</tRule>
+			<tRule>Ｏ → O ; # FF2F;FULLWIDTH LATIN CAPITAL LETTER O (compat)</tRule>
+			<tRule>Ｐ → P ; # FF30;FULLWIDTH LATIN CAPITAL LETTER P (compat)</tRule>
+			<tRule>Ｑ → Q ; # FF31;FULLWIDTH LATIN CAPITAL LETTER Q (compat)</tRule>
+			<tRule>Ｒ → R ; # FF32;FULLWIDTH LATIN CAPITAL LETTER R (compat)</tRule>
+			<tRule>Ｓ → S ; # FF33;FULLWIDTH LATIN CAPITAL LETTER S (compat)</tRule>
+			<tRule>Ｔ → T ; # FF34;FULLWIDTH LATIN CAPITAL LETTER T (compat)</tRule>
+			<tRule>Ｕ → U ; # FF35;FULLWIDTH LATIN CAPITAL LETTER U (compat)</tRule>
+			<tRule>Ｖ → V ; # FF36;FULLWIDTH LATIN CAPITAL LETTER V (compat)</tRule>
+			<tRule>Ｗ → W ; # FF37;FULLWIDTH LATIN CAPITAL LETTER W (compat)</tRule>
+			<tRule>Ｘ → X ; # FF38;FULLWIDTH LATIN CAPITAL LETTER X (compat)</tRule>
+			<tRule>Ｙ → Y ; # FF39;FULLWIDTH LATIN CAPITAL LETTER Y (compat)</tRule>
+			<tRule>Ｚ → Z ; # FF3A;FULLWIDTH LATIN CAPITAL LETTER Z (compat)</tRule>
+			<tRule>ａ → a ; # FF41;FULLWIDTH LATIN SMALL LETTER A (compat)</tRule>
+			<tRule>ｂ → b ; # FF42;FULLWIDTH LATIN SMALL LETTER B (compat)</tRule>
+			<tRule>ｃ → c ; # FF43;FULLWIDTH LATIN SMALL LETTER C (compat)</tRule>
+			<tRule>ｄ → d ; # FF44;FULLWIDTH LATIN SMALL LETTER D (compat)</tRule>
+			<tRule>ｅ → e ; # FF45;FULLWIDTH LATIN SMALL LETTER E (compat)</tRule>
+			<tRule>ｆ → f ; # FF46;FULLWIDTH LATIN SMALL LETTER F (compat)</tRule>
+			<tRule>ｇ → g ; # FF47;FULLWIDTH LATIN SMALL LETTER G (compat)</tRule>
+			<tRule>ｈ → h ; # FF48;FULLWIDTH LATIN SMALL LETTER H (compat)</tRule>
+			<tRule>ｉ → i ; # FF49;FULLWIDTH LATIN SMALL LETTER I (compat)</tRule>
+			<tRule>ｊ → j ; # FF4A;FULLWIDTH LATIN SMALL LETTER J (compat)</tRule>
+			<tRule>ｋ → k ; # FF4B;FULLWIDTH LATIN SMALL LETTER K (compat)</tRule>
+			<tRule>ｌ → l ; # FF4C;FULLWIDTH LATIN SMALL LETTER L (compat)</tRule>
+			<tRule>ｍ → m ; # FF4D;FULLWIDTH LATIN SMALL LETTER M (compat)</tRule>
+			<tRule>ｎ → n ; # FF4E;FULLWIDTH LATIN SMALL LETTER N (compat)</tRule>
+			<tRule>ｏ → o ; # FF4F;FULLWIDTH LATIN SMALL LETTER O (compat)</tRule>
+			<tRule>ｐ → p ; # FF50;FULLWIDTH LATIN SMALL LETTER P (compat)</tRule>
+			<tRule>ｑ → q ; # FF51;FULLWIDTH LATIN SMALL LETTER Q (compat)</tRule>
+			<tRule>ｒ → r ; # FF52;FULLWIDTH LATIN SMALL LETTER R (compat)</tRule>
+			<tRule>ｓ → s ; # FF53;FULLWIDTH LATIN SMALL LETTER S (compat)</tRule>
+			<tRule>ｔ → t ; # FF54;FULLWIDTH LATIN SMALL LETTER T (compat)</tRule>
+			<tRule>ｕ → u ; # FF55;FULLWIDTH LATIN SMALL LETTER U (compat)</tRule>
+			<tRule>ｖ → v ; # FF56;FULLWIDTH LATIN SMALL LETTER V (compat)</tRule>
+			<tRule>ｗ → w ; # FF57;FULLWIDTH LATIN SMALL LETTER W (compat)</tRule>
+			<tRule>ｘ → x ; # FF58;FULLWIDTH LATIN SMALL LETTER X (compat)</tRule>
+			<tRule>ｙ → y ; # FF59;FULLWIDTH LATIN SMALL LETTER Y (compat)</tRule>
+			<tRule>ｚ → z ; # FF5A;FULLWIDTH LATIN SMALL LETTER Z (compat)</tRule>
+			<comment>#</comment>
+			<comment># Currency and letterlike</comment>
+			<comment>#</comment>
+			<tRule>© → '(C)' ; # 00A9;COPYRIGHT SIGN (from ‹character-fallback›)</tRule>
+			<tRule>® → '(R)' ; # 00AE;REGISTERED SIGN (from ‹character-fallback›)</tRule>
+			<tRule>₠ → CE ; # 20A0;EURO-CURRENCY SIGN (from ‹character-fallback›)</tRule>
+			<tRule>₢ → Cr ; # 20A2;CRUZEIRO SIGN (from ‹character-fallback›)</tRule>
+			<tRule>₣ → 'Fr.' ; # 20A3;FRENCH FRANC SIGN (from ‹character-fallback›)</tRule>
+			<tRule>₤ → 'L.' ; # 20A4;LIRA SIGN (from ‹character-fallback›)</tRule>
+			<tRule>₧ → Pts ; # 20A7;PESETA SIGN (from ‹character-fallback›)</tRule>
+			<tRule>₹ → Rs ; # 20B9;INDIAN RUPEE SIGN (from ‹character-fallback›)</tRule>
+			<tRule>℀ → 'a/c' ; # 2100;ACCOUNT OF (compat)</tRule>
+			<tRule>℁ → 'a/s' ; # 2101;ADDRESSED TO THE SUBJECT (compat)</tRule>
+			<tRule>ℂ → C ; # 2102;DOUBLE-STRUCK CAPITAL C (compat)</tRule>
+			<tRule>℅ → 'c/o' ; # 2105;CARE OF (compat)</tRule>
+			<tRule>℆ → 'c/u' ; # 2106;CADA UNA (compat)</tRule>
+			<tRule>ℊ → g ; # 210A;SCRIPT SMALL G (compat)</tRule>
+			<tRule>ℋ → H ; # 210B;SCRIPT CAPITAL H (compat)</tRule>
+			<tRule>ℌ → x ; # 210C;BLACK-LETTER CAPITAL H (compat)</tRule>
+			<tRule>ℍ → H ; # 210D;DOUBLE-STRUCK CAPITAL H (compat)</tRule>
+			<tRule>ℎ → h ; # 210E;PLANCK CONSTANT (compat)</tRule>
+			<tRule>ℐ → I ; # 2110;SCRIPT CAPITAL I (compat)</tRule>
+			<tRule>ℑ → I ; # 2111;BLACK-LETTER CAPITAL I (compat)</tRule>
+			<tRule>ℒ → L ; # 2112;SCRIPT CAPITAL L (compat)</tRule>
+			<tRule>ℓ → l ; # 2113;SCRIPT SMALL L (compat)</tRule>
+			<tRule>ℕ → N ; # 2115;DOUBLE-STRUCK CAPITAL N (compat)</tRule>
+			<tRule>№ → No ; # 2116;NUMERO SIGN (compat)</tRule>
+			<tRule>ℙ → P ; # 2119;DOUBLE-STRUCK CAPITAL P (compat)</tRule>
+			<tRule>ℚ → Q ; # 211A;DOUBLE-STRUCK CAPITAL Q (compat)</tRule>
+			<tRule>ℛ → R ; # 211B;SCRIPT CAPITAL R (compat)</tRule>
+			<tRule>ℜ → R ; # 211C;BLACK-LETTER CAPITAL R (compat)</tRule>
+			<tRule>ℝ → R ; # 211D;DOUBLE-STRUCK CAPITAL R (compat)</tRule>
+			<tRule>℞ → Rx ; # 211E;PRESCRIPTION TAKE (from ‹character-fallback›)</tRule>
+			<tRule>℡ → TEL ; # 2121;TELEPHONE SIGN (compat)</tRule>
+			<tRule>ℤ → Z ; # 2124;DOUBLE-STRUCK CAPITAL Z (compat)</tRule>
+			<tRule>ℨ → Z ; # 2128;BLACK-LETTER CAPITAL Z (compat)</tRule>
+			<tRule>ℬ → B ; # 212C;SCRIPT CAPITAL B (compat)</tRule>
+			<tRule>ℭ → C ; # 212D;BLACK-LETTER CAPITAL C (compat)</tRule>
+			<tRule>ℯ → e ; # 212F;SCRIPT SMALL E (compat)</tRule>
+			<tRule>ℰ → E ; # 2130;SCRIPT CAPITAL E (compat)</tRule>
+			<tRule>ℱ → F ; # 2131;SCRIPT CAPITAL F (compat)</tRule>
+			<tRule>ℳ → M ; # 2133;SCRIPT CAPITAL M (compat)</tRule>
+			<tRule>ℴ → o ; # 2134;SCRIPT SMALL O (compat)</tRule>
+			<tRule>ℹ → i ; # 2139;INFORMATION SOURCE (compat)</tRule>
+			<tRule>℻ → FAX ; # 213B;FACSIMILE SIGN (compat)</tRule>
+			<tRule>ⅅ → D ; # 2145;DOUBLE-STRUCK ITALIC CAPITAL D (compat)</tRule>
+			<tRule>ⅆ → d ; # 2146;DOUBLE-STRUCK ITALIC SMALL D (compat)</tRule>
+			<tRule>ⅇ → e ; # 2147;DOUBLE-STRUCK ITALIC SMALL E (compat)</tRule>
+			<tRule>ⅈ → i ; # 2148;DOUBLE-STRUCK ITALIC SMALL I (compat)</tRule>
+			<tRule>ⅉ → j ; # 2149;DOUBLE-STRUCK ITALIC SMALL J (compat)</tRule>
+			<comment>#</comment>
+			<comment># Squared Latin</comment>
+			<comment>#</comment>
+			<tRule>㍱ → hPa ; # 3371;SQUARE HPA (compat)</tRule>
+			<tRule>㍲ → da ; # 3372;SQUARE DA (compat)</tRule>
+			<tRule>㍳ → AU ; # 3373;SQUARE AU (compat)</tRule>
+			<tRule>㍴ → bar ; # 3374;SQUARE BAR (compat)</tRule>
+			<tRule>㍵ → oV ; # 3375;SQUARE OV (compat)</tRule>
+			<tRule>㍶ → pc ; # 3376;SQUARE PC (compat)</tRule>
+			<tRule>㍷ → dm ; # 3377;SQUARE DM (compat)</tRule>
+			<tRule>㍺ → IU ; # 337A;SQUARE IU (compat)</tRule>
+			<tRule>㎀ → pA ; # 3380;SQUARE PA AMPS (compat)</tRule>
+			<tRule>㎁ → nA ; # 3381;SQUARE NA (compat)</tRule>
+			<tRule>㎃ → mA ; # 3383;SQUARE MA (compat)</tRule>
+			<tRule>㎄ → kA ; # 3384;SQUARE KA (compat)</tRule>
+			<tRule>㎅ → KB ; # 3385;SQUARE KB (compat)</tRule>
+			<tRule>㎆ → MB ; # 3386;SQUARE MB (compat)</tRule>
+			<tRule>㎇ → GB ; # 3387;SQUARE GB (compat)</tRule>
+			<tRule>㎈ → cal ; # 3388;SQUARE CAL (compat)</tRule>
+			<tRule>㎉ → kcal ; # 3389;SQUARE KCAL (compat)</tRule>
+			<tRule>㎊ → pF ; # 338A;SQUARE PF (compat)</tRule>
+			<tRule>㎋ → nF ; # 338B;SQUARE NF (compat)</tRule>
+			<tRule>㎎ → mg ; # 338E;SQUARE MG (compat)</tRule>
+			<tRule>㎏ → kg ; # 338F;SQUARE KG (compat)</tRule>
+			<tRule>㎐ → Hz ; # 3390;SQUARE HZ (compat)</tRule>
+			<tRule>㎑ → kHz ; # 3391;SQUARE KHZ (compat)</tRule>
+			<tRule>㎒ → MHz ; # 3392;SQUARE MHZ (compat)</tRule>
+			<tRule>㎓ → GHz ; # 3393;SQUARE GHZ (compat)</tRule>
+			<tRule>㎔ → THz ; # 3394;SQUARE THZ (compat)</tRule>
+			<tRule>㎙ → fm ; # 3399;SQUARE FM (compat)</tRule>
+			<tRule>㎚ → nm ; # 339A;SQUARE NM (compat)</tRule>
+			<tRule>㎜ → mm ; # 339C;SQUARE MM (compat)</tRule>
+			<tRule>㎝ → cm ; # 339D;SQUARE CM (compat)</tRule>
+			<tRule>㎞ → km ; # 339E;SQUARE KM (compat)</tRule>
+			<tRule>㎧ → 'm/s' ; # 33A7;SQUARE M OVER S (compat) (from ‹character-fallback›)</tRule>
+			<tRule>㎩ → Pa ; # 33A9;SQUARE PA (compat)</tRule>
+			<tRule>㎪ → kPa ; # 33AA;SQUARE KPA (compat)</tRule>
+			<tRule>㎫ → MPa ; # 33AB;SQUARE MPA (compat)</tRule>
+			<tRule>㎬ → GPa ; # 33AC;SQUARE GPA (compat)</tRule>
+			<tRule>㎭ → rad ; # 33AD;SQUARE RAD (compat)</tRule>
+			<tRule>㎮ → 'rad/s' ; # 33AE;SQUARE RAD OVER S (compat) (from ‹character-fallback›)</tRule>
+			<tRule>㎰ → ps ; # 33B0;SQUARE PS (compat)</tRule>
+			<tRule>㎱ → ns ; # 33B1;SQUARE NS (compat)</tRule>
+			<tRule>㎳ → ms ; # 33B3;SQUARE MS (compat)</tRule>
+			<tRule>㎴ → pV ; # 33B4;SQUARE PV (compat)</tRule>
+			<tRule>㎵ → nV ; # 33B5;SQUARE NV (compat)</tRule>
+			<tRule>㎷ → mV ; # 33B7;SQUARE MV (compat)</tRule>
+			<tRule>㎸ → kV ; # 33B8;SQUARE KV (compat)</tRule>
+			<tRule>㎹ → MV ; # 33B9;SQUARE MV MEGA (compat)</tRule>
+			<tRule>㎺ → pW ; # 33BA;SQUARE PW (compat)</tRule>
+			<tRule>㎻ → nW ; # 33BB;SQUARE NW (compat)</tRule>
+			<tRule>㎽ → mW ; # 33BD;SQUARE MW (compat)</tRule>
+			<tRule>㎾ → kW ; # 33BE;SQUARE KW (compat)</tRule>
+			<tRule>㎿ → MW ; # 33BF;SQUARE MW MEGA (compat)</tRule>
+			<tRule>㏂ → 'a.m.' ; # 33C2;SQUARE AM (compat)</tRule>
+			<tRule>㏃ → Bq ; # 33C3;SQUARE BQ (compat)</tRule>
+			<tRule>㏄ → cc ; # 33C4;SQUARE CC (compat) (from ‹character-fallback›, adj)</tRule>
+			<tRule>㏅ → cd ; # 33C5;SQUARE CD (compat)</tRule>
+			<tRule>㏆ → 'C/kg' ; # 33C6;SQUARE C OVER KG (compat) (from ‹character-fallback›)</tRule>
+			<tRule>㏇ → 'Co.' ; # 33C7;SQUARE CO (compat)</tRule>
+			<tRule>㏈ → dB ; # 33C8;SQUARE DB (compat)</tRule>
+			<tRule>㏉ → Gy ; # 33C9;SQUARE GY (compat)</tRule>
+			<tRule>㏊ → ha ; # 33CA;SQUARE HA (compat)</tRule>
+			<tRule>㏋ → HP ; # 33CB;SQUARE HP (compat)</tRule>
+			<tRule>㏌ → in ; # 33CC;SQUARE IN (compat)</tRule>
+			<tRule>㏍ → KK ; # 33CD;SQUARE KK (compat)</tRule>
+			<tRule>㏎ → KM ; # 33CE;SQUARE KM CAPITAL (compat)</tRule>
+			<tRule>㏏ → kt ; # 33CF;SQUARE KT (compat)</tRule>
+			<tRule>㏐ → lm ; # 33D0;SQUARE LM (compat)</tRule>
+			<tRule>㏑ → ln ; # 33D1;SQUARE LN (compat)</tRule>
+			<tRule>㏒ → log ; # 33D2;SQUARE LOG (compat)</tRule>
+			<tRule>㏓ → lx ; # 33D3;SQUARE LX (compat)</tRule>
+			<tRule>㏔ → mb ; # 33D4;SQUARE MB SMALL (compat)</tRule>
+			<tRule>㏕ → mil ; # 33D5;SQUARE MIL (compat)</tRule>
+			<tRule>㏖ → mol ; # 33D6;SQUARE MOL (compat)</tRule>
+			<tRule>㏗ → pH ; # 33D7;SQUARE PH (compat) (from ‹character-fallback›)</tRule>
+			<tRule>㏘ → 'p.m.' ; # 33D8;SQUARE PM (compat)</tRule>
+			<tRule>㏙ → PPM ; # 33D9;SQUARE PPM (compat)</tRule>
+			<tRule>㏚ → PR ; # 33DA;SQUARE PR (compat)</tRule>
+			<tRule>㏛ → sr ; # 33DB;SQUARE SR (compat)</tRule>
+			<tRule>㏜ → Sv ; # 33DC;SQUARE SV (compat)</tRule>
+			<tRule>㏝ → Wb ; # 33DD;SQUARE WB (compat)</tRule>
+			<tRule>㏞ → 'V/m' ; # 33DE;SQUARE V OVER M (compat) (from ‹character-fallback›)</tRule>
+			<tRule>㏟ → 'A/m' ; # 33DF;SQUARE A OVER M (compat) (from ‹character-fallback›)</tRule>
+			<comment>#</comment>
+			<comment># Enclosed Latin</comment>
+			<comment>#</comment>
+			<tRule>⒜ → '(a)' ; # 249C;PARENTHESIZED LATIN SMALL LETTER A (compat)</tRule>
+			<tRule>⒝ → '(b)' ; # 249D;PARENTHESIZED LATIN SMALL LETTER B (compat)</tRule>
+			<tRule>⒞ → '(c)' ; # 249E;PARENTHESIZED LATIN SMALL LETTER C (compat)</tRule>
+			<tRule>⒟ → '(d)' ; # 249F;PARENTHESIZED LATIN SMALL LETTER D (compat)</tRule>
+			<tRule>⒠ → '(e)' ; # 24A0;PARENTHESIZED LATIN SMALL LETTER E (compat)</tRule>
+			<tRule>⒡ → '(f)' ; # 24A1;PARENTHESIZED LATIN SMALL LETTER F (compat)</tRule>
+			<tRule>⒢ → '(g)' ; # 24A2;PARENTHESIZED LATIN SMALL LETTER G (compat)</tRule>
+			<tRule>⒣ → '(h)' ; # 24A3;PARENTHESIZED LATIN SMALL LETTER H (compat)</tRule>
+			<tRule>⒤ → '(i)' ; # 24A4;PARENTHESIZED LATIN SMALL LETTER I (compat)</tRule>
+			<tRule>⒥ → '(j)' ; # 24A5;PARENTHESIZED LATIN SMALL LETTER J (compat)</tRule>
+			<tRule>⒦ → '(k)' ; # 24A6;PARENTHESIZED LATIN SMALL LETTER K (compat)</tRule>
+			<tRule>⒧ → '(l)' ; # 24A7;PARENTHESIZED LATIN SMALL LETTER L (compat)</tRule>
+			<tRule>⒨ → '(m)' ; # 24A8;PARENTHESIZED LATIN SMALL LETTER M (compat)</tRule>
+			<tRule>⒩ → '(n)' ; # 24A9;PARENTHESIZED LATIN SMALL LETTER N (compat)</tRule>
+			<tRule>⒪ → '(o)' ; # 24AA;PARENTHESIZED LATIN SMALL LETTER O (compat)</tRule>
+			<tRule>⒫ → '(p)' ; # 24AB;PARENTHESIZED LATIN SMALL LETTER P (compat)</tRule>
+			<tRule>⒬ → '(q)' ; # 24AC;PARENTHESIZED LATIN SMALL LETTER Q (compat)</tRule>
+			<tRule>⒭ → '(r)' ; # 24AD;PARENTHESIZED LATIN SMALL LETTER R (compat)</tRule>
+			<tRule>⒮ → '(s)' ; # 24AE;PARENTHESIZED LATIN SMALL LETTER S (compat)</tRule>
+			<tRule>⒯ → '(t)' ; # 24AF;PARENTHESIZED LATIN SMALL LETTER T (compat)</tRule>
+			<tRule>⒰ → '(u)' ; # 24B0;PARENTHESIZED LATIN SMALL LETTER U (compat)</tRule>
+			<tRule>⒱ → '(v)' ; # 24B1;PARENTHESIZED LATIN SMALL LETTER V (compat)</tRule>
+			<tRule>⒲ → '(w)' ; # 24B2;PARENTHESIZED LATIN SMALL LETTER W (compat)</tRule>
+			<tRule>⒳ → '(x)' ; # 24B3;PARENTHESIZED LATIN SMALL LETTER X (compat)</tRule>
+			<tRule>⒴ → '(y)' ; # 24B4;PARENTHESIZED LATIN SMALL LETTER Y (compat)</tRule>
+			<tRule>⒵ → '(z)' ; # 24B5;PARENTHESIZED LATIN SMALL LETTER Z (compat)</tRule>
+			<comment>#</comment>
+			<comment># Roman numerals</comment>
+			<comment>#</comment>
+			<tRule>Ⅰ → I ; # 2160;ROMAN NUMERAL ONE (compat)</tRule>
+			<tRule>Ⅱ → II ; # 2161;ROMAN NUMERAL TWO (compat)</tRule>
+			<tRule>Ⅲ → III ; # 2162;ROMAN NUMERAL THREE (compat)</tRule>
+			<tRule>Ⅳ → IV ; # 2163;ROMAN NUMERAL FOUR (compat)</tRule>
+			<tRule>Ⅴ → V ; # 2164;ROMAN NUMERAL FIVE (compat)</tRule>
+			<tRule>Ⅵ → VI ; # 2165;ROMAN NUMERAL SIX (compat)</tRule>
+			<tRule>Ⅶ → VII ; # 2166;ROMAN NUMERAL SEVEN (compat)</tRule>
+			<tRule>Ⅷ → VIII ; # 2167;ROMAN NUMERAL EIGHT (compat)</tRule>
+			<tRule>Ⅸ → IX ; # 2168;ROMAN NUMERAL NINE (compat)</tRule>
+			<tRule>Ⅹ → X ; # 2169;ROMAN NUMERAL TEN (compat)</tRule>
+			<tRule>Ⅺ → XI ; # 216A;ROMAN NUMERAL ELEVEN (compat)</tRule>
+			<tRule>Ⅻ → XII ; # 216B;ROMAN NUMERAL TWELVE (compat)</tRule>
+			<tRule>Ⅼ → L ; # 216C;ROMAN NUMERAL FIFTY (compat)</tRule>
+			<tRule>Ⅽ → C ; # 216D;ROMAN NUMERAL ONE HUNDRED (compat)</tRule>
+			<tRule>Ⅾ → D ; # 216E;ROMAN NUMERAL FIVE HUNDRED (compat)</tRule>
+			<tRule>Ⅿ → M ; # 216F;ROMAN NUMERAL ONE THOUSAND (compat)</tRule>
+			<tRule>ⅰ → i ; # 2170;SMALL ROMAN NUMERAL ONE (compat)</tRule>
+			<tRule>ⅱ → ii ; # 2171;SMALL ROMAN NUMERAL TWO (compat)</tRule>
+			<tRule>ⅲ → iii ; # 2172;SMALL ROMAN NUMERAL THREE (compat)</tRule>
+			<tRule>ⅳ → iv ; # 2173;SMALL ROMAN NUMERAL FOUR (compat)</tRule>
+			<tRule>ⅴ → v ; # 2174;SMALL ROMAN NUMERAL FIVE (compat)</tRule>
+			<tRule>ⅵ → vi ; # 2175;SMALL ROMAN NUMERAL SIX (compat)</tRule>
+			<tRule>ⅶ → vii ; # 2176;SMALL ROMAN NUMERAL SEVEN (compat)</tRule>
+			<tRule>ⅷ → viii ; # 2177;SMALL ROMAN NUMERAL EIGHT (compat)</tRule>
+			<tRule>ⅸ → ix ; # 2178;SMALL ROMAN NUMERAL NINE (compat)</tRule>
+			<tRule>ⅹ → x ; # 2179;SMALL ROMAN NUMERAL TEN (compat)</tRule>
+			<tRule>ⅺ → xi ; # 217A;SMALL ROMAN NUMERAL ELEVEN (compat)</tRule>
+			<tRule>ⅻ → xii ; # 217B;SMALL ROMAN NUMERAL TWELVE (compat)</tRule>
+			<tRule>ⅼ → l ; # 217C;SMALL ROMAN NUMERAL FIFTY (compat)</tRule>
+			<tRule>ⅽ → c ; # 217D;SMALL ROMAN NUMERAL ONE HUNDRED (compat)</tRule>
+			<tRule>ⅾ → d ; # 217E;SMALL ROMAN NUMERAL FIVE HUNDRED (compat)</tRule>
+			<tRule>ⅿ → m ; # 217F;SMALL ROMAN NUMERAL ONE THOUSAND (compat)</tRule>
+			<comment>#</comment>
+			<comment># Fractions</comment>
+			<comment>#</comment>
+			<tRule>¼ → ' 1/4' ; # 00BC;VULGAR FRACTION ONE QUARTER (from ‹character-fallback›)</tRule>
+			<tRule>½ → ' 1/2' ; # 00BD;VULGAR FRACTION ONE HALF (from ‹character-fallback›)</tRule>
+			<tRule>¾ → ' 3/4' ; # 00BE;VULGAR FRACTION THREE QUARTERS (from ‹character-fallback›)</tRule>
+			<tRule>⅓ → ' 1/3' ; # 2153;VULGAR FRACTION ONE THIRD (from ‹character-fallback›)</tRule>
+			<tRule>⅔ → ' 2/3' ; # 2154;VULGAR FRACTION TWO THIRDS (from ‹character-fallback›)</tRule>
+			<tRule>⅕ → ' 1/5' ; # 2155;VULGAR FRACTION ONE FIFTH (from ‹character-fallback›)</tRule>
+			<tRule>⅖ → ' 2/5' ; # 2156;VULGAR FRACTION TWO FIFTHS (from ‹character-fallback›)</tRule>
+			<tRule>⅗ → ' 3/5' ; # 2157;VULGAR FRACTION THREE FIFTHS (from ‹character-fallback›)</tRule>
+			<tRule>⅘ → ' 4/5' ; # 2158;VULGAR FRACTION FOUR FIFTHS (from ‹character-fallback›)</tRule>
+			<tRule>⅙ → ' 1/6' ; # 2159;VULGAR FRACTION ONE SIXTH (from ‹character-fallback›)</tRule>
+			<tRule>⅚ → ' 5/6' ; # 215A;VULGAR FRACTION FIVE SIXTHS (from ‹character-fallback›)</tRule>
+			<tRule>⅛ → ' 1/8' ; # 215B;VULGAR FRACTION ONE EIGHTH (from ‹character-fallback›)</tRule>
+			<tRule>⅜ → ' 3/8' ; # 215C;VULGAR FRACTION THREE EIGHTHS (from ‹character-fallback›)</tRule>
+			<tRule>⅝ → ' 5/8' ; # 215D;VULGAR FRACTION FIVE EIGHTHS (from ‹character-fallback›)</tRule>
+			<tRule>⅞ → ' 7/8' ; # 215E;VULGAR FRACTION SEVEN EIGHTHS (from ‹character-fallback›)</tRule>
+			<tRule>⅟ → ' 1/' ; # 215F;FRACTION NUMERATOR ONE (from ‹character-fallback›)</tRule>
+			<comment>#</comment>
+			<comment># Enclosed numeric</comment>
+			<comment>#</comment>
+			<tRule>⑴ → '(1)' ; # 2474;PARENTHESIZED DIGIT ONE (compat)</tRule>
+			<tRule>⑵ → '(2)' ; # 2475;PARENTHESIZED DIGIT TWO (compat)</tRule>
+			<tRule>⑶ → '(3)' ; # 2476;PARENTHESIZED DIGIT THREE (compat)</tRule>
+			<tRule>⑷ → '(4)' ; # 2477;PARENTHESIZED DIGIT FOUR (compat)</tRule>
+			<tRule>⑸ → '(5)' ; # 2478;PARENTHESIZED DIGIT FIVE (compat)</tRule>
+			<tRule>⑹ → '(6)' ; # 2479;PARENTHESIZED DIGIT SIX (compat)</tRule>
+			<tRule>⑺ → '(7)' ; # 247A;PARENTHESIZED DIGIT SEVEN (compat)</tRule>
+			<tRule>⑻ → '(8)' ; # 247B;PARENTHESIZED DIGIT EIGHT (compat)</tRule>
+			<tRule>⑼ → '(9)' ; # 247C;PARENTHESIZED DIGIT NINE (compat)</tRule>
+			<tRule>⑽ → '(10)' ; # 247D;PARENTHESIZED NUMBER TEN (compat)</tRule>
+			<tRule>⑾ → '(11)' ; # 247E;PARENTHESIZED NUMBER ELEVEN (compat)</tRule>
+			<tRule>⑿ → '(12)' ; # 247F;PARENTHESIZED NUMBER TWELVE (compat)</tRule>
+			<tRule>⒀ → '(13)' ; # 2480;PARENTHESIZED NUMBER THIRTEEN (compat)</tRule>
+			<tRule>⒁ → '(14)' ; # 2481;PARENTHESIZED NUMBER FOURTEEN (compat)</tRule>
+			<tRule>⒂ → '(15)' ; # 2482;PARENTHESIZED NUMBER FIFTEEN (compat)</tRule>
+			<tRule>⒃ → '(16)' ; # 2483;PARENTHESIZED NUMBER SIXTEEN (compat)</tRule>
+			<tRule>⒄ → '(17)' ; # 2484;PARENTHESIZED NUMBER SEVENTEEN (compat)</tRule>
+			<tRule>⒅ → '(18)' ; # 2485;PARENTHESIZED NUMBER EIGHTEEN (compat)</tRule>
+			<tRule>⒆ → '(19)' ; # 2486;PARENTHESIZED NUMBER NINETEEN (compat)</tRule>
+			<tRule>⒇ → '(20)' ; # 2487;PARENTHESIZED NUMBER TWENTY (compat)</tRule>
+			<tRule>⒈ → '1.' ; # 2488;DIGIT ONE FULL STOP (compat)</tRule>
+			<tRule>⒉ → '2.' ; # 2489;DIGIT TWO FULL STOP (compat)</tRule>
+			<tRule>⒊ → '3.' ; # 248A;DIGIT THREE FULL STOP (compat)</tRule>
+			<tRule>⒋ → '4.' ; # 248B;DIGIT FOUR FULL STOP (compat)</tRule>
+			<tRule>⒌ → '5.' ; # 248C;DIGIT FIVE FULL STOP (compat)</tRule>
+			<tRule>⒍ → '6.' ; # 248D;DIGIT SIX FULL STOP (compat)</tRule>
+			<tRule>⒎ → '7.' ; # 248E;DIGIT SEVEN FULL STOP (compat)</tRule>
+			<tRule>⒏ → '8.' ; # 248F;DIGIT EIGHT FULL STOP (compat)</tRule>
+			<tRule>⒐ → '9.' ; # 2490;DIGIT NINE FULL STOP (compat)</tRule>
+			<tRule>⒑ → '10.' ; # 2491;NUMBER TEN FULL STOP (compat)</tRule>
+			<tRule>⒒ → '11.' ; # 2492;NUMBER ELEVEN FULL STOP (compat)</tRule>
+			<tRule>⒓ → '12.' ; # 2493;NUMBER TWELVE FULL STOP (compat)</tRule>
+			<tRule>⒔ → '13.' ; # 2494;NUMBER THIRTEEN FULL STOP (compat)</tRule>
+			<tRule>⒕ → '14.' ; # 2495;NUMBER FOURTEEN FULL STOP (compat)</tRule>
+			<tRule>⒖ → '15.' ; # 2496;NUMBER FIFTEEN FULL STOP (compat)</tRule>
+			<tRule>⒗ → '16.' ; # 2497;NUMBER SIXTEEN FULL STOP (compat)</tRule>
+			<tRule>⒘ → '17.' ; # 2498;NUMBER SEVENTEEN FULL STOP (compat)</tRule>
+			<tRule>⒙ → '18.' ; # 2499;NUMBER EIGHTEEN FULL STOP (compat)</tRule>
+			<tRule>⒚ → '19.' ; # 249A;NUMBER NINETEEN FULL STOP (compat)</tRule>
+			<tRule>⒛ → '20.' ; # 249B;NUMBER TWENTY FULL STOP (compat)</tRule>
+			<comment>#</comment>
+			<comment># Other numeric (ideographic and fullwidth)</comment>
+			<comment>#</comment>
+			<tRule>〇 → 0 ; # 3007;IDEOGRAPHIC NUMBER ZERO</tRule>
+			<tRule>０ → 0 ; # FF10;FULLWIDTH DIGIT ZERO (compat)</tRule>
+			<tRule>１ → 1 ; # FF11;FULLWIDTH DIGIT ONE (compat)</tRule>
+			<tRule>２ → 2 ; # FF12;FULLWIDTH DIGIT TWO (compat)</tRule>
+			<tRule>３ → 3 ; # FF13;FULLWIDTH DIGIT THREE (compat)</tRule>
+			<tRule>４ → 4 ; # FF14;FULLWIDTH DIGIT FOUR (compat)</tRule>
+			<tRule>５ → 5 ; # FF15;FULLWIDTH DIGIT FIVE (compat)</tRule>
+			<tRule>６ → 6 ; # FF16;FULLWIDTH DIGIT SIX (compat)</tRule>
+			<tRule>７ → 7 ; # FF17;FULLWIDTH DIGIT SEVEN (compat)</tRule>
+			<tRule>８ → 8 ; # FF18;FULLWIDTH DIGIT EIGHT (compat)</tRule>
+			<tRule>９ → 9 ; # FF19;FULLWIDTH DIGIT NINE (compat)</tRule>
+			<comment>#</comment>
+			<comment># Spaces</comment>
+			<comment>#</comment>
+			<tRule>\u00A0 → ' ' ; # 00A0;NO-BREAK SPACE</tRule>
+			<tRule>\u2002 → ' ' ; # 2002;EN SPACE (compat)</tRule>
+			<tRule>\u2003 → ' ' ; # 2003;EM SPACE (compat)</tRule>
+			<tRule>\u2004 → ' ' ; # 2004;THREE-PER-EM SPACE (compat)</tRule>
+			<tRule>\u2005 → ' ' ; # 2005;FOUR-PER-EM SPACE (compat)</tRule>
+			<tRule>\u2006 → ' ' ; # 2006;SIX-PER-EM SPACE (compat)</tRule>
+			<tRule>\u2007 → ' ' ; # 2007;FIGURE SPACE (compat)</tRule>
+			<tRule>\u2008 → ' ' ; # 2008;PUNCTUATION SPACE (compat)</tRule>
+			<tRule>\u2009 → ' ' ; # 2009;THIN SPACE (compat)</tRule>
+			<tRule>\u200A → ' ' ; # 200A;HAIR SPACE (compat)</tRule>
+			<tRule>\u205F → ' ' ; # 205F;MEDIUM MATHEMATICAL SPACE (compat)</tRule>
+			<tRule>\u3000 → ' ' ; # 3000;IDEOGRAPHIC SPACE (from ‹character-fallback›)</tRule>
+			<comment>#</comment>
+			<comment># Quotes, apostrophes</comment>
+			<comment>#</comment>
+			<tRule>‘ → \' ; # 2018;LEFT SINGLE QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>’ → \' ; # 2019;RIGHT SINGLE QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>‚ → ',' ; # 201A;SINGLE LOW-9 QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>‛ → \' ; # 201B;SINGLE HIGH-REVERSED-9 QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>“ → \" ; # 201C;LEFT DOUBLE QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>” → \" ; # 201D;RIGHT DOUBLE QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>„ → ',,' ; # 201E;DOUBLE LOW-9 QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>‟ → \" ; # 201F;DOUBLE HIGH-REVERSED-9 QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>′ → \' ; # 2032;PRIME</tRule>
+			<tRule>″ → \" ; # 2033;DOUBLE PRIME</tRule>
+			<tRule>〝 → \" ; # 301D;REVERSED DOUBLE PRIME QUOTATION MARK</tRule>
+			<tRule>〞 → \" ; # 301E;DOUBLE PRIME QUOTATION MARK</tRule>
+			<tRule>＂ → \" ; # FF02;FULLWIDTH QUOTATION MARK (compat)</tRule>
+			<tRule>＇ → \' ; # FF07;FULLWIDTH APOSTROPHE (compat)</tRule>
+			<tRule>« → '&lt;&lt;' ; # 00AB;LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>» → '&gt;&gt;' ; # 00BB;RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (from ‹character-fallback›)</tRule>
+			<tRule>‹ → '&lt;' ; # 2039;SINGLE LEFT-POINTING ANGLE QUOTATION MARK</tRule>
+			<tRule>› → '&gt;' ; # 203A;SINGLE RIGHT-POINTING ANGLE QUOTATION MARK</tRule>
+			<comment>#</comment>
+			<comment># Dashes, hyphens...</comment>
+			<comment>#</comment>
+			<tRule>\u00AD → '-' ; # 00AD;SOFT HYPHEN (from ‹character-fallback›)</tRule>
+			<tRule>‐ → '-' ; # 2010;HYPHEN (from ‹character-fallback›)</tRule>
+			<tRule>‑ → '-' ; # 2011;NON-BREAKING HYPHEN (from ‹character-fallback›)</tRule>
+			<tRule>‒ → '-' ; # 2012;FIGURE DASH (from ‹character-fallback›)</tRule>
+			<tRule>– → '-' ; # 2013;EN DASH (from ‹character-fallback›)</tRule>
+			<tRule>— → '-' ; # 2014;EM DASH (from ‹character-fallback›)</tRule>
+			<tRule>― → '-' ; # 2015;HORIZONTAL BAR (from ‹character-fallback›)</tRule>
+			<tRule>︱ → '-' ; # FE31;PRESENTATION FORM FOR VERTICAL EM DASH (compat)</tRule>
+			<tRule>︲ → '-' ; # FE32;PRESENTATION FORM FOR VERTICAL EN DASH (compat)</tRule>
+			<tRule>﹘ → '-' ; # FE58;SMALL EM DASH (compat)</tRule>
+			<tRule>﹣ → '-' ; # FE63;SMALL HYPHEN-MINUS (compat)</tRule>
+			<tRule>－ → '-' ; # FF0D;FULLWIDTH HYPHEN-MINUS (compat)</tRule>
+			<comment>#</comment>
+			<comment># Other misc punctuation and symbols</comment>
+			<comment>#</comment>
+			<tRule>‖ → '||' ; # 2016;DOUBLE VERTICAL LINE</tRule>
+			<tRule>․ → '.' ; # 2024;ONE DOT LEADER (compat)</tRule>
+			<tRule>‥ → '..' ; # 2025;TWO DOT LEADER (compat)</tRule>
+			<tRule>… → '...' ; # 2026;HORIZONTAL ELLIPSIS (compat)</tRule>
+			<tRule>‼ → '!!' ; # 203C;DOUBLE EXCLAMATION MARK (compat)</tRule>
+			<tRule>⁄ → '/' ; # 2044;FRACTION SLASH (from ‹character-fallback›)</tRule>
+			<tRule>⁅ → '[' ; # 2045;LEFT SQUARE BRACKET WITH QUILL</tRule>
+			<tRule>⁆ → ']' ; # 2046;RIGHT SQUARE BRACKET WITH QUILL</tRule>
+			<tRule>⁇ → '??' ; # 2047;DOUBLE QUESTION MARK (compat)</tRule>
+			<tRule>⁈ → '?!' ; # 2048;QUESTION EXCLAMATION MARK (compat)</tRule>
+			<tRule>⁉ → '!?' ; # 2049;EXCLAMATION QUESTION MARK (compat)</tRule>
+			<tRule>⁎ → '*' ; # 204E;LOW ASTERISK</tRule>
+			<comment># CJK</comment>
+			<tRule>、 → ',' ; # 3001;IDEOGRAPHIC COMMA</tRule>
+			<tRule>。 → '.' ; # 3002;IDEOGRAPHIC FULL STOP</tRule>
+			<tRule>〈 → '&lt;' ; # 3008;LEFT ANGLE BRACKET</tRule>
+			<tRule>〉 → '&gt;' ; # 3009;RIGHT ANGLE BRACKET</tRule>
+			<tRule>《 → '&lt;&lt;' ; # 300A;LEFT DOUBLE ANGLE BRACKET</tRule>
+			<tRule>》 → '&gt;&gt;' ; # 300B;RIGHT DOUBLE ANGLE BRACKET</tRule>
+			<tRule>〔 → '[' ; # 3014;LEFT TORTOISE SHELL BRACKET</tRule>
+			<tRule>〕 → ']' ; # 3015;RIGHT TORTOISE SHELL BRACKET</tRule>
+			<tRule>〘 → '[' ; # 3018;LEFT WHITE TORTOISE SHELL BRACKET</tRule>
+			<tRule>〙 → ']' ; # 3019;RIGHT WHITE TORTOISE SHELL BRACKET</tRule>
+			<tRule>〚 → '[' ; # 301A;LEFT WHITE SQUARE BRACKET</tRule>
+			<tRule>〛 → ']' ; # 301B;RIGHT WHITE SQUARE BRACKET</tRule>
+			<comment># Vertical and small forms</comment>
+			<tRule>︐ → ',' ; # FE10;PRESENTATION FORM FOR VERTICAL COMMA (compat)</tRule>
+			<tRule>︑ → ',' ; # FE11;PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC COMMA (compat)</tRule>
+			<tRule>︒ → '.' ; # FE12;PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC FULL STOP (compat)</tRule>
+			<tRule>︓ → ':' ; # FE13;PRESENTATION FORM FOR VERTICAL COLON (compat)</tRule>
+			<tRule>︔ → ';' ; # FE14;PRESENTATION FORM FOR VERTICAL SEMICOLON (compat)</tRule>
+			<tRule>︕ → '!' ; # FE15;PRESENTATION FORM FOR VERTICAL EXCLAMATION MARK (compat)</tRule>
+			<tRule>︖ → '?' ; # FE16;PRESENTATION FORM FOR VERTICAL QUESTION MARK (compat)</tRule>
+			<tRule>︙ → '...' ; # FE19;PRESENTATION FORM FOR VERTICAL HORIZONTAL ELLIPSIS (compat)</tRule>
+			<tRule>︰ → '..' ; # FE30;PRESENTATION FORM FOR VERTICAL TWO DOT LEADER (compat)</tRule>
+			<tRule>︵ → '(' ; # FE35;PRESENTATION FORM FOR VERTICAL LEFT PARENTHESIS (compat)</tRule>
+			<tRule>︶ → ')' ; # FE36;PRESENTATION FORM FOR VERTICAL RIGHT PARENTHESIS (compat)</tRule>
+			<tRule>︷ → '{' ; # FE37;PRESENTATION FORM FOR VERTICAL LEFT CURLY BRACKET (compat)</tRule>
+			<tRule>︸ → '}' ; # FE38;PRESENTATION FORM FOR VERTICAL RIGHT CURLY BRACKET (compat)</tRule>
+			<tRule>︹ → '[' ; # FE39;PRESENTATION FORM FOR VERTICAL LEFT TORTOISE SHELL BRACKET (compat)</tRule>
+			<tRule>︺ → ']' ; # FE3A;PRESENTATION FORM FOR VERTICAL RIGHT TORTOISE SHELL BRACKET (compat)</tRule>
+			<tRule>︽ → '&lt;&lt;' ; # FE3D;PRESENTATION FORM FOR VERTICAL LEFT DOUBLE ANGLE BRACKET (compat)</tRule>
+			<tRule>︾ → '&gt;&gt;' ; # FE3E;PRESENTATION FORM FOR VERTICAL RIGHT DOUBLE ANGLE BRACKET (compat)</tRule>
+			<tRule>︿ → '&lt;' ; # FE3F;PRESENTATION FORM FOR VERTICAL LEFT ANGLE BRACKET (compat)</tRule>
+			<tRule>﹀ → '&gt;' ; # FE40;PRESENTATION FORM FOR VERTICAL RIGHT ANGLE BRACKET (compat)</tRule>
+			<tRule>﹇ → '[' ; # FE47;PRESENTATION FORM FOR VERTICAL LEFT SQUARE BRACKET (compat)</tRule>
+			<tRule>﹈ → ']' ; # FE48;PRESENTATION FORM FOR VERTICAL RIGHT SQUARE BRACKET (compat)</tRule>
+			<tRule>﹐ → ',' ; # FE50;SMALL COMMA (compat)</tRule>
+			<tRule>﹑ → ',' ; # FE51;SMALL IDEOGRAPHIC COMMA (compat)</tRule>
+			<tRule>﹒ → '.' ; # FE52;SMALL FULL STOP (compat)</tRule>
+			<tRule>﹔ → ';' ; # FE54;SMALL SEMICOLON (compat)</tRule>
+			<tRule>﹕ → ':' ; # FE55;SMALL COLON (compat)</tRule>
+			<tRule>﹖ → '?' ; # FE56;SMALL QUESTION MARK (compat)</tRule>
+			<tRule>﹗ → '!' ; # FE57;SMALL EXCLAMATION MARK (compat)</tRule>
+			<tRule>﹙ → '(' ; # FE59;SMALL LEFT PARENTHESIS (compat)</tRule>
+			<tRule>﹚ → ')' ; # FE5A;SMALL RIGHT PARENTHESIS (compat)</tRule>
+			<tRule>﹛ → '{' ; # FE5B;SMALL LEFT CURLY BRACKET (compat)</tRule>
+			<tRule>﹜ → '}' ; # FE5C;SMALL RIGHT CURLY BRACKET (compat)</tRule>
+			<tRule>﹝ → '[' ; # FE5D;SMALL LEFT TORTOISE SHELL BRACKET (compat)</tRule>
+			<tRule>﹞ → ']' ; # FE5E;SMALL RIGHT TORTOISE SHELL BRACKET (compat)</tRule>
+			<tRule>﹟ → '#' ; # FE5F;SMALL NUMBER SIGN (compat)</tRule>
+			<tRule>﹠ → '&amp;' ; # FE60;SMALL AMPERSAND (compat)</tRule>
+			<tRule>﹡ → '*' ; # FE61;SMALL ASTERISK (compat)</tRule>
+			<tRule>﹢ → '+' ; # FE62;SMALL PLUS SIGN (compat)</tRule>
+			<tRule>﹤ → '&lt;' ; # FE64;SMALL LESS-THAN SIGN (compat)</tRule>
+			<tRule>﹥ → '&gt;' ; # FE65;SMALL GREATER-THAN SIGN (compat)</tRule>
+			<tRule>﹦ → '=' ; # FE66;SMALL EQUALS SIGN (compat)</tRule>
+			<tRule>﹨ → '\' ; # FE68;SMALL REVERSE SOLIDUS (compat)</tRule>
+			<tRule>﹩ → '$' ; # FE69;SMALL DOLLAR SIGN (compat)</tRule>
+			<tRule>﹪ → '%' ; # FE6A;SMALL PERCENT SIGN (compat)</tRule>
+			<tRule>﹫ → '@' ; # FE6B;SMALL COMMERCIAL AT (compat)</tRule>
+			<comment># Fullwidth and halfwidth</comment>
+			<tRule>！ → '!' ; # FF01;FULLWIDTH EXCLAMATION MARK (compat)</tRule>
+			<tRule>＃ → '#' ; # FF03;FULLWIDTH NUMBER SIGN (compat)</tRule>
+			<tRule>＄ → '$' ; # FF04;FULLWIDTH DOLLAR SIGN (compat)</tRule>
+			<tRule>％ → '%' ; # FF05;FULLWIDTH PERCENT SIGN (compat)</tRule>
+			<tRule>＆ → '&amp;' ; # FF06;FULLWIDTH AMPERSAND (compat)</tRule>
+			<tRule>（ → '(' ; # FF08;FULLWIDTH LEFT PARENTHESIS (compat)</tRule>
+			<tRule>） → ')' ; # FF09;FULLWIDTH RIGHT PARENTHESIS (compat)</tRule>
+			<tRule>＊ → '*' ; # FF0A;FULLWIDTH ASTERISK (compat)</tRule>
+			<tRule>＋ → '+' ; # FF0B;FULLWIDTH PLUS SIGN (compat)</tRule>
+			<tRule>， → ',' ; # FF0C;FULLWIDTH COMMA (compat)</tRule>
+			<tRule>． → '.' ; # FF0E;FULLWIDTH FULL STOP (compat)</tRule>
+			<tRule>／ → '/' ; # FF0F;FULLWIDTH SOLIDUS (compat)</tRule>
+			<tRule>： → ':' ; # FF1A;FULLWIDTH COLON (compat)</tRule>
+			<tRule>； → ';' ; # FF1B;FULLWIDTH SEMICOLON (compat)</tRule>
+			<tRule>＜ → '&lt;' ; # FF1C;FULLWIDTH LESS-THAN SIGN (compat)</tRule>
+			<tRule>＝ → '=' ; # FF1D;FULLWIDTH EQUALS SIGN (compat)</tRule>
+			<tRule>＞ → '&gt;' ; # FF1E;FULLWIDTH GREATER-THAN SIGN (compat)</tRule>
+			<tRule>？ → '?' ; # FF1F;FULLWIDTH QUESTION MARK (compat)</tRule>
+			<tRule>＠ → '@' ; # FF20;FULLWIDTH COMMERCIAL AT (compat)</tRule>
+			<tRule>［ → '[' ; # FF3B;FULLWIDTH LEFT SQUARE BRACKET (compat)</tRule>
+			<tRule>＼ → '\' ; # FF3C;FULLWIDTH REVERSE SOLIDUS (compat)</tRule>
+			<tRule>］ → ']' ; # FF3D;FULLWIDTH RIGHT SQUARE BRACKET (compat)</tRule>
+			<tRule>＾ → '^' ; # FF3E;FULLWIDTH CIRCUMFLEX ACCENT (compat)</tRule>
+			<tRule>＿ → '_' ; # FF3F;FULLWIDTH LOW LINE (compat)</tRule>
+			<tRule>｀ → '`' ; # FF40;FULLWIDTH GRAVE ACCENT (compat)</tRule>
+			<tRule>｛ → '{' ; # FF5B;FULLWIDTH LEFT CURLY BRACKET (compat)</tRule>
+			<tRule>｜ → '|' ; # FF5C;FULLWIDTH VERTICAL LINE (compat)</tRule>
+			<tRule>｝ → '}' ; # FF5D;FULLWIDTH RIGHT CURLY BRACKET (compat)</tRule>
+			<tRule>～ → '~' ; # FF5E;FULLWIDTH TILDE (compat)</tRule>
+			<tRule>｟ → '((' ; # FF5F;FULLWIDTH LEFT WHITE PARENTHESIS (compat)(from ‹character-fallback›)</tRule>
+			<tRule>｠ → '))' ; # FF60;FULLWIDTH RIGHT WHITE PARENTHESIS (compat)(from ‹character-fallback›)</tRule>
+			<tRule>｡ → '.' ; # FF61;HALFWIDTH IDEOGRAPHIC FULL STOP (compat)</tRule>
+			<tRule>､ → ',' ; # FF64;HALFWIDTH IDEOGRAPHIC COMMA (compat)</tRule>
+			<comment>#</comment>
+			<comment># Other math operators (non-ASCII-range)</comment>
+			<comment>#</comment>
+			<tRule>× → '*' ; # 00D7;MULTIPLICATION SIGN</tRule>
+			<tRule>÷ → '/' ; # 00F7;DIVISION SIGN</tRule>
+			<tRule>− → '-' ; # 2212;MINUS SIGN (from ‹character-fallback›)</tRule>
+			<tRule>∕ → '/' ; # 2215;DIVISION SLASH (from ‹character-fallback›)</tRule>
+			<tRule>∖ → '\' ; # 2216;SET MINUS (from ‹character-fallback›)</tRule>
+			<tRule>∣ → '|' ; # 2223;DIVIDES (from ‹character-fallback›)</tRule>
+			<tRule>∥ → '||' ; # 2225;PARALLEL TO (from ‹character-fallback›)</tRule>
+			<tRule>≪ → '&lt;&lt;' ; # 226A;MUCH LESS-THAN</tRule>
+			<tRule>≫ → '&gt;&gt;' ; # 226B;MUCH GREATER-THAN</tRule>
+			<tRule>⦅ → '((' ; # 2985;LEFT WHITE PARENTHESIS</tRule>
+			<tRule>⦆ → '))' ; # 2986;RIGHT WHITE PARENTHESIS</tRule>
+			<tRule>⩴ → '::=' ; # 2A74;DOUBLE COLON EQUAL (compat)</tRule>
+			<tRule>⩵ → '==' ; # 2A75;TWO CONSECUTIVE EQUALS SIGNS (compat)</tRule>
+			<tRule>⩶ → '===' ; # 2A76;THREE CONSECUTIVE EQUALS SIGNS (compat)</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

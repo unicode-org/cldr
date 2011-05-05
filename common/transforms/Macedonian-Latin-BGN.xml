@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Macedonian" target="Latin" direction="forward" variant="BGN" draft="provisional">
+			<comment>
+			########################################################################
+			# BGN/PCGN 1981 System
+			#
+			# Macedonian was official established as a literary language in 
+			# Yugoslavia during World War II and is now the official language
+			# of Macedonia. Its alphabet is identical to Serbian, except 
+			# that the letters Ђђ and Ћћ are replaced by Ѓѓ and Ќќ, and
+			# the letter Ѕѕ and the apostrophe are added.
+			#
+			# The Macedonian Alphabet as defined by the BGN (Page 69):
+			#
+			#   АБВГДЃЕЖЗЅИЈКЛЉМНЊОПРСТЌУФХЦЧЏШ
+			#   абвгдѓежзѕијклљмнњопрстќуфхцчџш’
+			#
+			# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+			########################################################################
+			#
+			# MINIMAL FILTER: Macedonian-Latin
+			#
+			</comment>
+			<tRule>:: [АБВГДЃЕЖЗЅИЈКЛЉМНЊОПРСТЌУФХЦЧЏШабвгдѓежзѕијклљмнњопрстќуфхцчџш’] ;</tRule>
+			<tRule>:: NFD (NFC) ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Define All Transformation Variables
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>$prime  = ’ ;</tRule>
+
+			<tRule>$upperConsonants = [БВГДЃЖЗЅЈКЛЉМНЊПРСТЌФХЦЧЏШ] ;</tRule>
+			<tRule>$lowerConsonants = [бвгдѓжзѕјклљмнњпрстќфхцчџш’] ;</tRule>
+			<tRule>$consonants = [$upperConsonants $lowerConsonants] ;</tRule>
+
+			<tRule>$upperVowels = [АЕИОУ] ;</tRule>
+			<tRule>$lowerVowels = [аеиоу] ;</tRule>
+			<tRule>$vowels = [$upperVowels $lowerVowels] ;</tRule>
+
+			<tRule>$lower = [$lowerConsonants $lowerVowels] ;</tRule>
+			<comment>
+			#
+			# Use this $wordBoundary until bug 2034 is fixed in ICU:
+			# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
+			#
+			</comment>
+			<tRule>$wordBoundary =  [^[:L:][:M:][:N:]] ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Start of Alphabetic Transformations
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>А → A ; # CYRILLIC CAPITAL LETTER A</tRule>
+			<tRule>а → a ; # CYRILLIC SMALL LETTER A</tRule>
+			<tRule>Б → B ; # CYRILLIC CAPITAL LETTER BE</tRule>
+			<tRule>б → b ; # CYRILLIC SMALL LETTER BE</tRule>
+			<tRule>В → V ; # CYRILLIC CAPITAL LETTER VE</tRule>
+			<tRule>в → v ; # CYRILLIC SMALL LETTER VE</tRule>
+			<tRule>Г → G ; # CYRILLIC CAPITAL LETTER GHE</tRule>
+			<tRule>г → g ; # CYRILLIC SMALL LETTER GHE</tRule>
+			<tRule>Д → D ; # CYRILLIC CAPITAL LETTER DE</tRule>
+			<tRule>д → d ; # CYRILLIC SMALL LETTER DE</tRule>
+			<comment>
+			#
+			########################################################################
+			#
+			# BGN Page 70 Rule 1:
+			#
+			# The character ѓ should be romanized g when it occurs before е 
+			# and и. In all other instances, it should be romanized đ (Đ).
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>Ѓ}[ЕеИи] → G ; # CYRILLIC CAPITAL LETTER GJE</tRule>
+			<tRule>ѓ}[ЕеИи] → g ; # CYRILLIC SMALL LETTER GJE</tRule>
+			<tRule>Ѓ → Đ ; # CYRILLIC CAPITAL LETTER GJE</tRule>
+			<tRule>ѓ → đ ; # CYRILLIC SMALL LETTER GJE</tRule>
+			<comment>
+			#
+			########################################################################
+			#
+			# End Rule 1
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>Е → E ; # CYRILLIC CAPITAL LETTER DE</tRule>
+			<tRule>е → e ; # CYRILLIC SMALL LETTER DE</tRule>
+			<tRule>Ж → Ž ; # CYRILLIC CAPITAL LETTER ZHE</tRule>
+			<tRule>ж → ž ; # CYRILLIC SMALL LETTER ZHE</tRule>
+			<tRule>З → Z ; # CYRILLIC CAPITAL LETTER ZE</tRule>
+			<tRule>з → z ; # CYRILLIC SMALL LETTER ZE</tRule>
+			<tRule>Ѕ} $lower → Dz ; # CYRILLIC CAPITAL LETTER DZE</tRule>
+			<tRule>Ѕ → DZ ; # CYRILLIC CAPITAL LETTER DZE</tRule>
+			<tRule>ѕ → dz ; # CYRILLIC SMALL LETTER DZE</tRule>
+			<tRule>И → I ; # CYRILLIC CAPITAL LETTER I</tRule>
+			<tRule>и → i ; # CYRILLIC SMALL LETTER I</tRule>
+			<tRule>Ј → J ; # CYRILLIC CAPITAL LETTER JE</tRule>
+			<tRule>ј → J ; # CYRILLIC SMALL LETTER JE</tRule>
+			<tRule>К → K ; # CYRILLIC CAPITAL LETTER KA</tRule>
+			<tRule>к → k ; # CYRILLIC SMALL LETTER KA</tRule>
+			<tRule>Л → L ; # CYRILLIC CAPITAL LETTER EL</tRule>
+			<tRule>л → l ; # CYRILLIC SMALL LETTER EL</tRule>
+			<tRule>Љ} $lower → Lj ; # CYRILLIC CAPITAL LETTER LJE</tRule>
+			<tRule>Љ → LJ ; # CYRILLIC CAPITAL LETTER LJE</tRule>
+			<tRule>љ → lj ; # CYRILLIC SMALL LETTER LJE</tRule>
+			<tRule>М → M ; # CYRILLIC CAPITAL LETTER EM</tRule>
+			<tRule>м → m ; # CYRILLIC SMALL LETTER EM</tRule>
+			<tRule>Н → N ; # CYRILLIC CAPITAL LETTER EN</tRule>
+			<tRule>н → n ; # CYRILLIC SMALL LETTER EN</tRule>
+			<tRule>Њ} $lower → Nj ; # CYRILLIC CAPITAL LETTER NJE</tRule>
+			<tRule>Њ → NJ ; # CYRILLIC CAPITAL LETTER NJE</tRule>
+			<tRule>њ → nj ; # CYRILLIC SMALL LETTER NJE</tRule>
+			<tRule>О → O ; # CYRILLIC CAPITAL LETTER O</tRule>
+			<tRule>о → o ; # CYRILLIC SMALL LETTER O</tRule>
+			<tRule>П → P ; # CYRILLIC CAPITAL LETTER PE</tRule>
+			<tRule>п → p ; # CYRILLIC SMALL LETTER PE</tRule>
+			<tRule>Р → R ; # CYRILLIC CAPITAL LETTER ER</tRule>
+			<tRule>р → r ; # CYRILLIC SMALL LETTER ER</tRule>
+			<tRule>С → S ; # CYRILLIC CAPITAL LETTER ES</tRule>
+			<tRule>с → s ; # CYRILLIC SMALL LETTER ES</tRule>
+			<tRule>Т → T ; # CYRILLIC CAPITAL LETTER TE</tRule>
+			<tRule>т → t ; # CYRILLIC SMALL LETTER TE</tRule>
+			<comment>
+			#
+			########################################################################
+			#
+			# BGN Page 70 Rule 2:
+			#
+			# The character ќ should be romanized k when it occurs before е 
+			# and и. In all other instances, it should be romanized ć.
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>Ќ}[ЕеИи] → K ; # CYRILLIC CAPITAL LETTER KJE</tRule>
+			<tRule>ќ}[ЕеИи] → k ; # CYRILLIC SMALL LETTER KJE</tRule>
+			<tRule>Ќ → Ć ; # CYRILLIC CAPITAL LETTER KJE</tRule>
+			<tRule>ќ → ć ; # CYRILLIC SMALL LETTER KJE</tRule>
+			<comment>
+			#
+			########################################################################
+			#
+			# End Rule 2
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>У → U ; # CYRILLIC CAPITAL LETTER U</tRule>
+			<tRule>у → u ; # CYRILLIC SMALL LETTER U</tRule>
+			<tRule>Ф → F ; # CYRILLIC CAPITAL LETTER EF</tRule>
+			<tRule>ф → f ; # CYRILLIC SMALL LETTER EF</tRule>
+			<tRule>Х → H ; # CYRILLIC CAPITAL LETTER HA</tRule>
+			<tRule>х → h ; # CYRILLIC SMALL LETTER HA</tRule>
+			<tRule>Ц → C ; # CYRILLIC CAPITAL LETTER TSE</tRule>
+			<tRule>ц → c ; # CYRILLIC SMALL LETTER TSE</tRule>
+			<tRule>Ч → Č ; # CYRILLIC CAPITAL LETTER CHE</tRule>
+			<tRule>ч → č ; # CYRILLIC SMALL LETTER CHE</tRule>
+			<tRule>Џ} $lower → Dž ; # CYRILLIC CAPITAL LETTER SHA</tRule>
+			<tRule>Џ → DŽ ; # CYRILLIC CAPITAL LETTER SHA</tRule>
+			<tRule>џ → dž ; # CYRILLIC SMALL LETTER SHA</tRule>
+			<tRule>Ш → Š ; # CYRILLIC CAPITAL LETTER SHA</tRule>
+			<tRule>ш → š ; # CYRILLIC SMALL LETTER SHA</tRule>
+			<comment>
+			#
+			########################################################################
+			#
+			# BGN Page 69 Rule 32, maps the symbol onto itself and
+			# is ignored here for computational efficiency.
+			#
+			# $prime → $prime ; # RIGHT SINGLE QUOTATION MARK
+			#
+			########################################################################
+			</comment>
+		</transform>
+	</transforms>
+</supplementalData>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="or" /> 
+	</identity>
+	<collations  validSubLocales="or_IN">
+		<collation type="standard" references="Grundy: The Concise Oriya-English Dictionary ISBN:8120616995">
+			<settings normalization="on"/>
+			<rules>
+			<!--
+				The following tailoring is an adjustment of the
+				DUCET collation order for CANDRABINDU, ANUSVARA,
+				and VISARGA. Instead of being sorted with secondary
+				weights, they are collated on primary level between
+				the independent vowels and the consonants.
+			-->
+				<reset>ଔ</reset>
+					<p>ଁ</p>
+					<p>ଂ</p>
+					<p>ଃ</p>
+			<!-- KSSA is sorted after HA. -->
+				<reset>ହ</reset>
+					<p>କ୍ଷ</p>        
+			<!-- YYA is secondary different from YA. -->
+				<reset>ଯ</reset>
+					<s>ୟ</s>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

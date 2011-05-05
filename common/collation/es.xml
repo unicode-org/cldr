@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="es" /> 
+	</identity>
+	<collations  validSubLocales="es_419 es_AR es_BO es_CL es_CO es_CR es_DO es_EC es_ES es_GQ es_GT es_HN es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE">
+		<collation type="search" >
+			<settings normalization="on"/>
+			<!-- root search, suppress contractions for Thai, Lao -->
+			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+			<rules>
+				<!-- root search rules for Arabic, Hebrew -->
+				<reset>ا</reset>
+					<s>آ</s>
+					<s>أ</s>
+					<s>إ</s>
+				<reset>و</reset>
+					<s>ؤ</s>
+				<reset>ي</reset>
+					<s>ئ</s>
+					<s>ى</s>
+				<reset>ه</reset>
+					<s>ة</s>
+				<reset><last_primary_ignorable/></reset>
+					<s>׳</s>
+					<s>״</s>
+					<s>ـ</s>
+					<s>ٌ</s>
+					<s>ٍ</s>
+					<s>َ</s>
+					<s>ُ</s>
+					<s>ِ</s>
+					<s>ّ</s>
+					<s>ْ</s>
+					<s>ฺ</s>
+				<!-- root search rules for modern Korean jamos -->
+				<!-- Korean modern complex consonants, decompose: x(L) = CHOSEONG x, x(T) = JONGSEONG x -->
+				<reset>ᄀ</reset>	<!-- 1100 KIYEOK(L) = 11A8 KIYEOK(T) -->
+					<i>ᆨ</i>
+				<reset>ᄀᄀ</reset>	<!-- 1100 KIYEOK(L) + 1100 KIYEOK(L) = 1101 SSANGKIYEOK(L) = 11A9 SSANGKIYEOK(T) -->
+					<i>ᄁ</i>
+					<i>ᆩ</i>
+				<reset>ᄀᄉ</reset>	<!-- 1100 KIYEOK(L) + 1109 SIOS(L) = 11AA KIYEOK-SIOS(T) -->
+					<i>ᆪ</i>
+				<reset>ᄂ</reset>	<!-- 1102 NIEUN(L) = 11AB NIEUN(T) -->
+					<i>ᆫ</i>
+				<reset>ᄂᄌ</reset>	<!-- 1102 NIEUN(L) + 110C CIEUC(L) = 11AC NIEUN-CIEUC(T), also archaic 115C NIEUN-CIEUC(L) -->
+					<i>ᆬ</i>
+				<reset>ᄂᄒ</reset>	<!-- 1102 NIEUN(L) + 1112 HIEUH(L) = 11AD NIEUN-HIEUH(T), also archaic 115D NIEUN-HIEUH(L) -->
+					<i>ᆭ</i>
+				<reset>ᄃ</reset>	<!-- 1103 TIKEUT(L) = 11AE TIKEUT(T) -->
+					<i>ᆮ</i>
+				<reset>ᄃᄃ</reset>	<!-- 1103 TIKEUT(L) + 1103 TIKEUT(L) = 1104 SSANGTIKEUT(L) -->
+					<i>ᄄ</i>
+				<reset>ᄅ</reset>	<!-- 1105 RIEUL(L) = 11AF RIEUL(T) -->
+					<i>ᆯ</i>
+				<reset>ᄅᄀ</reset>	<!-- 1105 RIEUL(L) + 1100 KIYEOK(L) = 11B0 RIEUL-KIYEOK(T) -->
+					<i>ᆰ</i>
+				<reset>ᄅᄆ</reset>	<!-- 1105 RIEUL(L) + 1106 MIEUM(L) = 11B1 RIEUL-MIEUM(T) -->
+					<i>ᆱ</i>
+				<reset>ᄅᄇ</reset>	<!-- 1105 RIEUL(L) + 1107 PIEUP(L) = 11B2 RIEUL-PIEUP(T) -->
+					<i>ᆲ</i>
+				<reset>ᄅᄉ</reset>	<!-- 1105 RIEUL(L) + 1109 SIOS(L) = 11B3 RIEUL-SIOS(T) -->
+					<i>ᆳ</i>
+				<reset>ᄅᄐ</reset>	<!-- 1105 RIEUL(L) + 1110 THIEUTH(L) = 11B4 RIEUL-THIEUTH(T) -->
+					<i>ᆴ</i>
+				<reset>ᄅᄑ</reset>	<!-- 1105 RIEUL(L) + 1111 PHIEUPH(L) = 11B5 RIEUL-PHIEUPH(T) -->
+					<i>ᆵ</i>
+				<reset>ᄅᄒ</reset>	<!-- 1105 RIEUL(L) + 1112 HIEUH(L) = 11B6 RIEUL-HIEUH(T), also archic 111A RIEUL-HIEUH(L) -->
+					<i>ᆶ</i>
+				<reset>ᄆ</reset>	<!-- 1106 MIEUM(L) = 11B7 MIEUM(T) -->
+					<i>ᆷ</i>
+				<reset>ᄇ</reset>	<!-- 1107 PIEUP(L) = 11B8 PIEUP(T) -->
+					<i>ᆸ</i>
+				<reset>ᄇᄇ</reset>	<!-- 1107 PIEUP(L) + 1107 PIEUP(L) = 1108 SSANGPIEUP(L) -->
+					<i>ᄈ</i>
+				<reset>ᄇᄉ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) = 11B9 PIEUP-SIOS(T), also archaic 1121 PIEUP-SIOS(L) -->
+					<i>ᆹ</i>
+				<reset>ᄉ</reset>	<!-- 1109 SIOS(L) = 11BA SIOS(T) -->
+					<i>ᆺ</i>
+				<reset>ᄉᄉ</reset>	<!-- 1109 SIOS(L) + 1109 SIOS(L) = 110A SSANGSIOS(L) = 11BB SSANGSIOS(T) -->
+					<i>ᄊ</i>
+					<i>ᆻ</i>
+				<reset>ᄋ</reset>	<!-- 110B IEUNG(L) = 11BC IEUNG(T) -->
+					<i>ᆼ</i>
+				<reset>ᄌ</reset>	<!-- 110C CIEUC(L) = 11BD CIEUC(T) -->
+					<i>ᆽ</i>
+				<reset>ᄌᄌ</reset>	<!-- 110C CIEUC(L) + 110C CIEUC(L) = 110D SSANGCIEUC(L) -->
+					<i>ᄍ</i>
+				<reset>ᄎ</reset>	<!-- 110E CHIEUCH(L) = 11BE CHIEUCH(T) -->
+					<i>ᆾ</i>
+				<reset>ᄏ</reset>	<!-- 110F KHIEUKH(L) = 11BF KHIEUKH(T) -->
+					<i>ᆿ</i>
+				<reset>ᄐ</reset>	<!-- 1110 THIEUTH(L) = 11C0 THIEUTH(T) -->
+					<i>ᇀ</i>
+				<reset>ᄑ</reset>	<!-- 1111 PHIEUPH(L) = 11C1 PHIEUPH(T) -->
+					<i>ᇁ</i>
+				<reset>ᄒ</reset>	<!-- 1112 HIEUH(L) = 11C2 HIEUH(T) -->
+					<i>ᇂ</i>
+				<!-- Korean modern complex vowels, decompose -->
+				<reset>ᅡᅵ</reset>	<!-- 1161 A(V) + 1175 I(V) = 1162 AE(V) -->
+					<i>ᅢ</i>
+				<reset>ᅣᅵ</reset>	<!-- 1163 YA(V) + 1175 I(V) = 1164 YAE(V) -->
+					<i>ᅤ</i>
+				<reset>ᅥᅵ</reset>	<!-- 1165 EO(V) + 1175 I(V) = 1166 E(V) -->
+					<i>ᅦ</i>
+				<reset>ᅧᅵ</reset>	<!-- 1167 YEO(V) + 1175 I(V) = 1168 YE(V) -->
+					<i>ᅨ</i>
+				<reset>ᅩᅡ</reset>	<!-- 1169 O(V) + 1161 A(V) = 116A WA(V) -->
+					<i>ᅪ</i>
+				<reset>ᅩᅡᅵ</reset>	<!-- 1169 O(V) + 1161 A(V) + 1175 I(V) = 116B WAE(V) -->
+					<i>ᅫ</i>
+				<reset>ᅩᅵ</reset>	<!-- 1169 O(V) + 1175 I(V) = 116C OE(V) -->
+					<i>ᅬ</i>
+				<reset>ᅮᅴ</reset>	<!-- 116E U(V) + 1174 YI(V) = 116F WEO(V) -->
+					<i>ᅯ</i>
+				<reset>ᅮᅴᅵ</reset>	<!-- 116E U(V) + 1174 YI(V) + 1175 I(V) = 1170 WE(V) -->
+					<i>ᅰ</i>
+				<reset>ᅮᅵ</reset>	<!-- 116E U(V) + 1175 I(V) = 1171 WI(V) -->
+					<i>ᅱ</i>
+				<!-- Above are the standard root search collator rules. -->
+				<!-- Below are the rules specific to es. -->
+				<!-- These rules match standard collation below. -->
+				<reset>N</reset>
+				<p>ñ</p>
+				<t>Ñ</t>
+			</rules>
+		</collation>
+		<collation type="standard" >
+			<rules>
+				<reset>N</reset>
+				<p>ñ</p>
+				<t>Ñ</t>
+			</rules>
+		</collation  >
+		<collation type="traditional" >
+			<rules>
+				<reset>N</reset>
+				<p>ñ</p>
+				<t>Ñ</t>
+				<reset>C</reset>
+				<p>ch</p>
+				<t>Ch</t>
+				<t>CH</t>
+				<reset>l</reset>
+				<p>ll</p>
+				<t>Ll</t>
+				<t>LL</t>
+			</rules>
+		</collation  >
+		<collation draft="unconfirmed" alt="proposed" type="traditional" >
+			<rules>
+				<reset>N</reset>
+				<p>ñ</p>
+				<t>Ñ</t>
+				<reset>C</reset>
+				<p>ch</p>
+				<t>cH</t>
+				<t>Ch</t>
+				<t>CH</t>
+				<reset>l</reset>
+				<p>ll</p>
+				<t>lL</t>
+				<t>Ll</t>
+				<t>LL</t>
+			</rules>
+		</collation  >
+	</collations>
+</ldml>

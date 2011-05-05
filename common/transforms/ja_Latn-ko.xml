@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="ja_Latn" target="ko" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Author: mjansche@google.com (Martin Jansche)
+			#
+			# Japanese (Rōmaji) to Korean (Hangul) transliteration table for ICU.
+			# Can be run in sequence after e.g. Katakana-Latin.
+			#
+			# Based on 문교부 고시 제85-11호 (1986. 1. 7.) 외래어 표기법
+			# For background info, see http://ko.wikisource.org/wiki/문교부_고시_제85-11호
+			# and http://ko.wikipedia.org/wiki/외래어_표기법 (外來語表記法)
+			#
+			</comment>
+			<tRule>::NFD(NFC);</tRule>
+			<tRule>::[:Latin:] Lower();</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>$consonant = [ᄀᄁᄂᄃᄄᄅᄆᄇᄈᄉᄊᄋᄌᄍᄎᄏᄐᄑᄒ];</tRule>
+			<tRule>$lengthMarker = [̂̄];</tRule>
+			<comment>
+			#
+			# Drop hyphens and apostrophes.
+			</comment>
+			<tRule>[\-\'] → ;</tRule>
+			<comment>
+			#
+			# Turn long /e:/ into diphthong /ei/.
+			</comment>
+			<tRule>e $lengthMarker → | e i ;</tRule>
+			<comment>
+			#
+			# Ignore vowel length everywhere else.
+			</comment>
+			<tRule>$lengthMarker → ;</tRule>
+			<comment>
+			#
+			# Vowels.
+			#
+			</comment>
+			<tRule>[^$consonant] { ( [aiueoyw] ) → ᄋ | $1 ;  # Supply a required null initial.</tRule>
+			<tRule>a → ᅡ ;</tRule>
+			<tRule>i\~e → | ie ;  # イェ</tRule>
+			<tRule>i → ᅵ ;</tRule>
+			<tRule>u\~a → | wa ;  # クァ, グァ</tRule>
+			<tRule>u\~i → ᅱ ;     # ウィ, クィ, etc.</tRule>
+			<tRule>u\~e → ᅰ ;     # ウェ</tRule>
+			<tRule>u\~o → ᅯ ;     # ウォ</tRule>
+			<tRule>u → ᅮ ;</tRule>
+			<tRule>e → ᅦ ;</tRule>
+			<tRule>o → ᅩ ;</tRule>
+			<comment>
+			#
+			# Geminates.
+			#
+			</comment>
+			<tRule>kk → ᆺ | k ;</tRule>
+			<tRule>ss → ᆺ | s ;</tRule>
+			<tRule>tt → ᆺ | t ;</tRule>
+			<tRule>tc → ᆺ | c ;</tRule>
+			<tRule>cc → ᆺ | c ;</tRule>
+			<tRule>hh → ᆺ | h ;</tRule>
+			<tRule>ff → ᆺ | f ;</tRule>
+			<tRule>rr → ᆺ | r ;</tRule>
+			<tRule>gg → ᆺ | g ;</tRule>
+			<tRule>zz → ᆺ | z ;</tRule>
+			<tRule>jj → ᆺ | j ;</tRule>
+			<tRule>dd → ᆺ | d ;</tRule>
+			<tRule>bb → ᆺ | b ;</tRule>
+			<tRule>vv → ᆺ | v ;</tRule>
+			<tRule>pp → ᆺ | p ;</tRule>
+			<comment>
+			#
+			# Consonants.
+			#
+			</comment>
+			<tRule>' ' { k → | g ;   # Beginning of a word (after space).</tRule>
+			<tRule>^k      → | g ;   # Beginning of the string.</tRule>
+			<tRule>k → ᄏ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>sh → | sy ;</tRule>
+			<tRule>su → 스 ;</tRule>
+			<tRule>s → ᄉ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>te\~     → | t ;   # テュ</tRule>
+			<tRule>to\~     → | t ;   # トゥ</tRule>
+			<tRule>tsu\~    → | ch ;  # ツァ, ツィ, etc.</tRule>
+			<tRule>tsu → 쓰 ;</tRule>
+			<tRule>ts       → | ch ;</tRule>
+			<tRule>' ' { t  → | d ;</tRule>
+			<tRule>^t       → | d ;</tRule>
+			<tRule>t → ᄐ ;</tRule>
+			<tRule>' ' { ch → | j ;</tRule>
+			<tRule>^ch      → | j ;</tRule>
+			<tRule>ch → ᄎ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>n } [\ \'bcdfghjkmnprstwz] → ᆫ ;</tRule>
+			<tRule>n$ → ᆫ ;</tRule>
+			<tRule>n → ᄂ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>h → ᄒ ;</tRule>
+			<tRule>fu\~ → | p ;   # フュ</tRule>
+			<tRule>fu   → | hu ;</tRule>
+			<tRule>f    → | p ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>m } [bmp] → ᆫ ;</tRule>
+			<tRule>m → ᄆ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ya → ᅣ ;</tRule>
+			<tRule>yi → ᅵ ;  # Added for convenience, after shi.</tRule>
+			<tRule>yu → ᅲ ;</tRule>
+			<tRule>ye → ᅨ ;</tRule>
+			<tRule>yo → ᅭ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>r → ᄅ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>wa → ᅪ ;</tRule>
+			<tRule>w → ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>g → ᄀ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>zu → 즈 ;</tRule>
+			<tRule>z → | j ;</tRule>
+			<tRule>j → ᄌ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>de\~  → | d ;   # デュ</tRule>
+			<tRule>dji\~ → | j ;   # ヂァ, ヂゥ, etc.</tRule>
+			<tRule>dji   → | ji ;  # ヂ</tRule>
+			<tRule>do\~  → | d ;   # ドゥ</tRule>
+			<tRule>dzu\~ → | j ;   # ヅァ, ヅィ, etc.</tRule>
+			<tRule>dzu   → | zu ;  # ヅ</tRule>
+			<tRule>dz    → | j ;</tRule>
+			<tRule>d → ᄃ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>b → ᄇ ;</tRule>
+			<tRule>vu\~ → | b ;  # ヴァ, etc.</tRule>
+			<tRule>v    → | b ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>p → ᄑ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::NFC(NFD);</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

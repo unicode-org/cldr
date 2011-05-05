@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Latin" target="InterIndic" direction="forward" visibility="internal">
+			<comment># Latin-InterIndic</comment>
+			<comment>#:: NFD;</comment>
+			<comment>#\u0E00 reserved</comment>
+			<comment>#consonants</comment>
+			<tRule>$chandrabindu=\uE001;</tRule>
+			<tRule>$anusvara=\uE002;</tRule>
+			<tRule>$visarga=\uE003;</tRule>
+			<comment>#\u0E004 reserved</comment>
+			<comment># w←vowel→ represents the stand-alone form</comment>
+			<tRule>$wa=\uE005;</tRule>
+			<tRule>$waa=\uE006;</tRule>
+			<tRule>$wi=\uE007;</tRule>
+			<tRule>$wii=\uE008;</tRule>
+			<tRule>$wu=\uE009;</tRule>
+			<tRule>$wuu=\uE00A;</tRule>
+			<tRule>$wr=\uE00B;</tRule>
+			<tRule>$wl=\uE00C;</tRule>
+			<tRule>$wce=\uE00D; # LETTER CANDRA E</tRule>
+			<tRule>$wse=\uE00E; # LETTER SHORT E</tRule>
+			<tRule>$we=\uE00F;  # ए LETTER E</tRule>
+			<tRule>$wai=\uE010;</tRule>
+			<tRule>$wco=\uE011; # LETTER CANDRA O</tRule>
+			<tRule>$wso=\uE012; # LETTER SHORT O</tRule>
+			<tRule>$wo=\uE013;  # ओ LETTER O</tRule>
+			<tRule>$wau=\uE014;</tRule>
+			<tRule>$ka=\uE015;</tRule>
+			<tRule>$kha=\uE016;</tRule>
+			<tRule>$ga=\uE017;</tRule>
+			<tRule>$gha=\uE018;</tRule>
+			<tRule>$nga=\uE019;</tRule>
+			<tRule>$ca=\uE01A;</tRule>
+			<tRule>$cha=\uE01B;</tRule>
+			<tRule>$ja=\uE01C;</tRule>
+			<tRule>$jha=\uE01D;</tRule>
+			<tRule>$nya=\uE01E;</tRule>
+			<tRule>$tta=\uE01F;</tRule>
+			<tRule>$ttha=\uE020;</tRule>
+			<tRule>$dda=\uE021;</tRule>
+			<tRule>$ddha=\uE022;</tRule>
+			<tRule>$nna=\uE023;</tRule>
+			<tRule>$ta=\uE024;</tRule>
+			<tRule>$tha=\uE025;</tRule>
+			<tRule>$da=\uE026;</tRule>
+			<tRule>$dha=\uE027;</tRule>
+			<tRule>$na=\uE028;</tRule>
+			<tRule>$ena=\uE029; #compatibility</tRule>
+			<tRule>$pa=\uE02A;</tRule>
+			<tRule>$pha=\uE02B;</tRule>
+			<tRule>$ba=\uE02C;</tRule>
+			<tRule>$bha=\uE02D;</tRule>
+			<tRule>$ma=\uE02E;</tRule>
+			<tRule>$ya=\uE02F;</tRule>
+			<tRule>$ra=\uE030;</tRule>
+			<tRule>$rra=\uE031;</tRule>
+			<tRule>$la=\uE032;</tRule>
+			<tRule>$lla=\uE033;</tRule>
+			<tRule>$ela=\uE034; #compatibility</tRule>
+			<tRule>$va=\uE035;</tRule>
+			<tRule>$vva=\uE081;</tRule>
+			<tRule>$sha=\uE036;</tRule>
+			<tRule>$ssa=\uE037;</tRule>
+			<tRule>$sa=\uE038;</tRule>
+			<tRule>$ha=\uE039;</tRule>
+			<comment>#\u093A Reserved</comment>
+			<comment>#\u093B Reserved</comment>
+			<tRule>$nukta=\uE03C;</tRule>
+			<tRule>$avagraha=\uE03D; # SIGN AVAGRAHA</tRule>
+			<comment># ←vowel→ represents the dependent form</comment>
+			<tRule>$aa=\uE03E;</tRule>
+			<tRule>$i=\uE03F;</tRule>
+			<tRule>$ii=\uE040;</tRule>
+			<tRule>$u=\uE041;</tRule>
+			<tRule>$uu=\uE042;</tRule>
+			<tRule>$rh=\uE043;</tRule>
+			<tRule>$lh=\uE044;</tRule>
+			<tRule>$ce=\uE045; #VOWEL SIGN CANDRA E</tRule>
+			<tRule>$se=\uE046; #VOWEL SIGN SHORT E</tRule>
+			<tRule>$e=\uE047;</tRule>
+			<tRule>$ai=\uE048;</tRule>
+			<tRule>$co=\uE049; # VOWEL SIGN CANDRA O</tRule>
+			<tRule>$so=\uE04A; # VOWEL SIGN SHORT O</tRule>
+			<tRule>$o=\uE04B;  # ो</tRule>
+			<tRule>$au=\uE04C;</tRule>
+			<tRule>$virama=\uE04D;</tRule>
+			<comment># \u094E Reserved</comment>
+			<comment># \u094F Reserved</comment>
+			<tRule>$om = \uE050; # OM</tRule>
+			<comment># ॑→;        # UNMAPPED STRESS SIGN UDATTA</comment>
+			<comment># ॒→;        # UNMAPPED STRESS SIGN ANUDATTA</comment>
+			<comment># ॓→;        # UNMAPPED GRAVE ACCENT</comment>
+			<comment># ॔→;        # UNMAPPED ACUTE ACCENT</comment>
+			<tRule>$lm = \uE055;#  Telugu Length Mark</tRule>
+			<tRule>$ailm=\uE056;#  AI Length Mark</tRule>
+			<tRule>$aulm=\uE057;#  AU Length Mark</tRule>
+			<comment>#urdu compatibity forms</comment>
+			<tRule>$uka=\uE058;</tRule>
+			<tRule>$ukha=\uE059;</tRule>
+			<tRule>$ugha=\uE05A;</tRule>
+			<tRule>$ujha=\uE05B;</tRule>
+			<tRule>$uddha=\uE05C;</tRule>
+			<tRule>$udha=\uE05D;</tRule>
+			<tRule>$ufa=\uE05E;</tRule>
+			<tRule>$uya=\uE05F;</tRule>
+			<tRule>$wrr=\uE060;</tRule>
+			<tRule>$wll=\uE061;</tRule>
+			<tRule>$rrh=\uE062;</tRule>
+			<tRule>$llh=\uE063;</tRule>
+			<tRule>$danda=\uE064;</tRule>
+			<tRule>$doubleDanda=\uE065;</tRule>
+			<tRule>$zero=\uE066;     # DIGIT ZERO</tRule>
+			<tRule>$one=\uE067;      # DIGIT ONE</tRule>
+			<tRule>$two=\uE068;      # DIGIT TWO</tRule>
+			<tRule>$three=\uE069;    # DIGIT THREE</tRule>
+			<tRule>$four=\uE06A;     # DIGIT FOUR</tRule>
+			<tRule>$five=\uE06B;     # DIGIT FIVE</tRule>
+			<tRule>$six=\uE06C;      # DIGIT SIX</tRule>
+			<tRule>$seven=\uE06D;    # DIGIT SEVEN</tRule>
+			<tRule>$eight=\uE06E;    # DIGIT EIGHT</tRule>
+			<tRule>$nine=\uE06F;     # DIGIT NINE</tRule>
+			<tRule>$dgs=\uE082;</tRule>
+			<comment># For all other scripts</comment>
+			<tRule>$ecp0=\uE070;</tRule>
+			<tRule>$ecp1=\uE071;</tRule>
+			<tRule>$ecp2=\uE072;</tRule>
+			<tRule>$ecp3=\uE073;</tRule>
+			<tRule>$ecp4=\uE074;</tRule>
+			<tRule>$ecp5=\uE075;</tRule>
+			<tRule>$ecp6=\uE076;</tRule>
+			<tRule>$ecp7=\uE077;</tRule>
+			<tRule>$ecp8=\uE078;</tRule>
+			<tRule>$ecp9=\uE079;</tRule>
+			<tRule>$ecpA=\uE07A;</tRule>
+			<tRule>$ecpB=\uE07B;</tRule>
+			<tRule>$ecpC=\uE07C;</tRule>
+			<tRule>$ecpD=\uE07D;</tRule>
+			<tRule>$ecpE=\uE07E;</tRule>
+			<tRule>$ecpF=\uE07F;</tRule>
+			<comment># Khanda-ta</comment>
+			<tRule>$kta=\uE083;</tRule>
+			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
+			<tRule>$depVowelAbove=[\uE03E-\uE040\uE045-\uE04C];</tRule>
+			<tRule>$depVowelBelow=[\uE041-\uE044];</tRule>
+			<tRule>$endThing=[$danda$doubleDanda];</tRule>
+			<comment># $x was originally called '§'; $z was '%'</comment>
+			<tRule>$x=[$virama$aa$ai$au$ii$i$uu$u$rrh$rh$lh$e$o$se$ce$so$co];</tRule>
+			<tRule>$z=[bcdfghjklmnpqrstvwxyz];</tRule>
+			<tRule>$consonants=[[$ka-$ha]$z[क-ह][ক-হ][ਕ-ਹ][ક-હ][କ-ହ][க-ஹ][క-హ][ಕ-ಹ][ക-ഹ]];</tRule>
+			<tRule>̕ → $avagraha;</tRule>
+			<tRule>̃→$chandrabindu$anusvara;</tRule>
+			<tRule>m̐→$chandrabindu;</tRule>
+			<tRule>ḥ→$visarga;</tRule>
+			<tRule>x→$ka$virama$sa;</tRule>
+			<comment># convert to independent forms at start of word or syllable:</comment>
+			<comment># dependent forms for roundtrip</comment>
+			<tRule>̔ā→$aa;</tRule>
+			<tRule>̔ai→$ai;</tRule>
+			<tRule>̔au→$au;</tRule>
+			<tRule>̔ii→$ii;</tRule>
+			<tRule>̔ī→$ii;</tRule>
+			<tRule>̔i→$i;</tRule>
+			<tRule>̔ū→$uu;</tRule>
+			<tRule>̔u→$u;</tRule>
+			<tRule>̔r̥̄→$rrh;</tRule>
+			<tRule>̔r̥→$rh;</tRule>
+			<tRule>̔l̥̄→$llh;</tRule>
+			<tRule>̔lh→$lh;</tRule>
+			<tRule>̔l̥→$lh;</tRule>
+			<tRule>̔ē→$e;</tRule>
+			<tRule>̔ō→$o;</tRule>
+			<tRule>̔a→;</tRule>
+			<tRule>̔ĕ→$ce;</tRule>
+			<tRule>̔ŏ→$co;</tRule>
+			<tRule>̔e→$se;</tRule>
+			<tRule>̔o→$so;</tRule>
+			<comment># preceeded by consonants</comment>
+			<tRule>$consonants{ ā→$aa;</tRule>
+			<tRule>$consonants{ ai→$ai;</tRule>
+			<tRule>$consonants{ au→$au;</tRule>
+			<tRule>$consonants{ ii→$ii;</tRule>
+			<tRule>$consonants{ ī→$ii;</tRule>
+			<tRule>$consonants{ i→$i;</tRule>
+			<tRule>$consonants{ ū→$uu;</tRule>
+			<tRule>$consonants{ u→$u;</tRule>
+			<tRule>$consonants{ r̥̄→$rrh;</tRule>
+			<tRule>$consonants{ r̥a→$rh;</tRule>
+			<tRule>$consonants{ r̥→$rh;</tRule>
+			<tRule>$consonants{ l̥̄→$llh;</tRule>
+			<tRule>$consonants{ lh→$lh;</tRule>
+			<tRule>$consonants{ l̥→$lh;</tRule>
+			<tRule>$consonants{ ē→$e;</tRule>
+			<tRule>$consonants{ ō→$o;</tRule>
+			<tRule>$consonants{ ĕ→$ce;</tRule>
+			<tRule>$consonants{ ŏ→$co;</tRule>
+			<tRule>$consonants{ e→$se;</tRule>
+			<tRule>$consonants{ o→$so;</tRule>
+			<comment># e.g. keai -→ {ka}{e}{wai}; k'ai -→ {ka}{wai}; (ai) -→ ({wai})</comment>
+			<tRule>ā→$waa;</tRule>
+			<tRule>ai→$wai;</tRule>
+			<tRule>au→$wau;</tRule>
+			<tRule>ī→$wii;</tRule>
+			<tRule>i→$wi;</tRule>
+			<tRule>ū→$wuu;</tRule>
+			<tRule>u→$wu;</tRule>
+			<tRule>r̥̄→$wrr;</tRule>
+			<tRule>r̥→$wr;</tRule>
+			<tRule>l̥̄→$wll;</tRule>
+			<tRule>lh→$wl;</tRule>
+			<tRule>l̥→$wl;</tRule>
+			<tRule>ē→$we;</tRule>
+			<tRule>ō→$wo;</tRule>
+			<tRule>a→$wa;</tRule>
+			<tRule>ĕ→$wce;</tRule>
+			<tRule>ŏ→$wco;</tRule>
+			<tRule>e→$wse;</tRule>
+			<tRule>''om→$om;</tRule>
+			<tRule>o→$wso;</tRule>
+			<comment># rules for anusvara</comment>
+			<tRule>n}r̥           → $na|$virama;</tRule>
+			<tRule>n}l̥           → $na|$virama;</tRule>
+			<tRule>n}na                → $na|$virama;</tRule>
+			<tRule>ṅ}[kg]        → $anusvara;</tRule>
+			<tRule>ṅ}ṅ     → $anusvara;</tRule>
+			<tRule>n̄}[cj]        → $anusvara;</tRule>
+			<tRule>n̄}ñ     → $anusvara;</tRule>
+			<tRule>ṇ}[tdn]̣ → $anusvara;</tRule>
+			<tRule>n}[tdn]             → $anusvara;</tRule>
+			<tRule>m}[pbm]             → $anusvara;</tRule>
+			<tRule>n}[ylvshr]          → $anusvara;</tRule>
+			<tRule>ṁ             → $anusvara;</tRule>
+			<comment>#urdu compatibility</comment>
+			<tRule>q→$uka|$virama;</tRule>
+			<tRule>ḵẖ→$ukha |$virama;</tRule>
+			<tRule>ġ→ $ugha | $virama;</tRule>
+			<tRule>z → $ujha |$virama;</tRule>
+			<tRule>f → $ufa|$virama;</tRule>
+			<tRule>ṯ→$kta;</tRule>
+			<comment># dev</comment>
+			<tRule>ẏ→$uya|$virama;</tRule>
+			<tRule>ḻ→$ela|$virama;</tRule>
+			<tRule>ṉ→$ena|$virama;</tRule>
+			<tRule>ṅ→$nga|$virama;</tRule>
+			<tRule>ñ→$nya|$virama;</tRule>
+			<tRule>ṇ→$nna|$virama;</tRule>
+			<tRule>ṭh→$ttha|$virama;</tRule>
+			<tRule>ṭ→$tta|$virama;</tRule>
+			<tRule>ṛh→$udha|$virama;</tRule>
+			<tRule>ṛ→$uddha|$virama;</tRule>
+			<tRule>ḍh→$ddha|$virama;</tRule>
+			<tRule>ḍ→$dda|$virama;</tRule>
+			<tRule>kh→$kha|$virama;</tRule>
+			<tRule>k→$ka|$virama;</tRule>
+			<tRule>gh→$gha|$virama;</tRule>
+			<tRule>g→$ga|$virama;</tRule>
+			<tRule>ch→$cha|$virama;</tRule>
+			<tRule>c→$ca|$virama;</tRule>
+			<tRule>jh→$jha|$virama;</tRule>
+			<tRule>j→$ja|$virama;</tRule>
+			<tRule>ny→$nya|$virama;</tRule>
+			<tRule>tth→$ttha|$virama;</tRule>
+			<tRule>ddh→$ddha|$virama;</tRule>
+			<tRule>th→$tha|$virama;</tRule>
+			<tRule>t→$ta|$virama;</tRule>
+			<tRule>dh→$dha|$virama;</tRule>
+			<tRule>d→$da|$virama;</tRule>
+			<tRule>n→$na|$virama;</tRule>
+			<tRule>ph→$pha|$virama;</tRule>
+			<tRule>p→$pa|$virama;</tRule>
+			<tRule>bh→$bha|$virama;</tRule>
+			<tRule>b→$ba|$virama;</tRule>
+			<tRule>m→$ma|$virama;</tRule>
+			<tRule>y→$ya|$virama;</tRule>
+			<tRule>ṟ→$rra|$virama;</tRule>
+			<tRule>r→$ra|$virama;</tRule>
+			<tRule>ḷ→$lla|$virama;</tRule>
+			<tRule>l→$la|$virama;</tRule>
+			<tRule>v→$va|$virama;</tRule>
+			<tRule>ẇ→$vva|$virama;</tRule>
+			<tRule>w→$va|$virama;</tRule>
+			<tRule>sh→$sha|$virama;</tRule>
+			<tRule>ss→$ssa|$virama;</tRule>
+			<tRule>ṣ→$ssa|$virama;</tRule>
+			<tRule>ś→$sha|$virama;</tRule>
+			<tRule>s→$sa|$virama;</tRule>
+			<tRule>h→$ha|$virama;</tRule>
+			<tRule>'.'→$danda;</tRule>
+			<tRule>$danda'.'→$doubleDanda;</tRule>
+			<tRule>$depVowelAbove{'~'→$anusvara;</tRule>
+			<tRule>$depVowelBelow{'~'→$chandrabindu;</tRule>
+			<comment># convert to dependent forms after consonant with no vowel:</comment>
+			<comment># e.g. kai -→ {ka}{virama}ai -→ {ka}{ai}</comment>
+			<comment>#$virama aa→$aa;</comment>
+			<tRule>$virama ā→$aa;</tRule>
+			<tRule>$virama ai→$ai;</tRule>
+			<tRule>$virama au→$au;</tRule>
+			<tRule>$virama ii→$ii;</tRule>
+			<tRule>$virama ī→$ii;</tRule>
+			<tRule>$virama i→$i;</tRule>
+			<comment>#$virama uu→$uu;</comment>
+			<tRule>$virama ū→$uu;</tRule>
+			<tRule>$virama u→$u;</tRule>
+			<comment>#$virama rrh→$rrh;</comment>
+			<tRule>$virama r̥̄→$rrh;</tRule>
+			<comment>#$virama rh→$rh;</comment>
+			<tRule>$virama r̥a→$rh;</tRule>
+			<tRule>$virama r̥→$rh;</tRule>
+			<tRule>$virama l̥̄→$llh;</tRule>
+			<tRule>$virama lh→$lh;</tRule>
+			<tRule>$virama l̥→$lh;</tRule>
+			<tRule>$virama ē→$e;</tRule>
+			<tRule>$virama ō→$o;</tRule>
+			<tRule>$virama a→;</tRule>
+			<tRule>$virama ĕ→$ce;</tRule>
+			<tRule>$virama ŏ→$co;</tRule>
+			<tRule>$virama e→$se;</tRule>
+			<tRule>$virama o→$so;</tRule>
+			<comment># otherwise convert independent forms when separated by ': k'ai -→ {ka}{virama}{wai}</comment>
+			<comment>#$virama''aa→$waa;</comment>
+			<tRule>$virama''ā→$waa;</tRule>
+			<tRule>$virama''ai→$wai;</tRule>
+			<tRule>$virama''au→$wau;</tRule>
+			<comment>#$virama''ii→$wii;</comment>
+			<tRule>$virama''ī→$wii;</tRule>
+			<tRule>$virama''i→$wi;</tRule>
+			<comment>#$virama''uu→$wuu;</comment>
+			<tRule>$virama''ū→$wuu;</tRule>
+			<tRule>$virama''u→$wu;</tRule>
+			<comment>#$virama''rrh→$wrr;</comment>
+			<tRule>$virama''r̥̄→$wrr;</tRule>
+			<comment>#$virama''rh→$wr;</comment>
+			<tRule>$virama''r̥→$wr;</tRule>
+			<tRule>$virama''l̥̄→$wll;</tRule>
+			<comment>#$virama''lh→$wl;</comment>
+			<tRule>$virama''l̥→$wl;</tRule>
+			<tRule>$virama''ē→$we;</tRule>
+			<tRule>$virama''ō→$wo;</tRule>
+			<tRule>$virama''a→$wa;</tRule>
+			<tRule>$virama''ĕ→$wce;</tRule>
+			<tRule>$virama''ŏ→$wco;</tRule>
+			<tRule>$virama''e→$wse;</tRule>
+			<tRule>$virama''o→$wso;</tRule>
+			<comment># no virama</comment>
+			<tRule>''ā→$waa;</tRule>
+			<tRule>''ai→$wai;</tRule>
+			<tRule>''au→$wau;</tRule>
+			<tRule>''ī→$wii;</tRule>
+			<tRule>''i→$wi;</tRule>
+			<tRule>''ū→$wuu;</tRule>
+			<tRule>''u→$wu;</tRule>
+			<tRule>''r̥̄→$wrr;</tRule>
+			<tRule>''r̥→$wr;</tRule>
+			<tRule>''l̥̄→$wll;</tRule>
+			<tRule>''l̥→$wl;</tRule>
+			<tRule>''ē→$we;</tRule>
+			<tRule>''ō→$wo;</tRule>
+			<tRule>''a→$wa;</tRule>
+			<tRule>''ĕ→$wce;</tRule>
+			<tRule>''ŏ→$wco;</tRule>
+			<tRule>''e→$wse;</tRule>
+			<tRule>''o→$wso;</tRule>
+			<tRule>$virama } [$z] → $virama;</tRule>
+			<tRule>$virama } ' ' → $virama ;</tRule>
+			<tRule>$virama}$endThing→;</tRule>
+			<tRule>ʔ→$dgs; # Glottal Stop</tRule>
+			<tRule>0→$zero;</tRule>
+			<tRule>1→$one;</tRule>
+			<tRule>2→$two;</tRule>
+			<tRule>3→$three;</tRule>
+			<tRule>4→$four;</tRule>
+			<tRule>5→$five;</tRule>
+			<tRule>6→$six;</tRule>
+			<tRule>7→$seven;</tRule>
+			<tRule>8→$eight;</tRule>
+			<tRule>9→$nine;</tRule>
+			<tRule>''→;</tRule>
+			<comment>#:: NFC (NFD) ;</comment>
+		</transform>
+	</transforms>
+</supplementalData>
+

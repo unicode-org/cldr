@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="es_FONIPA" target="zh" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Author: mjansche@google.com (Martin Jansche)
+			#
+			# Tranforms Spanish to Mandarin Chinese. The input Spanish string must be in
+			# phonemic IPA transcription (es_FONIPA); the output is in Simplified Chinese.
+			#
+			</comment>
+			<tRule>$word_boundary = [-\ $];</tRule>
+			<tRule>$vowel = [aeijouw];       # Vowels and glides</tRule>
+			<tRule>$not_vowel = [^$vowel];</tRule>
+			<comment>
+			#
+			# First pass: Collapse phonetic distinctions not preserved in Mandarin.
+			#
+			</comment>
+			<tRule>ð → | d;</tRule>
+			<tRule>ɣ → | g;</tRule>
+			<tRule>ŋ → | n;</tRule>
+			<tRule>θ → | s;</tRule>
+			<tRule>ɾ → | r;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ff → f ;</tRule>
+			<tRule>kk → k ;</tRule>
+			<tRule>mm → m ;</tRule>
+			<tRule>nn → n ;</tRule>
+			<tRule>pp → p ;</tRule>
+			<tRule>tt → t ;</tRule>
+			<tRule>tʧ → ʧ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>aa → a ;</tRule>
+			<tRule>oi̯ → oi ;</tRule>
+			<tRule>oo → o ;</tRule>
+			<tRule>uu → u ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[^dgktx] { ei̯ → e ;</tRule>
+			<tRule>[^-\ .$] { eu̯ → eu ;</tRule>
+			<tRule>[^-\ .$] { ou̯ → o;</tRule>
+			<tRule>[^j]     { ui → wi ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[^$word_boundary] { m } [bp] → n;  # GB/T 17693.5-2009, 5.3.2</tRule>
+			<tRule>s[θs] → s;               # GB/T 17693.5-2009, 5.3.4</tRule>
+			<tRule>[^ʧ] { jo → io;          # GB/T 17693.5-2009 表 1, 注 7</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::Null;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>j } an $not_vowel → i ;  # GB/T 17693.5-2009 表 1, 注 8</tRule>
+			<comment>
+			#
+			# GB/T 17693.5-2009 表 1, 注 8 also says that &lt;uai&gt; should be treated as if
+			# it was &lt;u&gt; plus &lt;ai&gt;.  This is not borne out by the observed data, which
+			# suggests that &lt;ua&gt; plus &lt;i&gt; is the more appropriate choice in some
+			# situations.
+			#
+			</comment>
+			<tRule>[g.$] { wai̯ → wai ;</tRule>
+			<tRule>wai̯ → uai̯ ;</tRule>
+			<tRule>[g.$] { wau̯ → wau ;</tRule>
+			<tRule>wau̯ → uau̯ ;</tRule>
+			<tRule>jau̯ → iau̯ ;</tRule>
+			<comment>
+			#
+			# Even though "ao" is not a diphthong in Spanish, Mandarin treats it as one.
+			</comment>
+			<tRule>[^jw] { ao } [^n]     → au̯ ;</tRule>
+			<tRule>[^jw] { ao } n $vowel → au̯ ;</tRule>
+			<comment>
+			#
+			# Main pass: Phoneme to Hanzi conversion.
+			# This generally follows GB/T 17693.5-2009 表 1, unless otherwise noted.
+			#
+			</comment>
+			<tRule>::Null;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>'.' → ;</tRule>
+			<tRule>ai̯ → 艾 ;</tRule>
+			<tRule>an } $not_vowel → 安 ;</tRule>
+			<tRule>au̯ → 奥 ;</tRule>
+			<tRule>a → 阿 ;</tRule>
+			<tRule>bai̯ → 拜 ;</tRule>
+			<tRule>ban } $not_vowel → 班 ;</tRule>
+			<tRule>bau̯ → 包 ;</tRule>
+			<tRule>ba → 巴 ;</tRule>
+			<tRule>ben } $not_vowel → 本 ;</tRule>
+			<tRule>be → 贝 ;</tRule>
+			<tRule>bin } $not_vowel → 宾 ;</tRule>
+			<tRule>bi → 比 ;</tRule>
+			<tRule>bja → 比亚 ;</tRule>
+			<tRule>bjen } $not_vowel → 比恩 ;</tRule>
+			<tRule>bje → 别 ;</tRule>
+			<tRule>bju → 比乌 ;</tRule>
+			<tRule>bon } $not_vowel → 邦 ;</tRule>
+			<tRule>bo → 博 ;</tRule>
+			<tRule>bun } $not_vowel → 本 ;</tRule>
+			<tRule>bu → 布 ;</tRule>
+			<tRule>bwan } $not_vowel → 布安 ;</tRule>
+			<tRule>bwa → 布阿 ;</tRule>
+			<tRule>bwen } $not_vowel → 布恩 ;  # Should be be 本, per GB/T 17693.5-2009 表 1.</tRule>
+			<tRule>bwe → 布埃 ;</tRule>
+			<tRule>bwin } $not_vowel → 布因 ;  # Nonstandard, but fits observed data.</tRule>
+			<tRule>bwi → 布伊 ;</tRule>
+			<tRule>bwo → 博 ;</tRule>
+			<tRule>b → 布 ;</tRule>
+			<tRule>βai̯ → 瓦伊 ;</tRule>
+			<tRule>βan } $not_vowel → 万 ;</tRule>
+			<tRule>βau̯ → 沃 ;</tRule>
+			<tRule>βa → 瓦 ;</tRule>
+			<tRule>βen } $not_vowel → 文 ;</tRule>
+			<tRule>βe → 韦 ;</tRule>
+			<tRule>βin } $not_vowel → 温 ;</tRule>
+			<tRule>βi → 维 ;</tRule>
+			<tRule>βja → 维亚 ;</tRule>
+			<tRule>βjen } $not_vowel → 维恩 ;</tRule>
+			<tRule>βje → 维耶 ;</tRule>
+			<tRule>βju → 维乌 ;</tRule>
+			<tRule>βon } $not_vowel → 翁 ;</tRule>
+			<tRule>βo → 沃 ;</tRule>
+			<tRule>βun } $not_vowel → 文 ;</tRule>
+			<tRule>βu → 武 ;</tRule>
+			<tRule>βwan } $not_vowel → 万 ;</tRule>
+			<tRule>βwa → 瓦 ;</tRule>
+			<tRule>βwen } $not_vowel → 文 ;</tRule>
+			<tRule>βwe → 武埃 ;</tRule>
+			<tRule>βwi → 维 ;</tRule>
+			<tRule>βwo → 沃 ;</tRule>
+			<tRule>β → 夫 ;</tRule>
+			<tRule>dai̯ → 代 ;</tRule>
+			<tRule>dan } $not_vowel → 丹 ;</tRule>
+			<tRule>dau̯ → 道 ;</tRule>
+			<tRule>da → 达 ;</tRule>
+			<tRule>dei̯ → 代 ;</tRule>
+			<tRule>den } $not_vowel → 登 ;</tRule>
+			<tRule>de → 德 ;</tRule>
+			<tRule>din } $not_vowel → 丁 ;</tRule>
+			<tRule>di → 迪 ;</tRule>
+			<tRule>dja → 迪亚 ;</tRule>
+			<tRule>djen } $not_vowel → 迪恩 ;</tRule>
+			<tRule>dje → 迭 ;</tRule>
+			<tRule>dju → 迪乌 ;</tRule>
+			<tRule>don } $not_vowel → 东 ;</tRule>
+			<tRule>do → 多 ;</tRule>
+			<tRule>dun } $not_vowel → 敦 ;</tRule>
+			<tRule>du → 杜 ;</tRule>
+			<tRule>dwan } $not_vowel → 端 ;</tRule>
+			<tRule>dwa → 杜阿 ;</tRule>
+			<tRule>dwen } $not_vowel → 敦 ;</tRule>
+			<tRule>dwe → 杜埃 ;</tRule>
+			<tRule>dwi → 杜伊 ;</tRule>
+			<tRule>dwo → 多 ;</tRule>
+			<tRule>d } $word_boundary → ;</tRule>
+			<tRule>d → 德 ;</tRule>
+			<tRule>ei̯ → 埃 ;</tRule>
+			<tRule>en } $not_vowel → 恩 ;</tRule>
+			<tRule>eu̯ → 欧 ;</tRule>
+			<tRule>e → 埃 ;</tRule>
+			<tRule>fai̯ → 法伊 ;</tRule>
+			<tRule>fan } $not_vowel → 凡 ;</tRule>
+			<tRule>fau̯ → 福 ;</tRule>
+			<tRule>fa → 法 ;</tRule>
+			<tRule>fe → 费 ;</tRule>
+			<tRule>fin } $not_vowel → 芬 ;</tRule>
+			<tRule>fi → 菲 ;</tRule>
+			<tRule>fja → 菲亚 ;</tRule>
+			<tRule>fjen } $not_vowel → 菲恩 ;</tRule>
+			<tRule>fje → 菲耶 ;</tRule>
+			<tRule>fju → 菲乌 ;</tRule>
+			<tRule>fon } $not_vowel → 丰 ;</tRule>
+			<tRule>fo → 福 ;</tRule>
+			<tRule>fun } $not_vowel → 丰 ;</tRule>
+			<tRule>fu → 富 ;</tRule>
+			<tRule>fwan } $not_vowel → 富安 ;</tRule>
+			<tRule>fwa → 富阿 ;</tRule>
+			<tRule>fwen } $not_vowel → 丰 ;</tRule>
+			<tRule>fwe → 富埃 ;</tRule>
+			<tRule>fwi → 富伊 ;</tRule>
+			<tRule>fwo → 福 ;</tRule>
+			<comment>
+			#
+			# The choice of 弗 vs. 夫 sounds simple according to the GB/T standard, but the
+			# data suggest otherwise.  Ideally, 弗 should occur at the beginning of a
+			# morpheme (e.g. in "villafranca" 比利亚弗兰卡) and 夫 everywhere else.  Since
+			# we don't have morpheme boundaries, we'll fudge it by writing 夫 at the end of
+			# a word and 弗 everywhere else.
+			</comment>
+			<tRule>f } $word_boundary → 夫 ;</tRule>
+			<tRule>f → 弗 ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>gai̯ → 盖 ;</tRule>
+			<tRule>gan } $not_vowel → 甘 ;</tRule>
+			<tRule>gau̯ → 高 ;</tRule>
+			<tRule>ga → 加 ;</tRule>
+			<tRule>gei̯ → 盖 ;</tRule>
+			<tRule>gen } $not_vowel → 根 ;</tRule>
+			<tRule>ge → 格 ;</tRule>
+			<tRule>gin } $not_vowel → 金 ;</tRule>
+			<tRule>gi → 吉 ;</tRule>
+			<tRule>gja → 吉亚 ;</tRule>
+			<tRule>gjen } $not_vowel → 吉恩 ;</tRule>
+			<tRule>gje → 吉耶 ;</tRule>
+			<tRule>gju → 吉乌 ;</tRule>
+			<tRule>gon } $not_vowel → 贡 ;</tRule>
+			<tRule>go → 戈 ;</tRule>
+			<tRule>gun } $not_vowel → 贡 ;</tRule>
+			<tRule>gu → 古 ;</tRule>
+			<tRule>gwan } [$] → 古安 ;        # Nonstandard, but fits observed data.</tRule>
+			<tRule>gwan } $not_vowel → 关 ;</tRule>
+			<tRule>gwa → 瓜 ;</tRule>
+			<tRule>gwen } $not_vowel → 古恩 ;</tRule>
+			<tRule>gwe → 圭 ;</tRule>
+			<tRule>gwi → 圭 ;</tRule>
+			<tRule>gwo → 果 ;</tRule>
+			<tRule>g → 格 ;</tRule>
+			<tRule>in } $not_vowel → 因 ;</tRule>
+			<tRule>i → 伊 ;</tRule>
+			<tRule>ʝai̯ → 亚伊 ;</tRule>
+			<tRule>ʝan } $not_vowel → 扬 ;</tRule>
+			<tRule>ʝau̯ → 尧 ;</tRule>
+			<tRule>ʝa → 亚 ;</tRule>
+			<tRule>ʝen } $not_vowel → 延 ;</tRule>
+			<tRule>ʝe → 耶 ;</tRule>
+			<tRule>ʝin } $not_vowel → 因 ;</tRule>
+			<tRule>ʝi → 伊 ;</tRule>
+			<tRule>ʝon } $not_vowel → 永 ;</tRule>
+			<tRule>ʝo → 约 ;</tRule>
+			<tRule>ʝun } $not_vowel → 云 ;</tRule>
+			<tRule>ʝu → 尤 ;</tRule>
+			<tRule>ʝwan } $not_vowel → 元 ;</tRule>
+			<tRule>ʝwa → 尤阿 ;</tRule>
+			<tRule>ʝwen } $not_vowel → 云 ;</tRule>
+			<tRule>ʝwe → 尤埃 ;</tRule>
+			<tRule>ʝwi → 尤伊 ;</tRule>
+			<tRule>ʝwo → 约 ;</tRule>
+			<tRule>ʝ → 伊 ;</tRule>
+			<tRule>kai̯ → 凯 ;</tRule>
+			<tRule>kan } $not_vowel → 坎 ;</tRule>
+			<tRule>kau̯ → 考 ;</tRule>
+			<tRule>ka → 卡 ;</tRule>
+			<tRule>kei̯ → 凯 ;</tRule>
+			<tRule>ken } $not_vowel → 肯 ;</tRule>
+			<tRule>ke → 克 ;</tRule>
+			<tRule>kin } $not_vowel → 金 ;</tRule>
+			<tRule>ki → 基 ;</tRule>
+			<tRule>kja → 基亚 ;</tRule>
+			<tRule>kjen } $not_vowel → 基恩 ;</tRule>
+			<tRule>kje → 基耶 ;</tRule>
+			<tRule>kju → 基乌 ;</tRule>
+			<tRule>kon } $not_vowel → 孔 ;</tRule>
+			<tRule>ko → 科 ;</tRule>
+			<tRule>kun } $not_vowel → 昆 ;</tRule>
+			<tRule>ku → 库 ;</tRule>
+			<tRule>kwan } $not_vowel → 宽 ;</tRule>
+			<tRule>kwa → 夸 ;</tRule>
+			<tRule>kwen } $not_vowel → 昆 ;</tRule>
+			<tRule>kwe → 库埃 ;</tRule>
+			<tRule>kwin } $not_vowel → 昆 ;</tRule>
+			<tRule>kwi → 奎 ;</tRule>
+			<tRule>kwo → 阔 ;</tRule>
+			<tRule>k → 克 ;</tRule>
+			<tRule>lae } [^n] → 莱 ;</tRule>
+			<tRule>lai̯ → 莱 ;</tRule>
+			<tRule>lan } $not_vowel → 兰 ;</tRule>
+			<tRule>lau̯ → 劳 ;</tRule>
+			<tRule>la → 拉 ;</tRule>
+			<tRule>len } $not_vowel → 伦 ;</tRule>
+			<tRule>le → 莱 ;</tRule>
+			<tRule>lin } $not_vowel → 林 ;</tRule>
+			<tRule>li → 利 ;</tRule>
+			<tRule>lja → 利亚 ;</tRule>
+			<tRule>ljen } $not_vowel → 连 ;</tRule>
+			<tRule>lje → 列 ;</tRule>
+			<tRule>lju → 柳 ;</tRule>
+			<tRule>lon } $not_vowel → 隆 ;</tRule>
+			<tRule>lo → 洛 ;</tRule>
+			<tRule>lun } $not_vowel → 伦 ;</tRule>
+			<tRule>lu → 卢 ;</tRule>
+			<tRule>lwan } $not_vowel → 卢安 ;</tRule>
+			<tRule>lwa → 卢阿 ;</tRule>
+			<tRule>lwen } $not_vowel → 伦 ;</tRule>
+			<tRule>lwe → 卢埃 ;</tRule>
+			<tRule>lwi → 卢伊 ;</tRule>
+			<tRule>lwo → 洛 ;</tRule>
+			<tRule>l → 尔 ;</tRule>
+			<tRule>ʎan } $not_vowel → 良 ;</tRule>
+			<tRule>ʎau̯ → 廖 ;</tRule>
+			<tRule>ʎa → 利亚 ;</tRule>
+			<tRule>ʎen } $not_vowel → 连 ;</tRule>
+			<tRule>ʎe → 列 ;</tRule>
+			<tRule>ʎin } $not_vowel → 林 ;</tRule>
+			<tRule>ʎi → 利 ;</tRule>
+			<tRule>ʎon } $not_vowel → 利翁 ;</tRule>
+			<tRule>ʎo → 略 ;</tRule>
+			<tRule>ʎu → 柳 ;</tRule>
+			<tRule>ʎwan } $not_vowel → 柳安 ;</tRule>
+			<tRule>ʎwa → 柳阿 ;</tRule>
+			<tRule>ʎwen } $not_vowel → 柳恩 ;</tRule>
+			<tRule>ʎwe → 柳埃 ;</tRule>
+			<tRule>ʎwi → 柳伊 ;</tRule>
+			<tRule>ʎwo → 略 ;</tRule>
+			<tRule>ʎ → 尔 ;</tRule>
+			<tRule>mai̯ → 迈 ;</tRule>
+			<tRule>man } $not_vowel → 曼 ;</tRule>
+			<tRule>martin → 马丁 ;</tRule>
+			<tRule>mau̯ → 毛 ;</tRule>
+			<tRule>ma → 马 ;</tRule>
+			<tRule>men } $not_vowel → 门 ;</tRule>
+			<tRule>me → 梅 ;</tRule>
+			<tRule>min } $not_vowel → 明 ;</tRule>
+			<tRule>mi → 米 ;</tRule>
+			<tRule>mja → 米亚 ;</tRule>
+			<tRule>mjen } $not_vowel → 缅 ;</tRule>
+			<tRule>mje → 米耶 ;</tRule>
+			<tRule>mju → 缪 ;</tRule>
+			<tRule>mon } $not_vowel → 蒙 ;</tRule>
+			<tRule>mo → 莫 ;</tRule>
+			<tRule>mun } $not_vowel → 蒙 ;</tRule>
+			<tRule>mu → 穆 ;</tRule>
+			<tRule>mwan } $not_vowel → 穆安 ;</tRule>
+			<tRule>mwa → 穆阿 ;</tRule>
+			<tRule>mwen } $not_vowel → 门 ;</tRule>
+			<tRule>mwe → 穆埃 ;</tRule>
+			<tRule>mwin } $not_vowel → 穆因 ;  # Nonstandard, but fits observed data.</tRule>
+			<tRule>mwi → 穆伊 ;</tRule>
+			<tRule>mwo → 莫 ;</tRule>
+			<tRule>m → 姆 ;</tRule>
+			<tRule>nai̯ → 奈 ;</tRule>
+			<tRule>nan } $not_vowel → 南 ;</tRule>
+			<tRule>nau̯ → 瑙 ;</tRule>
+			<tRule>na → 纳 ;</tRule>
+			<tRule>nen } $not_vowel → 嫩 ;</tRule>
+			<tRule>ne → 内 ;</tRule>
+			<tRule>nin } $not_vowel → 宁 ;</tRule>
+			<tRule>ni → 尼 ;</tRule>
+			<tRule>nja → 尼亚 ;</tRule>
+			<tRule>njen } $not_vowel → 年 ;</tRule>
+			<tRule>nje → 涅 ;</tRule>
+			<tRule>nju → 纽 ;</tRule>
+			<tRule>non } $not_vowel → 农 ;</tRule>
+			<tRule>no → 诺 ;</tRule>
+			<tRule>nun } $not_vowel → 嫩 ;</tRule>
+			<tRule>nu → 努 ;</tRule>
+			<tRule>nwan } $not_vowel → 努安 ;</tRule>
+			<tRule>nwa → 努阿 ;</tRule>
+			<tRule>nwen } $not_vowel → 农 ;</tRule>
+			<tRule>nwe → 努埃 ;</tRule>
+			<tRule>nwi → 努伊 ;</tRule>
+			<tRule>nwo → 诺 ;</tRule>
+			<tRule>n → 恩 ;</tRule>
+			<tRule>ɲan } $not_vowel → 尼扬 ;</tRule>
+			<tRule>ɲau̯ → 尼奥 ;</tRule>
+			<tRule>ɲa → 尼亚 ;</tRule>
+			<tRule>ɲen } $not_vowel → 年 ;</tRule>
+			<tRule>ɲe → 涅 ;</tRule>
+			<tRule>ɲin } $not_vowel → 宁 ;</tRule>
+			<tRule>ɲi → 尼 ;</tRule>
+			<tRule>ɲon } $not_vowel → 尼翁 ;</tRule>
+			<tRule>ɲo → 尼奥 ;</tRule>
+			<tRule>ɲu → 纽 ;</tRule>
+			<tRule>ɲwan } $not_vowel → 纽安 ;</tRule>
+			<tRule>ɲwa → 纽阿 ;</tRule>
+			<tRule>ɲwen } $not_vowel → 纽恩 ;</tRule>
+			<tRule>ɲwe → 纽埃 ;</tRule>
+			<tRule>ɲwi → 纽伊 ;</tRule>
+			<tRule>ɲwo → 尼奥 ;</tRule>
+			<tRule>on } $not_vowel → 翁 ;</tRule>
+			<tRule>ou̯ → 欧 ;</tRule>
+			<tRule>o → 奥 ;</tRule>
+			<tRule>pai̯ → 派 ;</tRule>
+			<tRule>pan } $not_vowel → 潘 ;</tRule>
+			<tRule>pau̯ → 保 ;</tRule>
+			<tRule>pa → 帕 ;</tRule>
+			<tRule>pen } $not_vowel → 彭 ;</tRule>
+			<tRule>pe → 佩 ;</tRule>
+			<tRule>pin } $not_vowel → 平 ;</tRule>
+			<tRule>pi → 皮 ;</tRule>
+			<tRule>pja → 皮亚 ;</tRule>
+			<tRule>pjen } $not_vowel → 皮恩 ;</tRule>
+			<tRule>pje → 彼 ;</tRule>
+			<tRule>pju → 皮乌 ;</tRule>
+			<tRule>pon } $not_vowel → 蓬 ;</tRule>
+			<tRule>po → 波 ;</tRule>
+			<tRule>pun } $not_vowel → 蓬 ;</tRule>
+			<tRule>pu → 普 ;</tRule>
+			<tRule>pwan } $not_vowel → 普安 ;</tRule>
+			<tRule>pwa → 普阿 ;</tRule>
+			<tRule>pwen } $not_vowel → 蓬 ;</tRule>
+			<tRule>pwe → 普埃 ;</tRule>
+			<tRule>pwi → 普伊 ;</tRule>
+			<tRule>pwo → 波 ;</tRule>
+			<tRule>p → 普 ;</tRule>
+			<tRule>rai̯ → 赖 ;</tRule>
+			<tRule>ran } $not_vowel → 兰 ;</tRule>
+			<tRule>rau̯ → 劳 ;</tRule>
+			<tRule>ra → 拉 ;</tRule>
+			<tRule>ren } $not_vowel → 伦 ;</tRule>
+			<tRule>re → 雷 ;</tRule>
+			<tRule>rin } $not_vowel → 林 ;</tRule>
+			<tRule>ri → 里 ;</tRule>
+			<tRule>rja → 里亚 ;</tRule>
+			<tRule>rjen } $not_vowel → 连 ;</tRule>
+			<tRule>rje → 列 ;</tRule>
+			<tRule>rju → 留 ;</tRule>
+			<tRule>ron } $not_vowel → 龙 ;</tRule>
+			<tRule>ro → 罗 ;</tRule>
+			<tRule>run } $not_vowel → 伦 ;</tRule>
+			<tRule>ru → 鲁 ;</tRule>
+			<tRule>rwan } $not_vowel → 鲁安 ;</tRule>
+			<tRule>rwa → 鲁阿 ;</tRule>
+			<tRule>rwen } $not_vowel → 伦 ;</tRule>
+			<tRule>rwe → 鲁埃 ;</tRule>
+			<tRule>rwi → 鲁伊 ;</tRule>
+			<tRule>rwo → 罗 ;</tRule>
+			<tRule>r → R ;</tRule>
+			<tRule>sai̯ → 赛 ;</tRule>
+			<tRule>san } $not_vowel → 桑 ;</tRule>
+			<tRule>sau̯ → 绍 ;</tRule>
+			<tRule>sa → 萨 ;</tRule>
+			<tRule>sen } $not_vowel → 森 ;</tRule>
+			<tRule>se → 塞 ;</tRule>
+			<tRule>sin } $not_vowel → 辛 ;</tRule>
+			<tRule>si → 西 ;</tRule>
+			<tRule>sja → 西亚 ;</tRule>
+			<tRule>sjen } $not_vowel → 先 ;</tRule>
+			<tRule>sje → 谢 ;</tRule>
+			<tRule>sju → 休 ;</tRule>
+			<tRule>son } $not_vowel → 松 ;</tRule>
+			<tRule>so → 索 ;</tRule>
+			<tRule>sun } $not_vowel → 孙 ;</tRule>
+			<tRule>su → 苏 ;</tRule>
+			<tRule>swan } $not_vowel → 苏安 ;</tRule>
+			<tRule>swa → 苏阿 ;</tRule>
+			<tRule>swen } $not_vowel → 孙 ;</tRule>
+			<tRule>swe → 苏埃 ;</tRule>
+			<tRule>swi → 绥 ;</tRule>
+			<tRule>swo → 索 ;</tRule>
+			<tRule>s → 斯 ;</tRule>
+			<tRule>tai̯ → 泰 ;</tRule>
+			<tRule>tan } $not_vowel → 坦 ;</tRule>
+			<tRule>tau̯ → 陶 ;</tRule>
+			<tRule>ta → 塔 ;</tRule>
+			<tRule>tei̯ → 泰 ;</tRule>
+			<tRule>ten } $not_vowel → 滕 ;</tRule>
+			<tRule>te → 特 ;</tRule>
+			<tRule>tin } $not_vowel → 廷 ;</tRule>
+			<tRule>ti → 蒂 ;</tRule>
+			<tRule>tja → 蒂亚 ;</tRule>
+			<tRule>tjen } $not_vowel → 蒂恩 ;</tRule>
+			<tRule>tje → 铁 ;</tRule>
+			<tRule>tju → 蒂乌 ;</tRule>
+			<tRule>ton } $not_vowel → 通 ;</tRule>
+			<tRule>to → 托 ;</tRule>
+			<comment>
+			#
+			# The rules for /ts/ (tz in the orthography) are nonstandard and derived
+			# entirely from the observed data.  They apply mostly to native toponyms
+			# in Mexico.
+			</comment>
+			<tRule>tsa → 察 ;</tRule>
+			<tRule>tsen } $not_vowel → 岑 ;</tRule>
+			<tRule>tse → 采 ;</tRule>
+			<tRule>tsin } $not_vowel → 钦 ;</tRule>
+			<tRule>tsi → 齐 ;</tRule>
+			<tRule>tso → 措 ;</tRule>
+			<tRule>tsun } $not_vowel → 聪 ;</tRule>
+			<tRule>tsu → 楚 ;</tRule>
+			<tRule>ts → 茨 ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>tun } $not_vowel → 通 ;</tRule>
+			<tRule>tu → 图 ;</tRule>
+			<tRule>twan } $not_vowel → 图安	;</tRule>
+			<tRule>twa → 图阿 ;</tRule>
+			<tRule>twen } $not_vowel → 通 ;</tRule>
+			<tRule>twe → 图埃 ;</tRule>
+			<tRule>twi → 图伊 ;</tRule>
+			<tRule>two → 托 ;</tRule>
+			<tRule>t → 特 ;</tRule>
+			<tRule>ʧai̯ → 柴 ;</tRule>
+			<tRule>ʧan } $not_vowel → 钱 ;</tRule>
+			<tRule>ʧau̯ → 乔 ;</tRule>
+			<tRule>ʧa → 查 ;</tRule>
+			<tRule>ʧen } $not_vowel → 琴 ;</tRule>
+			<tRule>ʧe → 切 ;</tRule>
+			<tRule>ʧin } $not_vowel → 钦 ;</tRule>
+			<tRule>ʧi → 奇 ;</tRule>
+			<tRule>ʧjan } $not_vowel → 钱 ;</tRule>
+			<tRule>ʧja → 恰 ;</tRule>
+			<tRule>ʧjen } $not_vowel → 钱 ;</tRule>
+			<tRule>ʧje → 切 ;</tRule>
+			<tRule>ʧjon } $not_vowel → 琼 ;</tRule>
+			<tRule>ʧju → 丘 ;</tRule>
+			<tRule>ʧon } $not_vowel → 琼 ;</tRule>
+			<tRule>ʧo → 乔 ;</tRule>
+			<tRule>ʧun } $not_vowel → 琼 ;  # Should be 春, per GB/T 17693.5-2009 表 1.</tRule>
+			<tRule>ʧu → 丘 ;</tRule>
+			<tRule>ʧwan } $not_vowel → 丘安 ;</tRule>
+			<tRule>ʧwa → 丘阿 ;</tRule>
+			<tRule>ʧwen } $not_vowel → 琼 ;</tRule>
+			<tRule>ʧwe → 丘埃 ;</tRule>
+			<tRule>ʧwi → 崔 ;</tRule>
+			<tRule>ʧwo → 乔 ;</tRule>
+			<tRule>ʧ → 奇 ;</tRule>
+			<tRule>un } $not_vowel → 温 ;</tRule>
+			<tRule>u → 乌 ;</tRule>
+			<tRule>wan } $not_vowel → 万 ;</tRule>
+			<tRule>wa → 瓦 ;</tRule>
+			<tRule>wen } $not_vowel → 温 ;</tRule>
+			<tRule>we → 韦 ;</tRule>
+			<tRule>win } $not_vowel → 温 ;</tRule>
+			<tRule>wi → 维 ;</tRule>
+			<tRule>won } $not_vowel → 翁 ;  # Unseen.</tRule>
+			<tRule>wo → 沃 ;</tRule>
+			<tRule>xai̯ → 海 ;</tRule>
+			<tRule>xan } $not_vowel → 汉 ;</tRule>
+			<tRule>xau̯ → 豪 ;</tRule>
+			<tRule>xa → 哈 ;</tRule>
+			<tRule>xei̯ → 黑 ;</tRule>
+			<tRule>xen } $not_vowel → 亨 ;</tRule>
+			<tRule>xe → 赫 ;</tRule>
+			<tRule>xin } $not_vowel → 欣 ;</tRule>
+			<tRule>xi → 希 ;</tRule>
+			<tRule>xja → 希亚 ;</tRule>
+			<tRule>xjen } $not_vowel → 希恩 ;</tRule>
+			<tRule>xje → 希耶 ;</tRule>
+			<tRule>xju → 休 ;</tRule>
+			<tRule>xon } $not_vowel → 洪 ;</tRule>
+			<tRule>xo → 霍 ;</tRule>
+			<tRule>xun } $not_vowel → 洪 ;</tRule>
+			<tRule>xu → 胡 ;</tRule>
+			<tRule>xwan } $not_vowel → 胡安 ;</tRule>
+			<tRule>xwa → 华 ;</tRule>
+			<tRule>xwen } $not_vowel → 洪 ;</tRule>
+			<tRule>xwe → 胡埃 ;</tRule>
+			<tRule>xwi → 惠 ;</tRule>
+			<tRule>xwo → 霍 ;</tRule>
+			<tRule>x → 赫 ;</tRule>
+			<comment>
+			#
+			# 尔 simplification pass.  The idea is to drop most occurences of 尔
+			# corresponding to &lt;r&gt; (not to &lt;l&gt; or &lt;ll&gt;) from a word if there is another /l/
+			# sound nearby.  There is a vague pattern like this in the data, but the details
+			# remain to be determined.  At the moment, this does nothing, it just puts 尔 in
+			# for every &lt;r&gt; in a syllable coda.
+			#
+			</comment>
+			<tRule>::Null;</tRule>
+			<tRule>$r = [R利拉];</tRule>
+			<comment>
+			#
+			# R } . $r → ;
+			# R } .. $r → ;
+			# R } ... $r → ;
+			# R } .... $r → ;
+			</comment>
+			<tRule>R → 尔 ;</tRule>
+			<comment>
+			#
+			# Dong-nan-xi-hai pass.  Per GB/T 17693.5-2009 表 1, 注 4, replace confusing
+			# characters at the beginning and end of a word.
+			#
+			</comment>
+			<tRule>::Null;</tRule>
+			<tRule>$word_boundary { 东 → 栋 ;</tRule>
+			<tRule>$word_boundary { 南 → 楠 ;</tRule>
+			<tRule>$word_boundary { 西 → 锡 ;</tRule>
+			<tRule>海 } $word_boundary → 亥 ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

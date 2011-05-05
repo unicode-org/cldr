@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="InterIndic" target="Devanagari" direction="forward" visibility="internal">
+			<comment># InterIndic-Devanagari</comment>
+			<comment>#:: NFD (NFC) ;</comment>
+			<comment>#Rules for Decomposed characters</comment>
+			<tRule>\uE028\uE03C → ऩ;  #\uE029</tRule>
+			<tRule>\uE030\uE03C → ऱ;  #\uE031</tRule>
+			<tRule>\uE033\uE03C → ऴ;  #\uE034</tRule>
+			<tRule>\uE015\uE03C → क़;  #\uE058 LETTER QA   (For Urdu)</tRule>
+			<tRule>\uE016\uE03C → ख़;  #\uE059 LETTER KHHA (For Urdu)</tRule>
+			<tRule>\uE017\uE03C → ग़;  #\uE05A LETTER GHHA (For Urdu)</tRule>
+			<tRule>\uE01C\uE03C → ज़;  #\uE05B LETTER ZA   (For Urdu)</tRule>
+			<tRule>\uE021\uE03C → ड़;  #\uE05C LETTER DDDHA (pronounced RRA)</tRule>
+			<tRule>\uE022\uE03C → ढ़;  #\uE05D LETTER RHA   (pronounced RRHA)</tRule>
+			<tRule>\uE02B\uE03C → फ़;  #\uE05E LETTER FA</tRule>
+			<tRule>\uE02F\uE03C → य़;  #\uE05F LETTER YYA</tRule>
+			<comment>#Decomposed compatibility transliterations</comment>
+			<tRule>\uE012\uE057→औ;   # FALLBACK FOR TAMIL AU</tRule>
+			<tRule>0 → ०;       # FALLBACK FOR TAMIL</tRule>
+			<tRule>1 → १;</tRule>
+			<tRule>\uE055→; # FALLBACK BLOW AWAY KANNADA AND TELUGU LENGTH MARK</tRule>
+			<tRule>\uE056→; # FALLBACK BLOW AWAY KANNADA AND TELUGU AI LENGTH MARK</tRule>
+			<tRule>\uE057→; # FALLBACK BLOW AWAY TAMIL AU LENGTH MARK</tRule>
+			<tRule>\uE001 →  ँ;  # SIGN CANDRABINDU</tRule>
+			<tRule>\uE002 →  ं;  # SIGN ANUSVARA</tRule>
+			<tRule>\uE003 →  ः;  # SIGN VISARGA</tRule>
+			<tRule>\uE004 →  ऄ;  # SIGN SHORT A</tRule>
+			<tRule>\uE005 →  अ;  # LETTER A</tRule>
+			<tRule>\uE006 →  आ;  # LETTER AA</tRule>
+			<tRule>\uE007 →  इ;  # LETTER I</tRule>
+			<tRule>\uE008 →  ई;  # LETTER II</tRule>
+			<tRule>\uE009 →  उ;  # LETTER U</tRule>
+			<tRule>\uE00A →  ऊ;  # LETTER UU</tRule>
+			<tRule>\uE00B →  ऋ;  # LETTER VOCALIC R</tRule>
+			<tRule>\uE00C →  ऌ;  # LETTER VOCALIC L</tRule>
+			<tRule>\uE00D →  ऍ;  # LETTER CANDRA E (For representing English sounds)</tRule>
+			<tRule>\uE00E →  ऎ;  # LETTER SHORT E(For Southern Scripts)</tRule>
+			<tRule>\uE00F →  ए;  # LETTER E</tRule>
+			<tRule>\uE010 →  ऐ;  # LETTER AI</tRule>
+			<tRule>\uE011 →  ऑ;  # LETTER CANDRA O (For representing English sounds)</tRule>
+			<tRule>\uE012 →  ऒ;  # LETTER SHORT O (For Southern Scripts)</tRule>
+			<tRule>\uE013 →  ओ;  # LETTER O</tRule>
+			<tRule>\uE014 →  औ;  # LETTER AU</tRule>
+			<tRule>\uE015 →  क;  # LETTER KA</tRule>
+			<tRule>\uE016 →  ख;  # LETTER KHA</tRule>
+			<tRule>\uE017 →  ग;  # LETTER GA</tRule>
+			<tRule>\uE018 →  घ;  # LETTER GHA</tRule>
+			<tRule>\uE019 →  ङ;  # LETTER NGA</tRule>
+			<tRule>\uE01A →  च;  # LETTER CA</tRule>
+			<tRule>\uE01B →  छ;  # LETTER CHA</tRule>
+			<tRule>\uE01C →  ज;  # LETTER JA</tRule>
+			<tRule>\uE01D →  झ;  # LETTER JHA</tRule>
+			<tRule>\uE01E →  ञ;  # LETTER NYA</tRule>
+			<tRule>\uE01F →  ट;  # LETTER TTA</tRule>
+			<tRule>\uE020 →  ठ;  # LETTER TTHA</tRule>
+			<tRule>\uE021 →  ड;  # LETTER DDA</tRule>
+			<tRule>\uE022 →  ढ;  # LETTER DDHA</tRule>
+			<tRule>\uE023 →  ण;  # LETTER NNA</tRule>
+			<tRule>\uE024 →  त;  # LETTER TA</tRule>
+			<tRule>\uE025 →  थ;  # LETTER THA</tRule>
+			<tRule>\uE026 →  द;  # LETTER DA</tRule>
+			<tRule>\uE027 →  ध;  # LETTER DHA</tRule>
+			<tRule>\uE028 →  न;  # LETTER NA</tRule>
+			<tRule>\uE029 →  ऩ;  # LETTER NNNA</tRule>
+			<tRule>\uE02A →  प;  # LETTER PA</tRule>
+			<tRule>\uE02B →  फ;  # LETTER PHA</tRule>
+			<tRule>\uE02C →  ब;  # LETTER BA</tRule>
+			<tRule>\uE02D →  भ;  # LETTER BHA</tRule>
+			<tRule>\uE02E →  म;  # LETTER MA</tRule>
+			<tRule>\uE02F →  य;  # LETTER YA</tRule>
+			<tRule>\uE030 →  र;  # LETTER RA</tRule>
+			<tRule>\uE031 →  ऱ;  # LETTER RRA (Eyelash RA for Southern scripts)</tRule>
+			<comment>#\uE031 →  र;</comment>
+			<tRule>\uE032 →  ल;  # LETTER LA</tRule>
+			<tRule>\uE033 →  ळ;  # LETTER LLA</tRule>
+			<tRule>\uE034 →  ऴ;  # LETTER LLLA (LLLA for Southern scripts)</tRule>
+			<comment>#\uE034 →  ळ;</comment>
+			<tRule>\uE035 →  व;  # LETTER VA</tRule>
+			<tRule>\uE036 →  श;  # LETTER SHA</tRule>
+			<tRule>\uE037 →  ष;  # LETTER SSA</tRule>
+			<tRule>\uE038 →  स;  # LETTER SA</tRule>
+			<tRule>\uE039 →  ह;  # LETTER HA</tRule>
+			<tRule>\uE03C →  ़;  # SIGN NUKTA</tRule>
+			<tRule>\uE03D →  ऽ;  # SIGN AVAGRAHA</tRule>
+			<tRule>\uE03E →  ा;  # VOWEL SIGN AA</tRule>
+			<tRule>\uE03F →  ि;  # VOWEL SIGN I</tRule>
+			<tRule>\uE040 →  ी;  # VOWEL SIGN II</tRule>
+			<tRule>\uE041 →  ु;  # VOWEL SIGN U</tRule>
+			<tRule>\uE042 →  ू;  # VOWEL SIGN UU</tRule>
+			<tRule>\uE043 →  ृ;  # VOWEL SIGN VOCALIC R</tRule>
+			<tRule>\uE044 →  ॄ;  # VOWEL SIGN VOCALIC RR</tRule>
+			<tRule>\uE045 →  ॅ;  # VOWEL SIGN CANDRA E</tRule>
+			<tRule>\uE046 →  ॆ;  # VOWEL SIGN SHORT E</tRule>
+			<tRule>\uE047 →  े;  # VOWEL SIGN E</tRule>
+			<tRule>\uE048 →  ै;  # VOWEL SIGN AI</tRule>
+			<tRule>\uE049 →  ॉ;  # VOWEL SIGN CANDRA O</tRule>
+			<tRule>\uE04A →  ॊ;  # VOWEL SIGN SHORT O</tRule>
+			<tRule>\uE04B →  ो;  # VOWEL SIGN O</tRule>
+			<tRule>\uE04C →  ौ;  # VOWEL SIGN AU</tRule>
+			<tRule>\uE04D →  ्;  # SIGN VIRAMA</tRule>
+			<tRule>\uE050 →  ॐ;  # OM</tRule>
+			<tRule>\uE051 →  ॑;  # STRESS SIGN UDATTA</tRule>
+			<tRule>\uE052 →  ॒;  # STRESS SIGN ANUDATTA</tRule>
+			<tRule>\uE053 →  ॓;  # GRAVE ACCENT</tRule>
+			<tRule>\uE054 →  ॔;  # ACUTE ACCENT</tRule>
+			<tRule>\uE058 →  क़;  # LETTER QA   (For Urdu)</tRule>
+			<tRule>\uE059 →  ख़;  # LETTER KHHA (For Urdu)</tRule>
+			<tRule>\uE05A →  ग़;  # LETTER GHHA (For Urdu)</tRule>
+			<tRule>\uE05B →  ज़;  # LETTER ZA   (For Urdu)</tRule>
+			<tRule>\uE05C →  ड़;  # LETTER DDDHA (pronounced RRA)</tRule>
+			<tRule>\uE05D →  ढ़;  # LETTER RHA   (pronounced RRHA)</tRule>
+			<tRule>\uE05E →  फ़;  # LETTER FA</tRule>
+			<tRule>\uE05F →  य़;  # LETTER YYA</tRule>
+			<tRule>\uE060 →  ॠ;  # LETTER VOCALIC RR</tRule>
+			<tRule>\uE061 →  ॡ;  # LETTER VOCALIC LL</tRule>
+			<tRule>\uE062 →  ॢ;  # VOWEL SIGN VOCALIC L</tRule>
+			<tRule>\uE063 →  ॣ;  # VOWEL SIGN VOCALIC LL</tRule>
+			<tRule>\uE064 →  ।;  # DANDA</tRule>
+			<tRule>\uE065 →  ॥;  # DOUBLE DANDA</tRule>
+			<tRule>\uE066 →  ०;  # DIGIT ZERO</tRule>
+			<tRule>\uE067 →  १;  # DIGIT ONE</tRule>
+			<tRule>\uE068 →  २;  # DIGIT TWO</tRule>
+			<tRule>\uE069 →  ३;  # DIGIT THREE</tRule>
+			<tRule>\uE06A →  ४;  # DIGIT FOUR</tRule>
+			<tRule>\uE06B →  ५;  # DIGIT FIVE</tRule>
+			<tRule>\uE06C →  ६;  # DIGIT SIX</tRule>
+			<tRule>\uE06D →  ७;  # DIGIT SEVEN</tRule>
+			<tRule>\uE06E →  ८;  # DIGIT EIGHT</tRule>
+			<tRule>\uE06F →  ९;  # DIGIT NINE</tRule>
+			<tRule>\uE070→॰;     # ABBREVIATION SIGN</tRule>
+			<tRule>\uE071→र;     # LETTER RA WITH MIDDLE DIAGONAL</tRule>
+			<tRule>\uE072→र;     # LETTER RA WITH LOWER DIAGONAL</tRule>
+			<tRule>\uE073→;           # RUPEE MARK</tRule>
+			<tRule>\uE074→रू;           # RUPEE SIGN</tRule>
+			<tRule>\uE075→;           # CURRENCY NUMERATOR ONE</tRule>
+			<tRule>\uE076→;           # CURRENCY NUMERATOR TWO</tRule>
+			<tRule>\uE077→;           # CURRENCY NUMERATOR THREE</tRule>
+			<tRule>\uE078→;           # CURRENCY NUMERATOR FOUR</tRule>
+			<tRule>\uE079→;           # CURRENCY NUMERATOR ONE LESS THAN THE DENOMINATOR</tRule>
+			<tRule>\uE07A→;           # CURRENCY DENOMINATOR SIXTEEN</tRule>
+			<tRule>\uE07B→;           # ISSHAR</tRule>
+			<tRule>\uE07C→;           # TIPPI</tRule>
+			<tRule>\uE07D→;           # ADDAK</tRule>
+			<tRule>\uE07E→;           # IRI</tRule>
+			<tRule>\uE07F→;           # URA</tRule>
+			<tRule>\uE080→;           # EK ONKAR</tRule>
+			<tRule>\uE081→व;  # FALLBACK FOR ORIYA LETTER WA</tRule>
+			<tRule>\uE082→ॽ;     # Devanagari Glottal Sign</tRule>
+			<tRule>\uE083→त्;  # Bengali Khanda-ta</tRule>
+			<comment>#         ॰  # UNMAPPED Devanagari-InterIndic: ABBREVIATION SIGN</comment>
+			<comment>#    :: NFC;</comment>
+			<comment># eof</comment>
+		</transform>
+	</transforms>
+</supplementalData>
+

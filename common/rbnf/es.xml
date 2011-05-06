@@ -188,7 +188,7 @@
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">un billardésimo[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=ᵒ;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=º;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
@@ -234,16 +234,16 @@
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésima[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">un billardésima[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardésima[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=ᵃ;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=ª;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="dord-mascabbrev" access="private">
-                <rbnfrule value="0">ᵒ;</rbnfrule>
-                <rbnfrule value="1">ᵉʳ;</rbnfrule>
-                <rbnfrule value="2">ᵒ;</rbnfrule>
-                <rbnfrule value="3">ᵉʳ;</rbnfrule>
-                <rbnfrule value="4">ᵒ;</rbnfrule>
+                <rbnfrule value="0">º;</rbnfrule>
+                <rbnfrule value="1">er;</rbnfrule>
+                <rbnfrule value="2">º;</rbnfrule>
+                <rbnfrule value="3">er;</rbnfrule>
+                <rbnfrule value="4">º;</rbnfrule>
                 <rbnfrule value="20">→→;</rbnfrule>
                 <rbnfrule value="100">→→;</rbnfrule>
             </ruleset>
@@ -252,7 +252,7 @@
                 <rbnfrule value="0">=#,##0==%%dord-mascabbrev=;</rbnfrule>
             </ruleset>
             <ruleset type="dord-femabbrev" access="private">
-                <rbnfrule value="0">ᵃ;</rbnfrule>
+                <rbnfrule value="0">ª;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>

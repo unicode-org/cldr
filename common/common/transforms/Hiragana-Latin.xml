@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Hiragana" target="Latin" direction="both">
+			<tRule>:: [ぁ-ゔ゙ゝ-ゞガギグゲゴザジズゼゾダヂヅデドバビブベボヴヷ-ヺーヾ] ;</tRule>
+			<tRule>:: NFD ;</tRule>
+			<tRule>:: Hiragana-Katakana;</tRule>
+			<tRule>:: Katakana-Latin;</tRule>
+			<tRule>:: NFC ;</tRule>
+			<tRule>:: (Lower) ;</tRule>
+			<tRule>:: ([',.A-Za-z~À-ÖØ-öø-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̄Ӣ-ӣӮ-ӯḀ-ẙẠ-ỹᾱᾹῑῙῡῩK-Å]) ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

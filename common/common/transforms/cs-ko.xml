@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="cs" target="ko" direction="forward">
+			<comment>
+			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+			# Author: sascha@google.com (Sascha Brawer)
+			#
+			</comment>
+			<tRule>::cs-cs_FONIPA;</tRule>
+			<tRule>::cs_FONIPA-ko;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

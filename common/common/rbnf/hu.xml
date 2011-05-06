@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="hu"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="-x">minusz →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1100" radix="100">←←­száz[­→→];</rbnfrule>
+                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
+                <rbnfrule value="-x">minusz →→;</rbnfrule>
+                <rbnfrule value="x.x">←← vessző →→;</rbnfrule>
+                <rbnfrule value="0">nulla;</rbnfrule>
+                <rbnfrule value="1">egy;</rbnfrule>
+                <rbnfrule value="2">kettő;</rbnfrule>
+                <rbnfrule value="3">három;</rbnfrule>
+                <rbnfrule value="4">négy;</rbnfrule>
+                <rbnfrule value="5">öt;</rbnfrule>
+                <rbnfrule value="6">hat;</rbnfrule>
+                <rbnfrule value="7">hét;</rbnfrule>
+                <rbnfrule value="8">nyolc;</rbnfrule>
+                <rbnfrule value="9">kilenc;</rbnfrule>
+                <rbnfrule value="10">tíz;</rbnfrule>
+                <rbnfrule value="11">tizen­→→;</rbnfrule>
+                <rbnfrule value="20">húsz;</rbnfrule>
+                <rbnfrule value="21">huszon­→→;</rbnfrule>
+                <rbnfrule value="30">harminc[­→→];</rbnfrule>
+                <rbnfrule value="40">negyven[­→→];</rbnfrule>
+                <rbnfrule value="50">ötven[­→→];</rbnfrule>
+                <rbnfrule value="60">hatvan[­→→];</rbnfrule>
+                <rbnfrule value="70">hetven[­→→];</rbnfrule>
+                <rbnfrule value="80">nyolcvan[­→→];</rbnfrule>
+                <rbnfrule value="90">kilencven[­→→];</rbnfrule>
+                <rbnfrule value="100">←←­száz[­→→];</rbnfrule>
+                <rbnfrule value="1000">←←­ezer[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← millió[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← milliárd[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← billió[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← billiárd[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

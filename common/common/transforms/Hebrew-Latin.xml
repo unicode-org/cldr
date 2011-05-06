@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Hebrew" target="Latin" direction="both">
+			<comment># Transliteration table for Hebrew</comment>
+			<comment># Based on the UNGEGN table at:</comment>
+			<comment>#   http://www.eki.ee/wgrs/rom1_he.pdf</comment>
+			<comment>#</comment>
+			<comment># Exceptions:</comment>
+			<comment># - Accents are added to disambiguate letters</comment>
+			<comment># - Combinations of dagesh, shin/sin dot that produce different</comment>
+			<comment>#   letters are not yet encoded.</comment>
+			<comment>#</comment>
+			<comment># To test, open:</comment>
+			<comment>#   http://www.ibm.com/software/globalization/icu/demo/transform</comment>
+			<comment># Click Edit, paste in this file, Save As hebrew-latin/XXX</comment>
+			<comment># (where XXX is a username)</comment>
+			<comment># Now go back to the main window, and try it out.</comment>
+			<comment># Use hebrew-latin/XXX for Output 1, and (Inverse) for Output 2</comment>
+			<comment># Paste in hebrew text in Input, and hit Transliterate.</comment>
+			<comment>#</comment>
+			<comment># For more information, see&quot;</comment>
+			<comment>#   http://icu.sourceforge.net/userguide/Transform.html</comment>
+			<tRule>:: [[:Hebrew:] [:^ccc=0:] [ְ-ֹֻ-ּׁ-ׂℵ-ℸֿ̄] - [ֽ]] ;</tRule>
+			<tRule>:: nfkd (nfc) ;</tRule>
+			<tRule>$letterAfter = [:M:]* [:L:] ;</tRule>
+			<comment># move longer items here to avoid masking</comment>
+			<tRule>ח ↔ ẖ ;</tRule>
+			<tRule>צ ↔ ẕ } $letterAfter;</tRule>
+			<tRule>ץ ↔ ẕ ;</tRule>
+			<tRule>ש ↔ ş ;</tRule>
+			<tRule>ת ↔ ţ ;</tRule>
+			<tRule>א ↔ ʼ ;</tRule>
+			<tRule>ב ↔ b ;</tRule>
+			<tRule>ג ↔ g ;</tRule>
+			<tRule>ד ↔ d ;</tRule>
+			<tRule>ה ↔ h ;</tRule>
+			<tRule>ו ↔ w ;</tRule>
+			<tRule>ז ↔ z ;</tRule>
+			<tRule>ט ↔ t ;</tRule>
+			<tRule>י ↔ y ;</tRule>
+			<tRule>כ ↔ k } $letterAfter;</tRule>
+			<tRule>ך ↔ k ;</tRule>
+			<tRule>ל ↔ l ;</tRule>
+			<tRule>מ ↔ m } $letterAfter;</tRule>
+			<tRule>ם ↔ m ;</tRule>
+			<tRule>נ ↔ n  } $letterAfter;</tRule>
+			<tRule>ן ↔ n ;</tRule>
+			<tRule>ס ↔ s ;</tRule>
+			<tRule>ע ↔ ʻ ;</tRule>
+			<tRule>פ ↔ p } $letterAfter;</tRule>
+			<tRule>ף ↔ p ;</tRule>
+			<tRule>ק ↔ q ;</tRule>
+			<tRule>ר ↔ r ;</tRule>
+			<tRule>װ → |  וו; # HEBREW LIGATURE YIDDISH DOUBLE VAV</tRule>
+			<tRule>ױ → | וי; # HEBREW LIGATURE YIDDISH VAV YOD</tRule>
+			<tRule>ײ → | יי ; # HEBREW LIGATURE YIDDISH DOUBLE YOD</tRule>
+			<tRule>ּ ↔ ̇ ; # dagesh just goes to overdot for now</tRule>
+			<tRule>ׁ ↔ ̌ ; # shin dot -→ sh</tRule>
+			<tRule>ׂ ↔ ̂ ; # sin dot -→ s</tRule>
+			<comment># points</comment>
+			<tRule>$above = [^[:ccc=0:][:ccc=230:]]*;</tRule>
+			<tRule>‎ֲ‎ → à ;</tRule>
+			<tRule>‎ֲ‎ $1← a ($above)  ̀;</tRule>
+			<tRule>‎ָ‎ → á ;</tRule>
+			<tRule>‎ָ‎  $1 ← a ($above)  ́;</tRule>
+			<tRule>‎ֱ‎ → è ;</tRule>
+			<tRule>‎ֱ‎  $1 ← e ($above)  ̀;</tRule>
+			<tRule>‎ֵ‎ → é ;</tRule>
+			<tRule>‎ֵ‎  $1 ← e ($above)   ́;</tRule>
+			<tRule>‎ְ‎ → e ̆ ;</tRule>
+			<tRule>‎ְ‎  $1 ← e ($above)   ̆;</tRule>
+			<tRule>‎ֹ‎ → ò ;</tRule>
+			<tRule>‎ֹ‎  $1 ← o ($above)   ̀;</tRule>
+			<tRule>ִ ↔ i ;</tRule>
+			<tRule>ֻ ↔ u ;</tRule>
+			<tRule>ַ ↔ a ;</tRule>
+			<tRule>ֶ ↔ e ;</tRule>
+			<tRule>ֳ ↔ o ;</tRule>
+			<tRule>ֿ ↔   ̄ ;</tRule>
+			<comment># fallbacks</comment>
+			<tRule>ק ← c ;</tRule>
+			<tRule>פ ← f } $letterAfter;</tRule>
+			<tRule>ף ← f ;</tRule>
+			<tRule>ז ← j ;</tRule>
+			<tRule>ו ← v ;</tRule>
+			<tRule>כס ← x ;</tRule>
+			<tRule>:: (lower);</tRule>
+			<tRule>:: nfc (nfd) ;</tRule>
+			<tRule>:: ([[:Latin:] [:^ccc=0:] [ʻ-ʼ̀-̧̱̂̇̌̀-́    ̄ ]]);</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

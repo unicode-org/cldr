@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="es_FONIPA" target="es_419_FONIPA" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Author: mjansche@google.com (Martin Jansche)
+			#
+			# Conflate sounds of Castilian Spanish to produce Latin American Spanish.
+			# This operates on a phonemic IPA transcription of Spanish (es_FONIPA).
+			#
+			</comment>
+			<tRule>ʎ → ʝ;</tRule>
+			<tRule>[sθ]+ → s;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

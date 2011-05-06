@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Georgian" target="Latin" direction="forward" variant="BGN" draft="provisional">
+			<comment>
+			########################################################################
+			# BGN/PCGN 1981 System
+			#
+			# The BGN/PCGN system for Georgian was designed for use in romanizing
+			# names written in the Georgian alphabet. The alphabet shown here is
+			# known as the Mkhedruli alphabet and is the alphabet presently 
+			# used in the Republic of Georgia.
+			#
+			# The Georgian Alphabet as defined by the BGN (Page 27):
+			#
+			#   აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ
+			#
+			# Originally prepared by Michael Everson &lt;everson@evertype.com&gt;
+			########################################################################
+			#
+			# MINIMAL FILTER: Georgian-Latin
+			#
+			</comment>
+			<tRule>:: [აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ] ;</tRule>
+			<tRule>:: NFD (NFC) ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Define All Transformation Variables
+			#
+			########################################################################
+			#
+			# Use this $wordBoundary until bug 2034 is fixed in ICU:
+			# http://bugs.icu-project.org/cgi-bin/icu-bugs/transliterate?id=2034;expression=boundary;user=guest
+			#
+			</comment>
+			<tRule>$wordBoundary =  [^[:L:][:M:][:N:]] ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Start of Alphabetic Transformations
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>ა → a ; # GEORGIAN LETTER AN</tRule>
+			<tRule>ბ → b ; # GEORGIAN LETTER BAN</tRule>
+			<tRule>გ → g ; # GEORGIAN LETTER GAN</tRule>
+			<tRule>დ → d ; # GEORGIAN LETTER DON</tRule>
+			<tRule>ე → e ; # GEORGIAN LETTER EN</tRule>
+			<tRule>ვ → v ; # GEORGIAN LETTER VIN</tRule>
+			<tRule>ზ → z ; # GEORGIAN LETTER ZEN</tRule>
+			<tRule>თ → t’ ; # GEORGIAN LETTER TAN</tRule>
+			<tRule>ი → i ; # GEORGIAN LETTER IN</tRule>
+			<tRule>კ → k ; # GEORGIAN LETTER KAN</tRule>
+			<tRule>ლ → l ; # GEORGIAN LETTER LAS</tRule>
+			<tRule>მ → m ; # GEORGIAN LETTER MAN</tRule>
+			<tRule>ნ → n ; # GEORGIAN LETTER NAR</tRule>
+			<tRule>ო → o ; # GEORGIAN LETTER ON</tRule>
+			<tRule>პ → p ; # GEORGIAN LETTER PAR</tRule>
+			<tRule>ჟ → zh ; # GEORGIAN LETTER ZHAR</tRule>
+			<tRule>რ → r ; # GEORGIAN LETTER RAE</tRule>
+			<tRule>ს → s ; # GEORGIAN LETTER SAN</tRule>
+			<tRule>ტ → t ; # GEORGIAN LETTER TAR</tRule>
+			<tRule>უ → u ; # GEORGIAN LETTER UN</tRule>
+			<tRule>ფ → p’ ; # GEORGIAN LETTER PHAR</tRule>
+			<tRule>ქ → k’ ; # GEORGIAN LETTER KHAR</tRule>
+			<tRule>ღ → gh ; # GEORGIAN LETTER GHAN</tRule>
+			<tRule>ყ → q ; # GEORGIAN LETTER QAR</tRule>
+			<tRule>შ → sh ; # GEORGIAN LETTER SHIN</tRule>
+			<tRule>ჩ → ch’ ; # GEORGIAN LETTER CHIN</tRule>
+			<tRule>ც → ts’ ; # GEORGIAN LETTER CAN</tRule>
+			<tRule>ძ → dz ; # GEORGIAN LETTER JIL</tRule>
+			<tRule>წ → ts ; # GEORGIAN LETTER CIL</tRule>
+			<tRule>ჭ → ch ; # GEORGIAN LETTER CHAR</tRule>
+			<tRule>ხ → kh ; # GEORGIAN LETTER XAN</tRule>
+			<tRule>ჯ → j ; # GEORGIAN LETTER JHAN</tRule>
+			<tRule>ჰ → h ; # GEORGIAN LETTER HAE</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+		</transform>
+	</transforms>
+</supplementalData>

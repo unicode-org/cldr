@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="ja"/>
+	</identity>
+	<segmentations>
+		<segmentation type="WordBreak">
+			<variables>
+				<variable id="$Hiragana">\p{Hiragana}</variable>
+				<variable id="$Hiragana">($Hiragana $X)</variable>
+				<variable id="$Ideographic">[[\p{Ideographic}] [\u3005 \u3007 \u303B]]</variable>
+				<variable id="$Ideographic">($Ideographic $X)</variable>
+			</variables>
+			<segmentRules>
+				<rule id="13.05"> $Hiragana × $Hiragana </rule>
+				<rule id="13.06"> $Ideographic × $Ideographic </rule>
+			</segmentRules>
+		</segmentation>
+	</segmentations>
+</ldml>

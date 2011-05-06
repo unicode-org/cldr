@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="se" />
+    </identity>
+    <collations validSubLocales="se_FI se_NO">
+		<collation type="search" >
+			<settings normalization="on"/>
+			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+			<rules>
+				<reset>ا</reset>
+					<s>آ</s>
+					<s>أ</s>
+					<s>إ</s>
+				<reset>و</reset>
+					<s>ؤ</s>
+				<reset>ي</reset>
+					<s>ئ</s>
+					<s>ى</s>
+				<reset>ه</reset>
+					<s>ة</s>
+				<reset><last_primary_ignorable/></reset>
+					<s>׳</s>
+					<s>״</s>
+					<s>ـ</s>
+					<s>ٌ</s>
+					<s>ٍ</s>
+					<s>َ</s>
+					<s>ُ</s>
+					<s>ِ</s>
+					<s>ّ</s>
+					<s>ْ</s>
+					<s>ฺ</s>
+				<!-- Above are the standard root search collator rules. -->
+				<!-- Below are the rules specific to se. -->
+				<!-- These rules match standard collation below. -->
+                <reset before="primary">b</reset>
+                <p>á</p>
+                <t>Á</t>
+                <reset before="primary">d</reset>
+                <p>č</p> <!-- fallback: ch -->
+                <t>Č</t>
+                <p>ʒ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ʒ</t>
+                <p>ǯ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǯ</t>
+                <reset before="primary">e</reset>
+                <p>đ</p> <!-- fallback: dh -->
+                <t>Đ</t>
+                <s>ð</s> <!-- Icelandic uses a "eth"... -->
+                <t>Ð</t>
+                <reset before="primary">h</reset>
+                <p>ǧ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǧ</t>
+                <p>ǥ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǥ</t>
+                <reset before="primary">l</reset>
+                <p>ǩ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǩ</t>
+                <reset before="primary">o</reset>
+                <p>ŋ</p> <!-- fallback: ng -->
+                <t>Ŋ</t>
+                <s>ń</s> <!-- Lule Sami (alternative "eng") -->
+                <t>Ń</t>
+                <s>ñ</s> <!-- Lule Sami (alternative "eng") -->
+                <t>Ñ</t>
+                <reset before="primary">t</reset>
+                <p>š</p> <!-- fallback: sh -->
+                <t>Š</t>
+                <reset before="primary">u</reset>
+                <p>ŧ</p> <!-- fallback: th -->
+                <t>Ŧ</t>
+                <s>þ</s> <!-- Icelandic uses thorn... -->
+                <t>Þ</t>
+                <reset>y</reset>
+                <s>ü</s> <!-- compat. for Norwegian/Swedish -->
+                <t>Ü</t>
+                <s>ű</s> <!-- considered a variant of ü -->
+                <t>Ű</t>
+                <reset before="primary">ǀ</reset> <!-- LATIN LETTER DENTAL CLICK -->
+                <p>ž</p> <!-- fallback: zh -->
+                <t>Ž</t>
+                <p>ø</p> <!-- compat. for Norwegian -->
+                <t>Ø</t>
+                <s>œ</s> <!-- considered a variant of ø (and ö...) -->
+                <t>Œ</t>
+                <p>æ</p> <!-- compat. for Norwegian -->
+                <t>Æ</t>
+                <p>å</p> <!-- compat. for Norwegian/Swedish -->
+                <t>Å</t>
+                <s>ȧ</s> <!-- considered a variant of å -->
+                <t>Ȧ</t>
+                <p>ä</p> <!-- compat. for Swedish -->
+                <t>Ä</t>
+                <s>ã</s> <!-- considered a variant of ä -->
+                <t>Ã</t>
+                <p>ö</p> <!-- compat. for Swedish -->
+                <t>Ö</t>
+                <s>ő</s> <!-- considered a variant of ö -->
+                <t>Ő</t>
+                <s>õ</s> <!-- considered a variant of ö -->
+                <t>Õ</t>
+                <s>ô</s> <!-- while pronounced as å in French, it is used for some Swedish dialects for "thick ö" -->
+                <t>Ô</t>
+                <s>ǫ</s> <!-- variant from old Icelandic/old Norse of a vowel now pronounced like ö -->
+                <t>Ǫ</t>
+			</rules>
+		</collation>
+        <collation type="standard" >
+            <rules>
+                <reset before="primary">b</reset>
+                <p>á</p>
+                <t>Á</t>
+                <reset before="primary">d</reset>
+                <p>č</p> <!-- fallback: ch -->
+                <t>Č</t>
+                <p>ʒ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ʒ</t>
+                <p>ǯ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǯ</t>
+                <reset before="primary">e</reset>
+                <p>đ</p> <!-- fallback: dh -->
+                <t>Đ</t>
+                <s>ð</s> <!-- Icelandic uses a "eth"... -->
+                <t>Ð</t>
+                <reset before="primary">h</reset>
+                <p>ǧ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǧ</t>
+                <p>ǥ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǥ</t>
+                <reset before="primary">l</reset>
+                <p>ǩ</p> <!-- Skolt Sami, not "index" for other Sami languages -->
+                <t>Ǩ</t>
+                <reset before="primary">o</reset>
+                <p>ŋ</p> <!-- fallback: ng -->
+                <t>Ŋ</t>
+                <s>ń</s> <!-- Lule Sami (alternative "eng") -->
+                <t>Ń</t>
+                <s>ñ</s> <!-- Lule Sami (alternative "eng") -->
+                <t>Ñ</t>
+                <reset before="primary">t</reset>
+                <p>š</p> <!-- fallback: sh -->
+                <t>Š</t>
+                <reset before="primary">u</reset>
+                <p>ŧ</p> <!-- fallback: th -->
+                <t>Ŧ</t>
+                <s>þ</s> <!-- Icelandic uses thorn... -->
+                <t>Þ</t>
+                <reset>y</reset>
+                <s>ü</s> <!-- compat. for Norwegian/Swedish -->
+                <t>Ü</t>
+                <s>ű</s> <!-- considered a variant of ü -->
+                <t>Ű</t>
+                <reset before="primary">ǀ</reset> <!-- LATIN LETTER DENTAL CLICK -->
+                <p>ž</p> <!-- fallback: zh -->
+                <t>Ž</t>
+                <p>ø</p> <!-- compat. for Norwegian -->
+                <t>Ø</t>
+                <s>œ</s> <!-- considered a variant of ø (and ö...) -->
+                <t>Œ</t>
+                <p>æ</p> <!-- compat. for Norwegian -->
+                <t>Æ</t>
+                <p>å</p> <!-- compat. for Norwegian/Swedish -->
+                <t>Å</t>
+                <s>ȧ</s> <!-- considered a variant of å -->
+                <t>Ȧ</t>
+                <p>ä</p> <!-- compat. for Swedish -->
+                <t>Ä</t>
+                <s>ã</s> <!-- considered a variant of ä -->
+                <t>Ã</t>
+                <p>ö</p> <!-- compat. for Swedish -->
+                <t>Ö</t>
+                <s>ő</s> <!-- considered a variant of ö -->
+                <t>Ő</t>
+                <s>õ</s> <!-- considered a variant of ö -->
+                <t>Õ</t>
+                <s>ô</s> <!-- while pronounced as å in French, it is used for some Swedish dialects for "thick ö" -->
+                <t>Ô</t>
+                <s>ǫ</s> <!-- variant from old Icelandic/old Norse of a vowel now pronounced like ö -->
+                <t>Ǫ</t>
+            </rules>
+        </collation>
+    </collations>
+</ldml>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<generation date="$Date$" />
+		<language type="ca" />
+	</identity>
+	<collations validSubLocales="ca_ES">
+		<collation type="search" >
+			<settings normalization="on"/>
+			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+			<rules>
+				<reset>ا</reset>
+					<s>آ</s>
+					<s>أ</s>
+					<s>إ</s>
+				<reset>و</reset>
+					<s>ؤ</s>
+				<reset>ي</reset>
+					<s>ئ</s>
+					<s>ى</s>
+				<reset>ه</reset>
+					<s>ة</s>
+				<reset><last_primary_ignorable/></reset>
+					<s>׳</s>
+					<s>״</s>
+					<s>ـ</s>
+					<s>ٌ</s>
+					<s>ٍ</s>
+					<s>َ</s>
+					<s>ُ</s>
+					<s>ِ</s>
+					<s>ّ</s>
+					<s>ْ</s>
+					<s>ฺ</s>
+				<!-- Above are the standard root search collator rules. -->
+				<!-- Below are the rules specific to ca; don't need backwards="on" for search. -->
+				<!-- Per Apple language group, these are modified from standard rules below -->
+				<!-- to make L primary-different from L-dot for search. -->
+				<reset>L</reset>
+				<p>ŀ</p>
+				<i>l·</i>
+				<t>Ŀ</t>
+				<i>L·</i>
+			</rules>
+		</collation>
+		<collation type="standard"
+			references="Enciclopèdia Catalana: Diccionari da la llengua catalana ISBN 84-85194-46-2">
+			<settings backwards="on" />
+			<rules>
+				<reset>L</reset>
+				<s>ŀ</s>
+				<i>l·</i>
+				<t>Ŀ</t>
+				<i>L·</i>
+			</rules>
+		</collation>
+		<collation draft="unconfirmed" alt="proposed" type="standard">
+			<settings backwards="on" />
+			<rules>
+				<reset>C</reset>
+				<p>ch</p>
+				<t>cH</t>
+				<t>Ch</t>
+				<t>CH</t>
+				<reset>L</reset>
+				<p>ll</p>
+				<t>l·l</t>
+				<t>lL</t>
+				<t>l·L</t>
+				<t>Ll</t>
+				<t>L·l</t>
+				<t>LL</t>
+				<t>L·L</t>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

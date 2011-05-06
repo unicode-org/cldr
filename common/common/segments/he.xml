@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 5113 $"/>
+		<generation date="$Date: 2010-10-17 17:25:00 -0700 (Sun, 17 Oct 2010) $"/>
+		<language type="he"/>
+	</identity>
+	<segmentations>
+
+		<segmentation type="LineBreak">
+			<variables>
+				<!-- Split $HL Hebrew letters out of $AL-->
+				<variable id="$AL">[[$AL] - [[:Hebrew:] &amp; [:Letter:]]</variable>
+				<variable id="$HL">[[:Hebrew:] &amp; [:Letter:]]</variable>
+				<!-- Split $HH true hyphen out of $BA-->
+				<variable id="$BA">[[$BA] - [\u2010]]</variable>
+				<variable id="$HH">[\u2010]</variable>
+				<!-- hyphen-minus 002D has its own class $HY -->
+				<!-- Treat X CM* as if it were X. -->
+				<variable id="$HL">($HL $X)</variable>
+				<variable id="$HH">($HH $X)</variable>
+			</variables>
+
+			<segmentRules>
+				<!-- Most of what we do here is re-include the classes split out above in the rules that previously applied to them. -->
+				<!-- The actual behavior change (and why we needed to split out those classes) is in new rule 31. -->
+				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, 
+                                            small kana and other non-starters, or after acute accents. -->
+				<!-- Modify the rule for $BA to include $HH -->
+				<rule id="21.01"> × ($BA | $HH) </rule>
+				<!-- LB 22  Do not break between two ellipses, or between letters or numbers and ellipsis. -->
+				<!-- Modify the rule for $AL to include $HL -->
+				<rule id="22.01"> ($AL | $HL) × $IN </rule>
+				<!-- LB 23  Do not break within ‘a9’, ‘3a’, or ‘H%’. -->
+				<!-- Modify the rules for $AL to include $HL -->
+				<rule id="23.02"> ($AL | $HL) × $NU </rule>
+				<rule id="23.03"> $NU × ($AL | $HL) </rule>
+				<!-- LB 24  Do not break between prefix and letters or ideographs. -->
+				<!-- Modify the rules for $AL to include $HL -->
+				<rule id="24.02"> $PR × ($AL | $HL) </rule>
+				<rule id="24.03"> $PO × ($AL | $HL) </rule>
+				<!-- LB 28  Do not break between alphabetics ("at"). -->
+				<!-- Modify the rule for $AL to include $HL -->
+				<rule id="28"> ($AL | $HL) × ($AL | $HL) </rule>
+				<!-- LB 29  Do not break between numeric punctuation and alphabetics ("e.g."). -->
+				<!-- Modify the rule for $AL to include $HL -->
+				<rule id="29"> $IS × ($AL | $HL) </rule>
+				<!-- LB 30  Do not break between letters, numbers, or ordinary symbols and opening or closing parentheses. -->
+				<!-- Modify the rules for $AL to include $HL -->
+				<rule id="30.01"> ($AL | $HL | $NU) × $OP </rule>
+				<rule id="30.02"> $CP × ($AL | $HL | $NU) </rule>
+				<!-- Add new rule to prevent the break we do not want, this is the behavior change -->
+				<rule id="31"> $HL ($HY | $HH) × ($AL | $HL) </rule>
+			</segmentRules>
+		</segmentation>
+
+	</segmentations>
+</ldml>

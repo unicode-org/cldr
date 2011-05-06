@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="ig"/> 
+	</identity>
+	<collations  validSubLocales="ig_NG">
+		<collation type="standard">
+			<settings normalization="on"/>
+                	<rules>
+				<reset>B</reset>
+					<p>ch</p>
+					<t>Ch</t>
+					<t>CH</t>
+				<reset>G</reset>
+					<p>gb</p>
+					<t>Gb</t>
+					<t>GB</t>
+					<p>gh</p>
+					<t>Gh</t>
+					<t>GH</t>
+					<p>gw</p>
+					<t>Gw</t>
+					<t>GW</t>
+				<reset>I</reset>
+					<p>ị</p>
+					<t>Ị</t>
+				<reset>K</reset>
+					<p>kp</p>
+					<t>Kp</t>
+					<t>KP</t>
+					<p>kw</p>
+					<t>Kw</t>
+					<t>KW</t>
+				<reset>N</reset>
+					<p>ṅ</p>
+					<t>Ṅ</t>
+					<p>nw</p>
+					<t>Nw</t>
+					<t>NW</t>
+					<p>ny</p>
+					<t>Ny</t>
+					<t>NY</t>
+				<reset>O</reset>
+					<p>ọ</p>
+					<t>Ọ</t>
+				<reset>S</reset>
+					<p>sh</p>
+					<t>Sh</t>
+					<t>SH</t>
+				<reset>U</reset>
+					<p>ụ</p>
+					<t>Ụ</t>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

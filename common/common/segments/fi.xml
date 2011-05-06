@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 5143 $"/>
+		<generation date="$Date: 2010-10-25 01:17:00 -0700 (Mon, 25 Oct 2010) $"/>
+		<language type="fi"/>
+	</identity>
+	<segmentations>
+
+		<segmentation type="LineBreak">
+			<variables>
+				<!-- Split $HH true hyphen out of $BA-->
+				<variable id="$BA">[[$BA] - [\u2010]]</variable>
+				<variable id="$HH">[\u2010]</variable>
+				<!-- hyphen-minus 002D has its own class $HY -->
+				<!-- Treat X CM* as if it were X. -->
+				<variable id="$HH">($HH $X)</variable>
+			</variables>
+
+			<segmentRules>
+				<!-- Added rule, must come before LB 21 -->
+				<rule id="20.09"> $SP ÷ ($HY | $HH) $AL </rule>
+				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, 
+                                            small kana and other non-starters, or after acute accents. -->
+				<!-- Modify the rule for $BA to include $HH -->
+				<rule id="21.01"> × ($BA | $HH) </rule>
+			</segmentRules>
+		</segmentation>
+
+	</segmentations>
+</ldml>

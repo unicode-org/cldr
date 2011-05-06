@@ -24,6 +24,7 @@ public class SearchXml {
 
     private static boolean showFiles;
     private static boolean showValues;
+    private static boolean replaceValues;
     
     private static int total = 0;
 
@@ -34,6 +35,8 @@ public class SearchXml {
     private static boolean levelExclude = false;
     private static boolean valueExclude = false;
     private static boolean fileExclude = false;
+
+    private static String valuePattern;
     
     final static Options myOptions = new Options()
     .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
@@ -60,11 +63,18 @@ public class SearchXml {
         pathMatcher = getMatcher(myOptions.get("path").getValue(), exclude);
         pathExclude = exclude.value;
         
+        levelMatcher = getMatcher(myOptions.get("level").getValue(), exclude);
+        levelExclude = exclude.value;
+        
         valueMatcher = getMatcher(myOptions.get("value").getValue(), exclude);
         valueExclude = exclude.value;
         
-        levelMatcher = getMatcher(myOptions.get("level").getValue(), exclude);
-        levelExclude = exclude.value;
+        if (pathMatcher != null && valueMatcher != null) {
+            valuePattern = valueMatcher.pattern().toString();
+            if (Pattern.matches(".*\\$\\d.*", valuePattern)) {
+                replaceValues = true;
+            }
+        }
         
         countOnly = myOptions.get("count").doesOccur();
 
@@ -190,6 +200,14 @@ public class SearchXml {
                 System.out.println(value + "\t<=\t" + path);
             }
 
+            if (replaceValues) {
+                String pattern = valuePattern;
+                for (int i = 0; i <= pathMatcher.groupCount(); ++i) {
+                    pattern = pattern.replace("$" + i, pathMatcher.group(i));
+                }
+                valueMatcher = Pattern.compile(pattern).matcher("");
+            }
+            
             if (valueMatcher != null && valueExclude == valueMatcher.reset(value).find()) {
                 return;
             }

@@ -55,7 +55,6 @@ public class TestLdml2ICU extends TestFmwk {
         checkLocale("ar");
     }
 
-
     static final Pattern SKIP = Pattern.compile("^//ldml/(identity|posix/messages)|/(default|alias|commonlyUsed)$");
     
     public void checkLocale(String locale) {

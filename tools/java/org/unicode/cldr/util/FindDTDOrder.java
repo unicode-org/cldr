@@ -527,7 +527,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
       if (mc.contains(list[i])) {
         if (name.equals("currency") && list[i].equals("displayName") || list[i].equals("symbol") || list[i].equals("pattern")) {
           // do nothing, exception
-        } else if (name.equals("rules") && list[i].equals("reset")) {
+        } else if (name.equals("rules") && (list[i].equals("reset") || list[i].equals("import"))) {
           // do nothing, exception
         } else {
           throw new IllegalArgumentException ("Duplicate element in definition of  " + name

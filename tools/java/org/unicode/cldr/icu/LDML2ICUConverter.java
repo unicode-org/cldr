@@ -4759,6 +4759,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                         data.append(getStrengthSymbol(strength));
                         addSpaceForDebug(data);
                         data.append(quoteOperand(val));
+                        lastStrengthSymbol = "";
                     }
                 }
             }

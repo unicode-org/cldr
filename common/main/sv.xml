@@ -2200,9 +2200,9 @@
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
-			<regionFormat>{0}</regionFormat>
+			<regionFormat draft="contributed">{0}tid</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
-			<fallbackRegionFormat draft="unconfirmed">{0}tid ({1})</fallbackRegionFormat>
+			<fallbackRegionFormat draft="contributed">{1}tid ({0})</fallbackRegionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Okänd</exemplarCity>
 			</zone>
@@ -3592,9 +3592,9 @@
 			</metazone>
 			<metazone type="Malaya">
 				<long>
-					<generic draft="contributed">malayisk tid</generic>
-					<standard draft="contributed">malayisk normaltid</standard>
-					<daylight draft="contributed">malayisk sommartid</daylight>
+					<generic draft="contributed">malaysisk tid</generic>
+					<standard draft="contributed">malaysisk normaltid</standard>
+					<daylight draft="contributed">malaysisk sommartid</daylight>
 				</long>
 				<short>
 					<generic draft="contributed">MALT</generic>

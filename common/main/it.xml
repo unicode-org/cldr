@@ -1788,8 +1788,8 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<regionFormat draft="contributed">{0}</regionFormat>
-			<fallbackRegionFormat>Ora {1} ({0})</fallbackRegionFormat>
+			<regionFormat draft="contributed">Ora {0}</regionFormat>
+			<fallbackRegionFormat draft="contributed">Ora {1} ({0})</fallbackRegionFormat>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity draft="contributed">Beulah, Dakota del nord</exemplarCity>
 			</zone>

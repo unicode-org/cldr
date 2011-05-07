@@ -1209,7 +1209,8 @@
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<regionFormat>{0}</regionFormat>
+			<regionFormat draft="contributed">{0} čas</regionFormat>
+			<fallbackRegionFormat draft="contributed">{0} čas</fallbackRegionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">Neznáme časové pásmo</exemplarCity>
 			</zone>

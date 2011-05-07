@@ -1929,8 +1929,9 @@
 			<hourFormat>+H.mm;-H.mm</hourFormat>
 			<gmtFormat>UTC{0}</gmtFormat>
 			<gmtZeroFormat>UTC</gmtZeroFormat>
-			<regionFormat>{0}</regionFormat>
+			<regionFormat draft="contributed">{0} aika</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackRegionFormat draft="contributed">{1} aika ({0})</fallbackRegionFormat>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, Pohjois-Dakota</exemplarCity>
 			</zone>

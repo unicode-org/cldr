@@ -2570,8 +2570,9 @@
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
-			<regionFormat draft="contributed">{0}</regionFormat>
+			<regionFormat draft="contributed">{0} время</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
+			<fallbackRegionFormat draft="contributed">{1} время ({0})</fallbackRegionFormat>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Бойла, Северная Дакота</exemplarCity>
 			</zone>

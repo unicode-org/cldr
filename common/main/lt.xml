@@ -1535,8 +1535,8 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<regionFormat>Laikas ({0})</regionFormat>
-			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<regionFormat draft="contributed">{0} laikas</regionFormat>
+			<fallbackRegionFormat draft="contributed">{1} laikas ({0})</fallbackRegionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nežinoma</exemplarCity>
 			</zone>

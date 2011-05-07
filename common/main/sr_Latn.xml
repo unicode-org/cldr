@@ -1814,8 +1814,9 @@
 			<hourFormat draft="provisional">+HHmm;-HHmm</hourFormat>
 			<gmtFormat draft="provisional">GMT{0}</gmtFormat>
 			<gmtZeroFormat draft="provisional">GMT</gmtZeroFormat>
-			<regionFormat draft="provisional">{0}</regionFormat>
+			<regionFormat draft="contributed">{0} vreme</regionFormat>
 			<fallbackFormat draft="provisional">{1} ({0})</fallbackFormat>
+			<fallbackRegionFormat draft="contributed">{1} vreme ({0})</fallbackRegionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Nepoznat ili nevažeći grad</exemplarCity>
 			</zone>

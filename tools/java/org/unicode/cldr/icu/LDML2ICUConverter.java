@@ -4759,6 +4759,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                         data.append(getStrengthSymbol(strength));
                         addSpaceForDebug(data);
                         data.append(quoteOperand(val));
+                        lastStrengthSymbol = "";
                     }
                 }
             }
@@ -4925,6 +4926,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
                     // This is the start of an expanded rule.  Add the strength
                     // symbol, with a star, and then the first character.
+
                     if (!strengthSymbol.equals(lastStrengthSymbol)) {
                       ret.append(strengthSymbol);
                       lastStrengthSymbol = strengthSymbol;
@@ -4939,7 +4941,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     // be added, depending on whether it belongs to a range or
                     // not.  So, leave it to the checking function.
                     checkAndProcessRange(ret, ch);
-                }
+                } 
             } else {  // The character is not nfd_inert.
                 addSpaceForDebug(ret);
 

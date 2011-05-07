@@ -27,6 +27,37 @@
                 <rbnfrule value="9">devynias;</rbnfrule>
                 <rbnfrule value="10">ERROR;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-thousands" access="private">
+                 <rbnfrule value="0">tūkstančių;</rbnfrule>
+                <rbnfrule value="1">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="10">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="21">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="22">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="30">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="31">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="32">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="40">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="41">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="42">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="50">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="51">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="52">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="60">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="61">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="62">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="70">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="71">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="72">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="80">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="81">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="82">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="90">=%spellout-cardinal-masculine= tūkstančių;</rbnfrule>
+                <rbnfrule value="91">=%spellout-cardinal-masculine= tūkstantis;</rbnfrule>
+                <rbnfrule value="92">=%spellout-cardinal-masculine= tūkstančiai;</rbnfrule>
+                <rbnfrule value="100">šimtas →→;</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai →→;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">mīnus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← kablelis →→;</rbnfrule>
@@ -49,8 +80,7 @@
                 <rbnfrule value="100">šimtas[ →→];</rbnfrule>
                 <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
                 <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← tūkstančiai[ →→];</rbnfrule>
-                <rbnfrule value="10000" radix="1000">←%spellout-cardinal-masculine← tūkstančių[ →→];</rbnfrule>
+                <rbnfrule value="2000" radix="1000">←%%spellout-thousands←[ →→];</rbnfrule>
                 <rbnfrule value="1000000">vienas milijonas[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← milijonų[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">vienas milijardas[ →→];</rbnfrule>
@@ -74,8 +104,7 @@
                 <rbnfrule value="100">šimtas[ →→];</rbnfrule>
                 <rbnfrule value="200">←%spellout-cardinal-masculine← šimtai[ →→];</rbnfrule>
                 <rbnfrule value="1000">tūkstantis[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← tūkstančiai[ →→];</rbnfrule>
-                <rbnfrule value="10000" radix="1000">←%spellout-cardinal-masculine← tūkstančių[ →→];</rbnfrule>
+                <rbnfrule value="2000" radix="1000">←%%spellout-thousands←[ →→];</rbnfrule>
                 <rbnfrule value="1000000">vienas milijonas[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← milijonų[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">vienas milijardas[ →→];</rbnfrule>

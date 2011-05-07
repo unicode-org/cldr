@@ -124,72 +124,30 @@
 				<!-- Above are the standard root search collator rules. -->
 				<!-- Below are the rules specific to de. -->
 				<!-- Per Apple language group, these rules match phonebook collation below. -->
-				<reset>a</reset>
-				<x>
-					<s>ä</s>
-					<extend>e</extend>
-				</x>
-				<reset>A</reset>
-				<x>
-					<s>Ä</s>
-					<extend>E</extend>
-				</x>
-				<reset>o</reset>
-				<x>
-					<s>ö</s>
-					<extend>e</extend>
-				</x>
-				<reset>O</reset>
-				<x>
-					<s>Ö</s>
-					<extend>E</extend>
-				</x>
-				<reset>u</reset>
-				<x>
-					<s>ü</s>
-					<extend>e</extend>
-				</x>
-				<reset>U</reset>
-				<x>
-					<s>Ü</s>
-					<extend>E</extend>
-				</x>
+				<reset>AE</reset>
+				<s>ä</s>
+				<t>Ä</t>
+				<reset>OE</reset>
+				<s>ö</s>
+				<t>Ö</t>
+				<reset>UE</reset>
+				<s>ü</s>
+				<t>Ü</t>
 			</rules>
 		</collation>
 		<collation type="standard">
 		</collation>
 		<collation type="phonebook">
 			<rules>
-				<reset>a</reset>
-				<x>
-					<s>ä</s>
-					<extend>e</extend>
-				</x>
-				<reset>A</reset>
-				<x>
-					<s>Ä</s>
-					<extend>E</extend>
-				</x>
-				<reset>o</reset>
-				<x>
-					<s>ö</s>
-					<extend>e</extend>
-				</x>
-				<reset>O</reset>
-				<x>
-					<s>Ö</s>
-					<extend>E</extend>
-				</x>
-				<reset>u</reset>
-				<x>
-					<s>ü</s>
-					<extend>e</extend>
-				</x>
-				<reset>U</reset>
-				<x>
-					<s>Ü</s>
-					<extend>E</extend>
-				</x>
+				<reset>AE</reset>
+				<s>ä</s>
+				<t>Ä</t>
+				<reset>OE</reset>
+				<s>ö</s>
+				<t>Ö</t>
+				<reset>UE</reset>
+				<s>ü</s>
+				<t>Ü</t>
 			</rules>
 		</collation>
 	</collations>

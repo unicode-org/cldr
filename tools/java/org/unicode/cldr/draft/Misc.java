@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,9 +13,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.unittest.TestAll;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.PluralSnapshot.Integral;
@@ -26,9 +31,11 @@ import org.unicode.cldr.util.Timer;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Trie2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
@@ -38,9 +45,11 @@ import com.ibm.icu.util.ULocale;
 
 public class Misc {
     public static void main(String[] args) throws IOException {
-        doNFC();
+        showExemplarSize();
         if (true)
             return;
+
+        doNFC();
         showPlurals();
 
         String[] locales = "zh en es hi fr ar pt ru id bn ur ja de fil sw pa jv ko tr vi it te mr th fa ta pl lah gu my ms uk zh_Hant kn su ml nl az or ro uz bho ps ha ku mad yo ig si mg sd hu am om kk el ne be mai sr cs km as sv mag mwr sn ny ca bg hne tg bgc ii he dcc ug fuv qu rw min af zu mn bjn so ki hr ak tk fi sq da bya sk gn bal nb lua xh bs ht syl ka bjj ban sat hy za luy rn bug bem luo wtm st lo gl ti shn ceb ks mfa ace lt ky bm lg shi tn bcl glk war kok bew kln kam umb bo suk ee kmb ay pam bhk sas bbc swv nso tpi rjb gbm lmn ff kab sl ts ba cv kri gon ndc guz wo tzm mak kfy ln ljp mk efi ibb doi awa mos nyn vmw mer kru lv sid pag gno sck tcy wbq nd lrc ss cgg brh xog nn sg xnr dyu rmt teo kxm mdh hno lu eu khn wbr tsg rej rif brx ilo kbd et ce kg fy hil kj cy ast av ve udm ga tt sah myv tet gaa ady mt dv fj nr is mdf kum kha sm kpv lez pap krc inh oc se tyv zdj dz bi gag to koi lbe mi ab os ty kl gil iu ch fo rm mh chk haw pon lb pau tvl sa kos na ho yap gd uli niu la tkl eo kl"
@@ -107,6 +116,61 @@ public class Misc {
         for (String s : ULocale.getISOCountries()) {
             System.out.println(s + "\t" + ULocale.getDisplayCountry("und-" + s, ULocale.ENGLISH));
         }
+    }
+
+    private static void showExemplarSize() {
+        final TestInfo info = TestAll.TestInfo.getInstance();
+        CLDRFile english = info.getEnglish();
+        Factory factory = info.getCldrFactory();
+        SupplementalDataInfo dataInfo = info.getSupplementalDataInfo();
+        Map<String, Map<String, R2<List<String>, String>>> type_tag_replacement = dataInfo.getLocaleAliasInfo();
+        Map<String, R2<List<String>, String>> lang2replacement = type_tag_replacement.get("language");
+
+        LanguageTagParser ltp = new LanguageTagParser();
+        String[] locales = "en ru nl en-GB fr de it pl pt-BR es tr th ja zh-CN zh-TW ko ar bg sr uk ca hr cs da fil fi hu id lv lt no pt-PT ro sk sl es-419 sv vi el iw fa hi am af et is ms sw zu bn mr ta eu fr-CA gl zh-HK ur gu kn ml te"
+                .split(" ");
+        Set<String> nameAndInfo = new TreeSet<String>(info.getCollator());
+        for (String localeCode : locales) {
+            String baseLanguage = ltp.set(localeCode).getLanguage();
+            R2<List<String>, String> temp = lang2replacement.get(baseLanguage);
+            if (temp != null) {
+                baseLanguage = temp.get0().get(0);
+            }
+            String englishName = english.getName(baseLanguage);
+            CLDRFile cldrFile = factory.make(baseLanguage, false);
+            UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            int script = -1;
+            for (String s : set) {
+                int cp = s.codePointAt(0);
+                script = UScript.getScript(cp);
+                if (script != UScript.COMMON && script != UScript.INHERITED) {
+                    break;
+                }
+            }
+            String nativeName = cldrFile.getName(baseLanguage);
+            nameAndInfo.add(englishName + "\t" + nativeName + "\t" + baseLanguage + "\t" + UScript.getShortName(script));
+        }
+        
+        for (String item : nameAndInfo) {
+            System.out.println(item);
+        }
+//        for (String localeCode : locales) {
+//            String baseLanguage = ltp.set(localeCode).getLanguage();
+//            R2<List<String>, String> temp = lang2replacement.get(baseLanguage);
+//            if (temp != null) {
+//                baseLanguage = temp.get0().get(0);
+//            }
+//            int size = -1;
+//
+//            try {
+//                CLDRFile cldrFile = factory.make(baseLanguage, false);
+//                UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+//                size = set.size();
+//            } catch (Exception e) {
+//            }
+//
+//            System.out.println(localeCode + "\t" + size);
+//        }
     }
 
     static final Normalizer2 nfc = Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.COMPOSE);

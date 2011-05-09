@@ -218,7 +218,11 @@ public class Option {
         }
 
         public Option get(String string) {
-            return stringToValues.get(string);
+            Option result = stringToValues.get(string);
+            if (result == null) {
+                throw new IllegalArgumentException("Unknown option: " + string);
+            }
+            return result;
         }
     }
 

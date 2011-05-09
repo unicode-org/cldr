@@ -48,6 +48,7 @@ public class GenerateItemCounts {
 //    "cldr-svn2/common"
       "cldr-1.7.2",
       "cldr-1.8.1",
+      "cldr-1.9.1",
       "cldr/common"
   };
 

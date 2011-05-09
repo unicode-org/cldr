@@ -16,17 +16,31 @@
 				<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
 				<rules>
 					<!-- root search rules for Arabic, Hebrew -->
-					<reset>ا</reset>
-						<s>آ</s>
-						<s>أ</s>
-						<s>إ</s>
-					<reset>و</reset>
-						<s>ؤ</s>
-					<reset>ي</reset>
-						<s>ئ</s>
-						<s>ى</s>
-					<reset>ه</reset>
-						<s>ة</s>
+					<reset>ا</reset>	<!-- 0627 ARABIC LETTER ALEF -->
+							<t>ﺎ</t><t>ﺍ</t>	<!-- FE8E, FE8D: FINAL FORM, ISOLATED FORM -->
+						<s>آ</s>		<!-- 0622 ARABIC LETTER ALEF WITH MADDA ABOVE -->
+							<t>ﺂ</t><t>ﺁ</t>	<!-- FE82, FE81: FINAL FORM, ISOLATED FORM -->
+						<s>أ</s>		<!-- 0623 ARABIC LETTER ALEF WITH HAMZA ABOVE -->
+							<t>ﺄ</t><t>ﺃ</t>	<!-- FE84, FE83: FINAL FORM, ISOLATED FORM -->
+						<s>إ</s>		<!-- 0625 ARABIC LETTER ALEF WITH HAMZA BELOW -->
+							<t>ﺈ</t><t>ﺇ</t>	<!-- FE88, FE87: FINAL FORM, ISOLATED FORM -->
+					<reset>و</reset>	<!-- 0648 ARABIC LETTER WAW -->
+							<t>ۥ</t>	<!-- 06E5: SMALL WAW -->
+							<t>ﻮ</t><t>ﻭ</t>	<!-- FEEE, FEED: FINAL FORM, ISOLATED FORM -->
+						<s>ؤ</s>		<!-- 0624 ARABIC LETTER WAW WITH HAMZA ABOVE -->
+							<t>ﺆ</t><t>ﺅ</t>	<!-- FE86, FE85: FINAL FORM, ISOLATED FORM -->
+					<reset>ي</reset>	<!-- 064A ARABIC LETTER YEH -->
+							<t>ۦ</t>	<!-- 06E6: ARABIC SMALL YEH -->
+							<t>ﻳ</t><t>ﻴ</t><t>ﻲ</t><t>ﻱ</t>	<!-- FEF3, FEF4, FEF2, FEF1: INITIAL FORM, MEDIAL FORM, FINAL FORM, ISOLATED FORM -->
+						<s>ئ</s>		<!-- 0626 ARABIC LETTER YEH WITH HAMZA ABOVE -->
+							<t>ﺋ</t><t>ﺌ</t><t>ﺊ</t><t>ﺉ</t>	<!-- FE8B, FE8C, FE8A, FE89: INITIAL FORM, MEDIAL FORM. FINAL FORM, ISOLATED FORM -->
+						<s>ى</s>		<!-- 0649 ARABIC LETTER ALEF MAKSURA -->
+							<t>ﯨ</t><t>ﯩ</t>	<!-- FBE8, FBE9: UIGHUR KAZAKH KIRGHIZ ALEF MAKSURA INITIAL FORM, MEDIAL FORM -->
+							<t>ﻰ</t><t>ﻯ</t>	<!-- FEF0, FEEF: FINAL FORM, ISOLATED FORM -->
+					<reset>ه</reset>	<!-- 0647 ARABIC LETTER HEH -->
+							<t>ﻫ</t><t>ﻬ</t><t>ﻪ</t><t>ﻩ</t>	<!-- FEEB, FEEC, FEEA, FEE9: INITIAL FORM, MEDIAL FORM, FINAL FORM;, ISOLATED FORM -->
+						<s>ة</s>		<!-- 0629 ARABIC LETTER TEH MARBUTA -->
+							<t>ﺔ</t><t>ﺓ</t>	<!-- FE94, FE93: FINAL FORM, ISOLATED FORM -->
 					<reset><last_primary_ignorable/></reset>
 						<s>׳</s>
 						<s>״</s>

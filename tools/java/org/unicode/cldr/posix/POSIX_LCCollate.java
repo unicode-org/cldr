@@ -111,6 +111,7 @@ public class POSIX_LCCollate {
         }
      }
 
+     col.setStrength(RuleBasedCollator.IDENTICAL);
      allItems = new SortedBag(col);
      contractions = new SortedBag(col);
 
@@ -286,14 +287,16 @@ public class POSIX_LCCollate {
         if ( nonUniqueWeights.contains(w))
         {
             String decomposed = Normalizer.decompose(string,false);
-            if ( decomposed.length() > 1 )
+            if ( decomposed.length() > 1 ) {
                result.append("\"");
-            result.append(POSIXUtilities.POSIXCharName(decomposed));
-            if ( decomposed.length() > 1 )
+               result.append(POSIXUtilities.POSIXCharName(decomposed));
                result.append("\"");
+            } else {
+               result.append(ThisChar);
+            }
         }
         else
-           result.append("IGNORE");
+           result.append(ThisChar);
 
         if (prefix.length() != 0) result.insert(0,prefix);
 		return result.toString();

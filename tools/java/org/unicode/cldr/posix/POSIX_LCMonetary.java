@@ -39,6 +39,7 @@ public class POSIX_LCMonetary {
    String int_n_cs_precedes;
    String int_n_sep_by_space;
    String int_n_sign_posn;
+   String numsys;
    private static final int POSITIVE = 0;
    private static final int NEGATIVE = 1;
 
@@ -107,19 +108,20 @@ public class POSIX_LCMonetary {
    else
       currency_symbol = POSIXUtilities.POSIXCharName(tmp_currency_symbol);
 
+   numsys = doc.getWinningValue("//ldml/numbers/defaultNumberingSystem");
    mon_decimal_point = doc.getWinningValue("//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/decimal");
    if ( mon_decimal_point == null )
-       mon_decimal_point = doc.getWinningValue("//ldml/numbers/symbols/currencySeparator");
+       mon_decimal_point = doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='"+numsys+"']/currencyDecimal");
    if ( mon_decimal_point == null )
-       mon_decimal_point = doc.getWinningValue("//ldml/numbers/symbols/decimal");
+       mon_decimal_point = doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/decimal");
 
    mon_decimal_point = POSIXUtilities.POSIXCharName(mon_decimal_point);
 
    mon_thousands_sep = doc.getWinningValue("//ldml/numbers/currencies/currency[@type='"+int_curr_symbol+"']/group");
    if ( mon_thousands_sep == null )
-      mon_thousands_sep = doc.getWinningValue("//ldml/numbers/symbols/currencyGroup");
+      mon_thousands_sep = doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/currencyGroup");
    if ( mon_thousands_sep == null )
-      mon_thousands_sep = doc.getWinningValue("//ldml/numbers/symbols/group");
+      mon_thousands_sep = doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/group");
 
    mon_thousands_sep = POSIXUtilities.POSIXCharName(mon_thousands_sep);
 

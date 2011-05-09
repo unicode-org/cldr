@@ -39,17 +39,12 @@
 					<s>ة</s>		<!-- 0629 ARABIC LETTER TEH MARBUTA -->
 						<t>ﺔ</t><t>ﺓ</t>	<!-- FE94, FE93: FINAL FORM, ISOLATED FORM -->
 				<reset><last_primary_ignorable/></reset>
-					<s>׳</s>
-					<s>״</s>
-					<s>ـ</s>
-					<s>ٌ</s>
-					<s>ٍ</s>
-					<s>َ</s>
-					<s>ُ</s>
-					<s>ِ</s>
-					<s>ّ</s>
-					<s>ْ</s>
-					<s>ฺ</s>
+					<s>׳</s>	<!-- 05F3 HEBREW PUNCTUATION GERESH -->
+					<s>״</s>	<!-- 05F4 HEBREW PUNCTUATION GERSHAYIM -->
+					<s>ـ</s>	<!-- 0640 ARABIC TATWEEL -->
+					<!-- Don't need explicit entries for 064B - 0652 ARABIC FATHATAN - ARABIC SUKUN;
+					these are already ignorable at level 1, and are not involved in contractions -->
+					<s>ฺ</s>	<!-- 0E3A THAI CHARACTER PHINTHU -->
 				<!-- root search rules for modern Korean jamos -->
 				<!-- Korean modern complex consonants, decompose: x(L) = CHOSEONG x, x(T) = JONGSEONG x -->
 				<reset>ᄀ</reset>	<!-- 1100 KIYEOK(L) = 11A8 KIYEOK(T) -->

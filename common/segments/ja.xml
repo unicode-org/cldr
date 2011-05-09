@@ -7,6 +7,16 @@
 		<language type="ja"/>
 	</identity>
 	<segmentations>
+		<segmentation type="LineBreak">
+			<variables>
+				<variable id="$SmallHira">[\u3041 \u3043 \u3045 \u3047 \u3049 \u3063 \u3083 \u3085 \u3087 \u308E \u3095 \u3096]</variable>
+				<variable id="$SmallKata">[\u30A1 \u30A3 \u30A5 \u30A7 \u30A9 \u30C3 \u30E3 \u30E5 \u30E7 \u30EE \u30F5 \u30F6]</variable>
+				<variable id="$SmallKataExt">[\u31F0 \u31F1 \u31F2 \u31F3 \u31F4 \u31F5 \u31F6 \u31F7 \u31F8 \u31F9 \u31FA \u31FB \u31FC \u31FD \u31FE \u31FF]</variable>
+				<variable id="$SmallKanaAndProlongedMark">[[$SmallHira] [$SmallKata] [$SmallKataExt] [\u30FC]]</variable>
+				<variable id="$NS">[[$NS] - [$SmallKanaAndProlongedMark]]</variable>
+				<variable id="$ID">[[$ID] [$SmallKanaAndProlongedMark]]</variable>
+			</variables>
+		</segmentation>
 		<segmentation type="WordBreak">
 			<variables>
 				<variable id="$Hiragana">\p{Hiragana}</variable>

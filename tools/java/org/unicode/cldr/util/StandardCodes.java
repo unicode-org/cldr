@@ -1036,17 +1036,22 @@ public class StandardCodes {
     }
 
     static final Pattern whitespace = Pattern.compile("\\s+");
+    static final String coreLanguages = "ab af am ar as ay az be bg bn bo bs ca " +
+        "cs cy da de dv dz efi el en eo es et eu fa ff fi fil fj fr " +
+        "ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
+        "ka kk km kn ko ks ku ky la lah lb ln lo lt lu lv " +
+        "mg mi mk ml mn mr ms mt mul my nb nd ne nl nn no nso ny or os " +
+        "pa pl ps pt qu rm rn ro ru rw sa sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
+        "ta te tet tg th ti tk tl tn to tpi tr ts ty ug uk und ur uz ve vi wo xh yo yue zh zu zxx";
 
+    // These are not "core" languages, but are here simply because we have a CLDR locale for them.
+    static final String CLDRAdditionalLanguages = "agq asa bas bem bez bm br brx dje dua dyo ebu ewo kea ksf luy " +
+        "mgh mua nmg nus rof rwk sah sbp twq vai wae yav";
+    
     static final Set<String> filteredLanguages = Collections
     .unmodifiableSet(new TreeSet(
             Arrays
-            .asList(whitespace.split("ab af agq am ar as asa ay az bas be bem bez bg bm bn bo br brx bs ca " +
-                    "cs cy da de dje dua dv dyo dz ebu efi el en eo es et eu ewo fa ff fi fil fj fr " +
-                    "ga gl gn gsw gu ha haw he hi hr ht hu hy id ig is it ja jv " +
-                    "ka kea kk km kn ko ks ksf ku ky la lah lb ln lo lt lu luy lv " +
-                    "mg mgh mi mk ml mn mr ms mt mua mul my nb nd ne nl nmg nn no nso nus ny or os " +
-                    "pa pl ps pt qu rm rn ro rof ru rw rwk sa sah sbp sd se sg sh si sk sl sm sn so sq sr ss st su sv sw swb " +
-            "ta te tet tg th ti tk tl tn to tpi tr ts twq ty ug uk und ur uz vai ve vi wae wo xh yav yo yue zh zu zxx"))));
+            .asList(whitespace.split(coreLanguages + " " + CLDRAdditionalLanguages))));
     static final Set<String> filteredScripts = Collections
     .unmodifiableSet(new TreeSet(
             Arrays

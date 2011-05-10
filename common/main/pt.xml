@@ -6079,14 +6079,16 @@
 			<unitPattern count="other" alt="short">{0} dias</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">Em 0 dias</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 day</unitPattern>
-			<unitPattern count="one" draft="contributed">Em {0} dia</unitPattern>
+			<unitPattern count="0" draft="contributed">Dentro de 0 dias</unitPattern>
+			<unitPattern count="1" draft="contributed">Dentro de 1 dia</unitPattern>
+			<unitPattern count="one" draft="contributed">Dentro de {0} dia</unitPattern>
+			<unitPattern count="other" draft="contributed">Dentro de {0} dias</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">0 dias atrás</unitPattern>
-			<unitPattern count="1" draft="contributed">1 day ago</unitPattern>
-			<unitPattern count="one" draft="contributed">-{0} d</unitPattern>
+			<unitPattern count="0" draft="contributed">Há 0 dias</unitPattern>
+			<unitPattern count="1" draft="contributed">Há 1 dia</unitPattern>
+			<unitPattern count="one" draft="contributed">Há {0} dia</unitPattern>
+			<unitPattern count="other" draft="contributed">Há {0} dias</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} hora</unitPattern>
@@ -6095,16 +6097,16 @@
 			<unitPattern count="other" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0" draft="contributed">Em 0 horas</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 hour</unitPattern>
-			<unitPattern count="one" draft="contributed">+{0} h</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">In {0} hours</unitPattern>
+			<unitPattern count="0" draft="contributed">Dentro de 0 horas</unitPattern>
+			<unitPattern count="1" draft="contributed">Dentro de 1 hora</unitPattern>
+			<unitPattern count="one" draft="contributed">Dentro de {0} hora</unitPattern>
+			<unitPattern count="other" draft="contributed">Dentro de {0} horas</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0" draft="contributed">0 horas atrás</unitPattern>
-			<unitPattern count="1" draft="contributed">1 hour ago</unitPattern>
-			<unitPattern count="one" draft="contributed">-{0} h</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} hours ao</unitPattern>
+			<unitPattern count="0" draft="contributed">Há 0 horas</unitPattern>
+			<unitPattern count="1" draft="contributed">Há 1 hora</unitPattern>
+			<unitPattern count="one" draft="contributed">Há {0} hora</unitPattern>
+			<unitPattern count="other" draft="contributed">Há {0} horas</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minuto</unitPattern>
@@ -6113,33 +6115,34 @@
 			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0" draft="contributed">Em 0 minutos</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 minute</unitPattern>
-			<unitPattern count="one" draft="contributed">+{0} min</unitPattern>
-			<unitPattern count="other">Em {0} min</unitPattern>
+			<unitPattern count="0" draft="contributed">Dentro de 0 minutos</unitPattern>
+			<unitPattern count="1" draft="contributed">Dentro de 1 minuto</unitPattern>
+			<unitPattern count="one" draft="contributed">Dentro de {0} minuto</unitPattern>
+			<unitPattern count="other" draft="contributed">Dentro de {0} minutos</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0" draft="contributed">0 minutos atrás</unitPattern>
-			<unitPattern count="1" draft="contributed">1 minute ago</unitPattern>
-			<unitPattern count="one" draft="contributed">-{0} min</unitPattern>
-			<unitPattern count="other">{0} minutos atrás</unitPattern>
+			<unitPattern count="0" draft="contributed">Há 0 minutos</unitPattern>
+			<unitPattern count="1" draft="contributed">Há 1 minuto</unitPattern>
+			<unitPattern count="one" draft="contributed">Há {0} minuto</unitPattern>
+			<unitPattern count="other" draft="contributed">Há {0} minutos</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} mês</unitPattern>
-			<unitPattern count="one" alt="short">{0} m.</unitPattern>
+			<unitPattern count="one" alt="short">{0} mês</unitPattern>
 			<unitPattern count="other">{0} meses</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} mths</unitPattern>
+			<unitPattern count="other" alt="short">{0} meses</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0" draft="contributed">Em 0 meses</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 month</unitPattern>
-			<unitPattern count="one" draft="contributed">+{0} m</unitPattern>
+			<unitPattern count="0" draft="contributed">Dentro de 0 meses</unitPattern>
+			<unitPattern count="1" draft="contributed">Dentro de 1 mês</unitPattern>
+			<unitPattern count="one" draft="contributed">Dentro de {0} mês</unitPattern>
+			<unitPattern count="other" draft="contributed">Dentro de {0} meses</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0" draft="contributed">0 meses atrás</unitPattern>
-			<unitPattern count="1" draft="contributed">1 month ago</unitPattern>
-			<unitPattern count="one" draft="contributed">-{0} m</unitPattern>
-			<unitPattern count="other">-{0} meses</unitPattern>
+			<unitPattern count="0" draft="contributed">Há 0 meses</unitPattern>
+			<unitPattern count="1" draft="contributed">Há 1 mês</unitPattern>
+			<unitPattern count="one" draft="contributed">Há {0} mês</unitPattern>
+			<unitPattern count="other" draft="contributed">Há {0} meses</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} segundo</unitPattern>
@@ -6148,16 +6151,16 @@
 			<unitPattern count="other" alt="short">{0} seg</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0" draft="contributed">Em 0 segundos</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 second</unitPattern>
-			<unitPattern count="one" draft="contributed">+{0} s</unitPattern>
-			<unitPattern count="other">Em {0} s</unitPattern>
+			<unitPattern count="0" draft="contributed">Dentro de 0 segundos</unitPattern>
+			<unitPattern count="1" draft="contributed">Dentro de 1 segundo</unitPattern>
+			<unitPattern count="one" draft="contributed">Dentro de {0} segundo</unitPattern>
+			<unitPattern count="other" draft="contributed">Dentro de {0} segundos</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0" draft="contributed">0 segundos atrás</unitPattern>
-			<unitPattern count="1" draft="contributed">1 second ago</unitPattern>
-			<unitPattern count="one" draft="contributed">-{0} s</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} seconds ago</unitPattern>
+			<unitPattern count="0" draft="contributed">Há 0 segundos</unitPattern>
+			<unitPattern count="1" draft="contributed">Há 1 segundo</unitPattern>
+			<unitPattern count="one" draft="contributed">Há {0} segundo</unitPattern>
+			<unitPattern count="other" draft="contributed">Há {0} segundos</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} semana</unitPattern>
@@ -6166,16 +6169,16 @@
 			<unitPattern count="other" alt="short">{0} sem.</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0" draft="contributed">Em 0 semanas</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 week</unitPattern>
-			<unitPattern count="one" draft="contributed">+{0} sem</unitPattern>
-			<unitPattern count="other">+{0} sem</unitPattern>
+			<unitPattern count="0" draft="contributed">Dentro de 0 semanas</unitPattern>
+			<unitPattern count="1" draft="contributed">Dentro de 1 semana</unitPattern>
+			<unitPattern count="one" draft="contributed">Dentro de {0} semana</unitPattern>
+			<unitPattern count="other" draft="contributed">Dentro de {0} semanas</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0" draft="contributed">0 semanas atrás</unitPattern>
-			<unitPattern count="1" draft="contributed">1 week ago</unitPattern>
-			<unitPattern count="one" draft="contributed">-{0} sem</unitPattern>
-			<unitPattern count="other">-{0} sem</unitPattern>
+			<unitPattern count="0" draft="contributed">Há 0 semanas</unitPattern>
+			<unitPattern count="1" draft="contributed">Há 1 semana</unitPattern>
+			<unitPattern count="one" draft="contributed">Há {0} semana</unitPattern>
+			<unitPattern count="other" draft="contributed">Há {0} semanas</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} ano</unitPattern>
@@ -6184,16 +6187,16 @@
 			<unitPattern count="other" alt="short">{0} anos</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0" draft="contributed">Em 0 anos</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 year</unitPattern>
-			<unitPattern count="one" draft="contributed">+{0} ano</unitPattern>
-			<unitPattern count="other">+{0} anos</unitPattern>
+			<unitPattern count="0" draft="contributed">Dentro de 0 anos</unitPattern>
+			<unitPattern count="1" draft="contributed">Dentro de 1 ano</unitPattern>
+			<unitPattern count="one" draft="contributed">Dentro de {0} ano</unitPattern>
+			<unitPattern count="other" draft="contributed">Dentro de {0} anos</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0" draft="contributed">0 anos atrás</unitPattern>
-			<unitPattern count="1" draft="contributed">1 year ago</unitPattern>
-			<unitPattern count="one" draft="contributed">-{0} ano</unitPattern>
-			<unitPattern count="other">-{0} anos</unitPattern>
+			<unitPattern count="0" draft="contributed">Há 0 anos</unitPattern>
+			<unitPattern count="1" draft="contributed">Há 1 ano</unitPattern>
+			<unitPattern count="one" draft="contributed">Há {0} ano</unitPattern>
+			<unitPattern count="other" draft="contributed">Há {0} anos</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>

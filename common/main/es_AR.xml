@@ -7,26 +7,9 @@
 		<language type="es"/>
 		<territory type="AR"/>
 	</identity>
-	<localeDisplayNames>
-		<variants>
-			<variant type="REVISED" draft="contributed">Ortografía revisada</variant>
-		</variants>
-		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="contributed">métrico</measurementSystemName>
-			<measurementSystemName type="US" draft="contributed">estadounidense</measurementSystemName>
-		</measurementSystemNames>
-	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -140,13 +123,6 @@
 			<decimal>,</decimal>
 			<group>.</group>
 		</symbols>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern draft="contributed">¤#,##0.00</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 		<currencies>
 			<currency type="ARS">
 				<symbol>$</symbol>
@@ -154,3 +130,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

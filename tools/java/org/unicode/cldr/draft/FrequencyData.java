@@ -21,12 +21,12 @@ import com.ibm.icu.dev.test.util.UnicodeProperty;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.Normalizer.Mode;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.Normalizer.Mode;
 
 public class FrequencyData {
 

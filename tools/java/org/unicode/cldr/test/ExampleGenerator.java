@@ -23,13 +23,13 @@ import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.SimpleHtmlParser;
+import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.TimezoneFormatter;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;

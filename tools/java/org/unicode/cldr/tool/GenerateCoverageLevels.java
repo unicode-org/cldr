@@ -15,23 +15,23 @@ import java.util.TreeSet;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R5;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
 

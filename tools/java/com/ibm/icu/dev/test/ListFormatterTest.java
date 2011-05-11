@@ -1,6 +1,5 @@
 package com.ibm.icu.dev.test;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.ListFormatter;
 
 public class ListFormatterTest extends TestFmwk {

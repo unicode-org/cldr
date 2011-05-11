@@ -8,8 +8,8 @@ import java.util.Set;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.PrettyPath;
 
 import com.ibm.icu.dev.test.TestFmwk;
 

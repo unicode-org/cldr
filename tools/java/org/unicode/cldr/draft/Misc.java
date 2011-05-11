@@ -2,15 +2,11 @@ package org.unicode.cldr.draft;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll;
@@ -22,17 +18,12 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.PluralSnapshot.Integral;
-import org.unicode.cldr.util.PluralSnapshot.SnapshotInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Trie2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;

@@ -14,9 +14,9 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UScript;

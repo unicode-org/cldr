@@ -2,7 +2,6 @@ package org.unicode.cldr.util;
 
 import java.io.PrintWriter;
 import java.util.BitSet;
-import java.util.Collection;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,7 +11,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.PluralSnapshot.Integral;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;

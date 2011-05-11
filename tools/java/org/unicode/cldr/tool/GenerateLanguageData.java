@@ -6,11 +6,11 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Source;
 import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.test.util.Relation;
 

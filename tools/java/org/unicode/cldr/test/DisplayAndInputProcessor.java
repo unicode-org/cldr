@@ -3,11 +3,8 @@
 
 package org.unicode.cldr.test;
 
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.CodePoints;
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
@@ -15,14 +12,12 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
-import com.ibm.icu.impl.Differ;
-import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.util.ULocale;
 
 /**

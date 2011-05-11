@@ -15,14 +15,14 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.w3c.dom.Node;
 
 import com.ibm.icu.dev.tool.UOption;

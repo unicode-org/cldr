@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
-import com.ibm.icu.text.UTF16;
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.UTF16;
 
 /**
  * Simple cover class for converting iterators, lists of items, arrays, and

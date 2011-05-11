@@ -12,8 +12,8 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.CanonicalIterator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UTF16.StringComparator;
+import com.ibm.icu.text.UnicodeSet;
 
 public class ShortestCanonicalForm {
   

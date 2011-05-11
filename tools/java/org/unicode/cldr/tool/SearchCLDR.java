@@ -9,16 +9,12 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PrettyPath;
-import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CldrUtility.Output;
-
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.tool.UOption;
 
 public class SearchCLDR {
     //  private static final int

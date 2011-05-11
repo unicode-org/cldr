@@ -9,10 +9,10 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,20 +21,20 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Utility;
 
 public class TestSupplementalInfo extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();

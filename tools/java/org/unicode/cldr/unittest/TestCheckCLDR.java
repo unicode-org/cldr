@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.CheckConsistentCasing;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckConsistentCasing;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 

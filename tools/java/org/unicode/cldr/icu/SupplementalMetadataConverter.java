@@ -3,9 +3,9 @@
 package org.unicode.cldr.icu;
 
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
+import org.unicode.cldr.icu.ICUResourceWriter.ResourceArray;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
-import org.unicode.cldr.icu.ICUResourceWriter.ResourceArray;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Node;
 

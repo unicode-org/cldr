@@ -6,11 +6,11 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DiscreteComparator;
-import org.unicode.cldr.util.ElementAttributeInfo;
-import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DiscreteComparator.Ordering;
+import org.unicode.cldr.util.ElementAttributeInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.Relation;

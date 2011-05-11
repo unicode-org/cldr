@@ -13,9 +13,9 @@ import java.nio.charset.Charset;
 
 import org.unicode.cldr.icu.SimpleConverter;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;

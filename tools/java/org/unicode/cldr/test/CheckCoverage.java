@@ -15,8 +15,8 @@ import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.XMLSource;
 
 
 /**

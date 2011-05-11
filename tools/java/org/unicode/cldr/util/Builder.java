@@ -11,8 +11,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 
-import org.unicode.cldr.util.Builder.CBuilder;
-
 import com.ibm.icu.text.Transform;
 
 /**

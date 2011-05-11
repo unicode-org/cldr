@@ -2,8 +2,6 @@ package org.unicode.cldr.test;
 
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -13,11 +11,11 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.RegexLookup.RegexFinder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageLevelInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
+import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.util.ULocale;

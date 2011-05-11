@@ -21,7 +21,6 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.DateIntervalFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;

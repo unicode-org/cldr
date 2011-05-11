@@ -31,10 +31,10 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.text.UnicodeSet;

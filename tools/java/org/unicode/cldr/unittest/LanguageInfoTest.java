@@ -8,9 +8,9 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.LocaleMatcher;
+import com.ibm.icu.util.LocaleMatcher.LanguageMatcherData;
 import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.LocaleMatcher.LanguageMatcherData;
 
 public class LanguageInfoTest extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();

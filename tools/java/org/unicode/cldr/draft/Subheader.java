@@ -22,9 +22,9 @@ import java.util.regex.Pattern;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.UTF16.StringComparator;
 
 class Subheader {
     Matcher isArchaic = GeneratePickerData.IS_ARCHAIC.matcher("");

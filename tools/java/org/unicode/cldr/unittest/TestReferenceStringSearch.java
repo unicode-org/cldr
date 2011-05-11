@@ -6,14 +6,14 @@ import java.util.TreeMap;
 
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Dictionary;
+import org.unicode.cldr.util.Dictionary.DictionaryCharList;
 import org.unicode.cldr.util.ReferenceStringSearch;
+import org.unicode.cldr.util.ReferenceStringSearch.ExtendedRange;
+import org.unicode.cldr.util.ReferenceStringSearch.Range;
 import org.unicode.cldr.util.StateDictionary;
 import org.unicode.cldr.util.StateDictionaryBuilder;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.Utf8StringByteConverter;
-import org.unicode.cldr.util.Dictionary.DictionaryCharList;
-import org.unicode.cldr.util.ReferenceStringSearch.ExtendedRange;
-import org.unicode.cldr.util.ReferenceStringSearch.Range;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;

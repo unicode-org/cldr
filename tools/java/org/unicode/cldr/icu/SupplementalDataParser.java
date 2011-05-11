@@ -5,11 +5,11 @@ package org.unicode.cldr.icu;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.Hashtable;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 

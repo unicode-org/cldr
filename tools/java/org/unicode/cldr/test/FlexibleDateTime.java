@@ -21,17 +21,17 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 /**

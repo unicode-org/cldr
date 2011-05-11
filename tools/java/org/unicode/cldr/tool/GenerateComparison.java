@@ -9,13 +9,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.Timer;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.CLDRFile.Status;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;

@@ -27,13 +27,13 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.Normalizer.Mode;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.text.Normalizer.Mode;
 import com.ibm.icu.util.VersionInfo;
 
 public class GenerateNormalizeForMatch {

@@ -25,16 +25,16 @@ import org.unicode.cldr.unittest.TestVariantFolder.CanonicalFolder;
 import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
 import org.unicode.cldr.unittest.TestVariantFolder.CompatibilityFolder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VariantFolder;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.Factory;
-import org.unicode.cldr.util.Iso639Data.Scope;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;

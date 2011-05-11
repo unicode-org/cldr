@@ -31,14 +31,14 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 

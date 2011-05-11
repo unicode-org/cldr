@@ -5,11 +5,11 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Set;
 
-import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.PrettyPrinter;

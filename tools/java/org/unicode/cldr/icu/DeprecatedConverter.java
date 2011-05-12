@@ -506,7 +506,7 @@ public class DeprecatedConverter {
             if (cnName.equals(ICU_DICTIONARY)) {
               String val = LDMLUtilities.getAttributeValue(cn, ICU_DEPENDENCY);
               if (val != null) {
-                ctdFiles.add(val.substring(0, val.indexOf('.')) + ".txt ");
+                ctdFiles.add(val.substring(0, val.indexOf('.')) + ".txt");
               }
             } else {
               log.error("Encountered unknown <" + name + "> subelement: " + cnName);

@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2005-2010, International Business Machines
+* Copyright (c) 2005-2011, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: John Emmons
@@ -103,7 +103,7 @@ public class GenerateCharmap {
         out.println("# charset:\t" + codeset);
         out.println("######################");
         out.println("#################################################################################################");
-        out.println("# Copyright 1991-2010 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  #");
+        out.println("# Copyright 1991-2011 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in  #");
         out.println("# http://www.unicode.org/copyright.html.                                                        #");
         out.println("#                                                                                               #");
         out.println("# Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode   #");

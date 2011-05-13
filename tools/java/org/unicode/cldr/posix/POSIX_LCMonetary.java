@@ -67,7 +67,7 @@ public class POSIX_LCMonetary {
        SupplementalDataInfo.CurrencyDateInfo currentCI = null;
        while (it.hasNext()) {
            currentCI = it.next();
-           if ( currentCI.isLegalTender() && currentCI.getEnd() == SupplementalDataInfo.CurrencyDateInfo.END_OF_TIME) {
+           if ( currentCI.isLegalTender() && currentCI.getEnd().equals(SupplementalDataInfo.CurrencyDateInfo.END_OF_TIME)) {
                break;
            } else {
                currentCI = null;
@@ -133,14 +133,14 @@ public class POSIX_LCMonetary {
    
    if ( monetary_formats[POSITIVE].indexOf('+') >= 0 )
    {
-       positive_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols/plusSign"));
+       positive_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/plusSign"));
    }
    else
       positive_sign = "";
    
    if ( monetary_formats[NEGATIVE].indexOf('-') >= 0 )
    {
-      negative_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols/minusSign"));
+      negative_sign = POSIXUtilities.POSIXCharName(doc.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/minusSign"));
    }
    else
       negative_sign = POSIXUtilities.POSIXCharName("-");

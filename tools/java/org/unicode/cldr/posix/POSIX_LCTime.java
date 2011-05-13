@@ -10,7 +10,7 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
-
+import com.ibm.icu.text.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile;
 
 
@@ -67,10 +67,11 @@ public class POSIX_LCTime {
 
       // alt_digits
          alt_digits[0] = "";
-         SearchLocation = "//ldml/numbers/symbols/nativeZeroDigit";
-         String nativeZeroDigit = doc.getWinningValue(SearchLocation);
-         if ( (nativeZeroDigit != null) &&  !(nativeZeroDigit.equals("0")))
+         String numsys = doc.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+         if ( numsys != null &&  !numsys.equals("latn"))
          {
+            NumberingSystem ns = NumberingSystem.getInstanceByName(numsys);
+            String nativeZeroDigit = ns.getDescription().substring(0,1);
             //Character ThisDigit;
             alt_digits[0] = POSIXUtilities.POSIXCharName(nativeZeroDigit);
             char base_value = nativeZeroDigit.charAt(0);

@@ -70,7 +70,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-    public static final String CHART_DISPLAY_VERSION = "2.0\u03B1"; // "1.8\u03B2"; // \u03B2 is beta - β, \u03b1 is alpha - α
+    public static final String CHART_DISPLAY_VERSION = "2.0\u03B2"; // "1.8\u03B2"; // \u03B2 is beta - β, \u03b1 is alpha - α
     private static final String CHART_TARGET_DIR = CldrUtility.CHART_DIRECTORY + "/supplemental/";
 
     private static final boolean SHOW_NATIVE = true;
@@ -907,7 +907,7 @@ public class ShowLanguages {
                     //        System.out.println("Skipped Element: " + path);
                 }
             }
-            Log.setLog(new File(CldrUtility.CHART_DIRECTORY + "/supplemental/", "characterLog.txt").getAbsolutePath());
+            Log.setLog(CldrUtility.CHART_DIRECTORY + "supplemental/","characterLog.txt");
             CLDRFile chars = cldrFactory.make("characters", false);
             int count = 0;
             for (Iterator it = chars.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
@@ -1522,7 +1522,7 @@ public class ShowLanguages {
             pw2.close();
         }
 
-        static Normalizer2 nfd = Normalizer2.getInstance(null, "NFC", Normalizer2.Mode.DECOMPOSE);
+        static Normalizer2 nfd = Normalizer2.getInstance(null, "nfc", Normalizer2.Mode.DECOMPOSE);
         // Do just an approximation for now
         
         private String getFirstPrimaryWeight(String territoryName) {

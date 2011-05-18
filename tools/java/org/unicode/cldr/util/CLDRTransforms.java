@@ -132,6 +132,7 @@ public class CLDRTransforms {
       addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
       addDependency("ro-ja", "ro-ro_FONIPA", "ro_FONIPA-ja");
       addDependency("sk-ja", "sk-sk_FONIPA", "sk_FONIPA-ja");
+      addDependency("Latin-Bopomofo", "Latin-NumericPinyin");
 
       //addExtras("cs-ja", "cs-ja", "es-am", "es-ja", "es-zh", "Han-Latin/Names");
       //Pinyin-NumericPinyin.xml

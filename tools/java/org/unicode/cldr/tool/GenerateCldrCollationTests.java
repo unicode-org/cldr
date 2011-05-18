@@ -1,6 +1,6 @@
 /*
  * Created on May 19, 2005
- * Copyright (C) 2004-2005, Unicode, Inc., International Business Machines Corporation, and others.
+ * Copyright (C) 2004-2011, Unicode, Inc., International Business Machines Corporation, and others.
  * For terms of use, see http://www.unicode.org/terms_of_use.html
  */
 package org.unicode.cldr.tool;
@@ -119,7 +119,7 @@ public class GenerateCldrCollationTests {
         ICUResourceWriter.ResourceTable resource = (ICUResourceWriter.ResourceTable) cnv.parseCollations(node, null, stringBuilder, false);
         Map types_rules = new TreeMap();
         locale_types_rules.put(locale, types_rules);
-        for (Resource current = resource.first; current != null; current = current.next) {
+        for (Resource current = (resource == null ? null : resource.first ); current != null; current = current.next) {
             if (current.name == null) {
             	Log.logln("Collation: null name found in " + locale);
             	continue;

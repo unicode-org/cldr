@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.tool.GenerateMaximalLocales.OutputStyle;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -20,6 +21,9 @@ public class GenerateLikelySubtagTests {
   private static final OutputStyle OUTPUT_STYLE = OutputStyle.XML;
   private static PrintWriter out;
 
+  private static final String VERSION = CLDRFile.GEN_VERSION;
+
+
   public static void main(String[] args) throws IOException {
     out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, 
             "test/supplemental/likelySubtagTests" +  (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
@@ -27,9 +31,9 @@ public class GenerateLikelySubtagTests {
        out.println("// START");
      } else {
       out.println("<?xml version='1.0' encoding='UTF-8' ?>" + CldrUtility.LINE_SEPARATOR +
-        "<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5.1/cldrTest.dtd'>" + CldrUtility.LINE_SEPARATOR +
+        "<!DOCTYPE cldrTest SYSTEM '../../common/dtd/cldrTest.dtd'>" + CldrUtility.LINE_SEPARATOR +
         "<!-- For information, see readme.html -->" + CldrUtility.LINE_SEPARATOR +
-         "<cldrTest version='1.5.1' base='aa'>" + CldrUtility.LINE_SEPARATOR +
+         "<cldrTest version='" + VERSION + "' base='aa'>" + CldrUtility.LINE_SEPARATOR +
          "  <likelySubtags>");
      }
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);

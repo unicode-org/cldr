@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='nl'>
+ <cldrTest version='2.0' base='nl'>
  <!-- Dutch [Nederlands] -->
   <number 
-locales='nl nl_BE nl_NL'>
-<!-- Dutch [Nederlands@]; Flemish [Vlaams@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
+locales='nl nl_AW nl_BE nl_NL'>
+<!-- Dutch [Nederlands@]; Dutch (Aruba) [Nederlands (Aruba)@]; Flemish [Vlaams@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='nl nl_BE nl_NL'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='nl nl_NL'>
-<!-- Dutch [Nederlands@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
+locales='nl nl_AW nl_NL'>
+<!-- Dutch [Nederlands@]; Dutch (Aruba) [Nederlands (Aruba)@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31-01-00</result>
@@ -400,12 +400,12 @@ locales='nl_BE'>
    <result timeType='medium'>woensdag 1 december 2010 23:59:59</result>
   </date>
   <zoneFields 
-locales='nl nl_BE nl_NL'>
-<!-- Dutch [Nederlands@]; Flemish [Vlaams@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
+locales='nl nl_AW nl_BE nl_NL'>
+<!-- Dutch [Nederlands@]; Dutch (Aruba) [Nederlands (Aruba)@]; Flemish [Vlaams@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
   </zoneFields>
   <collation 
-locales='nl nl_BE nl_NL'>
-<!-- Dutch [Nederlands@]; Flemish [Vlaams@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
+locales='nl nl_AW nl_BE nl_NL'>
+<!-- Dutch [Nederlands@]; Dutch (Aruba) [Nederlands (Aruba)@]; Flemish [Vlaams@]; Dutch (Netherlands) [Nederlands (Nederland)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

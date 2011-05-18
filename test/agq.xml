@@ -1,0 +1,654 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
+<!-- For information, see readme.html -->
+ <cldrTest version='2.0' base='agq'>
+ <!-- Aghem [Aghem] -->
+  <number 
+locales='agq agq_CM'>
+<!-- Aghem [Aghem@]; Aghem (Cameroon) [Aghem (Kàmàlûŋ)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0,01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0,01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12 346%</result>
+   <result numberType='scientific'>1,23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12 346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123 457</result>
+   <result numberType='decimal'>123 456,78</result>
+   <result numberType='percent'>12 345 678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123 457</result>
+   <result numberType='decimal'>-123 456,78</result>
+   <result numberType='percent'>-12 345 678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <date 
+locales='agq agq_CM'>
+<!-- Aghem [Aghem@]; Aghem (Cameroon) [Aghem (Kàmàlûŋ)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result timeType='medium'>00:00:00</result>
+   <result dateType='short' timeType='none'>31/1/1900</result>
+   <result timeType='short'>31/1/1900 00:00</result>
+   <result timeType='medium'>31/1/1900 00:00:00</result>
+   <result dateType='medium' timeType='none'>31 nùm, 1900</result>
+   <result timeType='short'>31 nùm, 1900 00:00</result>
+   <result timeType='medium'>31 nùm, 1900 00:00:00</result>
+   <result dateType='long' timeType='none'>31 ndzɔ̀ŋɔ̀nùm 1900</result>
+   <result timeType='short'>31 ndzɔ̀ŋɔ̀nùm 1900 00:00</result>
+   <result timeType='medium'>31 ndzɔ̀ŋɔ̀nùm 1900 00:00:00</result>
+   <result dateType='full' timeType='none'>tsuʔutɔ̀mlò 31 ndzɔ̀ŋɔ̀nùm 1900</result>
+   <result timeType='short'>tsuʔutɔ̀mlò 31 ndzɔ̀ŋɔ̀nùm 1900 00:00</result>
+   <result timeType='medium'>tsuʔutɔ̀mlò 31 ndzɔ̀ŋɔ̀nùm 1900 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
+   <result timeType='medium'>00:00:01</result>
+   <result dateType='short' timeType='none'>28/2/1909</result>
+   <result timeType='short'>28/2/1909 00:00</result>
+   <result timeType='medium'>28/2/1909 00:00:01</result>
+   <result dateType='medium' timeType='none'>28 kɨz, 1909</result>
+   <result timeType='short'>28 kɨz, 1909 00:00</result>
+   <result timeType='medium'>28 kɨz, 1909 00:00:01</result>
+   <result dateType='long' timeType='none'>28 ndzɔ̀ŋɔ̀kƗ̀zùʔ 1909</result>
+   <result timeType='short'>28 ndzɔ̀ŋɔ̀kƗ̀zùʔ 1909 00:00</result>
+   <result timeType='medium'>28 ndzɔ̀ŋɔ̀kƗ̀zùʔ 1909 00:00:01</result>
+   <result dateType='full' timeType='none'>tsuʔntsɨ 28 ndzɔ̀ŋɔ̀kƗ̀zùʔ 1909</result>
+   <result timeType='short'>tsuʔntsɨ 28 ndzɔ̀ŋɔ̀kƗ̀zùʔ 1909 00:00</result>
+   <result timeType='medium'>tsuʔntsɨ 28 ndzɔ̀ŋɔ̀kƗ̀zùʔ 1909 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
+   <result timeType='medium'>00:59:59</result>
+   <result dateType='short' timeType='none'>26/3/1918</result>
+   <result timeType='short'>26/3/1918 00:59</result>
+   <result timeType='medium'>26/3/1918 00:59:59</result>
+   <result dateType='medium' timeType='none'>26 tɨd, 1918</result>
+   <result timeType='short'>26 tɨd, 1918 00:59</result>
+   <result timeType='medium'>26 tɨd, 1918 00:59:59</result>
+   <result dateType='long' timeType='none'>26 ndzɔ̀ŋɔ̀tƗ̀dʉ̀ghà 1918</result>
+   <result timeType='short'>26 ndzɔ̀ŋɔ̀tƗ̀dʉ̀ghà 1918 00:59</result>
+   <result timeType='medium'>26 ndzɔ̀ŋɔ̀tƗ̀dʉ̀ghà 1918 00:59:59</result>
+   <result dateType='full' timeType='none'>tsuʔughɔe 26 ndzɔ̀ŋɔ̀tƗ̀dʉ̀ghà 1918</result>
+   <result timeType='short'>tsuʔughɔe 26 ndzɔ̀ŋɔ̀tƗ̀dʉ̀ghà 1918 00:59</result>
+   <result timeType='medium'>tsuʔughɔe 26 ndzɔ̀ŋɔ̀tƗ̀dʉ̀ghà 1918 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:00</result>
+   <result dateType='short' timeType='none'>24/4/1932</result>
+   <result timeType='short'>24/4/1932 01:00</result>
+   <result timeType='medium'>24/4/1932 01:00:00</result>
+   <result dateType='medium' timeType='none'>24 taa, 1932</result>
+   <result timeType='short'>24 taa, 1932 01:00</result>
+   <result timeType='medium'>24 taa, 1932 01:00:00</result>
+   <result dateType='long' timeType='none'>24 ndzɔ̀ŋɔ̀tǎafʉ̄ghā 1932</result>
+   <result timeType='short'>24 ndzɔ̀ŋɔ̀tǎafʉ̄ghā 1932 01:00</result>
+   <result timeType='medium'>24 ndzɔ̀ŋɔ̀tǎafʉ̄ghā 1932 01:00:00</result>
+   <result dateType='full' timeType='none'>tsuʔntsɨ 24 ndzɔ̀ŋɔ̀tǎafʉ̄ghā 1932</result>
+   <result timeType='short'>tsuʔntsɨ 24 ndzɔ̀ŋɔ̀tǎafʉ̄ghā 1932 01:00</result>
+   <result timeType='medium'>tsuʔntsɨ 24 ndzɔ̀ŋɔ̀tǎafʉ̄ghā 1932 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
+   <result timeType='medium'>01:00:01</result>
+   <result dateType='short' timeType='none'>20/5/1945</result>
+   <result timeType='short'>20/5/1945 01:00</result>
+   <result timeType='medium'>20/5/1945 01:00:01</result>
+   <result dateType='medium' timeType='none'>20 see, 1945</result>
+   <result timeType='short'>20 see, 1945 01:00</result>
+   <result timeType='medium'>20 see, 1945 01:00:01</result>
+   <result dateType='long' timeType='none'>20 ndzɔ̀ŋèsèe 1945</result>
+   <result timeType='short'>20 ndzɔ̀ŋèsèe 1945 01:00</result>
+   <result timeType='medium'>20 ndzɔ̀ŋèsèe 1945 01:00:01</result>
+   <result dateType='full' timeType='none'>tsuʔntsɨ 20 ndzɔ̀ŋèsèe 1945</result>
+   <result timeType='short'>tsuʔntsɨ 20 ndzɔ̀ŋèsèe 1945 01:00</result>
+   <result timeType='medium'>tsuʔntsɨ 20 ndzɔ̀ŋèsèe 1945 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
+   <result timeType='medium'>11:59:59</result>
+   <result dateType='short' timeType='none'>18/6/1952</result>
+   <result timeType='short'>18/6/1952 11:59</result>
+   <result timeType='medium'>18/6/1952 11:59:59</result>
+   <result dateType='medium' timeType='none'>18 nzu, 1952</result>
+   <result timeType='short'>18 nzu, 1952 11:59</result>
+   <result timeType='medium'>18 nzu, 1952 11:59:59</result>
+   <result dateType='long' timeType='none'>18 ndzɔ̀ŋɔ̀nzùghò 1952</result>
+   <result timeType='short'>18 ndzɔ̀ŋɔ̀nzùghò 1952 11:59</result>
+   <result timeType='medium'>18 ndzɔ̀ŋɔ̀nzùghò 1952 11:59:59</result>
+   <result dateType='full' timeType='none'>tsuʔutɔ̀mlò 18 ndzɔ̀ŋɔ̀nzùghò 1952</result>
+   <result timeType='short'>tsuʔutɔ̀mlò 18 ndzɔ̀ŋɔ̀nzùghò 1952 11:59</result>
+   <result timeType='medium'>tsuʔutɔ̀mlò 18 ndzɔ̀ŋɔ̀nzùghò 1952 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:00</result>
+   <result dateType='short' timeType='none'>16/7/1973</result>
+   <result timeType='short'>16/7/1973 12:00</result>
+   <result timeType='medium'>16/7/1973 12:00:00</result>
+   <result dateType='medium' timeType='none'>16 dum, 1973</result>
+   <result timeType='short'>16 dum, 1973 12:00</result>
+   <result timeType='medium'>16 dum, 1973 12:00:00</result>
+   <result dateType='long' timeType='none'>16 ndzɔ̀ŋɔ̀dùmlo 1973</result>
+   <result timeType='short'>16 ndzɔ̀ŋɔ̀dùmlo 1973 12:00</result>
+   <result timeType='medium'>16 ndzɔ̀ŋɔ̀dùmlo 1973 12:00:00</result>
+   <result dateType='full' timeType='none'>tsuʔukpà 16 ndzɔ̀ŋɔ̀dùmlo 1973</result>
+   <result timeType='short'>tsuʔukpà 16 ndzɔ̀ŋɔ̀dùmlo 1973 12:00</result>
+   <result timeType='medium'>tsuʔukpà 16 ndzɔ̀ŋɔ̀dùmlo 1973 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
+   <result timeType='medium'>12:00:01</result>
+   <result dateType='short' timeType='none'>14/8/1999</result>
+   <result timeType='short'>14/8/1999 12:00</result>
+   <result timeType='medium'>14/8/1999 12:00:01</result>
+   <result dateType='medium' timeType='none'>14 fɔe, 1999</result>
+   <result timeType='short'>14 fɔe, 1999 12:00</result>
+   <result timeType='medium'>14 fɔe, 1999 12:00:01</result>
+   <result dateType='long' timeType='none'>14 ndzɔ̀ŋɔ̀kwîfɔ̀e 1999</result>
+   <result timeType='short'>14 ndzɔ̀ŋɔ̀kwîfɔ̀e 1999 12:00</result>
+   <result timeType='medium'>14 ndzɔ̀ŋɔ̀kwîfɔ̀e 1999 12:00:01</result>
+   <result dateType='full' timeType='none'>tsuʔndzɨkɔʔɔ 14 ndzɔ̀ŋɔ̀kwîfɔ̀e 1999</result>
+   <result timeType='short'>tsuʔndzɨkɔʔɔ 14 ndzɔ̀ŋɔ̀kwîfɔ̀e 1999 12:00</result>
+   <result timeType='medium'>tsuʔndzɨkɔʔɔ 14 ndzɔ̀ŋɔ̀kwîfɔ̀e 1999 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result timeType='medium'>22:59:59</result>
+   <result dateType='short' timeType='none'>12/9/2000</result>
+   <result timeType='short'>12/9/2000 22:59</result>
+   <result timeType='medium'>12/9/2000 22:59:59</result>
+   <result dateType='medium' timeType='none'>12 dzu, 2000</result>
+   <result timeType='short'>12 dzu, 2000 22:59</result>
+   <result timeType='medium'>12 dzu, 2000 22:59:59</result>
+   <result dateType='long' timeType='none'>12 ndzɔ̀ŋɔ̀tƗ̀fʉ̀ghàdzughù 2000</result>
+   <result timeType='short'>12 ndzɔ̀ŋɔ̀tƗ̀fʉ̀ghàdzughù 2000 22:59</result>
+   <result timeType='medium'>12 ndzɔ̀ŋɔ̀tƗ̀fʉ̀ghàdzughù 2000 22:59:59</result>
+   <result dateType='full' timeType='none'>tsuʔughɔe 12 ndzɔ̀ŋɔ̀tƗ̀fʉ̀ghàdzughù 2000</result>
+   <result timeType='short'>tsuʔughɔe 12 ndzɔ̀ŋɔ̀tƗ̀fʉ̀ghàdzughù 2000 22:59</result>
+   <result timeType='medium'>tsuʔughɔe 12 ndzɔ̀ŋɔ̀tƗ̀fʉ̀ghàdzughù 2000 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:00</result>
+   <result dateType='short' timeType='none'>8/10/2001</result>
+   <result timeType='short'>8/10/2001 23:00</result>
+   <result timeType='medium'>8/10/2001 23:00:00</result>
+   <result dateType='medium' timeType='none'>8 lɔm, 2001</result>
+   <result timeType='short'>8 lɔm, 2001 23:00</result>
+   <result timeType='medium'>8 lɔm, 2001 23:00:00</result>
+   <result dateType='long' timeType='none'>8 ndzɔ̀ŋɔ̀ghǔuwelɔ̀m 2001</result>
+   <result timeType='short'>8 ndzɔ̀ŋɔ̀ghǔuwelɔ̀m 2001 23:00</result>
+   <result timeType='medium'>8 ndzɔ̀ŋɔ̀ghǔuwelɔ̀m 2001 23:00:00</result>
+   <result dateType='full' timeType='none'>tsuʔukpà 8 ndzɔ̀ŋɔ̀ghǔuwelɔ̀m 2001</result>
+   <result timeType='short'>tsuʔukpà 8 ndzɔ̀ŋɔ̀ghǔuwelɔ̀m 2001 23:00</result>
+   <result timeType='medium'>tsuʔukpà 8 ndzɔ̀ŋɔ̀ghǔuwelɔ̀m 2001 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
+   <result timeType='medium'>23:00:01</result>
+   <result dateType='short' timeType='none'>4/11/2004</result>
+   <result timeType='short'>4/11/2004 23:00</result>
+   <result timeType='medium'>4/11/2004 23:00:01</result>
+   <result dateType='medium' timeType='none'>4 kaa, 2004</result>
+   <result timeType='short'>4 kaa, 2004 23:00</result>
+   <result timeType='medium'>4 kaa, 2004 23:00:01</result>
+   <result dateType='long' timeType='none'>4 ndzɔ̀ŋɔ̀chwaʔàkaa wo 2004</result>
+   <result timeType='short'>4 ndzɔ̀ŋɔ̀chwaʔàkaa wo 2004 23:00</result>
+   <result timeType='medium'>4 ndzɔ̀ŋɔ̀chwaʔàkaa wo 2004 23:00:01</result>
+   <result dateType='full' timeType='none'>tsuʔumè 4 ndzɔ̀ŋɔ̀chwaʔàkaa wo 2004</result>
+   <result timeType='short'>tsuʔumè 4 ndzɔ̀ŋɔ̀chwaʔàkaa wo 2004 23:00</result>
+   <result timeType='medium'>tsuʔumè 4 ndzɔ̀ŋɔ̀chwaʔàkaa wo 2004 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result timeType='medium'>23:59:59</result>
+   <result dateType='short' timeType='none'>1/12/2010</result>
+   <result timeType='short'>1/12/2010 23:59</result>
+   <result timeType='medium'>1/12/2010 23:59:59</result>
+   <result dateType='medium' timeType='none'>1 fwo, 2010</result>
+   <result timeType='short'>1 fwo, 2010 23:59</result>
+   <result timeType='medium'>1 fwo, 2010 23:59:59</result>
+   <result dateType='long' timeType='none'>1 ndzɔ̀ŋèfwòo 2010</result>
+   <result timeType='short'>1 ndzɔ̀ŋèfwòo 2010 23:59</result>
+   <result timeType='medium'>1 ndzɔ̀ŋèfwòo 2010 23:59:59</result>
+   <result dateType='full' timeType='none'>tsuʔutɔ̀mlò 1 ndzɔ̀ŋèfwòo 2010</result>
+   <result timeType='short'>tsuʔutɔ̀mlò 1 ndzɔ̀ŋèfwòo 2010 23:59</result>
+   <result timeType='medium'>tsuʔutɔ̀mlò 1 ndzɔ̀ŋèfwòo 2010 23:59:59</result>
+  </date>
+  <zoneFields 
+locales='agq agq_CM'>
+<!-- Aghem [Aghem@]; Aghem (Cameroon) [Aghem (Kàmàlûŋ)@] -->
+  </zoneFields>
+  <collation 
+locales='agq agq_CM'>
+<!-- Aghem [Aghem@]; Aghem (Cameroon) [Aghem (Kàmàlûŋ)@] -->
+   <result draft='unconfirmed approved'>
+x 
+X 
+x x
+x.
+X.
+x.x
+x0
+X0
+x0x
+x12
+X12
+x12x
+x2
+X2
+x2x
+xa
+xA
+Xa
+XA
+xà
+xÀ
+Xà
+XÀ
+xâ
+xÂ
+Xâ
+XÂ
+xǎ
+xǍ
+Xǎ
+XǍ
+xā
+xĀ
+Xā
+XĀ
+xax
+xAx
+xàx
+xÀx
+xâx
+xÂx
+xǎx
+xǍx
+xāx
+xĀx
+xb
+xB
+Xb
+XB
+xbx
+xBx
+xc
+xC
+Xc
+XC
+xcx
+xCx
+xd
+xD
+Xd
+XD
+xdx
+xDx
+xe
+xE
+Xe
+XE
+xè
+xÈ
+Xè
+XÈ
+xê
+xÊ
+Xê
+XÊ
+xě
+xĚ
+Xě
+XĚ
+xē
+xĒ
+Xē
+XĒ
+xex
+xEx
+xèx
+xÈx
+xêx
+xÊx
+xěx
+xĚx
+xēx
+xĒx
+xɛ
+xƐ
+Xɛ
+XƐ
+xɛ̀
+xƐ̀
+Xɛ̀
+XƐ̀
+xɛ̂
+xƐ̂
+Xɛ̂
+XƐ̂
+xɛ̌
+xƐ̌
+Xɛ̌
+XƐ̌
+xɛ̄
+xƐ̄
+Xɛ̄
+XƐ̄
+xɛx
+xƐx
+xɛ̀x
+xƐ̀x
+xɛ̂x
+xƐ̂x
+xɛ̌x
+xƐ̌x
+xɛ̄x
+xƐ̄x
+xf
+xF
+Xf
+XF
+xfx
+xFx
+xg
+xG
+Xg
+XG
+xgx
+xGx
+xh
+xH
+Xh
+XH
+xhx
+xHx
+xi
+xI
+Xi
+XI
+xì
+xÌ
+Xì
+XÌ
+xî
+xÎ
+Xî
+XÎ
+xǐ
+xǏ
+Xǐ
+XǏ
+xī
+xĪ
+Xī
+XĪ
+xix
+xIx
+xìx
+xÌx
+xîx
+xÎx
+xǐx
+xǏx
+xīx
+xĪx
+xɨ
+xƗ
+Xɨ
+XƗ
+xɨ̀
+xƗ̀
+Xɨ̀
+XƗ̀
+xɨ̂
+xƗ̂
+Xɨ̂
+XƗ̂
+xɨ̌
+xƗ̌
+Xɨ̌
+XƗ̌
+xɨ̄
+xƗ̄
+Xɨ̄
+XƗ̄
+xɨx
+xƗx
+xɨ̀x
+xƗ̀x
+xɨ̂x
+xƗ̂x
+xɨ̌x
+xƗ̌x
+xɨ̄x
+xƗ̄x
+xk
+xK
+Xk
+XK
+xkx
+xKx
+xl
+xL
+Xl
+XL
+xlx
+xLx
+xm
+xM
+Xm
+XM
+xmx
+xMx
+xn
+xN
+Xn
+XN
+xnx
+xNx
+xŋ
+xŊ
+Xŋ
+XŊ
+xŋx
+xŊx
+xo
+xO
+Xo
+XO
+xò
+xÒ
+Xò
+XÒ
+xô
+xÔ
+Xô
+XÔ
+xǒ
+xǑ
+Xǒ
+XǑ
+xō
+xŌ
+Xō
+XŌ
+xox
+xOx
+xòx
+xÒx
+xôx
+xÔx
+xǒx
+xǑx
+xōx
+xŌx
+xɔ
+xƆ
+Xɔ
+XƆ
+xɔ̀
+xƆ̀
+Xɔ̀
+XƆ̀
+xɔ̂
+xƆ̂
+Xɔ̂
+XƆ̂
+xɔ̌
+xƆ̌
+Xɔ̌
+XƆ̌
+xɔ̄
+xƆ̄
+Xɔ̄
+XƆ̄
+xɔx
+xƆx
+xɔ̀x
+xƆ̀x
+xɔ̂x
+xƆ̂x
+xɔ̌x
+xƆ̌x
+xɔ̄x
+xƆ̄x
+xp
+xP
+Xp
+XP
+xpx
+xPx
+xq
+xQ
+Xq
+XQ
+xqx
+xQx
+xr
+xR
+Xr
+XR
+xrx
+xRx
+xs
+xS
+Xs
+XS
+xsx
+xSx
+xt
+xT
+Xt
+XT
+xtx
+xTx
+xu
+xU
+Xu
+XU
+xù
+xÙ
+Xù
+XÙ
+xû
+xÛ
+Xû
+XÛ
+xǔ
+xǓ
+Xǔ
+XǓ
+xū
+xŪ
+Xū
+XŪ
+xux
+xUx
+xùx
+xÙx
+xûx
+xÛx
+xǔx
+xǓx
+xūx
+xŪx
+xʉ
+xɄ
+Xʉ
+XɄ
+xʉ̀
+xɄ̀
+Xʉ̀
+XɄ̀
+xʉ̂
+xɄ̂
+Xʉ̂
+XɄ̂
+xʉ̌
+xɄ̌
+Xʉ̌
+XɄ̌
+xʉ̄
+xɄ̄
+Xʉ̄
+XɄ̄
+xʉx
+xɄx
+xʉ̀x
+xɄ̀x
+xʉ̂x
+xɄ̂x
+xʉ̌x
+xɄ̌x
+xʉ̄x
+xɄ̄x
+xv
+xV
+Xv
+XV
+xvx
+xVx
+xw
+xW
+Xw
+XW
+xwx
+xWx
+xx
+xX
+Xx
+XX
+xxx
+xXx
+xy
+xY
+Xy
+XY
+xyx
+xYx
+xz
+xZ
+Xz
+XZ
+xzx
+xZx
+xʔ
+Xʔ
+xʔx
+</result>
+  </collation>
+ </cldrTest>

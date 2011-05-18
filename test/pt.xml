@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='pt'>
+ <cldrTest version='2.0' base='pt'>
  <!-- Portuguese [português] -->
   <number 
-locales='pt pt_BR pt_GW pt_MZ'>
-<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@] -->
+locales='pt pt_BR'>
+<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='pt pt_BR pt_GW pt_MZ'>
    <result numberType='scientific'>NaN</result>
   </number>
   <number 
-locales='pt_PT'>
-<!-- Iberian Portuguese [português europeu@] -->
+locales='pt_AO pt_GW pt_MZ pt_PT pt_ST'>
+<!-- Portuguese (Angola) [português (Angola)@]; Portuguese (Guinea-Bissau) [português (Guiné-Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@]; Iberian Portuguese [português europeu@]; Portuguese (São Tomé and Príncipe) [português (São Tomé e Príncipe)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -108,8 +108,8 @@ locales='pt_PT'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='pt pt_BR pt_GW pt_MZ'>
-<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@] -->
+locales='pt pt_BR'>
+<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
@@ -280,16 +280,16 @@ locales='pt pt_BR pt_GW pt_MZ'>
    <result timeType='medium'>quarta-feira, 1 de dezembro de 2010 23:59:59</result>
   </date>
   <date 
-locales='pt_PT'>
-<!-- Iberian Portuguese [português europeu@] -->
+locales='pt_AO pt_GW pt_MZ pt_PT pt_ST'>
+<!-- Portuguese (Angola) [português (Angola)@]; Portuguese (Guinea-Bissau) [português (Guiné-Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@]; Iberian Portuguese [português europeu@]; Portuguese (São Tomé and Príncipe) [português (São Tomé e Príncipe)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31/01/00</result>
    <result timeType='short'>31/01/00 00:00</result>
    <result timeType='medium'>31/01/00 00:00:00</result>
-   <result dateType='medium' timeType='none'>31 de Jan de 1900</result>
-   <result timeType='short'>31 de Jan de 1900 00:00</result>
-   <result timeType='medium'>31 de Jan de 1900 00:00:00</result>
+   <result dateType='medium' timeType='none'>31/01/1900</result>
+   <result timeType='short'>31/01/1900 00:00</result>
+   <result timeType='medium'>31/01/1900 00:00:00</result>
    <result dateType='long' timeType='none'>31 de Janeiro de 1900</result>
    <result timeType='short'>31 de Janeiro de 1900 00:00</result>
    <result timeType='medium'>31 de Janeiro de 1900 00:00:00</result>
@@ -301,9 +301,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>28/02/09</result>
    <result timeType='short'>28/02/09 00:00</result>
    <result timeType='medium'>28/02/09 00:00:01</result>
-   <result dateType='medium' timeType='none'>28 de Fev de 1909</result>
-   <result timeType='short'>28 de Fev de 1909 00:00</result>
-   <result timeType='medium'>28 de Fev de 1909 00:00:01</result>
+   <result dateType='medium' timeType='none'>28/02/1909</result>
+   <result timeType='short'>28/02/1909 00:00</result>
+   <result timeType='medium'>28/02/1909 00:00:01</result>
    <result dateType='long' timeType='none'>28 de Fevereiro de 1909</result>
    <result timeType='short'>28 de Fevereiro de 1909 00:00</result>
    <result timeType='medium'>28 de Fevereiro de 1909 00:00:01</result>
@@ -315,9 +315,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>26/03/18</result>
    <result timeType='short'>26/03/18 00:59</result>
    <result timeType='medium'>26/03/18 00:59:59</result>
-   <result dateType='medium' timeType='none'>26 de Mar de 1918</result>
-   <result timeType='short'>26 de Mar de 1918 00:59</result>
-   <result timeType='medium'>26 de Mar de 1918 00:59:59</result>
+   <result dateType='medium' timeType='none'>26/03/1918</result>
+   <result timeType='short'>26/03/1918 00:59</result>
+   <result timeType='medium'>26/03/1918 00:59:59</result>
    <result dateType='long' timeType='none'>26 de Março de 1918</result>
    <result timeType='short'>26 de Março de 1918 00:59</result>
    <result timeType='medium'>26 de Março de 1918 00:59:59</result>
@@ -329,9 +329,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>24/04/32</result>
    <result timeType='short'>24/04/32 01:00</result>
    <result timeType='medium'>24/04/32 01:00:00</result>
-   <result dateType='medium' timeType='none'>24 de Abr de 1932</result>
-   <result timeType='short'>24 de Abr de 1932 01:00</result>
-   <result timeType='medium'>24 de Abr de 1932 01:00:00</result>
+   <result dateType='medium' timeType='none'>24/04/1932</result>
+   <result timeType='short'>24/04/1932 01:00</result>
+   <result timeType='medium'>24/04/1932 01:00:00</result>
    <result dateType='long' timeType='none'>24 de Abril de 1932</result>
    <result timeType='short'>24 de Abril de 1932 01:00</result>
    <result timeType='medium'>24 de Abril de 1932 01:00:00</result>
@@ -343,9 +343,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>20/05/45</result>
    <result timeType='short'>20/05/45 01:00</result>
    <result timeType='medium'>20/05/45 01:00:01</result>
-   <result dateType='medium' timeType='none'>20 de Mai de 1945</result>
-   <result timeType='short'>20 de Mai de 1945 01:00</result>
-   <result timeType='medium'>20 de Mai de 1945 01:00:01</result>
+   <result dateType='medium' timeType='none'>20/05/1945</result>
+   <result timeType='short'>20/05/1945 01:00</result>
+   <result timeType='medium'>20/05/1945 01:00:01</result>
    <result dateType='long' timeType='none'>20 de Maio de 1945</result>
    <result timeType='short'>20 de Maio de 1945 01:00</result>
    <result timeType='medium'>20 de Maio de 1945 01:00:01</result>
@@ -357,9 +357,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>18/06/52</result>
    <result timeType='short'>18/06/52 11:59</result>
    <result timeType='medium'>18/06/52 11:59:59</result>
-   <result dateType='medium' timeType='none'>18 de Jun de 1952</result>
-   <result timeType='short'>18 de Jun de 1952 11:59</result>
-   <result timeType='medium'>18 de Jun de 1952 11:59:59</result>
+   <result dateType='medium' timeType='none'>18/06/1952</result>
+   <result timeType='short'>18/06/1952 11:59</result>
+   <result timeType='medium'>18/06/1952 11:59:59</result>
    <result dateType='long' timeType='none'>18 de Junho de 1952</result>
    <result timeType='short'>18 de Junho de 1952 11:59</result>
    <result timeType='medium'>18 de Junho de 1952 11:59:59</result>
@@ -371,9 +371,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>16/07/73</result>
    <result timeType='short'>16/07/73 12:00</result>
    <result timeType='medium'>16/07/73 12:00:00</result>
-   <result dateType='medium' timeType='none'>16 de Jul de 1973</result>
-   <result timeType='short'>16 de Jul de 1973 12:00</result>
-   <result timeType='medium'>16 de Jul de 1973 12:00:00</result>
+   <result dateType='medium' timeType='none'>16/07/1973</result>
+   <result timeType='short'>16/07/1973 12:00</result>
+   <result timeType='medium'>16/07/1973 12:00:00</result>
    <result dateType='long' timeType='none'>16 de Julho de 1973</result>
    <result timeType='short'>16 de Julho de 1973 12:00</result>
    <result timeType='medium'>16 de Julho de 1973 12:00:00</result>
@@ -385,9 +385,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>14/08/99</result>
    <result timeType='short'>14/08/99 12:00</result>
    <result timeType='medium'>14/08/99 12:00:01</result>
-   <result dateType='medium' timeType='none'>14 de Ago de 1999</result>
-   <result timeType='short'>14 de Ago de 1999 12:00</result>
-   <result timeType='medium'>14 de Ago de 1999 12:00:01</result>
+   <result dateType='medium' timeType='none'>14/08/1999</result>
+   <result timeType='short'>14/08/1999 12:00</result>
+   <result timeType='medium'>14/08/1999 12:00:01</result>
    <result dateType='long' timeType='none'>14 de Agosto de 1999</result>
    <result timeType='short'>14 de Agosto de 1999 12:00</result>
    <result timeType='medium'>14 de Agosto de 1999 12:00:01</result>
@@ -399,9 +399,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>12/09/00</result>
    <result timeType='short'>12/09/00 22:59</result>
    <result timeType='medium'>12/09/00 22:59:59</result>
-   <result dateType='medium' timeType='none'>12 de Set de 2000</result>
-   <result timeType='short'>12 de Set de 2000 22:59</result>
-   <result timeType='medium'>12 de Set de 2000 22:59:59</result>
+   <result dateType='medium' timeType='none'>12/09/2000</result>
+   <result timeType='short'>12/09/2000 22:59</result>
+   <result timeType='medium'>12/09/2000 22:59:59</result>
    <result dateType='long' timeType='none'>12 de Setembro de 2000</result>
    <result timeType='short'>12 de Setembro de 2000 22:59</result>
    <result timeType='medium'>12 de Setembro de 2000 22:59:59</result>
@@ -413,9 +413,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>08/10/01</result>
    <result timeType='short'>08/10/01 23:00</result>
    <result timeType='medium'>08/10/01 23:00:00</result>
-   <result dateType='medium' timeType='none'>8 de Out de 2001</result>
-   <result timeType='short'>8 de Out de 2001 23:00</result>
-   <result timeType='medium'>8 de Out de 2001 23:00:00</result>
+   <result dateType='medium' timeType='none'>08/10/2001</result>
+   <result timeType='short'>08/10/2001 23:00</result>
+   <result timeType='medium'>08/10/2001 23:00:00</result>
    <result dateType='long' timeType='none'>8 de Outubro de 2001</result>
    <result timeType='short'>8 de Outubro de 2001 23:00</result>
    <result timeType='medium'>8 de Outubro de 2001 23:00:00</result>
@@ -427,9 +427,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>04/11/04</result>
    <result timeType='short'>04/11/04 23:00</result>
    <result timeType='medium'>04/11/04 23:00:01</result>
-   <result dateType='medium' timeType='none'>4 de Nov de 2004</result>
-   <result timeType='short'>4 de Nov de 2004 23:00</result>
-   <result timeType='medium'>4 de Nov de 2004 23:00:01</result>
+   <result dateType='medium' timeType='none'>04/11/2004</result>
+   <result timeType='short'>04/11/2004 23:00</result>
+   <result timeType='medium'>04/11/2004 23:00:01</result>
    <result dateType='long' timeType='none'>4 de Novembro de 2004</result>
    <result timeType='short'>4 de Novembro de 2004 23:00</result>
    <result timeType='medium'>4 de Novembro de 2004 23:00:01</result>
@@ -441,9 +441,9 @@ locales='pt_PT'>
    <result dateType='short' timeType='none'>01/12/10</result>
    <result timeType='short'>01/12/10 23:59</result>
    <result timeType='medium'>01/12/10 23:59:59</result>
-   <result dateType='medium' timeType='none'>1 de Dez de 2010</result>
-   <result timeType='short'>1 de Dez de 2010 23:59</result>
-   <result timeType='medium'>1 de Dez de 2010 23:59:59</result>
+   <result dateType='medium' timeType='none'>01/12/2010</result>
+   <result timeType='short'>01/12/2010 23:59</result>
+   <result timeType='medium'>01/12/2010 23:59:59</result>
    <result dateType='long' timeType='none'>1 de Dezembro de 2010</result>
    <result timeType='short'>1 de Dezembro de 2010 23:59</result>
    <result timeType='medium'>1 de Dezembro de 2010 23:59:59</result>
@@ -452,12 +452,12 @@ locales='pt_PT'>
    <result timeType='medium'>Quarta-feira, 1 de Dezembro de 2010 23:59:59</result>
   </date>
   <zoneFields 
-locales='pt pt_BR pt_GW pt_MZ pt_PT'>
-<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@]; Iberian Portuguese [português europeu@] -->
+locales='pt pt_AO pt_BR pt_GW pt_MZ pt_PT pt_ST'>
+<!-- Portuguese [português@]; Portuguese (Angola) [português (Angola)@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné-Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@]; Iberian Portuguese [português europeu@]; Portuguese (São Tomé and Príncipe) [português (São Tomé e Príncipe)@] -->
   </zoneFields>
   <collation 
-locales='pt pt_BR pt_GW pt_MZ'>
-<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@]; Portuguese (Guinea-Bissau) [português (Guiné Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@] -->
+locales='pt pt_BR'>
+<!-- Portuguese [português@]; Brazilian Portuguese [português do Brasil@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -867,8 +867,8 @@ xZx
 </result>
   </collation>
   <collation 
-locales='pt_PT'>
-<!-- Iberian Portuguese [português europeu@] -->
+locales='pt_AO pt_GW pt_MZ pt_PT pt_ST'>
+<!-- Portuguese (Angola) [português (Angola)@]; Portuguese (Guinea-Bissau) [português (Guiné-Bissau)@]; Portuguese (Mozambique) [português (Moçambique)@]; Iberian Portuguese [português europeu@]; Portuguese (São Tomé and Príncipe) [português (São Tomé e Príncipe)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

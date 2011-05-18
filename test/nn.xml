@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='nn'>
+ <cldrTest version='2.0' base='nn'>
  <!-- Norwegian Nynorsk [nynorsk] -->
   <number 
 locales='nn nn_NO'>
@@ -91,9 +91,9 @@ locales='nn nn_NO'>
    <result dateType='short' timeType='none'>26.03.18</result>
    <result timeType='short'>26.03.18 00:59</result>
    <result timeType='medium'>26.03.18 00:59:59</result>
-   <result dateType='medium' timeType='none'>26. mar. 1918</result>
-   <result timeType='short'>26. mar. 1918 00:59</result>
-   <result timeType='medium'>26. mar. 1918 00:59:59</result>
+   <result dateType='medium' timeType='none'>26. mars 1918</result>
+   <result timeType='short'>26. mars 1918 00:59</result>
+   <result timeType='medium'>26. mars 1918 00:59:59</result>
    <result dateType='long' timeType='none'>26. mars 1918</result>
    <result timeType='short'>26. mars 1918 00:59</result>
    <result timeType='medium'>26. mars 1918 00:59:59</result>
@@ -119,9 +119,9 @@ locales='nn nn_NO'>
    <result dateType='short' timeType='none'>20.05.45</result>
    <result timeType='short'>20.05.45 01:00</result>
    <result timeType='medium'>20.05.45 01:00:01</result>
-   <result dateType='medium' timeType='none'>20. mai. 1945</result>
-   <result timeType='short'>20. mai. 1945 01:00</result>
-   <result timeType='medium'>20. mai. 1945 01:00:01</result>
+   <result dateType='medium' timeType='none'>20. mai 1945</result>
+   <result timeType='short'>20. mai 1945 01:00</result>
+   <result timeType='medium'>20. mai 1945 01:00:01</result>
    <result dateType='long' timeType='none'>20. mai 1945</result>
    <result timeType='short'>20. mai 1945 01:00</result>
    <result timeType='medium'>20. mai 1945 01:00:01</result>
@@ -133,9 +133,9 @@ locales='nn nn_NO'>
    <result dateType='short' timeType='none'>18.06.52</result>
    <result timeType='short'>18.06.52 11:59</result>
    <result timeType='medium'>18.06.52 11:59:59</result>
-   <result dateType='medium' timeType='none'>18. jun. 1952</result>
-   <result timeType='short'>18. jun. 1952 11:59</result>
-   <result timeType='medium'>18. jun. 1952 11:59:59</result>
+   <result dateType='medium' timeType='none'>18. juni 1952</result>
+   <result timeType='short'>18. juni 1952 11:59</result>
+   <result timeType='medium'>18. juni 1952 11:59:59</result>
    <result dateType='long' timeType='none'>18. juni 1952</result>
    <result timeType='short'>18. juni 1952 11:59</result>
    <result timeType='medium'>18. juni 1952 11:59:59</result>
@@ -147,9 +147,9 @@ locales='nn nn_NO'>
    <result dateType='short' timeType='none'>16.07.73</result>
    <result timeType='short'>16.07.73 12:00</result>
    <result timeType='medium'>16.07.73 12:00:00</result>
-   <result dateType='medium' timeType='none'>16. jul. 1973</result>
-   <result timeType='short'>16. jul. 1973 12:00</result>
-   <result timeType='medium'>16. jul. 1973 12:00:00</result>
+   <result dateType='medium' timeType='none'>16. juli 1973</result>
+   <result timeType='short'>16. juli 1973 12:00</result>
+   <result timeType='medium'>16. juli 1973 12:00:00</result>
    <result dateType='long' timeType='none'>16. juli 1973</result>
    <result timeType='short'>16. juli 1973 12:00</result>
    <result timeType='medium'>16. juli 1973 12:00:00</result>
@@ -266,6 +266,9 @@ xǎ
 xǍ
 Xǎ
 XǍ
+xaA
+XaA
+xaAx
 xax
 xAx
 xáx
@@ -584,8 +587,17 @@ xå
 xÅ
 Xå
 XÅ
+xaa
+xAa
+xAA
+Xaa
+XAa
+XAA
 xåx
 xÅx
+xaax
+xAax
+xAAx
 </result>
   </collation>
  </cldrTest>

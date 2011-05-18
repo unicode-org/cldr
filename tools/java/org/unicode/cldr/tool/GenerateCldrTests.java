@@ -118,7 +118,7 @@ public class GenerateCldrTests {
     public static void main(String[] args) throws Exception {
         double deltaTime = System.currentTimeMillis();
         UOption.parseArgs(args, options);
-        Log.setLog(options[LOGDIR].value + "log.txt");
+        Log.setLog(options[LOGDIR].value , "log.txt");
         // log = BagFormatter.openUTF8Writer(options[LOGDIR].value, "log.txt");
         try {
             if (options[LANGUAGES].doesOccur) {

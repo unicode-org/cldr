@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='ja'>
+ <cldrTest version='2.0' base='ja'>
  <!-- Japanese [日本語] -->
   <number 
 locales='ja ja_JP'>
@@ -50,10 +50,14 @@ locales='ja ja_JP'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>NaN（非数）</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>NaN（非数）</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>NaN（非数）</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>NaN（非数）</result>
+   <result draft='approved'>NaN</result>
   </number>
   <date 
 locales='ja ja_JP'>
@@ -247,12 +251,6 @@ x￣x
 x　x
 x x
 x￣x
-x｀
-X｀
-x｀x
-x＾
-X＾
-x＾x
 x＿
 X＿
 x＿x
@@ -343,6 +341,12 @@ x＃x
 x％
 X％
 x％x
+x｀
+X｀
+x｀x
+x＾
+X＾
+x＾x
 x￩
 X￩
 x￩x
@@ -388,16 +392,19 @@ x￭x
 x￮
 X￮
 x￮x
-xゝ
-Xゝ
 xゞ
 Xゞ
-xゝx
 xゞx
 xヽ
+xゝ
+xヽ
+Xゝ
 Xヽ
+Xゝ
 xヾ
 Xヾ
+xヽx
+xゝx
 xヽx
 xヾx
 x￠
@@ -4507,39 +4514,6 @@ x齟x
 x齠
 X齠
 x齠x
-x齡
-X齡
-x齡x
-x齦
-X齦
-x齦x
-x齧
-X齧
-x齧x
-x齬
-X齬
-x齬x
-x齪
-X齪
-x齪x
-x齷
-X齷
-x齷x
-x齲
-X齲
-x齲x
-x齶
-X齶
-x齶x
-x龕
-X龕
-x龕x
-x龜
-X龜
-x龜x
-x龠
-X龠
-x龠x
 </result>
   </collation>
  </cldrTest>

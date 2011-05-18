@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='bo'>
+ <cldrTest version='2.0' base='bo'>
  <!-- Tibetan [པོད་སྐད་] -->
   <number 
 locales='bo bo_CN bo_IN'>
@@ -50,10 +50,14 @@ locales='bo bo_CN bo_IN'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>ཨང་མེན་</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>ཨང་མེན་</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>ཨང་མེན་</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>ཨང་མེན་</result>
+   <result draft='approved'>NaN</result>
   </number>
   <date 
 locales='bo bo_CN bo_IN'>
@@ -517,9 +521,6 @@ xༀx
 xྸ
 Xྸ
 xྸx
-xཱ
-Xཱ
-xཱx
 xི
 Xི
 xིx

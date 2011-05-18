@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='ru'>
+ <cldrTest version='2.0' base='ru'>
  <!-- Russian [русский] -->
   <number 
 locales='ru ru_MD ru_RU ru_UA'>
@@ -50,10 +50,10 @@ locales='ru ru_MD ru_RU ru_UA'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞ %</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='NaN' numberType='integer'>не число</result>
+   <result numberType='decimal'>не число</result>
+   <result numberType='percent'>не число</result>
+   <result numberType='scientific'>не число</result>
   </number>
   <date 
 locales='ru ru_MD ru_RU'>
@@ -235,9 +235,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>31.01.00</result>
    <result timeType='short'>31.01.00 00:00</result>
    <result timeType='medium'>31.01.00 00:00:00</result>
-   <result dateType='medium' timeType='none'>31 янв. 1900</result>
-   <result timeType='short'>31 янв. 1900 00:00</result>
-   <result timeType='medium'>31 янв. 1900 00:00:00</result>
+   <result dateType='medium' timeType='none'>31 янв 1900</result>
+   <result timeType='short'>31 янв 1900 00:00</result>
+   <result timeType='medium'>31 янв 1900 00:00:00</result>
    <result dateType='long' timeType='none'>31 января 1900</result>
    <result timeType='short'>31 января 1900 00:00</result>
    <result timeType='medium'>31 января 1900 00:00:00</result>
@@ -249,9 +249,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>28.02.09</result>
    <result timeType='short'>28.02.09 00:00</result>
    <result timeType='medium'>28.02.09 00:00:01</result>
-   <result dateType='medium' timeType='none'>28 февр. 1909</result>
-   <result timeType='short'>28 февр. 1909 00:00</result>
-   <result timeType='medium'>28 февр. 1909 00:00:01</result>
+   <result dateType='medium' timeType='none'>28 фев 1909</result>
+   <result timeType='short'>28 фев 1909 00:00</result>
+   <result timeType='medium'>28 фев 1909 00:00:01</result>
    <result dateType='long' timeType='none'>28 февраля 1909</result>
    <result timeType='short'>28 февраля 1909 00:00</result>
    <result timeType='medium'>28 февраля 1909 00:00:01</result>
@@ -263,9 +263,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>26.03.18</result>
    <result timeType='short'>26.03.18 00:59</result>
    <result timeType='medium'>26.03.18 00:59:59</result>
-   <result dateType='medium' timeType='none'>26 марта 1918</result>
-   <result timeType='short'>26 марта 1918 00:59</result>
-   <result timeType='medium'>26 марта 1918 00:59:59</result>
+   <result dateType='medium' timeType='none'>26 мар 1918</result>
+   <result timeType='short'>26 мар 1918 00:59</result>
+   <result timeType='medium'>26 мар 1918 00:59:59</result>
    <result dateType='long' timeType='none'>26 марта 1918</result>
    <result timeType='short'>26 марта 1918 00:59</result>
    <result timeType='medium'>26 марта 1918 00:59:59</result>
@@ -277,9 +277,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>24.04.32</result>
    <result timeType='short'>24.04.32 01:00</result>
    <result timeType='medium'>24.04.32 01:00:00</result>
-   <result dateType='medium' timeType='none'>24 апр. 1932</result>
-   <result timeType='short'>24 апр. 1932 01:00</result>
-   <result timeType='medium'>24 апр. 1932 01:00:00</result>
+   <result dateType='medium' timeType='none'>24 апр 1932</result>
+   <result timeType='short'>24 апр 1932 01:00</result>
+   <result timeType='medium'>24 апр 1932 01:00:00</result>
    <result dateType='long' timeType='none'>24 апреля 1932</result>
    <result timeType='short'>24 апреля 1932 01:00</result>
    <result timeType='medium'>24 апреля 1932 01:00:00</result>
@@ -305,9 +305,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>18.06.52</result>
    <result timeType='short'>18.06.52 11:59</result>
    <result timeType='medium'>18.06.52 11:59:59</result>
-   <result dateType='medium' timeType='none'>18 июня 1952</result>
-   <result timeType='short'>18 июня 1952 11:59</result>
-   <result timeType='medium'>18 июня 1952 11:59:59</result>
+   <result dateType='medium' timeType='none'>18 июн 1952</result>
+   <result timeType='short'>18 июн 1952 11:59</result>
+   <result timeType='medium'>18 июн 1952 11:59:59</result>
    <result dateType='long' timeType='none'>18 июня 1952</result>
    <result timeType='short'>18 июня 1952 11:59</result>
    <result timeType='medium'>18 июня 1952 11:59:59</result>
@@ -319,9 +319,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>16.07.73</result>
    <result timeType='short'>16.07.73 12:00</result>
    <result timeType='medium'>16.07.73 12:00:00</result>
-   <result dateType='medium' timeType='none'>16 июля 1973</result>
-   <result timeType='short'>16 июля 1973 12:00</result>
-   <result timeType='medium'>16 июля 1973 12:00:00</result>
+   <result dateType='medium' timeType='none'>16 июл 1973</result>
+   <result timeType='short'>16 июл 1973 12:00</result>
+   <result timeType='medium'>16 июл 1973 12:00:00</result>
    <result dateType='long' timeType='none'>16 июля 1973</result>
    <result timeType='short'>16 июля 1973 12:00</result>
    <result timeType='medium'>16 июля 1973 12:00:00</result>
@@ -333,9 +333,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>14.08.99</result>
    <result timeType='short'>14.08.99 12:00</result>
    <result timeType='medium'>14.08.99 12:00:01</result>
-   <result dateType='medium' timeType='none'>14 авг. 1999</result>
-   <result timeType='short'>14 авг. 1999 12:00</result>
-   <result timeType='medium'>14 авг. 1999 12:00:01</result>
+   <result dateType='medium' timeType='none'>14 авг 1999</result>
+   <result timeType='short'>14 авг 1999 12:00</result>
+   <result timeType='medium'>14 авг 1999 12:00:01</result>
    <result dateType='long' timeType='none'>14 августа 1999</result>
    <result timeType='short'>14 августа 1999 12:00</result>
    <result timeType='medium'>14 августа 1999 12:00:01</result>
@@ -347,9 +347,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>12.09.00</result>
    <result timeType='short'>12.09.00 22:59</result>
    <result timeType='medium'>12.09.00 22:59:59</result>
-   <result dateType='medium' timeType='none'>12 сент. 2000</result>
-   <result timeType='short'>12 сент. 2000 22:59</result>
-   <result timeType='medium'>12 сент. 2000 22:59:59</result>
+   <result dateType='medium' timeType='none'>12 сен 2000</result>
+   <result timeType='short'>12 сен 2000 22:59</result>
+   <result timeType='medium'>12 сен 2000 22:59:59</result>
    <result dateType='long' timeType='none'>12 сентября 2000</result>
    <result timeType='short'>12 сентября 2000 22:59</result>
    <result timeType='medium'>12 сентября 2000 22:59:59</result>
@@ -361,9 +361,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>08.10.01</result>
    <result timeType='short'>08.10.01 23:00</result>
    <result timeType='medium'>08.10.01 23:00:00</result>
-   <result dateType='medium' timeType='none'>8 окт. 2001</result>
-   <result timeType='short'>8 окт. 2001 23:00</result>
-   <result timeType='medium'>8 окт. 2001 23:00:00</result>
+   <result dateType='medium' timeType='none'>8 окт 2001</result>
+   <result timeType='short'>8 окт 2001 23:00</result>
+   <result timeType='medium'>8 окт 2001 23:00:00</result>
    <result dateType='long' timeType='none'>8 октября 2001</result>
    <result timeType='short'>8 октября 2001 23:00</result>
    <result timeType='medium'>8 октября 2001 23:00:00</result>
@@ -375,9 +375,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>04.11.04</result>
    <result timeType='short'>04.11.04 23:00</result>
    <result timeType='medium'>04.11.04 23:00:01</result>
-   <result dateType='medium' timeType='none'>4 нояб. 2004</result>
-   <result timeType='short'>4 нояб. 2004 23:00</result>
-   <result timeType='medium'>4 нояб. 2004 23:00:01</result>
+   <result dateType='medium' timeType='none'>4 ноя 2004</result>
+   <result timeType='short'>4 ноя 2004 23:00</result>
+   <result timeType='medium'>4 ноя 2004 23:00:01</result>
    <result dateType='long' timeType='none'>4 ноября 2004</result>
    <result timeType='short'>4 ноября 2004 23:00</result>
    <result timeType='medium'>4 ноября 2004 23:00:01</result>
@@ -389,9 +389,9 @@ locales='ru_UA'>
    <result dateType='short' timeType='none'>01.12.10</result>
    <result timeType='short'>01.12.10 23:59</result>
    <result timeType='medium'>01.12.10 23:59:59</result>
-   <result dateType='medium' timeType='none'>1 дек. 2010</result>
-   <result timeType='short'>1 дек. 2010 23:59</result>
-   <result timeType='medium'>1 дек. 2010 23:59:59</result>
+   <result dateType='medium' timeType='none'>1 дек 2010</result>
+   <result timeType='short'>1 дек 2010 23:59</result>
+   <result timeType='medium'>1 дек 2010 23:59:59</result>
    <result dateType='long' timeType='none'>1 декабря 2010</result>
    <result timeType='short'>1 декабря 2010 23:59</result>
    <result timeType='medium'>1 декабря 2010 23:59:59</result>
@@ -422,258 +422,6 @@ x12x
 x2
 X2
 x2x
-xa
-xA
-Xa
-XA
-xá
-xÁ
-Xá
-XÁ
-xà
-xÀ
-Xà
-XÀ
-xâ
-xÂ
-Xâ
-XÂ
-xä
-xÄ
-Xä
-XÄ
-xax
-xAx
-xáx
-xÁx
-xàx
-xÀx
-xâx
-xÂx
-xäx
-xÄx
-xb
-xB
-Xb
-XB
-xbx
-xBx
-xç
-xÇ
-Xç
-XÇ
-xçx
-xÇx
-xd
-xD
-Xd
-XD
-xdx
-xDx
-xe
-xE
-Xe
-XE
-xé
-xÉ
-Xé
-XÉ
-xè
-xÈ
-Xè
-XÈ
-xê
-xÊ
-Xê
-XÊ
-xë
-xË
-Xë
-XË
-xex
-xEx
-xéx
-xÉx
-xèx
-xÈx
-xêx
-xÊx
-xëx
-xËx
-xf
-xF
-Xf
-XF
-xfx
-xFx
-xg
-xG
-Xg
-XG
-xgx
-xGx
-xh
-xH
-Xh
-XH
-xhx
-xHx
-xi
-xI
-Xi
-XI
-xix
-xIx
-xj
-xJ
-Xj
-XJ
-xjx
-xJx
-xk
-xK
-Xk
-XK
-xkx
-xKx
-xl
-xL
-Xl
-XL
-xlx
-xLx
-xm
-xM
-Xm
-XM
-xmx
-xMx
-xn
-xN
-Xn
-XN
-xnx
-xNx
-xo
-xO
-Xo
-XO
-xó
-xÓ
-Xó
-XÓ
-xò
-xÒ
-Xò
-XÒ
-xô
-xÔ
-Xô
-XÔ
-xö
-xÖ
-Xö
-XÖ
-xox
-xOx
-xóx
-xÓx
-xòx
-xÒx
-xôx
-xÔx
-xöx
-xÖx
-xp
-xP
-Xp
-XP
-xpx
-xPx
-xr
-xR
-Xr
-XR
-xrx
-xRx
-xs
-xS
-Xs
-XS
-xsx
-xSx
-xt
-xT
-Xt
-XT
-xtx
-xTx
-xu
-xU
-Xu
-XU
-xú
-xÚ
-Xú
-XÚ
-xù
-xÙ
-Xù
-XÙ
-xû
-xÛ
-Xû
-XÛ
-xü
-xÜ
-Xü
-XÜ
-xux
-xUx
-xúx
-xÚx
-xùx
-xÙx
-xûx
-xÛx
-xüx
-xÜx
-xv
-xV
-Xv
-XV
-xvx
-xVx
-xw
-xW
-Xw
-XW
-xwx
-xWx
-xx
-xX
-Xx
-XX
-xxx
-xXx
-xy
-xY
-Xy
-XY
-xÿ
-xŸ
-Xÿ
-XŸ
-xyx
-xYx
-xÿx
-xŸx
-xz
-xZ
-Xz
-XZ
-xzx
-xZx
 xа
 xА
 Xа

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='tl'>
+ <cldrTest version='2.0' base='tl'>
  <!-- Tagalog [Tagalog] -->
   <number 
-locales='tl'>
-<!-- Tagalog [Tagalog@] -->
+locales='tl tl_PH'>
+<!-- Tagalog [Tagalog@]; Tagalog (Philippines) [Tagalog (Pilipinas)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -56,8 +56,8 @@ locales='tl'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='tl'>
-<!-- Tagalog [Tagalog@] -->
+locales='tl tl_PH'>
+<!-- Tagalog [Tagalog@]; Tagalog (Philippines) [Tagalog (Pilipinas)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1/31/00</result>
@@ -234,12 +234,12 @@ locales='tl'>
    <result timeType='medium'>Miyerkules, Disyembre 01 2010 23:59:59</result>
   </date>
   <zoneFields 
-locales='tl'>
-<!-- Tagalog [Tagalog@] -->
+locales='tl tl_PH'>
+<!-- Tagalog [Tagalog@]; Tagalog (Philippines) [Tagalog (Pilipinas)@] -->
   </zoneFields>
   <collation 
-locales='tl'>
-<!-- Tagalog [Tagalog@] -->
+locales='tl tl_PH'>
+<!-- Tagalog [Tagalog@]; Tagalog (Philippines) [Tagalog (Pilipinas)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

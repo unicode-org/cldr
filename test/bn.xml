@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='bn'>
+ <cldrTest version='2.0' base='bn'>
  <!-- Bengali [বাংলা] -->
   <number 
 locales='bn bn_BD bn_IN'>
@@ -50,10 +50,10 @@ locales='bn bn_BD bn_IN'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='NaN' numberType='integer'>সংখ্যা না</result>
+   <result numberType='decimal'>সংখ্যা না</result>
+   <result numberType='percent'>সংখ্যা না</result>
+   <result numberType='scientific'>সংখ্যা না</result>
   </number>
   <date 
 locales='bn bn_BD bn_IN'>
@@ -318,6 +318,9 @@ Xঁ
 xঁx
 xক
 Xক
+xক্ষ
+Xক্ষ
+xক্ষx
 xকx
 xখ
 Xখ
@@ -499,69 +502,8 @@ x12x
 x2
 X2
 x2x
-xa
-xA
-Xa
-XA
-xax
-xAx
-xd
-xD
-Xd
-XD
-xdx
-xDx
-xe
-xE
-Xe
-XE
-xex
-xEx
-xh
-xH
-Xh
-XH
-xhx
-xHx
-xl
-xL
-Xl
-XL
-xlx
-xLx
-xm
-xM
-Xm
-XM
-xmx
-xMx
-xq
-xQ
-Xq
-XQ
-xqx
-xQx
-xs
-xS
-Xs
-XS
-xsx
-xSx
-xv
-xV
-Xv
-XV
-xvx
-xVx
 x‌x
 x‍x
-x‌x
-xy
-xY
-Xy
-XY
-xyx
-xYx
 </result>
   </collation>
  </cldrTest>

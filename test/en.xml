@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='en'>
+ <cldrTest version='2.0' base='en'>
  <!-- English [English] -->
   <number 
-locales='en en_AS en_AU en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_JM en_MH en_MP en_MT en_MU en_NA en_NZ en_PH en_SG en_TT en_UM en_US en_VI en_ZW'>
-<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; Australian English [Australian English@]; English (Botswana) [English (Botswana)@]; English (Belize) [English (Belize)@]; Canadian English [Canadian English@]; British English [British English@]; English (Guam) [English (Guam)@]; English (Hong Kong SAR China) [English (Hong Kong SAR China)@]; English (Ireland) [English (Ireland)@]; English (Jamaica) [English (Jamaica)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Malta) [English (Malta)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (New Zealand) [English (New Zealand)@]; English (Philippines) [English (Philippines)@]; English (Singapore) [English (Singapore)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@]; English (Zimbabwe) [English (Zimbabwe)@] -->
+locales='en en_AS en_AU en_BB en_BM en_BW en_BZ en_CA en_GB en_GU en_GY en_HK en_IE en_JM en_MH en_MP en_MT en_MU en_NA en_NZ en_PH en_SG en_TT en_UM en_US en_VI en_ZW'>
+<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; Australian English [Australian English@]; English (Barbados) [English (Barbados)@]; English (Bermuda) [English (Bermuda)@]; English (Botswana) [English (Botswana)@]; English (Belize) [English (Belize)@]; Canadian English [Canadian English@]; British English [British English@]; English (Guam) [English (Guam)@]; English (Guyana) [English (Guyana)@]; English (Hong Kong SAR China) [English (Hong Kong SAR China)@]; English (Ireland) [English (Ireland)@]; English (Jamaica) [English (Jamaica)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Malta) [English (Malta)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (New Zealand) [English (New Zealand)@]; English (Philippines) [English (Philippines)@]; English (Singapore) [English (Singapore)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@]; English (Zimbabwe) [English (Zimbabwe)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -322,8 +322,8 @@ locales='en_ZA'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='en en_AS en_GU en_MH en_MP en_MU en_NA en_PH en_TT en_UM en_US en_US_POSIX en_VI'>
-<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; English (Guam) [English (Guam)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (Philippines) [English (Philippines)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; U.S. English (Computer) [U.S. English (Computer)@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@] -->
+locales='en en_AS en_BB en_BM en_GU en_GY en_MH en_MP en_MU en_NA en_PH en_TT en_UM en_US en_US_POSIX en_VI'>
+<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; English (Barbados) [English (Barbados)@]; English (Bermuda) [English (Bermuda)@]; English (Guam) [English (Guam)@]; English (Guyana) [English (Guyana)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (Philippines) [English (Philippines)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; U.S. English (Computer) [U.S. English (Computer)@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result dateType='short' timeType='none'>1/31/00</result>
@@ -1682,8 +1682,8 @@ locales='en_GB'>
    <result timeType='medium'>Wednesday, 1 December 2010 23:59:59</result>
   </date>
   <date 
-locales='en_HK'>
-<!-- English (Hong Kong SAR China) [English (Hong Kong SAR China)@] -->
+locales='en_HK en_SG'>
+<!-- English (Hong Kong SAR China) [English (Hong Kong SAR China)@]; English (Singapore) [English (Singapore)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 AM</result>
    <result timeType='medium'>12:00:00 AM</result>
    <result dateType='short' timeType='none'>31/1/00</result>
@@ -3030,178 +3030,6 @@ locales='en_PK'>
    <result draft='approved'>Wednesday, December 1, 2010 11:59:59 PM</result>
   </date>
   <date 
-locales='en_SG'>
-<!-- English (Singapore) [English (Singapore)@] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 AM</result>
-   <result timeType='medium'>12:00:00 AM</result>
-   <result dateType='short' timeType='none'>31/1/00</result>
-   <result timeType='short'>31/1/00 12:00 AM</result>
-   <result timeType='medium'>31/1/00 12:00:00 AM</result>
-   <result dateType='medium' timeType='none'>Jan 31, 1900</result>
-   <result timeType='short'>Jan 31, 1900 12:00 AM</result>
-   <result timeType='medium'>Jan 31, 1900 12:00:00 AM</result>
-   <result dateType='long' timeType='none'>January 31, 1900</result>
-   <result timeType='short'>January 31, 1900 12:00 AM</result>
-   <result timeType='medium'>January 31, 1900 12:00:00 AM</result>
-   <result dateType='full' timeType='none'>Wednesday, January 31, 1900</result>
-   <result timeType='short'>Wednesday, January 31, 1900 12:00 AM</result>
-   <result timeType='medium'>Wednesday, January 31, 1900 12:00:00 AM</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 AM</result>
-   <result timeType='medium'>12:00:01 AM</result>
-   <result dateType='short' timeType='none'>28/2/09</result>
-   <result timeType='short'>28/2/09 12:00 AM</result>
-   <result timeType='medium'>28/2/09 12:00:01 AM</result>
-   <result dateType='medium' timeType='none'>Feb 28, 1909</result>
-   <result timeType='short'>Feb 28, 1909 12:00 AM</result>
-   <result timeType='medium'>Feb 28, 1909 12:00:01 AM</result>
-   <result dateType='long' timeType='none'>February 28, 1909</result>
-   <result timeType='short'>February 28, 1909 12:00 AM</result>
-   <result timeType='medium'>February 28, 1909 12:00:01 AM</result>
-   <result dateType='full' timeType='none'>Sunday, February 28, 1909</result>
-   <result timeType='short'>Sunday, February 28, 1909 12:00 AM</result>
-   <result timeType='medium'>Sunday, February 28, 1909 12:00:01 AM</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 AM</result>
-   <result timeType='medium'>12:59:59 AM</result>
-   <result dateType='short' timeType='none'>26/3/18</result>
-   <result timeType='short'>26/3/18 12:59 AM</result>
-   <result timeType='medium'>26/3/18 12:59:59 AM</result>
-   <result dateType='medium' timeType='none'>Mar 26, 1918</result>
-   <result timeType='short'>Mar 26, 1918 12:59 AM</result>
-   <result timeType='medium'>Mar 26, 1918 12:59:59 AM</result>
-   <result dateType='long' timeType='none'>March 26, 1918</result>
-   <result timeType='short'>March 26, 1918 12:59 AM</result>
-   <result timeType='medium'>March 26, 1918 12:59:59 AM</result>
-   <result dateType='full' timeType='none'>Tuesday, March 26, 1918</result>
-   <result timeType='short'>Tuesday, March 26, 1918 12:59 AM</result>
-   <result timeType='medium'>Tuesday, March 26, 1918 12:59:59 AM</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 AM</result>
-   <result timeType='medium'>1:00:00 AM</result>
-   <result dateType='short' timeType='none'>24/4/32</result>
-   <result timeType='short'>24/4/32 1:00 AM</result>
-   <result timeType='medium'>24/4/32 1:00:00 AM</result>
-   <result dateType='medium' timeType='none'>Apr 24, 1932</result>
-   <result timeType='short'>Apr 24, 1932 1:00 AM</result>
-   <result timeType='medium'>Apr 24, 1932 1:00:00 AM</result>
-   <result dateType='long' timeType='none'>April 24, 1932</result>
-   <result timeType='short'>April 24, 1932 1:00 AM</result>
-   <result timeType='medium'>April 24, 1932 1:00:00 AM</result>
-   <result dateType='full' timeType='none'>Sunday, April 24, 1932</result>
-   <result timeType='short'>Sunday, April 24, 1932 1:00 AM</result>
-   <result timeType='medium'>Sunday, April 24, 1932 1:00:00 AM</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 AM</result>
-   <result timeType='medium'>1:00:01 AM</result>
-   <result dateType='short' timeType='none'>20/5/45</result>
-   <result timeType='short'>20/5/45 1:00 AM</result>
-   <result timeType='medium'>20/5/45 1:00:01 AM</result>
-   <result dateType='medium' timeType='none'>May 20, 1945</result>
-   <result timeType='short'>May 20, 1945 1:00 AM</result>
-   <result timeType='medium'>May 20, 1945 1:00:01 AM</result>
-   <result dateType='long' timeType='none'>May 20, 1945</result>
-   <result timeType='short'>May 20, 1945 1:00 AM</result>
-   <result timeType='medium'>May 20, 1945 1:00:01 AM</result>
-   <result dateType='full' timeType='none'>Sunday, May 20, 1945</result>
-   <result timeType='short'>Sunday, May 20, 1945 1:00 AM</result>
-   <result timeType='medium'>Sunday, May 20, 1945 1:00:01 AM</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 AM</result>
-   <result timeType='medium'>11:59:59 AM</result>
-   <result dateType='short' timeType='none'>18/6/52</result>
-   <result timeType='short'>18/6/52 11:59 AM</result>
-   <result timeType='medium'>18/6/52 11:59:59 AM</result>
-   <result dateType='medium' timeType='none'>Jun 18, 1952</result>
-   <result timeType='short'>Jun 18, 1952 11:59 AM</result>
-   <result timeType='medium'>Jun 18, 1952 11:59:59 AM</result>
-   <result dateType='long' timeType='none'>June 18, 1952</result>
-   <result timeType='short'>June 18, 1952 11:59 AM</result>
-   <result timeType='medium'>June 18, 1952 11:59:59 AM</result>
-   <result dateType='full' timeType='none'>Wednesday, June 18, 1952</result>
-   <result timeType='short'>Wednesday, June 18, 1952 11:59 AM</result>
-   <result timeType='medium'>Wednesday, June 18, 1952 11:59:59 AM</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 PM</result>
-   <result timeType='medium'>12:00:00 PM</result>
-   <result dateType='short' timeType='none'>16/7/73</result>
-   <result timeType='short'>16/7/73 12:00 PM</result>
-   <result timeType='medium'>16/7/73 12:00:00 PM</result>
-   <result dateType='medium' timeType='none'>Jul 16, 1973</result>
-   <result timeType='short'>Jul 16, 1973 12:00 PM</result>
-   <result timeType='medium'>Jul 16, 1973 12:00:00 PM</result>
-   <result dateType='long' timeType='none'>July 16, 1973</result>
-   <result timeType='short'>July 16, 1973 12:00 PM</result>
-   <result timeType='medium'>July 16, 1973 12:00:00 PM</result>
-   <result dateType='full' timeType='none'>Monday, July 16, 1973</result>
-   <result timeType='short'>Monday, July 16, 1973 12:00 PM</result>
-   <result timeType='medium'>Monday, July 16, 1973 12:00:00 PM</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 PM</result>
-   <result timeType='medium'>12:00:01 PM</result>
-   <result dateType='short' timeType='none'>14/8/99</result>
-   <result timeType='short'>14/8/99 12:00 PM</result>
-   <result timeType='medium'>14/8/99 12:00:01 PM</result>
-   <result dateType='medium' timeType='none'>Aug 14, 1999</result>
-   <result timeType='short'>Aug 14, 1999 12:00 PM</result>
-   <result timeType='medium'>Aug 14, 1999 12:00:01 PM</result>
-   <result dateType='long' timeType='none'>August 14, 1999</result>
-   <result timeType='short'>August 14, 1999 12:00 PM</result>
-   <result timeType='medium'>August 14, 1999 12:00:01 PM</result>
-   <result dateType='full' timeType='none'>Saturday, August 14, 1999</result>
-   <result timeType='short'>Saturday, August 14, 1999 12:00 PM</result>
-   <result timeType='medium'>Saturday, August 14, 1999 12:00:01 PM</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 PM</result>
-   <result timeType='medium'>10:59:59 PM</result>
-   <result dateType='short' timeType='none'>12/9/00</result>
-   <result timeType='short'>12/9/00 10:59 PM</result>
-   <result timeType='medium'>12/9/00 10:59:59 PM</result>
-   <result dateType='medium' timeType='none'>Sep 12, 2000</result>
-   <result timeType='short'>Sep 12, 2000 10:59 PM</result>
-   <result timeType='medium'>Sep 12, 2000 10:59:59 PM</result>
-   <result dateType='long' timeType='none'>September 12, 2000</result>
-   <result timeType='short'>September 12, 2000 10:59 PM</result>
-   <result timeType='medium'>September 12, 2000 10:59:59 PM</result>
-   <result dateType='full' timeType='none'>Tuesday, September 12, 2000</result>
-   <result timeType='short'>Tuesday, September 12, 2000 10:59 PM</result>
-   <result timeType='medium'>Tuesday, September 12, 2000 10:59:59 PM</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 PM</result>
-   <result timeType='medium'>11:00:00 PM</result>
-   <result dateType='short' timeType='none'>8/10/01</result>
-   <result timeType='short'>8/10/01 11:00 PM</result>
-   <result timeType='medium'>8/10/01 11:00:00 PM</result>
-   <result dateType='medium' timeType='none'>Oct 8, 2001</result>
-   <result timeType='short'>Oct 8, 2001 11:00 PM</result>
-   <result timeType='medium'>Oct 8, 2001 11:00:00 PM</result>
-   <result dateType='long' timeType='none'>October 8, 2001</result>
-   <result timeType='short'>October 8, 2001 11:00 PM</result>
-   <result timeType='medium'>October 8, 2001 11:00:00 PM</result>
-   <result dateType='full' timeType='none'>Monday, October 8, 2001</result>
-   <result timeType='short'>Monday, October 8, 2001 11:00 PM</result>
-   <result timeType='medium'>Monday, October 8, 2001 11:00:00 PM</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 PM</result>
-   <result timeType='medium'>11:00:01 PM</result>
-   <result dateType='short' timeType='none'>4/11/04</result>
-   <result timeType='short'>4/11/04 11:00 PM</result>
-   <result timeType='medium'>4/11/04 11:00:01 PM</result>
-   <result dateType='medium' timeType='none'>Nov 4, 2004</result>
-   <result timeType='short'>Nov 4, 2004 11:00 PM</result>
-   <result timeType='medium'>Nov 4, 2004 11:00:01 PM</result>
-   <result dateType='long' timeType='none'>November 4, 2004</result>
-   <result timeType='short'>November 4, 2004 11:00 PM</result>
-   <result timeType='medium'>November 4, 2004 11:00:01 PM</result>
-   <result dateType='full' timeType='none'>Thursday, November 4, 2004</result>
-   <result timeType='short'>Thursday, November 4, 2004 11:00 PM</result>
-   <result timeType='medium'>Thursday, November 4, 2004 11:00:01 PM</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 PM</result>
-   <result timeType='medium'>11:59:59 PM</result>
-   <result dateType='short' timeType='none'>1/12/10</result>
-   <result timeType='short'>1/12/10 11:59 PM</result>
-   <result timeType='medium'>1/12/10 11:59:59 PM</result>
-   <result dateType='medium' timeType='none'>Dec 1, 2010</result>
-   <result timeType='short'>Dec 1, 2010 11:59 PM</result>
-   <result timeType='medium'>Dec 1, 2010 11:59:59 PM</result>
-   <result dateType='long' timeType='none'>December 1, 2010</result>
-   <result timeType='short'>December 1, 2010 11:59 PM</result>
-   <result timeType='medium'>December 1, 2010 11:59:59 PM</result>
-   <result dateType='full' timeType='none'>Wednesday, December 1, 2010</result>
-   <result timeType='short'>Wednesday, December 1, 2010 11:59 PM</result>
-   <result timeType='medium'>Wednesday, December 1, 2010 11:59:59 PM</result>
-  </date>
-  <date 
 locales='en_ZA'>
 <!-- English (South Africa) [English (South Africa)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 AM</result>
@@ -3546,12 +3374,12 @@ locales='en_ZW'>
    <result timeType='medium'>Wednesday 01 December 2010 11:59:59 PM</result>
   </date>
   <zoneFields 
-locales='en en_AS en_AU en_BE en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_IN en_JM en_MH en_MP en_MT en_MU en_NA en_NZ en_PH en_PK en_SG en_TT en_UM en_US en_US_POSIX en_VI en_ZA en_ZW'>
-<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; Australian English [Australian English@]; English (Belgium) [English (Belgium)@]; English (Botswana) [English (Botswana)@]; English (Belize) [English (Belize)@]; Canadian English [Canadian English@]; British English [British English@]; English (Guam) [English (Guam)@]; English (Hong Kong SAR China) [English (Hong Kong SAR China)@]; English (Ireland) [English (Ireland)@]; English (India) [English (India)@]; English (Jamaica) [English (Jamaica)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Malta) [English (Malta)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (New Zealand) [English (New Zealand)@]; English (Philippines) [English (Philippines)@]; English (Pakistan) [English (Pakistan)@]; English (Singapore) [English (Singapore)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; U.S. English (Computer) [U.S. English (Computer)@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@]; English (South Africa) [English (South Africa)@]; English (Zimbabwe) [English (Zimbabwe)@] -->
+locales='en en_AS en_AU en_BB en_BE en_BM en_BW en_BZ en_CA en_GB en_GU en_GY en_HK en_IE en_IN en_JM en_MH en_MP en_MT en_MU en_NA en_NZ en_PH en_PK en_SG en_TT en_UM en_US en_US_POSIX en_VI en_ZA en_ZW'>
+<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; Australian English [Australian English@]; English (Barbados) [English (Barbados)@]; English (Belgium) [English (Belgium)@]; English (Bermuda) [English (Bermuda)@]; English (Botswana) [English (Botswana)@]; English (Belize) [English (Belize)@]; Canadian English [Canadian English@]; British English [British English@]; English (Guam) [English (Guam)@]; English (Guyana) [English (Guyana)@]; English (Hong Kong SAR China) [English (Hong Kong SAR China)@]; English (Ireland) [English (Ireland)@]; English (India) [English (India)@]; English (Jamaica) [English (Jamaica)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Malta) [English (Malta)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (New Zealand) [English (New Zealand)@]; English (Philippines) [English (Philippines)@]; English (Pakistan) [English (Pakistan)@]; English (Singapore) [English (Singapore)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; U.S. English (Computer) [U.S. English (Computer)@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@]; English (South Africa) [English (South Africa)@]; English (Zimbabwe) [English (Zimbabwe)@] -->
   </zoneFields>
   <collation 
-locales='en en_AS en_AU en_BE en_BW en_BZ en_CA en_GB en_GU en_HK en_IE en_IN en_JM en_MH en_MP en_MT en_MU en_NA en_NZ en_PH en_PK en_SG en_TT en_UM en_US en_US_POSIX en_VI en_ZW'>
-<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; Australian English [Australian English@]; English (Belgium) [English (Belgium)@]; English (Botswana) [English (Botswana)@]; English (Belize) [English (Belize)@]; Canadian English [Canadian English@]; British English [British English@]; English (Guam) [English (Guam)@]; English (Hong Kong SAR China) [English (Hong Kong SAR China)@]; English (Ireland) [English (Ireland)@]; English (India) [English (India)@]; English (Jamaica) [English (Jamaica)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Malta) [English (Malta)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (New Zealand) [English (New Zealand)@]; English (Philippines) [English (Philippines)@]; English (Pakistan) [English (Pakistan)@]; English (Singapore) [English (Singapore)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; U.S. English (Computer) [U.S. English (Computer)@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@]; English (Zimbabwe) [English (Zimbabwe)@] -->
+locales='en en_AS en_AU en_BB en_BE en_BM en_BW en_BZ en_CA en_GB en_GU en_GY en_HK en_IE en_IN en_JM en_MH en_MP en_MT en_MU en_NA en_NZ en_PH en_PK en_SG en_TT en_UM en_US en_VI en_ZW'>
+<!-- English [English@]; English (American Samoa) [English (American Samoa)@]; Australian English [Australian English@]; English (Barbados) [English (Barbados)@]; English (Belgium) [English (Belgium)@]; English (Bermuda) [English (Bermuda)@]; English (Botswana) [English (Botswana)@]; English (Belize) [English (Belize)@]; Canadian English [Canadian English@]; British English [British English@]; English (Guam) [English (Guam)@]; English (Guyana) [English (Guyana)@]; English (Hong Kong SAR China) [English (Hong Kong SAR China)@]; English (Ireland) [English (Ireland)@]; English (India) [English (India)@]; English (Jamaica) [English (Jamaica)@]; English (Marshall Islands) [English (Marshall Islands)@]; English (Northern Mariana Islands) [English (Northern Mariana Islands)@]; English (Malta) [English (Malta)@]; English (Mauritius) [English (Mauritius)@]; English (Namibia) [English (Namibia)@]; English (New Zealand) [English (New Zealand)@]; English (Philippines) [English (Philippines)@]; English (Pakistan) [English (Pakistan)@]; English (Singapore) [English (Singapore)@]; English (Trinidad and Tobago) [English (Trinidad and Tobago)@]; English (U.S. Minor Outlying Islands) [English (U.S. Minor Outlying Islands)@]; U.S. English [U.S. English@]; English (U.S. Virgin Islands) [English (U.S. Virgin Islands)@]; English (Zimbabwe) [English (Zimbabwe)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -3952,6 +3780,522 @@ Xz
 XZ
 xzx
 xZx
+</result>
+  </collation>
+  <collation 
+locales='en_US_POSIX'>
+<!-- U.S. English (Computer) [U.S. English (Computer)@] -->
+   <result draft='unconfirmed approved'>
+Xæ
+XÆ
+X 
+X!
+X&amp;quot;
+X#
+X$
+X%
+X&amp;amp;
+X&amp;apos;
+X(
+X)
+X*
+X+
+X,
+X-
+X.
+X/
+X0
+X1
+X12
+X2
+X3
+X4
+X5
+X6
+X7
+X8
+X9
+X:
+X;
+X&amp;lt;
+X=
+X&amp;gt;
+X?
+X@
+XA
+XÁ
+XÀ
+XĂ
+XÂ
+XÅ
+XÄ
+XÃ
+XĀ
+XB
+XC
+XÇ
+XD
+XE
+XÉ
+XÈ
+XĔ
+XÊ
+XË
+XĒ
+XF
+XG
+XH
+XI
+XÍ
+XÌ
+XĬ
+XÎ
+XÏ
+XĪ
+XJ
+XK
+XL
+XM
+XN
+XÑ
+XO
+XÓ
+XÒ
+XŎ
+XÔ
+XÖ
+XŌ
+XP
+XQ
+XR
+XS
+XT
+XU
+XÚ
+XÙ
+XŬ
+XÛ
+XÜ
+XŪ
+XV
+XW
+XX
+XY
+XŸ
+XZ
+X[
+X\
+X]
+X^
+X_
+X`
+Xa
+Xá
+Xà
+Xă
+Xâ
+Xå
+Xä
+Xã
+Xā
+Xb
+Xc
+Xç
+Xd
+Xe
+Xé
+Xè
+Xĕ
+Xê
+Xë
+Xē
+Xf
+Xg
+Xh
+Xi
+Xí
+Xì
+Xĭ
+Xî
+Xï
+Xī
+Xj
+Xk
+Xl
+Xm
+Xn
+Xñ
+Xo
+Xó
+Xò
+Xŏ
+Xô
+Xö
+Xō
+Xp
+Xq
+Xr
+Xs
+Xt
+Xu
+Xú
+Xù
+Xŭ
+Xû
+Xü
+Xū
+Xv
+Xw
+Xx
+Xy
+Xÿ
+Xz
+X{
+X|
+Xø
+XØ
+Xœ
+XŒ
+xæ
+xÆ
+xæx
+xÆx
+x 
+x x
+x!
+x!x
+x&amp;quot;
+x&amp;quot;x
+x#
+x#x
+x$
+x$x
+x%
+x%x
+x&amp;amp;
+x&amp;amp;x
+x&amp;apos;
+x&amp;apos;x
+x(
+x(x
+x)
+x)x
+x*
+x*x
+x+
+x+x
+x,
+x,x
+x-
+x-x
+x.
+x.x
+x/
+x/x
+x0
+x0x
+x1
+x12
+x12x
+x1x
+x2
+x2x
+x3
+x3x
+x4
+x4x
+x5
+x5x
+x6
+x6x
+x7
+x7x
+x8
+x8x
+x9
+x9x
+x:
+x:x
+x;
+x;x
+x&amp;lt;
+x&amp;lt;x
+x=
+x=x
+x&amp;gt;
+x&amp;gt;x
+x?
+x?x
+x@
+x@x
+xA
+xÁ
+xÀ
+xĂ
+xÂ
+xÅ
+xÄ
+xÃ
+xĀ
+xAx
+xÁx
+xÀx
+xĂx
+xÂx
+xÅx
+xÄx
+xÃx
+xĀx
+xB
+xBx
+xC
+xÇ
+xCx
+xÇx
+xD
+xDx
+xE
+xÉ
+xÈ
+xĔ
+xÊ
+xË
+xĒ
+xEx
+xÉx
+xÈx
+xĔx
+xÊx
+xËx
+xĒx
+xF
+xFx
+xG
+xGx
+xH
+xHx
+xI
+xÍ
+xÌ
+xĬ
+xÎ
+xÏ
+xĪ
+xIx
+xÍx
+xÌx
+xĬx
+xÎx
+xÏx
+xĪx
+xJ
+xJx
+xK
+xKx
+xL
+xLx
+xM
+xMx
+xN
+xÑ
+xNx
+xÑx
+xO
+xÓ
+xÒ
+xŎ
+xÔ
+xÖ
+xŌ
+xOx
+xÓx
+xÒx
+xŎx
+xÔx
+xÖx
+xŌx
+xP
+xPx
+xQ
+xQx
+xR
+xRx
+xS
+xSx
+xT
+xTx
+xU
+xÚ
+xÙ
+xŬ
+xÛ
+xÜ
+xŪ
+xUx
+xÚx
+xÙx
+xŬx
+xÛx
+xÜx
+xŪx
+xV
+xVx
+xW
+xWx
+xX
+xXx
+xY
+xŸ
+xYx
+xŸx
+xZ
+xZx
+x[
+x[x
+x\
+x\x
+x]
+x]x
+x^
+x^x
+x_
+x_x
+x`
+x`x
+xa
+xá
+xà
+xă
+xâ
+xå
+xä
+xã
+xā
+xax
+xáx
+xàx
+xăx
+xâx
+xåx
+xäx
+xãx
+xāx
+xb
+xbx
+xc
+xç
+xcx
+xçx
+xd
+xdx
+xe
+xé
+xè
+xĕ
+xê
+xë
+xē
+xex
+xéx
+xèx
+xĕx
+xêx
+xëx
+xēx
+xf
+xfx
+xg
+xgx
+xh
+xhx
+xi
+xí
+xì
+xĭ
+xî
+xï
+xī
+xix
+xíx
+xìx
+xĭx
+xîx
+xïx
+xīx
+xj
+xjx
+xk
+xkx
+xl
+xlx
+xm
+xmx
+xn
+xñ
+xnx
+xñx
+xo
+xó
+xò
+xŏ
+xô
+xö
+xō
+xox
+xóx
+xòx
+xŏx
+xôx
+xöx
+xōx
+xp
+xpx
+xq
+xqx
+xr
+xrx
+xs
+xsx
+xt
+xtx
+xu
+xú
+xù
+xŭ
+xû
+xü
+xū
+xux
+xúx
+xùx
+xŭx
+xûx
+xüx
+xūx
+xv
+xvx
+xw
+xwx
+xx
+xxx
+xy
+xÿ
+xyx
+xÿx
+xz
+xzx
+x{
+x{x
+x|
+x|x
+xø
+xØ
+xøx
+xØx
+xœ
+xŒ
+xœx
+xŒx
 </result>
   </collation>
   <collation 

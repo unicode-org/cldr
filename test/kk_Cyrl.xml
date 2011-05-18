@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='kk_Cyrl'>
- <!-- Kazakh (Cyrillic) [Қазақ (Cyrl)] -->
+ <cldrTest version='2.0' base='kk_Cyrl'>
+ <!-- Kazakh (Cyrillic) [қазақ тілі (кириллица)] -->
   <number 
 locales='kk_Cyrl kk_Cyrl_KZ'>
-<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+<!-- Kazakh (Cyrillic) [қазақ тілі (кириллица)@]; Kazakh (Cyrillic, Kazakhstan) [қазақ тілі (кириллица, Қазақстан)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,7 +57,7 @@ locales='kk_Cyrl kk_Cyrl_KZ'>
   </number>
   <date 
 locales='kk_Cyrl kk_Cyrl_KZ'>
-<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+<!-- Kazakh (Cyrillic) [қазақ тілі (кириллица)@]; Kazakh (Cyrillic, Kazakhstan) [қазақ тілі (кириллица, Қазақстан)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>31.01.00</result>
@@ -229,11 +229,11 @@ locales='kk_Cyrl kk_Cyrl_KZ'>
   </date>
   <zoneFields 
 locales='kk_Cyrl kk_Cyrl_KZ'>
-<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+<!-- Kazakh (Cyrillic) [қазақ тілі (кириллица)@]; Kazakh (Cyrillic, Kazakhstan) [қазақ тілі (кириллица, Қазақстан)@] -->
   </zoneFields>
   <collation 
 locales='kk_Cyrl kk_Cyrl_KZ'>
-<!-- Kazakh (Cyrillic) [Қазақ (Cyrl)@]; Kazakh (Cyrillic, Kazakhstan) [Қазақ (Cyrl, Қазақстан)@] -->
+<!-- Kazakh (Cyrillic) [қазақ тілі (кириллица)@]; Kazakh (Cyrillic, Kazakhstan) [қазақ тілі (кириллица, Қазақстан)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -280,6 +280,12 @@ Xг
 XГ
 xгx
 xГx
+xғ
+xҒ
+Xғ
+XҒ
+xғx
+xҒx
 xд
 xД
 Xд
@@ -290,12 +296,12 @@ xе
 xЕ
 Xе
 XЕ
+xеx
+xЕx
 xё
 xЁ
 Xё
 XЁ
-xеx
-xЕx
 xёx
 xЁx
 xж
@@ -314,12 +320,12 @@ xи
 xИ
 Xи
 XИ
+xиx
+xИx
 xй
 xЙ
 Xй
 XЙ
-xиx
-xИx
 xйx
 xЙx
 xк
@@ -359,10 +365,10 @@ XҢ
 xңx
 xҢx
 xо
-Xо
-xоx
 xО
+Xо
 XО
+xоx
 xОx
 xө
 xӨ

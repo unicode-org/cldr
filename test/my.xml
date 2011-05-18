@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='my'>
+ <cldrTest version='2.0' base='my'>
  <!-- Burmese [ဗမာ] -->
   <number 
 locales='my my_MM'>
@@ -60,316 +60,172 @@ locales='my my_MM'>
 <!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/01/31</result>
-   <result draft='approved'>1900-01-31</result>
-   <result timeType='short' draft='unconfirmed'>00/01/31 00:00</result>
-   <result draft='approved'>1900-01-31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>00/01/31 00:00:00</result>
-   <result draft='approved'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1900 ဇန် 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 ဇန် 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 ဇန် 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1900 ဇန်နဝါရီ 31</result>
-   <result draft='approved'>1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>1900 ဇန်နဝါရီ 31 00:00</result>
-   <result draft='approved'>1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1900 ဇန်နဝါရီ 31 00:00:00</result>
-   <result draft='approved'>1900 1 31 00:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31</result>
-   <result draft='approved'>4, 1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00:00</result>
-   <result draft='approved'>4, 1900 1 31 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
+   <result dateType='short' timeType='none'>00/01/31</result>
+   <result timeType='short'>00/01/31 00:00</result>
+   <result timeType='medium'>00/01/31 00:00:00</result>
+   <result dateType='medium' timeType='none'>1900 ဇန် 31</result>
+   <result timeType='short'>1900 ဇန် 31 00:00</result>
+   <result timeType='medium'>1900 ဇန် 31 00:00:00</result>
+   <result dateType='long' timeType='none'>1900 ဇန်နဝါရီ 31</result>
+   <result timeType='short'>1900 ဇန်နဝါရီ 31 00:00</result>
+   <result timeType='medium'>1900 ဇန်နဝါရီ 31 00:00:00</result>
+   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31</result>
+   <result timeType='short'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00</result>
+   <result timeType='medium'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>09/02/28</result>
-   <result draft='approved'>1909-02-28</result>
-   <result timeType='short' draft='unconfirmed'>09/02/28 00:00</result>
-   <result draft='approved'>1909-02-28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>09/02/28 00:00:01</result>
-   <result draft='approved'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1909 ဖေ 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 ဖေ 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 ဖေ 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1909 ဖေဖော်ဝါရီ 28</result>
-   <result draft='approved'>1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>1909 ဖေဖော်ဝါရီ 28 00:00</result>
-   <result draft='approved'>1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
-   <result draft='approved'>1909 2 28 00:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28</result>
-   <result draft='approved'>1, 1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00</result>
-   <result draft='approved'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
-   <result draft='approved'>1, 1909 2 28 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
+   <result dateType='short' timeType='none'>09/02/28</result>
+   <result timeType='short'>09/02/28 00:00</result>
+   <result timeType='medium'>09/02/28 00:00:01</result>
+   <result dateType='medium' timeType='none'>1909 ဖေ 28</result>
+   <result timeType='short'>1909 ဖေ 28 00:00</result>
+   <result timeType='medium'>1909 ဖေ 28 00:00:01</result>
+   <result dateType='long' timeType='none'>1909 ဖေဖော်ဝါရီ 28</result>
+   <result timeType='short'>1909 ဖေဖော်ဝါရီ 28 00:00</result>
+   <result timeType='medium'>1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
+   <result dateType='full' timeType='none'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28</result>
+   <result timeType='short'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00</result>
+   <result timeType='medium'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>18/03/26</result>
-   <result draft='approved'>1918-03-26</result>
-   <result timeType='short' draft='unconfirmed'>18/03/26 00:59</result>
-   <result draft='approved'>1918-03-26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>18/03/26 00:59:59</result>
-   <result draft='approved'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1918 မတ် 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 မတ် 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 မတ် 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1918 မတ် 26</result>
-   <result draft='approved'>1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>1918 မတ် 26 00:59</result>
-   <result draft='approved'>1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>1918 မတ် 26 00:59:59</result>
-   <result draft='approved'>1918 3 26 00:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>အင်္ဂါ, 1918 မတ် 26</result>
-   <result draft='approved'>3, 1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>အင်္ဂါ, 1918 မတ် 26 00:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>အင်္ဂါ, 1918 မတ် 26 00:59:59</result>
-   <result draft='approved'>3, 1918 3 26 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
+   <result dateType='short' timeType='none'>18/03/26</result>
+   <result timeType='short'>18/03/26 00:59</result>
+   <result timeType='medium'>18/03/26 00:59:59</result>
+   <result dateType='medium' timeType='none'>1918 မတ် 26</result>
+   <result timeType='short'>1918 မတ် 26 00:59</result>
+   <result timeType='medium'>1918 မတ် 26 00:59:59</result>
+   <result dateType='long' timeType='none'>1918 မတ် 26</result>
+   <result timeType='short'>1918 မတ် 26 00:59</result>
+   <result timeType='medium'>1918 မတ် 26 00:59:59</result>
+   <result dateType='full' timeType='none'>အင်္ဂါ, 1918 မတ် 26</result>
+   <result timeType='short'>အင်္ဂါ, 1918 မတ် 26 00:59</result>
+   <result timeType='medium'>အင်္ဂါ, 1918 မတ် 26 00:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>32/04/24</result>
-   <result draft='approved'>1932-04-24</result>
-   <result timeType='short' draft='unconfirmed'>32/04/24 01:00</result>
-   <result draft='approved'>1932-04-24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>32/04/24 01:00:00</result>
-   <result draft='approved'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1932 ဧ 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 ဧ 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 ဧ 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1932 ဧပြီ 24</result>
-   <result draft='approved'>1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>1932 ဧပြီ 24 01:00</result>
-   <result draft='approved'>1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1932 ဧပြီ 24 01:00:00</result>
-   <result draft='approved'>1932 4 24 01:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, 1932 ဧပြီ 24</result>
-   <result draft='approved'>1, 1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00:00</result>
-   <result draft='approved'>1, 1932 4 24 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
+   <result dateType='short' timeType='none'>32/04/24</result>
+   <result timeType='short'>32/04/24 01:00</result>
+   <result timeType='medium'>32/04/24 01:00:00</result>
+   <result dateType='medium' timeType='none'>1932 ဧ 24</result>
+   <result timeType='short'>1932 ဧ 24 01:00</result>
+   <result timeType='medium'>1932 ဧ 24 01:00:00</result>
+   <result dateType='long' timeType='none'>1932 ဧပြီ 24</result>
+   <result timeType='short'>1932 ဧပြီ 24 01:00</result>
+   <result timeType='medium'>1932 ဧပြီ 24 01:00:00</result>
+   <result dateType='full' timeType='none'>တနင်္ဂနွေ, 1932 ဧပြီ 24</result>
+   <result timeType='short'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00</result>
+   <result timeType='medium'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>45/05/20</result>
-   <result draft='approved'>1945-05-20</result>
-   <result timeType='short' draft='unconfirmed'>45/05/20 01:00</result>
-   <result draft='approved'>1945-05-20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>45/05/20 01:00:01</result>
-   <result draft='approved'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1945 မေ 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 မေ 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 မေ 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1945 မေ 20</result>
-   <result draft='approved'>1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>1945 မေ 20 01:00</result>
-   <result draft='approved'>1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>1945 မေ 20 01:00:01</result>
-   <result draft='approved'>1945 5 20 01:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္ဂနွေ, 1945 မေ 20</result>
-   <result draft='approved'>1, 1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္ဂနွေ, 1945 မေ 20 01:00</result>
-   <result draft='approved'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္ဂနွေ, 1945 မေ 20 01:00:01</result>
-   <result draft='approved'>1, 1945 5 20 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
+   <result dateType='short' timeType='none'>45/05/20</result>
+   <result timeType='short'>45/05/20 01:00</result>
+   <result timeType='medium'>45/05/20 01:00:01</result>
+   <result dateType='medium' timeType='none'>1945 မေ 20</result>
+   <result timeType='short'>1945 မေ 20 01:00</result>
+   <result timeType='medium'>1945 မေ 20 01:00:01</result>
+   <result dateType='long' timeType='none'>1945 မေ 20</result>
+   <result timeType='short'>1945 မေ 20 01:00</result>
+   <result timeType='medium'>1945 မေ 20 01:00:01</result>
+   <result dateType='full' timeType='none'>တနင်္ဂနွေ, 1945 မေ 20</result>
+   <result timeType='short'>တနင်္ဂနွေ, 1945 မေ 20 01:00</result>
+   <result timeType='medium'>တနင်္ဂနွေ, 1945 မေ 20 01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>52/06/18</result>
-   <result draft='approved'>1952-06-18</result>
-   <result timeType='short' draft='unconfirmed'>52/06/18 11:59</result>
-   <result draft='approved'>1952-06-18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>52/06/18 11:59:59</result>
-   <result draft='approved'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1952 ဇွန် 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 ဇွန် 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 ဇွန် 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1952 ဇွန် 18</result>
-   <result draft='approved'>1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>1952 ဇွန် 18 11:59</result>
-   <result draft='approved'>1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>1952 ဇွန် 18 11:59:59</result>
-   <result draft='approved'>1952 6 18 11:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18</result>
-   <result draft='approved'>4, 1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59:59</result>
-   <result draft='approved'>4, 1952 6 18 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
+   <result dateType='short' timeType='none'>52/06/18</result>
+   <result timeType='short'>52/06/18 11:59</result>
+   <result timeType='medium'>52/06/18 11:59:59</result>
+   <result dateType='medium' timeType='none'>1952 ဇွန် 18</result>
+   <result timeType='short'>1952 ဇွန် 18 11:59</result>
+   <result timeType='medium'>1952 ဇွန် 18 11:59:59</result>
+   <result dateType='long' timeType='none'>1952 ဇွန် 18</result>
+   <result timeType='short'>1952 ဇွန် 18 11:59</result>
+   <result timeType='medium'>1952 ဇွန် 18 11:59:59</result>
+   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18</result>
+   <result timeType='short'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59</result>
+   <result timeType='medium'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>73/07/16</result>
-   <result draft='approved'>1973-07-16</result>
-   <result timeType='short' draft='unconfirmed'>73/07/16 12:00</result>
-   <result draft='approved'>1973-07-16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>73/07/16 12:00:00</result>
-   <result draft='approved'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1973 ဇူ 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 ဇူ 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 ဇူ 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1973 ဇူလိုင် 16</result>
-   <result draft='approved'>1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>1973 ဇူလိုင် 16 12:00</result>
-   <result draft='approved'>1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1973 ဇူလိုင် 16 12:00:00</result>
-   <result draft='approved'>1973 7 16 12:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္လာ, 1973 ဇူလိုင် 16</result>
-   <result draft='approved'>2, 1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00:00</result>
-   <result draft='approved'>2, 1973 7 16 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
+   <result dateType='short' timeType='none'>73/07/16</result>
+   <result timeType='short'>73/07/16 12:00</result>
+   <result timeType='medium'>73/07/16 12:00:00</result>
+   <result dateType='medium' timeType='none'>1973 ဇူ 16</result>
+   <result timeType='short'>1973 ဇူ 16 12:00</result>
+   <result timeType='medium'>1973 ဇူ 16 12:00:00</result>
+   <result dateType='long' timeType='none'>1973 ဇူလိုင် 16</result>
+   <result timeType='short'>1973 ဇူလိုင် 16 12:00</result>
+   <result timeType='medium'>1973 ဇူလိုင် 16 12:00:00</result>
+   <result dateType='full' timeType='none'>တနင်္လာ, 1973 ဇူလိုင် 16</result>
+   <result timeType='short'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00</result>
+   <result timeType='medium'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>99/08/14</result>
-   <result draft='approved'>1999-08-14</result>
-   <result timeType='short' draft='unconfirmed'>99/08/14 12:00</result>
-   <result draft='approved'>1999-08-14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>99/08/14 12:00:01</result>
-   <result draft='approved'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>1999 ဩ 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 ဩ 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 ဩ 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>1999 ဩဂုတ် 14</result>
-   <result draft='approved'>1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>1999 ဩဂုတ် 14 12:00</result>
-   <result draft='approved'>1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>1999 ဩဂုတ် 14 12:00:01</result>
-   <result draft='approved'>1999 8 14 12:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>စနေ, 1999 ဩဂုတ် 14</result>
-   <result draft='approved'>7, 1999 8 14</result>
-   <result timeType='short' draft='unconfirmed'>စနေ, 1999 ဩဂုတ် 14 12:00</result>
-   <result draft='approved'>7, 1999 8 14 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>စနေ, 1999 ဩဂုတ် 14 12:00:01</result>
-   <result draft='approved'>7, 1999 8 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
+   <result dateType='short' timeType='none'>99/08/14</result>
+   <result timeType='short'>99/08/14 12:00</result>
+   <result timeType='medium'>99/08/14 12:00:01</result>
+   <result dateType='medium' timeType='none'>1999 ဩ 14</result>
+   <result timeType='short'>1999 ဩ 14 12:00</result>
+   <result timeType='medium'>1999 ဩ 14 12:00:01</result>
+   <result dateType='long' timeType='none'>1999 ဩဂုတ် 14</result>
+   <result timeType='short'>1999 ဩဂုတ် 14 12:00</result>
+   <result timeType='medium'>1999 ဩဂုတ် 14 12:00:01</result>
+   <result dateType='full' timeType='none'>စနေ, 1999 ဩဂုတ် 14</result>
+   <result timeType='short'>စနေ, 1999 ဩဂုတ် 14 12:00</result>
+   <result timeType='medium'>စနေ, 1999 ဩဂုတ် 14 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>00/09/12</result>
-   <result draft='approved'>2000-09-12</result>
-   <result timeType='short' draft='unconfirmed'>00/09/12 22:59</result>
-   <result draft='approved'>2000-09-12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>00/09/12 22:59:59</result>
-   <result draft='approved'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2000 စက် 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 စက် 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 စက် 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2000 စက်တင်ဘာ 12</result>
-   <result draft='approved'>2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>2000 စက်တင်ဘာ 12 22:59</result>
-   <result draft='approved'>2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>2000 စက်တင်ဘာ 12 22:59:59</result>
-   <result draft='approved'>2000 9 12 22:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>အင်္ဂါ, 2000 စက်တင်ဘာ 12</result>
-   <result draft='approved'>3, 2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59:59</result>
-   <result draft='approved'>3, 2000 9 12 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
+   <result dateType='short' timeType='none'>00/09/12</result>
+   <result timeType='short'>00/09/12 22:59</result>
+   <result timeType='medium'>00/09/12 22:59:59</result>
+   <result dateType='medium' timeType='none'>2000 စက် 12</result>
+   <result timeType='short'>2000 စက် 12 22:59</result>
+   <result timeType='medium'>2000 စက် 12 22:59:59</result>
+   <result dateType='long' timeType='none'>2000 စက်တင်ဘာ 12</result>
+   <result timeType='short'>2000 စက်တင်ဘာ 12 22:59</result>
+   <result timeType='medium'>2000 စက်တင်ဘာ 12 22:59:59</result>
+   <result dateType='full' timeType='none'>အင်္ဂါ, 2000 စက်တင်ဘာ 12</result>
+   <result timeType='short'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59</result>
+   <result timeType='medium'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>01/10/08</result>
-   <result draft='approved'>2001-10-08</result>
-   <result timeType='short' draft='unconfirmed'>01/10/08 23:00</result>
-   <result draft='approved'>2001-10-08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>01/10/08 23:00:00</result>
-   <result draft='approved'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2001 အောက် 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 အောက် 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 အောက် 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2001 အောက်တိုဘာ 8</result>
-   <result draft='approved'>2001 10 8</result>
-   <result timeType='short' draft='unconfirmed'>2001 အောက်တိုဘာ 8 23:00</result>
-   <result draft='approved'>2001 10 8 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2001 အောက်တိုဘာ 8 23:00:00</result>
-   <result draft='approved'>2001 10 8 23:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>တနင်္လာ, 2001 အောက်တိုဘာ 08</result>
-   <result draft='approved'>2, 2001 10 08</result>
-   <result timeType='short' draft='unconfirmed'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00:00</result>
-   <result draft='approved'>2, 2001 10 08 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
+   <result dateType='short' timeType='none'>01/10/08</result>
+   <result timeType='short'>01/10/08 23:00</result>
+   <result timeType='medium'>01/10/08 23:00:00</result>
+   <result dateType='medium' timeType='none'>2001 အောက် 8</result>
+   <result timeType='short'>2001 အောက် 8 23:00</result>
+   <result timeType='medium'>2001 အောက် 8 23:00:00</result>
+   <result dateType='long' timeType='none'>2001 အောက်တိုဘာ 8</result>
+   <result timeType='short'>2001 အောက်တိုဘာ 8 23:00</result>
+   <result timeType='medium'>2001 အောက်တိုဘာ 8 23:00:00</result>
+   <result dateType='full' timeType='none'>တနင်္လာ, 2001 အောက်တိုဘာ 08</result>
+   <result timeType='short'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00</result>
+   <result timeType='medium'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>04/11/04</result>
-   <result draft='approved'>2004-11-04</result>
-   <result timeType='short' draft='unconfirmed'>04/11/04 23:00</result>
-   <result draft='approved'>2004-11-04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>04/11/04 23:00:01</result>
-   <result draft='approved'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2004 နို 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 နို 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 နို 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2004 နိုဝင်ဘာ 4</result>
-   <result draft='approved'>2004 11 4</result>
-   <result timeType='short' draft='unconfirmed'>2004 နိုဝင်ဘာ 4 23:00</result>
-   <result draft='approved'>2004 11 4 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>2004 နိုဝင်ဘာ 4 23:00:01</result>
-   <result draft='approved'>2004 11 4 23:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04</result>
-   <result draft='approved'>5, 2004 11 04</result>
-   <result timeType='short' draft='unconfirmed'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00</result>
-   <result draft='approved'>5, 2004 11 04 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00:01</result>
-   <result draft='approved'>5, 2004 11 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
+   <result dateType='short' timeType='none'>04/11/04</result>
+   <result timeType='short'>04/11/04 23:00</result>
+   <result timeType='medium'>04/11/04 23:00:01</result>
+   <result dateType='medium' timeType='none'>2004 နို 4</result>
+   <result timeType='short'>2004 နို 4 23:00</result>
+   <result timeType='medium'>2004 နို 4 23:00:01</result>
+   <result dateType='long' timeType='none'>2004 နိုဝင်ဘာ 4</result>
+   <result timeType='short'>2004 နိုဝင်ဘာ 4 23:00</result>
+   <result timeType='medium'>2004 နိုဝင်ဘာ 4 23:00:01</result>
+   <result dateType='full' timeType='none'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04</result>
+   <result timeType='short'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00</result>
+   <result timeType='medium'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none' draft='unconfirmed'>10/12/01</result>
-   <result draft='approved'>2010-12-01</result>
-   <result timeType='short' draft='unconfirmed'>10/12/01 23:59</result>
-   <result draft='approved'>2010-12-01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>10/12/01 23:59:59</result>
-   <result draft='approved'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none' draft='unconfirmed'>2010 ဒီ 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 ဒီ 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 ဒီ 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='long' timeType='none' draft='unconfirmed'>2010 ဒီဇင်ဘာ 1</result>
-   <result draft='approved'>2010 12 1</result>
-   <result timeType='short' draft='unconfirmed'>2010 ဒီဇင်ဘာ 1 23:59</result>
-   <result draft='approved'>2010 12 1 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>2010 ဒီဇင်ဘာ 1 23:59:59</result>
-   <result draft='approved'>2010 12 1 23:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01</result>
-   <result draft='approved'>4, 2010 12 01</result>
-   <result timeType='short' draft='unconfirmed'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59:59</result>
-   <result draft='approved'>4, 2010 12 01 23:59:59</result>
+   <result dateType='short' timeType='none'>10/12/01</result>
+   <result timeType='short'>10/12/01 23:59</result>
+   <result timeType='medium'>10/12/01 23:59:59</result>
+   <result dateType='medium' timeType='none'>2010 ဒီ 1</result>
+   <result timeType='short'>2010 ဒီ 1 23:59</result>
+   <result timeType='medium'>2010 ဒီ 1 23:59:59</result>
+   <result dateType='long' timeType='none'>2010 ဒီဇင်ဘာ 1</result>
+   <result timeType='short'>2010 ဒီဇင်ဘာ 1 23:59</result>
+   <result timeType='medium'>2010 ဒီဇင်ဘာ 1 23:59:59</result>
+   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01</result>
+   <result timeType='short'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59</result>
+   <result timeType='medium'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59:59</result>
   </date>
   <zoneFields 
 locales='my my_MM'>
@@ -378,13 +234,7 @@ locales='my my_MM'>
   <collation 
 locales='my my_MM'>
 <!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
-   <result draft='unconfirmed'>
-xံ
-Xံ
-x့
-X့
-xး
-Xး
+   <result draft='unconfirmed approved'>
 x 
 X 
 x x
@@ -400,9 +250,6 @@ x12x
 x2
 X2
 x2x
-xံx
-x့x
-xးx
 xက
 Xက
 xကx
@@ -457,6 +304,9 @@ xတx
 xထ
 Xထ
 xထx
+xထ္မင်း
+Xထ္မင်း
+xထ္မင်းx
 xဒ
 Xဒ
 xဒx
@@ -466,6 +316,9 @@ xဓx
 xန
 Xန
 xနx
+x၌
+X၌
+x၌x
 xပ
 Xပ
 xပx
@@ -484,33 +337,42 @@ xမx
 xယ
 Xယ
 xယx
-xျ
-Xျ
-xျx
 xရ
 Xရ
 xရx
-xြ
-Xြ
-xြx
+x၍
+X၍
+x၍x
 xလ
 Xလ
 xလx
+xလ္ဘက်
+Xလ္ဘက်
+xလ္ဘက်x
+xလက်ျာ
+Xလက်ျာ
+xလက်ျာx
+x၎င်း
+X၎င်း
+x၎င်းx
 xဝ
 Xဝ
 xဝx
-xွ
-Xွ
-xွx
+xၐ
+Xၐ
+xၐx
+xၑ
+Xၑ
+xၑx
 xသ
 Xသ
 xသx
+xသ္မီ
+Xသ္မီ
+xသ္မီx
 xဟ
 Xဟ
 xဟx
-xှ
-Xှ
-xှx
 xဠ
 Xဠ
 xဠx
@@ -519,28 +381,958 @@ Xအ
 xအx
 xဣ
 Xဣ
+x၏
+X၏
 xဣx
+x၏x
+xဣင္
+Xဣင္
+xဣင္x
 xဤ
 Xဤ
 xဤx
 xဥ
 Xဥ
 xဥx
+xဥင္
+Xဥင္
+xဥင္x
 xဦ
 Xဦ
 xဦx
 xဧ
+xဨ
 Xဧ
+Xဨ
 xဧx
+xဨx
+xဧင္
+Xဧင္
+xဧင္x
 xဩ
 Xဩ
 xဩx
+xဩောင္
+xဩင္
+Xဩောင္
+Xဩင္
+xဩောင္x
+xဩင္x
 xဪ
 Xဪ
 xဪx
+xဣက္
+Xဣက္
+xဣက်
+Xဣက်
+xဣက္x
+xဣက်x
+xဥက္
+Xဥက္
+xဥက်
+Xဥက်
+xဥက္x
+xဥက်x
+xဧက္
+Xဧက္
+xဧက်
+Xဧက်
+xဧက္x
+xဧက်x
+xဩောက္
+xဩက္
+Xဩောက္
+Xဩက္
+xဩောက်
+xဩက်
+Xဩောက်
+Xဩက်
+xဩောက္x
+xဩက္x
+xဩောက်x
+xဩက်x
+xဣခ္
+Xဣခ္
+xဣခ်
+Xဣခ်
+xဣခ္x
+xဣခ်x
+xဥခ္
+Xဥခ္
+xဥခ်
+Xဥခ်
+xဥခ္x
+xဥခ်x
+xဧခ္
+Xဧခ္
+xဧခ်
+Xဧခ်
+xဧခ္x
+xဧခ်x
+xဩောခ္
+xဩခ္
+Xဩောခ္
+Xဩခ္
+xဩောခ်
+xဩခ်
+Xဩောခ်
+Xဩခ်
+xဩောခ္x
+xဩခ္x
+xဩောခ်x
+xဩခ်x
+xဣဂ္
+Xဣဂ္
+xဣဂ်
+Xဣဂ်
+xဣဂ္x
+xဣဂ်x
+xဥဂ္
+Xဥဂ္
+xဥဂ်
+Xဥဂ်
+xဥဂ္x
+xဥဂ်x
+xဧဂ္
+Xဧဂ္
+xဧဂ်
+Xဧဂ်
+xဧဂ္x
+xဧဂ်x
+xဩောဂ္
+xဩဂ္
+Xဩောဂ္
+Xဩဂ္
+xဩောဂ်
+xဩဂ်
+Xဩောဂ်
+Xဩဂ်
+xဩောဂ္x
+xဩဂ္x
+xဩောဂ်x
+xဩဂ်x
+xဣဃ္
+Xဣဃ္
+xဣဃ်
+Xဣဃ်
+xဣဃ္x
+xဣဃ်x
+xဥဃ္
+Xဥဃ္
+xဥဃ်
+Xဥဃ်
+xဥဃ္x
+xဥဃ်x
+xဧဃ္
+Xဧဃ္
+xဧဃ်
+Xဧဃ်
+xဧဃ္x
+xဧဃ်x
+xဩောဃ္
+xဩဃ္
+Xဩောဃ္
+Xဩဃ္
+xဩောဃ်
+xဩဃ်
+Xဩောဃ်
+Xဩဃ်
+xဩောဃ္x
+xဩဃ္x
+xဩောဃ်x
+xဩဃ်x
+xဣင်
+Xဣင်
+xဣင်x
+xဥင်
+Xဥင်
+xဥင်x
+xဧင်
+Xဧင်
+xဧင်x
+xဩောင်
+xဩင်
+Xဩောင်
+Xဩင်
+xဩောင်x
+xဩင်x
+xဣစ္
+Xဣစ္
+xဣစ်
+Xဣစ်
+xဣစ္x
+xဣစ်x
+xဥစ္
+Xဥစ္
+xဥစ်
+Xဥစ်
+xဥစ္x
+xဥစ်x
+xဧစ္
+Xဧစ္
+xဧစ်
+Xဧစ်
+xဧစ္x
+xဧစ်x
+xဩောစ္
+xဩစ္
+Xဩောစ္
+Xဩစ္
+xဩောစ်
+xဩစ်
+Xဩောစ်
+Xဩစ်
+xဩောစ္x
+xဩစ္x
+xဩောစ်x
+xဩစ်x
+xဣဆ္
+Xဣဆ္
+xဣဆ်
+Xဣဆ်
+xဣဆ္x
+xဣဆ်x
+xဥဆ္
+Xဥဆ္
+xဥဆ်
+Xဥဆ်
+xဥဆ္x
+xဥဆ်x
+xဧဆ္
+Xဧဆ္
+xဧဆ်
+Xဧဆ်
+xဧဆ္x
+xဧဆ်x
+xဩောဆ္
+xဩဆ္
+Xဩောဆ္
+Xဩဆ္
+xဩောဆ်
+xဩဆ်
+Xဩောဆ်
+Xဩဆ်
+xဩောဆ္x
+xဩဆ္x
+xဩောဆ်x
+xဩဆ်x
+xဣဇ္
+Xဣဇ္
+xဣဇ်
+Xဣဇ်
+xဣဇ္x
+xဣဇ်x
+xဥဇ္
+Xဥဇ္
+xဥဇ်
+Xဥဇ်
+xဥဇ္x
+xဥဇ်x
+xဧဇ္
+Xဧဇ္
+xဧဇ်
+Xဧဇ်
+xဧဇ္x
+xဧဇ်x
+xဩောဇ္
+xဩဇ္
+Xဩောဇ္
+Xဩဇ္
+xဩောဇ်
+xဩဇ်
+Xဩောဇ်
+Xဩဇ်
+xဩောဇ္x
+xဩဇ္x
+xဩောဇ်x
+xဩဇ်x
+xဣဉ္
+Xဣဉ္
+xဣဉ်
+Xဣဉ်
+xဣဉ္x
+xဣဉ်x
+xဥဉ္
+Xဥဉ္
+xဥဉ်
+Xဥဉ်
+xဥဉ္x
+xဥဉ်x
+xဧဉ္
+Xဧဉ္
+xဧဉ်
+Xဧဉ်
+xဧဉ္x
+xဧဉ်x
+xဩောဉ္
+xဩဉ္
+Xဩောဉ္
+Xဩဉ္
+xဩောဉ်
+xဩဉ်
+Xဩောဉ်
+Xဩဉ်
+xဩောဉ္x
+xဩဉ္x
+xဩောဉ်x
+xဩဉ်x
+xဣည္
+Xဣည္
+xဣည်
+Xဣည်
+xဣည္x
+xဣည်x
+xဥည္
+Xဥည္
+xဥည်
+Xဥည်
+xဥည္x
+xဥည်x
+xဧည္
+Xဧည္
+xဧည်
+Xဧည်
+xဧည္x
+xဧည်x
+xဩောည္
+xဩည္
+Xဩောည္
+Xဩည္
+xဩောည်
+xဩည်
+Xဩောည်
+Xဩည်
+xဩောည္x
+xဩည္x
+xဩောည်x
+xဩည်x
+xဣဋ္
+Xဣဋ္
+xဣဋ်
+Xဣဋ်
+xဣဋ္x
+xဣဋ်x
+xဥဋ္
+Xဥဋ္
+xဥဋ်
+Xဥဋ်
+xဥဋ္x
+xဥဋ်x
+xဧဋ္
+Xဧဋ္
+xဧဋ်
+Xဧဋ်
+xဧဋ္x
+xဧဋ်x
+xဩောဋ္
+xဩဋ္
+Xဩောဋ္
+Xဩဋ္
+xဩောဋ်
+xဩဋ်
+Xဩောဋ်
+Xဩဋ်
+xဩောဋ္x
+xဩဋ္x
+xဩောဋ်x
+xဩဋ်x
+xဣဌ္
+Xဣဌ္
+xဣဌ်
+Xဣဌ်
+xဣဌ္x
+xဣဌ်x
+xဥဌ္
+Xဥဌ္
+xဥဌ်
+Xဥဌ်
+xဥဌ္x
+xဥဌ်x
+xဧဌ္
+Xဧဌ္
+xဧဌ်
+Xဧဌ်
+xဧဌ္x
+xဧဌ်x
+xဩောဌ္
+xဩဌ္
+Xဩောဌ္
+Xဩဌ္
+xဩောဌ်
+xဩဌ်
+Xဩောဌ်
+Xဩဌ်
+xဩောဌ္x
+xဩဌ္x
+xဩောဌ်x
+xဩဌ်x
+xဣဍ္
+Xဣဍ္
+xဣဍ်
+Xဣဍ်
+xဣဍ္x
+xဣဍ်x
+xဥဍ္
+Xဥဍ္
+xဥဍ်
+Xဥဍ်
+xဥဍ္x
+xဥဍ်x
+xဧဍ္
+Xဧဍ္
+xဧဍ်
+Xဧဍ်
+xဧဍ္x
+xဧဍ်x
+xဩောဍ္
+xဩဍ္
+Xဩောဍ္
+Xဩဍ္
+xဩောဍ်
+xဩဍ်
+Xဩောဍ်
+Xဩဍ်
+xဩောဍ္x
+xဩဍ္x
+xဩောဍ်x
+xဩဍ်x
+xဣဎ္
+Xဣဎ္
+xဣဎ်
+Xဣဎ်
+xဣဎ္x
+xဣဎ်x
+xဥဎ္
+Xဥဎ္
+xဥဎ်
+Xဥဎ်
+xဥဎ္x
+xဥဎ်x
+xဧဎ္
+Xဧဎ္
+xဧဎ်
+Xဧဎ်
+xဧဎ္x
+xဧဎ်x
+xဩောဎ္
+xဩဎ္
+Xဩောဎ္
+Xဩဎ္
+xဩောဎ်
+xဩဎ်
+Xဩောဎ်
+Xဩဎ်
+xဩောဎ္x
+xဩဎ္x
+xဩောဎ်x
+xဩဎ်x
+xဣဏ္
+Xဣဏ္
+xဣဏ်
+Xဣဏ်
+xဣဏ္x
+xဣဏ်x
+xဥဏ္
+Xဥဏ္
+xဥဏ်
+Xဥဏ်
+xဥဏ္x
+xဥဏ်x
+xဧဏ္
+Xဧဏ္
+xဧဏ်
+Xဧဏ်
+xဧဏ္x
+xဧဏ်x
+xဩောဏ္
+xဩဏ္
+Xဩောဏ္
+Xဩဏ္
+xဩောဏ်
+xဩဏ်
+Xဩောဏ်
+Xဩဏ်
+xဩောဏ္x
+xဩဏ္x
+xဩောဏ်x
+xဩဏ်x
+xဣတ္
+Xဣတ္
+xဣတ်
+Xဣတ်
+xဣတ္x
+xဣတ်x
+xဥတ္
+Xဥတ္
+xဥတ်
+Xဥတ်
+xဥတ္x
+xဥတ်x
+xဧတ္
+Xဧတ္
+xဧတ်
+Xဧတ်
+xဧတ္x
+xဧတ်x
+xဩောတ္
+xဩတ္
+Xဩောတ္
+Xဩတ္
+xဩောတ်
+xဩတ်
+Xဩောတ်
+Xဩတ်
+xဩောတ္x
+xဩတ္x
+xဩောတ်x
+xဩတ်x
+xဣထ္
+Xဣထ္
+xဣထ်
+Xဣထ်
+xဣထ္x
+xဣထ်x
+xဥထ္
+Xဥထ္
+xဥထ်
+Xဥထ်
+xဥထ္x
+xဥထ်x
+xဧထ္
+Xဧထ္
+xဧထ်
+Xဧထ်
+xဧထ္x
+xဧထ်x
+xဩောထ္
+xဩထ္
+Xဩောထ္
+Xဩထ္
+xဩောထ်
+xဩထ်
+Xဩောထ်
+Xဩထ်
+xဩောထ္x
+xဩထ္x
+xဩောထ်x
+xဩထ်x
+xဣဒ္
+Xဣဒ္
+xဣဒ်
+Xဣဒ်
+xဣဒ္x
+xဣဒ်x
+xဥဒ္
+Xဥဒ္
+xဥဒ်
+Xဥဒ်
+xဥဒ္x
+xဥဒ်x
+xဧဒ္
+Xဧဒ္
+xဧဒ်
+Xဧဒ်
+xဧဒ္x
+xဧဒ်x
+xဩောဒ္
+xဩဒ္
+Xဩောဒ္
+Xဩဒ္
+xဩောဒ်
+xဩဒ်
+Xဩောဒ်
+Xဩဒ်
+xဩောဒ္x
+xဩဒ္x
+xဩောဒ်x
+xဩဒ်x
+xဣဓ္
+Xဣဓ္
+xဣဓ်
+Xဣဓ်
+xဣဓ္x
+xဣဓ်x
+xဥဓ္
+Xဥဓ္
+xဥဓ်
+Xဥဓ်
+xဥဓ္x
+xဥဓ်x
+xဧဓ္
+Xဧဓ္
+xဧဓ်
+Xဧဓ်
+xဧဓ္x
+xဧဓ်x
+xဩောဓ္
+xဩဓ္
+Xဩောဓ္
+Xဩဓ္
+xဩောဓ်
+xဩဓ်
+Xဩောဓ်
+Xဩဓ်
+xဩောဓ္x
+xဩဓ္x
+xဩောဓ်x
+xဩဓ်x
+xဣန္
+Xဣန္
+xဣန်
+Xဣန်
+xဣန္x
+xဣန်x
+xဥန္
+Xဥန္
+xဥန်
+Xဥန်
+xဥန္x
+xဥန်x
+xဧန္
+Xဧန္
+xဧန်
+Xဧန်
+xဧန္x
+xဧန်x
+xဩောန္
+xဩန္
+Xဩောန္
+Xဩန္
+xဩောန်
+xဩန်
+Xဩောန်
+Xဩန်
+xဩောန္x
+xဩန္x
+xဩောန်x
+xဩန်x
+xဣပ္
+Xဣပ္
+xဣပ်
+Xဣပ်
+xဣပ္x
+xဣပ်x
+xဥပ္
+Xဥပ္
+xဥပ်
+Xဥပ်
+xဥပ္x
+xဥပ်x
+xဧပ္
+Xဧပ္
+xဧပ်
+Xဧပ်
+xဧပ္x
+xဧပ်x
+xဩောပ္
+xဩပ္
+Xဩောပ္
+Xဩပ္
+xဩောပ်
+xဩပ်
+Xဩောပ်
+Xဩပ်
+xဩောပ္x
+xဩပ္x
+xဩောပ်x
+xဩပ်x
+xဣဖ္
+Xဣဖ္
+xဣဖ်
+Xဣဖ်
+xဣဖ္x
+xဣဖ်x
+xဥဖ္
+Xဥဖ္
+xဥဖ်
+Xဥဖ်
+xဥဖ္x
+xဥဖ်x
+xဧဖ္
+Xဧဖ္
+xဧဖ်
+Xဧဖ်
+xဧဖ္x
+xဧဖ်x
+xဩောဖ္
+xဩဖ္
+Xဩောဖ္
+Xဩဖ္
+xဩောဖ်
+xဩဖ်
+Xဩောဖ်
+Xဩဖ်
+xဩောဖ္x
+xဩဖ္x
+xဩောဖ်x
+xဩဖ်x
+xဣဗ္
+Xဣဗ္
+xဣဗ်
+Xဣဗ်
+xဣဗ္x
+xဣဗ်x
+xဥဗ္
+Xဥဗ္
+xဥဗ်
+Xဥဗ်
+xဥဗ္x
+xဥဗ်x
+xဧဗ္
+Xဧဗ္
+xဧဗ်
+Xဧဗ်
+xဧဗ္x
+xဧဗ်x
+xဩောဗ္
+xဩဗ္
+Xဩောဗ္
+Xဩဗ္
+xဩောဗ်
+xဩဗ်
+Xဩောဗ်
+Xဩဗ်
+xဩောဗ္x
+xဩဗ္x
+xဩောဗ်x
+xဩဗ်x
+xဣဘ္
+Xဣဘ္
+xဣဘ်
+Xဣဘ်
+xဣဘ္x
+xဣဘ်x
+xဥဘ္
+Xဥဘ္
+xဥဘ်
+Xဥဘ်
+xဥဘ္x
+xဥဘ်x
+xဧဘ္
+Xဧဘ္
+xဧဘ်
+Xဧဘ်
+xဧဘ္x
+xဧဘ်x
+xဩောဘ္
+xဩဘ္
+Xဩောဘ္
+Xဩဘ္
+xဩောဘ်
+xဩဘ်
+Xဩောဘ်
+Xဩဘ်
+xဩောဘ္x
+xဩဘ္x
+xဩောဘ်x
+xဩဘ်x
+xဣမ္
+Xဣမ္
+xဣမ်
+Xဣမ်
+xဣမ္x
+xဣမ်x
+xဥမ္
+Xဥမ္
+xဥမ်
+Xဥမ်
+xဥမ္x
+xဥမ်x
+xဥုံ
+Xဥုံ
+xဥုံx
+xဧမ္
+Xဧမ္
+xဧမ်
+Xဧမ်
+xဧမ္x
+xဧမ်x
+xဩောမ္
+xဩမ္
+Xဩောမ္
+Xဩမ္
+xဩောမ်
+xဩမ်
+Xဩောမ်
+Xဩမ်
+xဩောမ္x
+xဩမ္x
+xဩောမ်x
+xဩမ်x
+xဣယ္
+Xဣယ္
+xဣယ်
+Xဣယ်
+xဣယ္x
+xဣယ်x
+xဥယ္
+Xဥယ္
+xဥယ်
+Xဥယ်
+xဥယ္x
+xဥယ်x
+xဧယ္
+Xဧယ္
+xဧယ်
+Xဧယ်
+xဧယ္x
+xဧယ်x
+xဩောယ္
+xဩယ္
+Xဩောယ္
+Xဩယ္
+xဩောယ်
+xဩယ်
+Xဩောယ်
+Xဩယ်
+xဩောယ္x
+xဩယ္x
+xဩောယ်x
+xဩယ်x
+xဣရ္
+Xဣရ္
+xဣရ်
+Xဣရ်
+xဣရ္x
+xဣရ်x
+xဥရ္
+Xဥရ္
+xဥရ်
+Xဥရ်
+xဥရ္x
+xဥရ်x
+xဧရ္
+Xဧရ္
+xဧရ်
+Xဧရ်
+xဧရ္x
+xဧရ်x
+xဩောရ္
+xဩရ္
+Xဩောရ္
+Xဩရ္
+xဩောရ်
+xဩရ်
+Xဩောရ်
+Xဩရ်
+xဩောရ္x
+xဩရ္x
+xဩောရ်x
+xဩရ်x
+xဣလ္
+Xဣလ္
+xဣလ်
+Xဣလ်
+xဣလ္x
+xဣလ်x
+xဥလ္
+Xဥလ္
+xဥလ်
+Xဥလ်
+xဥလ္x
+xဥလ်x
+xဧလ္
+Xဧလ္
+xဧလ်
+Xဧလ်
+xဧလ္x
+xဧလ်x
+xဩောလ္
+xဩလ္
+Xဩောလ္
+Xဩလ္
+xဩောလ်
+xဩလ်
+Xဩောလ်
+Xဩလ်
+xဩောလ္x
+xဩလ္x
+xဩောလ်x
+xဩလ်x
+xဣသ္
+Xဣသ္
+xဣသ်
+Xဣသ်
+xဣသ္x
+xဣသ်x
+xဣဿ
+Xဣဿ
+xဣဿx
+xဥသ္
+Xဥသ္
+xဥသ်
+Xဥသ်
+xဥသ္x
+xဥသ်x
+xဥဿ
+Xဥဿ
+xဥဿx
+xဧသ္
+Xဧသ္
+xဧသ်
+Xဧသ်
+xဧသ္x
+xဧသ်x
+xဩောသ္
+xဩသ္
+Xဩောသ္
+Xဩသ္
+xဩောသ်
+xဩသ်
+Xဩောသ်
+Xဩသ်
+xဩောသ္x
+xဩသ္x
+xဩောသ်x
+xဩသ်x
+xဣဟ္
+Xဣဟ္
+xဣဟ်
+Xဣဟ်
+xဣဟ္x
+xဣဟ်x
+xဥဟ္
+Xဥဟ္
+xဥဟ်
+Xဥဟ်
+xဥဟ္x
+xဥဟ်x
+xဧဟ္
+Xဧဟ္
+xဧဟ်
+Xဧဟ်
+xဧဟ္x
+xဧဟ်x
+xဩောဟ္
+xဩဟ္
+Xဩောဟ္
+Xဩဟ္
+xဩောဟ်
+xဩဟ်
+Xဩောဟ်
+Xဩဟ်
+xဩောဟ္x
+xဩဟ္x
+xဩောဟ်x
+xဩဟ်x
+xဢ
+Xဢ
+xဢx
+xၒ
+Xၒ
+xၒx
+xၓ
+Xၓ
+xၓx
+xၔ
+Xၔ
+xၔx
+xၕ
+Xၕ
+xၕx
 xာ
-xါ
 Xာ
+xါ
 Xါ
 xာx
 xါx
@@ -556,158 +1348,1878 @@ xုx
 xူ
 Xူ
 xူx
+xၖ
+Xၖ
+xၖx
+xၗ
+Xၗ
+xၗx
+xၘ
+Xၘ
+xၘx
+xၙ
+Xၙ
+xၙx
 xေ
 Xေ
 xေx
 xဲ
 Xဲ
 xဲx
+xော
+Xော
+xေါ
+Xေါ
+xောx
+xေါx
+xော်
+Xော်
+xေါ်
+Xေါ်
+xော်x
+xေါ်x
+xံ
+Xံ
+xံx
+xို
+Xို
+xိုx
+xက္
+Xက္
+xက်
+Xက်
+xက္x
+xက်x
+xာက္
+Xာက္
+xာက်
+Xာက်
+xါက္
+Xါက္
+xါက်
+Xါက်
+xာက္x
+xာက်x
+xါက္x
+xါက်x
+xိက္
+Xိက္
+xိက်
+Xိက်
+xိက္x
+xိက်x
+xုက္
+Xုက္
+xုက်
+Xုက်
+xုက္x
+xုက်x
+xေက္
+Xေက္
+xေက်
+Xေက်
+xေက္x
+xေက်x
+xောက္
+Xောက္
+xောက်
+Xောက်
+xေါက္
+Xေါက္
+xေါက်
+Xေါက်
+xောက္x
+xောက်x
+xေါက္x
+xေါက်x
+xောက်ျ
+Xောက်ျ
+xောက်ျx
+xိုက္
+Xိုက္
+xိုက်
+Xိုက်
+xိုက္x
+xိုက်x
+xခ္
+Xခ္
+xခ်
+Xခ်
+xခ္x
+xခ်x
+xာခ္
+Xာခ္
+xာခ်
+Xာခ်
+xါခ္
+Xါခ္
+xါခ်
+Xါခ်
+xာခ္x
+xာခ်x
+xါခ္x
+xါခ်x
+xိခ္
+Xိခ္
+xိခ်
+Xိခ်
+xိခ္x
+xိခ်x
+xုခ္
+Xုခ္
+xုခ်
+Xုခ်
+xုခ္x
+xုခ်x
+xေခ္
+Xေခ္
+xေခ်
+Xေခ်
+xေခ္x
+xေခ်x
+xောခ္
+Xောခ္
+xောခ်
+Xောခ်
+xေါခ္
+Xေါခ္
+xေါခ်
+Xေါခ်
+xောခ္x
+xောခ်x
+xေါခ္x
+xေါခ်x
+xိုခ္
+Xိုခ္
+xိုခ်
+Xိုခ်
+xိုခ္x
+xိုခ်x
+xဂ္
+Xဂ္
+xဂ်
+Xဂ်
+xဂ္x
+xဂ်x
+xာဂ္
+Xာဂ္
+xာဂ်
+Xာဂ်
+xါဂ္
+Xါဂ္
+xါဂ်
+Xါဂ်
+xာဂ္x
+xာဂ်x
+xါဂ္x
+xါဂ်x
+xိဂ္
+Xိဂ္
+xိဂ်
+Xိဂ်
+xိဂ္x
+xိဂ်x
+xုဂ္
+Xုဂ္
+xုဂ်
+Xုဂ်
+xုဂ္x
+xုဂ်x
+xေဂ္
+Xေဂ္
+xေဂ်
+Xေဂ်
+xေဂ္x
+xေဂ်x
+xောဂ္
+Xောဂ္
+xောဂ်
+Xောဂ်
+xေါဂ္
+Xေါဂ္
+xေါဂ်
+Xေါဂ်
+xောဂ္x
+xောဂ်x
+xေါဂ္x
+xေါဂ်x
+xိုဂ္
+Xိုဂ္
+xိုဂ်
+Xိုဂ်
+xိုဂ္x
+xိုဂ်x
+xဃ္
+Xဃ္
+xဃ်
+Xဃ်
+xဃ္x
+xဃ်x
+xာဃ္
+Xာဃ္
+xာဃ်
+Xာဃ်
+xါဃ္
+Xါဃ္
+xါဃ်
+Xါဃ်
+xာဃ္x
+xာဃ်x
+xါဃ္x
+xါဃ်x
+xိဃ္
+Xိဃ္
+xိဃ်
+Xိဃ်
+xိဃ္x
+xိဃ်x
+xုဃ္
+Xုဃ္
+xုဃ်
+Xုဃ်
+xုဃ္x
+xုဃ်x
+xေဃ္
+Xေဃ္
+xေဃ်
+Xေဃ်
+xေဃ္x
+xေဃ်x
+xောဃ္
+Xောဃ္
+xောဃ်
+Xောဃ်
+xေါဃ္
+Xေါဃ္
+xေါဃ်
+Xေါဃ်
+xောဃ္x
+xောဃ်x
+xေါဃ္x
+xေါဃ်x
+xိုဃ္
+Xိုဃ္
+xိုဃ်
+Xိုဃ်
+xိုဃ္x
+xိုဃ်x
+xင်္
+Xင်္
+xင်
+Xင်
+xင်္x
+xင်x
+xာင်္
+Xာင်္
+xာင်
+Xာင်
+xါင်္
+Xါင်္
+xါင်
+Xါင်
+xာင်္x
+xာင်x
+xါင်္x
+xါင်x
+xိင်္
+Xိင်္
+xိင်
+Xိင်
+xိင်္x
+xိင်x
+xုင်္
+Xုင်္
+xုင်
+Xုင်
+xုင်္x
+xုင်x
+xေင်္
+Xေင်္
+xေင်
+Xေင်
+xေင်္x
+xေင်x
+xောင်္
+Xောင်္
+xောင်
+Xောင်
+xေါင်္
+Xေါင်္
+xေါင်
+Xေါင်
+xောင်္x
+xောင်x
+xေါင်္x
+xေါင်x
+xိုင်္
+Xိုင်္
+xိုင်
+Xိုင်
+xိုင်္x
+xိုင်x
+xစ္
+Xစ္
+xစ်
+Xစ်
+xစ္x
+xစ်x
+xာစ္
+Xာစ္
+xာစ်
+Xာစ်
+xါစ္
+Xါစ္
+xါစ်
+Xါစ်
+xာစ္x
+xာစ်x
+xါစ္x
+xါစ်x
+xိစ္
+Xိစ္
+xိစ်
+Xိစ်
+xိစ္x
+xိစ်x
+xုစ္
+Xုစ္
+xုစ်
+Xုစ်
+xုစ္x
+xုစ်x
+xေစ္
+Xေစ္
+xေစ်
+Xေစ်
+xေစ္x
+xေစ်x
+xောစ္
+Xောစ္
+xောစ်
+Xောစ်
+xေါစ္
+Xေါစ္
+xေါစ်
+Xေါစ်
+xောစ္x
+xောစ်x
+xေါစ္x
+xေါစ်x
+xိုစ္
+Xိုစ္
+xိုစ်
+Xိုစ်
+xိုစ္x
+xိုစ်x
+xဆ္
+Xဆ္
+xဆ်
+Xဆ်
+xဆ္x
+xဆ်x
+xာဆ္
+Xာဆ္
+xာဆ်
+Xာဆ်
+xါဆ္
+Xါဆ္
+xါဆ်
+Xါဆ်
+xာဆ္x
+xာဆ်x
+xါဆ္x
+xါဆ်x
+xိဆ္
+Xိဆ္
+xိဆ်
+Xိဆ်
+xိဆ္x
+xိဆ်x
+xုဆ္
+Xုဆ္
+xုဆ်
+Xုဆ်
+xုဆ္x
+xုဆ်x
+xေဆ္
+Xေဆ္
+xေဆ်
+Xေဆ်
+xေဆ္x
+xေဆ်x
+xောဆ္
+Xောဆ္
+xောဆ်
+Xောဆ်
+xေါဆ္
+Xေါဆ္
+xေါဆ်
+Xေါဆ်
+xောဆ္x
+xောဆ်x
+xေါဆ္x
+xေါဆ်x
+xိုဆ္
+Xိုဆ္
+xိုဆ်
+Xိုဆ်
+xိုဆ္x
+xိုဆ်x
+xဇ္
+Xဇ္
+xဇ်
+Xဇ်
+xဇ္x
+xဇ်x
+xာဇ္
+Xာဇ္
+xာဇ်
+Xာဇ်
+xါဇ္
+Xါဇ္
+xါဇ်
+Xါဇ်
+xာဇ္x
+xာဇ်x
+xါဇ္x
+xါဇ်x
+xိဇ္
+Xိဇ္
+xိဇ်
+Xိဇ်
+xိဇ္x
+xိဇ်x
+xုဇ္
+Xုဇ္
+xုဇ်
+Xုဇ်
+xုဇ္x
+xုဇ်x
+xေဇ္
+Xေဇ္
+xေဇ်
+Xေဇ်
+xေဇ္x
+xေဇ်x
+xောဇ္
+Xောဇ္
+xောဇ်
+Xောဇ်
+xေါဇ္
+Xေါဇ္
+xေါဇ်
+Xေါဇ်
+xောဇ္x
+xောဇ်x
+xေါဇ္x
+xေါဇ်x
+xိုဇ္
+Xိုဇ္
+xိုဇ်
+Xိုဇ်
+xိုဇ္x
+xိုဇ်x
+xဈ်
+Xဈ်
+xဈ်x
+xာဈ်
+Xာဈ်
+xါဈ်
+Xါဈ်
+xာဈ်x
+xါဈ်x
+xိဈ်
+Xိဈ်
+xိဈ်x
+xုဈ်
+Xုဈ်
+xုဈ်x
+xေဈ်
+Xေဈ်
+xေဈ်x
+xောဈ်
+Xောဈ်
+xေါဈ်
+Xေါဈ်
+xောဈ်x
+xေါဈ်x
+xိုဈ်
+Xိုဈ်
+xိုဈ်x
+xဉ္
+Xဉ္
+xဉ်
+Xဉ်
+xဉ္x
+xဉ်x
+xာဉ္
+Xာဉ္
+xာဉ်
+Xာဉ်
+xါဉ္
+Xါဉ္
+xါဉ်
+Xါဉ်
+xာဉ္x
+xာဉ်x
+xါဉ္x
+xါဉ်x
+xိဉ္
+Xိဉ္
+xိဉ်
+Xိဉ်
+xိဉ္x
+xိဉ်x
+xုဉ္
+Xုဉ္
+xုဉ်
+Xုဉ်
+xုဉ္x
+xုဉ်x
+xေဉ္
+Xေဉ္
+xေဉ်
+Xေဉ်
+xေဉ္x
+xေဉ်x
+xောဉ္
+Xောဉ္
+xောဉ်
+Xောဉ်
+xေါဉ္
+Xေါဉ္
+xေါဉ်
+Xေါဉ်
+xောဉ္x
+xောဉ်x
+xေါဉ္x
+xေါဉ်x
+xိုဉ္
+Xိုဉ္
+xိုဉ်
+Xိုဉ်
+xိုဉ္x
+xိုဉ်x
+xည္
+Xည္
+xည်
+Xည်
+xည္x
+xည်x
+xာည္
+Xာည္
+xာည်
+Xာည်
+xါည္
+Xါည္
+xါည်
+Xါည်
+xာည္x
+xာည်x
+xါည္x
+xါည်x
+xိည္
+Xိည္
+xိည်
+Xိည်
+xိည္x
+xိည်x
+xုည္
+Xုည္
+xုည်
+Xုည်
+xုည္x
+xုည်x
+xေည္
+Xေည္
+xေည်
+Xေည်
+xေည္x
+xေည်x
+xောည္
+Xောည္
+xောည်
+Xောည်
+xေါည္
+Xေါည္
+xေါည်
+Xေါည်
+xောည္x
+xောည်x
+xေါည္x
+xေါည်x
+xိုည္
+Xိုည္
+xိုည်
+Xိုည်
+xိုည္x
+xိုည်x
+xဋ္
+Xဋ္
+xဋ်
+Xဋ်
+xဋ္x
+xဋ်x
+xာဋ္
+Xာဋ္
+xာဋ်
+Xာဋ်
+xါဋ္
+Xါဋ္
+xါဋ်
+Xါဋ်
+xာဋ္x
+xာဋ်x
+xါဋ္x
+xါဋ်x
+xိဋ္
+Xိဋ္
+xိဋ်
+Xိဋ်
+xိဋ္x
+xိဋ်x
+xုဋ္
+Xုဋ္
+xုဋ်
+Xုဋ်
+xုဋ္x
+xုဋ်x
+xေဋ္
+Xေဋ္
+xေဋ်
+Xေဋ်
+xေဋ္x
+xေဋ်x
+xောဋ္
+Xောဋ္
+xောဋ်
+Xောဋ်
+xေါဋ္
+Xေါဋ္
+xေါဋ်
+Xေါဋ်
+xောဋ္x
+xောဋ်x
+xေါဋ္x
+xေါဋ်x
+xိုဋ္
+Xိုဋ္
+xိုဋ်
+Xိုဋ်
+xိုဋ္x
+xိုဋ်x
+xဌ္
+Xဌ္
+xဌ်
+Xဌ်
+xဌ္x
+xဌ်x
+xာဌ္
+Xာဌ္
+xာဌ်
+Xာဌ်
+xါဌ္
+Xါဌ္
+xါဌ်
+Xါဌ်
+xာဌ္x
+xာဌ်x
+xါဌ္x
+xါဌ်x
+xိဌ္
+Xိဌ္
+xိဌ်
+Xိဌ်
+xိဌ္x
+xိဌ်x
+xုဌ္
+Xုဌ္
+xုဌ်
+Xုဌ်
+xုဌ္x
+xုဌ်x
+xေဌ္
+Xေဌ္
+xေဌ်
+Xေဌ်
+xေဌ္x
+xေဌ်x
+xောဌ္
+Xောဌ္
+xောဌ်
+Xောဌ်
+xေါဌ္
+Xေါဌ္
+xေါဌ်
+Xေါဌ်
+xောဌ္x
+xောဌ်x
+xေါဌ္x
+xေါဌ်x
+xိုဌ္
+Xိုဌ္
+xိုဌ်
+Xိုဌ်
+xိုဌ္x
+xိုဌ်x
+xဍ္
+Xဍ္
+xဍ်
+Xဍ်
+xဍ္x
+xဍ်x
+xာဍ္
+Xာဍ္
+xာဍ်
+Xာဍ်
+xါဍ္
+Xါဍ္
+xါဍ်
+Xါဍ်
+xာဍ္x
+xာဍ်x
+xါဍ္x
+xါဍ်x
+xိဍ္
+Xိဍ္
+xိဍ်
+Xိဍ်
+xိဍ္x
+xိဍ်x
+xုဍ္
+Xုဍ္
+xုဍ်
+Xုဍ်
+xုဍ္x
+xုဍ်x
+xေဍ္
+Xေဍ္
+xေဍ်
+Xေဍ်
+xေဍ္x
+xေဍ်x
+xောဍ္
+Xောဍ္
+xောဍ်
+Xောဍ်
+xေါဍ္
+Xေါဍ္
+xေါဍ်
+Xေါဍ်
+xောဍ္x
+xောဍ်x
+xေါဍ္x
+xေါဍ်x
+xိုဍ္
+Xိုဍ္
+xိုဍ်
+Xိုဍ်
+xိုဍ္x
+xိုဍ်x
+xဎ္
+Xဎ္
+xဎ်
+Xဎ်
+xဎ္x
+xဎ်x
+xာဎ္
+Xာဎ္
+xာဎ်
+Xာဎ်
+xါဎ္
+Xါဎ္
+xါဎ်
+Xါဎ်
+xာဎ္x
+xာဎ်x
+xါဎ္x
+xါဎ်x
+xိဎ္
+Xိဎ္
+xိဎ်
+Xိဎ်
+xိဎ္x
+xိဎ်x
+xုဎ္
+Xုဎ္
+xုဎ်
+Xုဎ်
+xုဎ္x
+xုဎ်x
+xေဎ္
+Xေဎ္
+xေဎ်
+Xေဎ်
+xေဎ္x
+xေဎ်x
+xောဎ္
+Xောဎ္
+xောဎ်
+Xောဎ်
+xေါဎ္
+Xေါဎ္
+xေါဎ်
+Xေါဎ်
+xောဎ္x
+xောဎ်x
+xေါဎ္x
+xေါဎ်x
+xိုဎ္
+Xိုဎ္
+xိုဎ်
+Xိုဎ်
+xိုဎ္x
+xိုဎ်x
+xဏ္
+Xဏ္
+xဏ်
+Xဏ်
+xဏ္x
+xဏ်x
+xာဏ္
+Xာဏ္
+xာဏ်
+Xာဏ်
+xါဏ္
+Xါဏ္
+xါဏ်
+Xါဏ်
+xာဏ္x
+xာဏ်x
+xါဏ္x
+xါဏ်x
+xိဏ္
+Xိဏ္
+xိဏ်
+Xိဏ်
+xိဏ္x
+xိဏ်x
+xုဏ္
+Xုဏ္
+xုဏ်
+Xုဏ်
+xုဏ္x
+xုဏ်x
+xေဏ္
+Xေဏ္
+xေဏ်
+Xေဏ်
+xေဏ္x
+xေဏ်x
+xောဏ္
+Xောဏ္
+xောဏ်
+Xောဏ်
+xေါဏ္
+Xေါဏ္
+xေါဏ်
+Xေါဏ်
+xောဏ္x
+xောဏ်x
+xေါဏ္x
+xေါဏ်x
+xိုဏ္
+Xိုဏ္
+xိုဏ်
+Xိုဏ်
+xိုဏ္x
+xိုဏ်x
+xတ္
+Xတ္
+xတ်
+Xတ်
+xတ္x
+xတ်x
+xာတ္
+Xာတ္
+xာတ်
+Xာတ်
+xါတ္
+Xါတ္
+xါတ်
+Xါတ်
+xာတ္x
+xာတ်x
+xါတ္x
+xါတ်x
+xိတ္
+Xိတ္
+xိတ်
+Xိတ်
+xိတ္x
+xိတ်x
+xုတ္
+Xုတ္
+xုတ်
+Xုတ်
+xုတ္x
+xုတ်x
+xေတ္
+Xေတ္
+xေတ်
+Xေတ်
+xေတ္x
+xေတ်x
+xောတ္
+Xောတ္
+xောတ်
+Xောတ်
+xေါတ္
+Xေါတ္
+xေါတ်
+Xေါတ်
+xောတ္x
+xောတ်x
+xေါတ္x
+xေါတ်x
+xိုတ္
+Xိုတ္
+xိုတ်
+Xိုတ်
+xိုတ္x
+xိုတ်x
+xထ္
+Xထ္
+xထ်
+Xထ်
+xထ္x
+xထ်x
+xာထ္
+Xာထ္
+xာထ်
+Xာထ်
+xါထ္
+Xါထ္
+xါထ်
+Xါထ်
+xာထ္x
+xာထ်x
+xါထ္x
+xါထ်x
+xိထ္
+Xိထ္
+xိထ်
+Xိထ်
+xိထ္x
+xိထ်x
+xုထ္
+Xုထ္
+xုထ်
+Xုထ်
+xုထ္x
+xုထ်x
+xေထ္
+Xေထ္
+xေထ်
+Xေထ်
+xေထ္x
+xေထ်x
+xောထ္
+Xောထ္
+xောထ်
+Xောထ်
+xေါထ္
+Xေါထ္
+xေါထ်
+Xေါထ်
+xောထ္x
+xောထ်x
+xေါထ္x
+xေါထ်x
+xိုထ္
+Xိုထ္
+xိုထ်
+Xိုထ်
+xိုထ္x
+xိုထ်x
+xဒ္
+Xဒ္
+xဒ်
+Xဒ်
+xဒ္x
+xဒ်x
+xာဒ္
+Xာဒ္
+xာဒ်
+Xာဒ်
+xါဒ္
+Xါဒ္
+xါဒ်
+Xါဒ်
+xာဒ္x
+xာဒ်x
+xါဒ္x
+xါဒ်x
+xိဒ္
+Xိဒ္
+xိဒ်
+Xိဒ်
+xိဒ္x
+xိဒ်x
+xုဒ္
+Xုဒ္
+xုဒ်
+Xုဒ်
+xုဒ္x
+xုဒ်x
+xေဒ္
+Xေဒ္
+xေဒ်
+Xေဒ်
+xေဒ္x
+xေဒ်x
+xောဒ္
+Xောဒ္
+xောဒ်
+Xောဒ်
+xေါဒ္
+Xေါဒ္
+xေါဒ်
+Xေါဒ်
+xောဒ္x
+xောဒ်x
+xေါဒ္x
+xေါဒ်x
+xိုဒ္
+Xိုဒ္
+xိုဒ်
+Xိုဒ်
+xိုဒ္x
+xိုဒ်x
+xဓ္
+Xဓ္
+xဓ်
+Xဓ်
+xဓ္x
+xဓ်x
+xာဓ္
+Xာဓ္
+xာဓ်
+Xာဓ်
+xါဓ္
+Xါဓ္
+xါဓ်
+Xါဓ်
+xာဓ္x
+xာဓ်x
+xါဓ္x
+xါဓ်x
+xိဓ္
+Xိဓ္
+xိဓ်
+Xိဓ်
+xိဓ္x
+xိဓ်x
+xုဓ္
+Xုဓ္
+xုဓ်
+Xုဓ်
+xုဓ္x
+xုဓ်x
+xေဓ္
+Xေဓ္
+xေဓ်
+Xေဓ်
+xေဓ္x
+xေဓ်x
+xောဓ္
+Xောဓ္
+xောဓ်
+Xောဓ်
+xေါဓ္
+Xေါဓ္
+xေါဓ်
+Xေါဓ်
+xောဓ္x
+xောဓ်x
+xေါဓ္x
+xေါဓ်x
+xိုဓ္
+Xိုဓ္
+xိုဓ်
+Xိုဓ်
+xိုဓ္x
+xိုဓ်x
+xန္
+Xန္
+xန်
+Xန်
+xန္x
+xန်x
+xန်ုပ်
+Xန်ုပ်
+xန်ုပ်x
+xာန္
+Xာန္
+xာန်
+Xာန်
+xါန္
+Xါန္
+xါန်
+Xါန်
+xာန္x
+xာန်x
+xါန္x
+xါန်x
+xိန္
+Xိန္
+xိန်
+Xိန်
+xိန္x
+xိန်x
+xုန္
+Xုန္
+xုန်
+Xုန်
+xုန္x
+xုန်x
+xေန္
+Xေန္
+xေန်
+Xေန်
+xေန္x
+xေန်x
+xောန္
+Xောန္
+xောန်
+Xောန်
+xေါန္
+Xေါန္
+xေါန်
+Xေါန်
+xောန္x
+xောန်x
+xေါန္x
+xေါန်x
+xိုန္
+Xိုန္
+xိုန်
+Xိုန်
+xိုန္x
+xိုန်x
+xပ္
+Xပ္
+xပ်
+Xပ်
+xပ္x
+xပ်x
+xာပ္
+Xာပ္
+xာပ်
+Xာပ်
+xါပ္
+Xါပ္
+xါပ်
+Xါပ်
+xာပ္x
+xာပ်x
+xါပ္x
+xါပ်x
+xိပ္
+Xိပ္
+xိပ်
+Xိပ်
+xိပ္x
+xိပ်x
+xုပ္
+Xုပ္
+xုပ်
+Xုပ်
+xုပ္x
+xုပ်x
+xေပ္
+Xေပ္
+xေပ်
+Xေပ်
+xေပ္x
+xေပ်x
+xောပ္
+Xောပ္
+xောပ်
+Xောပ်
+xေါပ္
+Xေါပ္
+xေါပ်
+Xေါပ်
+xောပ္x
+xောပ်x
+xေါပ္x
+xေါပ်x
+xိုပ္
+Xိုပ္
+xိုပ်
+Xိုပ်
+xိုပ္x
+xိုပ်x
+xဖ္
+Xဖ္
+xဖ်
+Xဖ်
+xဖ္x
+xဖ်x
+xာဖ္
+Xာဖ္
+xာဖ်
+Xာဖ်
+xါဖ္
+Xါဖ္
+xါဖ်
+Xါဖ်
+xာဖ္x
+xာဖ်x
+xါဖ္x
+xါဖ်x
+xိဖ္
+Xိဖ္
+xိဖ်
+Xိဖ်
+xိဖ္x
+xိဖ်x
+xုဖ္
+Xုဖ္
+xုဖ်
+Xုဖ်
+xုဖ္x
+xုဖ်x
+xေဖ္
+Xေဖ္
+xေဖ်
+Xေဖ်
+xေဖ္x
+xေဖ်x
+xောဖ္
+Xောဖ္
+xောဖ်
+Xောဖ်
+xေါဖ္
+Xေါဖ္
+xေါဖ်
+Xေါဖ်
+xောဖ္x
+xောဖ်x
+xေါဖ္x
+xေါဖ်x
+xိုဖ္
+Xိုဖ္
+xိုဖ်
+Xိုဖ်
+xိုဖ္x
+xိုဖ်x
+xဗ္
+Xဗ္
+xဗ်
+Xဗ်
+xဗ္x
+xဗ်x
+xာဗ္
+Xာဗ္
+xာဗ်
+Xာဗ်
+xါဗ္
+Xါဗ္
+xါဗ်
+Xါဗ်
+xာဗ္x
+xာဗ်x
+xါဗ္x
+xါဗ်x
+xိဗ္
+Xိဗ္
+xိဗ်
+Xိဗ်
+xိဗ္x
+xိဗ်x
+xုဗ္
+Xုဗ္
+xုဗ်
+Xုဗ်
+xုဗ္x
+xုဗ်x
+xေဗ္
+Xေဗ္
+xေဗ်
+Xေဗ်
+xေဗ္x
+xေဗ်x
+xောဗ္
+Xောဗ္
+xောဗ်
+Xောဗ်
+xေါဗ္
+Xေါဗ္
+xေါဗ်
+Xေါဗ်
+xောဗ္x
+xောဗ်x
+xေါဗ္x
+xေါဗ်x
+xိုဗ္
+Xိုဗ္
+xိုဗ်
+Xိုဗ်
+xိုဗ္x
+xိုဗ်x
+xဘ္
+Xဘ္
+xဘ်
+Xဘ်
+xဘ္x
+xဘ်x
+xာဘ္
+Xာဘ္
+xာဘ်
+Xာဘ်
+xါဘ္
+Xါဘ္
+xါဘ်
+Xါဘ်
+xာဘ္x
+xာဘ်x
+xါဘ္x
+xါဘ်x
+xိဘ္
+Xိဘ္
+xိဘ်
+Xိဘ်
+xိဘ္x
+xိဘ်x
+xုဘ္
+Xုဘ္
+xုဘ်
+Xုဘ်
+xုဘ္x
+xုဘ်x
+xေဘ္
+Xေဘ္
+xေဘ်
+Xေဘ်
+xေဘ္x
+xေဘ်x
+xောဘ္
+Xောဘ္
+xောဘ်
+Xောဘ်
+xေါဘ္
+Xေါဘ္
+xေါဘ်
+Xေါဘ်
+xောဘ္x
+xောဘ်x
+xေါဘ္x
+xေါဘ်x
+xိုဘ္
+Xိုဘ္
+xိုဘ်
+Xိုဘ်
+xိုဘ္x
+xိုဘ်x
+xမ္
+Xမ္
+xမ်
+Xမ်
+xမ္x
+xမ်x
+xာမ္
+Xာမ္
+xာမ်
+Xာမ်
+xါမ္
+Xါမ္
+xါမ်
+Xါမ်
+xာမ္x
+xာမ်x
+xါမ္x
+xါမ်x
+xိမ္
+Xိမ္
+xိမ်
+Xိမ်
+xိမ္x
+xိမ်x
+xိံ
+Xိံ
+xိံx
+xိမ့်
+Xိမ့်
+xိမ့်x
+xိံ့
+Xိံ့
+xိံ့x
+xိမ်း
+Xိမ်း
+xိမ်းx
+xိံး
+Xိံး
+xိံးx
+xုမ္
+Xုမ္
+xုမ်
+Xုမ်
+xုမ္x
+xုမ်x
+xုံ
+Xုံ
+xုံx
+xုမ့်
+Xုမ့်
+xုမ့်x
+xုံ့
+Xုံ့
+xုံ့x
+xုမ်း
+Xုမ်း
+xုမ်းx
+xုံး
+Xုံး
+xုံးx
+xေမ္
+Xေမ္
+xေမ်
+Xေမ်
+xေမ္x
+xေမ်x
+xောမ္
+Xောမ္
+xောမ်
+Xောမ်
+xေါမ္
+Xေါမ္
+xေါမ်
+Xေါမ်
+xောမ္x
+xောမ်x
+xေါမ္x
+xေါမ်x
+xိုမ္
+Xိုမ္
+xိုမ်
+Xိုမ်
+xိုမ္x
+xိုမ်x
+xယ္
+Xယ္
+xယ်
+Xယ်
+xယ္x
+xယ်x
+xာယ္
+Xာယ္
+xာယ်
+Xာယ်
+xါယ္
+Xါယ္
+xါယ်
+Xါယ်
+xာယ္x
+xာယ်x
+xါယ္x
+xါယ်x
+xိယ္
+Xိယ္
+xိယ်
+Xိယ်
+xိယ္x
+xိယ်x
+xုယ္
+Xုယ္
+xုယ်
+Xုယ်
+xုယ္x
+xုယ်x
+xေယ္
+Xေယ္
+xေယ်
+Xေယ်
+xေယ္x
+xေယ်x
+xောယ္
+Xောယ္
+xောယ်
+Xောယ်
+xေါယ္
+Xေါယ္
+xေါယ်
+Xေါယ်
+xောယ္x
+xောယ်x
+xေါယ္x
+xေါယ်x
+xိုယ္
+Xိုယ္
+xိုယ်
+Xိုယ်
+xိုယ္x
+xိုယ်x
+xရ္
+Xရ္
+xရ်
+Xရ်
+xရ္x
+xရ်x
+xာရ္
+Xာရ္
+xာရ်
+Xာရ်
+xါရ္
+Xါရ္
+xါရ်
+Xါရ်
+xာရ္x
+xာရ်x
+xါရ္x
+xါရ်x
+xိရ္
+Xိရ္
+xိရ်
+Xိရ်
+xိရ္x
+xိရ်x
+xုရ္
+Xုရ္
+xုရ်
+Xုရ်
+xုရ္x
+xုရ်x
+xေရ္
+Xေရ္
+xေရ်
+Xေရ်
+xေရ္x
+xေရ်x
+xောရ္
+Xောရ္
+xောရ်
+Xောရ်
+xေါရ္
+Xေါရ္
+xေါရ်
+Xေါရ်
+xောရ္x
+xောရ်x
+xေါရ္x
+xေါရ်x
+xိုရ္
+Xိုရ္
+xိုရ်
+Xိုရ်
+xိုရ္x
+xိုရ်x
+xလ္
+Xလ္
+xလ်
+Xလ်
+xလ္x
+xလ်x
+xာလ္
+Xာလ္
+xာလ်
+Xာလ်
+xါလ္
+Xါလ္
+xါလ်
+Xါလ်
+xာလ္x
+xာလ်x
+xါလ္x
+xါလ်x
+xိလ္
+Xိလ္
+xိလ်
+Xိလ်
+xိလ္x
+xိလ်x
+xုလ္
+Xုလ္
+xုလ်
+Xုလ်
+xုလ္x
+xုလ်x
+xေလ္
+Xေလ္
+xေလ်
+Xေလ်
+xေလ္x
+xေလ်x
+xောလ္
+Xောလ္
+xောလ်
+Xောလ်
+xေါလ္
+Xေါလ္
+xေါလ်
+Xေါလ်
+xောလ္x
+xောလ်x
+xေါလ္x
+xေါလ်x
+xိုလ္
+Xိုလ္
+xိုလ်
+Xိုလ်
+xိုလ္x
+xိုလ်x
+xဝ်
+Xဝ်
+xဝ်x
+xာဝ်
+Xာဝ်
+xါဝ်
+Xါဝ်
+xာဝ်x
+xါဝ်x
+xိဝ်
+Xိဝ်
+xိဝ်x
+xုဝ်
+Xုဝ်
+xုဝ်x
+xေဝ်
+Xေဝ်
+xေဝ်x
+xောဝ်
+Xောဝ်
+xေါဝ်
+Xေါဝ်
+xောဝ်x
+xေါဝ်x
+xိုဝ်
+Xိုဝ်
+xိုဝ်x
+xသ္
+Xသ္
+xသ်
+Xသ်
+xသ္x
+xသ်x
+xဿ
+Xဿ
+xဿx
+xာသ္
+Xာသ္
+xာသ်
+Xာသ်
+xါသ္
+Xါသ္
+xါသ်
+Xါသ်
+xာသ္x
+xာသ်x
+xါသ္x
+xါသ်x
+xိသ္
+Xိသ္
+xိသ်
+Xိသ်
+xိသ္x
+xိသ်x
+xိဿ
+Xိဿ
+xိဿx
+xုသ္
+Xုသ္
+xုသ်
+Xုသ်
+xုသ္x
+xုသ်x
+xုဿ
+Xုဿ
+xုဿx
+xေသ္
+Xေသ္
+xေသ်
+Xေသ်
+xေသ္x
+xေသ်x
+xေဿ
+Xေဿ
+xေဿx
+xောသ္
+Xောသ္
+xောသ်
+Xောသ်
+xေါသ္
+Xေါသ္
+xေါသ်
+Xေါသ်
+xောသ္x
+xောသ်x
+xေါသ္x
+xေါသ်x
+xိုသ္
+Xိုသ္
+xိုသ်
+Xိုသ်
+xိုသ္x
+xိုသ်x
+xဟ္
+Xဟ္
+xဟ်
+Xဟ်
+xဟ္x
+xဟ်x
+xာဟ္
+Xာဟ္
+xာဟ်
+Xာဟ်
+xါဟ္
+Xါဟ္
+xါဟ်
+Xါဟ်
+xာဟ္x
+xာဟ်x
+xါဟ္x
+xါဟ်x
+xိဟ္
+Xိဟ္
+xိဟ်
+Xိဟ်
+xိဟ္x
+xိဟ်x
+xုဟ္
+Xုဟ္
+xုဟ်
+Xုဟ်
+xုဟ္x
+xုဟ်x
+xေဟ္
+Xေဟ္
+xေဟ်
+Xေဟ်
+xေဟ္x
+xေဟ်x
+xောဟ္
+Xောဟ္
+xောဟ်
+Xောဟ်
+xေါဟ္
+Xေါဟ္
+xေါဟ်
+Xေါဟ်
+xောဟ္x
+xောဟ်x
+xေါဟ္x
+xေါဟ်x
+xိုဟ္
+Xိုဟ္
+xိုဟ်
+Xိုဟ်
+xိုဟ္x
+xိုဟ်x
+xဠ်
+Xဠ်
+xဠ်x
+xာဠ်
+Xာဠ်
+xါဠ်
+Xါဠ်
+xာဠ်x
+xါဠ်x
+xိဠ်
+Xိဠ်
+xိဠ်x
+xုဠ်
+Xုဠ်
+xုဠ်x
+xေဠ်
+Xေဠ်
+xေဠ်x
+xောဠ်
+Xောဠ်
+xေါဠ်
+Xေါဠ်
+xောဠ်x
+xေါဠ်x
+xိုဠ်
+Xိုဠ်
+xိုဠ်x
+xအ်
+Xအ်
+xအ်x
+xာအ်
+Xာအ်
+xါအ်
+Xါအ်
+xာအ်x
+xါအ်x
+xိအ်
+Xိအ်
+xိအ်x
+xုအ်
+Xုအ်
+xုအ်x
+xေအ်
+Xေအ်
+xေအ်x
+xောအ်
+Xောအ်
+xေါအ်
+Xေါအ်
+xောအ်x
+xေါအ်x
+xိုအ်
+Xိုအ်
+xိုအ်x
+xၞ
+Xၞ
+xၞx
+xၟ
+Xၟ
+xၟx
+xျ
+Xျ
+xျx
+xြ
+Xြ
+xြx
+xၠ
+Xၠ
+xၠx
+xွ
+Xွ
+xွx
+xႂ
+Xႂ
+xႂx
+xှ
+Xှ
+xှx
+xျွ
+Xျွ
+xျွx
+xြွ
+Xြွ
+xြွx
+xျှ
+Xျှ
+xျှx
+xြှ
+Xြှ
+xြှx
+xွှ
+Xွှ
+xွှx
+xျွှ
+Xျွှ
+xျွှx
+xြွှ
+Xြွှ
+xြွှx
 x္
 X္
 x္x
 x်
 X်
 x်x
-</result>
-   <result draft='approved'>
-x 
-X 
-x x
-x.
-X.
-x.x
-x0
-X0
-x0x
-x12
-X12
-x12x
-x2
-X2
-x2x
-xက
-Xက
-xကx
-xခ
-Xခ
-xခx
-xဂ
-Xဂ
-xဂx
-xဃ
-Xဃ
-xဃx
-xင
-Xင
-xငx
-xစ
-Xစ
-xစx
-xဆ
-Xဆ
-xဆx
-xဇ
-Xဇ
-xဇx
-xဈ
-Xဈ
-xဈx
-xဉ
-Xဉ
-xဉx
-xည
-Xည
-xညx
-xဋ
-Xဋ
-xဋx
-xဌ
-Xဌ
-xဌx
-xဍ
-Xဍ
-xဍx
-xဎ
-Xဎ
-xဎx
-xဏ
-Xဏ
-xဏx
-xတ
-Xတ
-xတx
-xထ
-Xထ
-xထx
-xဒ
-Xဒ
-xဒx
-xဓ
-Xဓ
-xဓx
-xန
-Xန
-xနx
-xပ
-Xပ
-xပx
-xဖ
-Xဖ
-xဖx
-xဗ
-Xဗ
-xဗx
-xဘ
-Xဘ
-xဘx
-xမ
-Xမ
-xမx
-xယ
-Xယ
-xယx
-xရ
-Xရ
-xရx
-xလ
-Xလ
-xလx
-xဝ
-Xဝ
-xဝx
-xသ
-Xသ
-xသx
-xဟ
-Xဟ
-xဟx
-xဠ
-Xဠ
-xဠx
-xအ
-Xအ
-xအx
-xဣ
-Xဣ
-xဣx
-xဤ
-Xဤ
-xဤx
-xဥ
-Xဥ
-xဥx
-xဦ
-Xဦ
-xဦx
-xဧ
-Xဧ
-xဧx
-xဩ
-Xဩ
-xဩx
-xဪ
-Xဪ
-xဪx
+x့
+X့
+x့x
+xး
+Xး
+xးx
+x့း
+X့း
+x့းx
 </result>
   </collation>
  </cldrTest>

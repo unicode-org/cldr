@@ -1,11 +1,91 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='ku'>
- <!-- Kurdish [كوردی] -->
+ <cldrTest version='2.0' base='ku'>
+ <!-- Kurdish [کوردی] -->
   <number 
-locales='ku ku_IQ ku_IR ku_SY ku_TR'>
-<!-- Kurdish [كوردی@]; Kurdish (Iraq) [كوردی (عێراق)@]; Kurdish (Iran) [كوردی (IR)@]; Kurdish (Syria) [kurdî (SY)@]; Kurdish (Turkey) [kurdî (Tirkiye)@] -->
+locales='ku ku_IQ ku_IR'>
+<!-- Kurdish [کوردی@]; Kurdish (Iraq) [کوردی (عێراق)@]; Kurdish (Iran) [کوردی (ئێران)@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent' draft='unconfirmed'>0٪</result>
+   <result draft='approved'>0%</result>
+   <result numberType='scientific' draft='unconfirmed'>0اس0</result>
+   <result draft='approved'>0E0</result>
+   <result input='0.01' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal' draft='unconfirmed'>0٫01</result>
+   <result draft='approved'>0.01</result>
+   <result numberType='percent' draft='unconfirmed'>1٪</result>
+   <result draft='approved'>1%</result>
+   <result numberType='scientific' draft='unconfirmed'>1اس-2</result>
+   <result draft='approved'>1E-2</result>
+   <result input='-0.01' numberType='integer' draft='unconfirmed approved'>-0</result>
+   <result numberType='decimal' draft='unconfirmed'>-0٫01</result>
+   <result draft='approved'>-0.01</result>
+   <result numberType='percent' draft='unconfirmed'>-1٪</result>
+   <result draft='approved'>-1%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1اس-2</result>
+   <result draft='approved'>-1E-2</result>
+   <result input='1.0' numberType='integer' draft='unconfirmed approved'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent' draft='unconfirmed'>100٪</result>
+   <result draft='approved'>100%</result>
+   <result numberType='scientific' draft='unconfirmed'>1اس0</result>
+   <result draft='approved'>1E0</result>
+   <result input='-1.0' numberType='integer' draft='unconfirmed approved'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent' draft='unconfirmed'>-100٪</result>
+   <result draft='approved'>-100%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1اس0</result>
+   <result draft='approved'>-1E0</result>
+   <result input='123.456' numberType='integer' draft='unconfirmed approved'>123</result>
+   <result numberType='decimal' draft='unconfirmed'>123٫456</result>
+   <result draft='approved'>123.456</result>
+   <result numberType='percent' draft='unconfirmed'>12٬346٪</result>
+   <result draft='approved'>12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>1٫23456اس2</result>
+   <result draft='approved'>1.23456E2</result>
+   <result input='-123.456' numberType='integer' draft='unconfirmed approved'>-123</result>
+   <result numberType='decimal' draft='unconfirmed'>-123٫456</result>
+   <result draft='approved'>-123.456</result>
+   <result numberType='percent' draft='unconfirmed'>-12٬346٪</result>
+   <result draft='approved'>-12,346%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1٫23456اس2</result>
+   <result draft='approved'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer' draft='unconfirmed'>123٬457</result>
+   <result draft='approved'>123,457</result>
+   <result numberType='decimal' draft='unconfirmed'>123٬456٫78</result>
+   <result draft='approved'>123,456.78</result>
+   <result numberType='percent' draft='unconfirmed'>12٬345٬678٪</result>
+   <result draft='approved'>12,345,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>1٫2345678اس5</result>
+   <result draft='approved'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer' draft='unconfirmed'>-123٬457</result>
+   <result draft='approved'>-123,457</result>
+   <result numberType='decimal' draft='unconfirmed'>-123٬456٫78</result>
+   <result draft='approved'>-123,456.78</result>
+   <result numberType='percent' draft='unconfirmed'>-12٬345٬678٪</result>
+   <result draft='approved'>-12,345,678%</result>
+   <result numberType='scientific' draft='unconfirmed'>-1٫2345678اس5</result>
+   <result draft='approved'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer' draft='unconfirmed approved'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent' draft='unconfirmed'>∞٪</result>
+   <result draft='approved'>∞%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent' draft='unconfirmed'>-∞٪</result>
+   <result draft='approved'>-∞%</result>
+   <result numberType='scientific' draft='unconfirmed approved'>-∞</result>
+   <result input='NaN' numberType='integer'>NaN</result>
+   <result numberType='decimal'>NaN</result>
+   <result numberType='percent'>NaN</result>
+   <result numberType='scientific'>NaN</result>
+  </number>
+  <number 
+locales='ku_SY ku_TR'>
+<!-- Kurdish (Syria) [kurdî (SY)@]; Kurdish (Turkey) [kurdî (Tirkiye)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -57,204 +137,282 @@ locales='ku ku_IQ ku_IR ku_SY ku_TR'>
   </number>
   <date 
 locales='ku ku_IQ ku_IR'>
-<!-- Kurdish [كوردی@]; Kurdish (Iraq) [كوردی (عێراق)@]; Kurdish (Iran) [كوردی (IR)@] -->
+<!-- Kurdish [کوردی@]; Kurdish (Iraq) [کوردی (عێراق)@]; Kurdish (Iran) [کوردی (ئێران)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
    <result dateType='short' timeType='none'>1900-01-31</result>
    <result timeType='short'>1900-01-31 00:00</result>
    <result timeType='medium'>1900-01-31 00:00:00</result>
-   <result dateType='medium' timeType='none'>1900 1 31</result>
-   <result timeType='short'>1900 1 31 00:00</result>
-   <result timeType='medium'>1900 1 31 00:00:00</result>
-   <result dateType='long' timeType='none'>1900 1 31</result>
-   <result timeType='short'>1900 1 31 00:00</result>
-   <result timeType='medium'>1900 1 31 00:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>چوارشەممە, 1900 1 31</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1900 کانوونی دووەم 31</result>
+   <result draft='approved'>1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>1900 کانوونی دووەم 31 00:00</result>
+   <result draft='approved'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900 کانوونی دووەم 31 00:00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>31ی کانوونی دووەمی 1900</result>
+   <result draft='approved'>1900 1 31</result>
+   <result timeType='short' draft='unconfirmed'>31ی کانوونی دووەمی 1900 00:00</result>
+   <result draft='approved'>1900 1 31 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>31ی کانوونی دووەمی 1900 00:00:00</result>
+   <result draft='approved'>1900 1 31 00:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>چوارشەممە, 1900 کانوونی دووەم 31</result>
    <result draft='approved'>4, 1900 1 31</result>
-   <result timeType='short' draft='unconfirmed'>چوارشەممە, 1900 1 31 00:00</result>
+   <result timeType='short' draft='unconfirmed'>چوارشەممە, 1900 کانوونی دووەم 31 00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>چوارشەممە, 1900 1 31 00:00:00</result>
+   <result timeType='medium' draft='unconfirmed'>چوارشەممە, 1900 کانوونی دووەم 31 00:00:00</result>
    <result draft='approved'>4, 1900 1 31 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:01</result>
    <result dateType='short' timeType='none'>1909-02-28</result>
    <result timeType='short'>1909-02-28 00:00</result>
    <result timeType='medium'>1909-02-28 00:00:01</result>
-   <result dateType='medium' timeType='none'>1909 2 28</result>
-   <result timeType='short'>1909 2 28 00:00</result>
-   <result timeType='medium'>1909 2 28 00:00:01</result>
-   <result dateType='long' timeType='none'>1909 2 28</result>
-   <result timeType='short'>1909 2 28 00:00</result>
-   <result timeType='medium'>1909 2 28 00:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>یەکشەممە, 1909 2 28</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1909 شوبات 28</result>
+   <result draft='approved'>1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>1909 شوبات 28 00:00</result>
+   <result draft='approved'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909 شوبات 28 00:00:01</result>
+   <result draft='approved'>1909 2 28 00:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>28ی شوباتی 1909</result>
+   <result draft='approved'>1909 2 28</result>
+   <result timeType='short' draft='unconfirmed'>28ی شوباتی 1909 00:00</result>
+   <result draft='approved'>1909 2 28 00:00</result>
+   <result timeType='medium' draft='unconfirmed'>28ی شوباتی 1909 00:00:01</result>
+   <result draft='approved'>1909 2 28 00:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>یەکشەممە, 1909 شوبات 28</result>
    <result draft='approved'>1, 1909 2 28</result>
-   <result timeType='short' draft='unconfirmed'>یەکشەممە, 1909 2 28 00:00</result>
+   <result timeType='short' draft='unconfirmed'>یەکشەممە, 1909 شوبات 28 00:00</result>
    <result draft='approved'>1, 1909 2 28 00:00</result>
-   <result timeType='medium' draft='unconfirmed'>یەکشەممە, 1909 2 28 00:00:01</result>
+   <result timeType='medium' draft='unconfirmed'>یەکشەممە, 1909 شوبات 28 00:00:01</result>
    <result draft='approved'>1, 1909 2 28 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:59</result>
    <result timeType='medium'>00:59:59</result>
    <result dateType='short' timeType='none'>1918-03-26</result>
    <result timeType='short'>1918-03-26 00:59</result>
    <result timeType='medium'>1918-03-26 00:59:59</result>
-   <result dateType='medium' timeType='none'>1918 3 26</result>
-   <result timeType='short'>1918 3 26 00:59</result>
-   <result timeType='medium'>1918 3 26 00:59:59</result>
-   <result dateType='long' timeType='none'>1918 3 26</result>
-   <result timeType='short'>1918 3 26 00:59</result>
-   <result timeType='medium'>1918 3 26 00:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>سێشەممە, 1918 3 26</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1918 ئازار 26</result>
+   <result draft='approved'>1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>1918 ئازار 26 00:59</result>
+   <result draft='approved'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918 ئازار 26 00:59:59</result>
+   <result draft='approved'>1918 3 26 00:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>26ی ئازاری 1918</result>
+   <result draft='approved'>1918 3 26</result>
+   <result timeType='short' draft='unconfirmed'>26ی ئازاری 1918 00:59</result>
+   <result draft='approved'>1918 3 26 00:59</result>
+   <result timeType='medium' draft='unconfirmed'>26ی ئازاری 1918 00:59:59</result>
+   <result draft='approved'>1918 3 26 00:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>سێشەممە, 1918 ئازار 26</result>
    <result draft='approved'>3, 1918 3 26</result>
-   <result timeType='short' draft='unconfirmed'>سێشەممە, 1918 3 26 00:59</result>
+   <result timeType='short' draft='unconfirmed'>سێشەممە, 1918 ئازار 26 00:59</result>
    <result draft='approved'>3, 1918 3 26 00:59</result>
-   <result timeType='medium' draft='unconfirmed'>سێشەممە, 1918 3 26 00:59:59</result>
+   <result timeType='medium' draft='unconfirmed'>سێشەممە, 1918 ئازار 26 00:59:59</result>
    <result draft='approved'>3, 1918 3 26 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:00</result>
    <result dateType='short' timeType='none'>1932-04-24</result>
    <result timeType='short'>1932-04-24 01:00</result>
    <result timeType='medium'>1932-04-24 01:00:00</result>
-   <result dateType='medium' timeType='none'>1932 4 24</result>
-   <result timeType='short'>1932 4 24 01:00</result>
-   <result timeType='medium'>1932 4 24 01:00:00</result>
-   <result dateType='long' timeType='none'>1932 4 24</result>
-   <result timeType='short'>1932 4 24 01:00</result>
-   <result timeType='medium'>1932 4 24 01:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>یەکشەممە, 1932 4 24</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1932 نیسان 24</result>
+   <result draft='approved'>1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>1932 نیسان 24 01:00</result>
+   <result draft='approved'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932 نیسان 24 01:00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>24ی نیسانی 1932</result>
+   <result draft='approved'>1932 4 24</result>
+   <result timeType='short' draft='unconfirmed'>24ی نیسانی 1932 01:00</result>
+   <result draft='approved'>1932 4 24 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>24ی نیسانی 1932 01:00:00</result>
+   <result draft='approved'>1932 4 24 01:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>یەکشەممە, 1932 نیسان 24</result>
    <result draft='approved'>1, 1932 4 24</result>
-   <result timeType='short' draft='unconfirmed'>یەکشەممە, 1932 4 24 01:00</result>
+   <result timeType='short' draft='unconfirmed'>یەکشەممە, 1932 نیسان 24 01:00</result>
    <result draft='approved'>1, 1932 4 24 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>یەکشەممە, 1932 4 24 01:00:00</result>
+   <result timeType='medium' draft='unconfirmed'>یەکشەممە, 1932 نیسان 24 01:00:00</result>
    <result draft='approved'>1, 1932 4 24 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>01:00</result>
    <result timeType='medium'>01:00:01</result>
    <result dateType='short' timeType='none'>1945-05-20</result>
    <result timeType='short'>1945-05-20 01:00</result>
    <result timeType='medium'>1945-05-20 01:00:01</result>
-   <result dateType='medium' timeType='none'>1945 5 20</result>
-   <result timeType='short'>1945 5 20 01:00</result>
-   <result timeType='medium'>1945 5 20 01:00:01</result>
-   <result dateType='long' timeType='none'>1945 5 20</result>
-   <result timeType='short'>1945 5 20 01:00</result>
-   <result timeType='medium'>1945 5 20 01:00:01</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>یەکشەممە, 1945 5 20</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1945 ئایار 20</result>
+   <result draft='approved'>1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>1945 ئایار 20 01:00</result>
+   <result draft='approved'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945 ئایار 20 01:00:01</result>
+   <result draft='approved'>1945 5 20 01:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>20ی ئایاری 1945</result>
+   <result draft='approved'>1945 5 20</result>
+   <result timeType='short' draft='unconfirmed'>20ی ئایاری 1945 01:00</result>
+   <result draft='approved'>1945 5 20 01:00</result>
+   <result timeType='medium' draft='unconfirmed'>20ی ئایاری 1945 01:00:01</result>
+   <result draft='approved'>1945 5 20 01:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>یەکشەممە, 1945 ئایار 20</result>
    <result draft='approved'>1, 1945 5 20</result>
-   <result timeType='short' draft='unconfirmed'>یەکشەممە, 1945 5 20 01:00</result>
+   <result timeType='short' draft='unconfirmed'>یەکشەممە, 1945 ئایار 20 01:00</result>
    <result draft='approved'>1, 1945 5 20 01:00</result>
-   <result timeType='medium' draft='unconfirmed'>یەکشەممە, 1945 5 20 01:00:01</result>
+   <result timeType='medium' draft='unconfirmed'>یەکشەممە, 1945 ئایار 20 01:00:01</result>
    <result draft='approved'>1, 1945 5 20 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>11:59</result>
    <result timeType='medium'>11:59:59</result>
    <result dateType='short' timeType='none'>1952-06-18</result>
    <result timeType='short'>1952-06-18 11:59</result>
    <result timeType='medium'>1952-06-18 11:59:59</result>
-   <result dateType='medium' timeType='none'>1952 6 18</result>
-   <result timeType='short'>1952 6 18 11:59</result>
-   <result timeType='medium'>1952 6 18 11:59:59</result>
-   <result dateType='long' timeType='none'>1952 6 18</result>
-   <result timeType='short'>1952 6 18 11:59</result>
-   <result timeType='medium'>1952 6 18 11:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>چوارشەممە, 1952 6 18</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1952 حوزەیران 18</result>
+   <result draft='approved'>1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>1952 حوزەیران 18 11:59</result>
+   <result draft='approved'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952 حوزەیران 18 11:59:59</result>
+   <result draft='approved'>1952 6 18 11:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>18ی حوزەیرانی 1952</result>
+   <result draft='approved'>1952 6 18</result>
+   <result timeType='short' draft='unconfirmed'>18ی حوزەیرانی 1952 11:59</result>
+   <result draft='approved'>1952 6 18 11:59</result>
+   <result timeType='medium' draft='unconfirmed'>18ی حوزەیرانی 1952 11:59:59</result>
+   <result draft='approved'>1952 6 18 11:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>چوارشەممە, 1952 حوزەیران 18</result>
    <result draft='approved'>4, 1952 6 18</result>
-   <result timeType='short' draft='unconfirmed'>چوارشەممە, 1952 6 18 11:59</result>
+   <result timeType='short' draft='unconfirmed'>چوارشەممە, 1952 حوزەیران 18 11:59</result>
    <result draft='approved'>4, 1952 6 18 11:59</result>
-   <result timeType='medium' draft='unconfirmed'>چوارشەممە, 1952 6 18 11:59:59</result>
+   <result timeType='medium' draft='unconfirmed'>چوارشەممە, 1952 حوزەیران 18 11:59:59</result>
    <result draft='approved'>4, 1952 6 18 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:00</result>
    <result dateType='short' timeType='none'>1973-07-16</result>
    <result timeType='short'>1973-07-16 12:00</result>
    <result timeType='medium'>1973-07-16 12:00:00</result>
-   <result dateType='medium' timeType='none'>1973 7 16</result>
-   <result timeType='short'>1973 7 16 12:00</result>
-   <result timeType='medium'>1973 7 16 12:00:00</result>
-   <result dateType='long' timeType='none'>1973 7 16</result>
-   <result timeType='short'>1973 7 16 12:00</result>
-   <result timeType='medium'>1973 7 16 12:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>دووشەممە, 1973 7 16</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1973 تەمووز 16</result>
+   <result draft='approved'>1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>1973 تەمووز 16 12:00</result>
+   <result draft='approved'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973 تەمووز 16 12:00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>16ی تەمووزی 1973</result>
+   <result draft='approved'>1973 7 16</result>
+   <result timeType='short' draft='unconfirmed'>16ی تەمووزی 1973 12:00</result>
+   <result draft='approved'>1973 7 16 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>16ی تەمووزی 1973 12:00:00</result>
+   <result draft='approved'>1973 7 16 12:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>دووشەممە, 1973 تەمووز 16</result>
    <result draft='approved'>2, 1973 7 16</result>
-   <result timeType='short' draft='unconfirmed'>دووشەممە, 1973 7 16 12:00</result>
+   <result timeType='short' draft='unconfirmed'>دووشەممە, 1973 تەمووز 16 12:00</result>
    <result draft='approved'>2, 1973 7 16 12:00</result>
-   <result timeType='medium' draft='unconfirmed'>دووشەممە, 1973 7 16 12:00:00</result>
+   <result timeType='medium' draft='unconfirmed'>دووشەممە, 1973 تەمووز 16 12:00:00</result>
    <result draft='approved'>2, 1973 7 16 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00</result>
    <result timeType='medium'>12:00:01</result>
    <result dateType='short' timeType='none'>1999-08-14</result>
    <result timeType='short'>1999-08-14 12:00</result>
    <result timeType='medium'>1999-08-14 12:00:01</result>
-   <result dateType='medium' timeType='none'>1999 8 14</result>
-   <result timeType='short'>1999 8 14 12:00</result>
-   <result timeType='medium'>1999 8 14 12:00:01</result>
-   <result dateType='long' timeType='none'>1999 8 14</result>
-   <result timeType='short'>1999 8 14 12:00</result>
-   <result timeType='medium'>1999 8 14 12:00:01</result>
-   <result dateType='full' timeType='none'>7, 1999 8 14</result>
-   <result timeType='short'>7, 1999 8 14 12:00</result>
-   <result timeType='medium'>7, 1999 8 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1999 ئاب 14</result>
+   <result draft='approved'>1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>1999 ئاب 14 12:00</result>
+   <result draft='approved'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999 ئاب 14 12:00:01</result>
+   <result draft='approved'>1999 8 14 12:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>14ی ئابی 1999</result>
+   <result draft='approved'>1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>14ی ئابی 1999 12:00</result>
+   <result draft='approved'>1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>14ی ئابی 1999 12:00:01</result>
+   <result draft='approved'>1999 8 14 12:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>شەممە, 1999 ئاب 14</result>
+   <result draft='approved'>7, 1999 8 14</result>
+   <result timeType='short' draft='unconfirmed'>شەممە, 1999 ئاب 14 12:00</result>
+   <result draft='approved'>7, 1999 8 14 12:00</result>
+   <result timeType='medium' draft='unconfirmed'>شەممە, 1999 ئاب 14 12:00:01</result>
+   <result draft='approved'>7, 1999 8 14 12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>22:59</result>
    <result timeType='medium'>22:59:59</result>
    <result dateType='short' timeType='none'>2000-09-12</result>
    <result timeType='short'>2000-09-12 22:59</result>
    <result timeType='medium'>2000-09-12 22:59:59</result>
-   <result dateType='medium' timeType='none'>2000 9 12</result>
-   <result timeType='short'>2000 9 12 22:59</result>
-   <result timeType='medium'>2000 9 12 22:59:59</result>
-   <result dateType='long' timeType='none'>2000 9 12</result>
-   <result timeType='short'>2000 9 12 22:59</result>
-   <result timeType='medium'>2000 9 12 22:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>سێشەممە, 2000 9 12</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2000 ئەیلوول 12</result>
+   <result draft='approved'>2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>2000 ئەیلوول 12 22:59</result>
+   <result draft='approved'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000 ئەیلوول 12 22:59:59</result>
+   <result draft='approved'>2000 9 12 22:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>12ی ئەیلوولی 2000</result>
+   <result draft='approved'>2000 9 12</result>
+   <result timeType='short' draft='unconfirmed'>12ی ئەیلوولی 2000 22:59</result>
+   <result draft='approved'>2000 9 12 22:59</result>
+   <result timeType='medium' draft='unconfirmed'>12ی ئەیلوولی 2000 22:59:59</result>
+   <result draft='approved'>2000 9 12 22:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>سێشەممە, 2000 ئەیلوول 12</result>
    <result draft='approved'>3, 2000 9 12</result>
-   <result timeType='short' draft='unconfirmed'>سێشەممە, 2000 9 12 22:59</result>
+   <result timeType='short' draft='unconfirmed'>سێشەممە, 2000 ئەیلوول 12 22:59</result>
    <result draft='approved'>3, 2000 9 12 22:59</result>
-   <result timeType='medium' draft='unconfirmed'>سێشەممە, 2000 9 12 22:59:59</result>
+   <result timeType='medium' draft='unconfirmed'>سێشەممە, 2000 ئەیلوول 12 22:59:59</result>
    <result draft='approved'>3, 2000 9 12 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:00</result>
    <result dateType='short' timeType='none'>2001-10-08</result>
    <result timeType='short'>2001-10-08 23:00</result>
    <result timeType='medium'>2001-10-08 23:00:00</result>
-   <result dateType='medium' timeType='none'>2001 10 8</result>
-   <result timeType='short'>2001 10 8 23:00</result>
-   <result timeType='medium'>2001 10 8 23:00:00</result>
-   <result dateType='long' timeType='none'>2001 10 8</result>
-   <result timeType='short'>2001 10 8 23:00</result>
-   <result timeType='medium'>2001 10 8 23:00:00</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>دووشەممە, 2001 10 08</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2001 تشرینی یەکەم 8</result>
+   <result draft='approved'>2001 10 8</result>
+   <result timeType='short' draft='unconfirmed'>2001 تشرینی یەکەم 8 23:00</result>
+   <result draft='approved'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001 تشرینی یەکەم 8 23:00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>8ی تشرینی یەکەمی 2001</result>
+   <result draft='approved'>2001 10 8</result>
+   <result timeType='short' draft='unconfirmed'>8ی تشرینی یەکەمی 2001 23:00</result>
+   <result draft='approved'>2001 10 8 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>8ی تشرینی یەکەمی 2001 23:00:00</result>
+   <result draft='approved'>2001 10 8 23:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>دووشەممە, 2001 تشرینی یەکەم 08</result>
    <result draft='approved'>2, 2001 10 08</result>
-   <result timeType='short' draft='unconfirmed'>دووشەممە, 2001 10 08 23:00</result>
+   <result timeType='short' draft='unconfirmed'>دووشەممە, 2001 تشرینی یەکەم 08 23:00</result>
    <result draft='approved'>2, 2001 10 08 23:00</result>
-   <result timeType='medium' draft='unconfirmed'>دووشەممە, 2001 10 08 23:00:00</result>
+   <result timeType='medium' draft='unconfirmed'>دووشەممە, 2001 تشرینی یەکەم 08 23:00:00</result>
    <result draft='approved'>2, 2001 10 08 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:00</result>
    <result timeType='medium'>23:00:01</result>
    <result dateType='short' timeType='none'>2004-11-04</result>
    <result timeType='short'>2004-11-04 23:00</result>
    <result timeType='medium'>2004-11-04 23:00:01</result>
-   <result dateType='medium' timeType='none'>2004 11 4</result>
-   <result timeType='short'>2004 11 4 23:00</result>
-   <result timeType='medium'>2004 11 4 23:00:01</result>
-   <result dateType='long' timeType='none'>2004 11 4</result>
-   <result timeType='short'>2004 11 4 23:00</result>
-   <result timeType='medium'>2004 11 4 23:00:01</result>
-   <result dateType='full' timeType='none'>5, 2004 11 04</result>
-   <result timeType='short'>5, 2004 11 04 23:00</result>
-   <result timeType='medium'>5, 2004 11 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2004 تشرینی دووەم 4</result>
+   <result draft='approved'>2004 11 4</result>
+   <result timeType='short' draft='unconfirmed'>2004 تشرینی دووەم 4 23:00</result>
+   <result draft='approved'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004 تشرینی دووەم 4 23:00:01</result>
+   <result draft='approved'>2004 11 4 23:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>4ی تشرینی دووەمی 2004</result>
+   <result draft='approved'>2004 11 4</result>
+   <result timeType='short' draft='unconfirmed'>4ی تشرینی دووەمی 2004 23:00</result>
+   <result draft='approved'>2004 11 4 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>4ی تشرینی دووەمی 2004 23:00:01</result>
+   <result draft='approved'>2004 11 4 23:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>پێنجشەممە, 2004 تشرینی دووەم 04</result>
+   <result draft='approved'>5, 2004 11 04</result>
+   <result timeType='short' draft='unconfirmed'>پێنجشەممە, 2004 تشرینی دووەم 04 23:00</result>
+   <result draft='approved'>5, 2004 11 04 23:00</result>
+   <result timeType='medium' draft='unconfirmed'>پێنجشەممە, 2004 تشرینی دووەم 04 23:00:01</result>
+   <result draft='approved'>5, 2004 11 04 23:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>23:59</result>
    <result timeType='medium'>23:59:59</result>
    <result dateType='short' timeType='none'>2010-12-01</result>
    <result timeType='short'>2010-12-01 23:59</result>
    <result timeType='medium'>2010-12-01 23:59:59</result>
-   <result dateType='medium' timeType='none'>2010 12 1</result>
-   <result timeType='short'>2010 12 1 23:59</result>
-   <result timeType='medium'>2010 12 1 23:59:59</result>
-   <result dateType='long' timeType='none'>2010 12 1</result>
-   <result timeType='short'>2010 12 1 23:59</result>
-   <result timeType='medium'>2010 12 1 23:59:59</result>
-   <result dateType='full' timeType='none' draft='unconfirmed'>چوارشەممە, 2010 12 01</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2010 کانونی یەکەم 1</result>
+   <result draft='approved'>2010 12 1</result>
+   <result timeType='short' draft='unconfirmed'>2010 کانونی یەکەم 1 23:59</result>
+   <result draft='approved'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010 کانونی یەکەم 1 23:59:59</result>
+   <result draft='approved'>2010 12 1 23:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed'>1ی کانونی یەکەمی 2010</result>
+   <result draft='approved'>2010 12 1</result>
+   <result timeType='short' draft='unconfirmed'>1ی کانونی یەکەمی 2010 23:59</result>
+   <result draft='approved'>2010 12 1 23:59</result>
+   <result timeType='medium' draft='unconfirmed'>1ی کانونی یەکەمی 2010 23:59:59</result>
+   <result draft='approved'>2010 12 1 23:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed'>چوارشەممە, 2010 کانونی یەکەم 01</result>
    <result draft='approved'>4, 2010 12 01</result>
-   <result timeType='short' draft='unconfirmed'>چوارشەممە, 2010 12 01 23:59</result>
+   <result timeType='short' draft='unconfirmed'>چوارشەممە, 2010 کانونی یەکەم 01 23:59</result>
    <result draft='approved'>4, 2010 12 01 23:59</result>
-   <result timeType='medium' draft='unconfirmed'>چوارشەممە, 2010 12 01 23:59:59</result>
+   <result timeType='medium' draft='unconfirmed'>چوارشەممە, 2010 کانونی یەکەم 01 23:59:59</result>
    <result draft='approved'>4, 2010 12 01 23:59:59</result>
   </date>
   <date 
@@ -506,11 +664,11 @@ locales='ku_SY ku_TR'>
   </date>
   <zoneFields 
 locales='ku ku_IQ ku_IR ku_SY ku_TR'>
-<!-- Kurdish [كوردی@]; Kurdish (Iraq) [كوردی (عێراق)@]; Kurdish (Iran) [كوردی (IR)@]; Kurdish (Syria) [kurdî (SY)@]; Kurdish (Turkey) [kurdî (Tirkiye)@] -->
+<!-- Kurdish [کوردی@]; Kurdish (Iraq) [کوردی (عێراق)@]; Kurdish (Iran) [کوردی (ئێران)@]; Kurdish (Syria) [kurdî (SY)@]; Kurdish (Turkey) [kurdî (Tirkiye)@] -->
   </zoneFields>
   <collation 
 locales='ku ku_IQ ku_IR'>
-<!-- Kurdish [كوردی@]; Kurdish (Iraq) [كوردی (عێراق)@]; Kurdish (Iran) [كوردی (IR)@] -->
+<!-- Kurdish [کوردی@]; Kurdish (Iraq) [کوردی (عێراق)@]; Kurdish (Iran) [کوردی (ئێران)@] -->
    <result draft='unconfirmed approved'>
 xً
 Xً

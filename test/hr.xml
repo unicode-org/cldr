@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='hr'>
+ <cldrTest version='2.0' base='hr'>
  <!-- Croatian [hrvatski] -->
   <number 
 locales='hr hr_HR'>
@@ -60,9 +60,9 @@ locales='hr hr_HR'>
 <!-- Croatian [hrvatski@]; Croatian (Croatia) [hrvatski (Hrvatska)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
    <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none'>31. 01. 1900.</result>
-   <result timeType='short'>31. 01. 1900. 00:00</result>
-   <result timeType='medium'>31. 01. 1900. 00:00:00</result>
+   <result dateType='short' timeType='none'>31.1.1900.</result>
+   <result timeType='short'>31.1.1900. 00:00</result>
+   <result timeType='medium'>31.1.1900. 00:00:00</result>
    <result dateType='medium' timeType='none'>31. 1. 1900.</result>
    <result timeType='short'>31. 1. 1900. 00:00</result>
    <result timeType='medium'>31. 1. 1900. 00:00:00</result>
@@ -74,9 +74,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>srijeda, 31. siječnja 1900. 00:00:00</result>
    <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
    <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none'>28. 02. 1909.</result>
-   <result timeType='short'>28. 02. 1909. 00:00</result>
-   <result timeType='medium'>28. 02. 1909. 00:00:01</result>
+   <result dateType='short' timeType='none'>28.2.1909.</result>
+   <result timeType='short'>28.2.1909. 00:00</result>
+   <result timeType='medium'>28.2.1909. 00:00:01</result>
    <result dateType='medium' timeType='none'>28. 2. 1909.</result>
    <result timeType='short'>28. 2. 1909. 00:00</result>
    <result timeType='medium'>28. 2. 1909. 00:00:01</result>
@@ -88,9 +88,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>nedjelja, 28. veljače 1909. 00:00:01</result>
    <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
    <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none'>26. 03. 1918.</result>
-   <result timeType='short'>26. 03. 1918. 00:59</result>
-   <result timeType='medium'>26. 03. 1918. 00:59:59</result>
+   <result dateType='short' timeType='none'>26.3.1918.</result>
+   <result timeType='short'>26.3.1918. 00:59</result>
+   <result timeType='medium'>26.3.1918. 00:59:59</result>
    <result dateType='medium' timeType='none'>26. 3. 1918.</result>
    <result timeType='short'>26. 3. 1918. 00:59</result>
    <result timeType='medium'>26. 3. 1918. 00:59:59</result>
@@ -102,9 +102,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>utorak, 26. ožujka 1918. 00:59:59</result>
    <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none'>24. 04. 1932.</result>
-   <result timeType='short'>24. 04. 1932. 01:00</result>
-   <result timeType='medium'>24. 04. 1932. 01:00:00</result>
+   <result dateType='short' timeType='none'>24.4.1932.</result>
+   <result timeType='short'>24.4.1932. 01:00</result>
+   <result timeType='medium'>24.4.1932. 01:00:00</result>
    <result dateType='medium' timeType='none'>24. 4. 1932.</result>
    <result timeType='short'>24. 4. 1932. 01:00</result>
    <result timeType='medium'>24. 4. 1932. 01:00:00</result>
@@ -116,9 +116,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>nedjelja, 24. travnja 1932. 01:00:00</result>
    <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
    <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none'>20. 05. 1945.</result>
-   <result timeType='short'>20. 05. 1945. 01:00</result>
-   <result timeType='medium'>20. 05. 1945. 01:00:01</result>
+   <result dateType='short' timeType='none'>20.5.1945.</result>
+   <result timeType='short'>20.5.1945. 01:00</result>
+   <result timeType='medium'>20.5.1945. 01:00:01</result>
    <result dateType='medium' timeType='none'>20. 5. 1945.</result>
    <result timeType='short'>20. 5. 1945. 01:00</result>
    <result timeType='medium'>20. 5. 1945. 01:00:01</result>
@@ -130,9 +130,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>nedjelja, 20. svibnja 1945. 01:00:01</result>
    <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
    <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none'>18. 06. 1952.</result>
-   <result timeType='short'>18. 06. 1952. 11:59</result>
-   <result timeType='medium'>18. 06. 1952. 11:59:59</result>
+   <result dateType='short' timeType='none'>18.6.1952.</result>
+   <result timeType='short'>18.6.1952. 11:59</result>
+   <result timeType='medium'>18.6.1952. 11:59:59</result>
    <result dateType='medium' timeType='none'>18. 6. 1952.</result>
    <result timeType='short'>18. 6. 1952. 11:59</result>
    <result timeType='medium'>18. 6. 1952. 11:59:59</result>
@@ -144,9 +144,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>srijeda, 18. lipnja 1952. 11:59:59</result>
    <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none'>16. 07. 1973.</result>
-   <result timeType='short'>16. 07. 1973. 12:00</result>
-   <result timeType='medium'>16. 07. 1973. 12:00:00</result>
+   <result dateType='short' timeType='none'>16.7.1973.</result>
+   <result timeType='short'>16.7.1973. 12:00</result>
+   <result timeType='medium'>16.7.1973. 12:00:00</result>
    <result dateType='medium' timeType='none'>16. 7. 1973.</result>
    <result timeType='short'>16. 7. 1973. 12:00</result>
    <result timeType='medium'>16. 7. 1973. 12:00:00</result>
@@ -158,9 +158,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>ponedjeljak, 16. srpnja 1973. 12:00:00</result>
    <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
    <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none'>14. 08. 1999.</result>
-   <result timeType='short'>14. 08. 1999. 12:00</result>
-   <result timeType='medium'>14. 08. 1999. 12:00:01</result>
+   <result dateType='short' timeType='none'>14.8.1999.</result>
+   <result timeType='short'>14.8.1999. 12:00</result>
+   <result timeType='medium'>14.8.1999. 12:00:01</result>
    <result dateType='medium' timeType='none'>14. 8. 1999.</result>
    <result timeType='short'>14. 8. 1999. 12:00</result>
    <result timeType='medium'>14. 8. 1999. 12:00:01</result>
@@ -172,9 +172,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>subota, 14. kolovoza 1999. 12:00:01</result>
    <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
    <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none'>12. 09. 2000.</result>
-   <result timeType='short'>12. 09. 2000. 22:59</result>
-   <result timeType='medium'>12. 09. 2000. 22:59:59</result>
+   <result dateType='short' timeType='none'>12.9.2000.</result>
+   <result timeType='short'>12.9.2000. 22:59</result>
+   <result timeType='medium'>12.9.2000. 22:59:59</result>
    <result dateType='medium' timeType='none'>12. 9. 2000.</result>
    <result timeType='short'>12. 9. 2000. 22:59</result>
    <result timeType='medium'>12. 9. 2000. 22:59:59</result>
@@ -186,9 +186,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>utorak, 12. rujna 2000. 22:59:59</result>
    <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none'>08. 10. 2001.</result>
-   <result timeType='short'>08. 10. 2001. 23:00</result>
-   <result timeType='medium'>08. 10. 2001. 23:00:00</result>
+   <result dateType='short' timeType='none'>8.10.2001.</result>
+   <result timeType='short'>8.10.2001. 23:00</result>
+   <result timeType='medium'>8.10.2001. 23:00:00</result>
    <result dateType='medium' timeType='none'>8. 10. 2001.</result>
    <result timeType='short'>8. 10. 2001. 23:00</result>
    <result timeType='medium'>8. 10. 2001. 23:00:00</result>
@@ -200,9 +200,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>ponedjeljak, 8. listopada 2001. 23:00:00</result>
    <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
    <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none'>04. 11. 2004.</result>
-   <result timeType='short'>04. 11. 2004. 23:00</result>
-   <result timeType='medium'>04. 11. 2004. 23:00:01</result>
+   <result dateType='short' timeType='none'>4.11.2004.</result>
+   <result timeType='short'>4.11.2004. 23:00</result>
+   <result timeType='medium'>4.11.2004. 23:00:01</result>
    <result dateType='medium' timeType='none'>4. 11. 2004.</result>
    <result timeType='short'>4. 11. 2004. 23:00</result>
    <result timeType='medium'>4. 11. 2004. 23:00:01</result>
@@ -214,9 +214,9 @@ locales='hr hr_HR'>
    <result timeType='medium'>četvrtak, 4. studenoga 2004. 23:00:01</result>
    <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
    <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none'>01. 12. 2010.</result>
-   <result timeType='short'>01. 12. 2010. 23:59</result>
-   <result timeType='medium'>01. 12. 2010. 23:59:59</result>
+   <result dateType='short' timeType='none'>1.12.2010.</result>
+   <result timeType='short'>1.12.2010. 23:59</result>
+   <result timeType='medium'>1.12.2010. 23:59:59</result>
    <result dateType='medium' timeType='none'>1. 12. 2010.</result>
    <result timeType='short'>1. 12. 2010. 23:59</result>
    <result timeType='medium'>1. 12. 2010. 23:59:59</result>
@@ -286,36 +286,27 @@ Xd
 XD
 xdx
 xDx
-xǆ
+xdŽ
+XdŽ
+xdŽx
 xdž
 xǆ
-xdŽ
-xǅ
 xDž
 xǅ
-xǄ
 xDŽ
 xǄ
-Xǆ
 Xdž
 Xǆ
-XdŽ
-Xǅ
 XDž
 Xǅ
 XDŽ
 XǄ
-XDŽ
-xǆx
 xdžx
 xǆx
-xdŽx
-xǅx
 xDžx
 xǅx
 xDŽx
 xǄx
-xDŽx
 xđ
 xĐ
 Xđ
@@ -368,38 +359,29 @@ xl
 xL
 Xl
 XL
+xlJ
+XlJ
+xlJx
 xlx
 xLx
-xǉ
 xlj
 xǉ
-xlJ
-xǈ
 xLj
 xǈ
-xǇ
 xLJ
 xǇ
 Xlj
 Xǉ
-Xlj
-XlJ
 XLj
 Xǈ
-XLj
 XLJ
 XǇ
-XLJ
-xǉx
 xljx
 xǉx
-xlJx
-xǈx
 xLjx
 xǈx
 xLJx
 xǇx
-xLJx
 xm
 xM
 Xm
@@ -410,38 +392,29 @@ xn
 xN
 Xn
 XN
+xnJ
+XnJ
+xnJx
 xnx
 xNx
-xǌ
 xnj
 xǌ
-xnJ
 xNj
 xǋ
-xNj
-xǊ
 xNJ
 xǊ
 Xnj
 Xǌ
-Xnj
-XnJ
-Xǋ
 XNj
 Xǋ
-XǊ
 XNJ
 XǊ
-xǌx
 xnjx
 xǌx
-xnJx
-xǋx
 xNjx
 xǋx
 xNJx
 xǊx
-xNJx
 xo
 xO
 Xo

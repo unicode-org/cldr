@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='zh'>
+ <cldrTest version='2.0' base='zh'>
  <!-- Chinese [中文] -->
   <number 
-locales='zh zh_CN zh_HK zh_MO zh_SG zh_TW'>
-<!-- Chinese [中文@]; Chinese (China) [中文（中国）@]; Chinese (Hong Kong SAR China) [中文 (中華人民共和國香港特別行政區)@]; Chinese (Macau SAR China) [中文 (中華人民共和國澳門特別行政區)@]; Chinese (Singapore) [中文（新加坡）@]; Chinese (Taiwan) [中文 (台灣)@] -->
+locales='zh zh_CN zh_SG'>
+<!-- Chinese [中文@]; Chinese (China) [中文（中国）@]; Chinese (Singapore) [中文（新加坡）@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -54,6 +54,62 @@ locales='zh zh_CN zh_HK zh_MO zh_SG zh_TW'>
    <result numberType='decimal'>NaN</result>
    <result numberType='percent'>NaN</result>
    <result numberType='scientific'>NaN</result>
+  </number>
+  <number 
+locales='zh_HK zh_MO zh_TW'>
+<!-- Chinese (Hong Kong SAR China) [中文（中華人民共和國香港特別行政區）@]; Chinese (Macau SAR China) [中文（中華人民共和國澳門特別行政區）@]; Chinese (Taiwan) [中文（台灣）@] -->
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
+   <result numberType='decimal'>0</result>
+   <result numberType='percent'>0%</result>
+   <result numberType='scientific'>0E0</result>
+   <result input='0.01' numberType='integer'>0</result>
+   <result numberType='decimal'>0.01</result>
+   <result numberType='percent'>1%</result>
+   <result numberType='scientific'>1E-2</result>
+   <result input='-0.01' numberType='integer'>-0</result>
+   <result numberType='decimal'>-0.01</result>
+   <result numberType='percent'>-1%</result>
+   <result numberType='scientific'>-1E-2</result>
+   <result input='1.0' numberType='integer'>1</result>
+   <result numberType='decimal'>1</result>
+   <result numberType='percent'>100%</result>
+   <result numberType='scientific'>1E0</result>
+   <result input='-1.0' numberType='integer'>-1</result>
+   <result numberType='decimal'>-1</result>
+   <result numberType='percent'>-100%</result>
+   <result numberType='scientific'>-1E0</result>
+   <result input='123.456' numberType='integer'>123</result>
+   <result numberType='decimal'>123.456</result>
+   <result numberType='percent'>12,346%</result>
+   <result numberType='scientific'>1.23456E2</result>
+   <result input='-123.456' numberType='integer'>-123</result>
+   <result numberType='decimal'>-123.456</result>
+   <result numberType='percent'>-12,346%</result>
+   <result numberType='scientific'>-1.23456E2</result>
+   <result input='123456.78' numberType='integer'>123,457</result>
+   <result numberType='decimal'>123,456.78</result>
+   <result numberType='percent'>12,345,678%</result>
+   <result numberType='scientific'>1.2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123,457</result>
+   <result numberType='decimal'>-123,456.78</result>
+   <result numberType='percent'>-12,345,678%</result>
+   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='Infinity' numberType='integer'>∞</result>
+   <result numberType='decimal'>∞</result>
+   <result numberType='percent'>∞%</result>
+   <result numberType='scientific'>∞</result>
+   <result input='-Infinity' numberType='integer'>-∞</result>
+   <result numberType='decimal'>-∞</result>
+   <result numberType='percent'>-∞%</result>
+   <result numberType='scientific'>-∞</result>
+   <result input='NaN' numberType='integer' draft='unconfirmed'>非數值</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='decimal' draft='unconfirmed'>非數值</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='percent' draft='unconfirmed'>非數值</result>
+   <result draft='approved'>NaN</result>
+   <result numberType='scientific' draft='unconfirmed'>非數值</result>
+   <result draft='approved'>NaN</result>
   </number>
   <date 
 locales='zh zh_CN'>
@@ -229,7 +285,7 @@ locales='zh zh_CN'>
   </date>
   <date 
 locales='zh_HK'>
-<!-- Chinese (Hong Kong SAR China) [中文 (中華人民共和國香港特別行政區)@] -->
+<!-- Chinese (Hong Kong SAR China) [中文（中華人民共和國香港特別行政區）@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result dateType='short' timeType='none'>00年1月31日</result>
@@ -239,12 +295,16 @@ locales='zh_HK'>
    <result timeType='short'>1900年1月31日上午12:00</result>
    <result timeType='medium'>1900年1月31日上午12:00:00</result>
    <result dateType='long' timeType='none'>1900年1月31日</result>
-   <result timeType='short'>1900年1月31日上午12:00</result>
-   <result timeType='medium'>1900年1月31日上午12:00:00</result>
-   <result dateType='full' timeType='none'>1900年1月31日星期三</result>
-   <result timeType='short'>1900年1月31日星期三上午12:00</result>
-   <result timeType='medium'>1900年1月31日星期三上午12:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>上午12:00</result>
+   <result timeType='short' draft='unconfirmed'>1900年1月31日 上午12:00</result>
+   <result draft='approved'>1900年1月31日上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900年1月31日 上午12:00:00</result>
+   <result draft='approved'>1900年1月31日上午12:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1900年1月31日星期三</result>
+   <result timeType='short' draft='unconfirmed'>1900年1月31日星期三 上午12:00</result>
+   <result draft='approved'>1900年1月31日星期三上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900年1月31日星期三 上午12:00:00</result>
+   <result draft='approved'>1900年1月31日星期三上午12:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午12:00</result>
    <result timeType='medium'>上午12:00:01</result>
    <result dateType='short' timeType='none'>09年2月28日</result>
    <result timeType='short'>09年2月28日上午12:00</result>
@@ -253,12 +313,16 @@ locales='zh_HK'>
    <result timeType='short'>1909年2月28日上午12:00</result>
    <result timeType='medium'>1909年2月28日上午12:00:01</result>
    <result dateType='long' timeType='none'>1909年2月28日</result>
-   <result timeType='short'>1909年2月28日上午12:00</result>
-   <result timeType='medium'>1909年2月28日上午12:00:01</result>
-   <result dateType='full' timeType='none'>1909年2月28日星期日</result>
-   <result timeType='short'>1909年2月28日星期日上午12:00</result>
-   <result timeType='medium'>1909年2月28日星期日上午12:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>上午12:59</result>
+   <result timeType='short' draft='unconfirmed'>1909年2月28日 上午12:00</result>
+   <result draft='approved'>1909年2月28日上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909年2月28日 上午12:00:01</result>
+   <result draft='approved'>1909年2月28日上午12:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1909年2月28日星期日</result>
+   <result timeType='short' draft='unconfirmed'>1909年2月28日星期日 上午12:00</result>
+   <result draft='approved'>1909年2月28日星期日上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909年2月28日星期日 上午12:00:01</result>
+   <result draft='approved'>1909年2月28日星期日上午12:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午12:59</result>
    <result timeType='medium'>上午12:59:59</result>
    <result dateType='short' timeType='none'>18年3月26日</result>
    <result timeType='short'>18年3月26日上午12:59</result>
@@ -267,12 +331,16 @@ locales='zh_HK'>
    <result timeType='short'>1918年3月26日上午12:59</result>
    <result timeType='medium'>1918年3月26日上午12:59:59</result>
    <result dateType='long' timeType='none'>1918年3月26日</result>
-   <result timeType='short'>1918年3月26日上午12:59</result>
-   <result timeType='medium'>1918年3月26日上午12:59:59</result>
-   <result dateType='full' timeType='none'>1918年3月26日星期二</result>
-   <result timeType='short'>1918年3月26日星期二上午12:59</result>
-   <result timeType='medium'>1918年3月26日星期二上午12:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>上午1:00</result>
+   <result timeType='short' draft='unconfirmed'>1918年3月26日 上午12:59</result>
+   <result draft='approved'>1918年3月26日上午12:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918年3月26日 上午12:59:59</result>
+   <result draft='approved'>1918年3月26日上午12:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1918年3月26日星期二</result>
+   <result timeType='short' draft='unconfirmed'>1918年3月26日星期二 上午12:59</result>
+   <result draft='approved'>1918年3月26日星期二上午12:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918年3月26日星期二 上午12:59:59</result>
+   <result draft='approved'>1918年3月26日星期二上午12:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午1:00</result>
    <result timeType='medium'>上午01:00:00</result>
    <result dateType='short' timeType='none'>32年4月24日</result>
    <result timeType='short'>32年4月24日上午1:00</result>
@@ -281,12 +349,16 @@ locales='zh_HK'>
    <result timeType='short'>1932年4月24日上午1:00</result>
    <result timeType='medium'>1932年4月24日上午01:00:00</result>
    <result dateType='long' timeType='none'>1932年4月24日</result>
-   <result timeType='short'>1932年4月24日上午1:00</result>
-   <result timeType='medium'>1932年4月24日上午01:00:00</result>
-   <result dateType='full' timeType='none'>1932年4月24日星期日</result>
-   <result timeType='short'>1932年4月24日星期日上午1:00</result>
-   <result timeType='medium'>1932年4月24日星期日上午01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>上午1:00</result>
+   <result timeType='short' draft='unconfirmed'>1932年4月24日 上午1:00</result>
+   <result draft='approved'>1932年4月24日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932年4月24日 上午01:00:00</result>
+   <result draft='approved'>1932年4月24日上午01:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1932年4月24日星期日</result>
+   <result timeType='short' draft='unconfirmed'>1932年4月24日星期日 上午1:00</result>
+   <result draft='approved'>1932年4月24日星期日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932年4月24日星期日 上午01:00:00</result>
+   <result draft='approved'>1932年4月24日星期日上午01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午1:00</result>
    <result timeType='medium'>上午01:00:01</result>
    <result dateType='short' timeType='none'>45年5月20日</result>
    <result timeType='short'>45年5月20日上午1:00</result>
@@ -295,12 +367,16 @@ locales='zh_HK'>
    <result timeType='short'>1945年5月20日上午1:00</result>
    <result timeType='medium'>1945年5月20日上午01:00:01</result>
    <result dateType='long' timeType='none'>1945年5月20日</result>
-   <result timeType='short'>1945年5月20日上午1:00</result>
-   <result timeType='medium'>1945年5月20日上午01:00:01</result>
-   <result dateType='full' timeType='none'>1945年5月20日星期日</result>
-   <result timeType='short'>1945年5月20日星期日上午1:00</result>
-   <result timeType='medium'>1945年5月20日星期日上午01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>上午11:59</result>
+   <result timeType='short' draft='unconfirmed'>1945年5月20日 上午1:00</result>
+   <result draft='approved'>1945年5月20日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945年5月20日 上午01:00:01</result>
+   <result draft='approved'>1945年5月20日上午01:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1945年5月20日星期日</result>
+   <result timeType='short' draft='unconfirmed'>1945年5月20日星期日 上午1:00</result>
+   <result draft='approved'>1945年5月20日星期日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945年5月20日星期日 上午01:00:01</result>
+   <result draft='approved'>1945年5月20日星期日上午01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午11:59</result>
    <result timeType='medium'>上午11:59:59</result>
    <result dateType='short' timeType='none'>52年6月18日</result>
    <result timeType='short'>52年6月18日上午11:59</result>
@@ -309,12 +385,16 @@ locales='zh_HK'>
    <result timeType='short'>1952年6月18日上午11:59</result>
    <result timeType='medium'>1952年6月18日上午11:59:59</result>
    <result dateType='long' timeType='none'>1952年6月18日</result>
-   <result timeType='short'>1952年6月18日上午11:59</result>
-   <result timeType='medium'>1952年6月18日上午11:59:59</result>
-   <result dateType='full' timeType='none'>1952年6月18日星期三</result>
-   <result timeType='short'>1952年6月18日星期三上午11:59</result>
-   <result timeType='medium'>1952年6月18日星期三上午11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>下午12:00</result>
+   <result timeType='short' draft='unconfirmed'>1952年6月18日 上午11:59</result>
+   <result draft='approved'>1952年6月18日上午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952年6月18日 上午11:59:59</result>
+   <result draft='approved'>1952年6月18日上午11:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1952年6月18日星期三</result>
+   <result timeType='short' draft='unconfirmed'>1952年6月18日星期三 上午11:59</result>
+   <result draft='approved'>1952年6月18日星期三上午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952年6月18日星期三 上午11:59:59</result>
+   <result draft='approved'>1952年6月18日星期三上午11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午12:00</result>
    <result timeType='medium'>下午12:00:00</result>
    <result dateType='short' timeType='none'>73年7月16日</result>
    <result timeType='short'>73年7月16日下午12:00</result>
@@ -323,12 +403,16 @@ locales='zh_HK'>
    <result timeType='short'>1973年7月16日下午12:00</result>
    <result timeType='medium'>1973年7月16日下午12:00:00</result>
    <result dateType='long' timeType='none'>1973年7月16日</result>
-   <result timeType='short'>1973年7月16日下午12:00</result>
-   <result timeType='medium'>1973年7月16日下午12:00:00</result>
-   <result dateType='full' timeType='none'>1973年7月16日星期一</result>
-   <result timeType='short'>1973年7月16日星期一下午12:00</result>
-   <result timeType='medium'>1973年7月16日星期一下午12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>下午12:00</result>
+   <result timeType='short' draft='unconfirmed'>1973年7月16日 下午12:00</result>
+   <result draft='approved'>1973年7月16日下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973年7月16日 下午12:00:00</result>
+   <result draft='approved'>1973年7月16日下午12:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1973年7月16日星期一</result>
+   <result timeType='short' draft='unconfirmed'>1973年7月16日星期一 下午12:00</result>
+   <result draft='approved'>1973年7月16日星期一下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973年7月16日星期一 下午12:00:00</result>
+   <result draft='approved'>1973年7月16日星期一下午12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午12:00</result>
    <result timeType='medium'>下午12:00:01</result>
    <result dateType='short' timeType='none'>99年8月14日</result>
    <result timeType='short'>99年8月14日下午12:00</result>
@@ -337,12 +421,16 @@ locales='zh_HK'>
    <result timeType='short'>1999年8月14日下午12:00</result>
    <result timeType='medium'>1999年8月14日下午12:00:01</result>
    <result dateType='long' timeType='none'>1999年8月14日</result>
-   <result timeType='short'>1999年8月14日下午12:00</result>
-   <result timeType='medium'>1999年8月14日下午12:00:01</result>
-   <result dateType='full' timeType='none'>1999年8月14日星期六</result>
-   <result timeType='short'>1999年8月14日星期六下午12:00</result>
-   <result timeType='medium'>1999年8月14日星期六下午12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>下午10:59</result>
+   <result timeType='short' draft='unconfirmed'>1999年8月14日 下午12:00</result>
+   <result draft='approved'>1999年8月14日下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999年8月14日 下午12:00:01</result>
+   <result draft='approved'>1999年8月14日下午12:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1999年8月14日星期六</result>
+   <result timeType='short' draft='unconfirmed'>1999年8月14日星期六 下午12:00</result>
+   <result draft='approved'>1999年8月14日星期六下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999年8月14日星期六 下午12:00:01</result>
+   <result draft='approved'>1999年8月14日星期六下午12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午10:59</result>
    <result timeType='medium'>下午10:59:59</result>
    <result dateType='short' timeType='none'>00年9月12日</result>
    <result timeType='short'>00年9月12日下午10:59</result>
@@ -351,12 +439,16 @@ locales='zh_HK'>
    <result timeType='short'>2000年9月12日下午10:59</result>
    <result timeType='medium'>2000年9月12日下午10:59:59</result>
    <result dateType='long' timeType='none'>2000年9月12日</result>
-   <result timeType='short'>2000年9月12日下午10:59</result>
-   <result timeType='medium'>2000年9月12日下午10:59:59</result>
-   <result dateType='full' timeType='none'>2000年9月12日星期二</result>
-   <result timeType='short'>2000年9月12日星期二下午10:59</result>
-   <result timeType='medium'>2000年9月12日星期二下午10:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>下午11:00</result>
+   <result timeType='short' draft='unconfirmed'>2000年9月12日 下午10:59</result>
+   <result draft='approved'>2000年9月12日下午10:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000年9月12日 下午10:59:59</result>
+   <result draft='approved'>2000年9月12日下午10:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2000年9月12日星期二</result>
+   <result timeType='short' draft='unconfirmed'>2000年9月12日星期二 下午10:59</result>
+   <result draft='approved'>2000年9月12日星期二下午10:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000年9月12日星期二 下午10:59:59</result>
+   <result draft='approved'>2000年9月12日星期二下午10:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午11:00</result>
    <result timeType='medium'>下午11:00:00</result>
    <result dateType='short' timeType='none'>01年10月8日</result>
    <result timeType='short'>01年10月8日下午11:00</result>
@@ -365,12 +457,16 @@ locales='zh_HK'>
    <result timeType='short'>2001年10月8日下午11:00</result>
    <result timeType='medium'>2001年10月8日下午11:00:00</result>
    <result dateType='long' timeType='none'>2001年10月8日</result>
-   <result timeType='short'>2001年10月8日下午11:00</result>
-   <result timeType='medium'>2001年10月8日下午11:00:00</result>
-   <result dateType='full' timeType='none'>2001年10月8日星期一</result>
-   <result timeType='short'>2001年10月8日星期一下午11:00</result>
-   <result timeType='medium'>2001年10月8日星期一下午11:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>下午11:00</result>
+   <result timeType='short' draft='unconfirmed'>2001年10月8日 下午11:00</result>
+   <result draft='approved'>2001年10月8日下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001年10月8日 下午11:00:00</result>
+   <result draft='approved'>2001年10月8日下午11:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2001年10月8日星期一</result>
+   <result timeType='short' draft='unconfirmed'>2001年10月8日星期一 下午11:00</result>
+   <result draft='approved'>2001年10月8日星期一下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001年10月8日星期一 下午11:00:00</result>
+   <result draft='approved'>2001年10月8日星期一下午11:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午11:00</result>
    <result timeType='medium'>下午11:00:01</result>
    <result dateType='short' timeType='none'>04年11月4日</result>
    <result timeType='short'>04年11月4日下午11:00</result>
@@ -379,12 +475,16 @@ locales='zh_HK'>
    <result timeType='short'>2004年11月4日下午11:00</result>
    <result timeType='medium'>2004年11月4日下午11:00:01</result>
    <result dateType='long' timeType='none'>2004年11月4日</result>
-   <result timeType='short'>2004年11月4日下午11:00</result>
-   <result timeType='medium'>2004年11月4日下午11:00:01</result>
-   <result dateType='full' timeType='none'>2004年11月4日星期四</result>
-   <result timeType='short'>2004年11月4日星期四下午11:00</result>
-   <result timeType='medium'>2004年11月4日星期四下午11:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>下午11:59</result>
+   <result timeType='short' draft='unconfirmed'>2004年11月4日 下午11:00</result>
+   <result draft='approved'>2004年11月4日下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004年11月4日 下午11:00:01</result>
+   <result draft='approved'>2004年11月4日下午11:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2004年11月4日星期四</result>
+   <result timeType='short' draft='unconfirmed'>2004年11月4日星期四 下午11:00</result>
+   <result draft='approved'>2004年11月4日星期四下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004年11月4日星期四 下午11:00:01</result>
+   <result draft='approved'>2004年11月4日星期四下午11:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午11:59</result>
    <result timeType='medium'>下午11:59:59</result>
    <result dateType='short' timeType='none'>10年12月1日</result>
    <result timeType='short'>10年12月1日下午11:59</result>
@@ -393,15 +493,19 @@ locales='zh_HK'>
    <result timeType='short'>2010年12月1日下午11:59</result>
    <result timeType='medium'>2010年12月1日下午11:59:59</result>
    <result dateType='long' timeType='none'>2010年12月1日</result>
-   <result timeType='short'>2010年12月1日下午11:59</result>
-   <result timeType='medium'>2010年12月1日下午11:59:59</result>
-   <result dateType='full' timeType='none'>2010年12月1日星期三</result>
-   <result timeType='short'>2010年12月1日星期三下午11:59</result>
-   <result timeType='medium'>2010年12月1日星期三下午11:59:59</result>
+   <result timeType='short' draft='unconfirmed'>2010年12月1日 下午11:59</result>
+   <result draft='approved'>2010年12月1日下午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010年12月1日 下午11:59:59</result>
+   <result draft='approved'>2010年12月1日下午11:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2010年12月1日星期三</result>
+   <result timeType='short' draft='unconfirmed'>2010年12月1日星期三 下午11:59</result>
+   <result draft='approved'>2010年12月1日星期三下午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010年12月1日星期三 下午11:59:59</result>
+   <result draft='approved'>2010年12月1日星期三下午11:59:59</result>
   </date>
   <date 
 locales='zh_MO'>
-<!-- Chinese (Macau SAR China) [中文 (中華人民共和國澳門特別行政區)@] -->
+<!-- Chinese (Macau SAR China) [中文（中華人民共和國澳門特別行政區）@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result dateType='short' timeType='none'>00年1月31日</result>
@@ -411,12 +515,16 @@ locales='zh_MO'>
    <result timeType='short'>1900年1月31日 上午12:00</result>
    <result timeType='medium'>1900年1月31日 上午12:00:00</result>
    <result dateType='long' timeType='none'>1900年01月31日</result>
-   <result timeType='short'>1900年01月31日上午12:00</result>
-   <result timeType='medium'>1900年01月31日上午12:00:00</result>
-   <result dateType='full' timeType='none'>1900年01月31日星期三</result>
-   <result timeType='short'>1900年01月31日星期三上午12:00</result>
-   <result timeType='medium'>1900年01月31日星期三上午12:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>上午12:00</result>
+   <result timeType='short' draft='unconfirmed'>1900年01月31日 上午12:00</result>
+   <result draft='approved'>1900年01月31日上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900年01月31日 上午12:00:00</result>
+   <result draft='approved'>1900年01月31日上午12:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1900年01月31日星期三</result>
+   <result timeType='short' draft='unconfirmed'>1900年01月31日星期三 上午12:00</result>
+   <result draft='approved'>1900年01月31日星期三上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900年01月31日星期三 上午12:00:00</result>
+   <result draft='approved'>1900年01月31日星期三上午12:00:00</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午12:00</result>
    <result timeType='medium'>上午12:00:01</result>
    <result dateType='short' timeType='none'>09年2月28日</result>
    <result timeType='short'>09年2月28日 上午12:00</result>
@@ -425,12 +533,16 @@ locales='zh_MO'>
    <result timeType='short'>1909年2月28日 上午12:00</result>
    <result timeType='medium'>1909年2月28日 上午12:00:01</result>
    <result dateType='long' timeType='none'>1909年02月28日</result>
-   <result timeType='short'>1909年02月28日上午12:00</result>
-   <result timeType='medium'>1909年02月28日上午12:00:01</result>
-   <result dateType='full' timeType='none'>1909年02月28日星期日</result>
-   <result timeType='short'>1909年02月28日星期日上午12:00</result>
-   <result timeType='medium'>1909年02月28日星期日上午12:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>上午12:59</result>
+   <result timeType='short' draft='unconfirmed'>1909年02月28日 上午12:00</result>
+   <result draft='approved'>1909年02月28日上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909年02月28日 上午12:00:01</result>
+   <result draft='approved'>1909年02月28日上午12:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1909年02月28日星期日</result>
+   <result timeType='short' draft='unconfirmed'>1909年02月28日星期日 上午12:00</result>
+   <result draft='approved'>1909年02月28日星期日上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909年02月28日星期日 上午12:00:01</result>
+   <result draft='approved'>1909年02月28日星期日上午12:00:01</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午12:59</result>
    <result timeType='medium'>上午12:59:59</result>
    <result dateType='short' timeType='none'>18年3月26日</result>
    <result timeType='short'>18年3月26日 上午12:59</result>
@@ -439,12 +551,16 @@ locales='zh_MO'>
    <result timeType='short'>1918年3月26日 上午12:59</result>
    <result timeType='medium'>1918年3月26日 上午12:59:59</result>
    <result dateType='long' timeType='none'>1918年03月26日</result>
-   <result timeType='short'>1918年03月26日上午12:59</result>
-   <result timeType='medium'>1918年03月26日上午12:59:59</result>
-   <result dateType='full' timeType='none'>1918年03月26日星期二</result>
-   <result timeType='short'>1918年03月26日星期二上午12:59</result>
-   <result timeType='medium'>1918年03月26日星期二上午12:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>上午1:00</result>
+   <result timeType='short' draft='unconfirmed'>1918年03月26日 上午12:59</result>
+   <result draft='approved'>1918年03月26日上午12:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918年03月26日 上午12:59:59</result>
+   <result draft='approved'>1918年03月26日上午12:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1918年03月26日星期二</result>
+   <result timeType='short' draft='unconfirmed'>1918年03月26日星期二 上午12:59</result>
+   <result draft='approved'>1918年03月26日星期二上午12:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918年03月26日星期二 上午12:59:59</result>
+   <result draft='approved'>1918年03月26日星期二上午12:59:59</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午1:00</result>
    <result timeType='medium'>上午01:00:00</result>
    <result dateType='short' timeType='none'>32年4月24日</result>
    <result timeType='short'>32年4月24日 上午1:00</result>
@@ -453,12 +569,16 @@ locales='zh_MO'>
    <result timeType='short'>1932年4月24日 上午1:00</result>
    <result timeType='medium'>1932年4月24日 上午01:00:00</result>
    <result dateType='long' timeType='none'>1932年04月24日</result>
-   <result timeType='short'>1932年04月24日上午1:00</result>
-   <result timeType='medium'>1932年04月24日上午01:00:00</result>
-   <result dateType='full' timeType='none'>1932年04月24日星期日</result>
-   <result timeType='short'>1932年04月24日星期日上午1:00</result>
-   <result timeType='medium'>1932年04月24日星期日上午01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>上午1:00</result>
+   <result timeType='short' draft='unconfirmed'>1932年04月24日 上午1:00</result>
+   <result draft='approved'>1932年04月24日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932年04月24日 上午01:00:00</result>
+   <result draft='approved'>1932年04月24日上午01:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1932年04月24日星期日</result>
+   <result timeType='short' draft='unconfirmed'>1932年04月24日星期日 上午1:00</result>
+   <result draft='approved'>1932年04月24日星期日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932年04月24日星期日 上午01:00:00</result>
+   <result draft='approved'>1932年04月24日星期日上午01:00:00</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午1:00</result>
    <result timeType='medium'>上午01:00:01</result>
    <result dateType='short' timeType='none'>45年5月20日</result>
    <result timeType='short'>45年5月20日 上午1:00</result>
@@ -467,12 +587,16 @@ locales='zh_MO'>
    <result timeType='short'>1945年5月20日 上午1:00</result>
    <result timeType='medium'>1945年5月20日 上午01:00:01</result>
    <result dateType='long' timeType='none'>1945年05月20日</result>
-   <result timeType='short'>1945年05月20日上午1:00</result>
-   <result timeType='medium'>1945年05月20日上午01:00:01</result>
-   <result dateType='full' timeType='none'>1945年05月20日星期日</result>
-   <result timeType='short'>1945年05月20日星期日上午1:00</result>
-   <result timeType='medium'>1945年05月20日星期日上午01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>上午11:59</result>
+   <result timeType='short' draft='unconfirmed'>1945年05月20日 上午1:00</result>
+   <result draft='approved'>1945年05月20日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945年05月20日 上午01:00:01</result>
+   <result draft='approved'>1945年05月20日上午01:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1945年05月20日星期日</result>
+   <result timeType='short' draft='unconfirmed'>1945年05月20日星期日 上午1:00</result>
+   <result draft='approved'>1945年05月20日星期日上午1:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945年05月20日星期日 上午01:00:01</result>
+   <result draft='approved'>1945年05月20日星期日上午01:00:01</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午11:59</result>
    <result timeType='medium'>上午11:59:59</result>
    <result dateType='short' timeType='none'>52年6月18日</result>
    <result timeType='short'>52年6月18日 上午11:59</result>
@@ -481,12 +605,16 @@ locales='zh_MO'>
    <result timeType='short'>1952年6月18日 上午11:59</result>
    <result timeType='medium'>1952年6月18日 上午11:59:59</result>
    <result dateType='long' timeType='none'>1952年06月18日</result>
-   <result timeType='short'>1952年06月18日上午11:59</result>
-   <result timeType='medium'>1952年06月18日上午11:59:59</result>
-   <result dateType='full' timeType='none'>1952年06月18日星期三</result>
-   <result timeType='short'>1952年06月18日星期三上午11:59</result>
-   <result timeType='medium'>1952年06月18日星期三上午11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>下午12:00</result>
+   <result timeType='short' draft='unconfirmed'>1952年06月18日 上午11:59</result>
+   <result draft='approved'>1952年06月18日上午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952年06月18日 上午11:59:59</result>
+   <result draft='approved'>1952年06月18日上午11:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1952年06月18日星期三</result>
+   <result timeType='short' draft='unconfirmed'>1952年06月18日星期三 上午11:59</result>
+   <result draft='approved'>1952年06月18日星期三上午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952年06月18日星期三 上午11:59:59</result>
+   <result draft='approved'>1952年06月18日星期三上午11:59:59</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午12:00</result>
    <result timeType='medium'>下午12:00:00</result>
    <result dateType='short' timeType='none'>73年7月16日</result>
    <result timeType='short'>73年7月16日 下午12:00</result>
@@ -495,12 +623,16 @@ locales='zh_MO'>
    <result timeType='short'>1973年7月16日 下午12:00</result>
    <result timeType='medium'>1973年7月16日 下午12:00:00</result>
    <result dateType='long' timeType='none'>1973年07月16日</result>
-   <result timeType='short'>1973年07月16日下午12:00</result>
-   <result timeType='medium'>1973年07月16日下午12:00:00</result>
-   <result dateType='full' timeType='none'>1973年07月16日星期一</result>
-   <result timeType='short'>1973年07月16日星期一下午12:00</result>
-   <result timeType='medium'>1973年07月16日星期一下午12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>下午12:00</result>
+   <result timeType='short' draft='unconfirmed'>1973年07月16日 下午12:00</result>
+   <result draft='approved'>1973年07月16日下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973年07月16日 下午12:00:00</result>
+   <result draft='approved'>1973年07月16日下午12:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1973年07月16日星期一</result>
+   <result timeType='short' draft='unconfirmed'>1973年07月16日星期一 下午12:00</result>
+   <result draft='approved'>1973年07月16日星期一下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973年07月16日星期一 下午12:00:00</result>
+   <result draft='approved'>1973年07月16日星期一下午12:00:00</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午12:00</result>
    <result timeType='medium'>下午12:00:01</result>
    <result dateType='short' timeType='none'>99年8月14日</result>
    <result timeType='short'>99年8月14日 下午12:00</result>
@@ -509,12 +641,16 @@ locales='zh_MO'>
    <result timeType='short'>1999年8月14日 下午12:00</result>
    <result timeType='medium'>1999年8月14日 下午12:00:01</result>
    <result dateType='long' timeType='none'>1999年08月14日</result>
-   <result timeType='short'>1999年08月14日下午12:00</result>
-   <result timeType='medium'>1999年08月14日下午12:00:01</result>
-   <result dateType='full' timeType='none'>1999年08月14日星期六</result>
-   <result timeType='short'>1999年08月14日星期六下午12:00</result>
-   <result timeType='medium'>1999年08月14日星期六下午12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>下午10:59</result>
+   <result timeType='short' draft='unconfirmed'>1999年08月14日 下午12:00</result>
+   <result draft='approved'>1999年08月14日下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999年08月14日 下午12:00:01</result>
+   <result draft='approved'>1999年08月14日下午12:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>1999年08月14日星期六</result>
+   <result timeType='short' draft='unconfirmed'>1999年08月14日星期六 下午12:00</result>
+   <result draft='approved'>1999年08月14日星期六下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999年08月14日星期六 下午12:00:01</result>
+   <result draft='approved'>1999年08月14日星期六下午12:00:01</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午10:59</result>
    <result timeType='medium'>下午10:59:59</result>
    <result dateType='short' timeType='none'>00年9月12日</result>
    <result timeType='short'>00年9月12日 下午10:59</result>
@@ -523,12 +659,16 @@ locales='zh_MO'>
    <result timeType='short'>2000年9月12日 下午10:59</result>
    <result timeType='medium'>2000年9月12日 下午10:59:59</result>
    <result dateType='long' timeType='none'>2000年09月12日</result>
-   <result timeType='short'>2000年09月12日下午10:59</result>
-   <result timeType='medium'>2000年09月12日下午10:59:59</result>
-   <result dateType='full' timeType='none'>2000年09月12日星期二</result>
-   <result timeType='short'>2000年09月12日星期二下午10:59</result>
-   <result timeType='medium'>2000年09月12日星期二下午10:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>下午11:00</result>
+   <result timeType='short' draft='unconfirmed'>2000年09月12日 下午10:59</result>
+   <result draft='approved'>2000年09月12日下午10:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000年09月12日 下午10:59:59</result>
+   <result draft='approved'>2000年09月12日下午10:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2000年09月12日星期二</result>
+   <result timeType='short' draft='unconfirmed'>2000年09月12日星期二 下午10:59</result>
+   <result draft='approved'>2000年09月12日星期二下午10:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000年09月12日星期二 下午10:59:59</result>
+   <result draft='approved'>2000年09月12日星期二下午10:59:59</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午11:00</result>
    <result timeType='medium'>下午11:00:00</result>
    <result dateType='short' timeType='none'>01年10月8日</result>
    <result timeType='short'>01年10月8日 下午11:00</result>
@@ -537,12 +677,16 @@ locales='zh_MO'>
    <result timeType='short'>2001年10月8日 下午11:00</result>
    <result timeType='medium'>2001年10月8日 下午11:00:00</result>
    <result dateType='long' timeType='none'>2001年10月08日</result>
-   <result timeType='short'>2001年10月08日下午11:00</result>
-   <result timeType='medium'>2001年10月08日下午11:00:00</result>
-   <result dateType='full' timeType='none'>2001年10月08日星期一</result>
-   <result timeType='short'>2001年10月08日星期一下午11:00</result>
-   <result timeType='medium'>2001年10月08日星期一下午11:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>下午11:00</result>
+   <result timeType='short' draft='unconfirmed'>2001年10月08日 下午11:00</result>
+   <result draft='approved'>2001年10月08日下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001年10月08日 下午11:00:00</result>
+   <result draft='approved'>2001年10月08日下午11:00:00</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2001年10月08日星期一</result>
+   <result timeType='short' draft='unconfirmed'>2001年10月08日星期一 下午11:00</result>
+   <result draft='approved'>2001年10月08日星期一下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001年10月08日星期一 下午11:00:00</result>
+   <result draft='approved'>2001年10月08日星期一下午11:00:00</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午11:00</result>
    <result timeType='medium'>下午11:00:01</result>
    <result dateType='short' timeType='none'>04年11月4日</result>
    <result timeType='short'>04年11月4日 下午11:00</result>
@@ -551,12 +695,16 @@ locales='zh_MO'>
    <result timeType='short'>2004年11月4日 下午11:00</result>
    <result timeType='medium'>2004年11月4日 下午11:00:01</result>
    <result dateType='long' timeType='none'>2004年11月04日</result>
-   <result timeType='short'>2004年11月04日下午11:00</result>
-   <result timeType='medium'>2004年11月04日下午11:00:01</result>
-   <result dateType='full' timeType='none'>2004年11月04日星期四</result>
-   <result timeType='short'>2004年11月04日星期四下午11:00</result>
-   <result timeType='medium'>2004年11月04日星期四下午11:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>下午11:59</result>
+   <result timeType='short' draft='unconfirmed'>2004年11月04日 下午11:00</result>
+   <result draft='approved'>2004年11月04日下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004年11月04日 下午11:00:01</result>
+   <result draft='approved'>2004年11月04日下午11:00:01</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2004年11月04日星期四</result>
+   <result timeType='short' draft='unconfirmed'>2004年11月04日星期四 下午11:00</result>
+   <result draft='approved'>2004年11月04日星期四下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004年11月04日星期四 下午11:00:01</result>
+   <result draft='approved'>2004年11月04日星期四下午11:00:01</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short' draft='unconfirmed approved'>下午11:59</result>
    <result timeType='medium'>下午11:59:59</result>
    <result dateType='short' timeType='none'>10年12月1日</result>
    <result timeType='short'>10年12月1日 下午11:59</result>
@@ -565,11 +713,15 @@ locales='zh_MO'>
    <result timeType='short'>2010年12月1日 下午11:59</result>
    <result timeType='medium'>2010年12月1日 下午11:59:59</result>
    <result dateType='long' timeType='none'>2010年12月01日</result>
-   <result timeType='short'>2010年12月01日下午11:59</result>
-   <result timeType='medium'>2010年12月01日下午11:59:59</result>
-   <result dateType='full' timeType='none'>2010年12月01日星期三</result>
-   <result timeType='short'>2010年12月01日星期三下午11:59</result>
-   <result timeType='medium'>2010年12月01日星期三下午11:59:59</result>
+   <result timeType='short' draft='unconfirmed'>2010年12月01日 下午11:59</result>
+   <result draft='approved'>2010年12月01日下午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010年12月01日 下午11:59:59</result>
+   <result draft='approved'>2010年12月01日下午11:59:59</result>
+   <result dateType='full' timeType='none' draft='unconfirmed approved'>2010年12月01日星期三</result>
+   <result timeType='short' draft='unconfirmed'>2010年12月01日星期三 下午11:59</result>
+   <result draft='approved'>2010年12月01日星期三下午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010年12月01日星期三 下午11:59:59</result>
+   <result draft='approved'>2010年12月01日星期三下午11:59:59</result>
   </date>
   <date 
 locales='zh_SG'>
@@ -579,10 +731,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>31/01/00</result>
    <result timeType='short'>31/01/00 上午12:00</result>
    <result timeType='medium'>31/01/00 上午12:00:00</result>
-   <result dateType='medium' timeType='none'>1900-1-31</result>
-   <result timeType='short'>1900-1-31 上午12:00</result>
-   <result timeType='medium'>1900-1-31 上午12:00:00</result>
-   <result dateType='long' timeType='none'>1900年1月31日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1900年1月31日</result>
+   <result draft='approved'>1900-1-31</result>
+   <result timeType='short' draft='unconfirmed'>1900年1月31日 上午12:00</result>
+   <result draft='approved'>1900-1-31 上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1900年1月31日 上午12:00:00</result>
+   <result draft='approved'>1900-1-31 上午12:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1900年1月31日</result>
    <result timeType='short'>1900年1月31日上午12:00</result>
    <result timeType='medium'>1900年1月31日上午12:00:00</result>
    <result dateType='full' timeType='none'>1900年1月31日星期三</result>
@@ -593,10 +748,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>28/02/09</result>
    <result timeType='short'>28/02/09 上午12:00</result>
    <result timeType='medium'>28/02/09 上午12:00:01</result>
-   <result dateType='medium' timeType='none'>1909-2-28</result>
-   <result timeType='short'>1909-2-28 上午12:00</result>
-   <result timeType='medium'>1909-2-28 上午12:00:01</result>
-   <result dateType='long' timeType='none'>1909年2月28日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1909年2月28日</result>
+   <result draft='approved'>1909-2-28</result>
+   <result timeType='short' draft='unconfirmed'>1909年2月28日 上午12:00</result>
+   <result draft='approved'>1909-2-28 上午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1909年2月28日 上午12:00:01</result>
+   <result draft='approved'>1909-2-28 上午12:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1909年2月28日</result>
    <result timeType='short'>1909年2月28日上午12:00</result>
    <result timeType='medium'>1909年2月28日上午12:00:01</result>
    <result dateType='full' timeType='none'>1909年2月28日星期日</result>
@@ -607,10 +765,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>26/03/18</result>
    <result timeType='short'>26/03/18 上午12:59</result>
    <result timeType='medium'>26/03/18 上午12:59:59</result>
-   <result dateType='medium' timeType='none'>1918-3-26</result>
-   <result timeType='short'>1918-3-26 上午12:59</result>
-   <result timeType='medium'>1918-3-26 上午12:59:59</result>
-   <result dateType='long' timeType='none'>1918年3月26日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1918年3月26日</result>
+   <result draft='approved'>1918-3-26</result>
+   <result timeType='short' draft='unconfirmed'>1918年3月26日 上午12:59</result>
+   <result draft='approved'>1918-3-26 上午12:59</result>
+   <result timeType='medium' draft='unconfirmed'>1918年3月26日 上午12:59:59</result>
+   <result draft='approved'>1918-3-26 上午12:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1918年3月26日</result>
    <result timeType='short'>1918年3月26日上午12:59</result>
    <result timeType='medium'>1918年3月26日上午12:59:59</result>
    <result dateType='full' timeType='none'>1918年3月26日星期二</result>
@@ -621,10 +782,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>24/04/32</result>
    <result timeType='short'>24/04/32 上午01:00</result>
    <result timeType='medium'>24/04/32 上午1:00:00</result>
-   <result dateType='medium' timeType='none'>1932-4-24</result>
-   <result timeType='short'>1932-4-24 上午01:00</result>
-   <result timeType='medium'>1932-4-24 上午1:00:00</result>
-   <result dateType='long' timeType='none'>1932年4月24日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1932年4月24日</result>
+   <result draft='approved'>1932-4-24</result>
+   <result timeType='short' draft='unconfirmed'>1932年4月24日 上午01:00</result>
+   <result draft='approved'>1932-4-24 上午01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1932年4月24日 上午1:00:00</result>
+   <result draft='approved'>1932-4-24 上午1:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1932年4月24日</result>
    <result timeType='short'>1932年4月24日上午01:00</result>
    <result timeType='medium'>1932年4月24日上午1:00:00</result>
    <result dateType='full' timeType='none'>1932年4月24日星期日</result>
@@ -635,10 +799,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>20/05/45</result>
    <result timeType='short'>20/05/45 上午01:00</result>
    <result timeType='medium'>20/05/45 上午1:00:01</result>
-   <result dateType='medium' timeType='none'>1945-5-20</result>
-   <result timeType='short'>1945-5-20 上午01:00</result>
-   <result timeType='medium'>1945-5-20 上午1:00:01</result>
-   <result dateType='long' timeType='none'>1945年5月20日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1945年5月20日</result>
+   <result draft='approved'>1945-5-20</result>
+   <result timeType='short' draft='unconfirmed'>1945年5月20日 上午01:00</result>
+   <result draft='approved'>1945-5-20 上午01:00</result>
+   <result timeType='medium' draft='unconfirmed'>1945年5月20日 上午1:00:01</result>
+   <result draft='approved'>1945-5-20 上午1:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1945年5月20日</result>
    <result timeType='short'>1945年5月20日上午01:00</result>
    <result timeType='medium'>1945年5月20日上午1:00:01</result>
    <result dateType='full' timeType='none'>1945年5月20日星期日</result>
@@ -649,10 +816,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>18/06/52</result>
    <result timeType='short'>18/06/52 上午11:59</result>
    <result timeType='medium'>18/06/52 上午11:59:59</result>
-   <result dateType='medium' timeType='none'>1952-6-18</result>
-   <result timeType='short'>1952-6-18 上午11:59</result>
-   <result timeType='medium'>1952-6-18 上午11:59:59</result>
-   <result dateType='long' timeType='none'>1952年6月18日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1952年6月18日</result>
+   <result draft='approved'>1952-6-18</result>
+   <result timeType='short' draft='unconfirmed'>1952年6月18日 上午11:59</result>
+   <result draft='approved'>1952-6-18 上午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>1952年6月18日 上午11:59:59</result>
+   <result draft='approved'>1952-6-18 上午11:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1952年6月18日</result>
    <result timeType='short'>1952年6月18日上午11:59</result>
    <result timeType='medium'>1952年6月18日上午11:59:59</result>
    <result dateType='full' timeType='none'>1952年6月18日星期三</result>
@@ -663,10 +833,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>16/07/73</result>
    <result timeType='short'>16/07/73 下午12:00</result>
    <result timeType='medium'>16/07/73 下午12:00:00</result>
-   <result dateType='medium' timeType='none'>1973-7-16</result>
-   <result timeType='short'>1973-7-16 下午12:00</result>
-   <result timeType='medium'>1973-7-16 下午12:00:00</result>
-   <result dateType='long' timeType='none'>1973年7月16日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1973年7月16日</result>
+   <result draft='approved'>1973-7-16</result>
+   <result timeType='short' draft='unconfirmed'>1973年7月16日 下午12:00</result>
+   <result draft='approved'>1973-7-16 下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1973年7月16日 下午12:00:00</result>
+   <result draft='approved'>1973-7-16 下午12:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1973年7月16日</result>
    <result timeType='short'>1973年7月16日下午12:00</result>
    <result timeType='medium'>1973年7月16日下午12:00:00</result>
    <result dateType='full' timeType='none'>1973年7月16日星期一</result>
@@ -677,10 +850,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>14/08/99</result>
    <result timeType='short'>14/08/99 下午12:00</result>
    <result timeType='medium'>14/08/99 下午12:00:01</result>
-   <result dateType='medium' timeType='none'>1999-8-14</result>
-   <result timeType='short'>1999-8-14 下午12:00</result>
-   <result timeType='medium'>1999-8-14 下午12:00:01</result>
-   <result dateType='long' timeType='none'>1999年8月14日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>1999年8月14日</result>
+   <result draft='approved'>1999-8-14</result>
+   <result timeType='short' draft='unconfirmed'>1999年8月14日 下午12:00</result>
+   <result draft='approved'>1999-8-14 下午12:00</result>
+   <result timeType='medium' draft='unconfirmed'>1999年8月14日 下午12:00:01</result>
+   <result draft='approved'>1999-8-14 下午12:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>1999年8月14日</result>
    <result timeType='short'>1999年8月14日下午12:00</result>
    <result timeType='medium'>1999年8月14日下午12:00:01</result>
    <result dateType='full' timeType='none'>1999年8月14日星期六</result>
@@ -691,10 +867,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>12/09/00</result>
    <result timeType='short'>12/09/00 下午10:59</result>
    <result timeType='medium'>12/09/00 下午10:59:59</result>
-   <result dateType='medium' timeType='none'>2000-9-12</result>
-   <result timeType='short'>2000-9-12 下午10:59</result>
-   <result timeType='medium'>2000-9-12 下午10:59:59</result>
-   <result dateType='long' timeType='none'>2000年9月12日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2000年9月12日</result>
+   <result draft='approved'>2000-9-12</result>
+   <result timeType='short' draft='unconfirmed'>2000年9月12日 下午10:59</result>
+   <result draft='approved'>2000-9-12 下午10:59</result>
+   <result timeType='medium' draft='unconfirmed'>2000年9月12日 下午10:59:59</result>
+   <result draft='approved'>2000-9-12 下午10:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>2000年9月12日</result>
    <result timeType='short'>2000年9月12日下午10:59</result>
    <result timeType='medium'>2000年9月12日下午10:59:59</result>
    <result dateType='full' timeType='none'>2000年9月12日星期二</result>
@@ -705,10 +884,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>08/10/01</result>
    <result timeType='short'>08/10/01 下午11:00</result>
    <result timeType='medium'>08/10/01 下午11:00:00</result>
-   <result dateType='medium' timeType='none'>2001-10-8</result>
-   <result timeType='short'>2001-10-8 下午11:00</result>
-   <result timeType='medium'>2001-10-8 下午11:00:00</result>
-   <result dateType='long' timeType='none'>2001年10月8日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2001年10月8日</result>
+   <result draft='approved'>2001-10-8</result>
+   <result timeType='short' draft='unconfirmed'>2001年10月8日 下午11:00</result>
+   <result draft='approved'>2001-10-8 下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2001年10月8日 下午11:00:00</result>
+   <result draft='approved'>2001-10-8 下午11:00:00</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>2001年10月8日</result>
    <result timeType='short'>2001年10月8日下午11:00</result>
    <result timeType='medium'>2001年10月8日下午11:00:00</result>
    <result dateType='full' timeType='none'>2001年10月8日星期一</result>
@@ -719,10 +901,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>04/11/04</result>
    <result timeType='short'>04/11/04 下午11:00</result>
    <result timeType='medium'>04/11/04 下午11:00:01</result>
-   <result dateType='medium' timeType='none'>2004-11-4</result>
-   <result timeType='short'>2004-11-4 下午11:00</result>
-   <result timeType='medium'>2004-11-4 下午11:00:01</result>
-   <result dateType='long' timeType='none'>2004年11月4日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2004年11月4日</result>
+   <result draft='approved'>2004-11-4</result>
+   <result timeType='short' draft='unconfirmed'>2004年11月4日 下午11:00</result>
+   <result draft='approved'>2004-11-4 下午11:00</result>
+   <result timeType='medium' draft='unconfirmed'>2004年11月4日 下午11:00:01</result>
+   <result draft='approved'>2004-11-4 下午11:00:01</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>2004年11月4日</result>
    <result timeType='short'>2004年11月4日下午11:00</result>
    <result timeType='medium'>2004年11月4日下午11:00:01</result>
    <result dateType='full' timeType='none'>2004年11月4日星期四</result>
@@ -733,10 +918,13 @@ locales='zh_SG'>
    <result dateType='short' timeType='none'>01/12/10</result>
    <result timeType='short'>01/12/10 下午11:59</result>
    <result timeType='medium'>01/12/10 下午11:59:59</result>
-   <result dateType='medium' timeType='none'>2010-12-1</result>
-   <result timeType='short'>2010-12-1 下午11:59</result>
-   <result timeType='medium'>2010-12-1 下午11:59:59</result>
-   <result dateType='long' timeType='none'>2010年12月1日</result>
+   <result dateType='medium' timeType='none' draft='unconfirmed'>2010年12月1日</result>
+   <result draft='approved'>2010-12-1</result>
+   <result timeType='short' draft='unconfirmed'>2010年12月1日 下午11:59</result>
+   <result draft='approved'>2010-12-1 下午11:59</result>
+   <result timeType='medium' draft='unconfirmed'>2010年12月1日 下午11:59:59</result>
+   <result draft='approved'>2010-12-1 下午11:59:59</result>
+   <result dateType='long' timeType='none' draft='unconfirmed approved'>2010年12月1日</result>
    <result timeType='short'>2010年12月1日下午11:59</result>
    <result timeType='medium'>2010年12月1日下午11:59:59</result>
    <result dateType='full' timeType='none'>2010年12月1日星期三</result>
@@ -745,7 +933,7 @@ locales='zh_SG'>
   </date>
   <date 
 locales='zh_TW'>
-<!-- Chinese (Taiwan) [中文 (台灣)@] -->
+<!-- Chinese (Taiwan) [中文（台灣）@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>上午12:00</result>
    <result timeType='medium'>上午12:00:00</result>
    <result dateType='short' timeType='none'>00/1/31</result>
@@ -917,7 +1105,7 @@ locales='zh_TW'>
   </date>
   <zoneFields 
 locales='zh zh_CN zh_HK zh_MO zh_SG zh_TW'>
-<!-- Chinese [中文@]; Chinese (China) [中文（中国）@]; Chinese (Hong Kong SAR China) [中文 (中華人民共和國香港特別行政區)@]; Chinese (Macau SAR China) [中文 (中華人民共和國澳門特別行政區)@]; Chinese (Singapore) [中文（新加坡）@]; Chinese (Taiwan) [中文 (台灣)@] -->
+<!-- Chinese [中文@]; Chinese (China) [中文（中国）@]; Chinese (Hong Kong SAR China) [中文（中華人民共和國香港特別行政區）@]; Chinese (Macau SAR China) [中文（中華人民共和國澳門特別行政區）@]; Chinese (Singapore) [中文（新加坡）@]; Chinese (Taiwan) [中文（台灣）@] -->
   </zoneFields>
   <collation 
 locales='zh zh_CN zh_SG'>
@@ -1319,6 +1507,9 @@ x丁x
 x七
 X七
 x七x
+x万
+X万
+x万x
 x丈
 X丈
 x丈x
@@ -1641,7 +1832,7 @@ x龟x
   </collation>
   <collation 
 locales='zh_HK zh_MO zh_TW'>
-<!-- Chinese (Hong Kong SAR China) [中文 (中華人民共和國香港特別行政區)@]; Chinese (Macau SAR China) [中文 (中華人民共和國澳門特別行政區)@]; Chinese (Taiwan) [中文 (台灣)@] -->
+<!-- Chinese (Hong Kong SAR China) [中文（中華人民共和國香港特別行政區）@]; Chinese (Macau SAR China) [中文（中華人民共和國澳門特別行政區）@]; Chinese (Taiwan) [中文（台灣）@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

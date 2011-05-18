@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>
 <!-- For information, see readme.html -->
- <cldrTest version='1.8.1' base='ee'>
- <!-- Ewe [Eʋegbe] -->
+ <cldrTest version='2.0' base='ee'>
+ <!-- Ewe [eʋegbe] -->
   <number 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
+<!-- Ewe [eʋegbe@]; Ewe (Ghana) [eʋegbe (Ghana nutome)@]; Ewe (Togo) [eʋegbe (Togo nutome)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
@@ -50,190 +50,190 @@ locales='ee ee_GH ee_TG'>
    <result numberType='decimal'>-∞</result>
    <result numberType='percent'>-∞%</result>
    <result numberType='scientific'>-∞</result>
-   <result input='NaN' numberType='integer'>NaN</result>
-   <result numberType='decimal'>NaN</result>
-   <result numberType='percent'>NaN</result>
-   <result numberType='scientific'>NaN</result>
+   <result input='NaN' numberType='integer'>mnn</result>
+   <result numberType='decimal'>mnn</result>
+   <result numberType='percent'>mnn</result>
+   <result numberType='scientific'>mnn</result>
   </number>
   <date 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>12:00 AN</result>
-   <result timeType='medium'>12:00:00 AN</result>
+<!-- Ewe [eʋegbe@]; Ewe (Ghana) [eʋegbe (Ghana nutome)@]; Ewe (Togo) [eʋegbe (Togo nutome)@] -->
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>ŋdi 12:00</result>
+   <result timeType='medium'>ŋdi 12:00:00</result>
    <result dateType='short' timeType='none'>31/01/1900</result>
-   <result timeType='short'>31/01/1900 12:00 AN</result>
-   <result timeType='medium'>31/01/1900 12:00:00 AN</result>
-   <result dateType='medium' timeType='none'>31 Dzv 1900</result>
-   <result timeType='short'>31 Dzv 1900 12:00 AN</result>
-   <result timeType='medium'>31 Dzv 1900 12:00:00 AN</result>
-   <result dateType='long' timeType='none'>31 Dzove 1900</result>
-   <result timeType='short'>31 Dzove 1900 12:00 AN</result>
-   <result timeType='medium'>31 Dzove 1900 12:00:00 AN</result>
-   <result dateType='full' timeType='none'>Kuɖa, 31 Dzove 1900</result>
-   <result timeType='short'>Kuɖa, 31 Dzove 1900 12:00 AN</result>
-   <result timeType='medium'>Kuɖa, 31 Dzove 1900 12:00:00 AN</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>12:00 AN</result>
-   <result timeType='medium'>12:00:01 AN</result>
+   <result timeType='short'>ŋdi 12:00 31/01/1900</result>
+   <result timeType='medium'>ŋdi 12:00:00 31/01/1900</result>
+   <result dateType='medium' timeType='none'>31 dzv 1900</result>
+   <result timeType='short'>ŋdi 12:00 31 dzv 1900</result>
+   <result timeType='medium'>ŋdi 12:00:00 31 dzv 1900</result>
+   <result dateType='long' timeType='none'>31 dzove 1900</result>
+   <result timeType='short'>ŋdi 12:00 31 dzove 1900</result>
+   <result timeType='medium'>ŋdi 12:00:00 31 dzove 1900</result>
+   <result dateType='full' timeType='none'>kuɖa, 31 dzove 1900</result>
+   <result timeType='short'>ŋdi 12:00 kuɖa, 31 dzove 1900</result>
+   <result timeType='medium'>ŋdi 12:00:00 kuɖa, 31 dzove 1900</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>ŋdi 12:00</result>
+   <result timeType='medium'>ŋdi 12:00:01</result>
    <result dateType='short' timeType='none'>28/02/1909</result>
-   <result timeType='short'>28/02/1909 12:00 AN</result>
-   <result timeType='medium'>28/02/1909 12:00:01 AN</result>
-   <result dateType='medium' timeType='none'>28 Dzd 1909</result>
-   <result timeType='short'>28 Dzd 1909 12:00 AN</result>
-   <result timeType='medium'>28 Dzd 1909 12:00:01 AN</result>
-   <result dateType='long' timeType='none'>28 Dzodze 1909</result>
-   <result timeType='short'>28 Dzodze 1909 12:00 AN</result>
-   <result timeType='medium'>28 Dzodze 1909 12:00:01 AN</result>
-   <result dateType='full' timeType='none'>Kɔsiɖa, 28 Dzodze 1909</result>
-   <result timeType='short'>Kɔsiɖa, 28 Dzodze 1909 12:00 AN</result>
-   <result timeType='medium'>Kɔsiɖa, 28 Dzodze 1909 12:00:01 AN</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>12:59 AN</result>
-   <result timeType='medium'>12:59:59 AN</result>
+   <result timeType='short'>ŋdi 12:00 28/02/1909</result>
+   <result timeType='medium'>ŋdi 12:00:01 28/02/1909</result>
+   <result dateType='medium' timeType='none'>28 dzd 1909</result>
+   <result timeType='short'>ŋdi 12:00 28 dzd 1909</result>
+   <result timeType='medium'>ŋdi 12:00:01 28 dzd 1909</result>
+   <result dateType='long' timeType='none'>28 dzodze 1909</result>
+   <result timeType='short'>ŋdi 12:00 28 dzodze 1909</result>
+   <result timeType='medium'>ŋdi 12:00:01 28 dzodze 1909</result>
+   <result dateType='full' timeType='none'>kɔsiɖa, 28 dzodze 1909</result>
+   <result timeType='short'>ŋdi 12:00 kɔsiɖa, 28 dzodze 1909</result>
+   <result timeType='medium'>ŋdi 12:00:01 kɔsiɖa, 28 dzodze 1909</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>ŋdi 12:59</result>
+   <result timeType='medium'>ŋdi 12:59:59</result>
    <result dateType='short' timeType='none'>26/03/1918</result>
-   <result timeType='short'>26/03/1918 12:59 AN</result>
-   <result timeType='medium'>26/03/1918 12:59:59 AN</result>
-   <result dateType='medium' timeType='none'>26 Ted 1918</result>
-   <result timeType='short'>26 Ted 1918 12:59 AN</result>
-   <result timeType='medium'>26 Ted 1918 12:59:59 AN</result>
-   <result dateType='long' timeType='none'>26 Tedoxe 1918</result>
-   <result timeType='short'>26 Tedoxe 1918 12:59 AN</result>
-   <result timeType='medium'>26 Tedoxe 1918 12:59:59 AN</result>
-   <result dateType='full' timeType='none'>Braɖa, 26 Tedoxe 1918</result>
-   <result timeType='short'>Braɖa, 26 Tedoxe 1918 12:59 AN</result>
-   <result timeType='medium'>Braɖa, 26 Tedoxe 1918 12:59:59 AN</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>1:00 AN</result>
-   <result timeType='medium'>1:00:00 AN</result>
+   <result timeType='short'>ŋdi 12:59 26/03/1918</result>
+   <result timeType='medium'>ŋdi 12:59:59 26/03/1918</result>
+   <result dateType='medium' timeType='none'>26 ted 1918</result>
+   <result timeType='short'>ŋdi 12:59 26 ted 1918</result>
+   <result timeType='medium'>ŋdi 12:59:59 26 ted 1918</result>
+   <result dateType='long' timeType='none'>26 tedoxe 1918</result>
+   <result timeType='short'>ŋdi 12:59 26 tedoxe 1918</result>
+   <result timeType='medium'>ŋdi 12:59:59 26 tedoxe 1918</result>
+   <result dateType='full' timeType='none'>blaɖa, 26 tedoxe 1918</result>
+   <result timeType='short'>ŋdi 12:59 blaɖa, 26 tedoxe 1918</result>
+   <result timeType='medium'>ŋdi 12:59:59 blaɖa, 26 tedoxe 1918</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>ŋdi 1:00</result>
+   <result timeType='medium'>ŋdi 1:00:00</result>
    <result dateType='short' timeType='none'>24/04/1932</result>
-   <result timeType='short'>24/04/1932 1:00 AN</result>
-   <result timeType='medium'>24/04/1932 1:00:00 AN</result>
-   <result dateType='medium' timeType='none'>24 Afɔ 1932</result>
-   <result timeType='short'>24 Afɔ 1932 1:00 AN</result>
-   <result timeType='medium'>24 Afɔ 1932 1:00:00 AN</result>
-   <result dateType='long' timeType='none'>24 Afɔfiɛ 1932</result>
-   <result timeType='short'>24 Afɔfiɛ 1932 1:00 AN</result>
-   <result timeType='medium'>24 Afɔfiɛ 1932 1:00:00 AN</result>
-   <result dateType='full' timeType='none'>Kɔsiɖa, 24 Afɔfiɛ 1932</result>
-   <result timeType='short'>Kɔsiɖa, 24 Afɔfiɛ 1932 1:00 AN</result>
-   <result timeType='medium'>Kɔsiɖa, 24 Afɔfiɛ 1932 1:00:00 AN</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>1:00 AN</result>
-   <result timeType='medium'>1:00:01 AN</result>
+   <result timeType='short'>ŋdi 1:00 24/04/1932</result>
+   <result timeType='medium'>ŋdi 1:00:00 24/04/1932</result>
+   <result dateType='medium' timeType='none'>24 afɔ 1932</result>
+   <result timeType='short'>ŋdi 1:00 24 afɔ 1932</result>
+   <result timeType='medium'>ŋdi 1:00:00 24 afɔ 1932</result>
+   <result dateType='long' timeType='none'>24 afɔfĩe 1932</result>
+   <result timeType='short'>ŋdi 1:00 24 afɔfĩe 1932</result>
+   <result timeType='medium'>ŋdi 1:00:00 24 afɔfĩe 1932</result>
+   <result dateType='full' timeType='none'>kɔsiɖa, 24 afɔfĩe 1932</result>
+   <result timeType='short'>ŋdi 1:00 kɔsiɖa, 24 afɔfĩe 1932</result>
+   <result timeType='medium'>ŋdi 1:00:00 kɔsiɖa, 24 afɔfĩe 1932</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>ŋdi 1:00</result>
+   <result timeType='medium'>ŋdi 1:00:01</result>
    <result dateType='short' timeType='none'>20/05/1945</result>
-   <result timeType='short'>20/05/1945 1:00 AN</result>
-   <result timeType='medium'>20/05/1945 1:00:01 AN</result>
-   <result dateType='medium' timeType='none'>20 Dam 1945</result>
-   <result timeType='short'>20 Dam 1945 1:00 AN</result>
-   <result timeType='medium'>20 Dam 1945 1:00:01 AN</result>
-   <result dateType='long' timeType='none'>20 Dama 1945</result>
-   <result timeType='short'>20 Dama 1945 1:00 AN</result>
-   <result timeType='medium'>20 Dama 1945 1:00:01 AN</result>
-   <result dateType='full' timeType='none'>Kɔsiɖa, 20 Dama 1945</result>
-   <result timeType='short'>Kɔsiɖa, 20 Dama 1945 1:00 AN</result>
-   <result timeType='medium'>Kɔsiɖa, 20 Dama 1945 1:00:01 AN</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59 AN</result>
-   <result timeType='medium'>11:59:59 AN</result>
+   <result timeType='short'>ŋdi 1:00 20/05/1945</result>
+   <result timeType='medium'>ŋdi 1:00:01 20/05/1945</result>
+   <result dateType='medium' timeType='none'>20 dam 1945</result>
+   <result timeType='short'>ŋdi 1:00 20 dam 1945</result>
+   <result timeType='medium'>ŋdi 1:00:01 20 dam 1945</result>
+   <result dateType='long' timeType='none'>20 dama 1945</result>
+   <result timeType='short'>ŋdi 1:00 20 dama 1945</result>
+   <result timeType='medium'>ŋdi 1:00:01 20 dama 1945</result>
+   <result dateType='full' timeType='none'>kɔsiɖa, 20 dama 1945</result>
+   <result timeType='short'>ŋdi 1:00 kɔsiɖa, 20 dama 1945</result>
+   <result timeType='medium'>ŋdi 1:00:01 kɔsiɖa, 20 dama 1945</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>ŋdi 11:59</result>
+   <result timeType='medium'>ŋdi 11:59:59</result>
    <result dateType='short' timeType='none'>18/06/1952</result>
-   <result timeType='short'>18/06/1952 11:59 AN</result>
-   <result timeType='medium'>18/06/1952 11:59:59 AN</result>
-   <result dateType='medium' timeType='none'>18 Mas 1952</result>
-   <result timeType='short'>18 Mas 1952 11:59 AN</result>
-   <result timeType='medium'>18 Mas 1952 11:59:59 AN</result>
-   <result dateType='long' timeType='none'>18 Masa 1952</result>
-   <result timeType='short'>18 Masa 1952 11:59 AN</result>
-   <result timeType='medium'>18 Masa 1952 11:59:59 AN</result>
-   <result dateType='full' timeType='none'>Kuɖa, 18 Masa 1952</result>
-   <result timeType='short'>Kuɖa, 18 Masa 1952 11:59 AN</result>
-   <result timeType='medium'>Kuɖa, 18 Masa 1952 11:59:59 AN</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00 EW</result>
-   <result timeType='medium'>12:00:00 EW</result>
+   <result timeType='short'>ŋdi 11:59 18/06/1952</result>
+   <result timeType='medium'>ŋdi 11:59:59 18/06/1952</result>
+   <result dateType='medium' timeType='none'>18 mas 1952</result>
+   <result timeType='short'>ŋdi 11:59 18 mas 1952</result>
+   <result timeType='medium'>ŋdi 11:59:59 18 mas 1952</result>
+   <result dateType='long' timeType='none'>18 masa 1952</result>
+   <result timeType='short'>ŋdi 11:59 18 masa 1952</result>
+   <result timeType='medium'>ŋdi 11:59:59 18 masa 1952</result>
+   <result dateType='full' timeType='none'>kuɖa, 18 masa 1952</result>
+   <result timeType='short'>ŋdi 11:59 kuɖa, 18 masa 1952</result>
+   <result timeType='medium'>ŋdi 11:59:59 kuɖa, 18 masa 1952</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>ɣetrɔ 12:00</result>
+   <result timeType='medium'>ɣetrɔ 12:00:00</result>
    <result dateType='short' timeType='none'>16/07/1973</result>
-   <result timeType='short'>16/07/1973 12:00 EW</result>
-   <result timeType='medium'>16/07/1973 12:00:00 EW</result>
-   <result dateType='medium' timeType='none'>16 Sia 1973</result>
-   <result timeType='short'>16 Sia 1973 12:00 EW</result>
-   <result timeType='medium'>16 Sia 1973 12:00:00 EW</result>
-   <result dateType='long' timeType='none'>16 Siamlɔm 1973</result>
-   <result timeType='short'>16 Siamlɔm 1973 12:00 EW</result>
-   <result timeType='medium'>16 Siamlɔm 1973 12:00:00 EW</result>
-   <result dateType='full' timeType='none'>Dzoɖa, 16 Siamlɔm 1973</result>
-   <result timeType='short'>Dzoɖa, 16 Siamlɔm 1973 12:00 EW</result>
-   <result timeType='medium'>Dzoɖa, 16 Siamlɔm 1973 12:00:00 EW</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00 EW</result>
-   <result timeType='medium'>12:00:01 EW</result>
+   <result timeType='short'>ɣetrɔ 12:00 16/07/1973</result>
+   <result timeType='medium'>ɣetrɔ 12:00:00 16/07/1973</result>
+   <result dateType='medium' timeType='none'>16 sia 1973</result>
+   <result timeType='short'>ɣetrɔ 12:00 16 sia 1973</result>
+   <result timeType='medium'>ɣetrɔ 12:00:00 16 sia 1973</result>
+   <result dateType='long' timeType='none'>16 siamlɔm 1973</result>
+   <result timeType='short'>ɣetrɔ 12:00 16 siamlɔm 1973</result>
+   <result timeType='medium'>ɣetrɔ 12:00:00 16 siamlɔm 1973</result>
+   <result dateType='full' timeType='none'>dzoɖa, 16 siamlɔm 1973</result>
+   <result timeType='short'>ɣetrɔ 12:00 dzoɖa, 16 siamlɔm 1973</result>
+   <result timeType='medium'>ɣetrɔ 12:00:00 dzoɖa, 16 siamlɔm 1973</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>ɣetrɔ 12:00</result>
+   <result timeType='medium'>ɣetrɔ 12:00:01</result>
    <result dateType='short' timeType='none'>14/08/1999</result>
-   <result timeType='short'>14/08/1999 12:00 EW</result>
-   <result timeType='medium'>14/08/1999 12:00:01 EW</result>
-   <result dateType='medium' timeType='none'>14 Dea 1999</result>
-   <result timeType='short'>14 Dea 1999 12:00 EW</result>
-   <result timeType='medium'>14 Dea 1999 12:00:01 EW</result>
-   <result dateType='long' timeType='none'>14 Deasiamime 1999</result>
-   <result timeType='short'>14 Deasiamime 1999 12:00 EW</result>
-   <result timeType='medium'>14 Deasiamime 1999 12:00:01 EW</result>
-   <result dateType='full' timeType='none'>Memleɖa, 14 Deasiamime 1999</result>
-   <result timeType='short'>Memleɖa, 14 Deasiamime 1999 12:00 EW</result>
-   <result timeType='medium'>Memleɖa, 14 Deasiamime 1999 12:00:01 EW</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>10:59 EW</result>
-   <result timeType='medium'>10:59:59 EW</result>
+   <result timeType='short'>ɣetrɔ 12:00 14/08/1999</result>
+   <result timeType='medium'>ɣetrɔ 12:00:01 14/08/1999</result>
+   <result dateType='medium' timeType='none'>14 dea 1999</result>
+   <result timeType='short'>ɣetrɔ 12:00 14 dea 1999</result>
+   <result timeType='medium'>ɣetrɔ 12:00:01 14 dea 1999</result>
+   <result dateType='long' timeType='none'>14 deasiamime 1999</result>
+   <result timeType='short'>ɣetrɔ 12:00 14 deasiamime 1999</result>
+   <result timeType='medium'>ɣetrɔ 12:00:01 14 deasiamime 1999</result>
+   <result dateType='full' timeType='none'>memleɖa, 14 deasiamime 1999</result>
+   <result timeType='short'>ɣetrɔ 12:00 memleɖa, 14 deasiamime 1999</result>
+   <result timeType='medium'>ɣetrɔ 12:00:01 memleɖa, 14 deasiamime 1999</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>ɣetrɔ 10:59</result>
+   <result timeType='medium'>ɣetrɔ 10:59:59</result>
    <result dateType='short' timeType='none'>12/09/2000</result>
-   <result timeType='short'>12/09/2000 10:59 EW</result>
-   <result timeType='medium'>12/09/2000 10:59:59 EW</result>
-   <result dateType='medium' timeType='none'>12 Any 2000</result>
-   <result timeType='short'>12 Any 2000 10:59 EW</result>
-   <result timeType='medium'>12 Any 2000 10:59:59 EW</result>
-   <result dateType='long' timeType='none'>12 Anyɔnyɔ 2000</result>
-   <result timeType='short'>12 Anyɔnyɔ 2000 10:59 EW</result>
-   <result timeType='medium'>12 Anyɔnyɔ 2000 10:59:59 EW</result>
-   <result dateType='full' timeType='none'>Braɖa, 12 Anyɔnyɔ 2000</result>
-   <result timeType='short'>Braɖa, 12 Anyɔnyɔ 2000 10:59 EW</result>
-   <result timeType='medium'>Braɖa, 12 Anyɔnyɔ 2000 10:59:59 EW</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>11:00 EW</result>
-   <result timeType='medium'>11:00:00 EW</result>
+   <result timeType='short'>ɣetrɔ 10:59 12/09/2000</result>
+   <result timeType='medium'>ɣetrɔ 10:59:59 12/09/2000</result>
+   <result dateType='medium' timeType='none'>12 any 2000</result>
+   <result timeType='short'>ɣetrɔ 10:59 12 any 2000</result>
+   <result timeType='medium'>ɣetrɔ 10:59:59 12 any 2000</result>
+   <result dateType='long' timeType='none'>12 anyɔnyɔ 2000</result>
+   <result timeType='short'>ɣetrɔ 10:59 12 anyɔnyɔ 2000</result>
+   <result timeType='medium'>ɣetrɔ 10:59:59 12 anyɔnyɔ 2000</result>
+   <result dateType='full' timeType='none'>blaɖa, 12 anyɔnyɔ 2000</result>
+   <result timeType='short'>ɣetrɔ 10:59 blaɖa, 12 anyɔnyɔ 2000</result>
+   <result timeType='medium'>ɣetrɔ 10:59:59 blaɖa, 12 anyɔnyɔ 2000</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>ɣetrɔ 11:00</result>
+   <result timeType='medium'>ɣetrɔ 11:00:00</result>
    <result dateType='short' timeType='none'>08/10/2001</result>
-   <result timeType='short'>08/10/2001 11:00 EW</result>
-   <result timeType='medium'>08/10/2001 11:00:00 EW</result>
-   <result dateType='medium' timeType='none'>8 Kel 2001</result>
-   <result timeType='short'>8 Kel 2001 11:00 EW</result>
-   <result timeType='medium'>8 Kel 2001 11:00:00 EW</result>
-   <result dateType='long' timeType='none'>8 Kele 2001</result>
-   <result timeType='short'>8 Kele 2001 11:00 EW</result>
-   <result timeType='medium'>8 Kele 2001 11:00:00 EW</result>
-   <result dateType='full' timeType='none'>Dzoɖa, 8 Kele 2001</result>
-   <result timeType='short'>Dzoɖa, 8 Kele 2001 11:00 EW</result>
-   <result timeType='medium'>Dzoɖa, 8 Kele 2001 11:00:00 EW</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>11:00 EW</result>
-   <result timeType='medium'>11:00:01 EW</result>
+   <result timeType='short'>ɣetrɔ 11:00 08/10/2001</result>
+   <result timeType='medium'>ɣetrɔ 11:00:00 08/10/2001</result>
+   <result dateType='medium' timeType='none'>8 kel 2001</result>
+   <result timeType='short'>ɣetrɔ 11:00 8 kel 2001</result>
+   <result timeType='medium'>ɣetrɔ 11:00:00 8 kel 2001</result>
+   <result dateType='long' timeType='none'>8 kele 2001</result>
+   <result timeType='short'>ɣetrɔ 11:00 8 kele 2001</result>
+   <result timeType='medium'>ɣetrɔ 11:00:00 8 kele 2001</result>
+   <result dateType='full' timeType='none'>dzoɖa, 8 kele 2001</result>
+   <result timeType='short'>ɣetrɔ 11:00 dzoɖa, 8 kele 2001</result>
+   <result timeType='medium'>ɣetrɔ 11:00:00 dzoɖa, 8 kele 2001</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>ɣetrɔ 11:00</result>
+   <result timeType='medium'>ɣetrɔ 11:00:01</result>
    <result dateType='short' timeType='none'>04/11/2004</result>
-   <result timeType='short'>04/11/2004 11:00 EW</result>
-   <result timeType='medium'>04/11/2004 11:00:01 EW</result>
-   <result dateType='medium' timeType='none'>4 Ade 2004</result>
-   <result timeType='short'>4 Ade 2004 11:00 EW</result>
-   <result timeType='medium'>4 Ade 2004 11:00:01 EW</result>
-   <result dateType='long' timeType='none'>4 Adeɛmekpɔxe 2004</result>
-   <result timeType='short'>4 Adeɛmekpɔxe 2004 11:00 EW</result>
-   <result timeType='medium'>4 Adeɛmekpɔxe 2004 11:00:01 EW</result>
-   <result dateType='full' timeType='none'>Yawoɖa, 4 Adeɛmekpɔxe 2004</result>
-   <result timeType='short'>Yawoɖa, 4 Adeɛmekpɔxe 2004 11:00 EW</result>
-   <result timeType='medium'>Yawoɖa, 4 Adeɛmekpɔxe 2004 11:00:01 EW</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>11:59 EW</result>
-   <result timeType='medium'>11:59:59 EW</result>
+   <result timeType='short'>ɣetrɔ 11:00 04/11/2004</result>
+   <result timeType='medium'>ɣetrɔ 11:00:01 04/11/2004</result>
+   <result dateType='medium' timeType='none'>4 ade 2004</result>
+   <result timeType='short'>ɣetrɔ 11:00 4 ade 2004</result>
+   <result timeType='medium'>ɣetrɔ 11:00:01 4 ade 2004</result>
+   <result dateType='long' timeType='none'>4 adeɛmekpɔxe 2004</result>
+   <result timeType='short'>ɣetrɔ 11:00 4 adeɛmekpɔxe 2004</result>
+   <result timeType='medium'>ɣetrɔ 11:00:01 4 adeɛmekpɔxe 2004</result>
+   <result dateType='full' timeType='none'>yawoɖa, 4 adeɛmekpɔxe 2004</result>
+   <result timeType='short'>ɣetrɔ 11:00 yawoɖa, 4 adeɛmekpɔxe 2004</result>
+   <result timeType='medium'>ɣetrɔ 11:00:01 yawoɖa, 4 adeɛmekpɔxe 2004</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>ɣetrɔ 11:59</result>
+   <result timeType='medium'>ɣetrɔ 11:59:59</result>
    <result dateType='short' timeType='none'>01/12/2010</result>
-   <result timeType='short'>01/12/2010 11:59 EW</result>
-   <result timeType='medium'>01/12/2010 11:59:59 EW</result>
-   <result dateType='medium' timeType='none'>1 Dzm 2010</result>
-   <result timeType='short'>1 Dzm 2010 11:59 EW</result>
-   <result timeType='medium'>1 Dzm 2010 11:59:59 EW</result>
-   <result dateType='long' timeType='none'>1 Dzome 2010</result>
-   <result timeType='short'>1 Dzome 2010 11:59 EW</result>
-   <result timeType='medium'>1 Dzome 2010 11:59:59 EW</result>
-   <result dateType='full' timeType='none'>Kuɖa, 1 Dzome 2010</result>
-   <result timeType='short'>Kuɖa, 1 Dzome 2010 11:59 EW</result>
-   <result timeType='medium'>Kuɖa, 1 Dzome 2010 11:59:59 EW</result>
+   <result timeType='short'>ɣetrɔ 11:59 01/12/2010</result>
+   <result timeType='medium'>ɣetrɔ 11:59:59 01/12/2010</result>
+   <result dateType='medium' timeType='none'>1 dzm 2010</result>
+   <result timeType='short'>ɣetrɔ 11:59 1 dzm 2010</result>
+   <result timeType='medium'>ɣetrɔ 11:59:59 1 dzm 2010</result>
+   <result dateType='long' timeType='none'>1 dzome 2010</result>
+   <result timeType='short'>ɣetrɔ 11:59 1 dzome 2010</result>
+   <result timeType='medium'>ɣetrɔ 11:59:59 1 dzome 2010</result>
+   <result dateType='full' timeType='none'>kuɖa, 1 dzome 2010</result>
+   <result timeType='short'>ɣetrɔ 11:59 kuɖa, 1 dzome 2010</result>
+   <result timeType='medium'>ɣetrɔ 11:59:59 kuɖa, 1 dzome 2010</result>
   </date>
   <zoneFields 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
+<!-- Ewe [eʋegbe@]; Ewe (Ghana) [eʋegbe (Ghana nutome)@]; Ewe (Togo) [eʋegbe (Togo nutome)@] -->
   </zoneFields>
   <collation 
 locales='ee ee_GH ee_TG'>
-<!-- Ewe [Eʋegbe@]; Ewe (Ghana) [Eʋegbe (Ghanadu)@]; Ewe (Togo) [Eʋegbe (Togodu)@] -->
+<!-- Ewe [eʋegbe@]; Ewe (Ghana) [eʋegbe (Ghana nutome)@]; Ewe (Togo) [eʋegbe (Togo nutome)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 
@@ -254,8 +254,26 @@ xa
 xA
 Xa
 XA
+xá
+xÁ
+Xá
+XÁ
+xà
+xÀ
+Xà
+XÀ
+xã
+xÃ
+Xã
+XÃ
 xax
 xAx
+xáx
+xÁx
+xàx
+xÀx
+xãx
+xÃx
 xb
 xB
 Xb
@@ -274,18 +292,6 @@ Xd
 XD
 xdx
 xDx
-xdz
-xdZ
-xDz
-xDZ
-Xdz
-XdZ
-XDz
-XDZ
-xdzx
-xdZx
-xDzx
-xDZx
 xɖ
 xƉ
 Xɖ
@@ -296,14 +302,50 @@ xe
 xE
 Xe
 XE
+xé
+xÉ
+Xé
+XÉ
+xè
+xÈ
+Xè
+XÈ
+xẽ
+xẼ
+Xẽ
+XẼ
 xex
 xEx
+xéx
+xÉx
+xèx
+xÈx
+xẽx
+xẼx
 xɛ
 xƐ
 Xɛ
 XƐ
+xɛ́
+xƐ́
+Xɛ́
+XƐ́
+xɛ̀
+xƐ̀
+Xɛ̀
+XƐ̀
+xɛ̃
+xƐ̃
+Xɛ̃
+XƐ̃
 xɛx
 xƐx
+xɛ́x
+xƐ́x
+xɛ̀x
+xƐ̀x
+xɛ̃x
+xƐ̃x
 xf
 xF
 Xf
@@ -320,18 +362,6 @@ xg
 xG
 Xg
 XG
-xgb
-xgB
-xGb
-xGB
-Xgb
-XgB
-XGb
-XGB
-xgbx
-xgBx
-xGbx
-xGBx
 xgx
 xGx
 xɣ
@@ -350,8 +380,26 @@ xi
 xI
 Xi
 XI
+xí
+xÍ
+Xí
+XÍ
+xì
+xÌ
+Xì
+XÌ
+xĩ
+xĨ
+Xĩ
+XĨ
 xix
 xIx
+xíx
+xÍx
+xìx
+xÌx
+xĩx
+xĨx
 xj
 xJ
 Xj
@@ -362,18 +410,6 @@ xk
 xK
 Xk
 XK
-xkp
-xkP
-xKp
-xKP
-Xkp
-XkP
-XKp
-XKP
-xkpx
-xkPx
-xKpx
-xKPx
 xkx
 xKx
 xl
@@ -394,18 +430,6 @@ Xn
 XN
 xnx
 xNx
-xny
-xnY
-xNy
-xNY
-Xny
-XnY
-XNy
-XNY
-xnyx
-xnYx
-xNyx
-xNYx
 xŋ
 xŊ
 Xŋ
@@ -416,14 +440,50 @@ xo
 xO
 Xo
 XO
+xó
+xÓ
+Xó
+XÓ
+xò
+xÒ
+Xò
+XÒ
+xõ
+xÕ
+Xõ
+XÕ
 xox
 xOx
+xóx
+xÓx
+xòx
+xÒx
+xõx
+xÕx
 xɔ
 xƆ
 Xɔ
 XƆ
+xɔ́
+xƆ́
+Xɔ́
+XƆ́
+xɔ̀
+xƆ̀
+Xɔ̀
+XƆ̀
+xɔ̃
+xƆ̃
+Xɔ̃
+XƆ̃
 xɔx
 xƆx
+xɔ́x
+xƆ́x
+xɔ̀x
+xƆ̀x
+xɔ̃x
+xƆ̃x
 xp
 xP
 Xp
@@ -452,26 +512,32 @@ xt
 xT
 Xt
 XT
-xts
-xtS
-xTs
-xTS
-Xts
-XtS
-XTs
-XTS
-xtsx
-xtSx
-xTsx
-xTSx
 xtx
 xTx
 xu
 xU
 Xu
 XU
+xú
+xÚ
+Xú
+XÚ
+xù
+xÙ
+Xù
+XÙ
+xũ
+xŨ
+Xũ
+XŨ
 xux
 xUx
+xúx
+xÚx
+xùx
+xÙx
+xũx
+xŨx
 xv
 xV
 Xv

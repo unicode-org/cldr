@@ -8,7 +8,7 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 -->
 
-<!ELEMENT cldrTest ((number | date | zoneFields | collation)*) >
+<!ELEMENT cldrTest ((number | date | zoneFields | collation | likelySubtags)*) >
 <!ATTLIST cldrTest version CDATA #REQUIRED>
 <!ATTLIST cldrTest base CDATA #REQUIRED>
 
@@ -23,6 +23,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT collation (result*) >
 <!ATTLIST collation locales CDATA #IMPLIED>
+
+<!ELEMENT likelySubtags (result*) >
 
 <!ELEMENT result ( #PCDATA ) >
 
@@ -43,4 +45,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST result field NMTOKEN #IMPLIED>
 <!ATTLIST result parse CDATA  #IMPLIED>
 
+<!-- likelySubtags result attributes -->
+<!ATTLIST result add NMTOKEN #IMPLIED>
+<!ATTLIST result remove NMTOKEN #IMPLIED>
 

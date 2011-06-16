@@ -2417,27 +2417,23 @@
 				<long>
 					<standard>sentralafrikansk tid</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>østafrikansk tid</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic draft="contributed">sørafrikansk tid</generic>
 					<standard>sørafrikansk normaltid</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>vestafrikansk tid</standard>
 					<daylight>vestafrikansk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -2494,11 +2490,6 @@
 					<standard>arabisk standardtid</standard>
 					<daylight>arabisk sommertid</daylight>
 				</long>
-				<short>
-					<generic>AT (arabisk)</generic>
-					<standard>AST (arabisk)</standard>
-					<daylight>ADT (arabisk)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2514,22 +2505,12 @@
 					<daylight draft="contributed">Argentinsk sommertid (vest)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Armenia">
-				<short>
-					<standard>AMT (Armenia)</standard>
-					<daylight>AMST (Armenia)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>atlanterhavskystlig tid</generic>
 					<standard>atlanterhavskystlig standardtid</standard>
 					<daylight>atlanterhavskystlig sommertid</daylight>
 				</long>
-				<short>
-					<generic>AT</generic>
-				</short>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2537,7 +2518,6 @@
 					<standard>sentralaustralsk standardtid</standard>
 					<daylight>sentralaustralsk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2545,7 +2525,6 @@
 					<standard>vest-sentralaustralsk standardtid</standard>
 					<daylight>vest-sentralaustralsk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -2553,7 +2532,6 @@
 					<standard>østaustralsk standardtid</standard>
 					<daylight>østaustralsk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -2561,7 +2539,6 @@
 					<standard>vestaustralsk standardtid</standard>
 					<daylight>vestaustralsk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
@@ -2574,11 +2551,6 @@
 				<long>
 					<standard>kinesisk standardtid</standard>
 				</long>
-				<short>
-					<generic>CT (Kina)</generic>
-					<standard>CST (Kina)</standard>
-					<daylight>CDT (Kina)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2587,38 +2559,30 @@
 					<daylight draft="contributed">Mongolsk (Tsjoibalsan) sommertid</daylight>
 				</long>
 			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<generic>CT (Cuba)</generic>
-					<standard>CST (Cuba)</standard>
-					<daylight>CDT (Cuba)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<standard>sentraleuropeisk normaltid</standard>
 					<daylight>sentraleuropeisk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>østeuropeisk normaltid</standard>
 					<daylight>østeuropeisk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>vesteuropeisk tid</standard>
 					<daylight>vesteuropeisk sommertid</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Greenwich middeltid</standard>
 				</long>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -2678,9 +2642,6 @@
 					<standard>israelsk standardtid</standard>
 					<daylight>israelsk sommertid</daylight>
 				</long>
-				<short>
-					<standard>IST (Israel)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -2801,18 +2762,6 @@
 					<standard draft="contributed">Russisk (Samara) tid</standard>
 					<daylight draft="contributed">Russisk (Samara) sommertid</daylight>
 				</long>
-			</metazone>
-			<metazone type="South_Georgia">
-				<short>
-					<standard draft="contributed">GST (Sør-Georgia)</standard>
-				</short>
-			</metazone>
-			<metazone type="Taipei">
-				<short>
-					<generic>CT (Taipei)</generic>
-					<standard>CST (Taipei)</standard>
-					<daylight>CDT (Taipei)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>

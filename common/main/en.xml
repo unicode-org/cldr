@@ -1928,6 +1928,11 @@
 					<standard>Alaska Standard Time</standard>
 					<daylight>Alaska Daylight Time</daylight>
 				</long>
+				<short>
+					<generic>AKT</generic>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
@@ -2005,11 +2010,6 @@
 					<standard>Arabian Standard Time</standard>
 					<daylight>Arabian Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>AT (Arabian)</generic>
-					<standard>AST (Arabian)</standard>
-					<daylight>ADT (Arabian)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2027,10 +2027,6 @@
 					<standard>Armenia Time</standard>
 					<daylight>Armenia Summer Time</daylight>
 				</long>
-				<short>
-					<standard>AMT (Armenia)</standard>
-					<daylight>AMST (Armenia)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
@@ -2057,6 +2053,12 @@
 					<standard>Australian Central Standard Time</standard>
 					<daylight>Australian Central Daylight Time</daylight>
 				</long>
+				<short>
+					<generic>ACT</generic>
+					<standard>ACST</standard>
+					<daylight>ACDT</daylight>
+				</short>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2064,6 +2066,12 @@
 					<standard>Australian Central Western Standard Time</standard>
 					<daylight>Australian Central Western Daylight Time</daylight>
 				</long>
+				<short>
+					<generic>ACWT</generic>
+					<standard>ACWST</standard>
+					<daylight>ACWDT</daylight>
+				</short>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -2071,6 +2079,12 @@
 					<standard>Australian Eastern Standard Time</standard>
 					<daylight>Australian Eastern Daylight Time</daylight>
 				</long>
+				<short>
+					<generic>AET</generic>
+					<standard>AEST</standard>
+					<daylight>AEDT</daylight>
+				</short>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -2078,6 +2092,12 @@
 					<standard>Australian Western Standard Time</standard>
 					<daylight>Australian Western Daylight Time</daylight>
 				</long>
+				<short>
+					<generic>AWT</generic>
+					<standard>AWST</standard>
+					<daylight>AWDT</daylight>
+				</short>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -2177,11 +2197,6 @@
 					<standard>China Standard Time</standard>
 					<daylight>China Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>CT (China)</generic>
-					<standard>CST (China)</standard>
-					<daylight>CDT (China)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2217,11 +2232,6 @@
 					<standard>Cuba Standard Time</standard>
 					<daylight>Cuba Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>CT (Cuba)</generic>
-					<standard>CST (Cuba)</standard>
-					<daylight>CDT (Cuba)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dacca">
 				<long>
@@ -2360,9 +2370,6 @@
 				<long>
 					<standard>Guam Standard Time</standard>
 				</long>
-				<short>
-					<standard>GST (Guam)</standard>
-				</short>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
@@ -2379,6 +2386,9 @@
 				<long>
 					<standard>Hawaii-Aleutian Standard Time</standard>
 				</long>
+				<short>
+					<standard>HST</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -2441,9 +2451,6 @@
 					<standard>Israel Standard Time</standard>
 					<daylight>Israel Daylight Time</daylight>
 				</long>
-				<short>
-					<standard>IST (Israel)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -2541,6 +2548,12 @@
 					<standard>Lord Howe Standard Time</standard>
 					<daylight>Lord Howe Daylight Time</daylight>
 				</long>
+				<short>
+					<generic>LHT</generic>
+					<standard>LHST</standard>
+					<daylight>LHDT</daylight>
+				</short>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Macau">
 				<long>
@@ -2635,6 +2648,12 @@
 					<standard>New Zealand Standard Time</standard>
 					<daylight>New Zealand Daylight Time</daylight>
 				</long>
+				<short>
+					<generic>NZT</generic>
+					<standard>NZST</standard>
+					<daylight>NZDT</daylight>
+				</short>
+				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
@@ -2796,9 +2815,6 @@
 				<long>
 					<standard>South Georgia Time</standard>
 				</long>
-				<short>
-					<standard>GST (S. Georgia)</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
@@ -2827,11 +2843,6 @@
 					<standard>Taipei Standard Time</standard>
 					<daylight>Taipei Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>CT (Taipei)</generic>
-					<standard>CST (Taipei)</standard>
-					<daylight>CDT (Taipei)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>

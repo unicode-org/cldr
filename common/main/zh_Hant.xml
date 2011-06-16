@@ -3540,8 +3540,8 @@
 					<daylight>艾克夏令時間</daylight>
 				</long>
 				<short>
-					<standard draft="contributed">ACT（艾克）</standard>
-					<daylight draft="contributed">ACST（艾克）</daylight>
+					<standard>艾克時間</standard>
+					<daylight>艾克夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Afghanistan">
@@ -3557,7 +3557,7 @@
 					<standard>中非時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">CAT</standard>
+					<standard>中非時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Africa_Eastern">
@@ -3565,7 +3565,7 @@
 					<standard>東非時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">EAT</standard>
+					<standard>東非時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Africa_Southern">
@@ -3574,7 +3574,8 @@
 					<standard>南非標準時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">SAST</standard>
+					<generic>南非時間</generic>
+					<standard>南非標準時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -3583,8 +3584,8 @@
 					<daylight>西非夏令時間</daylight>
 				</long>
 				<short>
-					<standard draft="contributed">WAT</standard>
-					<daylight draft="contributed">WAST</daylight>
+					<standard>西非時間</standard>
+					<daylight>西非夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Aktyubinsk">
@@ -3616,15 +3617,15 @@
 					<daylight>阿拉斯加-夏威夷夏令時間</daylight>
 				</long>
 				<short>
-					<generic>阿拉斯加 - 夏威夷時間</generic>
-					<standard>阿拉斯加 - 夏威夷標準時間</standard>
-					<daylight>阿拉斯加 - 夏威夷夏令時間</daylight>
+					<generic>阿拉斯加-夏威夷時間</generic>
+					<standard>阿拉斯加-夏威夷標準時間</standard>
+					<daylight>阿拉斯加-夏威夷夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Almaty">
 				<long>
 					<standard>阿拉木圖時間</standard>
-					<daylight draft="contributed">阿拉木圖夏令時間</daylight>
+					<daylight>阿拉木圖夏令時間</daylight>
 				</long>
 				<short>
 					<standard>阿拉木圖時間</standard>
@@ -3633,11 +3634,12 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic draft="contributed">亞馬遜時間</generic>
+					<generic>亞馬遜時間</generic>
 					<standard>亞馬遜時間</standard>
 					<daylight>亞馬遜夏令時間</daylight>
 				</long>
 				<short>
+					<generic>亞馬遜時間</generic>
 					<standard>亞馬遜時間</standard>
 					<daylight>亞馬遜夏令時間</daylight>
 				</short>
@@ -3692,11 +3694,12 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic draft="contributed">阿納德爾時間</generic>
+					<generic>阿納德爾時間</generic>
 					<standard>阿那底河標準時間</standard>
 					<daylight>阿那底河夏令時間</daylight>
 				</long>
 				<short>
+					<generic>阿納德爾時間</generic>
 					<standard>阿那底河時間</standard>
 					<daylight>阿那底河夏令時間</daylight>
 				</short>
@@ -3735,29 +3738,32 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<generic draft="contributed">阿根廷時間</generic>
+					<generic>阿根廷時間</generic>
 					<standard>阿根廷時間</standard>
 					<daylight>阿根廷夏令時間</daylight>
 				</long>
 				<short>
+					<generic>阿根廷時間</generic>
 					<standard>阿根廷時間</standard>
 					<daylight>阿根廷夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="contributed">阿根廷西部時間</generic>
+					<generic>阿根廷西部時間</generic>
 					<standard>阿根廷西部時間</standard>
 					<daylight>阿根廷西部夏令時間</daylight>
 				</long>
 				<short>
+					<generic>阿根廷西部時間</generic>
 					<standard>阿根廷西部時間</standard>
+					<daylight>阿根廷西部夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
 					<standard>亞美尼亞時間</standard>
-					<daylight draft="contributed">亞美尼亞夏令時間</daylight>
+					<daylight>亞美尼亞夏令時間</daylight>
 				</long>
 				<short>
 					<standard>亞美尼亞時間</standard>
@@ -3790,7 +3796,7 @@
 				<long>
 					<generic>澳洲中部時間</generic>
 					<standard>澳洲中部標準時間</standard>
-					<daylight draft="contributed">澳洲中部夏令時間</daylight>
+					<daylight>澳洲中部夏令時間</daylight>
 				</long>
 				<short>
 					<generic>澳洲中部時間</generic>
@@ -3802,7 +3808,7 @@
 				<long>
 					<generic>澳洲中西部時間</generic>
 					<standard>澳洲中西部標準時間</standard>
-					<daylight draft="contributed">澳洲中西部夏令時間</daylight>
+					<daylight>澳洲中西部夏令時間</daylight>
 				</long>
 				<short>
 					<generic>澳洲中西部時間</generic>
@@ -3814,7 +3820,7 @@
 				<long>
 					<generic>澳洲東部時間</generic>
 					<standard>澳洲東部標準時間</standard>
-					<daylight draft="contributed">澳洲東部夏令時間</daylight>
+					<daylight>澳洲東部夏令時間</daylight>
 				</long>
 				<short>
 					<generic>澳洲東部時間</generic>
@@ -3826,7 +3832,7 @@
 				<long>
 					<generic>澳洲西部時間</generic>
 					<standard>澳洲西部標準時間</standard>
-					<daylight draft="contributed">澳洲西部夏令時間</daylight>
+					<daylight>澳洲西部夏令時間</daylight>
 				</long>
 				<short>
 					<generic>澳洲西部時間</generic>
@@ -3857,7 +3863,7 @@
 			<metazone type="Baku">
 				<long>
 					<standard>巴庫時間</standard>
-					<daylight draft="contributed">巴庫夏令時間</daylight>
+					<daylight>巴庫夏令時間</daylight>
 				</long>
 				<short>
 					<standard>巴庫時間</standard>
@@ -3871,6 +3877,7 @@
 					<daylight>孟加拉夏令時間</daylight>
 				</long>
 				<short>
+					<generic>孟加拉時間</generic>
 					<standard>孟加拉時間</standard>
 					<daylight>孟加拉夏令時間</daylight>
 				</short>
@@ -3879,12 +3886,12 @@
 				<long>
 					<generic>白令時間</generic>
 					<standard>白令標準時間</standard>
-					<daylight draft="contributed">白令夏令時間</daylight>
+					<daylight>白令夏令時間</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">BT（白令）</generic>
+					<generic>白令時間</generic>
 					<standard>白令標準時間</standard>
-					<daylight draft="contributed">BDT（白令）</daylight>
+					<daylight>白令夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Bhutan">
@@ -3900,13 +3907,13 @@
 					<standard>玻利維亞時間</standard>
 				</long>
 				<short>
-					<standard>玻利維亞標準時間</standard>
+					<standard>玻利維亞時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Borneo">
 				<long>
 					<standard>婆羅洲時間</standard>
-					<daylight draft="contributed">婆羅洲夏令時間</daylight>
+					<daylight>婆羅洲夏令時間</daylight>
 				</long>
 				<short>
 					<standard>婆羅洲時間</standard>
@@ -3915,11 +3922,12 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic draft="contributed">巴西利亞時間</generic>
+					<generic>巴西利亞時間</generic>
 					<standard>巴西利亞時間</standard>
-					<daylight draft="contributed">巴西利亞夏令時間</daylight>
+					<daylight>巴西利亞夏令時間</daylight>
 				</long>
 				<short>
+					<generic>巴西利亞時間</generic>
 					<standard>巴西利亞時間</standard>
 					<daylight>巴西利亞夏令時間</daylight>
 				</short>
@@ -3948,8 +3956,8 @@
 					<standard>查莫洛標準時間</standard>
 				</long>
 				<short>
-					<generic draft="contributed">ChT</generic>
-					<standard draft="contributed">ChST</standard>
+					<generic>查莫洛時間</generic>
+					<standard>查莫洛標準時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Changbai">
@@ -3966,8 +3974,8 @@
 					<daylight>查坦群島夏令時間</daylight>
 				</long>
 				<short>
-					<standard draft="contributed">CHAST</standard>
-					<daylight draft="contributed">CHADT</daylight>
+					<standard>查坦群島標準時間</standard>
+					<daylight>查坦群島夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Chile">
@@ -3984,7 +3992,7 @@
 				<long>
 					<generic>中國時間</generic>
 					<standard>中國標準時間</standard>
-					<daylight draft="contributed">中國夏令時間</daylight>
+					<daylight>中國夏令時間</daylight>
 				</long>
 				<short>
 					<generic>中國時間</generic>
@@ -3994,11 +4002,12 @@
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<generic draft="contributed">喬巴山時間</generic>
+					<generic>喬巴山時間</generic>
 					<standard>喬巴山時間</standard>
-					<daylight draft="contributed">喬巴山夏令時間</daylight>
+					<daylight>喬巴山夏令時間</daylight>
 				</long>
 				<short>
+					<generic>喬巴山時間</generic>
 					<standard>喬巴山時間</standard>
 					<daylight>喬巴山夏令時間</daylight>
 				</short>
@@ -4035,8 +4044,8 @@
 					<daylight>庫克群島半夏令時間</daylight>
 				</long>
 				<short>
-					<standard>CKT</standard>
-					<daylight draft="contributed">CKHST</daylight>
+					<standard>庫克群島時間</standard>
+					<daylight>庫克群島半夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Cuba">
@@ -4046,7 +4055,7 @@
 					<daylight>古巴夏令時間</daylight>
 				</long>
 				<short>
-					<generic>CT（古巴）</generic>
+					<generic>古巴時間</generic>
 					<standard>古巴時間</standard>
 					<daylight>古巴夏令時間</daylight>
 				</short>
@@ -4078,7 +4087,7 @@
 			<metazone type="Dushanbe">
 				<long>
 					<standard>杜尚別時間</standard>
-					<daylight draft="contributed">杜尚別夏令時間</daylight>
+					<daylight>杜尚別夏令時間</daylight>
 				</long>
 				<short>
 					<standard>杜尚別時間</standard>
@@ -4087,7 +4096,7 @@
 			</metazone>
 			<metazone type="Dutch_Guiana">
 				<long>
-					<standard draft="contributed">荷屬圭亞那時間</standard>
+					<standard>荷屬圭亞那時間</standard>
 				</long>
 				<short>
 					<standard>荷屬圭亞那時間</standard>
@@ -4107,8 +4116,8 @@
 					<daylight>復活節島夏令時間</daylight>
 				</long>
 				<short>
-					<standard draft="contributed">EAST</standard>
-					<daylight draft="contributed">EASST</daylight>
+					<standard>復活節島時間</standard>
+					<daylight>復活節島夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Ecuador">
@@ -4165,8 +4174,8 @@
 					<daylight>斐濟夏令時間</daylight>
 				</long>
 				<short>
-					<standard draft="contributed">FJT</standard>
-					<daylight draft="contributed">FJST</daylight>
+					<standard>斐濟時間</standard>
+					<daylight>斐濟夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="French_Guiana">
@@ -4188,7 +4197,7 @@
 			<metazone type="Frunze">
 				<long>
 					<standard>伏龍芝時間</standard>
-					<daylight draft="contributed">伏龍芝夏令時間</daylight>
+					<daylight>伏龍芝夏令時間</daylight>
 				</long>
 				<short>
 					<standard>伏龍芝時間</standard>
@@ -4197,10 +4206,10 @@
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
-					<standard draft="contributed">加拉帕戈群島時間</standard>
+					<standard>加拉帕戈群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">GALT</standard>
+					<standard>加拉帕戈群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Gambier">
@@ -4208,13 +4217,13 @@
 					<standard>甘比爾群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">GAMT</standard>
+					<standard>甘比爾群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<standard>喬治亞時間</standard>
-					<daylight draft="contributed">喬治亞夏令時間</daylight>
+					<daylight>喬治亞夏令時間</daylight>
 				</long>
 				<short>
 					<standard>喬治亞時間</standard>
@@ -4226,7 +4235,7 @@
 					<standard>吉爾伯特群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">GILT</standard>
+					<standard>吉爾伯特群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="GMT">
@@ -4240,7 +4249,7 @@
 			<metazone type="Greenland_Central">
 				<long>
 					<standard>格陵蘭中部時間</standard>
-					<daylight draft="contributed">格陵蘭中部夏令時間</daylight>
+					<daylight>格陵蘭中部夏令時間</daylight>
 				</long>
 				<short>
 					<standard>格陵蘭中部時間</standard>
@@ -4250,7 +4259,7 @@
 			<metazone type="Greenland_Eastern">
 				<long>
 					<standard>格陵蘭東部時間</standard>
-					<daylight draft="contributed">格陵蘭東部夏令時間</daylight>
+					<daylight>格陵蘭東部夏令時間</daylight>
 				</long>
 				<short>
 					<standard>格陵蘭東部時間</standard>
@@ -4260,7 +4269,7 @@
 			<metazone type="Greenland_Western">
 				<long>
 					<standard>格陵蘭西部時間</standard>
-					<daylight draft="contributed">格陵蘭西部夏令時間</daylight>
+					<daylight>格陵蘭西部夏令時間</daylight>
 				</long>
 				<short>
 					<standard>格陵蘭西部時間</standard>
@@ -4269,7 +4278,7 @@
 			</metazone>
 			<metazone type="Guam">
 				<long>
-					<standard draft="contributed">關島標準時間</standard>
+					<standard>關島標準時間</standard>
 				</long>
 				<short>
 					<standard>關島標準時間</standard>
@@ -4295,11 +4304,10 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic draft="contributed">夏威夷阿留申群島時間</generic>
-					<standard draft="contributed">夏威夷-阿留申標準時間</standard>
+					<standard>夏威夷-阿留申標準時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">HST</standard>
+					<standard>夏威夷-阿留申標準時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4314,11 +4322,12 @@
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic draft="contributed">科布多時間</generic>
+					<generic>科布多時間</generic>
 					<standard>科布多時間</standard>
 					<daylight>科布多夏令時間</daylight>
 				</long>
 				<short>
+					<generic>科布多時間</generic>
 					<standard>科布多時間</standard>
 					<daylight>科布多夏令時間</daylight>
 				</short>
@@ -4349,7 +4358,6 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="contributed">印尼中部時間</generic>
 					<standard>印尼中部時間</standard>
 				</long>
 				<short>
@@ -4358,7 +4366,6 @@
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="contributed">印尼東部時間</generic>
 					<standard>印尼東部時間</standard>
 				</long>
 				<short>
@@ -4367,7 +4374,6 @@
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="contributed">印尼西部時間</generic>
 					<standard>印尼西部時間</standard>
 				</long>
 				<short>
@@ -4386,11 +4392,12 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic draft="contributed">伊爾庫次克時間</generic>
+					<generic>伊爾庫次克時間</generic>
 					<standard>伊爾庫次克時間</standard>
 					<daylight>伊爾庫次克夏令時間</daylight>
 				</long>
 				<short>
+					<generic>伊爾庫次克時間</generic>
 					<standard>伊爾庫次克時間</standard>
 					<daylight>伊爾庫次克夏令時間</daylight>
 				</short>
@@ -4402,6 +4409,7 @@
 					<daylight>以色列夏令時間</daylight>
 				</long>
 				<short>
+					<generic>以色列時間</generic>
 					<standard>以色列標準時間</standard>
 					<daylight>以色列夏令時間</daylight>
 				</short>
@@ -4420,11 +4428,12 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">堪察加半島時間</generic>
+					<generic>堪察加半島時間</generic>
 					<standard>彼得羅巴甫洛夫斯克時間</standard>
 					<daylight>彼得羅巴甫洛夫斯克日光節約時間</daylight>
 				</long>
 				<short>
+					<generic>堪察加半島時間</generic>
 					<standard>彼得羅巴甫洛夫斯克時間</standard>
 					<daylight>彼得羅巴甫洛夫斯克夏令時間</daylight>
 				</short>
@@ -4447,9 +4456,7 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic>東哈薩克時間</generic>
 					<standard>東哈薩克標準時間</standard>
-					<daylight draft="contributed">哈薩克東部夏令時間</daylight>
 				</long>
 				<short>
 					<standard>東哈薩克標準時間</standard>
@@ -4457,9 +4464,7 @@
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic>西哈薩克時間</generic>
 					<standard>西哈薩克標準時間</standard>
-					<daylight draft="contributed">哈薩克西部夏令時間</daylight>
 				</long>
 				<short>
 					<standard>西哈薩克標準時間</standard>
@@ -4467,8 +4472,8 @@
 			</metazone>
 			<metazone type="Kizilorda">
 				<long>
-					<standard draft="contributed">吉力羅達時間</standard>
-					<daylight draft="contributed">吉力羅達夏令時間</daylight>
+					<standard>吉力羅達時間</standard>
+					<daylight>吉力羅達夏令時間</daylight>
 				</long>
 				<short>
 					<standard>吉力羅達時間</standard>
@@ -4479,7 +4484,7 @@
 				<long>
 					<generic>韓國時間</generic>
 					<standard>韓國標準時間</standard>
-					<daylight draft="contributed">韓國夏令時間</daylight>
+					<daylight>韓國夏令時間</daylight>
 				</long>
 				<short>
 					<generic>韓國時間</generic>
@@ -4492,16 +4497,17 @@
 					<standard>科斯瑞時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">KOST</standard>
+					<standard>科斯瑞時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic draft="contributed">克拉斯諾亞爾斯克時間</generic>
+					<generic>克拉斯諾亞爾斯克時間</generic>
 					<standard>克拉斯諾亞爾斯克時間</standard>
 					<daylight>克拉斯諾亞爾斯克夏令時間</daylight>
 				</long>
 				<short>
+					<generic>克拉斯諾亞爾斯克時間</generic>
 					<standard>克拉斯諾亞爾斯克時間</standard>
 					<daylight>克拉斯諾亞爾斯克夏令時間</daylight>
 				</short>
@@ -4509,7 +4515,7 @@
 			<metazone type="Kuybyshev">
 				<long>
 					<standard>古比雪夫時間</standard>
-					<daylight draft="contributed">古比雪夫夏令時間</daylight>
+					<daylight>古比雪夫夏令時間</daylight>
 				</long>
 				<short>
 					<standard>古比雪夫時間</standard>
@@ -4518,10 +4524,10 @@
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
-					<standard draft="contributed">瓜加林環礁時間</standard>
+					<standard>瓜加林環礁時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">KWAT</standard>
+					<standard>瓜加林環礁時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Kyrgystan">
@@ -4545,7 +4551,7 @@
 					<standard>萊恩群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">LINT</standard>
+					<standard>萊恩群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Long_Shu">
@@ -4560,7 +4566,7 @@
 				<long>
 					<generic>豪勳爵島時間</generic>
 					<standard>豪勳爵島標準時間</standard>
-					<daylight draft="contributed">豪勳爵島夏令時間</daylight>
+					<daylight>豪勳爵島夏令時間</daylight>
 				</long>
 				<short>
 					<generic>豪勳爵島時間</generic>
@@ -4571,7 +4577,7 @@
 			<metazone type="Macau">
 				<long>
 					<standard>澳門時間</standard>
-					<daylight draft="contributed">澳門夏令時間</daylight>
+					<daylight>澳門夏令時間</daylight>
 				</long>
 				<short>
 					<standard>澳門時間</standard>
@@ -4580,16 +4586,20 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic draft="contributed">麥覺理時間</generic>
+					<standard>麥覺理時間</standard>
 				</long>
+				<short>
+					<standard>麥覺理時間</standard>
+				</short>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
-					<generic draft="contributed">馬加丹時間</generic>
+					<generic>馬加丹時間</generic>
 					<standard>馬加丹時間</standard>
 					<daylight>馬加丹夏令時間</daylight>
 				</long>
 				<short>
+					<generic>馬加丹時間</generic>
 					<standard>馬加丹時間</standard>
 					<daylight>馬加丹夏令時間</daylight>
 				</short>
@@ -4623,15 +4633,15 @@
 					<standard>馬克沙斯時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">MART</standard>
+					<standard>馬克沙斯時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
-					<standard draft="contributed">馬紹爾群島時間</standard>
+					<standard>馬紹爾群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">MHT</standard>
+					<standard>馬紹爾群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Mauritius">
@@ -4654,11 +4664,12 @@
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">蒙古時間</generic>
+					<generic>蒙古時間</generic>
 					<standard>烏蘭巴托時間</standard>
-					<daylight draft="contributed">烏蘭巴托夏令時間</daylight>
+					<daylight>烏蘭巴托夏令時間</daylight>
 				</long>
 				<short>
+					<generic>蒙古時間</generic>
 					<standard>烏蘭巴托時間</standard>
 					<daylight>烏蘭巴托夏令時間</daylight>
 				</short>
@@ -4667,9 +4678,10 @@
 				<long>
 					<generic>莫斯科時間</generic>
 					<standard>莫斯科標準時間</standard>
-					<daylight draft="contributed">莫斯科夏令時間</daylight>
+					<daylight>莫斯科夏令時間</daylight>
 				</long>
 				<short>
+					<generic>莫斯科時間</generic>
 					<standard>莫斯科標準時間</standard>
 					<daylight>莫斯科夏令時間</daylight>
 				</short>
@@ -4687,7 +4699,7 @@
 					<standard>諾魯時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">NRT</standard>
+					<standard>諾魯時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Nepal">
@@ -4710,14 +4722,14 @@
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
-					<generic draft="contributed">紐西蘭時間</generic>
-					<standard draft="contributed">紐西蘭標準時間</standard>
-					<daylight draft="contributed">紐西蘭夏令時間</daylight>
+					<generic>紐西蘭時間</generic>
+					<standard>紐西蘭標準時間</standard>
+					<daylight>紐西蘭夏令時間</daylight>
 				</long>
 				<short>
-					<generic draft="contributed">NZT</generic>
-					<standard draft="contributed">NZST</standard>
-					<daylight draft="contributed">NZDT</daylight>
+					<generic>紐西蘭時間</generic>
+					<standard>紐西蘭標準時間</standard>
+					<daylight>紐西蘭夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -4737,7 +4749,7 @@
 					<standard>紐威島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">NUT</standard>
+					<standard>紐威島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Norfolk">
@@ -4745,46 +4757,49 @@
 					<standard>諾福克島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">NFT</standard>
+					<standard>諾福克島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">諾拉哈時間</generic>
+					<generic>諾拉哈時間</generic>
 					<standard>費南多諾羅尼亞時間</standard>
 					<daylight>諾倫哈夏令時間</daylight>
 				</long>
 				<short>
+					<generic>諾拉哈時間</generic>
 					<standard>費南多諾羅尼亞時間</standard>
 					<daylight>費南多諾羅尼亞夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
-					<standard draft="contributed">北馬里亞納群島時間</standard>
+					<standard>北馬里亞納群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">MPT</standard>
+					<standard>北馬里亞納群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
-					<generic draft="contributed">新西伯利亞時間</generic>
+					<generic>新西伯利亞時間</generic>
 					<standard>新西伯利亞時間</standard>
 					<daylight>新西伯利亞夏令時間</daylight>
 				</long>
 				<short>
+					<generic>新西伯利亞時間</generic>
 					<standard>新西伯利亞時間</standard>
 					<daylight>新西伯利亞夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
-					<generic draft="contributed">鄂木斯科時間</generic>
+					<generic>鄂木斯科時間</generic>
 					<standard>鄂木斯克時間</standard>
 					<daylight>鄂木斯克夏令時間</daylight>
 				</long>
 				<short>
+					<generic>鄂木斯科時間</generic>
 					<standard>鄂木斯克時間</standard>
 					<daylight>鄂木斯克夏令時間</daylight>
 				</short>
@@ -4792,7 +4807,7 @@
 			<metazone type="Pakistan">
 				<long>
 					<standard>巴基斯坦時間</standard>
-					<daylight draft="contributed">巴基斯坦夏令時間</daylight>
+					<daylight>巴基斯坦夏令時間</daylight>
 				</long>
 				<short>
 					<standard>巴基斯坦時間</standard>
@@ -4804,7 +4819,7 @@
 					<standard>帛琉時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">PWT</standard>
+					<standard>帛琉時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
@@ -4812,7 +4827,7 @@
 					<standard>巴布亞紐幾內亞時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">PGT</standard>
+					<standard>巴布亞紐幾內亞時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Paraguay">
@@ -4850,7 +4865,7 @@
 					<standard>鳳凰群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">PHOT</standard>
+					<standard>鳳凰群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
@@ -4870,7 +4885,7 @@
 					<standard>皮特康時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">PNT</standard>
+					<standard>皮特康時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Ponape">
@@ -4878,13 +4893,13 @@
 					<standard>波納佩時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">PONT</standard>
+					<standard>波納佩時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
 					<standard>克孜勒奧爾達時間</standard>
-					<daylight draft="contributed">克孜勒奧爾達夏令時間</daylight>
+					<daylight>克孜勒奧爾達夏令時間</daylight>
 				</long>
 				<short>
 					<standard>克孜勒奧爾達時間</standard>
@@ -4909,22 +4924,24 @@
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
-					<generic draft="contributed">庫頁島時間</generic>
+					<generic>庫頁島時間</generic>
 					<standard>庫頁島時間</standard>
 					<daylight>庫頁島夏令時間</daylight>
 				</long>
 				<short>
+					<generic>庫頁島時間</generic>
 					<standard>庫頁島時間</standard>
 					<daylight>庫頁島夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<generic draft="contributed">薩馬拉時間</generic>
+					<generic>薩馬拉時間</generic>
 					<standard>薩馬拉時間</standard>
-					<daylight draft="contributed">薩馬拉夏令時間</daylight>
+					<daylight>薩馬拉夏令時間</daylight>
 				</long>
 				<short>
+					<generic>薩馬拉時間</generic>
 					<standard>薩馬拉時間</standard>
 					<daylight>薩馬拉夏令時間</daylight>
 				</short>
@@ -4932,7 +4949,7 @@
 			<metazone type="Samarkand">
 				<long>
 					<standard>撒馬爾罕時間</standard>
-					<daylight draft="contributed">撒馬爾罕夏令時間</daylight>
+					<daylight>撒馬爾罕夏令時間</daylight>
 				</long>
 				<short>
 					<standard>撒馬爾罕時間</standard>
@@ -4944,7 +4961,7 @@
 					<standard draft="contributed">薩摩亞標準時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">SST</standard>
+					<standard draft="contributed">薩摩亞標準時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4958,7 +4975,7 @@
 			<metazone type="Shevchenko">
 				<long>
 					<standard>舍甫琴科時間</standard>
-					<daylight draft="contributed">舍甫琴科夏令時間</daylight>
+					<daylight>舍甫琴科夏令時間</daylight>
 				</long>
 				<short>
 					<standard>舍甫琴科時間</standard>
@@ -4978,7 +4995,7 @@
 					<standard>索羅門群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">SBT</standard>
+					<standard>索羅門群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="South_Georgia">
@@ -5000,7 +5017,7 @@
 			<metazone type="Sverdlovsk">
 				<long>
 					<standard>斯維爾德洛夫斯克時間</standard>
-					<daylight draft="contributed">斯維爾德洛夫斯克夏令時間</daylight>
+					<daylight>斯維爾德洛夫斯克夏令時間</daylight>
 				</long>
 				<short>
 					<standard>斯維爾德洛夫斯克時間</standard>
@@ -5020,7 +5037,7 @@
 					<standard>大溪地時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">TAHT</standard>
+					<standard>大溪地時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Taipei">
@@ -5046,7 +5063,7 @@
 			<metazone type="Tashkent">
 				<long>
 					<standard>塔什干時間</standard>
-					<daylight draft="contributed">塔什干夏令時間</daylight>
+					<daylight>塔什干夏令時間</daylight>
 				</long>
 				<short>
 					<standard>塔什干時間</standard>
@@ -5056,7 +5073,7 @@
 			<metazone type="Tbilisi">
 				<long>
 					<standard>第比利斯時間</standard>
-					<daylight draft="contributed">第比利斯夏令時間</daylight>
+					<daylight>第比利斯夏令時間</daylight>
 				</long>
 				<short>
 					<standard>第比利斯時間</standard>
@@ -5068,7 +5085,7 @@
 					<standard>托克勞群島時間</standard>
 				</long>
 				<short>
-					<standard draft="contributed">TKT</standard>
+					<standard>托克勞群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Tonga">
@@ -5077,8 +5094,8 @@
 					<daylight>東加夏令時間</daylight>
 				</long>
 				<short>
-					<standard draft="contributed">TOT</standard>
-					<daylight draft="contributed">TOST</daylight>
+					<standard>東加時間</standard>
+					<daylight>東加夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Truk">
@@ -5086,13 +5103,13 @@
 					<standard>楚克島時間</standard>
 				</long>
 				<short>
-					<standard draft="provisional">楚克島時間</standard>
+					<standard>楚克島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<standard>土耳其時間</standard>
-					<daylight draft="contributed">土耳其夏令時間</daylight>
+					<daylight>土耳其夏令時間</daylight>
 				</long>
 				<short>
 					<standard>土耳其時間</standard>
@@ -5102,7 +5119,7 @@
 			<metazone type="Turkmenistan">
 				<long>
 					<standard>土庫曼時間</standard>
-					<daylight draft="contributed">土庫曼夏令時間</daylight>
+					<daylight>土庫曼夏令時間</daylight>
 				</long>
 				<short>
 					<standard>土庫曼時間</standard>
@@ -5114,13 +5131,13 @@
 					<standard>吐瓦魯時間</standard>
 				</long>
 				<short>
-					<standard draft="provisional">吐瓦魯時間</standard>
+					<standard>吐瓦魯時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Uralsk">
 				<long>
 					<standard>烏拉斯克時間</standard>
-					<daylight draft="contributed">烏拉斯克夏令時間</daylight>
+					<daylight>烏拉斯克夏令時間</daylight>
 				</long>
 				<short>
 					<standard>烏拉斯克時間</standard>
@@ -5148,7 +5165,7 @@
 			<metazone type="Uzbekistan">
 				<long>
 					<standard>烏茲別克時間</standard>
-					<daylight draft="contributed">烏茲別克夏令時間</daylight>
+					<daylight>烏茲別克夏令時間</daylight>
 				</long>
 				<short>
 					<standard>烏茲別克時間</standard>
@@ -5161,8 +5178,8 @@
 					<daylight>萬那杜夏令時間</daylight>
 				</long>
 				<short>
-					<standard draft="provisional">萬那杜時間</standard>
-					<daylight draft="provisional">萬那杜夏令時間</daylight>
+					<standard>萬那杜時間</standard>
+					<daylight>萬那杜夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Venezuela">
@@ -5175,22 +5192,24 @@
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
-					<generic draft="contributed">海參崴時間</generic>
+					<generic>海參崴時間</generic>
 					<standard>海參崴時間</standard>
 					<daylight>海參崴夏令時間</daylight>
 				</long>
 				<short>
+					<generic>海參崴時間</generic>
 					<standard>海參崴時間</standard>
 					<daylight>海參崴夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<generic draft="contributed">伏爾加格勒時間</generic>
+					<generic>伏爾加格勒時間</generic>
 					<standard>伏爾加格勒時間</standard>
 					<daylight>伏爾加格勒夏令時間</daylight>
 				</long>
 				<short>
+					<generic>伏爾加格勒時間</generic>
 					<standard>伏爾加格勒時間</standard>
 					<daylight>伏爾加格勒夏令時間</daylight>
 				</short>
@@ -5208,7 +5227,7 @@
 					<standard>威克島時間</standard>
 				</long>
 				<short>
-					<standard draft="provisional">威克島時間</standard>
+					<standard>威克島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Wallis">
@@ -5216,27 +5235,29 @@
 					<standard>瓦利斯和福杜納群島時間</standard>
 				</long>
 				<short>
-					<standard draft="provisional">瓦利斯和福杜納群島時間</standard>
+					<standard>瓦利斯和福杜納群島時間</standard>
 				</short>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic draft="contributed">雅庫茨克時間</generic>
+					<generic>雅庫茨克時間</generic>
 					<standard>雅庫次克時間</standard>
 					<daylight>雅庫次克夏令時間</daylight>
 				</long>
 				<short>
+					<generic>雅庫茨克時間</generic>
 					<standard>雅庫次克時間</standard>
 					<daylight>雅庫次克夏令時間</daylight>
 				</short>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic draft="contributed">葉卡捷琳堡時間</generic>
+					<generic>葉卡捷琳堡時間</generic>
 					<standard>凱薩琳堡時間</standard>
-					<daylight draft="contributed">凱薩琳堡夏令時間</daylight>
+					<daylight>凱薩琳堡夏令時間</daylight>
 				</long>
 				<short>
+					<generic>葉卡捷琳堡時間</generic>
 					<standard>凱薩琳堡時間</standard>
 					<daylight>凱薩琳堡夏令時間</daylight>
 				</short>
@@ -5244,7 +5265,7 @@
 			<metazone type="Yerevan">
 				<long>
 					<standard>葉里溫時間</standard>
-					<daylight draft="contributed">葉里溫夏令時間</daylight>
+					<daylight>葉里溫夏令時間</daylight>
 				</long>
 				<short>
 					<standard>葉里溫時間</standard>
@@ -5255,7 +5276,7 @@
 				<long>
 					<generic>育空時間</generic>
 					<standard>育空標準時間</standard>
-					<daylight draft="contributed">育空夏令時間</daylight>
+					<daylight>育空夏令時間</daylight>
 				</long>
 				<short>
 					<generic>育空時間</generic>

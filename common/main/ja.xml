@@ -3511,10 +3511,6 @@
 					<standard>アクレ標準時</standard>
 					<daylight>アクレ夏時間</daylight>
 				</long>
-				<short>
-					<standard>ACT（アクレ）</standard>
-					<daylight>ACST（アクレ）</daylight>
-				</short>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
@@ -3558,9 +3554,6 @@
 					<standard>アラスカ標準時</standard>
 					<daylight>アラスカ夏時間</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AKT</generic>
-				</short>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
@@ -3622,20 +3615,12 @@
 					<standard>アクタウ標準時</standard>
 					<daylight>アクタウ夏時間</daylight>
 				</long>
-				<short>
-					<standard>AQTT（アクタウ）</standard>
-					<daylight>AQTST（アクタウ）</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
 					<standard>アクトベ標準時</standard>
 					<daylight>アクトベ夏時間</daylight>
 				</long>
-				<short>
-					<standard>AQTT（アクトベ）</standard>
-					<daylight>AQTST（アクトベ）</daylight>
-				</short>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -3643,11 +3628,6 @@
 					<standard>アラブ標準時</standard>
 					<daylight>アラブ夏時間</daylight>
 				</long>
-				<short>
-					<generic>AT（アラブ）</generic>
-					<standard>AST（アラブ）</standard>
-					<daylight>ADT（アラブ）</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -3668,10 +3648,6 @@
 					<standard>アルメニア標準時</standard>
 					<daylight>アルメニア夏時間</daylight>
 				</long>
-				<short>
-					<standard>AMT（アルメニア）</standard>
-					<daylight>AMST（アルメニア）</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
@@ -3744,11 +3720,6 @@
 					<standard>ベーリング標準時</standard>
 					<daylight>ベーリング夏時間</daylight>
 				</long>
-				<short>
-					<generic>BT（ベーリング）</generic>
-					<standard>BST（ベーリング）</standard>
-					<daylight>BDT（ベーリング）</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -3813,11 +3784,6 @@
 					<standard>中国標準時</standard>
 					<daylight>中国夏時間</daylight>
 				</long>
-				<short>
-					<generic>CT(中国)</generic>
-					<standard>CST(中国)</standard>
-					<daylight>CDT(中国)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -3853,11 +3819,6 @@
 					<standard>キューバ標準時</standard>
 					<daylight>キューバ夏時間</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT（キューバ）</generic>
-					<standard>CST（キューバ）</standard>
-					<daylight>CDT（キューバ）</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dacca">
 				<long>
@@ -3995,9 +3956,6 @@
 				<long>
 					<standard draft="provisional">グアム標準時</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GST（グアム）</standard>
-				</short>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
@@ -4081,9 +4039,6 @@
 					<standard>イスラエル標準時</standard>
 					<daylight>イスラエル夏時間</daylight>
 				</long>
-				<short>
-					<standard>IST（イスラエル）</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -4091,7 +4046,6 @@
 					<standard>日本標準時</standard>
 					<daylight>日本夏時間</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
@@ -4163,9 +4117,6 @@
 					<standard>ロードハウ標準時</standard>
 					<daylight>ロードハウ夏時間</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">LHT</generic>
-				</short>
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
@@ -4348,12 +4299,6 @@
 					<daylight draft="contributed">サマラ夏時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="Samarkand">
-				<short>
-					<standard>SAMT（サマルカンド）</standard>
-					<daylight>SAMST（サマルカンド）</daylight>
-				</short>
-			</metazone>
 			<metazone type="Samoa">
 				<long>
 					<standard draft="provisional">サモア標準時</standard>
@@ -4373,9 +4318,6 @@
 				<long>
 					<standard>サウスジョージア標準時</standard>
 				</long>
-				<short>
-					<standard>GST（サウスジョージア）</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
@@ -4391,13 +4333,6 @@
 				<long>
 					<standard draft="provisional">タヒチ時間</standard>
 				</long>
-			</metazone>
-			<metazone type="Taipei">
-				<short>
-					<generic>CT(台湾)</generic>
-					<standard>CST(台湾)</standard>
-					<daylight>CDT(台湾)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tokelau">
 				<long>

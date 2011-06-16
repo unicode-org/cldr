@@ -3409,27 +3409,23 @@
 				<long>
 					<standard>Horário da África Central</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Horário da África Oriental</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic draft="contributed">Horário da África do Sul</generic>
 					<standard>Horário Padrão da África do Sul</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>Horário da África Ocidental</standard>
 					<daylight>Horário de Verão da África Ocidental</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
@@ -3443,7 +3439,6 @@
 					<standard>Horário Padrão do Alasca</standard>
 					<daylight>Horário de Verão do Alasca</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
@@ -3464,6 +3459,11 @@
 					<standard>Horário do Amazonas</standard>
 					<daylight>Horário de Verão do Amazonas</daylight>
 				</long>
+				<short>
+					<generic>AMT</generic>
+					<standard>AMT</standard>
+					<daylight>AMST</daylight>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Central">
@@ -3519,11 +3519,6 @@
 					<standard>Horário Padrão da Arábia</standard>
 					<daylight>Horário de Verão da Arábia</daylight>
 				</long>
-				<short>
-					<generic>AT (Arábia)</generic>
-					<standard>AST (Arábia)</standard>
-					<daylight>ADT (Arábia)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -3544,10 +3539,6 @@
 					<standard>Horário da Armênia</standard>
 					<daylight>Horário de Verão da Armênia</daylight>
 				</long>
-				<short>
-					<standard>AMT (Armênia)</standard>
-					<daylight>AMST (Armênia)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
@@ -3561,7 +3552,6 @@
 					<standard>Horário Padrão do Atlântico</standard>
 					<daylight>Horário de Verão do Atlântico</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -3569,12 +3559,6 @@
 					<standard>Horário Padrão da Austrália Central</standard>
 					<daylight>Horário de Verão da Austrália Central</daylight>
 				</long>
-				<short>
-					<generic>ACT (Austrália)</generic>
-					<standard>ACST (Austrália)</standard>
-					<daylight>ACDT (Austrália)</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -3582,7 +3566,6 @@
 					<standard>Horário Padrão da Austrália Centro-Ocidental</standard>
 					<daylight>Horário de Verão da Austrália Centro-Ocidental</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -3590,7 +3573,6 @@
 					<standard>Horário Padrão da Austrália Oriental</standard>
 					<daylight>Horário de Verão da Austrália Oriental</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -3598,7 +3580,6 @@
 					<standard>Horário Padrão da Austrália Ocidental</standard>
 					<daylight>Horário de Verão da Austrália Ocidental</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -3653,6 +3634,11 @@
 					<standard>Horário de Brasília</standard>
 					<daylight>Horário de Verão de Brasília</daylight>
 				</long>
+				<short>
+					<generic>BRT</generic>
+					<standard>BRT</standard>
+					<daylight>BRST</daylight>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Brunei">
@@ -3695,11 +3681,6 @@
 					<standard>Horário Padrão da China</standard>
 					<daylight>Horário de Verão da China</daylight>
 				</long>
-				<short>
-					<generic>CT (China)</generic>
-					<standard>CST (China)</standard>
-					<daylight>CDT (China)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -3736,11 +3717,6 @@
 					<standard>Horário Padrão de Cuba</standard>
 					<daylight>Horário de Verão de Cuba</daylight>
 				</long>
-				<short>
-					<generic>CT (Cuba)</generic>
-					<standard>CST (Cuba)</standard>
-					<daylight>CDT (Cuba)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dacca">
 				<long>
@@ -3789,21 +3765,18 @@
 					<standard>Horário da Europa Central</standard>
 					<daylight>Horário de Verão da Europa Central</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Horário Padrão da Europa Oriental</standard>
 					<daylight>Horário de Verão da Europa Oriental</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Horário da Europa Ocidental</standard>
 					<daylight>Horário de Verão da Europa Ocidental</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -3858,7 +3831,6 @@
 				<long>
 					<standard>Horário do Meridiano de Greenwich</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
@@ -3882,9 +3854,6 @@
 				<long>
 					<standard>Horário Padrão de Guam</standard>
 				</long>
-				<short>
-					<standard>GST (Guam)</standard>
-				</short>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
@@ -3902,7 +3871,6 @@
 					<generic draft="contributed">Horário do Havaí e Ilhas Aleutas</generic>
 					<standard>Horário Padrão do Havaí-Aleuta</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
@@ -3926,7 +3894,6 @@
 				<long>
 					<standard>Horário do Oceano Índico</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
@@ -3970,9 +3937,6 @@
 					<standard>Horário Padrão de Israel</standard>
 					<daylight>Horário de Verão de Israel</daylight>
 				</long>
-				<short>
-					<standard>IST (Israel)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -4336,9 +4300,6 @@
 				<long>
 					<standard>Horário da Geórgia do Sul</standard>
 				</long>
-				<short>
-					<standard>GST (Geórgia do Sul)</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
@@ -4367,9 +4328,6 @@
 					<standard draft="contributed">Horário Padrão de Taipei</standard>
 					<daylight draft="contributed">Horário de Verão de Taipei</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT (TW)</generic>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>

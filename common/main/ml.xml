@@ -2725,10 +2725,6 @@
 					<standard>എയ്ക്കര്‍ സമയം</standard>
 					<daylight>എയ്ക്കര്‍ വേനല്‍ക്കാല സമയം</daylight>
 				</long>
-				<short>
-					<standard>ACT (എയ്ക്കര്‍)</standard>
-					<daylight>ACST (എയ്ക്കര്‍)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
@@ -2750,9 +2746,6 @@
 					<generic>ദക്ഷിണാഫ്രിക്കന്‍ സമയം</generic>
 					<standard>ദക്ഷിണാഫ്രിക്കന്‍ സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 				</long>
-				<short>
-					<generic draft="provisional">ദക്ഷിണാഫ്രിക്ക സമയം</generic>
-				</short>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
@@ -2833,20 +2826,12 @@
 					<standard>അഖ്തൌ സമയം</standard>
 					<daylight>അഖ്തൌ വേനല്‍ക്കാല സമയം</daylight>
 				</long>
-				<short>
-					<standard>AQTT (അഖ്തൌ)</standard>
-					<daylight>AQTST (അഖ്തൌ)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
 					<standard>അഖ്തോബ് സമയം</standard>
 					<daylight>അഖ്തോബ് വേനല്‍ക്കാല സമയം</daylight>
 				</long>
-				<short>
-					<standard>AQTT (അഖ്തോബ്)</standard>
-					<daylight>AQTST (അഖ്തോബ്)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -2854,11 +2839,6 @@
 					<standard>അറേബ്യന്‍ സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 					<daylight>അറേബ്യന്‍ പകല്‍ സമയം</daylight>
 				</long>
-				<short>
-					<generic>AT (അറേബ്യന്‍)</generic>
-					<standard>AST (അറേബ്യന്‍)</standard>
-					<daylight>ADT (അറേബ്യന്‍)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2879,10 +2859,6 @@
 					<standard>അര്‍മേനിയ സമയം</standard>
 					<daylight>അര്‍മേനിയ വേനല്‍ക്കാല സമയം</daylight>
 				</long>
-				<short>
-					<standard>AMT (അര്‍മേനിയ)</standard>
-					<daylight>AMST (അര്‍മേനിയ)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
@@ -2955,11 +2931,6 @@
 					<standard>ബെറിങ് സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 					<daylight>ബെറിങ് പകല്‍ സമയം</daylight>
 				</long>
-				<short>
-					<generic>BT (ബെറിങ് )</generic>
-					<standard>BST (ബെറിങ് )</standard>
-					<daylight>BDT (ബെറിങ് )</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -3024,11 +2995,6 @@
 					<standard>ചൈനാ സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 					<daylight>ചൈന പകല്‍ സമയം</daylight>
 				</long>
-				<short>
-					<generic>CT (ചൈന)</generic>
-					<standard>CST (ചൈന)</standard>
-					<daylight>CDT (ചൈന)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -3065,11 +3031,6 @@
 					<standard>ക്യൂബ സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 					<daylight>ക്യൂബ പകല്‍ സമയം</daylight>
 				</long>
-				<short>
-					<generic>CST (ക്യൂബ )</generic>
-					<standard>CST (ക്യൂബ)</standard>
-					<daylight>CDT (ക്യൂബ )</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dacca">
 				<long>
@@ -3196,9 +3157,6 @@
 				<long>
 					<standard>ഗ്വാം സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 				</long>
-				<short>
-					<standard>GST (ഗ്വാം)</standard>
-				</short>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
@@ -3234,6 +3192,10 @@
 				<long>
 					<standard>ഇന്‍‌ഡ്യ സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
@@ -3282,9 +3244,6 @@
 					<standard>ഇസ്രായേല്‍ സ്റ്റാന്‍ഡേര്‍ഡ് സമയം</standard>
 					<daylight>ഇസ്രായേല്‍ പകല്‍ സമയം</daylight>
 				</long>
-				<short>
-					<standard>IST (ഇസ്രായേല്‍)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -3617,10 +3576,6 @@
 					<standard>സമര്‍കന്ദ് സമയം</standard>
 					<daylight>സമര്‍കന്ദ് വേനല്‍ക്കാല സമയം</daylight>
 				</long>
-				<short>
-					<standard>SAMT (സമര്‍കന്ദ് )</standard>
-					<daylight>SAMST (സമര്‍കന്ദ് )</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
@@ -3652,9 +3607,6 @@
 				<long>
 					<standard>ദക്ഷിണ ജോര്‍ജ്ജിയ സമയം</standard>
 				</long>
-				<short>
-					<standard>GST (ദക്ഷിണ ജോര്‍ജ്ജിയ)</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>

@@ -2297,12 +2297,6 @@
 					<daylight draft="contributed">Ora legale di Anadyr</daylight>
 				</long>
 			</metazone>
-			<metazone type="Arabian">
-				<short>
-					<standard draft="provisional">AST arabo</standard>
-					<daylight draft="provisional">ADT arabo</daylight>
-				</short>
-			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Ora dell'Argentina</generic>
@@ -2317,19 +2311,12 @@
 					<daylight draft="contributed">Ora legale dell'Argentina (occidentale)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Armenia">
-				<short>
-					<standard draft="provisional">AMT Armenia</standard>
-					<daylight draft="provisional">AMST Armenia</daylight>
-				</short>
-			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic draft="contributed">Ora dell'Atlantico</generic>
 					<standard draft="contributed">Ora standard dell'Atlantico</standard>
 					<daylight draft="contributed">Ora legale dell'Atlantico</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2337,7 +2324,6 @@
 					<standard draft="contributed">Ora standard dell'Australia (centrale)</standard>
 					<daylight draft="contributed">Ora legale dell'Australia (centrale)</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2372,10 +2358,6 @@
 					<standard>Ora Standard Cina</standard>
 					<daylight>Ora Legale Cina</daylight>
 				</long>
-				<short>
-					<standard>CST (Cina)</standard>
-					<daylight>CDT (Cina)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2384,31 +2366,25 @@
 					<daylight draft="contributed">Ora legale di Choibalsan</daylight>
 				</long>
 			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<generic draft="contributed">CD (Cuba)</generic>
-					<standard draft="contributed">CST (Cuba)</standard>
-					<daylight draft="contributed">CDT (Cuba)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<standard>Ora Standard Europa Centrale</standard>
 					<daylight>Ora Legale Europa Centrale</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Ora Standard Europa Orientale</standard>
 					<daylight>Ora Legale Europa Orientale</daylight>
 				</long>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Ora Europa occidentale</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
@@ -2455,9 +2431,6 @@
 					<standard>Ora Standard Israele</standard>
 					<daylight>Ora Legale Israele</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">IST (Israele)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -2567,13 +2540,6 @@
 					<standard draft="contributed">Ora di Samara</standard>
 					<daylight draft="contributed">Ora legale di Samara</daylight>
 				</long>
-			</metazone>
-			<metazone type="Taipei">
-				<short>
-					<generic draft="contributed">CT (Taipei)</generic>
-					<standard draft="contributed">CST (Taipei)</standard>
-					<daylight draft="contributed">CDT (Taipei)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>

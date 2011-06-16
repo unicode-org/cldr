@@ -2286,12 +2286,18 @@
 				<long>
 					<standard>Titina Afrika gaƒoƒome</standard>
 				</long>
+				<short>
+					<standard>CAT</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Ɣedzeƒe Afrika gaƒoƒome</standard>
 				</long>
+				<short>
+					<standard>EAT</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
@@ -2299,6 +2305,9 @@
 					<generic>Anyiehe Afrika gaƒoƒome</generic>
 					<standard>Anyiehe Afrika gaƒoƒoɖoanyime</standard>
 				</long>
+				<short>
+					<standard>SAST</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -2306,6 +2315,10 @@
 					<standard>Ɣetoɖoƒe Afrika gaƒoƒome</standard>
 					<daylight>Ɣetoɖoƒe Afrika dzomeŋɔli gaƒoƒome</daylight>
 				</long>
+				<short>
+					<standard>WAT</standard>
+					<daylight>WAST</daylight>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Central">
@@ -2314,10 +2327,6 @@
 					<standard>Titina Amerika gaƒoƒoɖoanyime</standard>
 					<daylight>Titina Amerika ŋkekeme gaƒoƒome</daylight>
 				</long>
-				<short>
-					<generic draft="unconfirmed">CST (CU</generic>
-				</short>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -2325,7 +2334,6 @@
 					<standard>Ɣedzeƒe Amerika gaƒoƒoɖoanyime</standard>
 					<daylight>Ɣedzeƒe Amerika ŋkekeme gaƒoƒome</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -2333,7 +2341,6 @@
 					<standard>Amerika Todzidukɔwo ƒe gaƒoƒoɖoanyime</standard>
 					<daylight>Amerika Todzidukɔwo ƒe ŋkekme gaƒoƒome</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -2341,61 +2348,17 @@
 					<standard>Amerika Pasifik gaƒoƒoɖoanyime</standard>
 					<daylight>Amerika Pasifik ŋkekeme gaƒoƒome</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
-			<metazone type="Arabian">
-				<short>
-					<daylight draft="unconfirmed">ADT (SA</daylight>
-				</short>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>Atlantic gaƒoƒome</generic>
 					<standard>Atlantic gaƒoƒoɖoanyime</standard>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
-			<metazone type="Australia_Central">
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
-			</metazone>
-			<metazone type="Australia_CentralWestern">
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
-			</metazone>
-			<metazone type="Australia_Eastern">
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
-			</metazone>
-			<metazone type="Australia_Western">
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
-			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<standard draft="unconfirmed">CST (CU</standard>
-				</short>
-			</metazone>
-			<metazone type="Europe_Central">
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
-			</metazone>
-			<metazone type="Europe_Eastern">
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<daylight draft="unconfirmed">Ɣetodoƒe Europa gaƒoƒome</daylight>
 				</long>
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
-			</metazone>
-			<metazone type="Guam">
-				<short>
-					<standard draft="unconfirmed">GST (Guam)</standard>
-				</short>
-			</metazone>
-			<metazone type="Indian_Ocean">
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
-			</metazone>
-			<metazone type="South_Georgia">
-				<short>
-					<standard draft="unconfirmed">GST (S. Georgia)</standard>
-				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>

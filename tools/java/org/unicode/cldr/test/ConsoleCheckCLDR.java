@@ -182,6 +182,9 @@ public class ConsoleCheckCLDR {
             return;
         }
         String factoryFilter = options[FILE_FILTER].value; 
+        if (factoryFilter.equals("key")) {
+            factoryFilter = "(en|ru|nl|fr|de|it|pl|es|tr|th|ja|zh|ko|ar|bg|sr|uk|ca|hr|cs|da|fil|fi|hu|id|lv|lt|nb|pt|ro|sk|sl|sv|vi|el|he|fa|hi|am|af|et|is|ms|sw|zu|bn|mr|ta|eu|gl|ur|gu|kn|ml|te|zh_Hant|pt_PT|en_GB)";
+        }
         String checkFilter = options[TEST_FILTER].value;
         errorsOnly = options[ERRORS_ONLY].doesOccur;
         //  if ("f".equals(options[ERRORS_ONLY].value)) {

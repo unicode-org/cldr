@@ -96,7 +96,7 @@ public class MatchStrings {
    * @param englishPosition
    * @param ipa
    * @param ipaPosition
-   * @param output
+   * @param path2values
    * @return
    */
   private int interleave2(int englishPosition, int ipaPosition) {

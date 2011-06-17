@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -23,14 +25,19 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.unittest.TestBasic.MissingType;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -43,6 +50,7 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -634,18 +642,106 @@ public class TestBasic extends TestFmwk {
         }
         logln("\tCount of non-approved:\t" + funnyCount);
     }
+
+    enum MissingType {plurals, main_exemplars, no_main, collation, index_exemplars, punct_exemplars}
     
-    public void TestPluralRulesExist() {
+    public void TestCoreData() {
         Set<String> availableLanguages = testInfo.getCldrFactory().getAvailableLanguages();
         PluralInfo rootRules = testInfo.getSupplementalDataInfo().getPlurals("root");
-        for (String localeID : availableLanguages) {
-            if (localeID.contains("_") || localeID.equals("root")) {
-                continue; // skip script locales
-            }
-            PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(localeID);
-            if (pluralInfo == rootRules) {
-                warnln("Missing Plural Rules for\t" + testInfo.getEnglish().getName(localeID) + "\t-\t" + localeID);
+        EnumSet<MissingType> errors = EnumSet.of(MissingType.collation);
+        EnumSet<MissingType> warnings = EnumSet.of(MissingType.collation, MissingType.index_exemplars, MissingType.punct_exemplars);
+
+        Set<String> collations = new HashSet<String>();
+        XPathParts parts = new XPathParts();
+        LocaleIDParser lip = new LocaleIDParser();
+
+        // collect collation info
+        Factory collationFactory = CLDRFile.Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*", DraftStatus.contributed);
+        for (String localeID : collationFactory.getAvailable()) {
+            if (localeID.equals("root")) {
+                CLDRFile cldrFile = collationFactory.make(localeID, false, DraftStatus.contributed);
+                for (String path : cldrFile) {
+                    if (path.startsWith("//ldml/collations")) {
+                        String fullPath = cldrFile.getFullXPath(path);
+                        String valid = parts.set(fullPath).getAttributeValue(1, "validSubLocales");
+                        for (String validSub : valid.trim().split("\\s+")) {
+                            if (isTopLevel(lip, validSub)) {
+                                collations.add(validSub);
+                            }
+                        }
+                        break; // done with root
+                    }
+                }
+            } else if (isTopLevel(lip, localeID)) {
+                collations.add(localeID);
             }
         }
+        System.out.println(collations);
+        
+        Set<String> allLanguages = Builder.with(new TreeSet<String>()).addAll(collations).addAll(availableLanguages).freeze();
+        
+        for (String localeID : allLanguages) {
+            if (localeID.equals("root")) {
+                continue; // skip script locales
+            }
+            if (!isTopLevel(lip, localeID)) {
+                continue;
+            }
+            errors.clear();
+            
+            if (!collations.contains(localeID)) {
+                errors.add(MissingType.collation);
+            }
+            String name = "\t" + testInfo.getEnglish().getName(localeID) + "\t" + localeID;
+            
+            try {
+                CLDRFile cldrFile = testInfo.getCldrFactory().make(localeID, false, DraftStatus.contributed);
+
+                String wholeFileAlias = cldrFile.getStringValue("//ldml/alias");
+                if (wholeFileAlias != null) {
+                    logln("Whole-file alias:" + name);
+                    continue;
+                }
+                
+                PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(localeID);
+                if (pluralInfo == rootRules) {
+                    errors.add(MissingType.plurals);
+                }
+                UnicodeSet main = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+                if (main == null || main.isEmpty()) {
+                    errors.add(MissingType.main_exemplars);
+                }
+                UnicodeSet index = cldrFile.getExemplarSet("index", WinningChoice.WINNING);
+                if (index == null || index.isEmpty()) {
+                    errors.add(MissingType.index_exemplars);
+                }
+                UnicodeSet punctuation = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
+                if (punctuation == null || punctuation.isEmpty()) {
+                    errors.add(MissingType.punct_exemplars);
+                }
+            } catch (Exception e) {
+                errors.add(MissingType.no_main);
+            }
+            
+            // report errors
+            
+            if (errors.isEmpty()) {
+                logln("No problems:" + name);
+                continue;
+            }
+            StringBuilder b = new StringBuilder();
+            for (MissingType i : MissingType.values()) {
+                b.append("\t").append(errors.contains(i) ? i.toString() : "");
+            }
+            if (warnings.containsAll(errors)) {
+                warnln(name + b);
+            } else {
+                errln(name + b);
+            }
+        }
+    }
+
+    private boolean isTopLevel(LocaleIDParser lip, String localeID) {
+        return "root".equals(lip.set(localeID).getParent());
     }
 }

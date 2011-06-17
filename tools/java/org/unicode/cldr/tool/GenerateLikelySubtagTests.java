@@ -15,9 +15,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import com.ibm.icu.dev.test.util.BagFormatter;
 
 public class GenerateLikelySubtagTests {
-  private static final String TAG_SEPARATOR = "_";
   private static final String SEPARATOR = CldrUtility.LINE_SEPARATOR;
-  private static final boolean DEBUG = true;
   private static final OutputStyle OUTPUT_STYLE = OutputStyle.XML;
   private static PrintWriter out;
 
@@ -77,8 +75,8 @@ public class GenerateLikelySubtagTests {
   }
 
   private static String writeTestLine(final String from, Map<String, String> likelySubtags) {
-    final String maxFrom = maximize(from, likelySubtags);
-    final String minFrom = minimize(from, likelySubtags, true);
+    final String maxFrom = LikelySubtags.maximize(from, likelySubtags);
+    final String minFrom = LikelySubtags.minimize(from, likelySubtags, true);
     writeTestLine2(from, maxFrom, minFrom);
     return maxFrom;
   }
@@ -125,91 +123,6 @@ public class GenerateLikelySubtagTests {
       return null;
     }
     return "\"" +toAlt + "\"";
-  }
-  
-  public static String maximize(String languageTag, Map<String, String> toMaximized) {
-    LanguageTagParser ltp = new LanguageTagParser();
-    if (DEBUG && languageTag.equals("es" + TAG_SEPARATOR + "Hans" + TAG_SEPARATOR + "CN")) {
-      System.out.print(""); // debug
-    }
-    // clean up the input by removing Zzzz, ZZ, and changing "" into und.
-    ltp.set(languageTag);
-    String language = ltp.getLanguage();
-    String region = ltp.getRegion();
-    String script = ltp.getScript();
-    boolean changed = false;
-    if (language.equals("")) {
-      ltp.setLanguage(language = "und");
-      changed = true;
-    }
-    if (script.equals("Zzzz")) {
-      ltp.setScript(script = "");
-      changed = true;
-    }
-    if (region.equals("ZZ")) {
-      ltp.setRegion(region = "");
-      changed = true;
-    }
-    if (changed) {
-      languageTag = ltp.toString();
-    }
-    // check whole
-    String result = toMaximized.get(languageTag);
-    if (result != null) {
-      return result;
-    }
-    // try empty region
-    if (region.length() != 0) {
-      result = toMaximized.get(ltp.setRegion("").toString());
-      if (result != null) {
-        return ltp.set(result).setRegion(region).toString();
-      }
-      ltp.setRegion(region); // restore
-    }
-    // try empty script
-    if (script.length() != 0) {
-      result = toMaximized.get(ltp.setScript("").toString());
-      if (result != null) {
-        return ltp.set(result).setScript(script).toString();
-      }
-      // try empty script and region
-      if (region.length() != 0) {
-        result = toMaximized.get(ltp.setRegion("").toString());
-        if (result != null) {
-          return ltp.set(result).setScript(script).setRegion(region).toString();
-        }
-      }
-    }
-//    if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
-//      return languageTag; // it was ok, and we couldn't do anything with it
-//    }
-    return null; // couldn't maximize
-  }
-  
-  public static String minimize(String input, Map<String, String> toMaximized, boolean favorRegion) {
-    String maximized = maximize(input, toMaximized);
-    if (maximized == null) {
-      return null;
-    }
-    if (DEBUG && maximized.equals("sr" + TAG_SEPARATOR + "Latn" + TAG_SEPARATOR + "RS")) {
-      System.out.print(""); // debug
-    }
-    LanguageTagParser ltp = new LanguageTagParser().set(maximized);
-    String language = ltp.getLanguage();
-    String region = ltp.getRegion();
-    String script = ltp.getScript();
-    // try building up from shorter to longer, and find the first  that matches
-    // could be more optimized, but for this code we want simplest
-    String[] trials = {language, 
-        language + TAG_SEPARATOR + (favorRegion ? region : script), 
-        language + TAG_SEPARATOR + (!favorRegion ? region : script)};
-    for (String trial : trials) {
-      String newMaximized = maximize(trial, toMaximized);
-      if (maximized.equals(newMaximized)) {
-        return trial;
-      }
-    }
-    return maximized;
   }
 
 }

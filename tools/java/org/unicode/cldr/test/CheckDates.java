@@ -10,15 +10,19 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -28,6 +32,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class CheckDates extends CheckCLDR {
+    static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
+
     ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
     NumberFormat english = NumberFormat.getNumberInstance(ULocale.ENGLISH);
     PatternMatcher m;
@@ -89,8 +95,11 @@ public class CheckDates extends CheckCLDR {
         //          .setCheckOnSubmit(false)
         //          .setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
         //    }
+        pathsWithConflictingOrder2sample = DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo);
         return this;
     }
+
+    Map<String, Map<DateOrder,String>> pathsWithConflictingOrder2sample;
 
     //  Set neededFormats = new TreeSet(Arrays.asList(new String[]{
     //      "yM", "yMMM", "yMd", "yMMMd", "Md", "MMMd","yQ"
@@ -125,6 +134,15 @@ public class CheckDates extends CheckCLDR {
             return this;
         }
 
+        Map<DateOrder, String> problem = pathsWithConflictingOrder2sample.get(path);
+        if (problem != null) {
+            CheckStatus item = new CheckStatus()
+            .setCause(this)
+            .setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.incorrectDatePattern)
+            .setMessage("The ordering of date fields is inconsistent with others: {0}", getValues(getResolvedCldrFileToCheck(), problem.values()));      
+            result.add(item);            
+        }
         try {
 
             if (path.indexOf("[@type=\"abbreviated\"]") >= 0 && value.length() > 0) {
@@ -181,6 +199,17 @@ public class CheckDates extends CheckCLDR {
             }
         }
         return this;
+    }
+
+    private String getValues(CLDRFile resolvedCldrFileToCheck, Collection<String> values) {
+        Set<String> results = new TreeSet<String>();
+        for (String path : values) {
+            final String stringValue = resolvedCldrFileToCheck.getStringValue(path);
+            if (stringValue != null) {
+                results.add(stringValue);
+            }
+        }
+        return "{" + CollectionUtilities.join(results, "},{") + "}";
     }
 
     static final Pattern HACK_CONFLICTING = Pattern.compile("Conflicting fields:\\s+M+,\\s+l");
@@ -320,17 +349,20 @@ public class CheckDates extends CheckCLDR {
         //  }
     }
 
-    int findMismatch(Pattern p, String s) {
+    public static int findMismatch(Pattern p, CharSequence s) {
         Matcher m = p.matcher("");
+        return findMismatch(m, s);
+    }
+
+    public static int findMismatch(Matcher m, CharSequence s) {
         int i;
         for (i = 1; i < s.length(); ++i) {
-            boolean matches = m.reset(s.substring(0,i)).matches();
+            boolean matches = m.reset(s.subSequence(0,i)).matches();
             if (!matches && !m.hitEnd()) {
-                --i;
                 break;
             }
         }
-        return i;
+        return i-1;
     }
 
     enum DateTimeLengths {SHORT, MEDIUM, LONG, FULL};

@@ -37,6 +37,8 @@ public class SearchXml {
     private static boolean fileExclude = false;
 
     private static String valuePattern;
+
+    private static Counter<String> kountRegexMatches;
     
     final static Options myOptions = new Options()
     .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
@@ -45,6 +47,7 @@ public class SearchXml {
     .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
     .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
     .add("count", null, null, "only count items")
+    .add("kount", null, null, "count regex group matches in pattern")
     .add("Verbose", null, null, "verbose output")
     ;
 
@@ -71,12 +74,13 @@ public class SearchXml {
         
         if (pathMatcher != null && valueMatcher != null) {
             valuePattern = valueMatcher.pattern().toString();
-            if (Pattern.matches(".*\\$\\d.*", valuePattern)) {
+            if (Pattern.compile("\\$\\d.*").matcher(valuePattern).find()) {
                 replaceValues = true;
             }
         }
         
         countOnly = myOptions.get("count").doesOccur();
+        kountRegexMatches = myOptions.get("kount").doesOccur() ? new Counter<String>() : null;
 
 //        showFiles = myOptions.get("showFiles").doesOccur();
 //        showValues = myOptions.get("showValues").doesOccur();
@@ -94,6 +98,12 @@ public class SearchXml {
         
         processDirectory(src);
 
+        if (kountRegexMatches != null) {
+            for (String item : kountRegexMatches.getKeysetSortedByCount(false)) {
+                System.out.println(kountRegexMatches.getCount(item) + "\t" + item);
+            }
+        }
+        
         double deltaTime = System.currentTimeMillis() - startTime;
         System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
         System.out.println("Instances found: " + total);
@@ -184,6 +194,7 @@ public class SearchXml {
             if (pathMatcher != null && pathExclude == pathMatcher.reset(path).find()) {
                 return;
             }
+            
 
             Level pathLevel = null;
             
@@ -210,6 +221,10 @@ public class SearchXml {
             
             if (valueMatcher != null && valueExclude == valueMatcher.reset(value).find()) {
                 return;
+            }
+            
+            if (kountRegexMatches != null && pathMatcher != null) {
+                kountRegexMatches.add(pathMatcher.group(1), 1);
             }
             
             ++total;

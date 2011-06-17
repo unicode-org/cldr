@@ -788,6 +788,9 @@ public class SupplementalDataInfo {
 
     public Relation<String, String> key_subtypes = new Relation(new TreeMap(), TreeSet.class);
     public Relation<Row.R2<String,String>, String> bcp47Aliases = new Relation(new TreeMap(), TreeSet.class);
+    
+    public enum MeasurementType {measurementSystem, paperSize}
+    Map<MeasurementType,Map<String,String>> measurementData = new HashMap<MeasurementType,Map<String,String>>();
 
     public Relation<String, String> getAlpha3TerritoryMapping() {
         return alpha3TerritoryMapping;
@@ -798,7 +801,7 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * Returns type -> tag -> replacement, like "language" -> "sh" -> "sr_Latn"
+     * Returns type -> tag -> <replacementList, reason>, like "language" -> "sh" -> <{"sr_Latn"}, reason>
      * @return
      */
     public Map<String, Map<String, R2<List<String>, String>>> getLocaleAliasInfo() {
@@ -949,6 +952,7 @@ public class SupplementalDataInfo {
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
 
         deprecated = CldrUtility.protectCollection(deprecated);
+        measurementData = CldrUtility.protectCollection(measurementData);
     }
 
     //private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>> metazoneToRegionToZone) {
@@ -1054,6 +1058,10 @@ public class SupplementalDataInfo {
                     if (handleLanguageMatcher(level2)) {
                         return;
                     }
+                } else if (level1.equals("measurementData")) {
+                    if (handleMeasurementData(level2)) {
+                        return;
+                    }
                 }
 
                 // capture elements we didn't look at, since we should cover everything.
@@ -1070,6 +1078,24 @@ public class SupplementalDataInfo {
             }
         }
 
+        private boolean handleMeasurementData(String level2) {
+/**
+ *           <measurementSystem type="US"  territories="LR MM US"/>
+ *         <paperSize type="A4"  territories="001"/>
+ */
+            MeasurementType measurementType = MeasurementType.valueOf(level2);
+            String type = parts.getAttributeValue(-1, "type");
+            String territories = parts.getAttributeValue(-1, "territories");
+            Map<String, String> data = measurementData.get(measurementType);
+            if (data == null) {
+                measurementData.put(measurementType, data = new HashMap<String,String>());
+            }
+            for (String territory : territories.trim().split("\\s+")) {
+                data.put(territory, type);
+            }
+            return true;
+        }
+        
         private boolean handleBcp47(String level2) {
             String key = parts.getAttributeValue(2, "name");
             String keyAlias = parts.getAttributeValue(2, "alias");
@@ -2381,6 +2407,13 @@ public class SupplementalDataInfo {
 
     public List<R4<String, String, Integer, Boolean>> getLanguageMatcherData(String string) {
         return languageMatch.get(string);
+    }
+    
+    /**
+     * Return mapping from type to territory to data. 001 is the default.
+     */
+    public Map<MeasurementType, Map<String, String>> getTerritoryMeasurementData() {
+        return measurementData;
     }
 
     /**

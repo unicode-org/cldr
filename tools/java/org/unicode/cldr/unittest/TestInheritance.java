@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,8 +13,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.GenerateMaximalLocales;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -22,11 +25,12 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.Relation;
 
 public class TestInheritance extends TestFmwk {
 
     private static boolean DEBUG = CldrUtility.getProperty("DEBUG", true);
-    
+
     private static String fileMatcher = CldrUtility.getProperty("FILE", ".*");
 
     private static Matcher pathMatcher = Pattern.compile(CldrUtility.getProperty("XPATH", ".*")).matcher("");
@@ -35,7 +39,100 @@ public class TestInheritance extends TestFmwk {
     public static void main(String[] args) throws IOException {
         new TestInheritance().run(args);
     }
-    
+
+    public void TestLikelyAndDefaultConsistency() {
+        SupplementalDataInfo dataInfo = SupplementalDataInfo.getInstance();
+        Set<String> defaultContents = dataInfo.getDefaultContentLocales();
+        LikelySubtags likelySubtags = new LikelySubtags();
+        Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory factory2 = CLDRFile.Factory.make(CldrUtility.BASE_DIRECTORY + "seed/", ".*");
+        Set<String> available = Builder.with(new TreeSet<String>()).addAll(factory.getAvailable()).addAll(factory2.getAvailable()).freeze();
+        LanguageTagParser ltp = new LanguageTagParser();
+        // find multiscript locales
+        Relation<String,String> base2scripts = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        Relation<String,String> base2likely = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        Map<String,String> parent2default = new TreeMap<String,String>();
+        Relation<String,String> base2locales = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+
+
+        // get multiscript
+        for (String localeID : available) {
+            String script = ltp.set(localeID).getScript();
+            final String base = ltp.getLanguage();
+            if (!available.contains(base)) {
+                errln("Missing base locale for: " + localeID);                
+            }
+            base2locales.put(base, localeID);
+            if (!script.isEmpty() && !base.equals("en")) { // HACK for en
+                base2scripts.put(base,script);
+            }
+        }
+
+        // get likely
+        for (Entry<String, String> entry : likelySubtags.getToMaximized().entrySet()) {
+            String localeID = entry.getKey();
+            String max = entry.getValue();
+            base2likely.put(ltp.set(localeID).getLanguage(), localeID);
+            if (!defaultContents.contains(max)) {
+                errln("Max likely subtag not default contents: " + max);                
+            }
+        }
+
+        // get default
+        for (String localeID : defaultContents) {
+            parent2default.put(LanguageTagParser.getParent(localeID), localeID);
+        }
+
+        Set<String> skip = Builder.with(new HashSet<String>()).addAll("in", "iw", "mo", "no", "root", "sh", "tl").freeze();
+        
+        // for each base we have to have, if multiscript, we have default contents for base+script, base+script+region; otherwise base+region.
+        for (String base : base2locales.keySet()) {
+            if (skip.contains(base)) {
+                continue;
+            }
+            String defaultContent = parent2default.get(base);
+            Set<String> likely = base2likely.get(base);
+            if (likely == null) {
+                errln("Missing likely subtags for: " + base);
+            }
+            if (defaultContent == null) {
+                errln("Missing default content for: " + base);
+                continue;
+            }
+            Set<String> scripts = base2scripts.get(base);
+            ltp.set(defaultContent);
+            String script = ltp.getScript();
+            String region = ltp.getRegion();
+            if (scripts == null) {
+                if (!script.isEmpty()) {
+                    errln("Script should be empty in default content for: " + base + "," + defaultContent);
+                }
+                if (region.isEmpty()) {
+                    errln("Region must be empty in default content for: " + base + "," + defaultContent);
+                }
+            } else {
+                if (script.isEmpty()) {
+                    errln("Script should be empty in default content for: " + base + "," + defaultContent);
+                }
+                if (!region.isEmpty()) {
+                    errln("Region should not be empty in default content for: " + base + "," + defaultContent);
+                }
+                String defaultContent2 = parent2default.get(defaultContent);
+                if (defaultContent2 == null) {
+                    errln("Missing default content for: " + defaultContent);
+                    continue;
+                }
+                ltp.set(defaultContent2);
+                region = ltp.getRegion();
+                if (region.isEmpty()) {
+                    errln("Region must be empty in default content for: " + base + "," + defaultContent);
+                }
+            }
+        }
+        // make sure that each locale has a base in available
+        // TODO
+    }
+
     public void TestLanguageTagCanonicalizer() {
         String[][] tests = {
                 {"eng-840", "en_US"},
@@ -115,7 +212,7 @@ public class TestInheritance extends TestFmwk {
         }
 
         logln("Need scripts:\t" + needScripts);
-        
+
         for (String locale : locales) {
 
             // get alias locale
@@ -142,7 +239,7 @@ public class TestInheritance extends TestFmwk {
                     errln("Bad alias path:\t" + fullPath);
                 }
             }
-            
+
             checkAliasValues(cldrFileToCheck, allLocales);
 
             // get canonicalized
@@ -156,7 +253,7 @@ public class TestInheritance extends TestFmwk {
             if (canonicalizedLocale.equals(base)) { // eg, id, az
                 continue;
             }
-            
+
             // see if the locale's default script is the same as the base locale's
 
             String maximized = maximize(likelySubtags, canonicalizedLocale);
@@ -170,11 +267,11 @@ public class TestInheritance extends TestFmwk {
 
             String baseMaximized = maximize(likelySubtags, base);
             String baseScript = ltp.set(baseMaximized).getScript();
-            
+
             if (script.length() != 0 && !script.equals(baseScript)) {
                 crossScriptSet.add(ltp.set(locale).getLanguageScript());
             }
-            
+
             // Finally, put together the expected alias for comparison. 
             // It is the "best" alias, in that the default-content locales are skipped in favor of their parents
 
@@ -208,9 +305,9 @@ public class TestInheritance extends TestFmwk {
                 }
             }
         }
-        
+
         // check the LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES value and make sure it matches what is in the files in main/
-        
+
         if (!topLevelAliases.equals(LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES) && locales.equals(allLocales)) {
             StringBuilder result = new StringBuilder("LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES doesn't match actual files! Change to:\n");
             for (Entry<String, String> entry : topLevelAliases.entrySet()) {
@@ -220,7 +317,7 @@ public class TestInheritance extends TestFmwk {
         } else {
             logln("Top Level Aliases:\t" + topLevelAliases);
         }
-        
+
         // check the LocaleIDParser.CROSS_SCRIPT_LOCALES
         if (!crossScriptSet.equals(LocaleIDParser.CROSS_SCRIPT_LOCALES) && locales.equals(allLocales)) {
             StringBuilder result = new StringBuilder("CROSS_SCRIPT_LOCALES doesn't match actual files! Change to:\n{");
@@ -334,7 +431,7 @@ public class TestInheritance extends TestFmwk {
         }
         return result;
     }
-    
+
     // TODO move this into central utilities
     public static boolean equals(CharSequence string, int codePoint) {
         if (string == null) {

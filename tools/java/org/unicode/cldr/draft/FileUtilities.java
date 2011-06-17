@@ -127,6 +127,9 @@ public final class FileUtilities {
             //      final InputStream resourceAsStream = new FileInputStream(file1);
             final InputStream resourceAsStream = class1.getResourceAsStream(file);
             //String foo = class1.getResource(".").toString();
+            if (charset == null) {
+                charset = UTF8;
+            }
             InputStreamReader reader = new InputStreamReader(resourceAsStream, charset);
             BufferedReader bufferedReader = new BufferedReader(reader,1024*64);
             return bufferedReader;

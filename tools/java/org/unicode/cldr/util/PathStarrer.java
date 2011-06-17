@@ -7,8 +7,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.text.Transform;
 
-public class PathStarrer {
+/**
+ * Transforms a path by replacing attributes with .*
+ * @author markdavis
+ */
+public class PathStarrer implements Transform<String,String> {
     static final String STAR_PATTERN = "([^\"]*)";
     static final Pattern ATTRIBUTE_PATTERN = Pattern.compile("=\"([^\"]*)\"");
     
@@ -56,6 +61,11 @@ public class PathStarrer {
     public PathStarrer setSubstitutionPattern(String substitutionPattern) {
         this.substitutionPattern = substitutionPattern;
         return this;
+    }
+
+    @Override
+    public String transform(String source) {
+        return set(source);
     }
 
 }

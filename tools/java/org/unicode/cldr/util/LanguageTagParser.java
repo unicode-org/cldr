@@ -28,19 +28,19 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class LanguageTagParser {
 	/**
-	 * @return Returns the language.
+	 * @return Returns the language, or "" if none.
 	 */
 	public String getLanguage() {
 		return language;
 	}
 	/**
-	 * @return Returns the script.
+	 * @return Returns the script, or "" if none.
 	 */
 	public String getScript() {
 		return script;
 	}
 	/**
-	 * @return Returns the region.
+	 * @return Returns the region, or "" if none.
 	 */
 	public String getRegion() {
 		return region;

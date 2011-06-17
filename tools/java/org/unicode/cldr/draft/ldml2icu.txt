@@ -5,9 +5,53 @@
 # Each regex pattern is transformed by the following before use: "^" + source.replace("[@", "\\[@") + "$"
 # Each icuPath is prefixed by the file name (eg /en).
 # Items not in ICU 4.8 are in 'extras'
-# extraPaths are optional. If one occurs, then it is a regex for extra paths to be added from the fully-resolved file.
+# extraPaths are optional. If one occurs, then it is a regex for extra paths to be added from the fully-resolved file. The value '=' means use the ldmlPath.
+
+# Variables
+%ATTR="([^"]*)"
 
 # Main locale data
+
+# Aliases
+
+//ldml/dates/calendars/calendar[@type=%ATTR]/dayPeriods/alias[@source="locale"][@path="../../calendar[@type='([^']*)']/dayPeriods"] ; locales ; /calendar/$1/AmPmMarkers:alias ; values=/LOCALE/calendar/$2/AmPmMarkers
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/eras/eraNarrow/alias[@source="locale"][@path="../eraAbbr"] ; locales ; /calendar/$1/eras/narrow:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/eras/eraWide/alias[@source="locale"][@path="../eraAbbr"] ; locales ; /calendar/$1/eras/wide:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/eras/eraNames/alias[@source="locale"][@path="../eraAbbr"] ; locales ; /calendar/$1/eras/wide:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/dateTimeFormats/intervalFormats/alias[@source="locale"][@path="../../../calendar[@type='([^']*)']/dateTimeFormats/intervalFormats"] ; locales ; /calendar/$1/intervalFormats:alias ; values=/LOCALE/calendar/gregorian/intervalFormats
+
+#//ldml/dates/calendars/calendar[@type="buddhist"]/timeFormats/alias[@source="locale"][@path="../../calendar[@type='gregorian']/timeFormats"]
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/([^/\[]*)Formats/alias[@source="locale"][@path="../../calendar[@type='([^']*)']/(?:[^/\[]*)Formats] ; locales ; /calendar/$1/$2:alias ; values=/LOCALE/calendar/$3/$2
+
+#            intervalFormats:alias{"/LOCALE/calendar/gregorian/intervalFormats"}
+#            monthNames:alias{"/LOCALE/calendar/gregorian/monthNames"}
+#            quarters:alias{"/LOCALE/calendar/gregorian/quarters"}
+#            dayNames:alias{"/LOCALE/calendar/gregorian/dayNames"}
+#            AmPmMarkers:alias{"/LOCALE/calendar/gregorian/AmPmMarkers"}
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/([^/\[]*)s/(?:[^/\[]*)[@type="([^"]*)"]/(?:[^/\[]*)[@type="([^"]*)"]/alias[@source="locale"][@path="../../(?:[^/\[]*)[@type='([^']*)']/(?:[^/\[]*)[@type='([^']*)']"] ; locales ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$5/$6
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/([^/\[]*)s/(?:[^/\[]*)[@type="([^"]*)"]/(?:[^/\[]*)[@type="([^"]*)"]/alias[@source="locale"][@path="../(?:[^/\[]*)[@type='([^"]*)']"] ; locales ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$3/$5
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/quarters/alias[@source="locale"][@path="../../(?:[^/\[]*)[@type='([^"]*)']/(?:[^/\[]*)"] ; locales ; /calendar/$1/quarters:alias ; values=/LOCALE/calendar/$2/quarters
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/(month|day)s/alias[@source="locale"][@path="../../(?:[^/\[]*)[@type='([^"]*)']/(?:[^/\[]*)"] ; locales ; /calendar/$1/$2Names:alias ; values=/LOCALE/calendar/$3/$2Names
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/alias[@source="locale"][@path="../calendar[@type='([^"']*)']"]   ; locales ; /calendar/$1:alias ; values=/LOCALE/calendar/$2
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/(dateTime|date|time)Formats/alias[@source="locale"][@path="../../calendar[@type='([^"']*)']/(?:[^/\[]*)"]   ; locales ; /calendar/$1/$2:alias ; values=/LOCALE/calendar/$3/$2
+
+#//ldml/dates/calendars/calendar[@type="([^"]*)"]/dateTimeFormats/dateTimeFormatLength/alias[@source="locale"][@path="([^"]*)"]   ; locales ; /dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/dateTimeFormatLength/alias[@source="locale"][@path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"]
+#//ldml/dates/calendars/calendar[@type="([^"]*)"]/dayPeriods/dayPeriodContext[@type="([^"]*)"]/alias[@source="locale"][@path="([^"]*)"]   ; locales ; /dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/alias[@source="locale"][@path="../dayPeriodContext[@type='format']"]
+
+# Defaults
+
+//ldml/dates/calendars/default[@choice="([^"]*)"]   ; extras ; /calendar/default ; values=$1
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/(dateTime|date|time)Formats/default[@choice="([^"]*)"]   ; extras ; /calendar/$1/$2/default ; values=$3
+
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/(month|day)s/default[@choice="([^"]*)"] ; locales ; /calendar/$1/$2Names/default  ; values=$3
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/(month|day)s/(?:[^/\[]*)[@type="([^"]*)"]/default[@choice="([^"]*)"] ; locales ; /calendar/$1/$2Names/$3/default  ; values=$4
 
 # Dates
 
@@ -16,10 +60,12 @@
 //ldml/dates/calendars/calendar[@type="([^"]*)"]/eras/eraNames/era[@type="([^"]*)"] ; locales ; /calendar/$1/eras/wide
 
 //ldml/dates/calendars/calendar[@type="([^"]*)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="(am|pm)"] ; locales ; /calendar/$1/AmPmMarkers
-//ldml/dates/calendars/calendar[@type="([^"]*)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="([^"]*)"] ; locales ; /calendar/$1/AmPmMarkers-extra/$2
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/dayPeriods/dayPeriodContext[@type="([^"]*)"]/dayPeriodWidth[@type="([^"]*)"]/dayPeriod[@type="([^"]*)"] ; extras ; /calendar/$1/AmPmMarkers-extra/$2/$3
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/dayPeriods/dayPeriodContext[@type="([^"]*)"]/dayPeriodWidth[@type="([^"]*)"]/dayPeriod[@type="([^"]*)"][@alt="([^"]*)"] ; extras ; /calendar/$1/AmPmMarkers-$4/$2/$3
 
-//ldml/dates/calendars/calendar[@type="(?:[^"]*)"]/(dateFormats|dateTimeFormats|timeFormats)/(?:[^/\[]*)[@type="(?:[^"]*)"]/(?:[^/\[]*)[@type="(?:[^"]*)"] ; locales ; /calendar/$1/DateTimePatterns
+# //ldml/dates/calendars/calendar[@type=xxx]/dateFormats/dateFormatLength[@type="full"/dateFormat/pattern
 
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/(dateTime|date|time)Formats/(?:[^/\[]*)[@type="(?:[^"]*)"]/(?:[^/\[]*)[@type="(?:[^"]*)"]/pattern[@type="(?:[^"]*)"] ; locales ; /calendar/$1/DateTimePatterns ; //ldml/dates/calendars/calendar[@type="$1"]/(dateTime|date|time)Formats/(?:[^/\[]*)[@type="(?:[^"]*)"]/(?:[^/\[]*)[@type="(?:[^"]*)"]/pattern[@type="(?:[^"]*)"]
 
 #//ldml/dates/calendars/calendar[@type="hebrew"]/months/monthContext[@type="format"]/monthWidth[@type="wide"]/month[@type="7"][@yeartype="leap"]
 
@@ -39,6 +85,9 @@
 
 //ldml/dates/dateRangePattern ; extras ; /dateRangePattern
 
+//ldml/dates/calendars/calendar[@type="([^"]*)"]/dateTimeFormats/appendItems/appendItem[@request="([^"]*)"] ; locales ; /calendar/$1/appendItems/$2
+
+
 # Characters
 
 //ldml/characters/exemplarCharacters[@type="auxiliary"] ; locales ; /AuxExemplarCharacters
@@ -50,6 +99,10 @@
 //ldml/characters/ellipsis[@type="([^"]*)"] ; extras ; /ellipsis/$1
 
 # Numbers
+
+//ldml/numbers/defaultNumberingSystem ; locales ; /NumberElements/default
+
+//ldml/numbers/symbols[@numberSystem="([^"]*)"]/alias[@source="locale"][@path="../symbols[@numberSystem='([^']*)']"] ; extras ; /NumberElements/$1/symbols:alias ; values=/LOCALE/NumberElements/$2/symbols
 
 //ldml/numbers/symbols[@numberSystem="([^"]*)"]/([^/\[]*) ; locales ; /NumberElements/$1/symbols/$2
 //ldml/numbers/([^/\[]*)s/(?:[^/\[]*)Length/(?:[^/\[]*)Format[@type="standard"]/pattern[@type="standard"] ; locales ; /NumberElements/latn/patterns/$1
@@ -100,8 +153,7 @@
 
 //ldml/numbers/currencies/currency[@type="([^"]*)"]/displayName[@count="([^"]*)"] ; curr ; /CurrencyPlurals/$1/$2
 
-//ldml/numbers/currencies/currency[@type="([^"]*)"]/displayName ; curr ; /Currencies/$1 ; //ldml/numbers/currencies/currency[@type="$1"]/symbol
-//ldml/numbers/currencies/currency[@type="([^"]*)"]/symbol ; curr ; /Currencies/$1 ; //ldml/numbers/currencies/currency[@type="$1"]/displayName
+//ldml/numbers/currencies/currency[@type="([^"]*)"]/(displayName|symbol) ; curr ; /Currencies/$1 ; =
 
 //ldml/numbers/currencyFormats/unitPattern[@count="([^"]*)"] ; curr ; /CurrencyUnitPatterns/$1
 
@@ -110,12 +162,38 @@
 //ldml/dates/timeZoneNames/metazone[@type="([^"]*)"]/([^/\[])(?:[^/\[]*)/([^/\[])(?:[^/\[]*) ; zone ; /zoneStrings/meta:$1/$2$3
 //ldml/dates/timeZoneNames/metazone[@type="([^"]*)"]/commonlyUsed ; zone ; /zoneStrings/meta:$1/cu:int
 
-//ldml/dates/timeZoneNames/zone[@type="([^"]*)/([^"]*)/([^"]*)"]/([^/\[])(?:[^/\[]*)/([^/\[])(?:[^/\[]*) ; zone ; /zoneStrings/$1:$2:$3/$4$5
 //ldml/dates/timeZoneNames/zone[@type="([^"]*)/([^"]*)"]/([^/\[])(?:[^/\[]*)/([^/\[])(?:[^/\[]*) ; zone ; /zoneStrings/$1:$2/$3$4
 //ldml/dates/timeZoneNames/zone[@type="([^"]*)"]/([^/\[])(?:[^/\[]*)/([^/\[])(?:[^/\[]*) ; zone ; /zoneStrings/$1/$2$3
 
+//ldml/dates/timeZoneNames/zone[@type="([^"]*)/([^"]*)/([^"]*)"]/exemplarCity ; zone ; /zoneStrings/$1:$2:$3/ec
 //ldml/dates/timeZoneNames/zone[@type="([^"]*)/([^"]*)"]/exemplarCity ; zone ; /zoneStrings/$1:$2/ec
 //ldml/dates/timeZoneNames/zone[@type="([^"]*)"]/exemplarCity ; zone ; /zoneStrings/$1/ec
 
-//ldml/dates/timeZoneNames/([^/\[]*)   ; zone ; /zoneStrings/$1
+//ldml/dates/timeZoneNames/singleCountries[@list="([^"]*)"] ; zone ; /zoneStrings/singleCountries ; values=$1
+
+//ldml/dates/timeZoneNames/(region|fallbackRegion|fallback|gmtZero|gmt)Format   ; zone ; /zoneStrings/$1
+
+# Other Extras
+
+//ldml/layout/inText[@type="([^"]*)"] ; extras ; /layout/inText/$1
+
+//ldml/identity/version[@number="([^"]*)"][@cldrVersion="([^"]*)"]   ; extras ; /identity/versions/$2 ; values=$1
+//ldml/identity/generation[@date="([^"]*)"]   ; extras ; /identity/generation ; values=$1
+//ldml/identity/language[@type="([^"]*)"]   ; extras ;  /identity/language ; values=$1
+//ldml/fallback   ; extras ;  /fallback
+//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern   ; extras ; /localeKeyTypePattern
+//ldml/layout/orientation[@lines="([^"]*)"][@characters="([^"]*)"]   ; extras ; /layout/orientation ; values=$1 $2
+//ldml/layout/inList   ; extras ; /layout/inList
+//ldml/characters/moreInformation   ; extras ; /characters/moreInformation
+//ldml/characters/stopwords/stopwordList[@type="([^"]*)"]   ; extras ; /characters/stopwordList/$1
+
+//ldml/dates/timeZoneNames/hourFormat   ; extras ; /zoneHourFormat
+//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/currencyMatch   ; extras ; /currency/beforeMatch
+//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/surroundingMatch   ; extras ; /currency/beforeSurroundingMatch
+//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween   ; extras ; /currency/beforeInsertBetween
+//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch   ; extras ; /currency/afterMatch
+//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch   ; extras ; /currency/afterSurroundingMatch
+//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween   ; extras ; /currency/afterInsertBetween
+//ldml/posix/messages/yesstr   ; extras ; /posixYesstr
+//ldml/posix/messages/nostr   ; extras ; /posixNostr
 

@@ -2,14 +2,21 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.CheckDates;
+import org.unicode.cldr.util.CldrUtility.Output;
+import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.RegexLookup.Finder;
 
 import com.ibm.icu.impl.Row;
@@ -21,20 +28,20 @@ import com.ibm.icu.text.Transform;
  * @param <T>
  */
 public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
     private final Map<Finder, Row.R2<Finder,T>> entries = new LinkedHashMap<Finder, Row.R2<Finder,T>>();
     private Transform<String, ? extends Finder> patternTransform = RegexFinderTransform;
     private Transform<String, ? extends T> valueTransform;
     private Merger<T> valueMerger;
     private final boolean allowNull = false;
-    
+
     public abstract static class Finder {
         abstract public String[] getInfo();
         abstract public boolean find(String item, Object context);
         public int getFailPoint(String source) { return -1; }
         // must also define toString
     }
-    
+
     public static class RegexFinder extends Finder {
         protected final Matcher matcher;
         public RegexFinder(String pattern) {
@@ -63,8 +70,12 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
         public int hashCode() {
             return toString().hashCode();
         }
+        @Override
+        public int getFailPoint(String source) {
+            return CheckDates.findMismatch(matcher, source);
+        }
     }
-    
+
     public static Transform<String, RegexFinder> RegexFinderTransform = new Transform<String, RegexFinder>() {
         public RegexFinder transform(String source) {
             return new RegexFinder(source);
@@ -85,7 +96,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
      * @return
      */
     public final T get(String source) {
-        return get(source, null, null);
+        return get(source, null, null, null, null);
     }
 
     /**
@@ -95,34 +106,54 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
      * @return
      */
     public T get(String source, Object context, CldrUtility.Output<String[]> arguments) {
-        while (true) {
-            for (R2<Finder, T> entry : entries.values()) {
-                Finder matcher = entry.get0();
-                if (matcher.find(source, context)) {
-                    if (arguments != null) {
-                        arguments.value = matcher.getInfo();
-                    }
-                    return entry.get1();
-                } else if (DEBUG) {
-                    int failPoint = matcher.getFailPoint(source);
-                    String show = source.substring(0,failPoint) + "$" + source.substring(failPoint);
-                    show += "";
+        return get(source, context, arguments, null, null);
+    }
+    /**
+     * Returns the result of a regex lookup, with the group arguments that matched. Supplies failure cases for debugging.
+     * @param source
+     * @param context TODO
+     * @return
+     */
+    public T get(String source, Object context, CldrUtility.Output<String[]> arguments, CldrUtility.Output<Finder> matcherFound, List<String> failures) {
+        for (R2<Finder, T> entry : entries.values()) {
+            Finder matcher = entry.get0();
+            if (matcher.find(source, context)) {
+                if (arguments != null) {
+                    arguments.value = matcher.getInfo();
                 }
+                if (matcherFound != null) {
+                    matcherFound.value = matcher;
+                }
+                return entry.get1();
+            } else if (failures != null) {
+                int failPoint = matcher.getFailPoint(source);
+                String show = source.substring(0,failPoint) + "☹" + source.substring(failPoint) + "\t" + matcher.toString();
+                failures.add(show);
             }
-            break;
+        }
+        // not really necessary, but makes debugging easier.
+        if (arguments != null) {
+            arguments.value = null;
+        }
+        if (matcherFound != null) {
+            matcherFound.value = null;
         }
         return null;
     }
-
-    public int getFailPoint(Matcher matcher, String source) {
-        for (int i = 1; i < source.length(); ++i) {
-            matcher.reset(source.substring(0,i)).find();
-            boolean hitEnd = matcher.hitEnd();
-            if (!hitEnd) {
-                return i - 1;
+    
+    /**
+     * Find the patterns that haven't been matched. Requires the caller to collect the patterns that have, using matcherFound.
+     * @return outputUnmatched
+     */
+    public Map<String,T> getUnmatchedPatterns (Set<String> matched, Map<String,T> outputUnmatched) {
+        outputUnmatched.clear();
+        for (R2<Finder, T> entry : entries.values()) {
+            String pattern = entry.get0().toString();
+            if (!matched.contains(pattern)) {
+                outputUnmatched.put(pattern, entry.get1());
             }
         }
-        return 0;
+        return outputUnmatched;
     }
 
     /**
@@ -134,7 +165,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
     public static <T,U> RegexLookup<T> of(Transform<String, Finder> patternTransform, Transform<String, T> valueTransform, Merger<T> valueMerger) {
         return new RegexLookup<T>().setPatternTransform(patternTransform).setValueTransform(valueTransform).setValueMerger(valueMerger);
     }
-    
+
     public static <T> RegexLookup<T> of(Transform<String,T> valueTransform) {
         return new RegexLookup<T>().setValueTransform(valueTransform).setPatternTransform(RegexFinderTransform);
     }
@@ -163,6 +194,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
      */
     public RegexLookup<T> loadFromFile(Class<?> baseClass, String filename) {
         try {
+            VariableReplacer variables = new VariableReplacer();
             BufferedReader file = FileUtilities.openFile(baseClass, filename);
             for (int lineNumber = 0;; ++lineNumber) {
                 String line = file.readLine();
@@ -172,6 +204,16 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
                 line = line.trim();
                 if (line.length() == 0 || line.startsWith("#")) {
                     continue;
+                }
+                if (line.startsWith("%")) {
+                    int pos = line.indexOf("=");
+                    if (pos < 0) {
+                        throw new IllegalArgumentException("Failed to read RegexLookup File " + filename + "\t\t(" + lineNumber + ") " + line);
+                    }
+                    variables.add(line.substring(0,pos).trim(), line.substring(pos+1).trim());
+                }
+                if (line.contains("%")) {
+                    line = variables.replace(line);
                 }
                 int pos = line.indexOf("; ");
                 if (pos < 0) {
@@ -238,5 +280,22 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
     @Override
     public Iterator<R2<Finder, T>> iterator() {
         return Collections.unmodifiableCollection(entries.values()).iterator();
+    }
+
+    public String replace(String lookup, String... arguments) {
+        StringBuilder result = new StringBuilder();
+        int last = 0;
+        while (true) {
+            int pos = lookup.indexOf("$",last);
+            if (pos < 0) {
+                result.append(lookup.substring(last, lookup.length()));
+                break;
+            }
+            result.append(lookup.substring(last, pos));
+            final int arg = lookup.charAt(pos+1)-'0';
+            result.append(arguments[arg]);
+            last = pos + 2;
+        }
+        return result.toString();
     }
 }

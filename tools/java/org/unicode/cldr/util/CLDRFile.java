@@ -571,6 +571,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
    * Get the full path from a distinguished path
    */
   public String getFullXPath(String xpath) {
+      if (xpath == null) {
+          throw new NullPointerException("Null distinguishing xpath");
+      }
     String result = dataSource.getFullPath(xpath);
     if (result == null && dataSource.isResolving()) {
       String fallback = getFallbackPath(xpath, true);
@@ -1062,7 +1065,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     return dataSource.iterator(pathFilter);
   }
 
-  public Iterator iterator(String prefix, Comparator comparator) {
+  public Iterator<String> iterator(String prefix, Comparator comparator) {
     Iterator it = (prefix == null || prefix.length() == 0) 
     ? dataSource.iterator() 
             : dataSource.iterator(prefix);

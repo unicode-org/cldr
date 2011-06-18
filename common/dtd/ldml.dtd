@@ -467,7 +467,7 @@ $Date$
 
 <!ELEMENT dayWidth ( alias | (day*, special*)) >
 <!ATTLIST dayWidth draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST dayWidth type NMTOKEN #REQUIRED >
+<!ATTLIST dayWidth type ( abbreviated| narrow | wide ) #REQUIRED >
 <!ATTLIST dayWidth standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST dayWidth references CDATA #IMPLIED >
 <!ATTLIST dayWidth alt NMTOKENS #IMPLIED >
@@ -495,7 +495,7 @@ $Date$
 
 <!ELEMENT quarterWidth ( alias | (quarter*, special*)) >
 <!ATTLIST quarterWidth draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST quarterWidth type NMTOKEN #REQUIRED >
+<!ATTLIST quarterWidth type ( abbreviated| narrow | wide ) #REQUIRED >
 <!ATTLIST quarterWidth references CDATA #IMPLIED >
 <!ATTLIST quarterWidth alt NMTOKENS #IMPLIED >
 <!ATTLIST quarterWidth validSubLocales CDATA #IMPLIED >
@@ -561,7 +561,7 @@ $Date$
 <!ATTLIST dayPeriodContext references CDATA #IMPLIED >
 
 <!ELEMENT dayPeriodWidth (alias | dayPeriod*) >
-<!ATTLIST dayPeriodWidth type NMTOKEN #REQUIRED >
+<!ATTLIST dayPeriodWidth type ( abbreviated| narrow | wide ) #REQUIRED >
 <!ATTLIST dayPeriodWidth draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
 <!ATTLIST dayPeriodWidth references CDATA #IMPLIED >
 

@@ -1328,12 +1328,12 @@
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
 						<dateFormatItem id="GGGGyyyyMMMMd">d MMMM y GGGG</dateFormatItem>
-						<dateFormatItem id="h">H</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="HHmmZ">HH:mm (Z)</dateFormatItem>
-						<dateFormatItem id="hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
-						<dateFormatItem id="hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
@@ -1368,17 +1368,17 @@
 							<greatestDifference id="d">d تا d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a">H تا H</greatestDifference>
-							<greatestDifference id="h">H تا H</greatestDifference>
+							<greatestDifference id="a">h a تا h a</greatestDifference>
+							<greatestDifference id="h">h تا h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="a">H تا H</greatestDifference>
 							<greatestDifference id="H">H تا H</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a">H:mm تا H:mm</greatestDifference>
-							<greatestDifference id="h">H:mm تا H:mm</greatestDifference>
-							<greatestDifference id="m">H:mm تا H:mm</greatestDifference>
+							<greatestDifference id="a">h:mm a تا h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm تا h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm تا h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
 							<greatestDifference id="a">H:mm تا H:mm</greatestDifference>
@@ -1386,9 +1386,9 @@
 							<greatestDifference id="m">H:mm تا H:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">H:mm تا H:mm (v)</greatestDifference>
-							<greatestDifference id="h">H:mm تا H:mm (v)</greatestDifference>
-							<greatestDifference id="m">H:mm تا H:mm (v)</greatestDifference>
+							<greatestDifference id="a">h:mm a تا h:mm a (v)</greatestDifference>
+							<greatestDifference id="h">h:mm تا h:mm a (v)</greatestDifference>
+							<greatestDifference id="m">h:mm تا h:mm a (v)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a">H:mm تا H:mm (v)</greatestDifference>
@@ -1396,8 +1396,8 @@
 							<greatestDifference id="m">H:mm تا H:mm (v)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">H تا H (v)</greatestDifference>
-							<greatestDifference id="h">H تا H (v)</greatestDifference>
+							<greatestDifference id="a">h a تا h a (v)</greatestDifference>
+							<greatestDifference id="h">h تا h a (v)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="a">H تا H (v)</greatestDifference>
@@ -1744,11 +1744,11 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
-						<dateFormatItem id="h">H</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
-						<dateFormatItem id="hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
-						<dateFormatItem id="hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>

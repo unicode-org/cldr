@@ -1309,9 +1309,9 @@
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
-						<dateFormatItem id="hm" draft="unconfirmed">H.mm</dateFormatItem>
+						<dateFormatItem id="hm" draft="unconfirmed">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm" draft="unconfirmed">HH.mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">H.mm.ss</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">h.mm.ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="unconfirmed">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
@@ -1331,13 +1331,13 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="unconfirmed">H – H</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">H–H</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h a – h a</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="unconfirmed">H.mm – H.mm</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">H.mm–H.mm</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">H.mm–H.mm</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h.mm a – h.mm a</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h.mm–h.mm a</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">h.mm–h.mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
 							<greatestDifference id="a" draft="unconfirmed">HH.mm–HH.mm</greatestDifference>
@@ -1345,9 +1345,9 @@
 							<greatestDifference id="m" draft="unconfirmed">HH.mm–HH.mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="unconfirmed">H.mm – H.mm v</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">H.mm–H.mm v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">H.mm–H.mm v</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h.mm a – h.mm a v</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h.mm–h.mm a v</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">h.mm–h.mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a" draft="unconfirmed">HH.mm–HH.mm v</greatestDifference>
@@ -1355,8 +1355,8 @@
 							<greatestDifference id="m" draft="unconfirmed">HH.mm–HH.mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="unconfirmed">H – H v</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">H–H v</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h – h a v</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d/M – d/M</greatestDifference>

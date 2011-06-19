@@ -1261,10 +1261,10 @@
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
-						<dateFormatItem id="h">H</dateFormatItem>
-						<dateFormatItem id="hm">H:mm</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L.</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d.M</dateFormatItem>
@@ -1295,11 +1295,11 @@
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a">H – H</greatestDifference>
-							<greatestDifference id="h">H–H</greatestDifference>
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a">H:mm – H:mm</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm-h:mm a</greatestDifference>
 						</intervalFormatItem>
@@ -1308,7 +1308,7 @@
 							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">H:mm – H:mm v</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
@@ -1317,7 +1317,7 @@
 							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">H – H v</greatestDifference>
+							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h-h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">

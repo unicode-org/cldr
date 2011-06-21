@@ -292,8 +292,8 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
      | Label  | ABNF                    | Comment                    |
      +--------+-------------------------+----------------------------+
      | t_ext= | "t-"                    | Extension                  |
-     |        | [lang]                  | Source                     |
-     |        | *("-" field)            | Optional information       |
+     |        | (lang *("-" field)      | Source + optional field(s) |
+     |        | / 1*("-" field))        | Field(s) only (no source)  |
      | lang=  | language                | [BCP47], with restrictions |
      |        | ["-" script]            |                            |
      |        | ["-" region]            |                            |

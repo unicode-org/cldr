@@ -148,6 +148,8 @@
 <tr><td class="header">Expires: December 18, 2011</td><td class="header">Lab126</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Y. Umaoka</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">C. Falk</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Infinite Automata</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">June 16, 2011</td></tr>
 </table></td></tr></table>
 <h1><br />BCP 47 Extension T<br />draft-davis-t-langtag-ext-00</h1>
@@ -158,11 +160,13 @@
 				This document specifies an Extension to BCP 47
 				which provides
 				subtags
-				for specifying the source language or script of transformed text,
+				for specifying the source language or script of transformed
+				text,
 				including text
 				that
 				has been transliterated, transcribed, or
-				translated. It also provides for additional information used for identification.
+				translated. It also provides for additional information used for
+				identification.
 			
 </p>
 <h3>Status of this Memo</h3>
@@ -203,11 +207,19 @@ Requirements Language<br />
 <a href="#anchor3">2.</a>&nbsp;
 BCP47 Required Information<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">2.1.</a>&nbsp;
-Summary<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#canonicalization">2.1.1.</a>&nbsp;
+Introduction<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor5">2.2.</a>&nbsp;
+Structure<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#canonicalization">2.3.</a>&nbsp;
 Canonicalization<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#regform">2.2.</a>&nbsp;
-Registration Form<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#regform">2.4.</a>&nbsp;
+BCP47 Registration Form<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#summary">2.5.</a>&nbsp;
+Field Definitions<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#registration">2.6.</a>&nbsp;
+Registration of Field Subtags<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#machine-readable">2.7.</a>&nbsp;
+Machine-Readable Data<br />
 <a href="#Acknowledgements">3.</a>&nbsp;
 Acknowledgements<br />
 <a href="#IANA">4.</a>&nbsp;
@@ -243,6 +255,65 @@ Introduction</h3>
 				The "singleton" identifier for this extension is 't'.
 			
 </p>
+<p>
+				Language tags, as defined by
+				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, are useful for identifying the language of content.
+				There are
+				mechanisms for specifying variant subtags for special purposes.
+				However, these variants are insufficient for specifying text
+				transformations,
+				including text that has been
+				transliterated,
+				transcribed, or
+				translated.
+				That
+				is, for fully
+				specifying such text, it
+				is important to specify the
+				source language
+				and/or script.
+				In addition,
+				it may also be important
+				to identify a
+				particular
+				specification for the
+				transformation.
+			
+</p>
+<p>
+				For example, if one is transcribing the names of Italian or
+				Russian
+				cities on a map for
+				Japanese users, each name will need to be
+				transliterated into katakana using
+				rules
+				appropriate for the specific
+				source and target language.
+				When tagging such data, it is important
+				to be able to indicate not only
+				the resulting content
+				language ("ja"
+				in this case), but also the source language.
+</p>
+<p>Transforms such as transliteration may vary depending not only on
+				the basis of
+				the source and target script, but also language.
+				Thus the
+				Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which
+				corresponds to
+				the Cyrillic &lt;PE, U, TE, I, EN>) transliterates
+				into "Putin" in
+				English but "Poutine" in French.
+				The identifier may
+				need to indicate a
+				desired mechanical transformation
+				in an API, or
+				may need to tag data
+				that has been converted
+				(mechanically or by
+				hand) according to a
+				transliteration method.
+</p>
 <a name="anchor2"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.1.1"></a><h3>1.1.&nbsp;
@@ -259,67 +330,35 @@ Requirements Language</h3>
 <a name="rfc.section.2"></a><h3>2.&nbsp;
 BCP47 Required Information</h3>
 
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
+Introduction</h3>
+
 <p>
-				Language tags, as defined by
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, are useful for identifying the language of content.
-				There are
-				mechanisms for specifying variant subtags for special purposes.
-				However, these variants are insufficient for specifying text transformations,
-				including text that has been
-				transliterated, transcribed, or
-				translated.
-				That
-				is, for fully
-				specifying such text, it is important to specify the
-				source language
-				and/or script.
-				In addition, it may also be important
-				to specify a
-				particular
-				specification for the transformation.
-			
-</p>
-<p>
-			For example, if one is transcribing the names of Italian or Russian cities on a map for 
-			Japanese users, each name will need to be transliterated into katakana using rules 
-			appropriate for the source language and target languages.
-			When tagging such data, it is important to be able to indicate not only the resulting content 
-			language ("ja" in this case), but also the source language.
-</p>
-<p>Transforms such as transliteration may vary depending not only on
-				the basis of
-				the source and target script, but also language.
-				Thus the
-				Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which
-				corresponds to the Cyrillic &lt;PE, U, TE, I, EN>) transliterates
-				into "Putin" in English but "Poutine" in French.
-				The identifier may
-				need to indicate a desired mechanical transformation
-				in an API, or
-				may need to tag data that has been converted
-				(mechanically or by
-				hand) according to a transliteration method.
-      
-</p>
-<p>
-				Such identification is accomplished by using the 't' extension
-				defined in this document.
-				This extension is formed by the 't'
-				singleton followed by a sequence of subtags that would form a
-				language tag defined by
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
-				This allows for the source language or script to be specified to
-				the degree of precision required.
-				There are restrictions on the sequence of subtags.
-				They MUST form a regular, valid, canonical language
-				tag, and MUST neither include extensions nor private use sequences introduced by the
-				singleton
-				'x'.
-				Where only the script is relevant (such as identifying
-				a
-				script-script
-				transliteration) then 'und' is used for the primary language subtag.
-			
+					Identification of transforms can be done using the 't' extension
+					defined in this document.
+					This extension is formed by the 't'
+					singleton followed by a sequence of subtags that would form a
+					language tag defined by
+					<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
+					This allows for the source language or script to be specified to
+					the degree of precision required.
+					There are restrictions on the
+					sequence of subtags.
+					They MUST form a regular, valid, canonical
+					language
+					tag, and MUST neither include extensions nor private use
+					sequences introduced by the
+					singleton
+					'x'.
+					Where only the script is
+					relevant (such as identifying
+					a
+					script-script
+					transliteration) then
+					'und' is used for the primary language subtag.
+				
 </p>
 <p>For example:
 </p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
@@ -335,39 +374,41 @@ BCP47 Required Information</h3>
 </tr>
 <tr>
 <td align="left">und-Latn-t-und-cyrl</td>
-<td align="left">The content is in the Latin script, transformed from the Cyrillic script.</td>
+<td align="left">The content is in the Latin script, transformed from the Cyrillic
+						script.</td>
 </tr>
 </table>
 <br clear="all" />
 
 <p>
-				Note that the sequence of subtags governed by 't' cannot contain a
-				singleton (a single-character subtag), because that would start a new extension.
-				For example, the tag "ja-t-i-ami"
-				does not indicate that the source is in "i-ami", because "i-ami" is not a
-				regular language tag in
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. That tag would express an empty 't' extension followed by an 'i' extension.
-			
-</p>
-<p>
-				In addition, it is sometimes necessary to indicate additional information, such as the mechanism
-				used
-				to do the transformation, optionally including the version of the mechanism. The mechanism can be supplied by using
-				the 'm0' separator. The format of such a 't' extension is thus:
+					Note that the sequence of subtags governed by 't' cannot contain a
+					singleton (a single-character subtag), because that would start a
+					new extension.
+					For example, the tag "ja-t-i-ami"
+					does not indicate
+					that the source is in "i-ami", because "i-ami" is not a
+					regular
+					language tag in
+					<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. That tag would express an empty 't' extension followed by an 'i'
+					extension.
 				
 </p>
-<p>"t-&lt;language-tag>-m0-&lt;mechanism>".
+<p>In addition, it is sometimes necessary to indicate additional
+					information about the transformation.
+					This additional information is optionally supplied after the source in a series of one or more fields,
+					where each field consists of a field separator subtag followed by one or more non-separator subtags.
+					Each field separator subtag consists of a single letter followed by a single digit.
+					
 </p>
-<p>(The full format reserves some additional syntax for future expansion, as described below.)
-            
-</p>
-<p>The transform &lt;mechanism> is a series of subtags that indicate the
-				specification used for the transformation, such as "UNGEGN" for the
-				the United Nations Group of Experts on
-				Geographical
-				Names
-				transliterations and transcriptions.
-			
+<p>A transformation mechanism is an optional field that indicates
+					the
+					specification used for the transformation, such as "UNGEGN" for
+					the
+					the United Nations Group of Experts on
+					Geographical
+					Names
+					transliterations and transcriptions. It uses the 'm0' field separator followed by certain subtags.
+				
 </p>
 <p>For example:
 </p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
@@ -376,54 +417,60 @@ BCP47 Required Information</h3>
 <tr>
 <td align="left">und-Cyrl-t-und-latn-m0-ungegn-2007</td>
 <td align="left">the content is in Cyrillic, transformed from Latn, according
-					to a UNGEGN specification dated 2007.</td>
+						to a
+						UNGEGN specification dated 2007.</td>
 </tr>
 </table>
 <br clear="all" />
 
-<p>The separator subtags such as 'm0' were chosen because they are short, visually distinctive, 
-			and cannot occur in a language subtag (outside of an extension and after 'x'), 
-			thus eliminating the potential for collision or confusion with the source language tag.
+<p>The field separator subtags such as 'm0' were chosen because they are
+					short, visually distinctive,
+					and cannot occur in a language subtag
+					(outside of an extension and
+					after 'x'),
+					thus eliminating the
+					potential for collision or confusion with the
+					source language tag.
 </p>
 <p>
-				The subtags that are valid after in the 't' extension are provided by <a href='http://unicode.org/reports/tr35/'>Section 3</a>
-				 of <a class='info' href='#UTS35'>Unicode
-      Technical Standard #35: Unicode Locale Data Markup Language<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35]. As required by BCP 47, subtags follow the language tag ABNF and
-      other rules for the formation of language tags and subtags, are restricted to the ASCII letters and digits, are not case sensitive, and do not exceed eight characters in length.
+					The field subtags are defined by
+					<a href='http://unicode.org/reports/tr35/'>Section 3</a>
+					of
+					<a class='info' href='#UTS35'>Unicode
+						Technical Standard #35: Unicode Locale Data
+						Markup Language<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35]. As required by BCP 47, subtags follow the language tag ABNF and
+					other rules for the formation of language tags and subtags, are
+					restricted to the ASCII letters and digits, are not case sensitive,
+					and do not exceed eight characters in length.
+				
 </p>
 <p>
-                EDITORIAL NOTE: This new facility has been accepted by the Unicode
-                CLDR
-                committee for incorporation into the next version of Unicode
-                CLDR, parallel
-                with the structure of the 'u' extension
-                <a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
-                for which it is already the maintaining authority.
-                The data and
-                specification will be available by the time this internet
-                draft has
-                been
-                approved.
-            
+					EDITORIAL NOTE: This new facility has been accepted by the Unicode
+					CLDR
+					committee for incorporation into the next version of Unicode
+					CLDR, parallel
+					with the structure of the 'u' extension
+					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
+					for which it is already the maintaining authority.
+					The data and
+					specification will be available by the time this internet
+					draft has
+					been
+					approved.
+				
 </p>
 <p>LDML is available over the Internet and at no cost, and
-      is available via a royalty-free license at
-      http://unicode.org/copyright.html. LDML is versioned, and each
-      version of LDML is numbered, dated, and stable. Extension subtags, once
-      defined by LDML, are never retracted or change in meaning in a
-      substantial way. 
-</p>
-<p>The structure of 't' subtags is determined by the Unicode CLDR Technical Committee, in accordance with the policies and procedures in 
-http://www.unicode.org/consortium/tc-procedures.html, and subject to the Unicode Consortium Policies on http://www.unicode.org/policies/policies.html.
-</p>
-<p>Changes that can be made by successive versions of <a class='info' href='#UTS35'>LDML<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35] by the Unicode Consortium without requiring a new RFC include
-the allocation of new subtags for use after the 't' extension.
-A new RFC would be required for material changes to an existing 't' subtag, 
-or an incompatible change to the overall syntactic structure of the 't' extension; 
-however, such a change would be contrary to the policies of the Unicode Consortium, and thus is not anticipated.
+					is
+					available via a royalty-free license at
+					http://unicode.org/copyright.html. LDML is versioned, and each
+					version of LDML is numbered, dated, and stable. Extension subtags,
+					once
+					defined by LDML, are never retracted or change in meaning in a
+					substantial way. 
 </p>
 <p>The maintaining authority for the 't' extension is
-                the Unicode Consortium:
+					the Unicode
+					Consortium:
 </p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
 <col align="left"><col align="left">
 <tr><th align="left">Item</th><th align="left">Value</th></tr>
@@ -446,7 +493,7 @@ however, such a change would be contrary to the policies of the Unicode Consorti
 <tr>
 <td align="left">Specification</td>
 <td align="left">Unicode Technical Standard #35 Unicode Locale Data Markup
-					Language (LDML), http://unicode.org/reports/tr35/</td>
+						Language (LDML), http://unicode.org/reports/tr35/</td>
 </tr>
 <tr>
 <td align="left">Section</td>
@@ -455,19 +502,11 @@ however, such a change would be contrary to the policies of the Unicode Consorti
 </table>
 <br clear="all" />
 
-<a name="anchor4"></a><br /><hr />
+<a name="anchor5"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
-<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
-Summary</h3>
+<a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
+Structure</h3>
 
-<p>
-					The following is a summary of the definition for the 't' subtags
-					defined by
-					<a href='http://unicode.org/reports/tr35/'>Section 3</a>
-                 of <a class='info' href='#UTS35'>Unicode
-      Technical Standard #35: Unicode Locale Data Markup Language<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35],
- which is relevant for this specification.
-</p>
 <p>The subtags in the 't' extension are of the following form:
 </p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
 <col align="left"><col align="left"><col align="left">
@@ -483,14 +522,17 @@ Summary</h3>
 <td align="left">Source</td>
 </tr>
 <tr>
-<td align="left"> </td>
+<td align="left">
+					</td>
 <td align="left">*("-" field)</td>
 <td align="left">Optional information</td>
 </tr>
 <tr>
 <td align="left">lang=</td>
 <td align="left">language</td>
-<td align="left"><a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, with restrictions</td>
+<td align="left">
+						<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, with restrictions
+					</td>
 </tr>
 <tr>
 <td align="left">&nbsp;</td>
@@ -521,101 +563,268 @@ Summary</h3>
 <br clear="all" />
 
 <p>Description and restrictions:
-                    </p>
+					</p>
 <blockquote class="text"><dl>
 <dt>a.</dt>
 <dd>The 't' extension MUST have at least one subtag.
 </dd>
 <dt>b.</dt>
-<dd>The 't' extension normally starts with a source language tag, which MUST be a regular, canonical language tag as specified by <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
-            Tags described by the 'irregular' production in BCP 47 MUST NOT be used to form the language tag.
-            The source language tag MAY be omitted: some field values do not require it.
-            
+<dd>
+							The 't' extension normally starts with a source language tag,
+							which MUST be a regular, canonical language tag as specified by
+							<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
+							Tags described by the 'irregular' production in BCP 47 MUST NOT
+							be
+							used to form the language tag.
+							The source language tag MAY be
+							omitted: some field values do not
+							require it.
+						
 </dd>
 <dt>c.</dt>
-<dd>There is optionally a sequence of fields, where each field is a separator followed by a sequence of subtags. Two identical separators MUST NOT be present.
-            
+<dd>There is optionally a sequence of fields, where each field is a
+							separator followed by a sequence of subtags.
+							Two identical
+							separators MUST NOT be present.
 </dd>
 <dt>d.</dt>
-<dd>One field is initially specified in <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>: the transform mechanism.
-<blockquote class="text"><dl>
-<dt>A.</dt>
 <dd>
-            The transform mechanism consists of a sequence of
-                    subtags starting 
-                    with the 'm0' separator followed by one or more mechanism subtags. Each mechanism subtag has a length of 3 to 8 alphanumeric characters.
+							The order of the subtags in a t extension is
+							significant (see
+							<a class='info' href='#canonicalization'>Section&nbsp;2.3<span> (</span><span class='info'>Canonicalization</span><span>)</span></a>
+							Canonicalization).
+						
+</dd>
+<dt>e.</dt>
+<dd>
+		                    The 't' subtag fields are defined by 
+		                    <a href='http://unicode.org/reports/tr35/'>Section 3</a>
+		                    of
+		                    <a class='info' href='#UTS35'>Unicode
+		                        Technical Standard #35: Unicode Locale
+		                        Data Markup Language<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35].
+		                
+</dd>
+</dl></blockquote><p>
+				
+</p>
+<a name="canonicalization"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.3"></a><h3>2.3.&nbsp;
+Canonicalization</h3>
+
+<p>As required by
+                    <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, the use of uppercase or lowercase letters is not significant in
+                    the subtags used in this extension. The canonical form for all
+                    subtags in the extension is lowercase, with the fields ordered by
+                    the separators, alphabetically.
+</p>
+<a name="regform"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.4"></a><h3>2.4.&nbsp;
+BCP47 Registration Form</h3>
+
+<p>
+                    Per
+                    <a class='info' href='#BCP47'>RFC 5646, Section 3.7<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> [BCP47]:
+                
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+%%
+Identifier: t
+Description: Transform Specification
+Comments: Subtags for the identification of text transforms,
+including transliteration, transcription, and translation.
+Added: 2010-mm-dd
+RFC: [TBD]
+Authority: Unicode Consortium
+Contact_Email: cldr-contact@unicode.org
+Mailing_List: cldr-users@unicode.org
+URL: http://www.unicode.org/Public/cldr/latest/core.zip
+%%</pre></div>
+<a name="summary"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.5"></a><h3>2.5.&nbsp;
+Field Definitions</h3>
+
+<p>The structure of 't' field subtags is determined by the Unicode CLDR
+                    Technical Committee, in accordance with the policies and procedures
+                    in
+                    <a href='http://www.unicode.org/consortium/tc-procedures.html'>http://www.unicode.org/consortium/tc-procedures.html</a>,
+                    and subject to the Unicode Consortium Policies on
+                    <a href='http://www.unicode.org/policies/policies.html'>http://www.unicode.org/policies/policies.html</a>.
+</p>
+<p>
+                    Changes that can be made by successive versions of
+                    <a class='info' href='#UTS35'>LDML<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35]
+                    by the Unicode Consortium without requiring a new RFC include:
+                    </p>
+<blockquote class="text">
+<p>The
+                    allocation of new field separator subtags for use after the 't' extension.
+</p>
+<p>The allocation of subtags valid after a field separator subtag.
+</p>
+</blockquote><p>
+                    A new RFC
+                    would be required for material changes to an existing 't'
+                    subtag,
+                    or
+                    an incompatible change to the overall syntactic structure of the
+                    't'
+                    extension;
+                    however, such a change would be contrary to the policies
+                    of the Unicode
+                    Consortium, and thus is not anticipated.
+                
+</p>
+<p>One field is initially specified in
+					<a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>: the transform mechanism. That field is summarized here:
+					</p>
+<blockquote class="text"><dl>
+<dt>a.</dt>
+<dd>
+							The transform mechanism consists of a sequence of
+							subtags
+							starting
+							with the 'm0' separator followed by one or more
+							mechanism subtags.
+							Each mechanism subtag has a length of 3 to 8
+							alphanumeric
+							characters.
 							The sequence as a whole provides an
 							identification of the
 							specification
 							for the transform,
-							such as the mechanism subtag 'UNGEGN' in
+							such as the
+							mechanism subtag 'UNGEGN' in
 							"und-Cyrl-t-und-latn-m0-ungegn".
-							In many cases, only one mechanism subtag is necessary, but
+							In
+							many cases, only one mechanism subtag is necessary, but
 							multiple
-							subtags MAY be defined in <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> where necessary.
+							subtags MAY be defined in
+							<a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
+							where necessary.
+						
 </dd>
-<dt>B.</dt>
-<dd>Any purely numeric subtag is a representation of a date in the Gregorian calendar.
-		                        It MAY occur in any mechanism field. 
-		                        If it does occur:
+<dt>b.</dt>
+<dd>
+							Any purely numeric subtag is a representation of a date in the
+							Gregorian calendar.
+							It MAY occur in any mechanism field.
+							If it
+							does occur:
+							
 <ul class="text">
 <li>it MUST occur as the final subtag in the field,
 </li>
 <li>it MUST NOT be the only subtag in the field, and
 </li>
-<li>it MUST consist of a sequence of digits of the form YYYY, YYYYMM, or YYYYMMDD.
+<li>it MUST consist of a sequence of digits of the form YYYY,
+									YYYYMM, or YYYYMMDD.
 </li>
 </ul>
 							For example, 20110623
 							represents June 23th, 2011.
-							A date subtag SHOULD only be used where necessary, and then SHOULD be as short
-							as possible. 
+							A date subtag
+							SHOULD only be used where necessary, and then
+							SHOULD be as short
+							as possible.
 							For example, suppose that the BGN transliteration
 							specification for Cyrillic to Latin had three versions,
-							dated June 11th, 1999; Dec 30th, 1999; and May 1st, 2011.
+							dated
+							June 11th, 1999; Dec 30th, 1999; and May 1st, 2011.
 							In that
-							case, the corresponding first two DATE subtags would require months
-							to be distinctive (199906 and 199912), but the last subtag would only
+							case, the corresponding first two DATE subtags would require
+							months
+							to be distinctive (199906 and 199912), but the last
+							subtag
+							would only
 							require the year (2011).
-			            
+						
 </dd>
-<dt>C.</dt>
-<dd>Some mechanisms may use a versioning system that is not distinguished by date, or not by date alone.
-						In the latter case, the version will be of a form specified by <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> for that mechanism.
-						For example, if the mechanism XXX uses versions of the form v21a,
-						then a tag could look like "ja-t-it-m0-xxx-v21a". If there are multiple subversions distinguished by date,
-                        then a tag could look like "ja-t-it-m0-xxx-v21a-2007".
-</dd>
-</dl></blockquote>
-</dd>
-<dt>e.</dt>
-<dd>Successive versions of
-                    <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
-                    could define additional separator subtags, and additional subtags for those separators. Once defined,
-                    those subtags will never be removed.
-</dd>
-<dt>f.</dt>
+<dt>c.</dt>
 <dd>
-                    The order of the subtags is
-                    significant (see <a class='info' href='#canonicalization'>Section&nbsp;2.1.1<span> (</span><span class='info'>Canonicalization</span><span>)</span></a> Canonicalization).
-
+							Some mechanisms may use a versioning system that is not
+							distinguished by date, or not by date alone.
+							In the latter case,
+							the version will be of a form specified by
+							<a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
+							for that mechanism.
+							For example, if the mechanism XXX uses
+							versions of the form v21a,
+							then a tag could look like
+							"ja-t-it-m0-xxx-v21a". If there are
+							multiple subversions
+							distinguished by date,
+							then a tag could look like
+							"ja-t-it-m0-xxx-v21a-2007".
+						
 </dd>
 </dl></blockquote><p>
 				
 </p>
+<a name="registration"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.6"></a><h3>2.6.&nbsp;
+Registration of Field Subtags</h3>
+
 <p>
-                EDITORIAL NOTE: The following parallels the structure used for the 'u' extension
-                <a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
-                for which the Unicode Consortium is the maintaining authority.
-                The data and
-                specification will be available by the time this internet
-                draft has
-                been
-                approved.
-            
+					Registration of transform mechanisms is requested by filing a ticket at
+					<a href='http://cldr.unicode.org/'>cldr.unicode.org</a>.
+					The proposal in the ticket must contain the following information:
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left"><col align="left">
+<tr><th align="left">Item</th><th align="left">Description</th></tr>
+<tr>
+<td align="left">Subtag</td>
+<td align="left">The proposed mechanism subtag.</td>
+</tr>
+<tr>
+<td align="left">Description</td>
+<td align="left">A description of the proposed mechanism; that description MUST be sufficient to distinguish it from other mechanisms in use.</td>
+</tr>
+<tr>
+<td align="left">Version</td>
+<td align="left">If versioning is not done by date, then a description of the versioning conventions used for the mechanism.</td>
+</tr>
+</table>
+<br clear="all" />
+
+<p>Additional information may be requested in tickets in the future if such information is found to be useful by the committee.
 </p>
+<p>The committee MUST respond to each proposal within 2 weeks.
+</p>
+<p>The response MAY:
+	                </p>
+<ul class="text">
+<li>request more information or clarification
+</li>
+<li>accept the proposal, optionally with modifications to the subtag or description
+</li>
+<li>reject the proposal, because of significant objections raised on the mailing list or 
+		                due to problems with constraints in this document or in <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
+</li>
+</ul><p>
+	            
+</p>
+<p>Accepted tickets result an a new entry in the machine-readable CLDR BCP47 data.
+</p>
+<a name="machine-readable"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.7"></a><h3>2.7.&nbsp;
+Machine-Readable Data</h3>
+
 <p>
-					
+					EDITORIAL NOTE: The following parallels the structure used for the
+					'u' extension
+					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
+					for which the Unicode Consortium is the maintaining authority.
+					The
+					data and
+					specification will be available by the time this internet
+					draft has
+					been
+					approved.
 				
 </p>
 <p>
@@ -633,8 +842,7 @@ Summary</h3>
 					data files defining the data defined for BCP47 extensions. The most
 					recent version is always identified by the version "latest" and can
 					be accessed by the URL in
-					<a class='info' href='#regform'>Section&nbsp;2.2<span> (</span><span class='info'>Registration Form</span><span>)</span></a>.
-				
+					<a class='info' href='#regform'>Section&nbsp;2.4<span> (</span><span class='info'>BCP47 Registration Form</span><span>)</span></a>.
 </p>
 <p>
 					To get the version information in XML when working with the data
@@ -662,42 +870,6 @@ Summary</h3>
 </ul><p>
 				
 </p>
-<a name="canonicalization"></a><br /><hr />
-<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
-<a name="rfc.section.2.1.1"></a><h3>2.1.1.&nbsp;
-Canonicalization</h3>
-
-<p>
-						As required by
-						<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, the use of uppercase or lowercase letters is not significant in
-						the subtags used in this extension. The canonical form for all
-						subtags in the extension is lowercase, with the fields ordered by the separators, alphabetically.
-					
-</p>
-<a name="regform"></a><br /><hr />
-<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
-<a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
-Registration Form</h3>
-
-<p>
-					Per
-					<a class='info' href='#BCP47'>RFC 5646, Section 3.7<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> [BCP47]
-					:
-				
-</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
-%%
-Identifier: t
-Description: Transform Specification
-Comments: Subtags for the identification of text transforms,
-    including transliteration, transcription, and translation.
-Added: 2010-mm-dd
-RFC: [TBD]
-Authority: Unicode Consortium
-Contact_Email: cldr-contact@unicode.org
-Mailing_List: cldr-users@unicode.org
-URL: http://www.unicode.org/Public/cldr/latest/core.zip
-%%
-</pre></div>
 <a name="Acknowledgements"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3"></a><h3>3.&nbsp;
@@ -715,7 +887,7 @@ IANA Considerations</h3>
 
 <p>
 				This document will require IANA to insert the record in
-				<a class='info' href='#regform'>Section&nbsp;2.2<span> (</span><span class='info'>Registration Form</span><span>)</span></a>
+				<a class='info' href='#regform'>Section&nbsp;2.4<span> (</span><span class='info'>BCP47 Registration Form</span><span>)</span></a>
 				into the Language Extensions Registry, according to
 				Section 3.7.
 				Extensions and the Extensions Registry of "Tags for
@@ -810,5 +982,12 @@ Appendix Q:
 <td class="author-text">IBM</td></tr>
 <tr><td class="author" align="right">Email:&nbsp;</td>
 <td class="author-text"><a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a></td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Courtney Falk</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Infinite Automata</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:court@infiauto.com">court@infiauto.com</a></td></tr>
 </table>
 </body></html>

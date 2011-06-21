@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC4646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4646.xml">
+<!ENTITY rfc5646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5646.xml">
+]>
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+
+<?rfc strict="yes" ?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+
+
+<rfc category="info" docName="draft-davis-t-langtag-ext-00" ipr="trust200902"
+	submissionType="independent">
+
+
+
+
+	<front>
+
+
+		<title abbrev="BCP 47 Transform Extension">BCP 47 Extension T</title>
+
+		<author fullname="Mark Davis" initials="M.E." surname="Davis">
+			<organization>Google</organization>
+
+			<address>
+
+
+
+
+				<email>mark@macchiato.com</email>
+
+
+			</address>
+		</author>
+
+		<author fullname="Addison Phillips" initials="A" surname="Phillips">
+			<organization>Lab126</organization>
+
+			<address>
+				<email>addison@lab126.com</email>
+			</address>
+		</author>
+
+		<author initials="Y" surname="Umaoka" fullname="Yoshito Umaoka">
+			<organization abbrev="IBM">IBM</organization>
+			<address>
+				<email>yoshito_umaoka@us.ibm.com</email>
+			</address>
+		</author>
+		<date month="June" year="2011" day="16" />
+
+
+
+		<!-- Meta-data Declarations -->
+
+		<area>General</area>
+
+		<workgroup>Internet Engineering Task Force</workgroup>
+
+
+
+		<keyword>locale</keyword>
+		<keyword>bcp 47</keyword>
+
+		<!-- Keywords will be incorporated into HTML output files in a meta tag 
+			but they have no effect on text or nroff output. If you submit your draft 
+			to the RFC Editor, the keywords will be used for the search engine. -->
+
+		<abstract>
+			<t>
+				This document specifies an Extension to BCP 47
+				which provides
+				subtags
+				for specifying the source language or script of transformed text,
+				including text
+				that
+				has been transliterated, transcribed, or
+				translated. It also provides for additional information used for identification.
+			</t>
+		</abstract>
+	</front>
+
+	<middle>
+		<section title="Introduction">
+			<t>
+				<xref target="BCP47"></xref>
+				permits the definition and registration of language tag extensions
+				"that contain a language component and are compatible with
+				applications that
+				understand language tags". This document defines an
+				extension for
+				specifying the source of a text transformation,
+				including text that has been transliterated, transcribed, or
+				translated.
+				The "singleton" identifier for this extension is 't'.
+			</t>
+
+			<section title="Requirements Language">
+				<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+					NOT",
+					"SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"
+					in this
+					document are to be interpreted as described in RFC 2119.</t>
+			</section>
+		</section>
+
+    
+
+    <?rfc needLines="8" ?>
+
+		<section title="BCP47 Required Information">
+			<t>
+				Language tags, as defined by
+				<xref target="BCP47"></xref>, are useful for identifying the language of content.
+				There are
+				mechanisms for specifying variant subtags for special purposes.
+				However, these variants are insufficient for specifying text transformations,
+				including text that has been
+				transliterated, transcribed, or
+				translated.
+				That
+				is, for fully
+				specifying such text, it is important to specify the
+				source language
+				and/or script.
+				In addition, it may also be important
+				to specify a
+				particular
+				specification for the transformation.
+			</t>
+			<t>
+			For example, if one is transcribing the names of Italian or Russian cities on a map for 
+			Japanese users, each name will need to be transliterated into katakana using rules 
+			appropriate for the source language and target languages.
+			When tagging such data, it is important to be able to indicate not only the resulting content 
+			language ("ja" in this case), but also the source language.</t>
+			<t>Transforms such as transliteration may vary depending not only on
+				the basis of
+				the source and target script, but also language.
+				Thus the
+				Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which
+				corresponds to the Cyrillic &lt;PE, U, TE, I, EN>) transliterates
+				into "Putin" in English but "Poutine" in French.
+				The identifier may
+				need to indicate a desired mechanical transformation
+				in an API, or
+				may need to tag data that has been converted
+				(mechanically or by
+				hand) according to a transliteration method.
+      </t>
+			<t>
+				Such identification is accomplished by using the 't' extension
+				defined in this document.
+				This extension is formed by the 't'
+				singleton followed by a sequence of subtags that would form a
+				language tag defined by
+				<xref target="BCP47"></xref>.
+				This allows for the source language or script to be specified to
+				the degree of precision required.
+				There are restrictions on the sequence of subtags.
+				They MUST form a regular, valid, canonical language
+				tag, and MUST neither include extensions nor private use sequences introduced by the
+				singleton
+				'x'.
+				Where only the script is relevant (such as identifying
+				a
+				script-script
+				transliteration) then 'und' is used for the primary language subtag.
+			</t>
+			<t>For example:</t>
+			<texttable>
+				<ttcol>Language Tag</ttcol>
+
+				<ttcol>Description</ttcol>
+
+				<c>ja-t-it</c>
+
+				<c>The content is Japanese, transformed from Italian.</c>
+
+				<c>ja-Kana-t-it</c>
+
+				<c>The content is Japanese Katakana, transformed from Italian.</c>
+
+				<c>und-Latn-t-und-cyrl</c>
+
+				<c>The content is in the Latin script, transformed from the Cyrillic script.</c>
+
+			</texttable>
+			<t>
+				Note that the sequence of subtags governed by 't' cannot contain a
+				singleton (a single-character subtag), because that would start a new extension.
+				For example, the tag "ja-t-i-ami"
+				does not indicate that the source is in "i-ami", because "i-ami" is not a
+				regular language tag in
+				<xref target="BCP47"></xref>. That tag would express an empty 't' extension followed by an 'i' extension.
+			</t>
+			<t>
+				In addition, it is sometimes necessary to indicate additional information, such as the mechanism
+				used
+				to do the transformation, optionally including the version of the mechanism. The mechanism can be supplied by using
+				the 'm0' separator. The format of such a 't' extension is thus:
+				</t>
+			<t>"t-&lt;language-tag>-m0-&lt;mechanism>".</t>
+            <t>(The full format reserves some additional syntax for future expansion, as described below.)
+            </t>
+			<t>The transform &lt;mechanism> is a series of subtags that indicate the
+				specification used for the transformation, such as "UNGEGN" for the
+				the United Nations Group of Experts on
+				Geographical
+				Names
+				transliterations and transcriptions.
+			</t>
+			<t>For example:</t>
+			<texttable>
+				<ttcol>Language Tag</ttcol>
+
+				<ttcol>Description</ttcol>
+
+				<c>und-Cyrl-t-und-latn-m0-ungegn-2007</c>
+
+				<c>the content is in Cyrillic, transformed from Latn, according
+					to a UNGEGN specification dated 2007.</c>
+
+			</texttable>
+			<t>The separator subtags such as 'm0' were chosen because they are short, visually distinctive, 
+			and cannot occur in a language subtag (outside of an extension and after 'x'), 
+			thus eliminating the potential for collision or confusion with the source language tag.</t>
+			<t>
+				The subtags that are valid after in the 't' extension are provided by <eref target="http://unicode.org/reports/tr35/">Section 3</eref>
+				 of <xref target="UTS35">Unicode
+      Technical Standard #35: Unicode Locale Data Markup Language</xref>. As required by BCP 47, subtags follow the language tag ABNF and
+      other rules for the formation of language tags and subtags, are restricted to the ASCII letters and digits, are not case sensitive, and do not exceed eight characters in length.</t>
+                <t>
+                EDITORIAL NOTE: This new facility has been accepted by the Unicode
+                CLDR
+                committee for incorporation into the next version of Unicode
+                CLDR, parallel
+                with the structure of the 'u' extension
+                <xref target="RFC6067"></xref>,
+                for which it is already the maintaining authority.
+                The data and
+                specification will be available by the time this internet
+                draft has
+                been
+                approved.
+            </t>
+      <t>LDML is available over the Internet and at no cost, and
+      is available via a royalty-free license at
+      http://unicode.org/copyright.html. LDML is versioned, and each
+      version of LDML is numbered, dated, and stable. Extension subtags, once
+      defined by LDML, are never retracted or change in meaning in a
+      substantial way. </t><t>The structure of 't' subtags is determined by the Unicode CLDR Technical Committee, in accordance with the policies and procedures in 
+http://www.unicode.org/consortium/tc-procedures.html, and subject to the Unicode Consortium Policies on http://www.unicode.org/policies/policies.html.</t>
+<t>Changes that can be made by successive versions of <xref target="UTS35">LDML</xref> by the Unicode Consortium without requiring a new RFC include
+the allocation of new subtags for use after the 't' extension.
+A new RFC would be required for material changes to an existing 't' subtag, 
+or an incompatible change to the overall syntactic structure of the 't' extension; 
+however, such a change would be contrary to the policies of the Unicode Consortium, and thus is not anticipated.</t>
+                <t>The maintaining authority for the 't' extension is
+                the Unicode Consortium:</t>
+
+			<texttable>
+				<ttcol>Item</ttcol>
+
+				<ttcol>Value</ttcol>
+
+				<c>Name</c>
+
+				<c>Unicode Consortium</c>
+
+				<c>Contact Email</c>
+
+				<c>cldr-contact@unicode.org</c>
+
+				<c>Discussion List Email</c>
+
+				<c>cldr-users@unicode.org</c>
+
+				<c>URL Location</c>
+
+				<c>cldr.unicode.org</c>
+
+				<c>Specification</c>
+
+				<c>Unicode Technical Standard #35 Unicode Locale Data Markup
+					Language (LDML), http://unicode.org/reports/tr35/</c>
+				<c>Section</c>
+
+				<c>Section 3 Unicode Language and Locale Identifiers</c>
+			</texttable>
+
+			<section title="Summary">
+				<t>
+					The following is a summary of the definition for the 't' subtags
+					defined by
+					<eref target="http://unicode.org/reports/tr35/">Section 3</eref>
+                 of <xref target="UTS35">Unicode
+      Technical Standard #35: Unicode Locale Data Markup Language</xref>,
+ which is relevant for this specification.</t>
+                        <t>The subtags in the 't' extension are of the following form:</t>
+                            
+            <texttable>
+                <ttcol>Label</ttcol>
+                <ttcol>ABNF</ttcol>
+                <ttcol>Comment</ttcol>
+
+                <c>t_ext=</c>
+                <c>"t-"</c>
+                <c>Extension</c>
+
+                <c></c>
+                <c>[lang]</c>
+                <c>Source</c>
+
+                <c> </c>
+                <c>*("-" field)</c>
+                <c>Optional information</c>
+
+                <c>lang=</c>
+                <c>language</c>
+                <c><xref target="BCP47"></xref>, with restrictions</c>
+
+                <c></c>
+                <c>["-" script]</c>
+                <c></c>
+
+                <c></c>
+                <c>["-" region]</c>
+                <c></c>
+
+                <c></c>
+                <c>*("-" variant)</c>
+                <c></c>
+
+                <c>field=</c>
+                <c>sep 1*("-" 3*8alphanum)</c>
+                <c>With restrictions</c>
+
+                <c>sep=</c>
+                <c>1ALPHA 1DIGIT</c>
+                <c>Subtag separators</c>
+                
+			 </texttable><t>Description and restrictions:
+                    <list style="letters">
+            <t>The 't' extension MUST have at least one subtag.</t>
+            <t>The 't' extension normally starts with a source language tag, which MUST be a regular, canonical language tag as specified by <xref target="BCP47"></xref>.
+            Tags described by the 'irregular' production in BCP 47 MUST NOT be used to form the language tag.
+            The source language tag MAY be omitted: some field values do not require it.
+            </t>
+            <t>There is optionally a sequence of fields, where each field is a separator followed by a sequence of subtags. Two identical separators MUST NOT be present.
+            </t>
+            <t>One field is initially specified in <xref target="UTS35"></xref>: the transform mechanism.<list style="letters"><t>
+            The transform mechanism consists of a sequence of
+                    subtags starting 
+                    with the 'm0' separator followed by one or more mechanism subtags. Each mechanism subtag has a length of 3 to 8 alphanumeric characters.
+							The sequence as a whole provides an
+							identification of the
+							specification
+							for the transform,
+							such as the mechanism subtag 'UNGEGN' in
+							"und-Cyrl-t-und-latn-m0-ungegn".
+							In many cases, only one mechanism subtag is necessary, but
+							multiple
+							subtags MAY be defined in <xref target="UTS35"></xref> where necessary.</t>
+		                    <t>Any purely numeric subtag is a representation of a date in the Gregorian calendar.
+		                        It MAY occur in any mechanism field. 
+		                        If it does occur:<list style="symbols"><t>it MUST occur as the final subtag in the field,</t>
+		                    <t>it MUST NOT be the only subtag in the field, and</t>
+		                    <t>it MUST consist of a sequence of digits of the form YYYY, YYYYMM, or YYYYMMDD.</t></list>
+							For example, 20110623
+							represents June 23th, 2011.
+							A date subtag SHOULD only be used where necessary, and then SHOULD be as short
+							as possible. 
+							For example, suppose that the BGN transliteration
+							specification for Cyrillic to Latin had three versions,
+							dated June 11th, 1999; Dec 30th, 1999; and May 1st, 2011.
+							In that
+							case, the corresponding first two DATE subtags would require months
+							to be distinctive (199906 and 199912), but the last subtag would only
+							require the year (2011).
+			            </t>
+						<t>Some mechanisms may use a versioning system that is not distinguished by date, or not by date alone.
+						In the latter case, the version will be of a form specified by <xref target="UTS35"></xref> for that mechanism.
+						For example, if the mechanism XXX uses versions of the form v21a,
+						then a tag could look like "ja-t-it-m0-xxx-v21a". If there are multiple subversions distinguished by date,
+                        then a tag could look like "ja-t-it-m0-xxx-v21a-2007".</t>
+                        </list></t>
+<t>Successive versions of
+                    <xref target="UTS35"></xref>
+                    could define additional separator subtags, and additional subtags for those separators. Once defined,
+                    those subtags will never be removed.</t>
+                <t>
+                    The order of the subtags is
+                    significant (see <xref target='canonicalization'/> Canonicalization).
+</t>
+					</list>
+				</t>
+				                <t>
+                EDITORIAL NOTE: The following parallels the structure used for the 'u' extension
+                <xref target="RFC6067"></xref>,
+                for which the Unicode Consortium is the maintaining authority.
+                The data and
+                specification will be available by the time this internet
+                draft has
+                been
+                approved.
+            </t>
+				
+				<t>
+					
+				</t>
+				<t>
+					Beginning with CLDR version 1.7.2, machine-readable files are
+					available listing the data defined for BCP47 extensions for each
+					successive version of
+					<xref target="UTS35"></xref>. These releases are listed on
+					<eref target="http://cldr.unicode.org/index/downloads">http://cldr.unicode.org/index/downloads</eref>.
+					Each release has an associated data directory of the form
+					"http://unicode.org/Public/cldr/&lt;version&gt;", where
+					"&lt;version&gt;" is replaced by the release number. For example,
+					for version 1.7.2, the "core.zip" file is located at
+					<eref target="http://unicode.org/Public/cldr/1.7.2/">http://unicode.org/Public/cldr/1.7.2/core.zip</eref>.
+					Inside the "core.zip" file, the path "common/bcp47" contains the
+					data files defining the data defined for BCP47 extensions. The most
+					recent version is always identified by the version "latest" and can
+					be accessed by the URL in
+					<xref target="regform"></xref>.
+				</t>
+				<t>
+					To get the version information in XML when working with the data
+					files, the XML parser must be validating. When the 'core.zip' file
+					is unzipped, the 'dtd' directory will be at the same level as the
+					'bcp47' directory; that is required for correct validation. For
+					each release after CLDR 1.8, types introduced in that release are
+					also marked in the data files by the XML attribute "since", such as
+					in the following example:
+					<figure>
+						<artwork>&lt;type name="adp" since="1.9"/&gt; </artwork>
+					</figure>
+				</t>
+				<t>
+					The data is also currently maintained in a source code repository,
+					with each release tagged, for viewing directly without unzipping.
+					For example, see:
+					<list style="symbols">
+						<t>http://unicode.org/repos/cldr/tags/release-1-7-2/common/bcp47/</t>
+						<t>http://unicode.org/repos/cldr/tags/release-1-8/common/bcp47/</t>
+					</list>
+				</t>
+				<section title="Canonicalization" anchor="canonicalization">
+					<t>
+						As required by
+						<xref target="BCP47"></xref>, the use of uppercase or lowercase letters is not significant in
+						the subtags used in this extension. The canonical form for all
+						subtags in the extension is lowercase, with the fields ordered by the separators, alphabetically.
+					</t>
+
+
+				</section>
+			</section>
+
+			<section title="Registration Form" anchor="regform">
+				<t>
+					Per
+					<xref target="BCP47">RFC 5646, Section 3.7</xref>
+					:
+				</t>
+				<figure>
+					<artwork>
+%%
+Identifier: t
+Description: Transform Specification
+Comments: Subtags for the identification of text transforms,
+    including transliteration, transcription, and translation.
+Added: 2010-mm-dd
+RFC: [TBD]
+Authority: Unicode Consortium
+Contact_Email: cldr-contact@unicode.org
+Mailing_List: cldr-users@unicode.org
+URL: http://www.unicode.org/Public/cldr/latest/core.zip
+%%
+						</artwork>
+				</figure>
+
+			</section>
+		</section>
+		<section anchor="Acknowledgements" title="Acknowledgements">
+			<t>Thanks to John Emmons and the rest of the Unicode
+				CLDR Technical
+				Committee for their work in developing the BCP 47 subtags
+				for LDML.</t>
+		</section>
+
+		<section anchor="IANA" title="IANA Considerations">
+			<t>
+				This document will require IANA to insert the record in
+				<xref target="regform"></xref>
+				into the Language Extensions Registry, according to
+				Section 3.7.
+				Extensions and the Extensions Registry of "Tags for
+				Identifying
+				Languages" in
+				<xref target="BCP47"></xref>. Per Section 5.2 of
+				<xref target="BCP47"></xref>, there might be occasional (rare) requests by the Unicode
+				Consortium (the "Authority" listed in the record) for maintenance of
+				this record. Changes that can be submitted to IANA without the
+				publication of a new RFC are limited to modification of the
+				Comments, Contact_Email, Mailing_List, and URL fields. Any such
+				requested changes MUST use the domain 'unicode.org' in any new
+				addresses or URIs, MUST explicitly cite this document (so that IANA
+				can reference these requirements), and MUST originate from the
+				'unicode.org' domain. The domain or authority can only be changed
+				via a new RFC.
+			</t>
+			<t>This document does not require IANA to create or maintain a new
+				registry or otherwise impact IANA.</t>
+		</section>
+
+		<section anchor="Security" title="Security Considerations">
+			<t>
+				The security considerations for this extension are the same as those
+				for
+				<xref target="BCP47"></xref>. See
+				<xref target="BCP47">RFC 5646, Section 6, Security Considerations</xref>.
+			</t>
+		</section>
+	</middle>
+
+
+
+	<back>
+		<references title="Normative References">
+			<reference anchor="UTS35" target="http://www.unicode.org/reports/tr35/">
+				<front>
+					<title abbrev="LDML">
+						Unicode Technical Standard #35: Locale Data
+						Markup Language (LDML)
+</title>
+					<author initials="M" surname="Davis" fullname="Mark Davis">
+						<organization>Unicode Consortium</organization>
+					</author>
+					<date day="21" month="December" year="2007" />
+				</front>
+				<annotation>Section 3:
+					http://unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers</annotation>
+				<annotation>Appendix Q:
+					http://unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data</annotation>
+			</reference>
+			<reference anchor="BCP47">
+				<front>
+					<title abbrev="BCP47">Tags for the Identification of Language (BCP47)</title>
+					<author initials="M.E." surname="Davis" fullname="Mark Davis"
+						role="editor">
+						<organization><?xm-replace_text {organization}?>
+						</organization>
+					</author>
+					<date month="September" year="2009" />
+				</front>
+			</reference>
+			<reference anchor="RFC6067">
+				<front>
+					<title abbrev="RFC6067">BCP 47 Extension U</title>
+					<author initials="M.E." surname="Davis" fullname="Mark Davis"
+						role="editor">
+						<organization><?xm-replace_text {organization}?>
+						</organization>
+					</author>
+					<date month="September" year="2010" />
+				</front>
+			</reference>
+			<reference anchor="US-ASCII">
+				<front>
+					<title>ISO/IEC 646:1991, Information technology -- ISO 7-bit coded
+						character set for information interchange. </title>
+					<author>
+						<organization>International Organization for Standardization</organization>
+					</author>
+					<date year="1991" />
+					<abstract>
+						<t>This standard defines an International Reference Version (IRV)
+							which corresponds exactly to what is widely known as ASCII or
+							US-ASCII. ISO/IEC 646 was based on the earlier standard ECMA-6.
+							ECMA has maintained its standard up to date with respect to
+							ISO/IEC 646 and makes an electronic copy available at
+							http://www.ecma-international.org/publications/standards/Ecma-006.htm.
+							ISO/IEC 646 JTC 1/SC 2</t>
+					</abstract>
+				</front>
+			</reference>
+		</references>
+		<references title="Informative References">
+			<reference anchor="ldml-registry">
+				<front>
+					<title>Registry for Common Locale Data Repository tag elements</title>
+					<author fullname="Unicode Consortium">
+						<organization><?xm-replace_text {organization}?>
+						</organization>
+					</author>
+					<date year="2009" month="September" />
+				</front>
+			</reference>
+		</references>
+
+
+	</back>
+</rfc>

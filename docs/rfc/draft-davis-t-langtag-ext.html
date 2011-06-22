@@ -513,12 +513,12 @@ Structure</h3>
 <tr><th align="left">Label</th><th align="left">ABNF</th><th align="left">Comment</th></tr>
 <tr>
 <td align="left">t_ext=</td>
-<td align="left">"t-"</td>
+<td align="left">"t"</td>
 <td align="left">Extension</td>
 </tr>
 <tr>
 <td align="left">&nbsp;</td>
-<td align="left">(lang *("-" field)</td>
+<td align="left">("-" lang *("-" field)</td>
 <td align="left">Source + optional field(s)</td>
 </tr>
 <tr>
@@ -581,10 +581,10 @@ Structure</h3>
 						
 </dd>
 <dt>c.</dt>
-<dd>There is optionally a sequence of fields, where each field is a
-							separator followed by a sequence of subtags.
-							Two identical
-							separators MUST NOT be present.
+<dd>There is optionally a sequence of fields, where each field has a
+							separator followed by a sequence of one or more subtags.
+							Two identical field
+							separators MUST NOT be present in the language tag.
 </dd>
 <dt>d.</dt>
 <dd>
@@ -657,13 +657,13 @@ Field Definitions</h3>
                     <a class='info' href='#UTS35'>LDML<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35]
                     by the Unicode Consortium without requiring a new RFC include:
                     </p>
-<blockquote class="text">
-<p>The
+<ul class="text">
+<li>The
                     allocation of new field separator subtags for use after the 't' extension.
-</p>
-<p>The allocation of subtags valid after a field separator subtag.
-</p>
-</blockquote><p>
+</li>
+<li>The allocation of subtags valid after a field separator subtag.
+</li>
+</ul><p>
                     A new RFC
                     would be required for material changes to an existing 't'
                     subtag,
@@ -770,13 +770,13 @@ Registration of Field Subtags</h3>
 <p>
 					Registration of transform mechanisms is requested by filing a ticket at
 					<a href='http://cldr.unicode.org/'>cldr.unicode.org</a>.
-					The proposal in the ticket must contain the following information:
+					The proposal in the ticket MUST contain the following information:
 </p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
 <col align="left"><col align="left">
 <tr><th align="left">Item</th><th align="left">Description</th></tr>
 <tr>
 <td align="left">Subtag</td>
-<td align="left">The proposed mechanism subtag.</td>
+<td align="left">The proposed mechanism subtag (or subtag sequence).</td>
 </tr>
 <tr>
 <td align="left">Description</td>
@@ -784,12 +784,13 @@ Registration of Field Subtags</h3>
 </tr>
 <tr>
 <td align="left">Version</td>
-<td align="left">If versioning is not done by date, then a description of the versioning conventions used for the mechanism.</td>
+<td align="left">If versioning for the mechanism is not done according to date, then a description of the versioning conventions used for the mechanism.</td>
 </tr>
 </table>
 <br clear="all" />
 
-<p>Additional information may be requested in tickets in the future if such information is found to be useful by the committee.
+<p>The committee MAY request more information be supplied in tickets in the future
+                 if such information is found to be useful.
 </p>
 <p>The committee MUST respond to each proposal within 2 weeks.
 </p>

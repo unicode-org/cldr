@@ -335,11 +335,11 @@
 					<ttcol>Comment</ttcol>
 
 					<c>t_ext=</c>
-					<c>"t-"</c>
+					<c>"t"</c>
 					<c>Extension</c>
 
                     <c></c>
-                    <c>(lang *("-" field)</c>
+                    <c>("-" lang *("-" field)</c>
                     <c>Source + optional field(s)</c>
 
                     <c></c>
@@ -387,10 +387,10 @@
 							omitted: some field values do not
 							require it.
 						</t>
-						<t>There is optionally a sequence of fields, where each field is a
-							separator followed by a sequence of subtags.
-							Two identical
-							separators MUST NOT be present.</t>
+						<t>There is optionally a sequence of fields, where each field has a
+							separator followed by a sequence of one or more subtags.
+							Two identical field
+							separators MUST NOT be present in the language tag.</t>
 						<t>
 							The order of the subtags in a t extension is
 							significant (see
@@ -448,7 +448,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
                     Changes that can be made by successive versions of
                     <xref target="UTS35">LDML</xref>
                     by the Unicode Consortium without requiring a new RFC include:
-                    <list>
+                    <list style="symbols">
                     <t>The
                     allocation of new field separator subtags for use after the 't' extension.</t>
                     <t>The allocation of subtags valid after a field separator subtag.</t>
@@ -543,18 +543,19 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 				<t>
 					Registration of transform mechanisms is requested by filing a ticket at
 					<eref target="http://cldr.unicode.org/">cldr.unicode.org</eref>.
-					The proposal in the ticket must contain the following information:</t>
+					The proposal in the ticket MUST contain the following information:</t>
 				<texttable>
                     <ttcol>Item</ttcol>
                     <ttcol>Description</ttcol>
                     <c>Subtag</c>
-                    <c>The proposed mechanism subtag.</c>
+                    <c>The proposed mechanism subtag (or subtag sequence).</c>
                     <c>Description</c>
                     <c>A description of the proposed mechanism; that description MUST be sufficient to distinguish it from other mechanisms in use.</c>
                     <c>Version</c>
-                    <c>If versioning is not done by date, then a description of the versioning conventions used for the mechanism.</c>
+                    <c>If versioning for the mechanism is not done according to date, then a description of the versioning conventions used for the mechanism.</c>
 				</texttable>
-                <t>Additional information may be requested in tickets in the future if such information is found to be useful by the committee.</t>
+                <t>The committee MAY request more information be supplied in tickets in the future
+                 if such information is found to be useful.</t>
                 <t>The committee MUST respond to each proposal within 2 weeks.</t>
                 <t>The response MAY:
 	                <list style="symbols">

@@ -40,12 +40,14 @@ import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Merger;
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -63,6 +65,7 @@ import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
@@ -93,6 +96,7 @@ public class GenerateXMB {
     .add("jason", ".*", "Generate JSON versions instead")
     .add("zone", null, "Show metazoneinfo and exit")
     .add("wsb", ".*", "Show metazoneinfo and exit")
+    .add("kompare", ".*", CldrUtility.BASE_DIRECTORY + "../DATA/cldr/common/google-bulk-imports", "Compare data with directory; generate files in -target.")
     ;
 
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
@@ -118,7 +122,7 @@ public class GenerateXMB {
         option = myOptions.get("file");
         String fileMatcherString = option.doesOccur() ? option.getValue() : ".*";
         option = myOptions.get("content");
-        //contentMatcher = option.doesOccur() ? Pattern.compile(option.getValue()).matcher("") : null;
+        Matcher contentMatcher = option.doesOccur() ? Pattern.compile(option.getValue()).matcher("") : null;
         option = myOptions.get("path");
         pathMatcher = option.doesOccur() ? Pattern.compile(option.getValue()).matcher("") : null;
 
@@ -128,16 +132,24 @@ public class GenerateXMB {
         Factory cldrFactory1 = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory1.make("en", true);
         CLDRFile root = cldrFactory1.make("en", true);
-
+        
         showDefaultContents(targetDir, english);
-
         EnglishInfo englishInfo = new EnglishInfo(targetDir, english, root);
+
+        option = myOptions.get("kompare");
+        compareDirectory = option.getValue();
+        if (compareDirectory != null) {
+            compareFiles(fileMatcherString, contentMatcher, targetDir, cldrFactory1, english, englishInfo);
+            return;
+        }
+
         if (myOptions.get("wsb").doesOccur()) {
             displayWsb(myOptions.get("wsb").getValue(), englishInfo);
             return;
         }
         writeFile(targetDir, "en", englishInfo, english, true, false);
         writeFile(targetDir + "/filtered/", "en", englishInfo, english, true, true);
+        
 
         // TODO:
         // Replace {0}... with placeholders (Mostly done, but need better examples)
@@ -153,7 +165,7 @@ public class GenerateXMB {
 
         Factory cldrFactory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcherString);
         LanguageTagParser ltp = new LanguageTagParser();
-
+        
         for (String file : cldrFactory2.getAvailable()) {
             if (SKIP_LOCALES.contains(file)) {
                 continue;
@@ -181,6 +193,100 @@ public class GenerateXMB {
         countFile.close();
     }
 
+
+    private static void compareFiles(String fileMatcherString, Matcher contentMatcher, String targetDir, Factory cldrFactory1, CLDRFile english,
+            EnglishInfo englishInfo) throws IOException {
+        SubmittedPathFixer fixer = new SubmittedPathFixer();
+        Factory cldrFactory2 = Factory.make(compareDirectory, fileMatcherString);
+        PrintWriter output = null;
+        PrintWriter log = BagFormatter.openUTF8Writer(targetDir + "/log/", "skipped.txt");
+
+        for (String file : cldrFactory2.getAvailable()) {
+            //System.out.println("Checking " + file);
+            CLDRFile submitted = cldrFactory2.make(file, false);
+            CLDRFile trunk = cldrFactory1.make(file, true);
+            for (String path : With.in(submitted.iterator(null, CLDRFile.ldmlComparator))) {
+                if (pathMatcher != null && !pathMatcher.reset(path).matches()) {
+                    continue;
+                }
+                String submittedValue = submitted.getStringValue(path);
+                if (contentMatcher != null && !contentMatcher.reset(submittedValue).matches()) {
+                    continue;
+                }
+                // fix alt
+                String trunkPath = fixer.fix(path, false);
+                String trunkValue = trunk.getStringValue(trunkPath);                    
+                if (CharSequences.equals(submittedValue, trunkValue)) {
+                    continue;
+                }
+                if (output == null) {
+                    output = BagFormatter.openUTF8Writer(targetDir, file + ".txt");
+                    output.println("ID\tEnglish\tSource\tRelease\tDescription");
+                }
+                String englishValue = english.getStringValue(trunkPath);
+                final PathInfo pathInfo = englishInfo.getPathInfo(trunkPath);
+                String description;
+                if (pathInfo == null) {
+                    log.println(file + "\tDescription unavailable for " + trunkPath);
+                    String temp = fixer.fix(path, true);
+                    englishInfo.getPathInfo(trunkPath);
+                    continue;
+                } else {
+                    description = pathInfo.getDescription();
+                }
+                long id = StringId.getId(trunkPath);
+                if (englishValue == null) {
+                    log.println(file + "\tEmpty English for " + trunkPath);
+                    continue;
+                }
+                output.println(id + "\t" + ssquote(englishValue, false) + "\t" + ssquote(submittedValue, false) + "\t" + ssquote(trunkValue, true) + "\t" + description);
+            }
+            if (output != null) {
+                output.close();
+                output = null;
+            }
+            log.flush();
+        }
+        log.close();
+    }
+
+    private static String ssquote(String englishValue, boolean showRemoved) {
+        if (englishValue == null) {
+            return showRemoved ? "[removed]" : "[empty]";
+        }
+        englishValue = englishValue.replace("\"", "&quot;");
+        return englishValue;
+    }
+
+    static class SubmittedPathFixer {
+        private static final Pattern PATH_FIX = Pattern.compile("\\[@alt=\"" +
+                        "(?:proposed|((?!proposed)[-a-zA-Z0-9]*)-proposed)" +
+                        "-u\\d+-implicit[0-9.]+" +
+                        "(?:-proposed-u\\d+-implicit[0-9.]+)?" +             // NOTE: we allow duplicated alt values because of a generation bug.
+                        // -proposed-u971-implicit2.0
+                        "\"]");
+        static Matcher pathFix = PATH_FIX.matcher("");
+
+        public String fix(String path, boolean debug) {
+            if (pathFix.reset(path).find()) {
+                if (debug) {
+                    // debug in case we get a mismatch
+                    String temp = "REGEX:\t" +
+                    		RegexUtilities.showMismatch(PATH_FIX, path.substring(pathFix.start(0)));
+                }
+                final String group = pathFix.group(1);
+                String replacement = group == null ? "" : "[@alt=\"" + group + "\"]";
+                String trunkPath = path.substring(0,pathFix.start(0)) + replacement + path.substring(pathFix.end(0));
+                // HACK because of change in CLDR defaults
+                if (trunkPath.startsWith("//ldml/numbers/symbols/")) {
+                    trunkPath = "//ldml/numbers/symbols[@numberSystem=\"latn\"]/" + trunkPath.substring("//ldml/numbers/symbols/".length());
+                }
+                return trunkPath;
+            }
+            return path;
+        }
+
+    }
 
     private static void showDefaultContents(String targetDir, CLDRFile english) throws IOException {
         PrintWriter out = BagFormatter.openUTF8Writer(targetDir + "/log/", "locales.txt");
@@ -463,7 +569,7 @@ public class GenerateXMB {
     }
 
     static final String[] PLURAL_KEYS = {"=0", "=1", "zero", "one", "two", "few", "many", "other"};
-    static final String[] EXTRA_PLURAL_KEYS = {"zero", "one", "two", "few", "many"};
+    static final String[] EXTRA_PLURAL_KEYS = {"0", "1", "zero", "one", "two", "few", "many"};
 
     private static String showPlurals(String var, Map<String,String> values, String locale, PluralInfo pluralInfo, boolean isEnglish) {
         /*
@@ -618,7 +724,7 @@ public class GenerateXMB {
                 }
             }
             placeholderReplacementsToOriginal = Collections.unmodifiableMap(temp);
-            this.description = description.intern();
+            this.description = description == null ? null : description.intern();
             this.starredPath = starredPath;
             // count words
             int tempCount = 0;
@@ -802,7 +908,7 @@ public class GenerateXMB {
             Matcher m = COUNT_ATTRIBUTE.matcher("");
 
             for (String path : sorted) {
-                if (path.contains("[@count=\"other\"]")) {
+                if (path.contains("[@count=\"")) {
                     m.reset(path).find();
                     for (String key : EXTRA_PLURAL_KEYS) {
                         String path2 = path.substring(0,m.start(1)) + key + path.substring(m.end(1));
@@ -833,6 +939,9 @@ public class GenerateXMB {
 
             for (String path : sorted) {
                 String value = english.getStringValue(path);
+                if (value == null) {
+                    value = "[EMPTY]";
+                }
                 Level level = coverageLevel.getLevel(path);
                 if (pathMatcher != null 
                         && !pathMatcher.reset(path).find()) {
@@ -1331,4 +1440,6 @@ public class GenerateXMB {
     .put("[OTHER]", PluralRules.KEYWORD_OTHER)
     .put("[END_PLURAL]", "")
     .freeze();
+
+    private static String compareDirectory;
 }

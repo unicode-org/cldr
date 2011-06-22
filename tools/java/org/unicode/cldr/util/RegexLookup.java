@@ -14,7 +14,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.RegexLookup.Finder;
@@ -72,7 +71,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
         }
         @Override
         public int getFailPoint(String source) {
-            return CheckDates.findMismatch(matcher, source);
+            return RegexUtilities.findMismatch(matcher, source);
         }
     }
 
@@ -211,6 +210,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
                         throw new IllegalArgumentException("Failed to read RegexLookup File " + filename + "\t\t(" + lineNumber + ") " + line);
                     }
                     variables.add(line.substring(0,pos).trim(), line.substring(pos+1).trim());
+                    continue;
                 }
                 if (line.contains("%")) {
                     line = variables.replace(line);

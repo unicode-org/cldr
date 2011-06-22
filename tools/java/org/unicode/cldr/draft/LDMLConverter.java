@@ -18,11 +18,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 import org.unicode.cldr.util.With;
@@ -518,7 +518,7 @@ public class LDMLConverter {
             // <version number="$Revision: 5806 $"/>
             String versionPath = cldrResolved.getFullXPath("//ldml/identity/version");
             if (!VERSION_MATCHER.reset(versionPath).find()) {
-                int failPoint = CheckDates.findMismatch(VERSION_MATCHER, versionPath);
+                int failPoint = RegexUtilities.findMismatch(VERSION_MATCHER, versionPath);
                 String show = versionPath.substring(0, failPoint) + "☹" + versionPath.substring(failPoint);
                 throw new IllegalArgumentException("no version match with: " + show);
             }

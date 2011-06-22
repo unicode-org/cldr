@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -20,6 +19,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
@@ -332,7 +332,7 @@ public class CheckDates extends CheckCLDR {
         DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
         style += dateTimeLength.ordinal();
         if (!dateTimePatterns[style].matcher(skeleton).matches()) {
-            int i = findMismatch(dateTimePatterns[style], skeleton);
+            int i = RegexUtilities.findMismatch(dateTimePatterns[style], skeleton);
             String skeletonPosition = skeleton.substring(0,i) + "☹" + skeleton.substring(i);
             result.add(new CheckStatus()
             .setCause(this)
@@ -347,22 +347,6 @@ public class CheckDates extends CheckCLDR {
         //  .setMessage("Need full zone (v) in full format", new Object[]{});			
         //  result.add(item);			
         //  }
-    }
-
-    public static int findMismatch(Pattern p, CharSequence s) {
-        Matcher m = p.matcher("");
-        return findMismatch(m, s);
-    }
-
-    public static int findMismatch(Matcher m, CharSequence s) {
-        int i;
-        for (i = 1; i < s.length(); ++i) {
-            boolean matches = m.reset(s.subSequence(0,i)).matches();
-            if (!matches && !m.hitEnd()) {
-                break;
-            }
-        }
-        return i-1;
     }
 
     enum DateTimeLengths {SHORT, MEDIUM, LONG, FULL};

@@ -274,7 +274,7 @@ public class LDMLUtilities {
             doc = parse(new InputSource(is),"Fully resolved: "+fileName, false);
             return doc;
         }catch(IOException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
     }
 */
@@ -1237,7 +1237,7 @@ public class LDMLUtilities {
             }
             return null;
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         } 
     }
 
@@ -1284,7 +1284,7 @@ public class LDMLUtilities {
             }
             return null;
         }catch(Exception ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         } 
     }
     
@@ -1299,7 +1299,7 @@ public class LDMLUtilities {
             return XPathAPI_selectNodeList(doc, xpath);
 
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }   
     }
     
@@ -1386,7 +1386,8 @@ public class LDMLUtilities {
             return nl.item(0);
 
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
     }
     public static Node getNode(Node context, String resToFetch, Node namespaceNode){
@@ -1403,7 +1404,7 @@ public class LDMLUtilities {
             return nl.item(0);
 
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
     }
     /**
@@ -1438,7 +1439,7 @@ public class LDMLUtilities {
             return nl.item(0);
 
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
     }
     public static Node getNode(Node node, String xpath, boolean preferDraft, boolean preferAlt){
@@ -1447,7 +1448,7 @@ public class LDMLUtilities {
             return getNode(nl, xpath, preferDraft, preferAlt);
 
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
     }
     private static Node getVettedNode(NodeList list, StringBuffer xpath, boolean ignoreDraft){
@@ -1579,7 +1580,7 @@ public class LDMLUtilities {
             return nl;
 
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
     }
     /**
@@ -1597,7 +1598,7 @@ public class LDMLUtilities {
             }
             return nl;
         }catch(TransformerException ex){
-            throw new RuntimeException(ex.getMessage());
+            throw new RuntimeException(ex);
         }
     }
 
@@ -2225,6 +2226,7 @@ public class LDMLUtilities {
     private static NodeList XPathAPI_selectNodeList(Node node, String xpath) throws TransformerException {
         XPathFactory  factory=XPathFactory.newInstance();
         XPath xPath=factory.newXPath();
+        setNamespace(xPath,xpath);
         try {
             XPathExpression  xPathExpression=
                 xPath.compile(xpath);
@@ -2237,6 +2239,7 @@ public class LDMLUtilities {
             Node namespaceNode) throws TransformerException {
         XPathFactory  factory=XPathFactory.newInstance();
         XPath xPath=factory.newXPath();
+        setNamespace(xPath,xpath);
         try {
             XPathExpression  xPathExpression=
                 xPath.compile(xpath);
@@ -2249,6 +2252,7 @@ public class LDMLUtilities {
             Node namespaceNode) throws TransformerException {
         XPathFactory  factory=XPathFactory.newInstance();
         XPath xPath=factory.newXPath();
+        setNamespace(xPath,xpath);
         try {
             XPathExpression  xPathExpression=
                 xPath.compile(xpath);
@@ -2263,5 +2267,24 @@ public class LDMLUtilities {
     }
     private static void XPathAPI_eval(Node context, String string) throws TransformerException {
         XPathAPI_selectNodeList(context, string);
+    }
+
+    private static void setNamespace(XPath xpath, String string) {
+        if(string.contains("special/icu:")) {
+            xpath.setNamespaceContext(new javax.xml.namespace.NamespaceContext() {
+                    public String	getNamespaceURI(String prefix) {
+                        if(prefix.equals("icu")) {
+                            return "http://www.icu-project.org";
+                        }
+                        return null;
+                    }
+                    public String	getPrefix(String namespaceURI)  {
+                        return null;
+                    }
+                    public java.util.Iterator	getPrefixes(String namespaceURI)  {
+                        return null;
+                    }
+                });
+        }
     }
 }

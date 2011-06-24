@@ -15,17 +15,10 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 
 public final class FileUtilities {
 
-    public static abstract class SemiFileReader {
+    public static abstract class SemiFileReader extends FileProcessor {
         public final static Pattern SPLIT = Pattern.compile("\\s*;\\s*");
-        private int lineCount;
-
-        protected void handleStart() {}
         protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
         protected void handleEnd() {}
-
-        public int getLineCount() {
-            return lineCount;
-        }
 
         protected boolean isCodePoint() {
             return true;
@@ -34,8 +27,47 @@ public final class FileUtilities {
         protected String[] splitLine(String line) {
             return SPLIT.split(line);
         }
+        
+        @Override
+        protected boolean handleLine(int lineCount, String line) {
+            String[] parts = splitLine(line);
+            int start, end;
+            if (isCodePoint()) {
+                String source = parts[0];
+                int range = source.indexOf("..");
+                if (range >= 0) {
+                    start = Integer.parseInt(source.substring(0,range),16);
+                    end = Integer.parseInt(source.substring(range+2),16);
+                } else {
+                    start = end = Integer.parseInt(source, 16);
+                }
+            } else {
+                start = end = -1;
+            }
+            return handleLine(lineCount, start, end, parts);
+        }
+    }
+    
+    public static class FileProcessor {
+        private int lineCount;
 
-        public SemiFileReader process(Class classLocation, String fileName) {
+        protected void handleStart() {}
+        /**
+         * Return false to abort
+         * @param lineCount
+         * @param line
+         * @return
+         */
+        protected boolean handleLine(int lineCount, String line) {
+            return true;
+        }
+        protected void handleEnd() {}
+
+        public int getLineCount() {
+            return lineCount;
+        }
+
+        public FileProcessor process(Class classLocation, String fileName) {
             try {
                 BufferedReader in = FileUtilities.openFile(classLocation, fileName);
                 return process(in, fileName);
@@ -45,7 +77,7 @@ public final class FileUtilities {
 
         }
 
-        public SemiFileReader process(String directory, String fileName) {
+        public FileProcessor process(String directory, String fileName) {
             try {
                 FileInputStream fileStream = new FileInputStream(directory + "/" + fileName);
                 InputStreamReader reader = new InputStreamReader(fileStream, FileUtilities.UTF8);
@@ -56,7 +88,7 @@ public final class FileUtilities {
             }
         }
 
-        public SemiFileReader process(BufferedReader in, String fileName) {
+        public FileProcessor process(BufferedReader in, String fileName) {
             handleStart();
             String line = null;
             lineCount = 1;
@@ -77,21 +109,7 @@ public final class FileUtilities {
                     if (line.length() == 0) {
                         continue;
                     }
-                    String[] parts = splitLine(line);
-                    int start, end;
-                    if (isCodePoint()) {
-                        String source = parts[0];
-                        int range = source.indexOf("..");
-                        if (range >= 0) {
-                            start = Integer.parseInt(source.substring(0,range),16);
-                            end = Integer.parseInt(source.substring(range+2),16);
-                        } else {
-                            start = end = Integer.parseInt(source, 16);
-                        }
-                    } else {
-                        start = end = -1;
-                    }
-                    if (!handleLine(lineCount, start, end, parts)) {
+                    if (!handleLine(lineCount, line)) {
                         break;
                     }
                 }
@@ -102,8 +120,8 @@ public final class FileUtilities {
             }
             return this;
         }
-
     }
+
     //
     //  public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName, SemiFileReader handler) {
     //    return handler.process(classLocation, fileName);

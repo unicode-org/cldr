@@ -5,12 +5,15 @@
  ******************************************************************************
  */
 package org.unicode.cldr.tool;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,9 +22,12 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.draft.FileUtilities.FileProcessor;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.tool.CLDRModify.ConfigKeys;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
@@ -59,6 +65,8 @@ public class CLDRModify {
   static UnicodeSet whitespace = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();
 
   // TODO make this into input option.
+  
+  enum ConfigKeys {locale, action, path, value}
 
   static FixList fixList = new FixList();
 
@@ -77,7 +85,8 @@ public class CLDRModify {
   PATH = 11,
   USER = 12,
   ALL_DIRS = 13,
-  CHECK = 14
+  CHECK = 14,
+  KONFIG = 15
   ;
 
   private static final UOption[] options = {
@@ -96,6 +105,7 @@ public class CLDRModify {
     UOption.create("user", 'u', UOption.REQUIRES_ARG),
     UOption.create("all", 'a', UOption.REQUIRES_ARG),
     UOption.create("check", 'c', UOption.NO_ARG),
+    UOption.create("konfig", 'k', UOption.OPTIONAL_ARG).setDefault("modify_config.txt"),
   };
 
   private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
@@ -121,7 +131,8 @@ public class CLDRModify {
   + "-f\t to perform various fixes on the files (add following arguments to specify which ones, eg -fxi)" + XPathParts.NEWLINE
   + "-u\t set user for -fb" + XPathParts.NEWLINE
   + "-a\t pattern: recurse over all subdirectories that match pattern" + XPathParts.NEWLINE
-  + "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location."
+  + "-c\t check that resulting xml files are valid. Requires that a dtd directory be copied to the output directory, in the appropriate location." + XPathParts.NEWLINE
+  + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see XXX." + XPathParts.NEWLINE
   ;
 
   static final String HELP_TEXT2 =  "Note: A set of bat files are also generated in <dest_dir>/diff. They will invoke a comparison program on the results." + XPathParts.NEWLINE;
@@ -280,8 +291,8 @@ public class CLDRModify {
             System.out.println("Debug2 (" + test + "):\t" + k.toString(DEBUG_PATHS));
           }
           if (options[FIX].doesOccur) {
-            fix(k, options[FIX].value, cldrFactory);
-          }
+              fix(k, options[FIX].value, options[KONFIG].value, cldrFactory);
+            }
           if (DEBUG_PATHS != null) {
             System.out.println("Debug3 (" + test + "):\t" + k.toString(DEBUG_PATHS));
           }
@@ -546,6 +557,9 @@ public class CLDRModify {
     public void handleSetup() {
         // TODO Auto-generated method stub
         
+    }
+    public String getLocaleID() {
+        return localeID;
     }
   }
 
@@ -1624,6 +1638,82 @@ public class CLDRModify {
       }
     });
 
+    fixList.add('k', "fix according to -k config file", new CLDRFilter() {
+        private Map<String, LinkedHashSet<Map<ConfigKeys,String>>> locale2keyValues;
+        private LinkedHashSet<Map<ConfigKeys,String>> keyValues;
+        private LinkedHashSet<Map<ConfigKeys, String>> allLocales;
+        
+        @Override
+        public void handleStart() {
+            super.handleStart();
+            if (locale2keyValues == null) {
+                locale2keyValues = new HashMap<String, LinkedHashSet<Map<ConfigKeys,String>>>();
+                String configFileName = options[KONFIG].value;
+                FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
+                    @Override
+                    protected boolean handleLine(int lineCount, String line) {
+                        String[] lineParts = line.split("\\s*;\\s*");
+                        Map<ConfigKeys,String> keyValue = new EnumMap<ConfigKeys,String>(ConfigKeys.class);
+                        for (String linePart : lineParts) {
+                            int pos = linePart.indexOf('=');
+                            if (pos < 0) {
+                                throw new IllegalArgumentException();
+                            }
+                            keyValue.put(ConfigKeys.valueOf(linePart.substring(0,pos).trim()), linePart.substring(pos+1).trim());
+                        }
+                        final String locale = keyValue.get(ConfigKeys.locale);
+                        if (locale == null || keyValue.get(ConfigKeys.action) == null 
+                                || (keyValue.get(ConfigKeys.path) == null && keyValue.get(ConfigKeys.value) == null)) {
+                            throw new IllegalArgumentException();
+                        }
+                        
+                        LinkedHashSet<Map<ConfigKeys, String>> keyValues = locale2keyValues.get(locale);
+                        if (keyValues == null) {
+                            locale2keyValues.put(locale, keyValues = new LinkedHashSet<Map<ConfigKeys, String>>());
+                        }
+                        keyValues.add(keyValue);
+                        return true;
+                    } 
+                };
+                myReader.process(CLDRModify.class, configFileName);
+                allLocales = locale2keyValues.get("*");
+            }
+            LinkedHashSet<Map<ConfigKeys, String>> temp = locale2keyValues.get(getLocaleID());
+            // get the union
+            if (temp == null) {
+                keyValues = allLocales;
+            } else if (allLocales == null) {
+                keyValues = temp;
+            } else {
+                keyValues = new LinkedHashSet<Map<ConfigKeys, String>>(temp);
+                keyValues.addAll(allLocales);
+            }
+        }
+        @Override
+        public void handlePath(String xpath) {
+            if (keyValues == null) {
+                return;
+            }
+            // slow method; could optimize
+            for (Map<ConfigKeys, String> entry : keyValues) {
+                String pathMatch = entry.get(ConfigKeys.path);
+                if (pathMatch != null && !pathMatch.equals(xpath)) {
+                    continue;
+                }
+                String valueMatch = entry.get(ConfigKeys.value);
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (valueMatch != null && !valueMatch.equals(value)) {
+                    continue;
+                }
+                String action = entry.get(ConfigKeys.action);
+                if (action.equals("delete")) {
+                    remove(xpath);
+                }
+                break;
+            }
+        }
+      });
+
     //        fixList.add('q', "fix numbering system", new CLDRFilter() {
     //            private  final UnicodeSet dotEquivalents =(UnicodeSet) new UnicodeSet("[.．․﹒ 。｡︒۔٬]").freeze();
     //            private  final UnicodeSet commaEquivalents = (UnicodeSet) new UnicodeSet("[,，﹐ ، ٫ 、﹑､،]").freeze();
@@ -1834,9 +1924,10 @@ public class CLDRModify {
    * Perform various fixes
    * TODO add options to pick which one.
    * @param options TODO
+ * @param config 
    * @param cldrFactory TODO
    */
-  private static void fix(CLDRFile k, String options, Factory cldrFactory) {
+  private static void fix(CLDRFile k, String options, String config, Factory cldrFactory) {
 
     // TODO before modifying, make sure that it is fully resolved.
     // then minimize against the NEW parents

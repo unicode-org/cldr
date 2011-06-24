@@ -544,7 +544,6 @@
 			<script type="Bugi" draft="unconfirmed">buginesíska</script>
 			<script type="Buhd" draft="unconfirmed">buhid</script>
 			<script type="Cakm" draft="unconfirmed">chakma</script>
-			<script type="Cans" draft="contributed">Cans</script>
 			<script type="Cari" draft="unconfirmed">karíska</script>
 			<script type="Cham" draft="unconfirmed">chamíska</script>
 			<script type="Cher" draft="unconfirmed">cherokí</script>
@@ -1001,10 +1000,8 @@
 			<type type="unihan" key="collation">Röðun eftir grunnstrikum</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">Tölulegur</transformName>
 			<transformName type="Tone">Tónn</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">Áherslur</transformName>
 			<transformName type="x-Fullwidth">Full breidd</transformName>
 			<transformName type="x-Halfwidth">Hálf breidd</transformName>
@@ -2686,18 +2683,6 @@
 				<displayName count="one" draft="unconfirmed">unse gull</displayName>
 				<displayName count="other" draft="unconfirmed">unse gull</displayName>
 			</currency>
-			<currency type="XBA">
-				<displayName draft="unconfirmed">XBA</displayName>
-			</currency>
-			<currency type="XBB">
-				<displayName draft="unconfirmed">XBB</displayName>
-			</currency>
-			<currency type="XBC">
-				<displayName draft="unconfirmed">XBC</displayName>
-			</currency>
-			<currency type="XBD">
-				<displayName draft="unconfirmed">XBD</displayName>
-			</currency>
 			<currency type="XCD">
 				<displayName>Austur-Karíbahafsdalur</displayName>
 			</currency>
@@ -2725,9 +2710,6 @@
 				<displayName draft="unconfirmed">unse platína</displayName>
 				<displayName count="one" draft="unconfirmed">unse platína</displayName>
 				<displayName count="other" draft="unconfirmed">unse platína</displayName>
-			</currency>
-			<currency type="XTS">
-				<displayName draft="unconfirmed">XTS</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">Óþekktur eða ógildur gjaldeyrir</displayName>
@@ -2891,3 +2873,4 @@
 		</messages>
 	</posix>
 </ldml>
+

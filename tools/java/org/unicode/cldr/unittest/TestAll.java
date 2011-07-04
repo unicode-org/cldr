@@ -24,6 +24,7 @@ public class TestAll extends TestGroup {
   public TestAll() {
     super(
             new String[] {
+                    "org.unicode.cldr.unittest.TestCanonicalIds",
                     "org.unicode.cldr.unittest.TestLocale",
                     "org.unicode.cldr.unittest.TestBasic",
                     "org.unicode.cldr.unittest.TestSupplementalInfo",

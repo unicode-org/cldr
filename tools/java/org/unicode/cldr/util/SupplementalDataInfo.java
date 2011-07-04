@@ -787,7 +787,9 @@ public class SupplementalDataInfo {
     Map<String,List<Row.R4<String,String,Integer,Boolean>>> languageMatch = new HashMap();
 
     public Relation<String, String> key_subtypes = new Relation(new TreeMap(), TreeSet.class);
-    public Relation<Row.R2<String,String>, String> bcp47Aliases = new Relation(new TreeMap(), TreeSet.class);
+    public Relation<Row.R2<String,String>, String> bcp47Aliases = new Relation(new TreeMap(), LinkedHashSet.class);
+    
+    public Map<String,Row.R2<String, String>> validityInfo = new HashMap<String,Row.R2<String, String>>();
     
     public enum MeasurementType {measurementSystem, paperSize}
     Map<MeasurementType,Map<String,String>> measurementData = new HashMap<MeasurementType,Map<String,String>>();
@@ -953,6 +955,8 @@ public class SupplementalDataInfo {
 
         deprecated = CldrUtility.protectCollection(deprecated);
         measurementData = CldrUtility.protectCollection(measurementData);
+        
+        validityInfo = CldrUtility.protectCollection(validityInfo);
     }
 
     //private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>> metazoneToRegionToZone) {
@@ -1310,6 +1314,14 @@ public class SupplementalDataInfo {
                 String cleanTag = parts.getAttributeValue(3,"type").replace("-","_");
                 tagToReplacement.put(cleanTag, (R2<List<String>, String>) Row.of(replacementList, reason).freeze());
                 return true;
+            } else if (level2.equals("validity")) {
+                // <variable id="$grandfathered" type="choice">
+                String level3 = parts.getElement(3);
+                if (level3.equals("variable")) {
+                    Map<String,String> attributes = parts.getAttributes(-1);
+                    validityInfo.put(attributes.get("id"), Row.of(attributes.get("type"), value));
+                    return true;
+                }
             } else if (level2.equals("attributeOrder")) {
                 attributeOrder = Arrays.asList(value.trim().split("\\s+"));
                 return true;
@@ -2527,6 +2539,10 @@ public class SupplementalDataInfo {
 
         }
         return false;
+    }
+    
+    public Map<String, R2<String, String>> getValidityInfo() {
+        return validityInfo;
     }
 }
 

@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -67,6 +68,26 @@ public class CLDRModify {
   // TODO make this into input option.
   
   enum ConfigKeys {locale, action, path, value}
+  
+  static final class ConfigMatch {
+      final String exactMatch;
+      final Matcher regexMatch; // doesn't have to be thread safe
+      public ConfigMatch(String match) {
+          if (match.startsWith("/") && match.endsWith("/")) {
+              regexMatch = Pattern.compile(match.substring(1,match.length()-1)).matcher("");
+              exactMatch = null;
+          } else {
+              exactMatch = match;
+              regexMatch = null;
+          }
+      }
+      public boolean matches(String other) {
+          if (exactMatch != null) {
+              return exactMatch.equals(other);
+          }
+          return regexMatch.reset(other).find();
+      }
+  }
 
   static FixList fixList = new FixList();
 
@@ -1639,76 +1660,70 @@ public class CLDRModify {
     });
 
     fixList.add('k', "fix according to -k config file", new CLDRFilter() {
-        private Map<String, LinkedHashSet<Map<ConfigKeys,String>>> locale2keyValues;
-        private LinkedHashSet<Map<ConfigKeys,String>> keyValues;
-        private LinkedHashSet<Map<ConfigKeys, String>> allLocales;
+        private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys,ConfigMatch>>> locale2keyValues;
+        private LinkedHashSet<Map<ConfigKeys,ConfigMatch>> keyValues = new LinkedHashSet<Map<ConfigKeys,ConfigMatch>>();
         
         @Override
         public void handleStart() {
             super.handleStart();
             if (locale2keyValues == null) {
-                locale2keyValues = new HashMap<String, LinkedHashSet<Map<ConfigKeys,String>>>();
+                locale2keyValues = new HashMap<ConfigMatch, LinkedHashSet<Map<ConfigKeys,ConfigMatch>>>();
                 String configFileName = options[KONFIG].value;
                 FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
                     @Override
                     protected boolean handleLine(int lineCount, String line) {
                         String[] lineParts = line.split("\\s*;\\s*");
-                        Map<ConfigKeys,String> keyValue = new EnumMap<ConfigKeys,String>(ConfigKeys.class);
+                        Map<ConfigKeys,ConfigMatch> keyValue = new EnumMap<ConfigKeys,ConfigMatch>(ConfigKeys.class);
                         for (String linePart : lineParts) {
                             int pos = linePart.indexOf('=');
                             if (pos < 0) {
                                 throw new IllegalArgumentException();
                             }
-                            keyValue.put(ConfigKeys.valueOf(linePart.substring(0,pos).trim()), linePart.substring(pos+1).trim());
+                            keyValue.put(ConfigKeys.valueOf(linePart.substring(0,pos).trim()), new ConfigMatch(linePart.substring(pos+1).trim()));
                         }
-                        final String locale = keyValue.get(ConfigKeys.locale);
+                        final ConfigMatch locale = keyValue.get(ConfigKeys.locale);
                         if (locale == null || keyValue.get(ConfigKeys.action) == null 
                                 || (keyValue.get(ConfigKeys.path) == null && keyValue.get(ConfigKeys.value) == null)) {
                             throw new IllegalArgumentException();
                         }
                         
-                        LinkedHashSet<Map<ConfigKeys, String>> keyValues = locale2keyValues.get(locale);
+                        LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = locale2keyValues.get(locale);
                         if (keyValues == null) {
-                            locale2keyValues.put(locale, keyValues = new LinkedHashSet<Map<ConfigKeys, String>>());
+                            locale2keyValues.put(locale, keyValues = new LinkedHashSet<Map<ConfigKeys, ConfigMatch>>());
                         }
                         keyValues.add(keyValue);
                         return true;
                     } 
                 };
                 myReader.process(CLDRModify.class, configFileName);
-                allLocales = locale2keyValues.get("*");
             }
-            LinkedHashSet<Map<ConfigKeys, String>> temp = locale2keyValues.get(getLocaleID());
-            // get the union
-            if (temp == null) {
-                keyValues = allLocales;
-            } else if (allLocales == null) {
-                keyValues = temp;
-            } else {
-                keyValues = new LinkedHashSet<Map<ConfigKeys, String>>(temp);
-                keyValues.addAll(allLocales);
+            // set up for the specific locale we are dealing with.
+            // a small optimization
+            String localeId = getLocaleID();
+            keyValues.clear();
+            for (Entry<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> localeMatcher : locale2keyValues.entrySet()) {
+                if (localeMatcher.getKey().matches(localeId)) {
+                    keyValues.addAll(localeMatcher.getValue());
+                }
             }
         }
         @Override
         public void handlePath(String xpath) {
-            if (keyValues == null) {
-                return;
-            }
             // slow method; could optimize
-            for (Map<ConfigKeys, String> entry : keyValues) {
-                String pathMatch = entry.get(ConfigKeys.path);
-                if (pathMatch != null && !pathMatch.equals(xpath)) {
+            for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
+                ConfigMatch pathMatch = entry.get(ConfigKeys.path);
+                if (pathMatch != null && !pathMatch.matches(xpath)) {
                     continue;
                 }
-                String valueMatch = entry.get(ConfigKeys.value);
+                ConfigMatch valueMatch = entry.get(ConfigKeys.value);
                 String value = cldrFileToFilter.getStringValue(xpath);
-                if (valueMatch != null && !valueMatch.equals(value)) {
+                if (valueMatch != null && !valueMatch.matches(value)) {
                     continue;
                 }
-                String action = entry.get(ConfigKeys.action);
-                if (action.equals("delete")) {
+                ConfigMatch action = entry.get(ConfigKeys.action);
+                if (action.matches("delete")) {
                     remove(xpath);
-                }
+                } // for now, the only action
                 break;
             }
         }

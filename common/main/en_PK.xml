@@ -32,6 +32,28 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>h:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
@@ -113,6 +135,17 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<metazone type="Europe_Central">
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
+			<metazone type="Europe_Western">
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<decimalFormats>

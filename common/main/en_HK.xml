@@ -70,6 +70,28 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>h:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
@@ -209,6 +231,15 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<metazone type="Europe_Central">
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
+			<metazone type="Europe_Western">
+				<commonlyUsed>false</commonlyUsed>
+			</metazone>
 			<metazone type="Hong_Kong">
 				<short>
 					<generic>HKT</generic>
@@ -220,6 +251,13 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="HKD">
 				<symbol>$</symbol>

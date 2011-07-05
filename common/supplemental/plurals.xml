@@ -26,9 +26,15 @@
             <pluralRule count="zero">n is 0</pluralRule>
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
         </pluralRules>
-        <pluralRules locales="ga iu kw naq se sma smi smj smn sms">
+        <pluralRules locales="iu kw naq se sma smi smj smn sms">
             <pluralRule count="one">n is 1</pluralRule>
             <pluralRule count="two">n is 2</pluralRule>
+        </pluralRules>
+        <pluralRules locales="ga"> <!-- http://unicode.org/cldr/trac/ticket/3915 -->
+            <pluralRule count="one">n is 1</pluralRule>
+            <pluralRule count="two">n is 2</pluralRule>
+            <pluralRule count="few">n is 3..6</pluralRule>
+            <pluralRule count="many">n is 7..10</pluralRule>
         </pluralRules>
         <pluralRules locales="ro mo">
             <pluralRule count="one">n is 1</pluralRule>

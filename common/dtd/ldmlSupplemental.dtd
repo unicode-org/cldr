@@ -329,8 +329,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT territoryCodes EMPTY >
 <!ATTLIST territoryCodes type NMTOKEN #REQUIRED>
-<!ATTLIST territoryCodes numeric NMTOKEN #REQUIRED>
-<!ATTLIST territoryCodes alpha3 NMTOKEN #REQUIRED>
+<!ATTLIST territoryCodes numeric NMTOKEN #IMPLIED>
+<!ATTLIST territoryCodes alpha3 NMTOKEN #IMPLIED>
 <!ATTLIST territoryCodes fips10 NMTOKEN #IMPLIED>
 <!ATTLIST territoryCodes internet NMTOKENS #IMPLIED>
 

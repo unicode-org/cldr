@@ -58,7 +58,7 @@ CM	120	CMR	cm	CM
 CN	156	CHN	cn	CH
 CO	170	COL	co	CO
 CR	188	CRI	cr	CS
-CS	891	SCG	cs/yu	YI
+CS	891	SCG	-	YI
 CU	192	CUB	cu	CU
 CV	132	CPV	cv	CV
 CX	162	CXR	cx	KT
@@ -73,7 +73,7 @@ DZ	012	DZA	dz	AG
 EC	218	ECU	ec	EC
 EE	233	EST	ee	EN
 EG	818	EGY	eg	EG
-EH	732	ESH	eh	WI
+EH	732	ESH	-	WI
 ER	232	ERI	er	ER
 ES	724	ESP	es	SP
 ET	231	ETH	et	ET
@@ -83,7 +83,7 @@ FK	238	FLK	fk	FK
 FM	583	FSM	fm	FM
 FO	234	FRO	fo	FO
 FR	250	FRA	fr	FR
-FX	249	FXX	fx	-
+FX	249	FXX	-	-
 GA	266	GAB	ga	GB
 GB	826	GBR	uk/gb	UK
 GD	308	GRD	gd	GJ
@@ -196,7 +196,7 @@ PY	600	PRY	py	PA
 QA	634	QAT	qa	QA
 RE	638	REU	re	RE
 RO	642	ROU	ro	RO
-RU	643	RUS	ru/ru	RS
+RU	643	RUS	ru/su	RS
 RW	646	RWA	rw	RW
 SA	682	SAU	sa	SA
 SB	090	SLB	sb	BP
@@ -204,7 +204,7 @@ SC	690	SYC	sc	SE
 SD	736	SDN	sd	SU
 SE	752	SWE	se	SW
 SG	702	SGP	sg	SN
-SH	654	SHN	sh/ac	SH
+SH	654	SHN	sh	SH
 SI	705	SVN	si	SI
 SJ	744	SJM	sj	SV
 SK	703	SVK	sk	LO
@@ -235,7 +235,7 @@ TW	158	TWN	tw	TW
 TZ	834	TZA	tz	TZ
 UA	804	UKR	ua	UP
 UG	800	UGA	ug	UG
-UM	581	UMI	um	-
+UM	581	UMI	-	-
 US	840	USA	us	US
 UY	858	URY	uy	UY
 UZ	860	UZB	uz	UZ
@@ -265,7 +265,6 @@ QQ	963	QQQ
 QR	964	QRR
 QS	965	QSS
 QT	966	QTT
-EU	967	QUU	eu
 QV	968	QVV
 QW	969	QWW
 QX	970	QXX
@@ -297,7 +296,7 @@ XW	995	XWW
 XX	996	XXX
 XY	997	XYY
 XZ	998	XZZ
-ZZ	999	ZZZ AERO/ARPA/BIZ/CAT/COM/COOP/EDU/GOV/INFO/INT/JOBS/MIL/MOBI/MUSEUM/NAME/NET/ORG/PRO/TRAVEL
+ZZ	999	ZZZ
 BU	104	BUR
 DD	278	DDR
 NT	536	NTZ
@@ -307,20 +306,22 @@ YD	720 YMD
 YU	891	YUG
 ZR	180	ZAR
 
-BL  652 BLM     # Saint Barthélemy
-MF  663 MAF     # Saint Martin
+# RFC3066; UN Numeric; ISO3166 Alpha-3, internet, FIPS-10
 
-AC  -   ASC    # Ascension Island
-CP  -   CPT    # Clipperton Island
-DG  -   DGA    # Diego Garcia
-TA  -   TAA    # Tristan da Cunha
+BL  652 BLM - TB    # Saint Barthélemy
+MF  663 MAF - RN    # Saint Martin
 
-EA  -   -  # Ceuta and Melilla
-EU  -   -  # European Union
-IC  -   -  # Canary Islands
+AC  -   ASC AC -    # Ascension Island
+CP  -   CPT - -    # Clipperton Island
+DG  -   DGA - -    # Diego Garcia
+TA  -   TAA - -    # Tristan da Cunha
 
-SX 534 SXM # Sint Maarten
-BQ 535 BES # Bonaire, Saint Eustatius, and Saba
-CW 531 CUW # Curaçao
+EA  -   -  - - # Ceuta and Melilla
+EU  967   QUU  EU - # European Union
+IC  -   -  - - # Canary Islands
+
+SX 534 SXM  - -  # Sint Maarten
+BQ 535 BES  - -  # Bonaire, Saint Eustatius, and Saba
+CW 531 CUW  - -  # Curaçao
 #end
 

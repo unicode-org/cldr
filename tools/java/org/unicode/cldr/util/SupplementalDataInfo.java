@@ -1132,8 +1132,14 @@ public class SupplementalDataInfo {
             if (level2.equals("territoryCodes")) {
                 // <territoryCodes type="VU" numeric="548" alpha3="VUT"/>
                 String type = parts.getAttributeValue(-1, "type");
-                numericTerritoryMapping.put(type, Integer.parseInt(parts.getAttributeValue(-1, "numeric")));
-                alpha3TerritoryMapping.put(type, parts.getAttributeValue(-1, "alpha3"));
+                final String numeric = parts.getAttributeValue(-1, "numeric");
+                if (numeric != null) {
+                    numericTerritoryMapping.put(type, Integer.parseInt(numeric));
+                }
+                final String alpha3 = parts.getAttributeValue(-1, "alpha3");
+                if (alpha3 != null) {
+                    alpha3TerritoryMapping.put(type, alpha3);
+                }
                 return true;
             }
             return false;

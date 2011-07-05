@@ -3911,6 +3911,7 @@ XXX Code for transations where no currency is involved
 
     <codeMappings>
         <territoryCodes type="AA" numeric="958" alpha3="AAA"/>
+        <territoryCodes type="AC" alpha3="ASC"/>
         <territoryCodes type="AD" numeric="020" alpha3="AND" fips10="AN"/>
         <territoryCodes type="AE" numeric="784" alpha3="ARE"/>
         <territoryCodes type="AF" numeric="004" alpha3="AFG"/>
@@ -3937,10 +3938,11 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="BH" numeric="048" alpha3="BHR" fips10="BA"/>
         <territoryCodes type="BI" numeric="108" alpha3="BDI" fips10="BY"/>
         <territoryCodes type="BJ" numeric="204" alpha3="BEN" fips10="BN"/>
-        <territoryCodes type="BL" numeric="652" alpha3="BLM"/>
+        <territoryCodes type="BL" numeric="652" alpha3="BLM" fips10="TB"/>
         <territoryCodes type="BM" numeric="060" alpha3="BMU" fips10="BD"/>
         <territoryCodes type="BN" numeric="096" alpha3="BRN" fips10="BX"/>
         <territoryCodes type="BO" numeric="068" alpha3="BOL" fips10="BL"/>
+        <territoryCodes type="BQ" numeric="535" alpha3="BES"/>
         <territoryCodes type="BR" numeric="076" alpha3="BRA"/>
         <territoryCodes type="BS" numeric="044" alpha3="BHS" fips10="BF"/>
         <territoryCodes type="BT" numeric="064" alpha3="BTN"/>
@@ -3961,20 +3963,24 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="CM" numeric="120" alpha3="CMR"/>
         <territoryCodes type="CN" numeric="156" alpha3="CHN" fips10="CH"/>
         <territoryCodes type="CO" numeric="170" alpha3="COL"/>
+        <territoryCodes type="CP" alpha3="CPT"/>
         <territoryCodes type="CR" numeric="188" alpha3="CRI" fips10="CS"/>
-        <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI" internet="CS YU"/>
+        <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI"/>
         <territoryCodes type="CU" numeric="192" alpha3="CUB"/>
         <territoryCodes type="CV" numeric="132" alpha3="CPV"/>
+        <territoryCodes type="CW" numeric="531" alpha3="CUW"/>
         <territoryCodes type="CX" numeric="162" alpha3="CXR" fips10="KT"/>
         <territoryCodes type="CY" numeric="196" alpha3="CYP"/>
         <territoryCodes type="CZ" numeric="203" alpha3="CZE" fips10="EZ"/>
         <territoryCodes type="DD" numeric="278" alpha3="DDR"/>
         <territoryCodes type="DE" numeric="276" alpha3="DEU" fips10="GM"/>
+        <territoryCodes type="DG" alpha3="DGA"/>
         <territoryCodes type="DJ" numeric="262" alpha3="DJI"/>
         <territoryCodes type="DK" numeric="208" alpha3="DNK" fips10="DA"/>
         <territoryCodes type="DM" numeric="212" alpha3="DMA" fips10="DO"/>
         <territoryCodes type="DO" numeric="214" alpha3="DOM" fips10="DR"/>
         <territoryCodes type="DZ" numeric="012" alpha3="DZA" fips10="AG"/>
+        <territoryCodes type="EA"/>
         <territoryCodes type="EC" numeric="218" alpha3="ECU"/>
         <territoryCodes type="EE" numeric="233" alpha3="EST" fips10="EN"/>
         <territoryCodes type="EG" numeric="818" alpha3="EGY"/>
@@ -3982,6 +3988,7 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="ER" numeric="232" alpha3="ERI"/>
         <territoryCodes type="ES" numeric="724" alpha3="ESP" fips10="SP"/>
         <territoryCodes type="ET" numeric="231" alpha3="ETH"/>
+        <territoryCodes type="EU" numeric="967" alpha3="QUU"/>
         <territoryCodes type="FI" numeric="246" alpha3="FIN"/>
         <territoryCodes type="FJ" numeric="242" alpha3="FJI"/>
         <territoryCodes type="FK" numeric="238" alpha3="FLK"/>
@@ -4014,6 +4021,7 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="HR" numeric="191" alpha3="HRV"/>
         <territoryCodes type="HT" numeric="332" alpha3="HTI" fips10="HA"/>
         <territoryCodes type="HU" numeric="348" alpha3="HUN"/>
+        <territoryCodes type="IC"/>
         <territoryCodes type="ID" numeric="360" alpha3="IDN"/>
         <territoryCodes type="IE" numeric="372" alpha3="IRL" fips10="EI"/>
         <territoryCodes type="IL" numeric="376" alpha3="ISR" fips10="IS"/>
@@ -4054,8 +4062,8 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="MC" numeric="492" alpha3="MCO" fips10="MN"/>
         <territoryCodes type="MD" numeric="498" alpha3="MDA"/>
         <territoryCodes type="ME" numeric="499" alpha3="MNE" fips10="MJ"/>
+        <territoryCodes type="MF" numeric="663" alpha3="MAF" fips10="RN"/>
         <territoryCodes type="MG" numeric="450" alpha3="MDG" fips10="MA"/>
-        <territoryCodes type="MF" numeric="663" alpha3="MAF"/>
         <territoryCodes type="MH" numeric="584" alpha3="MHL" fips10="RM"/>
         <territoryCodes type="MK" numeric="807" alpha3="MKD"/>
         <territoryCodes type="ML" numeric="466" alpha3="MLI"/>
@@ -4110,7 +4118,6 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="QR" numeric="964" alpha3="QRR"/>
         <territoryCodes type="QS" numeric="965" alpha3="QSS"/>
         <territoryCodes type="QT" numeric="966" alpha3="QTT"/>
-        <territoryCodes type="EU" numeric="967" alpha3="QUU" internet="EU"/>
         <territoryCodes type="QV" numeric="968" alpha3="QVV"/>
         <territoryCodes type="QW" numeric="969" alpha3="QWW"/>
         <territoryCodes type="QX" numeric="970" alpha3="QXX"/>
@@ -4119,7 +4126,7 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="RE" numeric="638" alpha3="REU"/>
         <territoryCodes type="RO" numeric="642" alpha3="ROU"/>
         <territoryCodes type="RS" numeric="688" alpha3="SRB" fips10="RB"/>
-        <territoryCodes type="RU" numeric="643" alpha3="RUS" fips10="RS" internet="RU RU"/>
+        <territoryCodes type="RU" numeric="643" alpha3="RUS" fips10="RS" internet="RU SU"/>
         <territoryCodes type="RW" numeric="646" alpha3="RWA"/>
         <territoryCodes type="SA" numeric="682" alpha3="SAU"/>
         <territoryCodes type="SB" numeric="090" alpha3="SLB" fips10="BP"/>
@@ -4127,7 +4134,7 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="SD" numeric="736" alpha3="SDN" fips10="SU"/>
         <territoryCodes type="SE" numeric="752" alpha3="SWE" fips10="SW"/>
         <territoryCodes type="SG" numeric="702" alpha3="SGP" fips10="SN"/>
-        <territoryCodes type="SH" numeric="654" alpha3="SHN" internet="SH AC"/>
+        <territoryCodes type="SH" numeric="654" alpha3="SHN"/>
         <territoryCodes type="SI" numeric="705" alpha3="SVN"/>
         <territoryCodes type="SJ" numeric="744" alpha3="SJM" fips10="SV"/>
         <territoryCodes type="SK" numeric="703" alpha3="SVK" fips10="LO"/>
@@ -4139,8 +4146,10 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="ST" numeric="678" alpha3="STP" fips10="TP"/>
         <territoryCodes type="SU" numeric="810" alpha3="SUN"/>
         <territoryCodes type="SV" numeric="222" alpha3="SLV" fips10="ES"/>
+        <territoryCodes type="SX" numeric="534" alpha3="SXM"/>
         <territoryCodes type="SY" numeric="760" alpha3="SYR"/>
         <territoryCodes type="SZ" numeric="748" alpha3="SWZ" fips10="WZ"/>
+        <territoryCodes type="TA" alpha3="TAA"/>
         <territoryCodes type="TC" numeric="796" alpha3="TCA" fips10="TK"/>
         <territoryCodes type="TD" numeric="148" alpha3="TCD" fips10="CD"/>
         <territoryCodes type="TF" numeric="260" alpha3="ATF" fips10="FS"/>
@@ -4207,7 +4216,7 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="ZM" numeric="894" alpha3="ZMB" fips10="ZA"/>
         <territoryCodes type="ZR" numeric="180" alpha3="ZAR"/>
         <territoryCodes type="ZW" numeric="716" alpha3="ZWE" fips10="ZI"/>
-        <territoryCodes type="ZZ" numeric="999" alpha3="ZZZ" internet="AERO ARPA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG PRO TRAVEL"/>
+        <territoryCodes type="ZZ" numeric="999" alpha3="ZZZ" internet="AERO ARPA ASIA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG PRO TEL TRAVEL XN--0ZWM56D XN--11B5BS3A9AJ6G XN--3E0B707E XN--45BRJ9C XN--80AKHBYKNJ4F XN--90A3AC XN--9T4B11YI5A XN--CLCHC0EA0B2G2A9GCD XN--DEBA0AD XN--FIQS8S XN--FIQZ9S XN--FPCRJ9C3D XN--FZC2C9E2C XN--G6W251D XN--GECRJ9C XN--H2BRJ9C XN--HGBK6AJ7F53BBA XN--HLCJ6AYA9ESC7A XN--J6W193G XN--JXALPDLP XN--KGBECHTV XN--KPRW13D XN--KPRY57D XN--LGBBAT1AD8J XN--MGBAAM7A8H XN--MGBAYH7GPA XN--MGBBH1A71E XN--MGBC0A9AZCG XN--MGBERP4A5D4AR XN--O3CW4H XN--OGBPF8FL XN--P1AI XN--PGBS0DH XN--S9BRJ9C XN--WGBH1C XN--WGBL6A XN--XKC2AL3HYE2A XN--XKC2DL3A5EE0H XN--YFRO4I67O XN--YGBI2AMMX XN--ZCKZAH XXX"/>
     </codeMappings>
 	<parentLocales>
 		<parentLocale parent="root" locales="az_Cyrl ha_Arab ku_Latn mn_Mong pa_Arab shi_Tfng sr_Latn uz_Arab uz_Latn vai_Latn zh_Hant"/>

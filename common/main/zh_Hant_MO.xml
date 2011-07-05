@@ -86,15 +86,6 @@
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">ah至h時</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="contributed">ah:mm至ah:mm [v]</greatestDifference>
-							<greatestDifference id="h" draft="contributed">ah:mm至h:mm [v]</greatestDifference>
-							<greatestDifference id="m" draft="contributed">ah:mm至h:mm [v]</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="contributed">ah時至ah時 [v]</greatestDifference>
-							<greatestDifference id="h" draft="contributed">ah時至h時 [v]</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d" draft="unconfirmed">M月d日至d日</greatestDifference>
 							<greatestDifference id="M" draft="unconfirmed">M月d日至M月d日</greatestDifference>
@@ -141,11 +132,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="zone">
-						<displayName draft="contributed">時區</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="roc">
 				<dateTimeFormats>

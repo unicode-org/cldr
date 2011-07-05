@@ -1549,9 +1549,9 @@
 							<greatestDifference id="m">ah:mm至h:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">vah:mm至ah:mm</greatestDifference>
-							<greatestDifference id="h">vah:mm至h:mm</greatestDifference>
-							<greatestDifference id="m">vah:mm至h:mm</greatestDifference>
+							<greatestDifference id="a" draft="contributed">ah:mm至ah:mm [v]</greatestDifference>
+							<greatestDifference id="h" draft="contributed">ah:mm至h:mm [v]</greatestDifference>
+							<greatestDifference id="m" draft="contributed">ah:mm至h:mm [v]</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a">HH:mm–HH:mm [v]</greatestDifference>
@@ -1559,8 +1559,8 @@
 							<greatestDifference id="m">HH:mm–HH:mm [v]</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">vah時至ah時</greatestDifference>
-							<greatestDifference id="h">vah時至h時</greatestDifference>
+							<greatestDifference id="a" draft="contributed">ah時至ah時 [v]</greatestDifference>
+							<greatestDifference id="h" draft="contributed">ah時至h時 [v]</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="a">HH–HH [v]</greatestDifference>
@@ -1674,7 +1674,7 @@
 						<displayName>秒</displayName>
 					</field>
 					<field type="zone">
-						<displayName>區域</displayName>
+						<displayName draft="contributed">時區</displayName>
 					</field>
 				</fields>
 			</calendar>

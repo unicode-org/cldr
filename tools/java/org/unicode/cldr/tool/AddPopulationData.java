@@ -563,7 +563,7 @@ public class AddPopulationData {
                     return false;
                 }
                 String totalLiteracy = pieces[3];
-                if (totalLiteracy.equals("�")) {
+                if (totalLiteracy.equals("�") || totalLiteracy.isEmpty()) {
                     return true;
                 }
                 double percent = Double.parseDouble(totalLiteracy);

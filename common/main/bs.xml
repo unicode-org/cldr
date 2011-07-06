@@ -947,6 +947,72 @@
 			<territory type="ZW">Zimbabve</territory>
 			<territory type="ZZ">Nepoznata ili nevažeća oblast</territory>
 		</territories>
+		<variants>
+			<!-- Copied from sr_Latn -->
+			<variant type="1901">Tradicionalna nemačka ortografija</variant>
+			<variant type="1994">Standardizovana rezijanska ortografija</variant>
+			<variant type="1996">Nemačka ortografija 1996</variant>
+			<variant type="1606NICT">Francuski iz kasnog srednjeg veka do 1606.</variant>
+			<variant type="1694ACAD">Rani moderni francuski</variant>
+			<variant type="1959ACAD" draft="provisional">Akademski</variant>
+			<variant type="AREVELA">Istočni jermenski</variant>
+			<variant type="AREVMDA">Zapadno-jermenski</variant>
+			<variant type="BAKU1926">Ujedinjeni turski latinični alfabet</variant>
+			<variant type="BISKE">San Đorđijo/Bila dijalekt</variant>
+			<variant type="BOONT">Buntling</variant>
+			<variant type="FONIPA">IPA fonetika</variant>
+			<variant type="FONUPA">UPA fonetika</variant>
+			<variant type="KKCOR" draft="provisional">Uobičajena ortografija</variant>
+			<variant type="LIPAW">Lipovac dijalekt rezijanski</variant>
+			<variant type="MONOTON">Monotonik</variant>
+			<variant type="NEDIS">Natison dijalekt</variant>
+			<variant type="NJIVA">Gnjiva/Njiva dijalekt</variant>
+			<variant type="OSOJS">Oseako/Osojane dijalekt</variant>
+			<variant type="PINYIN" draft="provisional">Pinjinska romanizacija</variant>
+			<variant type="POLYTON">Politonik</variant>
+			<variant type="POSIX">Kompjuter</variant>
+			<variant type="REVISED">Revidirana ortigrafija</variant>
+			<variant type="ROZAJ">Rezijan</variant>
+			<variant type="SAAHO">Saho</variant>
+			<variant type="SCOTLAND">Škotski standardni engleski</variant>
+			<variant type="SCOUSE">Skauz</variant>
+			<variant type="SOLBA">Stolvica/Solbica dijalekt</variant>
+			<variant type="TARASK">Taraskijevica ortografija</variant>
+			<variant type="UCCOR" draft="provisional">Ujedinjena ortografija</variant>
+			<variant type="UCRCOR" draft="provisional">Ujedinjena revidirana ortografija</variant>
+			<variant type="VALENCIA">Valencijski</variant>
+			<variant type="WADEGILE" draft="provisional">Vejd-Žajl romanizacija</variant>
+		</variants>
+		<keys>
+			<!-- Copied from sr_Latn -->
+			<key type="calendar">Kalendar</key>
+			<key type="collation">Sortiranje</key>
+			<key type="currency">Valuta</key>
+		</keys>
+		<types>
+			<!-- Copied from sr_Latn -->
+			<type type="big5han" key="collation">Tradicionalno kinesko sortiranje</type>
+			<type type="buddhist" key="calendar">Budistički kalendar</type>
+			<type type="chinese" key="calendar">Kineski kalendar</type>
+			<type type="direct" key="collation">Direktno sortiranje</type>
+			<type type="gb2312han" key="collation">Pojednostavljeno kinesko sortiranje</type>
+			<type type="gregorian" key="calendar">Gregorijanski kalendar</type>
+			<type type="hebrew" key="calendar">Hebrejski kalendar</type>
+			<type type="indian" key="calendar">Indijski nacionalni kalendar</type>
+			<type type="islamic" key="calendar">Islamski kalendar</type>
+			<type type="islamic-civil" key="calendar">Islamski civilni kalendar</type>
+			<type type="japanese" key="calendar">Japanski kalendar</type>
+			<type type="phonebook" key="collation">Sortiranje kao telefonski imenik</type>
+			<type type="pinyin" key="collation">Pinjin sortiranje</type>
+			<type type="roc" key="calendar">Kalendar Republike Kine</type>
+			<type type="stroke" key="collation">Sortiranje po broju crta</type>
+			<type type="traditional" key="collation">Tradicionalno sortiranje</type>
+		</types>
+		<measurementSystemNames>
+			<!-- Copied from sr_Latn -->
+			<measurementSystemName type="metric">Metrički</measurementSystemName>
+			<measurementSystemName type="US">SAD</measurementSystemName>
+		</measurementSystemNames>
 		<codePatterns>
 			<!-- Had no data for this but dtd does not accept alias, so copy from sr_Latn -->
 			<codePattern type="language">Jezik: {0}</codePattern>
@@ -1054,10 +1120,24 @@
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
+				<dayPeriods>
+					<!-- Copied from sr_Latn -->
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">pre podne</dayPeriod>
+							<dayPeriod type="pm">popodne</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
+					<!-- Copied from sr_Latn -->
+					<eraNames>
+						<era type="0">Pre nove ere</era>
+						<era type="1">Nove ere</era>
+					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="unconfirmed">BC</era>
-						<era type="1" draft="unconfirmed">AD</era>
+						<era type="0">p. n. e.</era>
+						<era type="1">n. e</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1130,6 +1210,47 @@
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+				<fields>
+					<!-- Copied from sr_Latn -->
+					<field type="era">
+						<displayName>era</displayName>
+					</field>
+					<field type="year">
+						<displayName>godina</displayName>
+					</field>
+					<field type="month">
+						<displayName>mesec</displayName>
+					</field>
+					<field type="week">
+						<displayName>nedelja</displayName>
+					</field>
+					<field type="day">
+						<displayName>dan</displayName>
+						<relative type="-2">prekjuče</relative>
+						<relative type="-1">juče</relative>
+						<relative type="0">danas</relative>
+						<relative type="1">sutra</relative>
+						<relative type="2">prekosutra</relative>
+					</field>
+					<field type="weekday">
+						<displayName>dan u nedelji</displayName>
+					</field>
+					<field type="dayperiod">
+						<displayName>pre podne/ popodne</displayName>
+					</field>
+					<field type="hour">
+						<displayName>čas</displayName>
+					</field>
+					<field type="minute">
+						<displayName>minut</displayName>
+					</field>
+					<field type="second">
+						<displayName>sekund</displayName>
+					</field>
+					<field type="zone">
+						<displayName>zona</displayName>
+					</field>
+				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -5445,6 +5566,86 @@
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<!-- Copied from sr_Latn -->
+		<unit type="day">
+			<unitPattern count="few">{0} dana</unitPattern>
+			<unitPattern count="few" alt="short" draft="provisional">{0} dana</unitPattern>
+			<unitPattern count="many">{0} dana</unitPattern>
+			<unitPattern count="many" alt="short" draft="provisional">{0} dana</unitPattern>
+			<unitPattern count="one">{0} dan</unitPattern>
+			<unitPattern count="one" alt="short" draft="provisional">{0} dan</unitPattern>
+			<unitPattern count="other">{0} dana</unitPattern>
+			<unitPattern count="other" alt="short" draft="provisional">{0} dan</unitPattern>
+		</unit>
+		<unit type="hour">
+			<unitPattern count="few">{0} sata</unitPattern>
+			<unitPattern count="few" alt="short" draft="provisional">{0} sata</unitPattern>
+			<unitPattern count="many">{0} sati</unitPattern>
+			<unitPattern count="many" alt="short" draft="provisional">{0} sati</unitPattern>
+			<unitPattern count="one">{0} sat</unitPattern>
+			<unitPattern count="one" alt="short" draft="provisional">{0} sat</unitPattern>
+			<unitPattern count="other">{0} sati</unitPattern>
+			<unitPattern count="other" alt="short" draft="provisional">{0} sat</unitPattern>
+		</unit>
+		<unit type="minute">
+			<unitPattern count="few">{0} minute</unitPattern>
+			<unitPattern count="few" alt="short" draft="provisional">{0} min</unitPattern>
+			<unitPattern count="many">{0} minuta</unitPattern>
+			<unitPattern count="many" alt="short" draft="provisional">{0} min</unitPattern>
+			<unitPattern count="one">{0} minut</unitPattern>
+			<unitPattern count="one" alt="short" draft="provisional">{0} min</unitPattern>
+			<unitPattern count="other">{0} minuta</unitPattern>
+			<unitPattern count="other" alt="short" draft="provisional">{0} min</unitPattern>
+		</unit>
+		<unit type="month">
+			<unitPattern count="few">{0} meseca</unitPattern>
+			<unitPattern count="few" alt="short" draft="provisional">{0} mes</unitPattern>
+			<unitPattern count="many">{0} meseci</unitPattern>
+			<unitPattern count="many" alt="short" draft="provisional">{0} mes</unitPattern>
+			<unitPattern count="one">{0} mesec</unitPattern>
+			<unitPattern count="one" alt="short" draft="provisional">{0} mes</unitPattern>
+			<unitPattern count="other">{0} meseci</unitPattern>
+			<unitPattern count="other" alt="short" draft="provisional">{0} mes</unitPattern>
+		</unit>
+		<unit type="second">
+			<unitPattern count="few">{0} sekunde</unitPattern>
+			<unitPattern count="few" alt="short" draft="provisional">{0} sek</unitPattern>
+			<unitPattern count="many">{0} sekundi</unitPattern>
+			<unitPattern count="many" alt="short" draft="provisional">{0} sek</unitPattern>
+			<unitPattern count="one">{0} sekunda</unitPattern>
+			<unitPattern count="one" alt="short" draft="provisional">{0} sek</unitPattern>
+			<unitPattern count="other">{0} sekundi</unitPattern>
+			<unitPattern count="other" alt="short" draft="provisional">{0} sek</unitPattern>
+		</unit>
+		<unit type="week">
+			<unitPattern count="few">{0} nedelje</unitPattern>
+			<unitPattern count="few" alt="short" draft="provisional">{0} ned</unitPattern>
+			<unitPattern count="many">{0} nedelja</unitPattern>
+			<unitPattern count="many" alt="short" draft="provisional">{0} ned</unitPattern>
+			<unitPattern count="one">{0} nedelja</unitPattern>
+			<unitPattern count="one" alt="short" draft="provisional">{0} ned</unitPattern>
+			<unitPattern count="other">{0} nedelja</unitPattern>
+			<unitPattern count="other" alt="short" draft="provisional">{0} ned</unitPattern>
+		</unit>
+		<unit type="year">
+			<unitPattern count="few">{0} godine</unitPattern>
+			<unitPattern count="few" alt="short" draft="provisional">{0} god</unitPattern>
+			<unitPattern count="many">{0} godina</unitPattern>
+			<unitPattern count="many" alt="short" draft="provisional">{0} god</unitPattern>
+			<unitPattern count="one">{0} godina</unitPattern>
+			<unitPattern count="one" alt="short" draft="provisional">{0} god</unitPattern>
+			<unitPattern count="other">{0} godina</unitPattern>
+			<unitPattern count="other" alt="short">{0} god</unitPattern>
+		</unit>
+	</units>
+	<listPatterns>
+		<!-- Copied from sr_Latn -->
+		<listPattern>
+			<listPatternPart type="2" draft="contributed">{0} i {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} i {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr>da:d</yesstr>

@@ -862,10 +862,25 @@ public class CountItems {
         List<String> errors = new ArrayList<String>();
         territories.add("QO");
         territories.add("EU");
-        territories.add("MF");
+        //territories.add("MF");
+        Map<String, R2<List<String>, String>> territoryAliases = supplementalData.getLocaleAliasInfo().get("territory");
+        Relation numeric2region = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class);
+        Relation alpha32region = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class);
         for (String region : territories) {
             String numeric = IsoRegionData.getNumeric(region);
             String alpha3 = IsoRegionData.get_alpha3(region);
+            numeric2region.put(numeric, region);
+            alpha32region.put(alpha3, region);
+        }
+        for (String region : territories) {
+            String numeric = IsoRegionData.getNumeric(region);
+            String alpha3 = IsoRegionData.get_alpha3(region);
+            if (territoryAliases.containsKey(region)) {
+                if (numeric2region.getAll(numeric).size() > 1 || alpha32region.getAll(alpha3).size() > 1)  {
+                    errors.add("Skipping aliased region " + region);
+                    continue;
+                }
+            }
             String fips10 = IsoRegionData.get_fips10(region);
             String internet = IsoRegionData.get_internet(region);
             System.out.println("        <territoryCodes"
@@ -881,7 +896,7 @@ public class CountItems {
 //        		"AERO ARPA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG PRO TRAVEL" +
 //        		"\"/>");
         System.out.println("    </codeMappings>");
-        System.out.println(errors);
+        System.out.println(CollectionUtilities.join(errors, "\n"));
     }
 
     private static final Pattern BreakerPattern = Pattern.compile("([-_A-Za-z0-9])[-/+_A-Za-z0-9]*");

@@ -138,7 +138,7 @@ public class CheckDates extends CheckCLDR {
         if (problem != null) {
             CheckStatus item = new CheckStatus()
             .setCause(this)
-            .setMainType(CheckStatus.errorType)
+            .setMainType(CheckStatus.warningType)
             .setSubtype(Subtype.incorrectDatePattern)
             .setMessage("The ordering of date fields is inconsistent with others: {0}", getValues(getResolvedCldrFileToCheck(), problem.values()));      
             result.add(item);            

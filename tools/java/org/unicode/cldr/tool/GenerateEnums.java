@@ -370,8 +370,13 @@ public class GenerateEnums {
     Set missing = new TreeSet(availableCodes);
     missing.removeAll(cldrCodes);
     // don't care list: "003"
-    missing.remove("003");
-    missing.remove("172");
+    //missing.remove("003");
+    //missing.remove("172");
+    // Remove the following. They don't have numeric or alpha3 codes so they can't be found.
+    missing.remove("EA");
+    missing.remove("IC");
+    missing.remove("QU");
+    
     if (missing.size() != 0) {
       throw new IllegalArgumentException("Codes in Registry but not in CLDR: "
           + missing);
@@ -488,28 +493,29 @@ public class GenerateEnums {
   }
 
   public void getContainment() {
-    XPathParts parts = new XPathParts();
-    // <group type="001" contains="002 009 019 142 150"/> <!--World -->
-    for (Iterator it = supplementalData
-        .iterator("//supplementalData/territoryContainment/group"); it
-        .hasNext();) {
-      String path = (String) it.next();
-      parts.set(path);
-      String container = parts.getAttributeValue(parts.size() - 1, "type");
-      List contained = Arrays.asList(parts.getAttributeValue(parts.size() - 1,
-          "contains").trim().split("\\s+"));
-      containment.put(container, contained);
-    }
-    // fix recursiveContainment.
-    // for (String region : (Collection<String>)containment.keySet()) {
-    // Set temp = new LinkedHashSet();
-    // addContains(region, temp);
-    // recursiveContainment.put(region, temp);
-    // }
-    Set startingFromWorld = new TreeSet();
-    addContains("001", startingFromWorld);
-    compareSets("World", startingFromWorld, "CLDR", cldrCodes);
-    // generateContains();
+      XPathParts parts = new XPathParts();
+      // <group type="001" contains="002 009 019 142 150"/> <!--World -->
+      for (Iterator it = supplementalData
+              .iterator("//supplementalData/territoryContainment/group");
+              it.hasNext();) {
+          String path = (String) it.next();
+          String fullPath = supplementalData.getFullXPath(path);
+          parts.set(fullPath);
+          String container = parts.getAttributeValue(parts.size() - 1, "type");
+          final String containedString = parts.getAttributeValue(-1,"contains");
+          List contained = Arrays.asList(containedString.trim().split("\\s+"));
+          containment.put(container, contained);
+      }
+      // fix recursiveContainment.
+      // for (String region : (Collection<String>)containment.keySet()) {
+      // Set temp = new LinkedHashSet();
+      // addContains(region, temp);
+      // recursiveContainment.put(region, temp);
+      // }
+      Set startingFromWorld = new TreeSet();
+      addContains("001", startingFromWorld);
+      compareSets("World", startingFromWorld, "CLDR", cldrCodes);
+      // generateContains();
   }
 
   private void generateContains() {

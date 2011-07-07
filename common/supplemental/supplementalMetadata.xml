@@ -824,7 +824,6 @@
             <scriptAlias type="Qaai" replacement="Zinh" reason="deprecated"/>
             <!-- deprecated ISO territories in 3066 + CLDR ones (older deprecated ISO codes -->
             <territoryAlias type="AN" replacement="CW SX BQ" reason="deprecated"/> <!-- Netherlands Antilles Curaçao largest, then Sint Martin, then BQ -->
-            <territoryAlias type="BQ" replacement="AQ" reason="deprecated"/> <!-- CLDR: British Antarctic Territory -->
             <territoryAlias type="BU" replacement="MM" reason="deprecated"/> <!-- Burma -->
             <territoryAlias type="CS" replacement="RS ME" reason="deprecated"/> <!-- Serbia & Montenegro -->
             <territoryAlias type="CT" replacement="KI" reason="deprecated"/> <!-- CLDR: Canton and Enderbury Islands -->
@@ -862,608 +861,518 @@
             <territoryAlias type="886" replacement="YE" reason="deprecated"/> <!-- Yemen (pre-1990) -->
             <territoryAlias type="890" replacement="RS ME SI HR MK BA" reason="deprecated"/> <!-- Yugoslavia (pre-1992) -->
             <!-- incorrect ISO code values -->
-            <territoryAlias type="AAA" replacement="AA"/> <!-- null -->
-            <territoryAlias type="ASC" replacement="AC"/> <!-- Ascension Island -->
-            <territoryAlias type="AND" replacement="AD"/> <!-- Andorra -->
-            <territoryAlias type="ARE" replacement="AE"/> <!-- United Arab Emirates -->
-            <territoryAlias type="AFG" replacement="AF"/> <!-- Afghanistan -->
-            <territoryAlias type="ATG" replacement="AG"/> <!-- Antigua and Barbuda -->
-            <territoryAlias type="AIA" replacement="AI"/> <!-- Anguilla -->
-            <territoryAlias type="ALB" replacement="AL"/> <!-- Albania -->
-            <territoryAlias type="ARM" replacement="AM"/> <!-- Armenia -->
-            <territoryAlias type="ANT" replacement="AN"/> <!-- Netherlands Antilles -->
-            <territoryAlias type="AGO" replacement="AO"/> <!-- Angola -->
-            <territoryAlias type="ATA" replacement="AQ"/> <!-- Antarctica -->
-            <territoryAlias type="ARG" replacement="AR"/> <!-- Argentina -->
-            <territoryAlias type="ASM" replacement="AS"/> <!-- American Samoa -->
-            <territoryAlias type="AUT" replacement="AT"/> <!-- Austria -->
-            <territoryAlias type="AUS" replacement="AU"/> <!-- Australia -->
-            <territoryAlias type="ABW" replacement="AW"/> <!-- Aruba -->
-            <territoryAlias type="ALA" replacement="AX"/> <!-- Åland Islands -->
-            <territoryAlias type="AZE" replacement="AZ"/> <!-- Azerbaijan -->
-            <territoryAlias type="BIH" replacement="BA"/> <!-- Bosnia and Herzegovina -->
-            <territoryAlias type="BRB" replacement="BB"/> <!-- Barbados -->
-            <territoryAlias type="BGD" replacement="BD"/> <!-- Bangladesh -->
-            <territoryAlias type="BEL" replacement="BE"/> <!-- Belgium -->
-            <territoryAlias type="BFA" replacement="BF"/> <!-- Burkina Faso -->
-            <territoryAlias type="BGR" replacement="BG"/> <!-- Bulgaria -->
-            <territoryAlias type="BHR" replacement="BH"/> <!-- Bahrain -->
-            <territoryAlias type="BDI" replacement="BI"/> <!-- Burundi -->
-            <territoryAlias type="BEN" replacement="BJ"/> <!-- Benin -->
-            <territoryAlias type="BLM" replacement="BL"/> <!-- Saint Barthélemy -->
-            <territoryAlias type="BMU" replacement="BM"/> <!-- Bermuda -->
-            <territoryAlias type="BRN" replacement="BN"/> <!-- Brunei -->
-            <territoryAlias type="BOL" replacement="BO"/> <!-- Bolivia -->
-            <territoryAlias type="BES" replacement="BQ"/> <!-- Bonaire, Saint Eustatius, and Saba -->
-            <territoryAlias type="BRA" replacement="BR"/> <!-- Brazil -->
-            <territoryAlias type="BHS" replacement="BS"/> <!-- Bahamas -->
-            <territoryAlias type="BTN" replacement="BT"/> <!-- Bhutan -->
-            <territoryAlias type="BUR" replacement="BU"/> <!-- null -->
-            <territoryAlias type="BVT" replacement="BV"/> <!-- Bouvet Island -->
-            <territoryAlias type="BWA" replacement="BW"/> <!-- Botswana -->
-            <territoryAlias type="BLR" replacement="BY"/> <!-- Belarus -->
-            <territoryAlias type="BLZ" replacement="BZ"/> <!-- Belize -->
-            <territoryAlias type="CAN" replacement="CA"/> <!-- Canada -->
-            <territoryAlias type="CCK" replacement="CC"/> <!-- Cocos [Keeling] Islands -->
-            <territoryAlias type="COD" replacement="CD"/> <!-- Congo - Kinshasa -->
-            <territoryAlias type="CAF" replacement="CF"/> <!-- Central African Republic -->
-            <territoryAlias type="COG" replacement="CG"/> <!-- Congo - Brazzaville -->
-            <territoryAlias type="CHE" replacement="CH"/> <!-- Switzerland -->
-            <territoryAlias type="CIV" replacement="CI"/> <!-- Côte d’Ivoire -->
-            <territoryAlias type="COK" replacement="CK"/> <!-- Cook Islands -->
-            <territoryAlias type="CHL" replacement="CL"/> <!-- Chile -->
-            <territoryAlias type="CMR" replacement="CM"/> <!-- Cameroon -->
-            <territoryAlias type="CHN" replacement="CN"/> <!-- China -->
-            <territoryAlias type="COL" replacement="CO"/> <!-- Colombia -->
-            <territoryAlias type="CPT" replacement="CP"/> <!-- Clipperton Island -->
-            <territoryAlias type="CRI" replacement="CR"/> <!-- Costa Rica -->
-            <territoryAlias type="SCG" replacement="CS"/> <!-- Serbia and Montenegro -->
-            <territoryAlias type="CUB" replacement="CU"/> <!-- Cuba -->
-            <territoryAlias type="CPV" replacement="CV"/> <!-- Cape Verde -->
-            <territoryAlias type="CUW" replacement="CW"/> <!-- Curaçao -->
-            <territoryAlias type="CXR" replacement="CX"/> <!-- Christmas Island -->
-            <territoryAlias type="CYP" replacement="CY"/> <!-- Cyprus -->
-            <territoryAlias type="CZE" replacement="CZ"/> <!-- Czech Republic -->
-            <territoryAlias type="DDR" replacement="DD"/> <!-- East Germany -->
-            <territoryAlias type="DEU" replacement="DE"/> <!-- Germany -->
-            <territoryAlias type="DGA" replacement="DG"/> <!-- Diego Garcia -->
-            <territoryAlias type="DJI" replacement="DJ"/> <!-- Djibouti -->
-            <territoryAlias type="DNK" replacement="DK"/> <!-- Denmark -->
-            <territoryAlias type="DMA" replacement="DM"/> <!-- Dominica -->
-            <territoryAlias type="DOM" replacement="DO"/> <!-- Dominican Republic -->
-            <territoryAlias type="DZA" replacement="DZ"/> <!-- Algeria -->
-            <territoryAlias type="ECU" replacement="EC"/> <!-- Ecuador -->
-            <territoryAlias type="EST" replacement="EE"/> <!-- Estonia -->
-            <territoryAlias type="EGY" replacement="EG"/> <!-- Egypt -->
-            <territoryAlias type="ESH" replacement="EH"/> <!-- Western Sahara -->
-            <territoryAlias type="ERI" replacement="ER"/> <!-- Eritrea -->
-            <territoryAlias type="ESP" replacement="ES"/> <!-- Spain -->
-            <territoryAlias type="ETH" replacement="ET"/> <!-- Ethiopia -->
-            <territoryAlias type="FIN" replacement="FI"/> <!-- Finland -->
-            <territoryAlias type="FJI" replacement="FJ"/> <!-- Fiji -->
-            <territoryAlias type="FLK" replacement="FK"/> <!-- Falkland Islands -->
-            <territoryAlias type="FSM" replacement="FM"/> <!-- Micronesia -->
-            <territoryAlias type="FRO" replacement="FO"/> <!-- Faroe Islands -->
-            <territoryAlias type="FRA" replacement="FR"/> <!-- France -->
-            <territoryAlias type="FXX" replacement="FX"/> <!-- Metropolitan France -->
-            <territoryAlias type="GAB" replacement="GA"/> <!-- Gabon -->
-            <territoryAlias type="GBR" replacement="GB"/> <!-- United Kingdom -->
-            <territoryAlias type="GRD" replacement="GD"/> <!-- Grenada -->
-            <territoryAlias type="GEO" replacement="GE"/> <!-- Georgia -->
-            <territoryAlias type="GUF" replacement="GF"/> <!-- French Guiana -->
-            <territoryAlias type="GGY" replacement="GG"/> <!-- Guernsey -->
-            <territoryAlias type="GHA" replacement="GH"/> <!-- Ghana -->
-            <territoryAlias type="GIB" replacement="GI"/> <!-- Gibraltar -->
-            <territoryAlias type="GRL" replacement="GL"/> <!-- Greenland -->
-            <territoryAlias type="GMB" replacement="GM"/> <!-- Gambia -->
-            <territoryAlias type="GIN" replacement="GN"/> <!-- Guinea -->
-            <territoryAlias type="GLP" replacement="GP"/> <!-- Guadeloupe -->
-            <territoryAlias type="GNQ" replacement="GQ"/> <!-- Equatorial Guinea -->
-            <territoryAlias type="GRC" replacement="GR"/> <!-- Greece -->
-            <territoryAlias type="SGS" replacement="GS"/> <!-- South Georgia and the South Sandwich Islands -->
-            <territoryAlias type="GTM" replacement="GT"/> <!-- Guatemala -->
-            <territoryAlias type="GUM" replacement="GU"/> <!-- Guam -->
-            <territoryAlias type="GNB" replacement="GW"/> <!-- Guinea-Bissau -->
-            <territoryAlias type="GUY" replacement="GY"/> <!-- Guyana -->
-            <territoryAlias type="HKG" replacement="HK"/> <!-- Hong Kong SAR China -->
-            <territoryAlias type="HMD" replacement="HM"/> <!-- Heard Island and McDonald Islands -->
-            <territoryAlias type="HND" replacement="HN"/> <!-- Honduras -->
-            <territoryAlias type="HRV" replacement="HR"/> <!-- Croatia -->
-            <territoryAlias type="HTI" replacement="HT"/> <!-- Haiti -->
-            <territoryAlias type="HUN" replacement="HU"/> <!-- Hungary -->
-            <territoryAlias type="IDN" replacement="ID"/> <!-- Indonesia -->
-            <territoryAlias type="IRL" replacement="IE"/> <!-- Ireland -->
-            <territoryAlias type="ISR" replacement="IL"/> <!-- Israel -->
-            <territoryAlias type="IMN" replacement="IM"/> <!-- Isle of Man -->
-            <territoryAlias type="IND" replacement="IN"/> <!-- India -->
-            <territoryAlias type="IOT" replacement="IO"/> <!-- British Indian Ocean Territory -->
-            <territoryAlias type="IRQ" replacement="IQ"/> <!-- Iraq -->
-            <territoryAlias type="IRN" replacement="IR"/> <!-- Iran -->
-            <territoryAlias type="ISL" replacement="IS"/> <!-- Iceland -->
-            <territoryAlias type="ITA" replacement="IT"/> <!-- Italy -->
-            <territoryAlias type="JEY" replacement="JE"/> <!-- Jersey -->
-            <territoryAlias type="JAM" replacement="JM"/> <!-- Jamaica -->
-            <territoryAlias type="JOR" replacement="JO"/> <!-- Jordan -->
-            <territoryAlias type="JPN" replacement="JP"/> <!-- Japan -->
-            <territoryAlias type="KEN" replacement="KE"/> <!-- Kenya -->
-            <territoryAlias type="KGZ" replacement="KG"/> <!-- Kyrgyzstan -->
-            <territoryAlias type="KHM" replacement="KH"/> <!-- Cambodia -->
-            <territoryAlias type="KIR" replacement="KI"/> <!-- Kiribati -->
-            <territoryAlias type="COM" replacement="KM"/> <!-- Comoros -->
-            <territoryAlias type="KNA" replacement="KN"/> <!-- Saint Kitts and Nevis -->
-            <territoryAlias type="PRK" replacement="KP"/> <!-- North Korea -->
-            <territoryAlias type="KOR" replacement="KR"/> <!-- South Korea -->
-            <territoryAlias type="KWT" replacement="KW"/> <!-- Kuwait -->
-            <territoryAlias type="CYM" replacement="KY"/> <!-- Cayman Islands -->
-            <territoryAlias type="KAZ" replacement="KZ"/> <!-- Kazakhstan -->
-            <territoryAlias type="LAO" replacement="LA"/> <!-- Laos -->
-            <territoryAlias type="LBN" replacement="LB"/> <!-- Lebanon -->
-            <territoryAlias type="LCA" replacement="LC"/> <!-- Saint Lucia -->
-            <territoryAlias type="LIE" replacement="LI"/> <!-- Liechtenstein -->
-            <territoryAlias type="LKA" replacement="LK"/> <!-- Sri Lanka -->
-            <territoryAlias type="LBR" replacement="LR"/> <!-- Liberia -->
-            <territoryAlias type="LSO" replacement="LS"/> <!-- Lesotho -->
-            <territoryAlias type="LTU" replacement="LT"/> <!-- Lithuania -->
-            <territoryAlias type="LUX" replacement="LU"/> <!-- Luxembourg -->
-            <territoryAlias type="LVA" replacement="LV"/> <!-- Latvia -->
-            <territoryAlias type="LBY" replacement="LY"/> <!-- Libya -->
-            <territoryAlias type="MAR" replacement="MA"/> <!-- Morocco -->
-            <territoryAlias type="MCO" replacement="MC"/> <!-- Monaco -->
-            <territoryAlias type="MDA" replacement="MD"/> <!-- Moldova -->
-            <territoryAlias type="MNE" replacement="ME"/> <!-- Montenegro -->
-            <territoryAlias type="MAF" replacement="MF"/> <!-- Saint Martin -->
-            <territoryAlias type="MDG" replacement="MG"/> <!-- Madagascar -->
-            <territoryAlias type="MHL" replacement="MH"/> <!-- Marshall Islands -->
-            <territoryAlias type="MKD" replacement="MK"/> <!-- Macedonia -->
-            <territoryAlias type="MLI" replacement="ML"/> <!-- Mali -->
-            <territoryAlias type="MMR" replacement="MM"/> <!-- Myanmar [Burma] -->
-            <territoryAlias type="MNG" replacement="MN"/> <!-- Mongolia -->
-            <territoryAlias type="MAC" replacement="MO"/> <!-- Macau SAR China -->
-            <territoryAlias type="MNP" replacement="MP"/> <!-- Northern Mariana Islands -->
-            <territoryAlias type="MTQ" replacement="MQ"/> <!-- Martinique -->
-            <territoryAlias type="MRT" replacement="MR"/> <!-- Mauritania -->
-            <territoryAlias type="MSR" replacement="MS"/> <!-- Montserrat -->
-            <territoryAlias type="MLT" replacement="MT"/> <!-- Malta -->
-            <territoryAlias type="MUS" replacement="MU"/> <!-- Mauritius -->
-            <territoryAlias type="MDV" replacement="MV"/> <!-- Maldives -->
-            <territoryAlias type="MWI" replacement="MW"/> <!-- Malawi -->
-            <territoryAlias type="MEX" replacement="MX"/> <!-- Mexico -->
-            <territoryAlias type="MYS" replacement="MY"/> <!-- Malaysia -->
-            <territoryAlias type="MOZ" replacement="MZ"/> <!-- Mozambique -->
-            <territoryAlias type="NAM" replacement="NA"/> <!-- Namibia -->
-            <territoryAlias type="NCL" replacement="NC"/> <!-- New Caledonia -->
-            <territoryAlias type="NER" replacement="NE"/> <!-- Niger -->
-            <territoryAlias type="NFK" replacement="NF"/> <!-- Norfolk Island -->
-            <territoryAlias type="NGA" replacement="NG"/> <!-- Nigeria -->
-            <territoryAlias type="NIC" replacement="NI"/> <!-- Nicaragua -->
-            <territoryAlias type="NLD" replacement="NL"/> <!-- Netherlands -->
-            <territoryAlias type="NOR" replacement="NO"/> <!-- Norway -->
-            <territoryAlias type="NPL" replacement="NP"/> <!-- Nepal -->
-            <territoryAlias type="NRU" replacement="NR"/> <!-- Nauru -->
-            <territoryAlias type="NTZ" replacement="NT"/> <!-- Neutral Zone -->
-            <territoryAlias type="NIU" replacement="NU"/> <!-- Niue -->
-            <territoryAlias type="NZL" replacement="NZ"/> <!-- New Zealand -->
-            <territoryAlias type="OMN" replacement="OM"/> <!-- Oman -->
-            <territoryAlias type="PAN" replacement="PA"/> <!-- Panama -->
-            <territoryAlias type="PER" replacement="PE"/> <!-- Peru -->
-            <territoryAlias type="PYF" replacement="PF"/> <!-- French Polynesia -->
-            <territoryAlias type="PNG" replacement="PG"/> <!-- Papua New Guinea -->
-            <territoryAlias type="PHL" replacement="PH"/> <!-- Philippines -->
-            <territoryAlias type="PAK" replacement="PK"/> <!-- Pakistan -->
-            <territoryAlias type="POL" replacement="PL"/> <!-- Poland -->
-            <territoryAlias type="SPM" replacement="PM"/> <!-- Saint Pierre and Miquelon -->
-            <territoryAlias type="PCN" replacement="PN"/> <!-- Pitcairn Islands -->
-            <territoryAlias type="PRI" replacement="PR"/> <!-- Puerto Rico -->
-            <territoryAlias type="PSE" replacement="PS"/> <!-- Palestinian Territories -->
-            <territoryAlias type="PRT" replacement="PT"/> <!-- Portugal -->
-            <territoryAlias type="PLW" replacement="PW"/> <!-- Palau -->
-            <territoryAlias type="PRY" replacement="PY"/> <!-- Paraguay -->
-            <territoryAlias type="QAT" replacement="QA"/> <!-- Qatar -->
-            <territoryAlias type="QMM" replacement="QM"/> <!-- null -->
-            <territoryAlias type="QNN" replacement="QN"/> <!-- null -->
-            <territoryAlias type="QPP" replacement="QP"/> <!-- null -->
-            <territoryAlias type="QQQ" replacement="QQ"/> <!-- null -->
-            <territoryAlias type="QRR" replacement="QR"/> <!-- null -->
-            <territoryAlias type="QSS" replacement="QS"/> <!-- null -->
-            <territoryAlias type="QTT" replacement="QT"/> <!-- null -->
-            <territoryAlias type="QVV" replacement="QV"/> <!-- null -->
-            <territoryAlias type="QWW" replacement="QW"/> <!-- null -->
-            <territoryAlias type="QXX" replacement="QX"/> <!-- null -->
-            <territoryAlias type="QYY" replacement="QY"/> <!-- null -->
-            <territoryAlias type="QZZ" replacement="QZ"/> <!-- null -->
-            <territoryAlias type="REU" replacement="RE"/> <!-- Réunion -->
-            <territoryAlias type="ROU" replacement="RO"/> <!-- Romania -->
-            <territoryAlias type="SRB" replacement="RS"/> <!-- Serbia -->
-            <territoryAlias type="RUS" replacement="RU"/> <!-- Russia -->
-            <territoryAlias type="RWA" replacement="RW"/> <!-- Rwanda -->
-            <territoryAlias type="SAU" replacement="SA"/> <!-- Saudi Arabia -->
-            <territoryAlias type="SLB" replacement="SB"/> <!-- Solomon Islands -->
-            <territoryAlias type="SYC" replacement="SC"/> <!-- Seychelles -->
-            <territoryAlias type="SDN" replacement="SD"/> <!-- Sudan -->
-            <territoryAlias type="SWE" replacement="SE"/> <!-- Sweden -->
-            <territoryAlias type="SGP" replacement="SG"/> <!-- Singapore -->
-            <territoryAlias type="SHN" replacement="SH"/> <!-- Saint Helena -->
-            <territoryAlias type="SVN" replacement="SI"/> <!-- Slovenia -->
-            <territoryAlias type="SJM" replacement="SJ"/> <!-- Svalbard and Jan Mayen -->
-            <territoryAlias type="SVK" replacement="SK"/> <!-- Slovakia -->
-            <territoryAlias type="SLE" replacement="SL"/> <!-- Sierra Leone -->
-            <territoryAlias type="SMR" replacement="SM"/> <!-- San Marino -->
-            <territoryAlias type="SEN" replacement="SN"/> <!-- Senegal -->
-            <territoryAlias type="SOM" replacement="SO"/> <!-- Somalia -->
-            <territoryAlias type="SUR" replacement="SR"/> <!-- Suriname -->
-            <territoryAlias type="STP" replacement="ST"/> <!-- São Tomé and Príncipe -->
-            <territoryAlias type="SUN" replacement="SU"/> <!-- Union of Soviet Socialist Republics -->
-            <territoryAlias type="SLV" replacement="SV"/> <!-- El Salvador -->
-            <territoryAlias type="SXM" replacement="SX"/> <!-- Sint Maarten -->
-            <territoryAlias type="SYR" replacement="SY"/> <!-- Syria -->
-            <territoryAlias type="SWZ" replacement="SZ"/> <!-- Swaziland -->
-            <territoryAlias type="TAA" replacement="TA"/> <!-- Tristan da Cunha -->
-            <territoryAlias type="TCA" replacement="TC"/> <!-- Turks and Caicos Islands -->
-            <territoryAlias type="TCD" replacement="TD"/> <!-- Chad -->
-            <territoryAlias type="ATF" replacement="TF"/> <!-- French Southern Territories -->
-            <territoryAlias type="TGO" replacement="TG"/> <!-- Togo -->
-            <territoryAlias type="THA" replacement="TH"/> <!-- Thailand -->
-            <territoryAlias type="TJK" replacement="TJ"/> <!-- Tajikistan -->
-            <territoryAlias type="TKL" replacement="TK"/> <!-- Tokelau -->
-            <territoryAlias type="TLS" replacement="TL"/> <!-- Timor-Leste -->
-            <territoryAlias type="TKM" replacement="TM"/> <!-- Turkmenistan -->
-            <territoryAlias type="TUN" replacement="TN"/> <!-- Tunisia -->
-            <territoryAlias type="TON" replacement="TO"/> <!-- Tonga -->
-            <territoryAlias type="TMP" replacement="TP"/> <!-- null -->
-            <territoryAlias type="TUR" replacement="TR"/> <!-- Turkey -->
-            <territoryAlias type="TTO" replacement="TT"/> <!-- Trinidad and Tobago -->
-            <territoryAlias type="TUV" replacement="TV"/> <!-- Tuvalu -->
-            <territoryAlias type="TWN" replacement="TW"/> <!-- Taiwan -->
-            <territoryAlias type="TZA" replacement="TZ"/> <!-- Tanzania -->
-            <territoryAlias type="UKR" replacement="UA"/> <!-- Ukraine -->
-            <territoryAlias type="UGA" replacement="UG"/> <!-- Uganda -->
-            <territoryAlias type="UMI" replacement="UM"/> <!-- U.S. Minor Outlying Islands -->
-            <territoryAlias type="USA" replacement="US"/> <!-- United States -->
-            <territoryAlias type="URY" replacement="UY"/> <!-- Uruguay -->
-            <territoryAlias type="UZB" replacement="UZ"/> <!-- Uzbekistan -->
-            <territoryAlias type="VAT" replacement="VA"/> <!-- Vatican City -->
-            <territoryAlias type="VCT" replacement="VC"/> <!-- Saint Vincent and the Grenadines -->
-            <territoryAlias type="VEN" replacement="VE"/> <!-- Venezuela -->
-            <territoryAlias type="VGB" replacement="VG"/> <!-- British Virgin Islands -->
-            <territoryAlias type="VIR" replacement="VI"/> <!-- U.S. Virgin Islands -->
-            <territoryAlias type="VNM" replacement="VN"/> <!-- Vietnam -->
-            <territoryAlias type="VUT" replacement="VU"/> <!-- Vanuatu -->
-            <territoryAlias type="WLF" replacement="WF"/> <!-- Wallis and Futuna -->
-            <territoryAlias type="WSM" replacement="WS"/> <!-- Samoa -->
-            <territoryAlias type="XAA" replacement="XA"/> <!-- null -->
-            <territoryAlias type="XBB" replacement="XB"/> <!-- null -->
-            <territoryAlias type="XCC" replacement="XC"/> <!-- null -->
-            <territoryAlias type="XDD" replacement="XD"/> <!-- null -->
-            <territoryAlias type="XEE" replacement="XE"/> <!-- null -->
-            <territoryAlias type="XFF" replacement="XF"/> <!-- null -->
-            <territoryAlias type="XGG" replacement="XG"/> <!-- null -->
-            <territoryAlias type="XHH" replacement="XH"/> <!-- null -->
-            <territoryAlias type="XII" replacement="XI"/> <!-- null -->
-            <territoryAlias type="XJJ" replacement="XJ"/> <!-- null -->
-            <territoryAlias type="XKK" replacement="XK"/> <!-- null -->
-            <territoryAlias type="XLL" replacement="XL"/> <!-- null -->
-            <territoryAlias type="XMM" replacement="XM"/> <!-- null -->
-            <territoryAlias type="XNN" replacement="XN"/> <!-- null -->
-            <territoryAlias type="XOO" replacement="XO"/> <!-- null -->
-            <territoryAlias type="XPP" replacement="XP"/> <!-- null -->
-            <territoryAlias type="XQQ" replacement="XQ"/> <!-- null -->
-            <territoryAlias type="XRR" replacement="XR"/> <!-- null -->
-            <territoryAlias type="XSS" replacement="XS"/> <!-- null -->
-            <territoryAlias type="XTT" replacement="XT"/> <!-- null -->
-            <territoryAlias type="XUU" replacement="XU"/> <!-- null -->
-            <territoryAlias type="XVV" replacement="XV"/> <!-- null -->
-            <territoryAlias type="XWW" replacement="XW"/> <!-- null -->
-            <territoryAlias type="XXX" replacement="XX"/> <!-- null -->
-            <territoryAlias type="XYY" replacement="XY"/> <!-- null -->
-            <territoryAlias type="XZZ" replacement="XZ"/> <!-- null -->
-            <territoryAlias type="YMD" replacement="YD"/> <!-- People’s Democratic Republic of Yemen -->
-            <territoryAlias type="YEM" replacement="YE"/> <!-- Yemen -->
-            <territoryAlias type="MYT" replacement="YT"/> <!-- Mayotte -->
-            <territoryAlias type="YUG" replacement="YU"/> <!-- null -->
-            <territoryAlias type="ZAF" replacement="ZA"/> <!-- South Africa -->
-            <territoryAlias type="ZMB" replacement="ZM"/> <!-- Zambia -->
-            <territoryAlias type="ZAR" replacement="ZR"/> <!-- null -->
-            <territoryAlias type="ZWE" replacement="ZW"/> <!-- Zimbabwe -->
-            <territoryAlias type="ZZZ" replacement="ZZ"/> <!-- Unknown Region -->
-            <territoryAlias type="958" replacement="AA"/> <!-- null -->
-            <territoryAlias type="020" replacement="AD"/> <!-- Andorra -->
-            <territoryAlias type="784" replacement="AE"/> <!-- United Arab Emirates -->
-            <territoryAlias type="004" replacement="AF"/> <!-- Afghanistan -->
-            <territoryAlias type="028" replacement="AG"/> <!-- Antigua and Barbuda -->
-            <territoryAlias type="660" replacement="AI"/> <!-- Anguilla -->
-            <territoryAlias type="008" replacement="AL"/> <!-- Albania -->
-            <territoryAlias type="051" replacement="AM"/> <!-- Armenia -->
-            <territoryAlias type="530" replacement="AN"/> <!-- Netherlands Antilles -->
-            <territoryAlias type="024" replacement="AO"/> <!-- Angola -->
-            <territoryAlias type="010" replacement="AQ"/> <!-- Antarctica -->
-            <territoryAlias type="032" replacement="AR"/> <!-- Argentina -->
-            <territoryAlias type="016" replacement="AS"/> <!-- American Samoa -->
-            <territoryAlias type="040" replacement="AT"/> <!-- Austria -->
-            <territoryAlias type="036" replacement="AU"/> <!-- Australia -->
-            <territoryAlias type="533" replacement="AW"/> <!-- Aruba -->
-            <territoryAlias type="248" replacement="AX"/> <!-- Åland Islands -->
-            <territoryAlias type="031" replacement="AZ"/> <!-- Azerbaijan -->
-            <territoryAlias type="070" replacement="BA"/> <!-- Bosnia and Herzegovina -->
-            <territoryAlias type="052" replacement="BB"/> <!-- Barbados -->
-            <territoryAlias type="050" replacement="BD"/> <!-- Bangladesh -->
-            <territoryAlias type="056" replacement="BE"/> <!-- Belgium -->
-            <territoryAlias type="854" replacement="BF"/> <!-- Burkina Faso -->
-            <territoryAlias type="100" replacement="BG"/> <!-- Bulgaria -->
-            <territoryAlias type="048" replacement="BH"/> <!-- Bahrain -->
-            <territoryAlias type="108" replacement="BI"/> <!-- Burundi -->
-            <territoryAlias type="204" replacement="BJ"/> <!-- Benin -->
-            <territoryAlias type="652" replacement="BL"/> <!-- Saint Barthélemy -->
-            <territoryAlias type="060" replacement="BM"/> <!-- Bermuda -->
-            <territoryAlias type="096" replacement="BN"/> <!-- Brunei -->
-            <territoryAlias type="068" replacement="BO"/> <!-- Bolivia -->
-            <territoryAlias type="535" replacement="BQ"/> <!-- Bonaire, Saint Eustatius, and Saba -->
-            <territoryAlias type="076" replacement="BR"/> <!-- Brazil -->
-            <territoryAlias type="044" replacement="BS"/> <!-- Bahamas -->
-            <territoryAlias type="064" replacement="BT"/> <!-- Bhutan -->
-            <territoryAlias type="104" replacement="BU"/> <!-- null -->
-            <territoryAlias type="074" replacement="BV"/> <!-- Bouvet Island -->
-            <territoryAlias type="072" replacement="BW"/> <!-- Botswana -->
-            <territoryAlias type="112" replacement="BY"/> <!-- Belarus -->
-            <territoryAlias type="084" replacement="BZ"/> <!-- Belize -->
-            <territoryAlias type="124" replacement="CA"/> <!-- Canada -->
-            <territoryAlias type="166" replacement="CC"/> <!-- Cocos [Keeling] Islands -->
-            <territoryAlias type="180" replacement="CD"/> <!-- Congo - Kinshasa -->
-            <territoryAlias type="140" replacement="CF"/> <!-- Central African Republic -->
-            <territoryAlias type="178" replacement="CG"/> <!-- Congo - Brazzaville -->
-            <territoryAlias type="756" replacement="CH"/> <!-- Switzerland -->
-            <territoryAlias type="384" replacement="CI"/> <!-- Côte d’Ivoire -->
-            <territoryAlias type="184" replacement="CK"/> <!-- Cook Islands -->
-            <territoryAlias type="152" replacement="CL"/> <!-- Chile -->
-            <territoryAlias type="120" replacement="CM"/> <!-- Cameroon -->
-            <territoryAlias type="156" replacement="CN"/> <!-- China -->
-            <territoryAlias type="170" replacement="CO"/> <!-- Colombia -->
-            <territoryAlias type="188" replacement="CR"/> <!-- Costa Rica -->
-            <territoryAlias type="891" replacement="CS"/> <!-- Serbia and Montenegro -->
-            <territoryAlias type="192" replacement="CU"/> <!-- Cuba -->
-            <territoryAlias type="132" replacement="CV"/> <!-- Cape Verde -->
-            <territoryAlias type="531" replacement="CW"/> <!-- Curaçao -->
-            <territoryAlias type="162" replacement="CX"/> <!-- Christmas Island -->
-            <territoryAlias type="196" replacement="CY"/> <!-- Cyprus -->
-            <territoryAlias type="203" replacement="CZ"/> <!-- Czech Republic -->
-            <territoryAlias type="278" replacement="DD"/> <!-- East Germany -->
-            <territoryAlias type="276" replacement="DE"/> <!-- Germany -->
-            <territoryAlias type="262" replacement="DJ"/> <!-- Djibouti -->
-            <territoryAlias type="208" replacement="DK"/> <!-- Denmark -->
-            <territoryAlias type="212" replacement="DM"/> <!-- Dominica -->
-            <territoryAlias type="214" replacement="DO"/> <!-- Dominican Republic -->
-            <territoryAlias type="012" replacement="DZ"/> <!-- Algeria -->
-            <territoryAlias type="218" replacement="EC"/> <!-- Ecuador -->
-            <territoryAlias type="233" replacement="EE"/> <!-- Estonia -->
-            <territoryAlias type="818" replacement="EG"/> <!-- Egypt -->
-            <territoryAlias type="732" replacement="EH"/> <!-- Western Sahara -->
-            <territoryAlias type="232" replacement="ER"/> <!-- Eritrea -->
-            <territoryAlias type="724" replacement="ES"/> <!-- Spain -->
-            <territoryAlias type="231" replacement="ET"/> <!-- Ethiopia -->
-            <territoryAlias type="246" replacement="FI"/> <!-- Finland -->
-            <territoryAlias type="242" replacement="FJ"/> <!-- Fiji -->
-            <territoryAlias type="238" replacement="FK"/> <!-- Falkland Islands -->
-            <territoryAlias type="583" replacement="FM"/> <!-- Micronesia -->
-            <territoryAlias type="234" replacement="FO"/> <!-- Faroe Islands -->
-            <territoryAlias type="250" replacement="FR"/> <!-- France -->
-            <territoryAlias type="249" replacement="FX"/> <!-- Metropolitan France -->
-            <territoryAlias type="266" replacement="GA"/> <!-- Gabon -->
-            <territoryAlias type="826" replacement="GB"/> <!-- United Kingdom -->
-            <territoryAlias type="308" replacement="GD"/> <!-- Grenada -->
-            <territoryAlias type="268" replacement="GE"/> <!-- Georgia -->
-            <territoryAlias type="254" replacement="GF"/> <!-- French Guiana -->
-            <territoryAlias type="831" replacement="GG"/> <!-- Guernsey -->
-            <territoryAlias type="288" replacement="GH"/> <!-- Ghana -->
-            <territoryAlias type="292" replacement="GI"/> <!-- Gibraltar -->
-            <territoryAlias type="304" replacement="GL"/> <!-- Greenland -->
-            <territoryAlias type="270" replacement="GM"/> <!-- Gambia -->
-            <territoryAlias type="324" replacement="GN"/> <!-- Guinea -->
-            <territoryAlias type="312" replacement="GP"/> <!-- Guadeloupe -->
-            <territoryAlias type="226" replacement="GQ"/> <!-- Equatorial Guinea -->
-            <territoryAlias type="300" replacement="GR"/> <!-- Greece -->
-            <territoryAlias type="239" replacement="GS"/> <!-- South Georgia and the South Sandwich Islands -->
-            <territoryAlias type="320" replacement="GT"/> <!-- Guatemala -->
-            <territoryAlias type="316" replacement="GU"/> <!-- Guam -->
-            <territoryAlias type="624" replacement="GW"/> <!-- Guinea-Bissau -->
-            <territoryAlias type="328" replacement="GY"/> <!-- Guyana -->
-            <territoryAlias type="344" replacement="HK"/> <!-- Hong Kong SAR China -->
-            <territoryAlias type="334" replacement="HM"/> <!-- Heard Island and McDonald Islands -->
-            <territoryAlias type="340" replacement="HN"/> <!-- Honduras -->
-            <territoryAlias type="191" replacement="HR"/> <!-- Croatia -->
-            <territoryAlias type="332" replacement="HT"/> <!-- Haiti -->
-            <territoryAlias type="348" replacement="HU"/> <!-- Hungary -->
-            <territoryAlias type="360" replacement="ID"/> <!-- Indonesia -->
-            <territoryAlias type="372" replacement="IE"/> <!-- Ireland -->
-            <territoryAlias type="376" replacement="IL"/> <!-- Israel -->
-            <territoryAlias type="833" replacement="IM"/> <!-- Isle of Man -->
-            <territoryAlias type="356" replacement="IN"/> <!-- India -->
-            <territoryAlias type="086" replacement="IO"/> <!-- British Indian Ocean Territory -->
-            <territoryAlias type="368" replacement="IQ"/> <!-- Iraq -->
-            <territoryAlias type="364" replacement="IR"/> <!-- Iran -->
-            <territoryAlias type="352" replacement="IS"/> <!-- Iceland -->
-            <territoryAlias type="380" replacement="IT"/> <!-- Italy -->
-            <territoryAlias type="832" replacement="JE"/> <!-- Jersey -->
-            <territoryAlias type="388" replacement="JM"/> <!-- Jamaica -->
-            <territoryAlias type="400" replacement="JO"/> <!-- Jordan -->
-            <territoryAlias type="392" replacement="JP"/> <!-- Japan -->
-            <territoryAlias type="404" replacement="KE"/> <!-- Kenya -->
-            <territoryAlias type="417" replacement="KG"/> <!-- Kyrgyzstan -->
-            <territoryAlias type="116" replacement="KH"/> <!-- Cambodia -->
-            <territoryAlias type="296" replacement="KI"/> <!-- Kiribati -->
-            <territoryAlias type="174" replacement="KM"/> <!-- Comoros -->
-            <territoryAlias type="659" replacement="KN"/> <!-- Saint Kitts and Nevis -->
-            <territoryAlias type="408" replacement="KP"/> <!-- North Korea -->
-            <territoryAlias type="410" replacement="KR"/> <!-- South Korea -->
-            <territoryAlias type="414" replacement="KW"/> <!-- Kuwait -->
-            <territoryAlias type="136" replacement="KY"/> <!-- Cayman Islands -->
-            <territoryAlias type="398" replacement="KZ"/> <!-- Kazakhstan -->
-            <territoryAlias type="418" replacement="LA"/> <!-- Laos -->
-            <territoryAlias type="422" replacement="LB"/> <!-- Lebanon -->
-            <territoryAlias type="662" replacement="LC"/> <!-- Saint Lucia -->
-            <territoryAlias type="438" replacement="LI"/> <!-- Liechtenstein -->
-            <territoryAlias type="144" replacement="LK"/> <!-- Sri Lanka -->
-            <territoryAlias type="430" replacement="LR"/> <!-- Liberia -->
-            <territoryAlias type="426" replacement="LS"/> <!-- Lesotho -->
-            <territoryAlias type="440" replacement="LT"/> <!-- Lithuania -->
-            <territoryAlias type="442" replacement="LU"/> <!-- Luxembourg -->
-            <territoryAlias type="428" replacement="LV"/> <!-- Latvia -->
-            <territoryAlias type="434" replacement="LY"/> <!-- Libya -->
-            <territoryAlias type="504" replacement="MA"/> <!-- Morocco -->
-            <territoryAlias type="492" replacement="MC"/> <!-- Monaco -->
-            <territoryAlias type="498" replacement="MD"/> <!-- Moldova -->
-            <territoryAlias type="499" replacement="ME"/> <!-- Montenegro -->
-            <territoryAlias type="663" replacement="MF"/> <!-- Saint Martin -->
-            <territoryAlias type="450" replacement="MG"/> <!-- Madagascar -->
-            <territoryAlias type="584" replacement="MH"/> <!-- Marshall Islands -->
-            <territoryAlias type="807" replacement="MK"/> <!-- Macedonia -->
-            <territoryAlias type="466" replacement="ML"/> <!-- Mali -->
-            <territoryAlias type="104" replacement="MM"/> <!-- Myanmar [Burma] -->
-            <territoryAlias type="496" replacement="MN"/> <!-- Mongolia -->
-            <territoryAlias type="446" replacement="MO"/> <!-- Macau SAR China -->
-            <territoryAlias type="580" replacement="MP"/> <!-- Northern Mariana Islands -->
-            <territoryAlias type="474" replacement="MQ"/> <!-- Martinique -->
-            <territoryAlias type="478" replacement="MR"/> <!-- Mauritania -->
-            <territoryAlias type="500" replacement="MS"/> <!-- Montserrat -->
-            <territoryAlias type="470" replacement="MT"/> <!-- Malta -->
-            <territoryAlias type="480" replacement="MU"/> <!-- Mauritius -->
-            <territoryAlias type="462" replacement="MV"/> <!-- Maldives -->
-            <territoryAlias type="454" replacement="MW"/> <!-- Malawi -->
-            <territoryAlias type="484" replacement="MX"/> <!-- Mexico -->
-            <territoryAlias type="458" replacement="MY"/> <!-- Malaysia -->
-            <territoryAlias type="508" replacement="MZ"/> <!-- Mozambique -->
-            <territoryAlias type="516" replacement="NA"/> <!-- Namibia -->
-            <territoryAlias type="540" replacement="NC"/> <!-- New Caledonia -->
-            <territoryAlias type="562" replacement="NE"/> <!-- Niger -->
-            <territoryAlias type="574" replacement="NF"/> <!-- Norfolk Island -->
-            <territoryAlias type="566" replacement="NG"/> <!-- Nigeria -->
-            <territoryAlias type="558" replacement="NI"/> <!-- Nicaragua -->
-            <territoryAlias type="528" replacement="NL"/> <!-- Netherlands -->
-            <territoryAlias type="578" replacement="NO"/> <!-- Norway -->
-            <territoryAlias type="524" replacement="NP"/> <!-- Nepal -->
-            <territoryAlias type="520" replacement="NR"/> <!-- Nauru -->
-            <territoryAlias type="536" replacement="NT"/> <!-- Neutral Zone -->
-            <territoryAlias type="570" replacement="NU"/> <!-- Niue -->
-            <territoryAlias type="554" replacement="NZ"/> <!-- New Zealand -->
-            <territoryAlias type="512" replacement="OM"/> <!-- Oman -->
-            <territoryAlias type="591" replacement="PA"/> <!-- Panama -->
-            <territoryAlias type="604" replacement="PE"/> <!-- Peru -->
-            <territoryAlias type="258" replacement="PF"/> <!-- French Polynesia -->
-            <territoryAlias type="598" replacement="PG"/> <!-- Papua New Guinea -->
-            <territoryAlias type="608" replacement="PH"/> <!-- Philippines -->
-            <territoryAlias type="586" replacement="PK"/> <!-- Pakistan -->
-            <territoryAlias type="616" replacement="PL"/> <!-- Poland -->
-            <territoryAlias type="666" replacement="PM"/> <!-- Saint Pierre and Miquelon -->
-            <territoryAlias type="612" replacement="PN"/> <!-- Pitcairn Islands -->
-            <territoryAlias type="630" replacement="PR"/> <!-- Puerto Rico -->
-            <territoryAlias type="275" replacement="PS"/> <!-- Palestinian Territories -->
-            <territoryAlias type="620" replacement="PT"/> <!-- Portugal -->
-            <territoryAlias type="585" replacement="PW"/> <!-- Palau -->
-            <territoryAlias type="600" replacement="PY"/> <!-- Paraguay -->
-            <territoryAlias type="634" replacement="QA"/> <!-- Qatar -->
-            <territoryAlias type="959" replacement="QM"/> <!-- null -->
-            <territoryAlias type="960" replacement="QN"/> <!-- null -->
-            <territoryAlias type="962" replacement="QP"/> <!-- null -->
-            <territoryAlias type="963" replacement="QQ"/> <!-- null -->
-            <territoryAlias type="964" replacement="QR"/> <!-- null -->
-            <territoryAlias type="965" replacement="QS"/> <!-- null -->
-            <territoryAlias type="966" replacement="QT"/> <!-- null -->
-            <territoryAlias type="968" replacement="QV"/> <!-- null -->
-            <territoryAlias type="969" replacement="QW"/> <!-- null -->
-            <territoryAlias type="970" replacement="QX"/> <!-- null -->
-            <territoryAlias type="971" replacement="QY"/> <!-- null -->
-            <territoryAlias type="972" replacement="QZ"/> <!-- null -->
-            <territoryAlias type="638" replacement="RE"/> <!-- Réunion -->
-            <territoryAlias type="642" replacement="RO"/> <!-- Romania -->
-            <territoryAlias type="688" replacement="RS"/> <!-- Serbia -->
-            <territoryAlias type="643" replacement="RU"/> <!-- Russia -->
-            <territoryAlias type="646" replacement="RW"/> <!-- Rwanda -->
-            <territoryAlias type="682" replacement="SA"/> <!-- Saudi Arabia -->
-            <territoryAlias type="090" replacement="SB"/> <!-- Solomon Islands -->
-            <territoryAlias type="690" replacement="SC"/> <!-- Seychelles -->
-            <territoryAlias type="736" replacement="SD"/> <!-- Sudan -->
-            <territoryAlias type="752" replacement="SE"/> <!-- Sweden -->
-            <territoryAlias type="702" replacement="SG"/> <!-- Singapore -->
-            <territoryAlias type="654" replacement="SH"/> <!-- Saint Helena -->
-            <territoryAlias type="705" replacement="SI"/> <!-- Slovenia -->
-            <territoryAlias type="744" replacement="SJ"/> <!-- Svalbard and Jan Mayen -->
-            <territoryAlias type="703" replacement="SK"/> <!-- Slovakia -->
-            <territoryAlias type="694" replacement="SL"/> <!-- Sierra Leone -->
-            <territoryAlias type="674" replacement="SM"/> <!-- San Marino -->
-            <territoryAlias type="686" replacement="SN"/> <!-- Senegal -->
-            <territoryAlias type="706" replacement="SO"/> <!-- Somalia -->
-            <territoryAlias type="740" replacement="SR"/> <!-- Suriname -->
-            <territoryAlias type="678" replacement="ST"/> <!-- São Tomé and Príncipe -->
-            <territoryAlias type="810" replacement="SU"/> <!-- Union of Soviet Socialist Republics -->
-            <territoryAlias type="222" replacement="SV"/> <!-- El Salvador -->
-            <territoryAlias type="534" replacement="SX"/> <!-- Sint Maarten -->
-            <territoryAlias type="760" replacement="SY"/> <!-- Syria -->
-            <territoryAlias type="748" replacement="SZ"/> <!-- Swaziland -->
-            <territoryAlias type="796" replacement="TC"/> <!-- Turks and Caicos Islands -->
-            <territoryAlias type="148" replacement="TD"/> <!-- Chad -->
-            <territoryAlias type="260" replacement="TF"/> <!-- French Southern Territories -->
-            <territoryAlias type="768" replacement="TG"/> <!-- Togo -->
-            <territoryAlias type="764" replacement="TH"/> <!-- Thailand -->
-            <territoryAlias type="762" replacement="TJ"/> <!-- Tajikistan -->
-            <territoryAlias type="772" replacement="TK"/> <!-- Tokelau -->
-            <territoryAlias type="626" replacement="TL"/> <!-- Timor-Leste -->
-            <territoryAlias type="795" replacement="TM"/> <!-- Turkmenistan -->
-            <territoryAlias type="788" replacement="TN"/> <!-- Tunisia -->
-            <territoryAlias type="776" replacement="TO"/> <!-- Tonga -->
-            <territoryAlias type="626" replacement="TP"/> <!-- null -->
-            <territoryAlias type="792" replacement="TR"/> <!-- Turkey -->
-            <territoryAlias type="780" replacement="TT"/> <!-- Trinidad and Tobago -->
-            <territoryAlias type="798" replacement="TV"/> <!-- Tuvalu -->
-            <territoryAlias type="158" replacement="TW"/> <!-- Taiwan -->
-            <territoryAlias type="834" replacement="TZ"/> <!-- Tanzania -->
-            <territoryAlias type="804" replacement="UA"/> <!-- Ukraine -->
-            <territoryAlias type="800" replacement="UG"/> <!-- Uganda -->
-            <territoryAlias type="581" replacement="UM"/> <!-- U.S. Minor Outlying Islands -->
-            <territoryAlias type="840" replacement="US"/> <!-- United States -->
-            <territoryAlias type="858" replacement="UY"/> <!-- Uruguay -->
-            <territoryAlias type="860" replacement="UZ"/> <!-- Uzbekistan -->
-            <territoryAlias type="336" replacement="VA"/> <!-- Vatican City -->
-            <territoryAlias type="670" replacement="VC"/> <!-- Saint Vincent and the Grenadines -->
-            <territoryAlias type="862" replacement="VE"/> <!-- Venezuela -->
-            <territoryAlias type="092" replacement="VG"/> <!-- British Virgin Islands -->
-            <territoryAlias type="850" replacement="VI"/> <!-- U.S. Virgin Islands -->
-            <territoryAlias type="704" replacement="VN"/> <!-- Vietnam -->
-            <territoryAlias type="548" replacement="VU"/> <!-- Vanuatu -->
-            <territoryAlias type="876" replacement="WF"/> <!-- Wallis and Futuna -->
-            <territoryAlias type="882" replacement="WS"/> <!-- Samoa -->
-            <territoryAlias type="973" replacement="XA"/> <!-- null -->
-            <territoryAlias type="974" replacement="XB"/> <!-- null -->
-            <territoryAlias type="975" replacement="XC"/> <!-- null -->
-            <territoryAlias type="976" replacement="XD"/> <!-- null -->
-            <territoryAlias type="977" replacement="XE"/> <!-- null -->
-            <territoryAlias type="978" replacement="XF"/> <!-- null -->
-            <territoryAlias type="979" replacement="XG"/> <!-- null -->
-            <territoryAlias type="980" replacement="XH"/> <!-- null -->
-            <territoryAlias type="981" replacement="XI"/> <!-- null -->
-            <territoryAlias type="982" replacement="XJ"/> <!-- null -->
-            <territoryAlias type="983" replacement="XK"/> <!-- null -->
-            <territoryAlias type="984" replacement="XL"/> <!-- null -->
-            <territoryAlias type="985" replacement="XM"/> <!-- null -->
-            <territoryAlias type="986" replacement="XN"/> <!-- null -->
-            <territoryAlias type="987" replacement="XO"/> <!-- null -->
-            <territoryAlias type="988" replacement="XP"/> <!-- null -->
-            <territoryAlias type="989" replacement="XQ"/> <!-- null -->
-            <territoryAlias type="990" replacement="XR"/> <!-- null -->
-            <territoryAlias type="991" replacement="XS"/> <!-- null -->
-            <territoryAlias type="992" replacement="XT"/> <!-- null -->
-            <territoryAlias type="993" replacement="XU"/> <!-- null -->
-            <territoryAlias type="994" replacement="XV"/> <!-- null -->
-            <territoryAlias type="995" replacement="XW"/> <!-- null -->
-            <territoryAlias type="996" replacement="XX"/> <!-- null -->
-            <territoryAlias type="997" replacement="XY"/> <!-- null -->
-            <territoryAlias type="998" replacement="XZ"/> <!-- null -->
-            <territoryAlias type="720" replacement="YD"/> <!-- People’s Democratic Republic of Yemen -->
-            <territoryAlias type="887" replacement="YE"/> <!-- Yemen -->
-            <territoryAlias type="175" replacement="YT"/> <!-- Mayotte -->
-            <territoryAlias type="891" replacement="YU"/> <!-- null -->
-            <territoryAlias type="710" replacement="ZA"/> <!-- South Africa -->
-            <territoryAlias type="894" replacement="ZM"/> <!-- Zambia -->
-            <territoryAlias type="180" replacement="ZR"/> <!-- null -->
-            <territoryAlias type="716" replacement="ZW"/> <!-- Zimbabwe -->
-            <territoryAlias type="999" replacement="ZZ"/> <!-- Unknown Region -->
+            <territoryAlias type="ASC" replacement="AC" reason="overlong"/> <!-- Ascension Island -->
+            <territoryAlias type="AND" replacement="AD" reason="overlong"/> <!-- Andorra -->
+            <territoryAlias type="ARE" replacement="AE" reason="overlong"/> <!-- United Arab Emirates -->
+            <territoryAlias type="AFG" replacement="AF" reason="overlong"/> <!-- Afghanistan -->
+            <territoryAlias type="ATG" replacement="AG" reason="overlong"/> <!-- Antigua and Barbuda -->
+            <territoryAlias type="AIA" replacement="AI" reason="overlong"/> <!-- Anguilla -->
+            <territoryAlias type="ALB" replacement="AL" reason="overlong"/> <!-- Albania -->
+            <territoryAlias type="ARM" replacement="AM" reason="overlong"/> <!-- Armenia -->
+            <territoryAlias type="AGO" replacement="AO" reason="overlong"/> <!-- Angola -->
+            <territoryAlias type="ATA" replacement="AQ" reason="overlong"/> <!-- Antarctica -->
+            <territoryAlias type="ARG" replacement="AR" reason="overlong"/> <!-- Argentina -->
+            <territoryAlias type="ASM" replacement="AS" reason="overlong"/> <!-- American Samoa -->
+            <territoryAlias type="AUT" replacement="AT" reason="overlong"/> <!-- Austria -->
+            <territoryAlias type="AUS" replacement="AU" reason="overlong"/> <!-- Australia -->
+            <territoryAlias type="ABW" replacement="AW" reason="overlong"/> <!-- Aruba -->
+            <territoryAlias type="ALA" replacement="AX" reason="overlong"/> <!-- Åland Islands -->
+            <territoryAlias type="AZE" replacement="AZ" reason="overlong"/> <!-- Azerbaijan -->
+            <territoryAlias type="BIH" replacement="BA" reason="overlong"/> <!-- Bosnia and Herzegovina -->
+            <territoryAlias type="BRB" replacement="BB" reason="overlong"/> <!-- Barbados -->
+            <territoryAlias type="BGD" replacement="BD" reason="overlong"/> <!-- Bangladesh -->
+            <territoryAlias type="BEL" replacement="BE" reason="overlong"/> <!-- Belgium -->
+            <territoryAlias type="BFA" replacement="BF" reason="overlong"/> <!-- Burkina Faso -->
+            <territoryAlias type="BGR" replacement="BG" reason="overlong"/> <!-- Bulgaria -->
+            <territoryAlias type="BHR" replacement="BH" reason="overlong"/> <!-- Bahrain -->
+            <territoryAlias type="BDI" replacement="BI" reason="overlong"/> <!-- Burundi -->
+            <territoryAlias type="BEN" replacement="BJ" reason="overlong"/> <!-- Benin -->
+            <territoryAlias type="BLM" replacement="BL" reason="overlong"/> <!-- Saint Barthélemy -->
+            <territoryAlias type="BMU" replacement="BM" reason="overlong"/> <!-- Bermuda -->
+            <territoryAlias type="BRN" replacement="BN" reason="overlong"/> <!-- Brunei -->
+            <territoryAlias type="BOL" replacement="BO" reason="overlong"/> <!-- Bolivia -->
+            <territoryAlias type="BRA" replacement="BR" reason="overlong"/> <!-- Brazil -->
+            <territoryAlias type="BHS" replacement="BS" reason="overlong"/> <!-- Bahamas -->
+            <territoryAlias type="BTN" replacement="BT" reason="overlong"/> <!-- Bhutan -->
+            <territoryAlias type="BUR" replacement="MM" reason="overlong"/> <!-- Burma (Myanmar) -->
+            <territoryAlias type="BVT" replacement="BV" reason="overlong"/> <!-- Bouvet Island -->
+            <territoryAlias type="BWA" replacement="BW" reason="overlong"/> <!-- Botswana -->
+            <territoryAlias type="BLR" replacement="BY" reason="overlong"/> <!-- Belarus -->
+            <territoryAlias type="BLZ" replacement="BZ" reason="overlong"/> <!-- Belize -->
+            <territoryAlias type="CAN" replacement="CA" reason="overlong"/> <!-- Canada -->
+            <territoryAlias type="CCK" replacement="CC" reason="overlong"/> <!-- Cocos [Keeling] Islands -->
+            <territoryAlias type="COD" replacement="CD" reason="overlong"/> <!-- Congo - Kinshasa -->
+            <territoryAlias type="CAF" replacement="CF" reason="overlong"/> <!-- Central African Republic -->
+            <territoryAlias type="COG" replacement="CG" reason="overlong"/> <!-- Congo - Brazzaville -->
+            <territoryAlias type="CHE" replacement="CH" reason="overlong"/> <!-- Switzerland -->
+            <territoryAlias type="CIV" replacement="CI" reason="overlong"/> <!-- Côte d’Ivoire -->
+            <territoryAlias type="COK" replacement="CK" reason="overlong"/> <!-- Cook Islands -->
+            <territoryAlias type="CHL" replacement="CL" reason="overlong"/> <!-- Chile -->
+            <territoryAlias type="CMR" replacement="CM" reason="overlong"/> <!-- Cameroon -->
+            <territoryAlias type="CHN" replacement="CN" reason="overlong"/> <!-- China -->
+            <territoryAlias type="COL" replacement="CO" reason="overlong"/> <!-- Colombia -->
+            <territoryAlias type="CPT" replacement="CP" reason="overlong"/> <!-- Clipperton Island -->
+            <territoryAlias type="CRI" replacement="CR" reason="overlong"/> <!-- Costa Rica -->
+            <territoryAlias type="SCG" replacement="RS ME" reason="overlong"/> <!-- Serbia and Montenegro -->
+            <territoryAlias type="CUB" replacement="CU" reason="overlong"/> <!-- Cuba -->
+            <territoryAlias type="CPV" replacement="CV" reason="overlong"/> <!-- Cape Verde -->
+            <territoryAlias type="CXR" replacement="CX" reason="overlong"/> <!-- Christmas Island -->
+            <territoryAlias type="CYP" replacement="CY" reason="overlong"/> <!-- Cyprus -->
+            <territoryAlias type="CZE" replacement="CZ" reason="overlong"/> <!-- Czech Republic -->
+            <territoryAlias type="DDR" replacement="DE" reason="overlong"/> <!-- East Germany -->
+            <territoryAlias type="DEU" replacement="DE" reason="overlong"/> <!-- Germany -->
+            <territoryAlias type="DGA" replacement="DG" reason="overlong"/> <!-- Diego Garcia -->
+            <territoryAlias type="DJI" replacement="DJ" reason="overlong"/> <!-- Djibouti -->
+            <territoryAlias type="DNK" replacement="DK" reason="overlong"/> <!-- Denmark -->
+            <territoryAlias type="DMA" replacement="DM" reason="overlong"/> <!-- Dominica -->
+            <territoryAlias type="DOM" replacement="DO" reason="overlong"/> <!-- Dominican Republic -->
+            <territoryAlias type="DZA" replacement="DZ" reason="overlong"/> <!-- Algeria -->
+            <territoryAlias type="ECU" replacement="EC" reason="overlong"/> <!-- Ecuador -->
+            <territoryAlias type="EST" replacement="EE" reason="overlong"/> <!-- Estonia -->
+            <territoryAlias type="EGY" replacement="EG" reason="overlong"/> <!-- Egypt -->
+            <territoryAlias type="ESH" replacement="EH" reason="overlong"/> <!-- Western Sahara -->
+            <territoryAlias type="ERI" replacement="ER" reason="overlong"/> <!-- Eritrea -->
+            <territoryAlias type="ESP" replacement="ES" reason="overlong"/> <!-- Spain -->
+            <territoryAlias type="ETH" replacement="ET" reason="overlong"/> <!-- Ethiopia -->
+            <territoryAlias type="FIN" replacement="FI" reason="overlong"/> <!-- Finland -->
+            <territoryAlias type="FJI" replacement="FJ" reason="overlong"/> <!-- Fiji -->
+            <territoryAlias type="FLK" replacement="FK" reason="overlong"/> <!-- Falkland Islands -->
+            <territoryAlias type="FSM" replacement="FM" reason="overlong"/> <!-- Micronesia -->
+            <territoryAlias type="FRO" replacement="FO" reason="overlong"/> <!-- Faroe Islands -->
+            <territoryAlias type="FRA" replacement="FR" reason="overlong"/> <!-- France -->
+            <territoryAlias type="FXX" replacement="FR" reason="overlong"/> <!-- Metropolitan France -->
+            <territoryAlias type="GAB" replacement="GA" reason="overlong"/> <!-- Gabon -->
+            <territoryAlias type="GBR" replacement="GB" reason="overlong"/> <!-- United Kingdom -->
+            <territoryAlias type="GRD" replacement="GD" reason="overlong"/> <!-- Grenada -->
+            <territoryAlias type="GEO" replacement="GE" reason="overlong"/> <!-- Georgia -->
+            <territoryAlias type="GUF" replacement="GF" reason="overlong"/> <!-- French Guiana -->
+            <territoryAlias type="GGY" replacement="GG" reason="overlong"/> <!-- Guernsey -->
+            <territoryAlias type="GHA" replacement="GH" reason="overlong"/> <!-- Ghana -->
+            <territoryAlias type="GIB" replacement="GI" reason="overlong"/> <!-- Gibraltar -->
+            <territoryAlias type="GRL" replacement="GL" reason="overlong"/> <!-- Greenland -->
+            <territoryAlias type="GMB" replacement="GM" reason="overlong"/> <!-- Gambia -->
+            <territoryAlias type="GIN" replacement="GN" reason="overlong"/> <!-- Guinea -->
+            <territoryAlias type="GLP" replacement="GP" reason="overlong"/> <!-- Guadeloupe -->
+            <territoryAlias type="GNQ" replacement="GQ" reason="overlong"/> <!-- Equatorial Guinea -->
+            <territoryAlias type="GRC" replacement="GR" reason="overlong"/> <!-- Greece -->
+            <territoryAlias type="SGS" replacement="GS" reason="overlong"/> <!-- South Georgia and the South Sandwich Islands -->
+            <territoryAlias type="GTM" replacement="GT" reason="overlong"/> <!-- Guatemala -->
+            <territoryAlias type="GUM" replacement="GU" reason="overlong"/> <!-- Guam -->
+            <territoryAlias type="GNB" replacement="GW" reason="overlong"/> <!-- Guinea-Bissau -->
+            <territoryAlias type="GUY" replacement="GY" reason="overlong"/> <!-- Guyana -->
+            <territoryAlias type="HKG" replacement="HK" reason="overlong"/> <!-- Hong Kong SAR China -->
+            <territoryAlias type="HMD" replacement="HM" reason="overlong"/> <!-- Heard Island and McDonald Islands -->
+            <territoryAlias type="HND" replacement="HN" reason="overlong"/> <!-- Honduras -->
+            <territoryAlias type="HRV" replacement="HR" reason="overlong"/> <!-- Croatia -->
+            <territoryAlias type="HTI" replacement="HT" reason="overlong"/> <!-- Haiti -->
+            <territoryAlias type="HUN" replacement="HU" reason="overlong"/> <!-- Hungary -->
+            <territoryAlias type="IDN" replacement="ID" reason="overlong"/> <!-- Indonesia -->
+            <territoryAlias type="IRL" replacement="IE" reason="overlong"/> <!-- Ireland -->
+            <territoryAlias type="ISR" replacement="IL" reason="overlong"/> <!-- Israel -->
+            <territoryAlias type="IMN" replacement="IM" reason="overlong"/> <!-- Isle of Man -->
+            <territoryAlias type="IND" replacement="IN" reason="overlong"/> <!-- India -->
+            <territoryAlias type="IOT" replacement="IO" reason="overlong"/> <!-- British Indian Ocean Territory -->
+            <territoryAlias type="IRQ" replacement="IQ" reason="overlong"/> <!-- Iraq -->
+            <territoryAlias type="IRN" replacement="IR" reason="overlong"/> <!-- Iran -->
+            <territoryAlias type="ISL" replacement="IS" reason="overlong"/> <!-- Iceland -->
+            <territoryAlias type="ITA" replacement="IT" reason="overlong"/> <!-- Italy -->
+            <territoryAlias type="JEY" replacement="JE" reason="overlong"/> <!-- Jersey -->
+            <territoryAlias type="JAM" replacement="JM" reason="overlong"/> <!-- Jamaica -->
+            <territoryAlias type="JOR" replacement="JO" reason="overlong"/> <!-- Jordan -->
+            <territoryAlias type="JPN" replacement="JP" reason="overlong"/> <!-- Japan -->
+            <territoryAlias type="KEN" replacement="KE" reason="overlong"/> <!-- Kenya -->
+            <territoryAlias type="KGZ" replacement="KG" reason="overlong"/> <!-- Kyrgyzstan -->
+            <territoryAlias type="KHM" replacement="KH" reason="overlong"/> <!-- Cambodia -->
+            <territoryAlias type="KIR" replacement="KI" reason="overlong"/> <!-- Kiribati -->
+            <territoryAlias type="COM" replacement="KM" reason="overlong"/> <!-- Comoros -->
+            <territoryAlias type="KNA" replacement="KN" reason="overlong"/> <!-- Saint Kitts and Nevis -->
+            <territoryAlias type="PRK" replacement="KP" reason="overlong"/> <!-- North Korea -->
+            <territoryAlias type="KOR" replacement="KR" reason="overlong"/> <!-- South Korea -->
+            <territoryAlias type="KWT" replacement="KW" reason="overlong"/> <!-- Kuwait -->
+            <territoryAlias type="CYM" replacement="KY" reason="overlong"/> <!-- Cayman Islands -->
+            <territoryAlias type="KAZ" replacement="KZ" reason="overlong"/> <!-- Kazakhstan -->
+            <territoryAlias type="LAO" replacement="LA" reason="overlong"/> <!-- Laos -->
+            <territoryAlias type="LBN" replacement="LB" reason="overlong"/> <!-- Lebanon -->
+            <territoryAlias type="LCA" replacement="LC" reason="overlong"/> <!-- Saint Lucia -->
+            <territoryAlias type="LIE" replacement="LI" reason="overlong"/> <!-- Liechtenstein -->
+            <territoryAlias type="LKA" replacement="LK" reason="overlong"/> <!-- Sri Lanka -->
+            <territoryAlias type="LBR" replacement="LR" reason="overlong"/> <!-- Liberia -->
+            <territoryAlias type="LSO" replacement="LS" reason="overlong"/> <!-- Lesotho -->
+            <territoryAlias type="LTU" replacement="LT" reason="overlong"/> <!-- Lithuania -->
+            <territoryAlias type="LUX" replacement="LU" reason="overlong"/> <!-- Luxembourg -->
+            <territoryAlias type="LVA" replacement="LV" reason="overlong"/> <!-- Latvia -->
+            <territoryAlias type="LBY" replacement="LY" reason="overlong"/> <!-- Libya -->
+            <territoryAlias type="MAR" replacement="MA" reason="overlong"/> <!-- Morocco -->
+            <territoryAlias type="MCO" replacement="MC" reason="overlong"/> <!-- Monaco -->
+            <territoryAlias type="MDA" replacement="MD" reason="overlong"/> <!-- Moldova -->
+            <territoryAlias type="MNE" replacement="ME" reason="overlong"/> <!-- Montenegro -->
+            <territoryAlias type="MAF" replacement="MF" reason="overlong"/> <!-- Saint Martin -->
+            <territoryAlias type="MDG" replacement="MG" reason="overlong"/> <!-- Madagascar -->
+            <territoryAlias type="MHL" replacement="MH" reason="overlong"/> <!-- Marshall Islands -->
+            <territoryAlias type="MKD" replacement="MK" reason="overlong"/> <!-- Macedonia -->
+            <territoryAlias type="MLI" replacement="ML" reason="overlong"/> <!-- Mali -->
+            <territoryAlias type="MMR" replacement="MM" reason="overlong"/> <!-- Myanmar [Burma] -->
+            <territoryAlias type="MNG" replacement="MN" reason="overlong"/> <!-- Mongolia -->
+            <territoryAlias type="MAC" replacement="MO" reason="overlong"/> <!-- Macau SAR China -->
+            <territoryAlias type="MNP" replacement="MP" reason="overlong"/> <!-- Northern Mariana Islands -->
+            <territoryAlias type="MTQ" replacement="MQ" reason="overlong"/> <!-- Martinique -->
+            <territoryAlias type="MRT" replacement="MR" reason="overlong"/> <!-- Mauritania -->
+            <territoryAlias type="MSR" replacement="MS" reason="overlong"/> <!-- Montserrat -->
+            <territoryAlias type="MLT" replacement="MT" reason="overlong"/> <!-- Malta -->
+            <territoryAlias type="MUS" replacement="MU" reason="overlong"/> <!-- Mauritius -->
+            <territoryAlias type="MDV" replacement="MV" reason="overlong"/> <!-- Maldives -->
+            <territoryAlias type="MWI" replacement="MW" reason="overlong"/> <!-- Malawi -->
+            <territoryAlias type="MEX" replacement="MX" reason="overlong"/> <!-- Mexico -->
+            <territoryAlias type="MYS" replacement="MY" reason="overlong"/> <!-- Malaysia -->
+            <territoryAlias type="MOZ" replacement="MZ" reason="overlong"/> <!-- Mozambique -->
+            <territoryAlias type="NAM" replacement="NA" reason="overlong"/> <!-- Namibia -->
+            <territoryAlias type="NCL" replacement="NC" reason="overlong"/> <!-- New Caledonia -->
+            <territoryAlias type="NER" replacement="NE" reason="overlong"/> <!-- Niger -->
+            <territoryAlias type="NFK" replacement="NF" reason="overlong"/> <!-- Norfolk Island -->
+            <territoryAlias type="NGA" replacement="NG" reason="overlong"/> <!-- Nigeria -->
+            <territoryAlias type="NIC" replacement="NI" reason="overlong"/> <!-- Nicaragua -->
+            <territoryAlias type="NLD" replacement="NL" reason="overlong"/> <!-- Netherlands -->
+            <territoryAlias type="NOR" replacement="NO" reason="overlong"/> <!-- Norway -->
+            <territoryAlias type="NPL" replacement="NP" reason="overlong"/> <!-- Nepal -->
+            <territoryAlias type="NRU" replacement="NR" reason="overlong"/> <!-- Nauru -->
+            <territoryAlias type="NTZ" replacement="SA IQ" reason="overlong"/> <!-- Neutral Zone -->
+            <territoryAlias type="NIU" replacement="NU" reason="overlong"/> <!-- Niue -->
+            <territoryAlias type="NZL" replacement="NZ" reason="overlong"/> <!-- New Zealand -->
+            <territoryAlias type="OMN" replacement="OM" reason="overlong"/> <!-- Oman -->
+            <territoryAlias type="PAN" replacement="PA" reason="overlong"/> <!-- Panama -->
+            <territoryAlias type="PER" replacement="PE" reason="overlong"/> <!-- Peru -->
+            <territoryAlias type="PYF" replacement="PF" reason="overlong"/> <!-- French Polynesia -->
+            <territoryAlias type="PNG" replacement="PG" reason="overlong"/> <!-- Papua New Guinea -->
+            <territoryAlias type="PHL" replacement="PH" reason="overlong"/> <!-- Philippines -->
+            <territoryAlias type="PAK" replacement="PK" reason="overlong"/> <!-- Pakistan -->
+            <territoryAlias type="POL" replacement="PL" reason="overlong"/> <!-- Poland -->
+            <territoryAlias type="SPM" replacement="PM" reason="overlong"/> <!-- Saint Pierre and Miquelon -->
+            <territoryAlias type="PCN" replacement="PN" reason="overlong"/> <!-- Pitcairn Islands -->
+            <territoryAlias type="PRI" replacement="PR" reason="overlong"/> <!-- Puerto Rico -->
+            <territoryAlias type="PSE" replacement="PS" reason="overlong"/> <!-- Palestinian Territories -->
+            <territoryAlias type="PRT" replacement="PT" reason="overlong"/> <!-- Portugal -->
+            <territoryAlias type="PLW" replacement="PW" reason="overlong"/> <!-- Palau -->
+            <territoryAlias type="PRY" replacement="PY" reason="overlong"/> <!-- Paraguay -->
+            <territoryAlias type="QAT" replacement="QA" reason="overlong"/> <!-- Qatar -->
+            <territoryAlias type="REU" replacement="RE" reason="overlong"/> <!-- Réunion -->
+            <territoryAlias type="ROU" replacement="RO" reason="overlong"/> <!-- Romania -->
+            <territoryAlias type="SRB" replacement="RS" reason="overlong"/> <!-- Serbia -->
+            <territoryAlias type="RUS" replacement="RU" reason="overlong"/> <!-- Russia -->
+            <territoryAlias type="RWA" replacement="RW" reason="overlong"/> <!-- Rwanda -->
+            <territoryAlias type="SAU" replacement="SA" reason="overlong"/> <!-- Saudi Arabia -->
+            <territoryAlias type="SLB" replacement="SB" reason="overlong"/> <!-- Solomon Islands -->
+            <territoryAlias type="SYC" replacement="SC" reason="overlong"/> <!-- Seychelles -->
+            <territoryAlias type="SDN" replacement="SD" reason="overlong"/> <!-- Sudan -->
+            <territoryAlias type="SWE" replacement="SE" reason="overlong"/> <!-- Sweden -->
+            <territoryAlias type="SGP" replacement="SG" reason="overlong"/> <!-- Singapore -->
+            <territoryAlias type="SHN" replacement="SH" reason="overlong"/> <!-- Saint Helena -->
+            <territoryAlias type="SVN" replacement="SI" reason="overlong"/> <!-- Slovenia -->
+            <territoryAlias type="SJM" replacement="SJ" reason="overlong"/> <!-- Svalbard and Jan Mayen -->
+            <territoryAlias type="SVK" replacement="SK" reason="overlong"/> <!-- Slovakia -->
+            <territoryAlias type="SLE" replacement="SL" reason="overlong"/> <!-- Sierra Leone -->
+            <territoryAlias type="SMR" replacement="SM" reason="overlong"/> <!-- San Marino -->
+            <territoryAlias type="SEN" replacement="SN" reason="overlong"/> <!-- Senegal -->
+            <territoryAlias type="SOM" replacement="SO" reason="overlong"/> <!-- Somalia -->
+            <territoryAlias type="SUR" replacement="SR" reason="overlong"/> <!-- Suriname -->
+            <territoryAlias type="STP" replacement="ST" reason="overlong"/> <!-- São Tomé and Príncipe -->
+            <territoryAlias type="SUN" replacement="RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ" reason="overlong"/> <!-- Union of Soviet Socialist Republics -->
+            <territoryAlias type="SLV" replacement="SV" reason="overlong"/> <!-- El Salvador -->
+            <territoryAlias type="SYR" replacement="SY" reason="overlong"/> <!-- Syria -->
+            <territoryAlias type="SWZ" replacement="SZ" reason="overlong"/> <!-- Swaziland -->
+            <territoryAlias type="TAA" replacement="TA" reason="overlong"/> <!-- Tristan da Cunha -->
+            <territoryAlias type="TCA" replacement="TC" reason="overlong"/> <!-- Turks and Caicos Islands -->
+            <territoryAlias type="TCD" replacement="TD" reason="overlong"/> <!-- Chad -->
+            <territoryAlias type="ATF" replacement="TF" reason="overlong"/> <!-- French Southern Territories -->
+            <territoryAlias type="TGO" replacement="TG" reason="overlong"/> <!-- Togo -->
+            <territoryAlias type="THA" replacement="TH" reason="overlong"/> <!-- Thailand -->
+            <territoryAlias type="TJK" replacement="TJ" reason="overlong"/> <!-- Tajikistan -->
+            <territoryAlias type="TKL" replacement="TK" reason="overlong"/> <!-- Tokelau -->
+            <territoryAlias type="TLS" replacement="TL" reason="overlong"/> <!-- Timor-Leste -->
+            <territoryAlias type="TKM" replacement="TM" reason="overlong"/> <!-- Turkmenistan -->
+            <territoryAlias type="TUN" replacement="TN" reason="overlong"/> <!-- Tunisia -->
+            <territoryAlias type="TON" replacement="TO" reason="overlong"/> <!-- Tonga -->
+            <territoryAlias type="TMP" replacement="TL" reason="overlong"/> <!-- Timor-Leste -->
+            <territoryAlias type="TUR" replacement="TR" reason="overlong"/> <!-- Turkey -->
+            <territoryAlias type="TTO" replacement="TT" reason="overlong"/> <!-- Trinidad and Tobago -->
+            <territoryAlias type="TUV" replacement="TV" reason="overlong"/> <!-- Tuvalu -->
+            <territoryAlias type="TWN" replacement="TW" reason="overlong"/> <!-- Taiwan -->
+            <territoryAlias type="TZA" replacement="TZ" reason="overlong"/> <!-- Tanzania -->
+            <territoryAlias type="UKR" replacement="UA" reason="overlong"/> <!-- Ukraine -->
+            <territoryAlias type="UGA" replacement="UG" reason="overlong"/> <!-- Uganda -->
+            <territoryAlias type="UMI" replacement="UM" reason="overlong"/> <!-- U.S. Minor Outlying Islands -->
+            <territoryAlias type="USA" replacement="US" reason="overlong"/> <!-- United States -->
+            <territoryAlias type="URY" replacement="UY" reason="overlong"/> <!-- Uruguay -->
+            <territoryAlias type="UZB" replacement="UZ" reason="overlong"/> <!-- Uzbekistan -->
+            <territoryAlias type="VAT" replacement="VA" reason="overlong"/> <!-- Vatican City -->
+            <territoryAlias type="VCT" replacement="VC" reason="overlong"/> <!-- Saint Vincent and the Grenadines -->
+            <territoryAlias type="VEN" replacement="VE" reason="overlong"/> <!-- Venezuela -->
+            <territoryAlias type="VGB" replacement="VG" reason="overlong"/> <!-- British Virgin Islands -->
+            <territoryAlias type="VIR" replacement="VI" reason="overlong"/> <!-- U.S. Virgin Islands -->
+            <territoryAlias type="VNM" replacement="VN" reason="overlong"/> <!-- Vietnam -->
+            <territoryAlias type="VUT" replacement="VU" reason="overlong"/> <!-- Vanuatu -->
+            <territoryAlias type="WLF" replacement="WF" reason="overlong"/> <!-- Wallis and Futuna -->
+            <territoryAlias type="WSM" replacement="WS" reason="overlong"/> <!-- Samoa -->
+            <territoryAlias type="YMD" replacement="YE" reason="overlong"/> <!-- People's Democratic Republic of Yemen -->
+            <territoryAlias type="YEM" replacement="YE" reason="overlong"/> <!-- Yemen -->
+            <territoryAlias type="MYT" replacement="YT" reason="overlong"/> <!-- Mayotte -->
+            <territoryAlias type="YUG" replacement="RS ME" reason="overlong"/> <!-- Yugoslavia -->
+            <territoryAlias type="ZAF" replacement="ZA" reason="overlong"/> <!-- South Africa -->
+            <territoryAlias type="ZMB" replacement="ZM" reason="overlong"/> <!-- Zambia -->
+            <territoryAlias type="ZAR" replacement="CD" reason="overlong"/> <!-- Zaire -->
+            <territoryAlias type="ZWE" replacement="ZW" reason="overlong"/> <!-- Zimbabwe -->
+            <territoryAlias type="ZZZ" replacement="ZZ" reason="overlong"/> <!-- Unknown or Invalid Region -->
+            <territoryAlias type="020" replacement="AD" reason="overlong"/> <!-- Andorra -->
+            <territoryAlias type="784" replacement="AE" reason="overlong"/> <!-- United Arab Emirates -->
+            <territoryAlias type="004" replacement="AF" reason="overlong"/> <!-- Afghanistan -->
+            <territoryAlias type="028" replacement="AG" reason="overlong"/> <!-- Antigua and Barbuda -->
+            <territoryAlias type="660" replacement="AI" reason="overlong"/> <!-- Anguilla -->
+            <territoryAlias type="008" replacement="AL" reason="overlong"/> <!-- Albania -->
+            <territoryAlias type="051" replacement="AM" reason="overlong"/> <!-- Armenia -->
+            <territoryAlias type="024" replacement="AO" reason="overlong"/> <!-- Angola -->
+            <territoryAlias type="010" replacement="AQ" reason="overlong"/> <!-- Antarctica -->
+            <territoryAlias type="032" replacement="AR" reason="overlong"/> <!-- Argentina -->
+            <territoryAlias type="016" replacement="AS" reason="overlong"/> <!-- American Samoa -->
+            <territoryAlias type="040" replacement="AT" reason="overlong"/> <!-- Austria -->
+            <territoryAlias type="036" replacement="AU" reason="overlong"/> <!-- Australia -->
+            <territoryAlias type="533" replacement="AW" reason="overlong"/> <!-- Aruba -->
+            <territoryAlias type="248" replacement="AX" reason="overlong"/> <!-- Åland Islands -->
+            <territoryAlias type="031" replacement="AZ" reason="overlong"/> <!-- Azerbaijan -->
+            <territoryAlias type="070" replacement="BA" reason="overlong"/> <!-- Bosnia and Herzegovina -->
+            <territoryAlias type="052" replacement="BB" reason="overlong"/> <!-- Barbados -->
+            <territoryAlias type="050" replacement="BD" reason="overlong"/> <!-- Bangladesh -->
+            <territoryAlias type="056" replacement="BE" reason="overlong"/> <!-- Belgium -->
+            <territoryAlias type="854" replacement="BF" reason="overlong"/> <!-- Burkina Faso -->
+            <territoryAlias type="100" replacement="BG" reason="overlong"/> <!-- Bulgaria -->
+            <territoryAlias type="048" replacement="BH" reason="overlong"/> <!-- Bahrain -->
+            <territoryAlias type="108" replacement="BI" reason="overlong"/> <!-- Burundi -->
+            <territoryAlias type="204" replacement="BJ" reason="overlong"/> <!-- Benin -->
+            <territoryAlias type="652" replacement="BL" reason="overlong"/> <!-- Saint Barthélemy -->
+            <territoryAlias type="060" replacement="BM" reason="overlong"/> <!-- Bermuda -->
+            <territoryAlias type="096" replacement="BN" reason="overlong"/> <!-- Brunei -->
+            <territoryAlias type="068" replacement="BO" reason="overlong"/> <!-- Bolivia -->
+            <territoryAlias type="076" replacement="BR" reason="overlong"/> <!-- Brazil -->
+            <territoryAlias type="044" replacement="BS" reason="overlong"/> <!-- Bahamas -->
+            <territoryAlias type="064" replacement="BT" reason="overlong"/> <!-- Bhutan -->
+            <territoryAlias type="074" replacement="BV" reason="overlong"/> <!-- Bouvet Island -->
+            <territoryAlias type="072" replacement="BW" reason="overlong"/> <!-- Botswana -->
+            <territoryAlias type="112" replacement="BY" reason="overlong"/> <!-- Belarus -->
+            <territoryAlias type="084" replacement="BZ" reason="overlong"/> <!-- Belize -->
+            <territoryAlias type="124" replacement="CA" reason="overlong"/> <!-- Canada -->
+            <territoryAlias type="166" replacement="CC" reason="overlong"/> <!-- Cocos [Keeling] Islands -->
+            <territoryAlias type="180" replacement="CD" reason="overlong"/> <!-- Congo - Kinshasa -->
+            <territoryAlias type="140" replacement="CF" reason="overlong"/> <!-- Central African Republic -->
+            <territoryAlias type="178" replacement="CG" reason="overlong"/> <!-- Congo - Brazzaville -->
+            <territoryAlias type="756" replacement="CH" reason="overlong"/> <!-- Switzerland -->
+            <territoryAlias type="384" replacement="CI" reason="overlong"/> <!-- Côte d’Ivoire -->
+            <territoryAlias type="184" replacement="CK" reason="overlong"/> <!-- Cook Islands -->
+            <territoryAlias type="152" replacement="CL" reason="overlong"/> <!-- Chile -->
+            <territoryAlias type="120" replacement="CM" reason="overlong"/> <!-- Cameroon -->
+            <territoryAlias type="156" replacement="CN" reason="overlong"/> <!-- China -->
+            <territoryAlias type="170" replacement="CO" reason="overlong"/> <!-- Colombia -->
+            <territoryAlias type="188" replacement="CR" reason="overlong"/> <!-- Costa Rica -->
+            <territoryAlias type="891" replacement="RS ME" reason="overlong"/> <!-- Serbia and Montenegro -->
+            <territoryAlias type="192" replacement="CU" reason="overlong"/> <!-- Cuba -->
+            <territoryAlias type="132" replacement="CV" reason="overlong"/> <!-- Cape Verde -->
+            <territoryAlias type="162" replacement="CX" reason="overlong"/> <!-- Christmas Island -->
+            <territoryAlias type="196" replacement="CY" reason="overlong"/> <!-- Cyprus -->
+            <territoryAlias type="203" replacement="CZ" reason="overlong"/> <!-- Czech Republic -->
+            <territoryAlias type="278" replacement="DE" reason="overlong"/> <!-- East Germany -->
+            <territoryAlias type="276" replacement="DE" reason="overlong"/> <!-- Germany -->
+            <territoryAlias type="262" replacement="DJ" reason="overlong"/> <!-- Djibouti -->
+            <territoryAlias type="208" replacement="DK" reason="overlong"/> <!-- Denmark -->
+            <territoryAlias type="212" replacement="DM" reason="overlong"/> <!-- Dominica -->
+            <territoryAlias type="214" replacement="DO" reason="overlong"/> <!-- Dominican Republic -->
+            <territoryAlias type="012" replacement="DZ" reason="overlong"/> <!-- Algeria -->
+            <territoryAlias type="218" replacement="EC" reason="overlong"/> <!-- Ecuador -->
+            <territoryAlias type="233" replacement="EE" reason="overlong"/> <!-- Estonia -->
+            <territoryAlias type="818" replacement="EG" reason="overlong"/> <!-- Egypt -->
+            <territoryAlias type="732" replacement="EH" reason="overlong"/> <!-- Western Sahara -->
+            <territoryAlias type="232" replacement="ER" reason="overlong"/> <!-- Eritrea -->
+            <territoryAlias type="724" replacement="ES" reason="overlong"/> <!-- Spain -->
+            <territoryAlias type="231" replacement="ET" reason="overlong"/> <!-- Ethiopia -->
+            <territoryAlias type="246" replacement="FI" reason="overlong"/> <!-- Finland -->
+            <territoryAlias type="242" replacement="FJ" reason="overlong"/> <!-- Fiji -->
+            <territoryAlias type="238" replacement="FK" reason="overlong"/> <!-- Falkland Islands -->
+            <territoryAlias type="583" replacement="FM" reason="overlong"/> <!-- Micronesia -->
+            <territoryAlias type="234" replacement="FO" reason="overlong"/> <!-- Faroe Islands -->
+            <territoryAlias type="250" replacement="FR" reason="overlong"/> <!-- France -->
+            <territoryAlias type="249" replacement="FR" reason="overlong"/> <!-- Metropolitan France -->
+            <territoryAlias type="266" replacement="GA" reason="overlong"/> <!-- Gabon -->
+            <territoryAlias type="826" replacement="GB" reason="overlong"/> <!-- United Kingdom -->
+            <territoryAlias type="308" replacement="GD" reason="overlong"/> <!-- Grenada -->
+            <territoryAlias type="268" replacement="GE" reason="overlong"/> <!-- Georgia -->
+            <territoryAlias type="254" replacement="GF" reason="overlong"/> <!-- French Guiana -->
+            <territoryAlias type="831" replacement="GG" reason="overlong"/> <!-- Guernsey -->
+            <territoryAlias type="288" replacement="GH" reason="overlong"/> <!-- Ghana -->
+            <territoryAlias type="292" replacement="GI" reason="overlong"/> <!-- Gibraltar -->
+            <territoryAlias type="304" replacement="GL" reason="overlong"/> <!-- Greenland -->
+            <territoryAlias type="270" replacement="GM" reason="overlong"/> <!-- Gambia -->
+            <territoryAlias type="324" replacement="GN" reason="overlong"/> <!-- Guinea -->
+            <territoryAlias type="312" replacement="GP" reason="overlong"/> <!-- Guadeloupe -->
+            <territoryAlias type="226" replacement="GQ" reason="overlong"/> <!-- Equatorial Guinea -->
+            <territoryAlias type="300" replacement="GR" reason="overlong"/> <!-- Greece -->
+            <territoryAlias type="239" replacement="GS" reason="overlong"/> <!-- South Georgia and the South Sandwich Islands -->
+            <territoryAlias type="320" replacement="GT" reason="overlong"/> <!-- Guatemala -->
+            <territoryAlias type="316" replacement="GU" reason="overlong"/> <!-- Guam -->
+            <territoryAlias type="624" replacement="GW" reason="overlong"/> <!-- Guinea-Bissau -->
+            <territoryAlias type="328" replacement="GY" reason="overlong"/> <!-- Guyana -->
+            <territoryAlias type="344" replacement="HK" reason="overlong"/> <!-- Hong Kong SAR China -->
+            <territoryAlias type="334" replacement="HM" reason="overlong"/> <!-- Heard Island and McDonald Islands -->
+            <territoryAlias type="340" replacement="HN" reason="overlong"/> <!-- Honduras -->
+            <territoryAlias type="191" replacement="HR" reason="overlong"/> <!-- Croatia -->
+            <territoryAlias type="332" replacement="HT" reason="overlong"/> <!-- Haiti -->
+            <territoryAlias type="348" replacement="HU" reason="overlong"/> <!-- Hungary -->
+            <territoryAlias type="360" replacement="ID" reason="overlong"/> <!-- Indonesia -->
+            <territoryAlias type="372" replacement="IE" reason="overlong"/> <!-- Ireland -->
+            <territoryAlias type="376" replacement="IL" reason="overlong"/> <!-- Israel -->
+            <territoryAlias type="833" replacement="IM" reason="overlong"/> <!-- Isle of Man -->
+            <territoryAlias type="356" replacement="IN" reason="overlong"/> <!-- India -->
+            <territoryAlias type="086" replacement="IO" reason="overlong"/> <!-- British Indian Ocean Territory -->
+            <territoryAlias type="368" replacement="IQ" reason="overlong"/> <!-- Iraq -->
+            <territoryAlias type="364" replacement="IR" reason="overlong"/> <!-- Iran -->
+            <territoryAlias type="352" replacement="IS" reason="overlong"/> <!-- Iceland -->
+            <territoryAlias type="380" replacement="IT" reason="overlong"/> <!-- Italy -->
+            <territoryAlias type="832" replacement="JE" reason="overlong"/> <!-- Jersey -->
+            <territoryAlias type="388" replacement="JM" reason="overlong"/> <!-- Jamaica -->
+            <territoryAlias type="400" replacement="JO" reason="overlong"/> <!-- Jordan -->
+            <territoryAlias type="392" replacement="JP" reason="overlong"/> <!-- Japan -->
+            <territoryAlias type="404" replacement="KE" reason="overlong"/> <!-- Kenya -->
+            <territoryAlias type="417" replacement="KG" reason="overlong"/> <!-- Kyrgyzstan -->
+            <territoryAlias type="116" replacement="KH" reason="overlong"/> <!-- Cambodia -->
+            <territoryAlias type="296" replacement="KI" reason="overlong"/> <!-- Kiribati -->
+            <territoryAlias type="174" replacement="KM" reason="overlong"/> <!-- Comoros -->
+            <territoryAlias type="659" replacement="KN" reason="overlong"/> <!-- Saint Kitts and Nevis -->
+            <territoryAlias type="408" replacement="KP" reason="overlong"/> <!-- North Korea -->
+            <territoryAlias type="410" replacement="KR" reason="overlong"/> <!-- South Korea -->
+            <territoryAlias type="414" replacement="KW" reason="overlong"/> <!-- Kuwait -->
+            <territoryAlias type="136" replacement="KY" reason="overlong"/> <!-- Cayman Islands -->
+            <territoryAlias type="398" replacement="KZ" reason="overlong"/> <!-- Kazakhstan -->
+            <territoryAlias type="418" replacement="LA" reason="overlong"/> <!-- Laos -->
+            <territoryAlias type="422" replacement="LB" reason="overlong"/> <!-- Lebanon -->
+            <territoryAlias type="662" replacement="LC" reason="overlong"/> <!-- Saint Lucia -->
+            <territoryAlias type="438" replacement="LI" reason="overlong"/> <!-- Liechtenstein -->
+            <territoryAlias type="144" replacement="LK" reason="overlong"/> <!-- Sri Lanka -->
+            <territoryAlias type="430" replacement="LR" reason="overlong"/> <!-- Liberia -->
+            <territoryAlias type="426" replacement="LS" reason="overlong"/> <!-- Lesotho -->
+            <territoryAlias type="440" replacement="LT" reason="overlong"/> <!-- Lithuania -->
+            <territoryAlias type="442" replacement="LU" reason="overlong"/> <!-- Luxembourg -->
+            <territoryAlias type="428" replacement="LV" reason="overlong"/> <!-- Latvia -->
+            <territoryAlias type="434" replacement="LY" reason="overlong"/> <!-- Libya -->
+            <territoryAlias type="504" replacement="MA" reason="overlong"/> <!-- Morocco -->
+            <territoryAlias type="492" replacement="MC" reason="overlong"/> <!-- Monaco -->
+            <territoryAlias type="498" replacement="MD" reason="overlong"/> <!-- Moldova -->
+            <territoryAlias type="499" replacement="ME" reason="overlong"/> <!-- Montenegro -->
+            <territoryAlias type="663" replacement="MF" reason="overlong"/> <!-- Saint Martin -->
+            <territoryAlias type="450" replacement="MG" reason="overlong"/> <!-- Madagascar -->
+            <territoryAlias type="584" replacement="MH" reason="overlong"/> <!-- Marshall Islands -->
+            <territoryAlias type="807" replacement="MK" reason="overlong"/> <!-- Macedonia -->
+            <territoryAlias type="466" replacement="ML" reason="overlong"/> <!-- Mali -->
+            <territoryAlias type="104" replacement="MM" reason="overlong"/> <!-- Myanmar [Burma] -->
+            <territoryAlias type="496" replacement="MN" reason="overlong"/> <!-- Mongolia -->
+            <territoryAlias type="446" replacement="MO" reason="overlong"/> <!-- Macau SAR China -->
+            <territoryAlias type="580" replacement="MP" reason="overlong"/> <!-- Northern Mariana Islands -->
+            <territoryAlias type="474" replacement="MQ" reason="overlong"/> <!-- Martinique -->
+            <territoryAlias type="478" replacement="MR" reason="overlong"/> <!-- Mauritania -->
+            <territoryAlias type="500" replacement="MS" reason="overlong"/> <!-- Montserrat -->
+            <territoryAlias type="470" replacement="MT" reason="overlong"/> <!-- Malta -->
+            <territoryAlias type="480" replacement="MU" reason="overlong"/> <!-- Mauritius -->
+            <territoryAlias type="462" replacement="MV" reason="overlong"/> <!-- Maldives -->
+            <territoryAlias type="454" replacement="MW" reason="overlong"/> <!-- Malawi -->
+            <territoryAlias type="484" replacement="MX" reason="overlong"/> <!-- Mexico -->
+            <territoryAlias type="458" replacement="MY" reason="overlong"/> <!-- Malaysia -->
+            <territoryAlias type="508" replacement="MZ" reason="overlong"/> <!-- Mozambique -->
+            <territoryAlias type="516" replacement="NA" reason="overlong"/> <!-- Namibia -->
+            <territoryAlias type="540" replacement="NC" reason="overlong"/> <!-- New Caledonia -->
+            <territoryAlias type="562" replacement="NE" reason="overlong"/> <!-- Niger -->
+            <territoryAlias type="574" replacement="NF" reason="overlong"/> <!-- Norfolk Island -->
+            <territoryAlias type="566" replacement="NG" reason="overlong"/> <!-- Nigeria -->
+            <territoryAlias type="558" replacement="NI" reason="overlong"/> <!-- Nicaragua -->
+            <territoryAlias type="528" replacement="NL" reason="overlong"/> <!-- Netherlands -->
+            <territoryAlias type="578" replacement="NO" reason="overlong"/> <!-- Norway -->
+            <territoryAlias type="524" replacement="NP" reason="overlong"/> <!-- Nepal -->
+            <territoryAlias type="520" replacement="NR" reason="overlong"/> <!-- Nauru -->
+            <territoryAlias type="536" replacement="SA IQ" reason="overlong"/> <!-- Neutral Zone -->
+            <territoryAlias type="570" replacement="NU" reason="overlong"/> <!-- Niue -->
+            <territoryAlias type="554" replacement="NZ" reason="overlong"/> <!-- New Zealand -->
+            <territoryAlias type="512" replacement="OM" reason="overlong"/> <!-- Oman -->
+            <territoryAlias type="591" replacement="PA" reason="overlong"/> <!-- Panama -->
+            <territoryAlias type="604" replacement="PE" reason="overlong"/> <!-- Peru -->
+            <territoryAlias type="258" replacement="PF" reason="overlong"/> <!-- French Polynesia -->
+            <territoryAlias type="598" replacement="PG" reason="overlong"/> <!-- Papua New Guinea -->
+            <territoryAlias type="608" replacement="PH" reason="overlong"/> <!-- Philippines -->
+            <territoryAlias type="586" replacement="PK" reason="overlong"/> <!-- Pakistan -->
+            <territoryAlias type="616" replacement="PL" reason="overlong"/> <!-- Poland -->
+            <territoryAlias type="666" replacement="PM" reason="overlong"/> <!-- Saint Pierre and Miquelon -->
+            <territoryAlias type="612" replacement="PN" reason="overlong"/> <!-- Pitcairn Islands -->
+            <territoryAlias type="630" replacement="PR" reason="overlong"/> <!-- Puerto Rico -->
+            <territoryAlias type="275" replacement="PS" reason="overlong"/> <!-- Palestinian Territories -->
+            <territoryAlias type="620" replacement="PT" reason="overlong"/> <!-- Portugal -->
+            <territoryAlias type="585" replacement="PW" reason="overlong"/> <!-- Palau -->
+            <territoryAlias type="600" replacement="PY" reason="overlong"/> <!-- Paraguay -->
+            <territoryAlias type="634" replacement="QA" reason="overlong"/> <!-- Qatar -->
+            <territoryAlias type="638" replacement="RE" reason="overlong"/> <!-- Réunion -->
+            <territoryAlias type="642" replacement="RO" reason="overlong"/> <!-- Romania -->
+            <territoryAlias type="688" replacement="RS" reason="overlong"/> <!-- Serbia -->
+            <territoryAlias type="643" replacement="RU" reason="overlong"/> <!-- Russia -->
+            <territoryAlias type="646" replacement="RW" reason="overlong"/> <!-- Rwanda -->
+            <territoryAlias type="682" replacement="SA" reason="overlong"/> <!-- Saudi Arabia -->
+            <territoryAlias type="090" replacement="SB" reason="overlong"/> <!-- Solomon Islands -->
+            <territoryAlias type="690" replacement="SC" reason="overlong"/> <!-- Seychelles -->
+            <territoryAlias type="736" replacement="SD" reason="overlong"/> <!-- Sudan -->
+            <territoryAlias type="752" replacement="SE" reason="overlong"/> <!-- Sweden -->
+            <territoryAlias type="702" replacement="SG" reason="overlong"/> <!-- Singapore -->
+            <territoryAlias type="654" replacement="SH" reason="overlong"/> <!-- Saint Helena -->
+            <territoryAlias type="705" replacement="SI" reason="overlong"/> <!-- Slovenia -->
+            <territoryAlias type="744" replacement="SJ" reason="overlong"/> <!-- Svalbard and Jan Mayen -->
+            <territoryAlias type="703" replacement="SK" reason="overlong"/> <!-- Slovakia -->
+            <territoryAlias type="694" replacement="SL" reason="overlong"/> <!-- Sierra Leone -->
+            <territoryAlias type="674" replacement="SM" reason="overlong"/> <!-- San Marino -->
+            <territoryAlias type="686" replacement="SN" reason="overlong"/> <!-- Senegal -->
+            <territoryAlias type="706" replacement="SO" reason="overlong"/> <!-- Somalia -->
+            <territoryAlias type="740" replacement="SR" reason="overlong"/> <!-- Suriname -->
+            <territoryAlias type="678" replacement="ST" reason="overlong"/> <!-- São Tomé and Príncipe -->
+            <territoryAlias type="810" replacement="RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ" reason="overlong"/> <!-- Union of Soviet Socialist Republics -->
+            <territoryAlias type="222" replacement="SV" reason="overlong"/> <!-- El Salvador -->
+            <territoryAlias type="760" replacement="SY" reason="overlong"/> <!-- Syria -->
+            <territoryAlias type="748" replacement="SZ" reason="overlong"/> <!-- Swaziland -->
+            <territoryAlias type="796" replacement="TC" reason="overlong"/> <!-- Turks and Caicos Islands -->
+            <territoryAlias type="148" replacement="TD" reason="overlong"/> <!-- Chad -->
+            <territoryAlias type="260" replacement="TF" reason="overlong"/> <!-- French Southern Territories -->
+            <territoryAlias type="768" replacement="TG" reason="overlong"/> <!-- Togo -->
+            <territoryAlias type="764" replacement="TH" reason="overlong"/> <!-- Thailand -->
+            <territoryAlias type="762" replacement="TJ" reason="overlong"/> <!-- Tajikistan -->
+            <territoryAlias type="772" replacement="TK" reason="overlong"/> <!-- Tokelau -->
+            <territoryAlias type="626" replacement="TL" reason="overlong"/> <!-- Timor-Leste -->
+            <territoryAlias type="795" replacement="TM" reason="overlong"/> <!-- Turkmenistan -->
+            <territoryAlias type="788" replacement="TN" reason="overlong"/> <!-- Tunisia -->
+            <territoryAlias type="776" replacement="TO" reason="overlong"/> <!-- Tonga -->
+            <territoryAlias type="792" replacement="TR" reason="overlong"/> <!-- Turkey -->
+            <territoryAlias type="780" replacement="TT" reason="overlong"/> <!-- Trinidad and Tobago -->
+            <territoryAlias type="798" replacement="TV" reason="overlong"/> <!-- Tuvalu -->
+            <territoryAlias type="158" replacement="TW" reason="overlong"/> <!-- Taiwan -->
+            <territoryAlias type="834" replacement="TZ" reason="overlong"/> <!-- Tanzania -->
+            <territoryAlias type="804" replacement="UA" reason="overlong"/> <!-- Ukraine -->
+            <territoryAlias type="800" replacement="UG" reason="overlong"/> <!-- Uganda -->
+            <territoryAlias type="581" replacement="UM" reason="overlong"/> <!-- U.S. Minor Outlying Islands -->
+            <territoryAlias type="840" replacement="US" reason="overlong"/> <!-- United States -->
+            <territoryAlias type="858" replacement="UY" reason="overlong"/> <!-- Uruguay -->
+            <territoryAlias type="860" replacement="UZ" reason="overlong"/> <!-- Uzbekistan -->
+            <territoryAlias type="336" replacement="VA" reason="overlong"/> <!-- Vatican City -->
+            <territoryAlias type="670" replacement="VC" reason="overlong"/> <!-- Saint Vincent and the Grenadines -->
+            <territoryAlias type="862" replacement="VE" reason="overlong"/> <!-- Venezuela -->
+            <territoryAlias type="092" replacement="VG" reason="overlong"/> <!-- British Virgin Islands -->
+            <territoryAlias type="850" replacement="VI" reason="overlong"/> <!-- U.S. Virgin Islands -->
+            <territoryAlias type="704" replacement="VN" reason="overlong"/> <!-- Vietnam -->
+            <territoryAlias type="548" replacement="VU" reason="overlong"/> <!-- Vanuatu -->
+            <territoryAlias type="876" replacement="WF" reason="overlong"/> <!-- Wallis and Futuna -->
+            <territoryAlias type="882" replacement="WS" reason="overlong"/> <!-- Samoa -->
+            <territoryAlias type="720" replacement="YE" reason="overlong"/> <!-- People's Democratic Republic of Yemen -->
+            <territoryAlias type="887" replacement="YE" reason="overlong"/> <!-- Yemen -->
+            <territoryAlias type="175" replacement="YT" reason="overlong"/> <!-- Mayotte -->
+            <territoryAlias type="710" replacement="ZA" reason="overlong"/> <!-- South Africa -->
+            <territoryAlias type="894" replacement="ZM" reason="overlong"/> <!-- Zambia -->
+            <territoryAlias type="716" replacement="ZW" reason="overlong"/> <!-- Zimbabwe -->
+            <territoryAlias type="999" replacement="ZZ" reason="overlong"/> <!-- Unknown or Invalid Region -->
             <!-- variants -->
             <variantAlias type="BOKMAL" reason="deprecated"/>
             <variantAlias type="NYNORSK" reason="deprecated"/>

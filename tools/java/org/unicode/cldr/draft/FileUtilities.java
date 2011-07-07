@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -218,4 +219,13 @@ public final class FileUtilities {
             throw new IllegalArgumentException(e); // dang'd checked exceptions
         }
     }
+
+    public static String getRelativeFileName(Class class1, String filename) {
+        URL resource = class1.getResource(filename);
+        String resourceString = resource.toString();
+        if (!resourceString.startsWith("file:")) {
+          throw new IllegalArgumentException("File not found: " + "");
+        }
+        return resourceString.substring(5);
+      }
 }

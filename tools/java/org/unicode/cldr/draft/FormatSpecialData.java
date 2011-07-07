@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Map;
@@ -33,7 +32,7 @@ public class FormatSpecialData {
   public static final UnicodeSet specialIPA = new UnicodeSet("[βΒ θΘ χΧ]");
 
   public static void main(String[] args) throws IOException {
-    String resource = getRelativeFileName(FormatSpecialData.class, "ScriptData.txt");
+    String resource = FileUtilities.getRelativeFileName(FormatSpecialData.class, "ScriptData.txt");
     final UnicodeMap<Set<String>> pivot = new UnicodeMap<Set<String>>();;
 
     Map<RemapType, Map<String,UnicodeSet>> data = ScriptCategories.getRemapData(resource);
@@ -152,15 +151,6 @@ public class FormatSpecialData {
       }
       return CollectionUtilities.join(fixed, " ");
     }
-  }
-
-  public static String getRelativeFileName(Class class1, String filename) {
-    URL resource = FormatSpecialData.class.getResource(filename);
-    String resourceString = resource.toString();
-    if (!resourceString.startsWith("file:")) {
-      throw new IllegalArgumentException("File not found: " + "");
-    }
-    return resourceString.substring(5);
   }
 
   // should be in Utilities

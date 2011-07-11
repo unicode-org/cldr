@@ -18,10 +18,10 @@ Expires: December 24, 2011                                        Lab126
 Abstract
 
    This document specifies an Extension to BCP 47 which provides subtags
-   for specifying the source language or script of transformed text,
-   including text that has been transliterated, transcribed, or
-   translated.  It also provides for additional information used for
-   identification.
+   for specifying the source language or script of transformed content,
+   including content that has been transliterated, transcribed, or
+   translated, or in some other way influenced by the source.  It also
+   provides for additional information used for identification.
 
 Status of this Memo
 
@@ -65,21 +65,21 @@ Table of Contents
 
    1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . . .  3
      1.1.  Requirements Language  . . . . . . . . . . . . . . . . . .  3
-   2.  BCP47 Required Information . . . . . . . . . . . . . . . . . .  3
-     2.1.  Introduction . . . . . . . . . . . . . . . . . . . . . . .  3
+   2.  BCP47 Required Information . . . . . . . . . . . . . . . . . .  4
+     2.1.  Introduction . . . . . . . . . . . . . . . . . . . . . . .  4
      2.2.  Structure  . . . . . . . . . . . . . . . . . . . . . . . .  6
-     2.3.  Canonicalization . . . . . . . . . . . . . . . . . . . . .  6
+     2.3.  Canonicalization . . . . . . . . . . . . . . . . . . . . .  7
      2.4.  BCP47 Registration Form  . . . . . . . . . . . . . . . . .  7
      2.5.  Field Definitions  . . . . . . . . . . . . . . . . . . . .  7
-     2.6.  Registration of Field Subtags  . . . . . . . . . . . . . .  8
+     2.6.  Registration of Field Subtags  . . . . . . . . . . . . . .  9
      2.7.  Machine-Readable Data  . . . . . . . . . . . . . . . . . .  9
-   3.  Acknowledgements . . . . . . . . . . . . . . . . . . . . . . . 10
-   4.  IANA Considerations  . . . . . . . . . . . . . . . . . . . . . 10
-   5.  Security Considerations  . . . . . . . . . . . . . . . . . . . 10
-   6.  References . . . . . . . . . . . . . . . . . . . . . . . . . . 11
-     6.1.  Normative References . . . . . . . . . . . . . . . . . . . 11
-     6.2.  Informative References . . . . . . . . . . . . . . . . . . 11
-   Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 11
+   3.  Acknowledgements . . . . . . . . . . . . . . . . . . . . . . . 11
+   4.  IANA Considerations  . . . . . . . . . . . . . . . . . . . . . 11
+   5.  Security Considerations  . . . . . . . . . . . . . . . . . . . 12
+   6.  References . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+     6.1.  Normative References . . . . . . . . . . . . . . . . . . . 12
+     6.2.  Informative References . . . . . . . . . . . . . . . . . . 12
+   Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 13
 
 
 
@@ -120,16 +120,17 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    applications that understand language tags".  This document defines
    an extension for specifying the source of a text transformation,
    including text that has been transliterated, transcribed, or
-   translated.  The "singleton" identifier for this extension is 't'.
+   translated, or in some other way influenced by the source.  The
+   "singleton" identifier for this extension is 't'.
 
    Language tags, as defined by [BCP47], are useful for identifying the
    language of content.  There are mechanisms for specifying variant
    subtags for special purposes.  However, these variants are
-   insufficient for specifying text transformations, including text that
-   has been transliterated, transcribed, or translated.  That is, for
-   fully specifying such text, it is important to specify the source
-   language and/or script.  In addition, it may also be important to
-   identify a particular specification for the transformation.
+   insufficient for specifying text transformations, including content
+   that has been transliterated, transcribed, or translated.  That is,
+   for fully specifying such content, it is important to specify the
+   source language and/or script.  In addition, it may also be important
+   to identify a particular specification for the transformation.
 
    For example, if one is transcribing the names of Italian or Russian
    cities on a map for Japanese users, each name will need to be
@@ -147,11 +148,25 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    data that has been converted (mechanically or by hand) according to a
    transliteration method.
 
+   The usage of this extension is not limited to formal transformations,
+   and may include other instances where the content is in some other
+   way influenced by the source.  For example, this extension could be
+   used to designate a request for a speech recognizer that is tailored
+   specifically for 2nd-language speakers who are 1st-language speakers
+   of a particular language (e.g. a recognizer for "English spoken with
+   a Chinese accent").
+
 1.1.  Requirements Language
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in RFC 2119.
+
+
+
+Davis, et al.           Expires December 24, 2011               [Page 3]
+
+Internet-Draft         BCP 47 Transform Extension              June 2011
 
 
 2.  BCP47 Required Information
@@ -161,14 +176,6 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    Identification of transforms can be done using the 't' extension
    defined in this document.  This extension is formed by the 't'
    singleton followed by a sequence of subtags that would form a
-
-
-
-Davis, et al.           Expires December 24, 2011               [Page 3]
-
-Internet-Draft         BCP 47 Transform Extension              June 2011
-
-
    language tag defined by [BCP47].  This allows for the source language
    or script to be specified to the degree of precision required.  There
    are restrictions on the sequence of subtags.  They MUST form a
@@ -211,19 +218,14 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    transliterations and transcriptions.  It uses the 'm0' field
    separator followed by certain subtags.
 
-   For example:
-
-
-
-
-
-
 
 
 Davis, et al.           Expires December 24, 2011               [Page 4]
 
 Internet-Draft         BCP 47 Transform Extension              June 2011
 
+
+   For example:
 
    +------------------------------------+------------------------------+
    | Language Tag                       | Description                  |
@@ -270,9 +272,7 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    | Discussion    | cldr-users@unicode.org                            |
    | List Email    |                                                   |
    | URL Location  | cldr.unicode.org                                  |
-   | Specification | Unicode Technical Standard #35 Unicode Locale     |
-   |               | Data Markup Language (LDML),                      |
-   |               | http://unicode.org/reports/tr35/                  |
+
 
 
 
@@ -281,6 +281,9 @@ Davis, et al.           Expires December 24, 2011               [Page 5]
 Internet-Draft         BCP 47 Transform Extension              June 2011
 
 
+   | Specification | Unicode Technical Standard #35 Unicode Locale     |
+   |               | Data Markup Language (LDML),                      |
+   |               | http://unicode.org/reports/tr35/                  |
    | Section       | Section 3 Unicode Language and Locale Identifiers |
    +---------------+---------------------------------------------------+
 
@@ -288,19 +291,22 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
 
    The subtags in the 't' extension are of the following form:
 
-     +--------+-------------------------+----------------------------+
-     | Label  | ABNF                    | Comment                    |
-     +--------+-------------------------+----------------------------+
-     | t_ext= | "t"                     | Extension                  |
-     |        | ("-" lang *("-" field)  | Source + optional field(s) |
-     |        | / 1*("-" field))        | Field(s) only (no source)  |
-     | lang=  | language                | [BCP47], with restrictions |
-     |        | ["-" script]            |                            |
-     |        | ["-" region]            |                            |
-     |        | *("-" variant)          |                            |
-     | field= | sep 1*("-" 3*8alphanum) | With restrictions          |
-     | sep=   | 1ALPHA 1DIGIT           | Subtag separators          |
-     +--------+-------------------------+----------------------------+
+   t_ext=    "t"                     // Extension
+             ("-" lang *("-" field)  // Source + optional field(s)
+             / 1*("-" field))        // Field(s) only (no source)
+
+   lang=     language                // BCP47, with restrictions
+             ["-" script]
+             ["-" region]
+             *("-" variant)
+
+   field=    sep 1*("-" 3*8alphanum) // With restrictions
+
+   sep=      ALPHA DIGIT             // Subtag separators
+   alphanum= ALPHA / DIGIT
+
+   where <language>, <script>, <region>, and <variant> rules are
+   specified in [BCP47], <ALPHA> and <DIGIT> rules - in [RFC5234].
 
    Description and restrictions:
 
@@ -324,12 +330,6 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
        Technical Standard #35: Unicode Locale Data Markup Language
        [UTS35].
 
-2.3.  Canonicalization
-
-   As required by [BCP47], the use of uppercase or lowercase letters is
-   not significant in the subtags used in this extension.  The canonical
-   form for all subtags in the extension is lowercase, with the fields
-
 
 
 Davis, et al.           Expires December 24, 2011               [Page 6]
@@ -337,6 +337,11 @@ Davis, et al.           Expires December 24, 2011               [Page 6]
 Internet-Draft         BCP 47 Transform Extension              June 2011
 
 
+2.3.  Canonicalization
+
+   As required by [BCP47], the use of uppercase or lowercase letters is
+   not significant in the subtags used in this extension.  The canonical
+   form for all subtags in the extension is lowercase, with the fields
    ordered by the separators, alphabetically.
 
 2.4.  BCP47 Registration Form
@@ -346,7 +351,7 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    %%
    Identifier: t
    Description: Transform Specification
-   Comments: Subtags for the identification of text transforms,
+   Comments: Subtags for the identification of content transforms,
    including transliteration, transcription, and translation.
    Added: 2010-mm-dd
    RFC: [TBD]
@@ -380,11 +385,6 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    One field is initially specified in [UTS35]: the transform mechanism.
    That field is summarized here:
 
-   a.  The transform mechanism consists of a sequence of subtags
-       starting with the 'm0' separator followed by one or more
-       mechanism subtags.  Each mechanism subtag has a length of 3 to 8
-       alphanumeric characters.  The sequence as a whole provides an
-       identification of the specification for the transform, such as
 
 
 
@@ -393,6 +393,11 @@ Davis, et al.           Expires December 24, 2011               [Page 7]
 Internet-Draft         BCP 47 Transform Extension              June 2011
 
 
+   a.  The transform mechanism consists of a sequence of subtags
+       starting with the 'm0' separator followed by one or more
+       mechanism subtags.  Each mechanism subtag has a length of 3 to 8
+       alphanumeric characters.  The sequence as a whole provides an
+       identification of the specification for the transform, such as
        the mechanism subtag 'UNGEGN' in "und-Cyrl-t-und-latn-m0-ungegn".
        In many cases, only one mechanism subtag is necessary, but
        multiple subtags MAY be defined in [UTS35] where necessary.
@@ -425,6 +430,25 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
        If there are multiple subversions distinguished by date, then a
        tag could look like "ja-t-it-m0-xxx-v21a-2007".
 
+   A language tag with the t extension MAY be used to request a specific
+   transform of content.  In such a case, the recipient SHOULD return
+   content that corresponds as closely as feasible to the requested
+   transform, including the specification of the mechanism.  For
+   example, if the request is ja-t-it-m0-xxx-v21a-2007, and the
+   recipient has content corresponding to both ja-t-it-m0-xxx-v21a-2007
+   and ja-t-it-m0-xxx-v21a-2009, then the 2007 version would be
+   preferred.  As is the case for language matching as discussed in
+   [BCP47], different implementations MAY have different measures of
+   "closeness".
+
+
+
+
+Davis, et al.           Expires December 24, 2011               [Page 8]
+
+Internet-Draft         BCP 47 Transform Extension              June 2011
+
+
 2.6.  Registration of Field Subtags
 
    Registration of transform mechanisms is requested by filing a ticket
@@ -438,26 +462,20 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    | Description | A description of the proposed mechanism; that       |
    |             | description MUST be sufficient to distinguish it    |
    |             | from other mechanisms in use.                       |
-
-
-
-
-
-
-Davis, et al.           Expires December 24, 2011               [Page 8]
-
-Internet-Draft         BCP 47 Transform Extension              June 2011
-
-
    | Version     | If versioning for the mechanism is not done         |
    |             | according to date, then a description of the        |
    |             | versioning conventions used for the mechanism.      |
    +-------------+-----------------------------------------------------+
 
+   Proposals for clarifications of descriptions or additional aliases
+   may also be requested by filing a ticket.
+
    The committee MAY request more information be supplied in tickets in
    the future if such information is found to be useful.
 
-   The committee MUST respond to each proposal within 2 weeks.
+   The committee MUST post each proposal publicly within 2 weeks after
+   reception, to allow for comments.  The committee must respond
+   publicly to each proposal within 4 weeks after reception.
 
    The response MAY:
 
@@ -471,14 +489,24 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
       document or in [UTS35]
 
    Accepted tickets result an a new entry in the machine-readable CLDR
-   BCP47 data.
+   BCP47 data, or in the case of a clarified description, modifications
+   to the description attribute value for an existing entry.
 
 2.7.  Machine-Readable Data
 
    EDITORIAL NOTE: The following parallels the structure used for the
    'u' extension [RFC6067], for which the Unicode Consortium is the
    maintaining authority.  The data and specification will be available
-   by the time this internet draft has been approved.
+
+
+
+Davis, et al.           Expires December 24, 2011               [Page 9]
+
+Internet-Draft         BCP 47 Transform Extension              June 2011
+
+
+   by the time this internet draft has been approved.  The discription
+   field is in the process of being added to CLDR.
 
    Beginning with CLDR version 1.7.2, machine-readable files are
    available listing the data defined for BCP47 extensions for each
@@ -488,23 +516,64 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    "http://unicode.org/Public/cldr/<version>", where "<version>" is
    replaced by the release number.  For example, for version 1.7.2, the
    "core.zip" file is located at
-   http://unicode.org/Public/cldr/1.7.2/core.zip [3].  Inside the
-   "core.zip" file, the path "common/bcp47" contains the data files
-   defining the data defined for BCP47 extensions.  The most recent
+   http://unicode.org/Public/cldr/1.7.2/core.zip [3].  The most recent
    version is always identified by the version "latest" and can be
    accessed by the URL in Section 2.4.
 
-   To get the version information in XML when working with the data
-   files, the XML parser must be validating.  When the 'core.zip' file
-   is unzipped, the 'dtd' directory will be at the same level as the
+   Inside the "core.zip" file, the directory "common/bcp47" contains the
+   data files listing the valid attributes, keys, and types for each
+   successive version of [UTS35].  Each data file list the keys and
+   types relevant to that topic.  For example, mechanism.xml contains
+   the subtags (types) for the t mechanisms.
+
+   The XML structure lists the keys, such as <key name="co"
+   alias="collation">, with subelements for the types, such as <type
+   name="phonebk" alias="phonebook"/>.  The currently defined attributes
+   for the mechanisms include:
+
+   +-------------+-------------------------------+---------------------+
+   | Attribute   | Description                   | Examples            |
+   +-------------+-------------------------------+---------------------+
+   | name        | The name of the mechanism,    | UNGEGN, ALALC       |
+   |             | limited to 3-8 characters (or |                     |
+   |             | sequences of them).           |                     |
+   | description | A description of the name,    | United Nations      |
+   |             | with all and only that        | Group of Experts on |
+   |             | information necessary to      | Geographical Names; |
+   |             | distinguish one name from     | American Library    |
+   |             | others with which it might be | Association-Library |
+   |             | confused.  Descriptions are   | of Congress         |
+   |             | not intended to provide       |                     |
+   |             | general background            |                     |
+   |             | information.                  |                     |
+   | since       | Indicates the first version   | 1.9, 2.0.1          |
+   |             | of CLDR where the name        |                     |
+   |             | appears.                      |                     |
 
 
 
-Davis, et al.           Expires December 24, 2011               [Page 9]
+
+
+
+
+Davis, et al.           Expires December 24, 2011              [Page 10]
 
 Internet-Draft         BCP 47 Transform Extension              June 2011
 
 
+   | alias       | Alternative name of the key   |                     |
+   |             | or type, not limited in       |                     |
+   |             | number of characters.         |                     |
+   |             | Aliases are intended for      |                     |
+   |             | backwards compatibility, not  |                     |
+   |             | to provide all possible       |                     |
+   |             | alternate names or            |                     |
+   |             | designations                  |                     |
+   +-------------+-------------------------------+---------------------+
+
+   To get the version information in XML when working with the data
+   files, the XML parser must be validating.  When the 'core.zip' file
+   is unzipped, the 'dtd' directory will be at the same level as the
    'bcp47' directory; that is required for correct validation.  For each
    release after CLDR 1.8, types introduced in that release are also
    marked in the data files by the XML attribute "since", such as in the
@@ -518,6 +587,9 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    o  http://unicode.org/repos/cldr/tags/release-1-7-2/common/bcp47/
 
    o  http://unicode.org/repos/cldr/tags/release-1-8/common/bcp47/
+
+   For more information, see
+   http://cldr.unicode.org/index/bcp47-extension.
 
 
 3.  Acknowledgements
@@ -537,6 +609,14 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    can be submitted to IANA without the publication of a new RFC are
    limited to modification of the Comments, Contact_Email, Mailing_List,
    and URL fields.  Any such requested changes MUST use the domain
+
+
+
+Davis, et al.           Expires December 24, 2011              [Page 11]
+
+Internet-Draft         BCP 47 Transform Extension              June 2011
+
+
    'unicode.org' in any new addresses or URIs, MUST explicitly cite this
    document (so that IANA can reference these requirements), and MUST
    originate from the 'unicode.org' domain.  The domain or authority can
@@ -553,37 +633,22 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
    [BCP47].
 
 
-
-
-
-Davis, et al.           Expires December 24, 2011              [Page 10]
-
-Internet-Draft         BCP 47 Transform Extension              June 2011
-
-
 6.  References
 
 6.1.  Normative References
 
-   [BCP47]    Davis, M., Ed., "Tags for the Identification of Language
-              (BCP47)", September 2009.
+   [BCP47]    Davis, M., Ed. and A. Phillips, Ed., "Tags for the
+              Identification of Language (BCP47)", September 2009.
 
-   [RFC6067]  Davis, M., Ed., "BCP 47 Extension U", September 2010.
+   [RFC5234]  Crocker, Ed., "Augmented BNF for Syntax Specifications:
+              ABNF", 2008.
 
-   [US-ASCII]
-              International Organization for Standardization, "ISO/IEC
-              646:1991, Information technology -- ISO 7-bit coded
-              character set for information interchange.", 1991.
+   [RFC6067]  Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed.,
+              "BCP 47 Extension U", September 2010.
 
    [UTS35]    Davis, M., "Unicode Technical Standard #35: Locale Data
               Markup Language (LDML)", December 2007,
               <http://www.unicode.org/reports/tr35/>.
-
-              Section 3: http://unicode.org/reports/
-              tr35/#Unicode_Language_and_Locale_Identifiers
-
-              Appendix Q: http://unicode.org/reports/
-              tr35/#Locale_Extension_Key_and_Type_Data
 
 6.2.  Informative References
 
@@ -600,21 +665,20 @@ URIs
    [3]  <http://unicode.org/Public/cldr/1.7.2/>
 
 
+
+
+
+Davis, et al.           Expires December 24, 2011              [Page 12]
+
+Internet-Draft         BCP 47 Transform Extension              June 2011
+
+
 Authors' Addresses
 
    Mark Davis
    Google
 
    Email: mark@macchiato.com
-
-
-
-
-
-
-Davis, et al.           Expires December 24, 2011              [Page 11]
-
-Internet-Draft         BCP 47 Transform Extension              June 2011
 
 
    Addison Phillips
@@ -660,13 +724,5 @@ Internet-Draft         BCP 47 Transform Extension              June 2011
 
 
 
-
-
-
-
-
-
-
-
-Davis, et al.           Expires December 24, 2011              [Page 12]
+Davis, et al.           Expires December 24, 2011              [Page 13]
 

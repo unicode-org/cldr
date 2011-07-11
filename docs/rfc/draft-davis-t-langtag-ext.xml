@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="US-ASCII"?>
-<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!DOCTYPE rfc SYSTEM "../rfc2629.dtd" [
 <!ENTITY RFC4646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4646.xml">
 <!ENTITY rfc5646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5646.xml">
 ]>
@@ -72,11 +72,11 @@
 				which provides
 				subtags
 				for specifying the source language or script of transformed
-				text,
-				including text
+				content,
+				including content
 				that
 				has been transliterated, transcribed, or
-				translated. It also provides for additional information used for
+				translated, or in some other way influenced by the source. It also provides for additional information used for
 				identification.
 			</t>
 		</abstract>
@@ -93,7 +93,7 @@
 				extension for
 				specifying the source of a text transformation,
 				including text that has been transliterated, transcribed, or
-				translated.
+				translated, or in some other way influenced by the source.
 				The "singleton" identifier for this extension is 't'.
 			</t>
 			<t>
@@ -103,13 +103,13 @@
 				mechanisms for specifying variant subtags for special purposes.
 				However, these variants are insufficient for specifying text
 				transformations,
-				including text that has been
+				including content that has been
 				transliterated,
 				transcribed, or
 				translated.
 				That
 				is, for fully
-				specifying such text, it
+				specifying such content, it
 				is important to specify the
 				source language
 				and/or script.
@@ -152,6 +152,11 @@
 				(mechanically or by
 				hand) according to a
 				transliteration method.</t>
+				<t>The usage of this extension is not limited to formal transformations, 
+				and may include other instances where the content is in some other way influenced by the source. 
+				For example, this extension could be used to designate a request for a speech recognizer 
+				that is tailored specifically for 2nd-language speakers who are 
+				1st-language speakers of a particular language (e.g. a recognizer for "English spoken with a Chinese accent").</t>
 			<section title="Requirements Language">
 				<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
 					NOT",
@@ -328,51 +333,25 @@
             </section>
 			<section title="Structure">
 				<t>The subtags in the 't' extension are of the following form:</t>
+<figure>			
+<artwork>
+t_ext=    "t"                     // Extension
+          ("-" lang *("-" field)  // Source + optional field(s)
+          / 1*("-" field))        // Field(s) only (no source)
 
-				<texttable>
-					<ttcol>Label</ttcol>
-					<ttcol>ABNF</ttcol>
-					<ttcol>Comment</ttcol>
+lang=     language                // BCP47, with restrictions
+          ["-" script]
+          ["-" region]
+          *("-" variant)
 
-					<c>t_ext=</c>
-					<c>"t"</c>
-					<c>Extension</c>
+field=    sep 1*("-" 3*8alphanum) // With restrictions
 
-                    <c></c>
-                    <c>("-" lang *("-" field)</c>
-                    <c>Source + optional field(s)</c>
-
-                    <c></c>
-                    <c>/ 1*("-" field))</c>
-                    <c>Field(s) only (no source)</c>
-
-					<c>lang=</c>
-					<c>language</c>
-					<c>
-						<xref target="BCP47"></xref>, with restrictions
-					</c>
-
-					<c></c>
-					<c>["-" script]</c>
-					<c></c>
-
-					<c></c>
-					<c>["-" region]</c>
-					<c></c>
-
-					<c></c>
-					<c>*("-" variant)</c>
-					<c></c>
-
-					<c>field=</c>
-					<c>sep 1*("-" 3*8alphanum)</c>
-					<c>With restrictions</c>
-
-					<c>sep=</c>
-					<c>1ALPHA 1DIGIT</c>
-					<c>Subtag separators</c>
-
-				</texttable>
+sep=      ALPHA DIGIT             // Subtag separators
+alphanum= ALPHA / DIGIT
+</artwork>
+</figure>
+                <t>where &lt;language>, &lt;script>, &lt;region>, and &lt;variant> rules are specified in <xref target="BCP47"></xref>,
+                &lt;ALPHA> and &lt;DIGIT> rules - in <xref target="RFC5234"></xref>.</t>
 				<t>Description and restrictions:
 					<list style="letters">
 						<t>The 't' extension MUST have at least one subtag.</t>
@@ -425,7 +404,7 @@
 %%
 Identifier: t
 Description: Transform Specification
-Comments: Subtags for the identification of text transforms,
+Comments: Subtags for the identification of content transforms,
 including transliteration, transcription, and translation.
 Added: 2010-mm-dd
 RFC: [TBD]
@@ -537,11 +516,18 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 							"ja-t-it-m0-xxx-v21a-2007".
 						</t>
 					</list>
+					
 				</t>
+				<t>A language tag with the t extension MAY be used to request a specific transform of content.
+				In such a case, the recipient SHOULD return content that corresponds
+				as closely as feasible to the requested transform, including the specification of the mechanism.
+				For example, if the request is ja-t-it-m0-xxx-v21a-2007,
+				and the recipient has content corresponding to both ja-t-it-m0-xxx-v21a-2007 and ja-t-it-m0-xxx-v21a-2009, then the 2007 version would be preferred.
+				As is the case for language matching as discussed in <xref target="BCP47"></xref>,
+				different implementations MAY have different measures of "closeness".</t>
 			</section>
 			<section title="Registration of Field Subtags" anchor="registration">
-				<t>
-					Registration of transform mechanisms is requested by filing a ticket at
+				<t>Registration of transform mechanisms is requested by filing a ticket at
 					<eref target="http://cldr.unicode.org/">cldr.unicode.org</eref>.
 					The proposal in the ticket MUST contain the following information:</t>
 				<texttable>
@@ -554,9 +540,11 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
                     <c>Version</c>
                     <c>If versioning for the mechanism is not done according to date, then a description of the versioning conventions used for the mechanism.</c>
 				</texttable>
+                <t>Proposals for clarifications of descriptions or additional aliases may also be requested by filing a ticket.</t>
                 <t>The committee MAY request more information be supplied in tickets in the future
                  if such information is found to be useful.</t>
-                <t>The committee MUST respond to each proposal within 2 weeks.</t>
+                <t>The committee MUST post each proposal publicly within 2 weeks after reception,
+                to allow for comments. The committee must respond publicly to each proposal within 4 weeks after reception.</t>
                 <t>The response MAY:
 	                <list style="symbols">
 		                <t>request more information or clarification</t>
@@ -565,9 +553,10 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 		                due to problems with constraints in this document or in <xref target="UTS35"></xref></t>
 	                </list>
 	            </t>
-                <t>Accepted tickets result an a new entry in the machine-readable CLDR BCP47 data.</t>
+                <t>Accepted tickets result an a new entry in the machine-readable CLDR BCP47 data,
+                or in the case of a clarified description, modifications to the description attribute value for an existing entry.</t>
 			</section>
-               <section title="Machine-Readable Data" anchor="machine-readable">
+            <section title="Machine-Readable Data" anchor="machine-readable">
 				<t>
 					EDITORIAL NOTE: The following parallels the structure used for the
 					'u' extension
@@ -578,7 +567,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 					specification will be available by the time this internet
 					draft has
 					been
-					approved.
+					approved. The discription field is in the process of being added to CLDR.
 				</t>
 				<t>
 					Beginning with CLDR version 1.7.2, machine-readable files are
@@ -591,11 +580,39 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 					"&lt;version&gt;" is replaced by the release number. For example,
 					for version 1.7.2, the "core.zip" file is located at
 					<eref target="http://unicode.org/Public/cldr/1.7.2/">http://unicode.org/Public/cldr/1.7.2/core.zip</eref>.
-					Inside the "core.zip" file, the path "common/bcp47" contains the
-					data files defining the data defined for BCP47 extensions. The most
-					recent version is always identified by the version "latest" and can
-					be accessed by the URL in
-					<xref target="regform"></xref>.</t>
+					The most
+                    recent version is always identified by the version "latest" and can
+                    be accessed by the URL in
+                    <xref target="regform"></xref>.</t>
+			     <t>Inside the "core.zip" file, the directory "common/bcp47" contains the
+					data files listing the valid attributes, keys, and types for each successive version of <xref target="UTS35"></xref>.
+					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the t mechanisms.</t>
+					<t>The XML structure lists the keys, such as &lt;key name="co" alias="collation">, with subelements for the types, 
+					such as &lt;type name="phonebk" alias="phonebook"/>. The currently defined attributes for the mechanisms include:</t>
+			     <texttable>
+                    <ttcol>Attribute</ttcol>
+                    <ttcol>Description</ttcol>
+                    <ttcol>Examples</ttcol>
+                    
+                    <c>name</c>
+                    <c>The name of the mechanism, limited to 3-8 characters (or sequences of them).</c>
+                    <c>UNGEGN, ALALC</c>
+                    
+                    <c>description</c>
+                    <c>A description of the name, with all and only that information necessary to distinguish one name
+                     from others with which it might be confused.  Descriptions are not intended to provide general background information.</c>
+                    <c>United Nations Group of Experts on Geographical Names; American Library Association-Library of Congress</c>
+
+                    <c>since</c>
+                    <c>Indicates the first version of CLDR where the name appears.</c>
+                    <c>1.9, 2.0.1</c>
+                    
+                    <c>alias</c>
+                    <c>Alternative name of the key or type, not limited in number of characters. Aliases are intended for backwards compatibility,
+                    not to provide all possible alternate names or designations</c>
+                    <c></c>
+
+				</texttable>
 				<t>
 					To get the version information in XML when working with the data
 					files, the XML parser must be validating. When the 'core.zip' file
@@ -617,6 +634,8 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 						<t>http://unicode.org/repos/cldr/tags/release-1-8/common/bcp47/</t>
 					</list>
 				</t>
+				<t>For more information, see 
+				<eref target="http://cldr.unicode.org/index/bcp47-extension">http://cldr.unicode.org/index/bcp47-extension</eref>.</t>
 			</section>
 		</section>
 		<section anchor="Acknowledgements" title="Acknowledgements">
@@ -676,19 +695,18 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 					</author>
 					<date day="21" month="December" year="2007" />
 				</front>
-				<annotation>Section 3:
-					http://unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers</annotation>
-				<annotation>Appendix Q:
-					http://unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data</annotation>
 			</reference>
 			<reference anchor="BCP47">
 				<front>
 					<title abbrev="BCP47">Tags for the Identification of Language (BCP47)</title>
 					<author initials="M.E." surname="Davis" fullname="Mark Davis"
 						role="editor">
-						<organization><?xm-replace_text {organization}?>
-						</organization>
+						<organization>Google</organization>
 					</author>
+                    <author initials="A." surname="Phillips" fullname="Addison Phillips"
+                        role="editor">
+                        <organization>Lab126</organization>
+                    </author>
 					<date month="September" year="2009" />
 				</front>
 			</reference>
@@ -698,28 +716,39 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 					<author initials="M.E." surname="Davis" fullname="Mark Davis"
 						role="editor"
 					>
-						<organization><?xm-replace_text {organization}?>
+						<organization>Google
 						</organization>
 					</author>
+                    <author initials="A." surname="Phillips" fullname="Addison Phillips"
+                        role="editor">
+                        <organization>Lab126</organization>
+                    </author>
+                    <author initials="Y." surname="Yoshito" fullname="Yoshito Umaoka"
+                        role="editor">
+                        <organization>IBM</organization>
+                    </author>
 					<date month="September" year="2010" />
 				</front>
 			</reference>
-			<reference anchor="US-ASCII">
+			<reference anchor="RFC5234">
 				<front>
-					<title>ISO/IEC 646:1991, Information technology -- ISO 7-bit coded
-						character set for information interchange. </title>
-					<author>
+					<title>Augmented BNF for Syntax Specifications: ABNF</title>
+					<author surname="Crocker" fullname="Dave Crocker"
+                        role="editor">
 						<organization>International Organization for Standardization</organization>
 					</author>
-					<date year="1991" />
+					<date year="2008" />
 					<abstract>
-						<t>This standard defines an International Reference Version (IRV)
-							which corresponds exactly to what is widely known as ASCII or
-							US-ASCII. ISO/IEC 646 was based on the earlier standard ECMA-6.
-							ECMA has maintained its standard up to date with respect to
-							ISO/IEC 646 and makes an electronic copy available at
-							http://www.ecma-international.org/publications/standards/Ecma-006.htm.
-							ISO/IEC 646 JTC 1/SC 2</t>
+						<t>   Internet technical specifications often need to define a formal
+   syntax.  Over the years, a modified version of Backus-Naur Form
+   (BNF), called Augmented BNF (ABNF), has been popular among many
+   Internet specifications.  The current specification documents ABNF.
+   It balances compactness and simplicity with reasonable
+   representational power.  The differences between standard BNF and
+   ABNF involve naming rules, repetition, alternatives, order-
+   independence, and value ranges.  This specification also supplies
+   additional rule definitions and encoding for a core lexical analyzer
+   of the type common to several Internet specifications.</t>
 					</abstract>
 				</front>
 			</reference>

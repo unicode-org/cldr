@@ -161,11 +161,11 @@
 				which provides
 				subtags
 				for specifying the source language or script of transformed
-				text,
-				including text
+				content,
+				including content
 				that
 				has been transliterated, transcribed, or
-				translated. It also provides for additional information used for
+				translated, or in some other way influenced by the source. It also provides for additional information used for
 				identification.
 			
 </p>
@@ -243,7 +243,7 @@ Authors' Addresses<br />
 Introduction</h3>
 
 <p>
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>
+				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>
 				permits the definition and registration of language tag extensions
 				"that contain a language component and are compatible with
 				applications that
@@ -251,24 +251,24 @@ Introduction</h3>
 				extension for
 				specifying the source of a text transformation,
 				including text that has been transliterated, transcribed, or
-				translated.
+				translated, or in some other way influenced by the source.
 				The "singleton" identifier for this extension is 't'.
 			
 </p>
 <p>
 				Language tags, as defined by
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, are useful for identifying the language of content.
+				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, are useful for identifying the language of content.
 				There are
 				mechanisms for specifying variant subtags for special purposes.
 				However, these variants are insufficient for specifying text
 				transformations,
-				including text that has been
+				including content that has been
 				transliterated,
 				transcribed, or
 				translated.
 				That
 				is, for fully
-				specifying such text, it
+				specifying such content, it
 				is important to specify the
 				source language
 				and/or script.
@@ -314,6 +314,12 @@ Introduction</h3>
 				hand) according to a
 				transliteration method.
 </p>
+<p>The usage of this extension is not limited to formal transformations, 
+				and may include other instances where the content is in some other way influenced by the source. 
+				For example, this extension could be used to designate a request for a speech recognizer 
+				that is tailored specifically for 2nd-language speakers who are 
+				1st-language speakers of a particular language (e.g. a recognizer for "English spoken with a Chinese accent").
+</p>
 <a name="anchor2"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.1.1"></a><h3>1.1.&nbsp;
@@ -341,7 +347,7 @@ Introduction</h3>
 					This extension is formed by the 't'
 					singleton followed by a sequence of subtags that would form a
 					language tag defined by
-					<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
+					<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
 					This allows for the source language or script to be specified to
 					the degree of precision required.
 					There are restrictions on the
@@ -389,7 +395,7 @@ Introduction</h3>
 					that the source is in "i-ami", because "i-ami" is not a
 					regular
 					language tag in
-					<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. That tag would express an empty 't' extension followed by an 'i'
+					<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. That tag would express an empty 't' extension followed by an 'i'
 					extension.
 				
 </p>
@@ -450,7 +456,7 @@ Introduction</h3>
 					committee for incorporation into the next version of Unicode
 					CLDR, parallel
 					with the structure of the 'u' extension
-					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
+					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
 					for which it is already the maintaining authority.
 					The data and
 					specification will be available by the time this internet
@@ -508,59 +514,24 @@ Introduction</h3>
 Structure</h3>
 
 <p>The subtags in the 't' extension are of the following form:
-</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
-<col align="left"><col align="left"><col align="left">
-<tr><th align="left">Label</th><th align="left">ABNF</th><th align="left">Comment</th></tr>
-<tr>
-<td align="left">t_ext=</td>
-<td align="left">"t"</td>
-<td align="left">Extension</td>
-</tr>
-<tr>
-<td align="left">&nbsp;</td>
-<td align="left">("-" lang *("-" field)</td>
-<td align="left">Source + optional field(s)</td>
-</tr>
-<tr>
-<td align="left">&nbsp;</td>
-<td align="left">/ 1*("-" field))</td>
-<td align="left">Field(s) only (no source)</td>
-</tr>
-<tr>
-<td align="left">lang=</td>
-<td align="left">language</td>
-<td align="left">
-						<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, with restrictions
-					</td>
-</tr>
-<tr>
-<td align="left">&nbsp;</td>
-<td align="left">["-" script]</td>
-<td align="left">&nbsp;</td>
-</tr>
-<tr>
-<td align="left">&nbsp;</td>
-<td align="left">["-" region]</td>
-<td align="left">&nbsp;</td>
-</tr>
-<tr>
-<td align="left">&nbsp;</td>
-<td align="left">*("-" variant)</td>
-<td align="left">&nbsp;</td>
-</tr>
-<tr>
-<td align="left">field=</td>
-<td align="left">sep 1*("-" 3*8alphanum)</td>
-<td align="left">With restrictions</td>
-</tr>
-<tr>
-<td align="left">sep=</td>
-<td align="left">1ALPHA 1DIGIT</td>
-<td align="left">Subtag separators</td>
-</tr>
-</table>
-<br clear="all" />
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+t_ext=    "t"                     // Extension
+          ("-" lang *("-" field)  // Source + optional field(s)
+          / 1*("-" field))        // Field(s) only (no source)
 
+lang=     language                // BCP47, with restrictions
+          ["-" script]
+          ["-" region]
+          *("-" variant)
+
+field=    sep 1*("-" 3*8alphanum) // With restrictions
+
+sep=      ALPHA DIGIT             // Subtag separators
+alphanum= ALPHA / DIGIT
+</pre></div>
+<p>where &lt;language>, &lt;script>, &lt;region>, and &lt;variant> rules are specified in <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>,
+                &lt;ALPHA> and &lt;DIGIT> rules - in <a class='info' href='#RFC5234'>[RFC5234]<span> (</span><span class='info'>Crocker, Ed., &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; 2008.</span><span>)</span></a>.
+</p>
 <p>Description and restrictions:
 					</p>
 <blockquote class="text"><dl>
@@ -571,7 +542,7 @@ Structure</h3>
 <dd>
 							The 't' extension normally starts with a source language tag,
 							which MUST be a regular, canonical language tag as specified by
-							<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
+							<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>.
 							Tags described by the 'irregular' production in BCP 47 MUST NOT
 							be
 							used to form the language tag.
@@ -613,7 +584,7 @@ Structure</h3>
 Canonicalization</h3>
 
 <p>As required by
-                    <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, the use of uppercase or lowercase letters is not significant in
+                    <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, the use of uppercase or lowercase letters is not significant in
                     the subtags used in this extension. The canonical form for all
                     subtags in the extension is lowercase, with the fields ordered by
                     the separators, alphabetically.
@@ -625,13 +596,13 @@ BCP47 Registration Form</h3>
 
 <p>
                     Per
-                    <a class='info' href='#BCP47'>RFC 5646, Section 3.7<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> [BCP47]:
+                    <a class='info' href='#BCP47'>RFC 5646, Section 3.7<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> [BCP47]:
                 
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
 %%
 Identifier: t
 Description: Transform Specification
-Comments: Subtags for the identification of text transforms,
+Comments: Subtags for the identification of content transforms,
 including transliteration, transcription, and translation.
 Added: 2010-mm-dd
 RFC: [TBD]
@@ -760,15 +731,23 @@ Field Definitions</h3>
 						
 </dd>
 </dl></blockquote><p>
+					
 				
+</p>
+<p>A language tag with the t extension MAY be used to request a specific transform of content.
+				In such a case, the recipient SHOULD return content that corresponds
+				as closely as feasible to the requested transform, including the specification of the mechanism.
+				For example, if the request is ja-t-it-m0-xxx-v21a-2007,
+				and the recipient has content corresponding to both ja-t-it-m0-xxx-v21a-2007 and ja-t-it-m0-xxx-v21a-2009, then the 2007 version would be preferred.
+				As is the case for language matching as discussed in <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>,
+				different implementations MAY have different measures of "closeness".
 </p>
 <a name="registration"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.2.6"></a><h3>2.6.&nbsp;
 Registration of Field Subtags</h3>
 
-<p>
-					Registration of transform mechanisms is requested by filing a ticket at
+<p>Registration of transform mechanisms is requested by filing a ticket at
 					<a href='http://cldr.unicode.org/'>cldr.unicode.org</a>.
 					The proposal in the ticket MUST contain the following information:
 </p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
@@ -789,10 +768,13 @@ Registration of Field Subtags</h3>
 </table>
 <br clear="all" />
 
+<p>Proposals for clarifications of descriptions or additional aliases may also be requested by filing a ticket.
+</p>
 <p>The committee MAY request more information be supplied in tickets in the future
                  if such information is found to be useful.
 </p>
-<p>The committee MUST respond to each proposal within 2 weeks.
+<p>The committee MUST post each proposal publicly within 2 weeks after reception,
+                to allow for comments. The committee must respond publicly to each proposal within 4 weeks after reception.
 </p>
 <p>The response MAY:
 	                </p>
@@ -807,7 +789,8 @@ Registration of Field Subtags</h3>
 </ul><p>
 	            
 </p>
-<p>Accepted tickets result an a new entry in the machine-readable CLDR BCP47 data.
+<p>Accepted tickets result an a new entry in the machine-readable CLDR BCP47 data,
+                or in the case of a clarified description, modifications to the description attribute value for an existing entry.
 </p>
 <a name="machine-readable"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -817,14 +800,14 @@ Machine-Readable Data</h3>
 <p>
 					EDITORIAL NOTE: The following parallels the structure used for the
 					'u' extension
-					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
+					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
 					for which the Unicode Consortium is the maintaining authority.
 					The
 					data and
 					specification will be available by the time this internet
 					draft has
 					been
-					approved.
+					approved. The discription field is in the process of being added to CLDR.
 				
 </p>
 <p>
@@ -838,12 +821,45 @@ Machine-Readable Data</h3>
 					"&lt;version&gt;" is replaced by the release number. For example,
 					for version 1.7.2, the "core.zip" file is located at
 					<a href='http://unicode.org/Public/cldr/1.7.2/'>http://unicode.org/Public/cldr/1.7.2/core.zip</a>.
-					Inside the "core.zip" file, the path "common/bcp47" contains the
-					data files defining the data defined for BCP47 extensions. The most
-					recent version is always identified by the version "latest" and can
-					be accessed by the URL in
-					<a class='info' href='#regform'>Section&nbsp;2.4<span> (</span><span class='info'>BCP47 Registration Form</span><span>)</span></a>.
+					The most
+                    recent version is always identified by the version "latest" and can
+                    be accessed by the URL in
+                    <a class='info' href='#regform'>Section&nbsp;2.4<span> (</span><span class='info'>BCP47 Registration Form</span><span>)</span></a>.
 </p>
+<p>Inside the "core.zip" file, the directory "common/bcp47" contains the
+					data files listing the valid attributes, keys, and types for each successive version of <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>.
+					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the t mechanisms.
+</p>
+<p>The XML structure lists the keys, such as &lt;key name="co" alias="collation">, with subelements for the types, 
+					such as &lt;type name="phonebk" alias="phonebook"/>. The currently defined attributes for the mechanisms include:
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left"><col align="left"><col align="left">
+<tr><th align="left">Attribute</th><th align="left">Description</th><th align="left">Examples</th></tr>
+<tr>
+<td align="left">name</td>
+<td align="left">The name of the mechanism, limited to 3-8 characters (or sequences of them).</td>
+<td align="left">UNGEGN, ALALC</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">A description of the name, with all and only that information necessary to distinguish one name
+                     from others with which it might be confused.  Descriptions are not intended to provide general background information.</td>
+<td align="left">United Nations Group of Experts on Geographical Names; American Library Association-Library of Congress</td>
+</tr>
+<tr>
+<td align="left">since</td>
+<td align="left">Indicates the first version of CLDR where the name appears.</td>
+<td align="left">1.9, 2.0.1</td>
+</tr>
+<tr>
+<td align="left">alias</td>
+<td align="left">Alternative name of the key or type, not limited in number of characters. Aliases are intended for backwards compatibility,
+                    not to provide all possible alternate names or designations</td>
+<td align="left">&nbsp;</td>
+</tr>
+</table>
+<br clear="all" />
+
 <p>
 					To get the version information in XML when working with the data
 					files, the XML parser must be validating. When the 'core.zip' file
@@ -870,6 +886,9 @@ Machine-Readable Data</h3>
 </ul><p>
 				
 </p>
+<p>For more information, see 
+				<a href='http://cldr.unicode.org/index/bcp47-extension'>http://cldr.unicode.org/index/bcp47-extension</a>.
+</p>
 <a name="Acknowledgements"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3"></a><h3>3.&nbsp;
@@ -893,8 +912,8 @@ IANA Considerations</h3>
 				Extensions and the Extensions Registry of "Tags for
 				Identifying
 				Languages" in
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. Per Section 5.2 of
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, there might be occasional (rare) requests by the Unicode
+				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. Per Section 5.2 of
+				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>, there might be occasional (rare) requests by the Unicode
 				Consortium (the "Authority" listed in the record) for maintenance of
 				this record. Changes that can be submitted to IANA without the
 				publication of a new RFC are limited to modification of the
@@ -917,8 +936,8 @@ Security Considerations</h3>
 <p>
 				The security considerations for this extension are the same as those
 				for
-				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. See
-				<a class='info' href='#BCP47'>RFC 5646, Section 6, Security Considerations<span> (</span><span class='info'>Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> [BCP47].
+				<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. See
+				<a class='info' href='#BCP47'>RFC 5646, Section 6, Security Considerations<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a> [BCP47].
 			
 </p>
 <a name="rfc.references"></a><br /><hr />
@@ -931,23 +950,14 @@ References</h3>
 <h3>6.1.&nbsp;Normative References</h3>
 <table width="99%" border="0">
 <tr><td class="author-text" valign="top"><a name="BCP47">[BCP47]</a></td>
-<td class="author-text">Davis, M., Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</td></tr>
+<td class="author-text">Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC5234">[RFC5234]</a></td>
+<td class="author-text">Crocker, Ed., &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; 2008.</td></tr>
 <tr><td class="author-text" valign="top"><a name="RFC6067">[RFC6067]</a></td>
-<td class="author-text">Davis, M., Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</td></tr>
-<tr><td class="author-text" valign="top"><a name="US-ASCII">[US-ASCII]</a></td>
-<td class="author-text">International Organization for Standardization, &ldquo;ISO/IEC 646:1991, Information technology -- ISO 7-bit coded
-						character set for information interchange.,&rdquo; 1991.</td></tr>
+<td class="author-text">Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</td></tr>
 <tr><td class="author-text" valign="top"><a name="UTS35">[UTS35]</a></td>
 <td class="author-text">Davis, M., &ldquo;<a href="http://www.unicode.org/reports/tr35/">Unicode Technical Standard #35: Locale Data
-						Markup Language (LDML)</a>,&rdquo; December&nbsp;2007.<p>
-Section 3:
-					http://unicode.org/reports/tr35/#Unicode_Language_and_Locale_Identifiers
-</p>
-<p>
-Appendix Q:
-					http://unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data
-</p>
-</td></tr>
+						Markup Language (LDML)</a>,&rdquo; December&nbsp;2007.</td></tr>
 </table>
 
 <a name="rfc.references2"></a><br /><hr />

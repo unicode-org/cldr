@@ -223,9 +223,12 @@ public final class FileUtilities {
     public static String getRelativeFileName(Class class1, String filename) {
         URL resource = class1.getResource(filename);
         String resourceString = resource.toString();
-        if (!resourceString.startsWith("file:")) {
-          throw new IllegalArgumentException("File not found: " + "");
+        if (resourceString.startsWith("file:")) {
+            return resourceString.substring(5);
+        } else if (resourceString.startsWith("jar:file:")) {
+            return resourceString.substring(9);
+        } else {
+          throw new IllegalArgumentException("File not found: " + resourceString);
         }
-        return resourceString.substring(5);
-      }
+    }
 }

@@ -121,6 +121,14 @@
 				transformation.
 			</t>
 			<t>
+			
+   For example, suppose that Italian or Russian
+   cities on a map, are transcribed for Japanese users. Each name needs to be
+   transliterated into katakana using rules appropriate for the specific
+   source and target language.   When tagging such data, it is important
+   to be able to indicate not only the resulting content language ("ja"
+   in this case), but also the source language.
+   
 				For example, if one is transcribing the names of Italian or
 				Russian
 				cities on a map for
@@ -134,24 +142,14 @@
 				the resulting content
 				language ("ja"
 				in this case), but also the source language.</t>
-			<t>Transforms such as transliteration may vary depending not only on
-				the basis of
-				the source and target script, but also language.
-				Thus the
-				Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which
-				corresponds to
-				the Cyrillic &lt;PE, U, TE, I, EN>) transliterates
-				into "Putin" in
-				English but "Poutine" in French.
-				The identifier may
-				need to indicate a
-				desired mechanical transformation
-				in an API, or
-				may need to tag data
-				that has been converted
-				(mechanically or by
-				hand) according to a
-				transliteration method.</t>
+			<t>Transforms such as transliteration may vary depending not only on the
+   basis of the source and target script, but also on language.  Thus the
+   Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which corresponds to
+   the Cyrillic &lt;PE, U, TE, I, EN>) transliterates into "Putin" in
+   English but "Poutine" in French.  The identifier could be used to indicate
+   a desired mechanical transformation in an API, or could be used to tag
+   data that has been converted (mechanically or by hand) according to a
+   transliteration method.</t>
 				<t>The usage of this extension is not limited to formal transformations, 
 				and may include other instances where the content is in some other way influenced by the source. 
 				For example, this extension could be used to designate a request for a speech recognizer 
@@ -177,7 +175,7 @@
 					defined in this document.
 					This extension is formed by the 't'
 					singleton followed by a sequence of subtags that would form a
-					language tag defined by
+					language tag as defined by
 					<xref target="BCP47"></xref>.
 					This allows for the source language or script to be specified to
 					the degree of precision required.
@@ -228,7 +226,7 @@
 					<xref target="BCP47"></xref>. That tag would express an empty 't' extension followed by an 'i'
 					extension.
 				</t>
-				<t>In addition, it is sometimes necessary to indicate additional
+				<t>It is sometimes necessary to indicate additional
 					information about the transformation.
 					This additional information is optionally supplied after the source in a series of one or more fields,
 					where each field consists of a field separator subtag followed by one or more non-separator subtags.
@@ -541,8 +539,8 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
                     <c>If versioning for the mechanism is not done according to date, then a description of the versioning conventions used for the mechanism.</c>
 				</texttable>
                 <t>Proposals for clarifications of descriptions or additional aliases may also be requested by filing a ticket.</t>
-                <t>The committee MAY request more information be supplied in tickets in the future
-                 if such information is found to be useful.</t>
+                <t>The committee MAY define a template for submissions that requests more information,
+                 if it is found that such information would be useful in evaluating proposals.</t>
                 <t>The committee MUST post each proposal publicly within 2 weeks after reception,
                 to allow for comments. The committee must respond publicly to each proposal within 4 weeks after reception.</t>
                 <t>The response MAY:

@@ -89,12 +89,12 @@
             <pluralRule count="one">n within 0..1</pluralRule>
             <pluralRule count="few">n in 2..10</pluralRule>
         </pluralRules>
-		<pluralRules locales="br"> <!-- from http://unicode.org/cldr/trac/ticket/2886 -->
-		    <pluralRule count="one">n mod 10 is 1 and n mod 100 not in 11,71,91</pluralRule>
-		    <pluralRule count="two">n mod 10 is 2 and n mod 100 not in 12,72,92</pluralRule>
-		    <pluralRule count="few">n mod 10 in 3..4,9 and n mod 100 not in 10..19,70..79,90..99</pluralRule>
-            <pluralRule count="many">n is not 0 and n mod 1000000 is 0 or n is not 0 and n mod 1000000000 is 0</pluralRule>
-		</pluralRules>
+        <pluralRules locales="br"> <!-- from http://unicode.org/cldr/trac/ticket/2886 -->
+            <pluralRule count="one">n mod 10 is 1 and n mod 100 not in 11,71,91</pluralRule>
+            <pluralRule count="two">n mod 10 is 2 and n mod 100 not in 12,72,92</pluralRule>
+            <pluralRule count="few">n mod 10 in 3..4,9 and n mod 100 not in 10..19,70..79,90..99</pluralRule>
+            <pluralRule count="many">n mod 1000000 is 0 and n is not 0</pluralRule>
+        </pluralRules>
         <pluralRules locales="ksh">
             <pluralRule count="zero">n is 0</pluralRule>
             <pluralRule count="one">n is 1</pluralRule>

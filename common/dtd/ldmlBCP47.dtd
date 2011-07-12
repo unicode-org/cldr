@@ -26,12 +26,16 @@ $Date$
 <!ELEMENT key ( type* )>
 <!ATTLIST key name NMTOKEN #REQUIRED>
 <!ATTLIST key alias NMTOKEN #IMPLIED>
+<!ATTLIST key description CDATA #IMPLIED>
 <!ATTLIST key since CDATA #IMPLIED>
 
 <!ELEMENT type EMPTY>
 <!ATTLIST type name NMTOKEN #REQUIRED>
 <!ATTLIST type alias CDATA #IMPLIED>
+<!ATTLIST type description CDATA #IMPLIED>
 <!ATTLIST type since CDATA #IMPLIED>
 
 <!ELEMENT attribute EMPTY>
 <!ATTLIST attribute name NMTOKEN #REQUIRED>
+<!ATTLIST attribute description CDATA #IMPLIED>
+<!ATTLIST attribute since CDATA #IMPLIED>

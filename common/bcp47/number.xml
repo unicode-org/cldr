@@ -5,42 +5,43 @@
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <keyword>
-        <key name="nu" alias="numbers">
-            <type name="arab"/>
-            <type name="arabext"/>
-            <type name="armn"/>
-            <type name="armnlow"/>
-            <type name="beng"/>
-            <type name="deva"/>
-            <type name="ethi"/>
-            <type name="fullwide"/>
-            <type name="geor"/>
-            <type name="grek"/>
-            <type name="greklow"/>
-            <type name="gujr"/>
-            <type name="guru"/>
-            <type name="hanidec"/>
-            <type name="hans"/>
-            <type name="hansfin"/>
-            <type name="hant"/>
-            <type name="hantfin"/>
-            <type name="hebr"/>
-            <type name="jpan"/>
-            <type name="jpanfin"/>
-            <type name="khmr"/>
-            <type name="knda"/>
-            <type name="laoo"/>
-            <type name="latn"/>
-            <type name="mlym"/>
-            <type name="mong"/>
-            <type name="mymr"/>
-            <type name="orya"/>
-            <type name="roman"/>
-            <type name="romanlow"/>
-            <type name="taml"/>
-            <type name="telu"/>
-            <type name="thai"/>
-            <type name="tibt"/>
+        <key name="nu" alias="numbers" description="">
+            <type name="arab" description="Arabic-Indic digits"/>
+            <type name="arabext" description="Extended Arabic-Indic digits"/>
+            <type name="armn" description="Armenian upper case numerals"/>
+            <type name="armnlow" description="Armenian lower case numerals"/>
+            <type name="beng" description="Bengali digits"/>
+            <type name="deva" description="Devanagari digits"/>
+            <type name="ethi" description="Ethiopic numerals"/>
+            <type name="fullwide" description="Full width digits"/>
+            <type name="geor" description="Georgian numerals"/>
+            <type name="grek" description="Greek upper case numerals"/>
+            <type name="greklow" description="Greek lower case numerals"/>
+            <type name="gujr" description="Gujarati digits"/>
+            <type name="guru" description="Gurmukhi digits"/>
+            <type name="hanidec" description="Positional decimal system using Chinese number ideographs as digits" since="1.9"/>
+            <type name="hans" description="Simplified Chinese numerals"/>
+            <type name="hansfin" description="Simplified Chinese financial numerals"/>
+            <type name="hant" description="Traditional Chinese numerals"/>
+            <type name="hantfin" description="Traditional Chinese financial numerals"/>
+            <type name="hebr" description="Hebrew numerals"/>
+            <type name="jpan" description="Japanese numerals"/>
+            <type name="jpanfin" description="Japanese financial numerals"/>
+            <type name="khmr" description="Khmer digits"/>
+            <type name="knda" description="Kannada digits"/>
+            <type name="laoo" description="Lao digits"/>
+            <type name="latn" description="Latin digits"/>
+            <type name="mlym" description="Malayalam digits"/>
+            <type name="mong" description="Mongolian digits"/>
+            <type name="mymr" description="Myanmar digits"/>
+            <type name="orya" description="Oriya digits"/>
+            <type name="roman" description="Roman upper case numerals"/>
+            <type name="romanlow" description="Roman lowercase numerals"/>
+            <type name="taml" description="Tamil numerals"/>
+            <type name="tamldec" description="Modern Tamil decimal digits" since="2.0.1"/>
+            <type name="telu" description="Telugu digits"/>
+            <type name="thai" description="Thai digits"/>
+            <type name="tibt" description="Tibetan digits"/>
         </key>
     </keyword>
 </ldmlBCP47>

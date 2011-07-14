@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="US-ASCII"?>
-<!DOCTYPE rfc SYSTEM "../rfc2629.dtd" [
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!ENTITY RFC4646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4646.xml">
 <!ENTITY rfc5646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5646.xml">
 ]>
@@ -11,13 +11,13 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-davis-t-langtag-ext-01" ipr="trust200902"
+<rfc category="info" docName="draft-davis-t-langtag-ext-03" ipr="trust200902"
 	submissionType="independent"
 >
 	<front>
 
 
-		<title abbrev="BCP 47 Transform Extension">BCP 47 Extension T</title>
+		<title abbrev="BCP 47 Extension T">BCP 47 Extension T - Transformed Content</title>
 
 		<author fullname="Mark Davis" initials="M.E." surname="Davis">
 			<organization>Google</organization>
@@ -47,7 +47,7 @@
             </address>
         </author>
         
-		<date month="June" year="2011" day="22" />
+		<date month="July" year="2011" day="11" />
 
 
 
@@ -91,9 +91,11 @@
 				applications that
 				understand language tags". This document defines an
 				extension for
-				specifying the source of a text transformation,
+				specifying the source of content that has been transformed,
 				including text that has been transliterated, transcribed, or
 				translated, or in some other way influenced by the source.
+				It may be used in queries to request content that has been
+				transformed.
 				The "singleton" identifier for this extension is 't'.
 			</t>
 			<t>
@@ -101,7 +103,8 @@
 				<xref target="BCP47"></xref>, are useful for identifying the language of content.
 				There are
 				mechanisms for specifying variant subtags for special purposes.
-				However, these variants are insufficient for specifying text
+				However, these variants are insufficient for specifying content that has
+				undergone
 				transformations,
 				including content that has been
 				transliterated,
@@ -123,25 +126,11 @@
 			<t>
 			
    For example, suppose that Italian or Russian
-   cities on a map, are transcribed for Japanese users. Each name needs to be
+   cities on a map are transcribed for Japanese users. Each name needs to be
    transliterated into katakana using rules appropriate for the specific
    source and target language.   When tagging such data, it is important
    to be able to indicate not only the resulting content language ("ja"
-   in this case), but also the source language.
-   
-				For example, if one is transcribing the names of Italian or
-				Russian
-				cities on a map for
-				Japanese users, each name will need to be
-				transliterated into katakana using
-				rules
-				appropriate for the specific
-				source and target language.
-				When tagging such data, it is important
-				to be able to indicate not only
-				the resulting content
-				language ("ja"
-				in this case), but also the source language.</t>
+   in this case), but also the source language.</t>
 			<t>Transforms such as transliteration may vary depending not only on the
    basis of the source and target script, but also on language.  Thus the
    Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which corresponds to
@@ -171,7 +160,7 @@
 		<section title="BCP47 Required Information">
             <section title="Introduction">
 				<t>
-					Identification of transforms can be done using the 't' extension
+					Identification of transformed content can be done using the 't' extension
 					defined in this document.
 					This extension is formed by the 't'
 					singleton followed by a sequence of subtags that would form a
@@ -333,18 +322,18 @@
 				<t>The subtags in the 't' extension are of the following form:</t>
 <figure>			
 <artwork>
-t_ext=    "t"                     // Extension
-          ("-" lang *("-" field)  // Source + optional field(s)
-          / 1*("-" field))        // Field(s) only (no source)
+t-ext=    "t"                      ; Extension
+          (("-" lang *("-" field)) ; Source + optional field(s)
+          / 1*("-" field))         ; Field(s) only (no source)
 
-lang=     language                // BCP47, with restrictions
+lang=     language                 ; BCP47, with restrictions
           ["-" script]
           ["-" region]
           *("-" variant)
 
-field=    sep 1*("-" 3*8alphanum) // With restrictions
+field=    sep 1*("-" 3*8alphanum)  ; With restrictions
 
-sep=      ALPHA DIGIT             // Subtag separators
+sep=      ALPHA DIGIT              ; Subtag separators
 alphanum= ALPHA / DIGIT
 </artwork>
 </figure>
@@ -401,9 +390,10 @@ alphanum= ALPHA / DIGIT
                     <artwork>
 %%
 Identifier: t
-Description: Transform Specification
-Comments: Subtags for the identification of content transforms,
-including transliteration, transcription, and translation.
+Description: Specifying Content Transforms
+Comments: Subtags for the identification of content that has been
+transformed, including but not limited to 
+transliteration, transcription, and translation.
 Added: 2010-mm-dd
 RFC: [TBD]
 Authority: Unicode Consortium
@@ -565,7 +555,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 					specification will be available by the time this internet
 					draft has
 					been
-					approved. The discription field is in the process of being added to CLDR.
+					approved. The description field is in the process of being added to CLDR.
 				</t>
 				<t>
 					Beginning with CLDR version 1.7.2, machine-readable files are

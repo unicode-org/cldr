@@ -4,18 +4,18 @@
  <cldrTest version='2.0' base='sr_Latn'>
  <!-- Serbian (Latin) [Srpski (Latinica)] -->
   <number 
-locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU'>
-<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)@]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@]; Serbian (Latin, YU) [Srpski (Latinica, YU)@] -->
+locales='sr_Latn sr_Latn_BA sr_Latn_ME sr_Latn_RS'>
+<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@] -->
    <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
    <result numberType='decimal'>0</result>
    <result numberType='percent'>0%</result>
    <result numberType='scientific'>0E0</result>
    <result input='0.01' numberType='integer'>0</result>
-   <result numberType='decimal'>0.01</result>
+   <result numberType='decimal'>0,01</result>
    <result numberType='percent'>1%</result>
    <result numberType='scientific'>1E-2</result>
    <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0.01</result>
+   <result numberType='decimal'>-0,01</result>
    <result numberType='percent'>-1%</result>
    <result numberType='scientific'>-1E-2</result>
    <result input='1.0' numberType='integer'>1</result>
@@ -27,21 +27,21 @@ locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU'>
    <result numberType='percent'>-100%</result>
    <result numberType='scientific'>-1E0</result>
    <result input='123.456' numberType='integer'>123</result>
-   <result numberType='decimal'>123.456</result>
-   <result numberType='percent'>12,346%</result>
-   <result numberType='scientific'>1.23456E2</result>
+   <result numberType='decimal'>123,456</result>
+   <result numberType='percent'>12.346%</result>
+   <result numberType='scientific'>1,23456E2</result>
    <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123.456</result>
-   <result numberType='percent'>-12,346%</result>
-   <result numberType='scientific'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer'>123,457</result>
-   <result numberType='decimal'>123,456.78</result>
-   <result numberType='percent'>12,345,678%</result>
-   <result numberType='scientific'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer'>-123,457</result>
-   <result numberType='decimal'>-123,456.78</result>
-   <result numberType='percent'>-12,345,678%</result>
-   <result numberType='scientific'>-1.2345678E5</result>
+   <result numberType='decimal'>-123,456</result>
+   <result numberType='percent'>-12.346%</result>
+   <result numberType='scientific'>-1,23456E2</result>
+   <result input='123456.78' numberType='integer'>123.457</result>
+   <result numberType='decimal'>123.456,78</result>
+   <result numberType='percent'>12.345.678%</result>
+   <result numberType='scientific'>1,2345678E5</result>
+   <result input='-123456.78' numberType='integer'>-123.457</result>
+   <result numberType='decimal'>-123.456,78</result>
+   <result numberType='percent'>-12.345.678%</result>
+   <result numberType='scientific'>-1,2345678E5</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
@@ -56,8 +56,8 @@ locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU'>
    <result numberType='scientific'>NaN</result>
   </number>
   <date 
-locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_RS sr_Latn_YU'>
-<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@]; Serbian (Latin, YU) [Srpski (Latinica, YU)@] -->
+locales='sr_Latn sr_Latn_BA sr_Latn_RS'>
+<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@] -->
    <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00.00</result>
    <result timeType='medium'>00.00.00</result>
    <result dateType='short' timeType='none'>31.1.00.</result>
@@ -400,12 +400,12 @@ locales='sr_Latn_ME'>
    <result timeType='medium'>sreda, 01. decembar 2010. 23.59.59</result>
   </date>
   <zoneFields 
-locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU'>
-<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)@]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@]; Serbian (Latin, YU) [Srpski (Latinica, YU)@] -->
+locales='sr_Latn sr_Latn_BA sr_Latn_ME sr_Latn_RS'>
+<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@] -->
   </zoneFields>
   <collation 
-locales='sr_Latn sr_Latn_BA sr_Latn_CS sr_Latn_ME sr_Latn_RS sr_Latn_YU'>
-<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Serbia and Montenegro) [Srpski (Latinica, Srbija i Crna Gora)@]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@]; Serbian (Latin, YU) [Srpski (Latinica, YU)@] -->
+locales='sr_Latn sr_Latn_BA sr_Latn_ME sr_Latn_RS'>
+<!-- Serbian (Latin) [Srpski (Latinica)@]; Serbian (Latin, Bosnia and Herzegovina) [Srpski (Latinica, Bosna i Hercegovina)@]; Serbian (Latin, Montenegro) [Srpski (Latinica, Crna Gora)@]; Serbian (Latin, Serbia) [Srpski (Latinica, Srbija)@] -->
    <result draft='unconfirmed approved'>
 x 
 X 

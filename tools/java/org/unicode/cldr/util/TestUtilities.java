@@ -68,9 +68,9 @@ public class TestUtilities {
 
     public static void main(String[] args) throws Exception {
         try {
-            testExampleGenerator();
             checkStandardCodes();
             if (true) return;
+            testExampleGenerator();
             for (String lang : Iso639Data.getAvailable()) {
                 String biblio = Iso639Data.toBiblio3(lang);
                 if (biblio == null) continue;

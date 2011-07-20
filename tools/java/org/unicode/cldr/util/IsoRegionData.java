@@ -24,6 +24,7 @@ public class IsoRegionData {
     static Map<String, String> _fips10 = new HashMap<String,String>();
     static Map<String, String> _internet = new HashMap<String,String>();
     static Set<String> other_internet = new TreeSet<String>();
+    static Set<String> available = new HashSet<String>();
 
     static final UnicodeSet NMTOKEN = new UnicodeSet(
             "[\\-.0-\\:A-Z_a-z\\u00B7\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u037D\\u037F-\\u1FFF\\u200C\\u200D\\u203F\\u2040\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\U00010000-\\U000EFFFF]").freeze();
@@ -116,11 +117,17 @@ RS  688 SRB rs  RB
         _internet.put("ZZ", CollectionUtilities.join(other_internet, " "));
 
         other_internet = Collections.unmodifiableSet(other_internet);
+        
+        available.addAll(_numeric.keySet());
+        available.addAll(_alpha3.keySet());
+        available.addAll(_fips10.keySet());
+        available.addAll(_internet.keySet());
 
         _numeric = Collections.unmodifiableMap(_numeric);
         _alpha3 = Collections.unmodifiableMap(_alpha3);
         _fips10 = Collections.unmodifiableMap(_fips10);
         _internet = Collections.unmodifiableMap(_internet);
+        available = Collections.unmodifiableSet(available);
     }
     public static String getNumeric(String countryCodeAlpha2) {
         return _numeric.get(countryCodeAlpha2);
@@ -137,6 +144,8 @@ RS  688 SRB rs  RB
     public static Set<String> getOtherInternet() {
         return other_internet;
     }
-
+    public static Set<String> getAvailable() {
+        return available;
+    }
 }
 

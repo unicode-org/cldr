@@ -704,7 +704,7 @@ public class CountItems {
             return other.compare(o2, o1);
         }
     }
-
+    
     public static void getSubtagVariables() {
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
         Map<String, String> variableSubstitutions = new LinkedHashMap<String,String>();
@@ -744,15 +744,27 @@ public class CountItems {
             System.out.println(type.getValue());
         }
 
+        Map<String, Map<String, String>> languageReplacement = sc.getLStreg().get("language");
+        
         Set<String> available = Iso639Data.getAvailable();
         //      <languageAlias type="aju" replacement="jrb"/> <!-- Moroccan Judeo-Arabic ⇒ Judeo-Arabic -->
         Set<String> bad3letter = new HashSet<String>();
         for (String lang : available) {
             if (lang.length() != 2) continue;
+            String target = lang;
+            Map<String, String> lstregData = languageReplacement.get(lang);
+            if (lstregData == null) {
+                throw new IllegalArgumentException("illegal language code");
+            } else {
+                String replacement = lstregData.get("Preferred-Value");
+                if (replacement != null) {
+                    target = replacement;
+                }
+            }
             String alpha3 = Iso639Data.toAlpha3(lang);
             bad3letter.add(alpha3);
-            System.out.println("\t\t\t<languageAlias type=\"" + alpha3 + "\" replacement=\"" + lang + "\"/> <!-- " +
-                    Iso639Data.getNames(lang) + " -->");
+            System.out.println("\t\t\t<languageAlias type=\"" + alpha3 + "\" replacement=\"" + target + "\" reason=\"overlong\"/> <!-- " +
+                    Iso639Data.getNames(target) + " -->");
         }
         Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo = supplementalData.getLocaleAliasInfo();
         Map<String, R2<List<String>, String>> languageAliasInfo = localeAliasInfo.get("language");
@@ -946,7 +958,7 @@ public class CountItems {
                 missingRegions.add(region);
                 continue;
             }
-            System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + region + "\"/> <!-- " + name + " -->");
+            System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + region + "\" reason=\"overlong\"/> <!-- " + name + " -->");
         }
         for (String region : missingRegions) {
             String name = english.getName(CLDRFile.TERRITORY_NAME, region);

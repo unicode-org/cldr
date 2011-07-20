@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -788,6 +789,7 @@ public class SupplementalDataInfo {
 
     public Relation<String, String> key_subtypes = new Relation(new TreeMap(), TreeSet.class);
     public Relation<Row.R2<String,String>, String> bcp47Aliases = new Relation(new TreeMap(), LinkedHashSet.class);
+    public Map<Row.R2<String,String>, String> bcp47Descriptions = new TreeMap<Row.R2<String,String>, String>();
     
     public Map<String,Row.R2<String, String>> validityInfo = new HashMap<String,Row.R2<String, String>>();
     
@@ -950,6 +952,8 @@ public class SupplementalDataInfo {
         languageMatch = CldrUtility.protectCollection(languageMatch);
         key_subtypes.freeze();
         bcp47Aliases.freeze();
+        CldrUtility.protectCollection(bcp47Descriptions);
+        
         CoverageLevelInfo.fixEU(coverageLevels, this);
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
 
@@ -1100,11 +1104,15 @@ public class SupplementalDataInfo {
             return true;
         }
         
+        
         private boolean handleBcp47(String level2) {
             String key = parts.getAttributeValue(2, "name");
             String keyAlias = parts.getAttributeValue(2, "alias");
+            String keyDescription = parts.getAttributeValue(2, "description");
             String subtype = parts.getAttributeValue(3, "name");
             String subtypeAlias = parts.getAttributeValue(3, "alias");
+            String subtypeDescription = parts.getAttributeValue(3, "description");
+
             key_subtypes.put(key, subtype);
             if (keyAlias != null) {
                 bcp47Aliases.putAll((R2<String, String>) Row.of(key,"").freeze(), Arrays.asList(keyAlias.trim().split("\\s+")));
@@ -1112,6 +1120,14 @@ public class SupplementalDataInfo {
             if (subtypeAlias != null) {
                 bcp47Aliases.putAll((R2<String, String>) Row.of(key,subtype).freeze(), Arrays.asList(subtypeAlias.trim().split("\\s+")));
             }
+            
+            if (keyDescription != null) {
+                bcp47Descriptions.put((R2<String, String>) Row.of(key,"").freeze(), keyDescription);
+            }
+            if (subtypeDescription != null) {
+                bcp47Descriptions.put((R2<String, String>) Row.of(key,subtype).freeze(), subtypeDescription);
+            }
+
             return true;
         }
 
@@ -2440,11 +2456,19 @@ public class SupplementalDataInfo {
     public Relation<String,String> getBcp47Keys() {
         return key_subtypes;
     }
+    
     /**
-     * Return mapping from <key,subtype> to aliases
+     * Return mapping from &lt;key,subtype> to aliases
      */
     public Relation<R2<String, String>, String> getBcp47Aliases() {
         return bcp47Aliases;
+    }
+
+    /**
+     * Return mapping from &lt;key,subtype> to description
+     */
+    public Map<R2<String, String>, String> getBcp47Descriptions() {
+        return bcp47Descriptions;
     }
 
     static Set<String> MainTimeZones;;

@@ -11,7 +11,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-davis-t-langtag-ext-03" ipr="trust200902"
+<rfc category="info" docName="draft-davis-t-langtag-ext-04" ipr="trust200902"
 	submissionType="independent"
 >
 	<front>
@@ -110,35 +110,36 @@
 				transliterated,
 				transcribed, or
 				translated.
-				That
-				is, for fully
-				specifying such content, it
-				is important to specify the
-				source language
-				and/or script.
-				In addition,
-				it may also be important
-				to identify a
-				particular
-				specification for the
-				transformation.
+				The correct interpretation of the content may depend upon knowledge of the conventions used for the transformation.
 			</t>
 			<t>
-			
-   For example, suppose that Italian or Russian
-   cities on a map are transcribed for Japanese users. Each name needs to be
-   transliterated into katakana using rules appropriate for the specific
-   source and target language.   When tagging such data, it is important
-   to be able to indicate not only the resulting content language ("ja"
-   in this case), but also the source language.</t>
-			<t>Transforms such as transliteration may vary depending not only on the
-   basis of the source and target script, but also on language.  Thus the
-   Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which corresponds to
-   the Cyrillic &lt;PE, U, TE, I, EN>) transliterates into "Putin" in
-   English but "Poutine" in French.  The identifier could be used to indicate
-   a desired mechanical transformation in an API, or could be used to tag
-   data that has been converted (mechanically or by hand) according to a
-   transliteration method.</t>
+			   For example, suppose that Italian or Russian
+			   cities on a map are transcribed for Japanese users. Each name needs to be
+			   transliterated into katakana using rules appropriate for the specific
+			   source and target language.   When tagging such data, it is important
+			   to be able to indicate not only the resulting content language ("ja"
+			   in this case), but also the source language.</t>
+						<t>Transforms such as transliterations may vary depending not only on the
+			   basis of the source and target script, but also on the source and target language.
+			   Thus the
+			   Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which corresponds to
+			   the Cyrillic &lt;PE, U, TE, I, EN>) transliterates into "Putin" in
+			   English but "Poutine" in French.  The identifier could be used to indicate
+			   a desired mechanical transformation in an API, or could be used to tag
+			   data that has been converted (mechanically or by hand) according to a
+			   transliteration method.</t>
+				<t>
+				Many different conventions have arisen for how to transform text, even between the same languages and scripts.
+                For example, "Gaddafi" is commonly transliterated from Arabic to English as any of (G/Q/K/Kh)a(d/dh/dd/dhdh/th/zz)af(i/y).
+				Some examples of  standardized conventions used for transcribing or transliterating text include:
+                <list style="letters">
+					<t>United Nations Group of Experts on Geographical Names (UNGEGN)</t>
+					<t>US Library of Congress (LOC)</t>
+					<t>US Board on Geographic Names (BGN)</t>
+					<t>Korean Ministry of Culture, Sports and Tourism (MCST)</t>
+					<t>International Organization for Standardization (ISO)</t>
+			     </list>
+				</t>
 				<t>The usage of this extension is not limited to formal transformations, 
 				and may include other instances where the content is in some other way influenced by the source. 
 				For example, this extension could be used to designate a request for a speech recognizer 
@@ -214,6 +215,11 @@
 					language tag in
 					<xref target="BCP47"></xref>. That tag would express an empty 't' extension followed by an 'i'
 					extension.
+				</t>
+				<t>The t extension is not intended for use in structured data that already provides for source and target language identifiers.
+				For example, this is the case in localization interchange formats such as XLIFF.
+				In such cases, it would be inappropriate to use "ja-t-it" for the target language tag because the source language tag
+				"it" would already be present in the data. Instead one would use the language tag "ja".
 				</t>
 				<t>It is sometimes necessary to indicate additional
 					information about the transformation.
@@ -541,7 +547,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 		                due to problems with constraints in this document or in <xref target="UTS35"></xref></t>
 	                </list>
 	            </t>
-                <t>Accepted tickets result an a new entry in the machine-readable CLDR BCP47 data,
+                <t>Accepted tickets result in a new entry in the machine-readable CLDR BCP47 data,
                 or in the case of a clarified description, modifications to the description attribute value for an existing entry.</t>
 			</section>
             <section title="Machine-Readable Data" anchor="machine-readable">

@@ -152,7 +152,7 @@
 <tr><td class="header">&nbsp;</td><td class="header">Infinite Automata</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">July 11, 2011</td></tr>
 </table></td></tr></table>
-<h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-03</h1>
+<h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-04</h1>
 
 <h3>Abstract</h3>
 
@@ -269,37 +269,50 @@ Introduction</h3>
 				transliterated,
 				transcribed, or
 				translated.
-				That
-				is, for fully
-				specifying such content, it
-				is important to specify the
-				source language
-				and/or script.
-				In addition,
-				it may also be important
-				to identify a
-				particular
-				specification for the
-				transformation.
+				The correct interpretation of the content may depend upon knowledge of the conventions used for the transformation.
 			
 </p>
 <p>
-			
-   For example, suppose that Italian or Russian
-   cities on a map are transcribed for Japanese users. Each name needs to be
-   transliterated into katakana using rules appropriate for the specific
-   source and target language.   When tagging such data, it is important
-   to be able to indicate not only the resulting content language ("ja"
-   in this case), but also the source language.
+			   For example, suppose that Italian or Russian
+			   cities on a map are transcribed for Japanese users. Each name needs to be
+			   transliterated into katakana using rules appropriate for the specific
+			   source and target language.   When tagging such data, it is important
+			   to be able to indicate not only the resulting content language ("ja"
+			   in this case), but also the source language.
 </p>
-<p>Transforms such as transliteration may vary depending not only on the
-   basis of the source and target script, but also on language.  Thus the
-   Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which corresponds to
-   the Cyrillic &lt;PE, U, TE, I, EN>) transliterates into "Putin" in
-   English but "Poutine" in French.  The identifier could be used to indicate
-   a desired mechanical transformation in an API, or could be used to tag
-   data that has been converted (mechanically or by hand) according to a
-   transliteration method.
+<p>Transforms such as transliterations may vary depending not only on the
+			   basis of the source and target script, but also on the source and target language.
+			   Thus the
+			   Russian &lt;U+041F U+0443 U+0442 U+0438 U+043D> (which corresponds to
+			   the Cyrillic &lt;PE, U, TE, I, EN>) transliterates into "Putin" in
+			   English but "Poutine" in French.  The identifier could be used to indicate
+			   a desired mechanical transformation in an API, or could be used to tag
+			   data that has been converted (mechanically or by hand) according to a
+			   transliteration method.
+</p>
+<p>
+				Many different conventions have arisen for how to transform text, even between the same languages and scripts.
+                For example, "Gaddafi" is commonly transliterated from Arabic to English as any of (G/Q/K/Kh)a(d/dh/dd/dhdh/th/zz)af(i/y).
+				Some examples of  standardized conventions used for transcribing or transliterating text include:
+                </p>
+<blockquote class="text"><dl>
+<dt>a.</dt>
+<dd>United Nations Group of Experts on Geographical Names (UNGEGN)
+</dd>
+<dt>b.</dt>
+<dd>US Library of Congress (LOC)
+</dd>
+<dt>c.</dt>
+<dd>US Board on Geographic Names (BGN)
+</dd>
+<dt>d.</dt>
+<dd>Korean Ministry of Culture, Sports and Tourism (MCST)
+</dd>
+<dt>e.</dt>
+<dd>International Organization for Standardization (ISO)
+</dd>
+</dl></blockquote><p>
+				
 </p>
 <p>The usage of this extension is not limited to formal transformations, 
 				and may include other instances where the content is in some other way influenced by the source. 
@@ -384,6 +397,12 @@ Introduction</h3>
 					language tag in
 					<a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>. That tag would express an empty 't' extension followed by an 'i'
 					extension.
+				
+</p>
+<p>The t extension is not intended for use in structured data that already provides for source and target language identifiers.
+				For example, this is the case in localization interchange formats such as XLIFF.
+				In such cases, it would be inappropriate to use "ja-t-it" for the target language tag because the source language tag
+				"it" would already be present in the data. Instead one would use the language tag "ja".
 				
 </p>
 <p>It is sometimes necessary to indicate additional
@@ -777,7 +796,7 @@ Registration of Field Subtags</h3>
 </ul><p>
 	            
 </p>
-<p>Accepted tickets result an a new entry in the machine-readable CLDR BCP47 data,
+<p>Accepted tickets result in a new entry in the machine-readable CLDR BCP47 data,
                 or in the case of a clarified description, modifications to the description attribute value for an existing entry.
 </p>
 <a name="machine-readable"></a><br /><hr />

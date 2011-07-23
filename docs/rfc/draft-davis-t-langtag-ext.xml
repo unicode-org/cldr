@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="US-ASCII"?>
-<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!DOCTYPE rfc SYSTEM "../rfc2629.dtd" [
 <!ENTITY RFC4646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4646.xml">
 <!ENTITY rfc5646 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5646.xml">
 ]>
@@ -113,7 +113,7 @@
 				The correct interpretation of the content may depend upon knowledge of the conventions used for the transformation.
 			</t>
 			<t>
-			   For example, suppose that Italian or Russian
+			   Suppose that Italian or Russian
 			   cities on a map are transcribed for Japanese users. Each name needs to be
 			   transliterated into katakana using rules appropriate for the specific
 			   source and target language.   When tagging such data, it is important
@@ -129,7 +129,7 @@
 			   data that has been converted (mechanically or by hand) according to a
 			   transliteration method.</t>
 				<t>
-				Many different conventions have arisen for how to transform text, even between the same languages and scripts.
+				In addition, many different conventions have arisen for how to transform text, even between the same languages and scripts.
                 For example, "Gaddafi" is commonly transliterated from Arabic to English as any of (G/Q/K/Kh)a(d/dh/dd/dhdh/th/zz)af(i/y).
 				Some examples of  standardized conventions used for transcribing or transliterating text include:
                 <list style="letters">
@@ -216,13 +216,14 @@
 					<xref target="BCP47"></xref>. That tag would express an empty 't' extension followed by an 'i'
 					extension.
 				</t>
-				<t>The t extension is not intended for use in structured data that already provides for source and target language identifiers.
+				<t>The t extension is not intended for use in structured data that already provides 
+				separate source and target language identifiers.
 				For example, this is the case in localization interchange formats such as XLIFF.
 				In such cases, it would be inappropriate to use "ja-t-it" for the target language tag because the source language tag
 				"it" would already be present in the data. Instead one would use the language tag "ja".
 				</t>
-				<t>It is sometimes necessary to indicate additional
-					information about the transformation.
+				<t>As noted earlier, it is sometimes necessary to indicate additional
+					information about a transformation.
 					This additional information is optionally supplied after the source in a series of one or more fields,
 					where each field consists of a field separator subtag followed by one or more non-separator subtags.
 					Each field separator subtag consists of a single letter followed by a single digit.
@@ -324,7 +325,7 @@
 					<c>Section 3 Unicode Language and Locale Identifiers</c>
 				</texttable>
             </section>
-			<section title="Structure">
+			<section title="Structure" anchor="structure">
 				<t>The subtags in the 't' extension are of the following form:</t>
 <figure>			
 <artwork>
@@ -467,21 +468,27 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 							Any purely numeric subtag is a representation of a date in the
 							Gregorian calendar.
 							It MAY occur in any mechanism field.
-							If it
-							does occur:
+							If it does occur:
 							<list style="symbols">
 								<t>it MUST occur as the final subtag in the field,</t>
 								<t>it MUST NOT be the only subtag in the field, and</t>
 								<t>it MUST consist of a sequence of digits of the form YYYY,
 									YYYYMM, or YYYYMMDD.</t>
+                                <t>it SHOULD only be used where necessary.</t>
+                                <t>it SHOULD be as short as possible.</t>
 							</list>
-							For example, 20110623
-							represents June 23th, 2011.
-							A date subtag
-							SHOULD only be used where necessary, and then
-							SHOULD be as short
-							as possible.
-							For example, suppose that the BGN transliteration
+							Examples:
+							<list style="symbols">
+							<t>20110623 represents June 23th, 2011.</t>
+							<t>There are 3 dated versions of the UNGEGN transliteration
+                            specification for Hebrew to Latin. They can be represented by the following language tags:
+                            <list style="symbols">
+                                <t>und-Hebr-t-und-Latn-m0-ungegn-1972</t>
+                                <t>und-Hebr-t-und-Latn-m0-ungegn-1977</t>
+                                <t>und-Hebr-t-und-Latn-m0-ungegn-2007</t>
+                            </list>
+							</t>
+							<t>Suppose that the BGN transliteration
 							specification for Cyrillic to Latin had three versions,
 							dated
 							June 11th, 1999; Dec 30th, 1999; and May 1st, 2011.
@@ -491,7 +498,8 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 							to be distinctive (199906 and 199912), but the last
 							subtag
 							would only
-							require the year (2011).
+							require the year (2011).</t>
+							</list>
 						</t>
 						<t>
 							Some mechanisms may use a versioning system that is not
@@ -537,19 +545,30 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
                 <t>Proposals for clarifications of descriptions or additional aliases may also be requested by filing a ticket.</t>
                 <t>The committee MAY define a template for submissions that requests more information,
                  if it is found that such information would be useful in evaluating proposals.</t>
+			</section>
+            <section title="Registration of Additional Fields" anchor="field-registration">
+                <t>In the event that it proves necessary to add an additional field (such as 'm2'),
+                it can be requested by filing a ticket at
+                    <eref target="http://cldr.unicode.org/">cldr.unicode.org</eref>.
+                    The proposal in the ticket MUST contain a full description of the
+                    proposed field semantics and subtag syntax,
+                    and MUST be conform to the ABNF syntax for "field" presented in <xref target="structure" />.</t>
+            </section>
+            <section title="Committee Responses to Registration Proposals" anchor="committee-responses">
                 <t>The committee MUST post each proposal publicly within 2 weeks after reception,
                 to allow for comments. The committee must respond publicly to each proposal within 4 weeks after reception.</t>
                 <t>The response MAY:
-	                <list style="symbols">
-		                <t>request more information or clarification</t>
+                    <list style="symbols">
+                        <t>request more information or clarification</t>
                         <t>accept the proposal, optionally with modifications to the subtag or description</t>
-		                <t>reject the proposal, because of significant objections raised on the mailing list or 
-		                due to problems with constraints in this document or in <xref target="UTS35"></xref></t>
-	                </list>
-	            </t>
+                        <t>reject the proposal, because of significant objections raised on the mailing list or 
+                        due to problems with constraints in this document or in <xref target="UTS35"></xref></t>
+                    </list>
+                </t>
                 <t>Accepted tickets result in a new entry in the machine-readable CLDR BCP47 data,
-                or in the case of a clarified description, modifications to the description attribute value for an existing entry.</t>
-			</section>
+                or in the case of a clarified description,
+                modifications to the description attribute value for an existing entry.</t>
+            </section>
             <section title="Machine-Readable Data" anchor="machine-readable">
 				<t>
 					EDITORIAL NOTE: The following parallels the structure used for the
@@ -598,15 +617,37 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
                     <c>United Nations Group of Experts on Geographical Names; American Library Association-Library of Congress</c>
 
                     <c>since</c>
-                    <c>Indicates the first version of CLDR where the name appears.</c>
+                    <c>Indicates the first version of CLDR where the name appears. (Required for new items.)</c>
                     <c>1.9, 2.0.1</c>
                     
                     <c>alias</c>
                     <c>Alternative name of the key or type, not limited in number of characters. Aliases are intended for backwards compatibility,
-                    not to provide all possible alternate names or designations</c>
+                    not to provide all possible alternate names or designations. (Optional)</c>
                     <c></c>
 
 				</texttable>
+				<t>The file for the transform extension is "transform.xml".
+				The initial version of that file contains the following information.</t>
+				<figure><artwork>
+&lt;key extension="t" name="m0" description=
+      "Transliteration extension mechanism"/>
+   &lt;type name="ungegn" description=
+      "United Nations Group of Experts on Geographical Names"/>
+   &lt;type name="alaloc" description=
+      "American Library Association-Library of Congress"/> 
+   &lt;type name="bgn" description=
+      "US Board on Geographic Names"/> 
+   &lt;type name="mcst" description=
+      "Korean Ministry of Culture, Sports and Tourism"/> 
+   &lt;type name="iso" description=
+      "International Organization for Standardization"/> 
+   &lt;type name="din" description=
+      "Deutsches Institut fuer Normung"/> 
+   &lt;type name="gost" description=
+      "Euro-Asian Council for Standardization, Metrology
+       and Certification"/> 
+&lt;/key>
+				</artwork></figure>
 				<t>
 					To get the version information in XML when working with the data
 					files, the XML parser must be validating. When the 'core.zip' file

@@ -208,7 +208,7 @@ Requirements Language<br />
 BCP47 Required Information<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">2.1.</a>&nbsp;
 Introduction<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor5">2.2.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#structure">2.2.</a>&nbsp;
 Structure<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#canonicalization">2.3.</a>&nbsp;
 Canonicalization<br />
@@ -218,7 +218,11 @@ BCP47 Registration Form<br />
 Field Definitions<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#registration">2.6.</a>&nbsp;
 Registration of Field Subtags<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#machine-readable">2.7.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#field-registration">2.7.</a>&nbsp;
+Registration of Additional Fields<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#committee-responses">2.8.</a>&nbsp;
+Committee Responses to Registration Proposals<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#machine-readable">2.9.</a>&nbsp;
 Machine-Readable Data<br />
 <a href="#Acknowledgements">3.</a>&nbsp;
 Acknowledgements<br />
@@ -273,7 +277,7 @@ Introduction</h3>
 			
 </p>
 <p>
-			   For example, suppose that Italian or Russian
+			   Suppose that Italian or Russian
 			   cities on a map are transcribed for Japanese users. Each name needs to be
 			   transliterated into katakana using rules appropriate for the specific
 			   source and target language.   When tagging such data, it is important
@@ -291,7 +295,7 @@ Introduction</h3>
 			   transliteration method.
 </p>
 <p>
-				Many different conventions have arisen for how to transform text, even between the same languages and scripts.
+				In addition, many different conventions have arisen for how to transform text, even between the same languages and scripts.
                 For example, "Gaddafi" is commonly transliterated from Arabic to English as any of (G/Q/K/Kh)a(d/dh/dd/dhdh/th/zz)af(i/y).
 				Some examples of  standardized conventions used for transcribing or transliterating text include:
                 </p>
@@ -399,14 +403,15 @@ Introduction</h3>
 					extension.
 				
 </p>
-<p>The t extension is not intended for use in structured data that already provides for source and target language identifiers.
+<p>The t extension is not intended for use in structured data that already provides 
+				separate source and target language identifiers.
 				For example, this is the case in localization interchange formats such as XLIFF.
 				In such cases, it would be inappropriate to use "ja-t-it" for the target language tag because the source language tag
 				"it" would already be present in the data. Instead one would use the language tag "ja".
 				
 </p>
-<p>It is sometimes necessary to indicate additional
-					information about the transformation.
+<p>As noted earlier, it is sometimes necessary to indicate additional
+					information about a transformation.
 					This additional information is optionally supplied after the source in a series of one or more fields,
 					where each field consists of a field separator subtag followed by one or more non-separator subtags.
 					Each field separator subtag consists of a single letter followed by a single digit.
@@ -514,7 +519,7 @@ Introduction</h3>
 </table>
 <br clear="all" />
 
-<a name="anchor5"></a><br /><hr />
+<a name="structure"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
 Structure</h3>
@@ -688,8 +693,7 @@ Field Definitions</h3>
 							Any purely numeric subtag is a representation of a date in the
 							Gregorian calendar.
 							It MAY occur in any mechanism field.
-							If it
-							does occur:
+							If it does occur:
 							
 <ul class="text">
 <li>it MUST occur as the final subtag in the field,
@@ -699,14 +703,30 @@ Field Definitions</h3>
 <li>it MUST consist of a sequence of digits of the form YYYY,
 									YYYYMM, or YYYYMMDD.
 </li>
+<li>it SHOULD only be used where necessary.
+</li>
+<li>it SHOULD be as short as possible.
+</li>
 </ul>
-							For example, 20110623
-							represents June 23th, 2011.
-							A date subtag
-							SHOULD only be used where necessary, and then
-							SHOULD be as short
-							as possible.
-							For example, suppose that the BGN transliteration
+							Examples:
+							
+<ul class="text">
+<li>20110623 represents June 23th, 2011.
+</li>
+<li>There are 3 dated versions of the UNGEGN transliteration
+                            specification for Hebrew to Latin. They can be represented by the following language tags:
+                            
+<ul class="text">
+<li>und-Hebr-t-und-Latn-m0-ungegn-1972
+</li>
+<li>und-Hebr-t-und-Latn-m0-ungegn-1977
+</li>
+<li>und-Hebr-t-und-Latn-m0-ungegn-2007
+</li>
+</ul>
+							
+</li>
+<li>Suppose that the BGN transliteration
 							specification for Cyrillic to Latin had three versions,
 							dated
 							June 11th, 1999; Dec 30th, 1999; and May 1st, 2011.
@@ -717,6 +737,8 @@ Field Definitions</h3>
 							subtag
 							would only
 							require the year (2011).
+</li>
+</ul>
 						
 </dd>
 <dt>c.</dt>
@@ -780,28 +802,46 @@ Registration of Field Subtags</h3>
 <p>The committee MAY define a template for submissions that requests more information,
                  if it is found that such information would be useful in evaluating proposals.
 </p>
+<a name="field-registration"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.7"></a><h3>2.7.&nbsp;
+Registration of Additional Fields</h3>
+
+<p>In the event that it proves necessary to add an additional field (such as 'm2'),
+                it can be requested by filing a ticket at
+                    <a href='http://cldr.unicode.org/'>cldr.unicode.org</a>.
+                    The proposal in the ticket MUST contain a full description of the
+                    proposed field semantics and subtag syntax,
+                    and MUST be conform to the ABNF syntax for "field" presented in <a class='info' href='#structure'>Section&nbsp;2.2<span> (</span><span class='info'>Structure</span><span>)</span></a>.
+</p>
+<a name="committee-responses"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.8"></a><h3>2.8.&nbsp;
+Committee Responses to Registration Proposals</h3>
+
 <p>The committee MUST post each proposal publicly within 2 weeks after reception,
                 to allow for comments. The committee must respond publicly to each proposal within 4 weeks after reception.
 </p>
 <p>The response MAY:
-	                </p>
+                    </p>
 <ul class="text">
 <li>request more information or clarification
 </li>
 <li>accept the proposal, optionally with modifications to the subtag or description
 </li>
 <li>reject the proposal, because of significant objections raised on the mailing list or 
-		                due to problems with constraints in this document or in <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
+                        due to problems with constraints in this document or in <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>
 </li>
 </ul><p>
-	            
+                
 </p>
 <p>Accepted tickets result in a new entry in the machine-readable CLDR BCP47 data,
-                or in the case of a clarified description, modifications to the description attribute value for an existing entry.
+                or in the case of a clarified description,
+                modifications to the description attribute value for an existing entry.
 </p>
 <a name="machine-readable"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
-<a name="rfc.section.2.7"></a><h3>2.7.&nbsp;
+<a name="rfc.section.2.9"></a><h3>2.9.&nbsp;
 Machine-Readable Data</h3>
 
 <p>
@@ -855,18 +895,40 @@ Machine-Readable Data</h3>
 </tr>
 <tr>
 <td align="left">since</td>
-<td align="left">Indicates the first version of CLDR where the name appears.</td>
+<td align="left">Indicates the first version of CLDR where the name appears. (Required for new items.)</td>
 <td align="left">1.9, 2.0.1</td>
 </tr>
 <tr>
 <td align="left">alias</td>
 <td align="left">Alternative name of the key or type, not limited in number of characters. Aliases are intended for backwards compatibility,
-                    not to provide all possible alternate names or designations</td>
+                    not to provide all possible alternate names or designations. (Optional)</td>
 <td align="left">&nbsp;</td>
 </tr>
 </table>
 <br clear="all" />
 
+<p>The file for the transform extension is "transform.xml".
+				The initial version of that file contains the following information.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+&lt;key extension="t" name="m0" description=
+      "Transliteration extension mechanism"/&gt;
+   &lt;type name="ungegn" description=
+      "United Nations Group of Experts on Geographical Names"/&gt;
+   &lt;type name="alaloc" description=
+      "American Library Association-Library of Congress"/&gt;
+   &lt;type name="bgn" description=
+      "US Board on Geographic Names"/&gt;
+   &lt;type name="mcst" description=
+      "Korean Ministry of Culture, Sports and Tourism"/&gt;
+   &lt;type name="iso" description=
+      "International Organization for Standardization"/&gt;
+   &lt;type name="din" description=
+      "Deutsches Institut fuer Normung"/&gt;
+   &lt;type name="gost" description=
+      "Euro-Asian Council for Standardization, Metrology
+       and Certification"/&gt;
+&lt;/key&gt;
+</pre></div>
 <p>
 					To get the version information in XML when working with the data
 					files, the XML parser must be validating. When the 'core.zip' file

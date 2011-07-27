@@ -76,7 +76,7 @@
         <taskdef name="list"      classname="org.apache.catalina.ant.ListTask"><classpath refid="catalina-ant.classpath" /></taskdef>
         <taskdef name="reload"    classname="org.apache.catalina.ant.ReloadTask"><classpath refid="catalina-ant.classpath" /></taskdef>
         <taskdef name="resources" classname="org.apache.catalina.ant.ResourcesTask"><classpath refid="catalina-ant.classpath" /></taskdef>
-        <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask"><classpath refid="catalina-ant.classpath" /></taskdef>
+        <!-- <taskdef name="roles"     classname="org.apache.catalina.ant.RolesTask"><classpath refid="catalina-ant.classpath" /></taskdef> -->
         <taskdef name="start"     classname="org.apache.catalina.ant.StartTask"><classpath refid="catalina-ant.classpath" /></taskdef>
         <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask"><classpath refid="catalina-ant.classpath" /></taskdef>
         <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask"><classpath refid="catalina-ant.classpath" /></taskdef>

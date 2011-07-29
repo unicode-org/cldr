@@ -143,7 +143,6 @@
 			<language type="enm">średnioangielski</language>
 			<language type="eo">esperanto</language>
 			<language type="es">hiszpański</language>
-			<language type="es_419">hiszpański (Ameryka Łacińska)</language>
 			<language type="et">estoński</language>
 			<language type="eu">baskijski</language>
 			<language type="ewo">ewondo</language>
@@ -447,7 +446,6 @@
 			<language type="syc">syriacki</language>
 			<language type="syr">syryjski</language>
 			<language type="ta">tamilski</language>
-			<language type="tai">tai</language>
 			<language type="te">telugu</language>
 			<language type="tem">temne</language>
 			<language type="ter">tereno</language>
@@ -687,7 +685,7 @@
 			<territory type="154">Europa Północna</territory>
 			<territory type="155">Europa Zachodnia</territory>
 			<territory type="172">Wspólnota Niezależnych Państw</territory>
-			<territory type="419">Ameryka Łacińska i Karaiby</territory>
+			<territory type="419">Ameryka Łacińska</territory>
 			<territory type="830">Wyspy Normandzkie</territory>
 			<territory type="AC">Wyspa Wniebowstąpienia</territory>
 			<territory type="AD">Andora</territory>
@@ -1060,10 +1058,8 @@
 			<type type="unihan" key="collation">sortowanie wg kluczy i ich liczby kresek</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Liczbowe</transformName>
 			<transformName type="Tone" draft="contributed">Ton</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Akcenty</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Pełna szerokość</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Połowa szerokości</transformName>
@@ -1144,13 +1140,13 @@
 						<dateFormatItem id="yM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yMd">d.MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d.MM.yyyy G</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="contributed">LLL y G</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM y G</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yQ">G y Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
@@ -1655,13 +1651,13 @@
 						<dateFormatItem id="yM">MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yMd">d.MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd">EEE, d.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
-						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMM">LLL yy</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y</dateFormatItem>
@@ -1790,13 +1786,11 @@
 					</field>
 					<field type="day">
 						<displayName>Dzień</displayName>
-						<relative type="-3">Trzy dni temu</relative>
 						<relative type="-2">Przedwczoraj</relative>
 						<relative type="-1">Wczoraj</relative>
 						<relative type="0">Dzisiaj</relative>
 						<relative type="1">Jutro</relative>
 						<relative type="2">Pojutrze</relative>
-						<relative type="3">Za trzy dni</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Dzień tygodnia</displayName>
@@ -2069,12 +2063,12 @@
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">EEE, d.MM.yyyy</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="contributed">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="contributed">EEE, d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="contributed">LLLL y</dateFormatItem>
 						<dateFormatItem id="yQ" draft="contributed">yyyy Q</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
-						<dateFormatItem id="yyMMM">MMM yy G</dateFormatItem>
+						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">dd.MM.yyyy G</dateFormatItem>
@@ -2134,7 +2128,7 @@
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yyMMM">MMM yy G</dateFormatItem>
+						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M.y G</dateFormatItem>
@@ -2276,7 +2270,7 @@
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/y G</dateFormatItem>
-						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M.y G</dateFormatItem>
@@ -3472,27 +3466,23 @@
 				<long>
 					<standard draft="contributed">Czas środkowoafrykański</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard draft="contributed">Czas wschodnioafrykański</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic draft="contributed">Czas południowoafrykański</generic>
 					<standard draft="contributed">Czas południowoafrykański</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard draft="contributed">Czas zachodnioafrykański</standard>
 					<daylight draft="contributed">Letni czas zachodnioafrykański</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -3567,7 +3557,6 @@
 					<standard>Czas atlantycki standardowy</standard>
 					<daylight>Czas atlantycki letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -3575,7 +3564,6 @@
 					<standard>Czas standardowy środkowoaustralijski</standard>
 					<daylight>Czas środkowoaustralijski letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -3583,7 +3571,6 @@
 					<standard>Czas standardowy środkowo-zachodnioaustralijski</standard>
 					<daylight>Czas środkowo-zachodnioaustralijski letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -3591,7 +3578,6 @@
 					<standard>Czas standardowy wschodnioaustraliski</standard>
 					<daylight>Czas wschodnioaustraliski letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -3599,7 +3585,6 @@
 					<standard>Czas standardowy zachodnioaustralijski</standard>
 					<daylight>Czas zachodnioaustralijski letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Azores">
 				<long>
@@ -3668,7 +3653,6 @@
 				<long>
 					<standard draft="contributed">Czas strefy oceanu indyjskiego</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
@@ -3897,7 +3881,6 @@
 				<displayName count="many">dirhamów arabskich</displayName>
 				<displayName count="one" draft="contributed">dirham arabski</displayName>
 				<displayName count="other" draft="contributed">dirhama arabskiego</displayName>
-				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>afgani (1927-2002)</displayName>
@@ -3917,7 +3900,6 @@
 				<displayName count="many">leków albańskich</displayName>
 				<displayName count="one" draft="contributed">lek albański</displayName>
 				<displayName count="other" draft="contributed">leka albańskiego</displayName>
-				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>dram armeński</displayName>
@@ -3925,7 +3907,6 @@
 				<displayName count="many">dramów armeńskich</displayName>
 				<displayName count="one" draft="contributed">dram ormiański</displayName>
 				<displayName count="other" draft="contributed">dramy ormiańskiej</displayName>
-				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>gulden Antyle Holenderskie</displayName>
@@ -4045,7 +4026,6 @@
 				<displayName count="many" draft="contributed">lewa bułgarskich</displayName>
 				<displayName count="one" draft="contributed">lew bułgarski</displayName>
 				<displayName count="other" draft="contributed">lewa bułgarskich</displayName>
-				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>dinar bahrański</displayName>
@@ -4143,7 +4123,6 @@
 				<displayName count="many">rubli białoruskich</displayName>
 				<displayName count="one">rubel białoruski</displayName>
 				<displayName count="other" draft="contributed">rubla białoruskiego</displayName>
-				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>dolar belizeński</displayName>
@@ -4172,7 +4151,6 @@
 				<displayName count="many">franków szwajcarskich</displayName>
 				<displayName count="one">frank szwajcarski</displayName>
 				<displayName count="other" draft="contributed">franka szwajcarskiego</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>peso chilijskie</displayName>
@@ -4294,7 +4272,6 @@
 				<displayName count="many" draft="contributed">funtów egipskich</displayName>
 				<displayName count="one" draft="contributed">funt egipski</displayName>
 				<displayName count="other" draft="contributed">funta egipskiego</displayName>
-				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>nakfa erytrejska</displayName>
@@ -4368,7 +4345,6 @@
 				<displayName count="many" draft="contributed">lari gruzińskich</displayName>
 				<displayName count="one" draft="contributed">lari gruzińskie</displayName>
 				<displayName count="other" draft="contributed">lari gruzińskiego</displayName>
-				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>cedi ghańskie (1979-2007)</displayName>
@@ -4501,7 +4477,6 @@
 				<displayName count="many" draft="contributed">dinarów irackich</displayName>
 				<displayName count="one" draft="contributed">dinar iracki</displayName>
 				<displayName count="other" draft="contributed">dinara irackiego</displayName>
-				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>rial irański</displayName>
@@ -4509,7 +4484,6 @@
 				<displayName count="many" draft="contributed">riali irańskich</displayName>
 				<displayName count="one" draft="contributed">rial irański</displayName>
 				<displayName count="other" draft="contributed">riala irańskiego</displayName>
-				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>korona islandzka</displayName>
@@ -4555,7 +4529,6 @@
 				<displayName count="many" draft="contributed">somów kirgiskich</displayName>
 				<displayName count="one" draft="contributed">som kirgiski</displayName>
 				<displayName count="other" draft="contributed">soma kirgiskiego</displayName>
-				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>riel kambodżański</displayName>
@@ -4563,7 +4536,6 @@
 				<displayName count="many" draft="contributed">rieli kambodżańskich</displayName>
 				<displayName count="one" draft="contributed">riel kambodżański</displayName>
 				<displayName count="other" draft="contributed">riela kambodżańskiego</displayName>
-				<symbol draft="contributed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>frank komoryjski</displayName>
@@ -4578,7 +4550,6 @@
 				<displayName count="many" draft="contributed">wonów północnokoreańskich</displayName>
 				<displayName count="one" draft="contributed">won północnokoreański</displayName>
 				<displayName count="other" draft="contributed">wona północnokoreańskiego</displayName>
-				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>won południowokoreański</displayName>
@@ -4607,7 +4578,6 @@
 				<displayName count="many" draft="contributed">tenge kazachskich</displayName>
 				<displayName count="one" draft="contributed">tenge kazachski</displayName>
 				<displayName count="other" draft="contributed">tenge kazachskiego</displayName>
-				<symbol draft="contributed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>kip laotański</displayName>
@@ -4676,7 +4646,6 @@
 				<displayName count="many" draft="contributed">dirhamów marokańskich</displayName>
 				<displayName count="one" draft="contributed">dirham marokański</displayName>
 				<displayName count="other" draft="contributed">dirhama marokańskiego</displayName>
-				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>frank marokański</displayName>
@@ -4690,7 +4659,6 @@
 				<displayName count="many" draft="contributed">lei mołdawskich</displayName>
 				<displayName count="one" draft="contributed">lej mołdawski</displayName>
 				<displayName count="other" draft="contributed">leja mołdawskiego</displayName>
-				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>ariar malgaski</displayName>
@@ -4698,7 +4666,6 @@
 				<displayName count="many" draft="contributed">ariary malgaskich</displayName>
 				<displayName count="one" draft="contributed">ariary malgaski</displayName>
 				<displayName count="other" draft="contributed">ariary malgaskiego</displayName>
-				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>frank malgaski</displayName>
@@ -4709,7 +4676,6 @@
 				<displayName count="many" draft="contributed">denarów macedońskich</displayName>
 				<displayName count="one" draft="contributed">denar macedoński</displayName>
 				<displayName count="other" draft="contributed">denara macedońskiego</displayName>
-				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>frank malijski</displayName>
@@ -4761,7 +4727,6 @@
 				<displayName count="many" draft="contributed">rupii malediwskich</displayName>
 				<displayName count="one" draft="contributed">rupia malediwska</displayName>
 				<displayName count="other" draft="contributed">rupii malediwskiej</displayName>
-				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>kwacha malawska</displayName>
@@ -4769,7 +4734,6 @@
 				<displayName count="many" draft="contributed">kwacha malawskich</displayName>
 				<displayName count="one" draft="contributed">kwacha malawska</displayName>
 				<displayName count="other" draft="contributed">kwacha malawskiej</displayName>
-				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>peso meksykańskie</displayName>
@@ -4855,7 +4819,6 @@
 				<displayName count="many" draft="contributed">riali omańskich</displayName>
 				<displayName count="one" draft="contributed">rial omański</displayName>
 				<displayName count="other" draft="contributed">riala omańskiego</displayName>
-				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>balboa panamski</displayName>
@@ -4956,7 +4919,6 @@
 				<displayName count="many">rubli rosyjskich</displayName>
 				<displayName count="one">rubel rosyjski</displayName>
 				<displayName count="other" draft="contributed">rubla rosyjskiego</displayName>
-				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>rubel rosyjski (1991-1998)</displayName>
@@ -4967,7 +4929,6 @@
 				<displayName count="many" draft="contributed">franków ruandyjskich</displayName>
 				<displayName count="one" draft="contributed">frank ruandyjski</displayName>
 				<displayName count="other" draft="contributed">franka ruandyjskiego</displayName>
-				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>rial saudyjski</displayName>
@@ -4999,7 +4960,6 @@
 				<displayName count="many" draft="contributed">funtów sudańskich</displayName>
 				<displayName count="one" draft="contributed">funt sudański</displayName>
 				<displayName count="other" draft="contributed">funta sudańskiego</displayName>
-				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>stary funt sudański</displayName>
@@ -5107,7 +5067,6 @@
 				<displayName count="many" draft="contributed">somoni tadżyckich</displayName>
 				<displayName count="one" draft="contributed">somoni tadżyckie</displayName>
 				<displayName count="other" draft="contributed">somoni tadżyckiego</displayName>
-				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>manat turkmeński</displayName>
@@ -5118,7 +5077,6 @@
 				<displayName count="many" draft="contributed">nowych manatów turkmeńskich</displayName>
 				<displayName count="one" draft="contributed">nowy manat turkmeński</displayName>
 				<displayName count="other" draft="contributed">nowego manata turkmeńskiego</displayName>
-				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>dinar tunezyjski</displayName>
@@ -5200,7 +5158,6 @@
 				<displayName count="many">dolarów amerykańskich</displayName>
 				<displayName count="one">dolar amerykański</displayName>
 				<displayName count="other" draft="contributed">dolara amerykańskiego</displayName>
-				<symbol draft="contributed">USD</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>peso urugwajskie (1975-1993)</displayName>
@@ -5218,7 +5175,6 @@
 				<displayName count="many" draft="contributed">somów uzbeckich</displayName>
 				<displayName count="one" draft="contributed">som uzbecki</displayName>
 				<displayName count="other" draft="contributed">soma uzbeckiego</displayName>
-				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>boliwar wenezuelski (1871-2008)</displayName>

@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.tool.GenerateLikelySubtagTests;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.InternalCldrException;
@@ -1036,7 +1036,7 @@ public class CoverageLevel {
           language_territories.put(baseLanguage, territory);
           territory_languages.put(territory, baseLanguage);
           if (script.length() == 0) {
-            final String maxFrom = GenerateLikelySubtagTests.maximize(language, likelySubtags);
+            final String maxFrom = LikelySubtags.maximize(language, likelySubtags);
             if (maxFrom != null) {
               script = languageTagParser.set(maxFrom).getScript();
             }

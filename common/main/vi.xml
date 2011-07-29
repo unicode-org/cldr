@@ -254,7 +254,7 @@
 			<territory type="151">Đông Âu</territory>
 			<territory type="154">Miền Bắc Châu Âu</territory>
 			<territory type="155">Tây Âu</territory>
-			<territory type="419">Châu Mỹ La-tinh và Ca-ri-be</territory>
+			<territory type="419">Châu Mỹ La-tinh</territory>
 			<territory type="AC">Đảo Ascension</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Các Tiểu Vương quốc A-rập Thống nhất</territory>
@@ -282,7 +282,6 @@
 			<territory type="BH">Ba-ren</territory>
 			<territory type="BI">Bu-run-đi</territory>
 			<territory type="BJ">Bê-nanh</territory>
-			<territory type="BL">BL</territory>
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Bru-nây</territory>
 			<territory type="BO">Bô-li-vi-a</territory>
@@ -406,7 +405,6 @@
 			<territory type="MC">Mô-na-cô</territory>
 			<territory type="MD">Môn-đô-va</territory>
 			<territory type="ME" draft="contributed">Montenegro</territory>
-			<territory type="MF" draft="contributed">MF</territory>
 			<territory type="MG">Ma-đa-gát-xca</territory>
 			<territory type="MH">Quần đảo Mác-san</territory>
 			<territory type="MK">Ma-xê-đô-ni-a</territory>
@@ -417,7 +415,6 @@
 			<territory type="MO" draft="contributed">Đặc khu hành chính Macao thuộc CHND Trung Hoa</territory>
 			<territory type="MO" alt="short" draft="contributed">Macao</territory>
 			<territory type="MP" draft="contributed">Quần Đảo Bắc Mariana</territory>
-			<territory type="MQ" draft="contributed">MQ</territory>
 			<territory type="MR">Mô-ri-ta-ni</territory>
 			<territory type="MS" draft="contributed">Montserrat</territory>
 			<territory type="MT">Man-ta</territory>
@@ -456,7 +453,6 @@
 			<territory type="PY">Pa-ra-goay</territory>
 			<territory type="QA">Ca-ta</territory>
 			<territory type="QO" draft="contributed">Vùng xa xôi thuộc Châu Đại Dương</territory>
-			<territory type="RE" draft="contributed">RE</territory>
 			<territory type="RO">Ru-ma-ni</territory>
 			<territory type="RS" draft="contributed">Xéc-bi</territory>
 			<territory type="RU">Nga</territory>
@@ -514,7 +510,6 @@
 			<territory type="WF" draft="contributed">Wallis và Futuna</territory>
 			<territory type="WS">Xa-moa</territory>
 			<territory type="YE">Y-ê-men</territory>
-			<territory type="YT" draft="contributed">YT</territory>
 			<territory type="ZA">Nam Phi</territory>
 			<territory type="ZM">Dăm-bi-a</territory>
 			<territory type="ZW">Dim-ba-bu-ê</territory>
@@ -590,10 +585,8 @@
 			<type type="unihan" key="collation">Trình tự sắp xếp theo bộ-nét</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Số</transformName>
 			<transformName type="Tone" draft="contributed">Âm</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Dấu</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Độ rộng tối đa</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Nửa độ rộng</transformName>
@@ -657,9 +650,9 @@
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">'Năm' y G</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">M/y GGGGG</dateFormatItem>
@@ -1101,9 +1094,9 @@
 						<dateFormatItem id="MMdd" draft="contributed">dd-MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="mmss" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">'Năm' y</dateFormatItem>
@@ -1242,13 +1235,11 @@
 					</field>
 					<field type="day">
 						<displayName>Ngày</displayName>
-						<relative type="-3" draft="contributed">Ba ngày trước</relative>
 						<relative type="-2" draft="contributed">Ngày hôm kia</relative>
 						<relative type="-1">Ngày hôm qua</relative>
 						<relative type="0">Hôm nay</relative>
 						<relative type="1">Ngày mai</relative>
 						<relative type="2" draft="contributed">Ngày kia</relative>
-						<relative type="3" draft="contributed">Ba ngày kể từ bây giờ</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Ngày trong tuần</displayName>
@@ -1473,9 +1464,9 @@
 						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
@@ -1531,9 +1522,9 @@
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
 						<dateFormatItem id="yyyy">'Năm' y G</dateFormatItem>
@@ -1649,9 +1640,9 @@
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMdd">dd-MM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
@@ -1954,7 +1945,6 @@
 					<standard>Giờ Chuẩn Alaska</standard>
 					<daylight>Giờ Mùa Hè Alaska</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
@@ -1982,7 +1972,6 @@
 					<standard draft="contributed">Giờ chuẩn miền trung</standard>
 					<daylight draft="contributed">Giờ ban ngày miền trung</daylight>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -1990,7 +1979,6 @@
 					<standard draft="contributed">Giờ chuẩn miền đông</standard>
 					<daylight draft="contributed">Giờ ban ngày miền đông</daylight>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -1998,7 +1986,6 @@
 					<standard draft="contributed">Giờ chuẩn miền núi</standard>
 					<daylight draft="contributed">Giờ ban ngày miền núi</daylight>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -2006,7 +1993,6 @@
 					<standard draft="contributed">Giờ chuẩn Thái Bình Dương</standard>
 					<daylight draft="contributed">Giờ ban ngày Thái Bình Dương</daylight>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -2014,7 +2000,6 @@
 					<standard draft="contributed">Giờ Anadyr</standard>
 					<daylight draft="contributed">Giờ mùa hè Anadyr</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
@@ -2034,11 +2019,6 @@
 					<standard draft="contributed">Giờ Chuẩn A-rập</standard>
 					<daylight draft="contributed">Giờ Mùa Hè A-rập</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AT (A-rập)</generic>
-					<standard draft="contributed">AST (A-rập)</standard>
-					<daylight draft="contributed">ADT (A-rập)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2053,7 +2033,6 @@
 					<standard>Giờ Miền Tây Argentina</standard>
 					<daylight>Giờ mùa hè miền tây Argentina</daylight>
 				</long>
-				<commonlyUsed draft="provisional">false</commonlyUsed>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
@@ -2073,7 +2052,6 @@
 					<standard>Giờ Chuẩn Đại Tây Dương</standard>
 					<daylight>Giờ Mùa hè Đại Tây Dương</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2173,9 +2151,6 @@
 					<generic draft="contributed">Giờ Chamorro</generic>
 					<standard draft="contributed">Giờ Chuẩn Chamorro</standard>
 				</long>
-				<short>
-					<generic draft="contributed">ChT</generic>
-				</short>
 			</metazone>
 			<metazone type="Changbai">
 				<long>
@@ -2200,11 +2175,6 @@
 					<standard draft="contributed">Giờ Chuẩn Trung Quốc</standard>
 					<daylight draft="contributed">Giờ Mùa Hè Trung Quốc</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT (Trung Quốc)</generic>
-					<standard draft="contributed">CST (Trung Quốc)</standard>
-					<daylight draft="contributed">CDT (Trung Quốc)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2241,11 +2211,6 @@
 					<standard draft="contributed">Giờ Chuẩn Cuba</standard>
 					<daylight draft="contributed">Giờ Mùa Hè Cuba</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT (Cuba)</generic>
-					<standard draft="contributed">CST (Cuba)</standard>
-					<daylight draft="contributed">CDT (Cuba)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Dacca">
 				<long>
@@ -2283,9 +2248,6 @@
 					<standard draft="contributed">Giờ Đảo Phục Sinh</standard>
 					<daylight draft="contributed">Giờ Mùa Hè Đảo Phục Sinh</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">MIỀN ĐÔNG</standard>
-				</short>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
@@ -2309,9 +2271,6 @@
 					<standard draft="contributed">Giờ Tây Âu</standard>
 					<daylight draft="contributed">Giờ Mùa hè Tây Âu</daylight>
 				</long>
-				<short>
-					<daylight draft="contributed">MIỀN TÂY</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2366,7 +2325,6 @@
 				<long>
 					<standard draft="contributed">Giờ Trung Bình Greenwich</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
@@ -2390,9 +2348,6 @@
 				<long>
 					<standard draft="contributed">Giờ Chuẩn Guam</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GST (Guam)</standard>
-				</short>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
@@ -2410,7 +2365,6 @@
 					<generic draft="contributed">Giờ Hawaii Aleutian</generic>
 					<standard draft="contributed">Giờ Chuẩn Hawaii-Aleutian</standard>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
@@ -2477,9 +2431,6 @@
 					<standard draft="contributed">Giờ Chuẩn Israel</standard>
 					<daylight draft="contributed">Giờ Mùa Hè Israel</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">IST (Israel)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -2843,9 +2794,6 @@
 				<long>
 					<standard draft="contributed">Giờ Nam Georgia</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GST (S. Georgia)</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
@@ -2874,11 +2822,6 @@
 					<standard draft="provisional">Giờ Chuẩn Đài Bắc</standard>
 					<daylight draft="provisional">Giờ Mùa Hè Đài Bắc</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT (Đài Bắc)</generic>
-					<standard draft="contributed">CST (Đài Bắc)</standard>
-					<daylight draft="contributed">CDT (Đài Bắc)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>

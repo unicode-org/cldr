@@ -1031,10 +1031,8 @@
 			<type type="unihan" key="collation">રેડિકલ-સ્ટ્રોક</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">સંખ્યા</transformName>
 			<transformName type="Tone">ધ્વની</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">સ્વરાઘાતો</transformName>
 			<transformName type="x-Fullwidth">પૂર્ણપહોળાઇ</transformName>
 			<transformName type="x-Halfwidth">અર્ધપહોળાઈ</transformName>
@@ -1344,13 +1342,11 @@
 					</field>
 					<field type="day">
 						<displayName>દિવસ</displayName>
-						<relative type="-3">ત્રણ દિવસો પહેલાં</relative>
 						<relative type="-2">ગઈકાસ પહેસાંનો દિવસ</relative>
 						<relative type="-1">ગઈકાસ</relative>
 						<relative type="0">આજ</relative>
 						<relative type="1">આવતીકાસ</relative>
 						<relative type="2">આવતીકાસ પછીનો દિવસ</relative>
-						<relative type="3">આજથી ત્રણ દિવસ સુધીં</relative>
 					</field>
 					<field type="weekday">
 						<displayName>અઠવાડિયાનો દિવસ</displayName>
@@ -3069,6 +3065,10 @@
 				<long>
 					<standard>ભારતીય પ્રમાણભૂત સમય</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
@@ -3880,7 +3880,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>ભારતીય રૂપીયા</displayName>
-				<symbol>રુ</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ઇરાકી દિનાર</displayName>

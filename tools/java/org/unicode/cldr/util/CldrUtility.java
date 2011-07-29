@@ -34,6 +34,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
+
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
@@ -110,10 +112,11 @@ public class CldrUtility {
   /** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
   // set the base directory with -Dcldrdata=<value>
   // if the main is different, use -Dcldrmain=<value>
-  public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new File(Utility.getProperty("CLDR_DIR", null)).getPath();	// get up to <CLDR>
-  public static final String UTIL_DATA_DIR = getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/");        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
-  public static final String UTIL_CODE_DIR = getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/");        // "C:/ICU4C/locale/tools/java/org/unicode/cldr/util/";
-  public static final String UTIL_CLASS_DIR = "org.unicode.cldr.util";
+  
+  public static final String UTIL_CODE_DIR = FileUtilities.getRelativeFileName(CldrUtility.class, ""); // getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/");
+  public static final String UTIL_DATA_DIR = getPath(UTIL_CODE_DIR , "data/"); // getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/");
+
+  public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new File(Utility.getProperty("CLDR_DIR", null)).getPath(); // get up to <CLDR>
   public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY , "common/");
   public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN", getPath(CldrUtility.COMMON_DIRECTORY,  "main"));
   public static final String COLLATION_DIRECTORY = getPath(COMMON_DIRECTORY,"collation/");
@@ -843,19 +846,7 @@ public static final class Output<T> {
    * @param name name of thing to load (org.unicode.cldr.util.name)
    */
   static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
-    java.io.InputStream is = null;
-    try {
-      is = 
-        com.ibm.icu.impl.ICUData.getRequiredStream(Class.forName(CldrUtility.UTIL_CLASS_DIR+".CldrUtility"), "data/" + name);
-    } catch (ClassNotFoundException cnf) { 
-
-      throw new FileNotFoundException("Couldn't load " + CldrUtility.UTIL_CLASS_DIR + "." + name + " - ClassNotFoundException." + cnf.toString());
-      //    .initCause(cnf);
-    } catch (java.util.MissingResourceException mre) {
-      // try file
-      return BagFormatter.openUTF8Reader(CldrUtility.UTIL_DATA_DIR + File.separator, name);
-    }
-    return new java.io.BufferedReader(   new java.io.InputStreamReader(is,"UTF-8") );
+      return FileUtilities.openFile(CldrUtility.class, "data/" + name);
   }
 
   /**

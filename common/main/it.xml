@@ -236,7 +236,6 @@
 			<language type="kaw">kawi</language>
 			<language type="kbd">kabardia</language>
 			<language type="kcg" draft="contributed">tyap</language>
-			<language type="kfo">kfo</language>
 			<language type="kg">kongo</language>
 			<language type="kha">khasi</language>
 			<language type="khi">lingua khoisan</language>
@@ -388,7 +387,6 @@
 			<language type="ro">rumeno</language>
 			<language type="roa">lingua romanza</language>
 			<language type="rom">romani</language>
-			<language type="root" draft="contributed">root</language>
 			<language type="ru">russo</language>
 			<language type="rup">arumeno</language>
 			<language type="rw">kinyarwanda</language>
@@ -673,7 +671,7 @@
 			<territory type="154">Europa del Nord</territory>
 			<territory type="155">Europa occidentale</territory>
 			<territory type="172">Comunità di Stati Indipendenti</territory>
-			<territory type="419">America Latina e Caraibi</territory>
+			<territory type="419">America Latina</territory>
 			<territory type="AC">Isola di Ascensione</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Emirati Arabi Uniti</territory>
@@ -1026,10 +1024,8 @@
 			<type type="unihan" key="collation" draft="contributed">Ordinamento in base ai radicali</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Numerica</transformName>
 			<transformName type="Tone" draft="contributed">Tono</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Accenti</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Larghezza intera</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Metà larghezza</transformName>
@@ -1520,13 +1516,11 @@
 					</field>
 					<field type="day">
 						<displayName>giorno</displayName>
-						<relative type="-3">tre giorni fa</relative>
 						<relative type="-2">l'altro ieri</relative>
 						<relative type="-1">ieri</relative>
 						<relative type="0">oggi</relative>
 						<relative type="1">domani</relative>
 						<relative type="2">dopodomani</relative>
-						<relative type="3">tra tre giorni</relative>
 					</field>
 					<field type="weekday">
 						<displayName>giorno della settimana</displayName>
@@ -2297,12 +2291,6 @@
 					<daylight draft="contributed">Ora legale di Anadyr</daylight>
 				</long>
 			</metazone>
-			<metazone type="Arabian">
-				<short>
-					<standard draft="provisional">AST arabo</standard>
-					<daylight draft="provisional">ADT arabo</daylight>
-				</short>
-			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Ora dell'Argentina</generic>
@@ -2317,19 +2305,12 @@
 					<daylight draft="contributed">Ora legale dell'Argentina (occidentale)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Armenia">
-				<short>
-					<standard draft="provisional">AMT Armenia</standard>
-					<daylight draft="provisional">AMST Armenia</daylight>
-				</short>
-			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic draft="contributed">Ora dell'Atlantico</generic>
 					<standard draft="contributed">Ora standard dell'Atlantico</standard>
 					<daylight draft="contributed">Ora legale dell'Atlantico</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2337,7 +2318,6 @@
 					<standard draft="contributed">Ora standard dell'Australia (centrale)</standard>
 					<daylight draft="contributed">Ora legale dell'Australia (centrale)</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2372,10 +2352,6 @@
 					<standard>Ora Standard Cina</standard>
 					<daylight>Ora Legale Cina</daylight>
 				</long>
-				<short>
-					<standard>CST (Cina)</standard>
-					<daylight>CDT (Cina)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2384,31 +2360,25 @@
 					<daylight draft="contributed">Ora legale di Choibalsan</daylight>
 				</long>
 			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<generic draft="contributed">CD (Cuba)</generic>
-					<standard draft="contributed">CST (Cuba)</standard>
-					<daylight draft="contributed">CDT (Cuba)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<standard>Ora Standard Europa Centrale</standard>
 					<daylight>Ora Legale Europa Centrale</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Ora Standard Europa Orientale</standard>
 					<daylight>Ora Legale Europa Orientale</daylight>
 				</long>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Ora Europa occidentale</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
@@ -2455,9 +2425,6 @@
 					<standard>Ora Standard Israele</standard>
 					<daylight>Ora Legale Israele</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">IST (Israele)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -2568,13 +2535,6 @@
 					<daylight draft="contributed">Ora legale di Samara</daylight>
 				</long>
 			</metazone>
-			<metazone type="Taipei">
-				<short>
-					<generic draft="contributed">CT (Taipei)</generic>
-					<standard draft="contributed">CST (Taipei)</standard>
-					<daylight draft="contributed">CDT (Taipei)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic draft="contributed">Ora di Vladivostok</generic>
@@ -2666,7 +2626,6 @@
 				<displayName>Dirham degli Emirati Arabi Uniti</displayName>
 				<displayName count="one" draft="contributed">dirham degli EAU</displayName>
 				<displayName count="other" draft="contributed">dirham degli EAU</displayName>
-				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afgani (1927-2002)</displayName>
@@ -2675,19 +2634,16 @@
 				<displayName>Afgani</displayName>
 				<displayName count="one" draft="contributed">afghani</displayName>
 				<displayName count="other" draft="contributed">afghani</displayName>
-				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Lek Albanese</displayName>
 				<displayName count="one" draft="contributed">lek albanese</displayName>
 				<displayName count="other" draft="contributed">lek albanese</displayName>
-				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Dram Armeno</displayName>
 				<displayName count="one" draft="contributed">dram</displayName>
 				<displayName count="other" draft="contributed">dram</displayName>
-				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Fiorino delle Antille Olandesi</displayName>
@@ -2852,7 +2808,6 @@
 				<displayName>Rublo Bielorussia</displayName>
 				<displayName count="one" draft="contributed">rublo bielorusso</displayName>
 				<displayName count="other" draft="contributed">rubli bielorussi</displayName>
-				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Dollaro Belize</displayName>
@@ -2873,7 +2828,6 @@
 				<displayName>Franco Svizzero</displayName>
 				<displayName count="one" draft="contributed">franco svizzero</displayName>
 				<displayName count="other" draft="contributed">franchi svizzeri</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Unidades de Fomento Chilene</displayName>
@@ -2924,7 +2878,6 @@
 				<displayName>Corona Ceca</displayName>
 				<displayName count="one" draft="contributed">corona ceca</displayName>
 				<displayName count="other" draft="contributed">corone ceche</displayName>
-				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Ostmark della Germania Orientale</displayName>
@@ -2963,7 +2916,6 @@
 				<displayName>Sterlina Egiziana</displayName>
 				<displayName count="one" draft="contributed">sterlina egiziana</displayName>
 				<displayName count="other" draft="contributed">sterline egiziane</displayName>
-				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Nakfa Eritreo</displayName>
@@ -3017,7 +2969,6 @@
 				<displayName>Lari Georgiano</displayName>
 				<displayName count="one" draft="contributed">lari georgiano</displayName>
 				<displayName count="other" draft="contributed">lari georgiani</displayName>
-				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Cedi del Ghana</displayName>
@@ -3120,13 +3071,11 @@
 				<displayName>Dinaro Iracheno</displayName>
 				<displayName count="one" draft="contributed">dinaro iracheno</displayName>
 				<displayName count="other" draft="contributed">dinari iracheni</displayName>
-				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Rial Iraniano</displayName>
 				<displayName count="one" draft="contributed">rial iraniano</displayName>
 				<displayName count="other" draft="contributed">rial iraniani</displayName>
-				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>Corona Islandese</displayName>
@@ -3164,13 +3113,11 @@
 				<displayName>Som Kirghiso</displayName>
 				<displayName count="one" draft="contributed">som</displayName>
 				<displayName count="other" draft="contributed">som</displayName>
-				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Riel Cambogiano</displayName>
 				<displayName count="one" draft="contributed">riel cambogiano</displayName>
 				<displayName count="other" draft="contributed">riel cambogiani</displayName>
-				<symbol draft="contributed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Franco Comoriano</displayName>
@@ -3181,7 +3128,6 @@
 				<displayName>Won Nordcoreano</displayName>
 				<displayName count="one" draft="contributed">won nordcoreano</displayName>
 				<displayName count="other" draft="contributed">word nordcoreani</displayName>
-				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Won Sudcoreano</displayName>
@@ -3202,7 +3148,6 @@
 				<displayName>Tenge Kazaco</displayName>
 				<displayName count="one" draft="contributed">tenge</displayName>
 				<displayName count="other" draft="contributed">tenge</displayName>
-				<symbol draft="contributed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Kip Laotiano</displayName>
@@ -3261,7 +3206,6 @@
 				<displayName>Dirham Marocchino</displayName>
 				<displayName count="one" draft="contributed">dirham marocchino</displayName>
 				<displayName count="other" draft="contributed">Dirham marocchini</displayName>
-				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Franco Marocchino</displayName>
@@ -3270,13 +3214,11 @@
 				<displayName>Leu Moldavo</displayName>
 				<displayName count="one" draft="contributed">leu moldavo</displayName>
 				<displayName count="other" draft="contributed">leu moldavi</displayName>
-				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Ariary Malgascio</displayName>
 				<displayName count="one" draft="contributed">ariary malgascio</displayName>
 				<displayName count="other" draft="contributed">ariary malgasci</displayName>
-				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Franco Malgascio</displayName>
@@ -3285,7 +3227,6 @@
 				<displayName>Dinaro Macedone</displayName>
 				<displayName count="one" draft="contributed">denaro macedone</displayName>
 				<displayName count="other" draft="contributed">denari macedoni</displayName>
-				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>Franco di Mali</displayName>
@@ -3328,7 +3269,6 @@
 				<displayName>Kwacha Malawiano</displayName>
 				<displayName count="one" draft="contributed">kwacha malawiano</displayName>
 				<displayName count="other" draft="contributed">kwacha malawiani</displayName>
-				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Peso Messicano</displayName>
@@ -3394,13 +3334,11 @@
 				<displayName>Rial Omanita</displayName>
 				<displayName count="one" draft="contributed">rial dell'Oman</displayName>
 				<displayName count="other" draft="contributed">rial dell'Oman</displayName>
-				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Balboa di Panama</displayName>
 				<displayName count="one" draft="contributed">balboa panamense</displayName>
 				<displayName count="other" draft="contributed">balboa panamensi</displayName>
-				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Inti Peruviano</displayName>
@@ -3471,7 +3409,6 @@
 				<displayName>Rublo Russo</displayName>
 				<displayName count="one" draft="contributed">rublo russo</displayName>
 				<displayName count="other" draft="contributed">rubli russi</displayName>
-				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rublo della CSI</displayName>
@@ -3480,7 +3417,6 @@
 				<displayName>Franco Ruandese</displayName>
 				<displayName count="one" draft="contributed">franco ruandese</displayName>
 				<displayName count="other" draft="contributed">franchi ruandesi</displayName>
-				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Ryal Saudita</displayName>
@@ -3504,7 +3440,6 @@
 				<displayName>Sterlina sudanese</displayName>
 				<displayName count="one" draft="contributed">sterlina sudanese</displayName>
 				<displayName count="other" draft="contributed">sterline sudanesi</displayName>
-				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Corona Svedese</displayName>
@@ -3578,7 +3513,6 @@
 				<displayName>Somoni del Tajikistan</displayName>
 				<displayName count="one" draft="contributed">somoni del Tajikistan</displayName>
 				<displayName count="other" draft="contributed">somoni del Tajikistan</displayName>
-				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Manat Turkmeno (1993-2009)</displayName>
@@ -3669,7 +3603,6 @@
 				<displayName>Sum dell’Uzbekistan</displayName>
 				<displayName count="one" draft="contributed">sum dell’Uzbekistan</displayName>
 				<displayName count="other" draft="contributed">sum dell’Uzbekistan</displayName>
-				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Bolivar Venezuelano</displayName>
@@ -3811,14 +3744,12 @@
 			<unitPattern count="other" alt="short">{0} gg</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0" draft="contributed">Tra 0 giorni</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 day</unitPattern>
+			<unitPattern count="0" draft="contributed">tra 0 giorni</unitPattern>
 			<unitPattern count="one" draft="contributed">tra {0} giorno</unitPattern>
 			<unitPattern count="other">tra {0} giorni</unitPattern>
 		</unit>
 		<unit type="day-past">
 			<unitPattern count="0" draft="contributed">0 giorni fa</unitPattern>
-			<unitPattern count="1" draft="contributed">1 day ago</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} giorno fa</unitPattern>
 			<unitPattern count="other">{0} giorni fa</unitPattern>
 		</unit>
@@ -3829,14 +3760,12 @@
 			<unitPattern count="other" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0" draft="contributed">Tra 0 ore</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 hour</unitPattern>
+			<unitPattern count="0" draft="contributed">tra 0 ore</unitPattern>
 			<unitPattern count="one" draft="contributed">tra {0} ora</unitPattern>
 			<unitPattern count="other">tra {0} ore</unitPattern>
 		</unit>
 		<unit type="hour-past">
 			<unitPattern count="0" draft="contributed">0 ore fa</unitPattern>
-			<unitPattern count="1" draft="contributed">1 hour ago</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} ora fa</unitPattern>
 			<unitPattern count="other">{0} ore fa</unitPattern>
 		</unit>
@@ -3847,14 +3776,12 @@
 			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0" draft="contributed">Tra 0 minuti</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 minute</unitPattern>
+			<unitPattern count="0" draft="contributed">tra 0 minuti</unitPattern>
 			<unitPattern count="one" draft="contributed">tra {0} minuto</unitPattern>
 			<unitPattern count="other">tra {0} minuti</unitPattern>
 		</unit>
 		<unit type="minute-past">
 			<unitPattern count="0" draft="contributed">0 minuti fa</unitPattern>
-			<unitPattern count="1" draft="contributed">1 minute ago</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} minuto fa</unitPattern>
 			<unitPattern count="other">{0} minuti fa</unitPattern>
 		</unit>
@@ -3865,14 +3792,12 @@
 			<unitPattern count="other" alt="short">{0} mesi</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0" draft="contributed">Tra 0 mesi</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 month</unitPattern>
+			<unitPattern count="0" draft="contributed">tra 0 mesi</unitPattern>
 			<unitPattern count="one" draft="contributed">tra {0} mese</unitPattern>
 			<unitPattern count="other">tra {0} mesi</unitPattern>
 		</unit>
 		<unit type="month-past">
 			<unitPattern count="0" draft="contributed">0 mesi fa</unitPattern>
-			<unitPattern count="1" draft="contributed">1 month ago</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} mese fa</unitPattern>
 			<unitPattern count="other">{0} mesi fa</unitPattern>
 		</unit>
@@ -3883,14 +3808,12 @@
 			<unitPattern count="other" alt="short">{0} sec</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0" draft="contributed">In 0 secondi</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 second</unitPattern>
+			<unitPattern count="0" draft="contributed">tra 0 secondi</unitPattern>
 			<unitPattern count="one" draft="contributed">tra {0} secondo</unitPattern>
 			<unitPattern count="other">tra {0} secondi</unitPattern>
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="0" draft="contributed">0 secondi fa</unitPattern>
-			<unitPattern count="1" draft="contributed">1 second ago</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} secondo fa</unitPattern>
 			<unitPattern count="other">{0} secondi fa</unitPattern>
 		</unit>
@@ -3901,14 +3824,12 @@
 			<unitPattern count="other" alt="short">{0} sett.</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0" draft="contributed">Tra 0 settimane</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 week</unitPattern>
+			<unitPattern count="0" draft="contributed">tra 0 settimane</unitPattern>
 			<unitPattern count="one" draft="contributed">tra {0} settimana</unitPattern>
 			<unitPattern count="other">tra {0} settimane</unitPattern>
 		</unit>
 		<unit type="week-past">
 			<unitPattern count="0" draft="contributed">0 settimane fa</unitPattern>
-			<unitPattern count="1" draft="contributed">1 week ago</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} settimana fa</unitPattern>
 			<unitPattern count="other">{0} settimane fa</unitPattern>
 		</unit>
@@ -3919,14 +3840,12 @@
 			<unitPattern count="other" alt="short">{0} anni</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0" draft="contributed">Tra 0 anni</unitPattern>
-			<unitPattern count="1" draft="contributed">In 1 year</unitPattern>
+			<unitPattern count="0" draft="contributed">tra 0 anni</unitPattern>
 			<unitPattern count="one" draft="contributed">tra {0} anno</unitPattern>
 			<unitPattern count="other">tra {0} anni</unitPattern>
 		</unit>
 		<unit type="year-past">
 			<unitPattern count="0" draft="contributed">0 anni fa</unitPattern>
-			<unitPattern count="1" draft="contributed">1 year ago</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} anno fa</unitPattern>
 			<unitPattern count="other">{0} anni fa</unitPattern>
 		</unit>

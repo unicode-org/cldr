@@ -34,7 +34,7 @@ public class ScriptPopulations {
                 String baseLanguage = languageTagParser.set(language).getLanguage();
                 String script = languageTagParser.getScript();
                 if (script.length() == 0) {
-                  final String maxFrom = GenerateLikelySubtagTests.maximize(language, likelySubtags);
+                  final String maxFrom = LikelySubtags.maximize(language, likelySubtags);
                   if (maxFrom != null) {
                     script = languageTagParser.set(maxFrom).getScript();
                   } else {

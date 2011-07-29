@@ -43,17 +43,13 @@
 			<language type="th" draft="contributed">ਥਾਈ</language>
 			<language type="tw" draft="contributed">ਤ੍ਵਿ</language>
 			<language type="ug" draft="contributed">ਉਇਘੁਰ</language>
-			<language type="und" draft="contributed">und</language>
 		</languages>
 		<scripts>
 			<script type="Deva" draft="unconfirmed">ਦੇਵਨਾਗਰੀ</script>
 			<script type="Guru" draft="unconfirmed">ਗੁਰਮੁਖੀ</script>
-			<script type="Zxxx" draft="unconfirmed">Zxxx</script>
-			<script type="Zzzz" draft="unconfirmed">Zzzz</script>
 		</scripts>
 		<territories>
 			<territory type="IN">ਭਾਰਤ</territory>
-			<territory type="TO" draft="unconfirmed">TO</territory>
 			<territory type="ZZ" draft="unconfirmed">ਅਣਜਾਣ</territory>
 		</territories>
 		<measurementSystemNames>
@@ -271,13 +267,11 @@
 					</field>
 					<field type="day">
 						<displayName>ਦਿਨ</displayName>
-						<relative type="-3">ਚੌਥੇ</relative>
 						<relative type="-2">ਪਰਸੋਂ</relative>
 						<relative type="-1">ਲੰਘਿਆਂ ਕੱਲ</relative>
 						<relative type="0">ਅੱਜ</relative>
 						<relative type="1">ਭਲਕੇ</relative>
 						<relative type="2">ਪਰਸੋਂ</relative>
-						<relative type="3">ਚੌਥੇ</relative>
 					</field>
 					<field type="weekday">
 						<displayName>ਹਫ਼ਤੇ ਦਾ ਦਿਨ</displayName>
@@ -297,6 +291,14 @@
 				</fields>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<metazone type="India">
+				<short>
+					<standard>IST</standard>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>guru</defaultNumberingSystem>
@@ -330,7 +332,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>ਰੁਪਿਯ</displayName>
-				<symbol>ਰੁ.</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="unconfirmed">ਅਣਜਾਣ</displayName>

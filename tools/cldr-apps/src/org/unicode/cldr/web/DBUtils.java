@@ -848,7 +848,7 @@ public class DBUtils {
 		for(int i=0;i<ret.length;i++) {
 			if(rsm.getColumnType(i+1)==java.sql.Types.BLOB) {
 				ret[i]=DBUtils.getStringUTF8(rs, i+1);
-			} else {
+			} else if(ret[i]!=null) {
 				ret[i]=rs.getObject(i+1);
 				if(ret[i].getClass().isArray()) {
 					ret[i]=DBUtils.getStringUTF8(rs, i+1);

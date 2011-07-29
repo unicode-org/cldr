@@ -141,7 +141,6 @@
 			<language type="enm">keskinglise</language>
 			<language type="eo">esperanto</language>
 			<language type="es">hispaania</language>
-			<language type="es_419">hispaania (Ladina-Ameerika)</language>
 			<language type="es_ES">hispaania (Ibeeria)</language>
 			<language type="et">eesti</language>
 			<language type="eu">baski</language>
@@ -164,7 +163,6 @@
 			<language type="fur">friuuli</language>
 			<language type="fy">läänefriisi</language>
 			<language type="ga">iiri</language>
-			<language type="gaa">gaa</language>
 			<language type="gay">gajo</language>
 			<language type="gba">gbaja</language>
 			<language type="gd">gaeli</language>
@@ -656,7 +654,7 @@
 			<territory type="154">Põhja-Euroopa</territory>
 			<territory type="155">Lääne-Euroopa</territory>
 			<territory type="172">Sõltumatute Riikide Ühendus</territory>
-			<territory type="419">Ladina-Ameerika ja Kariibi meri</territory>
+			<territory type="419">Ladina-Ameerika</territory>
 			<territory type="AC">Ascensioni saar</territory>
 			<territory type="AD">Andorra</territory>
 			<territory type="AE">Araabia Ühendemiraadid</territory>
@@ -1027,10 +1025,8 @@
 			<type type="unihan" key="collation">Radikaal-kriipsude sortimisjärjestus</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">Numbriline</transformName>
 			<transformName type="Tone">Toon</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">Aktsendid</transformName>
 			<transformName type="x-Fullwidth">Täislai</transformName>
 			<transformName type="x-Halfwidth">Poolaius</transformName>
@@ -1362,13 +1358,11 @@
 					</field>
 					<field type="day">
 						<displayName>päev</displayName>
-						<relative type="-3">üleüleeile</relative>
 						<relative type="-2">üleeile</relative>
 						<relative type="-1">eile</relative>
 						<relative type="0">täna</relative>
 						<relative type="1">homme</relative>
 						<relative type="2">ülehomme</relative>
-						<relative type="3">üleülehomme</relative>
 					</field>
 					<field type="weekday">
 						<displayName>nädalapäev</displayName>
@@ -1596,13 +1590,6 @@
 					<daylight>Anadõri suveaeg</daylight>
 				</long>
 			</metazone>
-			<metazone type="Arabian">
-				<short>
-					<generic>AT (Araabia)</generic>
-					<standard>AST (Araabia)</standard>
-					<daylight>ADT (Araabia)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>Argentina aeg</generic>
@@ -1623,7 +1610,6 @@
 					<standard>Atlandi standardaeg</standard>
 					<daylight>Atlandi suveaeg</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -1677,22 +1663,12 @@
 					<generic>Põhja-Mariaanide aeg</generic>
 					<standard>Põhja-Mariaanide standardaeg</standard>
 				</long>
-				<short>
-					<generic>Ch. aeg</generic>
-				</short>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
 					<standard>Chathami standardaeg</standard>
 					<daylight>Chathami suveaeg</daylight>
 				</long>
-			</metazone>
-			<metazone type="China">
-				<short>
-					<generic>CT (Hiina)</generic>
-					<standard>CST (Hiina)</standard>
-					<daylight>CDT (Hiina)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -1832,11 +1808,6 @@
 					<standard>Irkutski aeg</standard>
 					<daylight>Irkutski suveaeg</daylight>
 				</long>
-			</metazone>
-			<metazone type="Israel">
-				<short>
-					<standard>IST (Iisrael)</standard>
-				</short>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
@@ -2007,9 +1978,6 @@
 				<long>
 					<standard>Lõuna-Georgia aeg</standard>
 				</long>
-				<short>
-					<standard>GST (Lõuna-Georgia)</standard>
-				</short>
 			</metazone>
 			<metazone type="Syowa">
 				<long>
@@ -2281,7 +2249,6 @@
 				<displayName>Tšehhi kroon</displayName>
 				<displayName count="one">Tšehhi kroon</displayName>
 				<displayName count="other">Tšehhi krooni</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Saksa mark</displayName>
@@ -2293,7 +2260,6 @@
 				<displayName>Taani kroon</displayName>
 				<displayName count="one">Taani kroon</displayName>
 				<displayName count="other">Taani krooni</displayName>
-				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominikaani peeso</displayName>
@@ -2556,7 +2522,6 @@
 				<displayName>Norra kroon</displayName>
 				<displayName count="one">Norra kroon</displayName>
 				<displayName count="other">Norra krooni</displayName>
-				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepali ruupia</displayName>
@@ -2616,7 +2581,6 @@
 				<displayName>Venemaa rubla</displayName>
 				<displayName count="one">Venemaa rubla</displayName>
 				<displayName count="other">Venemaa rublat</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Venemaa rubla, 1991-1998</displayName>
@@ -2643,7 +2607,6 @@
 				<displayName>Rootsi kroon</displayName>
 				<displayName count="one">Rootsi kroon</displayName>
 				<displayName count="other">Rootsi krooni</displayName>
-				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapuri dollar</displayName>

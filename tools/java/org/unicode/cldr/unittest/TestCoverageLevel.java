@@ -13,6 +13,7 @@ import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
@@ -38,9 +39,9 @@ public class TestCoverageLevel extends TestFmwk {
     private static int count = 0;
 
     public static void main(String[] args) throws IOException {
-        new TestCoverageLevel().getOrgs();
+        new TestCoverageLevel().getStarred("fr");
         if (true) return;
-        new TestCoverageLevel().getStarred("de");
+        new TestCoverageLevel().getOrgs();
         new TestCoverageLevel().run(args);
     }
 
@@ -177,12 +178,18 @@ public class TestCoverageLevel extends TestFmwk {
 
         int count = 0;
         PathStarrer pathStarrer = new PathStarrer();
-
+        Status status = new Status();
+        
         for (String path : cldrFileToCheck) {
             ++count;
             if (path.contains("/alias")) {
                 continue;
             }
+            String localeFound = cldrFileToCheck.getSourceLocaleID(path, status);
+            if (status.pathWhereFound != path) {
+                continue;
+            }
+            
             String fullPath = cldrFileToCheck.getFullXPath(path);
             if (fullPath == null) {
                 continue;

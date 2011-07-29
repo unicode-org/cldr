@@ -681,7 +681,7 @@
 			<territory type="154">Северна Европа</territory>
 			<territory type="155">Западна Европа</territory>
 			<territory type="172" draft="contributed">Общност на независимите държави</territory>
-			<territory type="419">Латинска Америка и Карибски басейн</territory>
+			<territory type="419">Латинска Америка</territory>
 			<territory type="830">Нормандски о-ви</territory>
 			<territory type="AC">Остров Възнесение</territory>
 			<territory type="AD">Андора</territory>
@@ -1287,7 +1287,7 @@
 					<availableFormats>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="EEEd" draft="contributed">EEE, d</dateFormatItem>
-						<dateFormatItem id="h" draft="unconfirmed">H</dateFormatItem>
+						<dateFormatItem id="h" draft="unconfirmed">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
@@ -1323,14 +1323,14 @@
 							<greatestDifference id="d">d-d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="unconfirmed">H – H</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h a – h a</greatestDifference>
 							<greatestDifference id="h">h-h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="H">HH-HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="unconfirmed">H:mm – H:mm</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
 						</intervalFormatItem>
@@ -1339,7 +1339,7 @@
 							<greatestDifference id="m">HH:mm-HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="unconfirmed">H:mm – H:mm v</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
@@ -1348,7 +1348,7 @@
 							<greatestDifference id="m">HH:mm-HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="unconfirmed">H – H v</greatestDifference>
+							<greatestDifference id="a" draft="unconfirmed">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h-h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
@@ -1437,13 +1437,11 @@
 					</field>
 					<field type="day">
 						<displayName>Ден</displayName>
-						<relative type="-3" draft="contributed">Преди три дни</relative>
 						<relative type="-2">Онзи ден</relative>
 						<relative type="-1">Вчера</relative>
 						<relative type="0">Днес</relative>
 						<relative type="1">Утре</relative>
 						<relative type="2">Вдругиден</relative>
-						<relative type="3" draft="contributed">След три дни</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Ден от седмицата</displayName>
@@ -2810,28 +2808,12 @@
 					<daylight draft="contributed">Анадир – лятно часово време</daylight>
 				</long>
 			</metazone>
-			<metazone type="Aqtau">
-				<short>
-					<standard>AQTT (Актау)</standard>
-					<daylight>AQTST (Актау)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aqtobe">
-				<short>
-					<standard>AQTT (Актобе)</standard>
-					<daylight>AQTST (Актобе)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic draft="provisional">Арабска часова зона</generic>
 					<standard draft="provisional">Арабска часова зона</standard>
 					<daylight draft="provisional">Арабска лятна часова зона</daylight>
 				</long>
-				<short>
-					<standard>AST (Саудитска Арабия)</standard>
-					<daylight>ADT (Саудитска Арабия)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2846,12 +2828,6 @@
 					<standard draft="contributed">Аржентина – западно време</standard>
 					<daylight draft="contributed">Аржентина – западно лятно часово време</daylight>
 				</long>
-			</metazone>
-			<metazone type="Armenia">
-				<short>
-					<standard>AMT (Армения)</standard>
-					<daylight>AMST (Армения)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -2899,11 +2875,6 @@
 				<long>
 					<standard>Китайска часова зона</standard>
 				</long>
-				<short>
-					<generic>CT (Китай)</generic>
-					<standard>CST (Китай)</standard>
-					<daylight>CDT (Китай)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2911,13 +2882,6 @@
 					<standard draft="contributed">Чойбалсан</standard>
 					<daylight draft="contributed">Чойбалсан – лятно часово време</daylight>
 				</long>
-			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<generic>CT (Куба)</generic>
-					<standard>CST (Куба)</standard>
-					<daylight>CDT (Куба)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -2941,11 +2905,6 @@
 				<long>
 					<standard>Часова зона Гринуич</standard>
 				</long>
-			</metazone>
-			<metazone type="Guam">
-				<short>
-					<standard>GST (Гуам)</standard>
-				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -2991,9 +2950,6 @@
 					<standard>Часова зона Израел</standard>
 					<daylight>Лятна часова зона Израел</daylight>
 				</long>
-				<short>
-					<standard>IST (Израел)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -3108,17 +3064,6 @@
 					<standard draft="contributed">Самара</standard>
 					<daylight draft="contributed">Самара – лятно часово време</daylight>
 				</long>
-			</metazone>
-			<metazone type="Samarkand">
-				<short>
-					<standard>SAMT (Самарканд)</standard>
-					<daylight>SAMST (Самарканд)</daylight>
-				</short>
-			</metazone>
-			<metazone type="South_Georgia">
-				<short>
-					<standard>GST (Южна Джорджия)</standard>
-				</short>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
@@ -3288,7 +3233,7 @@
 			<currency type="AZM">
 				<displayName>Азербайджански манат (1993-2006)</displayName>
 				<displayName count="one">азербайджански манат (1993-2006)</displayName>
-				<displayName count="other">азербайджански маната (AZM)</displayName>
+				<displayName count="other">азербайджански маната (1993-2006)</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName>Азербайджански манат</displayName>
@@ -3372,9 +3317,13 @@
 			</currency>
 			<currency type="BOV">
 				<displayName>Боливийски мвдол</displayName>
+				<displayName count="one">боливийски мвдол</displayName>
+				<displayName count="other">боливийски мвдол</displayName>
 			</currency>
 			<currency type="BRB">
 				<displayName>Бразилско ново крузейро (1967-1986)</displayName>
+				<displayName count="one">бразилско ново крузейро (1967-1986)</displayName>
+				<displayName count="other">бразилско ново крузейро (1967-1986)</displayName>
 			</currency>
 			<currency type="BRC">
 				<displayName>Бразилско крозадо</displayName>
@@ -3413,8 +3362,8 @@
 			</currency>
 			<currency type="BYB">
 				<displayName>Беларуска нова рубла (1994-1999)</displayName>
-				<displayName count="one">беларуска нова рубла (BYB)</displayName>
-				<displayName count="other">беларуски нови рубли (BYB)</displayName>
+				<displayName count="one">беларуска нова рубла (1994-1999)</displayName>
+				<displayName count="other">беларуски нови рубли (1994-1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>Беларуска рубла</displayName>

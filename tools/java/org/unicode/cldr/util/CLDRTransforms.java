@@ -6,6 +6,7 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -54,6 +55,16 @@ public class CLDRTransforms {
   final Set<String> overridden = new HashSet<String>();
   final DependencyOrder dependencyOrder = new DependencyOrder();
 
+  static public class RegexFindFilenameFilter implements FilenameFilter {
+      Matcher matcher;
+      public RegexFindFilenameFilter(Matcher filter) {
+          matcher = filter;
+      }
+      @Override
+      public boolean accept(File dir, String name) {
+          return matcher.reset(name).find();
+      }};
+
   /**
    * 
    * @param dir TODO
@@ -69,14 +80,20 @@ public class CLDRTransforms {
     }
     // reorder to preload some
     r.showProgress = showProgress;
-    Matcher filter = namesMatchingRegex == null ? null : Pattern.compile(namesMatchingRegex).matcher("");
-    r.deregisterIcuTransliterators(filter);
-
-    final List<String> files = Arrays.asList(new File(TRANSFORM_DIR).list());
-    Set<String> ordered = r.dependencyOrder.getOrderedItems(files, filter, true);
+    List<String> files;
+    Set<String> ordered;
+    
+    if (namesMatchingRegex == null) {
+        files = Arrays.asList(new File(TRANSFORM_DIR).list());
+        ordered = r.dependencyOrder.getOrderedItems(files, null, true);
+    } else {
+        Matcher filter = Pattern.compile(namesMatchingRegex).matcher("");
+        r.deregisterIcuTransliterators(filter);
+        files = Arrays.asList(new File(TRANSFORM_DIR).list(new RegexFindFilenameFilter(filter)));
+        ordered = r.dependencyOrder.getOrderedItems(files, filter, true);
+    }
 
     //System.out.println(ordered);
-    
     for (String cldrFileName : ordered) {
       r.registerTransliteratorsFromXML(dir, cldrFileName, files);
     }
@@ -168,7 +185,7 @@ public class CLDRTransforms {
           continue;
         }
 
-        if (filter != null && !filter.reset(cldrFileName).matches()) {
+        if (filter != null && !filter.reset(cldrFileName).find()) {
           append("Skipping " + cldrFileName + "\n");
           continue;
         }
@@ -517,7 +534,7 @@ public class CLDRTransforms {
 
     for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
       String oldId = en.nextElement();
-      append("Retaining: " + oldId);
+      append("Retaining: " + oldId + "\n");
     }
   }
 

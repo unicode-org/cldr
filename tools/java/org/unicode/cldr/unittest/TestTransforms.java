@@ -17,6 +17,25 @@ public class TestTransforms extends TestFmwk {
         new TestTransforms().run(args);
     }
     
+    public void TestBackslashHalfwidth() throws Exception {
+        register();
+        //CLDRTransforms.registerCldrTransforms(null, "(?i)(Fullwidth-Halfwidth|Halfwidth-Fullwidth)", isVerbose() ? getLogPrintWriter() : null);
+        //Transliterator.DEBUG = true;
+
+        String input = "＼"; //FF3C 
+        String expected = "\\"; //005C 
+        Transliterator t = Transliterator.getInstance("Fullwidth-Halfwidth");
+        String output = t.transliterate(input);
+        assertEquals("To Halfwidth", expected, output);
+        
+        input = "\\"; //FF3C 
+        expected = "＼"; //005C 
+        Transliterator t2 = t.getInverse();
+        output = t2.transliterate(input);
+        assertEquals("To FullWidth", expected, output);
+    }
+
+    
     public void TestASimple() {
         Transliterator foo = Transliterator.getInstance("cs-cs_FONIPA");
     }

@@ -256,7 +256,7 @@
 			<territory type="151" draft="contributed">Silangang Europa</territory>
 			<territory type="154" draft="contributed">Hilagang Europa</territory>
 			<territory type="155" draft="contributed">Kanlurang Europa</territory>
-			<territory type="419" draft="contributed">Latin America at ang Caribbean</territory>
+			<territory type="419" draft="contributed">Latin America</territory>
 			<territory type="AC">Acsencion island</territory>
 			<territory type="AD" draft="contributed">Andorra</territory>
 			<territory type="AE">United Arab Emirates</territory>
@@ -596,10 +596,7 @@
 			<type type="unihan" key="collation">Pagkakasunud-sunod ng Pag-uuri ng Radical-Stroke</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
-			<transformName type="Numeric">Numeric</transformName>
 			<transformName type="Tone">Tono</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">Accents</transformName>
 			<transformName type="x-Fullwidth">Fullwidth</transformName>
 			<transformName type="x-Halfwidth">Halfwidth</transformName>
@@ -920,13 +917,11 @@
 					</field>
 					<field type="day">
 						<displayName draft="contributed">Araw</displayName>
-						<relative type="-3">Nakalipas na tatlong araw</relative>
 						<relative type="-2">Araw bago ang kahapon</relative>
 						<relative type="-1" draft="contributed">Yesterday</relative>
 						<relative type="0" draft="contributed">Today</relative>
 						<relative type="1" draft="contributed">Tomorrow</relative>
 						<relative type="2">Araw pagkatapos ng kahapon</relative>
-						<relative type="3">Tatlong araw mula ngayon</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="contributed">Araw ng Linggo</displayName>
@@ -1907,9 +1902,6 @@
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
-			</currency>
-			<currency type="XXX">
-				<displayName draft="contributed">XXX</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>Yemeni Rial</displayName>

@@ -737,10 +737,8 @@
 			<type type="unihan" key="collation" draft="contributed">Usporiadanie podľa znakov radikál</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Číslice</transformName>
 			<transformName type="Tone" draft="contributed">Tón</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Diakritika</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Celá šírka</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Polovičná šírka</transformName>
@@ -1177,13 +1175,11 @@
 					</field>
 					<field type="day">
 						<displayName>Deň</displayName>
-						<relative type="-3">Pred tromi dňami</relative>
 						<relative type="-2">Predvčerom</relative>
 						<relative type="-1">Včera</relative>
 						<relative type="0">Dnes</relative>
 						<relative type="1">Zajtra</relative>
 						<relative type="2">Pozajtra</relative>
-						<relative type="3">O tri dni</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Deň v týždni</displayName>
@@ -1365,27 +1361,23 @@
 				<long>
 					<standard draft="contributed">Stredoafrický čas</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard draft="contributed">Východoafrický čas</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic draft="contributed">Juhoafrický čas</generic>
 					<standard draft="contributed">Juhoafrický čas (normálny)</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard draft="contributed">Západoafrický čas</standard>
 					<daylight draft="contributed">Západoafrický letný čas</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -1454,7 +1446,6 @@
 					<standard>Atlantický štandardný čas</standard>
 					<daylight>Atlantický letný čas</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -1462,7 +1453,6 @@
 					<standard>Stredoaustrálsky čas (normálny)</standard>
 					<daylight>Stredoaustrálsky letný čas</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -1470,7 +1460,6 @@
 					<standard>Stredozápadný austrálsky čas (normálny)</standard>
 					<daylight>Stredozápadný austrálsky letný čas</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -1478,7 +1467,6 @@
 					<standard>Východoaustrálsky čas (normálny)</standard>
 					<daylight>Východoaustrálsky letný čas</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -1486,7 +1474,6 @@
 					<standard>Západoaustrálsky čas (normálny)</standard>
 					<daylight>Západoaustrálsky letný čas</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
@@ -1507,33 +1494,18 @@
 					<standard draft="contributed">Stredoeurópsky čas</standard>
 					<daylight draft="contributed">Stredoeurópsky letný čas</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">SEČ</standard>
-					<daylight draft="contributed">SELČ</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="contributed">Východoeurópsky čas</standard>
 					<daylight draft="contributed">Východoeurópsky letný čas</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">VEČ</standard>
-					<daylight draft="contributed">VELČ</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Západoeurópsky čas</standard>
 					<daylight draft="contributed">Západoeurópsky letný čas</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">ZEČ</standard>
-					<daylight draft="contributed">ZELČ</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -1703,7 +1675,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>arab</defaultNumberingSystem>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
@@ -1905,7 +1876,6 @@
 				<displayName count="few" draft="contributed">švajčiarske franky</displayName>
 				<displayName count="one" draft="contributed">švajčiarsky frank</displayName>
 				<displayName count="other" draft="contributed">švajčiarskych frankov, švajčiarskeho franku</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Čílske Unidades de Fomento</displayName>
@@ -2008,7 +1978,6 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Britská libra</displayName>
-				<displayName count="few" draft="contributed">GBP</displayName>
 				<displayName count="one" draft="contributed">britská libra</displayName>
 				<displayName count="other" draft="contributed">britských libier, britskej libry</displayName>
 			</currency>
@@ -2346,7 +2315,6 @@
 				<displayName count="few" draft="contributed">ruské ruble</displayName>
 				<displayName count="one" draft="contributed">ruský rubeľ</displayName>
 				<displayName count="other" draft="contributed">ruských rubľov, ruského rubľa</displayName>
-				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Ruský rubeľ (1991-1998)</displayName>
@@ -2359,7 +2327,6 @@
 				<displayName count="few" draft="contributed">saudskoarabské rialy</displayName>
 				<displayName count="one" draft="contributed">saudskoarabský rial</displayName>
 				<displayName count="other" draft="contributed">saudskoarabských rialov, saudskoarabského rialu</displayName>
-				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Solomon Islands dolár</displayName>
@@ -2380,7 +2347,6 @@
 				<displayName>Švédska koruna</displayName>
 				<displayName count="few" draft="contributed">švédske koruny</displayName>
 				<displayName count="one" draft="contributed">švédska koruna</displayName>
-				<displayName count="other" draft="contributed">SEK</displayName>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapúrsky dolár</displayName>
@@ -2456,7 +2422,6 @@
 				<displayName count="few" draft="contributed">nové turecké líry</displayName>
 				<displayName count="one" draft="contributed">nová turecká líra</displayName>
 				<displayName count="other" draft="contributed">nových tureckých lír, novej tureckej líry</displayName>
-				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad a Tobago dolár</displayName>
@@ -2544,9 +2509,6 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>Neznáma mena</displayName>
-				<displayName count="few" draft="contributed">XXX</displayName>
-				<displayName count="one" draft="contributed">XXX</displayName>
-				<displayName count="other" draft="contributed">XXX</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Jemenský dinár</displayName>
@@ -2619,7 +2581,7 @@
 		</unit>
 		<unit type="hour-future">
 			<unitPattern count="0" draft="contributed">O 0 hodín</unitPattern>
-			<unitPattern count="1" draft="contributed">0 1 hodinu</unitPattern>
+			<unitPattern count="1" draft="contributed">O 1 hodinu</unitPattern>
 			<unitPattern count="few">O {0} hodiny</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} hodinu</unitPattern>
 			<unitPattern count="other">O {0} hodín</unitPattern>
@@ -2641,7 +2603,7 @@
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="0" draft="contributed">O 0 minút</unitPattern>
-			<unitPattern count="1" draft="contributed">0 1 minútu</unitPattern>
+			<unitPattern count="1" draft="contributed">O 1 minútu</unitPattern>
 			<unitPattern count="few">O {0} minúty</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} minútu</unitPattern>
 			<unitPattern count="other">O {0} minút</unitPattern>

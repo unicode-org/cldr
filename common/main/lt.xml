@@ -527,7 +527,6 @@
 			<script type="Armi">imperinė aramaikų</script>
 			<script type="Armn">armėnų</script>
 			<script type="Avst">avestano</script>
-			<script type="Bali">Bali</script>
 			<script type="Batk">batak</script>
 			<script type="Beng">bengalų</script>
 			<script type="Blis">„Bliss“ simboliai</script>
@@ -689,7 +688,7 @@
 			<territory type="155">Vakarų Europa</territory>
 			<territory type="172">Nepriklausomų Valstybių Sandrauga</territory>
 			<territory type="200">Čekoslovakija</territory>
-			<territory type="419">Lotynų Amerika ir Karibai</territory>
+			<territory type="419">Lotynų Amerika</territory>
 			<territory type="AC">Ascension sala</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Jungtiniai Arabų Emyratai</territory>
@@ -1500,13 +1499,11 @@
 					</field>
 					<field type="day">
 						<displayName>diena</displayName>
-						<relative type="-3">už užvakar</relative>
 						<relative type="-2">užvakar</relative>
 						<relative type="-1">vakar</relative>
 						<relative type="0">šiandien</relative>
 						<relative type="1">rytoj</relative>
 						<relative type="2">poryt</relative>
-						<relative type="3">užporyt</relative>
 					</field>
 					<field type="weekday">
 						<displayName>savaitės diena</displayName>
@@ -2426,20 +2423,12 @@
 					<standard>Aqtau laikas</standard>
 					<daylight>Aqtau vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>AQTT (Aktau)</standard>
-					<daylight>AQTST (Aktau)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
 					<standard>Aqtobe laikas</standard>
 					<daylight>Aqtobe vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>AQTT (Aktobė)</standard>
-					<daylight>AQTST (Aktobė)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2473,7 +2462,6 @@
 					<standard>Atlanto žiemos laikas</standard>
 					<daylight>Atlanto vasaros laikas</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2596,11 +2584,6 @@
 					<generic>Kinijos laikas</generic>
 					<daylight>Kinijos vasaros laikas</daylight>
 				</long>
-				<short>
-					<generic>CT (Kinija)</generic>
-					<standard>CST (Kinija)</standard>
-					<daylight>CDT (Kinija)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2675,21 +2658,18 @@
 					<standard>Vidurio Europos laikas</standard>
 					<daylight>Vidurio Europos vasaros laikas</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Rytų Europos laikas</standard>
 					<daylight>Rytų Europos vasaros laikas</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>Vakarų Europos laikas</standard>
 					<daylight>Vakarų Europos vasaros laikas</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -3151,10 +3131,6 @@
 					<standard>Samarkando laikas</standard>
 					<daylight>Samarkando vasaros laikas</daylight>
 				</long>
-				<short>
-					<standard>SAMT (Samarkandas)</standard>
-					<daylight>SAMST (Samarkandas)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
@@ -3204,11 +3180,6 @@
 					<standard>Taipėjaus žiemos laikas</standard>
 					<daylight>Taipėjaus vasaros laikas</daylight>
 				</long>
-				<short>
-					<generic>CT (Taipėjus)</generic>
-					<standard>CST (Taipėjus)</standard>
-					<daylight>CDT (Taipėjus)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>
@@ -3677,7 +3648,6 @@
 				<displayName count="few">Brazilijos realai</displayName>
 				<displayName count="one">Brazilijos realas</displayName>
 				<displayName count="other">Brazilijos realai</displayName>
-				<symbol>BRL</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brazilijos naujasis kruzadas</displayName>
@@ -3798,7 +3768,6 @@
 				<displayName count="few">Kinijos juanis</displayName>
 				<displayName count="one">Kinijos juanis</displayName>
 				<displayName count="other">Kinijos juaniai</displayName>
-				<symbol>CNY</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Kolumbijos pesas</displayName>
@@ -3954,8 +3923,6 @@
 				<displayName>Euras</displayName>
 				<displayName count="few">eurai</displayName>
 				<displayName count="one">euras</displayName>
-				<displayName count="other">EUR</displayName>
-				<symbol>EUR</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Suomijos markė</displayName>
@@ -3986,7 +3953,6 @@
 				<displayName count="few">Didžiosios Britanijos svaro sterlingai</displayName>
 				<displayName count="one">Didžiosios Britanijos svaras sterlingų</displayName>
 				<displayName count="other">Didžiosios Britanijos svarai sterlingų</displayName>
-				<symbol>GBP</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Gruzinų kupon larits</displayName>
@@ -4143,7 +4109,6 @@
 				<displayName count="few">Indijos rupijos</displayName>
 				<displayName count="one">Indijos rupija</displayName>
 				<displayName count="other">Indijos rupijos</displayName>
-				<symbol>INR</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irako dinaras</displayName>
@@ -4192,7 +4157,6 @@
 				<displayName count="few">Japonijos jenos</displayName>
 				<displayName count="one">Japonijos jena</displayName>
 				<displayName count="other">Japonijos jenų</displayName>
-				<symbol>JPY</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Kenijos šilingas</displayName>
@@ -4650,7 +4614,6 @@
 				<displayName count="few">Rusijos rubliai</displayName>
 				<displayName count="one">Rusijos rublis</displayName>
 				<displayName count="other">Rusijos rublių</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rusijos rublis (1991-1998)</displayName>
@@ -4891,7 +4854,6 @@
 				<displayName count="few">JAV doleriai</displayName>
 				<displayName count="one">JAV doleris</displayName>
 				<displayName count="other">JAV dolerių</displayName>
-				<symbol>USD</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>JAV doleris (kitos dienos)</displayName>
@@ -5172,15 +5134,15 @@
 			<unitPattern count="other" alt="short">{0} d.</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">Po 0 dienų</unitPattern>
-			<unitPattern count="1">Po 1 dienos</unitPattern>
+			<unitPattern count="0">po 0 dienų</unitPattern>
+			<unitPattern count="1">po 1 dienos</unitPattern>
 			<unitPattern count="few">po {0} dienos</unitPattern>
 			<unitPattern count="one">po {0} dieną</unitPattern>
 			<unitPattern count="other">po {0} dienų</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">Prieš 0 dienų</unitPattern>
-			<unitPattern count="1">Prieš 1 dieną</unitPattern>
+			<unitPattern count="0">prieš 0 dienų</unitPattern>
+			<unitPattern count="1">prieš 1 dieną</unitPattern>
 			<unitPattern count="few">prieš {0} dienos</unitPattern>
 			<unitPattern count="one">prieš {0} dieną</unitPattern>
 			<unitPattern count="other">prieš {0} dienų</unitPattern>
@@ -5194,15 +5156,15 @@
 			<unitPattern count="other" alt="short">{0} val.</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">Po 0 valandų</unitPattern>
-			<unitPattern count="1">Po 1 valandos</unitPattern>
+			<unitPattern count="0">po 0 valandų</unitPattern>
+			<unitPattern count="1">po 1 valandos</unitPattern>
 			<unitPattern count="few">po {0} valandos</unitPattern>
 			<unitPattern count="one">po {0} valandą</unitPattern>
 			<unitPattern count="other">po {0} valandų</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">Prieš 0 valandų</unitPattern>
-			<unitPattern count="1">Prieš 1 valandą</unitPattern>
+			<unitPattern count="0">prieš 0 valandų</unitPattern>
+			<unitPattern count="1">prieš 1 valandą</unitPattern>
 			<unitPattern count="few">prieš {0} valandos</unitPattern>
 			<unitPattern count="one">prieš {0} valandą</unitPattern>
 			<unitPattern count="other">prieš {0} valandų</unitPattern>
@@ -5216,15 +5178,15 @@
 			<unitPattern count="other" alt="short">{0} min.</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">Po 0 minučių</unitPattern>
-			<unitPattern count="1">Po 1 minutės</unitPattern>
+			<unitPattern count="0">po 0 minučių</unitPattern>
+			<unitPattern count="1">po 1 minutės</unitPattern>
 			<unitPattern count="few">po {0} minutės</unitPattern>
 			<unitPattern count="one">po {0} minutę</unitPattern>
 			<unitPattern count="other">po {0} minučių</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">Prieš 0 minučių</unitPattern>
-			<unitPattern count="1">Prieš 1 minutę</unitPattern>
+			<unitPattern count="0">prieš 0 minučių</unitPattern>
+			<unitPattern count="1">prieš 1 minutę</unitPattern>
 			<unitPattern count="few">prieš {0} minutės</unitPattern>
 			<unitPattern count="one">prieš {0} minutę</unitPattern>
 			<unitPattern count="other">prieš {0} minučių</unitPattern>
@@ -5238,15 +5200,15 @@
 			<unitPattern count="other" alt="short">{0} mėn.</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">Po 0 mėnesių</unitPattern>
-			<unitPattern count="1">Po 1 mėnesio</unitPattern>
+			<unitPattern count="0">po 0 mėnesių</unitPattern>
+			<unitPattern count="1">po 1 mėnesio</unitPattern>
 			<unitPattern count="few">po {0} mėnesį</unitPattern>
 			<unitPattern count="one">po {0} mėnesio</unitPattern>
 			<unitPattern count="other">po {0} mėnesių</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">Prieš 0 mėnesių</unitPattern>
-			<unitPattern count="1">Prieš 1 mėnesį</unitPattern>
+			<unitPattern count="0">prieš 0 mėnesių</unitPattern>
+			<unitPattern count="1">prieš 1 mėnesį</unitPattern>
 			<unitPattern count="few">prieš {0} mėnesį</unitPattern>
 			<unitPattern count="one">prieš {0} mėnesio</unitPattern>
 			<unitPattern count="other">prieš {0} mėnesių</unitPattern>
@@ -5260,15 +5222,15 @@
 			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">Po 0 sekundžių</unitPattern>
-			<unitPattern count="1">Po 1 sekundės</unitPattern>
+			<unitPattern count="0">po 0 sekundžių</unitPattern>
+			<unitPattern count="1">po 1 sekundės</unitPattern>
 			<unitPattern count="few">po {0} sekundės</unitPattern>
 			<unitPattern count="one">po {0} sekundę</unitPattern>
 			<unitPattern count="other">po {0} sekundžių</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">Prieš 0 sekundžių</unitPattern>
-			<unitPattern count="1">Prieš 1 sekundę</unitPattern>
+			<unitPattern count="0">prieš 0 sekundžių</unitPattern>
+			<unitPattern count="1">prieš 1 sekundę</unitPattern>
 			<unitPattern count="few">prieš {0} sekundės</unitPattern>
 			<unitPattern count="one">prieš {0} sekundę</unitPattern>
 			<unitPattern count="other">prieš {0} sekundžių</unitPattern>
@@ -5282,15 +5244,15 @@
 			<unitPattern count="other" alt="short">{0} sav.</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">Po 0 savaičių</unitPattern>
-			<unitPattern count="1">Po 1 savaitės</unitPattern>
+			<unitPattern count="0">po 0 savaičių</unitPattern>
+			<unitPattern count="1">po 1 savaitės</unitPattern>
 			<unitPattern count="few">po {0} savaitės</unitPattern>
 			<unitPattern count="one">po {0} savaitę</unitPattern>
 			<unitPattern count="other">po {0} savaičių</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">Prieš 0 savaičių</unitPattern>
-			<unitPattern count="1">Prieš 1 savaitę</unitPattern>
+			<unitPattern count="0">prieš 0 savaičių</unitPattern>
+			<unitPattern count="1">prieš 1 savaitę</unitPattern>
 			<unitPattern count="few">prieš {0} savaitės</unitPattern>
 			<unitPattern count="one">prieš {0} savaitę</unitPattern>
 			<unitPattern count="other">prieš {0} savaičių</unitPattern>
@@ -5304,15 +5266,15 @@
 			<unitPattern count="other" alt="short">{0} m.</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">Po 0 metų</unitPattern>
-			<unitPattern count="1">Po 1 metų</unitPattern>
+			<unitPattern count="0">po 0 metų</unitPattern>
+			<unitPattern count="1">po 1 metų</unitPattern>
 			<unitPattern count="few">po {0} metai</unitPattern>
 			<unitPattern count="one">po {0} metus</unitPattern>
 			<unitPattern count="other">po {0} metų</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">Prieš 0 metų</unitPattern>
-			<unitPattern count="1">Prieš 1 metus</unitPattern>
+			<unitPattern count="0">prieš 0 metų</unitPattern>
+			<unitPattern count="1">prieš 1 metus</unitPattern>
 			<unitPattern count="few">prieš {0} metai</unitPattern>
 			<unitPattern count="one">prieš {0} metus</unitPattern>
 			<unitPattern count="other">prieš {0} metų</unitPattern>

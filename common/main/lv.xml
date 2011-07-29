@@ -627,7 +627,7 @@
 			<territory type="154">Ziemeļeiropa</territory>
 			<territory type="155">Rietumeiropa</territory>
 			<territory type="172">Neatkarīgo Valstu Savienība</territory>
-			<territory type="419">Latīņamerika un Karību jūras reģions</territory>
+			<territory type="419">Latīņamerika</territory>
 			<territory type="AC">Debesbraukšanas sala</territory>
 			<territory type="AD">Andora</territory>
 			<territory type="AE">Apvienotie Arābu Emirāti</territory>
@@ -984,10 +984,8 @@
 			<type type="unihan" key="collation">Radikālā kārtošanas secība pēc vilkumu skaita</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">Ciparu</transformName>
 			<transformName type="Tone">Intonācija</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">Diakritiskās zīmes</transformName>
 			<transformName type="x-Fullwidth">Pilna platuma</transformName>
 			<transformName type="x-Halfwidth">Pusplatuma</transformName>
@@ -1365,13 +1363,11 @@
 					</field>
 					<field type="day">
 						<displayName>diena</displayName>
-						<relative type="-3">aizaizvakar</relative>
 						<relative type="-2">aizvakar</relative>
 						<relative type="-1">vakar</relative>
 						<relative type="0">šodien</relative>
 						<relative type="1">rīt</relative>
 						<relative type="2">parīt</relative>
-						<relative type="3">aizparīt</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Nedēļas diena</displayName>
@@ -2447,12 +2443,6 @@
 			<zone type="Africa/Johannesburg">
 				<exemplarCity>Johannesburga</exemplarCity>
 			</zone>
-			<metazone type="Acre">
-				<short>
-					<standard>ACT (Akri)</standard>
-					<daylight>ACST (Akri)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>Afganistānas laiks</standard>
@@ -2486,11 +2476,6 @@
 					<standard>Aļaskas ziemas laiks</standard>
 					<daylight>Aļaskas vasaras laiks</daylight>
 				</long>
-			</metazone>
-			<metazone type="Alaska_Hawaii">
-				<short>
-					<generic>AHT</generic>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -2534,29 +2519,12 @@
 					<daylight>Anadiras vasaras laiks</daylight>
 				</long>
 			</metazone>
-			<metazone type="Aqtau">
-				<short>
-					<standard>AQTT (Aktau)</standard>
-					<daylight>AQTST (Aktau)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aqtobe">
-				<short>
-					<standard>AQTT (Aktebe)</standard>
-					<daylight>AQTST (Aktebe)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>Arābu laiks</generic>
 					<standard>Arābu ziemas laiks</standard>
 					<daylight>Arābu vasaras laiks</daylight>
 				</long>
-				<short>
-					<generic>AT (Arābija)</generic>
-					<standard>AST (Arābija)</standard>
-					<daylight>ADT (Arābija)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2577,10 +2545,6 @@
 					<standard>Armēnijas laiks</standard>
 					<daylight>Armēnijas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>AMT (Armēnija)</standard>
-					<daylight>AMST (Armēnija)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
@@ -2594,7 +2558,6 @@
 					<standard>Atlantijas ziemas laiks</standard>
 					<daylight>Atlantijas vasaras laiks</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2602,7 +2565,6 @@
 					<standard>Austrālijas centrālais ziemas laiks</standard>
 					<daylight>Austrālijas centrālais vasaras laiks</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2610,7 +2572,6 @@
 					<standard>Austrālijas centrālais rietumu ziemas laiks</standard>
 					<daylight>Austrālijas centrālais rietumu vasaras laiks</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -2618,7 +2579,6 @@
 					<standard>Austrālijas austrumu ziemas laiks</standard>
 					<daylight>Austrālijas austrumu vasaras laiks</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -2626,7 +2586,6 @@
 					<standard>Austrālijas rietumu ziemas laiks</standard>
 					<daylight>Austrālijas rietumu vasaras laiks</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -2651,13 +2610,6 @@
 					<standard>Bangladešas laiks</standard>
 					<daylight>Bangladešas vasaras laiks</daylight>
 				</long>
-			</metazone>
-			<metazone type="Bering">
-				<short>
-					<generic>BT (Beringa)</generic>
-					<standard>BST (Beringa)</standard>
-					<daylight>BDT (Beringa)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -2694,11 +2646,6 @@
 					<standard>Ķīnas ziemas laiks</standard>
 					<daylight>Ķīnas vasaras laiks</daylight>
 				</long>
-				<short>
-					<generic>CT (Ķīna)</generic>
-					<standard>CST (Ķīna)</standard>
-					<daylight>CDT (Ķīna)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -2763,7 +2710,6 @@
 					<standard>Centrāleiropas laiks</standard>
 					<daylight>Centrāleiropas vasaras laiks</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -2777,7 +2723,6 @@
 					<standard>Rietumeiropas laiks</standard>
 					<daylight>Rietumeiropas vasaras laiks</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2817,11 +2762,6 @@
 					<standard>Griničas laiks</standard>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<short>
-					<standard>GST (Guama)</standard>
-				</short>
-			</metazone>
 			<metazone type="Guyana">
 				<long>
 					<standard>Gvijānas laiks</standard>
@@ -2854,7 +2794,6 @@
 				<long>
 					<standard>Indijas Okeāna laiks</standard>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
@@ -2890,9 +2829,6 @@
 					<standard>Izraēlas ziemas laiks</standard>
 					<daylight>Izraēlas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>IST (Izraēla)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -3105,10 +3041,6 @@
 					<standard>Samarkandas laiks</standard>
 					<daylight>Samarkandas vasaras laiks</daylight>
 				</long>
-				<short>
-					<standard>SAMT (Samarkanda)</standard>
-					<daylight>SAMST (Samarkanda)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
@@ -3150,13 +3082,6 @@
 				<long>
 					<standard>Taiti laiks</standard>
 				</long>
-			</metazone>
-			<metazone type="Taipei">
-				<short>
-					<generic>CT (Taipeja)</generic>
-					<standard>CST (Taipeja)</standard>
-					<daylight>CDT (Taipeja)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Tashkent">
 				<long>
@@ -3818,7 +3743,6 @@
 				<displayName count="one">Krievijas rublis</displayName>
 				<displayName count="other">Krievijas rubļi</displayName>
 				<displayName count="zero">Krievijas rubļi</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruandas franks</displayName>

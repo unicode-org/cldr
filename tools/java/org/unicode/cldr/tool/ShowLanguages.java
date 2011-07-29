@@ -31,6 +31,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -70,7 +71,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-    public static final String CHART_DISPLAY_VERSION = "2.0\u03B2"; // "1.8\u03B2"; // \u03B2 is beta - β, \u03b1 is alpha - α
+    public static final String CHART_DISPLAY_VERSION = "2.0"; // "1.8\u03B2"; // \u03B2 is beta - β, \u03b1 is alpha - α
     private static final String CHART_TARGET_DIR = CldrUtility.CHART_DIRECTORY + "/supplemental/";
 
     private static final boolean SHOW_NATIVE = true;
@@ -85,7 +86,7 @@ public class ShowLanguages {
     static StandardCodes sc = StandardCodes.make();
 
     static Factory cldrFactory;
-
+    
     public static void main(String[] args) throws IOException {
         cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         english = cldrFactory.make("en", true);

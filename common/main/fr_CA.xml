@@ -98,8 +98,6 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="hm" draft="unconfirmed">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Md">M-d</dateFormatItem>
 						<dateFormatItem id="MEd">EEE M-d</dateFormatItem>
 						<dateFormatItem id="MMd">MM-d</dateFormatItem>
@@ -253,9 +251,6 @@
 			<zone type="Pacific/Wallis">
 				<exemplarCity draft="contributed">Uvéa</exemplarCity>
 			</zone>
-			<metazone type="Alaska">
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
 			<metazone type="America_Central">
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
@@ -272,12 +267,6 @@
 				<long>
 					<daylight draft="contributed">Heure avancée de Choibalsan</daylight>
 				</long>
-			</metazone>
-			<metazone type="Europe_Central">
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Europe_Eastern">
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>

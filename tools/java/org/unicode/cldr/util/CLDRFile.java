@@ -571,6 +571,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
    * Get the full path from a distinguished path
    */
   public String getFullXPath(String xpath) {
+      if (xpath == null) {
+          throw new NullPointerException("Null distinguishing xpath");
+      }
     String result = dataSource.getFullPath(xpath);
     if (result == null && dataSource.isResolving()) {
       String fallback = getFallbackPath(xpath, true);
@@ -1062,7 +1065,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     return dataSource.iterator(pathFilter);
   }
 
-  public Iterator iterator(String prefix, Comparator comparator) {
+  public Iterator<String> iterator(String prefix, Comparator comparator) {
     Iterator it = (prefix == null || prefix.length() == 0) 
     ? dataSource.iterator() 
             : dataSource.iterator(prefix);
@@ -1213,6 +1216,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       || elementName.equals("measurementSystem") && attribute.equals("territories")
       || elementName.equals("distinguishingItems") && attribute.equals("attributes")
       || elementName.equals("codesByTerritory") && attribute.equals("territory")
+      || elementName.equals("currency") && 
+            (attribute.equals("iso4217") || attribute.equals("tender"))
+      || elementName.equals("territoryAlias") && 
+            (attribute.equals("replacement") || attribute.equals("type"))
+      || elementName.equals("territoryCodes") && 
+            (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
       ;
     }
     //  if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {

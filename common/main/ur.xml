@@ -696,17 +696,17 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d, MMMM y</pattern>
+							<pattern>EEEE؍ d؍ MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d, MMMM y</pattern>
+							<pattern>d؍ MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d, MMM y</pattern>
+							<pattern>d؍ MMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -761,13 +761,11 @@
 					</field>
 					<field type="day">
 						<displayName>دن</displayName>
-						<relative type="-3">تین دن پہلے</relative>
 						<relative type="-2">گزشتہ پرسوں</relative>
 						<relative type="-1" draft="contributed">کل</relative>
 						<relative type="0">آج</relative>
 						<relative type="1" draft="contributed">کل</relative>
 						<relative type="2">آنے والا پرسوں</relative>
-						<relative type="3">ابھی سے تین دن</relative>
 					</field>
 					<field type="weekday">
 						<displayName>ہفتے کا دن</displayName>

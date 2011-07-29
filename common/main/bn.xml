@@ -1033,10 +1033,8 @@
 			<type type="unihan" key="collation" draft="contributed">রাডিকেল স্ট্রোক বাছাই বিন্যাস</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">সাংখিক</transformName>
 			<transformName type="Tone" draft="contributed">স্বরভঙ্গি</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">অ্যাসেন্টস</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">পূর্ণচওড়া</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">অর্ধচওড়া</transformName>
@@ -1369,13 +1367,11 @@
 					</field>
 					<field type="day">
 						<displayName>দিন</displayName>
-						<relative type="-3">গত তরশু</relative>
 						<relative type="-2">গত পরশু</relative>
 						<relative type="-1">গতকাল</relative>
 						<relative type="0">আজ</relative>
 						<relative type="1">আগামীকাল</relative>
 						<relative type="2">আগামী পরশু</relative>
-						<relative type="3">আগামী তরশু</relative>
 					</field>
 					<field type="weekday">
 						<displayName>সপ্তাহের দিন</displayName>
@@ -3179,6 +3175,10 @@
 				<long>
 					<standard draft="provisional">ভারত মান সময়</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
@@ -4163,7 +4163,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>ভারতীয় রুপি</displayName>
-				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ইরাকি দিনার</displayName>

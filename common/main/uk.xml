@@ -1074,10 +1074,7 @@
 			<type type="unihan" key="collation" draft="contributed">Порядок сортування: за штрихами в корені</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Цифри</transformName>
-			<transformName type="Tone" draft="contributed">Tone</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Діактричні знаки</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Повна ширина</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Половинна ширина</transformName>
@@ -1617,13 +1614,11 @@
 					</field>
 					<field type="day">
 						<displayName>День</displayName>
-						<relative type="-3">Три дні тому</relative>
 						<relative type="-2">Позавчора</relative>
 						<relative type="-1">Вчора</relative>
 						<relative type="0">Сьогодні</relative>
 						<relative type="1">Завтра</relative>
 						<relative type="2">Післязавтра</relative>
-						<relative type="3">Через три дні з цього моменту</relative>
 					</field>
 					<field type="weekday">
 						<displayName>День тижня</displayName>
@@ -3317,7 +3312,6 @@
 				<long>
 					<standard>за центральноафриканським часом</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
@@ -3420,7 +3414,6 @@
 					<standard draft="contributed">за атлантичним стандартним часом</standard>
 					<daylight draft="contributed">за атлантичним літнім часом</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>

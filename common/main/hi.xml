@@ -1041,10 +1041,8 @@
 			<type type="unihan" key="collation" draft="contributed">रेडिकल-स्ट्रोक क्रम विन्यास</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">सांख्यिक</transformName>
 			<transformName type="Tone" draft="contributed">स्वर</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">स्वराघात</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">पूर्ण-चौड़ाई</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">आधी-चौड़ाई</transformName>
@@ -1348,13 +1346,11 @@
 					</field>
 					<field type="day">
 						<displayName>दिन</displayName>
-						<relative type="-3">नरसों</relative>
 						<relative type="-2">परसों</relative>
 						<relative type="-1">कल</relative>
 						<relative type="0">आज</relative>
 						<relative type="1">कल</relative>
 						<relative type="2">परसों</relative>
-						<relative type="3">नरसों</relative>
 					</field>
 					<field type="weekday">
 						<displayName>सप्ताह का दिन</displayName>
@@ -3023,6 +3019,9 @@
 				<long>
 					<standard>भारतीय समय</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indonesia_Central">
@@ -3447,7 +3446,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>भारतीय रूपया</displayName>
-				<symbol>रु.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName draft="contributed">इराकी दिनार</displayName>

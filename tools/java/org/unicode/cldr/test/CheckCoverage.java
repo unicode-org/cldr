@@ -104,7 +104,7 @@ public class CheckCoverage extends CheckCLDR {
           PluralInfo pluralInfo = supplementalData.getPlurals(localeID);
           if (pluralInfo == supplementalData.getPlurals("root")) {
             possibleErrors.add(new CheckStatus()
-            .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingPluralInfo)
+            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingPluralInfo)
             .setMessage("Missing Plural Information - see supplemental plural charts to file bug.", 
                     new Object[]{}));          
           }

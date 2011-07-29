@@ -46,10 +46,11 @@ public class GenerateItemCounts {
 //    "cldr-release-1-6",
 //    "cldr-release-1-7/common",
 //    "cldr-svn2/common"
-      "cldr-1.7.2",
-      "cldr-1.8.1",
-      "cldr-1.9.1",
-      "cldr/common"
+//      "cldr-1.7.2",
+//      "cldr-1.8.1",
+      "cldr-archive/cldr-1.9.1",
+      "cldr-archive/cldr-2.0.0",
+//      "cldr/common"
   };
 
   static boolean doChanges = true;

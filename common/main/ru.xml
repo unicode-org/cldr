@@ -686,7 +686,7 @@
 			<territory type="154">Северная Европа</territory>
 			<territory type="155">Западная Европа</territory>
 			<territory type="172">СНГ</territory>
-			<territory type="419">Латинская Америка и Карибские о-ва</territory>
+			<territory type="419">Латинская Америка</territory>
 			<territory type="830">Нормандские о-ва</territory>
 			<territory type="AC">Остров Вознесения</territory>
 			<territory type="AD">Андорра</territory>
@@ -1059,10 +1059,8 @@
 			<type type="unihan" key="collation">сортировка по ключам, затем по чертам</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Числовая</transformName>
 			<transformName type="Tone" draft="contributed">Тоновая</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Диакритические знаки</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Широкие символы</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Краткий формат</transformName>
@@ -1804,13 +1802,11 @@
 					</field>
 					<field type="day">
 						<displayName>День</displayName>
-						<relative type="-3">Три дня назад</relative>
 						<relative type="-2">Позавчера</relative>
 						<relative type="-1">Вчера</relative>
 						<relative type="0">Сегодня</relative>
 						<relative type="1">Завтра</relative>
 						<relative type="2">Послезавтра</relative>
-						<relative type="3">Через три дня</relative>
 					</field>
 					<field type="weekday">
 						<displayName>День недели</displayName>
@@ -3788,57 +3784,39 @@
 					<standard draft="contributed">Акри стандартное время</standard>
 					<daylight draft="contributed">Акри летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Акри время</generic>
-					<standard draft="contributed">Акри стандартное время</standard>
-					<daylight draft="contributed">Акри летнее время</daylight>
-				</short>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard draft="contributed">Афганистан время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Афганистан время</standard>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard draft="contributed">Центральноафриканское время</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard draft="contributed">Восточноафриканское время</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic draft="contributed">Южноафриканское</generic>
 					<standard draft="contributed">Южноафриканское время</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard draft="contributed">Западноафриканское время</standard>
 					<daylight draft="contributed">Западноафриканское летнее время</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
 					<standard draft="contributed">Актюбинск стандартное время</standard>
 					<daylight draft="contributed">Актюбинск летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Актюбинск стандартное время</standard>
-					<daylight draft="contributed">Актюбинск летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -3846,26 +3824,12 @@
 					<standard draft="contributed">Аляска стандартное время</standard>
 					<daylight draft="contributed">Аляска летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Аляска время</generic>
-					<standard draft="contributed">Аляска стандартное время</standard>
-					<daylight draft="contributed">Аляска летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
-			</metazone>
-			<metazone type="Alaska_Hawaii">
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Almaty">
 				<long>
 					<standard draft="contributed">Алма-Ата стандартное время</standard>
 					<daylight draft="contributed">Алма-Ата летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Алма-Ата стандартное время</standard>
-					<daylight draft="contributed">Алма-Ата летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -3880,12 +3844,6 @@
 					<standard draft="contributed">Средне-американское стандартное время</standard>
 					<daylight draft="contributed">Средне-американское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Средне-американское время</generic>
-					<standard draft="contributed">Средне-американское стандартное время</standard>
-					<daylight draft="contributed">Средне-американское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -3893,12 +3851,6 @@
 					<standard draft="contributed">Восточно-американское стандартное время</standard>
 					<daylight draft="contributed">Восточно-американское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Восточно-американское время</generic>
-					<standard draft="contributed">Восточно-американское стандартное время</standard>
-					<daylight draft="contributed">Восточно-американское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -3906,12 +3858,6 @@
 					<standard draft="contributed">Горное стандартное время (США)</standard>
 					<daylight draft="contributed">Горное летнее время (США)</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Горное время (США)</generic>
-					<standard draft="contributed">Горное стандартное время (США)</standard>
-					<daylight draft="contributed">Горное летнее время (США)</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -3919,12 +3865,6 @@
 					<standard draft="contributed">Тихоокеанское стандартное время</standard>
 					<daylight draft="contributed">Тихоокеанское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Тихоокеанское время</generic>
-					<standard draft="contributed">Тихоокеанское стандартное время</standard>
-					<daylight draft="contributed">Тихоокеанское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -3932,33 +3872,18 @@
 					<standard draft="contributed">Анадырь стандартное время</standard>
 					<daylight draft="contributed">Анадырь летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Анадырь стандартное время</standard>
-					<daylight draft="contributed">Анадырь летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
 					<standard draft="contributed">Актау стандартное время</standard>
 					<daylight draft="contributed">Актау летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Актау стандартное время</standard>
-					<daylight draft="contributed">Актау летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
 					<standard draft="contributed">Актобе стандартное время</standard>
 					<daylight draft="contributed">Актобе летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Актобе стандартное время</standard>
-					<daylight draft="contributed">Актобе летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -3966,12 +3891,6 @@
 					<standard draft="contributed">Саудовская Аравия стандартное время</standard>
 					<daylight draft="contributed">Саудовская Аравия летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Саудовская Аравия время</generic>
-					<standard draft="contributed">Саудовская Аравия стандартное время</standard>
-					<daylight draft="contributed">Саудовская Аравия летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -3979,11 +3898,6 @@
 					<standard draft="contributed">Аргентина стандартное время</standard>
 					<daylight draft="contributed">Аргентина летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Аргентина стандартное время</standard>
-					<daylight draft="contributed">Аргентина летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
@@ -3991,10 +3905,6 @@
 					<standard draft="contributed">Аргентина (запад) стандартное время</standard>
 					<daylight draft="contributed">Летнее время в Западной Аргентине</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Аргентина (запад) стандартное время</standard>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
@@ -4002,12 +3912,6 @@
 					<standard draft="contributed">Армения стандартное время</standard>
 					<daylight draft="contributed">Армения летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Армения время</generic>
-					<standard draft="contributed">Армения стандартное время</standard>
-					<daylight draft="contributed">Армения летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
@@ -4015,12 +3919,6 @@
 					<standard draft="contributed">Атлантическое стандартное время</standard>
 					<daylight draft="contributed">Атлантическое летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Атлантическое время</generic>
-					<standard draft="contributed">Атлантическое стандартное время</standard>
-					<daylight draft="contributed">Атлантическое летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -4028,7 +3926,6 @@
 					<standard>Центральная Австралия (стандартное)</standard>
 					<daylight>Центральная Австралия (летнее)</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -4036,7 +3933,6 @@
 					<standard>Центральноавстралийское западное (стандартное)</standard>
 					<daylight>Центральноавстралийское западное (летнее)</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -4044,7 +3940,6 @@
 					<standard>Восточная Австралия (стандартное)</standard>
 					<daylight>Восточная Австралия (летнее)</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -4052,7 +3947,6 @@
 					<standard>Западноавстралийское (стандартное)</standard>
 					<daylight>Западноавстралийское (летнее)</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Azores">
 				<long>
@@ -4060,23 +3954,12 @@
 					<daylight draft="contributed">Азорское (летнее)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Bering">
-				<short>
-					<generic draft="provisional">BT (Берингов пролив)</generic>
-					<standard draft="provisional">BST (Берингов пролив)</standard>
-					<daylight draft="provisional">BDT (Берингов пролив)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic draft="contributed">Время в Бразилии</generic>
 					<standard draft="contributed">Бразилия стандартное время</standard>
 					<daylight draft="contributed">Бразилия дневное время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Бразилия стандартное время</standard>
-					<daylight draft="contributed">Бразилия дневное время</daylight>
-				</short>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
@@ -4100,10 +3983,6 @@
 				<long>
 					<standard draft="contributed">Китайское стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Китайское стандартное время</standard>
-					<daylight draft="contributed">CDT (Китай)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -4128,13 +4007,6 @@
 					<daylight draft="contributed">Острова Кука (полулетнее)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<generic draft="contributed">CT (Куба)</generic>
-					<standard draft="contributed">CST (Куба)</standard>
-					<daylight draft="contributed">CDT (Куба)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Davis">
 				<long>
 					<standard draft="contributed">Дейвис</standard>
@@ -4156,29 +4028,18 @@
 					<standard draft="contributed">Центральноевропейское время</standard>
 					<daylight draft="contributed">Центральноевропейское летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Центральноевропейское время</standard>
-					<daylight draft="contributed">Центральноевропейское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="contributed">Восточноевропейское время</standard>
 					<daylight draft="contributed">Восточноевропейское летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Восточноевропейское время</standard>
-					<daylight draft="contributed">Восточноевропейское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Западноевропейское</standard>
 					<daylight draft="contributed">Западноевропейское (летнее)</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -4221,9 +4082,6 @@
 				<long>
 					<standard draft="provisional">Гуамское стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="provisional">GST (Гуам)</standard>
-				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -4236,10 +4094,6 @@
 					<standard draft="contributed">Гонконгское стандартное время</standard>
 					<daylight draft="contributed">Гонконгское летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Гонконгское стандартное время</standard>
-					<daylight draft="contributed">Гонконгское летнее время</daylight>
-				</short>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
@@ -4252,50 +4106,34 @@
 				<long>
 					<standard draft="contributed">Индийское стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Индийское стандартное время</standard>
-				</short>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
 					<standard draft="contributed">Индийский океан</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
 					<standard draft="contributed">Индокитайское стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Индокитайское стандартное время</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
 					<generic draft="contributed">Время в Центральной Индонезии</generic>
 					<standard draft="contributed">Центральная Индонезия стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Центральная Индонезия стандартное время</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
 					<generic draft="contributed">Время в Восточной Индонезии</generic>
 					<standard draft="contributed">Восточная Индонезия стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Восточная Индонезия стандартное время</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
 					<generic draft="contributed">Время в Западной Индонезии</generic>
 					<standard draft="contributed">Западная Индонезия стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Западная Индонезия стандартное время</standard>
-				</short>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
@@ -4309,18 +4147,11 @@
 					<standard draft="contributed">Израиль стандартное время</standard>
 					<daylight draft="contributed">Израиль летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Израиль стандартное время</standard>
-					<daylight draft="contributed">Израиль летнее время</daylight>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
 					<standard draft="contributed">Японское стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Японское стандартное время</standard>
-				</short>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
@@ -4347,9 +4178,6 @@
 				<long>
 					<standard draft="contributed">Корейское стандартное время</standard>
 				</long>
-				<short>
-					<standard draft="contributed">Корейское стандартное время</standard>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
@@ -4368,11 +4196,6 @@
 					<standard draft="contributed">Куйбышевское время</standard>
 					<daylight draft="contributed">Куйбышевское летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Куйбышевское время</standard>
-					<daylight draft="contributed">Куйбышевское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
@@ -4432,12 +4255,6 @@
 					<standard draft="contributed">Московское стандартное время</standard>
 					<daylight draft="contributed">Московское летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Московское время</generic>
-					<standard draft="contributed">Московское стандартное время</standard>
-					<daylight draft="contributed">Московское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
@@ -4497,11 +4314,6 @@
 					<standard draft="contributed">Самарское стандартное время</standard>
 					<daylight draft="contributed">Самарское летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Самарское стандартное время</standard>
-					<daylight draft="contributed">Самарское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
@@ -4512,9 +4324,6 @@
 				<long>
 					<standard draft="contributed">Южная Георгия</standard>
 				</long>
-				<short>
-					<standard draft="contributed">GST (Южная Георгия)</standard>
-				</short>
 			</metazone>
 			<metazone type="Syowa">
 				<long>
@@ -4527,12 +4336,6 @@
 					<standard draft="contributed">Турецкое стандартное время</standard>
 					<daylight draft="contributed">Турецкое летнее время</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">Турецкое время</generic>
-					<standard draft="contributed">Турецкое стандартное время</standard>
-					<daylight draft="contributed">Турецкое летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
@@ -4547,11 +4350,6 @@
 					<standard draft="contributed">Волгоградское время</standard>
 					<daylight draft="contributed">Волгоградское летнее время</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Волгоградское время</standard>
-					<daylight draft="contributed">Волгоградское летнее время</daylight>
-				</short>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
 			</metazone>
 			<metazone type="Vostok">
 				<long>
@@ -4643,7 +4441,6 @@
 				<displayName count="many" draft="contributed">дирхамов (ОАЭ)</displayName>
 				<displayName count="one" draft="contributed">дирхам (ОАЭ)</displayName>
 				<displayName count="other" draft="contributed">дирхама (ОАЭ)</displayName>
-				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Афгани (1927-2002)</displayName>
@@ -4661,7 +4458,6 @@
 				<displayName count="many" draft="contributed">албанских леков</displayName>
 				<displayName count="one" draft="contributed">албанский лек</displayName>
 				<displayName count="other">албанских леков</displayName>
-				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Армянский драм</displayName>
@@ -4669,7 +4465,6 @@
 				<displayName count="many" draft="contributed">армянских драмов</displayName>
 				<displayName count="one" draft="contributed">армянский драм</displayName>
 				<displayName count="other">армянских драмов</displayName>
-				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Нидерландский антильский гульден</displayName>
@@ -4780,7 +4575,6 @@
 				<displayName count="many" draft="contributed">болгарских левов</displayName>
 				<displayName count="one" draft="contributed">болгарский лев</displayName>
 				<displayName count="other" draft="contributed">болгарского лева</displayName>
-				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Бахрейнский динар</displayName>
@@ -4878,7 +4672,6 @@
 				<displayName count="many" draft="contributed">белорусских рублей</displayName>
 				<displayName count="one" draft="contributed">белорусский рубль</displayName>
 				<displayName count="other" draft="contributed">белорусского рубля</displayName>
-				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Белизский доллар</displayName>
@@ -4910,7 +4703,6 @@
 				<displayName count="many" draft="contributed">швейцарских франков</displayName>
 				<displayName count="one" draft="contributed">швейцарский франк</displayName>
 				<displayName count="other" draft="contributed">швейцарского франка</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR франк</displayName>
@@ -5035,7 +4827,6 @@
 				<displayName count="many" draft="contributed">египетских фунтов</displayName>
 				<displayName count="one" draft="contributed">египетский фунт</displayName>
 				<displayName count="other" draft="contributed">египетского фунта</displayName>
-				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Накфа</displayName>
@@ -5103,7 +4894,6 @@
 				<displayName count="many" draft="contributed">грузинских лари</displayName>
 				<displayName count="one" draft="contributed">грузинский лари</displayName>
 				<displayName count="other" draft="contributed">грузинского лари</displayName>
-				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Ганский седи (1979-2007)</displayName>
@@ -5236,7 +5026,6 @@
 				<displayName count="many" draft="contributed">иракских динаров</displayName>
 				<displayName count="one" draft="contributed">иракский динар</displayName>
 				<displayName count="other" draft="contributed">иракского динара</displayName>
-				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Иранский риал</displayName>
@@ -5244,7 +5033,6 @@
 				<displayName count="many" draft="contributed">иранских риалов</displayName>
 				<displayName count="one" draft="contributed">иранский риал</displayName>
 				<displayName count="other" draft="contributed">иранского риала</displayName>
-				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>Исландская крона</displayName>
@@ -5291,7 +5079,6 @@
 				<displayName count="many" draft="contributed">киргизских сома</displayName>
 				<displayName count="one" draft="contributed">киргизский сом</displayName>
 				<displayName count="other" draft="contributed">киргизского сома</displayName>
-				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Камбоджийский риель</displayName>
@@ -5299,7 +5086,6 @@
 				<displayName count="many" draft="contributed">камбоджийских риелей</displayName>
 				<displayName count="one" draft="contributed">камбоджийский риель</displayName>
 				<displayName count="other" draft="contributed">камбоджийского риеля</displayName>
-				<symbol draft="contributed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Франк Коморских островов</displayName>
@@ -5314,7 +5100,6 @@
 				<displayName count="many" draft="contributed">северокорейских вон</displayName>
 				<displayName count="one" draft="contributed">северокорейская вона</displayName>
 				<displayName count="other" draft="contributed">северокорейской воны</displayName>
-				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Вона Республики Кореи</displayName>
@@ -5343,7 +5128,6 @@
 				<displayName count="many" draft="contributed">казахских тенге</displayName>
 				<displayName count="one" draft="contributed">казахский тенге</displayName>
 				<displayName count="other" draft="contributed">казахского тенге</displayName>
-				<symbol draft="contributed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Кип ЛНДР</displayName>
@@ -5418,7 +5202,6 @@
 				<displayName count="many" draft="contributed">марокканских дирхамов</displayName>
 				<displayName count="one" draft="contributed">марокканский дирхам</displayName>
 				<displayName count="other" draft="contributed">марокканского дирхама</displayName>
-				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Марокканский франк</displayName>
@@ -5429,7 +5212,6 @@
 				<displayName count="many" draft="contributed">молдавских леев</displayName>
 				<displayName count="one" draft="contributed">молдавский лей</displayName>
 				<displayName count="other" draft="contributed">молдавского лея</displayName>
-				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Ариари</displayName>
@@ -5437,7 +5219,6 @@
 				<displayName count="many" draft="contributed">малагасийских ариари</displayName>
 				<displayName count="one" draft="contributed">малагасийский ариари</displayName>
 				<displayName count="other" draft="contributed">малагасийского ариари</displayName>
-				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Малагасийский франк</displayName>
@@ -5448,7 +5229,6 @@
 				<displayName count="many" draft="contributed">македонских динаров</displayName>
 				<displayName count="one" draft="contributed">македонский динар</displayName>
 				<displayName count="other" draft="contributed">македонского динара</displayName>
-				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>Малийский франк</displayName>
@@ -5500,7 +5280,6 @@
 				<displayName count="many" draft="contributed">мальдивских руфий</displayName>
 				<displayName count="one" draft="contributed">мальдивская руфия</displayName>
 				<displayName count="other" draft="contributed">мальдивской руфии</displayName>
-				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Малавийская квача</displayName>
@@ -5508,7 +5287,6 @@
 				<displayName count="many" draft="contributed">малавийских квач</displayName>
 				<displayName count="one" draft="contributed">малавийская квача</displayName>
 				<displayName count="other" draft="contributed">малавийской квачи</displayName>
-				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Мексиканское новое песо</displayName>
@@ -5597,7 +5375,6 @@
 				<displayName count="many" draft="contributed">оманских риалов</displayName>
 				<displayName count="one" draft="contributed">оманский риал</displayName>
 				<displayName count="other" draft="contributed">оманского риала</displayName>
-				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Панамское бальбоа</displayName>
@@ -5705,7 +5482,6 @@
 				<displayName count="many" draft="contributed">франков Руанды</displayName>
 				<displayName count="one" draft="contributed">франк Руанды</displayName>
 				<displayName count="other" draft="contributed">франка Руанды</displayName>
-				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Саудовский риал</displayName>
@@ -5737,7 +5513,6 @@
 				<displayName count="many" draft="contributed">суданских фунтов</displayName>
 				<displayName count="one" draft="contributed">суданский фунт</displayName>
 				<displayName count="other" draft="contributed">суданского фунта</displayName>
-				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Старый суданский фунт</displayName>
@@ -5835,7 +5610,6 @@
 				<displayName count="many" draft="contributed">таджикских сомони</displayName>
 				<displayName count="one" draft="contributed">таджикский сомони</displayName>
 				<displayName count="other" draft="contributed">аджикского сомони</displayName>
-				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Туркменский манат</displayName>
@@ -5846,7 +5620,6 @@
 				<displayName count="many" draft="contributed">туркменских новых манатов</displayName>
 				<displayName count="one" draft="contributed">туркменский новый манат</displayName>
 				<displayName count="other" draft="contributed">туркменского нового маната</displayName>
-				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Тунисский динар</displayName>
@@ -5954,7 +5727,6 @@
 				<displayName count="many" draft="contributed">узбекских сумов</displayName>
 				<displayName count="one" draft="contributed">узбекский сум</displayName>
 				<displayName count="other" draft="contributed">узбекского сума</displayName>
-				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Венесуэльский боливар</displayName>
@@ -6235,7 +6007,7 @@
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="0" draft="contributed">0 секунд назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 cекунду назад</unitPattern>
+			<unitPattern count="1" draft="contributed">1 секунду назад</unitPattern>
 			<unitPattern count="few">{0} секунды назад</unitPattern>
 			<unitPattern count="many">{0} секунд назад</unitPattern>
 			<unitPattern count="one">{0} секунду назад</unitPattern>

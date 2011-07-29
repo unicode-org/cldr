@@ -105,19 +105,72 @@
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billiards[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="et-unieme" access="private">
+                <rbnfrule value="1">et-unième;</rbnfrule>
+                <rbnfrule value="2">=%%spellout-ordinal=;</rbnfrule>
+                <rbnfrule value="11">et-onzième;</rbnfrule>
+                <rbnfrule value="12">=%%spellout-ordinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="cents-o" access="private">
+                <rbnfrule value="0">ième;</rbnfrule>
+                <rbnfrule value="1">-=%%spellout-ordinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="mille-o" access="private">
+                <rbnfrule value="0">ième;</rbnfrule>
+                <rbnfrule value="1">e-=%%spellout-ordinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal" access="private">
+                <rbnfrule value="1">unième;</rbnfrule>
+                <rbnfrule value="2">deuxième;</rbnfrule>
+                <rbnfrule value="3">troisième;</rbnfrule>
+                <rbnfrule value="4">quatrième;</rbnfrule>
+                <rbnfrule value="5">cinquième;</rbnfrule>
+                <rbnfrule value="6">sixième;</rbnfrule>
+                <rbnfrule value="7">septième;</rbnfrule>
+                <rbnfrule value="8">huitième;</rbnfrule>
+                <rbnfrule value="9">neuvième;</rbnfrule>
+                <rbnfrule value="10">dixième;</rbnfrule>
+                <rbnfrule value="11">onzième;</rbnfrule>
+                <rbnfrule value="12">douzième;</rbnfrule>
+                <rbnfrule value="13">treizième;</rbnfrule>
+                <rbnfrule value="14">quatorzième;</rbnfrule>
+                <rbnfrule value="15">quinzième;</rbnfrule>
+                <rbnfrule value="16">seizième;</rbnfrule>
+                <rbnfrule value="17">dix-→→;</rbnfrule>
+                <rbnfrule value="20">vingtième;</rbnfrule>
+                <rbnfrule value="21">vingt-→%%et-unieme→;</rbnfrule>
+                <rbnfrule value="30">trentième;</rbnfrule>
+                <rbnfrule value="31">trente-→%%et-unieme→;</rbnfrule>
+                <rbnfrule value="40">quarantième;</rbnfrule>
+                <rbnfrule value="41">quarante-→%%et-unieme→;</rbnfrule>
+                <rbnfrule value="50">cinquantième;</rbnfrule>
+                <rbnfrule value="51">cinquante-→%%et-unieme→;</rbnfrule>
+                <rbnfrule value="60">soixantième;</rbnfrule>
+                <rbnfrule value="61" radix="20">soixante-→%%et-unieme→;</rbnfrule>
+                <rbnfrule value="80" radix="20">quatre-vingt→%%cents-o→;</rbnfrule>
+                <rbnfrule value="100">cent→%%cents-o→;</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000">mill-→%%mille-o→;</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine←-mill-→%%mille-o→;</rbnfrule>
+                <rbnfrule value="2001">1,000,000 ←%spellout-cardinal-masculine←-million-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine←-milliard-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine←-billion-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine←-billiard-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-ordinal-masculine">
                 <rbnfrule value="-x">moins →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">zéroième;</rbnfrule>
                 <rbnfrule value="1">premier;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine=ième;</rbnfrule>
+                <rbnfrule value="2">=%%spellout-ordinal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">moins →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">zéroième;</rbnfrule>
                 <rbnfrule value="1">première;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine=ième;</rbnfrule>
+                <rbnfrule value="2">=%%spellout-ordinal=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">

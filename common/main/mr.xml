@@ -1032,10 +1032,8 @@
 			<type type="unihan" key="collation">रॅडिकल-स्ट्रोक अनुक्रम</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">अंकीय</transformName>
 			<transformName type="Tone">स्वर</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">गडद-फिकेपणा</transformName>
 			<transformName type="x-Fullwidth">पूर्णरुंदी</transformName>
 			<transformName type="x-Halfwidth">अर्धीरुंदी</transformName>
@@ -1391,13 +1389,11 @@
 					</field>
 					<field type="day">
 						<displayName>दिवस</displayName>
-						<relative type="-3">तेरवा</relative>
 						<relative type="-2">परवा</relative>
 						<relative type="-1">काल</relative>
 						<relative type="0">आज</relative>
 						<relative type="1">उद्या</relative>
 						<relative type="2">परवा</relative>
-						<relative type="3">तेरवा</relative>
 					</field>
 					<field type="weekday">
 						<displayName>आठवड्याचा दिवस</displayName>
@@ -3115,6 +3111,9 @@
 				<long>
 					<standard>भारतीय प्रमाणवेळ</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -3921,7 +3920,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>भारतीय रुपया</displayName>
-				<symbol>रु</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>इराकी दीनार</displayName>

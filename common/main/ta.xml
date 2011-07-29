@@ -1032,10 +1032,8 @@
 			<type type="unihan" key="collation">ரேடியன் ஸ்ட்ரோக் வரிசை முறை</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">எண்</transformName>
 			<transformName type="Tone">டோன்</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">ஒலிப்புகள்</transformName>
 			<transformName type="x-Fullwidth">முழு அகலம்</transformName>
 			<transformName type="x-Halfwidth">அரை அகலம்</transformName>
@@ -1403,13 +1401,11 @@
 					</field>
 					<field type="day">
 						<displayName>நாள்</displayName>
-						<relative type="-3">மூன்று நாட்களுக்கு முன்</relative>
 						<relative type="-2">முந்தா நாள்</relative>
 						<relative type="-1">நேற்று</relative>
 						<relative type="0">இன்று</relative>
 						<relative type="1">நாளை</relative>
 						<relative type="2">நாளை மறுநாள்</relative>
-						<relative type="3">மூன்று நாட்களுக்கு பின்</relative>
 					</field>
 					<field type="weekday">
 						<displayName>வார நாள்</displayName>
@@ -2921,9 +2917,6 @@
 					<generic>சீன நேரம்</generic>
 					<daylight>சீன பகலொளி நேரம்</daylight>
 				</long>
-				<short>
-					<standard>சீன தர நேரம்</standard>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -3020,9 +3013,6 @@
 					<standard>மேற்கத்திய ஐரோப்பியன் நேரம்</standard>
 					<daylight>மேற்கத்திய ஐரோப்பியன் கோடை நேரம்</daylight>
 				</long>
-				<short>
-					<daylight>மேற்கு</daylight>
-				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -3135,6 +3125,9 @@
 				<long>
 					<standard>இந்திய தர நேரம்</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
 				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -3871,7 +3864,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>ரூபாய்</displayName>
-				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ஈராக்கி தினார்</displayName>

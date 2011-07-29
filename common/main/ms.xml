@@ -589,10 +589,8 @@
 			<type type="unihan" key="collation">Aturan Isih Coretan Radikal</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">Bernombor</transformName>
 			<transformName type="Tone">Nada</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">Aksen</transformName>
 			<transformName type="x-Fullwidth">Kelebaran penuh</transformName>
 			<transformName type="x-Halfwidth">Kelebaran separa</transformName>
@@ -968,13 +966,11 @@
 					</field>
 					<field type="day">
 						<displayName>Hari</displayName>
-						<relative type="-3">Tiga hari lalu</relative>
 						<relative type="-2">Hari sebelum semalam</relative>
 						<relative type="-1">Semalam</relative>
 						<relative type="0">Hari ini</relative>
 						<relative type="1">Esok</relative>
 						<relative type="2">Hari selepas esok</relative>
-						<relative type="3">Tiga hari dari sekarang</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Hari dalam Minggu</displayName>
@@ -1448,9 +1444,6 @@
 			<currency type="AWG">
 				<displayName>Florin Aruba</displayName>
 			</currency>
-			<currency type="AZM">
-				<displayName>AZM</displayName>
-			</currency>
 			<currency type="AZN">
 				<displayName>Manat Azerbaijan</displayName>
 			</currency>
@@ -1543,9 +1536,6 @@
 			</currency>
 			<currency type="DZD">
 				<displayName>Dinar Algeria</displayName>
-			</currency>
-			<currency type="EEK">
-				<displayName>EEK</displayName>
 			</currency>
 			<currency type="EGP">
 				<displayName>Paun Mesir</displayName>
@@ -1772,7 +1762,6 @@
 			</currency>
 			<currency type="RUB">
 				<displayName>Ruble Rusia</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Franc Rwanda</displayName>

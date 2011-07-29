@@ -3098,137 +3098,107 @@ if(true == true)    throw new InternalError("removed from use.");
      * @throws SQLException 
      */
     public boolean[] writeVoteFile(PrintWriter out, Connection conn2, XMLSource source, CLDRFile file, String ourDate, boolean xpathSet[]) throws SQLException {
-        boolean embeddedXpathTable = false;
-        
-        if(xpathSet == null) {
-//            xpathSet = new TreeSet<Integer>();
-            xpathSet = new boolean[xpathMax];
-            embeddedXpathTable=true;
-        }
+    	boolean embeddedXpathTable = false;
 
-        String locale = source.getLocaleID();
-        XPathParts xpp = new XPathParts(null,null);
-        boolean isResolved = source.isResolving();
-        String oldVersion = SurveyMain.getOldVersion();
-        String newVersion = SurveyMain.getNewVersion();
-        out.println("<locale-votes host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\" "+
-                "oldVersion=\""+oldVersion+"\" currentVersion=\""+newVersion+"\" "+
-                "resolved=\""+isResolved+"\" locale=\""+locale+"\">");
+    	if(xpathSet == null) {
+    		//            xpathSet = new TreeSet<Integer>();
+    		xpathSet = new boolean[xpathMax];
+    		embeddedXpathTable=true;
+    	}
 
-        PreparedStatement resultsByBase = conn2.prepareStatement(
-                   "select cldr_output.output_xpath,cldr_output.output_full_xpath," +
-                       "cldr_output.status,cldr_output.data_xpath from " +
-                       "cldr_output" +
-                       " where cldr_output.locale=? and cldr_output.base_xpath=?");
-        PreparedStatement votesByValue = conn2.prepareStatement("select submitter from cldr_vet where locale=? and vote_xpath=?");
-        /*
-         *                                                         "(locale VARCHAR(20) NOT NULL, " +
-                                                                "base_xpath INT NOT NULL," +
-                                                                "output_xpath INT NOT NULL," +
-                                                                "output_full_xpath INT NOT NULL," +
-                                                                "data_xpath INT NOT NULL, " +
-                                                                "status SMALLINT)");
+    	String locale = source.getLocaleID();
+    	XPathParts xpp = new XPathParts(null,null);
+    	boolean isResolved = source.isResolving();
+    	String oldVersion = SurveyMain.getOldVersion();
+    	String newVersion = SurveyMain.getNewVersion();
+    	out.println("<locale-votes host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\" "+
+    			"oldVersion=\""+oldVersion+"\" currentVersion=\""+newVersion+"\" "+
+    			"resolved=\""+isResolved+"\" locale=\""+locale+"\">");
 
-         */
-        resultsByBase.setString(1, locale);
-        votesByValue.setString(1, locale);
-                
-        Statement basesByLocale = conn2.createStatement();
-//        ResultSet base_result = basesByLocale.executeQuery("select distinct cldr_vet.base_xpath from cldr_vet where cldr_vet.locale='"+locale+"'");
-        ResultSet base_result = basesByLocale.executeQuery("select base_xpath from cldr_result where locale='"+locale+"'");
+    	ResultSet base_result=null,results=null;
+    	PreparedStatement resultsByBase=null,votesByValue=null;
+    	
+    	try {
+    	
+    	resultsByBase = conn2.prepareStatement(
+    			"select distinct cldr_vet.vote_xpath, cldr_data.value,cldr_vet.base_xpath  from cldr_data,cldr_vet where cldr_data.locale=cldr_vet.locale " +
+    			" and cldr_data.locale=? and " +
+    	" cldr_data.xpath=cldr_vet.vote_xpath order by cldr_vet.base_xpath desc");
+    	votesByValue = conn2.prepareStatement("select submitter from cldr_vet where locale=? and vote_xpath=?");
 
-        
-        int n=0;
-        
-        while(base_result.next()) {
-            n++;
-            int baseXpath = base_result.getInt(1);
-            boolean hadRow = false;
-            resultsByBase.setInt(2, baseXpath);
-            ResultSet results = resultsByBase.executeQuery();
-            boolean sawBasePath = false;
-            while(results.next()) {
-                int outPath = results.getInt(1);
-                int outFull = results.getInt(2);
-                if(outFull>=xpathSet.length || baseXpath>=xpathSet.length) {
-                    if(xpathMax==0) {
-                        xpathMax=sm.xpt.count()+IntHash.CHUNKSIZE;
-                    }
-                    int max = java.lang.Math.max(outFull, baseXpath);
-                    xpathMax = java.lang.Math.max(max+IntHash.CHUNKSIZE, xpathMax);
-                    boolean newXpathSet[] = new boolean[xpathMax];
-                    System.arraycopy(xpathSet, 0, newXpathSet, 0, xpathSet.length);
-                    xpathSet=newXpathSet;
-                    System.err.println("VV:XPT:Expand to "+xpathMax);
-                }
-                if(!hadRow) {
-                    hadRow=true;
-                    out.println("\t<row baseXpath=\""+baseXpath+"\">"); // result=\""+resultXpath+"\">");
-                    //xpathSet.add(baseXpath);
-                    xpathSet[baseXpath]=true;
-                    //out.println("\t\t<xpath type=\"base\" id=\""+baseXpath+"\">"+xmlescape(sm.xpt.getById(baseXpath))+"</xpath>");
-                }
-                String outFullString = sm.xpt.getById(outFull);
-//                int outStatus = results.getInt(3);
-//                Status status = Status.find(outStatus);
-                int outDataPath = results.getInt(4);
-                boolean isBase = (outPath==baseXpath) ;
-                
-                if (isBase) { sawBasePath = true; }
-//                boolean hadVotes = false;
-                xpp.clear();
-                xpp.initialize(outFullString);
-                String lelement = xpp.getElement(-1);
-                String iDraft = xpp.findAttributeValue(lelement,LDMLConstants.DRAFT);
-                if(iDraft == null || iDraft.length()==0) {
-                    iDraft = "approved";
-                }
-                //xpathSet.add(outFull);
-                xpathSet[outFull]=true;
-//                xpathSet.add(outDataPath);
-                out.println("\t\t<item xpath=\""+outFull+"\" type=\""+
-                        (isBase?"optimal":"proposal")+"\" id=\""+outDataPath+"\" status=\""+iDraft+"\""+">");
-                if(outDataPath==baseXpath) {
-                    String oxpath = source.getFullPathAtDPath(sm.xpt.getById(outDataPath)); // ,false
-                    String eDraft = null;
-                    if(oxpath == null) {
-                        eDraft = "unknown";
-                    } else {
-                        xpp.clear();
-                        xpp.initialize(oxpath);
-                        String lelement2 = xpp.getElement(-1);
-                        /* all of these are always at the end */
-    //                    String eAlt = xpp.findAttributeValue(lelement,LDMLConstants.ALT);
-                        eDraft = xpp.findAttributeValue(lelement2,LDMLConstants.DRAFT);
-                        if(eDraft == null) {
-                            eDraft = "confirmed";
-                        }
-                    }
-                    out.println("\t\t\t<old status=\""+eDraft+"\"/>"); // blue star
-                }
-//                out.print("<xpath >"+xmlescape(outFullString)+"</xpath>");
+    	resultsByBase.setString(1, locale);
+    	votesByValue.setString(1, locale);
 
-                votesByValue.setInt(2, outDataPath);
+    	base_result = resultsByBase.executeQuery();
 
-                ResultSet votes = votesByValue.executeQuery();
-                while(votes.next()) {
-                    int submitter = votes.getInt(1);
-                    out.println("\t\t\t<vote user=\""+submitter+"\"/>");
-                }
-                
-                out.println("\t\t</item>");
-            }
-            if(hadRow) {
-                out.println("\t</row>");
-            }
-        }
-        if(embeddedXpathTable) {
-            out.println(" <xpathTable max=\""+xpathSet.length+"\">");
-            writeXpathFragment(out,xpathSet);
-            out.println(" </xpathTable>");
-        }
+
+    	int n=0;
+
+    	int lastBase=-1;
+
+    	while(base_result.next()) {
+    		n++;
+    		int voteXpath = base_result.getInt(1);
+    		String voteValue = DBUtils.getStringUTF8(base_result, 2);
+    		int baseXpath = base_result.getInt(3);
+
+//    		out.println("<!-- base:"+baseXpath+", vote:"+voteXpath+", voteValue:"+voteValue+" -->\n");
+    		
+    		if(baseXpath!=lastBase) {
+    			if(lastBase!=-1) {
+    				out.println("</item>");
+    			}
+    			out.print("<item baseXpath=\""+baseXpath+"\">");
+    			lastBase=baseXpath;
+    		}
+    		boolean hadRow = false;
+
+    		votesByValue.setInt(2, voteXpath);
+    		results = votesByValue.executeQuery();
+    		StringBuilder votes = new StringBuilder();
+    		while(results.next()) {
+    			int submitter = results.getInt(1);
+    			if(votes.length()!=0) {
+    				votes.append(' ');
+    			}
+    			votes.append(Integer.toString(submitter));
+    		}
+    		int outFull = baseXpath;
+    		if(outFull>=xpathSet.length) {
+    			if(xpathMax==0) {
+    				xpathMax=sm.xpt.count()+IntHash.CHUNKSIZE;
+    			}
+    			int max = java.lang.Math.max(outFull, outFull);
+    			xpathMax = java.lang.Math.max(max+IntHash.CHUNKSIZE, xpathMax);
+    			boolean newXpathSet[] = new boolean[xpathMax];
+    			System.arraycopy(xpathSet, 0, newXpathSet, 0, xpathSet.length);
+    			xpathSet=newXpathSet;
+    			System.err.println("VV:XPT:Expand to "+xpathMax);
+    		}
+//    		out.println("<item baseXpath=\""+baseXpath+"\">"); // result=\""+resultXpath+"\">");
+    		//xpathSet.add(baseXpath);
+    		xpathSet[baseXpath]=true;
+    		//out.println("\t\t<xpath type=\"base\" id=\""+baseXpath+"\">"+xmlescape(sm.xpt.getById(baseXpath))+"</xpath>");
+
+
+    		out.print("<vote users=\""+votes+"\">"+voteValue+"</vote>");
+    	}
+    	if(lastBase!=-1) {
+    		out.println("</item>\n");
+    	} else {
+    		return null;
+    	}
+
+//    	if(embeddedXpathTable) {
+//            out.println(" <xpathTable max=\""+xpathSet.length+"\">");
+//            writeXpathFragment(out,xpathSet);
+//            out.println(" </xpathTable>");
+//        }
         out.println("</locale-votes>");
         return xpathSet;
+    	} finally {
+    		DBUtils.close(results,base_result,resultsByBase,votesByValue);
+    	}
     }
 
     private String xmlescape(String str) {

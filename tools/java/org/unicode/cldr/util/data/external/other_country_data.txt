@@ -1,6 +1,8 @@
 Code;Name;Type;Data;Source
-# the data in the case of gdp-ppp or literacy can be a country code. For literacy, it is copied. For gdp it is scaled.
-# the population must be set before gdp occurs!
+# the data in the case of gdp-ppp or literacy can be a country code. 
+# For literacy, it is copied. For gdp it is scaled.
+# the population MUST be set before gdp occurs!
+
 AX;Aland Islands;gdp-ppp;$929,773,254;www.aland.ax
 GF;French Guiana;gdp-ppp;$1,551,000,000;www.countryreports.org
 GP;Guadeloupe;gdp-ppp;$3,513,000,000;www.countryreports.org
@@ -121,3 +123,15 @@ UM;United States Minor Outlying Islands;literacy;US;reason
 VA;Holy See (Vatican City State);gdp-ppp;IT;reason
 
 GU;Guam;gdp-ppp;$2500000000;factbook (2005 est)
+
+CW;Curaçao;population;142180;wikipedia
+CW;Curaçao;gdp-ppp;$2914000;wikipedia
+CW;Curaçao;literacy;NL;reason
+
+BQ;Bonaire, Saint Eustatius and Saba;population;20000;wikipedia
+BQ;Bonaire, Saint Eustatius and Saba;gdp-ppp;CW;reason
+BQ;Bonaire, Saint Eustatius and Saba;literacy;CW;reason
+
+SX;Sint Maarten (Dutch part);population;37429;wikipedia
+SX;Sint Maarten (Dutch part);gdp-ppp;$400000000;wikipedia
+SX;Sint Maarten (Dutch part);literacy;NL;reason

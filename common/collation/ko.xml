@@ -1391,6 +1391,118 @@
 				<!-- add Hanja - Hangul equivalence rules? -->
 			</rules>
 		</collation>
+		<collation type="searchjl" >
+			<settings normalization="on"/>
+			<!-- root search, suppress contractions for Thai, Lao -->
+			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+			<rules>
+				<!-- root search rules for Arabic, Hebrew -->
+				<reset>ا</reset>	<!-- 0627 ARABIC LETTER ALEF -->
+						<t>ﺎ</t><t>ﺍ</t>	<!-- FE8E, FE8D: FINAL FORM, ISOLATED FORM -->
+					<s>آ</s>		<!-- 0622 ARABIC LETTER ALEF WITH MADDA ABOVE -->
+						<t>ﺂ</t><t>ﺁ</t>	<!-- FE82, FE81: FINAL FORM, ISOLATED FORM -->
+					<s>أ</s>		<!-- 0623 ARABIC LETTER ALEF WITH HAMZA ABOVE -->
+						<t>ﺄ</t><t>ﺃ</t>	<!-- FE84, FE83: FINAL FORM, ISOLATED FORM -->
+					<s>إ</s>		<!-- 0625 ARABIC LETTER ALEF WITH HAMZA BELOW -->
+						<t>ﺈ</t><t>ﺇ</t>	<!-- FE88, FE87: FINAL FORM, ISOLATED FORM -->
+				<reset>و</reset>	<!-- 0648 ARABIC LETTER WAW -->
+						<t>ۥ</t>	<!-- 06E5: SMALL WAW -->
+						<t>ﻮ</t><t>ﻭ</t>	<!-- FEEE, FEED: FINAL FORM, ISOLATED FORM -->
+					<s>ؤ</s>		<!-- 0624 ARABIC LETTER WAW WITH HAMZA ABOVE -->
+						<t>ﺆ</t><t>ﺅ</t>	<!-- FE86, FE85: FINAL FORM, ISOLATED FORM -->
+				<reset>ي</reset>	<!-- 064A ARABIC LETTER YEH -->
+						<t>ۦ</t>	<!-- 06E6: ARABIC SMALL YEH -->
+						<t>ﻳ</t><t>ﻴ</t><t>ﻲ</t><t>ﻱ</t>	<!-- FEF3, FEF4, FEF2, FEF1: INITIAL FORM, MEDIAL FORM, FINAL FORM, ISOLATED FORM -->
+					<s>ئ</s>		<!-- 0626 ARABIC LETTER YEH WITH HAMZA ABOVE -->
+						<t>ﺋ</t><t>ﺌ</t><t>ﺊ</t><t>ﺉ</t>	<!-- FE8B, FE8C, FE8A, FE89: INITIAL FORM, MEDIAL FORM. FINAL FORM, ISOLATED FORM -->
+					<s>ى</s>		<!-- 0649 ARABIC LETTER ALEF MAKSURA -->
+						<t>ﯨ</t><t>ﯩ</t>	<!-- FBE8, FBE9: UIGHUR KAZAKH KIRGHIZ ALEF MAKSURA INITIAL FORM, MEDIAL FORM -->
+						<t>ﻰ</t><t>ﻯ</t>	<!-- FEF0, FEEF: FINAL FORM, ISOLATED FORM -->
+				<reset>ه</reset>	<!-- 0647 ARABIC LETTER HEH -->
+						<t>ﻫ</t><t>ﻬ</t><t>ﻪ</t><t>ﻩ</t>	<!-- FEEB, FEEC, FEEA, FEE9: INITIAL FORM, MEDIAL FORM, FINAL FORM;, ISOLATED FORM -->
+					<s>ة</s>		<!-- 0629 ARABIC LETTER TEH MARBUTA -->
+						<t>ﺔ</t><t>ﺓ</t>	<!-- FE94, FE93: FINAL FORM, ISOLATED FORM -->
+				<reset><last_primary_ignorable/></reset>
+					<s>׳</s>	<!-- 05F3 HEBREW PUNCTUATION GERESH -->
+					<s>״</s>	<!-- 05F4 HEBREW PUNCTUATION GERSHAYIM -->
+					<s>ـ</s>	<!-- 0640 ARABIC TATWEEL -->
+					<!-- Don't need explicit entries for 064B - 0652 ARABIC FATHATAN - ARABIC SUKUN;
+					these are already ignorable at level 1, and are not involved in contractions -->
+					<s>ฺ</s>	<!-- 0E3A THAI CHARACTER PHINTHU -->
+				<!-- Korean jamo lead consonant search rules, part 1: -->
+				<!-- Continue secondary differences from last_primary_ignorable with modern Hangul V T jamo -->
+					<s>ᅡ</s>	<!-- 1161 HANGUL JUNGSEONG A -->
+					<s>ᅢ</s>	<!-- 1162 -->
+					<s>ᅣ</s>	<!-- 1163 -->
+					<s>ᅤ</s>	<!-- 1164 -->
+					<s>ᅥ</s>	<!-- 1165 -->
+					<s>ᅦ</s>	<!-- 1166 -->
+					<s>ᅧ</s>	<!-- 1167 -->
+					<s>ᅨ</s>	<!-- 1168 -->
+					<s>ᅩ</s>	<!-- 1169 -->
+					<s>ᅪ</s>	<!-- 116A -->
+					<s>ᅫ</s>	<!-- 116B -->
+					<s>ᅬ</s>	<!-- 116C -->
+					<s>ᅭ</s>	<!-- 116D -->
+					<s>ᅮ</s>	<!-- 116E -->
+					<s>ᅯ</s>	<!-- 116F -->
+					<s>ᅰ</s>	<!-- 1170 -->
+					<s>ᅱ</s>	<!-- 1171 -->
+					<s>ᅲ</s>	<!-- 1172 -->
+					<s>ᅳ</s>	<!-- 1173 -->
+					<s>ᅴ</s>	<!-- 1174 -->
+					<s>ᅵ</s>	<!-- 1175 -->
+					<s>ᆨ</s>	<!-- 11A8 HANGUL JONGSEONG KIYEOK -->
+					<s>ᆩ</s>	<!-- 11A9 -->
+					<s>ᆪ</s>	<!-- 11AA -->
+					<s>ᆫ</s>	<!-- 11AB -->
+					<s>ᆬ</s>	<!-- 11AC -->
+					<s>ᆭ</s>	<!-- 11AD -->
+					<s>ᆮ</s>	<!-- 11AE -->
+					<s>ᆯ</s>	<!-- 11AF -->
+					<s>ᆰ</s>	<!-- 11B0 -->
+					<s>ᆱ</s>	<!-- 11B1 -->
+					<s>ᆲ</s>	<!-- 11B2 -->
+					<s>ᆳ</s>	<!-- 11B3 -->
+					<s>ᆴ</s>	<!-- 11B4 -->
+					<s>ᆵ</s>	<!-- 11B5 -->
+					<s>ᆶ</s>	<!-- 11B6 -->
+					<s>ᆷ</s>	<!-- 11B7 -->
+					<s>ᆸ</s>	<!-- 11B8 -->
+					<s>ᆹ</s>	<!-- 11B9 -->
+					<s>ᆺ</s>	<!-- 11BA -->
+					<s>ᆻ</s>	<!-- 11BB -->
+					<s>ᆼ</s>	<!-- 11BC -->
+					<s>ᆽ</s>	<!-- 11BD -->
+					<s>ᆾ</s>	<!-- 11BE -->
+					<s>ᆿ</s>	<!-- 11BF -->
+					<s>ᇀ</s>	<!-- 11C0 -->
+					<s>ᇁ</s>	<!-- 11C1 -->
+					<s>ᇂ</s>	<!-- 11C2 -->
+				<!-- Korean jamo lead consonant search rules, part 2: -->
+				<!-- Make modern compound L jamo primary equivalent to non-compound forms -->
+				<reset>ᄀ</reset>	<!-- 1100 HANGUL CHOSEONG KIYEOK -->
+					<s>ᄁ</s>		<!-- 1101 HANGUL CHOSEONG SSANGKIYEOK -->
+					<i>ᄀᄀ</i>		<!-- 1100 1100 -->
+					<t>ㄲ</t>		<!-- 3132 HANGUL LETTER SSANGKIYEOK -->
+				<reset>ᄃ</reset>	<!-- 1103 HANGUL CHOSEONG TIKEUT -->
+					<s>ᄄ</s>		<!-- 1104 HANGUL CHOSEONG SSANGTIKEUT -->
+					<i>ᄃᄃ</i>		<!-- 1103 1103 -->
+					<t>ㄸ</t>		<!-- 3138 HANGUL LETTER SSANGTIKEUT -->
+				<reset>ᄇ</reset>	<!-- 1107 HANGUL CHOSEONG PIEUP -->
+					<s>ᄈ</s>		<!-- 1108 HANGUL CHOSEONG SSANGPIEUP -->
+					<i>ᄇᄇ</i>		<!-- 1107 1107 -->
+					<t>ㅃ</t>		<!-- 3143 HANGUL LETTER SSANGPIEUP -->
+				<reset>ᄉ</reset>	<!-- 1109 HANGUL CHOSEONG SIOS -->
+					<s>ᄊ</s>		<!-- 110A HANGUL CHOSEONG SSANGSIOS -->
+					<i>ᄉᄉ</i>		<!-- 1109 1109 -->
+					<t>ㅆ</t>		<!-- 3146 HANGUL LETTER SSANGSIOS -->
+				<reset>ᄌ</reset>	<!-- 110C HANGUL CHOSEONG CIEUC -->
+					<s>ᄍ</s>		<!-- 110D HANGUL CHOSEONG SSANGCIEUC -->
+					<i>ᄌᄌ</i>		<!-- 110C 110C -->
+					<t>ㅉ</t>		<!-- 3149 HANGUL LETTER SSANGCIEUC -->
+			</rules>
+		</collation>
 		<collation type='unihan'>
             <rules>
                 <!-- START AUTOGENERATED UNIHAN LONG -->                

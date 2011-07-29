@@ -132,7 +132,6 @@
 			<language type="id">אינדונזית</language>
 			<language type="ie">אינטרלינגה</language>
 			<language type="ig">איגבו</language>
-			<language type="ik">ik</language>
 			<language type="ine">שפה הודו-אירופית</language>
 			<language type="inh">אינגושית</language>
 			<language type="io">אידו</language>
@@ -741,7 +740,6 @@
 			<transformName type="BGN" draft="contributed">מטבע BGN</transformName>
 			<transformName type="Numeric" draft="contributed">מספרי</transformName>
 			<transformName type="Tone" draft="contributed">טון</transformName>
-			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">סימנים דיאקריטיים</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">רוחב מלא</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">חצי רוחב</transformName>
@@ -1110,13 +1108,11 @@
 					</field>
 					<field type="day">
 						<displayName>יום</displayName>
-						<relative type="-3">לפני שלושה ימים</relative>
 						<relative type="-2">שלשום</relative>
 						<relative type="-1">אתמול</relative>
 						<relative type="0">היום</relative>
 						<relative type="1">מחר</relative>
 						<relative type="2">מחרתיים</relative>
-						<relative type="3">בעוד שלושה ימים</relative>
 					</field>
 					<field type="weekday">
 						<displayName>יום בשבוע</displayName>
@@ -2631,9 +2627,6 @@
 					<standard>שעון רגיל מרכז ארה&quot;ב</standard>
 					<daylight>שעון קיץ, מרכז ארה״ב</daylight>
 				</long>
-				<short>
-					<generic>שעון מרכז ארה״ב (שיקגו)</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -2641,9 +2634,6 @@
 					<standard draft="contributed">שעון רגיל של החוף המזרחי</standard>
 					<daylight>שעון קיץ מזרח ארה״ב</daylight>
 				</long>
-				<short>
-					<generic>שעון מזרח ארה״ב (ניו-יורק)</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -2651,9 +2641,6 @@
 					<standard draft="contributed">שעון רגיל אזור ההרים</standard>
 					<daylight>שעון קיץ, אזור ההרים בארה״ב</daylight>
 				</long>
-				<short>
-					<generic>שעון אזור ההרים של ארה״ב (דנוור)</generic>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -2661,9 +2648,6 @@
 					<standard draft="contributed">שעון רגיל האוקיינוס השקט</standard>
 					<daylight>שעון קיץ, מערב ארה״ב (לוס אנג׳לס)</daylight>
 				</long>
-				<short>
-					<generic>שעון מערב ארה״ב (לוס אנג׳לס)</generic>
-				</short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -2678,11 +2662,6 @@
 					<standard draft="provisional">שעון ערב הסעודית</standard>
 					<daylight draft="provisional">שעון קיץ, ערב הסעודית</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AT (ערב הסעודית)</generic>
-					<standard draft="provisional">AST (ערב הסעודית)</standard>
-					<daylight draft="provisional">ADT (ערב הסעודית)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -2698,21 +2677,12 @@
 					<daylight draft="contributed">שעון קיץ מערב ארגנטינה</daylight>
 				</long>
 			</metazone>
-			<metazone type="Armenia">
-				<short>
-					<standard draft="provisional">AMT (ארמניה)</standard>
-					<daylight draft="provisional">AMST (ארמניה)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>שעון אטלנטי</generic>
 					<standard>שעון אטלנטי תקני</standard>
 					<daylight>שעון קיץ אטלנטי</daylight>
 				</long>
-				<short>
-					<generic>שעון קנדה (הליפקס)</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2800,9 +2770,6 @@
 				<long>
 					<standard draft="provisional">שעון הודו</standard>
 				</long>
-				<short>
-					<standard draft="contributed">IST (הודו)</standard>
-				</short>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
@@ -2832,9 +2799,6 @@
 					<standard draft="provisional">שעון ישראל</standard>
 					<daylight draft="provisional">שעון קיץ, ישראל</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">IST</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>

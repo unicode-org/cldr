@@ -175,7 +175,9 @@ public class ConvertLanguageData {
       List<String> toRemove = new ArrayList();
       for (String override : defaultOverrides) {
         String replacement = getReplacement(override, defaultLocaleContent);
-        toRemove.add(replacement);
+        if (replacement != null) {
+            toRemove.add(replacement);
+        }
       }
       defaultLocaleContent.removeAll(toRemove);
       defaultLocaleContent.addAll(defaultOverrides);

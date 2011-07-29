@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -852,6 +853,50 @@ public class CountItems {
                 System.out.println("  { \"" + bib + "\", \"" + tech + "\", \"" + lang + "\" },  // " + name);
             }
         }
+        
+        // generate the codeMappings
+        //<codeMappings>
+        //        <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI" internet="CS YU"/>
+
+        System.out.println("    <codeMappings>");
+        List<String> errors = new ArrayList<String>();
+        territories.add("QO");
+        territories.add("EU");
+        //territories.add("MF");
+        Map<String, R2<List<String>, String>> territoryAliases = supplementalData.getLocaleAliasInfo().get("territory");
+        Relation numeric2region = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class);
+        Relation alpha32region = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class);
+        for (String region : territories) {
+            String numeric = IsoRegionData.getNumeric(region);
+            String alpha3 = IsoRegionData.get_alpha3(region);
+            numeric2region.put(numeric, region);
+            alpha32region.put(alpha3, region);
+        }
+        for (String region : territories) {
+            String numeric = IsoRegionData.getNumeric(region);
+            String alpha3 = IsoRegionData.get_alpha3(region);
+            if (territoryAliases.containsKey(region)) {
+                if (numeric2region.getAll(numeric).size() > 1 || alpha32region.getAll(alpha3).size() > 1)  {
+                    errors.add("Skipping aliased region " + region);
+                    continue;
+                }
+            }
+            String fips10 = IsoRegionData.get_fips10(region);
+            String internet = IsoRegionData.get_internet(region);
+            System.out.println("        <territoryCodes"
+                    + " type=\"" + region + "\""
+                    + (numeric == null ? "" : " numeric=\"" + numeric + "\"")
+                    + (alpha3 == null ? "" : " alpha3=\"" + alpha3 + "\"")
+                    + (fips10 == null || fips10.equals(region) ? "" : " fips10=\"" + fips10 + "\"")
+                    + (internet == null || internet.equals(region) ? "" : " internet=\"" + internet + "\"")
+                    + "/>"
+            );
+        }
+//        System.out.println("        <territoryCodes type=\"ZZ\" numeric=\"999\" alpha3=\"ZZZ\" internet=\"" +
+//        		"AERO ARPA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG PRO TRAVEL" +
+//        		"\"/>");
+        System.out.println("    </codeMappings>");
+        System.out.println(CollectionUtilities.join(errors, "\n"));
     }
 
     private static final Pattern BreakerPattern = Pattern.compile("([-_A-Za-z0-9])[-/+_A-Za-z0-9]*");

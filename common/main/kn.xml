@@ -1032,10 +1032,8 @@
 			<type type="unihan" key="collation">ರ‍್ಯಾಡಿಕಲ್‌ ಸ್ಟ್ರೋಕ್‌ ಅನುಕ್ರಮ ವಿನ್ಯಾಸ</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">ಸಂಖ್ಯೆ</transformName>
 			<transformName type="Tone">ಧ್ವನಿ</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">ಉಚ್ಚಾರಣೆಗಳು</transformName>
 			<transformName type="x-Fullwidth">ಪೂರ್ಣಅಗಲ</transformName>
 			<transformName type="x-Halfwidth">ಅರೆಅಗಲ</transformName>
@@ -1319,13 +1317,11 @@
 					</field>
 					<field type="day">
 						<displayName>ದಿನ</displayName>
-						<relative type="-3">ಮೂರು ದಿನಗಳ ಮೊದಲು</relative>
 						<relative type="-2">ಮೊನ್ನೆ</relative>
 						<relative type="-1">ನಿನ್ನೆ</relative>
 						<relative type="0">ಇಂದು</relative>
 						<relative type="1">ನಾಳೆ</relative>
 						<relative type="2">ನಾಡಿದ್ದು</relative>
-						<relative type="3">ಇಂದಿನಿಂದ ಮೂರು ದಿನಗಳು</relative>
 					</field>
 					<field type="weekday">
 						<displayName>ವಾರದ ದಿನ</displayName>
@@ -3044,6 +3040,10 @@
 				<long>
 					<standard draft="unconfirmed">ಭಾರತೀಯ ಪ್ರಮಾಣಿತ ಸಮಯ</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
@@ -3814,7 +3814,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>ಭಾರತೀಯ ರುಪಾಯಿ</displayName>
-				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ಇರಾಕ್‌ನ ದಿನಾರ್‌</displayName>

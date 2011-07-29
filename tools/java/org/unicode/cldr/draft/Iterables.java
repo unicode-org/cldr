@@ -13,6 +13,7 @@ public final class Iterables<T> implements Iterable<T>, Iterator<T>{
   private Iterator<T> current = null;
   private int position = 0;
 
+
   public Iterables<T> and(Iterator<T> iteratorsIn) {
     if (current == null) {
       current = iteratorsIn;

@@ -682,7 +682,7 @@
 			<territory type="154">Severna Evropa</territory>
 			<territory type="155">Zapadna Evropa</territory>
 			<territory type="172">Komonvelt nezavisnih država</territory>
-			<territory type="419">Latinska Amerika i Karibi</territory>
+			<territory type="419">Latinska Amerika</territory>
 			<territory type="830">Kanalska ostrva</territory>
 			<territory type="AC" draft="provisional">Ostrvo Asension</territory>
 			<territory type="AD">Andora</territory>
@@ -1390,13 +1390,11 @@
 					</field>
 					<field type="day">
 						<displayName>dan</displayName>
-						<relative type="-3">pre tri dana</relative>
 						<relative type="-2">prekjuče</relative>
 						<relative type="-1">juče</relative>
 						<relative type="0">danas</relative>
 						<relative type="1">sutra</relative>
 						<relative type="2">prekosutra</relative>
-						<relative type="3">za tri dana</relative>
 					</field>
 					<field type="weekday">
 						<displayName>dan u nedelji</displayName>
@@ -2962,44 +2960,33 @@
 					<standard>Acre vreme</standard>
 					<daylight>Acre letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard>ACT (Acre)</standard>
-					<daylight>ACST (Acre)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>Avganistan vreme</standard>
 				</long>
-				<short>
-					<standard draft="provisional">Avganistan vreme</standard>
-				</short>
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Centralna Afrika vreme</standard>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Istočna Afrika vreme</standard>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic>Južna Afrika vreme</generic>
 					<standard>Južna Afrika standardno vreme</standard>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>Zapadna Afrika vreme</standard>
 					<daylight>Zapadna Afrika letnje računanje vremena</daylight>
 				</long>
-				<commonlyUsed draft="provisional">true</commonlyUsed>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
@@ -3039,11 +3026,6 @@
 					<standard>Centralno standardno vreme (SAD)</standard>
 					<daylight>Centralno letnje merenje vremena (SAD)</daylight>
 				</long>
-				<short>
-					<generic>CT (SAD)</generic>
-					<standard>CST (SAD)</standard>
-					<daylight>CDT (SAD)</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -3051,11 +3033,6 @@
 					<standard>Istočno standardno vreme (SAD)</standard>
 					<daylight>Istočno letnje računanje vremena (SAD)</daylight>
 				</long>
-				<short>
-					<generic>ET (SAD)</generic>
-					<standard>EST (SAD)</standard>
-					<daylight>EDT (SAD)</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -3063,11 +3040,6 @@
 					<standard>Planinsko standardno vreme (SAD)</standard>
 					<daylight>Planinsko letnje računanje vremena (SAD)</daylight>
 				</long>
-				<short>
-					<generic>MT (SAD)</generic>
-					<standard>MST (SAD)</standard>
-					<daylight>MDT (SAD)</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -3075,11 +3047,6 @@
 					<standard>Pacifičko vreme (SAD)</standard>
 					<daylight>Pacifičko letnje računanje vremena (SAD)</daylight>
 				</long>
-				<short>
-					<generic>PT (SAD)</generic>
-					<standard>PST (SAD)</standard>
-					<daylight>PDT (SAD)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -3092,20 +3059,12 @@
 					<standard>Akvtau vreme</standard>
 					<daylight>Akvtau letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard>AQTT (Akvtau)</standard>
-					<daylight>AQTST (Akvtau)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
 					<standard>Akvtobe vreme</standard>
 					<daylight>Akvtobe letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard>AQTT (Akvtobe)</standard>
-					<daylight>AQTST (Akvtobe)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
@@ -3113,11 +3072,6 @@
 					<standard>Arabijsko standardno vreme</standard>
 					<daylight>Arapsko letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic>AT (Arabija)</generic>
-					<standard>AST (Arabija)</standard>
-					<daylight>ADT (Arabija)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
@@ -3135,10 +3089,6 @@
 					<standard>Armenija vreme</standard>
 					<daylight>Armenija letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">AMT (Armenija)</standard>
-					<daylight draft="provisional">AMST (Armenija)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
@@ -3159,9 +3109,6 @@
 					<standard>Centralno australijsko standardno vreme</standard>
 					<daylight>Centralno australijsko letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">ACT (Australija (Adelaida (Australija))</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -3169,9 +3116,6 @@
 					<standard>Australijsko centralno zapadno standardno vreme</standard>
 					<daylight>Australijsko centralno zapadno letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">ACWT Australija (Iukla (Australija))</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -3179,9 +3123,6 @@
 					<standard>Australijsko istočno standardno vreme</standard>
 					<daylight>Australijsko istočno letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AET Australija (Sidnej (Australija))</generic>
-				</short>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -3189,9 +3130,6 @@
 					<standard>Australijsko zapadno standardno vreme</standard>
 					<daylight>Australijsko zapadno letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">AWT Australija (Pert (Australija))</generic>
-				</short>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -3216,9 +3154,6 @@
 					<standard>Bangladeš vreme</standard>
 					<daylight draft="provisional">Bangladeš letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">Bangladeš vreme</standard>
-				</short>
 			</metazone>
 			<metazone type="Bering">
 				<long>
@@ -3226,9 +3161,6 @@
 					<standard>Bering standardno vreme</standard>
 					<daylight>Bering letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic>BT (Bering)</generic>
-				</short>
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
@@ -3268,9 +3200,6 @@
 					<generic>Čamoro vreme</generic>
 					<standard>Čamoro standardno vreme</standard>
 				</long>
-				<short>
-					<generic draft="provisional">ChT (Severna Marijanska Ostrva)</generic>
-				</short>
 			</metazone>
 			<metazone type="Changbai">
 				<long>
@@ -3295,11 +3224,6 @@
 					<standard>Kinesko standardno vreme</standard>
 					<daylight>Kina letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic>CT (Kina)</generic>
-					<standard>CST (Kina)</standard>
-					<daylight>CDT (Kina)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
@@ -3478,9 +3402,6 @@
 					<generic>Zaliv vreme</generic>
 					<standard>Zaliv standardno vreme</standard>
 				</long>
-				<short>
-					<generic draft="provisional">GT (Ujedinjeni Arapski Emirati)</generic>
-				</short>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
@@ -3559,9 +3480,6 @@
 					<standard>Japansko standardno vreme</standard>
 					<daylight>Japan letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">JT (Japan)</generic>
-				</short>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
@@ -3603,9 +3521,6 @@
 					<standard>Korejsko standardno vreme</standard>
 					<daylight>Korejsko letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">KT (Južna Koreja)</generic>
-				</short>
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
@@ -3639,9 +3554,6 @@
 					<standard>Lanka vreme</standard>
 				</long>
 			</metazone>
-			<metazone type="Liberia">
-				<commonlyUsed draft="provisional">true</commonlyUsed>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Lajn ostrva vreme</standard>
@@ -3658,9 +3570,6 @@
 					<standard>Lord Hov standardno vreme</standard>
 					<daylight>Lord Hov letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">LHT Australija (Lord Hov)</generic>
-				</short>
 			</metazone>
 			<metazone type="Macau">
 				<long>
@@ -3750,9 +3659,6 @@
 					<standard>Novi Zeland standardno vreme</standard>
 					<daylight>Novi Zeland letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">NZT (Novi Zeland)</generic>
-				</short>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
@@ -3884,10 +3790,6 @@
 					<standard>Samarkand vreme</standard>
 					<daylight>Samarkand letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">SAMT (Samarkand)</standard>
-					<daylight draft="provisional">SAMST (Samarkand)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
@@ -3919,9 +3821,6 @@
 				<long>
 					<standard>Južna Džordžija vreme</standard>
 				</long>
-				<short>
-					<standard>GST (Sv. Džordžija)</standard>
-				</short>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
@@ -3950,9 +3849,6 @@
 					<standard draft="provisional">Taipei standardno vreme</standard>
 					<daylight draft="provisional">Taipei letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<generic draft="provisional">CT (Taipei)</generic>
-				</short>
 			</metazone>
 			<metazone type="Tajikistan">
 				<long>
@@ -3998,9 +3894,6 @@
 					<standard>Turkmenistan vreme</standard>
 					<daylight>Turkmenistan letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">TMT (Turkmenistan vreme)</standard>
-				</short>
 			</metazone>
 			<metazone type="Tuvalu">
 				<long>
@@ -4029,9 +3922,6 @@
 					<standard>Uzbekistan vreme</standard>
 					<daylight>Uzbekistan letnje računanje vremena</daylight>
 				</long>
-				<short>
-					<standard draft="provisional">UZT (Uzbekistan vreme)</standard>
-				</short>
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
@@ -4099,6 +3989,18 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan draft="contributed">NaN</nan>
+		</symbols>
 		<currencies>
 			<currency type="ADP">
 				<displayName>Andorska pezeta (ADP)</displayName>
@@ -4345,7 +4247,6 @@
 				<displayName count="few">burundska franka</displayName>
 				<displayName count="many">burundskih franaka</displayName>
 				<displayName count="one">burundski franak</displayName>
-				<displayName count="other">BIF</displayName>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermudski dolar (BMD)</displayName>
@@ -4572,7 +4473,6 @@
 				<displayName count="few">kostarikanska kolona</displayName>
 				<displayName count="many">kostarikanskih kolona</displayName>
 				<displayName count="one">kostarikanski kolon</displayName>
-				<displayName count="other">CRC</displayName>
 			</currency>
 			<currency type="CSD">
 				<displayName>Stari srpski dinar</displayName>
@@ -5220,7 +5120,6 @@
 				<displayName count="few">madagaskarska franka</displayName>
 				<displayName count="many">madagaskarskih franaka</displayName>
 				<displayName count="one">madagaskarski franak</displayName>
-				<displayName count="other">MGF</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName>Makedonski denar</displayName>

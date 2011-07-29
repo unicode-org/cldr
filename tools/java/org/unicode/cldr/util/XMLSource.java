@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005, International Business Machines Corporation and        *
+ * Copyright (C) 2005-2011, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -1221,6 +1221,7 @@ public abstract class XMLSource implements Freezable {
             { "roman", "numbers" },
             { "romanlow", "numbers" },
             { "search", "collation" },
+            { "searchjl", "collation" },
             { "stroke", "collation" },
             { "taml", "numbers" },
             { "telu", "numbers" },

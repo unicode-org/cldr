@@ -544,7 +544,6 @@
 			<script type="Bugi" draft="unconfirmed">buginesíska</script>
 			<script type="Buhd" draft="unconfirmed">buhid</script>
 			<script type="Cakm" draft="unconfirmed">chakma</script>
-			<script type="Cans" draft="contributed">Cans</script>
 			<script type="Cari" draft="unconfirmed">karíska</script>
 			<script type="Cham" draft="unconfirmed">chamíska</script>
 			<script type="Cher" draft="unconfirmed">cherokí</script>
@@ -658,7 +657,7 @@
 			<territory type="154" draft="contributed">Norður-Evrópa</territory>
 			<territory type="155">Vestur-Evrópa</territory>
 			<territory type="172" draft="contributed">Samveldi sjálfstæðra ríkja</territory>
-			<territory type="419" draft="contributed">Latín-Ameríka og Karíbahaf</territory>
+			<territory type="419" draft="contributed">Latín-Ameríka</territory>
 			<territory type="830" draft="contributed">Ermasundseyjar</territory>
 			<territory type="AC">Ascension-eyja</territory>
 			<territory type="AD">Andorra</territory>
@@ -1001,10 +1000,8 @@
 			<type type="unihan" key="collation">Röðun eftir grunnstrikum</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">Tölulegur</transformName>
 			<transformName type="Tone">Tónn</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">Áherslur</transformName>
 			<transformName type="x-Fullwidth">Full breidd</transformName>
 			<transformName type="x-Halfwidth">Hálf breidd</transformName>
@@ -1261,10 +1258,10 @@
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
-						<dateFormatItem id="h">H</dateFormatItem>
-						<dateFormatItem id="hm">H:mm</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L.</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d.M</dateFormatItem>
@@ -1295,11 +1292,11 @@
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a">H – H</greatestDifference>
-							<greatestDifference id="h">H–H</greatestDifference>
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a">H:mm – H:mm</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm-h:mm a</greatestDifference>
 						</intervalFormatItem>
@@ -1308,7 +1305,7 @@
 							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">H:mm – H:mm v</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m" draft="contributed">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
@@ -1317,7 +1314,7 @@
 							<greatestDifference id="m" draft="contributed">HH:mm-HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">H – H v</greatestDifference>
+							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h-h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
@@ -1409,13 +1406,11 @@
 					</field>
 					<field type="day">
 						<displayName draft="contributed">dagur</displayName>
-						<relative type="-3" draft="contributed">fyrir þremur dögum</relative>
 						<relative type="-2" draft="contributed">fyrir tveimur dögum</relative>
 						<relative type="-1" draft="contributed">í gær</relative>
 						<relative type="0" draft="contributed">í dag</relative>
 						<relative type="1" draft="contributed">á morgun</relative>
 						<relative type="2" draft="contributed">eftir tvo daga</relative>
-						<relative type="3" draft="contributed">eftir þrjá daga</relative>
 					</field>
 					<field type="weekday">
 						<displayName draft="contributed">vikudagur</displayName>
@@ -1816,30 +1811,18 @@
 					<standard draft="contributed">Mið-Evróputími</standard>
 					<daylight draft="contributed">Sumartími Mið-Evrópu</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">MET</standard>
-					<daylight draft="contributed">STME</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="contributed">Austur-Evróputími</standard>
 					<daylight draft="contributed">Sumartími Austur-Evrópu</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">AET</standard>
-					<daylight draft="contributed">STAE</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="unconfirmed">Vestur-Evróputími</standard>
 					<daylight draft="unconfirmed">Sumartími Vestur-Evrópu</daylight>
 				</long>
-				<short>
-					<standard draft="unconfirmed">VET</standard>
-					<daylight draft="unconfirmed">STVE</daylight>
-				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -2698,18 +2681,6 @@
 				<displayName count="one" draft="unconfirmed">unse gull</displayName>
 				<displayName count="other" draft="unconfirmed">unse gull</displayName>
 			</currency>
-			<currency type="XBA">
-				<displayName draft="unconfirmed">XBA</displayName>
-			</currency>
-			<currency type="XBB">
-				<displayName draft="unconfirmed">XBB</displayName>
-			</currency>
-			<currency type="XBC">
-				<displayName draft="unconfirmed">XBC</displayName>
-			</currency>
-			<currency type="XBD">
-				<displayName draft="unconfirmed">XBD</displayName>
-			</currency>
 			<currency type="XCD">
 				<displayName>Austur-Karíbahafsdalur</displayName>
 			</currency>
@@ -2737,9 +2708,6 @@
 				<displayName draft="unconfirmed">unse platína</displayName>
 				<displayName count="one" draft="unconfirmed">unse platína</displayName>
 				<displayName count="other" draft="unconfirmed">unse platína</displayName>
-			</currency>
-			<currency type="XTS">
-				<displayName draft="unconfirmed">XTS</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">Óþekktur eða ógildur gjaldeyrir</displayName>
@@ -2903,3 +2871,4 @@
 		</messages>
 	</posix>
 </ldml>
+

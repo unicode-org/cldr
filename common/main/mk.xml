@@ -590,7 +590,7 @@
 			<territory type="154">Северна Европа</territory>
 			<territory type="155">Западна Европа</territory>
 			<territory type="172">Комонвелт на независни држави</territory>
-			<territory type="419">Латинска Америка и Карибите</territory>
+			<territory type="419">Латинска Америка</territory>
 			<territory type="AC">Остров Асенсион</territory>
 			<territory type="AD">Андора</territory>
 			<territory type="AE">Обединети Арапски Емирати</territory>
@@ -1214,13 +1214,11 @@
 					</field>
 					<field type="day">
 						<displayName>ден</displayName>
-						<relative type="-3">пред три дена</relative>
 						<relative type="-2">завчера</relative>
 						<relative type="-1">Вчера</relative>
 						<relative type="0">Денес</relative>
 						<relative type="1">Утре</relative>
 						<relative type="2">задутре</relative>
-						<relative type="3">по три дена</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Ден во неделата</displayName>
@@ -1861,9 +1859,6 @@
 					<daylight>Бразилија летно сметање на времето</daylight>
 				</long>
 			</metazone>
-			<metazone type="British">
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
 			<metazone type="Chile">
 				<long>
 					<standard>Чиле време</standard>
@@ -1932,6 +1927,7 @@
 					<standard>Западноевропско време</standard>
 					<daylight>Западноевропско летно време</daylight>
 				</long>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
@@ -1976,15 +1972,11 @@
 					<standard>Време на Индиски Океан</standard>
 				</long>
 			</metazone>
-			<metazone type="Irish">
-				<commonlyUsed>true</commonlyUsed>
-			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
 					<standard>Кујбишев</standard>
 					<daylight>Летно време во Кујбишев</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Maldives">
 				<long>
@@ -2072,7 +2064,6 @@
 					<standard>Турција</standard>
 					<daylight>Летно време во Турција</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Uruguay">
 				<long>

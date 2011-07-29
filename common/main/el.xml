@@ -696,7 +696,7 @@
 			<territory type="154">Βόρεια Ευρώπη</territory>
 			<territory type="155">Δυτική Ευρώπη</territory>
 			<territory type="172">Κοινοπολιτεία Ανεξαρτήτων Πολιτειών</territory>
-			<territory type="419">Λατινική Αμερική και Καραϊβική</territory>
+			<territory type="419">Λατινική Αμερική</territory>
 			<territory type="830">Νησιά Τσάνελ</territory>
 			<territory type="AC">Νήσος Ασενσιόν</territory>
 			<territory type="AD">Ανδόρα</territory>
@@ -1544,13 +1544,11 @@
 					</field>
 					<field type="day">
 						<displayName>Ημέρα</displayName>
-						<relative type="-3">Πριν από τρεις ημέρες</relative>
 						<relative type="-2">Προχτές</relative>
 						<relative type="-1">Χτες</relative>
 						<relative type="0">Σήμερα</relative>
 						<relative type="1">Αύριο</relative>
 						<relative type="2">Μεθαύριο</relative>
-						<relative type="3">Σε τρεις ημέρες από τώρα</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Ημέρα εβδομάδας</displayName>
@@ -2887,37 +2885,27 @@
 			<zone type="Africa/Harare">
 				<exemplarCity draft="contributed">Χαράρε</exemplarCity>
 			</zone>
-			<metazone type="Acre">
-				<short>
-					<standard>ACT (Ακρ)</standard>
-					<daylight>ACST (Ακρ)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Ώρα Κεντρικής Αφρικής</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
 					<standard>Ώρα Ανατολικής Αφρικής</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
 					<generic>Ώρα Νότιας Αφρικής</generic>
 					<standard>Τυπική ώρα Νότιας Αφρικής</standard>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
 					<standard>Ώρα Δυτικής Αφρικής</standard>
 					<daylight>Θερινή ώρα Δυτικής Αφρικής</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
@@ -2966,25 +2954,6 @@
 					<daylight draft="contributed">Θερινή ώρα Αναντίρ</daylight>
 				</long>
 			</metazone>
-			<metazone type="Aqtau">
-				<short>
-					<standard>AQTT (Ακτάου)</standard>
-					<daylight>AQTST (Ακτάου)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aqtobe">
-				<short>
-					<standard>AQTT (Ακτοβε)</standard>
-					<daylight>AQTST (Ακτοβε)</daylight>
-				</short>
-			</metazone>
-			<metazone type="Arabian">
-				<short>
-					<generic draft="contributed">AT (Αραβική)</generic>
-					<standard draft="contributed">AST (Αραβική)</standard>
-					<daylight draft="contributed">ADT (Αραβική)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Ώρα Αργεντινής</generic>
@@ -3005,7 +2974,6 @@
 					<standard>Χειμερινή ώρα Ατλαντικού</standard>
 					<daylight>Θερινή ώρα Ατλαντικού</daylight>
 				</long>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -3013,7 +2981,6 @@
 					<standard>Χειμερινή ώρα Κεντρικής Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Κεντρικής Αυστραλίας</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -3021,7 +2988,6 @@
 					<standard>Χειμερινή ώρα Κεντροδυτικής Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Κεντροδυτικής Αυστραλίας</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -3029,7 +2995,6 @@
 					<standard>Χειμερινή ώρα Ανατολικής Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Ανατολικής Αυστραλίας</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -3037,14 +3002,6 @@
 					<standard>Χειμερινή ώρα Δυτικής Αυστραλίας</standard>
 					<daylight>Θερινή ώρα Δυτικής Αυστραλίας</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
-			</metazone>
-			<metazone type="Bering">
-				<short>
-					<generic>BT (Μπερίνγκ)</generic>
-					<standard>BST (Μπερίνγκ)</standard>
-					<daylight>BDT (Μπερίνγκ)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
@@ -3053,26 +3010,12 @@
 					<daylight draft="contributed">Θερινή ώρα Μπραζίλια</daylight>
 				</long>
 			</metazone>
-			<metazone type="China">
-				<short>
-					<generic draft="contributed">CT (Κίνα)</generic>
-					<standard draft="contributed">CST (Κίνα)</standard>
-					<daylight draft="contributed">CDT (Κίνα)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">Ώρα Τσοϊμπαλσάν</generic>
 					<standard draft="contributed">Ώρα Τσοϊμπαλσάν</standard>
 					<daylight draft="contributed">Θερινή ώρα Τσοϊμπαλσάν</daylight>
 				</long>
-			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<generic>CT (Κούβα)</generic>
-					<standard>CST (Κούβα)</standard>
-					<daylight>CDT (Κούβα)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
@@ -3086,18 +3029,14 @@
 					<standard>Ώρα Ανατολικής Ευρώπης</standard>
 					<daylight>Θερινή ώρα Ανατολικής Ευρώπης</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Ώρα Δυτικής Ευρώπης</standard>
 					<daylight draft="contributed">Θερινή ώρα Δυτικής Ευρώπης</daylight>
 				</long>
-				<short>
-					<standard draft="contributed">Ώρα Δυτ. Ευρ.</standard>
-					<daylight draft="contributed">Θερινή ώρα Δυτ. Ευρ.</daylight>
-				</short>
-				<commonlyUsed draft="contributed">false</commonlyUsed>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -3132,11 +3071,6 @@
 					<standard draft="contributed">Ώρα Ιρκούτσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Ιρκούτσκ</daylight>
 				</long>
-			</metazone>
-			<metazone type="Israel">
-				<short>
-					<standard draft="contributed">IST (Ισραήλ)</standard>
-				</short>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
@@ -3241,12 +3175,6 @@
 					<daylight draft="contributed">Θερινή ώρα Σαμάρας</daylight>
 				</long>
 			</metazone>
-			<metazone type="Samarkand">
-				<short>
-					<standard>SAMT (Σάμαρκαντ)</standard>
-					<daylight>SAMST (Σάμαρκαντ)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic draft="contributed">Ώρα Βλαδιβοστόκ</generic>
@@ -3338,7 +3266,6 @@
 				<displayName>Ντιράμ Ηνωμένων Αραβικών Εμιράτων</displayName>
 				<displayName count="one">ντιράμ Ηνωμένων Αραβικών Εμιράτων</displayName>
 				<displayName count="other">ντιράμ Ηνωμένων Αραβικών Εμιράτων</displayName>
-				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Αφγανί Αφγανιστάν (1927-2002)</displayName>
@@ -3349,7 +3276,6 @@
 				<displayName>Αφγανί Αφγανιστάν</displayName>
 				<displayName count="one">αφγάνι Αφγανιστάν</displayName>
 				<displayName count="other">Αφγάνι Αφγανιστάν</displayName>
-				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName count="one" draft="provisional">Παλαιό λεκ Αλβανίας</displayName>
@@ -3359,13 +3285,11 @@
 				<displayName>Λεκ Αλβανίας</displayName>
 				<displayName count="one">λεκ Αλβανίας</displayName>
 				<displayName count="other">λεκ Αλβανίας</displayName>
-				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Ντραμ Αρμενίας</displayName>
 				<displayName count="one">ντραμ Αρμενίας</displayName>
 				<displayName count="other">ντραμ Αρμενίας</displayName>
-				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Γκίλντα Ολλανδικών Αντιλλών</displayName>
@@ -3405,7 +3329,6 @@
 				<displayName>Πέσο Αργεντινής</displayName>
 				<displayName count="one">πέσο Αργεντινής</displayName>
 				<displayName count="other">πέσο Αργεντινής</displayName>
-				<symbol draft="contributed">ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Σελίνι Αυστρίας</displayName>
@@ -3416,13 +3339,11 @@
 				<displayName>Δολάριο Αυστραλίας</displayName>
 				<displayName count="one">δολάριο Αυστραλίας</displayName>
 				<displayName count="other">δολάρια Αυστραλίας</displayName>
-				<symbol draft="contributed">AUD</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Γκίλντα Αρούμπα</displayName>
 				<displayName count="one">γκίλντα Αρούμπα</displayName>
 				<displayName count="other">γκίλντα Αρούμπα</displayName>
-				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Μανάτ Αζερμπαϊτζάν (1993-2006)</displayName>
@@ -3452,7 +3373,6 @@
 				<displayName>Δολάριο Μπαρμπάντος</displayName>
 				<displayName count="one">δολάριο Μπαρμπάντος</displayName>
 				<displayName count="other">δολάρια Μπαρμπάντος</displayName>
-				<symbol draft="contributed">BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Τάκα Μπαγκλαντές</displayName>
@@ -3487,7 +3407,6 @@
 				<displayName>Νέο Λεβ Βουλγαρίας</displayName>
 				<displayName count="one">νέο λεβ Βουλγαρίας</displayName>
 				<displayName count="other">νέα λεβ Βουλγαρίας</displayName>
-				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName count="one" draft="provisional">Παλαιό λεβ Βουλγαρίας</displayName>
@@ -3497,31 +3416,26 @@
 				<displayName>Δηνάριο Μπαχρέιν</displayName>
 				<displayName count="one">δηνάριο Μπαχρέιν</displayName>
 				<displayName count="other">δηνάρια Μπαχρέιν</displayName>
-				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Φράγκο Μπουρούντι</displayName>
 				<displayName count="one">φράγκο Μπουρούντι</displayName>
 				<displayName count="other">φράγκα Μπουρούντι</displayName>
-				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Δολάριο Βερμούδων</displayName>
 				<displayName count="one">δολάριο Βερμούδων</displayName>
 				<displayName count="other">δολάρια Βερμούδων</displayName>
-				<symbol draft="contributed">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Δολάριο Μπρουνέι</displayName>
 				<displayName count="one">δολάριο Μπρουνέι</displayName>
 				<displayName count="other">δολάρια Μπρουνέι</displayName>
-				<symbol draft="contributed">BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Μπολιβιάνο Βολιβίας</displayName>
 				<displayName count="one">μπολιβιάνο Βολιβίας</displayName>
 				<displayName count="other">μπολιβιάνο Βολιβίας</displayName>
-				<symbol draft="contributed">BOB</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName count="one" draft="provisional">Παλαιό βολιβιάνο Βολιβίας</displayName>
@@ -3556,7 +3470,6 @@
 				<displayName>Ρεάλ Βραζιλίας</displayName>
 				<displayName count="one">ρεάλ Βραζιλίας</displayName>
 				<displayName count="other">ρεάλ Βραζιλίας</displayName>
-				<symbol draft="contributed">BRL</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Νέο Κρουζάντο Βραζιλίας</displayName>
@@ -3576,7 +3489,6 @@
 				<displayName>Δολάριο Μπαχάμες</displayName>
 				<displayName count="one">δολάριο Μπαχάμες</displayName>
 				<displayName count="other">δολάρια Μπαχάμες</displayName>
-				<symbol draft="contributed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Νγκούλτρουμ Μπουτάν</displayName>
@@ -3602,19 +3514,16 @@
 				<displayName>Ρούβλι Λευκορωσίας</displayName>
 				<displayName count="one">ρούβλι Λευκορωσίας</displayName>
 				<displayName count="other">ρούβλια Λευκορωσίας</displayName>
-				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Δολάριο Μπελίζ</displayName>
 				<displayName count="one">δολάριο Μπελίζ</displayName>
 				<displayName count="other">δολάρια Μπελίζ</displayName>
-				<symbol draft="contributed">BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Δολάριο Καναδά</displayName>
 				<displayName count="one">δολάριο Καναδά</displayName>
 				<displayName count="other">δολάρια Καναδά</displayName>
-				<symbol draft="contributed">CAD</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Φράγκο Κονγκό</displayName>
@@ -3630,7 +3539,6 @@
 				<displayName>Φράγκο Ελβετίας</displayName>
 				<displayName count="one">φράγκο Ελβετίας</displayName>
 				<displayName count="other">φράγκα Ελβετίας</displayName>
-				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>Φράγκο WIR</displayName>
@@ -3651,7 +3559,6 @@
 				<displayName>Πέσο Χιλής</displayName>
 				<displayName count="one">πέσο Χιλής</displayName>
 				<displayName count="other">πέσο Χιλής</displayName>
-				<symbol draft="contributed">CLP</symbol>
 			</currency>
 			<currency type="CNX">
 				<displayName count="one" draft="provisional">Δολάριο Λαϊκής Τράπεζας Κίνας</displayName>
@@ -3661,19 +3568,16 @@
 				<displayName>Γιουάν Ρενμίμπι Κίνας</displayName>
 				<displayName count="one">γιουάν Κίνας</displayName>
 				<displayName count="other">γιουάν Κίνας</displayName>
-				<symbol draft="contributed">CNY</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Πέσο Κολομβίας</displayName>
 				<displayName count="one">πέσο Κολομβίας</displayName>
 				<displayName count="other">πέσο Κολομβίας</displayName>
-				<symbol draft="contributed">COP</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Κολόν Κόστα Ρίκα</displayName>
 				<displayName count="one">κολόν Κόστα Ρίκα</displayName>
 				<displayName count="other">κολόν Κόστα Ρίκα</displayName>
-				<symbol draft="contributed">CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Παλαιό Δηνάριο Σερβίας</displayName>
@@ -3689,19 +3593,16 @@
 				<displayName>Μετατρέψιμο πέσο Κούβας</displayName>
 				<displayName count="one">Μετατρέψιμο πέσο Κούβας</displayName>
 				<displayName count="other">Μετατρέψιμα πέσο Κούβας</displayName>
-				<symbol draft="contributed">CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Πέσο Κούβας</displayName>
 				<displayName count="one">πέσο Κούβας</displayName>
 				<displayName count="other">πέσο Κούβας</displayName>
-				<symbol draft="contributed">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Εσκούδο Πράσινου Ακρωτηρίου</displayName>
 				<displayName count="one">εσκούδο Πράσινου Ακρωτηρίου</displayName>
 				<displayName count="other">εσκούδο Πράσινου Ακρωτηρίου</displayName>
-				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Λίρα Κύπρου</displayName>
@@ -3712,7 +3613,6 @@
 				<displayName>Κορόνα Τσέχικης Δημοκρατίας</displayName>
 				<displayName count="one">κορόνα Τσέχικης Δημοκρατίας</displayName>
 				<displayName count="other">κορόνες Τσέχικης Δημοκρατίας</displayName>
-				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Οστμάρκ Ανατολικής Γερμανίας</displayName>
@@ -3728,13 +3628,11 @@
 				<displayName>Φράγκο Τζιμπουτί</displayName>
 				<displayName count="one">φράγκο Τζιμπουτί</displayName>
 				<displayName count="other">φράγκα Τζιμπουτί</displayName>
-				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Κορόνα Δανίας</displayName>
 				<displayName count="one">κορόνα Δανίας</displayName>
 				<displayName count="other">κορόνες Δανίας</displayName>
-				<symbol draft="contributed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Πέσο Δομίνικου</displayName>
@@ -3745,7 +3643,6 @@
 				<displayName>Δηνάριο Αλγερίας</displayName>
 				<displayName count="one">δηνάριο Αλγερίας</displayName>
 				<displayName count="other">δηνάρια Αλγερίας</displayName>
-				<symbol draft="contributed">DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Σούκρε Εκουαδόρ</displayName>
@@ -3761,7 +3658,6 @@
 				<displayName>Λίρα Αιγύπτου</displayName>
 				<displayName count="one">λίρα Αιγύπτου</displayName>
 				<displayName count="other">λίρες Αιγύπτου</displayName>
-				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Νάκφα Ερυθραίας</displayName>
@@ -3787,7 +3683,6 @@
 				<displayName>Μπιρ Αιθιοπίας</displayName>
 				<displayName count="one">μπιρ Αιθιοπίας</displayName>
 				<displayName count="other">μπιρ Αιθιοπίας</displayName>
-				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Ευρώ</displayName>
@@ -3803,13 +3698,11 @@
 				<displayName>Δολάριο Φίτζι</displayName>
 				<displayName count="one">δολάριο Φίτζι</displayName>
 				<displayName count="other">δολάρια Φίτζι</displayName>
-				<symbol draft="contributed">FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Λίρα Νησιών Φώλκλαντ</displayName>
 				<displayName count="one">λίρα Νησιών Φώλκλαντ</displayName>
 				<displayName count="other">λίρες Νησιών Φώλκλαντ</displayName>
-				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Φράγκο Γαλλίας</displayName>
@@ -3830,7 +3723,6 @@
 				<displayName>Λάρι Γεωργίας</displayName>
 				<displayName count="one">λάρι Γεωργίας</displayName>
 				<displayName count="other">λάρι Γεωργίας</displayName>
-				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Σέντι Γκάνας (1979-2007)</displayName>
@@ -3841,13 +3733,11 @@
 				<displayName>Σέντι Γκάνας</displayName>
 				<displayName count="one">σέντι Γκάνας</displayName>
 				<displayName count="other">σέντι Γκανά</displayName>
-				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Λίρα Γιβραλτάρ</displayName>
 				<displayName count="one">λίρα Γιβραλτάρ</displayName>
 				<displayName count="other">λίρες Γιβραλτάρ</displayName>
-				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Νταλάσι Γκάμπιας</displayName>
@@ -3858,7 +3748,6 @@
 				<displayName>Φράγκο Γουινέας</displayName>
 				<displayName count="one">φράγκο Γουινέας</displayName>
 				<displayName count="other">φράγκα Γουινέας</displayName>
-				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Συλί Γουινέας</displayName>
@@ -3898,13 +3787,11 @@
 				<displayName>Δολάριο Γουιάνας</displayName>
 				<displayName count="one">δολάριο Γουιάνας</displayName>
 				<displayName count="other">δολάρια Γουιάνας</displayName>
-				<symbol draft="contributed">GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Δολάριο Χονγκ Κονγκ</displayName>
 				<displayName count="one">δολάριο Χονγκ Κονγκ</displayName>
 				<displayName count="other">δολάρια Χονγκ Κονγκ</displayName>
-				<symbol draft="contributed">HKD</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Λεμπίρα Ονδούρας</displayName>
@@ -3930,13 +3817,11 @@
 				<displayName>Φιορίνι Ουγγαρίας</displayName>
 				<displayName count="one">φιορίνι Ουγγαρίας</displayName>
 				<displayName count="other">φιορίνια Ουγγαρίας</displayName>
-				<symbol draft="contributed">HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Ρούπια Ινδονησίας</displayName>
 				<displayName count="one">ρούπι Ινδονησίας</displayName>
 				<displayName count="other">ρούπια Ινδονησίας</displayName>
-				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Λίρα Ιρλανδίας</displayName>
@@ -3957,25 +3842,21 @@
 				<displayName>Νέο Σέκελ Ισραήλ</displayName>
 				<displayName count="one">νέο σέκελ Ισραήλ</displayName>
 				<displayName count="other">νέα σέκελ Ισραήλ</displayName>
-				<symbol draft="contributed">ILS</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Ρούπια Ινδίας</displayName>
 				<displayName count="one">ρούπι Ινδίας</displayName>
 				<displayName count="other">ρούπια Ινδίας</displayName>
-				<symbol draft="contributed">INR</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Δηνάριο Ιράκ</displayName>
 				<displayName count="one">δηνάριο Ιράκ</displayName>
 				<displayName count="other">δηνάρια Ιράκ</displayName>
-				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Ριάλ Ιράν</displayName>
 				<displayName count="one">ριάλ Ιράν</displayName>
 				<displayName count="other">ριάλ Ιράν</displayName>
-				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISJ">
 				<displayName>Παλιά κορόνα Ισλανδίας</displayName>
@@ -3986,7 +3867,6 @@
 				<displayName>Κορόνα Ισλανδίας</displayName>
 				<displayName count="one">κορόνα Ισλανδίας</displayName>
 				<displayName count="other">κορόνες Ισλανδίας</displayName>
-				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Λιρέτα Ιταλίας</displayName>
@@ -3997,19 +3877,16 @@
 				<displayName>Δολάριο Τζαμάικας</displayName>
 				<displayName count="one">δολάριο Τζαμάικας</displayName>
 				<displayName count="other">δολάρια Τζαμάικας</displayName>
-				<symbol draft="contributed">JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Δηνάριο Ιορδανίας</displayName>
 				<displayName count="one">δηνάριο Ιορδανίας</displayName>
 				<displayName count="other">δηνάρια Ιορδανίας</displayName>
-				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Γιεν Ιαπωνίας</displayName>
 				<displayName count="one">γιεν Ιαπωνίας</displayName>
 				<displayName count="other">γιεν Ιαπωνίας</displayName>
-				<symbol draft="contributed">JPY</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Σελίνι Κένυας</displayName>
@@ -4030,7 +3907,6 @@
 				<displayName>Φράγκο Κομόρος</displayName>
 				<displayName count="one">φράγκο Κομόρος</displayName>
 				<displayName count="other">φράγκα Κομόρο</displayName>
-				<symbol draft="contributed">KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Γον Βόρειας Κορέας</displayName>
@@ -4045,7 +3921,6 @@
 				<displayName>Γον Νότιας Κορέας</displayName>
 				<displayName count="one">γουόν Νότιας Κορέας</displayName>
 				<displayName count="other">γουόν Νότιας Κορέας</displayName>
-				<symbol draft="contributed">KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Δηνάριο Κουβέιτ</displayName>
@@ -4066,7 +3941,6 @@
 				<displayName>Κιπ Λάος</displayName>
 				<displayName count="one">κιπ Λάος</displayName>
 				<displayName count="other">κιπ Λάος</displayName>
-				<symbol draft="contributed">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Λίρα Λιβάνου</displayName>
@@ -4092,7 +3966,6 @@
 				<displayName>Λίτα Λιθουανίας</displayName>
 				<displayName count="one">λίτα Λιθουανίας</displayName>
 				<displayName count="other">λίτα Λιθουανίας</displayName>
-				<symbol draft="contributed">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Ταλόνας Λιθουανίας</displayName>
@@ -4181,7 +4054,6 @@
 				<displayName>Τουγκρίκ Μογγολίας</displayName>
 				<displayName count="one">τουγκρίκ Μογγολίας</displayName>
 				<displayName count="other">τουγκρίκ Μογγολίας</displayName>
-				<symbol draft="contributed">MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Πατάκα Μακάο</displayName>
@@ -4222,7 +4094,6 @@
 				<displayName>Πέσο Μεξικού</displayName>
 				<displayName count="one">πέσο Μεξικού</displayName>
 				<displayName count="other">πέσο Μεξικού</displayName>
-				<symbol draft="contributed">MXN</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>Ασημένιο Πέσο Μεξικού (1861-1992)</displayName>
@@ -4258,7 +4129,6 @@
 				<displayName>Νάιρα Νιγηρίας</displayName>
 				<displayName count="one">νάιρα Νιγηρίας</displayName>
 				<displayName count="other">νάιρα Νιγηρίας</displayName>
-				<symbol draft="contributed">NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Κόρδοβα Νικαράγουας</displayName>
@@ -4269,7 +4139,6 @@
 				<displayName>Χρυσή Κόρδοβα Νικαράγουας</displayName>
 				<displayName count="one">χρυσή κόρδοβα Νικαράγουας</displayName>
 				<displayName count="other">χρυσές κόρδοβα Νικαράγουας</displayName>
-				<symbol draft="contributed">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Γκίλντα Ολλανδίας</displayName>
@@ -4280,7 +4149,6 @@
 				<displayName>Κορόνα Νορβηγίας</displayName>
 				<displayName count="one">κορόνα Νορβηγίας</displayName>
 				<displayName count="other">κορόνες Νορβηγίας</displayName>
-				<symbol draft="contributed">NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Ρούπια Νεπάλ</displayName>
@@ -4301,7 +4169,6 @@
 				<displayName>Μπαλμπόα Παναμά</displayName>
 				<displayName count="one">μπαλμπόα Παναμά</displayName>
 				<displayName count="other">μπαλμπόα Παναμά</displayName>
-				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Ίντι Περού</displayName>
@@ -4327,7 +4194,6 @@
 				<displayName>Πέσο Φιλιππίνων</displayName>
 				<displayName count="one">πέσο Φιλιππίνων</displayName>
 				<displayName count="other">πέσο Φιλιππίνων</displayName>
-				<symbol draft="contributed">PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Ρούπια Πακιστάν</displayName>
@@ -4338,7 +4204,6 @@
 				<displayName>Ζλότυ Πολωνίας</displayName>
 				<displayName count="one">ζλότυ Πολωνίας</displayName>
 				<displayName count="other">ζλότυ Πολωνίας</displayName>
-				<symbol draft="contributed">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Ζλότυ Πολωνίας (1950-1995)</displayName>
@@ -4354,7 +4219,6 @@
 				<displayName>Γκουαρανί Παραγουάης</displayName>
 				<displayName count="one">γκουαρανί Παραγουάης</displayName>
 				<displayName count="other">γκουαρανί Παραγουάης</displayName>
-				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Ριάλ Κατάρ</displayName>
@@ -4380,13 +4244,11 @@
 				<displayName>Δηνάριο Σερβίας</displayName>
 				<displayName count="one">δηνάριο Σερβίας</displayName>
 				<displayName count="other">δηνάρια Σερβίας</displayName>
-				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Ρούβλι Ρωσίας</displayName>
 				<displayName count="one">ρούβλι Ρωσίας</displayName>
 				<displayName count="other">ρούβλια Ρωσίας</displayName>
-				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Ρούβλι Ρωσίας (1991-1998)</displayName>
@@ -4402,7 +4264,6 @@
 				<displayName>Ριάλ Σαουδικής Αραβίας</displayName>
 				<displayName count="one">ριάλ Σαουδικής Αραβίας</displayName>
 				<displayName count="other">ριάλ Σαουδικής Αραβίας</displayName>
-				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Δολάριο Νήσων Σολομώντος</displayName>
@@ -4433,7 +4294,6 @@
 				<displayName>Κορόνα Σουηδίας</displayName>
 				<displayName count="one">κορόνα Σουηδίας</displayName>
 				<displayName count="other">κορόνες Σουηδίας</displayName>
-				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Δολάριο Σιγκαπούρης</displayName>
@@ -4479,7 +4339,6 @@
 				<displayName>Ντόμπρα Σάο Τομέ και Πρίνσιπε</displayName>
 				<displayName count="one">ντόμπρα Σάο Τόμε και Πρίνσιπε</displayName>
 				<displayName count="other">ντόμπρα Σάο Τόμε και Πρίνσιπε</displayName>
-				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Σοβιετικό Ρούβλι</displayName>
@@ -4505,7 +4364,6 @@
 				<displayName>Μπατ Ταϊλάνδης</displayName>
 				<displayName count="one">μπατ Ταϊλάνδης</displayName>
 				<displayName count="other">μπατ Ταϊλάνδης</displayName>
-				<symbol draft="contributed">THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Ρούβλι Τατζικιστάν</displayName>
@@ -4531,7 +4389,6 @@
 				<displayName>Δηνάριο Τυνησίας</displayName>
 				<displayName count="one">δηνάριο Τυνησίας</displayName>
 				<displayName count="other">δηνάρια Τυνησίας</displayName>
-				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Παάνγκα Τόνγκας</displayName>
@@ -4552,7 +4409,6 @@
 				<displayName>Τουρκική Λίρα</displayName>
 				<displayName count="one">λίρα Τουρκίας</displayName>
 				<displayName count="other">λίρες Τουρκίας</displayName>
-				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Δολάριο Τρινιντάντ και Τομπάγκο</displayName>
@@ -4563,7 +4419,6 @@
 				<displayName>Νέο Δολάριο Ταϊβάν</displayName>
 				<displayName count="one">νέο δολάριο Ταϊβάν</displayName>
 				<displayName count="other">νέα δολάρια Ταϊβάν</displayName>
-				<symbol draft="contributed">TWD</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Σελίνι Τανζανίας</displayName>
@@ -4574,7 +4429,6 @@
 				<displayName>Χρίφνα Ουκρανίας</displayName>
 				<displayName count="one">χρίφνα Ουκρανίας</displayName>
 				<displayName count="other">χρίφνα Ουκρανίας</displayName>
-				<symbol draft="contributed">UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Καρμποβανέτς Ουκρανίας</displayName>
@@ -4616,7 +4470,6 @@
 				<displayName>Πέσο Ουρουγουάης</displayName>
 				<displayName count="one">πέσο Ουρουγουάης</displayName>
 				<displayName count="other">πέσο Ουρουγουάης</displayName>
-				<symbol draft="contributed">UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Σομ Ουζμπεκιστάν</displayName>
@@ -4632,13 +4485,11 @@
 				<displayName>Βολιβάρ Φουέρτε Βενεζουέλας</displayName>
 				<displayName count="one">βολιβάρ φουέρτε Βενεζουέλας</displayName>
 				<displayName count="other">βολιβάρ φουέρτε Βενεζουέλας</displayName>
-				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Ντονγκ Βιετνάμ</displayName>
 				<displayName count="one">ντονγκ Βιετνάμ</displayName>
 				<displayName count="other">ντονγκ Βιετνάμ</displayName>
-				<symbol draft="contributed">VND</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName count="one" draft="provisional">Παλαιό ντονγκ Βιετνάμ</displayName>
@@ -4658,7 +4509,6 @@
 				<displayName>Φράγκο Κεντρικής Αφρικής</displayName>
 				<displayName count="one">φράγκο BEAC CFA</displayName>
 				<displayName count="other">Φράγκα Κεντρικής Αφρικής</displayName>
-				<symbol draft="contributed">XAF</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Ευρωπαϊκή Σύνθετη Μονάδα</displayName>
@@ -4684,7 +4534,6 @@
 				<displayName>Δολάριο Ανατολικής Καραϊβικής</displayName>
 				<displayName count="one">δολάριο Ανατολικής Καραϊβικής</displayName>
 				<displayName count="other">δολάρια Ανατολικής Καραϊβικής</displayName>
-				<symbol draft="contributed">XCD</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Ειδικά Δικαιώματα Ανάληψης</displayName>
@@ -4710,13 +4559,11 @@
 				<displayName>Φράγκο Δυτικής Αφρικής</displayName>
 				<displayName count="one">φράγκο BCEAO CFA</displayName>
 				<displayName count="other">φράγκα BCEAO CFA</displayName>
-				<symbol draft="contributed">XOF</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Φράγκο CFP</displayName>
 				<displayName count="one">φράγκο CFP</displayName>
 				<displayName count="other">φράγκα CFP</displayName>
-				<symbol draft="contributed">XPF</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName count="one" draft="provisional">Ταμείο RINET</displayName>
@@ -4765,7 +4612,6 @@
 				<displayName>Ραντ Νότιας Αφρικής</displayName>
 				<displayName count="one">ραντ Νότιας Αφρικής</displayName>
 				<displayName count="other">ραντ Νότιας Αφρικής</displayName>
-				<symbol draft="contributed">ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Κουάνζα Ζαΐρ</displayName>

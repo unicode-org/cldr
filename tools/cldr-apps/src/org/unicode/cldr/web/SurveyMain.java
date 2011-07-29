@@ -2003,11 +2003,12 @@ o	            		}*/
 				startupThread.addTask(new SurveyThread.SurveyTask("daily xml output")
 				{
 					final String dailyList[] = {
-							"xml",
-							"vxml",
+//							"xml",
+//							"vxml",
 							"users",
 							"usersa",
-							"translators"
+							"translators",
+							"txml",
 					};          
 					public void run() throws Throwable 
 					{
@@ -5869,6 +5870,10 @@ o	            		}*/
             vetted = false;
             data=true;
             resolved = false;
+        } else if(kind.equals("txml")) {
+            vetted = false;
+            data=true;
+            resolved = false;
         } else if(kind.equals("vxml")) {
             vetted = true;
             data=true;
@@ -6051,25 +6056,27 @@ o	            		}*/
 		            (((double)(System.currentTimeMillis()-countStart))/i)+"ms per.");
 		    }
 		    
-		    try {
-		        PrintWriter utf8OutStream = new PrintWriter(
-		            new OutputStreamWriter(
-		                new FileOutputStream(outFile), "UTF8"));
-		        synchronized(this.vet) {
-		        	file.write(utf8OutStream);
-		        }
-		        nrOutFiles++;
-		        utf8OutStream.close();
-		        lastfile = null;
-      //            } catch (UnsupportedEncodingException e) {
-      //                throw new InternalError("UTF8 unsupported?").setCause(e);
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		        throw new InternalError("IO Exception "+e.toString());
-		    } finally {
-		        if(lastfile != null) {
-		            System.err.println("Last file written: " + kind + " / " + lastfile);
-		        }
+		    if(!kind.equals("txml")) {
+			    try {
+			        PrintWriter utf8OutStream = new PrintWriter(
+			            new OutputStreamWriter(
+			                new FileOutputStream(outFile), "UTF8"));
+			        synchronized(this.vet) {
+			        	file.write(utf8OutStream);
+			        }
+			        nrOutFiles++;
+			        utf8OutStream.close();
+			        lastfile = null;
+	      //            } catch (UnsupportedEncodingException e) {
+	      //                throw new InternalError("UTF8 unsupported?").setCause(e);
+			    } catch (IOException e) {
+			        e.printStackTrace();
+			        throw new InternalError("IO Exception "+e.toString());
+			    } finally {
+			        if(lastfile != null) {
+			            System.err.println("Last file written: " + kind + " / " + lastfile);
+			        }
+			    }
 		    }
 		    lastfile = fileName + " - vote data";
 		    // write voteFile
@@ -6078,10 +6085,15 @@ o	            		}*/
 		        PrintWriter utf8OutStream = new PrintWriter(
 		            new OutputStreamWriter(
 		                new FileOutputStream(voteFile), "UTF8"));
-		        xpathSet = this.vet.writeVoteFile(utf8OutStream, conn, dbSource, file, ourDate, xpathSet);
+		        boolean NewxpathSet[] = this.vet.writeVoteFile(utf8OutStream, conn, dbSource, file, ourDate, xpathSet);
 		        nrOutFiles++;
 		        utf8OutStream.close();
 		        lastfile = null;
+		        if(NewxpathSet==null) {
+		        	voteFile.delete();
+		        } else {
+		        	xpathSet=NewxpathSet;
+		        }
       //            } catch (UnsupportedEncodingException e) {
       //                throw new InternalError("UTF8 unsupported?").setCause(e);
 		    } catch (IOException e) {
@@ -6104,6 +6116,7 @@ o	            		}*/
 		lastfile = "xpathTable.xml" + " - xpath table";
 		// write voteFile
 		File xpathFile = new File(voteDir,"xpathTable.xml");
+		System.err.println("Writting xpath @ " + voteDir.getAbsolutePath());
 		try {
 		    PrintWriter utf8OutStream = new PrintWriter(
 		        new OutputStreamWriter(
@@ -10475,6 +10488,11 @@ o	            		}*/
     		int spinner = (int)Math.round(Math.random()*(double)getLocales().length); // Start on a different locale each time.
     		@Override
     		public void run()  {
+    			
+    			if(SurveyThread.activeCount()>1) {
+    				return;
+    			}
+    			
     			Connection conn = null;
     			CLDRProgressTask progress = null;
     			try {

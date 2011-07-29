@@ -1591,7 +1591,8 @@ public class SupplementalDataParser {
         // expand territories and create separated ordering array for each
         
         if ( type == null || numeric == null || alpha3 == null) {
-            log.warning("Incomplete codeMapping for type " + type + "numeric" + numeric + "alpha3" + alpha3);
+            log.warning("Incomplete codeMapping for type:" + type + " numeric:" + numeric + " alpha3:" + alpha3);
+            xpath.setLength(oldLength);
             continue;
         }
         

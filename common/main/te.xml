@@ -1036,10 +1036,8 @@
 			<type type="unihan" key="collation">రాడికల్-స్ట్రోక్ క్రమబద్ధీకరణ క్రమం</type>
 		</types>
 		<transformNames>
-			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">సంఖ్య</transformName>
 			<transformName type="Tone">టోన్</transformName>
-			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">గాఢతలు</transformName>
 			<transformName type="x-Fullwidth">పూర్తి వెడల్పు</transformName>
 			<transformName type="x-Halfwidth">సగం వెడల్పు</transformName>
@@ -1314,13 +1312,11 @@
 					</field>
 					<field type="day">
 						<displayName>దినం</displayName>
-						<relative type="-3">మూడు రోజుల ముందు</relative>
 						<relative type="-2">మొన్న</relative>
 						<relative type="-1">నిన్న</relative>
 						<relative type="0">ఈ రోజు</relative>
 						<relative type="1">రేపు</relative>
 						<relative type="2">ఎల్లుండి</relative>
-						<relative type="3">మూడు రోజుల తర్వాత</relative>
 					</field>
 					<field type="weekday">
 						<displayName>వారంలో రోజు</displayName>
@@ -3057,6 +3053,10 @@
 				<long>
 					<standard>భారతీయ ప్రామాణిక సమయం</standard>
 				</long>
+				<short>
+					<standard>IST</standard>
+				</short>
+				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
@@ -3843,7 +3843,6 @@
 			</currency>
 			<currency type="INR">
 				<displayName>రూపాయి</displayName>
-				<symbol>రూ.</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ఇరాకీ డైనర్</displayName>

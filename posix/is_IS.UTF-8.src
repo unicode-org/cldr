@@ -7271,7 +7271,7 @@ d_t_fmt  "%e. %B %Y %H:%M:%S %Z"
 
 am_pm    "<f><FULL_STOP><h><FULL_STOP>";"<e><FULL_STOP><h><FULL_STOP>"
 
-t_fmt_ampm  ""
+t_fmt_ampm  "%I:%M:%S %p"
 
 END LC_TIME
 *************

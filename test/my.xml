@@ -6,42 +6,42 @@
   <number 
 locales='my my_MM'>
 <!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
-   <result input='0.0' numberType='integer' draft='unconfirmed approved'>0</result>
-   <result numberType='decimal'>0</result>
-   <result numberType='percent'>0%</result>
-   <result numberType='scientific'>0E0</result>
-   <result input='0.01' numberType='integer'>0</result>
-   <result numberType='decimal'>0.01</result>
-   <result numberType='percent'>1%</result>
-   <result numberType='scientific'>1E-2</result>
-   <result input='-0.01' numberType='integer'>-0</result>
-   <result numberType='decimal'>-0.01</result>
-   <result numberType='percent'>-1%</result>
-   <result numberType='scientific'>-1E-2</result>
-   <result input='1.0' numberType='integer'>1</result>
-   <result numberType='decimal'>1</result>
-   <result numberType='percent'>100%</result>
-   <result numberType='scientific'>1E0</result>
-   <result input='-1.0' numberType='integer'>-1</result>
-   <result numberType='decimal'>-1</result>
-   <result numberType='percent'>-100%</result>
-   <result numberType='scientific'>-1E0</result>
-   <result input='123.456' numberType='integer'>123</result>
-   <result numberType='decimal'>123.456</result>
-   <result numberType='percent'>12,346%</result>
-   <result numberType='scientific'>1.23456E2</result>
-   <result input='-123.456' numberType='integer'>-123</result>
-   <result numberType='decimal'>-123.456</result>
-   <result numberType='percent'>-12,346%</result>
-   <result numberType='scientific'>-1.23456E2</result>
-   <result input='123456.78' numberType='integer'>123,457</result>
-   <result numberType='decimal'>123,456.78</result>
-   <result numberType='percent'>12,345,678%</result>
-   <result numberType='scientific'>1.2345678E5</result>
-   <result input='-123456.78' numberType='integer'>-123,457</result>
-   <result numberType='decimal'>-123,456.78</result>
-   <result numberType='percent'>-12,345,678%</result>
-   <result numberType='scientific'>-1.2345678E5</result>
+   <result input='0.0' numberType='integer' draft='unconfirmed approved'>၀</result>
+   <result numberType='decimal'>၀</result>
+   <result numberType='percent'>၀%</result>
+   <result numberType='scientific'>၀E၀</result>
+   <result input='0.01' numberType='integer'>၀</result>
+   <result numberType='decimal'>၀.၀၁</result>
+   <result numberType='percent'>၁%</result>
+   <result numberType='scientific'>၁E-၂</result>
+   <result input='-0.01' numberType='integer'>-၀</result>
+   <result numberType='decimal'>-၀.၀၁</result>
+   <result numberType='percent'>-၁%</result>
+   <result numberType='scientific'>-၁E-၂</result>
+   <result input='1.0' numberType='integer'>၁</result>
+   <result numberType='decimal'>၁</result>
+   <result numberType='percent'>၁၀၀%</result>
+   <result numberType='scientific'>၁E၀</result>
+   <result input='-1.0' numberType='integer'>-၁</result>
+   <result numberType='decimal'>-၁</result>
+   <result numberType='percent'>-၁၀၀%</result>
+   <result numberType='scientific'>-၁E၀</result>
+   <result input='123.456' numberType='integer'>၁၂၃</result>
+   <result numberType='decimal'>၁၂၃.၄၅၆</result>
+   <result numberType='percent'>၁၂,၃၄၆%</result>
+   <result numberType='scientific'>၁.၂၃၄၅၆E၂</result>
+   <result input='-123.456' numberType='integer'>-၁၂၃</result>
+   <result numberType='decimal'>-၁၂၃.၄၅၆</result>
+   <result numberType='percent'>-၁၂,၃၄၆%</result>
+   <result numberType='scientific'>-၁.၂၃၄၅၆E၂</result>
+   <result input='123456.78' numberType='integer'>၁၂၃,၄၅၇</result>
+   <result numberType='decimal'>၁၂၃,၄၅၆.၇၈</result>
+   <result numberType='percent'>၁၂,၃၄၅,၆၇၈%</result>
+   <result numberType='scientific'>၁.၂၃၄၅၆၇၈E၅</result>
+   <result input='-123456.78' numberType='integer'>-၁၂၃,၄၅၇</result>
+   <result numberType='decimal'>-၁၂၃,၄၅၆.၇၈</result>
+   <result numberType='percent'>-၁၂,၃၄၅,၆၇၈%</result>
+   <result numberType='scientific'>-၁.၂၃၄၅၆၇၈E၅</result>
    <result input='Infinity' numberType='integer'>∞</result>
    <result numberType='decimal'>∞</result>
    <result numberType='percent'>∞%</result>
@@ -58,174 +58,174 @@ locales='my my_MM'>
   <date 
 locales='my my_MM'>
 <!-- Burmese [ဗမာ@]; Burmese (Myanmar [Burma]) [ဗမာ (မြန်မာ)@] -->
-   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>00:00</result>
-   <result timeType='medium'>00:00:00</result>
-   <result dateType='short' timeType='none'>00/01/31</result>
-   <result timeType='short'>00/01/31 00:00</result>
-   <result timeType='medium'>00/01/31 00:00:00</result>
-   <result dateType='medium' timeType='none'>1900 ဇန် 31</result>
-   <result timeType='short'>1900 ဇန် 31 00:00</result>
-   <result timeType='medium'>1900 ဇန် 31 00:00:00</result>
-   <result dateType='long' timeType='none'>1900 ဇန်နဝါရီ 31</result>
-   <result timeType='short'>1900 ဇန်နဝါရီ 31 00:00</result>
-   <result timeType='medium'>1900 ဇန်နဝါရီ 31 00:00:00</result>
-   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31</result>
-   <result timeType='short'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00</result>
-   <result timeType='medium'>ဗုဒ္ဓဟူး, 1900 ဇန်နဝါရီ 31 00:00:00</result>
-   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>00:00</result>
-   <result timeType='medium'>00:00:01</result>
-   <result dateType='short' timeType='none'>09/02/28</result>
-   <result timeType='short'>09/02/28 00:00</result>
-   <result timeType='medium'>09/02/28 00:00:01</result>
-   <result dateType='medium' timeType='none'>1909 ဖေ 28</result>
-   <result timeType='short'>1909 ဖေ 28 00:00</result>
-   <result timeType='medium'>1909 ဖေ 28 00:00:01</result>
-   <result dateType='long' timeType='none'>1909 ဖေဖော်ဝါရီ 28</result>
-   <result timeType='short'>1909 ဖေဖော်ဝါရီ 28 00:00</result>
-   <result timeType='medium'>1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
-   <result dateType='full' timeType='none'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28</result>
-   <result timeType='short'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00</result>
-   <result timeType='medium'>တနင်္ဂနွေ, 1909 ဖေဖော်ဝါရီ 28 00:00:01</result>
-   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>00:59</result>
-   <result timeType='medium'>00:59:59</result>
-   <result dateType='short' timeType='none'>18/03/26</result>
-   <result timeType='short'>18/03/26 00:59</result>
-   <result timeType='medium'>18/03/26 00:59:59</result>
-   <result dateType='medium' timeType='none'>1918 မတ် 26</result>
-   <result timeType='short'>1918 မတ် 26 00:59</result>
-   <result timeType='medium'>1918 မတ် 26 00:59:59</result>
-   <result dateType='long' timeType='none'>1918 မတ် 26</result>
-   <result timeType='short'>1918 မတ် 26 00:59</result>
-   <result timeType='medium'>1918 မတ် 26 00:59:59</result>
-   <result dateType='full' timeType='none'>အင်္ဂါ, 1918 မတ် 26</result>
-   <result timeType='short'>အင်္ဂါ, 1918 မတ် 26 00:59</result>
-   <result timeType='medium'>အင်္ဂါ, 1918 မတ် 26 00:59:59</result>
-   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:00</result>
-   <result dateType='short' timeType='none'>32/04/24</result>
-   <result timeType='short'>32/04/24 01:00</result>
-   <result timeType='medium'>32/04/24 01:00:00</result>
-   <result dateType='medium' timeType='none'>1932 ဧ 24</result>
-   <result timeType='short'>1932 ဧ 24 01:00</result>
-   <result timeType='medium'>1932 ဧ 24 01:00:00</result>
-   <result dateType='long' timeType='none'>1932 ဧပြီ 24</result>
-   <result timeType='short'>1932 ဧပြီ 24 01:00</result>
-   <result timeType='medium'>1932 ဧပြီ 24 01:00:00</result>
-   <result dateType='full' timeType='none'>တနင်္ဂနွေ, 1932 ဧပြီ 24</result>
-   <result timeType='short'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00</result>
-   <result timeType='medium'>တနင်္ဂနွေ, 1932 ဧပြီ 24 01:00:00</result>
-   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>01:00</result>
-   <result timeType='medium'>01:00:01</result>
-   <result dateType='short' timeType='none'>45/05/20</result>
-   <result timeType='short'>45/05/20 01:00</result>
-   <result timeType='medium'>45/05/20 01:00:01</result>
-   <result dateType='medium' timeType='none'>1945 မေ 20</result>
-   <result timeType='short'>1945 မေ 20 01:00</result>
-   <result timeType='medium'>1945 မေ 20 01:00:01</result>
-   <result dateType='long' timeType='none'>1945 မေ 20</result>
-   <result timeType='short'>1945 မေ 20 01:00</result>
-   <result timeType='medium'>1945 မေ 20 01:00:01</result>
-   <result dateType='full' timeType='none'>တနင်္ဂနွေ, 1945 မေ 20</result>
-   <result timeType='short'>တနင်္ဂနွေ, 1945 မေ 20 01:00</result>
-   <result timeType='medium'>တနင်္ဂနွေ, 1945 မေ 20 01:00:01</result>
-   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>11:59</result>
-   <result timeType='medium'>11:59:59</result>
-   <result dateType='short' timeType='none'>52/06/18</result>
-   <result timeType='short'>52/06/18 11:59</result>
-   <result timeType='medium'>52/06/18 11:59:59</result>
-   <result dateType='medium' timeType='none'>1952 ဇွန် 18</result>
-   <result timeType='short'>1952 ဇွန် 18 11:59</result>
-   <result timeType='medium'>1952 ဇွန် 18 11:59:59</result>
-   <result dateType='long' timeType='none'>1952 ဇွန် 18</result>
-   <result timeType='short'>1952 ဇွန် 18 11:59</result>
-   <result timeType='medium'>1952 ဇွန် 18 11:59:59</result>
-   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18</result>
-   <result timeType='short'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59</result>
-   <result timeType='medium'>ဗုဒ္ဓဟူး, 1952 ဇွန် 18 11:59:59</result>
-   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:00</result>
-   <result dateType='short' timeType='none'>73/07/16</result>
-   <result timeType='short'>73/07/16 12:00</result>
-   <result timeType='medium'>73/07/16 12:00:00</result>
-   <result dateType='medium' timeType='none'>1973 ဇူ 16</result>
-   <result timeType='short'>1973 ဇူ 16 12:00</result>
-   <result timeType='medium'>1973 ဇူ 16 12:00:00</result>
-   <result dateType='long' timeType='none'>1973 ဇူလိုင် 16</result>
-   <result timeType='short'>1973 ဇူလိုင် 16 12:00</result>
-   <result timeType='medium'>1973 ဇူလိုင် 16 12:00:00</result>
-   <result dateType='full' timeType='none'>တနင်္လာ, 1973 ဇူလိုင် 16</result>
-   <result timeType='short'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00</result>
-   <result timeType='medium'>တနင်္လာ, 1973 ဇူလိုင် 16 12:00:00</result>
-   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>12:00</result>
-   <result timeType='medium'>12:00:01</result>
-   <result dateType='short' timeType='none'>99/08/14</result>
-   <result timeType='short'>99/08/14 12:00</result>
-   <result timeType='medium'>99/08/14 12:00:01</result>
-   <result dateType='medium' timeType='none'>1999 ဩ 14</result>
-   <result timeType='short'>1999 ဩ 14 12:00</result>
-   <result timeType='medium'>1999 ဩ 14 12:00:01</result>
-   <result dateType='long' timeType='none'>1999 ဩဂုတ် 14</result>
-   <result timeType='short'>1999 ဩဂုတ် 14 12:00</result>
-   <result timeType='medium'>1999 ဩဂုတ် 14 12:00:01</result>
-   <result dateType='full' timeType='none'>စနေ, 1999 ဩဂုတ် 14</result>
-   <result timeType='short'>စနေ, 1999 ဩဂုတ် 14 12:00</result>
-   <result timeType='medium'>စနေ, 1999 ဩဂုတ် 14 12:00:01</result>
-   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>22:59</result>
-   <result timeType='medium'>22:59:59</result>
-   <result dateType='short' timeType='none'>00/09/12</result>
-   <result timeType='short'>00/09/12 22:59</result>
-   <result timeType='medium'>00/09/12 22:59:59</result>
-   <result dateType='medium' timeType='none'>2000 စက် 12</result>
-   <result timeType='short'>2000 စက် 12 22:59</result>
-   <result timeType='medium'>2000 စက် 12 22:59:59</result>
-   <result dateType='long' timeType='none'>2000 စက်တင်ဘာ 12</result>
-   <result timeType='short'>2000 စက်တင်ဘာ 12 22:59</result>
-   <result timeType='medium'>2000 စက်တင်ဘာ 12 22:59:59</result>
-   <result dateType='full' timeType='none'>အင်္ဂါ, 2000 စက်တင်ဘာ 12</result>
-   <result timeType='short'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59</result>
-   <result timeType='medium'>အင်္ဂါ, 2000 စက်တင်ဘာ 12 22:59:59</result>
-   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:00</result>
-   <result dateType='short' timeType='none'>01/10/08</result>
-   <result timeType='short'>01/10/08 23:00</result>
-   <result timeType='medium'>01/10/08 23:00:00</result>
-   <result dateType='medium' timeType='none'>2001 အောက် 8</result>
-   <result timeType='short'>2001 အောက် 8 23:00</result>
-   <result timeType='medium'>2001 အောက် 8 23:00:00</result>
-   <result dateType='long' timeType='none'>2001 အောက်တိုဘာ 8</result>
-   <result timeType='short'>2001 အောက်တိုဘာ 8 23:00</result>
-   <result timeType='medium'>2001 အောက်တိုဘာ 8 23:00:00</result>
-   <result dateType='full' timeType='none'>တနင်္လာ, 2001 အောက်တိုဘာ 08</result>
-   <result timeType='short'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00</result>
-   <result timeType='medium'>တနင်္လာ, 2001 အောက်တိုဘာ 08 23:00:00</result>
-   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>23:00</result>
-   <result timeType='medium'>23:00:01</result>
-   <result dateType='short' timeType='none'>04/11/04</result>
-   <result timeType='short'>04/11/04 23:00</result>
-   <result timeType='medium'>04/11/04 23:00:01</result>
-   <result dateType='medium' timeType='none'>2004 နို 4</result>
-   <result timeType='short'>2004 နို 4 23:00</result>
-   <result timeType='medium'>2004 နို 4 23:00:01</result>
-   <result dateType='long' timeType='none'>2004 နိုဝင်ဘာ 4</result>
-   <result timeType='short'>2004 နိုဝင်ဘာ 4 23:00</result>
-   <result timeType='medium'>2004 နိုဝင်ဘာ 4 23:00:01</result>
-   <result dateType='full' timeType='none'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04</result>
-   <result timeType='short'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00</result>
-   <result timeType='medium'>ကြာသပတေး, 2004 နိုဝင်ဘာ 04 23:00:01</result>
-   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>23:59</result>
-   <result timeType='medium'>23:59:59</result>
-   <result dateType='short' timeType='none'>10/12/01</result>
-   <result timeType='short'>10/12/01 23:59</result>
-   <result timeType='medium'>10/12/01 23:59:59</result>
-   <result dateType='medium' timeType='none'>2010 ဒီ 1</result>
-   <result timeType='short'>2010 ဒီ 1 23:59</result>
-   <result timeType='medium'>2010 ဒီ 1 23:59:59</result>
-   <result dateType='long' timeType='none'>2010 ဒီဇင်ဘာ 1</result>
-   <result timeType='short'>2010 ဒီဇင်ဘာ 1 23:59</result>
-   <result timeType='medium'>2010 ဒီဇင်ဘာ 1 23:59:59</result>
-   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01</result>
-   <result timeType='short'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59</result>
-   <result timeType='medium'>ဗုဒ္ဓဟူး, 2010 ဒီဇင်ဘာ 01 23:59:59</result>
+   <result input='1900-01-31T00:00:00Z' dateType='none' timeType='short' draft='unconfirmed approved'>၀၀:၀၀</result>
+   <result timeType='medium'>၀၀:၀၀:၀၀</result>
+   <result dateType='short' timeType='none'>၀၀/၀၁/၃၁</result>
+   <result timeType='short'>၀၀/၀၁/၃၁ ၀၀:၀၀</result>
+   <result timeType='medium'>၀၀/၀၁/၃၁ ၀၀:၀၀:၀၀</result>
+   <result dateType='medium' timeType='none'>၁၉၀၀ ဇန် ၃၁</result>
+   <result timeType='short'>၁၉၀၀ ဇန် ၃၁ ၀၀:၀၀</result>
+   <result timeType='medium'>၁၉၀၀ ဇန် ၃၁ ၀၀:၀၀:၀၀</result>
+   <result dateType='long' timeType='none'>၁၉၀၀ ဇန်နဝါရီ ၃၁</result>
+   <result timeType='short'>၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀</result>
+   <result timeType='medium'>၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀:၀၀</result>
+   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, ၁၉၀၀ ဇန်နဝါရီ ၃၁</result>
+   <result timeType='short'>ဗုဒ္ဓဟူး, ၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀</result>
+   <result timeType='medium'>ဗုဒ္ဓဟူး, ၁၉၀၀ ဇန်နဝါရီ ၃၁ ၀၀:၀၀:၀၀</result>
+   <result input='1909-02-28T00:00:01Z' dateType='none' timeType='short'>၀၀:၀၀</result>
+   <result timeType='medium'>၀၀:၀၀:၀၁</result>
+   <result dateType='short' timeType='none'>၀၉/၀၂/၂၈</result>
+   <result timeType='short'>၀၉/၀၂/၂၈ ၀၀:၀၀</result>
+   <result timeType='medium'>၀၉/၀၂/၂၈ ၀၀:၀၀:၀၁</result>
+   <result dateType='medium' timeType='none'>၁၉၀၉ ဖေ ၂၈</result>
+   <result timeType='short'>၁၉၀၉ ဖေ ၂၈ ၀၀:၀၀</result>
+   <result timeType='medium'>၁၉၀၉ ဖေ ၂၈ ၀၀:၀၀:၀၁</result>
+   <result dateType='long' timeType='none'>၁၉၀၉ ဖေဖော်ဝါရီ ၂၈</result>
+   <result timeType='short'>၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀</result>
+   <result timeType='medium'>၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀:၀၁</result>
+   <result dateType='full' timeType='none'>တနင်္ဂနွေ, ၁၉၀၉ ဖေဖော်ဝါရီ ၂၈</result>
+   <result timeType='short'>တနင်္ဂနွေ, ၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀</result>
+   <result timeType='medium'>တနင်္ဂနွေ, ၁၉၀၉ ဖေဖော်ဝါရီ ၂၈ ၀၀:၀၀:၀၁</result>
+   <result input='1918-03-26T00:59:59Z' dateType='none' timeType='short'>၀၀:၅၉</result>
+   <result timeType='medium'>၀၀:၅၉:၅၉</result>
+   <result dateType='short' timeType='none'>၁၈/၀၃/၂၆</result>
+   <result timeType='short'>၁၈/၀၃/၂၆ ၀၀:၅၉</result>
+   <result timeType='medium'>၁၈/၀၃/၂၆ ၀၀:၅၉:၅၉</result>
+   <result dateType='medium' timeType='none'>၁၉၁၈ မတ် ၂၆</result>
+   <result timeType='short'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉</result>
+   <result timeType='medium'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉:၅၉</result>
+   <result dateType='long' timeType='none'>၁၉၁၈ မတ် ၂၆</result>
+   <result timeType='short'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉</result>
+   <result timeType='medium'>၁၉၁၈ မတ် ၂၆ ၀၀:၅၉:၅၉</result>
+   <result dateType='full' timeType='none'>အင်္ဂါ, ၁၉၁၈ မတ် ၂၆</result>
+   <result timeType='short'>အင်္ဂါ, ၁၉၁၈ မတ် ၂၆ ၀၀:၅၉</result>
+   <result timeType='medium'>အင်္ဂါ, ၁၉၁၈ မတ် ၂၆ ၀၀:၅၉:၅၉</result>
+   <result input='1932-04-24T01:00:00Z' dateType='none' timeType='short'>၀၁:၀၀</result>
+   <result timeType='medium'>၀၁:၀၀:၀၀</result>
+   <result dateType='short' timeType='none'>၃၂/၀၄/၂၄</result>
+   <result timeType='short'>၃၂/၀၄/၂၄ ၀၁:၀၀</result>
+   <result timeType='medium'>၃၂/၀၄/၂၄ ၀၁:၀၀:၀၀</result>
+   <result dateType='medium' timeType='none'>၁၉၃၂ ဧ ၂၄</result>
+   <result timeType='short'>၁၉၃၂ ဧ ၂၄ ၀၁:၀၀</result>
+   <result timeType='medium'>၁၉၃၂ ဧ ၂၄ ၀၁:၀၀:၀၀</result>
+   <result dateType='long' timeType='none'>၁၉၃၂ ဧပြီ ၂၄</result>
+   <result timeType='short'>၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀</result>
+   <result timeType='medium'>၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀:၀၀</result>
+   <result dateType='full' timeType='none'>တနင်္ဂနွေ, ၁၉၃၂ ဧပြီ ၂၄</result>
+   <result timeType='short'>တနင်္ဂနွေ, ၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀</result>
+   <result timeType='medium'>တနင်္ဂနွေ, ၁၉၃၂ ဧပြီ ၂၄ ၀၁:၀၀:၀၀</result>
+   <result input='1945-05-20T01:00:01Z' dateType='none' timeType='short'>၀၁:၀၀</result>
+   <result timeType='medium'>၀၁:၀၀:၀၁</result>
+   <result dateType='short' timeType='none'>၄၅/၀၅/၂၀</result>
+   <result timeType='short'>၄၅/၀၅/၂၀ ၀၁:၀၀</result>
+   <result timeType='medium'>၄၅/၀၅/၂၀ ၀၁:၀၀:၀၁</result>
+   <result dateType='medium' timeType='none'>၁၉၄၅ မေ ၂၀</result>
+   <result timeType='short'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀</result>
+   <result timeType='medium'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀:၀၁</result>
+   <result dateType='long' timeType='none'>၁၉၄၅ မေ ၂၀</result>
+   <result timeType='short'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀</result>
+   <result timeType='medium'>၁၉၄၅ မေ ၂၀ ၀၁:၀၀:၀၁</result>
+   <result dateType='full' timeType='none'>တနင်္ဂနွေ, ၁၉၄၅ မေ ၂၀</result>
+   <result timeType='short'>တနင်္ဂနွေ, ၁၉၄၅ မေ ၂၀ ၀၁:၀၀</result>
+   <result timeType='medium'>တနင်္ဂနွေ, ၁၉၄၅ မေ ၂၀ ၀၁:၀၀:၀၁</result>
+   <result input='1952-06-18T11:59:59Z' dateType='none' timeType='short'>၁၁:၅၉</result>
+   <result timeType='medium'>၁၁:၅၉:၅၉</result>
+   <result dateType='short' timeType='none'>၅၂/၀၆/၁၈</result>
+   <result timeType='short'>၅၂/၀၆/၁၈ ၁၁:၅၉</result>
+   <result timeType='medium'>၅၂/၀၆/၁၈ ၁၁:၅၉:၅၉</result>
+   <result dateType='medium' timeType='none'>၁၉၅၂ ဇွန် ၁၈</result>
+   <result timeType='short'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉</result>
+   <result timeType='medium'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉:၅၉</result>
+   <result dateType='long' timeType='none'>၁၉၅၂ ဇွန် ၁၈</result>
+   <result timeType='short'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉</result>
+   <result timeType='medium'>၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉:၅၉</result>
+   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, ၁၉၅၂ ဇွန် ၁၈</result>
+   <result timeType='short'>ဗုဒ္ဓဟူး, ၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉</result>
+   <result timeType='medium'>ဗုဒ္ဓဟူး, ၁၉၅၂ ဇွန် ၁၈ ၁၁:၅၉:၅၉</result>
+   <result input='1973-07-16T12:00:00Z' dateType='none' timeType='short'>၁၂:၀၀</result>
+   <result timeType='medium'>၁၂:၀၀:၀၀</result>
+   <result dateType='short' timeType='none'>၇၃/၀၇/၁၆</result>
+   <result timeType='short'>၇၃/၀၇/၁၆ ၁၂:၀၀</result>
+   <result timeType='medium'>၇၃/၀၇/၁၆ ၁၂:၀၀:၀၀</result>
+   <result dateType='medium' timeType='none'>၁၉၇၃ ဇူ ၁၆</result>
+   <result timeType='short'>၁၉၇၃ ဇူ ၁၆ ၁၂:၀၀</result>
+   <result timeType='medium'>၁၉၇၃ ဇူ ၁၆ ၁၂:၀၀:၀၀</result>
+   <result dateType='long' timeType='none'>၁၉၇၃ ဇူလိုင် ၁၆</result>
+   <result timeType='short'>၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀</result>
+   <result timeType='medium'>၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀:၀၀</result>
+   <result dateType='full' timeType='none'>တနင်္လာ, ၁၉၇၃ ဇူလိုင် ၁၆</result>
+   <result timeType='short'>တနင်္လာ, ၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀</result>
+   <result timeType='medium'>တနင်္လာ, ၁၉၇၃ ဇူလိုင် ၁၆ ၁၂:၀၀:၀၀</result>
+   <result input='1999-08-14T12:00:01Z' dateType='none' timeType='short'>၁၂:၀၀</result>
+   <result timeType='medium'>၁၂:၀၀:၀၁</result>
+   <result dateType='short' timeType='none'>၉၉/၀၈/၁၄</result>
+   <result timeType='short'>၉၉/၀၈/၁၄ ၁၂:၀၀</result>
+   <result timeType='medium'>၉၉/၀၈/၁၄ ၁၂:၀၀:၀၁</result>
+   <result dateType='medium' timeType='none'>၁၉၉၉ ဩ ၁၄</result>
+   <result timeType='short'>၁၉၉၉ ဩ ၁၄ ၁၂:၀၀</result>
+   <result timeType='medium'>၁၉၉၉ ဩ ၁၄ ၁၂:၀၀:၀၁</result>
+   <result dateType='long' timeType='none'>၁၉၉၉ ဩဂုတ် ၁၄</result>
+   <result timeType='short'>၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀</result>
+   <result timeType='medium'>၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀:၀၁</result>
+   <result dateType='full' timeType='none'>စနေ, ၁၉၉၉ ဩဂုတ် ၁၄</result>
+   <result timeType='short'>စနေ, ၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀</result>
+   <result timeType='medium'>စနေ, ၁၉၉၉ ဩဂုတ် ၁၄ ၁၂:၀၀:၀၁</result>
+   <result input='2000-09-12T22:59:59Z' dateType='none' timeType='short'>၂၂:၅၉</result>
+   <result timeType='medium'>၂၂:၅၉:၅၉</result>
+   <result dateType='short' timeType='none'>၀၀/၀၉/၁၂</result>
+   <result timeType='short'>၀၀/၀၉/၁၂ ၂၂:၅၉</result>
+   <result timeType='medium'>၀၀/၀၉/၁၂ ၂၂:၅၉:၅၉</result>
+   <result dateType='medium' timeType='none'>၂၀၀၀ စက် ၁၂</result>
+   <result timeType='short'>၂၀၀၀ စက် ၁၂ ၂၂:၅၉</result>
+   <result timeType='medium'>၂၀၀၀ စက် ၁၂ ၂၂:၅၉:၅၉</result>
+   <result dateType='long' timeType='none'>၂၀၀၀ စက်တင်ဘာ ၁၂</result>
+   <result timeType='short'>၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉</result>
+   <result timeType='medium'>၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉:၅၉</result>
+   <result dateType='full' timeType='none'>အင်္ဂါ, ၂၀၀၀ စက်တင်ဘာ ၁၂</result>
+   <result timeType='short'>အင်္ဂါ, ၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉</result>
+   <result timeType='medium'>အင်္ဂါ, ၂၀၀၀ စက်တင်ဘာ ၁၂ ၂၂:၅၉:၅၉</result>
+   <result input='2001-10-08T23:00:00Z' dateType='none' timeType='short'>၂၃:၀၀</result>
+   <result timeType='medium'>၂၃:၀၀:၀၀</result>
+   <result dateType='short' timeType='none'>၀၁/၁၀/၀၈</result>
+   <result timeType='short'>၀၁/၁၀/၀၈ ၂၃:၀၀</result>
+   <result timeType='medium'>၀၁/၁၀/၀၈ ၂၃:၀၀:၀၀</result>
+   <result dateType='medium' timeType='none'>၂၀၀၁ အောက် ၈</result>
+   <result timeType='short'>၂၀၀၁ အောက် ၈ ၂၃:၀၀</result>
+   <result timeType='medium'>၂၀၀၁ အောက် ၈ ၂၃:၀၀:၀၀</result>
+   <result dateType='long' timeType='none'>၂၀၀၁ အောက်တိုဘာ ၈</result>
+   <result timeType='short'>၂၀၀၁ အောက်တိုဘာ ၈ ၂၃:၀၀</result>
+   <result timeType='medium'>၂၀၀၁ အောက်တိုဘာ ၈ ၂၃:၀၀:၀၀</result>
+   <result dateType='full' timeType='none'>တနင်္လာ, ၂၀၀၁ အောက်တိုဘာ ၀၈</result>
+   <result timeType='short'>တနင်္လာ, ၂၀၀၁ အောက်တိုဘာ ၀၈ ၂၃:၀၀</result>
+   <result timeType='medium'>တနင်္လာ, ၂၀၀၁ အောက်တိုဘာ ၀၈ ၂၃:၀၀:၀၀</result>
+   <result input='2004-11-04T23:00:01Z' dateType='none' timeType='short'>၂၃:၀၀</result>
+   <result timeType='medium'>၂၃:၀၀:၀၁</result>
+   <result dateType='short' timeType='none'>၀၄/၁၁/၀၄</result>
+   <result timeType='short'>၀၄/၁၁/၀၄ ၂၃:၀၀</result>
+   <result timeType='medium'>၀၄/၁၁/၀၄ ၂၃:၀၀:၀၁</result>
+   <result dateType='medium' timeType='none'>၂၀၀၄ နို ၄</result>
+   <result timeType='short'>၂၀၀၄ နို ၄ ၂၃:၀၀</result>
+   <result timeType='medium'>၂၀၀၄ နို ၄ ၂၃:၀၀:၀၁</result>
+   <result dateType='long' timeType='none'>၂၀၀၄ နိုဝင်ဘာ ၄</result>
+   <result timeType='short'>၂၀၀၄ နိုဝင်ဘာ ၄ ၂၃:၀၀</result>
+   <result timeType='medium'>၂၀၀၄ နိုဝင်ဘာ ၄ ၂၃:၀၀:၀၁</result>
+   <result dateType='full' timeType='none'>ကြာသပတေး, ၂၀၀၄ နိုဝင်ဘာ ၀၄</result>
+   <result timeType='short'>ကြာသပတေး, ၂၀၀၄ နိုဝင်ဘာ ၀၄ ၂၃:၀၀</result>
+   <result timeType='medium'>ကြာသပတေး, ၂၀၀၄ နိုဝင်ဘာ ၀၄ ၂၃:၀၀:၀၁</result>
+   <result input='2010-12-01T23:59:59Z' dateType='none' timeType='short'>၂၃:၅၉</result>
+   <result timeType='medium'>၂၃:၅၉:၅၉</result>
+   <result dateType='short' timeType='none'>၁၀/၁၂/၀၁</result>
+   <result timeType='short'>၁၀/၁၂/၀၁ ၂၃:၅၉</result>
+   <result timeType='medium'>၁၀/၁၂/၀၁ ၂၃:၅၉:၅၉</result>
+   <result dateType='medium' timeType='none'>၂၀၁၀ ဒီ ၁</result>
+   <result timeType='short'>၂၀၁၀ ဒီ ၁ ၂၃:၅၉</result>
+   <result timeType='medium'>၂၀၁၀ ဒီ ၁ ၂၃:၅၉:၅၉</result>
+   <result dateType='long' timeType='none'>၂၀၁၀ ဒီဇင်ဘာ ၁</result>
+   <result timeType='short'>၂၀၁၀ ဒီဇင်ဘာ ၁ ၂၃:၅၉</result>
+   <result timeType='medium'>၂၀၁၀ ဒီဇင်ဘာ ၁ ၂၃:၅၉:၅၉</result>
+   <result dateType='full' timeType='none'>ဗုဒ္ဓဟူး, ၂၀၁၀ ဒီဇင်ဘာ ၀၁</result>
+   <result timeType='short'>ဗုဒ္ဓဟူး, ၂၀၁၀ ဒီဇင်ဘာ ၀၁ ၂၃:၅၉</result>
+   <result timeType='medium'>ဗုဒ္ဓဟူး, ၂၀၁၀ ဒီဇင်ဘာ ၀၁ ၂၃:၅၉:၅၉</result>
   </date>
   <zoneFields 
 locales='my my_MM'>

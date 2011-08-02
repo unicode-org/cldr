@@ -52,7 +52,7 @@ public class ICUServiceBuilder {
   private Map<String, NumberFormat> cacheNumberFormats = new HashMap();
   DecimalFormatSymbols cacheDecimalFormatSymbols = null;
   private SupplementalDataInfo supplementalData;
-  
+ 
 //private Factory cldrFactory;
 //public ICUServiceBuilder setCLDRFactory(Factory cldrFactory) {
 //this.cldrFactory = cldrFactory;
@@ -570,6 +570,11 @@ public class ICUServiceBuilder {
     symbols.setPerMill(getSymbolCharacter("perMille"));
     symbols.setPlusSign(getSymbolCharacter("plusSign"));
 //    symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit"));
+    String numsys = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+    String digits = supplementalData.getDigits(numsys);
+    if ( digits != null && digits.length() == 10) {
+        symbols.setZeroDigit(digits.charAt(0));
+    }
     
     try {
         symbols.setMonetaryDecimalSeparator(getSymbolCharacter("currencyDecimal"));

@@ -1163,7 +1163,8 @@ public class SupplementalDataInfo {
 
         private void handleNumberingSystems() {
             String name = parts.getAttributeValue(-1,"id");
-            numberingSystems.add(name);
+            String digits = parts.getAttributeValue(-1,"digits");
+            numberingSystems.put(name,digits);
         }
 
         private void handleCoverageLevels() {
@@ -1623,7 +1624,7 @@ public class SupplementalDataInfo {
     private Map<String, String> parentLocales = new HashMap<String,String>();
     private Map<String, List<String>> calendarPreferences= new HashMap();
     private Map<String, CoverageVariableInfo> coverageVariables = new TreeMap();    
-    private Set<String> numberingSystems = new TreeSet();
+    private Map<String,String> numberingSystems = new HashMap<String,String>();
     private Set<String> defaultContentLocales;
     /**
      * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
@@ -1755,9 +1756,11 @@ public class SupplementalDataInfo {
         return defaultContentLocales;
     }
     public Set<String> getNumberingSystems() {
-        return numberingSystems;
+        return numberingSystems.keySet();
     }
-
+    public String getDigits(String numberingSystem) {
+        return numberingSystems.get(numberingSystem);
+    }
     public SortedSet<CoverageLevelInfo> getCoverageLevelInfo() {
         return coverageLevels;
     }

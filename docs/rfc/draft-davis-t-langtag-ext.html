@@ -145,12 +145,12 @@
 <tr><td class="header">Internet Engineering Task Force</td><td class="header">M. Davis</td></tr>
 <tr><td class="header">Internet-Draft</td><td class="header">Google</td></tr>
 <tr><td class="header">Intended status: Informational</td><td class="header">A. Phillips</td></tr>
-<tr><td class="header">Expires: January 12, 2012</td><td class="header">Lab126</td></tr>
+<tr><td class="header">Expires: February 8, 2012</td><td class="header">Lab126</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Y. Umaoka</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">C. Falk</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Infinite Automata</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">July 11, 2011</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">August 7, 2011</td></tr>
 </table></td></tr></table>
 <h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-04</h1>
 
@@ -184,7 +184,7 @@ and may be updated, replaced, or obsoleted by other documents at any time.
 It is inappropriate to use Internet-Drafts as reference material or to cite
 them other than as &ldquo;work in progress.&rdquo;</p>
 <p>
-This Internet-Draft will expire on January 12, 2012.</p>
+This Internet-Draft will expire on February 8, 2012.</p>
 
 <h3>Copyright Notice</h3>
 <p>
@@ -526,19 +526,19 @@ Structure</h3>
 
 <p>The subtags in the 't' extension are of the following form:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
-t-ext=    "t"                      ; Extension
-          (("-" lang *("-" field)) ; Source + optional field(s)
-          / 1*("-" field))         ; Field(s) only (no source)
+<dfn>t-ext</dfn>=    "<span class='str'>t</span>"                      <em>; Extension</em>
+          (("<span class='str'>-</span>" <cite class='id'>lang</cite> <span class='rep'>*</span>("<span class='str'>-</span>" <cite class='id'>field</cite>)) <em>; Source + optional field(s)</em>
+          / <span class='rep'>1*</span>("<span class='str'>-</span>" <cite class='id'>field</cite>))         <em>; Field(s) only (no source)</em>
 
-lang=     language                 ; BCP47, with restrictions
-          ["-" script]
-          ["-" region]
-          *("-" variant)
+<dfn>lang</dfn>=     <cite class='id'>language</cite>                 <em>; BCP47, with restrictions</em>
+          ["<span class='str'>-</span>" <cite class='id'>script</cite>]
+          ["<span class='str'>-</span>" <cite class='id'>region</cite>]
+          <span class='rep'>*</span>("<span class='str'>-</span>" <cite class='id'>variant</cite>)
 
-field=    sep 1*("-" 3*8alphanum)  ; With restrictions
+<dfn>field</dfn>=    <cite class='id'>sep</cite> <span class='rep'>1*</span>("<span class='str'>-</span>" <span class='rep'>3*8</span><cite class='id'>alphanum</cite>)  <em>; With restrictions</em>
 
-sep=      ALPHA DIGIT              ; Subtag separators
-alphanum= ALPHA / DIGIT
+<dfn>sep</dfn>=      <cite class='key'>ALPHA</cite> <cite class='key'>DIGIT</cite>              <em>; Subtag separators</em>
+<dfn>alphanum</dfn>= <cite class='key'>ALPHA</cite> / <cite class='key'>DIGIT</cite>
 </pre></div>
 <p>where &lt;language>, &lt;script>, &lt;region>, and &lt;variant> rules are specified in <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>,
                 &lt;ALPHA> and &lt;DIGIT> rules - in <a class='info' href='#RFC5234'>[RFC5234]<span> (</span><span class='info'>Crocker, Ed., &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; 2008.</span><span>)</span></a>.
@@ -692,26 +692,24 @@ Field Definitions</h3>
 <dd>
 							Any purely numeric subtag is a representation of a date in the
 							Gregorian calendar.
-							It MAY occur in any mechanism field.
+							It MAY occur in any mechanism field, but it SHOULD only be used where necessary.
 							If it does occur:
 							
 <ul class="text">
-<li>it MUST occur as the final subtag in the field,
+<li>it MUST occur as the final subtag in the field
 </li>
-<li>it MUST NOT be the only subtag in the field, and
+<li>it MUST NOT be the only subtag in the field
 </li>
 <li>it MUST consist of a sequence of digits of the form YYYY,
-									YYYYMM, or YYYYMMDD.
+									YYYYMM, or YYYYMMDD
 </li>
-<li>it SHOULD only be used where necessary.
-</li>
-<li>it SHOULD be as short as possible.
+<li>it SHOULD be as short as possible
 </li>
 </ul>
 							Examples:
 							
 <ul class="text">
-<li>20110623 represents June 23th, 2011.
+<li>20110623 represents June 23rd, 2011.
 </li>
 <li>There are 3 dated versions of the UNGEGN transliteration
                             specification for Hebrew to Latin. They can be represented by the following language tags:

@@ -4,12 +4,12 @@
 Internet Engineering Task Force                                 M. Davis
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Phillips
-Expires: January 12, 2012                                         Lab126
+Expires: February 8, 2012                                         Lab126
                                                                Y. Umaoka
                                                                      IBM
                                                                  C. Falk
                                                        Infinite Automata
-                                                           July 11, 2011
+                                                          August 7, 2011
 
 
                 BCP 47 Extension T - Transformed Content
@@ -38,7 +38,7 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 12, 2012.
+   This Internet-Draft will expire on February 8, 2012.
 
 Copyright Notice
 
@@ -52,9 +52,9 @@ Copyright Notice
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 1]
+Davis, et al.           Expires February 8, 2012                [Page 1]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
    carefully, as they describe your rights and restrictions with respect
@@ -108,9 +108,9 @@ Table of Contents
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 2]
+Davis, et al.           Expires February 8, 2012                [Page 2]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
 1.  Introduction
@@ -164,9 +164,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 3]
+Davis, et al.           Expires February 8, 2012                [Page 3]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
    c.  US Board on Geographic Names (BGN)
@@ -220,9 +220,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 4]
+Davis, et al.           Expires February 8, 2012                [Page 4]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
    | und-Latn-t-und-cyrl | The content is in the Latin script,         |
@@ -276,9 +276,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 5]
+Davis, et al.           Expires February 8, 2012                [Page 5]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
    The field subtags are defined by Section 3 [1] of Unicode Technical
@@ -332,9 +332,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 6]
+Davis, et al.           Expires February 8, 2012                [Page 6]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
    t-ext=    "t"                      ; Extension
@@ -388,9 +388,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 7]
+Davis, et al.           Expires February 8, 2012                [Page 7]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
 2.4.  BCP47 Registration Form
@@ -444,32 +444,30 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012                [Page 8]
+Davis, et al.           Expires February 8, 2012                [Page 8]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
        In many cases, only one mechanism subtag is necessary, but
        multiple subtags MAY be defined in [UTS35] where necessary.
 
    b.  Any purely numeric subtag is a representation of a date in the
-       Gregorian calendar.  It MAY occur in any mechanism field.  If it
-       does occur:
+       Gregorian calendar.  It MAY occur in any mechanism field, but it
+       SHOULD only be used where necessary.  If it does occur:
 
-       *  it MUST occur as the final subtag in the field,
+       *  it MUST occur as the final subtag in the field
 
-       *  it MUST NOT be the only subtag in the field, and
+       *  it MUST NOT be the only subtag in the field
 
        *  it MUST consist of a sequence of digits of the form YYYY,
-          YYYYMM, or YYYYMMDD.
+          YYYYMM, or YYYYMMDD
 
-       *  it SHOULD only be used where necessary.
-
-       *  it SHOULD be as short as possible.
+       *  it SHOULD be as short as possible
 
        Examples:
 
-       *  20110623 represents June 23th, 2011.
+       *  20110623 represents June 23rd, 2011.
 
        *  There are 3 dated versions of the UNGEGN transliteration
           specification for Hebrew to Latin.  They can be represented by
@@ -497,16 +495,16 @@ Internet-Draft             BCP 47 Extension T                  July 2011
        tag could look like "ja-t-it-m0-xxx-v21a-2007".
 
    A language tag with the t extension MAY be used to request a specific
-
-
-
-Davis, et al.           Expires January 12, 2012                [Page 9]
-
-Internet-Draft             BCP 47 Extension T                  July 2011
-
-
    transform of content.  In such a case, the recipient SHOULD return
    content that corresponds as closely as feasible to the requested
+
+
+
+Davis, et al.           Expires February 8, 2012                [Page 9]
+
+Internet-Draft             BCP 47 Extension T                August 2011
+
+
    transform, including the specification of the mechanism.  For
    example, if the request is ja-t-it-m0-xxx-v21a-2007, and the
    recipient has content corresponding to both ja-t-it-m0-xxx-v21a-2007
@@ -553,15 +551,15 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
    The committee MUST post each proposal publicly within 2 weeks after
    reception, to allow for comments.  The committee must respond
-
-
-
-Davis, et al.           Expires January 12, 2012               [Page 10]
-
-Internet-Draft             BCP 47 Extension T                  July 2011
-
-
    publicly to each proposal within 4 weeks after reception.
+
+
+
+
+Davis, et al.           Expires February 8, 2012               [Page 10]
+
+Internet-Draft             BCP 47 Extension T                August 2011
+
 
    The response MAY:
 
@@ -612,9 +610,11 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012               [Page 11]
+
+
+Davis, et al.           Expires February 8, 2012               [Page 11]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
    +-------------+-------------------------------+---------------------+
@@ -668,9 +668,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012               [Page 12]
+Davis, et al.           Expires February 8, 2012               [Page 12]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
    <key extension="t" name="m0" description=
@@ -724,9 +724,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012               [Page 13]
+Davis, et al.           Expires February 8, 2012               [Page 13]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
 4.  IANA Considerations
@@ -780,9 +780,9 @@ Internet-Draft             BCP 47 Extension T                  July 2011
 
 
 
-Davis, et al.           Expires January 12, 2012               [Page 14]
+Davis, et al.           Expires February 8, 2012               [Page 14]
 
-Internet-Draft             BCP 47 Extension T                  July 2011
+Internet-Draft             BCP 47 Extension T                August 2011
 
 
               September 2009.
@@ -836,5 +836,5 @@ Authors' Addresses
 
 
 
-Davis, et al.           Expires January 12, 2012               [Page 15]
+Davis, et al.           Expires February 8, 2012               [Page 15]
 

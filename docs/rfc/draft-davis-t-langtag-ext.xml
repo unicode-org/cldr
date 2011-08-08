@@ -47,7 +47,7 @@
             </address>
         </author>
         
-		<date month="July" year="2011" day="11" />
+		<date month="August" year="2011" day="7" />
 
 
 
@@ -328,7 +328,7 @@
 			<section title="Structure" anchor="structure">
 				<t>The subtags in the 't' extension are of the following form:</t>
 <figure>			
-<artwork>
+<artwork type='abnf'>
 t-ext=    "t"                      ; Extension
           (("-" lang *("-" field)) ; Source + optional field(s)
           / 1*("-" field))         ; Field(s) only (no source)
@@ -467,19 +467,18 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 						<t>
 							Any purely numeric subtag is a representation of a date in the
 							Gregorian calendar.
-							It MAY occur in any mechanism field.
+							It MAY occur in any mechanism field, but it SHOULD only be used where necessary.
 							If it does occur:
 							<list style="symbols">
-								<t>it MUST occur as the final subtag in the field,</t>
-								<t>it MUST NOT be the only subtag in the field, and</t>
+								<t>it MUST occur as the final subtag in the field</t>
+								<t>it MUST NOT be the only subtag in the field</t>
 								<t>it MUST consist of a sequence of digits of the form YYYY,
-									YYYYMM, or YYYYMMDD.</t>
-                                <t>it SHOULD only be used where necessary.</t>
-                                <t>it SHOULD be as short as possible.</t>
+									YYYYMM, or YYYYMMDD</t>
+                                <t>it SHOULD be as short as possible</t>
 							</list>
 							Examples:
 							<list style="symbols">
-							<t>20110623 represents June 23th, 2011.</t>
+							<t>20110623 represents June 23rd, 2011.</t>
 							<t>There are 3 dated versions of the UNGEGN transliteration
                             specification for Hebrew to Latin. They can be represented by the following language tags:
                             <list style="symbols">

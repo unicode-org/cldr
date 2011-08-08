@@ -24,6 +24,7 @@ $Date$
 <!ELEMENT keyword ( key* )>
 
 <!ELEMENT key ( type* )>
+<!ATTLIST key extension NMTOKEN #IMPLIED>
 <!ATTLIST key name NMTOKEN #REQUIRED>
 <!ATTLIST key alias NMTOKEN #IMPLIED>
 <!ATTLIST key description CDATA #IMPLIED>

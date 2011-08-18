@@ -238,8 +238,8 @@ public class DisplayAndInputProcessor {
         } else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
             if (DEBUG_DAIP) {
                 System.out.println(TestMetadata.showDifference(
-                        With.inCP(value), 
-                        With.inCP(fixedExemplar),
+                        With.codePoints(value), 
+                        With.codePoints(fixedExemplar),
                         "\n"));
             }
             value = fixedExemplar;

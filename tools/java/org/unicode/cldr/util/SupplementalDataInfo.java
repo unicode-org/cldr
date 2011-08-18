@@ -787,9 +787,11 @@ public class SupplementalDataInfo {
 
     Map<String,List<Row.R4<String,String,Integer,Boolean>>> languageMatch = new HashMap();
 
-    public Relation<String, String> key_subtypes = new Relation(new TreeMap(), TreeSet.class);
+    public Relation<String, String> bcp47Key2Subtypes = new Relation(new TreeMap(), TreeSet.class);
+    public Relation<String, String> bcp47Extension2Keys = new Relation(new TreeMap(), TreeSet.class);
     public Relation<Row.R2<String,String>, String> bcp47Aliases = new Relation(new TreeMap(), LinkedHashSet.class);
     public Map<Row.R2<String,String>, String> bcp47Descriptions = new TreeMap<Row.R2<String,String>, String>();
+    public Map<Row.R2<String,String>, String> bcp47Since = new TreeMap<Row.R2<String,String>, String>();
     
     public Map<String,Row.R2<String, String>> validityInfo = new HashMap<String,Row.R2<String, String>>();
     
@@ -950,7 +952,8 @@ public class SupplementalDataInfo {
         }
         localeToDayPeriodInfo = Collections.unmodifiableMap(localeToDayPeriodInfo);
         languageMatch = CldrUtility.protectCollection(languageMatch);
-        key_subtypes.freeze();
+        bcp47Key2Subtypes.freeze();
+        bcp47Extension2Keys.freeze();
         bcp47Aliases.freeze();
         CldrUtility.protectCollection(bcp47Descriptions);
         
@@ -1109,11 +1112,18 @@ public class SupplementalDataInfo {
             String key = parts.getAttributeValue(2, "name");
             String keyAlias = parts.getAttributeValue(2, "alias");
             String keyDescription = parts.getAttributeValue(2, "description");
+            String extension = parts.getAttributeValue(2, "extension");
+            if (extension == null) {
+                extension = "u";
+            }
             String subtype = parts.getAttributeValue(3, "name");
             String subtypeAlias = parts.getAttributeValue(3, "alias");
             String subtypeDescription = parts.getAttributeValue(3, "description");
+            String subtypeSince = parts.getAttributeValue(3, "since");
 
-            key_subtypes.put(key, subtype);
+            bcp47Extension2Keys.put(extension, key);
+
+            bcp47Key2Subtypes.put(key, subtype);
             if (keyAlias != null) {
                 bcp47Aliases.putAll((R2<String, String>) Row.of(key,"").freeze(), Arrays.asList(keyAlias.trim().split("\\s+")));
             }
@@ -1126,6 +1136,9 @@ public class SupplementalDataInfo {
             }
             if (subtypeDescription != null) {
                 bcp47Descriptions.put((R2<String, String>) Row.of(key,subtype).freeze(), subtypeDescription);
+            }
+            if (subtypeDescription != null) {
+                bcp47Since.put((R2<String, String>) Row.of(key,subtype).freeze(), subtypeSince);
             }
 
             return true;
@@ -2457,7 +2470,14 @@ public class SupplementalDataInfo {
      * Return mapping from keys to subtypes
      */
     public Relation<String,String> getBcp47Keys() {
-        return key_subtypes;
+        return bcp47Key2Subtypes;
+    }
+    
+    /**
+     * Return mapping from extensions to keys
+     */
+    public Relation<String,String> getBcp47Extension2Keys() {
+        return bcp47Extension2Keys;
     }
     
     /**
@@ -2472,6 +2492,13 @@ public class SupplementalDataInfo {
      */
     public Map<R2<String, String>, String> getBcp47Descriptions() {
         return bcp47Descriptions;
+    }
+
+    /**
+     * Return mapping from &lt;key,subtype> to since
+     */
+    public Map<R2<String, String>, String> getBcp47Since() {
+        return bcp47Since;
     }
 
     static Set<String> MainTimeZones;;

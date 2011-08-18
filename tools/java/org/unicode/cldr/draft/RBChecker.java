@@ -55,7 +55,7 @@ public class RBChecker {
         MultiFileOutput output = new MultiFileOutput();
         List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<Row.R2<MyTokenizer.Type, String>>();
         List<Row.R2<MyTokenizer.Type, String>> comments2 = comments;
-        for (String dir : With.in("locales", "lang", "region", "curr", "zone")) {
+        for (String dir : With.array("locales", "lang", "region", "curr", "zone")) {
             String source = "/Users/markdavis/Documents/workspace/icu/source/data/" + dir + "/" + locale + ".txt";
             parseRB(source, output, comments);
             comments2 = null; // only record first comments

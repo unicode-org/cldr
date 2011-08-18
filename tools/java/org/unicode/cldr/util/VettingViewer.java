@@ -1229,7 +1229,7 @@ public class VettingViewer<T> {
         Timer timer = new Timer();
         timer.start();
         final String currentMain = "/Users/markdavis/Documents/workspace/cldr/common/main";
-        final String lastMain = "/Users/markdavis/Documents/workspace/cldr-1.7.2/common/main";
+        final String lastMain = "/Users/markdavis/Documents/workspace/cldr-archive/cldr-1.9.1/common/main";
 
         Factory cldrFactory = Factory.make(currentMain, ".*");
         Factory cldrFactoryOld = Factory.make(lastMain, ".*");

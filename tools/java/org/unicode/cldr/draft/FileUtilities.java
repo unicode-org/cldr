@@ -1,7 +1,9 @@
 package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,8 +11,12 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.With.SimpleIterator;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 
@@ -158,6 +164,18 @@ public final class FileUtilities {
                     , e); 
         }
     }
+    
+    public static BufferedReader openFile(String directory, String file, Charset charset) {
+        try {
+            return new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
+        } catch (FileNotFoundException e) {
+            throw new IllegalArgumentException(e); // handle dang'd checked exception
+        }
+    }
+
+    public static BufferedReader openFile(String directory, String file) {
+        return openFile(directory, file, UTF8);
+    }
 
     public static final Charset UTF8 = Charset.forName("utf-8");
 
@@ -230,5 +248,71 @@ public final class FileUtilities {
         } else {
           throw new IllegalArgumentException("File not found: " + resourceString);
         }
+    }
+    
+    /**
+     * Simple API to iterate over file lines. Example:
+     * for (String s : FileUtilities.in(directory,name)) {
+     * ...
+     * }
+     * @author markdavis
+     *
+     */
+    public Iterable<String> in(Class<?> class1, String file) {
+        return With.in(new FileLines(openFile(class1, file, UTF8)));
+    }
+    
+    /**
+     * Simple API to iterate over file lines. Example:
+     * for (String s : FileUtilities.in(directory,name)) {
+     * ...
+     * }
+     * @author markdavis
+     *
+     */
+    public Iterable<String> in(Class<?> class1, String file, Charset charset) {
+        return With.in(new FileLines(openFile(class1, file, charset)));
+    }
+    
+    /**
+     * Simple API to iterate over file lines. Example:
+     * for (String s : FileUtilities.in(directory,name)) {
+     * ...
+     * }
+     * @author markdavis
+     *
+     */
+    public Iterable<String> in(String directory, String file) {
+        return With.in(new FileLines(openFile(directory, file, UTF8)));
+    }
+    
+    /**
+     * Simple API to iterate over file lines. Example:
+     * for (String s : FileUtilities.in(directory,name)) {
+     * ...
+     * }
+     * @author markdavis
+     *
+     */
+    public Iterable<String> in(String directory, String file, Charset charset) {
+        return With.in(new FileLines(openFile(directory, file, charset)));
+    }
+    
+    private static class FileLines implements SimpleIterator<String>{
+        private BufferedReader input;
+        
+        public FileLines(BufferedReader input) {
+            this.input = input;
+        }
+
+        @Override
+        public String next() {
+            try {
+                return input.readLine();
+            } catch (IOException e) {
+                throw new IllegalArgumentException(e); // handle dang'd checked exception
+            }
+        }
+        
     }
 }

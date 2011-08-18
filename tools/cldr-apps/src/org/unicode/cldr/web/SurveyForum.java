@@ -1502,7 +1502,7 @@ public class SurveyForum {
 								description.setType("text/html");
 								description.setValue("From: "+nameLink+"<br><hr>"+ shortenText(text));
 								entry.setDescription(description);
-								entries.add(entry);
+								entries.and(entry);
 
 								count++;
 							}
@@ -1585,7 +1585,7 @@ public class SurveyForum {
 							description.setType("text/html");
 							description.setValue("From: "+nameLink+"<br><hr>"+ shortenText(text));
 							entry.setDescription(description);
-							entries.add(entry);
+							entries.and(entry);
 
 							count++;
 						}

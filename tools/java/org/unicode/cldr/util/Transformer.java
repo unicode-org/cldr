@@ -30,15 +30,15 @@ public final class Transformer<S, V> implements Iterator<V> {
     }
     
     public static <S, V> With<V> iterable(Transform<S, ? extends V> transform, Iterator<? extends S> iterator) {
-        return new With<V>(new Transformer<S, V>(transform, iterator));
+        return With.in(new Transformer<S, V>(transform, iterator));
     }
     
     public static <S, V> With<V> iterable(Transform<S, ? extends V> transform, Iterable<? extends S> iterable) {
-        return new With<V>(new Transformer<S, V>(transform, iterable.iterator()));
+        return With.in(new Transformer<S, V>(transform, iterable.iterator()));
     }
     
     public static <S, V> With<V> iterable(Transform<S, ? extends V> transform, S... items) {
-        return new With<V>(new Transformer<S, V>(transform, Arrays.asList(items).iterator()));
+        return With.in(new Transformer<S, V>(transform, Arrays.asList(items).iterator()));
     }
     
     private Transformer(Transform<S, ? extends V> transform, Iterator<? extends S> iterator) {

@@ -11,7 +11,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-davis-t-langtag-ext-04" ipr="trust200902"
+<rfc category="info" docName="draft-davis-t-langtag-ext-05" ipr="trust200902"
 	submissionType="independent"
 >
 	<front>
@@ -47,7 +47,7 @@
             </address>
         </author>
         
-		<date month="August" year="2011" day="7" />
+		<date month="August" year="2011" day="23" />
 
 
 
@@ -455,7 +455,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 							specification
 							for the transform,
 							such as the
-							mechanism subtag 'UNGEGN' in
+							mechanism subtag 'ungegn' in
 							"und-Cyrl-t-und-latn-m0-ungegn".
 							In
 							many cases, only one mechanism subtag is necessary, but
@@ -599,8 +599,8 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 			     <t>Inside the "core.zip" file, the directory "common/bcp47" contains the
 					data files listing the valid attributes, keys, and types for each successive version of <xref target="UTS35"></xref>.
 					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the t mechanisms.</t>
-					<t>The XML structure lists the keys, such as &lt;key name="co" alias="collation">, with subelements for the types, 
-					such as &lt;type name="phonebk" alias="phonebook"/>. The currently defined attributes for the mechanisms include:</t>
+					<t>The XML structure lists the keys, such as &lt;key extension="t" name="m0" alias="collation" description="Transliteration extension mechanism">,with subelements for the types, 
+					such as &lt;type name="ungegn" description="United Nations Group of Experts on Geographical Names"/>. The currently defined attributes for the mechanisms include:</t>
 			     <texttable>
                     <ttcol>Attribute</ttcol>
                     <ttcol>Description</ttcol>

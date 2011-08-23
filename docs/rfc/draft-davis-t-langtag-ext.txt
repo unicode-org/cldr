@@ -4,16 +4,16 @@
 Internet Engineering Task Force                                 M. Davis
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Phillips
-Expires: February 8, 2012                                         Lab126
+Expires: February 24, 2012                                        Lab126
                                                                Y. Umaoka
                                                                      IBM
                                                                  C. Falk
                                                        Infinite Automata
-                                                          August 7, 2011
+                                                         August 23, 2011
 
 
                 BCP 47 Extension T - Transformed Content
-                      draft-davis-t-langtag-ext-04
+                      draft-davis-t-langtag-ext-05
 
 Abstract
 
@@ -38,7 +38,7 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 8, 2012.
+   This Internet-Draft will expire on February 24, 2012.
 
 Copyright Notice
 
@@ -52,7 +52,7 @@ Copyright Notice
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 1]
+Davis, et al.           Expires February 24, 2012               [Page 1]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -108,7 +108,7 @@ Table of Contents
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 2]
+Davis, et al.           Expires February 24, 2012               [Page 2]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -164,7 +164,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 3]
+Davis, et al.           Expires February 24, 2012               [Page 3]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -220,7 +220,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 4]
+Davis, et al.           Expires February 24, 2012               [Page 4]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -276,7 +276,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 5]
+Davis, et al.           Expires February 24, 2012               [Page 5]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -332,7 +332,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 6]
+Davis, et al.           Expires February 24, 2012               [Page 6]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -388,7 +388,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 7]
+Davis, et al.           Expires February 24, 2012               [Page 7]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -440,11 +440,11 @@ Internet-Draft             BCP 47 Extension T                August 2011
        mechanism subtags.  Each mechanism subtag has a length of 3 to 8
        alphanumeric characters.  The sequence as a whole provides an
        identification of the specification for the transform, such as
-       the mechanism subtag 'UNGEGN' in "und-Cyrl-t-und-latn-m0-ungegn".
+       the mechanism subtag 'ungegn' in "und-Cyrl-t-und-latn-m0-ungegn".
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 8]
+Davis, et al.           Expires February 24, 2012               [Page 8]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -500,7 +500,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012                [Page 9]
+Davis, et al.           Expires February 24, 2012               [Page 9]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -556,7 +556,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012               [Page 10]
+Davis, et al.           Expires February 24, 2012              [Page 10]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -602,17 +602,17 @@ Internet-Draft             BCP 47 Extension T                August 2011
    types relevant to that topic.  For example, mechanism.xml contains
    the subtags (types) for the t mechanisms.
 
-   The XML structure lists the keys, such as <key name="co"
-   alias="collation">, with subelements for the types, such as <type
-   name="phonebk" alias="phonebook"/>.  The currently defined attributes
-   for the mechanisms include:
+   The XML structure lists the keys, such as <key extension="t"
+   name="m0" alias="collation" description="Transliteration extension
+   mechanism">,with subelements for the types, such as <type
+   name="ungegn" description="United Nations Group of Experts on
+   Geographical Names"/>.  The currently defined attributes for the
+   mechanisms include:
 
 
 
 
-
-
-Davis, et al.           Expires February 8, 2012               [Page 11]
+Davis, et al.           Expires February 24, 2012              [Page 11]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -668,7 +668,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012               [Page 12]
+Davis, et al.           Expires February 24, 2012              [Page 12]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -724,7 +724,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012               [Page 13]
+Davis, et al.           Expires February 24, 2012              [Page 13]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -780,7 +780,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.           Expires February 8, 2012               [Page 14]
+Davis, et al.           Expires February 24, 2012              [Page 14]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
@@ -836,5 +836,5 @@ Authors' Addresses
 
 
 
-Davis, et al.           Expires February 8, 2012               [Page 15]
+Davis, et al.           Expires February 24, 2012              [Page 15]
 

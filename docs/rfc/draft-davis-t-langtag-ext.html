@@ -467,7 +467,7 @@ Introduction</h3>
 					committee for incorporation into the next version of Unicode
 					CLDR, parallel
 					with the structure of the 'u' extension
-					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
+					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., Phillips, A., Ed., and Y. Umaoka, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
 					for which it is already the maintaining authority.
 					The data and
 					specification will be available by the time this internet
@@ -482,8 +482,7 @@ Introduction</h3>
 					http://unicode.org/copyright.html. LDML is versioned, and each
 					version of LDML is numbered, dated, and stable. Extension subtags,
 					once
-					defined by LDML, are never retracted or change in meaning in a
-					substantial way. 
+					defined by LDML, are never retracted or substantially changed in meaning. 
 </p>
 <p>The maintaining authority for the 't' extension is
 					the Unicode
@@ -612,9 +611,9 @@ BCP47 Registration Form</h3>
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
 %%
 Identifier: t
-Description: Specifying Content Transforms
+Description: Specifying Transformed Content
 Comments: Subtags for the identification of content that has been
-transformed, including but not limited to
+transformed, including but not limited to:
 transliteration, transcription, and translation.
 Added: 2010-mm-dd
 RFC: [TBD]
@@ -765,7 +764,7 @@ Field Definitions</h3>
 				In such a case, the recipient SHOULD return content that corresponds
 				as closely as feasible to the requested transform, including the specification of the mechanism.
 				For example, if the request is ja-t-it-m0-xxx-v21a-2007,
-				and the recipient has content corresponding to both ja-t-it-m0-xxx-v21a-2007 and ja-t-it-m0-xxx-v21a-2009, then the 2007 version would be preferred.
+				and the recipient has content corresponding to both ja-t-it-m0-xxx-v21a and ja-t-it-m0-xxx-v21b-2009, then the v21a version would be preferred.
 				As is the case for language matching as discussed in <a class='info' href='#BCP47'>[BCP47]<span> (</span><span class='info'>Davis, M., Ed. and A. Phillips, Ed., &ldquo;Tags for the Identification of Language (BCP47),&rdquo; September&nbsp;2009.</span><span>)</span></a>,
 				different implementations MAY have different measures of "closeness".
 </p>
@@ -845,7 +844,7 @@ Machine-Readable Data</h3>
 <p>
 					EDITORIAL NOTE: The following parallels the structure used for the
 					'u' extension
-					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
+					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., Phillips, A., Ed., and Y. Umaoka, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
 					for which the Unicode Consortium is the maintaining authority.
 					The
 					data and
@@ -875,7 +874,7 @@ Machine-Readable Data</h3>
 					data files listing the valid attributes, keys, and types for each successive version of <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>.
 					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the t mechanisms.
 </p>
-<p>The XML structure lists the keys, such as &lt;key extension="t" name="m0" alias="collation" description="Transliteration extension mechanism">,with subelements for the types, 
+<p>The XML structure lists the keys, such as &lt;key extension="t" name="m0" alias="collation" description="Transliteration extension mechanism">, with subelements for the types, 
 					such as &lt;type name="ungegn" description="United Nations Group of Experts on Geographical Names"/>. The currently defined attributes for the mechanisms include:
 </p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
 <col align="left"><col align="left"><col align="left">
@@ -972,10 +971,10 @@ Acknowledgements</h3>
 IANA Considerations</h3>
 
 <p>
-				This document will require IANA to insert the record in
+				This document will require IANA to insert the record of
 				<a class='info' href='#regform'>Section&nbsp;2.4<span> (</span><span class='info'>BCP47 Registration Form</span><span>)</span></a>
 				into the Language Extensions Registry, according to
-				Section 3.7.
+				Section 3.7,
 				Extensions and the Extensions Registry of "Tags for
 				Identifying
 				Languages" in
@@ -1021,7 +1020,7 @@ References</h3>
 <tr><td class="author-text" valign="top"><a name="RFC5234">[RFC5234]</a></td>
 <td class="author-text">Crocker, Ed., &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; 2008.</td></tr>
 <tr><td class="author-text" valign="top"><a name="RFC6067">[RFC6067]</a></td>
-<td class="author-text">Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</td></tr>
+<td class="author-text">Davis, M., Ed., Phillips, A., Ed., and Y. Umaoka, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</td></tr>
 <tr><td class="author-text" valign="top"><a name="UTS35">[UTS35]</a></td>
 <td class="author-text">Davis, M., &ldquo;<a href="http://www.unicode.org/reports/tr35/">Unicode Technical Standard #35: Locale Data
 						Markup Language (LDML)</a>,&rdquo; December&nbsp;2007.</td></tr>

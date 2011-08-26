@@ -299,7 +299,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
    via a royalty-free license at http://unicode.org/copyright.html.
    LDML is versioned, and each version of LDML is numbered, dated, and
    stable.  Extension subtags, once defined by LDML, are never retracted
-   or change in meaning in a substantial way.
+   or substantially changed in meaning.
 
    The maintaining authority for the 't' extension is the Unicode
    Consortium:
@@ -399,9 +399,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
    %%
    Identifier: t
-   Description: Specifying Content Transforms
+   Description: Specifying Transformed Content
    Comments: Subtags for the identification of content that has been
-   transformed, including but not limited to
+   transformed, including but not limited to:
    transliteration, transcription, and translation.
    Added: 2010-mm-dd
    RFC: [TBD]
@@ -507,11 +507,10 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
    transform, including the specification of the mechanism.  For
    example, if the request is ja-t-it-m0-xxx-v21a-2007, and the
-   recipient has content corresponding to both ja-t-it-m0-xxx-v21a-2007
-   and ja-t-it-m0-xxx-v21a-2009, then the 2007 version would be
-   preferred.  As is the case for language matching as discussed in
-   [BCP47], different implementations MAY have different measures of
-   "closeness".
+   recipient has content corresponding to both ja-t-it-m0-xxx-v21a and
+   ja-t-it-m0-xxx-v21b-2009, then the v21a version would be preferred.
+   As is the case for language matching as discussed in [BCP47],
+   different implementations MAY have different measures of "closeness".
 
 2.6.  Registration of Field Subtags
 
@@ -553,6 +552,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
    reception, to allow for comments.  The committee must respond
    publicly to each proposal within 4 weeks after reception.
 
+   The response MAY:
 
 
 
@@ -560,8 +560,6 @@ Davis, et al.           Expires February 24, 2012              [Page 10]
 
 Internet-Draft             BCP 47 Extension T                August 2011
 
-
-   The response MAY:
 
    o  request more information or clarification
 
@@ -604,10 +602,12 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
    The XML structure lists the keys, such as <key extension="t"
    name="m0" alias="collation" description="Transliteration extension
-   mechanism">,with subelements for the types, such as <type
+   mechanism">, with subelements for the types, such as <type
    name="ungegn" description="United Nations Group of Experts on
    Geographical Names"/>.  The currently defined attributes for the
    mechanisms include:
+
+
 
 
 
@@ -731,8 +731,8 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 4.  IANA Considerations
 
-   This document will require IANA to insert the record in Section 2.4
-   into the Language Extensions Registry, according to Section 3.7.
+   This document will require IANA to insert the record of Section 2.4
+   into the Language Extensions Registry, according to Section 3.7,
    Extensions and the Extensions Registry of "Tags for Identifying
    Languages" in [BCP47].  Per Section 5.2 of [BCP47], there might be
    occasional (rare) requests by the Unicode Consortium (the "Authority"
@@ -766,7 +766,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
    [RFC5234]  Crocker, Ed., "Augmented BNF for Syntax Specifications:
               ABNF", 2008.
 
-   [RFC6067]  Davis, M., Ed., Phillips, A., Ed., and Y. Yoshito, Ed.,
+   [RFC6067]  Davis, M., Ed., Phillips, A., Ed., and Y. Umaoka, Ed.,
               "BCP 47 Extension U", September 2010.
 
    [UTS35]    Davis, M., "Unicode Technical Standard #35: Locale Data

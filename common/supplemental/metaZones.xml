@@ -89,6 +89,10 @@
 			<timezone type="Africa/Johannesburg">
 				<usesMetazone mzone="Africa_Southern"/>
 			</timezone>
+			<timezone type="Africa/Juba">
+				<usesMetazone to="2000-01-15 10:00" mzone="Africa_Central"/>
+				<usesMetazone from="2000-01-15 10:00" mzone="Africa_Eastern"/>
+			</timezone>
 			<timezone type="Africa/Kampala">
 				<usesMetazone mzone="Africa_Eastern"/>
 			</timezone>
@@ -632,7 +636,8 @@
 				<usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
 				<usesMetazone to="2001-04-01 08:00" from="2000-10-29 07:00" mzone="America_Eastern"/>
 				<usesMetazone to="2006-10-29 07:00" from="2001-04-01 08:00" mzone="America_Central"/>
-				<usesMetazone from="2006-10-29 07:00" mzone="America_Eastern"/>
+				<usesMetazone to="2007-03-11 08:00" from="2006-10-29 07:00" mzone="America_Eastern"/>
+				<usesMetazone from="2007-03-11 08:00" mzone="America_Central"/>
 			</timezone>
 			<timezone type="America/Rio_Branco">
 				<usesMetazone to="2008-06-24 05:00" mzone="Acre"/>

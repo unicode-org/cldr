@@ -1458,7 +1458,7 @@ public class SurveyForum {
 		try {
 			SyndFeed feed = new SyndFeedImpl();
 			feed.setFeedType(feedType);
-			List entries = new ArrayList();
+			List<SyndEntry> entries = new ArrayList<SyndEntry>();
 			feed.setLink(base);
 
 			if(loc != null) {
@@ -1502,7 +1502,7 @@ public class SurveyForum {
 								description.setType("text/html");
 								description.setValue("From: "+nameLink+"<br><hr>"+ shortenText(text));
 								entry.setDescription(description);
-								entries.and(entry);
+								entries.add(entry);
 
 								count++;
 							}
@@ -1585,7 +1585,7 @@ public class SurveyForum {
 							description.setType("text/html");
 							description.setValue("From: "+nameLink+"<br><hr>"+ shortenText(text));
 							entry.setDescription(description);
-							entries.and(entry);
+							entries.add(entry);
 
 							count++;
 						}

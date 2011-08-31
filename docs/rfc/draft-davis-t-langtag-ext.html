@@ -145,12 +145,12 @@
 <tr><td class="header">Internet Engineering Task Force</td><td class="header">M. Davis</td></tr>
 <tr><td class="header">Internet-Draft</td><td class="header">Google</td></tr>
 <tr><td class="header">Intended status: Informational</td><td class="header">A. Phillips</td></tr>
-<tr><td class="header">Expires: February 24, 2012</td><td class="header">Lab126</td></tr>
+<tr><td class="header">Expires: March 3, 2012</td><td class="header">Lab126</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Y. Umaoka</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">C. Falk</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Infinite Automata</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">August 23, 2011</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">August 31, 2011</td></tr>
 </table></td></tr></table>
 <h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-05</h1>
 
@@ -184,7 +184,7 @@ and may be updated, replaced, or obsoleted by other documents at any time.
 It is inappropriate to use Internet-Drafts as reference material or to cite
 them other than as &ldquo;work in progress.&rdquo;</p>
 <p>
-This Internet-Draft will expire on February 24, 2012.</p>
+This Internet-Draft will expire on March 3, 2012.</p>
 
 <h3>Copyright Notice</h3>
 <p>
@@ -569,10 +569,10 @@ Structure</h3>
 </dd>
 <dt>d.</dt>
 <dd>
-							The order of the subtags in a t extension is
-							significant (see
+							The order of the fields in a t extension is not significant. The order of subtags within a field is significant.
+							(See
 							<a class='info' href='#canonicalization'>Section&nbsp;2.3<span> (</span><span class='info'>Canonicalization</span><span>)</span></a>
-							Canonicalization).
+							Canonicalization.)
 						
 </dd>
 <dt>e.</dt>
@@ -598,6 +598,7 @@ Canonicalization</h3>
                     the subtags used in this extension. The canonical form for all
                     subtags in the extension is lowercase, with the fields ordered by
                     the separators, alphabetically.
+                    The order of subtags within a field is significant, and MUST NOT be changed in the process of canonicalizing.
 </p>
 <a name="regform"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>

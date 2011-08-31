@@ -47,7 +47,7 @@
             </address>
         </author>
         
-		<date month="August" year="2011" day="23" />
+		<date month="August" year="2011" day="31" />
 
 
 
@@ -364,10 +364,10 @@ alphanum= ALPHA / DIGIT
 							Two identical field
 							separators MUST NOT be present in the language tag.</t>
 						<t>
-							The order of the subtags in a t extension is
-							significant (see
+							The order of the fields in a t extension is not significant. The order of subtags within a field is significant.
+							(See
 							<xref target='canonicalization' />
-							Canonicalization).
+							Canonicalization.)
 						</t>
 		                <t>
 		                    The 't' subtag fields are defined by 
@@ -385,7 +385,8 @@ alphanum= ALPHA / DIGIT
                     <xref target="BCP47"></xref>, the use of uppercase or lowercase letters is not significant in
                     the subtags used in this extension. The canonical form for all
                     subtags in the extension is lowercase, with the fields ordered by
-                    the separators, alphabetically.</t>
+                    the separators, alphabetically.
+                    The order of subtags within a field is significant, and MUST NOT be changed in the process of canonicalizing.</t>
             </section>
             <section title="BCP47 Registration Form" anchor="regform">
                 <t>

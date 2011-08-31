@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="en"/>
+		<territory type="ZZ"/>
+	</identity>
+	<localeDisplayNames>
+		<types>
+			<type type="roc" key="calendar">en: Minguo Calendar; alts: Republic of China Calendar, Republican Calendar; origin 1912</type>
+		</types>
+	</localeDisplayNames>
+	<dates>
+		<timeZoneNames>
+			<metazone type="America_Central">
+				<long>
+					<generic>North American Central Time</generic>
+					<standard>North American Central Standard Time</standard>
+					<daylight>North American Central Daylight Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>North American Eastern Time</generic>
+					<standard>North American Eastern Standard Time</standard>
+					<daylight>North American Eastern Daylight Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Mountain">
+				<long>
+					<generic>North American Mountain Time</generic>
+					<standard>North American Mountain Standard Time</standard>
+					<daylight>North American Mountain Daylight Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>North American Pacific Time</generic>
+					<standard>North American Pacific Standard Time</standard>
+					<daylight>North American Pacific Daylight Time</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	<dates>
+</ldml>

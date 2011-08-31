@@ -8478,13 +8478,9 @@ o	            		}*/
                 }
             }
             String altPrefix = null;
-            // handle FFT
-                    
-            if(p.type.equals(DataSection.FAKE_FLEX_THING)) {
-                throw new RuntimeException("Missing fake flex thing");
-            } else {
-                altPrefix =         XPathTable.altProposedPrefix(ctx.session.user.id);
-            }
+            // handle FFT        
+            altPrefix = XPathTable.altProposedPrefix(ctx.session.user.id);
+            
             // user requested a new alternate.
             String newAlt = ctx.field(fieldHash+"_alt").trim();
             if(newAlt.length()>0) {

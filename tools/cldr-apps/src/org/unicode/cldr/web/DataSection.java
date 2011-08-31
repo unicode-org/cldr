@@ -1130,10 +1130,6 @@ public class DataSection extends Registerable {
         isInitted = true;
     }
     
-    public static final String FAKE_FLEX_THING = "available date formats: add NEW item";
-    public static final String FAKE_FLEX_SUFFIX = "dateTimes/availableDateFormats/dateFormatItem[@id=\"NEW\"]";
-    public static final String FAKE_FLEX_XPATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem";
-
     /**
      * Divider denoting a specific Continent division.
      */
@@ -1231,14 +1227,6 @@ public class DataSection extends Registerable {
         				// nongreg
         			} else {
         				removePrefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]";
-
-        				// Add the fake 'dateTimes/availableDateFormats/new'
-        				DataRow myp = getDataRow(FAKE_FLEX_THING);
-        				String spiel = "<i>add</i>"; //Use this item to add a new availableDateFormat
-        				myp.xpathSuffix = FAKE_FLEX_SUFFIX;
-        				canName=false;
-        				myp.displayName = spiel;
-        				//                    myp.addItem(spiel, null, null);
         			}
         		}
         	} else if(xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {

@@ -390,8 +390,10 @@ public class LDMLConstants {
     public static final String UNITS_SHORT      = "unitsShort";
     public static final String UNIT             = "unit";
     public static final String UNIT_PATTERN     = "unitPattern";
+    
     public static final String LANGUAGES_SHORT  = "languagesShort";
-
+    public static final String SCRIPTS_STANDALONE = "scriptsStandAlone";
+    
     public static final String LANGUAGE_MATCHING  = "languageMatching";
     public static final String LANGUAGE_MATCHES  = "languageMatches";
     public static final String LANGUAGE_MATCH  = "languageMatch";

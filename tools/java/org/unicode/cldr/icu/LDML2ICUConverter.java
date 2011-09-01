@@ -760,6 +760,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         keyNameMap.put("currencies", "Currencies");
         keyNameMap.put("variants", "Variants");
         keyNameMap.put("scripts", "Scripts");
+        keyNameMap.put("scriptsStandAlone", "Scripts%stand-alone");
         keyNameMap.put("keys", "Keys");
         keyNameMap.put("types", "Types");
         keyNameMap.put("version", "Version");
@@ -1146,7 +1147,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         Resource res = null;
         String stuff[] = { LDMLConstants.LANGUAGES, LDMLConstants.SCRIPTS, LDMLConstants.TERRITORIES, LDMLConstants.KEYS, LDMLConstants.VARIANTS, LDMLConstants.MSNS, LDMLConstants.TYPES,
-            LDMLConstants.ALIAS, LDMLConstants.CODE_PATTERNS, LDMLConstants.LOCALEDISPLAYPATTERN, LDMLConstants.LANGUAGES_SHORT };
+            LDMLConstants.ALIAS, LDMLConstants.CODE_PATTERNS, LDMLConstants.LOCALEDISPLAYPATTERN, LDMLConstants.LANGUAGES_SHORT, LDMLConstants.SCRIPTS_STANDALONE };
 
         for (String name : stuff) {
             if (name.equals(LDMLConstants.LANGUAGES) || name.equals(LDMLConstants.SCRIPTS) || name.equals(LDMLConstants.TERRITORIES) || name.equals(LDMLConstants.KEYS)
@@ -1161,6 +1162,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 // TODO: parseAliasResource - these are different types in ICU, can't just alias them all
             } else if (name.equals(LDMLConstants.LANGUAGES_SHORT)) {
                 res = parseListAlt(loc, LDMLConstants.LANGUAGES, name, LDMLConstants.SHORT);
+            } else if (name.equals(LDMLConstants.SCRIPTS_STANDALONE)) {
+                res = parseListAlt(loc, LDMLConstants.SCRIPTS, name, LDMLConstants.STAND_ALONE);
             } else {
                 log.error("Unknown element found: " + name);
                 System.exit(-1);

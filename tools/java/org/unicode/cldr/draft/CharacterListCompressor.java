@@ -35,6 +35,9 @@ public class CharacterListCompressor {
       this.last = last;
     }
     
+    public String toString() {
+        return "«" + first + "-" + last + "»";
+    }
   }
   
   //
@@ -359,7 +362,11 @@ public class CharacterListCompressor {
     }
 
     String str = strBuild.toString();
-    //str = "\uDBFF\uDC00\uDBFF\uDFFD\u0001\u0001";
+
+    if (str.length() == 0) {
+        str = "\uDBFF\uDC00\uDBFF\uDFFD\u0001\u0001";
+    }
+
     List<Interval> ilist = getStrRangeListFromRangeStr(str);
 
     String encodedStr = base88EncodeList(ilist);

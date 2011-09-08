@@ -25,7 +25,7 @@ public class SearchXml {
     private static boolean showFiles;
     private static boolean showValues;
     private static boolean replaceValues;
-    
+
     private static int total = 0;
 
     private static boolean countOnly = false;
@@ -39,7 +39,7 @@ public class SearchXml {
     private static String valuePattern;
 
     private static Counter<String> kountRegexMatches;
-    
+
     final static Options myOptions = new Options()
     .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
     .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
@@ -62,32 +62,32 @@ public class SearchXml {
         Output<Boolean> exclude = new Output<Boolean>();
         fileMatcher = getMatcher(myOptions.get("file").getValue(), exclude);
         fileExclude = exclude.value;
-        
+
         pathMatcher = getMatcher(myOptions.get("path").getValue(), exclude);
         pathExclude = exclude.value;
-        
+
         levelMatcher = getMatcher(myOptions.get("level").getValue(), exclude);
         levelExclude = exclude.value;
-        
+
         valueMatcher = getMatcher(myOptions.get("value").getValue(), exclude);
         valueExclude = exclude.value;
-        
+
         if (pathMatcher != null && valueMatcher != null) {
             valuePattern = valueMatcher.pattern().toString();
             if (Pattern.compile("\\$\\d.*").matcher(valuePattern).find()) {
                 replaceValues = true;
             }
         }
-        
+
         countOnly = myOptions.get("count").doesOccur();
         kountRegexMatches = myOptions.get("kount").doesOccur() ? new Counter<String>() : null;
 
-//        showFiles = myOptions.get("showFiles").doesOccur();
-//        showValues = myOptions.get("showValues").doesOccur();
+        //        showFiles = myOptions.get("showFiles").doesOccur();
+        //        showValues = myOptions.get("showValues").doesOccur();
 
         double startTime = System.currentTimeMillis();
         File src = new File(sourceDirectory);
-        
+
         if (countOnly) {
             System.out.print("file");
             for (Level cLevel : Level.values()) {
@@ -95,7 +95,7 @@ public class SearchXml {
             }
             System.out.println();
         }
-        
+
         processDirectory(src);
 
         if (kountRegexMatches != null) {
@@ -103,7 +103,7 @@ public class SearchXml {
                 System.out.println(kountRegexMatches.getCount(item) + "\t" + item);
             }
         }
-        
+
         double deltaTime = System.currentTimeMillis() - startTime;
         System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
         System.out.println("Instances found: " + total);
@@ -130,16 +130,16 @@ public class SearchXml {
             if (file.length() == 0) {
                 continue;
             }
-            
+
             String fileName = file.getName();
             String canonicalFile = file.getCanonicalPath();
 
             if (!fileName.endsWith(".xml")) {
                 continue;
             }
-            
+
             fileName = fileName.substring(0,fileName.length()-4); // remove .xml
-            
+
             if (fileMatcher != null && fileExclude == fileMatcher.reset(fileName).find()) {
                 if (verbose) {
                     System.out.println("Skipping " + canonicalFile);
@@ -156,8 +156,12 @@ public class SearchXml {
             myHandler.firstMessage = "* " + canonicalFile;
             myHandler.file = fileName;
             if (levelMatcher != null || countOnly) {
-                myHandler.level = CoverageLevel2.getInstance(fileName);
-           }
+                try {
+                    myHandler.level = CoverageLevel2.getInstance(fileName);
+                } catch (Exception e) {
+                    myHandler.level = null;
+                }
+            }
 
             XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
             try {
@@ -194,15 +198,13 @@ public class SearchXml {
             if (pathMatcher != null && pathExclude == pathMatcher.reset(path).find()) {
                 return;
             }
-            
+
 
             Level pathLevel = null;
-            
-            if (level != null) {
-                pathLevel = level.getLevel(path);
-                levelCounter.add(pathLevel, 1);
-            }
-            
+
+            pathLevel = level == null ? Level.COMPREHENSIVE : level.getLevel(path);
+            levelCounter.add(pathLevel, 1);
+
             if (levelMatcher != null && levelExclude == levelMatcher.reset(pathLevel.toString()).find()) {
                 return;
             }
@@ -218,15 +220,15 @@ public class SearchXml {
                 }
                 valueMatcher = Pattern.compile(pattern).matcher("");
             }
-            
+
             if (valueMatcher != null && valueExclude == valueMatcher.reset(value).find()) {
                 return;
             }
-            
+
             if (kountRegexMatches != null && pathMatcher != null) {
                 kountRegexMatches.add(pathMatcher.group(1), 1);
             }
-            
+
             ++total;
 
             if (firstMessage != null) {

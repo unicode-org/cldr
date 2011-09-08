@@ -258,7 +258,7 @@ public final class FileUtilities {
      * @author markdavis
      *
      */
-    public Iterable<String> in(Class<?> class1, String file) {
+    public static Iterable<String> in(Class<?> class1, String file) {
         return With.in(new FileLines(openFile(class1, file, UTF8)));
     }
     
@@ -270,7 +270,7 @@ public final class FileUtilities {
      * @author markdavis
      *
      */
-    public Iterable<String> in(Class<?> class1, String file, Charset charset) {
+    public static Iterable<String> in(Class<?> class1, String file, Charset charset) {
         return With.in(new FileLines(openFile(class1, file, charset)));
     }
     
@@ -282,7 +282,7 @@ public final class FileUtilities {
      * @author markdavis
      *
      */
-    public Iterable<String> in(String directory, String file) {
+    public static Iterable<String> in(String directory, String file) {
         return With.in(new FileLines(openFile(directory, file, UTF8)));
     }
     
@@ -294,7 +294,7 @@ public final class FileUtilities {
      * @author markdavis
      *
      */
-    public Iterable<String> in(String directory, String file, Charset charset) {
+    public static Iterable<String> in(String directory, String file, Charset charset) {
         return With.in(new FileLines(openFile(directory, file, charset)));
     }
     
@@ -314,5 +314,23 @@ public final class FileUtilities {
             }
         }
         
+    }
+    
+    public static String cleanLine(String line) {
+        int comment = line.indexOf("#");
+        if (comment >= 0) {
+            line = line.substring(0,comment);
+        }
+        if (line.startsWith("\uFEFF")) {
+            line = line.substring(1);
+        }
+        return line.trim();
+    }
+    
+    public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*");
+
+    public static String[] cleanSemiFields(String line) {
+        line = cleanLine(line);
+        return line.isEmpty() ? null : SEMI_SPLIT.split(line);
     }
 }

@@ -191,25 +191,43 @@ public class LocaleIDParser {
 		return this;
 	}
 	
-	/**
-	 * Utility to get the parent of a locale. If the input is "root", then the output is null.
-	 */
-	public static String getParent(String localeName) {
-	    int pos = localeName.lastIndexOf('_');
-	    if (pos >= 0) {
-	        String explicitParent = EXPLICIT_PARENT_LOCALES.get(localeName);
-	        if ( explicitParent != null ) {
-	            return explicitParent;
-	        }
-	        String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
-	        if (other != null) {
-	            return other;
-	        }
-	        return localeName.substring(0,pos);
-	    }
-	    if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
-	    return "root";
-	}
+    /**
+     * Utility to get the parent of a locale. If the input is "root", then the output is null.
+     */
+    public static String getParent(String localeName) {
+        int pos = localeName.lastIndexOf('_');
+        if (pos >= 0) {
+            String explicitParent = EXPLICIT_PARENT_LOCALES.get(localeName);
+            if ( explicitParent != null ) {
+                return explicitParent;
+            }
+            String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
+            if (other != null) {
+                return other;
+            }
+            return localeName.substring(0,pos);
+        }
+        if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
+        return "root";
+    }
+    /**
+     * Utility to get the simple parent of a locale. If the input is "root", then the output is null.
+     * This method is similar to the getParent() method above, except that it does NOT pay any attention
+     * to the explicit parent locales information.  Thus, getParent("zh_Hant") will return "root", 
+     * but getSimpleParent("zh_Hant") would return "zh". 
+     */
+    public static String getSimpleParent(String localeName) {
+        int pos = localeName.lastIndexOf('_');
+        if (pos >= 0) {
+            String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
+            if (other != null) {
+                return other;
+            }
+            return localeName.substring(0,pos);
+        }
+        if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
+        return "root";
+    }
 	
 	public LocaleIDParser setLanguage(String language) {
 		this.language = language;

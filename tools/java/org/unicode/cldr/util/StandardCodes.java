@@ -270,7 +270,7 @@ public class StandardCodes {
     }
 
     /**
-     * Returns coverage level of locale according to organization. Returns Level.MODERN if information is missing.
+     * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
      */
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
         synchronized (StandardCodes.class) {
@@ -278,16 +278,16 @@ public class StandardCodes {
                 loadPlatformLocaleStatus();
             }
         }
-        if (organization == null) return Level.MODERN;
+        if (organization == null) return Level.UNDETERMINED;
         Map<String, Level> locale_status = platform_locale_level.get(organization);
-        if (locale_status == null) return Level.MODERN;
+        if (locale_status == null) return Level.UNDETERMINED;
         // see if there is a parent
         while (desiredLocale != null) {
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) return status;
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
-        return Level.MODERN;
+        return Level.UNDETERMINED;
     }
 
     public Set<String> getLocaleCoverageOrganizations() {
@@ -430,7 +430,12 @@ public class StandardCodes {
      * @return group if availble, null if not
      */
     public String getGroup(String locale, String org) {
-        return getLocaleCoverageLevel(org,locale).toString();
+        Level l = getLocaleCoverageLevel(org,locale);
+        if ( l.equals(Level.UNDETERMINED)) {
+            return null;
+        } else {
+            return l.toString();
+        }
     }
 
     // ========== PRIVATES ==========

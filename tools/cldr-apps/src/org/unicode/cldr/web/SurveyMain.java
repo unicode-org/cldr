@@ -3365,7 +3365,7 @@ o	            		}*/
                    int mySubmit=DBUtils.sqlCount(ctx,conn,psMySubmit);
                     int myVet=DBUtils.sqlCount(ctx,conn,psMyVet);
                 
-                    String userInfo = "<tr><td>"+nameLink + "</td><td>" +"submits: "+ mySubmit+"</td><td>vets: "+myVet+"</td></tr>";
+                    String userInfo = "<tr><td>"+nameLink + "</td><td>" +"submits: "+ mySubmit+"</td><td>votes: "+myVet+"</td></tr>";
 					if((mySubmit+myVet)==0) {
 						nullMap.put(theirName, userInfo);
 //						userInfo = "<span class='disabledbox' style='color:#888; border: 1px dashed red;'>" + userInfo + "</span>";
@@ -3429,13 +3429,13 @@ o	            		}*/
 								userInfo = userInfo + " submits: "+ nSubmit+" ";
 							}
 							if(nVet > 0) {
-								userInfo = userInfo + " vets: "+nVet;
+								userInfo = userInfo + " votes: "+nVet;
 							}
 							
-							if((nSubmit+nVet)==0) {
+//							if((nSubmit+nVet)==0) {
 //										userInfo = "<span class='disabledbox' style='color:#888; border: 1px dashed red;'>" + userInfo + "</span>";
-								userInfo = "<strike>"+userInfo+"</strike>";
-							}
+//								userInfo = "<strike>"+userInfo+"</strike>";
+//							}
 //									userInfo = userInfo + ", file: "+theLocale+", th: " + theirLocales[j];
                         }
                         Hashtable<Integer,String> oldStr = theHash.get(theLocale);
@@ -3677,19 +3677,19 @@ o	            		}*/
 					}
                     if(isDc) {
                         ctx.println(" (<i>default content</i>)");
-                    } else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
-						Hashtable<Integer, String> what = nullStatus.get(subLocale);				
-						if(what!=null) {
-							ctx.println("<br><blockquote><b>Did not participate:</b> ");
-							for(Iterator<String> i = what.values().iterator();i.hasNext();) {
-								ctx.println(i.next().toString()	);
-								if(i.hasNext()) {
-									ctx.println(", ");
-								}
-							}
-							ctx.println("</blockquote>");
-						}
-					}
+                    } // else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
+//						Hashtable<Integer, String> what = nullStatus.get(subLocale);				
+//						if(what!=null) {
+//							ctx.println("<br><blockquote><b>Did not participate:</b> ");
+//							for(Iterator<String> i = what.values().iterator();i.hasNext();) {
+//								ctx.println(i.next().toString()	);
+//								if(i.hasNext()) {
+//									ctx.println(", ");
+//								}
+//							}
+//							ctx.println("</blockquote>");
+//						}
+//					}
                 //}
                 j++;
             }

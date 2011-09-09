@@ -3521,7 +3521,7 @@ o	            		}*/
         	CLDRLocale lang = (CLDRLocale)(li.next());
             String group = sc.getGroup(lang.getBaseName(), missingLocalesForOrg);
             if((group != null) &&
-                (!"basic".equals(group)) && // exclude it for being basic
+                // Not sure why we did this... jce (!"basic".equals(group)) && // exclude it for being basic
                 (null==supplemental.defaultContentToParent(group)) ) {
                 //System.err.println("getGroup("+lang+", " + missingLocalesForOrg + ") = " + group);
                 if(!isValidLocale(lang)) {

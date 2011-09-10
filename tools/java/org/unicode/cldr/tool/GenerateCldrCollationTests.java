@@ -17,6 +17,7 @@ import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.LDML2ICUConverter;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -67,7 +68,7 @@ public class GenerateCldrCollationTests {
             Map types_rules = (Map) locale_types_rules.get(locale);
             if (types_rules != null) Log.logln("Weird: overlap in validLocales: " + locale);
             else {
-                for (String parentlocale = GenerateCldrTests.getParent(locale); parentlocale != null; parentlocale = GenerateCldrTests.getParent(parentlocale)) {
+                for (String parentlocale = LocaleIDParser.getSimpleParent(locale); parentlocale != null; parentlocale = LocaleIDParser.getSimpleParent(parentlocale)) {
                     types_rules = (Map) locale_types_rules.get(parentlocale);
                     if (types_rules != null) {
                         locale_types_rules.put(locale, types_rules);
@@ -98,7 +99,7 @@ public class GenerateCldrCollationTests {
         for (Iterator<String> it = locales.iterator(); it.hasNext();) {
           String locale = it.next();
         	if (ulocale_rules.get(locale) != null) continue;
-            String parent = LanguageTagParser.getParent(locale); // GenerateCldrTests.getParent(locale);
+            String parent = LocaleIDParser.getSimpleParent(locale); // GenerateCldrTests.getParent(locale);
             if (parent == null) continue;
         	try {
                 ulocale_rules.put(locale, ulocale_rules.get(parent));

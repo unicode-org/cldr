@@ -14,6 +14,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
 
 public class SearchCLDR {
@@ -166,7 +167,7 @@ public class SearchCLDR {
                     headerShown = true;
                 }
                 if (showParent && parent == null) {
-                    String parentLocale = CLDRFile.getParent(locale);
+                    String parentLocale = LocaleIDParser.getParent(locale);
                     parent = cldrFactory.make(parentLocale, true);
                 }
                 String shortPath = pretty.getPrettyPath(path);

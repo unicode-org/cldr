@@ -2251,13 +2251,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     return valueOrdering.getOrder(); // already unmodifiable
   }
 
-  /**
-   * Utility to get the parent of a locale. If the input is "root", then the output is null.
-   */
-  public static String getParent(String localeName) {
-    return LocaleIDParser.getParent(localeName);
-  }
-
   // note: run FindDTDOrder to get this list
   // TODO, convert to use SupplementalInfo
 

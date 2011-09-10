@@ -900,10 +900,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         // If this locale has an explicit parent, then put that into the resource file
-        if (supplementalDataInfo != null && supplementalDataInfo.getParentLocale(localeID) != null && !isCollationRes) {
+        if (supplementalDataInfo != null && supplementalDataInfo.getExplicitParentLocale(localeID) != null && !isCollationRes) {
             ResourceString pl = new ResourceString();
             pl.name = "%%Parent";
-            pl.val = supplementalDataInfo.getParentLocale(localeID);
+            pl.val = supplementalDataInfo.getExplicitParentLocale(localeID);
             mainTable.appendContents(pl);
         }
 

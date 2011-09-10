@@ -108,7 +108,7 @@ public class PivotData {
     if (me.getFullXPath("//ldml/alias",true) != null) {
       throw new IllegalArgumentException("File cannot be completely aliased: " + localeID);
     }
-    String parentID = CLDRFile.getParent(localeID);
+    String parentID = LocaleIDParser.getParent(localeID);
     
     if (DEBUG) System.out.format("LocaleID: %s, %s" + CldrUtility.LINE_SEPARATOR, localeID, parentID);
     

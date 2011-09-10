@@ -359,7 +359,7 @@ public class ConsoleCheckCLDR {
                 if (ErrorFile.voteFactory != null) {
                     ErrorFile.voteFile = ErrorFile.voteFactory.make(localeID, true);
                 }
-                final String parentID = file.getParent(localeID);
+                final String parentID = LocaleIDParser.getParent(localeID);
                 if (parentID != null) {
                     parent = cldrFactory.make(parentID, true);
                 }

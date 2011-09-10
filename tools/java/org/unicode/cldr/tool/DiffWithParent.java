@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.XPathParts;
@@ -34,7 +35,7 @@ public class DiffWithParent {
         if (fileMatcher.reset(locale).matches()) {
           System.out.println(locale + "\t" + english.getName(locale));
           CLDRFile file = cldrFactory.make(locale, false);
-          String parentLocale = CLDRFile.getParent(locale);
+          String parentLocale = LocaleIDParser.getParent(locale);
           CLDRFile parent = cldrFactory.make(parentLocale, true); // use
                                                                   // resolved
                                                                   // parent

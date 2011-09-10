@@ -34,6 +34,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.StandardCodes;
@@ -319,7 +320,7 @@ public class CLDRModify {
           }
           if (options[MINIMIZE].doesOccur) {
             // TODO, fix identity
-            String parent = CLDRFile.getParent(test);
+            String parent = LocaleIDParser.getParent(test);
             if (parent != null) {
               CLDRFile toRemove = cldrFactory.make(parent, true);
               // remove the items that are language codes, script codes, or region codes

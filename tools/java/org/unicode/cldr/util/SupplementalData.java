@@ -3,7 +3,7 @@
 //  fivejay
 //
 //  Created by Steven R. Loomis on 16/01/2007.
-//  Copyright 2007 IBM. All rights reserved.
+//  Copyright 2007-2011 IBM. All rights reserved.
 //
 //
 // TODO: replace string literals with constants
@@ -16,6 +16,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -234,12 +235,12 @@ public class SupplementalData {
                 String child = locales[i];
 
                 // Find a parent of this locale which is NOT itself also a defaultContent
-                String nextParent=LDMLUtilities.getParent(child);
+                String nextParent=LocaleIDParser.getParent(child);
                 while(nextParent!=null) {
                     if (!localeSet.contains(nextParent)) { // Did we find a parent that's also not itself a defaultContent?
                         break;
                     }
-                    nextParent=LDMLUtilities.getParent(nextParent);  // loop over parent localse
+                    nextParent=LocaleIDParser.getParent(nextParent);  // loop over parent localse
                 }
                 // parent 
                 if(nextParent == null) {
@@ -249,7 +250,7 @@ public class SupplementalData {
                 c2p.put(child, nextParent);  //  wo_Arab_SN -> wo
                 String oldChild = (String)p2c.get(nextParent);
                 if(oldChild != null) {
-                    String childParent = LDMLUtilities.getParent(child);
+                    String childParent = LocaleIDParser.getParent(child);
                     if(!childParent.equals(oldChild)) {
                         throw new InternalError("SupplementalData.defaultContentToChild(): defaultContent list in wrong order? Tried to map "+nextParent + " -> " + child + ", replacing " + oldChild + " (should have been " + childParent+")");
                     }

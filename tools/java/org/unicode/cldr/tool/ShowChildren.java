@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
@@ -99,7 +100,7 @@ public class ShowChildren {
             if (ltp.set(locale).getRegion().isEmpty()) {
                 return locale;
             }
-            locale = LanguageTagParser.getParent(locale);
+            locale = LocaleIDParser.getParent(locale);
         }
     }
 }

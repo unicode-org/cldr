@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.util.Relation;
@@ -1999,7 +2000,7 @@ public class SupplementalDataInfo {
         return targetTimeZones;
     }
 
-    public String getParentLocale(String loc) {
+    public String getExplicitParentLocale(String loc) {
         if ( parentLocales.containsKey(loc)) {
             return parentLocales.get(loc);
         }
@@ -2389,7 +2390,7 @@ public class SupplementalDataInfo {
             }
             PluralInfo result = localeToPluralInfo.get(locale);
             if (result != null) return result;
-            locale = LanguageTagParser.getParent(locale);
+            locale = LocaleIDParser.getSimpleParent(locale);
         }
         return null;
     }
@@ -2399,7 +2400,7 @@ public class SupplementalDataInfo {
         while (locale != null) {
             DayPeriodInfo result = localeToDayPeriodInfo.get(locale);
             if (result != null) return result;
-            locale = LanguageTagParser.getParent(locale);
+            locale = LocaleIDParser.getSimpleParent(locale);
         }
         return null;
     }

@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
+* Copyright (c) 2002-2011, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: Mark Davis
@@ -260,25 +260,7 @@ public class LocaleIDParser {
     if (getVariants().length != 0) result.add(Level.Variants);
     return result;
   }
-  
-  public String getParent() {
-    String localeName = toString();
-    int pos = localeName.lastIndexOf('_');
-    if (pos >= 0) {
-        String explicitParent = EXPLICIT_PARENT_LOCALES.get(localeName);
-        if ( explicitParent != null ) {
-            return explicitParent;
-        }
-      String other = TOP_LEVEL_ALIAS_LOCALES.get(localeName);
-      if (other != null) {
-          return other;
-      }
-      return localeName.substring(0,pos);
-    }
-    if (localeName.equals("root") || localeName.equals("supplementalData")) return null;
-    return "root";
-  }
-  
+    
   public Set<String> getSiblings(Set<String> set) {
     Set<Level> myLevel = getLevels();
     String localeID = toString();

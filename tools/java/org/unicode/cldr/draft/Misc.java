@@ -20,6 +20,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -138,7 +139,7 @@ public class Misc {
         for (String string : strings) {
             String defCon = null;
             for (String dc : defaultContents) {
-                if (string.equals(LanguageTagParser.getParent(dc))) {
+                if (string.equals(LocaleIDParser.getParent(dc))) {
                     defCon = dc;
                     break;
                 }

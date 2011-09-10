@@ -80,7 +80,7 @@ public class TestInheritance extends TestFmwk {
 
         // get default
         for (String localeID : defaultContents) {
-            parent2default.put(LanguageTagParser.getParent(localeID), localeID);
+            parent2default.put(LocaleIDParser.getSimpleParent(localeID), localeID);
         }
 
         Set<String> skip = Builder.with(new HashSet<String>()).addAll("in", "iw", "mo", "no", "root", "sh", "tl").freeze();

@@ -17,6 +17,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -354,7 +355,7 @@ public class GenerateMaximalLocales {
       if (ltp.set(locale).getVariants().size() != 0) {
         continue;
       }
-      String parent = LanguageTagParser.getParent(locale);
+      String parent = LocaleIDParser.getSimpleParent(locale);
       if (ltp.getScript().length() != 0) {
         hasScript.add(parent);
       }

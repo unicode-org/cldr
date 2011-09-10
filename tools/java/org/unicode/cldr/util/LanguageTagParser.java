@@ -1,6 +1,6 @@
 /*
 **********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
+* Copyright (c) 2002-2011, International Business Machines
 * Corporation and others.  All Rights Reserved.
 **********************************************************************
 * Author: Mark Davis
@@ -342,18 +342,6 @@ public class LanguageTagParser {
       }
     }
     return result;
-  }
-
-  /**
-   * From en-US, returns en, then root, then null.
-   * @param localeCode
-   * @return
-   */
-  public static String getParent(String localeCode) {
-    if (localeCode == null || localeCode.equals("root")) return null;
-    int pos = localeCode.lastIndexOf('_');
-    if (pos < 0) return "root";
-    return localeCode.substring(0,pos);
   }
   
   public void setLanguage(String language) {

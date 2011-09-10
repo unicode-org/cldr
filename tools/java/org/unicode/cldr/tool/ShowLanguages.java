@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2010, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2011, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -41,6 +41,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralSnapshot;
@@ -1370,7 +1371,7 @@ public class ShowLanguages {
             String status = statusLevel == null ? null : statusLevel.toString();
             String curLocale = locale;
             while (status == null) {
-                curLocale = LanguageTagParser.getParent(curLocale);
+                curLocale = LocaleIDParser.getParent(curLocale);
                 if (curLocale.equals("root")) {
                     status = "<i>[n/a]</i>";
                     break;

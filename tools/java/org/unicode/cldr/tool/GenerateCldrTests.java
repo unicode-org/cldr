@@ -1,6 +1,6 @@
 /*
  **********************************************************************
- * Copyright (c) 2002-2004, International Business Machines
+ * Copyright (c) 2002-2011, International Business Machines
  * Corporation and others.  All Rights Reserved.
  **********************************************************************
  * Author: Mark Davis
@@ -1009,16 +1009,6 @@ public class GenerateCldrTests {
         }
         xpath.insert(0, '/');
         return xpath.toString();
-    }
-
-    public static String getParent(String locale) {
-        int pos = locale.lastIndexOf('_');
-        if (pos >= 0) {
-            return locale.substring(0, pos);
-        }
-        if (!locale.equals("root"))
-            return "root";
-        return null;
     }
 
     public static String replace(String source, String pattern, String replacement) {

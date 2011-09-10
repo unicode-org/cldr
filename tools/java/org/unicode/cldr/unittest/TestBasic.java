@@ -620,7 +620,7 @@ public class TestBasic extends TestFmwk {
 
     private void showDifferences(String locale) {
         CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, false);
-        final String localeParent = cldrFile.getParent(locale);
+        final String localeParent = LocaleIDParser.getParent(locale);
         CLDRFile parentFile = testInfo.getCldrFactory().make(localeParent, true);
         int funnyCount = 0;
         for (Iterator<String> it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
@@ -665,14 +665,14 @@ public class TestBasic extends TestFmwk {
                         String fullPath = cldrFile.getFullXPath(path);
                         String valid = parts.set(fullPath).getAttributeValue(1, "validSubLocales");
                         for (String validSub : valid.trim().split("\\s+")) {
-                            if (isTopLevel(lip, validSub)) {
+                            if (isTopLevel(validSub)) {
                                 collations.add(validSub);
                             }
                         }
                         break; // done with root
                     }
                 }
-            } else if (isTopLevel(lip, localeID)) {
+            } else if (isTopLevel(localeID)) {
                 collations.add(localeID);
             }
         }
@@ -684,7 +684,7 @@ public class TestBasic extends TestFmwk {
             if (localeID.equals("root")) {
                 continue; // skip script locales
             }
-            if (!isTopLevel(lip, localeID)) {
+            if (!isTopLevel(localeID)) {
                 continue;
             }
             errors.clear();
@@ -741,7 +741,7 @@ public class TestBasic extends TestFmwk {
         }
     }
 
-    private boolean isTopLevel(LocaleIDParser lip, String localeID) {
-        return "root".equals(lip.set(localeID).getParent());
+    private boolean isTopLevel(String localeID) {
+        return "root".equals(LocaleIDParser.getParent(localeID));
     }
 }

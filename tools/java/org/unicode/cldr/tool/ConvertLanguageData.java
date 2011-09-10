@@ -119,7 +119,7 @@ public class ConvertLanguageData {
       Set<String> localesWithData = new TreeSet<String>(localeToRowData.keySet());
       for (String locale : localeToRowData.keySet()) {
         while (true) {
-          String parent = LanguageTagParser.getParent(locale);
+          String parent = LocaleIDParser.getParent(locale);
           if (parent == null) break;
           localesWithData.add(parent);
           locale = parent;
@@ -1431,7 +1431,7 @@ public class ConvertLanguageData {
     Set<String> toAdd = new TreeSet();
     while (true) {
       for (String locale : locales) {
-        String newguy = lidp.set(locale).getParent();
+        String newguy = LocaleIDParser.getParent(locale);
         if (newguy != null && !locales.contains(newguy) && !toAdd.contains(newguy)) {
           toAdd.add(newguy);
           if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("\tadding parent: " + newguy);
@@ -1503,7 +1503,7 @@ public class ConvertLanguageData {
             languageLiteratePopulation += rowData.getLanguageLiteratePopulation(NON_OFFICIAL_WEIGHT);
           }
         }
-        String parentID = lidp.getParent();
+        String parentID = LocaleIDParser.getParent(locale);
         scriptLocaleToLanguageLiteratePopulation.put(parentID, languageLiteratePopulation);
       }
 

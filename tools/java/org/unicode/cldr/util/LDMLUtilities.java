@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and         *
+ * Copyright (C) 2004-2011, International Business Machines Corporation and    *
  * others. All Rights Reserved.                                                *
  *******************************************************************************
  *
@@ -2129,17 +2129,6 @@ public class LDMLUtilities {
         }
         return str;
     } 
-
-    /**
-     * Returns the parent locale given a locale ID.
-     * Returns "root" for any language locale.
-     * Returns null for root's parent
-     * @param locale Locale to take the parent of.
-     * @return the parent locale, or null if "root" is passed in
-     */
-    public static final String getParent(String locale) {
-        return LocaleIDParser.getParent(locale);
-    }
     
     /** split an alt= tag into pieces. Any piece can be missing (== null)
      * Piece 0:  'alt type'.    null means this is the normal (non-alt) item.  Possible values are 'alternate', 'colloquial', etc.

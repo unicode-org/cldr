@@ -1,4 +1,4 @@
-// Copyright 2009 Google Inc. All Rights Reserved.
+// Copyright 2009-2011 Google Inc. and others - All Rights Reserved.
 
 package org.unicode.cldr.icu;
 
@@ -36,6 +36,7 @@ import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.icu.LDML2ICUConverter.LDMLServices;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -365,7 +366,7 @@ public class DeprecatedConverter {
           String testSub;
           for (testSub = aSub;
                testSub != null && !testSub.equals("root") && !testSub.equals(actualLocale);
-               testSub = LDMLUtilities.getParent(testSub)) {
+               testSub = LocaleIDParser.getSimpleParent(testSub)) {
 
             if (fromFiles.contains(testSub)) {
               log.warning(

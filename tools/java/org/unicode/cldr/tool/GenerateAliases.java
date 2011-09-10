@@ -18,6 +18,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
@@ -112,7 +113,7 @@ public class GenerateAliases {
         private void addToLikely(Map<String, String> likely) {
             String partial = ltp.toString();
             final String target = getDefaultContents(partial);
-            String parent = LanguageTagParser.getParent(partial);
+            String parent = LocaleIDParser.getSimpleParent(partial);
             if (target.equals(parent)) {
                 return;
             }
@@ -135,7 +136,7 @@ public class GenerateAliases {
                 return localeID;
             }
             while (defaultContents.contains(targetID)) {
-                String parent = LanguageTagParser.getParent(targetID);
+                String parent = LocaleIDParser.getSimpleParent(targetID);
                 if (parent == null || parent.equals("root)")) {
                     break;
                 }

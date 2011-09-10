@@ -27,6 +27,7 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.LocaleIDParser;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
@@ -840,7 +841,7 @@ public class VettingViewer<T> {
             Relation<String, String> localeToDefaultContents = Relation.of(new HashMap<String, Set<String>>(), LinkedHashSet.class);
 
             for (String defaultContentLocale : defaultContentLocales) {
-                localeToDefaultContents.put(LanguageTagParser.getParent(defaultContentLocale), defaultContentLocale);
+                localeToDefaultContents.put(LocaleIDParser.getParent(defaultContentLocale), defaultContentLocale);
             }
 
             for (String localeID : cldrFactory.getAvailable()) {

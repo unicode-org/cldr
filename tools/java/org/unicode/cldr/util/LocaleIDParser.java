@@ -73,10 +73,6 @@ public class LocaleIDParser {
 	private String script;
 	private String region;
 	private String[] variants;
-	public static final List<String> CROSS_SCRIPT_LOCALES = Arrays.asList(
-	       new String[] {
-	    "az_Arab","az_Cyrl","en_Dsrt","en_Shaw","ha_Arab","ku_Latn","mn_Mong","pa_Arab","sh","shi_Tfng","sr_Latn","uz_Arab","uz_Latn","vai_Latn","zh_Hant"}
-	    );
 		
     public static final Map<String,String> TOP_LEVEL_ALIAS_LOCALES = Builder.with(new HashMap<String,String>())
     .put("az_AZ", "az_Latn")

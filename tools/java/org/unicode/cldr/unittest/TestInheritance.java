@@ -318,26 +318,6 @@ public class TestInheritance extends TestFmwk {
             logln("Top Level Aliases:\t" + topLevelAliases);
         }
 
-        // check the LocaleIDParser.CROSS_SCRIPT_LOCALES
-        if (!crossScriptSet.equals(LocaleIDParser.CROSS_SCRIPT_LOCALES) && locales.equals(allLocales)) {
-            StringBuilder result = new StringBuilder("CROSS_SCRIPT_LOCALES doesn't match actual files! Change to:\n{");
-            boolean first = true;
-            for (String locale : crossScriptSet) {
-                // {"az_Arab", "
-                if (first) {
-                    first = false;
-                } else {
-                    result.append(", ");
-                }
-                result.append("\"").append(locale).append("\"");
-            }
-            result.append("}");
-            errln(result.toString());
-        } else {
-            logln("Cross-Script locales:\t" + crossScriptSet);
-        }
-
-
         // verify that they are the same as what we would get if we were to maximize
         // all the locales and check against default_contents
 

@@ -2496,21 +2496,33 @@
 					<standard>Midden-Europese standaardtijd</standard>
 					<daylight>Midden-Europese zomertijd</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Oost-Europese standaardtijd</standard>
 					<daylight>Oost-Europese zomertijd</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">West-Europese tijd</standard>
 					<daylight draft="contributed">West-Europese zomertijd</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>

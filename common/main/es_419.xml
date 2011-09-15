@@ -111,16 +111,32 @@
 		</calendars>
 		<timeZoneNames>
 			<metazone type="America_Central">
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>CT</generic>
+                                        <standard>CST</standard>
+                                        <daylight>CDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="America_Eastern">
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>ET</generic>
+                                        <standard>EST</standard>
+                                        <daylight>EDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="America_Mountain">
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>MT</generic>
+                                        <standard>MST</standard>
+                                        <daylight>MDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="America_Pacific">
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>PT</generic>
+                                        <standard>PST</standard>
+                                        <daylight>PDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>

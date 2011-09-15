@@ -3621,21 +3621,33 @@
 					<standard draft="contributed">Czas środkowoeuropejski</standard>
 					<daylight draft="contributed">Czas środkowoeuropejski letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="contributed">Czas wschodnioeuropejski</standard>
 					<daylight draft="contributed">Czas wschodnioeuropejski letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Czas zachodnioeuropejski</standard>
 					<daylight draft="contributed">Czas zachodnioeuropejski letni</daylight>
 				</long>
-				<commonlyUsed draft="contributed">true</commonlyUsed>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>

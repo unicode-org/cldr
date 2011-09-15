@@ -1938,7 +1938,6 @@
 					<standard>AKST</standard>
 					<daylight>AKDT</daylight>
 				</short>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
@@ -1967,7 +1966,11 @@
 					<standard>Central Standard Time</standard>
 					<daylight>Central Daylight Time</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>CT</generic>
+                                        <standard>CST</standard>
+                                        <daylight>CDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -1975,7 +1978,11 @@
 					<standard>Eastern Standard Time</standard>
 					<daylight>Eastern Daylight Time</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>ET</generic>
+                                        <standard>EST</standard>
+                                        <daylight>EDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -1983,7 +1990,11 @@
 					<standard>Mountain Standard Time</standard>
 					<daylight>Mountain Daylight Time</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>MT</generic>
+                                        <standard>MST</standard>
+                                        <daylight>MDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -1991,7 +2002,11 @@
 					<standard>Pacific Standard Time</standard>
 					<daylight>Pacific Daylight Time</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+                                <short>
+                                        <generic>PT</generic>
+                                        <standard>PST</standard>
+                                        <daylight>PDT</daylight>
+                                </short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -2060,7 +2075,6 @@
 					<standard>AST</standard>
 					<daylight>ADT</daylight>
 				</short>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -2068,12 +2082,6 @@
 					<standard>Australian Central Standard Time</standard>
 					<daylight>Australian Central Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>ACT</generic>
-					<standard>ACST</standard>
-					<daylight>ACDT</daylight>
-				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
@@ -2081,12 +2089,6 @@
 					<standard>Australian Central Western Standard Time</standard>
 					<daylight>Australian Central Western Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>ACWT</generic>
-					<standard>ACWST</standard>
-					<daylight>ACWDT</daylight>
-				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
@@ -2094,12 +2096,6 @@
 					<standard>Australian Eastern Standard Time</standard>
 					<daylight>Australian Eastern Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>AET</generic>
-					<standard>AEST</standard>
-					<daylight>AEDT</daylight>
-				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
@@ -2107,12 +2103,6 @@
 					<standard>Australian Western Standard Time</standard>
 					<daylight>Australian Western Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>AWT</generic>
-					<standard>AWST</standard>
-					<daylight>AWDT</daylight>
-				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
@@ -2381,7 +2371,9 @@
 				<long>
 					<standard>Greenwich Mean Time</standard>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<standard>GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
@@ -2426,7 +2418,6 @@
 				<short>
 					<standard>HST</standard>
 				</short>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
@@ -2591,12 +2582,6 @@
 					<standard>Lord Howe Standard Time</standard>
 					<daylight>Lord Howe Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>LHT</generic>
-					<standard>LHST</standard>
-					<daylight>LHDT</daylight>
-				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Macau">
 				<long>
@@ -2696,12 +2681,6 @@
 					<standard>New Zealand Standard Time</standard>
 					<daylight>New Zealand Daylight Time</daylight>
 				</long>
-				<short>
-					<generic>NZT</generic>
-					<standard>NZST</standard>
-					<daylight>NZDT</daylight>
-				</short>
-				<commonlyUsed>false</commonlyUsed>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>

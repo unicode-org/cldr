@@ -2543,7 +2543,11 @@
 					<standard>sentraleuropeisk normaltid</standard>
 					<daylight>sentraleuropeisk sommertid</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -2561,7 +2565,9 @@
 				<long>
 					<standard>Greenwich middeltid</standard>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<standard>GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>

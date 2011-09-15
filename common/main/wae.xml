@@ -1029,28 +1029,39 @@
 					<standard draft="unconfirmed">Atlantiši Standardzit</standard>
 					<daylight draft="unconfirmed">Atlantiši Summerzit</daylight>
 				</long>
-				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<standard draft="unconfirmed">Mitteleuropäiši Zit</standard>
 					<daylight draft="unconfirmed">Mitteleuropäiši Summerzit</daylight>
 				</long>
-				<commonlyUsed draft="unconfirmed">true</commonlyUsed>
+				<short>
+					<generic draft="unconfirmed">MEZ</generic>
+					<standard draft="unconfirmed">MEZ</standard>
+					<daylight draft="unconfirmed">MESZ</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="unconfirmed">Ošteuropäiši Zit</standard>
 					<daylight draft="unconfirmed">Ošteuropäiši Summerzit</daylight>
 				</long>
-				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
+				<short>
+					<generic draft="unconfirmed">OEZ</generic>
+					<standard draft="unconfirmed">OEZ</standard>
+					<daylight draft="unconfirmed">OESZ</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="unconfirmed">Wešteuropäiši Zit</standard>
 					<daylight draft="unconfirmed">Wešteuropäiši Summerzit</daylight>
 				</long>
-				<commonlyUsed draft="unconfirmed">false</commonlyUsed>
+				<short>
+					<generic draft="unconfirmed">WEZ</generic>
+					<standard draft="unconfirmed">WEZ</standard>
+					<daylight draft="unconfirmed">WESZ</daylight>
+				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>

@@ -2958,7 +2958,11 @@
 					<standard>Centraleuropa, normaltid</standard>
 					<daylight>Centraleuropa, sommartid</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -2966,7 +2970,11 @@
 					<standard>Östeuropa, normaltid</standard>
 					<daylight>Östeuropa, sommartid</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
@@ -2974,7 +2982,11 @@
 					<standard draft="contributed">västeuropeisk normaltid</standard>
 					<daylight draft="contributed">västeuropeisk sommartid</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -3045,7 +3057,9 @@
 					<standard>Greenwichtid</standard>
 					<daylight draft="contributed">Greenwichtid har per definition ingen sommartid</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<standard>GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Goose_Bay">
 				<long>

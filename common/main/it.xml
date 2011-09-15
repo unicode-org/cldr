@@ -2365,20 +2365,32 @@
 					<standard>Ora Standard Europa Centrale</standard>
 					<daylight>Ora Legale Europa Centrale</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Ora Standard Europa Orientale</standard>
 					<daylight>Ora Legale Europa Orientale</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Ora Europa occidentale</standard>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Hawaii">
 				<long>

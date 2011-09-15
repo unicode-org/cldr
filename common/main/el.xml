@@ -3022,21 +3022,33 @@
 					<standard>Ώρα Κεντρικής Ευρώπης</standard>
 					<daylight>Θερινή ώρα Κεντρικής Ευρώπης</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>Ώρα Ανατολικής Ευρώπης</standard>
 					<daylight>Θερινή ώρα Ανατολικής Ευρώπης</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Ώρα Δυτικής Ευρώπης</standard>
 					<daylight draft="contributed">Θερινή ώρα Δυτικής Ευρώπης</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>

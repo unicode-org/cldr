@@ -653,7 +653,11 @@
 					<standard draft="contributed">Hora do Acre</standard>
 					<daylight draft="contributed">Hora de Verão do Acre</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
@@ -720,7 +724,11 @@
 					<standard draft="contributed">Hora do Amazonas</standard>
 					<daylight draft="contributed">Hora de Verão do Amazonas</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
@@ -856,7 +864,6 @@
 					<standard>AZOT</standard>
 					<daylight>AZOST</daylight>
 				</short>
-				<commonlyUsed>true</commonlyUsed>
 			</metazone>
 			<metazone type="Baku">
 				<long>
@@ -902,7 +909,11 @@
 					<standard draft="contributed">Hora de Brasília</standard>
 					<daylight draft="contributed">Hora de Verão de Brasília</daylight>
 				</long>
-				<commonlyUsed>false</commonlyUsed>
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</metazone>
 			<metazone type="Brunei">
 				<long>
@@ -1033,21 +1044,33 @@
 					<standard>Horário Padrão da Europa Central</standard>
 					<daylight draft="contributed">Hora de Verão da Europa Central</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard draft="contributed">Hora da Europa Oriental</standard>
 					<daylight draft="contributed">Hora de Verão da Europa Oriental</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard draft="contributed">Hora da Europa Ocidental</standard>
 					<daylight draft="contributed">Hora de Verão da Europa Ocidental</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>

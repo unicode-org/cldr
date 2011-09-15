@@ -148,34 +148,74 @@
 		</calendars>
 		<timeZoneNames>
 			<metazone type="Atlantic">
-				<commonlyUsed>false</commonlyUsed>
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</metazone>
 			<metazone type="Australia_Central">
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>ACT</generic>
+					<standard>ACST</standard>
+					<daylight>ACDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>ACWT</generic>
+					<standard>ACWST</standard>
+					<daylight>ACWDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="Australia_Eastern">
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>AET</generic>
+					<standard>AEST</standard>
+					<daylight>AEDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="Australia_Western">
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>AWT</generic>
+					<standard>AWST</standard>
+					<daylight>AWDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Central">
-				<commonlyUsed>false</commonlyUsed>
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
-				<commonlyUsed>false</commonlyUsed>
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
-				<commonlyUsed>false</commonlyUsed>
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</metazone>
 			<metazone type="Lord_Howe">
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>LHT</generic>
+					<standard>LHST</standard>
+					<daylight>LHDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="New_Zealand">
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>NZT</generic>
+					<standard>NZST</standard>
+					<daylight>NZDT</daylight>
+				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
@@ -187,13 +227,5 @@
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
-		<currencies>
-			<currency type="AUD">
-				<symbol>$</symbol>
-			</currency>
-			<currency type="USD">
-				<symbol>US$</symbol>
-			</currency>
-		</currencies>
 	</numbers>
 </ldml>

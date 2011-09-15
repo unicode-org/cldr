@@ -2270,21 +2270,33 @@
 					<standard>srednjoeuropsko vrijeme</standard>
 					<daylight>srednjoeuropsko ljetno vrijeme</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<standard>istočnoeuropsko vrijeme</standard>
 					<daylight>istočnoeuropsko ljetno vrijeme</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<standard>zapadnoeuropsko vrijeme</standard>
 					<daylight>zapadnoeuropsko ljetno vrijeme</daylight>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -2339,7 +2351,9 @@
 				<long>
 					<standard>univerzalno vrijeme</standard>
 				</long>
-				<commonlyUsed>true</commonlyUsed>
+				<short>
+					<standard>GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>

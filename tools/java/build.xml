@@ -61,7 +61,7 @@
     <!-- build everything but dist-related stuff -->
     <target name="all" depends="util,ant-plugin,tool,posix,icu,test,ooo" description="build all primary targets"/>
     <target name="ant-plugin" depends="init" description="build utility classes">
-        <javac includes="org/unicode/cldr/ant/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/ant/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
@@ -72,7 +72,7 @@
             encoding="UTF-8"/>
     </target>
     <target name="util" depends="init" description="build utility classes">
-        <javac includes="org/unicode/cldr/draft/**/*.java org/unicode/cldr/util/**/*.java com/**/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/draft/**/*.java org/unicode/cldr/util/**/*.java com/**/*.java"
             excludes="**/CVS/**/* org/unicode/cldr/draft/Ids.java"
             srcdir="${src.dir}"
             destdir="${build.dir}"
@@ -89,7 +89,7 @@
         </copy>
     </target>
     <target name="tool" depends="init,util" description="build tool classes">
-        <javac includes="org/unicode/cldr/tool/**/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/tool/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
@@ -106,7 +106,7 @@
         </copy>
     </target>
     <target name="posix" depends="init,util" description="build posix conversion tool">
-        <javac includes="org/unicode/cldr/posix/**/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/posix/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
@@ -117,7 +117,7 @@
             encoding="UTF-8"/>
     </target>
 	<target name="icu" depends="init, ant-plugin, util" description="build posix conversion tool">
-	        <javac includes="org/unicode/cldr/icu/**/*.java"
+	        <javac includeantruntime="false" includes="org/unicode/cldr/icu/**/*.java"
 	            excludes="**/CVS/**/*"
 	            srcdir="${src.dir}"
 	            destdir="${build.dir}"
@@ -128,7 +128,7 @@
 	            encoding="UTF-8"/>
 	</target>
     <target name="test" depends="init,util,tool" description="build tests">
-        <javac includes="org/unicode/cldr/test/**/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/test/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
@@ -145,7 +145,7 @@
         </copy>
     </target>
    <target name="ooo" depends="init,icu,util" description="build OpenOffice.org conversion tools">
-        <javac includes="org/unicode/cldr/ooo/**/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/ooo/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"

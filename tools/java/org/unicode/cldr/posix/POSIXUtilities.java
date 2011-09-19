@@ -328,7 +328,11 @@ public class POSIXUtilities {
           if ( value.matches("on|off"))
               result.append("[caseLevel "+value+"]");
       }
-      if ( xp.containsAttribute("hiraganaQuarternary")) {
+      if ( xp.containsAttribute("hiraganaQuaternary")) {
+          String value = xp.getAttributeValue(-1,"hiraganaQuaternary");
+          if ( value.matches("on|off"))
+            result.append("[hiraganaQ "+value+"]");
+      } else if ( xp.containsAttribute("hiraganaQuarternary")) { // deprecated 'misspelled' name
           String value = xp.getAttributeValue(-1,"hiraganaQuarternary");
           if ( value.matches("on|off"))
             result.append("[hiraganaQ "+value+"]");

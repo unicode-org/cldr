@@ -189,7 +189,8 @@
         <coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|islamic|japanese|roc)']/dateTimeFormats/availableFormats/dateFormatItem[@id='(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|coptic|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='(format|stand-alone)']/monthWidth[@type='(wide|abbreviated|narrow)']/month[@type='.*']"/>
 		
-		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='.*']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(agq|asa|bas|bem|bez|bm|br|brx|dua|dyo|ebu|ff|ksf|lah|lu|luy|mgh|mua|mul)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(nmg|no|nus|rof|rwk|sbp|sh|swb|tl|twq|vai|wae|yav|yue)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='.*']"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='.*']"/>
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='.{3}']/(symbol|displayName).*"/>

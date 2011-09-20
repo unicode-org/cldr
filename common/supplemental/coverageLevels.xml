@@ -191,7 +191,7 @@
 		
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(agq|asa|bas|bem|bez|bm|br|brx|dua|dyo|ebu|ff|ksf|lah|lu|luy|mgh|mua|mul)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(nmg|no|nus|rof|rwk|sbp|sh|swb|tl|twq|vai|wae|yav|yue)']([@alt='(short|variant)'])?"/>
-		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='.*']"/>
+		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Jpan|Kore)']"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='.*']"/>
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='.{3}']/(symbol|displayName).*"/>
 		<coverageLevel value="100" match="numbers/currencyFormats/currencySpacing/(before|after)Currency/(insertBetween|(currency|surrounding)Match)"/>

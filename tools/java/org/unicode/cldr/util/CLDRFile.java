@@ -541,6 +541,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   /**
    * Get a string value from an xpath.
    */
+  static final Pattern whitespaceToNormalize = Pattern.compile("\\s+");
+
   public String getStringValue(String xpath) {
     String result = dataSource.getValueAtPath(xpath);
     if (result == null && dataSource.isResolving()) {
@@ -548,6 +550,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       if (fallbackPath != null) {
         result = dataSource.getValueAtPath(fallbackPath);
       }
+    }
+    if (result != null) {
+        return whitespaceToNormalize.matcher(result).replaceAll(" ");
     }
     return result;
   }

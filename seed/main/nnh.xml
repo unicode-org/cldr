@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Please enter language data in the fields below.  All data should be entered in English -->
+<ldml>
+    <identity>
+        <generation date="$Date: 2011-09-13 18:05:38 +0100 (Tue, 13 Sep 2011) $" />
+        <!--  Enter Language Name and ISO-639-3 code -->
+        <language name="Ngiemboon" code="nnh" />
+        <!--  Enter Script Name and ISO-15924 Code  -->
+        <script name="Latin" code="Latn" />
+    </identity>
+    
+    <characters>
+        <!--  Enter Main Exemplar List  -->
+        <exemplarCharacters>[a á à â ǎ b c d e é è ê ě ɛ {ɛ́} {ɛ̀} {ɛ̂} {ɛ̌} f g h i í ì î ǐ j k l m ḿ n ń ŋ o ó ò ô ǒ ɔ {ɔ́} {ɔ̀} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú ù û ǔ ʉ {ʉ́} {ʉ̀} {ʉ̂} {ʉ̌} v w ẅ y ÿ z ʼ]</exemplarCharacters>
+        <!--  Enter Auxiliary Exemplar List  -->  
+        <exemplarCharacters type="auxiliary">[q r x]</exemplarCharacters>
+        <!--  Enter Index Exemplar List  -->  
+        <exemplarCharacters type="index">[A B C D E Ɛ F G H I J K L M N Ŋ O Ɔ P Pf R S Sh T Ts U Ʉ V W Ẅ Y Ÿ Z ʼ]</exemplarCharacters>
+        <!--  Enter Punctuation Exemplar List  -->  
+        <exemplarCharacters type="punctuation">[. ? ! , : ; « » ' ‘ ’]</exemplarCharacters>
+    </characters>
+
+    <!--  Enter the orientation attributes  -->
+    <layout>
+        <orientation lines="top-to-bottom" characters="left-to-right"/>
+    </layout>
+       
+    <!--  Enter the plural rules (template example is for only one plural form)  -->
+    <plurals>
+        <pluralRule count="one">n is 1</pluralRule>
+    </plurals>
+         
+     <regionInfo>
+        <!--  Enter the default region for this writing system (descriptive text)  -->
+        <region type="default">Cameroon</region>
+        <!--  Enter the names of other countries where this writing system is used (descriptive text)  -->
+        <region type="other">(none)</region>
+    </regionInfo>
+
+</ldml>

@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -52,6 +53,58 @@ public class CheckDates extends CheckCLDR {
 
     private static final String DECIMAL_XPATH = "//ldml/numbers/symbols[@numberSystem='latn']/decimal";
 
+    static String[] calTypePathsToCheck = {
+        "//ldml/dates/calendars/calendar[@type=\"buddhist\"]",
+        "//ldml/dates/calendars/calendar[@type=\"gregorian\"]",
+        "//ldml/dates/calendars/calendar[@type=\"hebrew\"]",
+        "//ldml/dates/calendars/calendar[@type=\"islamic\"]",
+        "//ldml/dates/calendars/calendar[@type=\"japanese\"]",
+        "//ldml/dates/calendars/calendar[@type=\"roc\"]",
+    };
+    static String[] calSymbolPathsWhichNeedDistinctValues = {
+        // === for months, days, quarters - format wide & abbrev sets must have distinct values ===
+        "/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month",
+        "/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month",
+        "/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day",
+        "/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day",
+        "/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"abbreviated\"]/quarter",
+        "/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter",
+        // === for dayPeriods - all values for a given context/width must be distinct ===
+        "/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod",
+        "/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod",
+        "/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod",
+        "/dayPeriods/dayPeriodContext[@type=\"stand-alone\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod",
+        "/dayPeriods/dayPeriodContext[@type=\"stand-alone\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod",
+        "/dayPeriods/dayPeriodContext[@type=\"stand-alone\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod",
+        // === for eras - all values for a given context/width should be distinct (warning) ===
+        "/eras/eraNames/era",
+        "/eras/eraAbbr/era", // Hmm, root eraAbbr for japanese has many dups, should we change them or drop this test?
+        "/eras/eraNarrow/era", // We may need to allow dups here too
+    };
+    // The following calendar symbol sets need not have distinct values
+    //  "/months/monthContext[@type=\"format\"]/monthWidth[@type=\"narrow\"]/month",
+    //  "/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"abbreviated\"]/month",
+    //  "/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"narrow\"]/month",
+    //  "/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"wide\"]/month",
+    //  "/days/dayContext[@type=\"format\"]/dayWidth[@type=\"narrow\"]/day",
+    //  "/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"abbreviated\"]/day",
+    //  "/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"narrow\"]/day",
+    //  "/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"wide\"]/day",
+    //  "/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"narrow\"]/quarter",
+    //  "/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"abbreviated\"]/quarter",
+    //  "/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"narrow\"]/quarter",
+    //  "/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"wide\"]/quarter",
+    
+    // The above are followed by trailing pieces such as
+    //  "[@type=\"am\"]",
+    //  "[@type=\"sun\"]",
+    //  "[@type=\"0\"]",
+    //  "[@type=\"1\"]",
+    //  "[@type=\"12\"]",
+
+
+    Map<String, Set<String>> calPathsToSymbolSets;
+
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
@@ -96,6 +149,14 @@ public class CheckDates extends CheckCLDR {
         //          .setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
         //    }
         pathsWithConflictingOrder2sample = DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo);
+
+        calPathsToSymbolSets = new HashMap<String, Set<String>>();
+        for (String calTypePath: calTypePathsToCheck) {
+            for (String calSymbolPath: calSymbolPathsWhichNeedDistinctValues) {
+                calPathsToSymbolSets.put(calTypePath.concat(calSymbolPath), null);
+            }
+        }
+
         return this;
     }
 
@@ -152,6 +213,30 @@ public class CheckDates extends CheckCLDR {
                     CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.abbreviatedDateFieldTooWide)
                     .setMessage("Illegal abbreviated value {0}, can't be longer than wide value {1}", value, wideValue);      
                     result.add(item);
+                }
+            }
+
+            // Test for duplicate date symbol names (in format wide/abbrev months/days/quarters, or any context/width dayPeriods/eras)
+            int truncateAt = path.lastIndexOf("[@type="); // want path without any final [@type="sun"], [@type="12"], etc.
+            if ( truncateAt >= 0 ) {
+                String truncPath = path.substring(0,truncateAt);
+                if ( calPathsToSymbolSets.containsKey(truncPath) ) {
+                    // Need to check whether this symbol duplicates another
+                    Set<String> setForThisPath = calPathsToSymbolSets.get(truncPath);
+                    if ( setForThisPath == null ) {
+                        setForThisPath = new HashSet<String>();
+                        setForThisPath.add(value);
+                        calPathsToSymbolSets.put(truncPath, setForThisPath);
+                    } else if ( !setForThisPath.contains(value) ) {
+                        setForThisPath.add(value);
+                        calPathsToSymbolSets.put(truncPath, setForThisPath);
+                    } else {
+                        // this value duplicates a previous one in the same set
+                        String statusType = (path.contains("/eras/"))? CheckStatus.warningType: CheckStatus.errorType;
+                        result.add(new CheckStatus()
+                          .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
+                          .setMessage("Date symbol value {0} duplicates an earlier symbol of the same type", value)); 
+                    }
                 }
             }
 

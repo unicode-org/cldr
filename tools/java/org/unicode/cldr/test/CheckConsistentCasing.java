@@ -262,7 +262,7 @@ public class CheckConsistentCasing extends CheckCLDR {
             if (stringBuffer.length() != 0) {
                 stringBuffer.append("; ");
             }
-            stringBuffer.append('〈').append(value).append('〉');
+            stringBuffer.append("〈").append(value).append("〉");
             if (stringBuffer.length() > 50) break;
         }
         return stringBuffer.toString();

@@ -34,8 +34,8 @@ public class CheckExemplars extends CheckCLDR {
     "]").freeze(); //[\\u200c-\\u200f] [:script=common:][:script=inherited:]
 
     // TODO Fix some of these characters
-    private static final UnicodeSet SPECIAL_ALLOW = new UnicodeSet("‎[\\u200E\\u200F\\u200c\\u200d" +
-    		"‎‎‎[\u064B\u064E-\u0651\u0670]‎[:Nd:]‎[\u0951\u0952]‎[\u064B-\u0652\u0654\u0670]‎[\u0A66-\u0A6F][\u0ED0-\u0ED9][\u064B-\u0652]‎[\\u02BB\\u02BC][\u0CE6-\u0CEF]‎‎[\u0966-\u096F]‎]‎"
+    private static final UnicodeSet SPECIAL_ALLOW = new UnicodeSet("[\\u200E\\u200F\\u200c\\u200d" +
+    		"‎‎‎[\u064B\u064E-\u0651\u0670]‎[:Nd:]‎[\u0951\u0952]‎[\u064B-\u0652\u0654\u0670]‎[\u0A66-\u0A6F][\u0ED0-\u0ED9][\u064B-\u0652]‎[\\u02BB\\u02BC][\u0CE6-\u0CEF]‎‎[\u0966-\u096F]‎]"
             ).freeze(); // add RLM, LRM [\u200C\u200D]‎
 
     public static final UnicodeSet UAllowedInExemplars = new UnicodeSet("[[:assigned:]-[:Z:]]") // [:alphabetic:][:Mn:][:word_break=Katakana:][:word_break=ALetter:][:word_break=MidLetter:]

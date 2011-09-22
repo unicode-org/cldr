@@ -211,7 +211,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
       illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
       illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
-      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit, sameAsEnglishOrCode;
+      percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
+      sameAsEnglishOrCode, dateSymbolCollision;
     public String toString() {
       return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
     }

@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2011-08-24</span></td>
+			<td><span class="changed">2011-09-22</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -2284,6 +2284,12 @@ The index Separator can used to separate the index characters if they occur in f
 	&lt;!ELEMENT quarter ( #PCDATA ) &gt;<br>
 	&lt;!ATTLIST quarter type ( 1 | 2 | 3 | 4 ) #REQUIRED &gt;
 	</p>
+	<p class="dtd"><span class="changed">
+	&lt;!ELEMENT eras   (alias | (eraNames?, eraAbbr?, eraNarrow?, special*)) &gt;<br>
+	&lt;!ELEMENT eraNames ( alias | (era*, special*) ) &gt;<br>
+	&lt;!ELEMENT eraAbbr ( alias | (era*, special*) ) &gt;<br>
+	&lt;!ELEMENT eraNarrow ( alias | (era*, special*) ) &gt;<br>
+	</span></p>
 	<p>Month, day, and quarter names may vary along two axes: the width and the context. The context is either <i>format</i> (the default), the form used within 
 	a date format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in Calendar headers. The width 
 	can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i>. The format values must be distinct for the wide and abbreviated widths.
@@ -2291,6 +2297,8 @@ The index Separator can used to separate the index characters if they occur in f
 	they might only be distinguished by context. For example, &quot;S&quot; may be used both for Saturday and for Sunday. The stand-alone context is typically 
 	used in calendar headers; it must be the shortest possible width, no more than one character (or grapheme cluster, or exemplar set element)
 	in stand-alone values, and the shortest possible widths (in terms of grapheme clusters) in format values.</p>
+	<p><span class="changed">Era names should be distinct within each of the widths, including narrow; there is less disambiguating information
+	for them, and they are more likely to be used in a format that requires parsing.</span></p>
 	<p>Due to aliases in root, the forms inherit 
     &quot;sideways&quot;. (See <i>Section 4.1
 	<a href="#Multiple_Inheritance">Multiple Inheritance</a></i>.) 
@@ -2453,7 +2461,14 @@ The index Separator can used to separate the index characters if they occur in f
     &lt;!ATTLIST dayPeriodWidth type NMTOKEN #REQUIRED &gt;</p>
   <p class="dtd">&lt;!ELEMENT dayPeriod ( #PCDATA ) &gt;<br>
     &lt;!ATTLIST dayPeriod type NMTOKEN #REQUIRED &gt;</p>
-  <p>These behave like months, days, and so on in terms of having context and width. Each locale has an associated dayPeriodRuleSet in the supplemental data, rules that specify when the day periods start and end for that locale. Each type in the rules needs to have a translation in a <span class="element">dayPeriod</span>. For more information, see <em>Section C.17 <a href="#DayPeriodRules">DayPeriod Rules</a></em>.</p>
+  <p>These behave like months, days, and so on in terms of having context and width. Each locale has an associated
+  dayPeriodRuleSet in the supplemental data, rules that specify when the day periods start and end for that locale.
+  Each type in the rules needs to have a translation in a <span class="element">dayPeriod</span>. For more information,
+  see <em>Section C.17 <a href="#DayPeriodRules">DayPeriod Rules</a></em>.</p>
+  <p><span class="changed">The dayPeriod names should be distinct within each of the context/width combinations, including narrow;
+  as with era names, there is less disambiguating information for them, and they are more likely to be used in a format that requires
+  parsing. In some unambiguous cases, it is acceptable for certain overlapping dayPeriods to be the same, such as the names for "am"
+  and "morning", or the names for "pm" and "afternoon".</span></p>
   </div>
 <p><a name="dateFormats">&lt;dateFormats&gt;</a></p>
 	<p class="dtd">
@@ -8744,6 +8759,8 @@ decimal?, group?, special*)) &gt;</pre>
 	<ul class="changed">
 		<li>Proposed Update for CLDR Version 21.</li>
 		<li>Note the change in version numbering scheme beginning with this release.</li>
+		<li>Added information on distinctness requirements for names of eras and dayPeriods.
+		[ticket <a href="http://unicode.org/cldr/trac/ticket/3831">#3831</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

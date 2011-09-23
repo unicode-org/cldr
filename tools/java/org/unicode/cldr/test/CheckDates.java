@@ -102,8 +102,19 @@ public class CheckDates extends CheckCLDR {
     //  "[@type=\"1\"]",
     //  "[@type=\"12\"]",
 
+    // Day periods that are allowed to have duplicate names with only a warning
+    private static final Map<String, String> dayPeriodsEquivMap = new HashMap<String, String>();
+    static {
+        dayPeriodsEquivMap.put("[@type=\"am\"]", "[@type=\"morning\"]");
+        dayPeriodsEquivMap.put("[@type=\"morning\"]", "[@type=\"am\"]");
+        dayPeriodsEquivMap.put("[@type=\"noon\"]", "[@type=\"midDay\"]");
+        dayPeriodsEquivMap.put("[@type=\"midDay\"]", "[@type=\"noon\"]");
+        dayPeriodsEquivMap.put("[@type=\"pm\"]", "[@type=\"afternoon\"]");
+        dayPeriodsEquivMap.put("[@type=\"afternoon\"]", "[@type=\"pm\"]");
+    }
 
-    Map<String, Set<String>> calPathsToSymbolSets;
+    //Map<String, Set<String>> calPathsToSymbolSets;
+    Map<String, Map<String, String>> calPathsToSymbolMaps;
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
@@ -150,10 +161,10 @@ public class CheckDates extends CheckCLDR {
         //    }
         pathsWithConflictingOrder2sample = DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo);
 
-        calPathsToSymbolSets = new HashMap<String, Set<String>>();
+        calPathsToSymbolMaps = new HashMap<String, Map<String, String>>();
         for (String calTypePath: calTypePathsToCheck) {
             for (String calSymbolPath: calSymbolPathsWhichNeedDistinctValues) {
-                calPathsToSymbolSets.put(calTypePath.concat(calSymbolPath), null);
+                calPathsToSymbolMaps.put(calTypePath.concat(calSymbolPath), null);
             }
         }
 
@@ -220,22 +231,34 @@ public class CheckDates extends CheckCLDR {
             int truncateAt = path.lastIndexOf("[@type="); // want path without any final [@type="sun"], [@type="12"], etc.
             if ( truncateAt >= 0 ) {
                 String truncPath = path.substring(0,truncateAt);
-                if ( calPathsToSymbolSets.containsKey(truncPath) ) {
+                if ( calPathsToSymbolMaps.containsKey(truncPath) ) {
                     // Need to check whether this symbol duplicates another
-                    Set<String> setForThisPath = calPathsToSymbolSets.get(truncPath);
-                    if ( setForThisPath == null ) {
-                        setForThisPath = new HashSet<String>();
-                        setForThisPath.add(value);
-                        calPathsToSymbolSets.put(truncPath, setForThisPath);
-                    } else if ( !setForThisPath.contains(value) ) {
-                        setForThisPath.add(value);
-                        calPathsToSymbolSets.put(truncPath, setForThisPath);
+                    String type = path.substring(truncateAt); // the final part e.g. [@type="am"]
+                    Map<String, String> mapForThisPath = calPathsToSymbolMaps.get(truncPath);
+                    if ( mapForThisPath == null ) {
+                        mapForThisPath = new HashMap<String, String>();
+                        mapForThisPath.put(value, type);
+                        calPathsToSymbolMaps.put(truncPath, mapForThisPath);
+                    } else if ( !mapForThisPath.containsKey(value) ) {
+                        mapForThisPath.put(value, type);
+                        calPathsToSymbolMaps.put(truncPath, mapForThisPath);
                     } else {
-                        // this value duplicates a previous one in the same set
-                        String statusType = (path.contains("/eras/"))? CheckStatus.warningType: CheckStatus.errorType;
+                        // this value duplicates a previous one in the same set. May be only a warning.
+                        String statusType = CheckStatus.errorType;
+                        String typeForPrev = mapForThisPath.get(value);
+                        if (path.contains("/eras/")) {
+                            statusType = CheckStatus.warningType;
+                        } else if (path.contains("/dayPeriods/")) {
+                            // certain duplicates only merit a warning:
+                            // "am" and "morning", "noon" and "midDay", "pm" and "afternoon"
+                            String typeEquiv = dayPeriodsEquivMap.get(type);
+                            if ( typeForPrev.equals(typeEquiv) ) {
+                                statusType = CheckStatus.warningType;
+                            }
+                        }
                         result.add(new CheckStatus()
                           .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
-                          .setMessage("Date symbol value {0} duplicates an earlier symbol of the same type", value)); 
+                          .setMessage("Date symbol value {0} duplicates an earlier symbol in the same set, for {1}", value, typeForPrev)); 
                     }
                 }
             }
@@ -272,14 +295,14 @@ public class CheckDates extends CheckCLDR {
         } catch (ParseException e) {
 
             CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
-            .setMessage("ParseException in creating date format {0}", new Object[]{e});    	
+            .setMessage("ParseException in creating date format {0}", new Object[]{e});
             result.add(item);
         } catch (Exception e) {
             //e.printStackTrace();
             // HACK
             if (!HACK_CONFLICTING.matcher(e.getMessage()).find()) {
                 CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
-                .setMessage("Error in creating date format {0}", new Object[]{e});    	
+                .setMessage("Error in creating date format {0}", new Object[]{e});
                 result.add(item);
             }
         }

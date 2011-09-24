@@ -145,14 +145,14 @@
 <tr><td class="header">Internet Engineering Task Force</td><td class="header">M. Davis</td></tr>
 <tr><td class="header">Internet-Draft</td><td class="header">Google</td></tr>
 <tr><td class="header">Intended status: Informational</td><td class="header">A. Phillips</td></tr>
-<tr><td class="header">Expires: March 3, 2012</td><td class="header">Lab126</td></tr>
+<tr><td class="header">Expires: March 10, 2012</td><td class="header">Lab126</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Y. Umaoka</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">C. Falk</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Infinite Automata</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">August 31, 2011</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">September 7, 2011</td></tr>
 </table></td></tr></table>
-<h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-05</h1>
+<h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-06</h1>
 
 <h3>Abstract</h3>
 
@@ -184,7 +184,7 @@ and may be updated, replaced, or obsoleted by other documents at any time.
 It is inappropriate to use Internet-Drafts as reference material or to cite
 them other than as &ldquo;work in progress.&rdquo;</p>
 <p>
-This Internet-Draft will expire on March 3, 2012.</p>
+This Internet-Draft will expire on March 10, 2012.</p>
 
 <h3>Copyright Notice</h3>
 <p>
@@ -207,7 +207,7 @@ Requirements Language<br />
 <a href="#anchor3">2.</a>&nbsp;
 BCP47 Required Information<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">2.1.</a>&nbsp;
-Introduction<br />
+Overview<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#structure">2.2.</a>&nbsp;
 Structure<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#canonicalization">2.3.</a>&nbsp;
@@ -343,7 +343,7 @@ BCP47 Required Information</h3>
 <a name="anchor4"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
-Introduction</h3>
+Overview</h3>
 
 <p>
 					Identification of transformed content can be done using the 't' extension
@@ -628,7 +628,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 <a name="rfc.section.2.5"></a><h3>2.5.&nbsp;
 Field Definitions</h3>
 
-<p>The structure of 't' field subtags is determined by the Unicode CLDR
+<p>Assignment of 't' field subtags is determined by the Unicode CLDR
                     Technical Committee, in accordance with the policies and procedures
                     in
                     <a href='http://www.unicode.org/consortium/tc-procedures.html'>http://www.unicode.org/consortium/tc-procedures.html</a>,
@@ -636,7 +636,7 @@ Field Definitions</h3>
                     <a href='http://www.unicode.org/policies/policies.html'>http://www.unicode.org/policies/policies.html</a>.
 </p>
 <p>
-                    Changes that can be made by successive versions of
+                    Assignments that can be made by successive versions of
                     <a class='info' href='#UTS35'>LDML<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35]
                     by the Unicode Consortium without requiring a new RFC include:
                     </p>
@@ -646,21 +646,20 @@ Field Definitions</h3>
 </li>
 <li>The allocation of subtags valid after a field separator subtag.
 </li>
+<li>The addition of subtag aliases and descriptions. 
+</li>
+<li>The modification of subtag descriptions.
+</li>
 </ul><p>
-                    A new RFC
-                    would be required for material changes to an existing 't'
-                    subtag,
-                    or
-                    an incompatible change to the overall syntactic structure of the
-                    't'
-                    extension;
-                    however, such a change would be contrary to the policies
-                    of the Unicode
-                    Consortium, and thus is not anticipated.
+                    Changes to the syntax or meaning of the 't' extension would require a new 
+                    RFC that obsoletes this document; such an RFC would break stability, and
+                    would thus be contrary to the policies of the Unicode Consortium.
                 
 </p>
-<p>One field is initially specified in
-					<a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>: the transform mechanism. That field is summarized here:
+<p>
+				  At the time this document was published, one field was specified in 
+				  <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>: the transform mechanism.
+                  That field is summarized here:
 					</p>
 <blockquote class="text"><dl>
 <dt>a.</dt>

@@ -4,16 +4,16 @@
 Internet Engineering Task Force                                 M. Davis
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Phillips
-Expires: March 3, 2012                                            Lab126
+Expires: March 10, 2012                                           Lab126
                                                                Y. Umaoka
                                                                      IBM
                                                                  C. Falk
                                                        Infinite Automata
-                                                         August 31, 2011
+                                                       September 7, 2011
 
 
                 BCP 47 Extension T - Transformed Content
-                      draft-davis-t-langtag-ext-05
+                      draft-davis-t-langtag-ext-06
 
 Abstract
 
@@ -38,7 +38,7 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 3, 2012.
+   This Internet-Draft will expire on March 10, 2012.
 
 Copyright Notice
 
@@ -52,9 +52,9 @@ Copyright Notice
 
 
 
-Davis, et al.             Expires March 3, 2012                 [Page 1]
+Davis, et al.            Expires March 10, 2012                 [Page 1]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
    carefully, as they describe your rights and restrictions with respect
@@ -66,7 +66,7 @@ Table of Contents
    1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . . .  3
      1.1.  Requirements Language  . . . . . . . . . . . . . . . . . .  4
    2.  BCP47 Required Information . . . . . . . . . . . . . . . . . .  4
-     2.1.  Introduction . . . . . . . . . . . . . . . . . . . . . . .  4
+     2.1.  Overview . . . . . . . . . . . . . . . . . . . . . . . . .  4
      2.2.  Structure  . . . . . . . . . . . . . . . . . . . . . . . .  6
      2.3.  Canonicalization . . . . . . . . . . . . . . . . . . . . .  7
      2.4.  BCP47 Registration Form  . . . . . . . . . . . . . . . . .  8
@@ -108,9 +108,9 @@ Table of Contents
 
 
 
-Davis, et al.             Expires March 3, 2012                 [Page 2]
+Davis, et al.            Expires March 10, 2012                 [Page 2]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
 1.  Introduction
@@ -164,9 +164,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.             Expires March 3, 2012                 [Page 3]
+Davis, et al.            Expires March 10, 2012                 [Page 3]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
    c.  US Board on Geographic Names (BGN)
@@ -192,7 +192,7 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 2.  BCP47 Required Information
 
-2.1.  Introduction
+2.1.  Overview
 
    Identification of transformed content can be done using the 't'
    extension defined in this document.  This extension is formed by the
@@ -220,9 +220,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.             Expires March 3, 2012                 [Page 4]
+Davis, et al.            Expires March 10, 2012                 [Page 4]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
    | und-Latn-t-und-cyrl | The content is in the Latin script,         |
@@ -276,9 +276,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.             Expires March 3, 2012                 [Page 5]
+Davis, et al.            Expires March 10, 2012                 [Page 5]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
    The field subtags are defined by Section 3 [1] of Unicode Technical
@@ -332,9 +332,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.             Expires March 3, 2012                 [Page 6]
+Davis, et al.            Expires March 10, 2012                 [Page 6]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
    t-ext=    "t"                      ; Extension
@@ -388,9 +388,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.             Expires March 3, 2012                 [Page 7]
+Davis, et al.            Expires March 10, 2012                 [Page 7]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
 2.4.  BCP47 Registration Form
@@ -413,42 +413,46 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 2.5.  Field Definitions
 
-   The structure of 't' field subtags is determined by the Unicode CLDR
+   Assignment of 't' field subtags is determined by the Unicode CLDR
    Technical Committee, in accordance with the policies and procedures
    in http://www.unicode.org/consortium/tc-procedures.html, and subject
    to the Unicode Consortium Policies on
    http://www.unicode.org/policies/policies.html.
 
-   Changes that can be made by successive versions of LDML [UTS35] by
-   the Unicode Consortium without requiring a new RFC include:
+   Assignments that can be made by successive versions of LDML [UTS35]
+   by the Unicode Consortium without requiring a new RFC include:
 
    o  The allocation of new field separator subtags for use after the
       't' extension.
 
    o  The allocation of subtags valid after a field separator subtag.
 
-   A new RFC would be required for material changes to an existing 't'
-   subtag, or an incompatible change to the overall syntactic structure
-   of the 't' extension; however, such a change would be contrary to the
-   policies of the Unicode Consortium, and thus is not anticipated.
+   o  The addition of subtag aliases and descriptions.
 
-   One field is initially specified in [UTS35]: the transform mechanism.
-   That field is summarized here:
+   o  The modification of subtag descriptions.
+
+   Changes to the syntax or meaning of the 't' extension would require a
+   new RFC that obsoletes this document; such an RFC would break
+   stability, and would thus be contrary to the policies of the Unicode
+   Consortium.
+
+   At the time this document was published, one field was specified in
+   [UTS35]: the transform mechanism.  That field is summarized here:
 
    a.  The transform mechanism consists of a sequence of subtags
        starting with the 'm0' separator followed by one or more
+
+
+
+Davis, et al.            Expires March 10, 2012                 [Page 8]
+
+Internet-Draft             BCP 47 Extension T             September 2011
+
+
        mechanism subtags.  Each mechanism subtag has a length of 3 to 8
        alphanumeric characters.  The sequence as a whole provides an
        identification of the specification for the transform, such as
        the mechanism subtag 'ungegn' in "und-Cyrl-t-und-latn-m0-ungegn".
-
-
-
-Davis, et al.             Expires March 3, 2012                 [Page 8]
-
-Internet-Draft             BCP 47 Extension T                August 2011
-
-
        In many cases, only one mechanism subtag is necessary, but
        multiple subtags MAY be defined in [UTS35] where necessary.
 
@@ -494,17 +498,16 @@ Internet-Draft             BCP 47 Extension T                August 2011
        If there are multiple subversions distinguished by date, then a
        tag could look like "ja-t-it-m0-xxx-v21a-2007".
 
+
+
+Davis, et al.            Expires March 10, 2012                 [Page 9]
+
+Internet-Draft             BCP 47 Extension T             September 2011
+
+
    A language tag with the t extension MAY be used to request a specific
    transform of content.  In such a case, the recipient SHOULD return
    content that corresponds as closely as feasible to the requested
-
-
-
-Davis, et al.             Expires March 3, 2012                 [Page 9]
-
-Internet-Draft             BCP 47 Extension T                August 2011
-
-
    transform, including the specification of the mechanism.  For
    example, if the request is ja-t-it-m0-xxx-v21a-2007, and the
    recipient has content corresponding to both ja-t-it-m0-xxx-v21a and
@@ -550,16 +553,17 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
    The committee MUST post each proposal publicly within 2 weeks after
    reception, to allow for comments.  The committee must respond
+
+
+
+Davis, et al.            Expires March 10, 2012                [Page 10]
+
+Internet-Draft             BCP 47 Extension T             September 2011
+
+
    publicly to each proposal within 4 weeks after reception.
 
    The response MAY:
-
-
-
-Davis, et al.             Expires March 3, 2012                [Page 10]
-
-Internet-Draft             BCP 47 Extension T                August 2011
-
 
    o  request more information or clarification
 
@@ -605,17 +609,15 @@ Internet-Draft             BCP 47 Extension T                August 2011
    mechanism">, with subelements for the types, such as <type
    name="ungegn" description="United Nations Group of Experts on
    Geographical Names"/>.  The currently defined attributes for the
-   mechanisms include:
 
 
 
-
-
-
-Davis, et al.             Expires March 3, 2012                [Page 11]
+Davis, et al.            Expires March 10, 2012                [Page 11]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
+
+   mechanisms include:
 
    +-------------+-------------------------------+---------------------+
    | Attribute   | Description                   | Examples            |
@@ -666,11 +668,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-
-
-Davis, et al.             Expires March 3, 2012                [Page 12]
+Davis, et al.            Expires March 10, 2012                [Page 12]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
    <key extension="t" name="m0" description=
@@ -724,9 +724,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.             Expires March 3, 2012                [Page 13]
+Davis, et al.            Expires March 10, 2012                [Page 13]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
 4.  IANA Considerations
@@ -780,9 +780,9 @@ Internet-Draft             BCP 47 Extension T                August 2011
 
 
 
-Davis, et al.             Expires March 3, 2012                [Page 14]
+Davis, et al.            Expires March 10, 2012                [Page 14]
 
-Internet-Draft             BCP 47 Extension T                August 2011
+Internet-Draft             BCP 47 Extension T             September 2011
 
 
               September 2009.
@@ -836,5 +836,5 @@ Authors' Addresses
 
 
 
-Davis, et al.             Expires March 3, 2012                [Page 15]
+Davis, et al.            Expires March 10, 2012                [Page 15]
 

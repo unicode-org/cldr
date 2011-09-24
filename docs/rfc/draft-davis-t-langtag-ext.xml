@@ -11,7 +11,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-davis-t-langtag-ext-05" ipr="trust200902"
+<rfc category="info" docName="draft-davis-t-langtag-ext-06" ipr="trust200902"
 	submissionType="independent"
 >
 	<front>
@@ -47,7 +47,7 @@
             </address>
         </author>
         
-		<date month="August" year="2011" day="31" />
+		<date month="September" year="2011" day="7" />
 
 
 
@@ -159,7 +159,7 @@
     <?rfc needLines="8" ?>
 
 		<section title="BCP47 Required Information">
-            <section title="Introduction">
+            <section title="Overview">
 				<t>
 					Identification of transformed content can be done using the 't' extension
 					defined in this document.
@@ -412,34 +412,31 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 
             </section>
             <section title="Field Definitions" anchor="summary">
-                <t>The structure of 't' field subtags is determined by the Unicode CLDR
+                <t>Assignment of 't' field subtags is determined by the Unicode CLDR
                     Technical Committee, in accordance with the policies and procedures
                     in
                     <eref target="http://www.unicode.org/consortium/tc-procedures.html">http://www.unicode.org/consortium/tc-procedures.html</eref>,
                     and subject to the Unicode Consortium Policies on
                     <eref target="http://www.unicode.org/policies/policies.html">http://www.unicode.org/policies/policies.html</eref>.</t>
                 <t>
-                    Changes that can be made by successive versions of
+                    Assignments that can be made by successive versions of
                     <xref target="UTS35">LDML</xref>
                     by the Unicode Consortium without requiring a new RFC include:
                     <list style="symbols">
                     <t>The
                     allocation of new field separator subtags for use after the 't' extension.</t>
                     <t>The allocation of subtags valid after a field separator subtag.</t>
+                    <t>The addition of subtag aliases and descriptions. </t>
+                    <t>The modification of subtag descriptions.</t>
                     </list>
-                    A new RFC
-                    would be required for material changes to an existing 't'
-                    subtag,
-                    or
-                    an incompatible change to the overall syntactic structure of the
-                    't'
-                    extension;
-                    however, such a change would be contrary to the policies
-                    of the Unicode
-                    Consortium, and thus is not anticipated.
+                    Changes to the syntax or meaning of the 't' extension would require a new 
+                    RFC that obsoletes this document; such an RFC would break stability, and
+                    would thus be contrary to the policies of the Unicode Consortium.
                 </t>
-				<t>One field is initially specified in
-					<xref target="UTS35"></xref>: the transform mechanism. That field is summarized here:
+				<t>
+				  At the time this document was published, one field was specified in 
+				  <xref target="UTS35"></xref>: the transform mechanism.
+                  That field is summarized here:
 					<list style="letters">
 						<t>
 							The transform mechanism consists of a sequence of

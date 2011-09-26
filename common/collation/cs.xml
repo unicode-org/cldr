@@ -198,7 +198,13 @@
 					<p>ž</p>
 					<t>Ž</t>
 				</rules>
-			</collation  >
+			</collation>
+			<collation type="eor">
+				<rules>
+					<import source="root" type="eor"/>
+					<import source="locale" type="standard"/>
+				</rules>
+			</collation>
 			<collation type="digits-after" draft="unconfirmed" >
 				<rules>
 					<reset>C</reset>

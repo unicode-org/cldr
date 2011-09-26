@@ -206,6 +206,12 @@
 					<p>å</p>
 					<t>Å</t>
 				</rules>
-			</collation  >
+			</collation>
+			<collation type="eor">
+				<rules>
+					<import source="root" type="eor"/>
+					<import source="locale" type="standard"/>
+				</rules>
+			</collation>
 		</collations>
 </ldml>

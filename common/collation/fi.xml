@@ -173,6 +173,12 @@
 					<t>Œ</t>
 				</rules>
 			</collation>
+			<collation type="eor">
+				<rules>
+					<import source="root" type="eor"/>
+					<import source="locale" type="phonebook"/>
+				</rules>
+			</collation>
 			<collation type="standard" >
 				<rules>
 					<reset>D</reset>
@@ -212,7 +218,13 @@
 					<s>œ</s>
 					<t>Œ</t>
 				</rules>
-			</collation  >
+			</collation>
+			<collation type="stdeor">
+				<rules>
+					<import source="root" type="eor"/>
+					<import source="locale" type="standard"/>
+				</rules>
+			</collation>
 			<collation type="standard" alt="proposed" draft="unconfirmed">
 				<rules>
 					<!-- D and U+0335 -->

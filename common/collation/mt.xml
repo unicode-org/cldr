@@ -29,5 +29,12 @@
 					<t>ż</t>
 				</rules>
 			</collation>
+			<collation type="eor">
+				<settings caseFirst="upper"/>
+				<rules>
+					<import source="root" type="eor"/>
+					<import source="locale" type="standard"/>
+				</rules>
+			</collation>
 		</collations>
 </ldml>

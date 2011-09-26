@@ -170,7 +170,7 @@
 				</rules>
 			</collation>
 			<collation type="standard" >
-				<settings caseFirst="upper"  />
+				<settings caseFirst="upper"/>
 				<rules>
 					<reset>D</reset>
 					<s>đ</s>
@@ -207,7 +207,14 @@
 					<t>Aa</t>
 					<t>AA</t>
 				</rules>
-			</collation  >
+			</collation>
+			<collation type="eor">
+				<settings caseFirst="upper"/>
+				<rules>
+					<import source="root" type="eor"/>
+					<import source="locale" type="standard"/>
+				</rules>
+			</collation>
 			<collation draft="unconfirmed" alt="proposed" type="standard" >
 				<settings caseFirst="upper"  />
 				<rules>

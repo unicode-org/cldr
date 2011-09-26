@@ -214,6 +214,12 @@
 				<t>Ô</t>
 			</rules>
 		</collation>
+		<collation type="stdeor">
+			<rules>
+				<import source="root" type="eor"/>
+				<import source="locale" type="standard"/>
+			</rules>
+		</collation>
 		<collation type="reformed">
 			<rules>
 				<reset>D</reset>
@@ -249,6 +255,12 @@
 				<t>Œ</t>
 				<s>ô</s>
 				<t>Ô</t>
+			</rules>
+		</collation>
+		<collation type="eor">
+			<rules>
+				<import source="root" type="eor"/>
+				<import source="locale" type="reformed"/>
 			</rules>
 		</collation>
 	</collations>

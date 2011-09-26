@@ -144,7 +144,13 @@
 				<p>ñ</p>
 				<t>Ñ</t>
 			</rules>
-		</collation  >
+		</collation>
+		<collation type="eor">
+			<rules>
+				<import source="root" type="eor"/>
+				<import source="locale" type="standard"/>
+			</rules>
+		</collation>
 		<collation type="traditional" >
 			<rules>
 				<reset>N</reset>

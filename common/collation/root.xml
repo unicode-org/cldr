@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
@@ -8,6 +8,294 @@
 	</identity>
 		<collations validSubLocales="chr chr_US ee ee_GH ee_TG ga ga_IE id id_ID it it_CH it_IT ka ka_GE ky ky_KG ms ms_BN ms_MY nl nl_AW nl_BE nl_CW nl_NL nl_SX pt pt_AO pt_BR pt_GW pt_MZ pt_PT pt_ST st st_LS st_ZA sw sw_KE sw_TZ xh xh_ZA zu zu_ZA">
 			<default type="standard"/>
+			<collation type="eor">
+				<!-- eor stands for European Ordering Rules -->
+				<settings caseLevel="on" caseFirst="lower"/>
+				<rules>
+				<!--
+				currency signs and modifier letters are ignored in EOR
+				-->
+				<reset><last_tertiary_ignorable/></reset>
+				<i>$</i><!-- U0024 -->
+				<i>¢</i><!-- U00A2 -->
+				<i>£</i><!-- U00A3 -->
+				<i>¤</i><!-- U00A4 -->
+				<i>¥</i><!-- U00A5 -->
+				<i>₠</i><!-- U20A0 -->
+				<i>₡</i><!-- U20A1 -->
+				<i>₢</i><!-- U20A2 -->
+				<i>₣</i><!-- U20A3 -->
+				<i>₤</i><!-- U20A4 -->
+				<i>₥</i><!-- U20A5 -->
+				<i>₦</i><!-- U20A6 -->
+				<i>₧</i><!-- U20A7 -->
+				<i>₨</i><!-- U20A8 -->
+				<i>₩</i><!-- U20A9 -->
+				<i>₪</i><!-- U20AA -->
+				<i>₫</i><!-- U20AB -->
+				<i>€</i><!-- U20AC -->
+				<i>₭</i><!-- U20AD -->
+				<i>₮</i><!-- U20AE -->
+				<i>₯</i><!-- U20AF -->
+				<i>₰</i><!-- U20B0 -->
+				<i>₱</i><!-- U20B1 -->
+				<i>₲</i><!-- U20B2 -->
+				<i>₳</i><!-- U20B3 -->
+				<i>₴</i><!-- U20B4 -->
+				<i>₵</i><!-- U20B5 -->
+				<!-- General category Lm -->
+				<i>ʰ</i><!-- U02B0 -->
+				<i>ʱ</i><!-- U02B1 -->
+				<i>ʲ</i><!-- U02B2 -->
+				<i>ʳ</i><!-- U02B3 -->
+				<i>ʴ</i><!-- U02B4 -->
+				<i>ʵ</i><!-- U02B5 -->
+				<i>ʶ</i><!-- U02B6 -->
+				<i>ʷ</i><!-- U02B7 -->
+				<i>ʸ</i><!-- U02B8 -->
+				<i>ʻ</i><!-- U02BB -->
+				<i>ʼ</i><!-- U02BC -->
+				<i>ʽ</i><!-- U02BD -->
+				<i>ʾ</i><!-- U02BE -->
+				<i>ʿ</i><!-- U02BF -->
+				<i>ˀ</i><!-- U02C0 -->
+				<i>ˁ</i><!-- U02C1 -->
+				<i>ː</i><!-- U02D0 -->
+				<i>ˑ</i><!-- U02D1 -->
+				<i>ˠ</i><!-- U02E0 -->
+				<i>ˡ</i><!-- U02E1 -->
+				<i>ˢ</i><!-- U02E2 -->
+				<i>ˣ</i><!-- U02E3 -->
+				<i>ˤ</i><!-- U02E4 -->
+				<i>ˮ</i><!-- U02EE -->
+				<!-- Glottal stops -->
+				<i>ʔ</i><!-- U0294 -->
+				<i>ʕ</i><!-- U0295 -->
+				<i>ʖ</i><!-- U0296 -->
+				<i>ʘ</i><!-- U0298 -->
+				<i>ʡ</i><!-- U02A1 -->
+				<i>ʢ</i><!-- U02A2 -->
+				<!--Latin letters: only a-z + þ are basic letters -->
+				<reset>a</reset><!-- turned a, latin alpha, turned alpha -->
+				<s>ɐ</s><!-- U0250 -->
+				<s>ɑ</s><!-- U0251 -->
+				<s>ɒ</s><!-- U0252 -->
+				<reset>b</reset><!-- small capital b, b with stroke, b with hook, b with topbar -->
+				<s>ʙ</s><!-- U0299 -->
+				<s>ƀ</s><!-- U0180 -->
+				<t>Ƀ</t><!-- U0243 -->
+				<s>ɓ</s><!-- U0253 -->
+				<t>Ɓ</t><!-- U0181 -->
+				<s>ƃ</s><!-- U0183 -->
+				<t>Ƃ</t><!-- U0182 -->
+				<reset>c</reset><!-- c with hook, c with curl, stretched c -->
+				<s>ƈ</s><!-- U0188 -->
+				<t>Ƈ</t><!-- U0187 -->
+				<s>ɕ</s><!-- U0255 -->
+				<s>ʗ</s><!-- U0297 -->
+				<reset>d</reset><!-- African d, d with hook, d with topbar, d with curl, turned delta -->
+				<s>ɖ</s><!-- U0256 -->
+				<t>Ɖ</t><!-- U0189 -->
+				<s>ɗ</s><!-- U0257 -->
+				<t>Ɗ</t><!-- U018A -->
+				<s>ƌ</s><!-- U018C -->
+				<t>Ƌ</t><!-- U018B -->
+				<s>ȡ</s><!-- U0221 -->
+				<s>ƍ</s><!-- U018D -->
+				<reset>e</reset><!-- turned e, schwa, open e, reversed e, schwa with hook, 
+				reversed open e, reversed open e with hook, closed reversed open e, closed open e -->
+				<s>ǝ</s><!-- U01DD -->
+				<t>Ǝ</t><!-- U018E -->
+				<s>ə</s><!-- U0259 -->
+				<t>Ə</t><!-- U018F -->
+				<s>ɛ</s><!-- U025B -->
+				<t>Ɛ</t><!-- U0190 -->
+				<s>ɘ</s><!-- U0258 -->
+				<s>ɚ</s><!-- U025A -->
+				<s>ɜ</s><!-- U025C -->
+				<s>ɝ</s><!-- U025D -->
+				<s>ɞ</s><!-- U025E -->
+				<s>ʚ</s><!-- U029A -->
+				<reset>f</reset><!-- f with hook -->
+				<s>ƒ</s><!-- U0192 -->
+				<t>Ƒ</t><!-- U0191 -->
+				<reset>g</reset><!-- script g, small capital g, g with stroke, g with hook, latin gamma, gha -->
+				<s>ɡ</s><!-- U0261 -->
+				<s>ɢ</s><!-- U0262 -->
+				<s>ǥ</s><!-- U01E5 -->
+				<t>Ǥ</t><!-- U01E4 -->
+				<s>ɠ</s><!-- U0260 -->
+				<t>Ɠ</t><!-- U0193 -->
+				<s>ʛ</s><!-- U029B -->
+				<s>ɣ</s><!-- U0263 -->
+				<t>Ɣ</t><!-- U0194 -->
+				<s>ɤ</s><!-- U0264 -->
+				<s>ƣ</s><!-- U01A3 -->
+				<t>Ƣ</t><!-- U01A2 -->
+				<reset>h</reset><!-- small capital h, h with hook, heng with hook, turned h,
+				turned h with fishhook, turned h with fishhook and tail -->
+				<s>ʜ</s><!-- U029C -->
+				<s>ɦ</s><!-- U0266 -->
+				<s>ɧ</s><!-- U0267 -->
+				<s>ɥ</s><!-- U0265 -->
+				<s>ʮ</s><!-- U02AE -->
+				<s>ʯ</s><!-- U02AF -->
+				<reset>i</reset><!-- dotless i, small capital i, i with stroke, latin iota -->
+				<s>ı</s><!-- U0131 -->
+				<s>ɪ</s><!-- U026A -->
+				<s>ɨ</s><!-- U0268 -->
+				<t>Ɨ</t><!-- U0197 -->
+				<s>ɩ</s><!-- U0269 -->
+				<t>Ɩ</t><!-- U0196 -->
+				<reset>j</reset><!-- j with crossed tail, dotless j with stroke, dotless j with stroke and hook -->
+				<s>ʝ</s><!-- U029D -->
+				<s>ɟ</s><!-- U025F -->
+				<s>ʄ</s><!-- U0284 -->
+				<reset>k</reset><!-- k with hook, kra, turned k -->
+				<s>ƙ</s><!-- U0199 -->
+				<t>Ƙ</t><!-- U0198 -->
+				<s>ĸ</s><!-- U0138 -->
+				<s>ʞ</s><!-- U029E -->
+				<reset>l</reset><!-- small capital l, l with bar, l with middle tilde, l with belt,
+				l with retroflex hook, l with curl, l with curl, latin lambda with stroke -->
+				<!-- U029F -->
+				<s>ƚ</s><!-- U019A -->
+				<t>Ƚ</t><!-- U023D -->
+				<s>ɫ</s><!-- U026B -->
+				<s>ɬ</s><!-- U026C -->
+				<s>ɭ</s><!-- U026D -->
+				<s>ȴ</s><!-- U0234 -->
+				<s>ƛ</s><!-- U019B -->
+				<reset>m</reset><!-- m with hook, turned m, turned m with long leg -->
+				<s>ɱ</s><!-- U0271 -->
+				<s>ɯ</s><!-- U026F -->
+				<t>Ɯ</t><!-- U019C -->
+				<s>ɰ</s><!-- U0270 -->
+				<reset>n</reset><!-- n preceded by apostrophe, small capital n, n with left hook,
+				n with long right leg, n with retroflex hook, n with curl, eng -->
+				<s>ŉ</s><!-- U0149 -->
+				<s>ɴ</s><!-- U0274 -->
+				<s>ɲ</s><!-- U0272 -->
+				<t>Ɲ</t><!-- U019D -->
+				<s>ƞ</s><!-- U019E -->
+				<t>Ƞ</t><!-- U0220 -->
+				<s>ɳ</s><!-- U0273 -->
+				<s>ȵ</s><!-- U0235 -->
+				<s>ŋ</s><!-- U014B -->
+				<t>Ŋ</t><!-- U014A -->
+				<reset>o</reset><!-- open o, o with middle tilde, closed omega, ou -->
+				<s>ɔ</s><!-- U0254 -->
+				<t>Ɔ</t><!-- U0186 -->
+				<s>ɵ</s><!-- U0275 -->
+				<t>Ɵ</t><!-- U019F -->
+				<s>ɷ</s><!-- U0277 -->
+				<s>ȣ</s><!-- U0223 -->
+				<t>Ȣ</t><!-- U0222 -->
+				<reset>p</reset><!-- p with hook, latin phi -->
+				<s>ƥ</s><!-- U01A5 -->
+				<t>Ƥ</t><!-- U01A4 -->
+				<s>ɸ</s><!-- U0278 -->
+				<reset>q</reset><!-- q with hook -->
+				<s>ʠ</s><!-- U02A0 -->
+				<reset>r</reset><!-- small capital r, yr, turned r, turned r with long leg,
+				turned r with hook, r with long leg, r with tail, r with fishhook,
+				reversed r with fishhook, small capital inverted r -->
+				<s>ʀ</s><!-- U0280 -->
+				<t>Ʀ</t><!-- U01A6 -->
+				<s>ɹ</s><!-- U0279 -->
+				<s>ɺ</s><!-- U027A -->
+				<s>ɻ</s><!-- U027B -->
+				<s>ɼ</s><!-- U027C -->
+				<s>ɽ</s><!-- U027D -->
+				<s>ɾ</s><!-- U027E -->
+				<s>ɿ</s><!-- U027F -->
+				<s>ʁ</s><!-- U0281 -->
+				<reset>s</reset><!-- s with hook, esh, esh loop, reversed esh,
+				esh with curl -->
+				<s>ʂ</s><!-- U0282 -->
+				<s>ʃ</s><!-- U0283 -->
+				<t>Ʃ</t><!-- U01A9 -->
+				<s>ƪ</s><!-- U01AA -->
+				<s>ʅ</s><!-- U0285 -->
+				<s>ʆ</s><!-- U0286 -->
+				<reset>t</reset><!-- t with stroke, t with palatal hook, t with hook,
+				t with retroflex hook, t with curl, turned t, digraph tc with curl -->
+				<s>ŧ</s><!-- U0167 -->
+				<t>Ŧ</t><!-- U0166 -->
+				<s>ƫ</s><!-- U01AB -->
+				<s>ƭ</s><!-- U01AD -->
+				<t>Ƭ</t><!-- U01AC -->
+				<s>ʈ</s><!-- U0288 -->
+				<t>Ʈ</t><!-- U01AE -->
+				<s>ȶ</s><!-- U0236 -->
+				<s>ʇ</s><!-- U0287 -->
+				<reset>u</reset><!-- u bar, latin upsilon -->
+				<s>ʉ</s><!-- U0289 -->
+				<t>Ʉ</t><!-- U0244 -->
+				<s>ʊ</s><!-- U028A -->
+				<t>Ʊ</t><!-- U01B1 -->
+				<reset>v</reset><!-- v with hook, turned v -->
+				<s>ʋ</s><!-- U028B -->
+				<t>Ʋ</t><!-- U01B2 -->
+				<s>ʌ</s><!-- U028C -->
+				<t>Ʌ</t><!-- U0245 -->
+				<reset>w</reset><!-- turned w, wynn -->
+				<s>ʍ</s><!-- U028D -->
+				<s>ƿ</s><!-- U01BF -->
+				<t>Ƿ</t><!-- U01F7 -->
+				<reset>y</reset><!-- small capital y, y with hook, turned y, yogh -->
+				<s>ʏ</s><!-- U028F -->
+				<s>ƴ</s><!-- U01B4 -->
+				<t>Ƴ</t><!-- U01B3 -->
+				<s>ʎ</s><!-- U028E -->
+				<s>ȝ</s><!-- U021D -->
+				<t>Ȝ</t><!-- U021C -->
+				<reset>z</reset><!-- z with stroke, z with hook, z with retroflex hook,
+				z with curl, ezh, ezh with caron,
+				ezh reversed, ezh with tail, ezh with curl -->
+				<s>ƶ</s><!-- U01B6 -->
+				<t>Ƶ</t><!-- U01B5 -->
+				<s>ȥ</s><!-- U0225 -->
+				<t>Ȥ</t><!-- U0224 -->
+				<s>ʐ</s><!-- U0290 -->
+				<s>ʑ</s><!-- U0291 -->
+				<s>ʒ</s><!-- U0292 -->
+				<t>Ʒ</t><!-- U01B7 -->
+				<s>ǯ</s><!-- U01EF -->
+				<t>Ǯ</t><!-- U01EE -->
+				<s>ƹ</s><!-- U01B9 -->
+				<t>Ƹ</t><!-- U01B8 -->
+				<s>ƺ</s><!-- U01BA -->
+				<s>ʓ</s><!-- U0293 -->
+				<!-- Digraphs -->
+				<reset>dʑ</reset><!-- dz digraph with curl -->
+				<s>ʥ</s><!-- U02A5 -->
+				<reset>dʒ</reset><!-- dezh digraph -->
+				<s>ʤ</s><!-- U02A4 -->
+				<reset>hv</reset><!-- hv -->
+				<s>ƕ</s><!-- U0195 -->
+				<reset>HV</reset><!-- hwair -->
+				<s>Ƕ</s><!-- U01F6 -->
+				<reset>lʒ</reset><!-- lezh -->
+				<s>ɮ</s><!-- U026E -->
+				<reset>oe</reset><!-- small capital oe -->
+				<s>ɶ</s><!-- U0276 -->
+				<reset>tɕ</reset><!-- tc digraph with curl -->
+				<s>ʨ</s><!-- U02A8 -->
+				<!-- tailorings against Greek obsolete when done against current UCA table -->
+				<!-- Cyrillic letters: full conformance with GOST requirements -->
+				<reset>ђ</reset><!-- gje as variant of dje (Serbian) -->
+				<s>ѓ</s><!-- U0453 -->
+				<t>Ѓ</t><!-- U0403 -->
+				<reset>ћ</reset><!-- kje as variant of tshe (Serbian) -->
+				<s>ќ</s><!-- U045C -->
+				<t>Ќ</t><!-- U040C -->
+				<!-- Georgian: unchanged -->
+				<!-- Armenian -->
+				<reset>ք</reset><!-- U0584 -->
+				<p>և</p><!-- U0587 -->
+			</rules>				
+			</collation>
 			<collation type="standard">
 			</collation>
 			<collation type="search" >

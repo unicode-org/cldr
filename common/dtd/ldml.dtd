@@ -886,7 +886,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers (alias | (defaultNumberingSystem*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) >
+<!ELEMENT numbers (alias | (defaultNumberingSystem*, numberingSystems*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) >
 <!ATTLIST numbers draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST numbers standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST numbers references CDATA #IMPLIED >
@@ -897,6 +897,25 @@ $Date$
 <!ATTLIST defaultNumberingSystem references CDATA #IMPLIED >
 <!ATTLIST defaultNumberingSystem draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST defaultNumberingSystem alt NMTOKENS #IMPLIED >
+
+<!ELEMENT numberingSystems ( alias | ( defaultNumberingSystem*, native*, traditional* , finance*)) >
+<!ATTLIST numberingSystems draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST numberingSystems alt NMTOKENS #IMPLIED >
+
+<!ELEMENT native ( #PCDATA ) >
+<!ATTLIST native references CDATA #IMPLIED >
+<!ATTLIST native draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST native alt NMTOKENS #IMPLIED >
+
+<!ELEMENT traditional ( #PCDATA ) >
+<!ATTLIST traditional references CDATA #IMPLIED >
+<!ATTLIST traditional draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST traditional alt NMTOKENS #IMPLIED >
+
+<!ELEMENT finance ( #PCDATA ) >
+<!ATTLIST finance references CDATA #IMPLIED >
+<!ATTLIST finance draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST finance alt NMTOKENS #IMPLIED >
 
 <!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) >
 <!ATTLIST symbols draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

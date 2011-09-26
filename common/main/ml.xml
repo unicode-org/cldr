@@ -3774,7 +3774,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>mlym</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>latn</defaultNumberingSystem>
+			<native>mlym</native>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>

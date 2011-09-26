@@ -3634,7 +3634,11 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>tamldec</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>latn</defaultNumberingSystem>
+			<native>tamldec</native>
+			<traditional>taml</traditional>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>

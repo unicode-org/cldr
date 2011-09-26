@@ -1733,7 +1733,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>latn</defaultNumberingSystem>
+			<native>latn</native>
+		</numberingSystems>
 		<symbols numberSystem="arab">
 			<decimal>٫</decimal>
 			<group>٬</group>

@@ -1086,7 +1086,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>orya</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>latn</defaultNumberingSystem>
+			<native>orya</native>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>

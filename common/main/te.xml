@@ -3615,7 +3615,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>telu</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>latn</defaultNumberingSystem>
+			<native>telu</native>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<exponential>తూ</exponential>
 		</symbols>

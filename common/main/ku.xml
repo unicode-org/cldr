@@ -744,7 +744,10 @@
 		</calendars>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">arab</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>arab</defaultNumberingSystem>
+			<native>arab</native>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<percentSign draft="unconfirmed">٪</percentSign>
 		</symbols>

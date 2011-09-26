@@ -1280,7 +1280,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>mymr</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>mymr</defaultNumberingSystem>
+			<native>mymr</native>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>

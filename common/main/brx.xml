@@ -3405,7 +3405,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>deva</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>latn</defaultNumberingSystem>
+			<native>deva</native>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>

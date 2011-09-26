@@ -456,7 +456,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">tibt</defaultNumberingSystem>
+		<numberingSystems>
+			<defaultNumberingSystem>latn</defaultNumberingSystem>
+			<native>tibt</native>
+		</numberingSystems>
 		<symbols numberSystem="latn">
 			<decimal draft="provisional">.</decimal>
 			<group draft="contributed">,</group>

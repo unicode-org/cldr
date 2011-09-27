@@ -13,7 +13,7 @@
             <type name="beng" description="Bengali digits"/>
             <type name="deva" description="Devanagari digits"/>
             <type name="ethi" description="Ethiopic numerals"/>
-            <type name="finance" description="Financial numerals"/>
+            <type name="finance" description="Financial numerals" since="21"/>
             <type name="fullwide" description="Full width digits"/>
             <type name="geor" description="Georgian numerals"/>
             <type name="grek" description="Greek upper case numerals"/>
@@ -35,7 +35,7 @@
             <type name="mlym" description="Malayalam digits"/>
             <type name="mong" description="Mongolian digits"/>
             <type name="mymr" description="Myanmar digits"/>
-            <type name="native" description="Native digits"/>
+            <type name="native" description="Native digits" since="21"/>
             <type name="orya" description="Oriya digits"/>
             <type name="roman" description="Roman upper case numerals"/>
             <type name="romanlow" description="Roman lowercase numerals"/>
@@ -44,7 +44,7 @@
             <type name="telu" description="Telugu digits"/>
             <type name="thai" description="Thai digits"/>
             <type name="tibt" description="Tibetan digits"/>
-            <type name="traditio" alias="traditional" description="Traditional numerals"/>
+            <type name="traditio" alias="traditional" description="Traditional numerals" since="21"/>
         </key>
     </keyword>
 </ldmlBCP47>

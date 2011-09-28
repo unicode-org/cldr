@@ -173,12 +173,6 @@
 					<t>Œ</t>
 				</rules>
 			</collation>
-			<collation type="eor">
-				<rules>
-					<import source="root" type="eor"/>
-					<import source="fi" type="phonebook"/>
-				</rules>
-			</collation>
 			<collation type="standard" >
 				<rules>
 					<reset>D</reset>
@@ -217,12 +211,6 @@
 					<t>Õ</t>
 					<s>œ</s>
 					<t>Œ</t>
-				</rules>
-			</collation>
-			<collation type="stdeor">
-				<rules>
-					<import source="root" type="eor"/>
-					<import source="fi" type="standard"/>
 				</rules>
 			</collation>
 			<collation type="standard" alt="proposed" draft="unconfirmed">

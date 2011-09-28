@@ -16,12 +16,5 @@
 				й 0438 0306 CYRILLIC SMALL LETTER SHORT I
 			-->
 		</collation>
-		<collation type="eor">
-			<suppress_contractions>[АаӘәГгЕеЖжЗзІіОоӨөКкУуЧчЫыЭэѴѵ]</suppress_contractions>
-			<rules>
-				<import source="root" type="eor"/>
-				<import	source="bg" type="standard"/>
-			</rules>
-		</collation>
 	</collations>
 </ldml>

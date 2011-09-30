@@ -2987,15 +2987,35 @@ language may not be in common usage in a particular territory.</p>
 	date time pattern characters, and not with the &#39;Z&#39;, &#39;ZZZZ&#39;, &#39;VVVV&#39; 
 	pattern characters. For more information, see Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a>.</p>
 	<h3>5.10 <a name="Number_Elements">Number Elements</a></h3>
-	<p class="dtd">&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*, symbols*, decimalFormats*,
+	<p class="dtd">&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*, <span class="changed">otherNumberingSystems*,</span> symbols*, decimalFormats*,
 	scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) &gt;</p>
-	<p>The numbers element supplies information for formatting and parsing numbers and currencies. It has the following sub-elements: &lt;symbols&gt;, &lt;decimalFormats&gt;, 
+	<p>The numbers element supplies information for formatting and parsing numbers and currencies. It has the following sub-elements: <span class="changed">
+	&lt;defaultNumberingSystem&gt;, &lt;otherNumberingSystems&gt;, </span> &lt;symbols&gt;, &lt;decimalFormats&gt;, 
 	&lt;scientificFormats&gt;, &lt;percentFormats&gt;, &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="#ISO4217">ISO4217</a>] (plus some additional 
 	common-use codes). For more information, including the pattern structure, see <i><a href="#Number_Format_Patterns">Appendix G: Number Pattern Format</a></i>.</p>
 	<p><span class="dtd">&lt;!ELEMENT defaultNumberingSystem ( #PCDATA 
 	) &gt;<br>
 	</span>This element indicates which numbering system should be used for 
-	presentation of numeric quantities in the given locale. For more information 
+	presentation of numeric quantities in the given locale. </p>
+	<p><span class="dtd"><span class="changed">&lt;!ELEMENT otherNumberingSystems ( alias | ( native*, traditional*, finance*)) &gt;</span><br><br>
+	</span><span class="changed">This element defines general categories of numbering systems that 
+	are sometimes used in the given locale for formatting numeric quantities.  These
+	additional numbering systems are often used in very specific contexts, such as in calendars or for
+	financial purposes.  There are currently three defined categories, as follows:<br><br>
+	&lt;native&gt; Defines the numbering system used for the native digits, usually defined as a part of the script used to write the language.
+	The native numbering system can only be a numeric (digit-based) numbering system.<br><br>
+	&lt;traditional&gt; Defines the traditional numerals for a locale.  This numbering system may be numeric or algorithmic. If the traditional numbering system is not defined, applications
+	should use the native numbering system as a fallback.<br><br>
+	&lt;finance&gt; Defines the numbering system used for financial quantities.  This is often used ideographic languages such as Chinese, where
+	it would be easy to alter an amount represented in the default numbering system simply by adding additional strokes.  If the financial numbering
+	system is not specified, applications should use the default numbering system as a fallback.<br><br>
+	
+	The categories defined for other numbering systems can be used in a Unicode locale identifier to select the proper numbering system
+	without having to know the specific numbering system by name.  For example,<br><br>
+	To select Hindi language using the native digits for numeric formatting, use locale ID: "hi-IN-u-nu-native"<br>
+	To select Chinese language using the appropriate financial numerals, use locale ID: "zh-u-nu-finance"<br>
+	To select Tamil language using the traditional Tamil numerals, use locale ID: "ta-u-nu-traditio"</span><br><br>
+	For more information 
 	on numbering systems and their definitions, see <i>Section 
 	C.13 <a href="#Numbering_Systems">Numbering Systems</a></i>. </p>
 	<h4>5.10.1 <a name="Number_Symbols">Number Symbols</a></h4>

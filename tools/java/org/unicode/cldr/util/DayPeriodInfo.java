@@ -13,7 +13,7 @@ import com.ibm.icu.impl.Row.R3;
 
 public class DayPeriodInfo {
   public static int DAY_LIMIT = 24*60*60*1000;
-  public enum DayPeriod {am, pm, weeHours, earlyMorning, morning, lateMorning, noon, midDay, afternoon, lateAfternoon, earlyEvening, evening, lateEvening, earlyNight, night};
+  public enum DayPeriod {am, pm, weeHours, earlyMorning, morning, lateMorning, noon, midDay, earlyAfternoon, afternoon, lateAfternoon, earlyEvening, evening, lateEvening, earlyNight, night};
   
   // the starts must be in sorted order. First must be zero. Last must be < DAY_LIMIT
   // each of these will have the same length, and correspond.

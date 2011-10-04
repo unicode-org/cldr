@@ -42,6 +42,7 @@ public abstract class XMLSource implements Freezable {
 
     private String localeID;
     private boolean nonInheriting;
+    private List<Alias> aliases;
     protected boolean locked;
     transient String[] fixedPath = new String[1];
 
@@ -396,7 +397,9 @@ public abstract class XMLSource implements Freezable {
     /**
      * returns a map from the aliases' parents in the keyset to the alias path
      */
-    public List<Alias> addAliases(List<Alias> output) {
+    // TODO: should remove once XMLSources in SurveyTool are updated to override
+    // getAliases instead.
+    protected List<Alias> addAliases(List<Alias> output) {
         for (Iterator<String> it = getAliasSet().iterator(); it.hasNext();) {
             String path = it.next();
             //if (!Alias.isAliasPath(path)) continue;
@@ -406,6 +409,16 @@ public abstract class XMLSource implements Freezable {
             output.add(temp);
         }
         return output;
+    }
+    
+    protected List<Alias> getAliases() {
+        // Always regenerate the alias set if the source isn't frozen.
+        // This could be speeded up for non-frozen sources if there's some way
+        // to check when key-value pairs are changed.
+        if (aliases == null || !locked) {
+            aliases = addAliases(new ArrayList<Alias>());
+        }
+        return aliases;
     }
 
     /**
@@ -653,7 +666,6 @@ public abstract class XMLSource implements Freezable {
         private static class ParentAndPath {
             String parentID;
             String path;
-            List<Alias> aliases = new ArrayList<Alias>();
             //String aliasPart;
             //String newPart;
             XMLSource source;
@@ -671,10 +683,8 @@ public abstract class XMLSource implements Freezable {
                 return this;
             }
             public ParentAndPath next() {
-                aliases.clear();
-                source.addAliases(aliases);
-                if (aliases.size() != 0) for (Iterator<Alias> it = aliases.iterator(); it.hasNext();) {
-                    Alias alias = it.next();
+                List<Alias> aliases = source.getAliases();
+                for (Alias alias : aliases) {
                     if (!path.startsWith(alias.getOldPath())) continue;
                     // TODO fix parent, path, and return
                     parentID = alias.getNewLocaleID();

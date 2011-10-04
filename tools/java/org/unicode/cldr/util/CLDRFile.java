@@ -1390,6 +1390,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   }
 
   public static class SimpleFactory extends Factory {
+    /**
+     * The maximum cache size the caches in SimpleFactory.
+     * 15 is a safe limit for instances with limited amounts of memory (around 128MB).
+     * Larger numbers are tolerable if more memory is available.
+     * This constant may be moved to CldrUtilities in future if needed.
+     */
+    private static final int CACHE_LIMIT = 15;
+
     private String sourceDirectory;
     private String matchString;
     private Set<String> localeList = new TreeSet<String>();
@@ -1397,15 +1405,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     private Map<String,CLDRFile>[] resolvedCache = new Map[DraftStatus.values().length];
     {
       for (int i = 0; i < mainCache.length; ++i) {
-        mainCache[i] = new TreeMap();
-        resolvedCache[i] = new TreeMap();
+        mainCache[i] = new LruMap<String, CLDRFile>(CACHE_LIMIT);
+        resolvedCache[i] = new LruMap<String, CLDRFile>(CACHE_LIMIT);
       }
     }
-    //private Map mainCacheNoDraft = new TreeMap();
-    //private Map resolvedCacheNoDraft = new TreeMap();  
-    private Map supplementalCache = new TreeMap();
+
     private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
-    private SimpleFactory() {}		
+    private SimpleFactory() {}
 
     protected DraftStatus getMinimalDraftStatus() {
       return minimalDraftStatus;

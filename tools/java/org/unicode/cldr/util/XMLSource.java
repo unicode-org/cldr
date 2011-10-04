@@ -393,30 +393,23 @@ public abstract class XMLSource implements Freezable {
             return path.contains("/alias");
         }
     }
+
     // should be overriden 
-    /**
-     * returns a map from the aliases' parents in the keyset to the alias path
-     */
-    // TODO: should remove once XMLSources in SurveyTool are updated to override
-    // getAliases instead.
-    protected List<Alias> addAliases(List<Alias> output) {
-        for (Iterator<String> it = getAliasSet().iterator(); it.hasNext();) {
-            String path = it.next();
-            //if (!Alias.isAliasPath(path)) continue;
-            String fullPath = getFullPathAtDPath(path);
-            Alias temp = Alias.make(null, fullPath);
-            if (temp == null) continue;
-            output.add(temp);
-        }
-        return output;
-    }
-    
-    protected List<Alias> getAliases() {
+    protected synchronized List<Alias> getAliases() {
         // Always regenerate the alias set if the source isn't frozen.
         // This could be speeded up for non-frozen sources if there's some way
         // to check when key-value pairs are changed.
         if (aliases == null || !locked) {
-            aliases = addAliases(new ArrayList<Alias>());
+            aliases = new ArrayList<Alias>();
+            // Look for aliases and create mappings for them.
+            for (Iterator<String> it = iterator(); it.hasNext();) {
+                String path = it.next();
+                if (!Alias.isAliasPath(path)) continue;
+                String fullPath = getFullPathAtDPath(path);
+                Alias temp = Alias.make(null, fullPath);
+                if (temp == null) continue;
+                aliases.add(temp);
+            }
         }
         return aliases;
     }
@@ -425,33 +418,15 @@ public abstract class XMLSource implements Freezable {
      * Clear any internal caches.
      */
     private void clearCache() {
-        synchronized (ALIAS_CACHE) {
-            UNMOD_ALIAS_CACHE = null;
-        }
+        aliases = null;
         synchronized (VALUE_TO_PATH_MUTEX) {
             VALUE_TO_PATH = null;
         }
     }
 
-    private Set<String> ALIAS_CACHE = new HashSet<String>();
-    private Set<String> UNMOD_ALIAS_CACHE = null;
     private Object VALUE_TO_PATH_MUTEX = new Object();
     private Relation<String,String> VALUE_TO_PATH = null;
 
-    public Set<String> getAliasSet() {
-        synchronized (ALIAS_CACHE) {
-            if (UNMOD_ALIAS_CACHE == null) {
-                ALIAS_CACHE.clear();
-                for (Iterator<String> it = iterator(); it.hasNext();) {
-                    String path = it.next();
-                    if (!Alias.isAliasPath(path)) continue;
-                    ALIAS_CACHE.add(path);
-                }
-                UNMOD_ALIAS_CACHE = Collections.unmodifiableSet(ALIAS_CACHE);
-            }
-            return UNMOD_ALIAS_CACHE;
-        }
-    }
 
     /**
      * Return the localeID of the XMLSource where the path was found

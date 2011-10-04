@@ -2101,72 +2101,54 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			//        }
 		}
 
-
 		/**
 		 * Table of all aliases
 		 */
-		private Hashtable aliasTable = new Hashtable();
-
-		/**
-		 * add all the current aliases to the parameter
-		 * @param output the list to be added to
-		 * @return a reference to output
-		 */
-		public List addAliases(List output) {
-			String locale = getLocaleID();
-			//        com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
-			List aList = getAliases();
-			//        logger.info(et + " for getAlias on " + locale);
-			output.addAll(aList);
-			return output;
-		}
+		private HashMap<String, List<Alias>> aliasTable = new HashMap();
 
 		/**
 		 * get a copy of all aliases 
 		 * @return list of aliases
 		 */
-		public List getAliases() {
+		@Override
+		protected synchronized List<Alias> getAliases() {
 			String locale = getLocaleID();
-			List output = null;
-			synchronized(aliasTable) {
-				output = (List)aliasTable.get(locale);
-				if(null==output) {
-					output = new ArrayList();
-					MyStatements stmts = null;
-					try {
-						stmts = openStatements();
-						//  stmts.keyASet.setString(1,"%/alias");
-						stmts.keyASet.setString(1,locale);
-						ResultSet rs = stmts.keyASet.executeQuery();
+			List<Alias> output = aliasTable.get(locale);
+			if(output == null) {
+				output = new ArrayList<Alias>();
+				MyStatements stmts = null;
+				try {
+					stmts = openStatements();
+					//  stmts.keyASet.setString(1,"%/alias");
+					stmts.keyASet.setString(1,locale);
+					ResultSet rs = stmts.keyASet.executeQuery();
 
-						// TODO: is there a better way to map a ResultSet into a Set?
+					// TODO: is there a better way to map a ResultSet into a Set?
 //						Set s = new HashSet();
-						while(rs.next()) {
-							int fullPathId=rs.getInt(1);
-							String fullPath = xpt.getById(fullPathId);
-							// if(path.indexOf("/alias")<0) { throw new InternalError("aliasIteratorBroken: " + path); }
-							//     String fullPath = getFullPathAtDPath(path);
-							//System.out.println("oa: " + locale +" : " + path + " - " + fullPath);
-							if(finalData && skipAlias(fullPath,fullPathId,locale)) {
-								continue;
-							}
-							Alias temp = XMLSource.Alias.make(fullPath);
-							if (temp == null) continue;
-							//System.out.println("aa: " + path + " - " + fullPath + " -> " + temp.toString());
-							output.add(temp);
+					while(rs.next()) {
+						int fullPathId=rs.getInt(1);
+						String fullPath = xpt.getById(fullPathId);
+						// if(path.indexOf("/alias")<0) { throw new InternalError("aliasIteratorBroken: " + path); }
+						//     String fullPath = getFullPathAtDPath(path);
+						//System.out.println("oa: " + locale +" : " + path + " - " + fullPath);
+						if(finalData && skipAlias(fullPath,fullPathId,locale)) {
+							continue;
 						}
-						aliasTable.put(locale,output);
-						return output;
-						// TODO: 0
-					} catch(SQLException se) {
-						logger.severe("CLDRDBSource: Failed to query A source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
-						return null;
-					} finally {
-						closeOrThrow(stmts);
+						Alias temp = XMLSource.Alias.make(fullPath);
+						if (temp == null) continue;
+						//System.out.println("aa: " + path + " - " + fullPath + " -> " + temp.toString());
+						output.add(temp);
 					}
+					aliasTable.put(locale,output);
+					// TODO: 0
+				} catch(SQLException se) {
+					logger.severe("CLDRDBSource: Failed to query A source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
+					return null;
+				} finally {
+					closeOrThrow(stmts);
 				}
-				return output;
 			}
+			return output;
 		}
 
 		Hashtable<String, XMLSource> makeHash = new Hashtable<String, XMLSource>();

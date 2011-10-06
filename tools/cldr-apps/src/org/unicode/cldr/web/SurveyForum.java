@@ -659,9 +659,9 @@ public class SurveyForum {
 
 		DataSection section = ctx.getSection(podBase);
 
-		baseCtx.sm.printSectionTableOpen(ctx, section, true);
+		baseCtx.sm.printSectionTableOpen(ctx, section, true, canModify);
 		baseCtx.sm.showPeas(ctx, section, canModify, item_xpath, true);
-		baseCtx.sm.printSectionTableClose(ctx, section);
+		baseCtx.sm.printSectionTableClose(ctx, section, canModify);
 		baseCtx.sm.printPathListClose(ctx);
 
 		//        ctx.printHelpHtml(section, item_xpath);
@@ -708,7 +708,7 @@ public class SurveyForum {
 			String podBase = DataSection.xpathToSectionBase(base_xpath);
 			section = ctx.getSection(podBase);   
 		}
-		ctx.sm.printSectionTableClose(ctx, section);
+		ctx.sm.printSectionTableClose(ctx, section, true);
 	}
 
 	/**

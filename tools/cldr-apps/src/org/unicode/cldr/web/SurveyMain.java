@@ -7533,9 +7533,9 @@ o	            		}*/
         
         ctx.println("<h3>Exemplar City</h3>");
         
-        printSectionTableOpen(ctx, section, true);
+        printSectionTableOpen(ctx, section, true, canModify);
         showPeas(ctx, section, canModify, zoneXpath+"/exemplarCity", true);
-        printSectionTableClose(ctx, section);
+        printSectionTableClose(ctx, section, canModify);
         
         ctx.printHelpHtml(zoneXpath+"/exemplarCity");
 
@@ -7543,9 +7543,9 @@ o	            		}*/
             // #2 there's a MZ active. Explain it.
             ctx.println("<hr><h3>Metazone "+currentMetaZone+"</h3>");
 
-            printSectionTableOpen(ctx, metazoneSection, true);
+            printSectionTableOpen(ctx, metazoneSection, true, canModify);
             showPeas(ctx, metazoneSection, canModify, metazoneXpath, true);
-            printSectionTableClose(ctx, metazoneSection);
+            printSectionTableClose(ctx, metazoneSection, canModify);
             if(canModify) {
                 ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
             }
@@ -7602,11 +7602,11 @@ o	            		}*/
             ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just the contents.
         }
                 
-        printSectionTableOpen(ctx, section, true);
+        printSectionTableOpen(ctx, section, true, canModify);
         // use a special matcher.
         showPeas(ctx, section, canModify, XPathMatcher.regex(BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,zoneXpath),
         		 Pattern.compile(".*/((short)|(long))/.*")), true);
-        printSectionTableClose(ctx, section);
+        printSectionTableClose(ctx, section, canModify);
         if(canModify) {
             ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
         }
@@ -7704,12 +7704,23 @@ o	            		}*/
 
     static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
 
-    static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn) {
+    static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
         ctx.println("<a name='st_data'></a>");
         ctx.println("<table summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' class='data' border='0'>");
 
+        int table_width = section.hasExamples?13:10;
+        int itemColSpan;
+        if (!canModify) {
+        	table_width -= 4; // No vote, change, or no opinion columns
+        }
+        if (zoomedIn) {
+        	table_width += 2;
+        	itemColSpan = 2;  // When zoomed in, Proposed and Other takes up 2 columns
+        } else {
+        	itemColSpan = 1;
+        }
         if(/* !zoomedIn */ true) {
-            ctx.println("<tr><td colspan='"+PODTABLE_WIDTH+"'>");
+            ctx.println("<tr><td colspan='"+table_width+"'>");
             // dataitems_header.jspf
             // some context
             ctx.put(WebContext.DATA_SECTION, section);
@@ -7717,28 +7728,32 @@ o	            		}*/
             ctx.includeFragment("dataitems_header.jsp");
             ctx.println("</td></tr>");
         }
-        if(!section.xpathPrefix.equals("//ldml/references")) {
             ctx.println("<tr class='headingb'>\n"+
-                        " <th>St.</th>\n"+                  // 1
-                        " <th>Code</th>\n"+                 // 2
-                        " <th colspan='1' title='["+BASELINE_LOCALE+"]'>"+BASELINE_LANGUAGE_NAME+"</th>\n"+              // 3
-                        " <th title='"+BASELINE_LANGUAGE_NAME+" ["+BASELINE_LOCALE+"] Example'><i>Ex</i></th>\n" + 
-                        " <th colspan='2'>"+getProposedName()+"</th>\n"+ // 7
-                        " <th title='Proposed Example'><i>Ex</i></th>\n" + 
-                        " <th colspan='2'>"+CURRENT_NAME+"</th>\n"+  // 6
-                        " <th title='Current Example'><i>Ex</i></th>\n" + 
-                        " <th colspan='2' width='20%'>Change</th>\n");  // 8
-        } else {
-            ctx.println("<tr class='headingb'>\n"+
-                        " <th>St.</th>\n"+                  // 1
-                        " <th>Code</th>\n"+                 // 2
-                        " <th colspan='2'>"+"URI"+"</th>\n"+              // 3
-                        " <th colspan='3'>"+getProposedName()+"</th>\n"+ // 7
-                        " <th colspan='3'>"+CURRENT_NAME+"</th>\n"+  // 6
-                        " <th colspan='2' width='20%'>Change</th>\n");  // 8
-        }
-        ctx.println( "<th width='1%' title='No Opinion'>n/o</th>\n"+                   // 5
-                    "</tr>");
+                    " <th width='30'>St.</th>\n"+                  // 1
+                    " <th width='30'>Draft</th>\n");                  // 1
+            if (canModify) {
+                ctx.print(" <th width='30'>Voted</th>\n");                  // 1
+            }
+            ctx.print(" <th>Code</th>\n"+                 // 2
+                        " <th title='["+BASELINE_LOCALE+"]'>"+BASELINE_LANGUAGE_NAME+"</th>\n");
+            if (section.hasExamples){ 
+                ctx.print(" <th title='"+BASELINE_LANGUAGE_NAME+" ["+BASELINE_LOCALE+"] Example'><i>Ex</i></th>\n"); 
+            }
+            
+            ctx.print(" <th colspan="+itemColSpan+">"+getProposedName()+"</th>\n");
+            if (section.hasExamples){ 
+                ctx.print(" <th title='Proposed Example'><i>Ex</i></th>\n"); 
+            }
+            ctx.print(" <th colspan="+itemColSpan+">"+CURRENT_NAME+"</th>\n");
+            if (section.hasExamples){ 
+                ctx.print(" <th title='Current Example'><i>Ex</i></th>\n");
+            }
+            if (canModify) { 
+                ctx.print(" <th colspan='2' width='25%'>Change</th>\n");  // 8
+                ctx.print( "<th width='20' title='No Opinion'>n/o</th>\n"); // 5
+            }
+            ctx.println("</tr>");
+ 
         if(zoomedIn) {
             List<String> refsList = new ArrayList<String>();
             ctx.temporaryStuff.put("references", refsList);
@@ -7790,11 +7805,16 @@ o	            		}*/
      * @param ctx
      * @param section
      */
-    void printSectionTableClose(WebContext ctx, DataSection section) {
+    void printSectionTableClose(WebContext ctx, DataSection section, boolean canModify) {
+        int table_width = section.hasExamples?13:10;
+        if (!canModify) {
+        	table_width -= 4; // No vote, change, or no opinion columns
+        }
+
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
         if(section!=null && (refsList != null) && (!refsList.isEmpty())) {
             ctx.println("<tr></tr>");
-            ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>References</th></tr>");
+            ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+table_width+"'>References</th></tr>");
             int n = 0;
             
             Hashtable<String,DataSection.DataRow> refsHash = (Hashtable<String, DataSection.DataRow>)ctx.temporaryStuff.get("refsHash");
@@ -7804,7 +7824,7 @@ o	            		}*/
                 n++;
                 ctx.println("<tr class='referenceRow'><th><img src='http://unicode.org/cldr/data/dropbox/misc/images/reference.jpg'>#"+n+"</th>");
                 ctx.println("<td colspan='"+1+"'>"+ref+"</td>");
-                ctx.print("<td colspan='"+(PODTABLE_WIDTH-2)+"'>");
+                ctx.print("<td colspan='"+(table_width-2)+"'>");
                 if(refsHash != null) {
                     DataSection.DataRow refDataRow = refsHash.get(ref);
                     DataSection.DataRow.CandidateItem refDataRowItem = refsItemHash.get(ref);
@@ -7961,7 +7981,7 @@ o	            		}*/
     
             if(!partialPeas) {
                 ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");
-                printSectionTableOpen(ctx, section, zoomedIn);
+                printSectionTableOpen(ctx, section, zoomedIn, canModify);
             }
     
                         
@@ -8042,7 +8062,7 @@ o	            		}*/
                 }
             }
             if(!partialPeas) {
-                printSectionTableClose(ctx, section);
+                printSectionTableClose(ctx, section, canModify);
             
                 if(canModify && 
                     section.xpathPrefix.indexOf("references")!=-1) {
@@ -8715,90 +8735,62 @@ o	            		}*/
         
         List<DataSection.DataRow.CandidateItem> numberedItemsList = new ArrayList<DataSection.DataRow.CandidateItem>();
         List<String> refsList = (List<String>) ctx.temporaryStuff.get("references");
-        
-        // todo: move into DataRow
-        String okayIcon;
-        if(p.confirmStatus == Vetting.Status.APPROVED) {
-            okayIcon = ctx.iconHtml("okay", "Approved Item");
-        } else {
-            okayIcon = ctx.iconHtml("ques", p.confirmStatus + " Item");
-        }
+
+        String draftIcon = "";
+        switch (p.confirmStatus) {
+        	case APPROVED : draftIcon = ctx.iconHtml("okay", "APPROVED"); break;
+        	case CONTRIBUTED : draftIcon = ctx.iconHtml("conf","CONTRIBUTED"); break;
+        	case PROVISIONAL : draftIcon = ctx.iconHtml("conf2", "PROVISIONAL"); break;
+        	case UNCONFIRMED : draftIcon = ctx.iconHtml("ques", "UNCONFIRMED") ; break;
+       }
 
         // calculate the class of data items
         String statusIcon="";
+
+        String votedIcon=ctx.iconHtml("bar0", "You have not yet voted on this item.");
+        if (p.userHasVoted(ctx.userId())) {
+        	votedIcon=ctx.iconHtml("vote", "You have already voted on this item.");
+        }
         {
             int s = p.getResultType();
             
             if(foundError) {
-    //            rclass = "warning";
+                rclass = "error";
                 statusIcon = ctx.iconHtml("stop","Errors - please zoom in");            
-            } else if(foundWarning) {
-                rclass = "okay";
+            } else if(foundWarning && p.confirmStatus != Vetting.Status.INDETERMINATE) {
+                rclass = "warning";
                 statusIcon = ctx.iconHtml("warn","Warnings - please zoom in");            
 
-                /*
-                if((item.tests != null) || (item.examples != null)) {
-                    if(item.tests != null) {
-                        ctx.println("<td class='warncell'>");
-                        for (Iterator it3 = item.tests.iterator(); it3.hasNext();) {
-                            CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                            if (!status.getType().equals(status.exampleType)) {
-                                
-                                ctx.println("<span class='warning'>");
-                                String cls = shortClassName(status.getCause());
-                                printShortened(ctx,status.toString());
-                                ctx.println("</span>");
-                                if(cls != null) {
-                                    ctx.printHelpLink("/"+cls+"","Help");
-                                }
-                                ctx.print("<br>");
-                            }
-                        }
-                    } else {
-                        ctx.println("<td class='examplecell'>");
-                    }
-                */
-            } else if((s & Vetting.RES_DISPUTED)>0) {
-                rclass= "disputedrow";
-                statusIcon = (ctx.iconHtml("ques","Unconfirmed: disputed"));
-            } else if((s & Vetting.RES_ERROR)>0) {
-                rclass= "disputedrow";
-                statusIcon = (ctx.iconHtml("stop","Error in Proposals"));
-            } else if ((s&(Vetting.RES_INSUFFICIENT))>0) {
-                rclass = "insufficientrow";
-                statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
-            } else if ((s&(Vetting.RES_NO_VOTES))>0) {
-                statusIcon = (ctx.iconHtml("squo","No Votes"));            
-            } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
-                if((!p.hasInherited&&!p.hasMultipleProposals) 
-                            || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
-                    if(p.confirmStatus == Vetting.Status.INDETERMINATE) {
-                        statusIcon = ctx.iconHtml("ques", "No New Values");
-                    } else if(p.confirmStatus != Vetting.Status.APPROVED) {
-                        if (p.userHasVoted(ctx.userId())) {
-                            String confIcon = isPhaseSubmit() ? "conf" : "conf2";
-                            statusIcon = (ctx.iconHtml(confIcon,"Needs confirmation from others to approve"));
-                        } else {
-                            statusIcon = (ctx.iconHtml("ques-2","Not Approved, and no vote recorded"));
-                        }
-                    } else {
-                        statusIcon = ctx.iconHtml("okay", "Approved Item");
-                    }
-                } else {
-                    if(!p.hasMultipleProposals && (p.confirmStatus != Vetting.Status.APPROVED)) {
-                        if (p.userHasVoted(ctx.userId())) {
-                            String confIcon = isPhaseSubmit() ? "conf" : "conf2";
-                            statusIcon = (ctx.iconHtml(confIcon,"Needs confirmation from others to approve"));
-                        } else {
-                            statusIcon = (ctx.iconHtml("ques-2","Not Approved, and no vote recorded"));
-                        }
-                    } else {
-                        statusIcon = okayIcon;
-                    }
-                }
-                rclass = "okay";
-            } else {
-                rclass = "vother";
+//            } else if((s & Vetting.RES_DISPUTED)>0) {
+//                rclass= "disputedrow";
+//                statusIcon = (ctx.iconHtml("ques","Unconfirmed: disputed"));
+//            } else if((s & Vetting.RES_ERROR)>0) {
+//                rclass= "disputedrow";
+//                statusIcon = (ctx.iconHtml("stop","Error in Proposals"));
+//            } else if ((s&(Vetting.RES_INSUFFICIENT))>0) {
+//                rclass = "insufficientrow";
+//                statusIcon = (ctx.iconHtml("ques","Unconfirmed: insufficient"));            
+//            } else if ((s&(Vetting.RES_NO_VOTES))>0) {
+//                statusIcon = (ctx.iconHtml("squo","No Votes"));            
+//            } else if((s&(Vetting.RES_BAD_MASK)) == 0) {
+//                if((!p.hasInherited&&!p.hasMultipleProposals) 
+//                            || (s==0) || (s&Vetting.RES_NO_CHANGE) > 0) {
+//                    if(p.confirmStatus == Vetting.Status.INDETERMINATE) {
+//                        statusIcon = ctx.iconHtml("ques", "No New Values");
+//                    } else if(p.confirmStatus != Vetting.Status.APPROVED) {
+//                        if (p.userHasVoted(ctx.userId())) {
+//                            String confIcon = isPhaseSubmit() ? "conf" : "conf2";
+//                            statusIcon = (ctx.iconHtml(confIcon,"Needs confirmation from others to approve"));
+ //                       } else {
+//                            statusIcon = (ctx.iconHtml("ques-2","Not Approved, and no vote recorded"));
+//                        }
+//                    } else {
+//                        statusIcon = ctx.iconHtml("okay", "Approved Item");
+//                    }
+//                } 
+//                rclass = "okay";
+//            } else {
+//                rclass = "okay";
             }
     /*        if(noWinner && XMLSource.CODE_FALLBACK_ID.equals(p.inheritFrom)) {
                 rclass = "insufficientrow";
@@ -8809,7 +8801,7 @@ o	            		}*/
       //  String baseInfo = "#"+base_xpath+", w["+Vetting.typeToStr(resultType[0])+"]:" + resultXpath_id;
         
          
-        ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top'>");
+        ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top' width='30'>");
         if(!zoomedIn) {
             if(specialUrl != null) {
                 ctx.print("<a class='notselected' "+ctx.atarget()+" href='"+specialUrl+"'>"+statusIcon+"</a>");
@@ -8821,8 +8813,19 @@ o	            		}*/
         }
         ctx.println("</th>");
         
+        // Code for 2nd column
+        ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top' width='30'>");
+        ctx.print(draftIcon);
+        ctx.println("</th>");
+        
+        // Code for 3rd column
+        if (canModify) {
+            ctx.print("<th rowspan='"+rowSpan+"' class='"+rclass+"' valign='top' width='30'>");
+            ctx.print(votedIcon);
+            ctx.println("</th>");
+        }
         // ##2 code
-        ctx.print("<th rowspan='"+rowSpan+"' class='botgray' colspan='1' valign='top' align='left'>");
+        ctx.print("<th rowspan='"+rowSpan+"' class='botgray' valign='top' align='left'>");
         //if(p.displayName != null) { // have a display name - code gets its own box
         int xfind = ctx.fieldInt(QUERY_XFIND);
         if(xfind==base_xpath) {
@@ -8879,14 +8882,16 @@ o	            		}*/
         }
         ctx.println("</th>");
         
-        // ##2 and a half - baseline sample
-        if(baseExample != null) {
-            ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
-                    baseExample.replaceAll("\\\\","\u200b\\\\") + "</td>");
-        } else {
-            ctx.print("<td rowspan='"+rowSpan+"' >" + "</td>"); // empty box for baseline
-        }
         
+        // ##2 and a half - baseline sample
+        if (section.hasExamples) {
+            if(baseExample != null) {
+                ctx.print("<td rowspan='"+rowSpan+"' align='left' valign='top' class='generatedexample'>"+ 
+                        baseExample.replaceAll("\\\\","\u200b\\\\") + "</td>");
+            } else {
+                ctx.print("<td rowspan='"+rowSpan+"' >" + "</td>"); // empty box for baseline
+            }
+        }
         printCells(ctx,section,p,topCurrent,fieldHash,p.getResultXpath(),ourVoteXpath,canModify,ourAlign,uf,zoomedIn, numberedItemsList, refsList, exampleContext);
 
         // ## 6.1, 6.2 - Print the top proposed item. Can be null if there aren't any.
@@ -8903,7 +8908,7 @@ o	            		}*/
         boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !p.confirmOnly && (zoomedIn||!p.zoomOnly));
 
         // submit box
-        if((isPhaseSubmit()==true)
+        if( canModify && (isPhaseSubmit()==true)
 			|| UserRegistry.userIsTC(ctx.session.user)
 			|| ( UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(section.locale))
             || ((isPhaseVetting() || isPhaseVettingClosed()) && ( p.hasErrors  ||
@@ -8922,7 +8927,7 @@ o	            		}*/
                 ctx.println(changetoBox);
             }
             
-            ctx.print("<td class='noborder' rowspan='"+rowSpan+"' valign='top'>");
+            ctx.print("<td width='25%' class='noborder' rowspan='"+rowSpan+"' valign='top'>");
             
             boolean badInputBox = false;
             
@@ -8993,17 +8998,18 @@ o	            		}*/
 
         } else {
             areShowingInputBox = false;
-            ctx.println("<td rowspan='"+rowSpan+"' colspan='2'></td>");  // no 'changeto' cells.
+            if (canModify) {
+            	ctx.println("<td rowspan='"+rowSpan+"' colspan='2'></td>");  // no 'changeto' cells.
+            }
         }
 
         // No/Opinion.
-        ctx.print("<td colspan='"+
-            (zoomedIn?1:2)+"' rowspan='"+rowSpan+"'>");
-        if(canModify) {
+        if (canModify) {
+            ctx.print("<td width='20' rowspan='"+rowSpan+"'>");
             ctx.print("<input name='"+fieldHash+"' value='"+DONTCARE+"' type='radio' "
                 +((ourVoteXpath==null)?"CHECKED":"")+" >");
+            ctx.print("</td>");
         }
-        ctx.print("</td>");
         
         
         if(ctx.prefBool(SurveyMain.PREF_SHCOVERAGE)) {
@@ -9467,7 +9473,7 @@ o	            		}*/
      * @param p
      */
     void printEmptyCells(WebContext ctx, DataSection section, DataSection.DataRow p, String ourAlign, boolean zoomedIn) {
-        int colspan = zoomedIn?1:2;
+        int colspan = zoomedIn?1:1;
         boolean haveTests = false;
         boolean haveReferences = false; // no item
         ctx.print("<td  colspan='"+colspan+"' class='propcolumn' align='"+ourAlign+"' dir='"+ctx.getDirectionForLocale()+"' valign='top'>");
@@ -9475,8 +9481,10 @@ o	            		}*/
         if(zoomedIn) {
             ctx.println("<td></td>"); // no tests, no references
         }
-        // ##6.2 example column. always present
-        ctx.println("<td></td>");
+        if (section.hasExamples) { 
+            // ##6.2 example column
+            ctx.println("<td></td>");
+        }
     }
 
     /**
@@ -9490,7 +9498,7 @@ o	            		}*/
         ExampleContext exampleContext) {
         // ##6.1 proposed - print the TOP item
         
-        int colspan = zoomedIn?1:2;
+        int colspan = 1;
         String itemExample = null;
         boolean haveTests = false;
         boolean haveReferences = (item != null) && (item.references!=null) && (refsList != null);
@@ -9546,12 +9554,14 @@ o	            		}*/
         }
 
         // ##6.2 example column. always present
-        if(itemExample!=null) {
-            ctx.print("<td class='generatedexample' valign='top' align='"+ourAlign+"' dir='"+ctx.getDirectionForLocale()+"' >");
-            ctx.print(itemExample.replaceAll("\\\\","\u200b\\\\")); // \u200bu
-            ctx.println("</td>");
-        } else {
-            ctx.println("<td></td>");
+        if (section.hasExamples) {
+            if(itemExample!=null) {
+                ctx.print("<td class='generatedexample' valign='top' align='"+ourAlign+"' dir='"+ctx.getDirectionForLocale()+"' >");
+                ctx.print(itemExample.replaceAll("\\\\","\u200b\\\\")); // \u200bu
+                ctx.println("</td>");
+            } else {
+                ctx.println("<td></td>");
+            }
         }
     }
     

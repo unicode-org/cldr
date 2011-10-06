@@ -992,6 +992,17 @@ public class DataSection extends Registerable {
     	//        section.simple = simple;
     	SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
 
+    	final String[] prefixesWithExamples = { "currencies", "calendars", "codePatterns", "numbers", "localeDisplayPattern"};
+    	for ( String s : prefixesWithExamples ) {
+    		if ( prefix.contains(s)) {
+    			section.hasExamples = true;
+    			break;
+    		}
+    	}
+    	if ( prefix.endsWith("ldml")) { // special check for the 'misc' section
+    		section.hasExamples = true;
+    	}
+    	
     	XMLSource ourSrc = uf.dbSource;
     	synchronized(ctx.session) {
     		CheckCLDR checkCldr = uf.getCheck(ctx);

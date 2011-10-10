@@ -1846,8 +1846,7 @@ public class DataSection extends Registerable {
                                 "/long/standard",
                                 "/short/generic",
                                 "/short/daylight",
-                                "/short/standard",
-                                "/commonlyUsed"
+                                "/short/standard"
             };
             
             String suffs[];
@@ -1925,12 +1924,6 @@ public class DataSection extends Registerable {
                         myp.setShimTests(base_xpath,base_xpath_string,checkCldr,options);
                     }
                     
-                    ///*srl*/            System.err.println("P: ["+zone+suff+"] - count: " + myp.items.size());
-                    if(isMetazones) {
-                        if(suff.equals("/commonlyUsed")) {
-                            myp.valuesList = METAZONE_COMMONLYUSED_VALUES;
-                        }
-                    }
                     
                     myp.displayName = baselineFile.getStringValue(podBase+ourSuffix+suff); // use the baseline (English) data for display name.
                     

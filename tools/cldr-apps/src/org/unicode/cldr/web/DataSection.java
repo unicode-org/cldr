@@ -83,6 +83,7 @@ public class DataSection extends Registerable {
     // UI strings
     boolean canName = true; // can the Display Name be used for sorting?
     boolean isCalendar = false; // Is this a calendar section?
+    boolean isMetazones = false; // Is this a metazones section?
     int skippedDueToCoverage = 0; // How many were skipped due to coverage?
 //    boolean simple = false; // is it a 'simple code list'?
     
@@ -878,6 +879,7 @@ public class DataSection extends Registerable {
         SortMode sortMode = null;
         public boolean canName = true; // can use the 'name' view?
         public boolean isCalendar = false;
+        public boolean isMetazones = false;
         DataRow rows[]; // list of peas in sorted order
         /**
          * Partitions divide up the peas into sets, such as 'proposed', 'normal', etc.
@@ -946,6 +948,7 @@ public class DataSection extends Registerable {
         DisplaySet aDisplaySet = new DisplaySet(createSortedList(sortMode,matcher), sortMode);
         aDisplaySet.canName = canName;
         aDisplaySet.isCalendar = isCalendar;
+        aDisplaySet.isMetazones = isMetazones;
         return aDisplaySet;
     }
         
@@ -1250,6 +1253,7 @@ public class DataSection extends Registerable {
         	}
 
         	isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
+        	isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
 
         	List checkCldrResult = new ArrayList();
 

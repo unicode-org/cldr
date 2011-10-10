@@ -272,6 +272,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     static final String PREF_GROTTY = "p_grotty";
     static final String PREF_SORTMODE_CODE = "code";
     static final String PREF_SORTMODE_CODE_CALENDAR = "codecal";
+    static final String PREF_SORTMODE_METAZONE = "metazon";
    // static final String PREF_SORTMODE_ALPHA = "alpha";
     static final String PREF_SORTMODE_WARNING = "interest";
     static final String PREF_SORTMODE_NAME = "name";
@@ -8017,8 +8018,12 @@ o	            		}*/
                         if((dSet.partitions[j].name != null) &&
                         		( (i == dSet.partitions[j].start) ||
                         		((i==peaStart)&&(i>=dSet.partitions[j].start)&&(i<dSet.partitions[j].limit)))) { // ensure the first item has a header.
-                            ctx.println("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>" +
-                                "<a name='" + dSet.partitions[j].name + "'>" +
+                            ctx.print("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>" +
+                                    "<a name='" + dSet.partitions[j].name + "'");
+                            if (!dSet.partitions[j].helptext.isEmpty()) {
+                            	ctx.print("title='" + dSet.partitions[j].helptext + "'");
+                            }
+                             ctx.println(">" +
                                 dSet.partitions[j].name + "</a>" +
                                 "</th>");
 //                            if(isUnofficial) {
@@ -9797,6 +9802,9 @@ o	            		}*/
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
                 if (displaySet.isCalendar) {
                     showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE_CALENDAR, "Type");
+                }
+                if (displaySet.isMetazones) {
+                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_METAZONE, "Type");
                 }
                 showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
                 if(displaySet.canName) {

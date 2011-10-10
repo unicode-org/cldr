@@ -32,6 +32,8 @@ public abstract class SortMode {
 			return new CodeSortMode();
 		} else if(mode.equals(CalendarSortMode.name)) {
 			return new CalendarSortMode();
+		} else if(mode.equals(MetazoneSortMode.name)) {
+			return new MetazoneSortMode();
 		} else if(mode.equals(InterestSort.name)) {
 			return new InterestSort();
 		} else if(mode.equals(NameSort.name)) {
@@ -85,7 +87,7 @@ public abstract class SortMode {
 		}
 	}
 
-	enum SortKeyType { SORTKEY_INTEREST, SORTKEY_CALENDAR };
+	enum SortKeyType { SORTKEY_INTEREST, SORTKEY_CALENDAR, SORTKEY_METAZONE };
 	
 	
 	public static final int[] reserveForSort() {

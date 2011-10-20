@@ -82,34 +82,80 @@ public class SupplementalMetadataConverter extends SimpleLDMLConverter {
      }
      return res;
   }
-  private Resource parseAlias(Node root, StringBuilder xpath) {
+  
+  protected Resource parseAlias(Node root, StringBuilder xpath) {
+      Resource current = null;
+      Resource first = null;
+      Resource res = null;
+      boolean languageAliasParsed = false;
+      boolean territoryAliasParsed = false;
+      boolean scriptAliasParsed = false;
+      boolean variantAliasParsed = false;
+      
+      for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
+
+          if (node.getNodeType() != Node.ELEMENT_NODE) {
+              continue;
+          }
+
+          String name = node.getNodeName();
+          if (name.equals(LDMLConstants.LANGUAGE_ALIAS) && !languageAliasParsed) {
+              res = parseAliasResources(node,xpath,LDMLConstants.LANGUAGE_ALIAS);
+              languageAliasParsed = true;
+          } else if (name.equals(LDMLConstants.TERRITORY_ALIAS) && !territoryAliasParsed) {
+              res = parseAliasResources(node,xpath,LDMLConstants.TERRITORY_ALIAS);
+              territoryAliasParsed = true;
+          } else if (name.equals(LDMLConstants.SCRIPT_ALIAS) && !scriptAliasParsed) {
+              res = parseAliasResources(node,xpath,LDMLConstants.SCRIPT_ALIAS);
+              scriptAliasParsed = true;
+          } else if (name.equals(LDMLConstants.VARIANT_ALIAS) && !variantAliasParsed) {
+              res = parseAliasResources(node,xpath,LDMLConstants.VARIANT_ALIAS);
+              variantAliasParsed = true;
+          }
+          if (res != null) {
+              if (current == null) {
+                  current = first = res;
+              } else {
+                  current.next = res;
+                  current = current.next;
+              }
+              res = null;
+          }
+       
+      }
+      return first;
+    }
+
+  private Resource parseAliasResources(Node root, StringBuilder xpath, String aliasType) {
       Resource res = null;
       Resource current = null;
       
       Resource table = new ResourceTable();
-      table.name = LDMLConstants.TERRITORY_ALIAS;
-      for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
+      table.name = aliasType;
+      for (Node node = root; node != null; node = node.getNextSibling()) {
         if (node.getNodeType()!= Node.ELEMENT_NODE) {
           continue;
         }
         String name = node.getNodeName();
 
-        if ( name.equals(LDMLConstants.TERRITORY_ALIAS)){
+        if ( name.equals(aliasType)){
             String type = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);
             String replacement = LDMLUtilities.getAttributeValue(node,LDMLConstants.REPLACEMENT);
-            
-            ResourceString str = new ResourceString();
-            str.name = type;
-            str.val = replacement;
-            res = str;
+       
+            if ( type != null && replacement != null) {
+                ResourceString str = new ResourceString();
+                str.name = type;
+                str.val = replacement;
+                res = str;
 
-            if (current == null) {
-                current = table.first = res;
-            } else {
-                current.next = res;
-                current = current.next;
+                if (current == null) {
+                    current = table.first = res;
+                } else {
+                    current.next = res;
+                    current = current.next;
+                }
+                res = null;
             }
-            res = null;
         }
 
      }

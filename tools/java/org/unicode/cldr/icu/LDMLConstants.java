@@ -238,6 +238,8 @@ public class LDMLConstants {
     public static final String META_DATA         = "metadata";
     public static final String LANGUAGE_ALIAS    = "languageAlias";
     public static final String TERRITORY_ALIAS   = "territoryAlias";
+    public static final String SCRIPT_ALIAS      = "scriptAlias";
+    public static final String VARIANT_ALIAS     = "variantAlias";
     public static final String REPLACEMENT       = "replacement";
     public static final String SEGMENTATIONS     = "segmentations";
     public static final String TIMEZONE_DATA     = "timezoneData";

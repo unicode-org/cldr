@@ -1880,6 +1880,13 @@
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>São Tomé</exemplarCity>
 			</zone>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Ho Chi Minh City</exemplarCity>
 			</zone>
@@ -2410,10 +2417,14 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
+					<generic>Hawaii-Aleutian Time</generic>
 					<standard>Hawaii-Aleutian Standard Time</standard>
+					<daylight>Hawaii-Aleutian Daylight Time</daylight>
 				</long>
 				<short>
-					<standard>HST</standard>
+					<generic>HAT</generic>
+					<standard>HAST</standard>
+					<daylight>HADT</daylight>
 				</short>
 			</metazone>
 			<metazone type="Hong_Kong">

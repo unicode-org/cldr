@@ -308,7 +308,11 @@ public final class FileUtilities {
         @Override
         public String next() {
             try {
-                return input.readLine();
+                String result = input.readLine();
+                if (result == null) {
+                    input.close();
+                }
+                return result;
             } catch (IOException e) {
                 throw new IllegalArgumentException(e); // handle dang'd checked exception
             }

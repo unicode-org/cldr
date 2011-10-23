@@ -30,6 +30,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
 
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -200,6 +201,7 @@ class GeneratePickerData {
             }
             throw new Exception(ERROR_COUNT.size() + " errors above!");
         }
+        System.out.println("Compression\t" + Compacter.totalOld + ",\t" + Compacter.totalNew + ",\t" + (Compacter.totalNew/Compacter.totalOld));
         System.out.println("DONE");
     }
 

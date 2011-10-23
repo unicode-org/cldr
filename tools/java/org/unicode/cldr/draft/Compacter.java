@@ -5,14 +5,20 @@ package org.unicode.cldr.draft;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.unicode.cldr.draft.CharacterListCompressor.Interval;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UTF16;
 
 class Compacter {
-
+    static double totalOld;
+    static double totalNew;
+    
   static boolean useCibus = true;
   
   /**
@@ -20,8 +26,23 @@ class Compacter {
    * @param set2 input is collection of strings, where each string is exactly one codepoint. The collection is read in Iterator order.
    */
   public static String encodeString(Collection<String> set2) {
+      int size = 2; // size in bytes
+      for (String s : set2) {
+          int cp;
+          for (int i = 0; i < s.length(); i += Character.charCount(cp)) {
+              cp = s.charAt(i);
+              if (cp < 0x80) size +=1;
+              else if (cp < 0x800) size += 2;
+              else if (cp < 0x10000) size += 3;
+              else size += 4;
+          }
+          size += 1; // for null byte;
+      }
     List<Interval> intermediate = codePointsToIntervals(set2);
-    return CharacterListCompressor.base88EncodeList(intermediate);
+    String result = CharacterListCompressor.base88EncodeList(intermediate);
+    totalOld += size;
+    totalNew += result.length()+2;
+    return result;
   }
   
   /**

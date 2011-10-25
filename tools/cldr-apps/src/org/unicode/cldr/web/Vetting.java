@@ -3060,33 +3060,6 @@ if(true == true)    throw new InternalError("removed from use.");
         }
     }
     
-    /** Old version **/
-    public void writeXpaths(PrintWriter out, String ourDate, Set<Integer> xpathSet) {
-        out.println("<xpathTable host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\"  count=\""+xpathSet.size()+"\" >");
-        writeXpathFragment(out, xpathSet);
-        out.println("</xpathTable>");
-    }
-
-    public void writeXpathFragment(PrintWriter out, Set<Integer> xpathSet) {
-        for(int path : xpathSet) {
-            out.println("<xpath id=\""+path+"\">"+xmlescape(sm.xpt.getById(path))+"</xpath>");
-        }
-    }
-
-    public void writeXpaths(PrintWriter out, String ourDate, boolean xpathSet[]) {
-        out.println("<xpathTable host=\""+SurveyMain.localhost()+"\" max=\""+xpathSet.length+"\" date=\""+ourDate+"\" >");
-        writeXpathFragment(out, xpathSet);
-        out.println("</xpathTable>");
-    }
-
-    public void writeXpathFragment(PrintWriter out, boolean xpathSet[]) {
-        for(int path=0;path<xpathSet.length;path++) {
-            if(xpathSet[path]) {
-                out.println("<xpath id=\""+path+"\">"+xmlescape(sm.xpt.getById(path))+"</xpath>");
-            }
-        }
-    }
-    
     static int xpathMax=0;
 
     /**
@@ -3111,9 +3084,9 @@ if(true == true)    throw new InternalError("removed from use.");
     	boolean isResolved = source.isResolving();
     	String oldVersion = SurveyMain.getOldVersion();
     	String newVersion = SurveyMain.getNewVersion();
-    	out.println("<locale-votes host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\" "+
+    	out.println("<locale-votes date=\""+ourDate+"\" "+
     			"oldVersion=\""+oldVersion+"\" currentVersion=\""+newVersion+"\" "+
-    			"resolved=\""+isResolved+"\" locale=\""+locale+"\">");
+    			"locale=\""+locale+"\">");
 
     	ResultSet base_result=null,results=null;
     	PreparedStatement resultsByBase=null,votesByValue=null;
@@ -3121,9 +3094,9 @@ if(true == true)    throw new InternalError("removed from use.");
     	try {
     	
     	resultsByBase = conn2.prepareStatement(
-    			"select distinct cldr_vet.vote_xpath, cldr_data.value,cldr_vet.base_xpath  from cldr_data,cldr_vet where cldr_data.locale=cldr_vet.locale " +
+    			"select distinct cldr_vet.vote_xpath, cldr_data.value,cldr_vet.base_xpath  from cldr_data,cldr_vet,cldr_xpaths where cldr_data.locale=cldr_vet.locale " +
     			" and cldr_data.locale=? and " +
-    	" cldr_data.xpath=cldr_vet.vote_xpath order by cldr_vet.base_xpath desc");
+    	" cldr_data.xpath=cldr_vet.vote_xpath and cldr_vet.base_xpath=cldr_xpaths.id order by cldr_xpaths.xpath ");
     	votesByValue = conn2.prepareStatement("select submitter from cldr_vet where locale=? and vote_xpath=?");
 
     	resultsByBase.setString(1, locale);
@@ -3146,9 +3119,9 @@ if(true == true)    throw new InternalError("removed from use.");
     		
     		if(baseXpath!=lastBase) {
     			if(lastBase!=-1) {
-    				out.println("</item>");
+    				out.println("  </item>");
     			}
-    			out.print("<item baseXpath=\""+baseXpath+"\">");
+    			out.println("  <item baseXpath=\""+sm.xpt.getStringIDString(baseXpath)+"\">");
     			lastBase=baseXpath;
     		}
     		boolean hadRow = false;
@@ -3181,10 +3154,10 @@ if(true == true)    throw new InternalError("removed from use.");
     		//out.println("\t\t<xpath type=\"base\" id=\""+baseXpath+"\">"+xmlescape(sm.xpt.getById(baseXpath))+"</xpath>");
 
 
-    		out.print("<vote users=\""+votes+"\">"+voteValue+"</vote>");
+    		out.println("   <vote users=\""+votes+"\">"+voteValue+"</vote>");
     	}
     	if(lastBase!=-1) {
-    		out.println("</item>\n");
+    		out.println("  </item>");
     	} else {
     		return null;
     	}
@@ -3201,15 +3174,7 @@ if(true == true)    throw new InternalError("removed from use.");
     	}
     }
 
-    private String xmlescape(String str) {
-        if(str.indexOf('&')>=0) {
-            return str.replaceAll("&", "\\&amp;");
-        } else {
-            return str;
-        }
-    }
-
-	public int updateStatus() {
+    public int updateStatus() {
 		try {
 			Connection conn=null;
 			try {

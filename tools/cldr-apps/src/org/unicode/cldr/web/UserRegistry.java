@@ -9,8 +9,13 @@ package org.unicode.cldr.web;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -1642,5 +1647,119 @@ public class UserRegistry {
 		}
 
 		orgList = orgs.toArray(orgList);
+	}
+	
+	/*
+<user id="460" email="?@??.??">
+> <level n="5"/>
+> <org>IBM</org>
+> <locales type="edit">
+> <locale id="sq"/>
+> </locales>
+> </user>  
+
+ It's probably better to just give VETTER, seems more portable than '5'.
+
+> If it is real info, make it an element. If not (and I think not, for
+> "ibm"), omit it.  
+
+ In the comments are the VoteResolver enum value.  I'll probably just
+ use that value.
+
+> 5. More issues with that. The structure is inconsistent, with some
+> info in attributes and some in elements. Should be one or the other.
+> 
+> all attributes:
+> 
+> <user id="460" email="?@??.??" level="5" org="IBM" edit="sq de"/>
+> 
+> all elements
+> 
+> <user id="460">
+>                 <email>?@??.??</email>
+> <level/>5</level>
+> <org>IBM</org>
+> <edit>sq</edit>
+> <edit>de</edit>
+> </user>
+> 	 */
+	/**
+	 * @param sm TODO
+	 * @param ourDate
+	 * @param obscured
+	 * @param outFile
+	 * @throws UnsupportedEncodingException
+	 * @throws FileNotFoundException
+	 */
+	int writeUserFile(SurveyMain sm, String ourDate, boolean obscured, File outFile)
+			throws UnsupportedEncodingException, FileNotFoundException {
+		PrintWriter out = new PrintWriter(
+		    new OutputStreamWriter(
+		        new FileOutputStream(outFile), "UTF8"));
+	//            } catch (UnsupportedEncodingException e) {
+	//                throw new InternalError("UTF8 unsupported?").setCause(e);
+		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+	  //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
+		out.println("<users generated=\""+ourDate+"\" obscured=\""+obscured+"\">");
+		String org = null;
+		Connection conn = null;
+		try {
+			conn = sm.dbUtils.getDBConnection();
+			synchronized(this) {
+		    java.sql.ResultSet rs = list(org, conn);
+		    if(rs == null) {
+		        out.println("\t<!-- No results -->");
+		        return 0;
+		    }
+		    String lastOrg = null;
+		    while(rs.next()) {
+		        int theirId = rs.getInt(1);
+		        int theirLevel = rs.getInt(2);
+		        String theirName = obscured?("#"+theirId):DBUtils.getStringUTF8(rs, 3).trim();//rs.getString(3);
+		        String theirEmail = obscured?/*"?@??.??"*/"":rs.getString(4).trim();
+		        String theirOrg = rs.getString(5);
+		        String theirLocales = rs.getString(6);
+		        
+		        String orgMunged = theirOrg;
+		        try {
+		        	orgMunged = VoteResolver.Organization.fromString(theirOrg).name();
+		        } catch(IllegalArgumentException iae) {
+		        	// illegal org
+		        }
+		        if(orgMunged==null || orgMunged.length()<=0) {
+		        	orgMunged = theirOrg;
+		        }
+		        if(!orgMunged.equals(lastOrg)) {
+		        	out.println("<!-- " + SurveyMain.xmlescape(theirOrg) + " -->");
+		        	lastOrg = orgMunged;
+		        }
+		        out.print("\t<user id=\""+theirId+"\" ");
+		        if(theirEmail.length()>0) out.print("email=\""+theirEmail+"\" ");
+		        out.print("level=\""+UserRegistry.levelAsStr(theirLevel).toLowerCase()+"\"");
+		        if(theirEmail.length()>0) out.print(" name=\""+SurveyMain.xmlescape(theirName)+"\"");
+		        out.print(" "+
+		        "org=\""+orgMunged+"\" locales=\"");
+		        String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
+		        for(int i=0;i<theirLocalesList.length;i++) {
+		            if(i>0) out.print(" ");
+		        	out.print(theirLocalesList[i]);
+		        }
+		        out.println("\"/>");
+		    }            
+		}/*end synchronized(reg)*/ } catch(SQLException se) {
+		    SurveyMain.logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+		    out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
+		} finally {
+			try {
+				DBUtils.close(conn);
+			}catch(SQLException se) {
+		        SurveyMain.logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + null + " failed: " + DBUtils.unchainSqlException(se),se);
+		        //out.println("-- Failure: " + unchainSqlException(se) + " --");
+		       // return 0;
+			}
+		}
+		out.println("</users>");
+		out.close();
+		return 1;
 	}
 }

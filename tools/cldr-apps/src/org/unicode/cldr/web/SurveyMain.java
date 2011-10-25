@@ -101,7 +101,11 @@ import org.w3c.dom.NodeList;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -5863,7 +5867,7 @@ o	            		}*/
         boolean sql = false;
         boolean data=false;
         String lastfile = null;
-        String ourDate = new Date().toString(); // canonical date
+        String ourDate = SurveyMain.formatDate(); // canonical date
         int nrOutFiles = 0;
         if(kind.equals("sql")) {
             sql= true;
@@ -5946,7 +5950,7 @@ o	            		}*/
             boolean obscured = kind.equals("usersa");
             File outFile = new File(outdir,kind+".xml");
             try {
-                writeUserFile(ourDate, obscured, outFile);
+                reg.writeUserFile(this, ourDate, obscured, outFile);
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new InternalError("writing " + kind + " - IO Exception "+e.toString());
@@ -6040,6 +6044,7 @@ o	            		}*/
 				continue; // use cache
 		    }
 		    
+		    // if i>5 break [ for testing ]
 		    
 		    XMLSource dbSource = makeDBSource( loc, vetted);
 		    CLDRFile file;
@@ -6122,7 +6127,7 @@ o	            		}*/
 		    PrintWriter utf8OutStream = new PrintWriter(
 		        new OutputStreamWriter(
 		            new FileOutputStream(xpathFile), "UTF8"));
-		    this.vet.writeXpaths(utf8OutStream, ourDate, xpathSet);
+		    xpt.writeXpaths(utf8OutStream, ourDate, xpathSet);
 		    nrOutFiles++;
 		    utf8OutStream.close();
 		    lastfile = null;
@@ -6203,81 +6208,7 @@ o	            		}*/
 		return 1;
 		
 	}
-	/**
-	 * @param ourDate
-	 * @param obscured
-	 * @param outFile
-	 * @throws UnsupportedEncodingException
-	 * @throws FileNotFoundException
-	 */
-	private int writeUserFile(String ourDate, boolean obscured, File outFile)
-			throws UnsupportedEncodingException, FileNotFoundException {
-		PrintWriter out = new PrintWriter(
-		    new OutputStreamWriter(
-		        new FileOutputStream(outFile), "UTF8"));
-   //            } catch (UnsupportedEncodingException e) {
-   //                throw new InternalError("UTF8 unsupported?").setCause(e);
-		out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-      //        ctx.println("<!DOCTYPE ldml SYSTEM \"http://.../.../stusers.dtd\">");
-		out.println("<users generated=\""+ourDate+"\" host=\""+localhost()+"\" obscured=\""+obscured+"\">");
-		String org = null;
-		Connection conn = null;
-		try {
-			conn = dbUtils.getDBConnection();
-			synchronized(reg) {
-		    java.sql.ResultSet rs = reg.list(org, conn);
-		    if(rs == null) {
-		        out.println("\t<!-- No results -->");
-		        return 0;
-		    }
-		    while(rs.next()) {
-		        int theirId = rs.getInt(1);
-		        int theirLevel = rs.getInt(2);
-		        String theirName = obscured?("#"+theirId):DBUtils.getStringUTF8(rs, 3);//rs.getString(3);
-		        String theirEmail = obscured?"?@??.??":rs.getString(4);
-		        String theirOrg = rs.getString(5);
-		        String theirLocales = rs.getString(6);
-		        
-		        String orgMunged = theirOrg;
-		        try {
-		        	orgMunged = VoteResolver.Organization.fromString(theirOrg).name();
-		        } catch(IllegalArgumentException iae) {
-		        	// illegal org
-		        }
-		        if(orgMunged==null || orgMunged.length()<=0) {
-		        	orgMunged = theirOrg;
-		        }
-		        
-		        out.println("\t<user id=\""+theirId+"\" email=\""+theirEmail+"\">");
-		        out.println("\t\t<level n=\""+theirLevel+"\" type=\""+UserRegistry.levelAsStr(theirLevel)+"\"/>");
-		        out.println("\t\t<name>"+theirName+"</name>");
-		        out.println("\t\t<org>"+theirOrg+"</org> <!-- type=\""+orgMunged+"\" -->");
-		        out.println("\t\t<locales type=\"edit\">");
-		        String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
-		        for(int i=0;i<theirLocalesList.length;i++) {
-		            out.println("\t\t\t<locale id=\""+theirLocalesList[i]+"\"/>");
-		        }
-		        out.println("\t\t</locales>");
-		        out.println("\t</user>");
-		    }            
-		}/*end synchronized(reg)*/ } catch(SQLException se) {
-		    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
-		    out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
-		} finally {
-			try {
-				DBUtils.close(conn);
-			}catch(SQLException se) {
-		        logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + null + " failed: " + DBUtils.unchainSqlException(se),se);
-		        //out.println("-- Failure: " + unchainSqlException(se) + " --");
-		       // return 0;
-			}
-		}
-		out.println("</users>");
-		out.close();
-		return 1;
-	}
-
-    public synchronized boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
+	public synchronized boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
         throws IOException, ServletException {
         String s = request.getPathInfo();
         
@@ -6456,7 +6387,7 @@ o	            		}*/
     //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
                 if(voteData) {
                     try {
-                        vet.writeVoteFile(response.getWriter(), conn, dbSource, file, new Date().toString(), null);
+                        vet.writeVoteFile(response.getWriter(), conn, dbSource, file, formatDate(), null);
                     } catch (SQLException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -10227,6 +10158,7 @@ o	            		}*/
 
             supplemental = new SupplementalData(fileBase + "/../supplemental/");
             supplementalDataInfo = SupplementalDataInfo.getInstance(fileBase + "/../supplemental/");
+            supplementalDataInfo.setAsDefaultInstance();
     
             try {
             	supplemental.defaultContentToParent("mt_MT");
@@ -11616,4 +11548,29 @@ o	            		}*/
     private boolean choiceNotEmptyOrAllowedEmpty(String choice_r, String path) {
       return choice_r.length()>0 || ALLOWED_EMPTY.matcher(path).matches();
     }
+	static String xmlescape(String str) {
+	    if(str.indexOf('&')>=0) {
+	        return str.replaceAll("&", "\\&amp;");
+	    } else {
+	        return str;
+	    }
+	}
+	
+	public static ULocale iso8601Locale = ULocale.forLanguageTag("en-US-POSIX-u-ca-iso8601");
+	
+	public static DateFormat getISODateFormat() {
+		//return Calendar.getInstance(iso8601Locale).getDateTimeFormat(DateFormat.SHORT, DateFormat.SHORT, iso8601Locale);
+		Calendar c = Calendar.getInstance(iso8601Locale);
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		sd.setCalendar(c);
+		sd.setTimeZone(TimeZone.getTimeZone("GMT"));
+		return sd;
+	}
+	private static DateFormat myDateFormat = getISODateFormat();
+	public synchronized static String formatDate(Date date) {
+		return myDateFormat.format(date);
+	}
+	public static String formatDate() {
+		return formatDate(new Date());
+	}
 }

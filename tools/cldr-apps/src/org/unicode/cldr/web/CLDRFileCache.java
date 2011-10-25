@@ -28,8 +28,6 @@ import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
 import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 /**
  * @author srl
  * 

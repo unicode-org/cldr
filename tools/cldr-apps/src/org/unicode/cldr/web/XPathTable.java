@@ -9,6 +9,7 @@
 
 package org.unicode.cldr.web;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,10 +17,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -587,4 +591,51 @@ public class XPathTable {
     public int count() {
         return stringToId.size();
     }
+
+	public long getStringID(int baseXpath) {
+		return getStringID(getById(baseXpath));
+	}
+
+	public long getStringID(String byId) {
+		return StringId.getId(byId);
+	}
+	
+	public String getStringIDString(int baseXpath) {
+		return getStringIDString(getById(baseXpath));
+	}
+
+	public String getStringIDString(String byId) {
+		return Long.toHexString(getStringID(byId));
+	}
+
+	public void writeXpathFragment(PrintWriter out, boolean xpathSet[]) {
+		Map<String,String> m = new TreeMap<String,String>();
+	    for(int path=0;path<xpathSet.length;path++) {
+	        if(xpathSet[path]) {
+	        	m.put(SurveyMain.xmlescape(getById(path)), getStringIDString(path));
+	        }
+	    }
+	    for(Map.Entry<String, String> e : m.entrySet()) {
+            out.println("<xpath id=\""+e.getValue()+"\">"+e.getKey()+"</xpath>");
+	    }
+	}
+
+	public void writeXpathFragment(PrintWriter out, Set<Integer> xpathSet) {
+	    for(int path : xpathSet) {
+	        out.println("<xpath id=\""+getStringIDString(path)+"\">"+SurveyMain.xmlescape(getById(path))+"</xpath>");
+	    }
+	}
+
+	public void writeXpaths(PrintWriter out, String ourDate, boolean xpathSet[]) {
+	    out.println("<xpathTable type=\"StringID\" date=\""+ourDate+"\" >"); // TODO: 8601
+	    writeXpathFragment(out, xpathSet);
+	    out.println("</xpathTable>");
+	}
+
+	/** Old version **/
+	public void writeXpaths(PrintWriter out, String ourDate, Set<Integer> xpathSet) {
+	    out.println("<xpathTable host=\""+SurveyMain.localhost()+"\" date=\""+ourDate+"\" type=\"StringID\" count=\""+xpathSet.size()+"\" >");
+	    writeXpathFragment(out, xpathSet);
+	    out.println("</xpathTable>");
+	}
 }

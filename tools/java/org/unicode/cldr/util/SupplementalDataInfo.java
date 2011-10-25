@@ -823,9 +823,23 @@ public class SupplementalDataInfo {
             .initCause(e);
         }
     }
+    
+    static private SupplementalDataInfo defaultInstance = null;
 
+    /**
+     * Get an instance chosen using setAsDefaultInstance(), otherwise return an instance using the default directory CldrUtility.SUPPLEMENTAL_DIRECTORY
+     * @return
+     */
     public static SupplementalDataInfo getInstance() {
+        if(defaultInstance!=null) return defaultInstance;
         return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+    }
+    
+    /**
+     * Mark this as the default instance to be returned by getInstance()
+     */
+    public void setAsDefaultInstance() {
+        defaultInstance = this;
     }
 
     public static SupplementalDataInfo getInstance(String supplementalDirectory) {
@@ -838,6 +852,9 @@ public class SupplementalDataInfo {
             // canonicalize name & try again
             String canonicalpath;
             try {
+                if(supplementalDirectory == null) {
+                    throw new IllegalArgumentException("Error: null supplemental directory");
+                }
                 canonicalpath = new File(supplementalDirectory).getCanonicalPath();
             } catch (IOException e) {
                 throw (IllegalArgumentException) new IllegalArgumentException()

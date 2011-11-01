@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.VettingViewer.ErrorChecker;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -50,10 +51,6 @@ import org.unicode.cldr.web.DBUtils.ConnectionHolder;
 import org.unicode.cldr.web.DBUtils.DBCloseable;
 import org.unicode.cldr.web.ErrorCheckManager.CachingErrorChecker;
 import org.unicode.cldr.web.MuxedSource.MuxFactory;
-
-import com.ibm.icu.dev.test.util.ElapsedTimer;
-
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	public class SubFactory extends Factory {
@@ -2104,18 +2101,18 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		/**
 		 * Table of all aliases
 		 */
-		private HashMap<String, List<Alias>> aliasTable = new HashMap();
+		private HashMap<String, TreeMap<String, String>> aliasTable = new HashMap();
 
 		/**
 		 * get a copy of all aliases 
 		 * @return list of aliases
 		 */
 		@Override
-		protected synchronized List<Alias> getAliases() {
+		protected synchronized TreeMap<String, String> getAliases() {
 			String locale = getLocaleID();
-			List<Alias> output = aliasTable.get(locale);
+			TreeMap<String, String> output = aliasTable.get(locale);
 			if(output == null) {
-				output = new ArrayList<Alias>();
+				output = new TreeMap<String, String>();
 				MyStatements stmts = null;
 				try {
 					stmts = openStatements();
@@ -2137,7 +2134,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 						Alias temp = XMLSource.Alias.make(fullPath);
 						if (temp == null) continue;
 						//System.out.println("aa: " + path + " - " + fullPath + " -> " + temp.toString());
-						output.add(temp);
+						output.put(temp.getOldPath(), temp.getNewPath());
 					}
 					aliasTable.put(locale,output);
 					// TODO: 0
@@ -2151,7 +2148,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			return output;
 		}
 
-		Hashtable<String, XMLSource> makeHash = new Hashtable<String, XMLSource>();
+		LruMap<String, XMLSource> makeHash = new LruMap<String, XMLSource>(5);
 
 		/**
 		 * @deprecated
@@ -2378,7 +2375,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
     @Override
     public String getSourceDirectory() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     @Override

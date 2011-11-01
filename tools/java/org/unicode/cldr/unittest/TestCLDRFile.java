@@ -19,6 +19,7 @@ public class TestCLDRFile {
     TestTimeZonePath();
     testDraftFilter();
     simpleTest();
+    resolutionTest();
   }
 
   private static void testExtraPaths() {
@@ -72,7 +73,8 @@ public class TestCLDRFile {
   }
 
   private static void simpleTest() {
-    double deltaTime = System.currentTimeMillis();    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    double deltaTime = System.currentTimeMillis();
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     CLDRFile english = cldrFactory.make("en", true);
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Creation: Elapsed: " + deltaTime/1000.0 + " seconds");
@@ -103,5 +105,30 @@ public class TestCLDRFile {
     }
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Elapsed: " + deltaTime/1000.0 + " seconds");
+  }
+  
+  private static void resolutionTest() {
+    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    CLDRFile german = cldrFactory.make("de", true);
+    // Test direct lookup.
+    String xpath = "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
+    String id = german.getSourceLocaleID(xpath, null);
+    if (!id.equals("de")) {
+        throw new RuntimeException("Expected de but was " + id + " for " + xpath);
+    }
+
+    // Test aliasing.
+    xpath = "//ldml/dates/calendars/calendar[@type=\"islamic-civil\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yyyyMEd\"]";
+    id = german.getSourceLocaleID(xpath, null);
+    if (!id.equals("de")) {
+      throw new RuntimeException("Expected de but was " + id + " for " + xpath);
+    }
+
+    // Test lookup that falls to root.
+    xpath = "//ldml/dates/calendars/calendar[@type=\"coptic\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"narrow\"]/month[@type=\"5\"]";
+    id = german.getSourceLocaleID(xpath, null);
+    if (!id.equals("root")) {
+      throw new RuntimeException("Expected root but was " + id + " for " + xpath);
+    }
   }
 }

@@ -17,11 +17,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
-import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.test.util.Relation;
@@ -42,7 +42,7 @@ public abstract class XMLSource implements Freezable {
 
     private String localeID;
     private boolean nonInheriting;
-    private List<Alias> aliases;
+    private TreeMap<String, String> aliases;
     protected boolean locked;
     transient String[] fixedPath = new String[1];
 
@@ -394,21 +394,25 @@ public abstract class XMLSource implements Freezable {
         }
     }
 
-    // should be overriden 
-    protected synchronized List<Alias> getAliases() {
-        // Always regenerate the alias set if the source isn't frozen.
-        // This could be speeded up for non-frozen sources if there's some way
-        // to check when key-value pairs are changed.
-        if (aliases == null || !locked) {
-            aliases = new ArrayList<Alias>();
+    /**
+     * This method should be overridden.
+     * @return a mapping of paths to their aliases. Note that since root is the
+     * only locale to have aliases, all other locales will have no mappings.
+     */
+    protected synchronized TreeMap<String, String> getAliases() {
+        // The cache assumes that aliases will never change over the lifetime of
+        // and XMLSource.
+        if (aliases == null) {
+            aliases = new TreeMap<String, String>();
             // Look for aliases and create mappings for them.
+            // Aliases are only ever found in root.
             for (Iterator<String> it = iterator(); it.hasNext();) {
                 String path = it.next();
                 if (!Alias.isAliasPath(path)) continue;
                 String fullPath = getFullPathAtDPath(path);
                 Alias temp = Alias.make(null, fullPath);
                 if (temp == null) continue;
-                aliases.add(temp);
+                aliases.put(temp.getOldPath(), temp.getNewPath());
             }
         }
         return aliases;
@@ -636,43 +640,6 @@ public abstract class XMLSource implements Freezable {
      */
     private static class ResolvingSource extends XMLSource {
         private XMLSource mySource;
-        //    private Alias tempAlias = new Alias();
-
-        private static class ParentAndPath {
-            String parentID;
-            String path;
-            //String aliasPart;
-            //String newPart;
-            XMLSource source;
-            String desiredLocaleID;
-
-            public String toString() {
-                return "[parentID: " + parentID + "; path: " + path + "; locale: " + desiredLocaleID + "; "/*+aliases: " + aliases */ + "]";
-            }
-
-            public ParentAndPath set(String xpath, XMLSource source, String desiredLocaleID) {
-                parentID = source.getLocaleID();
-                path = xpath;
-                this.source = source;
-                this.desiredLocaleID = desiredLocaleID;
-                return this;
-            }
-            public ParentAndPath next() {
-                List<Alias> aliases = source.getAliases();
-                for (Alias alias : aliases) {
-                    if (!path.startsWith(alias.getOldPath())) continue;
-                    // TODO fix parent, path, and return
-                    parentID = alias.getNewLocaleID();
-                    if (parentID == null) parentID = desiredLocaleID;
-                    source = source.make(parentID);
-                    path = alias.composeNewAndOldPath(path); //  alias.getNewPath() + path.substring(alias.getOldPath().length());
-                    return this;
-                }
-                parentID = LocaleIDParser.getParent(parentID);
-                source = parentID == null ? null : source.make(parentID);
-                return this;
-            }
-        }
 
         public boolean isResolving() {
             return true;
@@ -802,10 +769,7 @@ public abstract class XMLSource implements Freezable {
         private AliasLocation getCachedFullStatus(String xpath) {
             AliasLocation fullStatus = getSourceLocaleIDCache.get(xpath);
             if (fullStatus == null) {
-                fullStatus = new AliasLocation();
-                Status status = new Status();
-                fullStatus.localeWhereFound = _getSourceLocaleID(xpath, status);
-                fullStatus.pathWhereFound = status.pathWhereFound;
+                fullStatus = getPathLocation(xpath);
                 getSourceLocaleIDCache.put(xpath, fullStatus); // cache copy
             }
             return fullStatus;
@@ -885,58 +849,54 @@ public abstract class XMLSource implements Freezable {
         private transient Map<String,AliasLocation> getSourceLocaleIDCache = new HashMap();
 
         public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
-
-            //xpath = CLDRFile.getDistinguishingXPath(xpath, null, false);
-            boolean hasValue = mySource.hasValueAtDPath(distinguishedXPath);
-            //String result = currentSource.getValueAtDPath(xpath);
-            if (hasValue) {
-                if (status != null) {
-                    status.pathWhereFound = distinguishedXPath;
-                }
-                return mySource.getLocaleID();
-            }
-            // otherwise, it might be an alias; figure that out and return
             AliasLocation fullStatus = getCachedFullStatus(distinguishedXPath);
-            if (fullStatus == null) {
-                fullStatus = new AliasLocation();
-                if (status == null) {
-                    status = new Status();
-                }
-                fullStatus.localeWhereFound = _getSourceLocaleID(distinguishedXPath, status);
-                fullStatus.pathWhereFound = status.pathWhereFound;
-                getSourceLocaleIDCache.put(distinguishedXPath, fullStatus); // cache copy
-
-            } else if(status != null) {
-                // copy pathWhereFound from cache
+            if (status != null) {
                 status.pathWhereFound = fullStatus.pathWhereFound;
             }
             return fullStatus.localeWhereFound;
         }
 
-        public String _getSourceLocaleID(String xpath, CLDRFile.Status status) {
-            XMLSource currentSource = mySource;
-            ParentAndPath parentAndPath = new ParentAndPath();
-            parentAndPath.set(xpath, currentSource, getLocaleID()).next();
-            while (true) {
-                if (parentAndPath.parentID == null) {
-                    if (status != null) {
-                        status.pathWhereFound = parentAndPath.path;
-                    }
-                    return CODE_FALLBACK_ID;
+        private AliasLocation getPathLocation(String xpath) {
+            XMLSource source = mySource;
+            XMLSource lastSource = source;
+            // 
+            while(source != null) {
+                if (source.hasValueAtDPath(xpath)) {
+                    AliasLocation location = new AliasLocation();
+                    location.localeWhereFound = source.getLocaleID();
+                    location.pathWhereFound = xpath;
+                    return location;
                 }
-                currentSource = make(parentAndPath.parentID);
-                boolean result = currentSource.hasValueAtDPath(parentAndPath.path);
-                //result = currentSource.getValueAtDPath(parentAndPath.path);
-                if(result != false) { // was: null
-                    /*result = */ currentSource.getFullPathAtDPath(parentAndPath.path); // what does this do?
-                    if (status != null) {
-                        status.pathWhereFound = parentAndPath.path;
-                    }
-                    return currentSource.getLocaleID();
+                String localeID = LocaleIDParser.getParent(source.getLocaleID());
+                lastSource = source;
+                source = source.make(localeID);
+            } // If this loop finishes normally, lastSource == root.
+
+            // Path not found, check if an alias exists
+            TreeMap<String, String> aliases = lastSource.getAliases();
+            String aliasedPath = aliases.get(xpath);
+            if (aliasedPath == null) {
+                // Check if there is an alias for a subset xpath.
+                // If there are one or more matching aliases, lowerKey() will
+                // return the alias with the longest matching prefix since the
+                // hashmap is sorted according to xpath.
+                String possibleSubpath = aliases.lowerKey(xpath);
+                if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
+                    aliasedPath = aliases.get(possibleSubpath) +
+                            xpath.substring(possibleSubpath.length());
                 }
-                parentAndPath.next();
             }
+            if (aliasedPath != null) {
+                return getPathLocation(aliasedPath);
+            }
+
+            // Fallback location.
+            AliasLocation location = new AliasLocation();
+            location.localeWhereFound = CODE_FALLBACK_ID;
+            location.pathWhereFound = xpath;
+            return location;
         }
+
         /**
          * We have to go through the source, add all the paths, then recurse to parents
          * However, aliases are tricky, so watch it.
@@ -958,6 +918,7 @@ public abstract class XMLSource implements Freezable {
          * @param resultKeySet
          */
         private void fillKeys(int level, XMLSource currentSource, Alias alias, List<Alias> excludedAliases, Set<String> resultKeySet) {
+            // TODO(jchye): Use improved alias resolution in this method.
             if (TRACE_FILL) {
                 if (level > MAX_LEVEL) throw new IllegalArgumentException("Stack overflow");
                 boolean show = DEBUG_PATH == null || currentSource.iterator(DEBUG_PATH.matcher("")).hasNext();

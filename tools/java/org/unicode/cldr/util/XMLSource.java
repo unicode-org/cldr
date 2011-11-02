@@ -854,7 +854,8 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                 }
             }
             if (aliasedPath != null) {
-                return getPathLocation(aliasedPath);
+                // Call getCachedFullStatus recursively to avoid recalculating cached aliases.
+                return getCachedFullStatus(aliasedPath);
             }
 
             // Fallback location.

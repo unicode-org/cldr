@@ -9,11 +9,13 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -33,7 +35,7 @@ import com.ibm.icu.util.Freezable;
  * http://cldr.unicode.org/development/development-process/design-proposals/resolution-of-cldr-files. Please update that document if major
  * changes are made.
  */
-public abstract class XMLSource implements Freezable {
+public abstract class XMLSource implements Freezable, Iterable<String> {
     public static final String CODE_FALLBACK_ID = "code-fallback";
     public static final boolean USE_PARTS_IN_ALIAS = false;
     private static final String TRACE_INDENT = " "; // "\t"
@@ -143,49 +145,15 @@ public abstract class XMLSource implements Freezable {
         final private String newPath;
         final private boolean pathsEqual;
         static final Pattern aliasPattern = Pattern.compile("(?:\\[@source=\"([^\"]*)\"])?(?:\\[@path=\"([^\"]*)\"])?(?:\\[@draft=\"([^\"]*)\"])?"); // constant, so no need to sync
-        static final Map<String,Map<String,Alias>> cache = new HashMap<String,Map<String,Alias>>();
 
         public static Alias make(String aliasPath) {
-            return make(null, aliasPath);
-        }
-        
-        public static Alias make(Alias alias, String aliasPath) {
             int pos = aliasPath.indexOf("/alias");
             if (pos < 0) return null; // quickcheck
             String aliasParts = aliasPath.substring(pos+6);
             String oldPath = aliasPath.substring(0,pos);
             String newPath = null;
-            if (alias != null) {
-                if (!oldPath.startsWith(alias.newPath)) {
-                    oldPath = alias.oldPath;
-                    newPath = alias.newPath;
-                    System.out.println("WARNING!!!");
-                } else if (oldPath.length() == alias.newPath.length()) {
-                    oldPath = alias.oldPath;
-                    newPath = alias.newPath;
-                } else {
-                    String extra = oldPath.substring(alias.newPath.length());
-                    oldPath = alias.oldPath + extra; // just separated for debugging
-                    newPath = alias.newPath + extra;
-                }
-            }
 
-            // check cache
-            synchronized (Alias.class) {
-                Map<String, Alias> submap = cache.get(oldPath);
-                Alias result;
-                if (submap == null) {
-                    cache.put(oldPath, submap = new HashMap<String,Alias>());
-                    result = null;
-                } else {
-                    result = submap.get(aliasParts);
-                }
-                if (result == null) {
-                    result = new Alias(pos, oldPath, newPath, aliasParts);
-                    submap.put(aliasPath,result);
-                }
-                return result;
-            }
+            return new Alias(pos, oldPath, newPath, aliasParts);
         }
 
         /**
@@ -401,16 +369,15 @@ public abstract class XMLSource implements Freezable {
      */
     protected synchronized TreeMap<String, String> getAliases() {
         // The cache assumes that aliases will never change over the lifetime of
-        // and XMLSource.
+        // an XMLSource.
         if (aliases == null) {
             aliases = new TreeMap<String, String>();
             // Look for aliases and create mappings for them.
             // Aliases are only ever found in root.
-            for (Iterator<String> it = iterator(); it.hasNext();) {
-                String path = it.next();
+            for (String path : this) {
                 if (!Alias.isAliasPath(path)) continue;
                 String fullPath = getFullPathAtDPath(path);
-                Alias temp = Alias.make(null, fullPath);
+                Alias temp = Alias.make(fullPath);
                 if (temp == null) continue;
                 aliases.put(temp.getOldPath(), temp.getNewPath());
             }
@@ -859,7 +826,7 @@ public abstract class XMLSource implements Freezable {
         private AliasLocation getPathLocation(String xpath) {
             XMLSource source = mySource;
             XMLSource lastSource = source;
-            // 
+            
             while(source != null) {
                 if (source.hasValueAtDPath(xpath)) {
                     AliasLocation location = new AliasLocation();
@@ -908,142 +875,123 @@ public abstract class XMLSource implements Freezable {
 
         static final int MAX_LEVEL = 40; /* Throw an error if it goes past this. */
         
+        /**
+         * Initialises the set of xpaths that a fully resolved XMLSource contains.
+         * http://cldr.unicode.org/development/development-process/design-proposals/resolution-of-cldr-files. 
+         */
+        private Set<String> fillKeys() {
+            Set<String> paths = findNonAliasedPaths();
+            // Create a sorted map of reverse aliases.
+            LinkedHashMap<String, List<String>> reverseAliases = getReverseAliases();
+
+            // Find aliased paths and loop until no more aliases can be found.
+            Set<String> newPaths = paths;
+            int level = 0;
+            boolean sizeChanged = false;
+            do {
+                // Debugging code to protect against an infinite loop.
+                if (TRACE_FILL && DEBUG_PATH == null || level > MAX_LEVEL) {
+                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "# paths waiting to be aliased: " + newPaths.size());
+                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "# paths found: " + paths.size());
+                }
+                if (level > MAX_LEVEL) throw new IllegalArgumentException("Stack overflow");
+
+                String[] sortedPaths = new String[newPaths.size()];
+                newPaths.toArray(sortedPaths);
+                Arrays.sort(sortedPaths);
+
+                newPaths = getDirectAliases(sortedPaths, reverseAliases);
+                sizeChanged = paths.addAll(newPaths);
+                level++;
+            } while (sizeChanged);
+            return paths;
+        }
         
         /**
-         * http://cldr.unicode.org/development/development-process/design-proposals/resolution-of-cldr-files. 
-         * @param level
-         * @param currentSource
-         * @param alias
-         * @param excludedAliases
-         * @param resultKeySet
+         * Creates the set of resolved paths for this ResolvingSource while
+         * ignoring aliasing.
+         * @return
          */
-        private void fillKeys(int level, XMLSource currentSource, Alias alias, List<Alias> excludedAliases, Set<String> resultKeySet) {
-            // TODO(jchye): Use improved alias resolution in this method.
-            if (TRACE_FILL) {
-                if (level > MAX_LEVEL) throw new IllegalArgumentException("Stack overflow");
-                boolean show = DEBUG_PATH == null || currentSource.iterator(DEBUG_PATH.matcher("")).hasNext();
-                if (show) {
-                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
-                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
-                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "alias: " + alias);
-                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "cachedKeySet.size(): " + resultKeySet.size());
-                    System.out.println(Utility.repeat(TRACE_INDENT, level) + "excludedAliases: " + excludedAliases);
-                }
-            } else if(level > MAX_LEVEL) {
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "mySource.getLocaleID(): " + currentSource.getLocaleID());
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "currentSource.getClass().getName(): " + currentSource.getClass().getName());
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "alias: " + alias);
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "cachedKeySet.size(): " + resultKeySet.size());
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "excludedAliases: " + excludedAliases);
-                try {
-                    throw new Throwable("XMLSource recursion too deep: " + level);
-                } catch(Throwable t) {
-                    t.printStackTrace();
-                }
-                throw new IllegalArgumentException("Stack overflow");
+        private Set<String> findNonAliasedPaths() {
+            XMLSource source = mySource;
+            HashSet<String> paths = new HashSet<String>();
+
+            // Get all XMLSources used during resolution.
+            List<XMLSource> sources = new ArrayList<XMLSource>();
+            while(source != null) {
+                sources.add(source);
+                String localeID = LocaleIDParser.getParent(source.getLocaleID());
+                source = source.make(localeID);
             }
-            List<Alias> collectedAliases = null;
-            // make a pass through, filling all the direct paths, excluding aliases, and collecting others
-            for (Iterator<String> it = currentSource.iterator(); it.hasNext();) {
-                String path = it.next();
-                String originalPath = path;
-                boolean showPathInfo = DEBUG_PATH != null && DEBUG_PATH.matcher(path).find();
-                if (alias != null) {
-                    if (!path.startsWith(alias.getNewPath())) {
-                        continue; // skip unless matches alias
-                    }
-                    if (showPathInfo) {
-                        System.out.println("*Matching Alias: " + path);
-                        if (path.contains("/alias")) {
-                            System.out.println("**ALIAS**");
-                        }
-                    }
-                    if (!alias.pathsEqual()) { // substitute OLD path // getOldPath().equals(alias.getNewPath())
-                        path = alias.composeOldAndNewPath(path); // alias.getOldPath() + path.substring(alias.getNewPath().length());
-                        if (showPathInfo) {
-                            System.out.println("*New Path from Alias: " + path);
-                        }
-                        showPathInfo = DEBUG_PATH != null && DEBUG_PATH.matcher(path).find();
-                    }
-                }
-                
-                if (excludedAliases != null && startsWith(path, excludedAliases)) {
-                    if (showPathInfo) {
-                        System.out.println(Utility.repeat(TRACE_INDENT, level) + "Skipping Path: " + path);
-                    }
-                    continue;
-                }
-
-                if (Alias.isAliasPath(path)) { // quick check
-                    String fullPath = currentSource.getFullPathAtDPath(originalPath);
-                    // it's ok that the fullpath is not mapped to the old path, since 
-                    // the only thing the Alias.make cares about is the last bit
-                    Alias possibleAlias = Alias.make(alias, fullPath);
-                    if (possibleAlias != null) {
-                        if (showPathInfo) {
-                            System.out.println("-Adding Alias: " + possibleAlias);
-                        }
-
-                        if (collectedAliases == null) {
-                            collectedAliases = new ArrayList<Alias>();
-                        }
-                        collectedAliases.add(possibleAlias);
-                    }
-                }
-
-                if (resultKeySet.contains(path)) {
-                    continue;
-                }
-
-                if (showPathInfo) {
-                    System.out.println("Adding Path: " + path);
-                }
-                resultKeySet.add(path); // Note: we add the aliases
+            if (!SKIP_FALLBACKID) {
+                sources.add(constructedItems);
             }
 
-            // recurse on the parent, unless at the end of the line (constructedItems
-            if (currentSource != constructedItems) { // end of the line?
-                XMLSource parentSource;
-                String parentID = LocaleIDParser.getParent(currentSource.getLocaleID());
-                if (parentID != null) {
-                    parentSource = make(parentID); // factory.make(parentID, false).dataSource;
-                } else if (SKIP_FALLBACKID) {
-                    parentSource = null;
-                } else {
-                    parentSource = constructedItems; // default
+            // Make a pass through, filling all the direct paths, excluding aliases, and collecting others
+            for (XMLSource curSource : sources) {
+                // TODO: investigate if adding id/aliased path at this stage would speed up performance.
+                for (String xpath : curSource) {
+                    paths.add(xpath);
                 }
-                if (parentSource != null) {
-                    if (TRACE_FILL) {
-                        System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Parent: " + parentSource.localeID);
-                    }
-                    if (collectedAliases != null) {
-                        if (excludedAliases == null) {
-                            excludedAliases = new ArrayList<Alias>();
-                        }
-                        excludedAliases.addAll(collectedAliases);
-                    }
-                    fillKeys(level+1, parentSource, alias, excludedAliases, resultKeySet);
+            }
+            return paths;
+        }
+
+        /**
+         * @return a reverse mapping of aliases
+         */
+        private LinkedHashMap<String, List<String>> getReverseAliases() {
+            // Aliases are only ever found in root.
+            Map<String, String> aliases = make("root").getAliases();
+            Map<String, List<String>> reverseAliases = new HashMap<String, List<String>>();
+            for (Map.Entry<String, String> entry : aliases.entrySet()) {
+                List<String> list = reverseAliases.get(entry.getValue());
+                if (list == null) {
+                    list = new ArrayList<String>();
+                    reverseAliases.put(entry.getValue(), list);
                 }
+                list.add(entry.getKey());
             }
 
-            // now recurse on the aliases we found
-            if (collectedAliases != null) {
-                for (Iterator<Alias> it = collectedAliases.iterator(); it.hasNext();) {
-                    if (TRACE_FILL) {
-                        System.out.println(Utility.repeat(TRACE_INDENT, level) + "Recursing [#"+level+"] on Alias: ");
-                    }
-                    Alias foundAlias = it.next();
-                    // this is important. If the new source is null, use *this* (the desired locale)
-                    XMLSource aliasSource = mySource;
-                    if (foundAlias.getNewLocaleID() != null) {
-                        aliasSource = make(foundAlias.getNewLocaleID()); // factory.make(foundAlias.newLocaleID, false).dataSource;
-                    }
-                    fillKeys(level+1, aliasSource, foundAlias, null, resultKeySet);
+            // Sort map.
+            return new LinkedHashMap(new TreeMap(reverseAliases));
+        }
+        
+        /**
+         * Takes in a list of xpaths and returns a new set of paths that alias
+         * directly to those existing xpaths.
+         * @param paths a sorted list of xpaths
+         * @param reverseAliases a map of reverse aliases sorted by key.
+         * @return
+         */
+        private Set<String> getDirectAliases(String[] paths,
+                LinkedHashMap<String, List<String>> reverseAliases) {
+            HashSet<String> newPaths = new HashSet<String>();
+            // Keep track of the current path index: since it's sorted, we
+            // never have to backtrack.
+            int pathIndex = 0;
+            for (String subpath : reverseAliases.keySet()) {
+                // Find the first path that matches the current alias.
+                while(pathIndex < paths.length &&
+                      paths[pathIndex].compareTo(subpath) < 0) {
+                    pathIndex++;
                 }
+
+                // Alias all paths that match the current alias.
+                String xpath;
+                List<String> list = reverseAliases.get(subpath);
+                while (pathIndex < paths.length &&
+                        (xpath = paths[pathIndex]).startsWith(subpath)) {
+                    String suffix = xpath.substring(subpath.length());
+                    for (String reverseAlias : list) {
+                        String reversePath = reverseAlias + suffix;
+                        newPaths.add(reversePath);
+                    }
+                    pathIndex++;
+                }
+                if (pathIndex == paths.length) break;
             }
-            if (TRACE_FILL) {
-                System.out.println(Utility.repeat(TRACE_INDENT, level) + "=> cachedKeySet.size():  [#"+level+"] " + resultKeySet.size());
-            }
+            return newPaths;
         }
 
         private transient Set<String> cachedKeySet = null;
@@ -1060,19 +1008,12 @@ public abstract class XMLSource implements Freezable {
         }
         private Set<String> getCachedKeySet() {
             if (cachedKeySet == null) {
-                cachedKeySet = new HashSet<String>();
-                fillKeys(0, mySource, null, null, cachedKeySet);
+                cachedKeySet = fillKeys();
                 //System.out.println("CachedKeySet: " + cachedKeySet);
                 //cachedKeySet.addAll(constructedItems.keySet());
                 cachedKeySet = Collections.unmodifiableSet(cachedKeySet);
             }
             return cachedKeySet;
-        }
-        private static boolean startsWith(String path, List<Alias> aliasPaths) {
-            for (Iterator<Alias> it = aliasPaths.iterator(); it.hasNext();) {
-                if (path.startsWith(it.next().getOldPath())) return true;
-            }
-            return false;
         }
         public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
             throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");

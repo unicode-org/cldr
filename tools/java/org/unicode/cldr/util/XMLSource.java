@@ -806,10 +806,9 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             public String pathWhereFound;
             public String localeWhereFound;
 
-            public AliasLocation set(AliasLocation status) {
-                pathWhereFound = status.pathWhereFound;
-                localeWhereFound = status.localeWhereFound;
-                return this;
+            public AliasLocation(String pathWhereFound, String localeWhereFound) {
+                this.pathWhereFound = pathWhereFound;
+                this.localeWhereFound = localeWhereFound;
             }
         }
 
@@ -829,10 +828,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             
             while(source != null) {
                 if (source.hasValueAtDPath(xpath)) {
-                    AliasLocation location = new AliasLocation();
-                    location.localeWhereFound = source.getLocaleID();
-                    location.pathWhereFound = xpath;
-                    return location;
+                    return new AliasLocation(xpath, source.getLocaleID());
                 }
                 String localeID = LocaleIDParser.getParent(source.getLocaleID());
                 lastSource = source;
@@ -859,10 +855,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             }
 
             // Fallback location.
-            AliasLocation location = new AliasLocation();
-            location.localeWhereFound = CODE_FALLBACK_ID;
-            location.pathWhereFound = xpath;
-            return location;
+            return new AliasLocation(xpath, CODE_FALLBACK_ID);
         }
 
         /**

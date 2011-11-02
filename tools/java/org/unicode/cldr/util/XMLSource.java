@@ -980,16 +980,17 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                 // Alias all paths that match the current alias.
                 String xpath;
                 List<String> list = reverseAliases.get(subpath);
-                while (pathIndex < paths.length &&
-                        (xpath = paths[pathIndex]).startsWith(subpath)) {
+                int endIndex = pathIndex;
+                while (endIndex < paths.length &&
+                        (xpath = paths[endIndex]).startsWith(subpath)) {
                     String suffix = xpath.substring(subpath.length());
                     for (String reverseAlias : list) {
                         String reversePath = reverseAlias + suffix;
                         newPaths.add(reversePath);
                     }
-                    pathIndex++;
+                    endIndex++;
                 }
-                if (pathIndex == paths.length) break;
+                if (endIndex == paths.length) break;
             }
             return newPaths;
         }

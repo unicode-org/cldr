@@ -871,7 +871,10 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         
         /**
          * Initialises the set of xpaths that a fully resolved XMLSource contains.
-         * http://cldr.unicode.org/development/development-process/design-proposals/resolution-of-cldr-files. 
+         * http://cldr.unicode.org/development/development-process/design-proposals/resolution-of-cldr-files.
+         * Information about the aliased path and source locale ID of each xpath
+         * is not precalculated here since it doesn't appear to improve overall
+         * performance.
          */
         private Set<String> fillKeys() {
             Set<String> paths = findNonAliasedPaths();
@@ -881,7 +884,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             // Find aliased paths and loop until no more aliases can be found.
             Set<String> newPaths = paths;
             int level = 0;
-            boolean sizeChanged = false;
+            boolean newPathsFound = false;
             do {
                 // Debugging code to protect against an infinite loop.
                 if (TRACE_FILL && DEBUG_PATH == null || level > MAX_LEVEL) {
@@ -895,9 +898,9 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                 Arrays.sort(sortedPaths);
 
                 newPaths = getDirectAliases(sortedPaths, reverseAliases);
-                sizeChanged = paths.addAll(newPaths);
+                newPathsFound = paths.addAll(newPaths);
                 level++;
-            } while (sizeChanged);
+            } while (newPathsFound);
             return paths;
         }
         
@@ -923,7 +926,6 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
 
             // Make a pass through, filling all the direct paths, excluding aliases, and collecting others
             for (XMLSource curSource : sources) {
-                // TODO: investigate if adding id/aliased path at this stage would speed up performance.
                 for (String xpath : curSource) {
                     paths.add(xpath);
                 }

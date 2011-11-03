@@ -3,6 +3,7 @@
         <tstamp/>
         <property name="src.dir" value="."/>
         <property name="build.dir" value="classes"/>
+        <property name="libs.dir" value="libs"/>
         <property name="jar.file" value="cldr.jar"/>
         <property name="jarSrc.file" value="cldrsrc.jar"/>
         <property name="doc.dir" value="doc"/>
@@ -15,6 +16,7 @@
         
         <path id="build.classpath">
             <pathelement path="${build.dir}"/>
+            <pathelement path="${libs.dir}"/>
         </path>
         
         <condition property="is.icu4j.classes.set" >
@@ -23,7 +25,6 @@
                 <isset property="env.ICU4J_JAR" />
             </or>
         </condition > 
-        <fail unless="is.icu4j.classes.set" message="Please set the ICU4J_CLASSES or ICU4J_JAR environment variable."/>
         
         <condition property="is.utilities.classes.set" >
             <or>
@@ -31,12 +32,13 @@
                 <isset property="env.UTILITIES_JAR" />
             </or>
         </condition > 
-        <fail unless="is.utilities.classes.set" message="Please set the ICU4J_CLASSES or UTILITIES_JAR environment variable."/>        
+
         <mkdir dir="${build.dir}"/>
         
         <path id="project.class.path">
             <pathelement path="${java.class.path}/"/>
             <pathelement path="${build.dir}"/>
+            <fileset dir="${libs.dir}" includes="*.jar"/>
             <pathelement path="${env.ICU4J_CLASSES}"/>
             <pathelement path="${env.CLDR_CLASSES}"/>
             <pathelement location="${env.ICU4J_JAR}"/>

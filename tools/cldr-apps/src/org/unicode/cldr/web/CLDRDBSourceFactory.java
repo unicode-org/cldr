@@ -1579,11 +1579,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				return rv;
 			}
 
-			int pathInt = xpt.getByXpath(path,getConnectionAlias());
-			if(finalData && skipAlias(path,pathInt,getLocaleID())) {
-				return false;
-			}
-
+            int pathInt = xpt.getByXpath(path,getConnectionAlias());
 			if (SHOW_TIMES)
 				System.err.println("hasValueAtDPath:>> " + locale + ":"
 						+ pathInt + " " + (System.currentTimeMillis() - t0));
@@ -1669,9 +1665,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 			String locale = getLocaleID();
 			int xpath = xpt.getByXpath(path,getConnectionAlias());
-			if(finalData && skipAlias(path,xpath,getLocaleID())) {
-				return null;
-			}
 			if(SHOW_TIMES) System.err.println("getValueAtDPath:>> "+locale + ":" + xpath + " " + (System.currentTimeMillis()-t0));
 
 			///*srl*/        boolean showDebug = (path.indexOf("dak")!=-1);
@@ -1746,9 +1739,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		 */
 		public String getFullPathAtDPath(String path) {
 			int xpathid = xpt.getByXpath(path, getConnectionAlias());
-			if(finalData && skipAlias(path,xpathid,getLocaleID())) {
-				return null;
-			}
 			String ret =  getOrigXpathFromCache(xpathid);
 			return ret;
 		}
@@ -1984,10 +1974,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 					String xpath = rs.getString(2);
 					xpt.setById(xpathid, xpath); // Add xpath to table for caching.
 					if(finalData==true) {
-						if(finalData && skipAlias(xpath,xpathid,locale)) {
-							continue;
-						}
-						//                       System.err.println("Path: " +xpath);
 						if(xpathThatNeedsOrig(xpath)) {
 							//                            System.err.println("@@ munging xpath:"+xpath+" ("+xpathid+")");
 							xpath = getOrigXpathFromCache(xpathid);
@@ -2127,9 +2113,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 						// if(path.indexOf("/alias")<0) { throw new InternalError("aliasIteratorBroken: " + path); }
 						//     String fullPath = getFullPathAtDPath(path);
 						//System.out.println("oa: " + locale +" : " + path + " - " + fullPath);
-						if(finalData && skipAlias(fullPath,fullPathId,locale)) {
-							continue;
-						}
 						Alias temp = XMLSource.Alias.make(fullPath);
 						if (temp == null) continue;
 						//System.out.println("aa: " + path + " - " + fullPath + " -> " + temp.toString());
@@ -2328,32 +2311,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		} else {
 			return "[Unknown source:"+locale.toString()+"]";
 		}
-	}
-	
-	IntHash<Boolean> skipAlias = new IntHash<Boolean>();
-
-	public final boolean skipAlias(String fullPath, int fullPathId, String locale) {
-		if(locale.equals("root")) {
-			return false;
-		}
-		Boolean res = null;
-		synchronized(skipAlias) {
-			res = skipAlias.get(fullPathId);
-		}
-		if(res==null) {
-			res = false;
-			if(fullPath.contains("/alias") && !fullPath.startsWith("//ldml/alias")) {
-//				XPathParts xpp = new XPathParts(null,null);
-//				xpp.initialize(fullPath);
-//				res = false;
-				res = true; // skip non-root non-whole-locale aliases 
-			}
-			
-			synchronized(skipAlias) {
-				skipAlias.put(fullPathId,res);
-			}
-		}
-		return res;
 	}
 
 	static boolean complained_about_slower_api= false;

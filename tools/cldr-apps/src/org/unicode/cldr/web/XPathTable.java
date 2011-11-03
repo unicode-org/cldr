@@ -317,6 +317,17 @@ public class XPathTable {
         }
         return fetchByID(id, conn);
     }
+    
+    /**
+     * Adds an xpathid-xpath value pair to the XPathTable. This method is used
+     * by classes to cache the values obtained by using their own queries.
+     * @param id
+     * @param xpath
+     */
+    public final void setById(int id, String xpath) {
+        stringToId.put(idToString_put(id,xpath), id);
+    }
+
     /**
      * get an xpath id by value, add it if not found
      * @param xpath string string to add

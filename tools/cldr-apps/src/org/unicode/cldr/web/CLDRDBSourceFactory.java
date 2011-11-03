@@ -560,7 +560,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			// txpath - tiny xpath  (no TYPE)
 
 			queryXpathPrefixes = prepareStatement("queryXpathPrefixes",
-					"select "+XPathTable.CLDR_XPATHS+".id from "+
+					"select "+XPathTable.CLDR_XPATHS+".id,"+XPathTable.CLDR_XPATHS+".xpath from "+
 					XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
 					XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?");
 
@@ -608,13 +608,14 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
                                         XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?"
 					 */
 					//    "SELECT "+CLDR_DATA+".xpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.xpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
-					"SELECT "+CLDR_DATA+".origxpath from "+XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".origxpath="+XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like '%/alias%' AND "+CLDR_DATA+".locale=?"
+					"SELECT "+CLDR_DATA+".origxpath, " + XPathTable.CLDR_XPATHS + ".xpath from "+XPathTable.CLDR_XPATHS+","+CLDR_DATA+
+					" where "+CLDR_DATA+".origxpath="+XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like '%/alias%' AND "+CLDR_DATA+".locale=?"
 			);
 
 
 			keySet = prepareStatement("keySet",
-					"SELECT " + "xpath FROM " + CLDR_DATA + // was origxpath
-			" WHERE locale=?"); 
+					"SELECT " + XPathTable.CLDR_XPATHS + ".id, " + XPathTable.CLDR_XPATHS + ".xpath FROM " + CLDR_DATA + ", " + XPathTable.CLDR_XPATHS +// was origxpath
+					" WHERE " + XPathTable.CLDR_XPATHS + ".id=" + CLDR_DATA+ ".xpath AND locale=?"); 
 			keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
 					"select distinct "+Vetting.CLDR_VET+".vote_xpath from "+Vetting.CLDR_VET+" where "+
 					Vetting.CLDR_VET+".vote_xpath!=-1 AND "+Vetting.CLDR_VET+
@@ -1708,7 +1709,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
                             //} else {
 
                             if(false && sm.isUnofficial) {
-                                if(oldKeySet(stmts).contains(path)) {
+                                if(keySet(stmts).contains(path)) {
                                     System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
                                 } else {
                                     if(SHOW_DEBUG) System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
@@ -1923,7 +1924,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				MyStatements stmts = null;
 				try {
 					stmts = openStatements();
-					s = oldKeySet(stmts);
+					s = keySet(stmts);
 				} finally {
 					closeOrThrow(stmts);
 				}
@@ -1952,12 +1953,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		}
 
 		/**
-		 * @deprecated
-		 * Returns the old, slower format iterator
-		 * (this is the only way to get only-final data)
-		 * TODO: rewrite as iterator
+		 * Returns the set of all xpaths in this source.
 		 */
-		private Set oldKeySet(MyStatements stmts) {
+		private Set keySet(MyStatements stmts) {
 			String locale = getLocaleID();
 			try {
 				Set<String> s = null;
@@ -1983,9 +1981,8 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				s = new HashSet<String>();
 				while(rs.next()) {
 					int xpathid = rs.getInt(1);
-					// if(finalData) { System.err.println("v|"+locale+":"+xpathid); }
-
-					String xpath = (xpt.getById(xpathid, stmts.getConnectionAlias()));
+					String xpath = rs.getString(2);
+					xpt.setById(xpathid, xpath); // Add xpath to table for caching.
 					if(finalData==true) {
 						if(finalData && skipAlias(xpath,xpathid,locale)) {
 							continue;
@@ -2000,7 +1997,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 					}
 					s.add(xpath); // xpath
-					//rs.getString(2); // origXpath
 				}
 				rs.close();
 				
@@ -2080,7 +2076,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				Set<String> s = new HashSet<String>();
 				//                System.err.println("@tlh: " + "BEGIN");
 				while(rs.next()) {
-					String xpath = (xpt.getById(rs.getInt(1)));
+				    int id = rs.getInt(1);
+				    String xpath = rs.getString(2);
+				    xpt.setById(id, xpath); // cache id-xpathid pair
 					//if(-1!=xpath.indexOf("tlh")) {
 					//    xpath = xpath.replaceAll("\\[@draft=\"true\"\\]","");
 					//                        System.err.println("@tlh: " + xpath);
@@ -2124,7 +2122,8 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 //						Set s = new HashSet();
 					while(rs.next()) {
 						int fullPathId=rs.getInt(1);
-						String fullPath = xpt.getById(fullPathId);
+						String fullPath = rs.getString(2);
+						xpt.setById(fullPathId, fullPath); // Add xpath to table for caching.
 						// if(path.indexOf("/alias")<0) { throw new InternalError("aliasIteratorBroken: " + path); }
 						//     String fullPath = getFullPathAtDPath(path);
 						//System.out.println("oa: " + locale +" : " + path + " - " + fullPath);

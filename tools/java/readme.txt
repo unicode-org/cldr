@@ -29,36 +29,10 @@ To Build and Run the Tools:
 1. Download and install a Java SDK with version number greater than or equal to 1.5 from
 http://java.sun.com
 
-2. Download xalan.jar, xercesImpl.jar,xml-apis.jar  (from http://xalan.apache.org)
-
-3. Download and install the Ant build system with version number greater than or equal to 1.6 from
+2. Download and install the Ant build system with version number greater than or equal to 1.6 from
 http://ant.apache.org
 
-4. Export appropriate ICU4J source package from the ICU SVN repository.  For example,
-   CLDR 1.8 tools uses ICU4J 4.4 code.  For more information about getting ICU4J source
-   package, see this link - http://site.icu-project.org/repository
-
-5. Build ICU4J jar and CLDR utilities jar by the ant command below:
-
-   ant icu4jJar cldrUtil
-
-   The ant targets above build icu4j.jar in the ICU4J package root and utilities.jar
-   under directory <icu4j root>/out/cldr_util/lib.
-
-   Note: The actual instruction may vary depending on ICU4J version.  The example above is
-   used for ICU4J 4.4.
-
-6. Set the required environment variables
-    o Unix
-        export XML_APIS_JAR=<dir>/xalan.jar    
-        export ICU4J_JAR=<dir>/icu4j.jar
-        export UTILITIES_JAR=<dir>/utilities.jar
-    o Windows
-        set XML_APIS_JAR=<dir>\xalan.jar    
-        set ICU4J_JAR=<dir>\icu4j.jar
-        set UTILITIES_JAR=<dir>\utilities.jar
-
-7. Build the tools with the following command:
+3. Build the tools with the following command:
 
    ant clean all
    
@@ -66,7 +40,7 @@ For a list of build targets use the following command:
 
    ant -projecthelp
 
-8. Run the tool you are interested in, e.g:
+4. Run the tool you are interested in, e.g:
 
    java -cp <dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar com.ibm.icu.dev.tool.cldr.LDML2ICUConverter 
    -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml 

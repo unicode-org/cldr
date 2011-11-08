@@ -396,7 +396,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     }
 
     private Object VALUE_TO_PATH_MUTEX = new Object();
-    private Relation<String,String> VALUE_TO_PATH = null;
+    private Relation<String, AltPath> VALUE_TO_PATH = null;
 
 
     /**
@@ -1268,6 +1268,52 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     public boolean isHere(String path) {
         return getValueAtPath(path) != null;
     }
+    
+    private static Pattern altPattern = Pattern.compile("\\[@alt=\"([\\w-]+)\"\\]");
+    
+    /**
+     * A helper class for comparing paths with different alt tags.
+     */
+    private class AltPath {
+        String originalPath;
+        String baseName; // base alt name without "proposed", "" if no name
+        String pathWithoutAlt; // xpath with any alt tag removed
+
+        public AltPath(String path) {
+            originalPath = path;
+            Matcher matcher = altPattern.matcher(path);
+            if (matcher.find()) {
+                pathWithoutAlt = path.substring(0, matcher.start()) + path.substring(matcher.end());
+                // Remove any "proposed" prefixes from the alt path since they're not relevant to matching.
+                String fullName = matcher.group(1);
+                int proposedPos = fullName.indexOf("proposed");
+                if (proposedPos == -1) {
+                    baseName = fullName;
+                } else if (proposedPos == 0) {
+                    baseName = "";
+                } else {
+                    baseName = fullName.substring(0, proposedPos - 1);
+                }
+            } else {
+                pathWithoutAlt = originalPath;
+                baseName = "";
+            }
+        }
+
+        /**
+         * @param altPath
+         * @return true if the given path can be considered as starting with this path.
+         */
+        public boolean contains(AltPath altPath) {
+            return pathWithoutAlt.startsWith(altPath.pathWithoutAlt) &&
+                    baseName.equals(altPath.baseName);
+        }
+        
+        @Override
+        public int hashCode() {
+            return originalPath.hashCode();
+        }
+    }
 
     /**
      * Find all the distinguished paths having values matching valueToMatch, and add them to result.
@@ -1283,20 +1329,24 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                 for (Iterator<String> it = iterator(); it.hasNext();) {
                     String path = it.next();
                     String value = getValueAtDPath(path);
-                    VALUE_TO_PATH.put(value, path);
+                    VALUE_TO_PATH.put(value, new AltPath(path));
                 }
             }
-            Set<String> paths = VALUE_TO_PATH.getAll(valueToMatch);
+            Set<AltPath> paths = VALUE_TO_PATH.getAll(valueToMatch);
             if (paths == null) {
                 return;
             }
             if (pathPrefix == null || pathPrefix.length() == 0) {
-                result.addAll(paths);
+                for (AltPath altPath : paths) {
+                    result.add(altPath.originalPath);
+                }
                 return;
             }
-            for (String path : paths) {
-                if (path.startsWith(pathPrefix)) {
-                    result.add(path);
+            AltPath altPrefix = new AltPath(pathPrefix);
+            for (AltPath altPath : paths) {
+               if (altPath.contains(altPrefix)) {
+               // if (altPath.originalPath.startsWith(altPrefix.originalPath)) {
+                    result.add(altPath.originalPath);
                 }
             }
         }

@@ -22,6 +22,7 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
@@ -286,20 +287,35 @@ public class CompactDecimalFormat extends DecimalFormat {
         return new CompactDecimalFormat(format.toPattern(), format.getDecimalFormatSymbols(), prefix, suffix, divisor, debugCreationErrors, style);
     }
 
+    final static Options myOptions = new Options()
+    .add("sourceDir", ".*", CldrUtility.MAIN_DIRECTORY, "The source directory for the compact decimal format information.")
+    .add("organization", ".*", null, "The organization to use.")
+    .add("locale", ".*", null, "The locales to use (comma-separated).")
+    ;
+
     /** JUST FOR DEVELOPMENT */
     public static void main(String[] args) {
-        CLDRFile.Factory cldrFactory  = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        myOptions.parse(args, true);
+
+        // set up the CLDR Factories
+
+        String sourceDir = myOptions.get("sourceDir").getValue();
+        String organization = myOptions.get("organization").getValue();
+        String localeList = myOptions.get("organization").getValue();
+
+        CLDRFile.Factory cldrFactory  = CLDRFile.Factory.make(sourceDir, ".*");
         StandardCodes sc = StandardCodes.make();
         NumberFormat enf = NumberFormat.getInstance(ULocale.ENGLISH);
 
         Collection<String> locales;
 
-        String organization = args[0];
-        if (args.length == 1 && organization.length() > 3) {
+        if (organization != null) {
             locales = sc.getLocaleCoverageLocales(organization);
-        } else {
-            locales = Arrays.asList(args);
+        } else if (localeList != null) {
+            locales = Arrays.asList(localeList.split(","));
             organization = null;
+        } else {
+            locales = cldrFactory.getAvailable();
         }
 
         // get test values
@@ -315,9 +331,11 @@ public class CompactDecimalFormat extends DecimalFormat {
 
         for (String locale : locales) {
             // skip all but the modern locales
-            Level coverage = sc.getLocaleCoverageLevel(organization, locale);
-            if (coverage.compareTo(Level.MODERN) < 0) {
-                continue;
+            if (organization != null) {
+                Level coverage = sc.getLocaleCoverageLevel(organization, locale);
+                if (coverage.compareTo(Level.MODERN) < 0) {
+                    continue;
+                }
             }
             final ULocale uLocale = new ULocale(locale);
             // skip region locales

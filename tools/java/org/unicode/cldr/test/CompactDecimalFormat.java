@@ -1,24 +1,21 @@
 package org.unicode.cldr.test;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.FieldPosition;
-import java.text.Format;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,10 +24,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.impl.Utility;
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.NumberFormat;
@@ -52,6 +49,7 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class CompactDecimalFormat extends DecimalFormat {
+    // TODO add serialization id
     /**
      * Style parameter for CompactDecimalFormat. Would actually be on NumberFormat.
      * @author markdavis
@@ -97,7 +95,22 @@ public class CompactDecimalFormat extends DecimalFormat {
      * @param locale
      */
     public CompactDecimalFormat(ULocale locale, Style style) {
-        throw new UnsupportedOperationException();
+        DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(locale);
+        Data data;
+        while (true) {
+            data = localeToData.get(locale);
+            if (data != null) {
+                break;
+            }
+            locale = locale.getFallback();
+        }
+        this.prefix = data.prefixes;
+        this.suffix = data.suffixes;
+        this.divisor = data.divisors;
+        applyPattern(format.toPattern());
+        setDecimalFormatSymbols(format.getDecimalFormatSymbols());
+        setMaximumSignificantDigits(2); // default significant digits
+        setSignificantDigitsUsed(true);
     }
 
     /**
@@ -185,22 +198,22 @@ public class CompactDecimalFormat extends DecimalFormat {
 
     @Override
     public StringBuffer format(long number, StringBuffer toAppendTo, FieldPosition pos) {
-        throw new UnsupportedOperationException();
+        return format((double) number, toAppendTo, pos);
     }
 
     @Override
     public StringBuffer format(BigInteger number, StringBuffer toAppendTo, FieldPosition pos) {
-        throw new UnsupportedOperationException();
+        return format(number.doubleValue(), toAppendTo, pos);
     }
 
     @Override
     public StringBuffer format(BigDecimal number, StringBuffer toAppendTo, FieldPosition pos) {
-        throw new UnsupportedOperationException();
+        return format(number.doubleValue(), toAppendTo, pos);
     }
 
     @Override
     public StringBuffer format(com.ibm.icu.math.BigDecimal number, StringBuffer toAppendTo, FieldPosition pos) {
-        throw new UnsupportedOperationException();
+        return format(number.doubleValue(), toAppendTo, pos);
     }
 
     /**
@@ -218,6 +231,27 @@ public class CompactDecimalFormat extends DecimalFormat {
             throw new IllegalArgumentException(errorMessage);
         }
         creationErrors.add(errorMessage);
+    }
+    
+    /** JUST FOR DEVELOPMENT */
+    // For use with the hard-coded data
+    static class Data {
+        public Data(long[] divisors, String[] prefixes, String[] suffixes) {
+            this.divisors = divisors;
+            this.prefixes = prefixes;
+            this.suffixes = suffixes;
+        }
+        long[] divisors;
+        String[] prefixes;
+        String[] suffixes;
+    }
+
+    static Map<ULocale, Data> localeToData = new HashMap<ULocale, Data>();
+    static void add(String locale, long[] ls, String[] prefixes, String[] suffixes) {
+        localeToData.put(new ULocale(locale), new Data(ls, prefixes, suffixes));
+    }
+    static {
+        CompactDecimalFormatData.load();
     }
 
     /** JUST FOR DEVELOPMENT */
@@ -291,17 +325,28 @@ public class CompactDecimalFormat extends DecimalFormat {
     .add("sourceDir", ".*", CldrUtility.MAIN_DIRECTORY, "The source directory for the compact decimal format information.")
     .add("organization", ".*", null, "The organization to use.")
     .add("locale", ".*", null, "The locales to use (comma-separated).")
+    .add("generate", ".*", CldrUtility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/test/", "Hard coded data file.")
+    .add("use", null, null, "Use hard coded data file.")
     ;
 
-    /** JUST FOR DEVELOPMENT */
-    public static void main(String[] args) {
+    /** JUST FOR DEVELOPMENT 
+     * @throws IOException */
+    public static void main(String[] args) throws IOException {
         myOptions.parse(args, true);
 
         // set up the CLDR Factories
 
         String sourceDir = myOptions.get("sourceDir").getValue();
         String organization = myOptions.get("organization").getValue();
-        String localeList = myOptions.get("organization").getValue();
+        String localeList = myOptions.get("locale").getValue();
+        String hardCodedFile = myOptions.get("generate").getUsingImplicitValue() ? null 
+                : myOptions.get("generate").getValue();
+        boolean useHard = myOptions.get("use").doesOccur();
+        
+        PrintWriter hardOut = hardCodedFile == null ? null : BagFormatter.openUTF8Writer(hardCodedFile, "CompactDecimalFormatData.java");
+        if (hardOut != null) {
+            hardOut.println("package org.unicode.cldr.test;\npublic class CompactDecimalFormatData {\n\tstatic void load() {");
+        }
 
         CLDRFile.Factory cldrFactory  = CLDRFile.Factory.make(sourceDir, ".*");
         StandardCodes sc = StandardCodes.make();
@@ -314,6 +359,11 @@ public class CompactDecimalFormat extends DecimalFormat {
         } else if (localeList != null) {
             locales = Arrays.asList(localeList.split(","));
             organization = null;
+        } else if (useHard) {
+            locales = new ArrayList<String>();
+            for (ULocale item : localeToData.keySet()) {
+                locales.add(item.toString());
+            }
         } else {
             locales = cldrFactory.getAvailable();
         }
@@ -354,7 +404,8 @@ public class CompactDecimalFormat extends DecimalFormat {
             String[] debugOriginals = new String[MINIMUM_ARRAY_LENGTH];
             CompactDecimalFormat snf;
             try {
-                snf = CompactDecimalFormat.build(file, errors, debugOriginals, Style.SHORT);
+                snf = useHard ? new CompactDecimalFormat(uLocale, Style.SHORT) 
+                : CompactDecimalFormat.build(file, errors, debugOriginals, Style.SHORT);
             } catch (Exception e) {
                 errors.add("Can't construct: " + e.getMessage());
                 continue;
@@ -387,6 +438,24 @@ public class CompactDecimalFormat extends DecimalFormat {
             for (String error : errors) {
                 list.add("ERROR: " + error);
             }
+            
+            if (hardOut != null) {
+                hardOut.println("\t\tCompactDecimalFormat.add(\"" + uLocale + "\", ");
+                String[] intFormatted = new String[snf.divisor.length];
+                int i = 0;
+                for (long divisor : snf.divisor) {
+                    intFormatted[i++] = String.valueOf(divisor);
+                }
+                hardOut.println("\t\t\tnew long[]{" + CollectionUtilities.join(intFormatted, "L, ") + "L},");
+                hardOut.println("\t\t\tnew String[]{\"" + CollectionUtilities.join(snf.prefix, "\", \"") + "\"},");
+                hardOut.println("\t\t\tnew String[]{\"" + CollectionUtilities.join(snf.suffix, "\", \"") + "\"});");
+            }
+        }
+
+        if (hardOut != null) {
+            hardOut.println("}}");
+            hardOut.close();
+            return;
         }
 
         // now do a transposed table

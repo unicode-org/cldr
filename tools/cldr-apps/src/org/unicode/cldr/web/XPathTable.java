@@ -208,16 +208,10 @@ public class XPathTable {
     		logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
     		sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
     	} finally {
-    		try {
-    			if(inConn!=null) {
-    				conn = null; // don't close
-    			}
-    			DBUtils.close(insertStmt,queryStmt,conn);
-    		} catch(SQLException sqe) {
-    			System.err.println("xpath ["+xpath+"] len " + xpath.length());
-	    		logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
-	    		sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
-    		}
+			if(inConn!=null) {
+				conn = null; // don't close
+			}
+			DBUtils.close(insertStmt,queryStmt,conn);
     	}
     	return null; // an exception occured.
     }
@@ -281,15 +275,10 @@ public class XPathTable {
     		//            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
     		return null;
     	} finally {
-    		try {
-    			if(inConn!=null) {
-    				conn = null; // already closed
-    			}
-    			DBUtils.close(queryIdStmt,conn);
-    		} catch(SQLException sqe) {
-        		logger.severe("XPathTable: Failed ingetByID (ID: "+ id+"): " + DBUtils.unchainSqlException(sqe) );
-        		//            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
-    		}        	
+			if(inConn!=null) {
+				conn = null; // already closed
+			}
+			DBUtils.close(queryIdStmt,conn);
     	}
     }
     

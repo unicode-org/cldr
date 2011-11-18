@@ -666,37 +666,30 @@ public class DBUtils {
 	 * @param a1
 	 * @throws SQLException
 	 */
-	public static void close(Object... list) throws SQLException {
+	public static void close(Object... list) {
 		for(Object o : list) {
 //			if(o!=null) {
 //				System.err.println("Closing " + an(o.getClass().getSimpleName())+" " + o.getClass().getName());
 //			}
-			if(o == null) {
-				continue;
-			} else if(o instanceof Connection ) {
-				DBUtils.closeDBConnection((Connection) o);
-			} else if (o instanceof Statement) {
-				((Statement)o).close();
-			} else if (o instanceof ResultSet) {
-				((ResultSet)o).close();
-			} else if(o instanceof DBCloseable) {
-				((DBCloseable)o).close();
-			} else {
-				throw new IllegalArgumentException("Don't know how to close "+an(o.getClass().getSimpleName())+" " + o.getClass().getName());
-			}
+		    try {
+    			if(o == null) {
+    				continue;
+    			} else if(o instanceof Connection ) {
+    				DBUtils.closeDBConnection((Connection) o);
+    			} else if (o instanceof Statement) {
+    				((Statement)o).close();
+    			} else if (o instanceof ResultSet) {
+    				((ResultSet)o).close();
+    			} else if(o instanceof DBCloseable) {
+    				((DBCloseable)o).close();
+    			} else {
+    				throw new IllegalArgumentException("Don't know how to close "
+    				        +an(o.getClass().getSimpleName())+" " + o.getClass().getName());
+    			}
+		    } catch (SQLException e) {
+	            System.err.println(unchainSqlException(e));
+	        }
 		}
-	}
-
-	/**
-	 * Does the same thing as close() but catches all exceptions.
-	 * @param list
-	 */
-	public static void closeSilently(Object... list) {
-	    try {
-	        close(list);
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
 	}
 
 	private static final UnicodeSet vowels = new UnicodeSet("[aeiouAEIOUhH]");

@@ -780,13 +780,7 @@ public class Vetting {
     		logger.severe(complaint);
     		throw new RuntimeException(complaint);
     	} finally {
-    		try {
-    			DBUtils.close(dataByUserAndBase,missingImpliedVotes,insertVote,conn);
-    		} catch ( SQLException se ) {
-    			String complaint = "Vetter:  couldn't update implied votes for  " + locale + " - " + DBUtils.unchainSqlException(se);
-    			logger.severe(complaint);
-    			throw new RuntimeException(complaint);
-    		}
+			DBUtils.close(dataByUserAndBase,missingImpliedVotes,insertVote,conn);
     	}
     	return count;
     }
@@ -916,50 +910,45 @@ public class Vetting {
     	int nrInFiles = inFiles.length;
     	CLDRProgressTask progress = sm.openProgress("vetting update", nrInFiles);
     	int tcount = 0;
-    	try {
-    		Connection conn = null;
-    		try {
-    			conn = sm.dbUtils.getDBConnection();
-    			ElapsedTimer et = new ElapsedTimer();
-    			System.err.println("updating results... ***********************************");
-    			int lcount = 0;
-    			int types[] = new int[1];
-    			for(int i=0;i<nrInFiles;i++) {
-    				// TODO: need a function for this.
-    				String fileName = inFiles[i].getName();
-    				int dot = fileName.indexOf('.');
-    				String localeString= fileName.substring(0,dot);
-    				CLDRLocale localeName = CLDRLocale.getInstance(localeString);
-    				progress.update(i, localeString);
-    				//System.err.println(localeName + " - "+i+"/"+nrInFiles);
-    				ElapsedTimer et2 = new ElapsedTimer();
-    				types[0]=0;
+		Connection conn = null;
+		try {
+			conn = sm.dbUtils.getDBConnection();
+			ElapsedTimer et = new ElapsedTimer();
+			System.err.println("updating results... ***********************************");
+			int lcount = 0;
+			int types[] = new int[1];
+			for(int i=0;i<nrInFiles;i++) {
+				// TODO: need a function for this.
+				String fileName = inFiles[i].getName();
+				int dot = fileName.indexOf('.');
+				String localeString= fileName.substring(0,dot);
+				CLDRLocale localeName = CLDRLocale.getInstance(localeString);
+				progress.update(i, localeString);
+				//System.err.println(localeName + " - "+i+"/"+nrInFiles);
+				ElapsedTimer et2 = new ElapsedTimer();
+				types[0]=0;
 
-    				int count = updateResults(localeName,types, removeFirst, conn);
-    				tcount += count;
-    				if(count>0) {
-    					lcount++;
-    					System.err.println("updateResults("+localeName+ " ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles+") took " + et2.toString());
-    				} else {
-    					// no reason to print it.
-    				}
+				int count = updateResults(localeName,types, removeFirst, conn);
+				tcount += count;
+				if(count>0) {
+					lcount++;
+					System.err.println("updateResults("+localeName+ " ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles+") took " + et2.toString());
+				} else {
+					// no reason to print it.
+				}
 
-    				if(stopUpdating ||SurveyThread.shouldStop()) {
-    					stopUpdating = false;
-    					System.err.println("**** Update aborted after ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles);
-    					break;
-    				}
-    			}
-    			System.err.println("Done updating "+tcount+" results votes ("+lcount + " locales). Elapsed:" + et.toString());
-    			System.err.println("******************** NOTE: updateResults() doesn't send notifications yet.");
-    		} finally {
-    			DBUtils.close(conn);
-    		}
-    	} catch(SQLException sqe) {
-    		System.err.println("Error: " + DBUtils.unchainSqlException(sqe));
-    	} finally {
-    		progress.close();
-    	}
+				if(stopUpdating ||SurveyThread.shouldStop()) {
+					stopUpdating = false;
+					System.err.println("**** Update aborted after ("+count+" updated, "+typeToStr(types[0])+") - "+i+"/"+nrInFiles);
+					break;
+				}
+			}
+			System.err.println("Done updating "+tcount+" results votes ("+lcount + " locales). Elapsed:" + et.toString());
+			System.err.println("******************** NOTE: updateResults() doesn't send notifications yet.");
+		} finally {
+			DBUtils.close(conn);
+            progress.close();
+		}
     	return tcount;
     }
     
@@ -2943,20 +2932,14 @@ if(true == true)    throw new InternalError("removed from use.");
                 CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make tests happen
             
                 if(sm.processPeaChanges(ctx, oldSection, cf, ourSrc,dsrh)) {
-                	try {
-                		Connection conn = null;
-                		try {
-                			conn = sm.dbUtils.getDBConnection();
-                			int j = sm.vet.updateResults(oldSection.locale,conn); // bach 'em
-                            dsrh.handleResultCount(j);
-                		} finally {
-                			DBUtils.close(conn);
-                		}
-                	} catch (SQLException sqe) {
-                		String complaint = DBUtils.unchainSqlException(sqe);
-                		System.err.println(complaint);
-                		ctx.println("<div class='ferrbox'><pre>"+complaint+"</pre></div>");
-                	}
+            		Connection conn = null;
+            		try {
+            			conn = sm.dbUtils.getDBConnection();
+            			int j = sm.vet.updateResults(oldSection.locale,conn); // bach 'em
+                        dsrh.handleResultCount(j);
+            		} finally {
+            			DBUtils.close(conn);
+            		}
                     return true;
                 }
             }
@@ -3175,16 +3158,12 @@ if(true == true)    throw new InternalError("removed from use.");
     }
 
     public int updateStatus() {
+		Connection conn=null;
 		try {
-			Connection conn=null;
-			try {
-				conn = sm.dbUtils.getDBConnection();
-				return updateStatus(conn);
-			} finally {
-				DBUtils.close(conn);
-			}
-		} catch (SQLException sqe) {
-			throw new InternalError(DBUtils.unchainSqlException(sqe));
+			conn = sm.dbUtils.getDBConnection();
+			return updateStatus(conn);
+		} finally {
+			DBUtils.close(conn);
 		}
 	}
 
@@ -3215,16 +3194,12 @@ if(true == true)    throw new InternalError("removed from use.");
 	}
 
 	public int updateResults(CLDRLocale locale) {
-    	try {
-    		Connection conn = null;
-    		try {
-    			conn = sm.dbUtils.getDBConnection();
-    			return updateResults(locale,conn);
-    		} finally {
-    			DBUtils.close(conn);
-    		}
-		} catch (SQLException sqe) {
-			throw new InternalError(DBUtils.unchainSqlException(sqe));
+		Connection conn = null;
+		try {
+			conn = sm.dbUtils.getDBConnection();
+			return updateResults(locale,conn);
+		} finally {
+			DBUtils.close(conn);
 		}
 	}
 

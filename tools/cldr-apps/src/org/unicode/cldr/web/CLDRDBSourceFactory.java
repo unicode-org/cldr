@@ -417,49 +417,40 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		int n = 0;
 		CLDRProgressTask progress = null;
 		if(surveyTask!=null) progress = surveyTask.openProgress("DeferredUpdates", needUpdate.size());
+	    Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
+		synchronized(needUpdate) {
+		    toUpdate.addAll(needUpdate);
+		    needUpdate.clear();
+		}
+		Connection conn = null;
 		try {
-		    Set<CLDRLocale> toUpdate = new HashSet<CLDRLocale>();
-			synchronized(needUpdate) {
-			    toUpdate.addAll(needUpdate);
-			    needUpdate.clear();
+			if(inConn!=null) {
+				conn=inConn;
+			} else {
+				conn = sm.dbUtils.getDBConnection();
 			}
-			{
-				Connection conn = null;
-				try {
-					try {
-						if(inConn!=null) {
-							conn=inConn;
-						} else {
-							conn = sm.dbUtils.getDBConnection();
-						}
-						for(CLDRLocale l : toUpdate) {
-							n++;
-							if(progress!=null) progress.update(n);
-							if(DEBUG) System.err.println("CLDRDBSRCFAC: executing deferred update of " + l +"("+needUpdate.size()+" on queue)");
-							synchronized(sm.vet) {
-								sm.vet.updateResults(l,conn);
-							}
-//							synchronized(this) {
-//								XMLSource inst = getInstance(l,false);
-//								// TODO: fix broken layering
-//								XMLSource cached = ((MuxedSource)inst).cachedSource;
-//								((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
-//								((CacheableXMLSource)cached).save();
-//							}
-						}
-					} finally {
-						if(inConn==null) {
-							DBUtils.close(conn);
-						}
-					}
-				} catch(SQLException sqe) {
-					System.err.println("While doing update(): "+DBUtils.unchainSqlException(sqe));
+			for(CLDRLocale l : toUpdate) {
+				n++;
+				if(progress!=null) progress.update(n);
+				if(DEBUG) System.err.println("CLDRDBSRCFAC: executing deferred update of " + l +"("+needUpdate.size()+" on queue)");
+				synchronized(sm.vet) {
+					sm.vet.updateResults(l,conn);
 				}
+//				synchronized(this) {
+//					XMLSource inst = getInstance(l,false);
+//					// TODO: fix broken layering
+//					XMLSource cached = ((MuxedSource)inst).cachedSource;
+//					((CacheableXMLSource)cached).reloadWinning(((MuxedSource)inst).dbSource);
+//					((CacheableXMLSource)cached).save();
+//				}
 			}
 		} finally {
-			if(progress!=null) {
-				progress.close();
+			if(inConn==null) {
+				DBUtils.close(conn);
 			}
+            if(progress!=null) {
+                progress.close();
+            }
 		}
 		return n;
 	}
@@ -637,7 +628,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 			return -1;
 		} finally {
-		    DBUtils.closeSilently(rs, ps, conn);
+		    DBUtils.close(rs, ps, conn);
 		}
 	}
 
@@ -670,7 +661,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			logger.severe(what);
 			throw new InternalError(what);
 		} finally {
-            DBUtils.closeSilently(rs, ps, conn);
+            DBUtils.close(rs, ps, conn);
 		}
 	}
 
@@ -703,7 +694,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			throw new InternalError("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 			//                    return -1;
 		} finally {
-		    DBUtils.closeSilently(rs, ps, conn);
+		    DBUtils.close(rs, ps, conn);
 		}
 	}
 
@@ -820,7 +811,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				ctx.println("<hr /><pre>" + complaint + "</pre><br />");
 				return updated;
 			} finally {
-			    DBUtils.closeSilently(rs, ps, conn);
+			    DBUtils.close(rs, ps, conn);
 			}
 		}
 		return updated;
@@ -919,7 +910,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + DBUtils.unchainSqlException(se));
 			throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+DBUtils.unchainSqlException(se));
 		} finally {
-		    DBUtils.closeSilently(rs, ps, conn);
+		    DBUtils.close(rs, ps, conn);
 		}
 	}
 
@@ -1185,7 +1176,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		        //} // end: synch(xpt)
 		    } finally {
 		        if(progress!=null) progress.close();
-		        DBUtils.closeSilently(ps, conn);
+		        DBUtils.close(ps, conn);
 		        if(updateNeeded != null) {
 		            needUpdate(updateNeeded);
 		        }
@@ -1352,7 +1343,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe(complaint);
 				throw new InternalError(complaint);
 			} finally {
-				DBUtils.closeSilently(ps, conn);
+				DBUtils.close(ps, conn);
 			}
 
 			// System.err.println("loaded " + rowCount + " rows into  rev: " +
@@ -1409,7 +1400,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe(problem);
 				throw new InternalError(problem);
 			} finally {
-			    DBUtils.closeSilently(ps, conn);
+			    DBUtils.close(ps, conn);
 			}
 		}
 
@@ -1462,7 +1453,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 						+ DBUtils.unchainSqlException(se));
 				return false;
 			} finally {
-                DBUtils.closeSilently(rs, ps, conn);
+                DBUtils.close(rs, ps, conn);
             }
 		}
 
@@ -1568,7 +1559,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + DBUtils.unchainSqlException(se));
 				return null;
             } finally {
-                DBUtils.closeSilently(rs, ps, conn);
+                DBUtils.close(rs, ps, conn);
             }
 		}
 
@@ -1683,7 +1674,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + DBUtils.unchainSqlException(se));
 				return pathid; //? should be null?
 			} finally {
-				DBUtils.closeSilently(rs, ps, conn);
+				DBUtils.close(rs, ps, conn);
 			}
 		}
 
@@ -1853,7 +1844,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 				throw new InternalError("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 			} finally {
-			    DBUtils.closeSilently(rs, ps, conn);
+			    DBUtils.close(rs, ps, conn);
 			}
 		}
 
@@ -1958,7 +1949,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 					logger.severe("CLDRDBSource: Failed to query A source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 					return null;
 				} finally {
-					DBUtils.closeSilently(rs, ps, conn);
+					DBUtils.close(rs, ps, conn);
 				}
 			}
 			return output;
@@ -2132,7 +2123,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe("CLDRDBSource: Failed to getPrefixKeySet ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 				return null;
 			} finally {
-				DBUtils.closeSilently(rs, ps, conn);
+				DBUtils.close(rs, ps, conn);
 			}
 
 			return rs;

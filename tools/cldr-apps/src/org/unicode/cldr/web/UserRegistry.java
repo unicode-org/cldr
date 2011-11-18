@@ -543,11 +543,7 @@ public class UserRegistry {
                     //return ret;
                 } finally {
                     // close out the RS
-                    try {
-                    	DBUtils.close(rs,pstmt,conn);
-                    } catch(SQLException se) {
-                        /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: #" + id + " - " + DBUtils.unchainSqlException(se)/*,se*/);
-                    }
+                	DBUtils.close(rs,pstmt,conn);
                 } // end try
             }
 ///*srl*/    if(ret==null) { System.err.println("returning NULL for " + id); } else  { User u = ret; System.err.println("Returned info for U#"+u.id + " - "+u.name +"/"+u.org+"/"+u.email); }
@@ -575,12 +571,7 @@ public class UserRegistry {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to touch " + id + " - " + DBUtils.unchainSqlException(se),se);
                 throw new InternalError("UserRegistry: SQL error trying to touch " + id + " - " + DBUtils.unchainSqlException(se));
             } finally {
-            	try {
-            		DBUtils.close(pstmt,conn);
-            	} catch(SQLException se) {
-                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error closing " + DBUtils.unchainSqlException(se),se);
-                    throw new InternalError("UserRegistry: SQL error closing  " + DBUtils.unchainSqlException(se));
-            	}
+        		DBUtils.close(pstmt,conn);
             }
             
   //      }
@@ -663,11 +654,7 @@ public class UserRegistry {
                 //return null;
             } finally {
                 // close out the RS
-                try {
-                	DBUtils.close(rs,pstmt,conn);
-                } catch(SQLException se) {
-                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to close resultset for: " + email + " - " + DBUtils.unchainSqlException(se),se);
-                }
+            	DBUtils.close(rs,pstmt,conn);
             } // end try
 //        } // end synch(conn)
     } // end get
@@ -980,11 +967,7 @@ public class UserRegistry {
             } catch (Throwable t) {
                 msg = msg + " exception: " + t.toString();
             } finally  {
-            	try {
-            		DBUtils.close(s,conn);
-                } catch (SQLException se) {
-                    msg = msg + " closing exception: " + DBUtils.unchainSqlException(se);
-                }
+        		DBUtils.close(s,conn);
               //  s.close();
             }
 //        }
@@ -1046,11 +1029,7 @@ public class UserRegistry {
             } catch (Throwable t) {
                 msg = msg + " exception: " + t.toString();
             } finally  {
-                try {
-                	DBUtils.close(updateInfoStmt,conn);
-                } catch(SQLException se) {
-                    logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to close. " + DBUtils.unchainSqlException(se),se);
-                }
+            	DBUtils.close(updateInfoStmt,conn);
             }
     //    }
         
@@ -1085,11 +1064,7 @@ public class UserRegistry {
     		logger.severe("UR:  exception: " + t.toString());
     		ctx.println(" An error occured: " + t.toString());
         } finally  {
-            try {
-            	DBUtils.close(s,conn);
-            } catch(SQLException se) {
-                logger.log(java.util.logging.Level.SEVERE, "UserRegistry: SQL error trying to close. " + DBUtils.unchainSqlException(se),se);
-            }
+        	DBUtils.close(s,conn);
         }
 //    }
         
@@ -1147,14 +1122,7 @@ public class UserRegistry {
 			logger.severe("UR: Adding: exception: " + t.toString());
 		} finally {
 			userModified(); // new user
-			try {
-				DBUtils.close(insertStmt,conn);
-			} catch (SQLException se) {
-				logger.log(
-						java.util.logging.Level.SEVERE,
-						"UserRegistry: SQL error trying to close. "
-								+ DBUtils.unchainSqlException(se), se);
-			}
+			DBUtils.close(insertStmt,conn);
 		}
 
 		return null;
@@ -1560,11 +1528,7 @@ public class UserRegistry {
                 logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to update VoterInfo - "  + t.toString(),t);
             } finally {
                 // close out the RS
-                try {
-                    DBUtils.close(rs,conn);
-                } catch(SQLException se) {
-                    /*logger.severe*/System.err.println(/*java.util.logging.Level.SEVERE,*/ "UserRegistry: SQL error trying to close resultset for: VI "  + " - " + DBUtils.unchainSqlException(se)/*,se*/);
-                }
+                DBUtils.close(rs,conn);
             } // end try
         }
         return voterInfo;
@@ -1750,13 +1714,7 @@ public class UserRegistry {
 		    SurveyMain.logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
 		    out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
 		} finally {
-			try {
-				DBUtils.close(conn);
-			}catch(SQLException se) {
-		        SurveyMain.logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + null + " failed: " + DBUtils.unchainSqlException(se),se);
-		        //out.println("-- Failure: " + unchainSqlException(se) + " --");
-		       // return 0;
-			}
+			DBUtils.close(conn);
 		}
 		out.println("</users>");
 		out.close();

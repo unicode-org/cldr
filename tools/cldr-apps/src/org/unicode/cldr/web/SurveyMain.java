@@ -747,12 +747,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<input type=submit name=do value=Query>");
         ctx.println("</form>");
 
-        Connection conn = null;
-
-        if(q.length()>0) try {
+        if(q.length()>0) {
             logger.severe("Raw SQL: " + q);
             ctx.println("<hr>");
             ctx.println("query: <tt>" + q + "</tt><br><br>");
+            Connection conn = null;
             Statement s = null;
             try {
                 int i,j;
@@ -868,22 +867,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 				t.printStackTrace();
                 ctx.println("<pre class='ferrbox'>" + complaint + "</pre>" );
                 logger.severe("Err in SQL execute: " + complaint);
+            } finally {
+                try {
+                    s.close();
+                } catch(SQLException se) {
+                    String complaint = "in s.closing: SQL err: " + DBUtils.unchainSqlException(se);
+                    
+                    ctx.println("<pre class='ferrbox'> " + complaint + "</pre>" );
+                    logger.severe(complaint);
+                } catch(Throwable t) {
+                    String complaint = t.toString();
+                    ctx.println("<pre class='ferrbox'> " + complaint + "</pre>" );
+                    logger.severe("Err in SQL close: " + complaint);
+                }
+                DBUtils.closeDBConnection(conn);
             }
-            
-            try {
-                s.close();
-            } catch(SQLException se) {
-                String complaint = "in s.closing: SQL err: " + DBUtils.unchainSqlException(se);
-                
-                ctx.println("<pre class='ferrbox'> " + complaint + "</pre>" );
-                logger.severe(complaint);
-            } catch(Throwable t) {
-                String complaint = t.toString();
-                ctx.println("<pre class='ferrbox'> " + complaint + "</pre>" );
-                logger.severe("Err in SQL close: " + complaint);
-            }
-        } finally {
-            DBUtils.closeDBConnection(conn);
         }
         printFooter(ctx);
     }
@@ -3470,12 +3468,7 @@ o	            		}*/
             logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
             ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
         } finally {
-        	try {
-        		DBUtils.close(psMySubmit,psMyVet,psnSubmit,psnVet,conn);
-        	} catch(SQLException se) {
-                logger.log(java.util.logging.Level.WARNING,"Closing Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
-                ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
-        	}
+    		DBUtils.close(psMySubmit,psMyVet,psnSubmit,psnVet,conn);
         }
 
 //        Map<String, CLDRLocale> lm = getLocaleListMap();
@@ -3797,13 +3790,7 @@ o	            		}*/
             logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
             ctx.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
         } finally {
-        	try {
-        		DBUtils.close(conn);
-        	}
-        	catch(SQLException se) {
-                logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
-                ctx.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
-        	}
+    		DBUtils.close(conn);
         }
         ctx.println("</users>");
     }
@@ -4613,13 +4600,7 @@ o	            		}*/
             logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
             ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
         } finally {
-        	try {
-        		DBUtils.close(conn);
-        	}
-        	catch(SQLException se) {
-                logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
-                ctx.println("<i>Failure CLOSEING: " + DBUtils.unchainSqlException(se) + "</i><br>");
-        	}
+    		DBUtils.close(conn);
         }
         if(just!=null) {
             ctx.println("<a href='"+ctx.url()+ctx.urlConnector()+"do=list'>\u22d6 Show all users</a><br>");
@@ -5732,7 +5713,6 @@ o	            		}*/
     			}
     		}
 
-
     		// Find which pod they want, and show it.
     		// NB keep these sections in sync with DataPod.xpathToPodBase() 
     		WebContext subCtx = (WebContext)ctx.clone();
@@ -6197,12 +6177,7 @@ o	            		}*/
 		    logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
 		    out.println("# Failure: " + DBUtils.unchainSqlException(se) + " -->");
 		}finally {
-			try {
 				DBUtils.close(conn);
-			} catch(SQLException se) {
-		        logger.log(java.util.logging.Level.WARNING,"CLOSING Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
-		        out.println("# Failure CLOSING: " + DBUtils.unchainSqlException(se) + " -->");
-		    }
 		}
 		out.close();
 		return 1;
@@ -10476,12 +10451,7 @@ o	            		}*/
 					e.printStackTrace();
 				} finally {
     				if(progress!=null) progress.close();
-    				try {
-						DBUtils.close(conn);
-					} catch (SQLException e) {
-						System.err.println("While cleaning up after Updater: " + DBUtils.unchainSqlException(e));
-						e.printStackTrace();
-					}
+					DBUtils.close(conn);
     			}
     		}
     	});
@@ -10726,16 +10696,7 @@ o	            		}*/
 							+ DBUtils.unchainSqlException(se));
 
 		} finally {
-			try {
-				DBUtils.close(conn);
-			} catch (SQLException se) {
-				busted("SQL error CLOSING  users for getIntUsers - "
-						+ DBUtils.unchainSqlException(se));
-				throw new RuntimeException(
-						"SQL error CLOSING users for getIntUsers - "
-								+ DBUtils.unchainSqlException(se));
-
-			}
+			DBUtils.close(conn);
 		}
 		return m;
 	}

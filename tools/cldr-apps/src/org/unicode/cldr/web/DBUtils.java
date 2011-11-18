@@ -567,7 +567,7 @@ public class DBUtils {
 					System.err.println("DBUtils: "+ db_number_open+" open, "+ db_max_open+" max,  " + db_number_used+" used. " + StackTracker.currentStack());
 				}
 			}
-			
+
 			Connection c = datasource.getConnection();
 			if(db_Derby) {
 				c.setAutoCommit(false);
@@ -685,6 +685,18 @@ public class DBUtils {
 				throw new IllegalArgumentException("Don't know how to close "+an(o.getClass().getSimpleName())+" " + o.getClass().getName());
 			}
 		}
+	}
+
+	/**
+	 * Does the same thing as close() but catches all exceptions.
+	 * @param list
+	 */
+	public static void closeSilently(Object... list) {
+	    try {
+	        close(list);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 
 	private static final UnicodeSet vowels = new UnicodeSet("[aeiouAEIOUhH]");

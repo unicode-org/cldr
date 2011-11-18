@@ -48,7 +48,6 @@ import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.CLDRFileCache.CacheableXMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DBUtils.ConnectionHolder;
-import org.unicode.cldr.web.DBUtils.DBCloseable;
 import org.unicode.cldr.web.ErrorCheckManager.CachingErrorChecker;
 import org.unicode.cldr.web.MuxedSource.MuxFactory;
 
@@ -98,13 +97,13 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 */
     public class DBEntry implements org.unicode.cldr.web.DBUtils.ConnectionHolder,org.unicode.cldr.web.DBUtils.DBCloseable {
     	private Connection conn = null;
-    	private MyStatements stmts = null;
     	
     	private Set<CLDRDBSource> allSources = new HashSet<CLDRDBSource>();
     	private Set<SubFactory> allFactories = new HashSet<SubFactory>();
 		public DBEntry(CLDRDBSource x) {
 			add(x);
 			allOpen.add(this);
+			conn = sm.dbUtils.getDBConnection();
 		}
 		public void add(XMLSource x) {
 			if(x instanceof CLDRDBSource) {
@@ -129,7 +128,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		
 		@Override
 		public Connection getConnectionAlias() {
-			return openStatements().getConnectionAlias();
+			return conn;
 //			if(conn==null) {
 //				conn = 
 //				conn = sm.dbUtils.getDBConnection();
@@ -139,11 +138,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		@Override
 		public void close() throws SQLException {
-			if(stmts!=null) {
-				stmts.lockOpen(false);
-				stmts.close();
-				stmts=null;
-			}
 			if(conn!=null) {
 				DBUtils.close(conn);
 				conn=null;
@@ -153,7 +147,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		@Override
 		public String toString() {
-			return "{DBEntry: (stmts:" + stmts+"), (conn:"+conn+"), isInAllOpen:"+allOpen.contains(this)+", }";
+			return "{DBEntry: (conn:"+conn+"), isInAllOpen:"+allOpen.contains(this)+", }";
 		}
 		
 		private final class LocaleEntry extends Registerable{
@@ -190,14 +184,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		public final Object put(String locale, Key oldkeyset,Object o) {
 			return put(CLDRLocale.getInstance(locale),oldkeyset.name(),o);
-		}
-		public final MyStatements openStatements() {
-			if(stmts==null) {
-				MyStatements newStmts = CLDRDBSourceFactory.this.openStatements();
-				newStmts.lockOpen(true);
-				stmts=newStmts;
-			}
-			return stmts;
 		}
 	}
     
@@ -279,8 +265,109 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	private List<CLDRLocale> needUpdate = new ArrayList<CLDRLocale>();
 	File cacheDir = null;
 	boolean vetterReady = false;
+	
+	// PreparedStatement queries
+    private static final String keySet = "SELECT " + XPathTable.CLDR_XPATHS + ".id, " +
+            XPathTable.CLDR_XPATHS + ".xpath FROM " + CLDR_DATA + ", " + XPathTable.CLDR_XPATHS +// was origxpath
+            " WHERE " + XPathTable.CLDR_XPATHS + ".id=" + CLDR_DATA+ ".xpath AND locale=?";
 
-	public CLDRDBSourceFactory(SurveyMain sm, String theDir, Logger xlogger, File cacheDir) throws SQLException {
+    private static final String keyVettingSet = "SELECT "+Vetting.CLDR_OUTPUT+
+            ".output_xpath from "+Vetting.CLDR_OUTPUT+" where "+Vetting.CLDR_OUTPUT+".locale=? AND EXISTS "+
+            " ( SELECT * from "+CLDR_DATA+" where "+CLDR_DATA+".locale="+Vetting.CLDR_OUTPUT+".locale AND "+
+            CLDR_DATA+".xpath="+Vetting.CLDR_OUTPUT+".data_xpath )";
+    
+    private static final String insert = "INSERT INTO " + CLDR_DATA +
+            " (xpath,locale,source,origxpath,value,type,alt_type,txpath,submitter,base_xpath,modtime) " +
+    "VALUES (?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)";
+
+    // xpath - contains type, no draft
+    // origxpath - original xpath (full) - 
+    // txpath - tiny xpath  (no TYPE)
+
+    private static final String queryXpathPrefixes =
+            "select "+XPathTable.CLDR_XPATHS+".id,"+XPathTable.CLDR_XPATHS+".xpath from "+
+            XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
+            XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?";
+
+    private static final String queryXpathTypes =
+            "select " +CLDR_DATA+".type from "+
+            CLDR_DATA+","+XPathTable.CLDR_XPATHS+" where "+CLDR_DATA+".xpath="+
+            XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ?";
+
+    private static final String oxpathFromXpath =
+            "select " +CLDR_DATA+".origxpath from "+CLDR_DATA+" where "+CLDR_DATA+".xpath=? AND "+CLDR_DATA+".locale=?";
+
+    private static final String queryTypeValues =
+            "select "+CLDR_DATA+".value,"+CLDR_DATA+".alt_type,"+CLDR_DATA+".alt_proposed,"+CLDR_DATA+".submitter,"+CLDR_DATA+".xpath,"+CLDR_DATA+".origxpath " +
+            " from "+
+            CLDR_DATA+" where "+CLDR_DATA+".txpath=? AND "+CLDR_DATA+".locale=? AND "+CLDR_DATA+".type=?";
+
+    private static final String queryValue =
+            "SELECT value FROM " + CLDR_DATA + " WHERE locale=? AND xpath=?"; 
+
+
+    private static final String queryVetValue =
+            "SELECT "+CLDR_DATA+".value FROM "+Vetting.CLDR_OUTPUT+"," + CLDR_DATA +
+            " WHERE "+Vetting.CLDR_OUTPUT+".locale=? AND "+Vetting.CLDR_OUTPUT+".output_xpath=? AND "
+            +" ("+Vetting.CLDR_OUTPUT+".locale="+CLDR_DATA+".locale) AND ("+Vetting.CLDR_OUTPUT+".data_xpath="+CLDR_DATA+".xpath)"; 
+
+    private static final String oxpathFromVetXpath =
+            "SELECT "+Vetting.CLDR_OUTPUT+".output_full_xpath FROM "+Vetting.CLDR_OUTPUT+" " +
+            " WHERE "+Vetting.CLDR_OUTPUT+".locale=? AND "+Vetting.CLDR_OUTPUT+".output_xpath=? "; 
+
+    private static final String queryVetXpath =
+            "SELECT "+Vetting.CLDR_RESULT+".result_xpath FROM "+Vetting.CLDR_RESULT+" " +
+            " WHERE "+Vetting.CLDR_RESULT+".locale=? AND "+Vetting.CLDR_RESULT+".base_xpath=? "; 
+
+    //keyVettingSet = "keyVettingSet",
+    //                               "SELECT output_xpath from "+Vetting.CLDR_OUTPUT+" where locale=?" ); // wow, that is pretty straightforward...
+
+    private static final String keyASet =
+            /*
+                                "SELECT "+CLDR_DATA+".xpath from "+
+                                XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
+                                XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?"
+             */
+            //    "SELECT "+CLDR_DATA+".xpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.xpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
+            "SELECT "+CLDR_DATA+".origxpath, " + XPathTable.CLDR_XPATHS + ".xpath from "+XPathTable.CLDR_XPATHS+","+CLDR_DATA+
+            " where "+CLDR_DATA+".origxpath="+XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like '%/alias%' AND "+CLDR_DATA+".locale=?";
+
+    private static final String keyUnconfirmedSet =
+            "select distinct "+Vetting.CLDR_VET+".vote_xpath from "+Vetting.CLDR_VET+" where "+
+            Vetting.CLDR_VET+".vote_xpath!=-1 AND "+Vetting.CLDR_VET+
+            ".locale=? AND NOT EXISTS ( SELECT "+Vetting.CLDR_RESULT+
+            ".result_xpath from "+Vetting.CLDR_RESULT+" where "+
+            Vetting.CLDR_RESULT+".result_xpath="+Vetting.CLDR_VET+".vote_xpath and "+
+            Vetting.CLDR_RESULT+".locale="+Vetting.CLDR_VET+".locale AND "+
+            Vetting.CLDR_RESULT+".type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT "+
+            Vetting.CLDR_RESULT+".base_xpath from "+Vetting.CLDR_RESULT+" where "+
+            Vetting.CLDR_RESULT+".base_xpath=CLDR_VET.base_xpath and "+
+            Vetting.CLDR_RESULT+".locale="+Vetting.CLDR_VET+".locale AND "+Vetting.CLDR_RESULT+".type="+
+            Vetting.RES_ADMIN+") AND EXISTS (select * from "+CLDR_DATA+" where "+
+            CLDR_DATA+".locale="+
+            Vetting.CLDR_VET+".locale AND "+CLDR_DATA+".xpath="+
+            Vetting.CLDR_VET+".vote_xpath and "+CLDR_DATA+".value != '')";
+    private static final String keyNoVotesSet = 
+            "select distinct "+CLDR_DATA+".xpath from "+CLDR_DATA+","+Vetting.CLDR_RESULT+" where "+CLDR_DATA+".locale=? AND "+CLDR_DATA+".locale="+Vetting.CLDR_RESULT+".locale AND "+CLDR_DATA+".xpath="+Vetting.CLDR_RESULT+".base_xpath AND "+Vetting.CLDR_RESULT+".type="+Vetting.RES_NO_VOTES;
+    private static final String querySource =
+            "SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL";
+
+    private static final String querySourceInfo =
+            "SELECT rev FROM " + CLDR_SRC + " where id=?";
+
+    private static final String querySourceActives =
+            "SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL";
+
+    private static final String insertSource =
+            "INSERT INTO " + CLDR_SRC + " (locale,tree,rev,inactive) VALUES (?,?,?,null)";
+
+    private static final String getSubmitterId =
+            "SELECT submitter from " + CLDR_DATA + " where locale=? AND xpath=? AND ( submitter is not null )"; // don't return anything if the submitter isn't set.
+
+    private static final String removeItem =
+            "DELETE FROM " + CLDR_DATA + " where locale=? AND xpath=?";
+
+    public CLDRDBSourceFactory(SurveyMain sm, String theDir, Logger xlogger, File cacheDir) throws SQLException {
 		this.xpt = sm.xpt;
 		this.dir = theDir;
 		Connection sconn = sm.dbUtils.getDBConnection();
@@ -297,7 +384,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	}
 	public void vetterReady(CLDRProgressIndicator progress) {
 		if(DEBUG) System.err.println("DBSRCFAC: processing vetterReady()... initializing connection");
-//		Connection sconn = sm.dbUtils.getDBConnection();
 		CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(this.dir,".*");
 		this.initConn(afactory);
 		if(DEBUG) System.err.println("DBSRCFAC: processing vetterReady()...");
@@ -477,234 +563,14 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		logger.info("CLDRDBSource DB: done.");
 	}
 
-	private MyStatements  openStatements() {
-		Connection conn = sm.dbUtils.getDBConnection();
-		return new MyStatements(conn);
+    /**
+     * called to initialize a preparedstatement.
+     * @param sql the SQL to initialize the statement
+     * @return the new prepared statement, or throws an error..
+     */
+	private PreparedStatement prepareStatement(Connection conn, String sql) throws SQLException {
+	    return DBUtils.prepareForwardReadOnly(conn, sql);
 	}
-	private void closeOrThrow(MyStatements stmts) {
-		if(stmts != null) 
-			stmts.closeOrThrow();
-	}
-	/** 
-	 * this inner class contains a link to all of the prepared statements needed by the CLDRDBSource.
-	 * it may be shared by certain CLDRDBSources, or lazy initialized.
-	 **/
-	public static class MyStatements implements DBCloseable, ConnectionHolder { 
-		public String stack = DEBUG?StackTracker.currentStack():null;
-		public Connection conn = null;
-		public PreparedStatement insert = null;
-//		public PreparedStatement queryStmt = null;
-		public PreparedStatement queryValue = null;
-		public PreparedStatement queryXpathTypes = null;
-		public PreparedStatement queryTypeValues = null;
-		public PreparedStatement queryXpathPrefixes = null;
-		public PreparedStatement keySet = null;
-		public PreparedStatement keyASet = null;
-		public PreparedStatement keyVettingSet = null;
-		public PreparedStatement oxpathFromVetXpath = null;
-		public PreparedStatement keyUnconfirmedSet = null;
-		public PreparedStatement queryVetValue = null;
-		public PreparedStatement queryVetXpath = null;
-//		public PreparedStatement queryIdStmt = null;
-		public PreparedStatement querySource = null;
-		public PreparedStatement querySourceInfo = null;
-		public PreparedStatement querySourceActives = null;
-		public PreparedStatement insertSource = null;
-		public PreparedStatement oxpathFromXpath = null;
-		public PreparedStatement keyNoVotesSet = null;
-		public PreparedStatement removeItem = null;
-		public PreparedStatement getSubmitterId = null;
-		private boolean lockedOpen = false;
-		private int avoidedClose;
-
-		/**
-		 * called to initialize one of the preparedstatement fields
-		 * @param name the shortname of the PreparedStatement field. For debugging.
-		 * @param sql the SQL to initialize the statement
-		 * @return the new prepared statement, or throws an error..
-		 */
-		public PreparedStatement prepareStatement(String name, String sql) {
-			PreparedStatement ps = null;
-			try {
-				ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			} catch ( SQLException se ) {
-				String complaint = " Couldn't prepare " + name + " - " + DBUtils.unchainSqlException(se) + " - " + sql;
-				logger.severe(complaint);
-				throw new InternalError(complaint);
-			}
-			return ps;
-		}
-		
-		public void lockOpen(boolean b) {
-			if(b==false && avoidedClose>0 && DEBUG) {
-				System.err.println("Stmts: avoidedclose " + avoidedClose);
-			}
-			lockedOpen =b;
-		}
-
-		/** 
-		 * Constructor for the MyStatements 
-		 */
-		MyStatements(Connection conn) {
-			if(tracker!=null) {
-				tracker.add(this);
-			}
-			this.conn = conn;
-			insert = prepareStatement("insert",
-					"INSERT INTO " + CLDR_DATA +
-					" (xpath,locale,source,origxpath,value,type,alt_type,txpath,submitter,base_xpath,modtime) " +
-			"VALUES (?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)");
-
-			// xpath - contains type, no draft
-			// origxpath - original xpath (full) - 
-			// txpath - tiny xpath  (no TYPE)
-
-			queryXpathPrefixes = prepareStatement("queryXpathPrefixes",
-					"select "+XPathTable.CLDR_XPATHS+".id,"+XPathTable.CLDR_XPATHS+".xpath from "+
-					XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
-					XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?");
-
-			queryXpathTypes = prepareStatement("queryXpathTypes",
-					"select " +CLDR_DATA+".type from "+
-					CLDR_DATA+","+XPathTable.CLDR_XPATHS+" where "+CLDR_DATA+".xpath="+
-					XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ?");
-
-			oxpathFromXpath = prepareStatement("oxpathFromXpath",
-					"select " +CLDR_DATA+".origxpath from "+CLDR_DATA+" where "+CLDR_DATA+".xpath=? AND "+CLDR_DATA+".locale=?");
-
-			queryTypeValues = prepareStatement("queryTypeValues",
-					"select "+CLDR_DATA+".value,"+CLDR_DATA+".alt_type,"+CLDR_DATA+".alt_proposed,"+CLDR_DATA+".submitter,"+CLDR_DATA+".xpath,"+CLDR_DATA+".origxpath " +
-					" from "+
-					CLDR_DATA+" where "+CLDR_DATA+".txpath=? AND "+CLDR_DATA+".locale=? AND "+CLDR_DATA+".type=?");
-
-			queryValue = prepareStatement("queryValue",
-					"SELECT value FROM " + CLDR_DATA +
-			" WHERE locale=? AND xpath=?"); 
-
-
-			queryVetValue = prepareStatement("queryVetValue",
-					"SELECT "+CLDR_DATA+".value FROM "+Vetting.CLDR_OUTPUT+"," + CLDR_DATA +
-					" WHERE "+Vetting.CLDR_OUTPUT+".locale=? AND "+Vetting.CLDR_OUTPUT+".output_xpath=? AND "
-					+" ("+Vetting.CLDR_OUTPUT+".locale="+CLDR_DATA+".locale) AND ("+Vetting.CLDR_OUTPUT+".data_xpath="+CLDR_DATA+".xpath)"); 
-
-			oxpathFromVetXpath = prepareStatement("oxpathFromVetXpath",
-					"SELECT "+Vetting.CLDR_OUTPUT+".output_full_xpath FROM "+Vetting.CLDR_OUTPUT+" " +
-					" WHERE "+Vetting.CLDR_OUTPUT+".locale=? AND "+Vetting.CLDR_OUTPUT+".output_xpath=? "); 
-
-			queryVetXpath = prepareStatement("queryVetXpath",
-					"SELECT "+Vetting.CLDR_RESULT+".result_xpath FROM "+Vetting.CLDR_RESULT+" " +
-					" WHERE "+Vetting.CLDR_RESULT+".locale=? AND "+Vetting.CLDR_RESULT+".base_xpath=? "); 
-
-			//keyVettingSet = prepareStatement("keyVettingSet",
-			//                               "SELECT output_xpath from "+Vetting.CLDR_OUTPUT+" where locale=?" ); // wow, that is pretty straightforward...
-			keyVettingSet = prepareStatement("keyVettingSet",
-					"SELECT "+Vetting.CLDR_OUTPUT+".output_xpath from "+Vetting.CLDR_OUTPUT+" where "+Vetting.CLDR_OUTPUT+".locale=? AND EXISTS "+
-					" ( SELECT * from "+CLDR_DATA+" where "+CLDR_DATA+".locale="+Vetting.CLDR_OUTPUT+".locale AND "+CLDR_DATA+".xpath="+Vetting.CLDR_OUTPUT+".data_xpath )");
-
-			keyASet = prepareStatement("keyASet",
-					/*
-                                        "SELECT "+CLDR_DATA+".xpath from "+
-                                        XPathTable.CLDR_XPATHS+","+CLDR_DATA+" where "+CLDR_DATA+".xpath="+
-                                        XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like ? AND "+CLDR_DATA+".locale=?"
-					 */
-					//    "SELECT "+CLDR_DATA+".xpath from CLDR_XPATHS,CLDR_DATA where CLDR_DATA.xpath=CLDR_XPATHS.id AND CLDR_XPATHS.xpath like '%/alias%' AND CLDR_DATA.locale=?"
-					"SELECT "+CLDR_DATA+".origxpath, " + XPathTable.CLDR_XPATHS + ".xpath from "+XPathTable.CLDR_XPATHS+","+CLDR_DATA+
-					" where "+CLDR_DATA+".origxpath="+XPathTable.CLDR_XPATHS+".id AND "+XPathTable.CLDR_XPATHS+".xpath like '%/alias%' AND "+CLDR_DATA+".locale=?"
-			);
-
-
-			keySet = prepareStatement("keySet",
-					"SELECT " + XPathTable.CLDR_XPATHS + ".id, " + XPathTable.CLDR_XPATHS + ".xpath FROM " + CLDR_DATA + ", " + XPathTable.CLDR_XPATHS +// was origxpath
-					" WHERE " + XPathTable.CLDR_XPATHS + ".id=" + CLDR_DATA+ ".xpath AND locale=?"); 
-			keyUnconfirmedSet = prepareStatement("keyUnconfirmedSet",
-					"select distinct "+Vetting.CLDR_VET+".vote_xpath from "+Vetting.CLDR_VET+" where "+
-					Vetting.CLDR_VET+".vote_xpath!=-1 AND "+Vetting.CLDR_VET+
-					".locale=? AND NOT EXISTS ( SELECT "+Vetting.CLDR_RESULT+
-					".result_xpath from "+Vetting.CLDR_RESULT+" where "+
-					Vetting.CLDR_RESULT+".result_xpath="+Vetting.CLDR_VET+".vote_xpath and "+
-					Vetting.CLDR_RESULT+".locale="+Vetting.CLDR_VET+".locale AND "+
-					Vetting.CLDR_RESULT+".type>="+Vetting.RES_ADMIN+") AND NOT EXISTS ( SELECT "+
-					Vetting.CLDR_RESULT+".base_xpath from "+Vetting.CLDR_RESULT+" where "+
-					Vetting.CLDR_RESULT+".base_xpath=CLDR_VET.base_xpath and "+
-					Vetting.CLDR_RESULT+".locale="+Vetting.CLDR_VET+".locale AND "+Vetting.CLDR_RESULT+".type="+
-					Vetting.RES_ADMIN+") AND EXISTS (select * from "+CLDR_DATA+" where "+
-					CLDR_DATA+".locale="+
-					Vetting.CLDR_VET+".locale AND "+CLDR_DATA+".xpath="+
-					Vetting.CLDR_VET+".vote_xpath and "+CLDR_DATA+".value != '')");
-			keyNoVotesSet = prepareStatement("keyUnconfirmedSet",
-					"select distinct "+CLDR_DATA+".xpath from "+CLDR_DATA+","+Vetting.CLDR_RESULT+" where "+CLDR_DATA+".locale=? AND "+CLDR_DATA+".locale="+Vetting.CLDR_RESULT+".locale AND "+CLDR_DATA+".xpath="+Vetting.CLDR_RESULT+".base_xpath AND "+Vetting.CLDR_RESULT+".type="+Vetting.RES_NO_VOTES);
-			querySource = prepareStatement("querySource",
-					"SELECT id,rev FROM " + CLDR_SRC + " where locale=? AND tree=? AND inactive IS NULL");
-
-			querySourceInfo = prepareStatement("querySourceInfo",
-					"SELECT rev FROM " + CLDR_SRC + " where id=?");
-
-			querySourceActives = prepareStatement("querySourceActives",
-					"SELECT id,locale,rev FROM " + CLDR_SRC + " where inactive IS NULL");
-
-			insertSource = prepareStatement("insertSource",
-					"INSERT INTO " + CLDR_SRC + " (locale,tree,rev,inactive) VALUES (?,?,?,null)");
-
-			getSubmitterId = prepareStatement("getSubmitterId",
-					"SELECT submitter from " + CLDR_DATA + " where locale=? AND xpath=? AND ( submitter is not null )"); // don't return anything if the submitter isn't set.
-
-			removeItem = prepareStatement("removeItem",
-					"DELETE FROM " + CLDR_DATA + " where locale=? AND xpath=?");
-		}
-
-		@Override
-		public void close() throws SQLException {
-			if(lockedOpen) {
-				avoidedClose++;
-				//if(DEBUG) System.err.println("avoidedClose: " + avoidedClose);
-				return;
-			}
-			
-			Connection conn2 = conn;
-			conn = null; // just in case;
-			DBUtils.close(
-					insert,
-//					queryStmt,
-					queryValue,
-					queryXpathTypes,
-					queryTypeValues,
-					queryXpathPrefixes,
-					keySet,
-					keyASet,
-					keyVettingSet,
-					oxpathFromVetXpath,
-					keyUnconfirmedSet,
-					queryVetValue,
-					queryVetXpath,
-//					queryIdStmt,
-					querySource,
-					querySourceInfo,
-					querySourceActives,
-					insertSource,
-					oxpathFromXpath,
-					keyNoVotesSet,
-					removeItem,
-					getSubmitterId,
-					conn2);
-			if(tracker!=null) tracker.remove(this);
-		}
-		public void closeOrThrow() {
-			try {
-				close();
-			} catch(SQLException se) {
-				String complaint = ("Error: while closing statements: " + DBUtils.unchainSqlException(se));
-				System.err.println(complaint);
-				throw new InternalError(complaint);
-			}
-		}
-
-		@Override
-		public Connection getConnectionAlias() {
-			return conn;
-		}
-
-	}
-
 
 	/** 
 	 * Initialize with (a reference to the shared) Connection
@@ -736,17 +602,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 * @return the source id, or -1 if not found.
 	 */
 	public int getSourceId(String tree, String locale) {
-		return getSourceId(tree, locale, null);
-	}
-
-	/**
-	 * given a tree and locale, return the source ID.
-	 * @param tree which tree. should be "main". TODO: support multiple trees
-	 * @param locale the locale to fetch.
-	 * @param stmts TODO
-	 * @return the source id, or -1 if not found.
-	 */
-	public int getSourceId(String tree, String locale, MyStatements stmts) {
 		String key = tree + "_" + locale;
 
 		// first, is it in the hashtable?
@@ -755,14 +610,14 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		if(r != null) {
 			return r.intValue(); // quick check
 		}
-		MyStatements stmts2 = null;
+		Connection conn = sm.dbUtils.getDBConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 		try {
-			if(stmts==null) {
-				stmts2=stmts=openStatements();
-			}
-			stmts.querySource.setString(1,locale);
-			stmts.querySource.setString(2,tree);
-			ResultSet rs = stmts.querySource.executeQuery();
+		    ps = prepareStatement(conn, querySource);
+		    ps.setString(1,locale);
+			ps.setString(2,tree);
+			rs = ps.executeQuery();
 			if(!rs.next()) {
 				rs.close();
 				return -1;
@@ -782,9 +637,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			logger.severe("CLDRDBSource: Failed to find source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 			return -1;
 		} finally {
-			if(stmts2!=null) {
-				closeOrThrow(stmts);
-			}
+		    DBUtils.closeSilently(rs, ps, conn);
 		}
 	}
 
@@ -797,11 +650,13 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			return null;
 		}
 		String rev = null;
-		MyStatements stmts = null;
+        Connection conn = sm.dbUtils.getDBConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 		try {
-			stmts = openStatements();
-			stmts.querySourceInfo.setInt(1, id);
-			ResultSet rs = stmts.querySourceInfo.executeQuery();
+			ps = prepareStatement(conn, querySourceInfo);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
 			if(rs.next()) {
 				rev = rs.getString(1); // rev
 				if(rs.next()) {
@@ -815,7 +670,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			logger.severe(what);
 			throw new InternalError(what);
 		} finally {
-			closeOrThrow(stmts);
+            DBUtils.closeSilently(rs, ps, conn);
 		}
 	}
 
@@ -826,27 +681,29 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 * @param rev CVS revision
 	 * @return the new source ID
 	 */
-	private int setSourceId(String tree, String locale, String rev, MyStatements stmts) {
-		//    	MyStatements stmts = null;
+	private int setSourceId(String tree, String locale, String rev) {
+        Connection conn = sm.dbUtils.getDBConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 		try {
-			//    		stmts = openStatements();
-			stmts.insertSource.setString(1,locale);
-			stmts.insertSource.setString(2,tree);
-			stmts.insertSource.setString(3,rev);
+		    ps = prepareStatement(conn, insertSource);
+			ps.setString(1,locale);
+			ps.setString(2,tree);
+			ps.setString(3,rev);
 
-			if(!stmts.insertSource.execute()) {
-				stmts.conn.commit();
-				return getSourceId(tree, locale, stmts); // adds to hash
+			if(!ps.execute()) {
+				conn.commit();
+				return getSourceId(tree, locale); // adds to hash
 			} else {
-				stmts.conn.commit();
+				conn.commit();
 				throw new InternalError("CLDRDBSource: SQL failed to set source ("+tree + "/" + locale +")");
 				//                        return -1;
 			}
 		} catch(SQLException se) {
 			throw new InternalError("CLDRDBSource: Failed to set source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 			//                    return -1;
-			//    	} finally {
-			//    		closeOrThrow(stmts);
+		} finally {
+		    DBUtils.closeSilently(rs, ps, conn);
 		}
 	}
 
@@ -891,12 +748,14 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		if(!quietUpdateAll) {
 			ctx.println("<h4>Source Update Manager</h4>");
 		}
-		MyStatements stmts=null;
 		synchronized (sm.vet) {
+	        Connection conn = sm.dbUtils.getDBConnection();
+	        PreparedStatement ps = null;
+	        ResultSet rs = null;
 			try {
-				stmts=openStatements();
 				boolean hadDiffs = false; // were there any differences? (used for 'update all')
-				ResultSet rs = stmts.querySourceActives.executeQuery();
+				ps = prepareStatement(conn, querySourceActives);
+				rs = ps.executeQuery();
 				if(!quietUpdateAll) {
 					ctx.println("<table border='1'>");
 					ctx.println("<tr><th>#</th><th>loc</th><th>DB Version</th><th>CVS/Disk</th><th>update</th></tr>");
@@ -934,7 +793,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 							} else {
 								ctx.println("<br><b>"+loc + "</b> " + rev + " &mdash;&gt; "+disk + " ");
 							}
-							manageSourceUpdates_locale(ctx,sm,id,loc, quietUpdateAll, stmts.conn);
+							manageSourceUpdates_locale(ctx,sm,id,loc, quietUpdateAll, conn);
 							updated++;
 							if(!quietUpdateAll) {
 								ctx.println("</td>");
@@ -961,7 +820,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				ctx.println("<hr /><pre>" + complaint + "</pre><br />");
 				return updated;
 			} finally {
-				closeOrThrow(stmts);
+			    DBUtils.closeSilently(rs, ps, conn);
 			}
 		}
 		return updated;
@@ -1035,33 +894,32 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 
 
-	public int getSubmitterId(CLDRLocale locale, int xpath) {
-		synchronized(sm.vet) {
-			MyStatements stmts = null;
-			try {
-				ResultSet rs;
-				stmts = openStatements();
-				stmts.getSubmitterId.setString(1,locale.toString());
-				stmts.getSubmitterId.setInt(2,xpath);
-				rs = stmts.getSubmitterId.executeQuery();
-				if(!rs.next()) {
-					///*srl*/     System.err.println("GSI[-1]: " + locale+":"+xpath);
-					return -1;
-				}
-				int rp = rs.getInt(1);
-				rs.close();
-				///*srl*/ System.err.println("GSI["+rp+"]: " + locale+":"+xpath);
-				if(rp > 0) {
-					return rp;
-				} else {
-					return -1;
-				}
-			} catch(SQLException se) {
-				logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + DBUtils.unchainSqlException(se));
-				throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+DBUtils.unchainSqlException(se));
-			} finally {
-				closeOrThrow(stmts);
+	public synchronized int getSubmitterId(CLDRLocale locale, int xpath) {
+        Connection conn = sm.dbUtils.getDBConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+		try {
+		    ps = prepareStatement(conn, getSubmitterId);
+			ps.setString(1,locale.toString());
+			ps.setInt(2,xpath);
+			rs = ps.executeQuery();
+			if(!rs.next()) {
+				///*srl*/     System.err.println("GSI[-1]: " + locale+":"+xpath);
+				return -1;
 			}
+			int rp = rs.getInt(1);
+			rs.close();
+			///*srl*/ System.err.println("GSI["+rp+"]: " + locale+":"+xpath);
+			if(rp > 0) {
+				return rp;
+			} else {
+				return -1;
+			}
+		} catch(SQLException se) {
+			logger.severe("CLDRDBSource: Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath+"): " + DBUtils.unchainSqlException(se));
+			throw new InternalError("Failed to getSubmitterId ("+tree + "/" + locale + ":" + xpt.getById(xpath) + "#"+xpath + "): "+se.toString()+"//"+DBUtils.unchainSqlException(se));
+		} finally {
+		    DBUtils.closeSilently(rs, ps, conn);
 		}
 	}
 
@@ -1190,31 +1048,27 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		private DBEntry dbEntry; 
 		
-		private MyStatements openStatements() {
-			if(dbEntry!=null) {
-				return dbEntry.openStatements();
-			} else {
-				return CLDRDBSourceFactory.this.openStatements();
-			}
-		}
-
 		/**
 		 * load and validate the item, if not already in the DB. Sets srcId and other state.
 		 * Note that this is not a fully resolved operation at this level.
 		 * @param locale the locale to load. Ex:  "mt_MT"
 		 **/
-		boolean setLocaleAndValidate(String locale) {
+		synchronized boolean setLocaleAndValidate(String locale) {
 		    setLocaleID(locale);
 
 		    CLDRLocale updateNeeded = null;
-
 		    CLDRProgressTask progress = null;
-		    MyStatements stmts = null;
-		    synchronized (this) { try {
-		    	stmts = openStatements();
+            Connection conn = sm.dbUtils.getDBConnection();
+            PreparedStatement ps = null;
+	        try {
+	            try {
+	                ps = prepareStatement(conn, insert);
+	            } catch (SQLException e) {
+	                throw new InternalError("Error creating " + insert + " - " + DBUtils.unchainSqlException(e));
+	            }
 		        //        	synchronized(conn) {  // Synchronize on the conn to ensure that no other state is changing under us..
 		        // double check..
-		        srcId = getSourceId(tree, locale, stmts); // double checked lock- noone else loaded the src since then
+		        srcId = getSourceId(tree, locale); // double checked lock- noone else loaded the src since then
 
 		        if(srcId != -1) { 
 		            return true;  // common case.
@@ -1224,7 +1078,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		        String rev = LDMLUtilities.loadFileRevision(dir, locale+".xml");  // Load the CVS version # as a string
 		        if(rev == null) rev = "null";
-		        srcId = setSourceId(tree, locale, rev, stmts); // TODO: we had better fill it in..
+		        srcId = setSourceId(tree, locale, rev); // TODO: we had better fill it in..
 		        //    synchronized(conn) {            
 		        // logger.info("srcid: " + srcId +"/"+locale);
 		        // if(locale.equals("el__POLYTON")) locale="el_POLYTON";
@@ -1292,18 +1146,18 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 		            // insert it into the DB
 		            try {
-		                stmts.insert.setInt(1,xpid); // full
-		                stmts.insert.setString(2,locale);
-		                stmts.insert.setInt(3,srcId);
-		                stmts.insert.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
-		                DBUtils.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
-		                stmts.insert.setString(6,eType);
-		                stmts.insert.setString(7,eAlt);
-		                stmts.insert.setInt(8,txpid); // tiny
-		                stmts.insert.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter. NB: we do NOT ever consider data coming from XML as 'submitter' data.
-		                stmts.insert.setInt(10, base_xpid);
+		                ps.setInt(1,xpid); // full
+		                ps.setString(2,locale);
+		                ps.setInt(3,srcId);
+		                ps.setInt(4,oxpid); // Note: assumes XPIX = orig XPID! TODO: fix
+		                DBUtils.setStringUTF8(ps, 5, value); // ps.setString(5,value);
+		                ps.setString(6,eType);
+		                ps.setString(7,eAlt);
+		                ps.setInt(8,txpid); // tiny
+		                ps.setNull(9, java.sql.Types.INTEGER); // Null integer for Submitter. NB: we do NOT ever consider data coming from XML as 'submitter' data.
+		                ps.setInt(10, base_xpid);
 
-		                stmts.insert.execute();
+		                ps.execute();
 
 		            } catch(SQLException se) {
 		                String complaint = 
@@ -1315,7 +1169,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		        }
 
 		        try{
-		            stmts.conn.commit();
+		            conn.commit();
 		        } catch(SQLException se) {
 		            String complaint = 
 		                "CLDRDBSource: Couldn't commit " + locale +
@@ -1331,11 +1185,10 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		        //} // end: synch(xpt)
 		    } finally {
 		        if(progress!=null) progress.close();
-		        closeOrThrow(stmts);
+		        DBUtils.closeSilently(ps, conn);
 		        if(updateNeeded != null) {
 		            needUpdate(updateNeeded);
 		        }
-		    }
 		    }
 		}
 		/*
@@ -1468,29 +1321,30 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 			// insert it into the DB
 			// synchronized(conn) {
-			MyStatements stmts = null;
+			Connection conn = sm.dbUtils.getDBConnection();
+			PreparedStatement ps = null;
 			try {
-				stmts = openStatements(); // TODO: pefrormance here !!
-				stmts.insert.setInt(1, xpid); // / dpath
-				stmts.insert.setString(2, loc);
-				stmts.insert.setInt(3, srcId);
-				stmts.insert.setInt(4, oxpid); // origxpath = full (original)
+			    ps = prepareStatement(conn, insert);
+				ps.setInt(1, xpid); // / dpath
+				ps.setString(2, loc);
+				ps.setInt(3, srcId);
+				ps.setInt(4, oxpid); // origxpath = full (original)
 				// xpath
-				DBUtils.setStringUTF8(stmts.insert, 5, value); // stmts.insert.setString(5,value);
-				stmts.insert.setString(6, eType);
-				stmts.insert.setString(7, eAlt);
-				stmts.insert.setInt(8, txpid); // tiny xpath
+				DBUtils.setStringUTF8(ps, 5, value); // ps.setString(5,value);
+				ps.setString(6, eType);
+				ps.setString(7, eAlt);
+				ps.setInt(8, txpid); // tiny xpath
 				if (submitter == -1) {
-					stmts.insert.setNull(9, java.sql.Types.INTEGER); // getId(alt...)
+					ps.setNull(9, java.sql.Types.INTEGER); // getId(alt...)
 				} else {
-					stmts.insert.setInt(9, submitter);
+					ps.setInt(9, submitter);
 				}
-				stmts.insert.setInt(10, base_xpid);
+				ps.setInt(10, base_xpid);
 
-				stmts.insert.execute();
+				ps.execute();
 
 				if(DEBUG) System.err.println("Inserted: " + xpath);
-				stmts.conn.commit();
+				conn.commit();
 			} catch (SQLException se) {
 				String complaint = "CLDRDBSource: Couldn't insert/commit "
 					+ getLocaleID() + ":" + xpid + "(" + xpath + ")='"
@@ -1498,7 +1352,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe(complaint);
 				throw new InternalError(complaint);
 			} finally {
-				closeOrThrow(stmts);
+				DBUtils.closeSilently(ps, conn);
 			}
 
 			// System.err.println("loaded " + rowCount + " rows into  rev: " +
@@ -1537,24 +1391,25 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		 * @return number of rows deleted
 		 */
 		public int removeItem(CLDRLocale locale, int xpathId) {
-			MyStatements stmts = null;
+		    Connection conn = sm.dbUtils.getDBConnection();
+		    PreparedStatement ps = null;
 			try {
-				stmts = openStatements();
-				stmts.removeItem.setString(1, locale.toString());
-				stmts.removeItem.setInt(2, xpathId); // base xpath
+			    ps = prepareStatement(conn, removeItem);
+				ps.setString(1, locale.toString());
+				ps.setInt(2, xpathId); // base xpath
 				//           stmts.removeItem.setInt(3, submitter);
-				int n = stmts.removeItem.executeUpdate();
+				int n = ps.executeUpdate();
 				if(n != 1) {
 					throw new InternalError("Trying to remove "+locale+":"+xpathId+"@" + " and the path wasn't found.");
 				}
-				stmts.conn.commit();
+				conn.commit();
 				return n;
 			} catch(SQLException se) {
 				String problem = ("CLDRDBSource: "+"Trying to remove "+locale+":"+xpathId+"@" +" : " + DBUtils.unchainSqlException(se));
 				logger.severe(problem);
 				throw new InternalError(problem);
 			} finally {
-				closeOrThrow(stmts);
+			    DBUtils.closeSilently(ps, conn);
 			}
 		}
 
@@ -1586,37 +1441,29 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 			// logger.info(locale + ":" + path);
 			// synchronized (conn) {
-			MyStatements stmts = null;
+            Connection conn = sm.dbUtils.getDBConnection();
+            PreparedStatement ps = null;
 			ResultSet rs = null;
 			try {
-				try {
-					stmts = openStatements(); // TODO: perf.
-					stmts.queryValue.setString(1, locale);
-					stmts.queryValue.setInt(2, pathInt);
-					rs = stmts.queryValue.executeQuery();
-					if (rs.next()) {
-						if (SHOW_TIMES)
-							System.err.println("hasValueAtDPath:T " + locale + ":"
-									+ path + " "
-									+ (System.currentTimeMillis() - t0));
-						return true;
-					} else {
-						if (SHOW_TIMES)
-							System.err.println("hasValueAtDPath:F " + locale + ":"
-									+ path + " "
-									+ (System.currentTimeMillis() - t0));
-						return false;
-					}
+				ps = prepareStatement(conn, queryValue);
+				ps.setString(1, locale);
+				ps.setInt(2, pathInt);
+				rs = ps.executeQuery();
+				boolean hasValue = rs.next();
+                if (SHOW_TIMES) {
+                    System.err.println("hasValueAtDPath:" + hasValue + " " + locale + ":"
+                            + path + " "
+                            + (System.currentTimeMillis() - t0));
 				}
-				finally {
-					DBUtils.close(rs,stmts);
-				}
+                return hasValue;
 			} catch (SQLException se) {
 				logger.severe("CLDRDBSource: Failed to check data (" + tree
 						+ "/" + locale + ":" + path + "): "
 						+ DBUtils.unchainSqlException(se));
 				return false;
-			} 
+			} finally {
+                DBUtils.closeSilently(rs, ps, conn);
+            }
 		}
 
 		public String getWinningPath(String path) 
@@ -1674,62 +1521,55 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			//            ie.printStackTrace();
 			//        }
 			if(SHOW_DEBUG) /*srl*/logger.info(locale + ":" + path);
-			MyStatements stmts = null;
+			Connection conn = sm.dbUtils.getDBConnection();
+			PreparedStatement ps = null;
             ResultSet rs = null;
             try {
-                try {
-                    stmts = openStatements(); // TODO: perf!
-                    if(finalData) {
-                        stmts.queryVetValue.setString(1,locale);
-                        stmts.queryVetValue.setInt(2,xpath); 
-                        rs = stmts.queryVetValue.executeQuery();
+                ps = prepareStatement(conn, finalData ? queryVetValue : queryValue);
+                ps.setString(1,locale);
+                ps.setInt(2,xpath);
+                rs = ps.executeQuery();
+                String rv;
+                if(!rs.next()) {
+                    if(SHOW_TIMES) System.err.println("getValueAtDPath:0 "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
+                    if(!finalData) {
+                        rs.close();                    
+                        if(SHOW_DEBUG) System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
+                        return null;
                     } else {
-                        stmts.queryValue.setString(1,locale);
-                        stmts.queryValue.setInt(2,xpath);
-                        rs = stmts.queryValue.executeQuery();
-                    }
-                    String rv;
-                    if(!rs.next()) {
-                        if(SHOW_TIMES) System.err.println("getValueAtDPath:0 "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
-                        if(!finalData) {
-                            rs.close();                    
-                            if(SHOW_DEBUG) System.err.println("Nonfinal - no match for "+locale+":"+xpath + "");
-                            return null;
-                        } else {
-                            if(SHOW_DEBUG) System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
-                            //if(locale.equals("de")) {
-                            //    return "fork";
-                            //} else {
+                        if(SHOW_DEBUG) System.err.println("Couldn't find "+ locale+":"+xpath + " - trying original - @ " + path);
+                        //if(locale.equals("de")) {
+                        //    return "fork";
+                        //} else {
 
-                            if(false && sm.isUnofficial) {
-                                if(keySet(stmts).contains(path)) {
-                                    System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
-                                } else {
-                                    if(SHOW_DEBUG) System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
-                                }
+                        if(false && sm.isUnofficial) {
+                            if(keySet().contains(path)) { // TODO: cache this!
+                                System.err.println("Ad but missing: "+ locale+":"+xpath + " - @ " + path);
+                            } else {
+                                if(SHOW_DEBUG) System.err.println("notad: "+ locale+":"+xpath + " - @ " + path);
                             }
-                            rs.close();
-                            return null;
-                        }                      
-                    }
-                    rv = DBUtils.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
-                    if(SHOW_TIMES) System.err.println("getValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
-                    if(rs.next()) {
-                        String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
-                        logger.severe(complaint);
-                        // throw new InternalError(complaint);                    
-                    }
-                    if(SHOW_DEBUG) if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
-                    return rv;
-                } finally {
-                    DBUtils.close(rs,stmts);
+                        }
+                        rs.close();
+                        return null;
+                    }                      
                 }
+                rv = DBUtils.getStringUTF8(rs, 1); //            rv = rs.getString(1); // unicode
+                if(SHOW_TIMES) System.err.println("getValueAtDPath:+ "+locale + ":" + path + " " + (System.currentTimeMillis()-t0));
+                if(rs.next()) {
+                    String complaint = "warning: multi return: " + locale + ":" + path + " #"+xpath;
+                    logger.severe(complaint);
+                    // throw new InternalError(complaint);                    
+                }
+                if(SHOW_DEBUG) if(finalData) {    logger.info(locale + ":" + path+" -> " + rv);}
+                return rv;
 
             } catch(SQLException se) {
 				se.printStackTrace();
 				logger.severe("CLDRDBSource: Failed to query data ("+tree + "/" + locale + ":" + path + "): " + DBUtils.unchainSqlException(se));
 				return null;
-			}
+            } finally {
+                DBUtils.closeSilently(rs, ps, conn);
+            }
 		}
 
 		/*
@@ -1807,21 +1647,21 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		public int getOrigXpathId(int pathid, boolean useFinalData) {
 			String locale = getLocaleID();
 			//			synchronized (conn) { // NB: many of these synchronizeds were removed as unnecessary.
-			MyStatements stmts = null;
+			Connection conn = sm.dbUtils.getDBConnection();
+			PreparedStatement ps = null;
+			ResultSet rs = null;
 			try {
-				stmts = openStatements();
-				ResultSet rs;
-
 				if(!useFinalData) {
-					stmts.oxpathFromXpath.setInt(1,pathid);
-					stmts.oxpathFromXpath.setString(2,locale);
+	                ps = prepareStatement(conn, oxpathFromXpath);
+					ps.setInt(1,pathid);
+					ps.setString(2,locale);
 					//System.err.println("oxpathFromXpath " + pathid + "  / " + locale);
-					rs = stmts.oxpathFromXpath.executeQuery();
 				} else {
-					stmts.oxpathFromVetXpath.setString(1, locale);
-					stmts.oxpathFromVetXpath.setInt(2, pathid);
-					rs = stmts.oxpathFromVetXpath.executeQuery();
+                    ps = prepareStatement(conn, oxpathFromVetXpath);
+					ps.setString(1, locale);
+					ps.setInt(2, pathid);
 				}
+                rs = ps.executeQuery();
 
 				if(!rs.next()) {
 					rs.close();
@@ -1843,7 +1683,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 				logger.severe("CLDRDBSource: Failed to find orig xpath ("+tree + "/" + locale +"/"+xpt.getById(pathid)+"): " + DBUtils.unchainSqlException(se));
 				return pathid; //? should be null?
 			} finally {
-				closeOrThrow(stmts);
+				DBUtils.closeSilently(rs, ps, conn);
 			}
 		}
 
@@ -1911,13 +1751,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			Set s = null; // = (Set)keySets.get(k);
 			if(s==null) {
 //				System.err.println("CCLCDRDBSource iterator: " + k);
-				MyStatements stmts = null;
-				try {
-					stmts = openStatements();
-					s = keySet(stmts);
-				} finally {
-					closeOrThrow(stmts);
-				}
+				s = keySet();
 				//keySets.put(k,s);
 			}
 			return s.iterator();
@@ -1945,8 +1779,11 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		/**
 		 * Returns the set of all xpaths in this source.
 		 */
-		private Set keySet(MyStatements stmts) {
+		private Set keySet() {
 			String locale = getLocaleID();
+			Connection conn = sm.dbUtils.getDBConnection();
+			PreparedStatement ps = null;
+			ResultSet rs = null;
 			try {
 				Set<String> s = null;
 				
@@ -1958,15 +1795,10 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 					}
 				}
 				
-				ResultSet rs;
-				if(finalData==false) {
-					stmts.keySet.setString(1,locale);
-					rs = stmts.keySet.executeQuery();
-				} else {
-					//System.err.println("@@ begin KS of "+locale);
-					stmts.keyVettingSet.setString(1,locale);
-					rs = stmts.keyVettingSet.executeQuery();
-				}
+				ps = prepareStatement(conn, finalData ? keyVettingSet : keySet);
+				ps.setString(1, locale);
+				rs = ps.executeQuery();
+
 				// TODO: is there a better way to map a ResultSet into a Set?
 				s = new HashSet<String>();
 				while(rs.next()) {
@@ -1984,7 +1816,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 					}
 					s.add(xpath); // xpath
 				}
-				rs.close();
 				
 				if(dbEntry!=null) {
 					dbEntry.put(locale, Key.OLDKEYSET, s);
@@ -2021,6 +1852,8 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			} catch(SQLException se) {
 				logger.severe("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 				throw new InternalError("CLDRDBSource: Failed to query source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
+			} finally {
+			    DBUtils.closeSilently(rs, ps, conn);
 			}
 		}
 
@@ -2097,12 +1930,13 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 			TreeMap<String, String> output = aliasTable.get(locale);
 			if(output == null) {
 				output = new TreeMap<String, String>();
-				MyStatements stmts = null;
+				Connection conn = sm.dbUtils.getDBConnection();
+				PreparedStatement ps = null;
+				ResultSet rs = null;
 				try {
-					stmts = openStatements();
-					//  stmts.keyASet.setString(1,"%/alias");
-					stmts.keyASet.setString(1,locale);
-					ResultSet rs = stmts.keyASet.executeQuery();
+				    ps = prepareStatement(conn, keyASet);
+					ps.setString(1,locale);
+					rs = ps.executeQuery();
 
 					// TODO: is there a better way to map a ResultSet into a Set?
 //						Set s = new HashSet();
@@ -2124,7 +1958,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 					logger.severe("CLDRDBSource: Failed to query A source ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 					return null;
 				} finally {
-					closeOrThrow(stmts);
+					DBUtils.closeSilently(rs, ps, conn);
 				}
 			}
 			return output;
@@ -2286,18 +2120,19 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		 */
 		public java.sql.ResultSet getPrefixKeySet(String prefix) {
 			String locale = getLocaleID();
+			Connection conn = sm.dbUtils.getDBConnection();
+			PreparedStatement ps = null;
 			ResultSet rs = null;
-			MyStatements stmts = null;
 			try {
-				stmts = openStatements();
-				stmts.queryXpathPrefixes.setString(1,prefix+"%");
-				stmts.queryXpathPrefixes.setString(2,locale);
-				rs = stmts.queryXpathPrefixes.executeQuery();
+			    ps = prepareStatement(conn, queryXpathPrefixes);
+				ps.setString(1,prefix+"%");
+				ps.setString(2,locale);
+				rs = ps.executeQuery();
 			} catch(SQLException se) {
 				logger.severe("CLDRDBSource: Failed to getPrefixKeySet ("+tree + "/" + locale +"): " + DBUtils.unchainSqlException(se));
 				return null;
 			} finally {
-				closeOrThrow(stmts);
+				DBUtils.closeSilently(rs, ps, conn);
 			}
 
 			return rs;
@@ -2305,7 +2140,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	}
 
 	public String getSourceRevision(CLDRLocale locale) {
-		int id = getSourceId(tree, locale.toString(), null);
+		int id = getSourceId(tree, locale.toString());
 		if(id != -1) {
 			return getSourceRevision(id);
 		} else {

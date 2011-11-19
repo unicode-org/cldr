@@ -344,7 +344,7 @@ public class ConsoleCheckCLDR {
             if (coverageLevel != null) options.put("CoverageLevel.requiredLevel", coverageLevel.toString());
             if (organization != null) options.put("CoverageLevel.localeType", organization);
             options.put("phase", phase.toString());
-            options.put("SHOW_TIMES", "true");
+            //options.put("SHOW_TIMES", "true");
 
             if (SHOW_LOCALE) System.out.println();
 

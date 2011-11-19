@@ -526,15 +526,14 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             continue;
           }
         }
-//        try {
+        try {
           if (!item.isSkipTest()) {
             item.handleCheck(path, fullPath, value, options, result);
           }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//          addError(result, item, e);
-//          return this;
-//        }
+        } catch (Exception e) {
+          addError(result, item, e);
+          return this;
+        }
       }
       return this;
     }
@@ -543,13 +542,12 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       result.clear();
       for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
         CheckCLDR item = (CheckCLDR) it.next();
-//        try {
+        try {
           item.handleGetExamples(path, fullPath, value, options, result);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//          addError(result, item, e);
-//          return this;
-//        }
+        } catch (Exception e) {
+          addError(result, item, e);
+          return this;
+        }
       }
       return this;
     }
@@ -574,7 +572,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
         CheckCLDR item = (CheckCLDR) it.next();
         if(SHOW_TIMES) testTime = new ElapsedTimer("Test setup time for " + item.getClass().toString() + ": {0}");
-//        try {
+        try {
           item.setPhase(getPhase());
           item.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
           if(SHOW_TIMES) {
@@ -584,11 +582,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
               System.out.println("OK : " + testTime);
             }
           }
-//        } catch (RuntimeException e) {
-//            e.printStackTrace();
-//          addError(possibleErrors, item, e);
-//          if(SHOW_TIMES) System.out.println("ERR: " + testTime + " - " + e.toString());
-//        }
+        } catch (RuntimeException e) {
+          addError(possibleErrors, item, e);
+          if(SHOW_TIMES) System.out.println("ERR: " + testTime + " - " + e.toString());
+        }
       }
       if(SHOW_TIMES) System.out.println("Overall: " + testOverallTime + ": {0}");
       return this;

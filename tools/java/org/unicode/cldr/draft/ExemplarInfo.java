@@ -9,6 +9,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.UnicodeMap;
@@ -96,7 +97,7 @@ public class ExemplarInfo {
   UnicodeSet auxiliaryScripts;
   UnicodeMap<String> educationLevels = new UnicodeMap<String>();
 
-  static CLDRFile.Factory cldrFactory  = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+  static Factory cldrFactory  = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 
   private ExemplarInfo(String main, String aux) {
     this(new UnicodeSet(main), new UnicodeSet(aux), null);

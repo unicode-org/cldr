@@ -76,8 +76,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -6613,15 +6615,15 @@ o	            		}*/
     private static CLDRFile gBaselineFile = null;
     private static ExampleGenerator gBaselineExample = null;
 
-    private CLDRFile.Factory gFactory = null;
+    private Factory gFactory = null;
 
-    private synchronized CLDRFile.Factory getFactory() {
+    private synchronized Factory getFactory() {
         if(gFactory == null) {
-            gFactory = CLDRFile.SimpleFactory.make(fileBase,".*");
+            gFactory = SimpleFactory.make(fileBase,".*");
         }
         return gFactory;
     }
-    private CLDRFile.Factory gOldFactory = null;
+    private Factory gOldFactory = null;
     
     /**
      * Return the actual XML file on disk
@@ -6632,7 +6634,7 @@ o	            		}*/
     	return new File(fileBase,loc.getBaseName()+".xml");
     }
 
-    synchronized CLDRFile.Factory getOldFactory() {
+    synchronized Factory getOldFactory() {
         if(gOldFactory == null) {
             File oldBase = new File(fileBaseOld);
             File oldCommon = new File(oldBase,"common/main");
@@ -6644,7 +6646,7 @@ o	            		}*/
                 busted(msg);
                 throw new InternalError(msg);
             }
-            gOldFactory = CLDRFile.SimpleFactory.make(oldCommon.getAbsolutePath(),".*");
+            gOldFactory = SimpleFactory.make(oldCommon.getAbsolutePath(),".*");
         }
         return gOldFactory;
     }

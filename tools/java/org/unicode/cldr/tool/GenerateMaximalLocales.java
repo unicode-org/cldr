@@ -11,9 +11,9 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.LanguageTagParser;

@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Log;
 
@@ -45,7 +45,7 @@ class GenerateCldrDateTimeTests {
 	
 
     GenerateCldrDateTimeTests(String sourceDir, String localeRegex, boolean doResolved) {
-    	this.cldrFactory = CLDRFile.Factory.make(sourceDir, ".*");
+    	this.cldrFactory = Factory.make(sourceDir, ".*");
     	icuServiceBuilder = new ICUServiceBuilder();
         Set s = GenerateCldrTests.getMatchingXMLFiles(sourceDir, localeRegex);
         for (Iterator it = s.iterator(); it.hasNext();) {

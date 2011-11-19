@@ -36,7 +36,8 @@ import java.util.logging.Logger;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -225,7 +226,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	 * TODO: 0 make private
 	 * factory for producing XMLFiles that go with the original source xml data.
 	 */
-	public CLDRFile.Factory  rawXmlFactory = null; 
+	public Factory  rawXmlFactory = null; 
 
 	CLDRFileCache cache = null; 
 	/**
@@ -384,7 +385,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 	}
 	public void vetterReady(CLDRProgressIndicator progress) {
 		if(DEBUG) System.err.println("DBSRCFAC: processing vetterReady()... initializing connection");
-		CLDRFile.Factory afactory = CLDRFile.SimpleFactory.make(this.dir,".*");
+		Factory afactory = SimpleFactory.make(this.dir,".*");
 		this.initConn(afactory);
 		if(DEBUG) System.err.println("DBSRCFAC: processing vetterReady()...");
 		rootDbSourceV = new CLDRDBSource(CLDRLocale.ROOT, true);
@@ -572,7 +573,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 
 	static int nn=0;
 
-	private void initConn(CLDRFile.Factory theFactory) {
+	private void initConn(Factory theFactory) {
 		if (rawXmlFactory == null) {
 			rawXmlFactory = theFactory;
 		}

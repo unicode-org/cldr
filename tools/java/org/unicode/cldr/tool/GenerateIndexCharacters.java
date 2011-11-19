@@ -10,6 +10,7 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
@@ -21,7 +22,7 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateIndexCharacters {
     public static void main(String[] args) throws IOException {
-        CLDRFile.Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set<String> available = cldrFactory.getAvailable();
 
         for (String locale : available) {

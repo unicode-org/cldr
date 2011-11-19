@@ -33,6 +33,7 @@ import javax.xml.parsers.SAXParserFactory;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -82,7 +83,7 @@ public class TestCldr extends TestFmwk {
   Set allLocales = new TreeSet();
 
   public void TestScripts() {
-    CLDRFile.Factory cldrFactory = CLDRFile.Factory.make(
+    Factory cldrFactory = Factory.make(
         CldrUtility.MAIN_DIRECTORY, MATCH, DraftStatus.contributed);
     ULocale locales[] = ULocale.getAvailableLocales();
     for (int i = 0; i < locales.length; ++i) {

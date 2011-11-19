@@ -14,8 +14,8 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;

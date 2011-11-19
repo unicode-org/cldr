@@ -25,9 +25,9 @@ import org.unicode.cldr.unittest.TestVariantFolder.CanonicalFolder;
 import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
 import org.unicode.cldr.unittest.TestVariantFolder.CompatibilityFolder;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Level;
@@ -169,7 +169,7 @@ public class TestMisc {
 
 
 
-        ExampleGenerator eg = new ExampleGenerator(CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY,".*").make("en",false), CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator eg = new ExampleGenerator(Factory.make(CldrUtility.MAIN_DIRECTORY,".*").make("en",false), CldrUtility.SUPPLEMENTAL_DIRECTORY);
         System.out.println(eg.getHelpHtml("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",""));
         System.out.println(eg.getHelpHtml("/exemplarCharacters",""));
         System.out.println(eg.getHelpHtml("/calendar/pattern",""));
@@ -200,7 +200,7 @@ public class TestMisc {
     }
 
     private static void checkAliases() {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile en = cldrFactory.make("root", true);
         Status status = new Status();
         Matcher m = Pattern.compile("gregorian.*dayPeriods").matcher("");
@@ -222,7 +222,7 @@ public class TestMisc {
     }
 
     private static void testWeights() {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
         Set<Pair<Integer,String>> rel = new TreeSet();
         for (String desiredLocale : cldrFactory.getAvailable()) {
@@ -490,7 +490,7 @@ public class TestMisc {
     }
 
     private static void checkDistinguishing() {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set cldrFiles = cldrFactory.getAvailableLanguages();
         Set distinguishing = new TreeSet();
         Set nondistinguishing = new TreeSet();
@@ -532,7 +532,7 @@ public class TestMisc {
 
 
     private static void showEnglish() {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         String requestedLocale = "en";
         CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
         CLDRFile.Status status = new CLDRFile.Status();
@@ -550,7 +550,7 @@ public class TestMisc {
         }
     }
     private static void checkPrivateUse() {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         String requestedLocale = "en";
         CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
         CLDRFile.Status status = new CLDRFile.Status();
@@ -611,7 +611,7 @@ public class TestMisc {
     }
 
     static void testPopulous() {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make("supplementalData", false);
         CLDRFile temp = CLDRFile.make("supplemental");
         temp.setNonInheriting(true);

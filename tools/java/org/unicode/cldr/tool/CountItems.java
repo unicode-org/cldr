@@ -29,8 +29,8 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -374,7 +374,7 @@ public class CountItems {
     private static void showExemplars() throws IOException {
         PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
         "fixed_exemplars.txt");
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set locales = cldrFactory.getAvailable();
         for (Iterator it = locales.iterator(); it.hasNext();) {
             System.out.print('.');
@@ -474,7 +474,7 @@ public class CountItems {
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_country = sc.getZoneToCounty();
         Map country_zone = sc.getCountryToZoneSet();
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
 
         writeZonePrettyPath(col, zone_country, english);
@@ -819,7 +819,7 @@ public class CountItems {
 
         // get the bad ISO codes
 
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
 
         Set<String> territories = new TreeSet();
@@ -967,7 +967,7 @@ public class CountItems {
     }
 
     private static Set getSupplementalCurrency() {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.SUPPLEMENTAL_DIRECTORY,
+        Factory cldrFactory = Factory.make(CldrUtility.SUPPLEMENTAL_DIRECTORY,
         ".*");
         CLDRFile supp = cldrFactory.make("supplementalData", false);
         XPathParts p = new XPathParts();
@@ -1077,7 +1077,7 @@ public class CountItems {
         if (true)
             return;
 
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Map platform_locale_status = StandardCodes.make().getLocaleTypes();
         Map onlyLocales = (Map) platform_locale_status.get("IBM");
         Set locales = onlyLocales.keySet();
@@ -1097,7 +1097,7 @@ public class CountItems {
     public static void countItems() {
         //CLDRKey.main(new String[]{"-mde.*"});
         String dir = CldrUtility.getProperty("source", CldrUtility.MAIN_DIRECTORY);
-        Factory cldrFactory = CLDRFile.Factory.make(dir, ".*");
+        Factory cldrFactory = Factory.make(dir, ".*");
         countItems(cldrFactory, false);
     }
 

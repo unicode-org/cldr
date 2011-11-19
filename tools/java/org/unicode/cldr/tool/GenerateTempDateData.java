@@ -7,8 +7,8 @@ import java.util.ListResourceBundle;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -23,7 +23,7 @@ public class GenerateTempDateData {
 <dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
     */
     public static void main(String[] args) throws IOException {
-        Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set x = cldrFactory.getAvailable();
         XPathParts parts = new XPathParts();
         PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datedata/" ,"DateData.java");

@@ -19,8 +19,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
@@ -48,7 +48,7 @@ class GenerateStatistics {
 	static boolean notitlecase = true;
 	
 	public static void generateSize(String sourceDir, String logDir, String tzadir, String match, boolean transliterate) throws IOException {
-		factory = CLDRFile.Factory.make(sourceDir, match);
+		factory = Factory.make(sourceDir, match);
 		CldrUtility.registerExtraTransliterators();
 		
 		PrintWriter logHtml = BagFormatter.openUTF8Writer(

@@ -25,9 +25,9 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Fields;
 import org.unicode.cldr.util.XPathParts;
@@ -154,7 +154,7 @@ public class GenerateSidewaysView {
 
         pathMatcher = options[PATH].value == null ? null : Pattern.compile(options[PATH].value).matcher("");
 
-        Factory cldrFactory = CLDRFile.Factory.make(options[SOURCEDIR].value, options[MATCH].value);
+        Factory cldrFactory = Factory.make(options[SOURCEDIR].value, options[MATCH].value);
         english = cldrFactory.make("en", true);
 
         // now get the info

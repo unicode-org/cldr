@@ -50,7 +50,7 @@ import org.unicode.cldr.icu.ICUResourceWriter.ResourceProcess;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceString;
 import org.unicode.cldr.icu.ICUResourceWriter.ResourceTable;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -153,8 +153,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private ICULog log;
     private ICUWriter writer;
-    private CLDRFile.Factory cldrFactory;
-    private CLDRFile.Factory specialsFactory;
+    private Factory cldrFactory;
+    private Factory specialsFactory;
 
     private final LDMLServices serviceAdapter = new LDMLServices() {
         public Factory cldrFactory() {
@@ -406,7 +406,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
      */
     static interface LDMLServices {
         /** Returns the cldr factory, or null */
-        CLDRFile.Factory cldrFactory();
+        Factory cldrFactory();
 
         /** Return a specials file for the locale */
         CLDRFile getSpecialsFile(String locale);
@@ -521,10 +521,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private void spinUpFactories(String factoryDir, String specialsDir) {
         if (cldrFactory == null) {
             log.info("* Spinning up CLDRFactory on " + factoryDir);
-            cldrFactory = CLDRFile.Factory.make(factoryDir, ".*");
+            cldrFactory = Factory.make(factoryDir, ".*");
             if (specialsDir != null) {
                 log.info("* Spinning up specials CLDRFactory on " + specialsDir);
-                specialsFactory = CLDRFile.Factory.make(specialsDir, ".*");
+                specialsFactory = Factory.make(specialsDir, ".*");
             }
         }
     }

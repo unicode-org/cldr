@@ -32,7 +32,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateAttributeList;
 import org.unicode.cldr.tool.ShowData;
-import org.unicode.cldr.util.CLDRFile.Factory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;

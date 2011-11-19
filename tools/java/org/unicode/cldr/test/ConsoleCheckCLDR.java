@@ -31,10 +31,10 @@ import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -279,13 +279,13 @@ public class ConsoleCheckCLDR {
         System.out.println("id view: " + idView);
 
         // set up the test
-        Factory cldrFactory = CLDRFile.Factory.make(sourceDirectory, factoryFilter)
+        Factory cldrFactory = Factory.make(sourceDirectory, factoryFilter)
         .setAlternateSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
         CheckCLDR checkCldr = CheckCLDR.getCheckAll(checkFilter);
         try {
             english = cldrFactory.make("en", true);
         } catch (Exception e1) {
-            Factory backCldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, factoryFilter)
+            Factory backCldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, factoryFilter)
             .setAlternateSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
             english = backCldrFactory.make("en", true);
         }
@@ -344,7 +344,7 @@ public class ConsoleCheckCLDR {
             if (coverageLevel != null) options.put("CoverageLevel.requiredLevel", coverageLevel.toString());
             if (organization != null) options.put("CoverageLevel.localeType", organization);
             options.put("phase", phase.toString());
-            //options.put("SHOW_TIMES", "");
+            options.put("SHOW_TIMES", "true");
 
             if (SHOW_LOCALE) System.out.println();
 

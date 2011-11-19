@@ -20,7 +20,7 @@ import org.apache.tomcat.dbcp.pool.impl.GenericKeyedObjectPool;
 import org.apache.tomcat.dbcp.pool.impl.GenericObjectPool;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;

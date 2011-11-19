@@ -30,9 +30,9 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.tool.CLDRModify.ConfigKeys;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
@@ -1858,7 +1858,7 @@ public class CLDRModify {
    * (c) are different than what is in the fully resolved parent
    * and add them.
    */
-  static void fixIdenticalChildren(CLDRFile.Factory cldrFactory, CLDRFile k, CLDRFile replacements) {
+  static void fixIdenticalChildren(Factory cldrFactory, CLDRFile k, CLDRFile replacements) {
     String key = k.getLocaleID();
     if (key.equals("root")) return;
     Set availableChildren = cldrFactory.getAvailableWithParent(key, true);

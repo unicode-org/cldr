@@ -15,8 +15,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -36,7 +36,7 @@ public class TestSupplementalData {
   public static void main(String[] args) throws IOException {
 //    genData();
 //    if (true) return;
-    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     english = cldrFactory.make("en", true);
     root = cldrFactory.make("root", true);
     supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);

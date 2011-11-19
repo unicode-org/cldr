@@ -13,8 +13,8 @@ import java.nio.charset.Charset;
 
 import org.unicode.cldr.icu.SimpleConverter;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.lang.UCharacter;

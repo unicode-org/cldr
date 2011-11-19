@@ -20,11 +20,11 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.Level;
@@ -161,7 +161,7 @@ public class TestUtilities extends TestFmwk {
     String vettedDirectory = CldrUtility.getProperty("vetted", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/main/");
     
     PathValueInfo.voteInfo = VoteResolver.getIdToPath(votesDirectory + "xpathTable.xml");
-    Factory factory = CLDRFile.Factory.make(vettedDirectory, ".*");
+    Factory factory = Factory.make(vettedDirectory, ".*");
 
     VoteResolver.setVoterToInfo(userFile);
     Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver

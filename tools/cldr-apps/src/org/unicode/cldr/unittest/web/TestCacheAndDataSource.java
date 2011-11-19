@@ -7,9 +7,9 @@ import java.util.logging.Logger;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CLDRDBSourceFactory;
 import org.unicode.cldr.web.CLDRFileCache;
@@ -47,7 +47,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 		int n= dbsrcfac.update();
 		logln("update: " + n);
 		
-		CLDRFile.Factory f = testInfo.getCldrFactory();
+		Factory f = testInfo.getCldrFactory();
 		
 		//for(CLDRLocale l : dbsrcfac.sm.getLocales() ) {
 		

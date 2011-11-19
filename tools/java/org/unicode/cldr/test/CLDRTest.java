@@ -23,8 +23,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
@@ -64,7 +64,7 @@ public class CLDRTest extends TestFmwk {
     private static boolean SKIP_DRAFT;
     private Set locales;
     private Set languageLocales;
-    private CLDRFile.Factory cldrFactory;
+    private Factory cldrFactory;
     private CLDRFile resolvedRoot;
     private CLDRFile resolvedEnglish;
     private final UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
@@ -111,7 +111,7 @@ public class CLDRTest extends TestFmwk {
      */
     public CLDRTest() throws SAXException, IOException {
         // TODO parameterize the directory and filter
-        cldrFactory = CLDRFile.Factory.make(MAIN_DIR, MATCH);
+        cldrFactory = Factory.make(MAIN_DIR, MATCH);
         //CLDRKey.main(new String[]{"-mde.*"});
         locales = cldrFactory.getAvailable();
         languageLocales = cldrFactory.getAvailableLanguages();

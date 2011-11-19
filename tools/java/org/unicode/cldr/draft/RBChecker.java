@@ -20,8 +20,8 @@ import org.unicode.cldr.draft.LDMLConverter.RegexResult;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.With;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility.Output;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -43,7 +43,7 @@ import com.ibm.icu.text.UnicodeSet;
  */
 public class RBChecker {
     private static final boolean DEBUG = false;
-    static Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    static Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 
     public static void main(String[] args) throws IOException {
         for (String locale : args){

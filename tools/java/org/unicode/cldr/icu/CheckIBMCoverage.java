@@ -19,7 +19,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
@@ -302,7 +302,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         
         CheckCoverage coverage = new CheckCoverage();
         
-        Factory cldrFactory = CLDRFile.Factory.make(sourceDir, "xml");
+        Factory cldrFactory = Factory.make(sourceDir, "xml");
         CLDRFile file = cldrFactory.make(locale, true);
         CoverageLevel covLevel = new CoverageLevel();
         List<CheckStatus> result = new ArrayList<CheckStatus>();

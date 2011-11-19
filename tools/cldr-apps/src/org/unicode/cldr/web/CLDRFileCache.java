@@ -21,7 +21,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Factory;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.CLDRFile.SimpleXMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.CLDRDBSourceFactory.CLDRDBSource;
@@ -47,7 +47,7 @@ public class CLDRFileCache {
 	private int serno = 0;
 
 	/** Helper: factory implementation */
-	private class CachedFilesFactory extends CLDRFile.Factory {
+	private class CachedFilesFactory extends Factory {
 
 		@Override
 		protected DraftStatus getMinimalDraftStatus() {

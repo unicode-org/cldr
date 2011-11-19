@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import org.unicode.cldr.util.CLDRFile.Factory;
 
 public class CharacterFallbacks {
   private static CharacterFallbacks SINGLETON = new CharacterFallbacks();

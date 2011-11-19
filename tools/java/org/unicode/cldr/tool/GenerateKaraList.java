@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 
@@ -22,7 +22,7 @@ public class GenerateKaraList {
 	 * Generates information used for some internal formats. Internal Use.
 	 */
 	public static void main(String[] args) throws IOException {
-		cldrFactory = CLDRFile.Factory.make(CldrUtility.COMMON_DIRECTORY, ".*");
+		cldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY, ".*");
 		english = cldrFactory.make("en", true);
 		PrintWriter log = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "main/", "karaList.xml");
 		Set locales = LanguageTagParser.getLanguageScript(cldrFactory.getAvailable());

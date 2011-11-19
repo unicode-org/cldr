@@ -15,8 +15,8 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.Iterables;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -33,7 +33,7 @@ public class GenerateAliases {
     
     static class Builder {
         Map<String,String> aliasMap = new LinkedHashMap<String,String>();
-        Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 
 
         SupplementalDataInfo dataInfo = SupplementalDataInfo.getInstance();

@@ -28,13 +28,13 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.unittest.TestBasic.MissingType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -656,7 +656,7 @@ public class TestBasic extends TestFmwk {
         LocaleIDParser lip = new LocaleIDParser();
 
         // collect collation info
-        Factory collationFactory = CLDRFile.Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*", DraftStatus.contributed);
+        Factory collationFactory = Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*", DraftStatus.contributed);
         for (String localeID : collationFactory.getAvailable()) {
             if (localeID.equals("root")) {
                 CLDRFile cldrFile = collationFactory.make(localeID, false, DraftStatus.contributed);

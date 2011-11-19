@@ -11,10 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
 
@@ -80,12 +80,12 @@ public class PivotData {
   
   private LocaleIDParser lidp = new LocaleIDParser();
   
-  private CLDRFile.Factory factory;
+  private Factory factory;
   private String outputDirectory;
 
   private String sourceDirectory;
   
-  PivotData(CLDRFile.Factory factory, String sourceDirectory, String targetDirectory) {
+  PivotData(Factory factory, String sourceDirectory, String targetDirectory) {
     this.factory = factory;
     this.sourceDirectory = sourceDirectory;
     this.outputDirectory = targetDirectory;

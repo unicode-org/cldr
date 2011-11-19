@@ -7,8 +7,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PrettyPath;
 

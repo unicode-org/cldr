@@ -12,9 +12,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
@@ -159,7 +159,7 @@ class ExtractMessages {
   
   private static Map<String,Pair<String,DataHandler>> numericId_Id = new TreeMap();
   private static Matcher numericIdMatcher = Pattern.compile("\\[@id=\"([^\"]+)\"\\]").matcher("");
-  private static Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+  private static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
   private static CLDRFile english = cldrFactory.make("en", true);
   
   private static class EnglishHandler extends XMLFileReader.SimpleHandler {

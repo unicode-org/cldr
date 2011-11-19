@@ -10,8 +10,8 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
 
@@ -19,7 +19,7 @@ import com.ibm.icu.impl.Differ;
 
 public class TestMetadata {
 	public static void main(String[] args) {
-		Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+		Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile metadata = cldrFactory.make("supplementalMetadata", false);
 //        Set allKeys = new TreeSet();
 //        CollectionUtilities.addAll(metadata.iterator(), allKeys);

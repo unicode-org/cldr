@@ -15,9 +15,9 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.GenerateMaximalLocales;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -44,8 +44,8 @@ public class TestInheritance extends TestFmwk {
         SupplementalDataInfo dataInfo = SupplementalDataInfo.getInstance();
         Set<String> defaultContents = dataInfo.getDefaultContentLocales();
         LikelySubtags likelySubtags = new LikelySubtags();
-        Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-        Factory factory2 = CLDRFile.Factory.make(CldrUtility.BASE_DIRECTORY + "seed/", ".*");
+        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory factory2 = Factory.make(CldrUtility.BASE_DIRECTORY + "seed/", ".*");
         Set<String> available = Builder.with(new TreeSet<String>()).addAll(factory.getAvailable()).addAll(factory2.getAvailable()).freeze();
         LanguageTagParser ltp = new LanguageTagParser();
         // find multiscript locales
@@ -147,7 +147,7 @@ public class TestInheritance extends TestFmwk {
     }
 
     public void TestCldrFileConsistency() {
-        Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
+        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
         boolean haveErrors = false;
         for (String locale : factory.getAvailable()) {
             CLDRFile cldrFileToCheck = factory.make(locale,true);
@@ -183,8 +183,8 @@ public class TestInheritance extends TestFmwk {
     LanguageTagParser ltp = new LanguageTagParser();
 
     public void TestAliases() {
-        Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
-        Set<String> allLocales = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*").getAvailable();
+        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
+        Set<String> allLocales = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*").getAvailable();
 
         LanguageTagCanonicalizer languageTagCanonicalizer = new LanguageTagCanonicalizer();
 

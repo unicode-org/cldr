@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 
 import com.ibm.icu.text.UTF16;
 
@@ -23,7 +23,7 @@ public class TestCLDRFile {
   }
 
   private static void testExtraPaths() {
-    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
     for (String locale : new String[]{"en", "ar", "ja"}) {
       CLDRFile cldrFile = cldrFactory.make(locale, true);
       Set<String> s = (Set<String>) cldrFile.getExtraPaths(new TreeSet<String>());
@@ -40,7 +40,7 @@ public class TestCLDRFile {
   }
 
   private static void testDraftFilter() {
-    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
     checkLocale(cldrFactory.make("root", true));
     checkLocale(cldrFactory.make("ee", true));
   }
@@ -63,7 +63,7 @@ public class TestCLDRFile {
   }
   
   public static void TestTimeZonePath() {
-    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     String tz = "Pacific/Midway";
     CLDRFile cldrFile = cldrFactory.make("lv",true);
     String retVal = cldrFile.getStringValue(
@@ -74,7 +74,7 @@ public class TestCLDRFile {
 
   private static void simpleTest() {
     double deltaTime = System.currentTimeMillis();
-    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     CLDRFile english = cldrFactory.make("en", true);
     deltaTime = System.currentTimeMillis() - deltaTime;
     System.out.println("Creation: Elapsed: " + deltaTime/1000.0 + " seconds");
@@ -108,7 +108,7 @@ public class TestCLDRFile {
   }
   
   private static void resolutionTest() {
-    Factory cldrFactory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
     CLDRFile german = cldrFactory.make("de", true);
     // Test direct lookup.
     String xpath = "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";

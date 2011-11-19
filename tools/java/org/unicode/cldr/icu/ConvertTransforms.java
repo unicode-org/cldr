@@ -14,8 +14,8 @@ import java.util.Set;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -84,7 +84,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 		
     public void makeBinary(String inputDirectory, String matchingPattern, String outputDirectory)
     {
-    	Factory cldrFactory = CLDRFile.Factory.make(inputDirectory, matchingPattern);
+    	Factory cldrFactory = Factory.make(inputDirectory, matchingPattern);
     	String txtDir = outputDirectory;
     	Hashtable<String, String> ruleStringsHash = new Hashtable<String, String>();
     	
@@ -169,7 +169,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 	
 	public void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		System.out.println(new File(inputDirectory).getCanonicalPath());
-		Factory cldrFactory = CLDRFile.Factory.make(inputDirectory, matchingPattern);
+		Factory cldrFactory = Factory.make(inputDirectory, matchingPattern);
 		Set ids = cldrFactory.getAvailable();
 		PrintWriter index = BagFormatter.openUTF8Writer(outputDirectory, "root.txt");
 		doHeader(index, "//", "root.txt");

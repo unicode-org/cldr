@@ -20,13 +20,13 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 import org.unicode.cldr.util.With;
-import org.unicode.cldr.util.CLDRFile.Factory;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.Output;
@@ -697,7 +697,7 @@ public class LDMLConverter {
     public static void main(String[] args) throws IOException {
         // TODO Handle more than just the main directory.
         String fileRegexString = args.length == 0 ? "(en|fr|ja|root)" : args[0];
-        Factory factory = CLDRFile.Factory.make(CldrUtility.MAIN_DIRECTORY, fileRegexString);
+        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileRegexString);
 
         MultiFileOutput output = new MultiFileOutput();
         Set<String> cantConvert = new HashSet(); // use HashSet for speed

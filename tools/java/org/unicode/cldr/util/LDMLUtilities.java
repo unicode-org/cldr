@@ -494,6 +494,14 @@ public class LDMLUtilities {
             // TODO fix this
         }else if(token.indexOf(LDMLConstants.MONTHS) > -1){
             return "monthNames";
+        }else if(token.indexOf(LDMLConstants.MONTH_PATTERNS) > -1){
+            return "monthPatterns";
+        }else if(token.indexOf(LDMLConstants.MONTH_PATTERN_CONTEXT) > -1){
+            return getAttributeValue(token, LDMLConstants.TYPE);
+        }else if(token.indexOf(LDMLConstants.MONTH_PATTERN_WIDTH) > -1){
+            return getAttributeValue(token, LDMLConstants.TYPE);
+        }else if(token.indexOf(LDMLConstants.MONTH_PATTERN) > -1){
+            return getAttributeValue(token, LDMLConstants.TYPE);
         }else if(token.indexOf(LDMLConstants.MONTH_CONTEXT) > -1){
             return getAttributeValue(token, LDMLConstants.TYPE);
         }else if(token.indexOf(LDMLConstants.MONTH_WIDTH) > -1){

@@ -80,6 +80,7 @@ public class LDMLConstants {
     public static final String DRP             = "dateRangePattern";
     public static final String CALENDARS       = "calendars";
     public static final String MONTHS          = "months";
+    public static final String MONTH_PATTERNS  = "monthPatterns";
     public static final String DAYS            = "days";
     public static final String TZN             = "timeZoneNames";
     public static final String CALENDAR        = "calendar";
@@ -122,11 +123,14 @@ public class LDMLConstants {
     public static final String DTFL              = "dateTimeFormatLength";
     public static final String DATE_TIME_FORMAT  = "dateTimeFormat";
     
+    public static final String MONTH_PATTERN_CONTEXT = "monthPatternContext";
     public static final String MONTH_CONTEXT   = "monthContext";
     public static final String DAY_CONTEXT     = "dayContext";
+    public static final String MONTH_PATTERN_WIDTH = "monthPatternWidth";
     public static final String MONTH_WIDTH     = "monthWidth";
     public static final String DAY_WIDTH       = "dayWidth";
 
+    public static final String MONTH_PATTERN   = "monthPattern";
     public static final String MONTH           = "month";
     public static final String YEARTYPE        = "yeartype";
     public static final String DAY             = "day";
@@ -143,6 +147,7 @@ public class LDMLConstants {
     public static final String ERANARROW       = "eraNarrow";
     public static final String ABBREVIATED     = "abbreviated";
     public static final String WIDE            = "wide";
+    public static final String ALL             = "all";
     public static final String CURRENCY        = "currency";
     public static final String CHOICE          = "choice";
     public static final String DECIMAL_FORMATS = "decimalFormats";

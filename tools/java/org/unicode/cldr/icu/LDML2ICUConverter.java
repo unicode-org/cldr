@@ -754,6 +754,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     static {
         keyNameMap.put("days", "dayNames");
         keyNameMap.put("months", "monthNames");
+        keyNameMap.put("monthPatterns", "monthPatterns");
         keyNameMap.put("territories", "Countries");
         keyNameMap.put("languages", "Languages");
         keyNameMap.put("languagesShort", "LanguagesShort");
@@ -2459,7 +2460,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return current;
         }
 
-        final String stuff[] = { LDMLConstants.DEFAULT, LDMLConstants.MONTHS, LDMLConstants.DAYS,
+        final String stuff[] = { LDMLConstants.DEFAULT, LDMLConstants.MONTHS, LDMLConstants.MONTH_PATTERNS, LDMLConstants.DAYS,
             // LDMLConstants.WEEK,
             LDMLConstants.ERAS, LDMLConstants.DATE_FORMATS, LDMLConstants.TIME_FORMATS, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.SPECIAL,
             LDMLConstants.FIELDS, LDMLConstants.QUARTERS, LDMLConstants.DAYPERIODS, };
@@ -2482,7 +2483,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
             if (name.equals(LDMLConstants.DEFAULT)) {
                 res = getDefaultResource(loc, xpath, name);
-            } else if (name.equals(LDMLConstants.MONTHS) || name.equals(LDMLConstants.DAYS)) {
+            } else if (name.equals(LDMLConstants.MONTHS) || name.equals(LDMLConstants.MONTH_PATTERNS) || name.equals(LDMLConstants.DAYS)) {
                 res = parseMonthsAndDays(loc, xpath);
             } else if (name.equals(LDMLConstants.WEEK)) {
                 log.info("<week > element is deprecated and the data should moved to " + supplementalDataFile);
@@ -2678,7 +2679,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             return current;
         }
 
-        final String stuff[] = { LDMLConstants.DEFAULT, LDMLConstants.MONTH_CONTEXT, LDMLConstants.DAY_CONTEXT, LDMLConstants.QUARTER_CONTEXT, };
+        final String stuff[] = { LDMLConstants.DEFAULT, LDMLConstants.MONTH_CONTEXT, LDMLConstants.MONTH_PATTERN_CONTEXT, LDMLConstants.DAY_CONTEXT, LDMLConstants.QUARTER_CONTEXT, };
 
         String origXpath = xpath;
         for (int jj = 0; jj < stuff.length; jj++) {
@@ -2697,7 +2698,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
             if (name.equals(LDMLConstants.DEFAULT)) {
                 res = getDefaultResource(loc, xpath, name);
-            } else if (name.equals(LDMLConstants.MONTH_CONTEXT) || name.equals(LDMLConstants.DAY_CONTEXT) || name.equals(LDMLConstants.QUARTER_CONTEXT)) {
+            } else if (name.equals(LDMLConstants.MONTH_CONTEXT) || name.equals(LDMLConstants.MONTH_PATTERN_CONTEXT) || name.equals(LDMLConstants.DAY_CONTEXT) || name.equals(LDMLConstants.QUARTER_CONTEXT)) {
                 Set<String> ctxs = loc.getByType(xpath, name);
                 for (String ctx : ctxs) {
                     res = parseContext(loc, xpath + "[@type=\"" + ctx + "\"]");
@@ -2834,9 +2835,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private Resource parseWidth(LDML2ICUInputLocale loc, String resName, String xpath) {
         log.setStatus(loc.getLocale());
-        ResourceArray array = new ResourceArray();
+        Resource arrayOrTable = (resName.equals(LDMLConstants.MONTH_PATTERN))? new ResourceTable(): new ResourceArray();
         Resource current = null;
-        array.name = XPPUtil.getAttributeValue(xpath, resName + "Width", LDMLConstants.TYPE);
+        arrayOrTable.name = XPPUtil.getAttributeValue(xpath, resName + "Width", LDMLConstants.TYPE);
 
         // if the whole node is marked draft then
         // don't write anything
@@ -2846,7 +2847,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         // if the whole thing is an alias
         if ((current = getAliasResource(loc, xpath)) != null) {
-            current.name = array.name;
+            current.name = arrayOrTable.name;
             return current;
         }
 
@@ -2873,29 +2874,46 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         if (map.size() > 0) {
-            for (int i = 0; i < allThings.size(); i++) {
-                String key = Integer.toString(i);
-                ResourceString res = new ResourceString();
-                res.val = map.get(key);
-                if (res.val == null && defMap != null) {
-                    res.val = defMap.get(key);
-                    if (verboseFallbackComments && res.val != null) {
-                        res.smallComment = " fallback";
+            if ( !resName.equals(LDMLConstants.MONTH_PATTERN) ) {
+                for (int i = 0; i < allThings.size(); i++) {
+                    String key = Integer.toString(i);
+                    ResourceString res = new ResourceString();
+                    res.val = map.get(key);
+                    if (res.val == null && defMap != null) {
+                        res.val = defMap.get(key);
+                        if (verboseFallbackComments && res.val != null) {
+                            res.smallComment = " fallback";
+                        }
+                    }
+                    if (res.val == null) {
+                        log.error("Could not get full " + resName + " array., in " + xpath + " -   Missing #" + key + ".  Only found " + map.size() + " items (" + allThings.size()
+                            + " including inherited). Skipping.");
+                        return null;
+                    }
+
+                    // array of unnamed strings
+                    if (res.val != null) {
+                        if (current == null) {
+                            current = arrayOrTable.first = res;
+                        } else {
+                            current.next = res;
+                            current = current.next;
+                        }
                     }
                 }
-                if (res.val == null) {
-                    log.error("Could not get full " + resName + " array., in " + xpath + " -   Missing #" + key + ".  Only found " + map.size() + " items (" + allThings.size()
-                        + " including inherited). Skipping.");
-                    return null;
-                }
-
-                // array of unnamed strings
-                if (res.val != null) {
-                    if (current == null) {
-                        current = array.first = res;
-                    } else {
-                        current.next = res;
-                        current = current.next;
+            } else {
+                // do we care about defMap here?
+                for (String key: map.keySet()) {
+                    ResourceString res = new ResourceString();
+                    res.name = key;
+                    res.val = map.get(key);
+                    if (res.val != null) {
+                        if (current == null) {
+                            current = arrayOrTable.first = res;
+                        } else {
+                            current.next = res;
+                            current = current.next;
+                        }
                     }
                 }
             }
@@ -2907,7 +2925,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if (res != null) {
                 log.warning("Found def for " + xpath + " - " + res.val);
                 if (current == null) {
-                    current = array.first = res;
+                    current = arrayOrTable.first = res;
                 } else {
                     current.next = res;
                     current = current.next;
@@ -2915,8 +2933,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
 
-        if (array.first != null) {
-            return array;
+        if (arrayOrTable.first != null) {
+            return arrayOrTable;
         }
 
         return null;
@@ -3007,6 +3025,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     type = "14"; // Extra month name for hebrew Adar II in leap years
                 }
                 map.put(LDMLUtilities.getMonthIndexAsString(type), val);
+            } else if (name.equals(LDMLConstants.MONTH_PATTERN)) {
+                map.put(type, val);
             } else if (name.equals(LDMLConstants.ERA)) {
                 map.put(type, val);
             } else if (name.equals(LDMLConstants.QUARTER)) {
@@ -3024,7 +3044,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
 
-        Set<String> completion = getSetCompletion(loc, element, xpath);
+        Set<String> completion = null;
+        if ( !element.equals(LDMLConstants.MONTH_PATTERN) ) {
+             completion = getSetCompletion(loc, element, xpath);
+       }
         if (completion != null) {
             for (String type : completion) {
                 xpath = origXpath + "/" + element + "[@type=\"" + type + "\"]";

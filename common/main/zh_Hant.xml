@@ -1136,28 +1136,96 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<monthPatterns>
+					<monthPatternContext type="format">
+						<monthPatternWidth type="wide">
+							<monthPattern type="leap">闰{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="stand-alone">
+						<monthPatternWidth type="narrow">
+							<monthPattern type="leap">闰{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="numeric">
+						<monthPatternWidth type="all">
+							<monthPattern type="leap">闰{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+				</monthPatterns>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="contributed">EEEEy'x'G-Ml-d</pattern>
+							<pattern>y年M月d日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern draft="contributed">y'x'G-M-d</pattern>
+							<pattern>y年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="contributed">y'x'G-M-d</pattern>
+							<pattern>y年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="contributed">y'x'G-M-d</pattern>
+							<pattern>yy-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="EEEd">d日EEE</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="MEd">M-dE</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="y">y年</dateFormatItem>
+						<dateFormatItem id="yM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMEd">y年M月d日，E</dateFormatItem>
+						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMEd">y年M月d日EEE</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<months>

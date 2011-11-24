@@ -209,6 +209,35 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<monthPatterns>
+					<monthPatternContext type="format">
+						<monthPatternWidth type="abbreviated">
+							<alias source="locale" path="../monthPatternWidth[@type='wide']"/>
+						</monthPatternWidth>
+						<monthPatternWidth type="narrow">
+							<alias source="locale" path="../../monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']"/>
+						</monthPatternWidth>
+						<monthPatternWidth type="wide">
+							<monthPattern type="leap">{0}bis</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="stand-alone">
+						<monthPatternWidth type="abbreviated">
+							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='abbreviated']"/>
+						</monthPatternWidth>
+						<monthPatternWidth type="narrow">
+							<monthPattern type="leap">{0}bis</monthPattern>
+						</monthPatternWidth>
+						<monthPatternWidth type="wide">
+							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='wide']"/>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="numeric">
+						<monthPatternWidth type="all">
+							<monthPattern type="leap">{0}bis</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+				</monthPatterns>
 				<days>
 					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
@@ -223,22 +252,22 @@
 					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE y'x'G-Ml-d</pattern>
+							<pattern>EEEE, y MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>y'x'G-Ml-d</pattern>
+							<pattern>y MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>y'x'G-Ml-d</pattern>
+							<pattern>y MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>y'x'G-Ml-d</pattern>
+							<pattern>y-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>

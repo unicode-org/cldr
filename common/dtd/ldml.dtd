@@ -403,7 +403,7 @@ $Date$
 <!ATTLIST calendars draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
+<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -440,6 +440,32 @@ $Date$
 <!ATTLIST month references CDATA #IMPLIED >
 <!ATTLIST month alt NMTOKENS #IMPLIED >
 <!ATTLIST month draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+
+<!ELEMENT monthPatterns ( alias | (monthPatternContext*, special*)) >
+<!ATTLIST monthPatterns draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST monthPatterns references CDATA #IMPLIED >
+<!ATTLIST monthPatterns alt NMTOKENS #IMPLIED >
+<!ATTLIST monthPatterns validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT monthPatternContext ( alias | (monthPatternWidth*, special*)) >
+<!ATTLIST monthPatternContext type ( format | stand-alone | numeric ) #REQUIRED >
+<!ATTLIST monthPatternContext draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST monthPatternContext references CDATA #IMPLIED >
+<!ATTLIST monthPatternContext alt NMTOKENS #IMPLIED >
+<!ATTLIST monthPatternContext validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT monthPatternWidth ( alias | (monthPattern*, special*)) >
+<!ATTLIST monthPatternWidth type ( abbreviated| narrow | wide | all ) #REQUIRED >
+<!ATTLIST monthPatternWidth draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST monthPatternWidth references CDATA #IMPLIED >
+<!ATTLIST monthPatternWidth alt NMTOKENS #IMPLIED >
+<!ATTLIST monthPatternWidth validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT monthPattern ( #PCDATA ) >
+<!ATTLIST monthPattern type ( leap | standardAfterLeap | combined ) #REQUIRED >
+<!ATTLIST monthPattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST monthPattern references CDATA #IMPLIED >
+<!ATTLIST monthPattern alt NMTOKENS #IMPLIED >
 
 
 <!-- START_DEPRECATED -->

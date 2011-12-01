@@ -248,6 +248,113 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<!-- chinese eras are computed, and don't fall back to gregorian -->
+				<cyclicNameSets>
+					<cyclicNameSet type="years">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">jia-zi</cyclicName>
+								<cyclicName type="2">yi-chou</cyclicName>
+								<cyclicName type="3">bing-yin</cyclicName>
+								<cyclicName type="4">ding-mao</cyclicName>
+								<cyclicName type="5">wu-chen</cyclicName>
+								<cyclicName type="6">ji-si</cyclicName>
+								<cyclicName type="7">geng-wu</cyclicName>
+								<cyclicName type="8">xin-wei</cyclicName>
+								<cyclicName type="9">ren-shen</cyclicName>
+								<cyclicName type="10">gui-you</cyclicName>
+								<cyclicName type="11">jia-xu</cyclicName>
+								<cyclicName type="12">yi-hai</cyclicName>
+								<cyclicName type="13">bing-zi</cyclicName>
+								<cyclicName type="14">ding-chou</cyclicName>
+								<cyclicName type="15">wu-yin</cyclicName>
+								<cyclicName type="16">ji-mao</cyclicName>
+								<cyclicName type="17">geng-chen</cyclicName>
+								<cyclicName type="18">xin-si</cyclicName>
+								<cyclicName type="19">ren-wu</cyclicName>
+								<cyclicName type="20">gui-wei</cyclicName>
+								<cyclicName type="21">jia-shen</cyclicName>
+								<cyclicName type="22">yi-you</cyclicName>
+								<cyclicName type="23">bing-xu</cyclicName>
+								<cyclicName type="24">ding-hai</cyclicName>
+								<cyclicName type="25">wu-zi</cyclicName>
+								<cyclicName type="26">ji-chou</cyclicName>
+								<cyclicName type="27">geng-yin</cyclicName>
+								<cyclicName type="28">xin-mao</cyclicName>
+								<cyclicName type="29">ren-chen</cyclicName>
+								<cyclicName type="30">gui-si</cyclicName>
+								<cyclicName type="31">jia-wu</cyclicName>
+								<cyclicName type="32">yi-wei</cyclicName>
+								<cyclicName type="33">bing-shen</cyclicName>
+								<cyclicName type="34">ding-you</cyclicName>
+								<cyclicName type="35">wu-xu</cyclicName>
+								<cyclicName type="36">ji-hai</cyclicName>
+								<cyclicName type="37">geng-zi</cyclicName>
+								<cyclicName type="38">xin-chou</cyclicName>
+								<cyclicName type="39">ren-yin</cyclicName>
+								<cyclicName type="40">gui-mao</cyclicName>
+								<cyclicName type="41">jia-chen</cyclicName>
+								<cyclicName type="42">yi-si</cyclicName>
+								<cyclicName type="43">bing-wu</cyclicName>
+								<cyclicName type="44">ding-wei</cyclicName>
+								<cyclicName type="45">wu-shen</cyclicName>
+								<cyclicName type="46">ji-you</cyclicName>
+								<cyclicName type="47">geng-xu</cyclicName>
+								<cyclicName type="48">xin-hai</cyclicName>
+								<cyclicName type="49">ren-zi</cyclicName>
+								<cyclicName type="50">gui-chou</cyclicName>
+								<cyclicName type="51">jia-yin</cyclicName>
+								<cyclicName type="52">yi-mao</cyclicName>
+								<cyclicName type="53">bing-chen</cyclicName>
+								<cyclicName type="54">ding-si</cyclicName>
+								<cyclicName type="55">wu-wu</cyclicName>
+								<cyclicName type="56">ji-wei</cyclicName>
+								<cyclicName type="57">geng-shen</cyclicName>
+								<cyclicName type="58">xin-you</cyclicName>
+								<cyclicName type="59">ren-xu</cyclicName>
+								<cyclicName type="60">gui-hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="months">
+						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
+					</cyclicNameSet>
+					<cyclicNameSet type="days">
+						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
+					</cyclicNameSet>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">zi</cyclicName>
+								<cyclicName type="2">chou</cyclicName>
+								<cyclicName type="3">yin</cyclicName>
+								<cyclicName type="4">mao</cyclicName>
+								<cyclicName type="5">chen</cyclicName>
+								<cyclicName type="6">si</cyclicName>
+								<cyclicName type="7">wu</cyclicName>
+								<cyclicName type="8">wei</cyclicName>
+								<cyclicName type="9">shen</cyclicName>
+								<cyclicName type="10">you</cyclicName>
+								<cyclicName type="11">xu</cyclicName>
+								<cyclicName type="12">hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<alias source="locale" path="../cyclicNameSet[@type='dayParts']"/>
+					</cyclicNameSet>
+				</cyclicNameSets>
 				<dateFormats>
 					<default choice="medium"/>
 					<dateFormatLength type="full">

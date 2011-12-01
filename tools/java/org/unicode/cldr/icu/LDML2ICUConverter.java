@@ -2462,8 +2462,9 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         final String stuff[] = { LDMLConstants.DEFAULT, LDMLConstants.MONTHS, LDMLConstants.MONTH_PATTERNS, LDMLConstants.DAYS,
             // LDMLConstants.WEEK,
-            LDMLConstants.ERAS, LDMLConstants.DATE_FORMATS, LDMLConstants.TIME_FORMATS, LDMLConstants.DATE_TIME_FORMATS, LDMLConstants.SPECIAL,
-            LDMLConstants.FIELDS, LDMLConstants.QUARTERS, LDMLConstants.DAYPERIODS, };
+            LDMLConstants.ERAS, LDMLConstants.CYCLIC_NAME_SETS,
+            LDMLConstants.DATE_FORMATS, LDMLConstants.TIME_FORMATS, LDMLConstants.DATE_TIME_FORMATS,
+            LDMLConstants.SPECIAL, LDMLConstants.FIELDS, LDMLConstants.QUARTERS, LDMLConstants.DAYPERIODS, };
 
         for (int jj = 0; jj < stuff.length; jj++) {
             String name = stuff[jj];
@@ -2494,6 +2495,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
             } else if (name.equals(LDMLConstants.ERAS)) {
                 res = parseEras(loc, xpath);
+            } else if (name.equals(LDMLConstants.CYCLIC_NAME_SETS)) {
+                res = parseCyclicNameSets(loc, xpath);
             } else if (name.equals(LDMLConstants.DATE_FORMATS) || name.equals(LDMLConstants.TIME_FORMATS) || name.equals(LDMLConstants.DATE_TIME_FORMATS)) {
                 // TODO what to do if a number of formats are present?
                 if (writtenDTF == false) {
@@ -2738,7 +2741,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         ResourceTable table = new ResourceTable();
         Resource current = null;
 
-        // if the whole collation node is marked draft then
+        // if the whole node is marked draft then
         // don't write anything
         if (loc.isPathNotConvertible(xpath)) {
             return null;
@@ -2945,6 +2948,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static Set<String> completion_era = null;
     private static Set<String> completion_q = null;
     private static Set<String> completion_era_j = null;
+    private static Set<String> completion_num60 = null;
+    private static Set<String> completion_num12 = null;
 
     private Set<String> createNumericStringArray(int max) {
         Set<String> set = new HashSet<String>();
@@ -2983,6 +2988,18 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 return completion_era_j;
             }
             return completion_era;
+        }
+
+        if (element.equals(LDMLConstants.CYCLIC_NAME)) {
+            if (completion_num60 == null) {
+                completion_num60 = createNumericStringArray(60);
+                completion_num12 = createNumericStringArray(12);
+            }
+            String type = XPPUtil.getAttributeValue(xpath, LDMLConstants.CYCLIC_NAME_SET, LDMLConstants.TYPE);
+            if (type != null && ( type.equals("dayParts") || type.equals("zodiacs") ) ) {
+                return completion_num12;
+            }
+            return completion_num60;
         }
 
         if (element.equals(LDMLConstants.QUARTER)) {
@@ -3029,6 +3046,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 map.put(type, val);
             } else if (name.equals(LDMLConstants.ERA)) {
                 map.put(type, val);
+            } else if (name.equals(LDMLConstants.CYCLIC_NAME)) {
+                map.put(LDMLUtilities.getMonthIndexAsString(type), val); // misnamed, just subtracts 1 from the 1-based numeric type value
             } else if (name.equals(LDMLConstants.QUARTER)) {
                 map.put(LDMLUtilities.getMonthIndexAsString(type), val);
             } else if (name.equals(LDMLConstants.ALIAS)) {
@@ -3066,6 +3085,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     map.put(LDMLUtilities.getMonthIndexAsString(type), val);
                 } else if (name.equals(LDMLConstants.ERA)) {
                     map.put(type, val);
+                } else if (name.equals(LDMLConstants.CYCLIC_NAME)) {
+                    map.put(LDMLUtilities.getMonthIndexAsString(type), val); // misnamed, just subtracts 1 from the 1-based numeric type value
                 } else if (name.equals(LDMLConstants.QUARTER)) {
                     map.put(LDMLUtilities.getMonthIndexAsString(type), val);
                 } else {
@@ -3254,6 +3275,84 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         if (array.first != null) {
             return array;
+        }
+
+        return null;
+    }
+
+    private Resource parseCyclicNameSets(LDML2ICUInputLocale loc, String xpath) {
+        ResourceTable table = new ResourceTable();
+        Resource current = null;
+        table.name = LDMLConstants.CYCLIC_NAME_SETS;
+
+        // if the whole thing is an alias
+        if ((current = getAliasResource(loc, xpath)) != null) {
+            current.name = table.name;
+            return current;
+        }
+
+		String origXpath = xpath;
+		xpath = origXpath + "/" + LDMLConstants.CYCLIC_NAME_SET;
+		
+        Set<String> nameSetTypes = loc.getByType(xpath, LDMLConstants.CYCLIC_NAME_SET);
+        for (String nameSetType : nameSetTypes) {
+            String subXpath = xpath + "[@type=\"" + nameSetType + "\"]";
+            // skip invalid & draft paths
+            if (loc.isPathNotConvertible(subXpath)) {
+                continue;
+            }
+            Resource res = parseCyclicNameSet(loc, subXpath);
+            if (res != null) {
+                if (current == null) {
+                    current = table.first = res;
+                } else {
+                    current.next = res;
+                    current = current.next;
+                }
+            }
+        }
+
+        if (table.first != null) {
+            return table;
+        }
+
+        return null;
+    }
+
+    private Resource parseCyclicNameSet(LDML2ICUInputLocale loc, String xpath) {
+        ResourceTable table = new ResourceTable();
+        Resource current = null;
+        table.name = XPPUtil.getAttributeValue(xpath, LDMLConstants.CYCLIC_NAME_SET, LDMLConstants.TYPE);
+
+        // if the whole thing is an alias
+        if ((current = getAliasResource(loc, xpath)) != null) {
+            current.name = table.name;
+            return current;
+        }
+
+		String origXpath = xpath;
+		xpath = origXpath + "/" + LDMLConstants.CYCLIC_NAME_CONTEXT;
+		
+        Set<String> contextTypes = loc.getByType(xpath, LDMLConstants.CYCLIC_NAME_CONTEXT);
+        for (String contextType : contextTypes) {
+            String subXpath = xpath + "[@type=\"" + contextType + "\"]";
+            // skip invalid & draft paths
+            if (loc.isPathNotConvertible(subXpath)) {
+                continue;
+            }
+            Resource res = parseContext(loc, subXpath);
+            if (res != null) {
+                if (current == null) {
+                    current = table.first = res;
+                } else {
+                    current.next = res;
+                    current = current.next;
+                }
+            }
+        }
+
+        if (table.first != null) {
+            return table;
         }
 
         return null;

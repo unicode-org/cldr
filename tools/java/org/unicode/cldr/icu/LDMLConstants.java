@@ -81,9 +81,10 @@ public class LDMLConstants {
     public static final String CALENDARS       = "calendars";
     public static final String MONTHS          = "months";
     public static final String MONTH_PATTERNS  = "monthPatterns";
-    public static final String DAYS            = "days";
-    public static final String TZN             = "timeZoneNames";
-    public static final String CALENDAR        = "calendar";
+    public static final String CYCLIC_NAME_SETS      = "cyclicNameSets";
+    public static final String DAYS                  = "days";
+    public static final String TZN                   = "timeZoneNames";
+    public static final String CALENDAR              = "calendar";
     public static final String HOUR_FORMAT           = "hourFormat";
     public static final String HOURS_FORMAT          = "hoursFormat";
     public static final String GMT_FORMAT            = "gmtFormat";
@@ -113,7 +114,7 @@ public class LDMLConstants {
     public static final String DATE_FORMATS      = "dateFormats";
     public static final String DFL               = "dateFormatLength";
     public static final String DATE_FORMAT       = "dateFormat";
-    public static final String SEPARATOR       = "separator";
+    public static final String SEPARATOR         = "separator";
 
     public static final String TIME_FORMATS      = "timeFormats";
     public static final String TFL               = "timeFormatLength";
@@ -124,12 +125,16 @@ public class LDMLConstants {
     public static final String DATE_TIME_FORMAT  = "dateTimeFormat";
     
     public static final String MONTH_PATTERN_CONTEXT = "monthPatternContext";
-    public static final String MONTH_CONTEXT   = "monthContext";
-    public static final String DAY_CONTEXT     = "dayContext";
-    public static final String MONTH_PATTERN_WIDTH = "monthPatternWidth";
-    public static final String MONTH_WIDTH     = "monthWidth";
-    public static final String DAY_WIDTH       = "dayWidth";
+    public static final String MONTH_CONTEXT         = "monthContext";
+    public static final String DAY_CONTEXT           = "dayContext";
+    public static final String MONTH_PATTERN_WIDTH   = "monthPatternWidth";
+    public static final String MONTH_WIDTH           = "monthWidth";
+    public static final String DAY_WIDTH             = "dayWidth";
+    public static final String CYCLIC_NAME_SET       = "cyclicNameSet";
+    public static final String CYCLIC_NAME_CONTEXT   = "cyclicNameContext";
+    public static final String CYCLIC_NAME_WIDTH     = "cyclicNameWidth";
 
+    public static final String CYCLIC_NAME       = "cyclicName";
     public static final String MONTH_PATTERN   = "monthPattern";
     public static final String MONTH           = "month";
     public static final String YEARTYPE        = "yeartype";

@@ -403,7 +403,7 @@ $Date$
 <!ATTLIST calendars draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
+<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))>
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -442,7 +442,7 @@ $Date$
 <!ATTLIST month draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT monthPatterns ( alias | (monthPatternContext*, special*)) >
-<!ATTLIST monthPatterns draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST monthPatterns draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST monthPatterns references CDATA #IMPLIED >
 <!ATTLIST monthPatterns alt NMTOKENS #IMPLIED >
 <!ATTLIST monthPatterns validSubLocales CDATA #IMPLIED >
@@ -639,6 +639,39 @@ $Date$
 <!ATTLIST era draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST era references CDATA #IMPLIED >
 <!ATTLIST era alt NMTOKENS #IMPLIED >
+
+<!ELEMENT cyclicNameSets ( alias | (cyclicNameSet*, special*)) >
+<!ATTLIST cyclicNameSets draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST cyclicNameSets references CDATA #IMPLIED >
+<!ATTLIST cyclicNameSets alt NMTOKENS #IMPLIED >
+<!ATTLIST cyclicNameSets validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT cyclicNameSet ( alias | (cyclicNameContext*, special*)) >
+<!ATTLIST cyclicNameSet type ( years | months | days | dayParts | zodiacs ) #REQUIRED >
+<!ATTLIST cyclicNameSet draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST cyclicNameSet references CDATA #IMPLIED >
+<!ATTLIST cyclicNameSet alt NMTOKENS #IMPLIED >
+<!ATTLIST cyclicNameSet validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT cyclicNameContext ( alias | (cyclicNameWidth*, special*)) >
+<!ATTLIST cyclicNameContext type ( format | stand-alone ) #REQUIRED >
+<!ATTLIST cyclicNameContext draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST cyclicNameContext references CDATA #IMPLIED >
+<!ATTLIST cyclicNameContext alt NMTOKENS #IMPLIED >
+<!ATTLIST cyclicNameContext validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT cyclicNameWidth ( alias | (cyclicName*, special*)) >
+<!ATTLIST cyclicNameWidth type ( abbreviated | narrow | wide ) #REQUIRED >
+<!ATTLIST cyclicNameWidth draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST cyclicNameWidth references CDATA #IMPLIED >
+<!ATTLIST cyclicNameWidth alt NMTOKENS #IMPLIED >
+<!ATTLIST cyclicNameWidth validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT cyclicName ( #PCDATA ) >
+<!ATTLIST cyclicName type NMTOKEN #REQUIRED >
+<!ATTLIST cyclicName draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST cyclicName references CDATA #IMPLIED >
+<!ATTLIST cyclicName alt NMTOKENS #IMPLIED >
 
 <!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) >
 <!ATTLIST dateFormats draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->

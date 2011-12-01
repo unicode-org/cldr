@@ -492,6 +492,17 @@ public class LDMLUtilities {
             // TODO fix this
         }else if(token.indexOf(LDMLConstants.INTVL_FMTS) > -1){
             // TODO fix this
+        }else if(token.indexOf(LDMLConstants.CYCLIC_NAME_SETS) > -1){
+            return "cyclicNameSets";
+        }else if(token.indexOf(LDMLConstants.CYCLIC_NAME_SET) > -1){
+            return getAttributeValue(token, LDMLConstants.TYPE);
+        }else if(token.indexOf(LDMLConstants.CYCLIC_NAME_CONTEXT) > -1){
+            return getAttributeValue(token, LDMLConstants.TYPE);
+        }else if(token.indexOf(LDMLConstants.CYCLIC_NAME_WIDTH) > -1){
+            return getAttributeValue(token, LDMLConstants.TYPE);
+        }else if(token.indexOf(LDMLConstants.CYCLIC_NAME) > -1){
+            String valStr = getAttributeValue(token, LDMLConstants.TYPE);
+            return getMonthIndexAsString(valStr);
         }else if(token.indexOf(LDMLConstants.MONTHS) > -1){
             return "monthNames";
         }else if(token.indexOf(LDMLConstants.MONTH_PATTERNS) > -1){

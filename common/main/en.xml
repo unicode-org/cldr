@@ -1273,6 +1273,28 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="chinese">
+				<cyclicNameSets>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">Rat</cyclicName>
+								<cyclicName type="2">Ox</cyclicName>
+								<cyclicName type="3">Tiger</cyclicName>
+								<cyclicName type="4">Rabbit</cyclicName>
+								<cyclicName type="5">Dragon</cyclicName>
+								<cyclicName type="6">Snake</cyclicName>
+								<cyclicName type="7">Horse</cyclicName>
+								<cyclicName type="8">Goat</cyclicName>
+								<cyclicName type="9">Monkey</cyclicName>
+								<cyclicName type="10">Rooster</cyclicName>
+								<cyclicName type="11">Dog</cyclicName>
+								<cyclicName type="12">Pig</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

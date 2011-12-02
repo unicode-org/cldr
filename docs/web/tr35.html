@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2011-10-31</span></td>
+			<td><span class="changed">2011-12-01</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -2245,8 +2245,8 @@ The index Separator can used to separate the index characters if they occur in f
 	<h4>5.9.1 <a name="Calendar_Elements">Calendar Elements</a></h4>
 	<p class="dtd">
 	&lt;!ELEMENT calendars (alias | (default*, calendar*, special*)) &gt;<br>
-	&lt;!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*,
-	dayPeriods?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))&gt;
+	&lt;!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, <span class="changed">monthPatterns?, </span>days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*,
+	dayPeriods?, eras?, <span class="changed">cyclicNameSets?, </span>dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))&gt;
 	</p>
 	<p>This element contains multiple &lt;calendar&gt; elements, each of which specifies the fields used for formatting and parsing dates and times according to the given 
 	calendar. The month and quarter names are identified numerically, starting at 1. The day (of the week) names are identified with short strings, since there 
@@ -2256,6 +2256,7 @@ The index Separator can used to separate the index characters if they occur in f
 	<p>Many calendars will only differ from the Gregorian Calendar in the year and era values. For example, the Japanese calendar will have many more eras (one 
 	for each Emperor), and the years will be numbered within that era. All calendar data inherits from the Gregorian calendar in the same locale data (if not present 
 	in the chain up to root), so only the differing data will be present. See <i>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></i>.</p>
+	<p><b><span class="changed"><a name="months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></span></b></p>
 	<p class="dtd">
 	&lt;!ELEMENT months ( alias | (default*, monthContext*, special*)) &gt;<br>
 	&lt;!ELEMENT monthContext ( alias | (default*, monthWidth*, special*)) &gt;<br>
@@ -2452,7 +2453,29 @@ The index Separator can used to separate the index characters if they occur in f
        &lt;/eraNarrow&gt;
     &lt;/eras&gt;
 </pre>
-  <div>
+ 	<p><b><span class="changed"><a name="monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;, &lt;cyclicNameSets&gt;</a></span></b></p>
+	<p class="dtd"><span class="changed">
+	&lt;!ELEMENT monthPatterns ( alias | (monthPatternContext*, special*)) &gt;<br>
+	&lt;!ELEMENT monthPatternContext ( alias | (monthPatternWidth*, special*)) &gt;<br>
+	&lt;!ATTLIST monthPatternContext type ( format | stand-alone | numeric ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT monthPatternWidth ( alias | (monthPattern*, special*)) &gt;<br>
+	&lt;!ATTLIST monthPatternWidth type ( abbreviated| narrow | wide | all ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT monthPattern ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST monthPattern type ( leap | standardAfterLeap | combined ) #REQUIRED &gt;<br>
+	</span></p>
+	<p class="dtd"><span class="changed">
+	&lt;!ELEMENT cyclicNameSets ( alias | (cyclicNameSet*, special*)) &gt;<br>
+	&lt;!ELEMENT cyclicNameSet ( alias | (cyclicNameContext*, special*)) &gt;<br>
+	&lt;!ATTLIST cyclicNameSet type ( years | months | days | dayParts | zodiacs ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT cyclicNameContext ( alias | (cyclicNameWidth*, special*)) &gt;<br>
+	&lt;!ATTLIST cyclicNameContext type ( format | stand-alone ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT cyclicNameWidth ( alias | (cyclicName*, special*)) &gt;<br>
+	&lt;!ATTLIST cyclicNameWidth type ( abbreviated | narrow | wide ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT cyclicName ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST cyclicName type NMTOKEN #REQUIRED &gt;<br>
+	</span></p>
+	<p><span class="changed">(description to be supplied).</span></p>
+ 	<p><b><span class="changed"><a name="dayPeriods">&lt;dayPeriods&gt;</a></span></b></p>
     <p>The former am/pm elements have been deprecated, and replaced by the more flexible dayPeriods. </p>
   <p class="dtd">&lt;!ELEMENT dayPeriods ( alias | (dayPeriodContext*) ) &gt;</p>
   <p class="dtd">&lt;!ELEMENT dayPeriodContext (alias | dayPeriodWidth*) &gt;<br>
@@ -2469,8 +2492,7 @@ The index Separator can used to separate the index characters if they occur in f
   as with era names, there is less disambiguating information for them, and they are more likely to be used in a format that requires
   parsing. In some unambiguous cases, it is acceptable for certain overlapping dayPeriods to be the same, such as the names for "am"
   and "morning", or the names for "pm" and "afternoon".</span></p>
-  </div>
-<p><a name="dateFormats">&lt;dateFormats&gt;</a></p>
+	<p><b><a name="dateFormats">&lt;dateFormats&gt;</a></b></p>
 	<p class="dtd">
 	&lt;!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) &gt;<br>
 	&lt;!ELEMENT dateFormatLength (alias | (default*, dateFormat*, special*)) &gt;<br>
@@ -2499,7 +2521,7 @@ The index Separator can used to separate the index characters if they occur in f
 	defined in <i><a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>.</i> These patterns are intended primarily for display of isolated date and
     time strings in user-interface elements, rather than for date and time strings in the middle of
     running text, so capitalization and grammatical form should be chosen appropriately.</p>
-	<p><a name="timeFormats">&lt;timeFormats&gt;</a></p>
+	<p><b><a name="timeFormats">&lt;timeFormats&gt;</a></b></p>
 	<p class="dtd">
 	&lt;!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) &gt;<br>
 	&lt;!ELEMENT timeFormatLength (alias | (default*, timeFormat*, special*)) &gt;<br>
@@ -2528,6 +2550,7 @@ is the format that should be used when formatting a specific time for presentati
 When formatting a time referring to a recurring time (such as a meeting in a calendar),
 applications should substitute the generic non-location format (v or vvvv) for the time zone in the time format pattern.
 See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i> for a complete description of available time zone formats and their uses.</p>
+	<p><b><a name="dateTimeFormats">&lt;dateTimeFormats&gt;</a></b></p>
 	<p>Date/Time formats have the following form:</p>
 	<pre>     &lt;dateTimeFormats&gt;
        &lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;
@@ -2575,7 +2598,6 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
       &lt;/eraAbbr&gt;
     &lt;/eras&gt;
   &lt;/calendar&gt;</pre>
-	<p><a name="dateTimeFormats">&lt;dateTimeFormats&gt;</a></p>
 	<p>These formats allow for date and time formats to be composed in various ways.</p>
 	<p class="dtd">
 	&lt;!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special*)) &gt;<br>
@@ -5800,7 +5822,7 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left">A</td>
 		</tr>
 		<tr>
-			<th rowspan="3">year</th>
+			<th rowspan="6">year</th>
 			<td style="text-align: center">y</td>
 			<td style="text-align: center">1..n</td>
 			<td>1996</td>
@@ -5872,6 +5894,23 @@ range         = value'..'value</pre>
 			<td>Extended year. This is a single number designating the year of this calendar system, encompassing all supra-year fields. For example, for the Julian 
 			calendar system, year numbers are positive, with an era of BCE or CE. An extended year value for the Julian calendar system assigns positive values 
 			to CE years and negative values to BCE years, with 1 BCE being year 0.</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; vertical-align: top" rowspan="3"><span class="changed">U</span></td>
+			<td style="text-align: center; vertical-align: top"><span class="changed">1..3</span></td>
+			<td style="vertical-align: top; text-align: left"><span class="changed">甲子</span></td>
+			<td rowspan="3" style="vertical-align: top; text-align: left"><span class="changed">Cyclic year name. Calendars such as the Chinese lunar calendar (and related calendars)
+			and the Hindu calendars use 60-year cycles of year names. Use one through three letters for the abbreviated name, four for the full name, or five for the narrow name
+			(currently the data only provides abbreviated names, which will be used for all requested name widths). If the calendar does not provide cyclic year name data, then
+			no format data is produced for this pattern character.</span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; vertical-align: top"><span class="changed">4</span></td>
+			<td style="vertical-align: top; text-align: left"><span class="changed">(currently also 甲子)</span></td>
+		</tr>
+		<tr>
+			<td style="text-align: center; vertical-align: top"><span class="changed">5</span></td>
+			<td style="vertical-align: top; text-align: left"><span class="changed">(currently also 甲子)</span></td>
 		</tr>
 		<tr>
 			<th rowspan="6" style="vertical-align: top; text-align: left">quarter</th>
@@ -5946,9 +5985,10 @@ range         = value'..'value</pre>
 		<tr>
 			<td style="text-align: center">l</td>
 			<td style="text-align: center">1</td>
-			<td>*</td>
-			<td>Special symbol for Chinese leap month, used in combination 
-			with M. Only used with the Chinese calendar.</td>
+			<td><span class="changed">(nothing)</span></td>
+			<td><span class="changed">This pattern character is deprecated, and should be ignored in patterns. It was originally intended to be used in combination with M
+			to indicate placement of the symbol for leap month in the Chinese calendar. Placement of that marker is now specified using locale-specific &lt;monthPatterns&gt;
+			data, and formatting and parsing of that marker should be handled as part of supporting the regular M and L pattern characters.</span></td>
 		</tr>
 		<tr>
 			<th rowspan="2">week</th>
@@ -8781,6 +8821,10 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Note the change in version numbering scheme beginning with this release.</li>
 		<li>Added information on distinctness requirements for names of eras and dayPeriods.
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/3831">#3831</a>]</li>
+		<li>Added descriptions of new &lt;monthPatterns&gt; and &lt;cyclicNameSets&gt; calendar elements and of new 'U' date pattern
+		character for cyclic year names. Deprecated the 'l' pattern character for leap month marker.
+		[tickets <a href="http://unicode.org/cldr/trac/ticket/4230">#4230</a>, <a href="http://unicode.org/cldr/trac/ticket/4231">#4231</a>,
+		<a href="http://unicode.org/cldr/trac/ticket/4232">#4232</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

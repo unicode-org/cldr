@@ -577,6 +577,7 @@ public class GenerateMaximalLocales {
           {"und_Latn_SY", "fr_Latn_SY"},
           {"und_LR", "en_Latn_LR"},
           {"und_PH", "fil_Latn_PH"},
+          {"und_SS", "en_Latn_SS"},
           {"und_Vaii", "vai_Vaii_LR"},
           {"trv", "trv_Latn_TW"},
           {"twq", "twq_Latn_NE"},

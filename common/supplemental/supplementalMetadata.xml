@@ -46,8 +46,8 @@
                 sgn-BE-FR sgn-BE-NL sgn-CH-DE
                 zh-guoyu zh-hakka zh-min zh-min-nan zh-xiang
             </variable>
-            <!-- for CLDR 1.8 only - will add new language codes for Africa by hand, until we figure out how to -->
-            <!-- deal with all the new language codes introduced by the latest bcp 47 --> 
+            <!-- for CLDR 1.8 and beyond - will add new language codes by hand, until we figure out how to -->
+            <!-- deal with all the new language codes introduced by bcp 47 --> 
             <variable id="$language" type="choice">
                 aa ab ace ach ada ady ae af afa afh agq ain ak akk ale alg alt am an ang anp apa ar
                 arc arn arp art arw as asa ast ath aus av awa ay az
@@ -71,32 +71,6 @@
                 nub nus nv nwc ny nym nyn nyo nzi
                 oc oj om or os osa ota oto
                 pa paa pag pal pam pap pau peo phi phn pi pl pon pra pro ps pt
-                qaa qab qac qad qae qaf qag qah qai qaj qak qal qam qan qao qap qaq qar qas qat
-                qau qav qaw qax qay qaz qba qbb qbc qbd qbe qbf qbg qbh qbi qbj qbk qbl qbm qbn
-                qbo qbp qbq qbr qbs qbt qbu qbv qbw qbx qby qbz qca qcb qcc qcd qce qcf qcg qch
-                qci qcj qck qcl qcm qcn qco qcp qcq qcr qcs qct qcu qcv qcw qcx qcy qcz qda qdb
-                qdc qdd qde qdf qdg qdh qdi qdj qdk qdl qdm qdn qdo qdp qdq qdr qds qdt qdu qdv
-                qdw qdx qdy qdz qea qeb qec qed qee qef qeg qeh qei qej qek qel qem qen qeo qep
-                qeq qer qes qet qeu qev qew qex qey qez qfa qfb qfc qfd qfe qff qfg qfh qfi qfj
-                qfk qfl qfm qfn qfo qfp qfq qfr qfs qft qfu qfv qfw qfx qfy qfz qga qgb qgc qgd
-                qge qgf qgg qgh qgi qgj qgk qgl qgm qgn qgo qgp qgq qgr qgs qgt qgu qgv qgw qgx
-                qgy qgz qha qhb qhc qhd qhe qhf qhg qhh qhi qhj qhk qhl qhm qhn qho qhp qhq qhr
-                qhs qht qhu qhv qhw qhx qhy qhz qia qib qic qid qie qif qig qih qii qij qik qil
-                qim qin qio qip qiq qir qis qit qiu qiv qiw qix qiy qiz qja qjb qjc qjd qje qjf
-                qjg qjh qji qjj qjk qjl qjm qjn qjo qjp qjq qjr qjs qjt qju qjv qjw qjx qjy qjz
-                qka qkb qkc qkd qke qkf qkg qkh qki qkj qkk qkl qkm qkn qko qkp qkq qkr qks qkt
-                qku qkv qkw qkx qky qkz qla qlb qlc qld qle qlf qlg qlh qli qlj qlk qll qlm qln
-                qlo qlp qlq qlr qls qlt qlu qlv qlw qlx qly qlz qma qmb qmc qmd qme qmf qmg qmh
-                qmi qmj qmk qml qmm qmn qmo qmp qmq qmr qms qmt qmu qmv qmw qmx qmy qmz qna qnb
-                qnc qnd qne qnf qng qnh qni qnj qnk qnl qnm qnn qno qnp qnq qnr qns qnt qnu qnv
-                qnw qnx qny qnz qoa qob qoc qod qoe qof qog qoh qoi qoj qok qol qom qon qoo qop
-                qoq qor qos qot qou qov qow qox qoy qoz qpa qpb qpc qpd qpe qpf qpg qph qpi qpj
-                qpk qpl qpm qpn qpo qpp qpq qpr qps qpt qpu qpv qpw qpx qpy qpz qqa qqb qqc qqd
-                qqe qqf qqg qqh qqi qqj qqk qql qqm qqn qqo qqp qqq qqr qqs qqt qqu qqv qqw qqx
-                qqy qqz qra qrb qrc qrd qre qrf qrg qrh qri qrj qrk qrl qrm qrn qro qrp qrq qrr
-                qrs qrt qru qrv qrw qrx qry qrz qsa qsb qsc qsd qse qsf qsg qsh qsi qsj qsk qsl
-                qsm qsn qso qsp qsq qsr qss qst qsu qsv qsw qsx qsy qsz qta qtb qtc qtd qte qtf
-                qtg qth qti qtj qtk qtl qtm qtn qto qtp qtq qtr qts qtt qtu qtv qtw qtx qty qtz
                 qu
                 raj rap rar rm rn ro roa rof rom root ru rup rw rwk
                 sa sad sah sai sal sam saq sas sat sbp sc scn sco sd se see seh sel sem ses sg sga sgn
@@ -113,28 +87,28 @@
             </variable>
             <variable id="$territory" type="choice">
                 001 002 003 005 009 011 013 014 015 017 018 019 021 029 030 034 035 039 053 054
-                057 061 062
-                142 143 145 150 151 154 155 419
-                172 200 830
+                057 061
+                142 143 145 150 151 154 155
+                419
                 AC AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ
                 BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BU BV BW BY BZ
                 CA CC CD CF CG CH CI CK CL CM CN CO CP CR CS CU CV CW CX CY CZ
-                DD DE DG DJ DK DM DO DY DZ
+                DD DE DG DJ DK DM DO DZ
                 EA EC EE EG EH ER ES ET EU
-                FI FJ FK FM FO FQ FR FX
+                FI FJ FK FM FO FR FX
                 GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY
-                HK HM HN HR HT HU HV
+                HK HM HN HR HT HU
                 IC ID IE IL IM IN IO IQ IR IS IT
-                JE JM JO JP JT
+                JE JM JO JP
                 KE KG KH KI KM KN KP KR KW KY KZ
                 LA LB LC LI LK LR LS LT LU LV LY
-                MA MC MD ME MF MG MH MI MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ
-                NA NC NE NF NG NH NI NL NO NP NQ NR NT NU NZ
+                MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ
+                NA NC NE NF NG NI NL NO NP NR NT NU NZ
                 OM
-                PA PC PE PF PG PH PK PL PM PN PR PS PT PU PW PY PZ
+                PA PE PF PG PH PK PL PM PN PR PS PT PW PY
                 QA QO QU
                 RE RO RS RU RW
-                SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SU SV SX SY SZ
+                SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SU SV SX SY SZ
                 TA TC TD TF TG TH TJ TK TL TM TN TO TP TR TT TV TW TZ
                 UA UG UM US UY UZ
                 VA VC VE VG VI VN VU
@@ -152,7 +126,7 @@
                 Hang Hani Hano Hans Hant Hebr Hira Hmng Hrkt Hung
                 Inds Ital
                 Java Jpan Jurc
-                Kali Kana Khar Khmr Knda Kore Kpel Kthi
+                Kali Kana Khar Khmr Khoj Knda Kore Kpel Kthi
                 Lana Laoo Latf Latg Latn Lepc Limb Lina Linb Lisu Loma Lyci Lydi
                 Mand Mani Maya Mend Merc Mero Mlym Mong Moon Mroo Mtei Mymr
                 Narb Nbat Nkgb Nkoo Nshu
@@ -164,7 +138,7 @@
                 Qabw Qabx
                 Rjng Roro Runr
                 Samr Sara Sarb Saur Sgnw Shaw Shrd Sind Sinh Sora Sund Sylo Syrc Syre Syrj Syrn
-                Tagb Takr Tale Talu Taml Tang Tavt Telu Teng Tfng Tglg Thaa Thai Tibt
+                Tagb Takr Tale Talu Taml Tang Tavt Telu Teng Tfng Tglg Thaa Thai Tibt Tirh
                 Ugar
                 Vaii Visp
                 Wara Wole
@@ -427,6 +401,7 @@
             <variable id="$collationType" type="choice">
                 big5han
                 dictionary direct ducet
+                eor
                 gb2312han
                 phonebook phonetic pinyin
                 reformed
@@ -452,9 +427,10 @@
                 khmr knda
                 laoo latn
                 mlym mong mymr
+                native
                 orya
                 roman romanlow
-                taml tamldec telu thai tibt
+                taml tamldec telu thai tibt traditio traditional
             </variable>
             <variable id="$reference" type="regex">([R|S]|RP)[0-9]+</variable>
             <variable id="$time" type="regex">([01][0-9]|2[0-4]):[0-6][0-9]</variable>
@@ -523,7 +499,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colStrength currency numbers x</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese jpan jpanfin knda khmr laoo latn lower mlym mong mymr no non-ignorable orya persian phonebook pinyin primary quarternary quaternary roc roman romanlow search searchjl secondary shifted stroke taml tamldec telu tertiary thai tibt traditional upper yes</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ducet eor ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese jpan jpanfin knda khmr laoo latn lower mlym mong mymr native no non-ignorable orya persian phonebook pinyin primary quarternary quaternary roc roman romanlow search searchjl secondary shifted stroke taml tamldec telu tertiary thai tibt traditional upper yes</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>
@@ -857,6 +833,7 @@
             <territoryAlias type="280" replacement="DE" reason="deprecated"/> <!-- West Germany (pre-1990) -->
             <territoryAlias type="532" replacement="AN" reason="deprecated"/> <!-- Netherlands Antilles (pre-1986) -->
             <territoryAlias type="582" replacement="FM MH MP PW" reason="deprecated"/> <!-- Pacific Islands (Trust Territory - pre-1991) -->
+            <territoryAlias type="736" replacement="SD" reason="deprecated"/> <!-- Sudan (pre-2011) -->
             <territoryAlias type="830" replacement="JE GG" reason="deprecated"/> <!-- Channel Islands -->
             <territoryAlias type="886" replacement="YE" reason="deprecated"/> <!-- Yemen (pre-1990) -->
             <territoryAlias type="890" replacement="RS ME SI HR MK BA" reason="deprecated"/> <!-- Yugoslavia (pre-1992) -->
@@ -1318,7 +1295,7 @@
             <territoryAlias type="682" replacement="SA" reason="overlong"/> <!-- Saudi Arabia -->
             <territoryAlias type="090" replacement="SB" reason="overlong"/> <!-- Solomon Islands -->
             <territoryAlias type="690" replacement="SC" reason="overlong"/> <!-- Seychelles -->
-            <territoryAlias type="736" replacement="SD" reason="overlong"/> <!-- Sudan -->
+            <territoryAlias type="729" replacement="SD" reason="overlong"/> <!-- Sudan -->
             <territoryAlias type="752" replacement="SE" reason="overlong"/> <!-- Sweden -->
             <territoryAlias type="702" replacement="SG" reason="overlong"/> <!-- Singapore -->
             <territoryAlias type="654" replacement="SH" reason="overlong"/> <!-- Saint Helena -->
@@ -1330,6 +1307,7 @@
             <territoryAlias type="686" replacement="SN" reason="overlong"/> <!-- Senegal -->
             <territoryAlias type="706" replacement="SO" reason="overlong"/> <!-- Somalia -->
             <territoryAlias type="740" replacement="SR" reason="overlong"/> <!-- Suriname -->
+            <territoryAlias type="728" replacement="SS" reason="overlong"/> <!-- South Sudan -->
             <territoryAlias type="678" replacement="ST" reason="overlong"/> <!-- São Tomé and Príncipe -->
             <territoryAlias type="810" replacement="RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ" reason="overlong"/> <!-- Union of Soviet Socialist Republics -->
             <territoryAlias type="222" replacement="SV" reason="overlong"/> <!-- El Salvador -->

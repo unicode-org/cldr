@@ -782,7 +782,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         keyNameMap.put("displayName", "dn");
         keyNameMap.put("icu:breakDictionaryData", "BreakDictionaryData");
 
-        deprecatedTerritories.put("BQ", "");
         deprecatedTerritories.put("CT", "");
         deprecatedTerritories.put("DD", "");
         deprecatedTerritories.put("FQ", "");

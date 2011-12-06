@@ -4,16 +4,16 @@
 Internet Engineering Task Force                                 M. Davis
 Internet-Draft                                                    Google
 Intended status: Informational                               A. Phillips
-Expires: March 28, 2012                                           Lab126
+Expires: June 7, 2012                                             Lab126
                                                                Y. Umaoka
                                                                      IBM
                                                                  C. Falk
                                                        Infinite Automata
-                                                      September 25, 2011
+                                                        December 5, 2011
 
 
                 BCP 47 Extension T - Transformed Content
-                      draft-davis-t-langtag-ext-06
+                      draft-davis-t-langtag-ext-07
 
 Abstract
 
@@ -38,7 +38,7 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 28, 2012.
+   This Internet-Draft will expire on June 7, 2012.
 
 Copyright Notice
 
@@ -52,9 +52,9 @@ Copyright Notice
 
 
 
-Davis, et al.            Expires March 28, 2012                 [Page 1]
+Davis, et al.             Expires June 7, 2012                  [Page 1]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
    carefully, as they describe your rights and restrictions with respect
@@ -73,7 +73,7 @@ Table of Contents
      2.5.  Field Definitions  . . . . . . . . . . . . . . . . . . . .  8
      2.6.  Registration of Field Subtags  . . . . . . . . . . . . . . 10
      2.7.  Registration of Additional Fields  . . . . . . . . . . . . 10
-     2.8.  Committee Responses to Registration Proposals  . . . . . . 10
+     2.8.  Committee Responses to Registration Proposals  . . . . . . 11
      2.9.  Machine-Readable Data  . . . . . . . . . . . . . . . . . . 11
    3.  Acknowledgements . . . . . . . . . . . . . . . . . . . . . . . 13
    4.  IANA Considerations  . . . . . . . . . . . . . . . . . . . . . 14
@@ -108,9 +108,9 @@ Table of Contents
 
 
 
-Davis, et al.            Expires March 28, 2012                 [Page 2]
+Davis, et al.             Expires June 7, 2012                  [Page 2]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
 1.  Introduction
@@ -164,9 +164,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-Davis, et al.            Expires March 28, 2012                 [Page 3]
+Davis, et al.             Expires June 7, 2012                  [Page 3]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
    c.  US Board on Geographic Names (BGN)
@@ -220,9 +220,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-Davis, et al.            Expires March 28, 2012                 [Page 4]
+Davis, et al.             Expires June 7, 2012                  [Page 4]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
    | und-Latn-t-und-cyrl | The content is in the Latin script,         |
@@ -236,7 +236,7 @@ Internet-Draft             BCP 47 Extension T             September 2011
    tag in [BCP47].  That tag would express an empty 't' extension
    followed by an 'i' extension.
 
-   The t extension is not intended for use in structured data that
+   The 't' extension is not intended for use in structured data that
    already provides separate source and target language identifiers.
    For example, this is the case in localization interchange formats
    such as XLIFF.  In such cases, it would be inappropriate to use "ja-
@@ -276,30 +276,32 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-Davis, et al.            Expires March 28, 2012                 [Page 5]
+Davis, et al.             Expires June 7, 2012                  [Page 5]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
    The field subtags are defined by Section 3 [1] of Unicode Technical
-   Standard #35: Unicode Locale Data Markup Language [UTS35].  As
-   required by BCP 47, subtags follow the language tag ABNF and other
-   rules for the formation of language tags and subtags, are restricted
-   to the ASCII letters and digits, are not case sensitive, and do not
-   exceed eight characters in length.
+   Standard #35: Unicode Locale Data Markup Language [UTS35] (LDML), the
+   main specification for the Unicode Common Locale Data Repository
+   (CLDR) project.  As required by BCP 47, subtags follow the language
+   tag ABNF and other rules for the formation of language tags and
+   subtags, are restricted to the ASCII letters and digits, are not case
+   sensitive, and do not exceed eight characters in length.
 
    EDITORIAL NOTE: This new facility has been accepted by the Unicode
-   CLDR committee for incorporation into the next version of Unicode
-   CLDR, parallel with the structure of the 'u' extension [RFC6067], for
+   CLDR committee for incorporation into the next versions of CLDR and
+   LDML, parallel with the structure of the 'u' extension [RFC6067], for
    which it is already the maintaining authority.  The data and
    specification will be available by the time this internet draft has
    been approved.
 
-   LDML is available over the Internet and at no cost, and is available
-   via a royalty-free license at http://unicode.org/copyright.html.
-   LDML is versioned, and each version of LDML is numbered, dated, and
-   stable.  Extension subtags, once defined by LDML, are never retracted
-   or substantially changed in meaning.
+   The LDML specification is available over the Internet and at no cost,
+   and is available via a royalty-free license at
+   http://unicode.org/copyright.html.  LDML is versioned, and each
+   version of LDML is numbered, dated, and stable.  Extension subtags,
+   once defined by LDML, are never retracted or substantially changed in
+   meaning.
 
    The maintaining authority for the 't' extension is the Unicode
    Consortium:
@@ -330,11 +332,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-
-
-Davis, et al.            Expires March 28, 2012                 [Page 6]
+Davis, et al.             Expires June 7, 2012                  [Page 6]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
    t-ext=    "t"                      ; Extension
@@ -369,9 +369,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
        identical field separators MUST NOT be present in the language
        tag.
 
-   d.  The order of the fields in a t extension is not significant.  The
-       order of subtags within a field is significant.  (See Section 2.3
-       Canonicalization.)
+   d.  The order of the fields in a 't' extension is not significant.
+       The order of subtags within a field is significant.  (See
+       Section 2.3 Canonicalization.)
 
    e.  The 't' subtag fields are defined by Section 3 [1] of Unicode
        Technical Standard #35: Unicode Locale Data Markup Language
@@ -388,9 +388,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-Davis, et al.            Expires March 28, 2012                 [Page 7]
+Davis, et al.             Expires June 7, 2012                  [Page 7]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
 2.4.  BCP47 Registration Form
@@ -444,9 +444,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-Davis, et al.            Expires March 28, 2012                 [Page 8]
+Davis, et al.             Expires June 7, 2012                  [Page 8]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
        mechanism subtags.  Each mechanism subtag has a length of 3 to 8
@@ -464,12 +464,18 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
        *  it MUST NOT be the only subtag in the field
 
-       *  it MUST consist of a sequence of digits of the form YYYY,
+       *  it MUST only consist of a sequence of digits of the form YYYY,
           YYYYMM, or YYYYMMDD
 
        *  it SHOULD be as short as possible
 
-       Examples:
+       Note: The format is related to that of [RFC3339], but is not the
+       same.  The RFC 3339 full-date won't work because it uses hyphens.
+       The offset ("Z") is not used because the date is a publication
+       date (aka 'floating date').  For more information, see Section
+       3.3, Floating Time in [W3C-TimeZones].
+
+   c.  Examples:
 
        *  20110623 represents June 23rd, 2011.
 
@@ -490,7 +496,16 @@ Internet-Draft             BCP 47 Extension T             September 2011
           be distinctive (199906 and 199912), but the last subtag would
           only require the year (2011).
 
-   c.  Some mechanisms may use a versioning system that is not
+
+
+
+
+Davis, et al.             Expires June 7, 2012                  [Page 9]
+
+Internet-Draft             BCP 47 Extension T              December 2011
+
+
+   d.  Some mechanisms may use a versioning system that is not
        distinguished by date, or not by date alone.  In the latter case,
        the version will be of a form specified by [UTS35] for that
        mechanism.  For example, if the mechanism XXX uses versions of
@@ -498,18 +513,11 @@ Internet-Draft             BCP 47 Extension T             September 2011
        If there are multiple subversions distinguished by date, then a
        tag could look like "ja-t-it-m0-xxx-v21a-2007".
 
-
-
-Davis, et al.            Expires March 28, 2012                 [Page 9]
-
-Internet-Draft             BCP 47 Extension T             September 2011
-
-
-   A language tag with the t extension MAY be used to request a specific
-   transform of content.  In such a case, the recipient SHOULD return
-   content that corresponds as closely as feasible to the requested
-   transform, including the specification of the mechanism.  For
-   example, if the request is ja-t-it-m0-xxx-v21a-2007, and the
+   A language tag with the 't' extension MAY be used to request a
+   specific transform of content.  In such a case, the recipient SHOULD
+   return content that corresponds as closely as feasible to the
+   requested transform, including the specification of the mechanism.
+   For example, if the request is ja-t-it-m0-xxx-v21a-2007, and the
    recipient has content corresponding to both ja-t-it-m0-xxx-v21a and
    ja-t-it-m0-xxx-v21b-2009, then the v21a version would be preferred.
    As is the case for language matching as discussed in [BCP47],
@@ -545,6 +553,14 @@ Internet-Draft             BCP 47 Extension T             September 2011
    In the event that it proves necessary to add an additional field
    (such as 'm2'), it can be requested by filing a ticket at
    cldr.unicode.org [2].  The proposal in the ticket MUST contain a full
+
+
+
+Davis, et al.             Expires June 7, 2012                 [Page 10]
+
+Internet-Draft             BCP 47 Extension T              December 2011
+
+
    description of the proposed field semantics and subtag syntax, and
    MUST be conform to the ABNF syntax for "field" presented in
    Section 2.2.
@@ -553,14 +569,6 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
    The committee MUST post each proposal publicly within 2 weeks after
    reception, to allow for comments.  The committee must respond
-
-
-
-Davis, et al.            Expires March 28, 2012                [Page 10]
-
-Internet-Draft             BCP 47 Extension T             September 2011
-
-
    publicly to each proposal within 4 weeks after reception.
 
    The response MAY:
@@ -601,22 +609,22 @@ Internet-Draft             BCP 47 Extension T             September 2011
    Inside the "core.zip" file, the directory "common/bcp47" contains the
    data files listing the valid attributes, keys, and types for each
    successive version of [UTS35].  Each data file list the keys and
+
+
+
+Davis, et al.             Expires June 7, 2012                 [Page 11]
+
+Internet-Draft             BCP 47 Extension T              December 2011
+
+
    types relevant to that topic.  For example, mechanism.xml contains
-   the subtags (types) for the t mechanisms.
+   the subtags (types) for the 't' mechanisms.
 
    The XML structure lists the keys, such as <key extension="t"
    name="m0" alias="collation" description="Transliteration extension
    mechanism">, with subelements for the types, such as <type
    name="ungegn" description="United Nations Group of Experts on
    Geographical Names"/>.  The currently defined attributes for the
-
-
-
-Davis, et al.            Expires March 28, 2012                [Page 11]
-
-Internet-Draft             BCP 47 Extension T             September 2011
-
-
    mechanisms include:
 
    +-------------+-------------------------------+---------------------+
@@ -660,17 +668,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-
-
-
-
-
-
-
-
-Davis, et al.            Expires March 28, 2012                [Page 12]
+Davis, et al.             Expires June 7, 2012                 [Page 12]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
    <key extension="t" name="m0" description=
@@ -724,9 +724,9 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 
 
-Davis, et al.            Expires March 28, 2012                [Page 13]
+Davis, et al.             Expires June 7, 2012                 [Page 13]
 
-Internet-Draft             BCP 47 Extension T             September 2011
+Internet-Draft             BCP 47 Extension T              December 2011
 
 
 4.  IANA Considerations
@@ -775,16 +775,23 @@ Internet-Draft             BCP 47 Extension T             September 2011
 
 6.2.  Informative References
 
+   [RFC3339]  Klyne, Ed. and Newman, Ed., "Date and Time on the
+              Internet: Timestamps", 2002.
+
+
+
+Davis, et al.             Expires June 7, 2012                 [Page 14]
+
+Internet-Draft             BCP 47 Extension T              December 2011
+
+
+   [W3C-TimeZones]
+              Phillips, Ed., "W3C Working Group Note: Working with Time
+              Zones", July 2011,
+              <http://www.w3.org/TR/2011/NOTE-timezone-20110705/>.
+
    [ldml-registry]
               "Registry for Common Locale Data Repository tag elements",
-
-
-
-Davis, et al.            Expires March 28, 2012                [Page 14]
-
-Internet-Draft             BCP 47 Extension T             September 2011
-
-
               September 2009.
 
 URIs
@@ -829,12 +836,5 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-Davis, et al.            Expires March 28, 2012                [Page 15]
+Davis, et al.             Expires June 7, 2012                 [Page 15]
 

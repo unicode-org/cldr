@@ -11,7 +11,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-davis-t-langtag-ext-06" ipr="trust200902"
+<rfc category="info" docName="draft-davis-t-langtag-ext-08" ipr="trust200902"
 	submissionType="independent"
 >
 	<front>
@@ -47,7 +47,7 @@
             </address>
         </author>
         
-		<date month="September" year="2011" day="25" />
+		<date month="December" year="2011" day="6" />
 
 
 
@@ -216,7 +216,7 @@
 					<xref target="BCP47"></xref>. That tag would express an empty 't' extension followed by an 'i'
 					extension.
 				</t>
-				<t>The t extension is not intended for use in structured data that already provides 
+				<t>The 't' extension is not intended for use in structured data that already provides 
 				separate source and target language identifiers.
 				For example, this is the case in localization interchange formats such as XLIFF.
 				In such cases, it would be inappropriate to use "ja-t-it" for the target language tag because the source language tag
@@ -264,16 +264,16 @@
 					of
 					<xref target="UTS35">Unicode
 						Technical Standard #35: Unicode Locale Data
-						Markup Language</xref>. As required by BCP 47, subtags follow the language tag ABNF and
+						Markup Language</xref> (LDML), the main specification for the Unicode
+                    Common Locale Data Repository (CLDR) project.
+                    As required by BCP 47, subtags follow the language tag ABNF and
 					other rules for the formation of language tags and subtags, are
 					restricted to the ASCII letters and digits, are not case sensitive,
 					and do not exceed eight characters in length.
 				</t>
 				<t>
 					EDITORIAL NOTE: This new facility has been accepted by the Unicode
-					CLDR
-					committee for incorporation into the next version of Unicode
-					CLDR, parallel
+				    CLDR committee for incorporation into the next versions of CLDR and LDML, parallel
 					with the structure of the 'u' extension
 					<xref target="RFC6067"></xref>,
 					for which it is already the maintaining authority.
@@ -283,7 +283,7 @@
 					been
 					approved.
 				</t>
-				<t>LDML is available over the Internet and at no cost, and
+				<t>The LDML specification is available over the Internet and at no cost, and
 					is
 					available via a royalty-free license at
 					http://unicode.org/copyright.html. LDML is versioned, and each
@@ -364,7 +364,7 @@ alphanum= ALPHA / DIGIT
 							Two identical field
 							separators MUST NOT be present in the language tag.</t>
 						<t>
-							The order of the fields in a t extension is not significant. The order of subtags within a field is significant.
+							The order of the fields in a 't' extension is not significant. The order of subtags within a field is significant.
 							(See
 							<xref target='canonicalization' />
 							Canonicalization.)
@@ -469,9 +469,14 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 							<list style="symbols">
 								<t>it MUST occur as the final subtag in the field</t>
 								<t>it MUST NOT be the only subtag in the field</t>
-								<t>it MUST consist of a sequence of digits of the form YYYY,
+								<t>it MUST only consist of a sequence of digits of the form YYYY,
 									YYYYMM, or YYYYMMDD</t>
                                 <t>it SHOULD be as short as possible</t>
+                            <t>Note: The format is related to that of <xref target="RFC3339"></xref>, but is not the same.
+                            The RFC 3339 full-date won't work because it uses hyphens. The offset ("Z") is not used
+                            because the date is a publication date (aka 'floating date'). For more information, see
+                             Section 3.3, Floating Time in 
+                             <xref target="W3C-TimeZones"></xref>.</t>
 							</list>
 							Examples:
 							<list style="symbols">
@@ -516,7 +521,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 					</list>
 					
 				</t>
-				<t>A language tag with the t extension MAY be used to request a specific transform of content.
+				<t>A language tag with the 't' extension MAY be used to request a specific transform of content.
 				In such a case, the recipient SHOULD return content that corresponds
 				as closely as feasible to the requested transform, including the specification of the mechanism.
 				For example, if the request is ja-t-it-m0-xxx-v21a-2007,
@@ -595,7 +600,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
                     <xref target="regform"></xref>.</t>
 			     <t>Inside the "core.zip" file, the directory "common/bcp47" contains the
 					data files listing the valid attributes, keys, and types for each successive version of <xref target="UTS35"></xref>.
-					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the t mechanisms.</t>
+					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the 't' mechanisms.</t>
 					<t>The XML structure lists the keys, such as &lt;key extension="t" name="m0" alias="collation" description="Transliteration extension mechanism">, with subelements for the types, 
 					such as &lt;type name="ungegn" description="United Nations Group of Experts on Geographical Names"/>. The currently defined attributes for the mechanisms include:</t>
 			     <texttable>
@@ -745,8 +750,7 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 				<front>
 					<title abbrev="RFC6067">BCP 47 Extension U</title>
 					<author initials="M.E." surname="Davis" fullname="Mark Davis"
-						role="editor"
-					>
+						role="editor">
 						<organization>Google
 						</organization>
 					</author>
@@ -788,13 +792,41 @@ URL: http://www.unicode.org/Public/cldr/latest/core.zip
 			<reference anchor="ldml-registry">
 				<front>
 					<title>Registry for Common Locale Data Repository tag elements</title>
-					<author fullname="Unicode Consortium">
-						<organization><?xm-replace_text {organization}?>
-						</organization>
-					</author>
+					<author fullname="Unicode Consortium"></author>
 					<date year="2009" month="September" />
 				</front>
 			</reference>
+            <reference anchor="W3C-TimeZones" target="http://www.w3.org/TR/2011/NOTE-timezone-20110705/">
+                <front>
+                    <title>W3C Working Group Note: Working with Time Zones</title>
+                    <author surname="Phillips" fullname="Addison Phillips" role="editor">
+                        <organization>W3C</organization>
+                    </author>
+                    <date year="2011" month="July" />
+                </front>
+            </reference>
+            <reference anchor="RFC3339">
+                <front>
+                    <title>Date and Time on the Internet: Timestamps</title>
+                    <author surname="Klyne" fullname="Graham Klyne"
+                        role="editor">
+                        <organization>Clearswift Corporation</organization>
+                    </author>
+                    <author surname="Newman" fullname="Chris Newman"
+                        role="editor">
+                        <organization>Sun Microsystems</organization>
+                    </author>
+                    <date year="2002" />
+                    <abstract>
+                        <t>   This document specifies an Internet standards track protocol for the
+   Internet community, and requests discussion and suggestions for
+   improvements.  Please refer to the current edition of the "Internet
+   Official Protocol Standards" (STD 1) for the standardization state
+   and status of this protocol.  Distribution of this memo is unlimited.
+                        </t>
+                    </abstract>
+                </front>
+            </reference>
 		</references>
 
 

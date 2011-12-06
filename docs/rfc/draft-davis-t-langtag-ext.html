@@ -145,14 +145,14 @@
 <tr><td class="header">Internet Engineering Task Force</td><td class="header">M. Davis</td></tr>
 <tr><td class="header">Internet-Draft</td><td class="header">Google</td></tr>
 <tr><td class="header">Intended status: Informational</td><td class="header">A. Phillips</td></tr>
-<tr><td class="header">Expires: March 28, 2012</td><td class="header">Lab126</td></tr>
+<tr><td class="header">Expires: June 7, 2012</td><td class="header">Lab126</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Y. Umaoka</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">C. Falk</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Infinite Automata</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">September 25, 2011</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">December 5, 2011</td></tr>
 </table></td></tr></table>
-<h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-06</h1>
+<h1><br />BCP 47 Extension T - Transformed Content<br />draft-davis-t-langtag-ext-07</h1>
 
 <h3>Abstract</h3>
 
@@ -184,7 +184,7 @@ and may be updated, replaced, or obsoleted by other documents at any time.
 It is inappropriate to use Internet-Drafts as reference material or to cite
 them other than as &ldquo;work in progress.&rdquo;</p>
 <p>
-This Internet-Draft will expire on March 28, 2012.</p>
+This Internet-Draft will expire on June 7, 2012.</p>
 
 <h3>Copyright Notice</h3>
 <p>
@@ -403,7 +403,7 @@ Overview</h3>
 					extension.
 				
 </p>
-<p>The t extension is not intended for use in structured data that already provides 
+<p>The 't' extension is not intended for use in structured data that already provides 
 				separate source and target language identifiers.
 				For example, this is the case in localization interchange formats such as XLIFF.
 				In such cases, it would be inappropriate to use "ja-t-it" for the target language tag because the source language tag
@@ -455,7 +455,9 @@ Overview</h3>
 					of
 					<a class='info' href='#UTS35'>Unicode
 						Technical Standard #35: Unicode Locale Data
-						Markup Language<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35]. As required by BCP 47, subtags follow the language tag ABNF and
+						Markup Language<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a> [UTS35] (LDML), the main specification for the Unicode
+                    Common Locale Data Repository (CLDR) project.
+                    As required by BCP 47, subtags follow the language tag ABNF and
 					other rules for the formation of language tags and subtags, are
 					restricted to the ASCII letters and digits, are not case sensitive,
 					and do not exceed eight characters in length.
@@ -463,9 +465,7 @@ Overview</h3>
 </p>
 <p>
 					EDITORIAL NOTE: This new facility has been accepted by the Unicode
-					CLDR
-					committee for incorporation into the next version of Unicode
-					CLDR, parallel
+				    CLDR committee for incorporation into the next versions of CLDR and LDML, parallel
 					with the structure of the 'u' extension
 					<a class='info' href='#RFC6067'>[RFC6067]<span> (</span><span class='info'>Davis, M., Ed., Phillips, A., Ed., and Y. Umaoka, Ed., &ldquo;BCP 47 Extension U,&rdquo; September&nbsp;2010.</span><span>)</span></a>,
 					for which it is already the maintaining authority.
@@ -476,7 +476,7 @@ Overview</h3>
 					approved.
 				
 </p>
-<p>LDML is available over the Internet and at no cost, and
+<p>The LDML specification is available over the Internet and at no cost, and
 					is
 					available via a royalty-free license at
 					http://unicode.org/copyright.html. LDML is versioned, and each
@@ -569,7 +569,7 @@ Structure</h3>
 </dd>
 <dt>d.</dt>
 <dd>
-							The order of the fields in a t extension is not significant. The order of subtags within a field is significant.
+							The order of the fields in a 't' extension is not significant. The order of subtags within a field is significant.
 							(See
 							<a class='info' href='#canonicalization'>Section&nbsp;2.3<span> (</span><span class='info'>Canonicalization</span><span>)</span></a>
 							Canonicalization.)
@@ -699,12 +699,21 @@ Field Definitions</h3>
 </li>
 <li>it MUST NOT be the only subtag in the field
 </li>
-<li>it MUST consist of a sequence of digits of the form YYYY,
+<li>it MUST only consist of a sequence of digits of the form YYYY,
 									YYYYMM, or YYYYMMDD
 </li>
 <li>it SHOULD be as short as possible
 </li>
 </ul>
+							Note: The format is related to that of <a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, Ed. and Newman, Ed., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; 2002.</span><span>)</span></a>, but is not the same.
+							The RFC 3339 full-date won't work because it uses hyphens. The offset ("Z") is not used
+							because the date is a publication date (aka 'floating date'). For more information, see
+							 Section 3.3, Floating Time in 
+							 <a class='info' href='#W3C-TimeZones'>[W3C&#8209;TimeZones]<span> (</span><span class='info'>Phillips, Ed., &ldquo;W3C Working Group Note: Working with Time Zones,&rdquo; July&nbsp;2011.</span><span>)</span></a>.
+							 
+</dd>
+<dt>c.</dt>
+<dd>
 							Examples:
 							
 <ul class="text">
@@ -738,7 +747,7 @@ Field Definitions</h3>
 </ul>
 						
 </dd>
-<dt>c.</dt>
+<dt>d.</dt>
 <dd>
 							Some mechanisms may use a versioning system that is not
 							distinguished by date, or not by date alone.
@@ -760,7 +769,7 @@ Field Definitions</h3>
 					
 				
 </p>
-<p>A language tag with the t extension MAY be used to request a specific transform of content.
+<p>A language tag with the 't' extension MAY be used to request a specific transform of content.
 				In such a case, the recipient SHOULD return content that corresponds
 				as closely as feasible to the requested transform, including the specification of the mechanism.
 				For example, if the request is ja-t-it-m0-xxx-v21a-2007,
@@ -872,7 +881,7 @@ Machine-Readable Data</h3>
 </p>
 <p>Inside the "core.zip" file, the directory "common/bcp47" contains the
 					data files listing the valid attributes, keys, and types for each successive version of <a class='info' href='#UTS35'>[UTS35]<span> (</span><span class='info'>Davis, M., &ldquo;Unicode Technical Standard #35: Locale Data 						Markup Language (LDML),&rdquo; December&nbsp;2007.</span><span>)</span></a>.
-					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the t mechanisms.
+					Each data file list the keys and types relevant to that topic. For example, mechanism.xml contains the subtags (types) for the 't' mechanisms.
 </p>
 <p>The XML structure lists the keys, such as &lt;key extension="t" name="m0" alias="collation" description="Transliteration extension mechanism">, with subelements for the types, 
 					such as &lt;type name="ungegn" description="United Nations Group of Experts on Geographical Names"/>. The currently defined attributes for the mechanisms include:
@@ -1030,6 +1039,10 @@ References</h3>
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <h3>6.2.&nbsp;Informative References</h3>
 <table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="RFC3339">[RFC3339]</a></td>
+<td class="author-text">Klyne, Ed. and Newman, Ed., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; 2002.</td></tr>
+<tr><td class="author-text" valign="top"><a name="W3C-TimeZones">[W3C-TimeZones]</a></td>
+<td class="author-text">Phillips, Ed., &ldquo;<a href="http://www.w3.org/TR/2011/NOTE-timezone-20110705/">W3C Working Group Note: Working with Time Zones</a>,&rdquo; July&nbsp;2011.</td></tr>
 <tr><td class="author-text" valign="top"><a name="ldml-registry">[ldml-registry]</a></td>
 <td class="author-text">&ldquo;Registry for Common Locale Data Repository tag elements,&rdquo; September&nbsp;2009.</td></tr>
 </table>

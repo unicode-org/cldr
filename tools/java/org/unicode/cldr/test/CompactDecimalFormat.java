@@ -80,7 +80,7 @@ public class CompactDecimalFormat extends DecimalFormat {
             if (data != null) {
                 break;
             }
-            locale = locale.getFallback();
+            locale = locale.equals(zhTW) ? ULocale.TRADITIONAL_CHINESE : locale.getFallback();
         }
         this.prefix = data.prefixes;
         this.suffix = data.suffixes;
@@ -91,6 +91,8 @@ public class CompactDecimalFormat extends DecimalFormat {
         setSignificantDigitsUsed(true);
         setGroupingUsed(false);
     }
+    
+    private static ULocale zhTW = new ULocale("zh_TW");
 
     /**
      * Create a CompactDecimalFormat appropriate for a locale. The result may be affected by the number system in the locale, such as ar-u-nu-latn.

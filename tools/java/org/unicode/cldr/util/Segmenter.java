@@ -730,11 +730,13 @@ public class Segmenter {
             "$WJ=\\p{Line_Break=Word_Joiner}",
             "$XX=\\p{Line_Break=Unknown}",
             "$ZW=\\p{Line_Break=ZWSpace}",
+            "$CJ=\\p{Line_Break=Conditional_Japanese_Starter}",
             "# LB 1  Assign a line breaking class to each code point of the input. ",
             "# Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm.",
             "# NOTE: CB is ok to fall through, but must handle others here.",
             //"show $AL",
             "$AL=[$AI $AL $XX $SA $SG]",
+            "$ID=[$ID $NS]",
             //"show $AL",
             //"$oldAL=$AL", // for debugging
             "# WARNING: Fixes for Rule 9",

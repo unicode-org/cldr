@@ -19,9 +19,11 @@ public class Option {
     private final String helpString;
     private boolean doesOccur;
     private String value;
+    private boolean implicitValue;
 
     public void clear() {
         doesOccur = false;
+        implicitValue = false;
         value = null;
     }
 
@@ -39,6 +41,10 @@ public class Option {
 
     public String getValue() {
         return value;
+    }
+
+    public boolean getUsingImplicitValue() {
+        return implicitValue;
     }
 
     public boolean doesOccur() {
@@ -109,8 +115,11 @@ public class Option {
         }
 
         public Options add(String string, Character flag, String argumentPattern, String defaultArgument, String helpText) {
-            if (stringToValues.containsKey(string) || charToValues.containsKey(flag)) {
-                throw new IllegalArgumentException("Duplicate tag " + string);
+            if (stringToValues.containsKey(string)) {
+                throw new IllegalArgumentException("Duplicate tag <" + string + "> with " + stringToValues.get(string));
+            }
+            if (charToValues.containsKey(flag)) {
+                throw new IllegalArgumentException("Duplicate tag <" + string + ", " + flag + "> with " + charToValues.get(flag));
             }
             Option option = new Option(string, flag, 
                     argumentPattern == null ? null : Pattern.compile(argumentPattern, Pattern.COMMENTS), 
@@ -178,6 +187,7 @@ public class Option {
                 if (!option.doesOccur && option.defaultArgument != null) {
                     option.doesOccur = true;
                     option.value = option.defaultArgument;
+                    option.implicitValue = true;
                 }
             }
 

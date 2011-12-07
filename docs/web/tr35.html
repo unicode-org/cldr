@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2011-12-01</span></td>
+			<td><span class="changed">2011-12-06</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -2436,8 +2436,6 @@ The index Separator can used to separate the index characters if they occur in f
     <s>&lt;am&gt;<span style="color: blue">AM</span>&lt;/am&gt; deprecated
     &lt;pm&gt;<span style="color: blue">PM</span>&lt;/pm&gt; deprecated
 </s>
-    &lt;dayPeriods&gt;<br>      &lt;dayPeriodContext type=&quot;format&quot;&gt;<br>        &lt;dayPeriodWidth type=&quot;wide&quot;&gt;<br>          &lt;dayPeriod type=&quot;am&quot;&gt;AM&lt;/dayPeriod&gt;<br>          &lt;dayPeriod type=&quot;noon&quot;&gt;noon&lt;/dayPeriod&gt;<br>          &lt;dayPeriod type=&quot;pm&quot;&gt;PM&lt;/dayPeriod&gt;<br>        &lt;/dayPeriodWidth&gt;<br>      &lt;/dayPeriodContext&gt;<br>    &lt;/dayPeriods&gt;
-
     &lt;eras&gt;
        &lt;eraAbbr&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BC</span>&lt;/era&gt;
@@ -2474,7 +2472,73 @@ The index Separator can used to separate the index characters if they occur in f
 	&lt;!ELEMENT cyclicName ( #PCDATA ) &gt;<br>
 	&lt;!ATTLIST cyclicName type NMTOKEN #REQUIRED &gt;<br>
 	</span></p>
-	<p><span class="changed">(description to be supplied).</span></p>
+	<p><span class="changed">The Chinese lunar calendar can insert a leap month after nearly any month of its year;
+	when this happens, the month takes the name of the preceding month plus a special marker. The Hindu lunar calendars
+	can insert a leap month before any one or two months of the year; when this happens, not only does the leap month
+	take the name of the following month plus a special marker, the following month also takes a special marker.
+	Moreover, in the Hindu calendar sometimes a month is skipped, in which case the preceding month takes a special
+	marker plus the names of both months. The &lt;monthPatterns&gt; element structure supports these special kinds
+	of month names. It parallels the &lt;months&gt; element structure, with various contexts and widths, but with
+	some differences:</span></p>
+	<ul>
+	<li><span class="changed">Since the month markers may be applied to numeric months as well, there is an additional
+	monthPatternContext type "numeric" for this case. When the numeric context is used, there is no need for different
+	widths, so the monthPatternWidth type is "all" for this case.</span></li>
+	<li><span class="changed">The monthPattern element itself is a pattern showing how to create the modified month name
+	from the standard month name(s). The three types of possible pattern are for "leap", "standardAfterLeap", and
+	"combined".</span></li>
+	<li><span class="changed">The &lt;monthPatterns&gt; element is not present for calendars that do not need it.</span></li>
+	</ul>
+	<p><span class="changed">The Chinese and Hindu lunar calendars also use a 60-name cycle for designating years. The Chinese
+	lunar calendars can also use that cycle for months and days, and can use 12-name cycles for designating day subdivisions or
+	zodiac names associated with years. The &lt;cyclicNameSets&gt; element structure supports these special kinds
+	of name cycles; a cyclicNameSet can be provided for types "year", "month", "day", "dayParts", or "zodiacs". For each
+	cyclicNameSet, there is a context and width structure similar to that for day names. For a given context and width, a set
+	of cyclicName elements provides the actual names.</span></p>
+    <p class="example"><span class="changed">Example:</span></p>
+<pre><span class="changed">
+    &lt;monthPatterns&gt;
+        &lt;monthPatternContext type="format"&gt;
+            &lt;monthPatternWidth type="wide"&gt;
+                &lt;monthPattern type="leap"&gt;闰{0}&lt;/monthPattern&gt;
+            &lt;/monthPatternWidth&gt;
+        &lt;/monthPatternContext&gt;
+        &lt;monthPatternContext type="stand-alone"&gt;
+            &lt;monthPatternWidth type="narrow"&gt;
+                &lt;monthPattern type="leap"&gt;闰{0}&lt;/monthPattern&gt;
+            &lt;/monthPatternWidth&gt;
+        &lt;/monthPatternContext&gt;
+        &lt;monthPatternContext type="numeric"&gt;
+            &lt;monthPatternWidth type="all"&gt;
+                &lt;monthPattern type="leap"&gt;闰{0}&lt;/monthPattern&gt;
+            &lt;/monthPatternWidth&gt;
+        &lt;/monthPatternContext&gt;
+    &lt;/monthPatterns&gt;
+    &lt;cyclicNameSets&gt;
+        &lt;cyclicNameSet type="years"&gt;
+            &lt;cyclicNameContext type="format"&gt;
+                &lt;cyclicNameWidth type="abbreviated"&gt;
+                    &lt;cyclicName type="1"&gt;甲子&lt;/cyclicName&gt;
+                    &lt;cyclicName type="2"&gt;乙丑&lt;/cyclicName&gt;
+                    ...
+                    &lt;cyclicName type="59"&gt;壬戌&lt;/cyclicName&gt;
+                    &lt;cyclicName type="60"&gt;癸亥&lt;/cyclicName&gt;
+                &lt;/cyclicNameWidth&gt;
+            &lt;/cyclicNameContext&gt;
+        &lt;/cyclicNameSet&gt;
+        &lt;cyclicNameSet type="zodiacs"&gt;
+            &lt;cyclicNameContext type="format"&gt;
+                &lt;cyclicNameWidth type="abbreviated"&gt;
+                    &lt;cyclicName type="1"&gt;鼠&lt;/cyclicName&gt;
+                    &lt;cyclicName type="2"&gt;牛&lt;/cyclicName&gt;
+                    ...
+                    &lt;cyclicName type="11"&gt;狗&lt;/cyclicName&gt;
+                    &lt;cyclicName type="12"&gt;猪&lt;/cyclicName&gt;
+                &lt;/cyclicNameWidth&gt;
+            &lt;/cyclicNameContext&gt;
+        &lt;/cyclicNameSet&gt;
+    &lt;/cyclicNameSets&gt;
+</span></pre>
  	<p><b><span class="changed"><a name="dayPeriods">&lt;dayPeriods&gt;</a></span></b></p>
     <p>The former am/pm elements have been deprecated, and replaced by the more flexible dayPeriods. </p>
   <p class="dtd">&lt;!ELEMENT dayPeriods ( alias | (dayPeriodContext*) ) &gt;</p>
@@ -2492,6 +2556,18 @@ The index Separator can used to separate the index characters if they occur in f
   as with era names, there is less disambiguating information for them, and they are more likely to be used in a format that requires
   parsing. In some unambiguous cases, it is acceptable for certain overlapping dayPeriods to be the same, such as the names for "am"
   and "morning", or the names for "pm" and "afternoon".</span></p>
+  <p class="example"><span class="changed">Example:</span></p>
+<pre>
+    &lt;dayPeriods&gt;
+      &lt;dayPeriodContext type=&quot;format&quot;&gt;
+        &lt;dayPeriodWidth type=&quot;wide&quot;&gt;
+          &lt;dayPeriod type=&quot;am&quot;&gt;AM&lt;/dayPeriod&gt;
+          &lt;dayPeriod type=&quot;noon&quot;&gt;noon&lt;/dayPeriod&gt;
+          &lt;dayPeriod type=&quot;pm&quot;&gt;PM&lt;/dayPeriod&gt;
+        &lt;/dayPeriodWidth&gt;
+      &lt;/dayPeriodContext&gt;
+    &lt;/dayPeriods&gt;
+</pre>
 	<p><b><a name="dateFormats">&lt;dateFormats&gt;</a></b></p>
 	<p class="dtd">
 	&lt;!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) &gt;<br>
@@ -8806,7 +8882,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Xiaomei Ji (吉晓梅) for her work on time intervals and plural formatting.</li>
 		<li>David Bertoni for his contributions to the conversion tools.</li>
 		<li>Mike Tardif for reviewing this specification and for coordinating and vetting data submissions.</li>
-		<li>Peter Edberg for work on this specification, telephone code data and plurals.</li>
+		<li>Peter Edberg for work on this specification, telephone code data, plurals, monthPatterns and cyclicNameSets.</li>
 	</ul>
 	<p>Other contributors to CLDR are listed on the <a href="http://www.unicode.org/cldr/">CLDR Project Page</a>.</p>
 	<h2><a name="Modifications">Modifications</a></h2>
@@ -8822,7 +8898,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Added information on distinctness requirements for names of eras and dayPeriods.
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/3831">#3831</a>]</li>
 		<li>Added descriptions of new &lt;monthPatterns&gt; and &lt;cyclicNameSets&gt; calendar elements and of new 'U' date pattern
-		character for cyclic year names. Deprecated the 'l' pattern character for leap month marker.
+		character for cyclic year names. Deprecated the 'l' (SMALL LETTER L) pattern character for leap month marker.
 		[tickets <a href="http://unicode.org/cldr/trac/ticket/4230">#4230</a>, <a href="http://unicode.org/cldr/trac/ticket/4231">#4231</a>,
 		<a href="http://unicode.org/cldr/trac/ticket/4232">#4232</a>]</li>
 	</ul>

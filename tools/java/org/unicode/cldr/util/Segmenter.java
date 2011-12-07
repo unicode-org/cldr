@@ -736,7 +736,7 @@ public class Segmenter {
             "# NOTE: CB is ok to fall through, but must handle others here.",
             //"show $AL",
             "$AL=[$AI $AL $XX $SA $SG]",
-            "$ID=[$ID $NS]",
+            "$NS=[$NS $CJ]",
             //"show $AL",
             //"$oldAL=$AL", // for debugging
             "# WARNING: Fixes for Rule 9",

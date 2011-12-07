@@ -14,7 +14,7 @@
 				<variable id="$LF">\p{Grapheme_Cluster_Break=LF}</variable>
 				<variable id="$Control">\p{Grapheme_Cluster_Break=Control}</variable>
 				<variable id="$Extend">\p{Grapheme_Cluster_Break=Extend}</variable>
-				<variable id="$Prepend">\p{Grapheme_Cluster_Break=Prepend}</variable>
+				<!-- <variable id="$Prepend">\p{Grapheme_Cluster_Break=Prepend}</variable> # TODO: Restore if the Prepend set becomes non-empty again -->
 				<variable id="$SpacingMark">\p{Grapheme_Cluster_Break=SpacingMark}</variable>
 				<variable id="$L">\p{Grapheme_Cluster_Break=L}</variable>
 				<variable id="$V">\p{Grapheme_Cluster_Break=V}</variable>
@@ -31,18 +31,13 @@
 				<rule id="8"> ( $LVT | $T) × $T </rule>
 				<rule id="9"> × $Extend </rule>
 				<rule id="9.1"> × $SpacingMark </rule>
-				<rule id="9.2"> $Prepend × </rule>
+				<!-- <rule id="9.2"> $Prepend × </rule> # TODO: Restore if the Prepend set becomes non-empty again -->
 			</segmentRules>
 		</segmentation>
 
 		<segmentation type="LineBreak">
 			<variables>
 				<!-- Variables -->
-				<variable id="$SmallHira">[\u3041 \u3043 \u3045 \u3047 \u3049 \u3063 \u3083 \u3085 \u3087 \u308E \u3095 \u3096]</variable>
-				<variable id="$SmallKata">[\u30A1 \u30A3 \u30A5 \u30A7 \u30A9 \u30C3 \u30E3 \u30E5 \u30E7 \u30EE \u30F5 \u30F6]</variable>
-				<variable id="$SmallKataExt">[\u31F0 \u31F1 \u31F2 \u31F3 \u31F4 \u31F5 \u31F6 \u31F7 \u31F8 \u31F9 \u31FA \u31FB \u31FC \u31FD \u31FE \u31FF]</variable>
-				<variable id="$SmallKanaAndProlongedMark">[[$SmallHira] [$SmallKata] [$SmallKataExt] [\u30FC]]</variable>
-
 				<variable id="$AI">\p{Line_Break=Ambiguous}</variable>
 				<variable id="$AL">\p{Line_Break=Alphabetic}</variable>
 				<variable id="$B2">\p{Line_Break=Break_Both}</variable>
@@ -50,6 +45,7 @@
 				<variable id="$BB">\p{Line_Break=Break_Before}</variable>
 				<variable id="$BK">\p{Line_Break=Mandatory_Break}</variable>
 				<variable id="$CB">\p{Line_Break=Contingent_Break}</variable>
+				<variable id="$CJ">\p{Line_Break=Conditional_Japanese_Starter}</variable>
 				<variable id="$CL">\p{Line_Break=Close_Punctuation}</variable>
 				<variable id="$CM">\p{Line_Break=Combining_Mark}</variable>
 				<variable id="$CP">\p{Line_Break=Close Parenthesis}</variable>
@@ -58,8 +54,9 @@
 				<variable id="$GL">\p{Line_Break=Glue}</variable>
 				<variable id="$H2">\p{Line_Break=H2}</variable>
 				<variable id="$H3">\p{Line_Break=H3}</variable>
+				<variable id="$HL">\p{Line_Break=Hebrew_Letter}</variable>
 				<variable id="$HY">\p{Line_Break=Hyphen}</variable>
-				<variable id="$ID">[[\p{Line_Break=Ideographic}] [$SmallKanaAndProlongedMark]]</variable>
+				<variable id="$ID">\p{Line_Break=Ideographic}</variable>
 				<variable id="$IN">\p{Line_Break=Inseparable}</variable>
 				<variable id="$IS">\p{Line_Break=Infix_Numeric}</variable>
 				<variable id="$JL">\p{Line_Break=JL}</variable>
@@ -67,7 +64,7 @@
 				<variable id="$JV">\p{Line_Break=JV}</variable>
 				<variable id="$LF">\p{Line_Break=Line_Feed}</variable>
 				<variable id="$NL">\p{Line_Break=Next_Line}</variable>
-				<variable id="$NS">[[\p{Line_Break=Nonstarter}] - [$SmallKanaAndProlongedMark]]</variable>
+				<variable id="$NS">[[\p{Line_Break=Nonstarter}] [$CJ]]</variable>
 				<variable id="$NU">\p{Line_Break=Numeric}</variable>
 				<variable id="$OP">\p{Line_Break=Open_Punctuation}</variable>
 				<variable id="$PO">\p{Line_Break=Postfix_Numeric}</variable>
@@ -105,6 +102,7 @@
 				<variable id="$GL">($GL $X)</variable>
 				<variable id="$H2">($H2 $X)</variable>
 				<variable id="$H3">($H3 $X)</variable>
+				<variable id="$HL">($HL $X)</variable>
 				<variable id="$HY">($HY $X)</variable>
 				<variable id="$ID">($ID $X)</variable>
 				<variable id="$IN">($IN $X)</variable>
@@ -183,19 +181,21 @@
 				<rule id="21.02"> × $HY </rule>
 				<rule id="21.03"> × $NS </rule>
 				<rule id="21.04"> $BB × </rule>
+				<!-- LB 21a  Do not break after Hebrew + Hyphen. -->
+				<rule id="21a.01"> $HL ($HY | $BA) × </rule>
 				<!-- LB 22  Do not break between two ellipses, or between letters or numbers and ellipsis. -->
-				<rule id="22.01"> $AL × $IN </rule>
+				<rule id="22.01"> ($AL | $HL) × $IN </rule>
 				<rule id="22.02"> $ID × $IN </rule>
 				<rule id="22.03"> $IN × $IN </rule>
 				<rule id="22.04"> $NU × $IN </rule>
 				<!-- LB 23  Do not break within ‘a9’, ‘3a’, or ‘H%’. -->
 				<rule id="23.01"> $ID × $PO </rule>
-				<rule id="23.02"> $AL × $NU </rule>
-				<rule id="23.03"> $NU × $AL </rule>
+				<rule id="23.02"> ($AL | $HL) × $NU </rule>
+				<rule id="23.03"> $NU × ($AL | $HL) </rule>
 				<!-- LB 24  Do not break between prefix and letters or ideographs. -->
 				<rule id="24.01"> $PR × $ID </rule>
-				<rule id="24.02"> $PR × $AL </rule>
-				<rule id="24.03"> $PO × $AL </rule>
+				<rule id="24.02"> $PR × ($AL | $HL) </rule>
+				<rule id="24.03"> $PO × ($AL | $HL) </rule>
 				<!-- Using customization 7 -->
 				<!-- LB 25  Do not break between the following pairs of classes. -->
 				<!-- LB 25-alternative: ( PR | PO) ? ( OP | HY ) ? NU (NU | SY | IS) * (CL | CP) ? ( PR | PO) ? -->
@@ -215,12 +215,12 @@
 				<rule id="27.02"> $JL | $JV | $JT | $H2 | $H3 × $PO </rule>
 				<rule id="27.03"> $PR × $JL | $JV | $JT | $H2 | $H3 </rule>
 				<!-- LB 28  Do not break between alphabetics ("at"). -->
-				<rule id="28"> $AL × $AL </rule>
+				<rule id="28"> ($AL | $HL) × ($AL | $HL) </rule>
 				<!-- LB 29  Do not break between numeric punctuation and alphabetics ("e.g."). -->
-				<rule id="29"> $IS × $AL </rule>
-                                <!-- LB 30  Do not break between letters, numbers, or ordinary symbols and opening or closing parentheses. -->
-                                <rule id="30.01"> ($AL | $NU) × $OP </rule>
-                                <rule id="30.02"> $CP × ($AL | $NU) </rule>
+				<rule id="29"> $IS × ($AL | $HL) </rule>
+				<!-- LB 30  Do not break between letters, numbers, or ordinary symbols and opening or closing parentheses. -->
+				<rule id="30.01"> ($AL | $HL | $NU) × $OP </rule>
+				<rule id="30.02"> $CP × ($AL | $HL | $NU) </rule>
 			</segmentRules>
 		</segmentation>
 

@@ -7,6 +7,12 @@
 		<language type="ja"/>
 	</identity>
 	<segmentations>
+		<segmentation type="LineBreak">
+			<variables>
+				<variable id="$ID">[[\p{Line_Break=Ideographic}] [$CJ]]</variable>
+				<variable id="$NS">\p{Line_Break=Nonstarter}</variable>
+			</variables>
+		</segmentation>
 		<segmentation type="WordBreak">
 			<variables>
 				<variable id="$Hiragana">\p{Hiragana}</variable>

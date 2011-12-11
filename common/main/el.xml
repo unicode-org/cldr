@@ -2897,13 +2897,13 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic>Ώρα Νότιας Αφρικής</generic>
-					<standard>Τυπική ώρα Νότιας Αφρικής</standard>
+					<standard>Ώρα Νότιας Αφρικής</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard>Ώρα Δυτικής Αφρικής</standard>
+					<generic>Ώρα Δυτικής Αφρικής</generic>
+					<standard>Χειμερινή ώρα Δυτικής Αφρικής</standard>
 					<daylight>Θερινή ώρα Δυτικής Αφρικής</daylight>
 				</long>
 			</metazone>
@@ -2917,6 +2917,8 @@
 			<metazone type="Amazon">
 				<long>
 					<generic draft="contributed">Ώρα Αμαζονίου</generic>
+					<standard draft="contributed">Χειμερινή ώρα Αμαζονίου</standard>
+					<daylight draft="contributed">Θερινή ώρα Αμαζονίου</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -2950,14 +2952,14 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic draft="contributed">Ώρα Αναντίρ</generic>
-					<standard draft="contributed">Ώρα Αναντίρ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Αναντίρ</standard>
 					<daylight draft="contributed">Θερινή ώρα Αναντίρ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Ώρα Αργεντινής</generic>
-					<standard draft="contributed">Ώρα Αργεντινής</standard>
+					<standard draft="contributed">Χειμερινή ώρα Αργεντινής</standard>
 					<daylight draft="contributed">Θερινή ώρα Αργεντινής</daylight>
 				</long>
 			</metazone>
@@ -3006,20 +3008,21 @@
 			<metazone type="Brasilia">
 				<long>
 					<generic draft="contributed">Ώρα Μπραζίλια</generic>
-					<standard draft="contributed">Ώρα Μπραζίλια</standard>
+					<standard draft="contributed">Χειμερινή ώρα Μπραζίλια</standard>
 					<daylight draft="contributed">Θερινή ώρα Μπραζίλια</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">Ώρα Τσοϊμπαλσάν</generic>
-					<standard draft="contributed">Ώρα Τσοϊμπαλσάν</standard>
+					<standard draft="contributed">Χειμερινή ώρα Τσοϊμπαλσάν</standard>
 					<daylight draft="contributed">Θερινή ώρα Τσοϊμπαλσάν</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard>Ώρα Κεντρικής Ευρώπης</standard>
+					<generic>Ώρα Κεντρικής Ευρώπης</generic>
+					<standard>Χειμερινή ώρα Κεντρικής Ευρώπης</standard>
 					<daylight>Θερινή ώρα Κεντρικής Ευρώπης</daylight>
 				</long>
 				<short>
@@ -3030,7 +3033,8 @@
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard>Ώρα Ανατολικής Ευρώπης</standard>
+					<generic>Ώρα Ανατολικής Ευρώπης</generic>
+					<standard>Χειμερινή ώρα Ανατολικής Ευρώπης</standard>
 					<daylight>Θερινή ώρα Ανατολικής Ευρώπης</daylight>
 				</long>
 				<short>
@@ -3041,7 +3045,8 @@
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard draft="contributed">Ώρα Δυτικής Ευρώπης</standard>
+					<generic draft="contributed">Ώρα Δυτικής Ευρώπης</generic>
+					<standard draft="contributed">Χειμερινή ώρα Δυτικής Ευρώπης</standard>
 					<daylight draft="contributed">Θερινή ώρα Δυτικής Ευρώπης</daylight>
 				</long>
 				<short>
@@ -3053,12 +3058,14 @@
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Ώρα Χαβάης-Αλεούτιων νήσων</generic>
+					<standard draft="contributed">Χειμερινή ώρα Χαβάης-Αλεούτιων νήσων</standard>
+					<daylight draft="contributed">Θερινή ώρα Χαβάης-Αλεούτιων νήσων</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic draft="contributed">Ώρα Χοβντ</generic>
-					<standard draft="contributed">Ώρα Χοβντ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Χοβντ</standard>
 					<daylight draft="contributed">Θερινή ώρα Χοβντ</daylight>
 				</long>
 			</metazone>
@@ -3080,35 +3087,31 @@
 			<metazone type="Irkutsk">
 				<long>
 					<generic draft="contributed">Ώρα Ιρκούτσκ</generic>
-					<standard draft="contributed">Ώρα Ιρκούτσκ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Ιρκούτσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Ιρκούτσκ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
 					<generic draft="contributed">Ώρα Καμτσάτκα</generic>
-					<standard draft="contributed">Ώρα Πετροπαβλόβσκ-Καμτσάτσκι</standard>
+					<standard draft="contributed">Χειμερινή ώρα Πετροπαβλόβσκ-Καμτσάτσκι</standard>
 					<daylight draft="contributed">Θερινή ώρα Πετροπαβλόβσκ-Καμτσάτσκι</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">Ώρα Ανατολικού Καζακστάν</generic>
-					<standard draft="contributed">Χειμερινή ώρα Ανατολικού Καζακστάν</standard>
-					<daylight draft="contributed">Ανατολική θερινή ώρα Καζακστάν</daylight>
+					<standard draft="contributed">Ώρα Ανατολικού Καζακστάν</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">Ώρα δυτικού Καζακστάν</generic>
-					<standard draft="contributed">Χειμερινή ώρα δυτικού Καζακστάν</standard>
-					<daylight draft="contributed">Δυτική θερινή ώρα Καζακστάν</daylight>
+					<standard draft="contributed">Ώρα δυτικού Καζακστάν</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic draft="contributed">Ώρα Κρασνόγιαρσκ</generic>
-					<standard draft="contributed">Ώρα Κρασνόγιαρσκ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Κρασνόγιαρσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Κρασνόγιαρσκ</daylight>
 				</long>
 			</metazone>
@@ -3127,21 +3130,21 @@
 			<metazone type="Magadan">
 				<long>
 					<generic draft="contributed">Ώρα Μάγκανταν</generic>
-					<standard draft="contributed">Ώρα Μάγκανταν</standard>
+					<standard draft="contributed">Χειμερινή ώρα Μάγκανταν</standard>
 					<daylight draft="contributed">Θερινή ώρα Μαγκαντάν</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Ώρα Μογγολίας</generic>
-					<standard draft="contributed">Ώρα Ουλάν Μπατόρ</standard>
+					<generic draft="contributed">Ώρα Ουλάν Μπατόρ</generic>
+					<standard draft="contributed">Χειμερινή ώρα Ουλάν Μπατόρ</standard>
 					<daylight draft="contributed">Θερινή ώρα Ουλάν Μπατόρ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
 					<generic>Ώρα Μόσχας</generic>
-					<standard draft="contributed">Χειμερινή ώρα Μόσχας</standard>
+					<standard>Χειμερινή ώρα Μόσχας</standard>
 					<daylight>Θερινή ώρα Μόσχας</daylight>
 				</long>
 			</metazone>
@@ -3154,64 +3157,64 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Ώρα Νορόνια</generic>
-					<standard draft="contributed">Ώρα Φερνάρντο ντε Νορόνια</standard>
+					<generic draft="contributed">Ώρα Φερνάρντο ντε Νορόνια</generic>
+					<standard draft="contributed">Χειμερινή ώρα Φερνάρντο ντε Νορόνια</standard>
 					<daylight draft="contributed">Θερινή ώρα Φερνάρντο ντε Νορόνια</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic draft="contributed">Ώρα Νοβοσιμπίρσκ</generic>
-					<standard draft="contributed">Ώρα Νοβοσιμπίρσκ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Νοβοσιμπίρσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Νοβοσιμπίρσκ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic draft="contributed">Ώρα Ομσκ</generic>
-					<standard draft="contributed">Ώρα Ομσκ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Ομσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Ομσκ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic draft="contributed">Ώρα Σαχαλίνης</generic>
-					<standard draft="contributed">Ώρα Σαχαλίνης</standard>
+					<standard draft="contributed">Χειμερινή ώρα Σαχαλίνης</standard>
 					<daylight draft="contributed">Θερινή ώρα Σαχαλίνης</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic draft="contributed">Ώρα Σάμαρας</generic>
-					<standard draft="contributed">Ώρα Σάμαρας</standard>
+					<standard draft="contributed">Χειμερινή ώρα Σάμαρας</standard>
 					<daylight draft="contributed">Θερινή ώρα Σαμάρας</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic draft="contributed">Ώρα Βλαδιβοστόκ</generic>
-					<standard draft="contributed">Ώρα Βλαδιβοστόκ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Βλαδιβοστόκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Βλαδιβοστόκ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic>Ώρα Βόλγκογκραντ</generic>
-					<standard>Ώρα Βόλγκογκραντ</standard>
+					<standard>Χειμερινή ώρα Βόλγκογκραντ</standard>
 					<daylight>Θερινή ώρα Βόλγκογκραντ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic draft="contributed">Ώρα Γιακούτσκ</generic>
-					<standard draft="contributed">Ώρα Γιακούτσκ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Γιακούτσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Γιακούτσκ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic draft="contributed">Ώρα Γεκατερίνμπουργκ</generic>
-					<standard draft="contributed">Ώρα Γεκατερίνμπουργκ</standard>
+					<standard draft="contributed">Χειμερινή ώρα Γεκατερίνμπουργκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Γεκατερίνμπουργκ</daylight>
 				</long>
 			</metazone>

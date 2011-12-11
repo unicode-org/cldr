@@ -2078,7 +2078,8 @@
 			</zone>
 			<metazone type="Acre">
 				<long>
-					<standard>Acre-Zeit</standard>
+					<generic>Acre-Zeit</generic>
+					<standard>Acre-Winterzeit</standard>
 					<daylight>Acre-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2099,19 +2100,20 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic>Südafrikanische Zeit</generic>
-					<standard>Südafrikanische Winterzeit</standard>
+					<standard>Südafrikanische Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
+					<generic>Westafrikanische Zeit</generic>
 					<standard>Westafrikanische Winterzeit</standard>
 					<daylight>Westafrikanische Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
-					<standard>Aktyubinsk-Zeit</standard>
+					<generic>Aktyubinsk-Zeit</generic>
+					<standard>Aktyubinsk-Winterzeit</standard>
 					<daylight>Aktyubinsk-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2126,11 +2128,13 @@
 				<long>
 					<generic>Alaska-Hawaii-Zeit</generic>
 					<standard>Alaska-Hawaii-Winterzeit</standard>
+					<daylight>Alaska-Hawaii-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Almaty">
 				<long>
-					<standard>Almaty-Zeit</standard>
+					<generic>Almaty-Zeit</generic>
+					<standard>Almaty-Winterzeit</standard>
 					<daylight>Almaty-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2179,8 +2183,8 @@
 			<metazone type="Arabian">
 				<long>
 					<generic>Arabische Zeit</generic>
-					<standard draft="contributed">Arabische Winterzeit</standard>
-					<daylight draft="contributed">Arabische Sommerzeit</daylight>
+					<standard>Arabische Winterzeit</standard>
+					<daylight>Arabische Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
@@ -2235,6 +2239,7 @@
 			<metazone type="Azores">
 				<long>
 					<standard draft="contributed">Azoren-Zeit</standard>
+					<standard draft="contributed">Azoren-Winterzeit</standard>
 					<daylight draft="contributed">Azoren-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2247,25 +2252,28 @@
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
-					<standard draft="contributed">Kap-Verde-Zeit</standard>
+					<generic draft="contributed">Kap-Verde-Zeit</generic>
+					<standard draft="contributed">Kap-Verde-Winterzeit</standard>
 					<daylight draft="contributed">Kap-Verde-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<generic draft="contributed">Chamorro-Zeit</generic>
-					<standard draft="contributed">Chamorro-Winterzeit</standard>
+					<standard draft="contributed">Chamorro-Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
+					<generic draft="contributed">Chatham-Zeit</generic>
 					<standard draft="contributed">Chatham-Winterzeit</standard>
 					<daylight draft="contributed">Chatham-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
+					<generic draft="contributed">Chinesische Zeit</generic>
 					<standard draft="contributed">Chinesische Winterzeit</standard>
+					<daylight draft="contributed">Chinesische Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -2287,7 +2295,8 @@
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<standard draft="contributed">Cookinseln-Zeit</standard>
+					<generic draft="contributed">Cookinseln-Zeit</generic>
+					<standard draft="contributed">Cookinseln-Winterzeit</standard>
 					<daylight draft="contributed">Cookinseln-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2303,13 +2312,15 @@
 			</metazone>
 			<metazone type="Easter">
 				<long>
-					<standard draft="contributed">Osterinsel-Zeit</standard>
+					<generic draft="contributed">Osterinsel-Zeit</generic>
+					<standard draft="contributed">Osterinsel-Winterzeit</standard>
 					<daylight draft="contributed">Osterinsel-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard>Mitteleuropäische Zeit</standard>
+					<generic>Mitteleuropäische Zeit</generic>
+					<standard>Mitteleuropäische Winterzeit</standard>
 					<daylight>Mitteleuropäische Sommerzeit</daylight>
 				</long>
 				<short>
@@ -2320,7 +2331,8 @@
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard>Osteuropäische Zeit</standard>
+					<generic>Osteuropäische Zeit</generic>
+					<standard>Osteuropäische Winterzeit</standard>
 					<daylight>Osteuropäische Sommerzeit</daylight>
 				</long>
 				<short>
@@ -2331,7 +2343,8 @@
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard>Westeuropäische Zeit</standard>
+					<generic>Westeuropäische Zeit</generic>
+					<standard>Westeuropäische Winterzeit</standard>
 					<daylight>Westeuropäische Sommerzeit</daylight>
 				</long>
 				<short>
@@ -2342,13 +2355,15 @@
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<standard draft="contributed">Falklandinseln-Zeit</standard>
+					<generic draft="contributed">Falklandinseln-Zeit</generic>
+					<standard draft="contributed">Falklandinseln-Winterzeit</standard>
 					<daylight draft="contributed">Falklandinseln-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<standard draft="contributed">Fidschi-Zeit</standard>
+					<generic draft="contributed">Fidschi-Zeit</generic>
+					<standard draft="contributed">Fidschi-Winterzeit</standard>
 					<daylight draft="contributed">Fidschi-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2379,18 +2394,20 @@
 			</metazone>
 			<metazone type="Guam">
 				<long>
-					<standard draft="contributed">Guam-Winterzeit</standard>
+					<standard draft="contributed">Guam-Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Hawaii-Aleuten-Zeit</generic>
 					<standard draft="contributed">Hawaii-Aleuten-Winterzeit</standard>
+					<daylight draft="contributed">Hawaii-Aleuten-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<standard draft="contributed">Hong-Kong-Zeit</standard>
+					<generic draft="contributed">Hong-Kong-Zeit</generic>
+					<standard draft="contributed">Hong-Kong-Winterzeit</standard>
 					<daylight draft="contributed">Hong-Kong-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2413,25 +2430,22 @@
 			</metazone>
 			<metazone type="Indochina">
 				<long>
-					<standard draft="contributed">Indochinesische Winterzeit</standard>
+					<standard draft="contributed">Indochinesische Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="contributed">Zentralindonesische Zeit</generic>
-					<standard draft="contributed">Zentralindonesische Winterzeit</standard>
+					<standard draft="contributed">Zentralindonesische Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="contributed">Ostindonesische Zeit</generic>
-					<standard draft="contributed">Ostindonesische Winterzeit</standard>
+					<standard draft="contributed">Ostindonesische Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="contributed">Westindonesische Zeit</generic>
-					<standard draft="contributed">Westindonesische Winterzeit</standard>
+					<standard draft="contributed">Westindonesische Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -2443,13 +2457,16 @@
 			</metazone>
 			<metazone type="Israel">
 				<long>
+					<generic draft="contributed">Israelische Zeit</generic>
 					<standard draft="contributed">Israelische Winterzeit</standard>
 					<daylight draft="contributed">Israelische Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
+					<generic draft="contributed">Japanische Zeit</generic>
 					<standard draft="contributed">Japanische Winterzeit</standard>
+					<daylight draft="contributed">Japanische Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
@@ -2461,19 +2478,19 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">Ostkasachstanische Zeit</generic>
-					<standard draft="contributed">Ostkasachstanische Winterzeit</standard>
+					<standard draft="contributed">Ostkasachstanische Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">Westkasachstanische Zeit</generic>
-					<standard draft="contributed">Westkasachstanische Winterzeit</standard>
+					<standard draft="contributed">Westkasachstanische Zeit</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
+					<generic draft="contributed">Koreanische Zeit</generic>
 					<standard draft="contributed">Koreanische Winterzeit</standard>
+					<daylight draft="contributed">Koreanische Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -2490,7 +2507,8 @@
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
-					<standard draft="contributed">Kuibyschew-Zeit</standard>
+					<generic draft="contributed">Kuibyschew-Zeit</generic>
+					<standard draft="contributed">Kuibyschew-Winterzeit</standard>
 					<daylight draft="contributed">Kuibyschew-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2530,7 +2548,8 @@
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
-					<standard draft="contributed">Mauritius-Zeit</standard>
+					<generic draft="contributed">Mauritius-Zeit</generic>
+					<standard draft="contributed">Mauritius-Winterzeit</standard>
 					<daylight draft="contributed">Mauritius-Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2629,7 +2648,8 @@
 			</metazone>
 			<metazone type="Turkey">
 				<long>
-					<standard draft="contributed">Türkische Zeit</standard>
+					<generic draft="contributed">Türkische Zeit</generic>
+					<standard draft="contributed">Türkische Winterzeit</standard>
 					<daylight draft="contributed">Türkische Sommerzeit</daylight>
 				</long>
 			</metazone>
@@ -2642,7 +2662,7 @@
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<generic draft="contributed">Wolgograd-Zeit</generic>
+					<generic>Wolgograd-Zeit</generic>
 					<standard>Wolgograd-Winterzeit</standard>
 					<daylight>Wolgograd-Sommerzeit</daylight>
 				</long>

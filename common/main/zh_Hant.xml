@@ -1139,7 +1139,7 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="wide">
-							<month type="1">正月</month>
+							<month type="1">一月</month>
 							<month type="2">二月</month>
 							<month type="3">三月</month>
 							<month type="4">四月</month>
@@ -1155,7 +1155,7 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="narrow">
-							<month type="1">正</month>
+							<month type="1">一</month>
 							<month type="2">二</month>
 							<month type="3">三</month>
 							<month type="4">四</month>
@@ -1173,17 +1173,17 @@
 				<monthPatterns>
 					<monthPatternContext type="format">
 						<monthPatternWidth type="wide">
-							<monthPattern type="leap">闰{0}</monthPattern>
+							<monthPattern type="leap">閏{0}</monthPattern>
 						</monthPatternWidth>
 					</monthPatternContext>
 					<monthPatternContext type="stand-alone">
 						<monthPatternWidth type="narrow">
-							<monthPattern type="leap">闰{0}</monthPattern>
+							<monthPattern type="leap">閏{0}</monthPattern>
 						</monthPatternWidth>
 					</monthPatternContext>
 					<monthPatternContext type="numeric">
 						<monthPatternWidth type="all">
-							<monthPattern type="leap">闰{0}</monthPattern>
+							<monthPattern type="leap">閏{0}</monthPattern>
 						</monthPatternWidth>
 					</monthPatternContext>
 				</monthPatterns>

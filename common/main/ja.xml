@@ -1143,6 +1143,202 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="chinese">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<monthPatterns>
+					<monthPatternContext type="format">
+						<monthPatternWidth type="wide">
+							<monthPattern type="leap">閏{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="stand-alone">
+						<monthPatternWidth type="narrow">
+							<monthPattern type="leap">閏{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+					<monthPatternContext type="numeric">
+						<monthPatternWidth type="all">
+							<monthPattern type="leap">閏{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
+				</monthPatterns>
+				<cyclicNameSets>
+					<cyclicNameSet type="years">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">甲子</cyclicName>
+								<cyclicName type="2">乙丑</cyclicName>
+								<cyclicName type="3">丙寅</cyclicName>
+								<cyclicName type="4">丁卯</cyclicName>
+								<cyclicName type="5">戊辰</cyclicName>
+								<cyclicName type="6">己巳</cyclicName>
+								<cyclicName type="7">庚午</cyclicName>
+								<cyclicName type="8">辛未</cyclicName>
+								<cyclicName type="9">壬申</cyclicName>
+								<cyclicName type="10">癸酉</cyclicName>
+								<cyclicName type="11">甲戌</cyclicName>
+								<cyclicName type="12">乙亥</cyclicName>
+								<cyclicName type="13">丙子</cyclicName>
+								<cyclicName type="14">丁丑</cyclicName>
+								<cyclicName type="15">戊寅</cyclicName>
+								<cyclicName type="16">己卯</cyclicName>
+								<cyclicName type="17">庚辰</cyclicName>
+								<cyclicName type="18">辛巳</cyclicName>
+								<cyclicName type="19">壬午</cyclicName>
+								<cyclicName type="20">癸未</cyclicName>
+								<cyclicName type="21">甲申</cyclicName>
+								<cyclicName type="22">乙酉</cyclicName>
+								<cyclicName type="23">丙戌</cyclicName>
+								<cyclicName type="24">丁亥</cyclicName>
+								<cyclicName type="25">戊子</cyclicName>
+								<cyclicName type="26">己丑</cyclicName>
+								<cyclicName type="27">庚寅</cyclicName>
+								<cyclicName type="28">辛卯</cyclicName>
+								<cyclicName type="29">壬辰</cyclicName>
+								<cyclicName type="30">癸巳</cyclicName>
+								<cyclicName type="31">甲午</cyclicName>
+								<cyclicName type="32">乙未</cyclicName>
+								<cyclicName type="33">丙申</cyclicName>
+								<cyclicName type="34">丁酉</cyclicName>
+								<cyclicName type="35">戊戌</cyclicName>
+								<cyclicName type="36">己亥</cyclicName>
+								<cyclicName type="37">庚子</cyclicName>
+								<cyclicName type="38">辛丑</cyclicName>
+								<cyclicName type="39">壬寅</cyclicName>
+								<cyclicName type="40">癸卯</cyclicName>
+								<cyclicName type="41">甲辰</cyclicName>
+								<cyclicName type="42">乙巳</cyclicName>
+								<cyclicName type="43">丙午</cyclicName>
+								<cyclicName type="44">丁未</cyclicName>
+								<cyclicName type="45">戊申</cyclicName>
+								<cyclicName type="46">己酉</cyclicName>
+								<cyclicName type="47">庚戌</cyclicName>
+								<cyclicName type="48">辛亥</cyclicName>
+								<cyclicName type="49">壬子</cyclicName>
+								<cyclicName type="50">癸丑</cyclicName>
+								<cyclicName type="51">甲寅</cyclicName>
+								<cyclicName type="52">乙卯</cyclicName>
+								<cyclicName type="53">丙辰</cyclicName>
+								<cyclicName type="54">丁巳</cyclicName>
+								<cyclicName type="55">戊午</cyclicName>
+								<cyclicName type="56">己未</cyclicName>
+								<cyclicName type="57">庚申</cyclicName>
+								<cyclicName type="58">辛酉</cyclicName>
+								<cyclicName type="59">壬戌</cyclicName>
+								<cyclicName type="60">癸亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">子</cyclicName>
+								<cyclicName type="2">丑</cyclicName>
+								<cyclicName type="3">寅</cyclicName>
+								<cyclicName type="4">卯</cyclicName>
+								<cyclicName type="5">辰</cyclicName>
+								<cyclicName type="6">巳</cyclicName>
+								<cyclicName type="7">午</cyclicName>
+								<cyclicName type="8">未</cyclicName>
+								<cyclicName type="9">申</cyclicName>
+								<cyclicName type="10">酉</cyclicName>
+								<cyclicName type="11">戌</cyclicName>
+								<cyclicName type="12">亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">鼠</cyclicName>
+								<cyclicName type="2">牛</cyclicName>
+								<cyclicName type="3">虎</cyclicName>
+								<cyclicName type="4">兎</cyclicName>
+								<cyclicName type="5">竜</cyclicName>
+								<cyclicName type="6">蛇</cyclicName>
+								<cyclicName type="7">馬</cyclicName>
+								<cyclicName type="8">羊</cyclicName>
+								<cyclicName type="9">猿</cyclicName>
+								<cyclicName type="10">鶏</cyclicName>
+								<cyclicName type="11">犬</cyclicName>
+								<cyclicName type="12">猪</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern numbers="hanidec">y年MMMd日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern numbers="hanidec">y年MMMd日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern numbers="hanidec">y年MMMd日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>yy-M-d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="EEEd">d日EEE</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="MEd">M-dE</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="y">y年</dateFormatItem>
+						<dateFormatItem id="yM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMEd">y年M月d日，E</dateFormatItem>
+						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMEd">y年M月d日EEE</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="coptic">
 				<months>
 					<monthContext type="format">

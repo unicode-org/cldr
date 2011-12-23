@@ -304,7 +304,11 @@ public class Segmenter {
                 if (prop == null) return false;
                 result.clear();
                 UnicodeSet x = prop.getSet(propertyValue, result);
-                return x.size() != 0;
+                if (x.size() == 0) {
+                    // didn't find anything
+                    System.out.println("!Empty! " + propertyName + "=" + propertyValue);
+                }
+                return true; // mark that we handled it even if there are no results.
             }
         }
 
@@ -438,6 +442,9 @@ public class Segmenter {
 
             if (SHOW_VAR_CONTENTS) System.out.println(name + "=" + value);
             // verify that the value is a valid REGEX
+            if (value.equals("[]")) {
+                value = "(?!a)[a]"; // HACK to match nothing.
+            }
             Pattern.compile(value, REGEX_FLAGS).matcher("");
             //			if (false && name.equals("$AL")) {
             //			findRegexProblem(value);
@@ -987,7 +994,7 @@ public class Segmenter {
             //"# Do not break within CRLF",
             "3) $CR  	\u00D7  	$LF",
             "3.1) ($Newline | $CR | $LF)	\u00F7",
-            "3.11) \u00F7	($Newline | $CR | $LF)",
+            "3.2) \u00F7	($Newline | $CR | $LF)",
             //"3.4) ( $Control | $CR | $LF ) 	\u00F7",
             //"3.5) \u00F7 	( $Control | $CR | $LF )",
             //"3.9) \u00D7 	$Extend",

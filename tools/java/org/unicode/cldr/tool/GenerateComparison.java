@@ -15,6 +15,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -114,7 +115,7 @@ public class GenerateComparison {
           continue;
         }
       } else {
-        oldFile = CLDRFile.make(locale); // make empty file
+        oldFile = SimpleFactory.makeFile(locale); // make empty file
       }
       CLDRFile newFile = null;
       if (newList.contains(locale)) {
@@ -125,7 +126,7 @@ public class GenerateComparison {
           continue;
         }
       } else {
-        newFile = CLDRFile.make(locale); // make empty file
+        newFile = SimpleFactory.makeFile(locale); // make empty file
       }
 
 //      for(String str : newFile) {

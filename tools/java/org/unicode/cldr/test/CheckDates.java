@@ -19,6 +19,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XPathParts;
@@ -32,7 +33,7 @@ import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
-public class CheckDates extends CheckCLDR {
+public class CheckDates extends FactoryCheckCLDR {
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
 
     ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
@@ -115,6 +116,10 @@ public class CheckDates extends CheckCLDR {
 
     //Map<String, Set<String>> calPathsToSymbolSets;
     Map<String, Map<String, String>> calPathsToSymbolMaps;
+
+    public CheckDates(Factory factory) {
+        super(factory);
+    }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;

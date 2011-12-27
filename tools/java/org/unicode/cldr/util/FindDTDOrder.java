@@ -283,7 +283,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     // finish up
     log.println("Successful Ordering");
     log.println("Old Attributes: ");
-    log.println(CLDRFile.attributeOrdering.getOrder());
+    log.println(CLDRFile.getAttributeOrder());
 
     log.println("*** New Attributes: ");
     log.println(breakLines(attributeSet));
@@ -308,7 +308,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
       }
     }
 
-    String oldOrder = getJavaList(CLDRFile.elementOrdering.getOrder());
+    String oldOrder = getJavaList(CLDRFile.getElementOrder());
     log.println("Old Element Ordering:\n"
             + oldOrder);
 
@@ -321,17 +321,17 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     log.println("*** Replace in CLDRFile elementOrdering  & supplementalMetadata ***");
 
     if (SHOW_ALL) {
-      log.println("Old Size: " + CLDRFile.elementOrdering.getOrder().size());
-      Set temp = new HashSet(CLDRFile.elementOrdering.getOrder());
+      log.println("Old Size: " + CLDRFile.getElementOrder().size());
+      Set temp = new HashSet(CLDRFile.getElementOrder());
       temp.removeAll(orderingList);
       log.println("Old - New: " + temp);
       log.println("New Size: " + orderingList.size());
       temp = new HashSet(orderingList);
-      temp.removeAll(CLDRFile.elementOrdering.getOrder());
+      temp.removeAll(CLDRFile.getElementOrder());
       log.println("New - Old: " + temp);
 
       Differ differ = new Differ(200, 1);
-      Iterator oldIt = CLDRFile.elementOrdering.getOrder().iterator();
+      Iterator oldIt = CLDRFile.getElementOrder().iterator();
       Iterator newIt = orderingList.iterator();
       while (oldIt.hasNext() || newIt.hasNext()) {
         if (oldIt.hasNext())

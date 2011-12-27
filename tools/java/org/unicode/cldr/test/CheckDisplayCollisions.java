@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.Relation;
@@ -22,7 +23,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.TimeZone;
 
-public class CheckDisplayCollisions extends CheckCLDR {
+public class CheckDisplayCollisions extends FactoryCheckCLDR {
     static final boolean USE_OLD_COLLISION = CldrUtility.getProperty("OLD_COLLISION", true);
     
     // TODO probably need to fix this to be more accurate over time
@@ -52,6 +53,10 @@ public class CheckDisplayCollisions extends CheckCLDR {
     private XPathParts parts2 = new XPathParts(null, null);
     private transient Relation<String,String> hasCollisions = Relation.of(new TreeMap<String,Set<String>>(), HashSet.class);
     private boolean finalTesting;
+
+    public CheckDisplayCollisions(Factory factory) {
+        super(factory);
+    }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -97,7 +102,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
 
             // get the paths with the same value. If there aren't duplicates, continue;
             paths.clear();
-            getCldrFileToCheck().getPathsWithValue(value, null, null, paths);
+            getResolvedCldrFileToCheck().getPathsWithValue(value, null, null, paths);
             paths.remove(path);
             if (paths.isEmpty()) {
                 return this;
@@ -143,7 +148,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
             for (Iterator<String> it = paths.iterator(); it.hasNext();) {
                 String dpath = it.next();
                 // make sure it is the winning path
-                if (!getCldrFileToCheck().isWinningPath(dpath)) {
+                if (!getResolvedCldrFileToCheck().isWinningPath(dpath)) {
                     it.remove();
                     continue main;
                 }
@@ -158,7 +163,6 @@ public class CheckDisplayCollisions extends CheckCLDR {
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        cldrFileToCheck = cldrFileToCheck.getResolved(); // check resolved cases
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         finalTesting  = Phase.FINAL_TESTING == getPhase();
 
@@ -177,7 +181,7 @@ public class CheckDisplayCollisions extends CheckCLDR {
     private void buildCollisions(int ii) {
         builtCollisions[ii] = true; // mark done
         // put key,value pairs into equivalence map
-        CLDRFile cldrFileToCheck = getCldrFileToCheck();
+        CLDRFile cldrFileToCheck = getResolvedCldrFileToCheck();
 
         XEquivalenceMap collisions = new XEquivalenceMap();
 

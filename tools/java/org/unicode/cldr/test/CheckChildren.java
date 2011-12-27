@@ -11,11 +11,16 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 
-public class CheckChildren extends CheckCLDR {
+public class CheckChildren extends FactoryCheckCLDR {
 	CLDRFile[] immediateChildren;
 	Map tempSet = new HashMap();
-	
+
+	public CheckChildren(Factory factory) {
+	    super(factory);
+	}
+
 	public CheckCLDR handleCheck(String path, String fullPath, String value,
 			Map<String, String> options, List<CheckStatus> result) {
     if (isSkipTest()) return this; // disabled
@@ -56,12 +61,12 @@ public class CheckChildren extends CheckCLDR {
     
 		super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		Matcher myLocalePlus = Pattern.compile(cldrFileToCheck.getLocaleID() + "_[^_]*").matcher("");
-		Set children = cldrFileToCheck.getAvailableLocales();
+		Set children = getFactory().getAvailable();
 		List iChildren = new ArrayList();
 		for (Iterator it = children.iterator(); it.hasNext();) {
 			String locale = (String)it.next();
 			if (!myLocalePlus.reset(locale).matches()) continue;
-			CLDRFile child = cldrFileToCheck.make(locale, true);
+			CLDRFile child = getFactory().make(locale, true);
 			if (child == null) {
 				CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.nullChildFile)
 				.setMessage("Null file from: {0}", new Object[]{locale});

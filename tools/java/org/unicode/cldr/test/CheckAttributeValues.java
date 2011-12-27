@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -27,7 +28,7 @@ import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.text.UnicodeSet;
 
-public class CheckAttributeValues extends CheckCLDR {
+public class CheckAttributeValues extends FactoryCheckCLDR {
     static LinkedHashSet elementOrder = new LinkedHashSet();
     static LinkedHashSet attributeOrder = new LinkedHashSet();
     static LinkedHashSet serialElements = new LinkedHashSet();
@@ -47,6 +48,10 @@ public class CheckAttributeValues extends CheckCLDR {
 
     XPathParts parts = new XPathParts(null, null);
     static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
+
+    public CheckAttributeValues(Factory factory) {
+        super(factory);
+    }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -147,7 +152,7 @@ public class CheckAttributeValues extends CheckCLDR {
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
             if (!initialized) {
-                CLDRFile metadata = cldrFileToCheck.getSupplementalMetadata();
+                CLDRFile metadata = getFactory().getSupplementalMetadata();
                 getMetadata(metadata);
                 initialized = true;
                 for (Iterator it = missing.iterator(); it.hasNext();) {

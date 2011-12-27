@@ -37,6 +37,7 @@ import org.unicode.cldr.icu.LDML2ICUConverter.LDMLServices;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.SimpleFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -309,7 +310,7 @@ public class DeprecatedConverter {
         if (targetExists) {
           generatedAliasFiles.add(from);
           if (xpath != null) {
-            CLDRFile fakeFile = CLDRFile.make(fromLocaleName);
+            CLDRFile fakeFile = SimpleFactory.makeFile(fromLocaleName);
             fakeFile.add(xpath, "");
             fakeFile.freeze();
 

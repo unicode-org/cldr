@@ -10,6 +10,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -20,11 +21,15 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 
-public class CheckForCopy extends CheckCLDR {
+public class CheckForCopy extends FactoryCheckCLDR {
 
     XPathParts parts = new XPathParts();
     //CLDRFile.Status status = new CLDRFile.Status();
     Set seenSoFar = new HashSet();
+
+    public CheckForCopy(Factory factory) {
+        super(factory);
+    }
 
     static RegexLookup<Boolean> skip = new RegexLookup<Boolean>()
     .add("/(availableFormats" +
@@ -217,10 +222,10 @@ public class CheckForCopy extends CheckCLDR {
         // find the names of langauges that are the same in themselves as in English
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
 
-        Set<String> locales = cldrFileToCheck.getAvailableLocales();
+        Set<String> locales = getFactory().getAvailable();
         for (String locale : locales) {
             if (locale.contains("_") || locale.equals("en")) continue;
-            CLDRFile nativeFile = cldrFileToCheck.make(locale, false);
+            CLDRFile nativeFile = getFactory().make(locale, false);
 
             String englishName = getDisplayInformation().getName(CLDRFile.LANGUAGE_NAME, locale);
             if (englishName == null) continue;

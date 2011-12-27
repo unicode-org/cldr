@@ -38,11 +38,9 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
-import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
 
 /** A data section represents a group of related data that will be displayed to users in a list
  * such as, "all of the language display names contained in the en_US locale".
@@ -1006,7 +1004,7 @@ public class DataSection extends Registerable {
     		section.hasExamples = true;
     	}
     	
-    	XMLSource ourSrc = uf.dbSource;
+    	XMLSource ourSrc = uf.resolvedSource;
     	synchronized(ctx.session) {
     		CheckCLDR checkCldr = uf.getCheck(ctx);
     		if(checkCldr == null) {
@@ -1150,12 +1148,13 @@ public class DataSection extends Registerable {
 	public static final String CONTINENT_DIVIDER = "\u2603";
     
     private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
+        if (!ourSrc.isResolving()) throw new IllegalArgumentException("CLDRFile must be resolved");
         DBEntry vettedParentEntry = null;
         try  {
         	init();
         	XPathParts xpp = new XPathParts(null,null);
         	//        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
-        	CLDRFile aFile = new CLDRFile(ourSrc, true);
+        	CLDRFile aFile = new CLDRFile(ourSrc);
         	List examplesResult = new ArrayList();
         	SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         	long lastTime = -1;
@@ -1173,9 +1172,9 @@ public class DataSection extends Registerable {
         	CLDRFile vettedParent = null;
         	CLDRLocale parentLoc = locale.getParent();
         	if(parentLoc != null) {
-        		XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /*finalData*/);            
-        		vettedParent = new CLDRFile(vettedParentSource,true);
-        		vettedParentEntry = sm.dbsrcfac.openEntry(vettedParentSource);
+        		XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /*finalData*/, true);            
+        		vettedParent = new CLDRFile(vettedParentSource);
+        		vettedParentEntry = sm.dbsrcfac.openEntry(vettedParentSource.getUnresolving());
         	}
 
         	int pn;
@@ -1800,7 +1799,7 @@ public class DataSection extends Registerable {
      * Makes sure this pod contains the peas we'd like to see.
      */
     private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
-    	
+    	if (!ourSrc.isResolving()) throw new IllegalArgumentException("CLDRFile must be resolved");
 //    	if(xpathPrefix.contains("@type")) {
 //    		if(DEBUG) System.err.println("Bailing- no reason to complete a type-specifix xpath");
 //    		return; // don't try to complete if it's a specific item.
@@ -1861,7 +1860,7 @@ public class DataSection extends Registerable {
             }        
 
             String podBase = xpathPrefix;
-            CLDRFile resolvedFile = new CLDRFile(ourSrc, true);
+            CLDRFile resolvedFile = new CLDRFile(ourSrc);
 //            XPathParts parts = new XPathParts(null,null);
 //            TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
 

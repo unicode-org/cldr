@@ -179,9 +179,11 @@ public class ExampleGenerator {
      * @param resolvedCldrFile
      * @param supplementalDataDirectory
      */
-    public ExampleGenerator(CLDRFile resolvedCldrFile, String supplementalDataDirectory) {
-        cldrFile = resolvedCldrFile.getResolved();
-        englishFile = cldrFile.make("en", true);
+    public ExampleGenerator(CLDRFile resolvedCldrFile, CLDRFile englishFile, String supplementalDataDirectory) {
+        if (!resolvedCldrFile.isResolved()) throw new IllegalArgumentException("CLDRFile must be resolved");
+        if (!englishFile.isResolved()) throw new IllegalArgumentException("English CLDRFile must be resolved");
+        cldrFile = resolvedCldrFile;
+        this.englishFile = englishFile;
         icuServiceBuilder.setCldrFile(cldrFile);
         col = Collator.getInstance(new ULocale(cldrFile.getLocaleID()));
         synchronized (ExampleGenerator.class) {

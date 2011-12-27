@@ -17,12 +17,12 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestPaths() {
-        showCldrFile(info.getEnglish());
-        showCldrFile(info.getCldrFactory().make("fr", true));
+        showCldrFile(info.getEnglish(), info.getEnglish());
+        showCldrFile(info.getCldrFactory().make("fr", true), info.getEnglish());
     }
 
-    private void showCldrFile(final CLDRFile cldrFile) {
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+    private void showCldrFile(final CLDRFile cldrFile, final CLDRFile englishFile) {
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, englishFile, CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         checkPathValue(exampleGenerator, "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]", "EEEE d MMMMl y'x'G");
         
         for (String xpath : cldrFile) {

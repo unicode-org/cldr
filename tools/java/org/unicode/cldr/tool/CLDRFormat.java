@@ -11,6 +11,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -60,7 +61,7 @@ public class CLDRFormat {
         try {
           //byte[] utf8 = results.getBytes("utf-8");
           //CLDRFile regenFile = CLDRFile.make(destSubdir + key, key, new ByteArrayInputStream(utf8), DraftStatus.unconfirmed);
-          CLDRFile regenFile = CLDRFile.make(key, destSubdir + key, DraftStatus.unconfirmed);
+          CLDRFile regenFile = SimpleFactory.makeFile(key, destSubdir + key, DraftStatus.unconfirmed);
           String diff = findFirstDifference(cldrFile, regenFile);
           if (diff != null) {
             System.out.println("\tERROR: difference introduced in reformatting " + srcSubdir + "/" + key + ".xml" + "\n" + diff);

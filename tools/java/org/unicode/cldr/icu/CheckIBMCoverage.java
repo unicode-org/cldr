@@ -300,11 +300,10 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
     }
     private int check( String locale, String group, Level level, FileWriter fw) throws IOException{
         
-        CheckCoverage coverage = new CheckCoverage();
-        
         Factory cldrFactory = Factory.make(sourceDir, "xml");
+        CheckCoverage coverage = new CheckCoverage(cldrFactory);
         CLDRFile file = cldrFactory.make(locale, true);
-        CoverageLevel covLevel = new CoverageLevel();
+        CoverageLevel covLevel = new CoverageLevel(cldrFactory);
         List<CheckStatus> result = new ArrayList<CheckStatus>();
         Map<String,String> options = new HashMap<String,String>();
         options.put("CoverageLevel.localeType", group);

@@ -1,12 +1,15 @@
 package org.unicode.cldr.util;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
 /**
    * A factory is the normal method to produce a set of CLDRFiles from a directory of XML files.
@@ -14,20 +17,19 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
    */
   public abstract class Factory {
 
-    private File alternateSupplementalDirectory = null;
+    private File supplementalDirectory = null;
 
     public abstract String getSourceDirectory();
 
     protected abstract CLDRFile handleMake(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus);
 
     public CLDRFile make(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus) {
-      return handleMake(localeID, resolved, madeWithMinimalDraftStatus).setAlternateSupplementalDirectory(alternateSupplementalDirectory);
+      return handleMake(localeID, resolved, madeWithMinimalDraftStatus).setSupplementalDirectory(supplementalDirectory);
     }
 
     public CLDRFile make(String localeID, boolean resolved, boolean includeDraft) {
       return make(localeID, resolved, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
     }
-
 
     public CLDRFile make(String localeID, boolean resolved) {
       return make(localeID, resolved, getMinimalDraftStatus());
@@ -45,7 +47,38 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
       }
       return make(currentLocaleID,true,madeWithMinimalDraftStatus);
     }
-
+    
+    public static XMLSource makeResolvingSource(List<XMLSource> sources) {
+        return new ResolvingSource(sources);
+    }
+    
+    /**
+     * Temporary wrapper for creating an XMLSource. This is a hack and should
+     * only be used in the Survey Tool for now.
+     * @param localeID
+     * @return
+     */
+    public final XMLSource makeSource(String localeID) {
+        return make(localeID, false).dataSource;
+    }
+    
+    /**
+     * Creates a resolving source for the given locale ID.
+     * @param localeID
+     * @param madeWithMinimalDraftStatus
+     * @return
+     */
+    protected ResolvingSource makeResolvingSource(String localeID, DraftStatus madeWithMinimalDraftStatus) {
+        List<XMLSource> sourceList = new ArrayList<XMLSource>();
+        String curLocale = localeID;
+        while(curLocale != null) {
+            XMLSource source = handleMake(curLocale, false, madeWithMinimalDraftStatus).dataSource;
+            sourceList.add(source);
+            curLocale = LocaleIDParser.getParent(curLocale);
+        }
+        return new ResolvingSource(sourceList);
+    }
+    
     protected abstract DraftStatus getMinimalDraftStatus();
 
     /**
@@ -109,13 +142,35 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
       return result;
     }
 
-    public File getAlternateSupplementalDirectory() {
-      return alternateSupplementalDirectory;
+    public File getSupplementalDirectory() {
+      return supplementalDirectory;
     }
 
-    public Factory setAlternateSupplementalDirectory(File alternateSupplementalDirectory) {
-      this.alternateSupplementalDirectory = alternateSupplementalDirectory;
+    /**
+     * Sets the supplemental directory to be used by this Factory and CLDRFiles
+     * created by this Factory.
+     * @param supplementalDirectory
+     * @return
+     */
+    public Factory setSupplementalDirectory(File supplementalDirectory) {
+      this.supplementalDirectory = supplementalDirectory;
       return this;
     }
 
+    // TODO(jchye): Clean this up.
+    public CLDRFile getSupplementalData() {
+      try {
+        return make("supplementalData", false);
+      } catch (RuntimeException e) {
+        return Factory.make(getSupplementalDirectory().getPath(), ".*").make("supplementalData", false);
+      }
+    }
+    
+    public CLDRFile getSupplementalMetadata() {
+      try {
+        return make("supplementalMetadata", false);
+      } catch (RuntimeException e) {
+        return Factory.make(getSupplementalDirectory().getPath(), ".*").make("supplementalMetadata", false);
+      }
+    }
   }

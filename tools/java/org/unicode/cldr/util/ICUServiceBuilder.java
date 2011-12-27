@@ -80,7 +80,8 @@ public class ICUServiceBuilder {
     return cldrFile;
   }
   public ICUServiceBuilder setCldrFile(CLDRFile cldrFile) {
-    this.cldrFile = cldrFile.getResolved();
+    if (!cldrFile.isResolved()) throw new IllegalArgumentException("CLDRFile must be resolved");
+    this.cldrFile = cldrFile;
     supplementalData = SupplementalDataInfo.getInstance(this.cldrFile.getSupplementalDirectory());
     cacheDateFormats.clear();
     cacheNumberFormats.clear();

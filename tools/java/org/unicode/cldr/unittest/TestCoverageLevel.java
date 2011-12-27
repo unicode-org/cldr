@@ -33,7 +33,7 @@ public class TestCoverageLevel extends TestFmwk {
 
     private static TestInfo testInfo = TestInfo.getInstance();
 
-    private CoverageLevel coverageLevel1 = new CoverageLevel();
+    private CoverageLevel coverageLevel1 = new CoverageLevel(testInfo.getCldrFactory());
 
 
     private static int count = 0;

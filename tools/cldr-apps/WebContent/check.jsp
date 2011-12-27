@@ -3,9 +3,8 @@
 <%@page import="org.unicode.cldr.util.CLDRFile.DraftStatus"%>
 <%@page import="org.unicode.cldr.util.*"%>
 <%@page import="org.unicode.cldr.web.*"%>
-<%@page import="org.unicode.cldr.util.CLDRFile.SimpleXMLSource"%>
 <%@page import="org.unicode.cldr.util.CLDRFile"%>
-<%@page import="org.unicode.cldr.util.CLDRFile.SimpleXMLSource"%>
+<%@page import="org.unicode.cldr.util.SimpleXMLSource"%>
 <%@page import="org.unicode.cldr.util.XMLSource"%>
 <%@page import="java.io.*"%><%@page import="java.util.*,org.apache.commons.fileupload.*,org.apache.commons.fileupload.servlet.*,org.apache.commons.io.FileCleaningTracker,org.apache.commons.fileupload.util.*,org.apache.commons.fileupload.disk.*,java.io.File" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -103,7 +102,7 @@
 
 <%
 try {
-	cf = CLDRFile.make(SurveyMain.fileBase+"/upload.xml",fis,DraftStatus.unconfirmed);
+	cf = SimpleFactory.makeFile(SurveyMain.fileBase+"/upload.xml",fis,DraftStatus.unconfirmed);
 } catch(Throwable t) {
 	out.println("<h3>Failed to parse.</h3>");
 	while(t!=null) {

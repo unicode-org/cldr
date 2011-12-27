@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -18,7 +17,7 @@ public class MuxedSource extends XMLSource {
 	
 	public interface MuxFactory {
 
-		XMLSource getRootDbSource();
+		XMLSource getInstance(CLDRLocale locale);
 
 		CacheableXMLSource getSourceFromCache(CLDRLocale locale,
 				boolean finalData);
@@ -41,20 +40,12 @@ public class MuxedSource extends XMLSource {
 		this.setLocaleID(locale.toString());
 		this.locale = locale;
 		this.finalData = finalData;
-		this.dbSource = mfactory.getRootDbSource().make(locale.toString());
+		this.dbSource = mfactory.getInstance(locale);
 		this.cachedSource = mfactory.getSourceFromCache(locale, finalData);
 	}
 	
 	public boolean invalid() {
 		return cachedSource.invalid();
-	}
-
-	/* (non-Javadoc)
-	 * @see org.unicode.cldr.util.XMLSource#getAvailableLocales()
-	 */
-	@Override
-	public Set getAvailableLocales() {
-		return dbSource.getAvailableLocales();
 	}
 
 	/* (non-Javadoc)
@@ -76,15 +67,6 @@ public class MuxedSource extends XMLSource {
 		//  } */
 		if(false) {  System.err.println("NN: F["+path+"] @"+getLocaleID() + " = " + cachedSource.getWinningPath(path));    }
 		return cachedSource.getWinningPath(path);
-	}
-
-	/* (non-Javadoc)
-	 * @see org.unicode.cldr.util.XMLSource#getSupplementalDirectory()
-	 */
-	@Override
-	public File getSupplementalDirectory() {
-		// TODO Auto-generated method stub
-		return dbSource.getSupplementalDirectory();
 	}
 
 	/* (non-Javadoc)
@@ -125,18 +107,6 @@ public class MuxedSource extends XMLSource {
 			System.err.println("// "+i.next().toString());
 		} }
 		return cachedSource.iterator(str);
-	}
-	//
-	/* (non-Javadoc)
-	 * @see org.unicode.cldr.util.XMLSource#make(java.lang.String)
-	 */
-	@Override
-	public XMLSource make(String localeID) {
-		if(localeID.startsWith(CLDRFile.SUPPLEMENTAL_PREFIX)) {
-			return dbSource.make(localeID); // will fal through to raw files
-		} else {
-			return mfactory.getMuxedInstance(CLDRLocale.getInstance(localeID));
-		}
 	}
 
 	/* (non-Javadoc)

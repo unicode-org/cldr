@@ -53,7 +53,7 @@ public class GenerateCoverageLevels {
   private static LocaleFilter nonAliasLocaleFilter = new LocaleFilter(false);
   
 
-  private static final CoverageLevel coverageLevel = new CoverageLevel();
+  private static final CoverageLevel coverageLevel = new CoverageLevel(cldrFactory);
   private static final long COLLATION_WEIGHT = 50;
   private static final Level COLLATION_LEVEL = Level.POSIX;
   private static final long PLURALS_WEIGHT = 20;

@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
 
@@ -100,7 +101,7 @@ class ExtractMessages {
         }
         
         // now write it out
-        CLDRFile newFile = CLDRFile.make(otherHandler.getLocale());
+        CLDRFile newFile = SimpleFactory.makeFile(otherHandler.getLocale());
         int itemCount = 0;
         for (DataHandler dataHandler : dataHandlers) {
           if (showMissing) {

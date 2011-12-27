@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.SimpleFactory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.impl.ICUResourceBundle;
@@ -80,7 +81,7 @@ public class ExtractICUData {
 	static void generateTransliterators() throws IOException {
 		Matcher fileFilter = Pattern.compile(".*").matcher("");
 		
-		CLDRFile accumulatedItems = CLDRFile.makeSupplemental("allItems");
+		CLDRFile accumulatedItems = SimpleFactory.makeSupplemental("allItems");
 		getTranslitIndex(accumulatedItems);
 		
 		File translitSource = new File("C:\\cvsdata\\icu\\icu\\source\\data\\translit\\");
@@ -125,7 +126,7 @@ public class ExtractICUData {
 			} else {
 				input = CldrUtility.getUTF8Data(fileName);
 			}
-			CLDRFile outFile = CLDRFile.makeSupplemental(fileName);
+			CLDRFile outFile = SimpleFactory.makeSupplemental(fileName);
 			int count = 0;
 			String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform" + attributes;
 			String rulePrefix = prefixBase + "/tRule[@_q=\"";
@@ -173,7 +174,7 @@ public class ExtractICUData {
     System.out.println(coreName + "\t=>\t" + outName + " => " + attributes);
     
     BufferedReader input = BagFormatter.openUTF8Reader("", fileName);
-    CLDRFile outFile = CLDRFile.makeSupplemental(coreName);
+    CLDRFile outFile = SimpleFactory.makeSupplemental(coreName);
     int count = 0;
     String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform" + attributes;
     String rulePrefix = prefixBase + "/tRule[@_q=\"";
@@ -271,7 +272,7 @@ public class ExtractICUData {
 //				direction,
 //				type}));
 			} else if (type.equals("alias")) {
-                CLDRFile outFile = CLDRFile.makeSupplemental("transformAliases");
+                CLDRFile outFile = SimpleFactory.makeSupplemental("transformAliases");
 				//'alias'; row[2]=createInstance argument
 				ID = fixTransID(ID, attributesOut);
 				String outName = ID.replace('/', '-');

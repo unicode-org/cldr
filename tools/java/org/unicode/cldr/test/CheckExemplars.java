@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
@@ -18,7 +19,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
-public class CheckExemplars extends CheckCLDR {
+public class CheckExemplars extends FactoryCheckCLDR {
     
     private static final boolean SUPPRESS_AUX_EMPTY_CHECK = true;
 
@@ -77,6 +78,10 @@ public class CheckExemplars extends CheckCLDR {
             this.toRemove = new UnicodeSet(allowed).complement().freeze();
             this.convertUppercase = convertUppercase;
         }
+    }
+    
+    public CheckExemplars(Factory factory) {
+        super(factory);
     }
 
     //Allowed[:script=common:][:script=inherited:][:alphabetic=false:]

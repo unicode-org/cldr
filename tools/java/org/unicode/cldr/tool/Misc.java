@@ -30,6 +30,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
@@ -1322,7 +1323,8 @@ public class Misc {
 			if (!name.endsWith(".txt")) continue;
 			String fixedName = name.substring(name.length()-4);
 			BufferedReader input = BagFormatter.openUTF8Reader(file.getParent() + File.pathSeparator, name);
-			CLDRFile outFile = new CLDRFile(null, false);
+			SimpleXMLSource source = new SimpleXMLSource(null);
+			CLDRFile outFile = new CLDRFile(source);
 			int count = 0;
 			while (true) {
 				String line = input.readLine();

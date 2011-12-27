@@ -313,13 +313,18 @@ public class VettingViewer<T> {
         private HashMap<String, String> options = new HashMap<String, String>();
         private ArrayList<CheckStatus>  result  = new ArrayList<CheckStatus>();
         private CLDRFile                cldrFile;
+        private Factory                 factory;
+        
+        public DefaultErrorStatus(Factory cldrFactory) {
+            this.factory = cldrFactory;
+        }
 
         @Override
         public Status initErrorStatus(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
             options = new HashMap<String, String>();
             result = new ArrayList<CheckStatus>();
-            checkCldr = CheckCLDR.getCheckAll(".*");
+            checkCldr = CheckCLDR.getCheckAll(factory, ".*");
             checkCldr.setCldrFileToCheck(cldrFile, options, result);
             return Status.ok;
         }
@@ -364,7 +369,7 @@ public class VettingViewer<T> {
     private final String               lastVersionTitle;
     private final String               currentWinningTitle;
     private final PathDescription      pathDescription;
-    private ErrorChecker               errorChecker = new DefaultErrorStatus(); // new
+    private ErrorChecker               errorChecker; // new
     // NoErrorStatus();
     // //
     // for
@@ -396,6 +401,7 @@ public class VettingViewer<T> {
         Map<String, String> extras = new HashMap();
         reasonsToPaths = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
         this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths, PathDescription.ErrorHandling.CONTINUE);
+        errorChecker = new DefaultErrorStatus(cldrFactory);
     }
 
     class WritingInfo implements Comparable<WritingInfo> {

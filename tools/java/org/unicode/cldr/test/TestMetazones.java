@@ -120,7 +120,7 @@ public class TestMetazones {
     // testing zone information
     errorLog.println("Testing metazone info in: " + locale);
     // get the resolved version
-    file = file.make(locale, true);
+    file = factory.make(locale, true);
     Relation<String, DateRangeAndZone> mzoneToData = new Relation(
         new TreeMap(), TreeSet.class);
 

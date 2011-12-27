@@ -11,6 +11,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
@@ -27,7 +28,7 @@ public class GenerateIndexCharacters {
 
         for (String locale : available) {
             String cleanedSet = getConstructedIndexSet(locale, cldrFactory.make(locale, true));
-            CLDRFile temp = CLDRFile.make(locale);
+            CLDRFile temp = SimpleFactory.makeFile(locale);
             temp.add("//ldml/characters/exemplarCharacters[@type=\"index\"][@draft=\"unconfirmed\"]", cleanedSet);
             PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "indexchars/", locale + ".xml");
             temp.write(out);

@@ -11,18 +11,23 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.util.TimeZone;
 
-public class CheckZones extends CheckCLDR {
+public class CheckZones extends FactoryCheckCLDR {
 	//private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 
 	// "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
 
 	private TimezoneFormatter timezoneFormatter;
-	
+
+	public CheckZones(Factory factory) {
+	    super(factory);
+	}
+
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
 		if (cldrFile == null) return this;
     if (Phase.FINAL_TESTING == getPhase()) {

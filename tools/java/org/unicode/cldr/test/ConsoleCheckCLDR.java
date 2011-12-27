@@ -280,16 +280,17 @@ public class ConsoleCheckCLDR {
 
         // set up the test
         Factory cldrFactory = Factory.make(sourceDirectory, factoryFilter)
-        .setAlternateSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
-        CheckCLDR checkCldr = CheckCLDR.getCheckAll(checkFilter);
+        .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
+        CheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
         try {
             english = cldrFactory.make("en", true);
         } catch (Exception e1) {
             Factory backCldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, factoryFilter)
-            .setAlternateSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
+            .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
             english = backCldrFactory.make("en", true);
         }
         checkCldr.setDisplayInformation(english);
+        setExampleGenerator(new ExampleGenerator(english, english, CldrUtility.SUPPLEMENTAL_DIRECTORY));
         PathShower pathShower = new PathShower();
 
         // call on the files
@@ -351,6 +352,7 @@ public class ConsoleCheckCLDR {
             //options.put("CheckCoverage.requiredLevel","comprehensive");
 
             CLDRFile file;
+            CLDRFile englishFile;
             CLDRFile parent = null;
 
             ElapsedTimer timer = new ElapsedTimer();
@@ -363,6 +365,7 @@ public class ConsoleCheckCLDR {
                 if (parentID != null) {
                     parent = cldrFactory.make(parentID, true);
                 }
+                englishFile = cldrFactory.make("en", true);
             } catch (RuntimeException e) {
                 fatalErrors.add(localeID);
                 System.out.println("FATAL ERROR: " + localeID);
@@ -430,7 +433,7 @@ public class ConsoleCheckCLDR {
             pathShower.set(localeID);
 
             // only create if we are going to use
-            ExampleGenerator exampleGenerator = SHOW_EXAMPLES != null ? new ExampleGenerator(file, CldrUtility.SUPPLEMENTAL_DIRECTORY) : null;
+            ExampleGenerator exampleGenerator = SHOW_EXAMPLES != null ? new ExampleGenerator(file, englishFile, CldrUtility.SUPPLEMENTAL_DIRECTORY) : null;
             ExampleContext exampleContext = new ExampleContext();
 
             //Status pathStatus = new Status();
@@ -1277,9 +1280,6 @@ public class ConsoleCheckCLDR {
             String englishExample = null;
             final String englishPathValue = path == null ? null : getEnglishPathValue(path);
             if (SHOW_EXAMPLES != null && path != null) {
-                if (getExampleGenerator() == null) {
-                    setExampleGenerator(new ExampleGenerator(CheckCLDR.getDisplayInformation(), CldrUtility.SUPPLEMENTAL_DIRECTORY));
-                }
                 englishExample = getExampleGenerator().getExampleHtml(path, englishPathValue, ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
             }
             englishExample = englishExample == null ? "" : englishExample;
@@ -1385,7 +1385,7 @@ public class ConsoleCheckCLDR {
             setDisplayInformation(displayInformation); 
         }
 
-        public void showHeader(String path, String value) {
+        private void showHeader(String path, String value) {
             if (newLocale) {
                 System.out.println("Locale:\t" + getLocaleAndName(localeID));
                 newLocale = false;

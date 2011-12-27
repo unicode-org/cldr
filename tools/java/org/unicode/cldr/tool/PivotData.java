@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -159,7 +160,7 @@ public class PivotData {
     // we now have a list of siblings. 
     // Create and write a new CLDRFile that is an empty me
     
-    CLDRFile newFile = CLDRFile.make(localeID);
+    CLDRFile newFile = SimpleFactory.makeFile(localeID);
     writeFile(newFile);
     if (DEBUG) System.out.format("%s changes in: %s" + CldrUtility.LINE_SEPARATOR, uniquePaths.size(), localeID);
     

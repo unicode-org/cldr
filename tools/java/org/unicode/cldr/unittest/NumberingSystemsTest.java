@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -16,7 +17,7 @@ public class NumberingSystemsTest extends TestFmwk {
   }
 
   public void TestFile() {
-    CLDRFile file = CLDRFile.make("numberingSystems", CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
+    CLDRFile file = SimpleFactory.makeFile("numberingSystems", CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
     XPathParts parts = new XPathParts();
     for (String path : file) {
       parts.set(path);

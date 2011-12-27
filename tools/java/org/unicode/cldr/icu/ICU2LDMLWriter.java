@@ -20,6 +20,7 @@ import java.util.StringTokenizer;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -230,7 +231,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
 	
 	private void processMain(ULocale locale) throws Exception
 	{
-		CLDRFile xfile = CLDRFile.make(locale.getName());
+		CLDRFile xfile = SimpleFactory.makeFile(locale.getName());
 		
 		final String baseName = "com/ibm/icu/impl/data/icudt41b";
 		ClassLoader loader = ICUData.class.getClassLoader();

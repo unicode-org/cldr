@@ -13,6 +13,7 @@ import java.io.StringWriter;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.SimpleFactory;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -32,7 +33,7 @@ public class TestCLDRUtils extends TestFmwk {
     public void TestEmptyCLDRFile() {
         CLDRLocale aloc = CLDRLocale.getInstance("tlh");
         logln("Testing CLDRFile.make("+aloc.toString()+").write()");
-        CLDRFile emptyFile = CLDRFile.make(aloc.getBaseName());
+        CLDRFile emptyFile = SimpleFactory.makeFile(aloc.getBaseName());
         StringWriter outStream = new StringWriter();
         try {
             emptyFile.write(new PrintWriter(outStream));

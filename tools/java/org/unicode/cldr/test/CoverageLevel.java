@@ -25,6 +25,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -154,9 +155,15 @@ public class CoverageLevel {
   
   private static boolean euroCountriesMissing = false; // Set to TRUE if eurocountries weren't produced by init.
   
+  private Factory factory;
+
+  public CoverageLevel(Factory factory) {
+      this.factory = factory;
+  }
+  
   /**
    * Used by the coverage & survey tools.
-   * @param file only used to get at the supplemental data, since from any CLDRFile you can get to siblings
+   * @param file file to be set
    * @param options optional parameters
    * @param cause TODO
    * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
@@ -165,8 +172,8 @@ public class CoverageLevel {
   public CoverageLevel setFile(CLDRFile file, Map options, CheckCLDR cause, List<CheckStatus> possibleErrors) {
     synchronized (sync) {
       if (!initialized) {
-        CLDRFile supplementalMetadata = file.getSupplementalMetadata();
-        CLDRFile supplementalData = file.getSupplementalData();
+        CLDRFile supplementalMetadata = factory.getSupplementalMetadata();
+        CLDRFile supplementalData = factory.getSupplementalData();
         init(supplementalData, supplementalMetadata);
         initMetazoneCoverage(file, supplementalData, supplementalMetadata);
         initPosixCoverage(file.getLocaleID(), supplementalData);
@@ -175,8 +182,9 @@ public class CoverageLevel {
     }
     boolean exemplarsContainA_Z = false;
     UnicodeSet exemplars;
+    CLDRFile resolvedFile = factory.make(file.getLocaleID(), true);
     try {
-        exemplars = file.getResolved().getExemplarSet("", CLDRFile.WinningChoice.WINNING); // need to use resolved version to get exemplars
+        exemplars = resolvedFile.getExemplarSet("", CLDRFile.WinningChoice.WINNING); // need to use resolved version to get exemplars
     } catch(IllegalArgumentException iae) {
       possibleErrors.add(new CheckStatus()
       .setCause(cause).setMainType(CheckStatus.errorType).setSubtype(Subtype.couldNotAccessExemplars)
@@ -188,12 +196,12 @@ public class CoverageLevel {
         throw new InternalCldrException("'"+file.getLocaleID()+"'.getExemplarSet() returned null.");
     }
     
-    UnicodeSet auxexemplars = file.getResolved().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
+    UnicodeSet auxexemplars = resolvedFile.getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
     if (auxexemplars != null) exemplars.addAll(auxexemplars);
     exemplarsContainA_Z = exemplars.contains('A','Z');
     
     boolean currencyExemplarsContainA_Z = false;
-    auxexemplars = file.getResolved().getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
+    auxexemplars = resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
     if (auxexemplars != null) currencyExemplarsContainA_Z = auxexemplars.contains('A','Z');
 
     setFile(file.getLocaleID(), exemplarsContainA_Z, currencyExemplarsContainA_Z, options, cause, possibleErrors);
@@ -724,11 +732,11 @@ public class CoverageLevel {
     usedMetazones.clear();
 
     if ( timezones != null && !timezones.isEmpty() ) {
-
+      CLDRFile resolvedFile = factory.make(file.getLocaleID(), true);
       for (Iterator it = timezones.iterator(); it.hasNext();) {
         String tz = (String) it.next();
         XPathParts parts = new XPathParts(null,null);
-        String usedMetazone = file.getResolved().getCurrentMetazone(tz);
+        String usedMetazone = resolvedFile.getCurrentMetazone(tz);
         if ( !usedMetazones.contains(usedMetazone)) {
           usedMetazones.add(usedMetazone);
         }

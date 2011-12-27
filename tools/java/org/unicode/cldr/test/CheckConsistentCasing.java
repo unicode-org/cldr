@@ -13,6 +13,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.RegexLookup;
@@ -24,7 +25,7 @@ import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 
-public class CheckConsistentCasing extends CheckCLDR {
+public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
     
@@ -36,17 +37,19 @@ public class CheckConsistentCasing extends CheckCLDR {
     ULocale uLocale = null;
     BreakIterator breaker = null;
     private String locale;
-    private CLDRFile resolvedCldrFileToCheck2;
     PrettyPath pretty = new PrettyPath();
     Set<String> wasMissing = new HashSet();
+
+    public CheckConsistentCasing(Factory factory) {
+        super(factory);
+    }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
 
-        resolvedCldrFileToCheck2 = getResolvedCldrFileToCheck();
-        getSamples(resolvedCldrFileToCheck2);
+        getSamples(getResolvedCldrFileToCheck());
         return this;
     }
 

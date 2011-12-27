@@ -42,10 +42,11 @@ public class TestCheckCLDR extends TestFmwk {
         logln(status.getMessage());
     }
     public static void TestCheckConsistentCasing() {
-        CheckConsistentCasing c = new CheckConsistentCasing();
+        TestInfo info = TestInfo.getInstance();
+        CheckConsistentCasing c = new CheckConsistentCasing(info.getCldrFactory());
         Map<String, String> options = new LinkedHashMap();
         List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
-        final CLDRFile english = TestInfo.getInstance().getEnglish();
+        final CLDRFile english = info.getEnglish();
         c.setCldrFileToCheck(english, options, possibleErrors);
         for (String path : english) {
             c.check(path, english.getFullXPath(path), english.getStringValue(path), options, possibleErrors);

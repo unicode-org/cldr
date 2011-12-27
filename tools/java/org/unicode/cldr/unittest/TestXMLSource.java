@@ -54,21 +54,6 @@ public class TestXMLSource extends TestFmwk {
         public Iterator<String> iterator() {
             return valueMap.keySet().iterator();
         }
-
-        @Override
-        public XMLSource make(String localeID) {
-            return null;
-        }
-
-        @Override
-        public Set getAvailableLocales() {
-            return null;
-        }
-
-        @Override
-        public File getSupplementalDirectory() {
-            return null;
-        }
     }
 
     public static void main(String[] args) {

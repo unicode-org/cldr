@@ -24,6 +24,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.ArrayComparator;
@@ -129,7 +130,7 @@ public class VettingAdder {
 			String dir = (String)it2.next() + File.separator;
 			String fixedLocale = "fixed-" + locale + ".xml";
 			fixXML(dir, locale + ".xml", dir, fixedLocale);
-			CLDRFile cldr = CLDRFile.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
+			CLDRFile cldr = SimpleFactory.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
 			for (Iterator it3 = cldr.iterator(); it3.hasNext();) {
 				String path = (String) it3.next();
 				String value = (String) cldr.getStringValue(path);
@@ -145,7 +146,7 @@ public class VettingAdder {
 		// now walk though items. If there is a single value, keep it
 		// otherwise show
 		Set uniquePathAndValue = new TreeSet(PathAndValueComparator);
-		CLDRFile cldrDelta = CLDRFile.make(locale);
+		CLDRFile cldrDelta = SimpleFactory.makeFile(locale);
 		boolean gotOne = false;
 		for (Iterator it2 = accum.iterator(); it2.hasNext(); ) {
 			String path = (String) it2.next();

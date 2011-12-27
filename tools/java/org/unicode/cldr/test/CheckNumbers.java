@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.XPathParts;
 
@@ -18,7 +19,7 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
-public class CheckNumbers extends CheckCLDR {
+public class CheckNumbers extends FactoryCheckCLDR {
     private static final UnicodeSet FORBIDDEN_NUMERIC_PATTERN_CHARS = new UnicodeSet("[[:n:]-[0]]");
 
     /**
@@ -57,6 +58,10 @@ public class CheckNumbers extends CheckCLDR {
      * Formatters require this for checking that we've read to the end.
      */
     private ParsePosition parsePosition = new ParsePosition(0);
+
+    public CheckNumbers(Factory factory) {
+        super(factory);
+    }
 
     /**
      * Whenever your test needs initialization, override setCldrFileToCheck.

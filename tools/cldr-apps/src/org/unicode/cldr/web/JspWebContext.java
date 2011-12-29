@@ -61,13 +61,21 @@ public class JspWebContext extends WebContext {
 	}
 
 	/**
+	 * @return the resolved CLDRFile for the current locale.
+	 * @deprecated leaks UserFile
+	 */
+	public CLDRFile resolvedFile() {
+		return SurveyForum.getResolvedFile(this);
+	}
+	
+	/**
 	 * @return the non-resolved CLDRFile for the current locale.
 	 * @deprecated leaks UserFile
 	 */
 	public CLDRFile cldrFile() {
 		return SurveyForum.getCLDRFile(this);
 	}
-	
+
 	/**
 	 * @return a copy of the SupplementalDataInfo
 	 * @see SupplementalDataInfo

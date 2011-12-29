@@ -746,6 +746,14 @@ public class SurveyForum {
 	}
 
 	/**
+	 * Get resolved CLDR File
+	 */
+	public static CLDRFile getResolvedFile(WebContext ctx) {
+		return ctx.getUserFile().resolvedFile;
+		//return ctx.sm.getCLDRFile(ctx.session, ctx.getLocale());
+	}
+
+	/**
 	 * Get CLDR File
 	 */
 	public static CLDRFile getCLDRFile(WebContext ctx) {

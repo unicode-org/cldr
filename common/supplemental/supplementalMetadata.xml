@@ -401,7 +401,6 @@
             <variable id="$collationType" type="choice">
                 big5han
                 dictionary direct ducet
-                eor
                 gb2312han
                 phonebook phonetic pinyin
                 reformed
@@ -505,7 +504,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colStrength currency numbers x</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ducet eor ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese jpan jpanfin knda khmr laoo latn lower mlym mong mymr native no non-ignorable orya persian phonebook pinyin primary quarternary quaternary roc roman romanlow search searchjl secondary shifted stroke taml tamldec telu tertiary thai tibt traditional upper yes</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow beng big5han buddhist chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese jpan jpanfin knda khmr laoo latn lower mlym mong mymr native no non-ignorable orya persian phonebook pinyin primary quarternary quaternary roc roman romanlow search searchjl secondary shifted stroke taml tamldec telu tertiary thai tibt traditional upper yes</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>

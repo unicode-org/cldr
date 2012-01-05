@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 6303 $"/>
+		<generation date="$Date: 2012-01-05 13:12:32 -0800 (Thurs, 05 Jan 2012) $"/>
+		<language type="ro"/>
+	</identity>
+	<behavior>
+		<casing type="calendar-field">lowercase</casing>
+		<casing type="day-narrow">uppercase</casing>
+		<casing type="displayName">lowercase</casing>
+		<casing type="displayName-count">lowercase</casing>
+		<casing type="era-abbr">lowercase</casing>
+		<casing type="era-name">lowercase</casing>
+		<casing type="era-narrow">lowercase</casing>
+		<casing type="language">lowercase</casing>
+		<casing type="metazone-long">uppercase</casing>
+		<casing type="month-format">lowercase</casing>
+		<casing type="month-narrow">uppercase</casing>
+		<casing type="month-standalone-except-narrow">lowercase</casing>
+		<casing type="quarter-format-wide">lowercase</casing>
+		<casing type="quarter-narrow">uppercase</casing>
+		<casing type="quarter-standalone-wide">lowercase</casing>
+		<casing type="script">lowercase</casing>
+		<casing type="territory">uppercase</casing>
+		<casing type="unit-pattern">uppercase</casing>
+		<casing type="variant">lowercase</casing>
+		<casing type="zone-examplarCity">uppercase</casing>
+	</behavior>
+</ldml>

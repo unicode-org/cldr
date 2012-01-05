@@ -1,6 +1,6 @@
 package org.unicode.cldr.test;
 
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -15,14 +15,12 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 
 public class CheckConsistentCasing extends FactoryCheckCLDR {
@@ -37,8 +35,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     ULocale uLocale = null;
     BreakIterator breaker = null;
     private String locale;
-    PrettyPath pretty = new PrettyPath();
-    Set<String> wasMissing = new HashSet();
+    CasingInfo casingInfo = new CasingInfo();
+    private boolean hasCasingInfo;
 
     public CheckConsistentCasing(Factory factory) {
         super(factory);
@@ -49,7 +47,12 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
 
-        getSamples(getResolvedCldrFileToCheck());
+        Map<String, FirstLetterType> casing = casingInfo.getLocaleCasing(locale);
+        for (int i = 0; i < typeNames.length; i++) {
+            types[i] = casing.get(typeNames[i]);
+            if (types[i] == null) types[i] = FirstLetterType.other;
+        }
+        hasCasingInfo = casing.size() > 0;
         return this;
     }
 
@@ -57,14 +60,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have
-        //    if (resolvedCldrFileToCheck2.getStringValue(path) == null) {
-        //      System.out.println("???");
-        //    }
+        if (!hasCasingInfo) return this;
 
         String locale2 = getCldrFileToCheck().getSourceLocaleID(path, null);
-        if (!locale2.equals(locale)) {
-            //System.out.println(locale + "\t" + uLocale);
-        } else if (value != null && value.length() > 0) {
+        if (locale2.equals(locale) && value != null && value.length() > 0) {
             int index = getIndex(path);
             if (index >= 0) {
                 checkConsistentCasing(index, path, fullPath, value, options, result);
@@ -127,7 +126,6 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
          * @return
          */
         public static boolean works(FirstLetterType a, FirstLetterType b) {
-            // TODO Auto-generated method stub
             return a == b || a == FirstLetterType.other || b == FirstLetterType.other;
         }
     }
@@ -137,16 +135,17 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     .add("//ldml/localeDisplayNames/scripts/script", 1)
     .add("//ldml/localeDisplayNames/territories/territory", 2)
     .add("//ldml/localeDisplayNames/variants/variant", 3)
-    .add("//ldml/localeDisplayNames/variants/type", 4)
+    .add("//ldml/localeDisplayNames/keys/key", 30)
+    .add("//ldml/localeDisplayNames/types/type", 4)
     .add("//ldml/dates/calendars/calendar.*/months.*narrow", 5)
     .add("//ldml/dates/calendars/calendar.*/months.*format", 6)
     .add("//ldml/dates/calendars/calendar.*/months", 7)
     .add("//ldml/dates/calendars/calendar.*/days.*narrow", 8)
     .add("//ldml/dates/calendars/calendar.*/days.*format", 9)
     .add("//ldml/dates/calendars/calendar.*/days", 10)
-    .add("//ldml/dates/calendars/calendar.*/eras.*narrow", 11)
-    .add("//ldml/dates/calendars/calendar.*/eras.*format", 12)
-    .add("//ldml/dates/calendars/calendar.*/eras", 13)
+    .add("//ldml/dates/calendars/calendar.*/eras/eraNarrow", 11)
+    .add("//ldml/dates/calendars/calendar.*/eras/eraAbbr", 12)
+    .add("//ldml/dates/calendars/calendar.*/eras/", 13)
     .add("//ldml/dates/calendars/calendar.*/quarters.*narrow", 14)
     .add("//ldml/dates/calendars/calendar.*/quarters.*abbreviated", 15)
     .add("//ldml/dates/calendars/calendar.*/quarters.*format", 16)
@@ -167,131 +166,115 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     //ldml/localeDisplayNames/keys/key[@type=".*"]
     //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
     //ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
-
-    
     ;
-    static final int LIMIT_COUNT = 30;
+
+    public static final int LIMIT_COUNT = 31;
 
     FirstLetterType[] types = new FirstLetterType[LIMIT_COUNT];
-    String[] percent = new String[LIMIT_COUNT];
-    String[] samples = new String[LIMIT_COUNT];
+
+    public static String NOT_USED = "NOT_USED";
+ 
+    public static String[] typeNames = new String[] {
+        "language","script", "territory", "variant", "type",
+        "month-narrow", "month-format", "month-standalone-except-narrow",
+        "day-narrow", "day-format", "day-standalone-except-narrow",
+        "era-narrow", "era-abbr", "era-name",
+        "quarter-narrow", "quarter-abbreviated", "quarter-format-wide", "quarter-standalone-wide",
+        "calendar-field",
+        "zone-examplarCity", "zone-short", "zone-long",
+        NOT_USED,
+        "metazone-short", "metazone-long",
+        "symbol",
+        "displayName-count", "displayName",
+        "tense", "unit-pattern",
+        "key"
+    };
 
     // //ldml/numbers/currencies/currency[@type="ADP"]/displayName
     // //ldml/numbers/currencies/currency[@type="RON"]/displayName[@count="other"]
     // //ldml/numbers/currencies/currency[@type="BYB"]/symbol
 
-    int getIndex(String path) {
+    static int getIndex(String path) {
         Integer bucket = pathToBucket.get(path);
         return bucket == null ? -1 : bucket;
     }
 
-    private void getSamples(CLDRFile unresolved) {
+    /**
+     * Calculates casing information using data from the specified CLDRFile. 
+     * @param resolved the resolved CLDRFile to calculate casing information from
+     * @return
+     */
+    public static Map<String, FirstLetterType> getSamples(CLDRFile resolved) {
         Counter<FirstLetterType>[] counters = new Counter[LIMIT_COUNT];
-        Set<String>[] sampleLower = new Set[LIMIT_COUNT];
-        Set<String>[] sampleUpper = new Set[LIMIT_COUNT];
 
         for (int i = 0; i < LIMIT_COUNT; ++i) {
             counters[i] = new Counter<FirstLetterType>();
-            sampleLower[i] = new HashSet<String>();
-            sampleUpper[i] = new HashSet<String>();
         }
-        
+        PathStarrer starrer = new PathStarrer();
         Set<String> items = new TreeSet<String>(CLDRFile.ldmlComparator);
-        Iterator<String> it = unresolved.iterator();
+        Iterator<String> it = resolved.iterator();
         CollectionUtilities.addAll(it, items);
-        unresolved.getExtraPaths(items);
-        boolean isRoot = "root".equals(unresolved.getLocaleID());
-        PathStarrer starrer = !DEBUG ? null : new PathStarrer();
+        resolved.getExtraPaths(items);
+        boolean isRoot = "root".equals(resolved.getLocaleID());
         Set<String> missing = !DEBUG ? null : new TreeSet<String>();
 
         for (String path : items) {
-            //      if (path.contains("displayName") && path.contains("count")) {
-            //        System.out.println("count");
-            //      }
             if (!isRoot) {
-                String locale2 = getCldrFileToCheck().getSourceLocaleID(path, null);
+                String locale2 = resolved.getSourceLocaleID(path, null);
                 if (locale2.equals("root") || locale2.equals("code-fallback")) {
                     continue;
                 }
             }
-            String winningPath = unresolved.getWinningPath(path);
+            String winningPath = resolved.getWinningPath(path);
             if (!winningPath.equals(path)) {
                 continue;
             }
-            // System.out.println(locale2 + "\t\t" + path);
             int i = getIndex(path);
             if (i >= 0) {
-                String value = unresolved.getStringValue(path);
+                String value = resolved.getStringValue(path);
                 if (value == null || value.length() == 0) continue;
                 FirstLetterType ft = FirstLetterType.from(value);
                 counters[i].add(ft, 1);
-                switch (ft) {
-                case lowercase: sampleLower[i].add(value); break;
-                case uppercase: sampleUpper[i].add(value); break;
-                }
             } else if (DEBUG) {
                 String starred = starrer.set(path);
                 missing.add(starred);
             }
         }
         
+        FirstLetterType[] types = new FirstLetterType[LIMIT_COUNT];
+        Map<String, FirstLetterType> info = new HashMap();
         for (int i = 0; i < LIMIT_COUNT; ++i) {
             long countLower = counters[i].getCount(FirstLetterType.lowercase);
             long countUpper = counters[i].getCount(FirstLetterType.uppercase);
             long countOther = counters[i].getCount(FirstLetterType.other);
-            if (countLower >= countUpper * MIN_FACTOR && countLower >= countOther) {
+            if (countLower + countUpper == 0) {
+                types[i] = FirstLetterType.other;
+            } else if (countLower >= countUpper * MIN_FACTOR && countLower >= countOther) {
                 types[i] = FirstLetterType.lowercase;
-                samples[i] = extractSamples(sampleLower[i]);
-                setPercent(i, countLower, countLower + countUpper);
             } else if (countUpper >= countLower * MIN_FACTOR && countUpper >= countOther) {
                 types[i] = FirstLetterType.uppercase;
-                samples[i] = extractSamples(sampleUpper[i]);
-                setPercent(i, countUpper, countLower + countUpper);
             } else {
                 types[i] = FirstLetterType.other;
             }
+            if (!typeNames[i].equals(CheckConsistentCasing.NOT_USED)) {
+                info.put(typeNames[i], types[i]);
+            }
         }
         if (DEBUG && missing.size() != 0) {
-            missing.removeAll(wasMissing);
             System.out.println("Paths skipped:\n" + CollectionUtilities.join(missing, "\n"));
-            wasMissing.addAll(missing);
         }
+        return info;
     }
-
-    private String extractSamples(Set<String> values) {
-        StringBuffer stringBuffer = new StringBuffer();
-        // we count on the hash to randomize the results.
-        for (String value : values) {
-            if (stringBuffer.length() != 0) {
-                stringBuffer.append("; ");
-            }
-            stringBuffer.append("〈").append(value).append("〉");
-            if (stringBuffer.length() > 50) break;
-        }
-        return stringBuffer.toString();
-    }
-
-    private void setPercent(int i, long countLower, long total) {
-        percent[i] = percentFormat.format(countLower/(double)total);
-        if ("100%".equals(percent[i])) {
-            percent[i] = "99+%";
-        }
-    }
-
-    static final NumberFormat percentFormat = NumberFormat.getPercentInstance(ULocale.ENGLISH);
     
     private void checkConsistentCasing(int i, String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
-        //    if (path.contains("displayName") && path.contains("count")) {
-        //      System.out.println("count");
-        //    }
         FirstLetterType ft = FirstLetterType.from(value);
         if (!FirstLetterType.works(ft, types[i])) {
             result.add(new CheckStatus().setCause(this)
                     .setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
-                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the majority of this type: {2}={3}, such as {4}…", 
-                            new Object[]{value, ft, percent[i], types[i], samples[i]})); // the message; can be MessageFormat with arguments
+                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the majority of this type: {2}", 
+                            value, ft, types[i])); // the message; can be MessageFormat with arguments
         }
     }
 }

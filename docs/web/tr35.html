@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2011-12-06</span></td>
+			<td><span class="changed">2012-01-05</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -3084,6 +3084,14 @@ language may not be in common usage in a particular territory.</p>
 	<p>Metazones are used with the &#39;z&#39;, &#39;zzzz&#39;, &#39;v&#39;, &#39;vvvv&#39;, and &#39;V&#39;
 	date time pattern characters, and not with the &#39;Z&#39;, &#39;ZZZZ&#39;, &#39;VVVV&#39; 
 	pattern characters. For more information, see Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a>.</p>
+	<p><span class="changed">The commonlyUsed element is now deprecated, which effectively makes the semantics of the 
+	&#39;z&#39; and &#39;V&#39; formatting patterns to be identical.  The CLDR committee has found it nearly impossible 
+	to obtain accurate and reliable data regarding which time zone abbreviations may be understood in a given territory, and therefore
+	has changed to a simpler approach.  Thus, if the short metazone form is available in a given locale, it is to be used for formatting
+	regardless of the value of commonlyUsed.  If a given short metazone form is known NOT to be understood in a given locale
+	and the parent locale has this value such that it would normally be inherited, the inheritance of this value can be explicitly
+	disabled by use of the &#39;no inheritance marker&#39; as the value, which is 3 simultaneous empty set characters
+	( U+2205 ).</span></p>
 	<h3>5.10 <a name="Number_Elements">Number Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*, <span class="changed">otherNumberingSystems*,</span> symbols*, decimalFormats*,
 	scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) &gt;</p>
@@ -6244,8 +6252,8 @@ range         = value'..'value</pre>
 			the s<i>pecific non-location format</i>. Where that is unavailable, falls back to <i>
 			localized GMT format</i>. Use one to three letters for the short 
 			format 
-			or four for the full format. In the short format, 
-			metazone names are not used unless the commonlyUsed flag is on in the locale.<p>For more 
+			or four for the full format. <span class="removed">In the short format, 
+			metazone names are not used unless the commonlyUsed flag is on in the locale.</span><p>For more 
 			information about timezone formats, see <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i></td>
 		</tr>
 		<tr>
@@ -6278,8 +6286,8 @@ range         = value'..'value</pre>
 			Time Zone - with the <i>generic</i> <i>non-location format</i>. Where that is unavailable, 
 			uses special fallback rules given in <i><a href="#Time_Zone_Fallback">Appendix J</a></i>.  
 			Use one letter for short format, four for long format.
-			In the short format, metazone names are not used unless the
-			commonlyUsed flag is on in the locale.
+			<span class="removed">In the short format, metazone names are not used unless the
+			commonlyUsed flag is on in the locale.</span>
 			<p>For more information about timezone formats, see <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i></td>
 		</tr>
 		<tr>
@@ -6297,9 +6305,12 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left">PST<p><i>fallbacks:</i></p>
 			HPG-8:00<p>GMT-08:00</td>
 			<td style="vertical-align: top; text-align: left">Time Zone - 
-			with the same format as z, 
+			<span class="removed">with the same format as z, 
 			except that metazone timezone abbreviations are to be displayed
-			if available, regardless of the value of commonlyUsed.<p>
+			if available, regardless of the value of commonlyUsed.</span>
+			<span class="changed">Identical to the format for z.  This specifier formerly had slightly 
+			different behavior than the z specifier before the deprecation of the commonlyUsed element.
+			Use z instead of V whenever possible in date formats.</span><p>
 			For more information about timezone formats, see <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i></td>
 		</tr>
 		<tr>
@@ -7154,8 +7165,8 @@ range         = value'..'value</pre>
 	</blockquote>
 	<p>&nbsp;Zones may join or leave a metazone over 
 		time. The data relating between zones and metazones is in the supplemental information; the 
-	locale data is restricted to translations of metazones and zones, with one extra flag for usage 
-	of abbreviations (commonlyUsed).</p>
+	locale data is restricted to translations of metazones and zones<span class="removed">, with one extra flag for usage 
+	of abbreviations (commonlyUsed)</span>.</p>
 	<p><b>Invariants:</b></p>
 	<ul>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">At any given 
@@ -7248,8 +7259,8 @@ range         = value'..'value</pre>
 	is used. The fallback order is given in the following by a list.<ol>
 		<li><b>Specifics</b>
 		<ul>
-			<li>z - [short form] specific non-location (but only if 
-			commonlyUsed)<ul>
+			<li>z - [short form] specific non-location<span class="removed"> (but only if 
+			commonlyUsed)</span><ul>
 			<li>falling back to localized GMT </li>
 		</ul>
 			</li>
@@ -7259,7 +7270,7 @@ range         = value'..'value</pre>
 			</li>
 			<li>Z - RFC 822 (no fallback necessary) </li>
 			<li>ZZZZ - Localized GMT (no fallback necessary) </li>
-			<li>V - specific non-location (ignores commonlyUsed)<ul>
+			<li>V - specific non-location<span class="removed"> (ignores commonlyUsed)</span><ul>
 			<li>falling 
 			back to 
 			localized GMT </li>
@@ -7269,7 +7280,7 @@ range         = value'..'value</pre>
 		</li>
 		<li><b>Generics</b>
 		<ul>
-			<li>v - [short form] generic non-location, if commonlyUsed<br>
+			<li>v - [short form] generic non-location<span class="removed">, if commonlyUsed</span><br>
 			<i>(however, the rules are more complicated, see #4 below)</i><ul>
 			<li>falling back to generic location</li>
 			<li>falling back to localized GMT </li>
@@ -8901,6 +8912,9 @@ decimal?, group?, special*)) &gt;</pre>
 		character for cyclic year names. Deprecated the 'l' (SMALL LETTER L) pattern character for leap month marker.
 		[tickets <a href="http://unicode.org/cldr/trac/ticket/4230">#4230</a>, <a href="http://unicode.org/cldr/trac/ticket/4231">#4231</a>,
 		<a href="http://unicode.org/cldr/trac/ticket/4232">#4232</a>]</li>
+		<li>Added documentation regarding the deprecation of the commonlyUsed element in formatting short time
+		zone names. [tickets <a href="http://unicode.org/cldr/trac/ticket/4052">#4052</a>, 
+		<a href="http://unicode.org/cldr/trac/ticket/4130">#4130</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

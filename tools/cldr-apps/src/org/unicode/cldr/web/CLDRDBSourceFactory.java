@@ -58,6 +58,7 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		private DBEntry dbEntry = null;
 		public SubFactory(boolean finalData) {
 			this.finalData=finalData;
+	        setSupplementalDirectory(CLDRDBSourceFactory.this.getSupplementalDirectory());
 		}
 
 		@Override
@@ -109,7 +110,6 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		public DBEntry(CLDRDBSource x) {
 			add(x);
 			allOpen.add(this);
-			conn = sm.dbUtils.getDBConnection();
 		}
 		public void add(XMLSource x) {
 			if(x instanceof CLDRDBSource) {
@@ -134,12 +134,10 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
 		
 		@Override
 		public Connection getConnectionAlias() {
+			if(conn==null) {
+				conn = sm.dbUtils.getDBConnection();
+			}
 			return conn;
-//			if(conn==null) {
-//				conn = 
-//				conn = sm.dbUtils.getDBConnection();
-//			}
-//			return conn;
 		}
 
 		@Override

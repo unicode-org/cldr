@@ -1301,7 +1301,9 @@ public class SupplementalDataInfo {
                 if (regionToZone == null) {
                     zoneToRegionToZone.put(mzone, regionToZone = new TreeMap<String,String>());
                 }
-                regionToZone.put(region, zone);
+                if(region!=null) {
+                    regionToZone.put(region, zone);
+                }
                 if (maintype.equals("metazones")) {
                     if(mzone != null && region.equals("001")) {
                         metazoneContinentMap.put(mzone,zone.substring(0,zone.indexOf("/")));

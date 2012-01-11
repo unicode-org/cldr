@@ -47,18 +47,16 @@ public class SimpleFactory extends Factory {
     }
 
     public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
-        SimpleFactory result = new SimpleFactory();
-        result.sourceDirectory = sourceDirectory;
-        result.matchString = matchString;
-        result.minimalDraftStatus = minimalDraftStatus;
+        return new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
+    }
+    
+    private SimpleFactory(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
+        this.sourceDirectory = sourceDirectory;
+        this.matchString = matchString;
+        this.minimalDraftStatus = minimalDraftStatus;
         Matcher m = Pattern.compile(matchString).matcher("");
-        result.localeList = CLDRFile.getMatchingXMLFiles(sourceDirectory, m);
-        //      try {
-        //        result.localeList.addAll(getMatchingXMLFiles(sourceDirectory + "/../supplemental/", m));
-        //      } catch(Throwable t) {
-        //        throw new Error("CLDRFile unable to load Supplemental data: couldn't getMatchingXMLFiles("+sourceDirectory + "/../supplemental"+")",t);
-        //      }
-        return result;
+        this.localeList = CLDRFile.getMatchingXMLFiles(sourceDirectory, m);
+        setSupplementalDirectory(new File(sourceDirectory, "../supplemental"));
     }
 
 

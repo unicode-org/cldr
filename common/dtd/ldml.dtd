@@ -10,7 +10,7 @@ $Revision$
 $Date$
 -->
 
-<!ELEMENT ldml (identity, (alias |(fallback*, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, references?, special*))) >
+<!ELEMENT ldml (identity, (alias | behavior |(fallback*, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, references?, special*))) >
 <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!-- ######################################################### -->
@@ -78,6 +78,11 @@ $Date$
 
 <!-- ######################################################### -->
 
+<!-- This element only occurs in casing-specific files. -->
+<!ELEMENT behavior (casing*)>
+
+<!ELEMENT casing (#PCDATA) >
+<!ATTLIST casing type (uppercase | lowercase) #REQUIRED >
 
 <!-- ######################################################### -->
 

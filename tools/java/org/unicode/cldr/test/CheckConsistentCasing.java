@@ -35,11 +35,12 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     ULocale uLocale = null;
     BreakIterator breaker = null;
     private String locale;
-    CasingInfo casingInfo = new CasingInfo();
+    CasingInfo casingInfo;
     private boolean hasCasingInfo;
 
     public CheckConsistentCasing(Factory factory) {
         super(factory);
+        casingInfo = new CasingInfo(factory.getSupplementalDirectory().getAbsolutePath()+"/../casing"); // TODO: fix.
     }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
@@ -48,11 +49,19 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         locale = cldrFileToCheck.getLocaleID();
 
         Map<String, FirstLetterType> casing = casingInfo.getLocaleCasing(locale);
-        for (int i = 0; i < typeNames.length; i++) {
-            types[i] = casing.get(typeNames[i]);
-            if (types[i] == null) types[i] = FirstLetterType.other;
+        if(casing == null) {
+            possibleErrors.add(new CheckStatus().setCause(this)
+                .setMainType(CheckStatus.alertType)
+                .setSubtype(Subtype.incorrectCasing)
+                .setMessage("Cannot load casing info for {0}", locale));
+            hasCasingInfo = false;
+        } else {
+            for (int i = 0; i < typeNames.length; i++) {
+                types[i] = casing.get(typeNames[i]);
+                if (types[i] == null) types[i] = FirstLetterType.other;
+            }
+            hasCasingInfo = casing.size() > 0;
         }
-        hasCasingInfo = casing.size() > 0;
         return this;
     }
 

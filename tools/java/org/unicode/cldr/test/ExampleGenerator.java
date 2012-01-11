@@ -184,14 +184,14 @@ public class ExampleGenerator {
         if (!englishFile.isResolved()) throw new IllegalArgumentException("English CLDRFile must be resolved");
         cldrFile = resolvedCldrFile;
         this.englishFile = englishFile;
-        icuServiceBuilder.setCldrFile(cldrFile);
-        col = Collator.getInstance(new ULocale(cldrFile.getLocaleID()));
         synchronized (ExampleGenerator.class) {
             if (supplementalDataInfo == null) {
                 supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDirectory);
             }
             supplementalData = new SupplementalData(supplementalDataDirectory);
         }
+        icuServiceBuilder.setCldrFile(cldrFile);
+        col = Collator.getInstance(new ULocale(cldrFile.getLocaleID()));
         coverageLevel = CoverageLevel2.getInstance(supplementalDataInfo, resolvedCldrFile.getLocaleID());
 
         String singleCountriesPath = cldrFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");

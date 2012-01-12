@@ -193,7 +193,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     public enum Subtype {none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, 
       incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, 
       missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, 
-      displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, missingPlaceholders, shouldntHavePlaceholders,
+      displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders, shouldntHavePlaceholders,
       couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, invalidCurrencyMatchSet, 
       multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow, 
       cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo,

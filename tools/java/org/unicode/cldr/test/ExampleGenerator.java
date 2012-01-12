@@ -293,9 +293,7 @@ public class ExampleGenerator {
             return null;
         } catch (RuntimeException e) {
             String unchained = verboseErrors?("<br>"+unchainException(e)):"";
-            return zoomed == Zoomed.OUT 
-            ? "<i>internal error</i>"
-                    : /*TransliteratorUtilities.toHTML.transliterate*/("<i>internal error: " + e.getClass().getName() + ", " + e.getMessage() + "</i>"+unchained);
+            return "<i>Parsing error. " + e.getMessage() + "</i>"+unchained;
         } finally {
             if (CACHING) {
                 if (result == null) {

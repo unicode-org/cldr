@@ -6,23 +6,31 @@
  */
 package org.unicode.cldr.test;
 
+import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -85,9 +93,32 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     static final Pattern IS_COUNT_ZERO_ONE_TWO = Pattern.compile("/units.*\\[@count=\"(zero|one|two)\"");
     private Matcher isCountZeroOneTwo = IS_COUNT_ZERO_ONE_TWO.matcher("");
     private boolean hasSpecialPlurals;
+    private RegexLookup<Set<String>> patternPlaceholders;
 
     public CheckForExemplars(Factory factory) {
         super(factory);
+        patternPlaceholders = RegexLookup.of(new PlaceholderTransform())
+            .loadFromFile(GenerateXMB.class, "xmbPlaceholders.txt");
+
+    }
+    
+    /**
+     * Adapted from GenerateXMB.MapTransform
+     * @author jchye
+     *
+     */
+    static class PlaceholderTransform implements Transform<String, Set<String>> {
+        @Override
+        public Set<String> transform(String source) {
+            Set<String> placeholders = new LinkedHashSet<String>();
+            String[] parts = source.split(";\\s+");
+            for (String part : parts) {
+                int equalsPos = part.indexOf('=');
+                String placeholder = part.substring(0, equalsPos).trim();
+                placeholders.add(placeholder);
+            }
+            return placeholders;
+        }
     }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
@@ -178,24 +209,57 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
 
         // add checks for patterns. Make sure that all and only the message format patterns have {n}
-        boolean hasMessageFormatFields = patternMatcher.reset(value).find();
+        Matcher matcher = patternMatcher.reset(value);
+        Set<String> matchList = new HashSet<String>();
+        StringBuffer placeholderBuffer = new StringBuffer();
+        while(matcher.find()) {
+            // Look for duplicate values.
+            if (!matchList.add(matcher.group())) {
+                placeholderBuffer.append(", ").append(matcher.group());
+            }
+        }
         boolean supposedToHaveMessageFormatFields = 
             supposedToBeMessageFormat.reset(path).find()
             && !(hasSpecialPlurals 
                     && isCountZeroOneTwo.reset(path).find());
-        if (hasMessageFormatFields != supposedToHaveMessageFormatFields) {
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(supposedToHaveMessageFormatFields ? Subtype.missingPlaceholders : Subtype.shouldntHavePlaceholders)
-                    .setMessage(supposedToHaveMessageFormatFields 
-                            ? "This field is a message pattern, and should have '{0}, {1},' etc. See the English for an example."
-                                    : "This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
-                                    new Object[]{}));
-
-        }
         if (supposedToHaveMessageFormatFields) {
+            if (placeholderBuffer.length() > 0) {
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.extraPlaceholders)
+                    .setMessage("Remove duplicates of{0}",
+                                    new Object[]{placeholderBuffer.substring(1)}));
+            }
+            placeholderBuffer.setLength(0);
+            // Check that the needed placeholders are there.
+            Set<String> placeholders = patternPlaceholders.get(path);
+            for (String placeholder : placeholders) {
+                if (!matchList.contains(placeholder)) {
+                    placeholderBuffer.append(", ").append(placeholder);
+                }
+            }
+            if (placeholderBuffer.length() > 0) {
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.missingPlaceholders)
+                    .setMessage("This message pattern is missing placeholder(s){0}. See the English for an example.",
+                                    new Object[]{placeholderBuffer.substring(1)}));
+            }
+            // Check for extra placeholders.
+            matchList.removeAll(placeholders);
+            if (matchList.size() > 0) {
+                String list = matchList.toString();
+                list = list.substring(1, list.length() - 1);
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.extraPlaceholders)
+                    .setMessage("Extra placeholders {0} should be removed.",
+                                    new Object[]{list}));
+            }
             // check the other characters in the message format patterns
             value = patternMatcher.replaceAll("#");
-        } else {
+        } else if (matchList.size() > 0){ // non-message field has placeholder values
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.shouldntHavePlaceholders)
+                .setMessage("This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
+                        new Object[]{}));
             // end checks for patterns
             for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
                 if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.

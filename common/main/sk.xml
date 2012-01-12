@@ -790,19 +790,6 @@
 							<month type="11">nov</month>
 							<month type="12">dec</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1">j</month>
-							<month type="2">f</month>
-							<month type="3">m</month>
-							<month type="4">a</month>
-							<month type="5">m</month>
-							<month type="6">j</month>
-							<month type="7">j</month>
-							<month type="9">s</month>
-							<month type="10">o</month>
-							<month type="11">n</month>
-							<month type="12">d</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januára</month>
 							<month type="2">februára</month>
@@ -819,20 +806,6 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1">jan</month>
-							<month type="2">feb</month>
-							<month type="3">mar</month>
-							<month type="4">apr</month>
-							<month type="5">máj</month>
-							<month type="6">jún</month>
-							<month type="7">júl</month>
-							<month type="8">aug</month>
-							<month type="9">sep</month>
-							<month type="10">okt</month>
-							<month type="11">nov</month>
-							<month type="12">dec</month>
-						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">j</month>
 							<month type="2">f</month>
@@ -1027,7 +1000,7 @@
 						<dateFormatItem id="M" draft="contributed">L.</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E, d.M.</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">LLL.</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
@@ -1101,7 +1074,7 @@
 							<greatestDifference id="M">E, d.M. - E, d.M.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">LLL. – LLL.</greatestDifference>
+							<greatestDifference id="M">LLL – LLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">d. - d. MMM</greatestDifference>

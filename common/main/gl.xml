@@ -1162,6 +1162,8 @@
 			<metazone type="Amazon">
 				<long>
 					<generic>Horario do Amazonas</generic>
+					<standard>Horario estándar do Amazonas</standard>
+					<daylight>Horario de verán do Amazonas</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -1195,21 +1197,21 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic>Horario de Anadir</generic>
-					<standard>Horario de Anadir</standard>
+					<standard>Horario estándar de Anadir</standard>
 					<daylight>Horario de verán de Anadir</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>Horario de Arxentina</generic>
-					<standard>Horario de Arxentina</standard>
+					<standard>Horario estándar de Arxentina</standard>
 					<daylight>Horario de verán de Arxentina</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>Horario de Arxentina Occidental</generic>
-					<standard>Horario de Arxentina Occidental</standard>
+					<standard>Horario estándar de Arxentina Occidental</standard>
 					<daylight>Horario de verán de Arxentina Occidental</daylight>
 				</long>
 			</metazone>
@@ -1251,33 +1253,36 @@
 			<metazone type="Brasilia">
 				<long>
 					<generic>Horario de Brasilia</generic>
-					<standard>Horario de Brasilia</standard>
+					<standard>Horario estándar de Brasilia</standard>
 					<daylight>Horario de verán de Brasilia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic>Horario de Choibalsan</generic>
-					<standard>Horario de Choibalsan</standard>
+					<standard>Horario estándar de Choibalsan</standard>
 					<daylight>Horario de verán de Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard draft="contributed">Horario Europeo Central</standard>
-					<daylight draft="contributed">Horario de verán Europeo Central</daylight>
+					<generic draft="contributed">Horario de Europeo Central</generic>
+					<standard draft="contributed">Horario estándar de Europeo Central</standard>
+					<daylight draft="contributed">Horario de verán de Europeo Central</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard draft="contributed">Horario Europeo Oriental</standard>
-					<daylight draft="contributed">Horario de verán Europeo Oriental</daylight>
+					<generic draft="contributed">Horario de Europeo Oriental</generic>
+					<standard draft="contributed">Horario estándar de Europeo Oriental</standard>
+					<daylight draft="contributed">Horario de verán de Europeo Oriental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard draft="contributed">Horario Europeo Occidental</standard>
-					<daylight draft="contributed">Horario de verán Europeo Occidental</daylight>
+					<generic draft="contributed">Horario de Europeo Occidental</generic>
+					<standard draft="contributed">Horario estándar de Europeo Occidental</standard>
+					<daylight draft="contributed">Horario de verán de Europeo Occidental</daylight>
 				</long>
 			</metazone>
 			<metazone type="GMT">
@@ -1288,62 +1293,60 @@
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Horario de Hawai-Aleutianas</generic>
+					<standard>Horario estándar de Hawai-Aleutianas</standard>
+					<daylight>Horario de verán de Hawai-Aleutianas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic>Horario de Hovd</generic>
-					<standard>Horario de Hovd</standard>
+					<standard>Horario estándar de Hovd</standard>
 					<daylight>Horario de verán de Hovd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic>Hora central de Indonesia</generic>
+					<standard>Hora central de Indonesia</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic>Horario de Indonesia Oriental</generic>
+					<standard>Horario de Indonesia Oriental</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic>Horario de Indonesia Occidental</generic>
+					<standard>Horario de Indonesia Occidental</standard>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<generic>Horario de Irkutsk</generic>
-					<standard>Horario de Irkutsk</standard>
+					<standard>Horario estándar de Irkutsk</standard>
 					<daylight>Horario de verán de Irkutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>Horario de Kamchatka</generic>
-					<standard>Horario de Petropávlovsk-Kamchatski</standard>
+					<generic>Horario de Petropávlovsk-Kamchatski</generic>
+					<standard>Horario estándar de Petropávlovsk-Kamchatski</standard>
 					<daylight>Horario de verán de Petropávlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic>Horario do Casaquistán Oriental</generic>
-					<standard>Horario estándar de Casaquistán Oriental</standard>
-					<daylight>Horario de verán do Casaquistán Oriental</daylight>
+					<standard>Horario do Casaquistán Oriental</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic>Horario de Casaquistán Occidental</generic>
-					<standard>Horario estándar de Casaquistán Occidental</standard>
-					<daylight>Horario de verán de Casaquistán Occidental</daylight>
+					<standard>Horario de Casaquistán Occidental</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>Horario de Krasnoyarsk</generic>
-					<standard>Horario de Krasnoyarsk</standard>
+					<standard>Horario estándar de Krasnoyarsk</standard>
 					<daylight>Horario de verán de Krasnoyarsk</daylight>
 				</long>
 			</metazone>
@@ -1356,20 +1359,20 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic>Horario de Macquarie</generic>
+					<standard>Horario de Macquarie</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Horario de Magadán</generic>
-					<standard>Horario de Magadán</standard>
+					<standard>Horario estándar de Magadán</standard>
 					<daylight>Horario de verán de Magadán</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic>Horario de Mongolia</generic>
-					<standard>Horario de Ulán Bátor</standard>
+					<generic>Horario de Ulán Bátor</generic>
+					<standard>Horario estándar de Ulán Bátor</standard>
 					<daylight>Horario de verán de Ulán Bátor</daylight>
 				</long>
 			</metazone>
@@ -1389,64 +1392,64 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>Horario de Noronha</generic>
-					<standard>Horario de Fernando de Noronha</standard>
+					<generic>Horario de Fernando de Noronha</generic>
+					<standard>Horario estándar de Fernando de Noronha</standard>
 					<daylight>Horario de verán de Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Horario de Novosibirsk</generic>
-					<standard>Horario de Novosibirsk</standard>
+					<standard>Horario estándar de Novosibirsk</standard>
 					<daylight>Horario de verán de Novosibirsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic>Horario de Omsk</generic>
-					<standard>Horario de Omsk</standard>
+					<standard>Horario estándar de Omsk</standard>
 					<daylight>Horario de verán de Omsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic>Horario de Sakhalin</generic>
-					<standard>Horario de Sakhalin</standard>
+					<standard>Horario estándar de Sakhalin</standard>
 					<daylight>Horario de verán de Sakhalin</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic>Horario de Samara</generic>
-					<standard>Horario de Samara</standard>
+					<standard>Horario estándar de Samara</standard>
 					<daylight>Horario de verán de Samara</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic>Horario de Vladivostok</generic>
-					<standard>Horario de Vladivostok</standard>
+					<standard>Horario estándar de Vladivostok</standard>
 					<daylight>Horario de verán de Vladivostok</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic>Horario de Volgogrado</generic>
-					<standard>Horario de Volgogrado</standard>
+					<standard>Horario estándar de Volgogrado</standard>
 					<daylight>Horario de verán de Volgogrado</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic>Horario de Iakutsk</generic>
-					<standard>Horario de Iakutsk</standard>
+					<standard>Horario estándar de Iakutsk</standard>
 					<daylight>Horario de verán de Yakutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic>Horario de Ekaterimburgo</generic>
-					<standard>Horario de Ekaterimburgo</standard>
+					<standard>Horario estándar de Ekaterimburgo</standard>
 					<daylight>Horario de verán de Ekaterimburgo</daylight>
 				</long>
 			</metazone>

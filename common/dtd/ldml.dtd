@@ -82,7 +82,7 @@ $Date$
 <!ELEMENT behavior (casing*)>
 
 <!ELEMENT casing (#PCDATA) >
-<!ATTLIST casing type (uppercase | lowercase) #REQUIRED >
+<!ATTLIST casing type CDATA #REQUIRED >
 
 <!-- ######################################################### -->
 

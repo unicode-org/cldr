@@ -2605,7 +2605,8 @@
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard>שעון מערב אפריקה</standard>
+					<generic>שעון מערב אפריקה</generic>
+					<standard>שעון רגיל מערב אפריקה</standard>
 					<daylight>שעון קיץ, מערב אפריקה</daylight>
 				</long>
 			</metazone>
@@ -2619,6 +2620,8 @@
 			<metazone type="Amazon">
 				<long>
 					<generic draft="contributed">שעון אזור האמזונס</generic>
+					<standard draft="contributed">שעון רגיל אזור האמזונס</standard>
+					<daylight draft="contributed">שעון קיץ אזור האמזונס</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -2652,28 +2655,28 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic draft="contributed">שעון אנדיר</generic>
-					<standard draft="contributed">שעון אנדיר</standard>
+					<standard draft="contributed">שעון רגיל אנדיר</standard>
 					<daylight draft="contributed">שעון קיץ אנדיר</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic draft="provisional">שעון ערב הסעודית</generic>
-					<standard draft="provisional">שעון ערב הסעודית</standard>
+					<standard draft="provisional">שעון רגיל ערב הסעודית</standard>
 					<daylight draft="provisional">שעון קיץ, ערב הסעודית</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">שעון ארגנטינה</generic>
-					<standard draft="contributed">שעון ארגנטינה</standard>
+					<standard draft="contributed">שעון רגיל ארגנטינה</standard>
 					<daylight draft="contributed">שעון קיץ ארגנטינה</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic draft="contributed">שעון מערב ארגנטינה</generic>
-					<standard draft="contributed">שעון מערב ארגנטינה</standard>
+					<standard draft="contributed">שעון רגיל מערב ארגנטינה</standard>
 					<daylight draft="contributed">שעון קיץ מערב ארגנטינה</daylight>
 				</long>
 			</metazone>
@@ -2715,38 +2718,43 @@
 			<metazone type="Brasilia">
 				<long>
 					<generic draft="contributed">שעון ברזיליה</generic>
-					<standard draft="contributed">שעון ברזיליה</standard>
+					<standard draft="contributed">שעון רגיל ברזיליה</standard>
 					<daylight draft="contributed">שעון קיץ ברזיליה</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
-					<standard draft="provisional">שעון סין</standard>
+					<generic draft="provisional">שעון סין</generic>
+					<standard draft="provisional">שעון רגיל סין</standard>
+					<daylight draft="provisional">שעון קיץ סין</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">שעון צ'ויבלסן</generic>
-					<standard draft="contributed">שעון צ'ויבלסן</standard>
+					<standard draft="contributed">שעון רגיל צ'ויבלסן</standard>
 					<daylight draft="contributed">שעון קיץ צ'ויבלסן</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard draft="contributed">שעון מרכז אירופה</standard>
+					<generic draft="contributed">שעון מרכז אירופה</generic>
+					<standard draft="contributed">שעון רגיל מרכז אירופה</standard>
 					<daylight draft="contributed">שעון קיץ מרכז אירופה</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard draft="contributed">שעון מזרח אירופה</standard>
+					<generic draft="contributed">שעון מזרח אירופה</generic>
+					<standard draft="contributed">שעון רגיל מזרח אירופה</standard>
 					<daylight draft="contributed">שעון קיץ מזרח אירופה</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard draft="contributed">שעון מערב אירופה</standard>
-					<daylight draft="contributed">שעון קיץ, מערב אירופה</daylight>
+					<generic draft="contributed">שעון מערב אירופה</generic>
+					<standard draft="contributed">שעון רגיל מערב אירופה</standard>
+					<daylight draft="contributed">שעון קיץ מערב אירופה</daylight>
 				</long>
 			</metazone>
 			<metazone type="GMT">
@@ -2757,12 +2765,14 @@
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">שעון האיים האלאוטיים הוואי</generic>
+					<standard draft="contributed">שעון רגיל האיים האלאוטיים הוואי</standard>
+					<daylight draft="contributed">שעון קיץ האיים האלאוטיים הוואי</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic draft="contributed">שעון חובד</generic>
-					<standard draft="contributed">שעון חובד</standard>
+					<standard draft="contributed">שעון רגיל חובד</standard>
 					<daylight draft="contributed">שעון קיץ חובד</daylight>
 				</long>
 			</metazone>
@@ -2773,31 +2783,31 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="contributed">שעון מרכז אינדונזיה</generic>
+					<standard draft="contributed">שעון מרכז אינדונזיה</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="contributed">שעון מזרח אינדונזיה</generic>
+					<standard draft="contributed">שעון מזרח אינדונזיה</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="contributed">שעון מערב אינדונזיה</generic>
+					<standard draft="contributed">שעון מערב אינדונזיה</standard>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<generic draft="contributed">שעון אירקוטסק</generic>
-					<standard draft="contributed">שעון אירקוטסק</standard>
+					<standard draft="contributed">שעון רגיל אירקוטסק</standard>
 					<daylight draft="contributed">שעון קיץ אירקוטסק</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
 					<generic draft="contributed">שעון ישראל</generic>
-					<standard draft="provisional">שעון ישראל</standard>
-					<daylight draft="provisional">שעון קיץ, ישראל</daylight>
+					<standard draft="contributed">שעון רגיל ישראל</standard>
+					<daylight draft="contributed">שעון קיץ ישראל</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
@@ -2807,34 +2817,32 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">שעון קמצ'טקה</generic>
-					<standard draft="contributed">שעון פטרופבלובסק-קמצ'טסקי</standard>
+					<generic draft="contributed">שעון פטרופבלובסק-קמצ'טסקי</generic>
+					<standard draft="contributed">שעון רגיל פטרופבלובסק-קמצ'טסקי</standard>
 					<daylight draft="contributed">שעון קיץ פטרופבלובסק-קמצ'טסקי</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">שעון מזרח קזחסטן</generic>
-					<standard draft="contributed">שעון רגיל מזרח קזחסטן</standard>
-					<daylight draft="contributed">שעון קיץ מזרח קזחסטן</daylight>
+					<standard draft="contributed">שעון מזרח קזחסטן</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">שעון מערב קזחסטן</generic>
-					<standard draft="contributed">שעון רגיל מערב קזחסטן</standard>
-					<daylight draft="contributed">שעון קיץ מערב קזחסטן</daylight>
+					<standard draft="contributed">שעון מערב קזחסטן</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
-					<standard draft="provisional">שעון קוריאה</standard>
+					<generic draft="provisional">שעון קוריאה</generic>
+					<standard draft="provisional">שעון רגיל קוריאה</standard>
+					<daylight draft="provisional">שעון קיץ קוריאה</daylight>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic draft="contributed">שעון קרסנויארסק</generic>
-					<standard draft="contributed">שעון קרסנויארסק</standard>
+					<standard draft="contributed">שעון רגיל קרסנויארסק</standard>
 					<daylight draft="contributed">שעון קיץ קרסנויארסק</daylight>
 				</long>
 			</metazone>
@@ -2847,20 +2855,20 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic draft="contributed">שעון מקווארי</generic>
+					<standard draft="contributed">שעון מקווארי</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic draft="contributed">שעון מגדן</generic>
-					<standard draft="contributed">שעון מגדן</standard>
+					<standard draft="contributed">שעון רגיל מגדן</standard>
 					<daylight draft="contributed">שעון קיץ מגדן</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">שעון מונגוליה</generic>
-					<standard draft="contributed">שעון אולן בטור</standard>
+					<generic draft="contributed">שעון אולן בטור</generic>
+					<standard draft="contributed">שעון רגיל אולן בטור</standard>
 					<daylight draft="contributed">שעון קיץ אולן בטור</daylight>
 				</long>
 			</metazone>
@@ -2880,70 +2888,71 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">שעון נורוניה</generic>
-					<standard draft="contributed">שעון פרננדו דה נורוניה</standard>
+					<generic draft="contributed">שעון פרננדו דה נורוניה</generic>
+					<standard draft="contributed">שעון רגיל פרננדו דה נורוניה</standard>
 					<daylight draft="contributed">שעון קיץ פרננדו דה נורוניה</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic draft="contributed">שעון נובוסיבירסק</generic>
-					<standard draft="contributed">שעון נובוסיבירסק</standard>
+					<standard draft="contributed">שעון רגיל נובוסיבירסק</standard>
 					<daylight draft="contributed">שעון קיץ נובוסיבירסק</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic draft="contributed">שעון אומסק</generic>
-					<standard draft="contributed">שעון אומסק</standard>
+					<standard draft="contributed">שעון רגיל אומסק</standard>
 					<daylight draft="contributed">שעון קיץ אומסק</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic draft="contributed">שעון סחלין</generic>
-					<standard draft="contributed">שעון סחלין</standard>
+					<standard draft="contributed">שעון רגיל סחלין</standard>
 					<daylight draft="contributed">שעון קיץ סחלין</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic draft="contributed">שעון סמרה</generic>
-					<standard draft="contributed">שעון סמרה</standard>
+					<standard draft="contributed">שעון רגיל סמרה</standard>
 					<daylight draft="contributed">שעון קיץ סמרה</daylight>
 				</long>
 			</metazone>
 			<metazone type="Turkey">
 				<long>
-					<standard draft="provisional">שעון טורקיה</standard>
-					<daylight draft="provisional">שעון קיץ, טורקיה</daylight>
+					<generic draft="provisional">שעון טורקיה</generic>
+					<standard draft="provisional">שעון רגיל טורקיה</standard>
+					<daylight draft="provisional">שעון קיץ טורקיה</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic draft="contributed">שעון ולדיווסטוק</generic>
-					<standard draft="contributed">שעון ולדיווסטוק</standard>
+					<standard draft="contributed">שעון רגיל ולדיווסטוק</standard>
 					<daylight draft="contributed">שעון קיץ ולדיווסטוק</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic draft="contributed">שעון וולגוגרד</generic>
-					<standard draft="contributed">שעון וולגוגרד</standard>
+					<standard draft="contributed">שעון רגיל וולגוגרד</standard>
 					<daylight draft="contributed">שעון קיץ וולגוגרד</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic draft="contributed">שעון יקוטסק</generic>
-					<standard draft="contributed">שעון יקוטסק</standard>
+					<standard draft="contributed">שעון רגיל יקוטסק</standard>
 					<daylight draft="contributed">שעון קיץ יקוטסק</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic draft="contributed">שעון יקטרינבורג</generic>
-					<standard draft="contributed">שעון יקטרינבורג</standard>
+					<standard draft="contributed">שעון רגיל יקטרינבורג</standard>
 					<daylight draft="contributed">שעון קיץ יקטרינבורג</daylight>
 				</long>
 			</metazone>

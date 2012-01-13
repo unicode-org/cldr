@@ -1913,7 +1913,8 @@
 			</zone>
 			<metazone type="Acre">
 				<long>
-					<standard draft="provisional">Acreansko vrijeme</standard>
+					<generic>Acre vrijeme</generic>
+					<standard>Acre standardno vrijeme</standard>
 					<daylight>Acre ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -1924,37 +1925,38 @@
 			</metazone>
 			<metazone type="Africa_Central">
 				<long>
-					<standard>Središnja Afrika</standard>
+					<standard>središnja Afrika vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
-					<standard>Istočna Afrika</standard>
+					<standard>istočna Afrika vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic>Južna Afrika</generic>
-					<standard>Južna Afrika</standard>
+					<standard>Južna Afrika vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard>Zapadna Afrika</standard>
-					<daylight>Zapadna Afrika, ljetno vrijeme</daylight>
+					<generic>Zapadna Afrika vrijeme</generic>
+					<standard>Zapadna Afrika standardno vrijeme</standard>
+					<daylight>Zapadna Afrika ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
-					<standard draft="provisional">aktjubinsko vrijeme</standard>
+					<generic draft="provisional">aktjubinsko vrijeme</generic>
+					<standard draft="provisional">aktjubinsko standardno vrijeme</standard>
 					<daylight draft="provisional">aktjubinsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic>Aljaška vremenska zona</generic>
-					<standard>Aljaško standardno vrijeme</standard>
-					<daylight>Aljaško ljetno vrijeme</daylight>
+					<generic>aljaško vrijeme</generic>
+					<standard>aljaško standardno vrijeme</standard>
+					<daylight>aljaško ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
@@ -1966,14 +1968,15 @@
 			</metazone>
 			<metazone type="Almaty">
 				<long>
-					<standard draft="provisional">altmajsko vrijeme</standard>
+					<generic draft="provisional">altmajsko vrijeme</generic>
+					<standard draft="provisional">altmajsko standardno vrijeme</standard>
 					<daylight draft="provisional">altmajsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic draft="contributed">Amazonska vremenska zona</generic>
-					<standard draft="provisional">amazonsko vrijeme</standard>
+					<generic draft="provisional">amazonsko vrijeme</generic>
+					<standard draft="provisional">amazonsko standardno vrijeme</standard>
 					<daylight draft="provisional">amazonsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -1981,79 +1984,83 @@
 				<long>
 					<generic>središnje vrijeme</generic>
 					<standard>središnje standardno vrijeme</standard>
-					<daylight>središnje dnevno vrijeme</daylight>
+					<daylight>središnje ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
 					<generic>istočno vrijeme</generic>
 					<standard>istočno standardno vrijeme</standard>
-					<daylight>istočno dnevno vrijeme</daylight>
+					<daylight>istočno ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
 					<generic>planinsko vrijeme</generic>
 					<standard>planinsko standardno vrijeme</standard>
-					<daylight>planinsko dnevno vrijeme</daylight>
+					<daylight>planinsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<generic>pacifičko vrijeme</generic>
 					<standard>pacifičko standardno vrijeme</standard>
-					<daylight>pacifičko dnevno vrijeme</daylight>
+					<daylight>pacifičko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic draft="contributed">Anadirska vremenska zona</generic>
-					<standard draft="contributed">Anadirsko vrijeme</standard>
-					<daylight draft="contributed">Anadirsko ljetno vrijeme</daylight>
+					<generic draft="contributed">anadirsko vrijeme</generic>
+					<standard draft="contributed">anadirsko standardno vrijeme</standard>
+					<daylight draft="contributed">anadirsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
-					<standard draft="provisional">vrijeme za Aqtau</standard>
+					<generic draft="provisional">vrijeme za Aqtau</generic>
+					<standard draft="provisional">standardno vrijeme za Aqtau</standard>
 					<daylight draft="provisional">ljetno vrijeme za Aqtau</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
-					<standard draft="provisional">vrijeme za Aqtobe</standard>
+					<generic draft="provisional">vrijeme za Aqtobe</generic>
+					<standard draft="provisional">standardno vrijeme za Aqtobe</standard>
 					<daylight draft="provisional">ljetno vrijeme za Aqtobe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>arapsko vrijeme</generic>
-					<standard>arapsko zimsko vrijeme</standard>
+					<standard>arapsko standardno vrijeme</standard>
 					<daylight>arapsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<generic draft="contributed">Argentinska vremenska zona</generic>
-					<standard>Argentinska vremenska zona</standard>
-					<daylight>Argentinsko ljetno vrijeme</daylight>
+					<generic>argentinsko vrijeme</generic>
+					<standard>argentinsko standardno vrijeme</standard>
+					<daylight>argentinsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="contributed">Zapadno-argentinska vremenska zona</generic>
-					<standard draft="contributed">Zapadno-argentinska vremenska zona</standard>
-					<daylight draft="contributed">Zapadno-argentinsko ljetno vrijeme</daylight>
+					<generic draft="contributed">zapadno-argentinsko vrijeme</generic>
+					<standard draft="contributed">zapadno-argentinsko standardno vrijeme</standard>
+					<daylight draft="contributed">zapadno-argentinsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
-					<standard draft="provisional">armensko vrijeme</standard>
+					<generic draft="provisional">armensko vrijeme</generic>
+					<standard draft="provisional">armensko standardno vrijeme</standard>
 					<daylight draft="provisional">armensko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
-					<standard draft="provisional">aškabadsko vrijeme</standard>
+					<generic draft="provisional">aškabadsko vrijeme</generic>
+					<standard draft="provisional">aškabadsko standardno vrijeme</standard>
 					<daylight draft="provisional">aškabadsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2067,52 +2074,56 @@
 			<metazone type="Australia_Central">
 				<long>
 					<generic>središnje australsko vrijeme</generic>
-					<standard>središnje australsko zimsko vrijeme</standard>
+					<standard>središnje australsko standardno vrijeme</standard>
 					<daylight>središnje australsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
 					<generic>australsko središnje zapadno vrijeme</generic>
-					<standard>australsko središnje zapadno zimsko vrijeme</standard>
+					<standard>australsko središnje zapadno standardno vrijeme</standard>
 					<daylight>australsko središnje zapadno ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>istočno australsko vrijeme</generic>
-					<standard>istočno australsko zimsko vrijeme</standard>
+					<standard>istočno australsko standardno vrijeme</standard>
 					<daylight>istočno australsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
 					<generic>zapadno australsko vrijeme</generic>
-					<standard>zapadno australsko zimsko vrijeme</standard>
+					<standard>zapadno australsko standardno vrijeme</standard>
 					<daylight>zapadno australsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
-					<standard draft="provisional">azerbajdžansko vrijeme</standard>
+					<generic draft="provisional">azerbajdžansko vrijeme</generic>
+					<standard draft="provisional">azerbajdžansko standardno vrijeme</standard>
 					<daylight draft="provisional">azerbajdžansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azores">
 				<long>
-					<standard>azorsko vrijeme</standard>
+					<generic>azorsko vrijeme</generic>
+					<standard>azorsko standardno vrijeme</standard>
 					<daylight>azorsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Baku">
 				<long>
-					<standard draft="provisional">bakuansko vrijeme</standard>
+					<generic draft="provisional">bakuansko vrijeme</generic>
+					<standard draft="provisional">bakuansko standardno vrijeme</standard>
 					<daylight draft="provisional">bakuansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
-					<standard draft="provisional">bangladeško vrijeme</standard>
+					<generic draft="provisional">bangladeško vrijeme</generic>
+					<standard draft="provisional">bangladeško standardno vrijeme</standard>
 					<daylight draft="provisional">bangladeško ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2135,15 +2146,16 @@
 			</metazone>
 			<metazone type="Borneo">
 				<long>
-					<standard draft="provisional">bornejsko vrijeme</standard>
+					<generic draft="provisional">bornejsko vrijeme</generic>
+					<standard draft="provisional">bornejsko standardno vrijeme</standard>
 					<daylight draft="provisional">bornejsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic draft="contributed">Brazilijska vremenska zona</generic>
-					<standard>Brazilijska vremenska zona</standard>
-					<daylight draft="contributed">Brazilijsko ljetno vrijeme</daylight>
+					<generic>brazilijsko vrijeme</generic>
+					<standard>brazilijsko standardno vrijeme</standard>
+					<daylight>brazilijsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -2153,14 +2165,14 @@
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
-					<standard>vrijeme Zelenortskog otočja</standard>
+					<generic>vrijeme Zelenortskog otočja</generic>
+					<standard>standardno vrijeme Zelenortskog otočja</standard>
 					<daylight>ljetno vrijeme Zelenortskog otočja</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<generic>vrijeme Chamorro</generic>
-					<standard>standardno vrijeme Chamorro</standard>
+					<standard>vrijeme Chamorro</standard>
 				</long>
 			</metazone>
 			<metazone type="Changbai">
@@ -2170,27 +2182,29 @@
 			</metazone>
 			<metazone type="Chatham">
 				<long>
+					<generic>vrijeme Chathama</generic>
 					<standard>standardno vrijeme Chathama</standard>
 					<daylight>ljetno vrijeme Chathama</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
 				<long>
-					<standard draft="provisional">čileansko vrijeme</standard>
+					<generic draft="provisional">čileansko vrijeme</generic>
+					<standard draft="provisional">čileansko standardno vrijeme</standard>
 					<daylight draft="provisional">čileansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
-					<generic draft="contributed">kinesko vrijeme</generic>
-					<standard>standardno kinesko vrijeme</standard>
-					<daylight draft="contributed">kinesko ljetno vrijeme</daylight>
+					<generic>kinesko vrijeme</generic>
+					<standard>kinesko standardno vrijeme</standard>
+					<daylight>kinesko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<generic draft="contributed">Choibalsanska vremenska zona</generic>
-					<standard>Choibalsanska vremenska zona</standard>
+					<generic>Choibalsansko vrijeme</generic>
+					<standard>Choibalsansko standardno vrijeme</standard>
 					<daylight>Choibalsansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2206,13 +2220,15 @@
 			</metazone>
 			<metazone type="Colombia">
 				<long>
-					<standard draft="provisional">kolumbijsko vrijeme</standard>
+					<generic draft="provisional">kolumbijsko vrijeme</generic>
+					<standard draft="provisional">kolumbijsko standardno vrijeme</standard>
 					<daylight draft="provisional">kolumbijsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<standard>vrijeme Cookovih Otoka</standard>
+					<generic>vrijeme Cookovih Otoka</generic>
+					<standard>standardno vrijeme Cookovih Otoka</standard>
 					<daylight>poluljetno vrijeme Cookovih Otoka</daylight>
 				</long>
 			</metazone>
@@ -2240,7 +2256,8 @@
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
-					<standard draft="provisional">dušanbeovsko vrijeme</standard>
+					<generic draft="provisional">dušanbeovsko vrijeme</generic>
+					<standard draft="provisional">dušanbeovsko standardno vrijeme</standard>
 					<daylight draft="provisional">dušanbeovsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2256,7 +2273,8 @@
 			</metazone>
 			<metazone type="Easter">
 				<long>
-					<standard>vrijeme Uskršnjih Otoka</standard>
+					<generic>vrijeme Uskršnjih Otoka</generic>
+					<standard>standardno vrijeme Uskršnjih Otoka</standard>
 					<daylight>ljetno vrijeme Uskršnjih Otoka</daylight>
 				</long>
 			</metazone>
@@ -2267,7 +2285,8 @@
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard>srednjoeuropsko vrijeme</standard>
+					<generic>srednjoeuropsko vrijeme</generic>
+					<standard>srednjoeuropsko standardno vrijeme</standard>
 					<daylight>srednjoeuropsko ljetno vrijeme</daylight>
 				</long>
 				<short>
@@ -2278,7 +2297,8 @@
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard>istočnoeuropsko vrijeme</standard>
+					<generic>istočnoeuropsko vrijeme</generic>
+					<standard>istočnoeuropsko standardno vrijeme</standard>
 					<daylight>istočnoeuropsko ljetno vrijeme</daylight>
 				</long>
 				<short>
@@ -2289,7 +2309,8 @@
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard>zapadnoeuropsko vrijeme</standard>
+					<generic>zapadnoeuropsko vrijeme</generic>
+					<standard>zapadnoeuropsko standardno vrijeme</standard>
 					<daylight>zapadnoeuropsko ljetno vrijeme</daylight>
 				</long>
 				<short>
@@ -2300,13 +2321,15 @@
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<standard>falklandsko vrijeme</standard>
+					<generic>falklandsko vrijeme</generic>
+					<standard>falklandsko standardno vrijeme</standard>
 					<daylight>falklandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<standard>vrijeme Fidžija</standard>
+					<generic>vrijeme Fidžija</generic>
+					<standard>standardno vrijeme Fidžija</standard>
 					<daylight>ljetno vrijeme Fidžija</daylight>
 				</long>
 			</metazone>
@@ -2322,7 +2345,8 @@
 			</metazone>
 			<metazone type="Frunze">
 				<long>
-					<standard draft="provisional">vrijeme za Frunze</standard>
+					<generic draft="provisional">vrijeme za Frunze</generic>
+					<standard draft="provisional">standardno vrijeme za Frunze</standard>
 					<daylight draft="provisional">ljetno vrijeme za Frunze</daylight>
 				</long>
 			</metazone>
@@ -2338,7 +2362,8 @@
 			</metazone>
 			<metazone type="Georgia">
 				<long>
-					<standard draft="provisional">gruzijsko vrijeme</standard>
+					<generic draft="provisional">gruzijsko vrijeme</generic>
+					<standard draft="provisional">gruzijsko standardno vrijeme</standard>
 					<daylight draft="provisional">gruzijsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2357,19 +2382,22 @@
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
-					<standard draft="provisional">srednjogrenlandsko vrijeme</standard>
+					<generic draft="provisional">srednjogrenlandsko vrijeme</generic>
+					<standard draft="provisional">srednjogrenlandsko standardno vrijeme</standard>
 					<daylight draft="provisional">srednjogrenlandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
-					<standard draft="provisional">istočnogrenlandsko vrijeme</standard>
+					<generic draft="provisional">istočnogrenlandsko vrijeme</generic>
+					<standard draft="provisional">istočnogrenlandsko standardno vrijeme</standard>
 					<daylight draft="provisional">istočnogrenlandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
-					<standard draft="provisional">zapadnogrenlandsko vrijeme</standard>
+					<generic draft="provisional">zapadnogrenlandsko vrijeme</generic>
+					<standard draft="provisional">zapadnogrenlandsko standardno vrijeme</standard>
 					<daylight draft="provisional">zapadnogrenlandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2380,7 +2408,6 @@
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<generic draft="provisional">zaljevsko vrijeme</generic>
 					<standard draft="provisional">zaljevsko standardno vrijeme</standard>
 				</long>
 			</metazone>
@@ -2391,26 +2418,28 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic draft="contributed">Havajsko-aleutska vremenska zona</generic>
+					<generic>havajsko-aleutsko vrijeme</generic>
 					<standard>havajsko-aleutsko standardno vrijeme</standard>
+					<daylight>havajsko-aleutsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<standard draft="provisional">hongkonško vrijeme</standard>
+					<generic draft="provisional">hongkonško vrijeme</generic>
+					<standard draft="provisional">hongkonško standardno vrijeme</standard>
 					<daylight draft="provisional">hongkonško ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic draft="contributed">Hovdska vremenska zona</generic>
-					<standard>Hovdska vremenska zona</standard>
+					<generic>Hovdsko vrijeme</generic>
+					<standard>Hovdsko standardno vrijeme</standard>
 					<daylight>Hovdsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>standardno indijsko vrijeme</standard>
+					<standard>indijsko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -2425,53 +2454,51 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="contributed">Indonezijska centralna vremenska zona</generic>
 					<standard draft="contributed">srednjoindonezijsko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="contributed">Indonezijska istočna vremenska zona</generic>
 					<standard draft="contributed">istočnoindonezijsko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="contributed">Indonezijska zapadna vremenska zona</generic>
 					<standard draft="contributed">zapadnoindonezijsko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Iran">
 				<long>
+					<generic draft="provisional">iransko vrijeme</generic>
 					<standard draft="provisional">iransko standardno vrijeme</standard>
 					<daylight draft="provisional">iransko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic draft="contributed">Irkutsko vrijeme</generic>
-					<standard>Irkutsko vrijeme</standard>
+					<generic>Irkutsko vrijeme</generic>
+					<standard>Irkutsko standardno vrijeme</standard>
 					<daylight>Irkutsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
-					<generic draft="contributed">izraelsko vrijeme</generic>
-					<standard>standardno izraelsko vrijeme</standard>
+					<generic>izraelsko vrijeme</generic>
+					<standard>izraelsko standardno vrijeme</standard>
 					<daylight>izraelsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
-					<generic draft="contributed">japansko vrijeme</generic>
-					<standard>standardno japansko vrijeme</standard>
-					<daylight draft="contributed">japansko ljetno vrijeme</daylight>
+					<generic>japansko vrijeme</generic>
+					<standard>japansko standardno vrijeme</standard>
+					<daylight>japansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">Kamčatsko vrijeme</generic>
-					<standard draft="contributed">Petropavlovsk-kamčatska vremenska zona</standard>
+					<generic draft="contributed">Petropavlovsk-kamčatsko vrijeme</generic>
+					<standard draft="contributed">Petropavlovsk-kamčatsko standardno vrijeme</standard>
 					<daylight draft="contributed">Petropavlovsk-kamčatsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2487,29 +2514,26 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">Istočno-kazahstanska vremenska zona</generic>
-					<standard draft="contributed">Istočno-kazahstansko standardno vrijeme</standard>
-					<daylight draft="contributed">Istočno-kazahstansko ljetno vrijeme</daylight>
+					<standard draft="contributed">Istočno-kazahstansko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">Zapadno-kazahstanska vremenska zona</generic>
-					<standard draft="contributed">Zapadno-kazahstansko standardno vrijeme</standard>
-					<daylight draft="contributed">Zapadno-kazahstansko ljetno vrijeme</daylight>
+					<standard draft="contributed">Zapadno-kazahstansko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Kizilorda">
 				<long>
-					<standard draft="provisional">kizilordsko vrijeme</standard>
+					<generic draft="provisional">kizilordsko vrijeme</generic>
+					<standard draft="provisional">kizilordsko standardno vrijeme</standard>
 					<daylight draft="provisional">kizilordsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
-					<generic draft="contributed">korejsko vrijeme</generic>
-					<standard>standardno korejsko vrijeme</standard>
-					<daylight draft="contributed">korejsko ljetno vrijeme</daylight>
+					<generic>korejsko vrijeme</generic>
+					<standard>korejsko standardno vrijeme</standard>
+					<daylight>korejsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -2519,14 +2543,15 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic draft="contributed">Krasnojarska vremenska zona</generic>
-					<standard>Krasnojarska vremenska zona</standard>
-					<daylight>Krasnojarsko ljetno vrijeme</daylight>
+					<generic>krasnojarsko vrijeme</generic>
+					<standard>krasnojarsko standardno vrijeme</standard>
+					<daylight>krasnojarsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
-					<standard>kujbiševsko vrijeme</standard>
+					<generic>kujbiševsko vrijeme</generic>
+					<standard>kujbiševsko standardno vrijeme</standard>
 					<daylight>kujbiševsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2558,26 +2583,27 @@
 			<metazone type="Lord_Howe">
 				<long>
 					<generic>vrijeme otoka Lord Howe</generic>
-					<standard>zimsko vrijeme otoka Lord Howe</standard>
+					<standard>standardno vrijeme otoka Lord Howe</standard>
 					<daylight>ljetno vrijeme otoka Lord Howe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macau">
 				<long>
-					<standard draft="provisional">vrijeme Macao</standard>
+					<generic draft="provisional">vrijeme Macao</generic>
+					<standard draft="provisional">standardno vrijeme Macao</standard>
 					<daylight draft="provisional">ljetno vrijeme Macao</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic draft="contributed">Vrijeme prema gradu Macquarie</generic>
+					<standard draft="contributed">vrijeme prema gradu Macquarie</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
-					<generic draft="contributed">Magadanska vremenska zona</generic>
-					<standard>Magadanska vremenska zona</standard>
-					<daylight>Magadansko ljetno vrijeme</daylight>
+					<generic>magadanska vrijeme</generic>
+					<standard>magadanska standardno vrijeme</standard>
+					<daylight>magadansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Malaya">
@@ -2607,7 +2633,8 @@
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
-					<standard>vrijeme Mauricijusa</standard>
+					<generic>vrijeme Mauricijusa</generic>
+					<standard>standardno vrijeme Mauricijusa</standard>
 					<daylight>ljetno vrijeme Mauricijusa</daylight>
 				</long>
 			</metazone>
@@ -2618,9 +2645,9 @@
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Mongolska vremenska zona</generic>
-					<standard>Ulan-batorska vremenska zona</standard>
-					<daylight>Ulan-batorsko ljetno vrijeme</daylight>
+					<generic>ulan-batorsko vrijeme</generic>
+					<standard>ulan-batorsko standardno vrijeme</standard>
+					<daylight>ulan-batorsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
@@ -2647,7 +2674,8 @@
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
-					<standard>vrijeme Nove Kaledonije</standard>
+					<generic>vrijeme Nove Kaledonije</generic>
+					<standard>standardno vrijeme Nove Kaledonije</standard>
 					<daylight>ljetno vrijeme Nove Kaledonije</daylight>
 				</long>
 			</metazone>
@@ -2660,9 +2688,9 @@
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
-					<generic>Newfoundlandska vremenska zona</generic>
-					<standard>Newfoundlandsko standardno vrijeme</standard>
-					<daylight>Newfoundlandsko ljetno vrijeme</daylight>
+					<generic>newfoundlandsko vrijeme</generic>
+					<standard>newfoundlandsko standardno vrijeme</standard>
+					<daylight>newfoundlandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Niue">
@@ -2677,9 +2705,9 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Vremenska zona prema gradu Noronha</generic>
-					<standard>Vremenska zona prema gradu Fernando de Noronha</standard>
-					<daylight>Ljetno vrijeme prema gradu Fernando de Noronha</daylight>
+					<generic>vrijeme prema gradu Fernando de Noronha</generic>
+					<standard>standardno vrijeme prema gradu Fernando de Noronha</standard>
+					<daylight>ljetno vrijeme prema gradu Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="North_Mariana">
@@ -2689,21 +2717,22 @@
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
-					<generic draft="contributed">Novosibirska vremenska zona</generic>
-					<standard>Novosibirska vremenska zona</standard>
-					<daylight>Novosibirsko ljetno vrijeme</daylight>
+					<generic>novosibirsko vrijeme</generic>
+					<standard>novosibirsko standardno vrijeme</standard>
+					<daylight>novosibirsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
-					<generic draft="contributed">Omska vremenska zona</generic>
-					<standard>Omska vremenska zona</standard>
+					<generic>Omsko vrijeme</generic>
+					<standard>Omsko standardno vrijeme</standard>
 					<daylight>Omsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
-					<standard draft="provisional">pakistansko vrijeme</standard>
+					<generic draft="provisional">pakistansko vrijeme</generic>
+					<standard draft="provisional">pakistansko standardno vrijeme</standard>
 					<daylight draft="provisional">pakistansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2719,19 +2748,22 @@
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
-					<standard draft="provisional">paragvajsko vrijeme</standard>
+					<generic draft="provisional">paragvajsko vrijeme</generic>
+					<standard draft="provisional">paragvajsko standardno vrijeme</standard>
 					<daylight draft="provisional">paragvajsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Peru">
 				<long>
-					<standard draft="provisional">peruansko vrijeme</standard>
+					<generic draft="provisional">peruansko vrijeme</generic>
+					<standard draft="provisional">peruansko standardno vrijeme</standard>
 					<daylight draft="provisional">peruansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
-					<standard draft="provisional">filipinsko vrijeme</standard>
+					<generic draft="provisional">filipinsko vrijeme</generic>
+					<standard draft="provisional">filipinsko standardno vrijeme</standard>
 					<daylight draft="provisional">filipinsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2759,7 +2791,8 @@
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
-					<standard draft="provisional">vrijeme Qyzylorda</standard>
+					<generic draft="provisional">vrijeme Qyzylorda</generic>
+					<standard draft="provisional">standardno vrijeme Qyzylorda</standard>
 					<daylight draft="provisional">ljetno vrijeme Qyzylorda</daylight>
 				</long>
 			</metazone>
@@ -2775,27 +2808,28 @@
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
-					<generic draft="contributed">Sahalinska vremenska zona</generic>
-					<standard>Sahalinska vremenska zona</standard>
+					<generic>Sahalinsko vrijeme</generic>
+					<standard>Sahalinsko standardno vrijeme</standard>
 					<daylight>Sahalinsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<generic draft="contributed">Samarsko vrijeme</generic>
-					<standard>samarsko vrijeme</standard>
+					<generic>samarsko vrijeme</generic>
+					<standard>samarsko standardno vrijeme</standard>
 					<daylight>samarsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samarkand">
 				<long>
-					<standard draft="provisional">samarkandsko vrijeme</standard>
+					<generic draft="provisional">samarkandsko vrijeme</generic>
+					<standard draft="provisional">samarkandsko standardno vrijeme</standard>
 					<daylight draft="provisional">samarkandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<standard>samoansko standardno vrijeme</standard>
+					<standard>samoansko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -2805,13 +2839,14 @@
 			</metazone>
 			<metazone type="Shevchenko">
 				<long>
-					<standard draft="provisional">ševčensko vrijeme</standard>
+					<generic draft="provisional">ševčensko vrijeme</generic>
+					<standard draft="provisional">ševčensko standardno vrijeme</standard>
 					<daylight draft="provisional">ševčensko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Singapore">
 				<long>
-					<standard draft="provisional">singapursko standardno vrijeme</standard>
+					<standard draft="provisional">singapursko vrijeme</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
@@ -2831,7 +2866,8 @@
 			</metazone>
 			<metazone type="Sverdlovsk">
 				<long>
-					<standard draft="provisional">vrijeme Sverdlovsk</standard>
+					<generic draft="provisional">vrijeme Sverdlovsk</generic>
+					<standard draft="provisional">standardno vrijeme Sverdlovsk</standard>
 					<daylight draft="provisional">ljetno vrijeme Sverdlovsk</daylight>
 				</long>
 			</metazone>
@@ -2859,13 +2895,15 @@
 			</metazone>
 			<metazone type="Tashkent">
 				<long>
-					<standard draft="provisional">taškentsko vrijeme</standard>
+					<generic draft="provisional">taškentsko vrijeme</generic>
+					<standard draft="provisional">taškentsko standardno vrijeme</standard>
 					<daylight draft="provisional">taškentsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tbilisi">
 				<long>
-					<standard draft="provisional">tbilisko vrijeme</standard>
+					<generic draft="provisional">tbilisko vrijeme</generic>
+					<standard draft="provisional">tbilisko standardno vrijeme</standard>
 					<daylight draft="provisional">tbilisko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2876,7 +2914,8 @@
 			</metazone>
 			<metazone type="Tonga">
 				<long>
-					<standard>vrijeme Tonga</standard>
+					<generic>vrijeme Tonga</generic>
+					<standard>standardno vrijeme Tonga</standard>
 					<daylight>ljetno vrijeme Tonga</daylight>
 				</long>
 			</metazone>
@@ -2887,13 +2926,15 @@
 			</metazone>
 			<metazone type="Turkey">
 				<long>
-					<standard>tursko vrijeme</standard>
+					<generic>tursko vrijeme</generic>
+					<standard>tursko standardno vrijeme</standard>
 					<daylight>tursko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
-					<standard draft="provisional">turkmenistansko vrijeme</standard>
+					<generic draft="provisional">turkmenistansko vrijeme</generic>
+					<standard draft="provisional">turkmenistansko standardno vrijeme</standard>
 					<daylight draft="provisional">turkmenistansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2904,13 +2945,15 @@
 			</metazone>
 			<metazone type="Uralsk">
 				<long>
-					<standard draft="provisional">vrijeme Uralsk</standard>
+					<generic draft="provisional">vrijeme Uralsk</generic>
+					<standard draft="provisional">standardno vrijeme Uralsk</standard>
 					<daylight draft="provisional">ljetno vrijeme Uralsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
-					<standard draft="provisional">urugvajsko vrijeme</standard>
+					<generic draft="provisional">urugvajsko vrijeme</generic>
+					<standard draft="provisional">urugvajsko standardno vrijeme</standard>
 					<daylight draft="provisional">urugvajsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2921,13 +2964,15 @@
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
-					<standard draft="provisional">uzbekistansko vrijeme</standard>
+					<generic draft="provisional">uzbekistansko vrijeme</generic>
+					<standard draft="provisional">uzbekistansko standardno vrijeme</standard>
 					<daylight draft="provisional">uzbekistansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
-					<standard>vrijeme Vanuatu</standard>
+					<generic>vrijeme Vanuatu</generic>
+					<standard>standardno vrijeme Vanuatu</standard>
 					<daylight>ljetno vrijeme Vanuatu</daylight>
 				</long>
 			</metazone>
@@ -2938,15 +2983,15 @@
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
-					<generic draft="contributed">Vladivostočka vremenska zona</generic>
-					<standard>Vladivostočka vremenska zona</standard>
-					<daylight>Vladivostočko ljetno vrijeme</daylight>
+					<generic>vladivostočko vrijeme</generic>
+					<standard>vladivostočko standardno vrijeme</standard>
+					<daylight>vladivostočko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<generic draft="contributed">Volgogradska vremenska zona</generic>
-					<standard>volgogradsko vrijeme</standard>
+					<generic>volgogradsko vrijeme</generic>
+					<standard>volgogradsko standardno vrijeme</standard>
 					<daylight>volgogradsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
@@ -2967,21 +3012,22 @@
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic draft="contributed">Jakutska vremenska zona</generic>
-					<standard>Jakutska vremenska zona</standard>
-					<daylight>Jakutsko ljetno vrijeme</daylight>
+					<generic>jakutsko vrijeme</generic>
+					<standard>jakutsko standardno vrijeme</standard>
+					<daylight>jakutsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic draft="contributed">Ekaterinburška vremenska zona</generic>
-					<standard>Ekaterinburška vremenska zona</standard>
-					<daylight>Ekaterinburško ljetno vrijeme</daylight>
+					<generic>ekaterinburško vrijeme</generic>
+					<standard>ekaterinburško standardno vrijeme</standard>
+					<daylight>ekaterinburško ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yerevan">
 				<long>
-					<standard draft="provisional">jerevansko vrijeme</standard>
+					<generic draft="provisional">jerevansko vrijeme</generic>
+					<standard draft="provisional">jerevansko standardno vrijeme</standard>
 					<daylight draft="provisional">jerevansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>

@@ -161,7 +161,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return cldrFile;
       } catch (Exception e) {
         //e.printStackTrace();
-        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fullFileName).initCause(e);
+        throw (IllegalArgumentException)new IllegalArgumentException("Can't read " + fullFileName + " - " + e.toString()).initCause(e);
       }
   }
 
@@ -1067,6 +1067,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             (attribute.equals("replacement") || attribute.equals("type"))
       || elementName.equals("territoryCodes") && 
             (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
+      || elementName.equals("group") && attribute.equals("status")
       ;
     }
     //  if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {

@@ -232,6 +232,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             placeholderBuffer.setLength(0);
             // Check that the needed placeholders are there.
             Set<String> placeholders = patternPlaceholders.get(path);
+            if (placeholders == null) placeholders = new HashSet<String>();
             for (String placeholder : placeholders) {
                 if (!matchList.contains(placeholder)) {
                     placeholderBuffer.append(", ").append(placeholder);

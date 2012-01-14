@@ -443,6 +443,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT mapTimezones ( mapZone* ) >
 <!ATTLIST mapTimezones type NMTOKEN #IMPLIED >
+<!ATTLIST mapTimezones typeVersion CDATA #IMPLIED >
+<!ATTLIST mapTimezones otherVersion CDATA #IMPLIED >
 <!ATTLIST mapTimezones references CDATA #IMPLIED >
 
 <!ELEMENT mapZone EMPTY >

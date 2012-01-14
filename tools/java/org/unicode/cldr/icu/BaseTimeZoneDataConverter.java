@@ -15,6 +15,10 @@ public abstract class BaseTimeZoneDataConverter extends SimpleLDMLConverter {
     }
 
     public Resource parseMapTimezones(Node root) {
+        return parseMapTimezones(root, false);
+    }
+
+    public Resource parseMapTimezones(Node root, boolean defaultOnly) {
 
         TreeMap<String, TreeMap<String, String>> mapZones = new TreeMap<String, TreeMap<String, String>>();
 
@@ -32,12 +36,14 @@ public abstract class BaseTimeZoneDataConverter extends SimpleLDMLConverter {
                     territory = "001";
                 }
 
-                TreeMap<String, String> territoryMap = mapZones.get(other);
-                if (territoryMap == null) {
-                    territoryMap = new TreeMap<String, String>();
-                    mapZones.put(other, territoryMap);
+                if (!defaultOnly || territory.equals("001")) {
+                    TreeMap<String, String> territoryMap = mapZones.get(other);
+                    if (territoryMap == null) {
+                        territoryMap = new TreeMap<String, String>();
+                        mapZones.put(other, territoryMap);
+                    }
+                    territoryMap.put(territory, type);
                 }
-                territoryMap.put(territory, type);
             } else {
                 log.error("Encountered unknown <" + root.getNodeName() + "> subelement: " + name);
                 System.exit(-1);

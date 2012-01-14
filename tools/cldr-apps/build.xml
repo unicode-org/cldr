@@ -64,7 +64,12 @@
         <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
 
   <path id="catalina-ant.classpath">
-    <pathelement path="${tomcat.home}/lib/catalina-ant.jar" />
+	<fileset dir="${tomcat.home}/lib">
+		<include name="**/*.jar"/>
+	</fileset>
+	<fileset dir="${tomcat.home}/bin">
+		<include name="**/*.jar"/>
+	</fileset>
   </path>
 
         <!-- Configure the custom Ant tasks for the Manager application -->

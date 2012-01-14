@@ -204,7 +204,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       }
       cldrFile.setNonInheriting(DEFAULT_DECLHANDLER.isSupplemental > 0);
       if (DEFAULT_DECLHANDLER.overrideCount > 0) {
-        throw new IllegalArgumentException("Internal problems, mostly likely bug in isDistinguishing() or isOrdered(): " + DEFAULT_DECLHANDLER.overrideCount);
+        throw new IllegalArgumentException("Internal problems: either data file has duplicate path, or" +
+        		" isDistinguishing() or isOrdered() are badly defined: " + DEFAULT_DECLHANDLER.overrideCount);
       }
       if (localeName == null) {
           cldrFile.dataSource.setLocaleID(cldrFile.getLocaleIDFromIdentity());
@@ -1403,7 +1404,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     private void warnOnOverride(String former, String formerPath) {
       String distinguishing = CLDRFile.getDistinguishingXPath(formerPath, null, true);
       System.out.println("\tWARNING! in " + target.getLocaleID() + ";\toverriding old value <" + former + "> at path " + distinguishing + 
-              CldrUtility.LINE_SEPARATOR + "\twith\t<" + lastChars + ">;\told fullpath: " + formerPath + ";\tnew fullpath: " + currentFullXPath);
+              CldrUtility.LINE_SEPARATOR + "\twith\t<" + lastChars + ">;\told fullpath: " + formerPath + 
+              CldrUtility.LINE_SEPARATOR + "new fullpath: " + currentFullXPath);
       overrideCount += 1;
     }
 

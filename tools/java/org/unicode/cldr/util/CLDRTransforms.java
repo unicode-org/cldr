@@ -568,12 +568,14 @@ public class CLDRTransforms {
   }
 
   public enum Direction {backward, both, forward}
+  public enum Visibility {external, internal}
 
   public static class ParsedTransformID {
     public String source = "Any";
     public String target = "Any";
     public String variant;
     protected Direction direction = null;
+    protected Visibility visibility;
 
     public String getId() {
       return getSource() + "-" + getTarget() + (getVariant() == null ? "" : "/" + getVariant());
@@ -627,11 +629,11 @@ public class CLDRTransforms {
       this.direction = direction;
     }
 
-    protected Direction getDirection() {
+    public Direction getDirection() {
       return direction;
     }
 
-    protected void setVariant(String variant) {
+    public void setVariant(String variant) {
       this.variant = variant;
     }
 
@@ -639,7 +641,7 @@ public class CLDRTransforms {
       return variant;
     }
 
-    protected void setTarget(String target) {
+    public void setTarget(String target) {
       this.target = target;
     }
 
@@ -647,7 +649,7 @@ public class CLDRTransforms {
       return target;
     }
 
-    protected void setSource(String source) {
+    public void setSource(String source) {
       this.source = source;
     }
 
@@ -665,6 +667,12 @@ public class CLDRTransforms {
     }
     public static String reverse(String id) {
       return new ParsedTransformID().set(id).getBackwardId();
+    }
+    protected void setVisibility(String string) {
+        visibility = Visibility.valueOf(string);
+    }
+    public Visibility getVisibility() {
+        return visibility;
     }
   }
 
@@ -685,7 +693,7 @@ public class CLDRTransforms {
     }
   }
 
-  static class MyHandler extends XMLFileReader.SimpleHandler {
+  public static class MyHandler extends XMLFileReader.SimpleHandler {
     boolean first = true;
     ParsedTransformID directionInfo;
     XPathParts parts = new XPathParts();
@@ -720,6 +728,7 @@ public class CLDRTransforms {
         directionInfo.setTarget((String) attributes.get("target"));
         directionInfo.setVariant((String) attributes.get("variant"));
         directionInfo.setDirection(Direction.valueOf(attributes.get("direction").toLowerCase(Locale.ENGLISH)));
+        directionInfo.setVisibility((String) attributes.get("visibility"));
         first = false;
       }
       if (path.indexOf("/comment") >= 0) {

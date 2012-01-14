@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.EnumMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -76,9 +77,11 @@ public class GenerateCoverageLevels {
     System.out.println("*** TODO check collations, RBNF, Transforms (if non-Latin)");
     PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "summary.txt");
     PrintWriter samples = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "samples.txt");
-    summarizeCoverage(summary, samples);
+    PrintWriter counts = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "counts.txt");
+    summarizeCoverage(summary, samples, counts);
     summary.close();
     samples.close();
+    counts.close();
   }
 
   private static void showEnglish(PrintWriter out) throws IOException {
@@ -251,7 +254,7 @@ public class GenerateCoverageLevels {
 
   }
 
-  private static void summarizeCoverage(PrintWriter summary, PrintWriter samples2) {
+  private static void summarizeCoverage(PrintWriter summary, PrintWriter samples2, PrintWriter counts) {
     final String subdirectory = new File(MAIN_DIRECTORY).getName();
     final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
     final Factory collationFactory = Factory.make(COLLATION_DIRECTORY, FILES);
@@ -321,13 +324,16 @@ public class GenerateCoverageLevels {
     }
 
     System.out.println("printing data");
+    String summaryLineHeader = "Code\tName\tWeighted Missing:\tFound:\tScore:";
+    summary.println(summaryLineHeader);
+    
     for (String locale : mapLevelData.keySet()) {
       LevelData levelData = mapLevelData.get(locale);
 
       Counter<Level> missing = levelData.missing;
       Counter<Level> found = levelData.found;
       Relation<Level, R2<String, String>> samples = levelData.samples;
-
+      StringBuilder countLine = new StringBuilder(locale + "\t" + english.getName(locale));
       // Now print the information
       samples2.println();
       samples2.println(locale + "\t" + english.getName(locale));
@@ -339,6 +345,7 @@ public class GenerateCoverageLevels {
         }
         long missingCount = missing.get(level);
         long foundCount = found.get(level);
+        countLine.append('\t').append(missingCount).append('\t').append(foundCount);
         samples2.println(level + "\tMissing:\t" + integer.format(missingCount) + "\tFound:\t" + integer.format(foundCount)
                 + "\tScore:\t" + percent.format(foundCount/(double)(foundCount + missingCount))
                 + "\tLevel-Value:\t" + level.getValue());
@@ -358,8 +365,10 @@ public class GenerateCoverageLevels {
       double foundCount = weightedFound/base;
       double missingCount = weightedMissing/base;        
       String summaryLine = "Weighted Missing:\t" + decimal.format(missingCount) + "\tFound:\t" + decimal.format(foundCount) + "\tScore:\t" + percent.format(foundCount/(double)(foundCount + missingCount));
+      String summaryLine2 = "\t" + decimal.format(missingCount) + "\t" + decimal.format(foundCount) + "\t" + percent.format(foundCount/(double)(foundCount + missingCount));
       samples2.println(summaryLine);
-      summary.println(locale + "\t" + english.getName(locale) + "\t" + summaryLine);
+      summary.println(locale + "\t" + english.getName(locale) + "\t" + summaryLine2);
+      counts.println(countLine);
     }
   }
 
@@ -372,7 +381,7 @@ public class GenerateCoverageLevels {
       if (!path.contains("rulesetGrouping")) {
         continue;
       }
-      if (SKIP_UNCONFIRMED && path.contains("unconfirmed")) {
+      if (skipUnconfirmed(path)) {
         continue;
       }
       parts.set(path);
@@ -440,7 +449,7 @@ public class GenerateCoverageLevels {
       if (!path.contains("collations")) {
         continue;
       }
-      if (SKIP_UNCONFIRMED && path.contains("unconfirmed")) {
+      if (skipUnconfirmed(path)) {
         continue;
       }
       localesFound.add(locale);
@@ -465,6 +474,10 @@ public class GenerateCoverageLevels {
     }
   }
 
+public static boolean skipUnconfirmed(String path) {
+    return SKIP_UNCONFIRMED && (path.contains("unconfirmed") || path.contains("provisional"));
+}
+
   private static void getMainData(String locale, LevelData levelData, CLDRFile cldrFile) {
     Status status = new Status();
     Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator()).addAll(cldrFile.getExtraPaths()).get();
@@ -475,7 +488,9 @@ public class GenerateCoverageLevels {
 
       String fullPath = cldrFile.getFullXPath(path);
       String source = cldrFile.getSourceLocaleID(path, status);
-      Inheritance inherited = !source.equals(locale) || SKIP_UNCONFIRMED && path.contains("unconfirmed") ? Inheritance.inherited : Inheritance.actual;
+      Inheritance inherited = !source.equals(locale) || skipUnconfirmed(path)
+      ? Inheritance.inherited 
+              : Inheritance.actual;
 
       Level level = coverageLevel.getCoverageLevel(fullPath, path);
       if (inherited == Inheritance.actual) {
@@ -494,7 +509,7 @@ public class GenerateCoverageLevels {
 
   static class LevelData {
     Counter<Level> missing = new Counter<Level>();
-    Relation<Level,R2<String,String>> samples = new Relation(new TreeMap(), LinkedHashSet.class);
+    Relation<Level,R2<String,String>> samples = Relation.of(new EnumMap<Level,Set<R2<String,String>>>(Level.class), LinkedHashSet.class);
     Counter<Level> found = new Counter<Level>();
   }
 

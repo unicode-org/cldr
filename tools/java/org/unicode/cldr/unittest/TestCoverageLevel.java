@@ -36,8 +36,6 @@ public class TestCoverageLevel extends TestFmwk {
     private CoverageLevel coverageLevel1 = new CoverageLevel(testInfo.getCldrFactory());
 
 
-    private static int count = 0;
-
     public static void main(String[] args) throws IOException {
         new TestCoverageLevel().getStarred("fr");
         if (true) return;
@@ -256,58 +254,7 @@ public class TestCoverageLevel extends TestFmwk {
     }
 
 
-    public void checkCounts() {
 
-        //pathMatcher = Pattern.compile(getProperty("XMLPATH", ".*")).matcher("");
-
-        double startTime = System.currentTimeMillis();
-        Map options = new TreeMap();
-        List possibleErrors = new ArrayList();
-        Relation<Level, String> values = new Relation(new TreeMap(), TreeSet.class);
-        int oldSize = 0;
-
-        for (String locale : testInfo.getCldrFactory().getAvailable()) {
-            CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
-            coverageLevel1.setFile(cldrFileToCheck, options, null, possibleErrors);
-            for (String path : cldrFileToCheck) {
-                String fullPath = cldrFileToCheck.getFullXPath(path);
-                if (fullPath == null) {
-                    continue;
-                }
-                try {
-                    Level level = coverageLevel1.getCoverageLevel(fullPath);
-                    values.put(level, path);
-                } catch (Exception e) {
-                    String value = cldrFileToCheck.getStringValue(path);
-                    errln("Can't create coverage level for path\t" 
-                            + locale + ", " + path + ", " + fullPath + ", " + value);
-                }
-            }
-            int size = keyValuePairCount(values);
-            int deltaSize = size - oldSize;
-            oldSize = size;
-            logln(locale + "\tadditions: " + deltaSize + "\ttotal: " + size);
-        }
-
-        double deltaTime = System.currentTimeMillis() - startTime;
-        System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
-        System.out.println("Instances found: " + count);
-
-        for (Level level : values.keySet()) {
-            logln(level.toString());
-            for (String path : values.getAll(level)) {
-                logln("\t" + path);
-            }
-        }
-    }
-
-    private int keyValuePairCount(Relation<Level, String> values) {
-        int total = 0;
-        for (Entry<Level, String> entry : values.entrySet()) {
-            total++;
-        }
-        return total;
-    }
     
     RegexLookup<Level> exceptions = RegexLookup.of(null, new Transform<String,Level>() {
         public Level transform(String source) {

@@ -30,6 +30,7 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.tool.CLDRModify.ConfigKeys;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.Factory;
@@ -131,7 +132,7 @@ public class CLDRModify {
     UOption.create("konfig", 'k', UOption.OPTIONAL_ARG).setDefault("modify_config.txt"),
   };
 
-  private static final UnicodeSet allMergeOptions = new UnicodeSet("[rc]");
+  private static final UnicodeSet allMergeOptions = new UnicodeSet("[rcd]");
 
   static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
   + "-h or -?\t for this message" + XPathParts.NEWLINE
@@ -296,15 +297,18 @@ public class CLDRModify {
           //				String s2 = "//ldml/segmentations/segmentation[@type=\"LineBreak\"]/variables/variable[@_q=\"003A\"][@id=\"$CB\"]";
           //				System.out.println(k.ldmlComparator.compare(s1, s2));
           if (mergeFactory != null) {
-            int mergeOption = k.MERGE_ADD_ALTERNATE;
+            int mergeOption = CLDRFile.MERGE_ADD_ALTERNATE;
             CLDRFile toMergeIn = (CLDRFile) mergeFactory.make(join_prefix + test + join_postfix, false).cloneAsThawed();				
             if (toMergeIn != null) {
               if (options[JOIN_ARGS].doesOccur) {
-                if (options[JOIN_ARGS].value.indexOf("r") >= 0) mergeOption = k.MERGE_REPLACE_MY_DRAFT;
+                  if (options[JOIN_ARGS].value.indexOf("r") >= 0) mergeOption = CLDRFile.MERGE_REPLACE_MY_DRAFT;
+                  if (options[JOIN_ARGS].value.indexOf("d") >= 0) mergeOption = CLDRFile.MERGE_REPLACE_MINE;
                 if (options[JOIN_ARGS].value.indexOf("c") >= 0) toMergeIn.clearComments();
                 if (options[JOIN_ARGS].value.indexOf("x") >= 0) removePosix(toMergeIn);
               }
-              if (mergeOption == k.MERGE_ADD_ALTERNATE) toMergeIn.makeDraft();
+              if (true || mergeOption == CLDRFile.MERGE_ADD_ALTERNATE) {
+                  toMergeIn.makeDraft(DraftStatus.contributed);
+              }
               k.putAll(toMergeIn, mergeOption);
             }
             // special fix

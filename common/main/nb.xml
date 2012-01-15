@@ -2799,18 +2799,18 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" draft="contributed">0</pattern>
-					<pattern type="10000" draft="contributed">0</pattern>
-					<pattern type="100000" draft="contributed">0</pattern>
-					<pattern type="1000000" draft="contributed">0</pattern>
-					<pattern type="10000000" draft="contributed">0</pattern>
-					<pattern type="100000000" draft="contributed">0</pattern>
-					<pattern type="1000000000" draft="contributed">0</pattern>
-					<pattern type="10000000000" draft="contributed">0</pattern>
-					<pattern type="100000000000" draft="contributed">0</pattern>
-					<pattern type="1000000000000" draft="contributed">0</pattern>
-					<pattern type="10000000000000" draft="contributed">0</pattern>
-					<pattern type="100000000000000" draft="contributed">0</pattern>
+					<pattern type="1000" draft="contributed">0000</pattern>
+					<pattern type="10000" draft="contributed">00000</pattern>
+					<pattern type="100000" draft="contributed">000000</pattern>
+					<pattern type="1000000" draft="contributed">0.0 mill</pattern>
+					<pattern type="10000000" draft="contributed">00 mill</pattern>
+					<pattern type="100000000" draft="contributed">000 mill</pattern>
+					<pattern type="1000000000" draft="contributed">0.0 mrd</pattern>
+					<pattern type="10000000000" draft="contributed">00 mrd</pattern>
+					<pattern type="100000000000" draft="contributed">000 mrd</pattern>
+					<pattern type="1000000000000" draft="contributed">0.0 bill</pattern>
+					<pattern type="10000000000000" draft="contributed">00 bill</pattern>
+					<pattern type="100000000000000" draft="contributed">000 bill</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4249,3 +4249,4 @@
 		</messages>
 	</posix>
 </ldml>
+

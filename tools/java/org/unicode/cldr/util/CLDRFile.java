@@ -491,11 +491,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     return this;
   }
 
+  // TODO Change into enum, update docs
   static final public int 
   MERGE_KEEP_MINE = 0, 
   MERGE_REPLACE_MINE = 1, 
   MERGE_ADD_ALTERNATE = 2, 
   MERGE_REPLACE_MY_DRAFT = 3;
+  
   /**
    * Merges elements from another CLDR file. Note: when both have the same xpath key, 
    * the keepMine determines whether "my" values are kept
@@ -504,6 +506,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
    * @param keepMine if true, keep my values in case of conflict; otherwise keep the other's values.
    */
   public CLDRFile putAll(CLDRFile other, int conflict_resolution) {
+      
     if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     XPathParts parts = new XPathParts(null, null);
     if (conflict_resolution == MERGE_KEEP_MINE) {
@@ -2215,16 +2218,17 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   }
 
   /**
+ * @param draftStatus TODO
    * 
    */
-  public CLDRFile makeDraft() {
+  public CLDRFile makeDraft(DraftStatus draftStatus) {
     if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
     XPathParts parts = new XPathParts(null,null);
     for (Iterator it = dataSource.iterator(); it.hasNext();) {
       String path = (String) it.next();
       //Value v = (Value) getXpath_value().get(path);
       //if (!(v instanceof StringValue)) continue;
-      parts.set(dataSource.getFullPath(path)).addAttribute("draft", "unconfirmed");
+      parts.set(dataSource.getFullPath(path)).addAttribute("draft", draftStatus.toString());
       dataSource.putValueAtPath(parts.toString(), dataSource.getValueAtPath(path));
     }
     return this;

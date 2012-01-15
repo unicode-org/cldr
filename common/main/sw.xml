@@ -1248,9 +1248,9 @@
 		<decimalFormats>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000">K0.0</pattern>
-					<pattern type="10000">K00</pattern>
-					<pattern type="100000">K000</pattern>
+					<pattern type="1000" draft="contributed">elfu 0.0</pattern>
+					<pattern type="10000" draft="contributed">elfu 00</pattern>
+					<pattern type="100000" draft="contributed">laki0.0</pattern>
 					<pattern type="1000000">M0.0</pattern>
 					<pattern type="10000000">M00</pattern>
 					<pattern type="100000000">M000</pattern>
@@ -1896,3 +1896,4 @@
 		</messages>
 	</posix>
 </ldml>
+

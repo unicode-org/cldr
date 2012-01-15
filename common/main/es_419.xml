@@ -111,32 +111,32 @@
 		</calendars>
 		<timeZoneNames>
 			<metazone type="America_Central">
-                                <short>
-                                        <generic>CT</generic>
-                                        <standard>CST</standard>
-                                        <daylight>CDT</daylight>
-                                </short>
+				<short>
+					<generic>CT</generic>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="America_Eastern">
-                                <short>
-                                        <generic>ET</generic>
-                                        <standard>EST</standard>
-                                        <daylight>EDT</daylight>
-                                </short>
+				<short>
+					<generic>ET</generic>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="America_Mountain">
-                                <short>
-                                        <generic>MT</generic>
-                                        <standard>MST</standard>
-                                        <daylight>MDT</daylight>
-                                </short>
+				<short>
+					<generic>MT</generic>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="America_Pacific">
-                                <short>
-                                        <generic>PT</generic>
-                                        <standard>PST</standard>
-                                        <daylight>PDT</daylight>
-                                </short>
+				<short>
+					<generic>PT</generic>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>
@@ -145,6 +145,24 @@
 			<decimal>.</decimal>
 			<group>,</group>
 		</symbols>
+		<decimalFormats>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" draft="contributed">0000</pattern>
+					<pattern type="10000" draft="contributed">00k</pattern>
+					<pattern type="100000" draft="contributed">000k</pattern>
+					<pattern type="1000000" draft="contributed">0.0 M</pattern>
+					<pattern type="10000000" draft="contributed">00 M</pattern>
+					<pattern type="100000000" draft="contributed">000 M</pattern>
+					<pattern type="1000000000" draft="contributed">0.0k M</pattern>
+					<pattern type="10000000000" draft="contributed">00k M</pattern>
+					<pattern type="100000000000" draft="contributed">000k M</pattern>
+					<pattern type="1000000000000" draft="contributed">0.0 B</pattern>
+					<pattern type="10000000000000" draft="contributed">00 B</pattern>
+					<pattern type="100000000000000" draft="contributed">000 B</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat>

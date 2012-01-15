@@ -2497,10 +2497,18 @@
 		<decimalFormats>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" draft="contributed">0.0K</pattern>
+					<pattern type="10000" draft="contributed">00K</pattern>
 					<pattern type="100000">000ኪባ</pattern>
-					<pattern type="1000000">0.0 ሜትር</pattern>
-					<pattern type="10000000">00 ሜትር</pattern>
-					<pattern type="100000000">000 ሜትር</pattern>
+					<pattern type="1000000" draft="contributed">0.0 ሜትር</pattern>
+					<pattern type="10000000" draft="contributed">00 ሜትር</pattern>
+					<pattern type="100000000" draft="contributed">000 ሜትር</pattern>
+					<pattern type="1000000000" draft="contributed">0.0G</pattern>
+					<pattern type="10000000000" draft="contributed">00G</pattern>
+					<pattern type="100000000000" draft="contributed">000G</pattern>
+					<pattern type="1000000000000" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" draft="contributed">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

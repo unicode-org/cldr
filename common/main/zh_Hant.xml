@@ -1176,18 +1176,36 @@
 							<monthPattern type="leap">閏{0}</monthPattern>
 						</monthPatternWidth>
 					</monthPatternContext>
-					<monthPatternContext type="stand-alone">
-						<monthPatternWidth type="narrow">
-							<monthPattern type="leap">閏{0}</monthPattern>
-						</monthPatternWidth>
-					</monthPatternContext>
 					<monthPatternContext type="numeric">
 						<monthPatternWidth type="all">
 							<monthPattern type="leap">閏{0}</monthPattern>
 						</monthPatternWidth>
 					</monthPatternContext>
+					<monthPatternContext type="stand-alone">
+						<monthPatternWidth type="narrow">
+							<monthPattern type="leap">閏{0}</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
 				</monthPatterns>
 				<cyclicNameSets>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">子</cyclicName>
+								<cyclicName type="2">丑</cyclicName>
+								<cyclicName type="3">寅</cyclicName>
+								<cyclicName type="4">卯</cyclicName>
+								<cyclicName type="5">辰</cyclicName>
+								<cyclicName type="6">巳</cyclicName>
+								<cyclicName type="7">午</cyclicName>
+								<cyclicName type="8">未</cyclicName>
+								<cyclicName type="9">申</cyclicName>
+								<cyclicName type="10">酉</cyclicName>
+								<cyclicName type="11">戌</cyclicName>
+								<cyclicName type="12">亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
 					<cyclicNameSet type="years">
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
@@ -1251,24 +1269,6 @@
 								<cyclicName type="58">辛酉</cyclicName>
 								<cyclicName type="59">壬戌</cyclicName>
 								<cyclicName type="60">癸亥</cyclicName>
-							</cyclicNameWidth>
-						</cyclicNameContext>
-					</cyclicNameSet>
-					<cyclicNameSet type="dayParts">
-						<cyclicNameContext type="format">
-							<cyclicNameWidth type="abbreviated">
-								<cyclicName type="1">子</cyclicName>
-								<cyclicName type="2">丑</cyclicName>
-								<cyclicName type="3">寅</cyclicName>
-								<cyclicName type="4">卯</cyclicName>
-								<cyclicName type="5">辰</cyclicName>
-								<cyclicName type="6">巳</cyclicName>
-								<cyclicName type="7">午</cyclicName>
-								<cyclicName type="8">未</cyclicName>
-								<cyclicName type="9">申</cyclicName>
-								<cyclicName type="10">酉</cyclicName>
-								<cyclicName type="11">戌</cyclicName>
-								<cyclicName type="12">亥</cyclicName>
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
@@ -4776,9 +4776,18 @@
 		<decimalFormats>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000000000" draft="contributed">0.0B</pattern>
-					<pattern type="10000000000" draft="contributed">00B</pattern>
-					<pattern type="100000000000" draft="contributed">000B</pattern>
+					<pattern type="1000" draft="contributed">0000</pattern>
+					<pattern type="10000" draft="contributed">0.0萬</pattern>
+					<pattern type="100000" draft="contributed">00萬</pattern>
+					<pattern type="1000000" draft="contributed">000萬</pattern>
+					<pattern type="10000000" draft="contributed">0000萬</pattern>
+					<pattern type="100000000" draft="contributed">0.0億</pattern>
+					<pattern type="1000000000" draft="contributed">00億</pattern>
+					<pattern type="10000000000" draft="contributed">000億</pattern>
+					<pattern type="100000000000" draft="contributed">0000億</pattern>
+					<pattern type="1000000000000" draft="contributed">0.0兆</pattern>
+					<pattern type="10000000000000" draft="contributed">00兆</pattern>
+					<pattern type="100000000000000" draft="contributed">000兆</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

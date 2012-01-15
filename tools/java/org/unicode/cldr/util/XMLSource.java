@@ -76,8 +76,15 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     public void putAll(XMLSource otherSource, int conflict_resolution) {
         for (Iterator<String> it = otherSource.iterator(); it.hasNext();) {
             String path = it.next();
-            if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && getValueAtDPath(path) != null) continue;
-            putValueAtPath(otherSource.getFullPathAtDPath(path), otherSource.getValueAtDPath(path));
+            final String oldValue = getValueAtDPath(path);
+            if (conflict_resolution == CLDRFile.MERGE_KEEP_MINE && oldValue != null) {
+                continue;
+            }
+            final String newValue = otherSource.getValueAtDPath(path);
+            if (newValue.equals(oldValue)) {
+                continue;
+            }
+            putValueAtPath(otherSource.getFullPathAtDPath(path), newValue);
         }
     }
 

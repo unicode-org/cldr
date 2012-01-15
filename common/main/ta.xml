@@ -3652,18 +3652,18 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000">0</pattern>
-					<pattern type="10000">0</pattern>
-					<pattern type="100000">0</pattern>
-					<pattern type="1000000">0</pattern>
-					<pattern type="10000000">0</pattern>
-					<pattern type="100000000">0</pattern>
-					<pattern type="1000000000">0</pattern>
-					<pattern type="10000000000">0</pattern>
-					<pattern type="100000000000">0</pattern>
-					<pattern type="1000000000000">0</pattern>
-					<pattern type="10000000000000">0</pattern>
-					<pattern type="100000000000000">0</pattern>
+					<pattern type="1000" draft="contributed">0.0K</pattern>
+					<pattern type="10000" draft="contributed">00K</pattern>
+					<pattern type="100000" draft="contributed">000K</pattern>
+					<pattern type="1000000" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" draft="contributed">00M</pattern>
+					<pattern type="100000000" draft="contributed">000M</pattern>
+					<pattern type="1000000000" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" draft="contributed">00B</pattern>
+					<pattern type="100000000000" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" draft="contributed">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

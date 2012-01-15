@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+  <identity>
+    <version number="$Revision$"></version>
+    <generation date="$Date$"></generation>
+    <language type="ko"></language>
+  </identity>
+  <numbers>
+    <decimalFormats>
+      <decimalFormatLength type="short">
+        <decimalFormat>
+          <pattern type="1000">0000</pattern>
+          <pattern type="10000">0.0만</pattern>
+          <pattern type="100000">00만</pattern>
+          <pattern type="1000000">000만</pattern>
+          <pattern type="10000000">0000만</pattern>
+          <pattern type="100000000">0.0억</pattern>
+          <pattern type="1000000000">00억</pattern>
+          <pattern type="10000000000">000억</pattern>
+          <pattern type="100000000000">0000억</pattern>
+          <pattern type="1000000000000">0.0조</pattern>
+          <pattern type="10000000000000">00조</pattern>
+          <pattern type="100000000000000">000조</pattern>
+        </decimalFormat>
+      </decimalFormatLength>
+    </decimalFormats>
+  </numbers>
+</ldml>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+  <identity>
+    <version number="$Revision$"></version>
+    <generation date="$Date$"></generation>
+    <language type="sw"></language>
+  </identity>
+  <numbers>
+    <decimalFormats>
+      <decimalFormatLength type="short">
+        <decimalFormat>
+          <pattern type="1000">elfu 0.0</pattern>
+          <pattern type="10000">elfu 00</pattern>
+          <pattern type="100000">laki0.0</pattern>
+          <pattern type="1000000">M0.0</pattern>
+          <pattern type="10000000">M00</pattern>
+          <pattern type="100000000">M000</pattern>
+          <pattern type="1000000000">B0.0</pattern>
+          <pattern type="10000000000">B00</pattern>
+          <pattern type="100000000000">B000</pattern>
+          <pattern type="1000000000000">T0.0</pattern>
+          <pattern type="10000000000000">T00</pattern>
+          <pattern type="100000000000000">T000</pattern>
+        </decimalFormat>
+      </decimalFormatLength>
+    </decimalFormats>
+  </numbers>
+</ldml>
+

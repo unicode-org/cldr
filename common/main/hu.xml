@@ -4440,9 +4440,18 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000000000">0.0B</pattern>
-					<pattern type="10000000000">00B</pattern>
-					<pattern type="100000000000">000B</pattern>
+					<pattern type="1000" draft="contributed">0.0 e</pattern>
+					<pattern type="10000" draft="contributed">00 e</pattern>
+					<pattern type="100000" draft="contributed">000 e</pattern>
+					<pattern type="1000000" draft="contributed">0.0 m</pattern>
+					<pattern type="10000000" draft="contributed">00 m</pattern>
+					<pattern type="100000000" draft="contributed">000 m</pattern>
+					<pattern type="1000000000" draft="contributed">0.0 mrd</pattern>
+					<pattern type="10000000000" draft="contributed">00 mrd</pattern>
+					<pattern type="100000000000" draft="contributed">000 mrd</pattern>
+					<pattern type="1000000000000" draft="contributed">0.0 b</pattern>
+					<pattern type="10000000000000" draft="contributed">00 b</pattern>
+					<pattern type="100000000000000" draft="contributed">000 b</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -5464,3 +5473,4 @@
 		</messages>
 	</posix>
 </ldml>
+

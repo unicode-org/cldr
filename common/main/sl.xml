@@ -2153,16 +2153,18 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" draft="contributed">0.0 K</pattern>
-					<pattern type="1000000" draft="contributed">0.0 M</pattern>
-					<pattern type="10000000" draft="contributed">00 M</pattern>
-					<pattern type="100000000" draft="contributed">000 M</pattern>
-					<pattern type="1000000000" draft="contributed">0.0 B</pattern>
-					<pattern type="10000000000" draft="contributed">00 B</pattern>
-					<pattern type="100000000000" draft="contributed">000B</pattern>
-					<pattern type="1000000000000" draft="contributed">0.0 T</pattern>
-					<pattern type="10000000000000" draft="contributed">00 T</pattern>
-					<pattern type="100000000000000" draft="contributed">000 T</pattern>
+					<pattern type="1000" draft="contributed">0.0 tis'.'</pattern>
+					<pattern type="10000" draft="contributed">00 tis'.'</pattern>
+					<pattern type="100000" draft="contributed">000 tis'.'</pattern>
+					<pattern type="1000000" draft="contributed">0.0 mio'.'</pattern>
+					<pattern type="10000000" draft="contributed">00 mio'.'</pattern>
+					<pattern type="100000000" draft="contributed">000 mio'.'</pattern>
+					<pattern type="1000000000" draft="contributed">0.0 mrd'.'</pattern>
+					<pattern type="10000000000" draft="contributed">00 mrd'.'</pattern>
+					<pattern type="100000000000" draft="contributed">000 mrd'.'</pattern>
+					<pattern type="1000000000000" draft="contributed">0.0 bil'.'</pattern>
+					<pattern type="10000000000000" draft="contributed">00 bil'.'</pattern>
+					<pattern type="100000000000000" draft="contributed">000 bil'.'</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3246,3 +3248,4 @@
 		</messages>
 	</posix>
 </ldml>
+

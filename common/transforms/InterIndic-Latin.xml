@@ -127,7 +127,6 @@
 			<tRule>$dgs=\uE082;</tRule>
 			<comment>#Khanda-ta</comment>
 			<tRule>$kta=\uE083;</tRule>
-			<comment># ॰→; # UNMAPPED ABBREVIATION SIGN</comment>
 			<tRule>$depVowelAbove=[\uE03E-\uE040\uE045-\uE04C];</tRule>
 			<tRule>$depVowelBelow=[\uE041-\uE044];</tRule>
 			<comment># $x was originally called '§'; $z was '%'</comment>
@@ -469,7 +468,7 @@
 			<tRule>$kta→ṯ;</tRule>
 			<tRule>$danda→'.';</tRule>
 			<tRule>$doubleDanda→'.';</tRule>
-			<tRule>\uE070→;       # ABBREVIATION SIGN</tRule>
+			<tRule>\uE070→.;       # ABBREVIATION SIGN</tRule>
 			<comment># LETTER RA WITH MIDDLE DIAGONAL</comment>
 			<tRule>\uE071}$x→ra;</tRule>
 			<tRule>\uE071$virama→r;</tRule>

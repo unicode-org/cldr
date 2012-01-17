@@ -2234,26 +2234,28 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic draft="contributed">Ora Sudafrica</generic>
 					<standard draft="contributed">Ora standard Sudafrica</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard draft="contributed">Ora dell'Africa occidentale</standard>
-					<daylight draft="contributed">Ora estiva dell'Africa occidentale</daylight>
+					<generic draft="contributed">Ora dell'Africa occidentale</generic>
+					<standard draft="contributed">Ora standard dell'Africa occidentale</standard>
+					<daylight draft="contributed">Ora legale dell'Africa occidentale</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
 				<long>
 					<generic draft="contributed">Ora dell'Alaska</generic>
-					<standard>Ora Standard Alaska</standard>
-					<daylight>Ora Legale Alaska</daylight>
+					<standard>Ora standard Alaska</standard>
+					<daylight>Ora legale Alaska</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic draft="contributed">Ora dell'Amazzonia</generic>
+					<standard draft="contributed">Ora standard dell'Amazzonia</standard>
+					<daylight draft="contributed">Ora legale dell'Amazzonia</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -2287,22 +2289,22 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic draft="contributed">Ora di Anadyr</generic>
-					<standard draft="contributed">Ora di Anadyr</standard>
+					<standard draft="contributed">Ora standard di Anadyr</standard>
 					<daylight draft="contributed">Ora legale di Anadyr</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Ora dell'Argentina</generic>
-					<standard draft="contributed">Ora dell'Argentina</standard>
+					<standard draft="contributed">Ora standard dell'Argentina</standard>
 					<daylight draft="contributed">Ora legale dell'Argentina</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="contributed">Ora dell'Argentina (occidentale)</generic>
-					<standard draft="contributed">Ora dell'Argentina occidentale</standard>
-					<daylight draft="contributed">Ora legale dell'Argentina (occidentale)</daylight>
+					<generic draft="contributed">Ora dell'Argentina occidentale</generic>
+					<standard draft="contributed">Ora standard dell'Argentina occidentale</standard>
+					<daylight draft="contributed">Ora legale dell'Argentina occidentale</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -2315,53 +2317,55 @@
 			<metazone type="Australia_Central">
 				<long>
 					<generic draft="contributed">Ora dell'Australia centrale</generic>
-					<standard draft="contributed">Ora standard dell'Australia (centrale)</standard>
-					<daylight draft="contributed">Ora legale dell'Australia (centrale)</daylight>
+					<standard draft="contributed">Ora standard dell'Australia centrale</standard>
+					<daylight draft="contributed">Ora legale dell'Australia centrale</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
-					<generic draft="contributed">Ora dell'Australia (centroccidentale)</generic>
-					<standard draft="contributed">Ora standard dell'Australia (centroccidentale)</standard>
-					<daylight draft="contributed">Ora legale dell'Australia (centroccidentale)</daylight>
+					<generic draft="contributed">Ora dell'Australia centroccidentale</generic>
+					<standard draft="contributed">Ora standard dell'Australia centroccidentale</standard>
+					<daylight draft="contributed">Ora legale dell'Australia centroccidentale</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic draft="contributed">Ora dell'Australia orientale</generic>
-					<standard draft="contributed">Ora standard dell'Australia (orientale)</standard>
-					<daylight draft="contributed">Ora legale dell'Australia (orientale)</daylight>
+					<standard draft="contributed">Ora standard dell'Australia orientale</standard>
+					<daylight draft="contributed">Ora legale dell'Australia orientale</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
 					<generic draft="contributed">Ora dell'Australia occidentale</generic>
-					<standard draft="contributed">Ora standard dell'Australia (occidentale)</standard>
-					<daylight draft="contributed">Ora legale dell'Australia (occidentale)</daylight>
+					<standard draft="contributed">Ora standard dell'Australia occidentale</standard>
+					<daylight draft="contributed">Ora legale dell'Australia occidentale</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic draft="contributed">Ora di Brasilia</generic>
-					<standard draft="contributed">Ora di Brasilia</standard>
+					<standard draft="contributed">Ora standard di Brasilia</standard>
 					<daylight draft="contributed">Ora legale di Brasilia</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
-					<standard>Ora Standard Cina</standard>
-					<daylight>Ora Legale Cina</daylight>
+					<generic>Ora di Cina</generic>
+					<standard>Ora standard di Cina</standard>
+					<daylight>Ora legale di Cina</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">Ora di Choibalsan</generic>
-					<standard draft="contributed">Ora di Choibalsan</standard>
+					<standard draft="contributed">Ora standard di Choibalsan</standard>
 					<daylight draft="contributed">Ora legale di Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
+					<generic>Ora Europa Centrale</generic>
 					<standard>Ora Standard Europa Centrale</standard>
 					<daylight>Ora Legale Europa Centrale</daylight>
 				</long>
@@ -2373,6 +2377,7 @@
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
+					<generic>Ora Europa Orientale</generic>
 					<standard>Ora Standard Europa Orientale</standard>
 					<daylight>Ora Legale Europa Orientale</daylight>
 				</long>
@@ -2384,7 +2389,9 @@
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard draft="contributed">Ora Europa occidentale</standard>
+					<generic draft="contributed">Ora Europa occidentale</generic>
+					<standard draft="contributed">Ora Standard Europa occidentale</standard>
+					<daylight draft="contributed">Ora Legale Europa occidentale</daylight>
 				</long>
 				<short>
 					<generic>WET</generic>
@@ -2392,83 +2399,77 @@
 					<daylight>WEST</daylight>
 				</short>
 			</metazone>
-			<metazone type="Hawaii">
-				<long>
-					<standard>Ora Standard Hawaii</standard>
-					<daylight>Ora Legale Hawaii</daylight>
-				</long>
-			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Ora delle isole Aleutine, Hawaii</generic>
+					<standard draft="contributed">Ora standard delle isole Aleutine, Hawaii</standard>
+					<daylight draft="contributed">Ora legale delle isole Aleutine, Hawaii</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic draft="contributed">Ora di Hovd</generic>
-					<standard draft="contributed">Ora di Hovd</standard>
+					<standard draft="contributed">Ora standard di Hovd</standard>
 					<daylight draft="contributed">Ora legale di Hovd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="contributed">Ora dell'Indonesia (centrale)</generic>
+					<standard draft="contributed">Ora dell'Indonesia centrale</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="contributed">Ora dell'Indonesia (orientale)</generic>
+					<standard draft="contributed">Ora dell'Indonesia orientale</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="contributed">Ora dell'Indonesia (occidentale)</generic>
+					<standard draft="contributed">Ora dell'Indonesia occidentale</standard>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<generic draft="contributed">Ora di Irkutsk</generic>
-					<standard draft="contributed">Ora di Irkutsk</standard>
+					<standard draft="contributed">Ora standard di Irkutsk</standard>
 					<daylight draft="contributed">Ora legale di Irkutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
+					<generic>Ora Israele</generic>
 					<standard>Ora Standard Israele</standard>
 					<daylight>Ora Legale Israele</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
+					<generic>Ora Giappone</generic>
 					<standard>Ora Standard Giappone</standard>
 					<daylight>Ora Legale Giappone</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">Ora di Kamchatka</generic>
-					<standard draft="contributed">Ora di Petropavlovsk-Kamchatski</standard>
+					<generic draft="contributed">Ora di Petropavlovsk-Kamchatski</generic>
+					<standard draft="contributed">Ora standard di Petropavlovsk-Kamchatski</standard>
 					<daylight draft="contributed">Ora legale di Petropavlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">Ora del Kazakistan orientale</generic>
-					<standard draft="contributed">Ora standard del Kazakistan orientale</standard>
-					<daylight draft="contributed">Ora legale del Kazakistan (orientale)</daylight>
+					<standard draft="contributed">Ora del Kazakistan orientale</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">Ora del Kazakistan occidentale</generic>
-					<standard draft="contributed">Ora standard del Kazakistan occidentale</standard>
-					<daylight draft="contributed">Ora legale del Kazakistan (occidentale)</daylight>
+					<standard draft="contributed">Ora del Kazakistan occidentale</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic draft="contributed">Ora di Krasnoyarsk</generic>
-					<standard draft="contributed">Ora di Krasnoyarsk</standard>
+					<standard draft="contributed">Ora standard di Krasnoyarsk</standard>
 					<daylight draft="contributed">Ora legale di Krasnoyarsk</daylight>
 				</long>
 			</metazone>
@@ -2481,20 +2482,20 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic draft="contributed">Ora di Macquarie</generic>
+					<standard draft="contributed">Ora di Macquarie</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic draft="contributed">Ora di Magadan</generic>
-					<standard draft="contributed">Ora di Magadan</standard>
+					<standard draft="contributed">Ora standard di Magadan</standard>
 					<daylight draft="contributed">Ora legale di Magadan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Ora della Mongolia</generic>
-					<standard draft="contributed">Ora di Ulan Bator</standard>
+					<generic draft="contributed">Ora di Ulan Bator</generic>
+					<standard draft="contributed">Ora standard di Ulan Bator</standard>
 					<daylight draft="contributed">Ora legale di Ulan Bator</daylight>
 				</long>
 			</metazone>
@@ -2514,64 +2515,64 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Ora di Noronha</generic>
-					<standard draft="contributed">Ora di Fernando de Noronha</standard>
+					<generic draft="contributed">Ora di Fernando de Noronha</generic>
+					<standard draft="contributed">Ora standard di Fernando de Noronha</standard>
 					<daylight draft="contributed">Ora legale di Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic draft="contributed">Ora di Novosibirsk</generic>
-					<standard draft="contributed">Ora di Novosibirsk</standard>
+					<standard draft="contributed">Ora standard di Novosibirsk</standard>
 					<daylight draft="contributed">Ora legale di Novosibirsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic draft="contributed">Ora di Omsk</generic>
-					<standard draft="contributed">Ora di Omsk</standard>
+					<standard draft="contributed">Ora standard di Omsk</standard>
 					<daylight draft="contributed">Ora legale di Omsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic draft="contributed">Ora di Sakhalin</generic>
-					<standard draft="contributed">Ora di Sakhalin</standard>
+					<standard draft="contributed">Ora standard di Sakhalin</standard>
 					<daylight draft="contributed">Ora legale di Sakhalin</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic draft="contributed">Ora di Samara</generic>
-					<standard draft="contributed">Ora di Samara</standard>
+					<standard draft="contributed">Ora standard di Samara</standard>
 					<daylight draft="contributed">Ora legale di Samara</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic draft="contributed">Ora di Vladivostok</generic>
-					<standard draft="contributed">Ora di Vladivostok</standard>
+					<standard draft="contributed">Ora standard di Vladivostok</standard>
 					<daylight draft="contributed">Ora legale di Vladivostok</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic draft="contributed">Ora di Volgograd</generic>
-					<standard draft="contributed">Ora di Volgograd</standard>
+					<standard draft="contributed">Ora standard di Volgograd</standard>
 					<daylight draft="contributed">Ora legale di Volgograd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic draft="contributed">Ora di Yakutsk</generic>
-					<standard draft="contributed">Ora di Yakutsk</standard>
+					<standard draft="contributed">Ora standard di Yakutsk</standard>
 					<daylight draft="contributed">Ora legale di Yakutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic draft="contributed">Ora di Ekaterinburg</generic>
-					<standard draft="contributed">Ora di Ekaterinburg</standard>
+					<standard draft="contributed">Ora standard di Ekaterinburg</standard>
 					<daylight draft="contributed">Ora legale di Ekaterinburg</daylight>
 				</long>
 			</metazone>

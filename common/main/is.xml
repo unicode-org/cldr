@@ -1706,6 +1706,8 @@
 			<metazone type="Amazon">
 				<long>
 					<generic>Tími á Amasónsvæðinu</generic>
+					<standard>Staðaltími á Amasónsvæðinu</standard>
+					<daylight>Sumartími á Amasónsvæðinu</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -1739,21 +1741,21 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic>Tími í Anadyr</generic>
-					<standard>Tími í Anadyr</standard>
+					<standard>Staðaltími í Anadyr</standard>
 					<daylight>Sumartími í Anadyr</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>Tími í Argentínu</generic>
-					<standard>Tími í Argentínu</standard>
+					<standard>Staðaltími í Argentínu</standard>
 					<daylight>Sumartími í Argentínu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>Tími í Vestur-Argentínu</generic>
-					<standard>Tími í Vestur-Argentínu</standard>
+					<standard>Staðaltími í Vestur-Argentínu</standard>
 					<daylight>Sumartími í Vestur-Argentínu</daylight>
 				</long>
 			</metazone>
@@ -1802,37 +1804,42 @@
 			<metazone type="Choibalsan">
 				<long>
 					<generic>Tími í Choibalsan</generic>
-					<standard>Tími í Choibalsan</standard>
+					<standard>Staðaltími í Choibalsan</standard>
 					<daylight>Sumartími í Choibalsan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard draft="contributed">Mið-Evróputími</standard>
+					<generic draft="contributed">Mið-Evróputími</generic>
+					<standard draft="contributed">Staðaltími Mið-Evrópu</standard>
 					<daylight draft="contributed">Sumartími Mið-Evrópu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard draft="contributed">Austur-Evróputími</standard>
+					<generic draft="contributed">Austur-Evróputími</generic>
+					<standard draft="contributed">Staðaltími Austur-Evrópu</standard>
 					<daylight draft="contributed">Sumartími Austur-Evrópu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard draft="unconfirmed">Vestur-Evróputími</standard>
+					<generic draft="unconfirmed">Vestur-Evróputími</generic>
+					<standard draft="unconfirmed">Staðaltími Vestur-Evrópu</standard>
 					<daylight draft="unconfirmed">Sumartími Vestur-Evrópu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Tími á Hawaí og Aleútaeyjum</generic>
+					<standard>Staðaltími á Hawaí og Aleútaeyjum</standard>
+					<daylight>Sumartími á Hawaí og Aleútaeyjum</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic>Tími í Hovd</generic>
-					<standard>Tími í Hovd</standard>
+					<standard>Staðaltími í Hovd</standard>
 					<daylight>Sumartími í Hovd</daylight>
 				</long>
 			</metazone>
@@ -1854,35 +1861,31 @@
 			<metazone type="Irkutsk">
 				<long>
 					<generic>Tími í Irkutsk</generic>
-					<standard>Tími í Irkutsk</standard>
+					<standard>Staðaltími í Irkutsk</standard>
 					<daylight>Sumartími í Irkutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>Tími í Kamchatka</generic>
-					<standard>Tími í Petropavlovsk-Kamchatski</standard>
+					<generic>Tími í Petropavlovsk-Kamchatski</generic>
+					<standard>Staðaltími í Petropavlovsk-Kamchatski</standard>
 					<daylight>Sumartími í Petropavlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic>Tími í Austur-Kasakstan</generic>
-					<standard>Staðaltími í Austur-Kasakstan</standard>
-					<daylight>Sumartími í Austur-Kasakstan</daylight>
+					<standard>Tími í Austur-Kasakstan</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic>Tími í Vestur-Kasakstan</generic>
-					<standard>Staðaltími í Vestur-Kasakstan</standard>
-					<daylight>Sumartími í Vestur-Kasakstan</daylight>
+					<standard>Tími í Vestur-Kasakstan</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>Tími í Krasnoyarsk</generic>
-					<standard>Tími í Krasnoyarsk</standard>
+					<standard>Staðaltími í Krasnoyarsk</standard>
 					<daylight>Sumartími í Krasnoyarsk</daylight>
 				</long>
 			</metazone>
@@ -1895,20 +1898,20 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic>Tími í Macquarie</generic>
+					<standard>Tími í Macquarie</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Tími í Magadan</generic>
-					<standard>Tími í Magadan</standard>
+					<standard>Staðaltími í Magadan</standard>
 					<daylight>Sumartími í Magadan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic>Tími í Mongólíu</generic>
-					<standard>Tími í Úlan Bator</standard>
+					<generic>Tími í Úlan Bator</generic>
+					<standard>Staðaltími í Úlan Bator</standard>
 					<daylight>Sumartími í Úlan Bator</daylight>
 				</long>
 			</metazone>
@@ -1928,64 +1931,64 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>Tími í Noronha</generic>
-					<standard>Tími í Fernando de Noronha</standard>
+					<generic>Tími í Fernando de Noronha</generic>
+					<standard>Staðaltími í Fernando de Noronha</standard>
 					<daylight>Sumartími í Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Tími í Novosibirsk</generic>
-					<standard>Tími í Novosibirsk</standard>
+					<standard>Staðaltími í Novosibirsk</standard>
 					<daylight>Sumartími í Novosibirsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic>Tími í Omsk</generic>
-					<standard>Tími í Omsk</standard>
+					<standard>Staðaltími í Omsk</standard>
 					<daylight>Sumartími í Omsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic>Tími í Sakhalin</generic>
-					<standard>Tími í Sakhalin</standard>
+					<standard>Staðaltími í Sakhalin</standard>
 					<daylight>Sumartími í Sakhalin</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic>Tími í Samara</generic>
-					<standard>Tími í Samara</standard>
+					<standard>Staðaltími í Samara</standard>
 					<daylight>Sumartími í Samara</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic>Tími í Vladivostok</generic>
-					<standard>Tími í Vladivostok</standard>
+					<standard>Staðaltími í Vladivostok</standard>
 					<daylight>Sumartími í Vladivostok</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic>Tími í Volgograd</generic>
-					<standard>Tími í Volgograd</standard>
+					<standard>Staðaltími í Volgograd</standard>
 					<daylight>Sumartími í Volgograd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic>Tími í Yakutsk</generic>
-					<standard>Tími í Yakutsk</standard>
+					<standard>Staðaltími í Yakutsk</standard>
 					<daylight>Sumartími í Yakutsk</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic>Tími í Yekaterinburg</generic>
-					<standard>Tími í Yekaterinburg</standard>
+					<standard>Staðaltími í Yekaterinburg</standard>
 					<daylight>Sumartími í Yekaterinburg</daylight>
 				</long>
 			</metazone>

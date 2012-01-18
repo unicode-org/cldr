@@ -15,8 +15,26 @@
             <ruleset type="spellout-numbering">
                 <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
+            <ruleset type="teen" access="private">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="5">lăm;</rbnfrule>
+                <rbnfrule value="6">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="x-ty" access="private">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="1">mốt;</rbnfrule>
+                <rbnfrule value="2">=%%teen=;</rbnfrule>
+            </ruleset>
+            <ruleset type="after-hundred" access="private">
+                <rbnfrule value="0">lẻ =%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="10">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="after-thousand-or-more" access="private">
+                <rbnfrule value="0">không trăm =%%after-hundred=;</rbnfrule> <!-- zero hundred ... -->
+                <rbnfrule value="100">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">trừ →→;</rbnfrule>
+                <rbnfrule value="-x">âm →→;</rbnfrule>
                 <rbnfrule value="x.x">←← phẩy →→;</rbnfrule>
                 <rbnfrule value="0">không;</rbnfrule>
                 <rbnfrule value="1">một;</rbnfrule>
@@ -28,17 +46,22 @@
                 <rbnfrule value="7">bảy;</rbnfrule>
                 <rbnfrule value="8">tám;</rbnfrule>
                 <rbnfrule value="9">chín;</rbnfrule>
-                <rbnfrule value="10">mười[ →→];</rbnfrule>
-                <rbnfrule value="20">←← mười[ →→];</rbnfrule>
-                <rbnfrule value="100">←← trăm[ →→];</rbnfrule>
-                <rbnfrule value="1000">←← nghìn[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←← triệu[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←← tỷ[ →→];</rbnfrule>
+                <rbnfrule value="10">mười[ →%%teen→];</rbnfrule>
+                <rbnfrule value="20">←← mươi[ →%%x-ty→];</rbnfrule>
+                <rbnfrule value="100">←← trăm[ →%%after-hundred→];</rbnfrule>
+                <rbnfrule value="1000">←← nghìn[ →%%after-thousand-or-more→];</rbnfrule>
+                <rbnfrule value="1000000">←← triệu[ →%%after-thousand-or-more→];</rbnfrule>
+                <rbnfrule value="1000000000">←← tỷ[ →%%after-thousand-or-more→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">thứ =%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="1">thứ nhất;</rbnfrule>
+                <rbnfrule value="2">thứ nhì;</rbnfrule>
+                <rbnfrule value="3">thứ =%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="4">thứ tư;</rbnfrule>
+                <rbnfrule value="5">thứ =%spellout-cardinal=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">

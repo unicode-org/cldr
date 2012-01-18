@@ -890,6 +890,7 @@ public class SupplementalDataInfo {
                 String name = file.toString();
                 if (!name.endsWith(".xml")) continue;
                 xfr.read(name, -1, true);
+                myHandler.cleanup();
             }
 
             //xfr = new XMLFileReader().setHandler(instance.new MyHandler());
@@ -962,8 +963,8 @@ public class SupplementalDataInfo {
                 languageToPopulationDataTemp.get(language).freeze();
             }
         }
-        addPluralInfo();
         localeToPluralInfo = Collections.unmodifiableMap(localeToPluralInfo);
+        localeToOrdinalInfo = Collections.unmodifiableMap(localeToOrdinalInfo);
 
         if (lastDayPeriodLocales != null) {
             addDayPeriodInfo();
@@ -1001,6 +1002,16 @@ public class SupplementalDataInfo {
         XPathParts parts = new XPathParts();
 
         LanguageTagParser languageTagParser = new LanguageTagParser();
+
+        /**
+         * Finish processing anything left hanging in the file.
+         */
+        public void cleanup() {
+            if (lastPluralMap.size() > 0) {
+                addPluralInfo(lastPluralWasOrdinal);
+            }
+            lastPluralLocales = "root";
+        }
 
         public void handlePathValue(String path, String value) {
             try {
@@ -2119,8 +2130,10 @@ public class SupplementalDataInfo {
     }
 
     private Map<String,PluralInfo> localeToPluralInfo = new LinkedHashMap<String,PluralInfo>();
+    private Map<String,PluralInfo> localeToOrdinalInfo = new LinkedHashMap<String,PluralInfo>();
     private Map<String,DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String,DayPeriodInfo>();
     private transient String lastPluralLocales = "root";
+    private transient boolean lastPluralWasOrdinal = false;
     private transient Map<Count,String> lastPluralMap = new LinkedHashMap<Count,String>();
     private transient String lastDayPeriodLocales = null;
     private transient DayPeriodInfo.Builder dayPeriodBuilder = new DayPeriodInfo.Builder();
@@ -2185,8 +2198,10 @@ public class SupplementalDataInfo {
 
     private void addPluralPath(XPathParts path, String value) {
         String locales = path.getAttributeValue(2, "locales");
+        String type = path.getAttributeValue(1, "type");
+        boolean isOrdinal = type != null && type.equals("ordinal");
         if (!lastPluralLocales.equals(locales)) {
-            addPluralInfo();
+            addPluralInfo(isOrdinal);
             lastPluralLocales = locales;
         }
         final String countString = path.getAttributeValue(-1, "count");
@@ -2196,16 +2211,18 @@ public class SupplementalDataInfo {
             throw new IllegalArgumentException("Duplicate plural count: " + count + " in " + locales);
         }
         lastPluralMap.put(count, value);
+        lastPluralWasOrdinal = isOrdinal;
     }
 
-    private void addPluralInfo() {
+    private void addPluralInfo(boolean isOrdinal) {
         final String[] locales = lastPluralLocales.split("\\s+");
         PluralInfo info = new PluralInfo(lastPluralMap);
+        Map<String,PluralInfo> localeToInfo = isOrdinal ? localeToOrdinalInfo : localeToPluralInfo;
         for (String locale : locales) {
-            if (localeToPluralInfo.containsKey(locale)) {
+            if (localeToInfo.containsKey(locale)) {
                 throw new IllegalArgumentException("Duplicate plural locale: " + locale);
             }
-            localeToPluralInfo.put(locale, info);
+            localeToInfo.put(locale, info);
         }
         lastPluralMap.clear();
     }

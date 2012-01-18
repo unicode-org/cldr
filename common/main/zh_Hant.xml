@@ -1294,22 +1294,22 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern numbers="hanidec">y年MMMd日EEEE</pattern>
+							<pattern numbers="hanidec">U年MMMd日EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern numbers="hanidec">y年MMMd日</pattern>
+							<pattern numbers="hanidec">U年MMMd日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern numbers="hanidec">y年MMMd日</pattern>
+							<pattern numbers="hanidec">U年MMMd日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>yy-M-d</pattern>
+							<pattern>U-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1321,13 +1321,13 @@
 						<dateFormatItem id="MEd">M-dE</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
-						<dateFormatItem id="y">y年</dateFormatItem>
-						<dateFormatItem id="yM">y年M月</dateFormatItem>
-						<dateFormatItem id="yMd">y年M月d日</dateFormatItem>
-						<dateFormatItem id="yMEd">y年M月d日，E</dateFormatItem>
-						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
-						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
-						<dateFormatItem id="yMMMEd">y年M月d日EEE</dateFormatItem>
+						<dateFormatItem id="y">U年</dateFormatItem>
+						<dateFormatItem id="yM">U年M月</dateFormatItem>
+						<dateFormatItem id="yMd">U年M月d日</dateFormatItem>
+						<dateFormatItem id="yMEd">U年M月d日，E</dateFormatItem>
+						<dateFormatItem id="yMMM">U年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">U年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMEd">U年M月d日EEE</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

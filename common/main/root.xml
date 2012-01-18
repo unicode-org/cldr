@@ -226,7 +226,7 @@
 							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='abbreviated']"/>
 						</monthPatternWidth>
 						<monthPatternWidth type="narrow">
-							<monthPattern type="leap">{0}bis</monthPattern>
+							<monthPattern type="leap">{0}b</monthPattern>
 						</monthPatternWidth>
 						<monthPatternWidth type="wide">
 							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='wide']"/>
@@ -359,21 +359,22 @@
 					<default choice="medium"/>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, y-M-d</pattern>
+							<pattern>EEEE, U MMMM dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>y-M-d</pattern>
+							<pattern>U MMMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>y-M-d</pattern>
+							<pattern>U MMM d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
+							<!-- using y here to be short in locales that may not understand U anyway -->
 							<pattern>y-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength>

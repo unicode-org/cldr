@@ -1152,10 +1152,93 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
+				<cyclicNameSets>
+					<cyclicNameSet type="years">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">갑자</cyclicName>
+								<cyclicName type="2">을축</cyclicName>
+								<cyclicName type="3">병인</cyclicName>
+								<cyclicName type="4">정묘</cyclicName>
+								<cyclicName type="5">무진</cyclicName>
+								<cyclicName type="6">기사</cyclicName>
+								<cyclicName type="7">경오</cyclicName>
+								<cyclicName type="8">신미</cyclicName>
+								<cyclicName type="9">임신</cyclicName>
+								<cyclicName type="10">계유</cyclicName>
+								<cyclicName type="11">갑술</cyclicName>
+								<cyclicName type="12">을해</cyclicName>
+								<cyclicName type="13">병자</cyclicName>
+								<cyclicName type="14">정축</cyclicName>
+								<cyclicName type="15">무인</cyclicName>
+								<cyclicName type="16">기묘</cyclicName>
+								<cyclicName type="17">경진</cyclicName>
+								<cyclicName type="18">신사</cyclicName>
+								<cyclicName type="19">임오</cyclicName>
+								<cyclicName type="20">계미</cyclicName>
+								<cyclicName type="21">갑신</cyclicName>
+								<cyclicName type="22">을유</cyclicName>
+								<cyclicName type="23">병술</cyclicName>
+								<cyclicName type="24">정해</cyclicName>
+								<cyclicName type="25">무자</cyclicName>
+								<cyclicName type="26">기축</cyclicName>
+								<cyclicName type="27">경인</cyclicName>
+								<cyclicName type="28">신묘</cyclicName>
+								<cyclicName type="29">임진</cyclicName>
+								<cyclicName type="30">계사</cyclicName>
+								<cyclicName type="31">갑오</cyclicName>
+								<cyclicName type="32">을미</cyclicName>
+								<cyclicName type="33">병신</cyclicName>
+								<cyclicName type="34">정유</cyclicName>
+								<cyclicName type="35">무술</cyclicName>
+								<cyclicName type="36">기해</cyclicName>
+								<cyclicName type="37">경자</cyclicName>
+								<cyclicName type="38">신축</cyclicName>
+								<cyclicName type="39">임인</cyclicName>
+								<cyclicName type="40">계묘</cyclicName>
+								<cyclicName type="41">갑진</cyclicName>
+								<cyclicName type="42">을사</cyclicName>
+								<cyclicName type="43">병오</cyclicName>
+								<cyclicName type="44">정미</cyclicName>
+								<cyclicName type="45">무신</cyclicName>
+								<cyclicName type="46">기유</cyclicName>
+								<cyclicName type="47">경술</cyclicName>
+								<cyclicName type="48">신해</cyclicName>
+								<cyclicName type="49">임자</cyclicName>
+								<cyclicName type="50">계축</cyclicName>
+								<cyclicName type="51">갑인</cyclicName>
+								<cyclicName type="52">을묘</cyclicName>
+								<cyclicName type="53">병진</cyclicName>
+								<cyclicName type="54">정사</cyclicName>
+								<cyclicName type="55">무오</cyclicName>
+								<cyclicName type="56">기미</cyclicName>
+								<cyclicName type="57">경신</cyclicName>
+								<cyclicName type="58">신유</cyclicName>
+								<cyclicName type="59">임술</cyclicName>
+								<cyclicName type="60">계해</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern draft="contributed">y-M-d EEEE</pattern>
+							<pattern>U년 M월 d일 EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>U년 M월 d일</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>y. M. d.</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>y. M. d.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>

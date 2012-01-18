@@ -185,12 +185,12 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
  
     public static String[] typeNames = new String[] {
         "language","script", "territory", "variant", "type",
-        "month-narrow", "month-format", "month-standalone-except-narrow",
-        "day-narrow", "day-format", "day-standalone-except-narrow",
+        "month-narrow", "month-format-except-narrow", "month-standalone-except-narrow",
+        "day-narrow", "day-format-except-narrow", "day-standalone-except-narrow",
         "era-narrow", "era-abbr", "era-name",
         "quarter-narrow", "quarter-abbreviated", "quarter-format-wide", "quarter-standalone-wide",
         "calendar-field",
-        "zone-examplarCity", "zone-short", "zone-long",
+        "zone-exemplarCity", "zone-short", "zone-long",
         NOT_USED,
         "metazone-short", "metazone-long",
         "symbol",

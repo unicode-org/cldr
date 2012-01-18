@@ -2,15 +2,15 @@
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
-		<version number="$Revision: 6303 $"/>
-		<generation date="$Date: 2012-01-05 13:12:32 -0800 (Thurs, 05 Jan 2012) $"/>
+		<version number="$Revision: $"/>
+		<generation date="$Date: $"/>
 		<language type="nso"/>
 	</identity>
 	<behavior>
-		<casing type="day-format">uppercase</casing>
+		<casing type="day-format-except-narrow">uppercase</casing>
 		<casing type="day-standalone-except-narrow">uppercase</casing>
 		<casing type="language">uppercase</casing>
-		<casing type="month-format">uppercase</casing>
+		<casing type="month-format-except-narrow">uppercase</casing>
 		<casing type="month-standalone-except-narrow">uppercase</casing>
 		<casing type="symbol">uppercase</casing>
 	</behavior>

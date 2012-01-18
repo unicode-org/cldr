@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2011 International Business Machines Corporation and    *
+ * Copyright (C) 2004-2012 International Business Machines Corporation and    *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -2346,36 +2346,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         }
 
         return null;
-    }
-
-    private static final String ICU_IS_LEAP_MONTH = "icu:isLeapMonth";
-    private static final String ICU_LEAP_SYMBOL = "icu:leapSymbol";
-    private static final String ICU_NON_LEAP_SYMBOL = "icu:nonLeapSymbol";
-
-    private static final String leapStrings[] = { ICU_IS_LEAP_MONTH + "/" + ICU_NON_LEAP_SYMBOL, ICU_IS_LEAP_MONTH + "/" + ICU_LEAP_SYMBOL, };
-
-    private Resource parseLeapMonth(LDML2ICUInputLocale loc, String xpath) {
-        // So.
-        String theArray[] = leapStrings;
-        ResourceString strs[] = new ResourceString[theArray.length];
-        GroupStatus status = parseGroupWithFallback(loc, xpath, theArray, strs);
-        if (GroupStatus.EMPTY == status) {
-            log.warning("Could not load " + xpath + " - " + theArray[0] + ", etc.");
-            return null; // NO items were found - don't even bother.
-        }
-
-        if (GroupStatus.SPARSE == status) {
-            log.warning("Could not load all of " + xpath + " - " + theArray[0] + ", etc.");
-            return null; // NO items were found - don't even bother.
-        }
-
-        ResourceArray arr = new ResourceArray();
-        arr.name = "isLeapMonth";
-        for (ResourceString str : strs) {
-            arr.appendContents(str);
-        }
-
-        return arr;
     }
 
     private Resource parseIntervalFormats(LDML2ICUInputLocale loc, String parentxpath) {
@@ -5352,10 +5322,6 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = process;
             } else if (xpath.startsWith("//ldml/special/" + ICU_BRKITR_DATA)) {
                 res = parseBrkItrData(loc, "//ldml/special/" + ICU_BRKITR_DATA);
-            } else if (name.equals(ICU_IS_LEAP_MONTH) || name.equals(ICU_LEAP_SYMBOL) || name.equals(ICU_NON_LEAP_SYMBOL)) {
-                if (!loc.beenHere(origXpath + ICU_IS_LEAP_MONTH)) {
-                    res = parseLeapMonth(loc, origXpath);
-                }
             } else if (name.equals(LDMLConstants.SPECIAL)) {
                 // just continue, already handled
             } else {

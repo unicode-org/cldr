@@ -2126,7 +2126,7 @@ o	            		}*/
 				theLocale = localeName.substring(0,dot);
 				System.err.println("#vx "+theLocale);
 				XMLSource dbSource = makeDBSource(CLDRLocale.getInstance(theLocale), true);
-				CLDRFile file = makeCLDRFile(dbSource);
+				CLDRFile file = makeCLDRFile(dbSource).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());
 				  OutputStream files = new FileOutputStream(new File(outdir,localeName),false); // Append
 //				  PrintWriter pw = new PrintWriter(files);
 	//            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
@@ -6028,7 +6028,7 @@ o	            		}*/
 		    // if i>5 break [ for testing ]
 		    
 		    XMLSource dbSource = makeDBSource( loc, vetted, resolved);
-		    CLDRFile file = makeCLDRFile(dbSource);
+		    CLDRFile file = makeCLDRFile(dbSource).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());
 
 		    long nextTime = System.currentTimeMillis();
 		    if((nextTime - lastTime) > 10000) { // denote, every 10 seconds
@@ -6347,7 +6347,7 @@ o	            		}*/
                     }
                 } else {
 //                    conn = getDBConnection();
-                    file = new CLDRFile(makeDBSource(locale, finalData, resolved));
+                    file = new CLDRFile(makeDBSource(locale, finalData, resolved)).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());;
                 }
     //            file.write(WebContext.openUTF8Writer(response.getOutputStream()));
                 if(voteData) {
@@ -6947,9 +6947,9 @@ o	            		}*/
             	dbEntry= dbsrcfac.openEntry(dbSource);
                 cldrfile = makeCLDRFile(dbSource);
                 cachedCldrFile = makeCachedCLDRFile(dbSource);
-        		resolvedFile = new CLDRFile(resolvedSource);
+        		resolvedFile = new CLDRFile(resolvedSource).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());;
         		XMLSource baseSource = makeDBSource(CLDRLocale.getInstance(BASELINE_LOCALE), false, true);
-        		baselineFile = new CLDRFile(baseSource);
+        		baselineFile = new CLDRFile(baseSource).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());;
             }
         }
     };
@@ -7570,7 +7570,7 @@ o	            		}*/
     	}
     	try {
 	    	XMLSource ourSrc = makeDBSource(ctx.getLocale(),false);
-	    	CLDRFile cf = new CLDRFile(ourSrc);
+	    	CLDRFile cf = new CLDRFile(ourSrc).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());
 	    	entry = dbsrcfac.openEntry(ourSrc);
 	    	
             String fullThing = xpath + "/" + lastElement;
@@ -10354,10 +10354,10 @@ o	            		}*/
 	    boolean isFlat = false;
 		if(kind.equals("vxml")) {
 			dbSource = makeDBSource(loc, true);
-		    file = makeCLDRFile(dbSource);
+		    file = makeCLDRFile(dbSource).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());;
 		} else if(kind.equals("fxml")) {
 				dbSource = makeDBSource(loc, true);
-			    file = makeCLDRFile(dbSource);
+			    file = makeCLDRFile(dbSource).setSupplementalDirectory(dbsrcfac.getSupplementalDirectory());;
 			    isFlat=true;
 		} else if(kind.equals("rxml")) {
 			dbSource = makeDBSource(loc, true, true);

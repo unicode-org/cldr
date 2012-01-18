@@ -15,24 +15,30 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CompactDecimalFormat.CurrencySymbolDisplay;
 import org.unicode.cldr.test.CompactDecimalFormat.Style;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.NumberFormat.SimpleNumberFormatFactory;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.CurrencyAmount;
 import com.ibm.icu.util.ULocale;
 
 public class CompactDecimalFormatTest {
     /** JUST FOR DEVELOPMENT */
-    private static final CompactDecimalFormat build(CLDRFile resolvedCldrFile, Set<String> debugCreationErrors, String[] debugOriginals, Style style) {
+    private static final CompactDecimalFormat build(CLDRFile resolvedCldrFile, Set<String> debugCreationErrors, String[] debugOriginals, Style style, ULocale locale) {
         String[] prefix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         String[] suffix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         long[] divisor = new long[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
@@ -95,8 +101,45 @@ public class CompactDecimalFormatTest {
             divisor[typeZeroCount] = (long) Math.pow(10.0, typeZeroCount - zeroCount);
         }
         DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(new ULocale(resolvedCldrFile.getLocaleID()));
-        return new CompactDecimalFormat(format.toPattern(), format.getDecimalFormatSymbols(), prefix, suffix, divisor, debugCreationErrors, style);
+
+        //DecimalFormat currencyFormat = new ICUServiceBuilder().setCldrFile(resolvedCldrFile).getCurrencyFormat("USD");
+        //        for (String s : With.in(resolvedCldrFile.iterator("//ldml/numbers/currencyFormats/"))) {
+        //            System.out.println(s + "\t" + resolvedCldrFile.getStringValue(s));
+        //        }
+        //DecimalFormat currencyFormat = new DecimalFormat(pattern);
+        // do this by hand, because the DecimalFormat pattern parser does too much.
+        String pattern = resolvedCldrFile.getWinningValue("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+        String[] currencyAffixes = new String[CompactDecimalFormat.AFFIX_SIZE];
+        String[] patterns = pattern.split(";");
+        final Matcher matcher = CURRENCY_PATTERN.matcher(patterns[0]);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException("Can't match currency pattern");
+        }
+        currencyAffixes[CompactDecimalFormat.POSITIVE_PREFIX] = matcher.group(1);
+        currencyAffixes[CompactDecimalFormat.POSITIVE_SUFFIX] = matcher.group(2);
+        // TODO fix to get right symbol for the count
+        return new CompactDecimalFormat(format.toPattern(), format.getDecimalFormatSymbols(), prefix, suffix, divisor, debugCreationErrors, style, 
+                currencyAffixes, new MyCurrencySymbolDisplay(resolvedCldrFile));
     }
+    
+    static class MyCurrencySymbolDisplay implements CurrencySymbolDisplay {
+        CLDRFile cldrFile;
+        public MyCurrencySymbolDisplay(CLDRFile cldrFile) {
+            this.cldrFile = cldrFile;
+        }
+        @Override
+        public String getName(Currency currency, int count) {
+            final String currencyCode = currency.getCurrencyCode();
+            if (count > 1) {
+                return currencyCode;
+            }
+            String prefix = "//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/";
+            String currencySymbol = cldrFile.getWinningValue(prefix + "symbol");
+            return currencySymbol != null ? currencySymbol : currencyCode;
+        }
+    };
+
+    static final Pattern CURRENCY_PATTERN = Pattern.compile("([^#0-9]*).*?[#0-9]([^#0-9]*)");
 
     final static Options myOptions = new Options()
     .add("sourceDir", ".*", CldrUtility.MAIN_DIRECTORY, "The source directory for the compact decimal format information.")
@@ -104,6 +147,8 @@ public class CompactDecimalFormatTest {
     .add("locale", ".*", null, "The locales to use (comma-separated).")
     .add("generate", ".*", CldrUtility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/test/", "Hard coded data file.")
     .add("use", null, null, "Use hard coded data file.")
+    .add("display", null, null, "Display results on console (instead of generating)")
+    .add("currency", "[A-Z]{3}", null, "Currency")
     ;
 
     /** JUST FOR DEVELOPMENT 
@@ -116,10 +161,14 @@ public class CompactDecimalFormatTest {
         String sourceDir = myOptions.get("sourceDir").getValue();
         String organization = myOptions.get("organization").getValue();
         String localeList = myOptions.get("locale").getValue();
+        boolean display = myOptions.get("display").doesOccur();
         String hardCodedFile = myOptions.get("generate").getValue();
         boolean useHard = myOptions.get("use").doesOccur();
-        
-        PrintWriter hardOut = hardCodedFile == null ? null : BagFormatter.openUTF8Writer(hardCodedFile, "CompactDecimalFormatData.java");
+        Currency currency = myOptions.get("currency").doesOccur() ? Currency.getInstance(myOptions.get("currency").getValue()) : null;
+
+        PrintWriter hardOut = display 
+        ? null : 
+            BagFormatter.openUTF8Writer(hardCodedFile, "CompactDecimalFormatData.java");
         if (hardOut != null) {
             hardOut.println("package org.unicode.cldr.test;\npublic class CompactDecimalFormatData {\n\tstatic void load() {");
         }
@@ -180,8 +229,9 @@ public class CompactDecimalFormatTest {
             String[] debugOriginals = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
             CompactDecimalFormat snf;
             try {
-                snf = useHard ? new CompactDecimalFormat(uLocale, Style.SHORT) 
-                : build(file, errors, debugOriginals, Style.SHORT);
+                snf = useHard 
+                ? new CompactDecimalFormat(uLocale, Style.SHORT) 
+                : build(file, errors, debugOriginals, Style.SHORT, new ULocale(locale));
             } catch (Exception e) {
                 errors.add("Can't construct: " + e.getMessage());
                 continue;
@@ -193,8 +243,10 @@ public class CompactDecimalFormatTest {
                 String original = debugOriginals[count++];
                 String formatted;
                 try {
-                    formatted = snf.format(test);
-                    if (formatted.length() > 8) {
+                    formatted = currency == null 
+                    ? snf.format(test) 
+                            : snf.format(new CurrencyAmount(test,currency));
+                    if (formatted.length() > 8 && currency == null) {
                         tooLong = formatted + " for " + enf.format(test);
                     }
                     list.add(formatted); // original + "\t" + 
@@ -214,7 +266,7 @@ public class CompactDecimalFormatTest {
             for (String error : errors) {
                 list.add("ERROR: " + error);
             }
-            
+
             if (hardOut != null) {
                 hardOut.println("\t\tCompactDecimalFormat.add(\"" + uLocale + "\", ");
                 String[] intFormatted = new String[snf.divisor.length];

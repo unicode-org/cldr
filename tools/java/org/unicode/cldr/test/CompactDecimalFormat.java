@@ -12,6 +12,8 @@ import java.util.Map;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.Currency;
+import com.ibm.icu.util.CurrencyAmount;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -30,6 +32,11 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class CompactDecimalFormat extends DecimalFormat {
+
+    public interface CurrencySymbolDisplay {
+        String getName(Currency currency, int count);
+    }
+
     // TODO add serialization id
     /**
      * Style parameter for CompactDecimalFormat. Would actually be on NumberFormat.
@@ -45,12 +52,18 @@ public class CompactDecimalFormat extends DecimalFormat {
          * Longer version, like "1.2 trillion", if available. May return same result as SHORT if not.
          */
         LONG
-        }
-    
+    }
+
     static final int MINIMUM_ARRAY_LENGTH = 15;
     final String[] prefix;
     final String[] suffix;
     final long[] divisor;
+    static final int 
+    POSITIVE_PREFIX = 0,
+    POSITIVE_SUFFIX = 1,
+    AFFIX_SIZE = 2;
+    final String[] currencyAffixes;
+    final CurrencySymbolDisplay currencySymbolDisplay;
 
     /**
      * Create a CompactDecimalFormat appropriate for a locale (Mockup for what would be in NumberFormat). The result may be affected by the number system in the locale, such as ar-u-nu-latn.
@@ -90,8 +103,28 @@ public class CompactDecimalFormat extends DecimalFormat {
         setMaximumSignificantDigits(2); // default significant digits
         setSignificantDigitsUsed(true);
         setGroupingUsed(false);
+
+        DecimalFormat currencyFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
+        currencyAffixes = new String[AFFIX_SIZE];
+        currencyAffixes[CompactDecimalFormat.POSITIVE_PREFIX] = currencyFormat.getPositivePrefix();
+        currencyAffixes[CompactDecimalFormat.POSITIVE_SUFFIX] = currencyFormat.getPositiveSuffix();
+        // TODO fix to get right symbol for the count
+        currencySymbolDisplay = new IcuCurrencySymbolDisplay(locale);
     }
     
+    static class IcuCurrencySymbolDisplay implements CurrencySymbolDisplay {
+        final ULocale locale;
+        public IcuCurrencySymbolDisplay(ULocale locale) {
+            this.locale = locale;
+        }
+        @Override
+        public String getName(Currency currency, int count) {
+            return count > 1 
+            ? currency.getCurrencyCode() 
+                    : currency.getSymbol(locale);
+        }
+    };
+
     private static ULocale zhTW = new ULocale("zh_TW");
 
     /**
@@ -115,7 +148,9 @@ public class CompactDecimalFormat extends DecimalFormat {
      * If null on input, then any errors found will be added to that collection instead of throwing exceptions.
      * @internal
      */
-    public CompactDecimalFormat(String pattern, DecimalFormatSymbols formatSymbols, String[] prefix, String[] suffix, long[] divisor, Collection<String> debugCreationErrors, Style style) {
+    public CompactDecimalFormat(String pattern, DecimalFormatSymbols formatSymbols, String[] prefix, String[] suffix, long[] divisor, 
+            Collection<String> debugCreationErrors, Style style,
+            String[] currencyAffixes, CurrencySymbolDisplay currencySymbolDisplay) {
         if (prefix.length < MINIMUM_ARRAY_LENGTH) {
             recordError(debugCreationErrors, "Must have at least " + MINIMUM_ARRAY_LENGTH + " prefix items.");
         }
@@ -163,6 +198,8 @@ public class CompactDecimalFormat extends DecimalFormat {
         setMaximumSignificantDigits(2); // default significant digits
         setSignificantDigitsUsed(true);
         setGroupingUsed(false);
+        this.currencyAffixes = currencyAffixes.clone();
+        this.currencySymbolDisplay = currencySymbolDisplay;
     }
 
     @Override
@@ -175,7 +212,54 @@ public class CompactDecimalFormat extends DecimalFormat {
         number = number / divisor[base];
         setPositivePrefix(prefix[base]);
         setPositiveSuffix(suffix[base]);
+        setCurrency(null);
         return super.format(number, toAppendTo, pos);
+    }
+
+    @Override
+    public StringBuffer format(CurrencyAmount currencyAmount, StringBuffer toAppendTo, FieldPosition pos) {
+        double number = currencyAmount.getNumber().doubleValue();
+        if (number < 0.0d) {
+            throw new UnsupportedOperationException("CompactDecimalFormat doesn't handle negative numbers yet.");
+        }
+        int integerCount = (int) Math.log10(number);
+        int base = integerCount > 14 ? 14 : integerCount;
+        number = number / divisor[base];
+
+        final Currency currency = currencyAmount.getCurrency();
+        // TODO sometimes the affixes depend on the currency, so this needs to be fixed for that
+        setPositivePrefix(replaceCurrencySymbol(currencyAffixes[POSITIVE_PREFIX], currency) + prefix[base]);
+        setPositiveSuffix(suffix[base] + replaceCurrencySymbol(currencyAffixes[POSITIVE_SUFFIX], currency));
+        setCurrency(currency);
+        setMaximumFractionDigits(0); // reset to no fractions
+        return super.format(number, toAppendTo, pos);
+    }
+
+    /** Duplicate what is in Decimal Format (but which is inaccessible). Doesn't handle quoted currency signs correctly.
+     * 
+     * @param string
+     * @param currency
+     * @return
+     */
+    private String replaceCurrencySymbol(String string, Currency currency) {
+        StringBuilder result = new StringBuilder();
+        int count = 0;
+        for (int i = 0; i < string.length(); ++i) {
+            final char ch = string.charAt(i);
+            if (ch == '\u00A4') {
+                ++count;
+            } else {
+                if (count > 0) {
+                    result.append(currencySymbolDisplay.getName(currency, count));
+                    count = 0;
+                }
+                result.append(ch);
+            }
+        }
+        if (count > 0) {
+            result.append(currencySymbolDisplay.getName(currency, count));
+        }
+        return result.toString();
     }
 
     @Override
@@ -207,14 +291,14 @@ public class CompactDecimalFormat extends DecimalFormat {
     }
 
     /* INTERNALS */
-    
+
     private void recordError(Collection<String> creationErrors, String errorMessage) {
         if (creationErrors == null) {
             throw new IllegalArgumentException(errorMessage);
         }
         creationErrors.add(errorMessage);
     }
-    
+
     /** JUST FOR DEVELOPMENT */
     // For use with the hard-coded data
     static class Data {

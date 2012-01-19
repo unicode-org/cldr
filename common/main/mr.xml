@@ -2630,7 +2630,8 @@
 			</zone>
 			<metazone type="Acre">
 				<long>
-					<standard>एकर वेळ</standard>
+					<generic>एकर वेळ</generic>
+					<standard>एकर प्रमाणवेळ</standard>
 					<daylight>ऐकर ग्रीष्म वेळ</daylight>
 				</long>
 			</metazone>
@@ -2651,22 +2652,20 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic>दक्षिण अफ्रिका प्रमाणवेळ</generic>
 					<standard>दक्षिण अफ्रिका प्रमाणवेळ</standard>
 				</long>
-				<short>
-					<generic>दक्षिण अफ्रिका प्रमाणवेळ</generic>
-				</short>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
+					<generic>पश्चिम अफ्रिका वेळ</generic>
 					<standard>पश्चिम अफ्रिका प्रमाणवेळ</standard>
 					<daylight>पश्चिम अफ्रिका ग्रीष्म प्रमाणवेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
-					<standard>अ‍ॅक्ट्युबिन्स्क वेळ</standard>
+					<generic>अ‍ॅक्ट्युबिन्स्क वेळ</generic>
+					<standard>अ‍ॅक्ट्युबिन्स्क प्रमाणवेळ</standard>
 					<daylight>अ‍ॅक्ट्युबिन्स्क ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2686,13 +2685,16 @@
 			</metazone>
 			<metazone type="Almaty">
 				<long>
-					<standard>अल्माटी वेळ</standard>
+					<generic>अल्माटी वेळ</generic>
+					<standard>अल्माटी प्रमाणवेळ</standard>
 					<daylight>अल्माटी ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic>अॅमेझॉन टाईम</generic>
+					<generic>अॅमेझॉन वेळ</generic>
+					<standard>अॅमेझॉन प्रमाणवेळ</standard>
+					<daylight>अॅमेझॉन दिवस वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -2726,19 +2728,21 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic>एनाडीयर वेळ</generic>
-					<standard>अनादीर वेळ</standard>
+					<standard>अनादीर प्रमाणवेळ</standard>
 					<daylight>अनादीर ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
-					<standard>अ‍ॅक्ताउ वेळ</standard>
+					<generic>अ‍ॅक्ताउ वेळ</generic>
+					<standard>अ‍ॅक्ताउ प्रमाणवेळ</standard>
 					<daylight>अ‍ॅक्ताउ ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
-					<standard>अ‍ॅक्टोबे वेळ</standard>
+					<generic>अ‍ॅक्टोबे वेळ</generic>
+					<standard>अ‍ॅक्टोबे प्रमाणवेळ</standard>
 					<daylight>अ‍ॅक्टोबे ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2752,7 +2756,7 @@
 			<metazone type="Argentina">
 				<long>
 					<generic>अर्जेंटिना वेळ</generic>
-					<standard>अर्जेंटिना वेळ</standard>
+					<standard>अर्जेंटिना प्रमाणवेळ</standard>
 					<daylight>अर्जेंटिना ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2765,13 +2769,15 @@
 			</metazone>
 			<metazone type="Armenia">
 				<long>
-					<standard>आर्मेनिया वेळ</standard>
+					<generic>आर्मेनिया वेळ</generic>
+					<standard>आर्मेनिया प्रमाणवेळ</standard>
 					<daylight>आर्मेनिया ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Ashkhabad">
 				<long>
-					<standard>अश्खाबाद वेळ</standard>
+					<generic>अश्खाबाद वेळ</generic>
+					<standard>अश्खाबाद प्रमाणवेळ</standard>
 					<daylight>अश्खाबाद ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2812,25 +2818,29 @@
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
-					<standard>अझरबैजान वेळ</standard>
+					<generic>अझरबैजान वेळ</generic>
+					<standard>अझरबैजान प्रमाणवेळ</standard>
 					<daylight>अझरबैजान ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azores">
 				<long>
-					<standard>अ‍ॅझोरस वेळ</standard>
+					<generic>अ‍ॅझोरस वेळ</generic>
+					<standard>अ‍ॅझोरस प्रमाणवेळ</standard>
 					<daylight>अ‍ॅझोरस ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Baku">
 				<long>
-					<standard>बाकू वेळ</standard>
+					<generic>बाकू वेळ</generic>
+					<standard>बाकू प्रमाणवेळ</standard>
 					<daylight>बाकू ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
-					<standard>बांगलादेश वेळ</standard>
+					<generic>बांगलादेश वेळ</generic>
+					<standard>बांगलादेश प्रमाणवेळ</standard>
 					<daylight>बांगलादेश ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2853,14 +2863,15 @@
 			</metazone>
 			<metazone type="Borneo">
 				<long>
-					<standard>बोर्नेओ वेळ</standard>
+					<generic>बोर्नेओ वेळ</generic>
+					<standard>बोर्नेओ प्रमाणवेळ</standard>
 					<daylight>बोर्नेओ ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic>ब्रासिलिया वेळ</generic>
-					<standard>ब्रासिलिया वेळ</standard>
+					<standard>ब्रासिलिया प्रमाणवेळ</standard>
 					<daylight>ब्रासिलिया ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2871,14 +2882,14 @@
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
-					<standard>केप व्हर्डे वेळ</standard>
+					<generic>केप व्हर्डे वेळ</generic>
+					<standard>केप व्हर्डे प्रमाणवेळ</standard>
 					<daylight>केप व्हर्डे ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<generic>चॅमोरो वेळ</generic>
-					<standard>चॅमोरो प्रमाणवेळ</standard>
+					<standard>चॅमोरो वेळ</standard>
 				</long>
 			</metazone>
 			<metazone type="Changbai">
@@ -2888,13 +2899,15 @@
 			</metazone>
 			<metazone type="Chatham">
 				<long>
+					<generic>चॅटहॅम वेळ</generic>
 					<standard>चॅटहॅम प्रमाणवेळ</standard>
 					<daylight>चॅटहॅम दिवस वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
 				<long>
-					<standard>चिली वेळ</standard>
+					<generic>चिली वेळ</generic>
+					<standard>चिली प्रमाणवेळ</standard>
 					<daylight>चिली ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2908,7 +2921,7 @@
 			<metazone type="Choibalsan">
 				<long>
 					<generic>चोईबाल्सन वेळ</generic>
-					<standard>चोइबाल्सन वेळ</standard>
+					<standard>चोइबाल्सन प्रमाणवेळ</standard>
 					<daylight>चोइबाल्सन ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2924,13 +2937,15 @@
 			</metazone>
 			<metazone type="Colombia">
 				<long>
-					<standard>कोलंबिया वेळ</standard>
+					<generic>कोलंबिया वेळ</generic>
+					<standard>कोलंबिया प्रमाणवेळ</standard>
 					<daylight>कोलंबिया ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<standard>कुक बेटे वेळ</standard>
+					<generic>कुक बेटे वेळ</generic>
+					<standard>कुक बेटे प्रमाणवेळ</standard>
 					<daylight>कुक बेटे अर्ध ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2958,7 +2973,8 @@
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
-					<standard>दुशांबे वेळ</standard>
+					<generic>दुशांबे वेळ</generic>
+					<standard>दुशांबे प्रमाणवेळ</standard>
 					<daylight>दुशांबे ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -2984,31 +3000,36 @@
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard>मध्य यूरोपीय वेळ</standard>
+					<generic>मध्य यूरोपीय वेळ</generic>
+					<standard>मध्य यूरोपीय प्रमाणवेळ</standard>
 					<daylight>मध्य यूरोपीय ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard>पूर्व यूरोपीय वेळ</standard>
+					<generic>पूर्व यूरोपीय वेळ</generic>
+					<standard>पूर्व यूरोपीय प्रमाणवेळ</standard>
 					<daylight>पूर्व यूरोपीय ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard>पश्चिम यूरोपीय वेळ</standard>
+					<generic>पश्चिम यूरोपीय वेळ</generic>
+					<standard>पश्चिम यूरोपीय प्रमाणवेळ</standard>
 					<daylight>पश्चिम यूरोपीय ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<standard>फॉकलंड बेटे वेळ</standard>
+					<generic>फॉकलंड बेटे वेळ</generic>
+					<standard>फॉकलंड बेटे प्रमाणवेळ</standard>
 					<daylight>फॉकलंड बेटे ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<standard>फिजी वेळ</standard>
+					<generic>फिजी वेळ</generic>
+					<standard>फिजी प्रमाणवेळ</standard>
 					<daylight>फिजी ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3024,7 +3045,8 @@
 			</metazone>
 			<metazone type="Frunze">
 				<long>
-					<standard>फ्रंझे वेळ</standard>
+					<generic>फ्रंझे वेळ</generic>
+					<standard>फ्रंझे प्रमाणवेळ</standard>
 					<daylight>फ्रंझे ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3040,7 +3062,8 @@
 			</metazone>
 			<metazone type="Georgia">
 				<long>
-					<standard>जॉर्जिया वेळ</standard>
+					<generic>जॉर्जिया वेळ</generic>
+					<standard>जॉर्जिया प्रमाणवेळ</standard>
 					<daylight>जॉर्जिया ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3056,19 +3079,22 @@
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
-					<standard>मध्य ग्रीनलँड वेळ</standard>
+					<generic>मध्य ग्रीनलँड वेळ</generic>
+					<standard>मध्य ग्रीनलँड प्रमाणवेळ</standard>
 					<daylight>मध्य ग्रीनलँड ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
-					<standard>पूर्व ग्रीनलँड वेळ</standard>
+					<generic>पूर्व ग्रीनलँड वेळ</generic>
+					<standard>पूर्व ग्रीनलँड प्रमाणवेळ</standard>
 					<daylight>पूर्व ग्रीनलँड ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
-					<standard>पश्चिम ग्रीनलँड वेळ</standard>
+					<generic>पश्चिम ग्रीनलँड वेळ</generic>
+					<standard>पश्चिम ग्रीनलँड प्रमाणवेळ</standard>
 					<daylight>पश्चिम ग्रीनलँड ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3079,7 +3105,6 @@
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<generic>गल्फ वेळ</generic>
 					<standard>गल्फ प्रमाणवेळ</standard>
 				</long>
 			</metazone>
@@ -3092,18 +3117,20 @@
 				<long>
 					<generic>हवाई एल्युशियन वेळ</generic>
 					<standard>हवाई- अ‍ॅल्यूटियन प्रमाणवेळ</standard>
+					<daylight>हवाई एल्युशियन ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<standard>हाँगकाँग वेळ</standard>
+					<generic>हाँगकाँग वेळ</generic>
+					<standard>हाँगकाँग प्रमाणवेळ'</standard>
 					<daylight>हाँगकाँग ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic>हॉव्ड वेळ</generic>
-					<standard>हॉव्ड वेळ</standard>
+					<standard>हॉव्ड प्रमाणवेळ</standard>
 					<daylight>हॉव्ड ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3127,24 +3154,22 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic>इंडोनेशिया केंद्रीय वेळ</generic>
 					<standard>मध्य इंडोनेशिया वेळ</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic>इंडोनेसिया पूर्वी वेळ</generic>
 					<standard>पूर्व इंडोनेशिया वेळ</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic>इंडोनेशिया पश्चिमी वेळ</generic>
 					<standard>पश्चिम इंडोनेशिया वेळ</standard>
 				</long>
 			</metazone>
 			<metazone type="Iran">
 				<long>
+					<generic>ईराण वेळ</generic>
 					<standard>ईराण प्रमाणवेळ</standard>
 					<daylight>ईराण दिवस वेळ</daylight>
 				</long>
@@ -3152,7 +3177,7 @@
 			<metazone type="Irkutsk">
 				<long>
 					<generic>इर्कुत्स्क वेळ</generic>
-					<standard>इर्कुट्स्क वेळ</standard>
+					<standard>इर्कुट्स्क प्रमाणवेळ</standard>
 					<daylight>इर्कुट्स्क ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3172,8 +3197,8 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>कॅमचाटका वेळ</generic>
-					<standard>पेट्रोपाव्हलोस्क- कामचाट्स्की वेळ</standard>
+					<generic>पेट्रोपाव्हलोस्क- कामचाट्स्की वेळ</generic>
+					<standard>पेट्रोपाव्हलोस्क- कामचाट्स्की प्रमाणवेळ</standard>
 					<daylight>पेट्रोपाव्हलोस्क- कामचाट्स्की ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3189,21 +3214,18 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic>पूर्व कझाकस्तान वेळ</generic>
-					<standard>पूर्व कझाकस्तान प्रमाणवेळ</standard>
-					<daylight>कझाकस्तान पूरवी ग्रीष्मकालीन वेळ</daylight>
+					<standard>पूर्व कझाकस्तान वेळ</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic>पश्चिम कझाकस्तान वेळ</generic>
-					<standard>पश्चिम कझाकस्तान प्रमाणवेळ</standard>
-					<daylight>कढाकस्तान पश्चिमी ग्रीष्म वेळ</daylight>
+					<standard>पश्चिम कझाकस्तान वेळ</standard>
 				</long>
 			</metazone>
 			<metazone type="Kizilorda">
 				<long>
-					<standard>किझिलोर्डा वेळ</standard>
+					<generic>किझिलोर्डा वेळ</generic>
+					<standard>किझिलोर्डा प्रमाणवेळ</standard>
 					<daylight>किझिलोर्डा ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3222,7 +3244,7 @@
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>क्रोस्नोयार्स्क वेळ</generic>
-					<standard>क्रास्नोयार्क्स वेळ</standard>
+					<standard>क्रास्नोयार्क्स प्रमाणवेळ</standard>
 					<daylight>क्रास्नोयार्क्स ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3260,19 +3282,20 @@
 			</metazone>
 			<metazone type="Macau">
 				<long>
-					<standard>मकाऊ वेळ</standard>
+					<generic>मकाऊ वेळ</generic>
+					<standard>मकाऊ प्रमाणवेळ</standard>
 					<daylight>मकाऊ ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic>मक्वारे</generic>
+					<standard>मक्वारे वेळ</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>मेगाडन वेळ</generic>
-					<standard>मॅगाडन वेळ</standard>
+					<standard>मॅगाडन प्रमाणवेळ</standard>
 					<daylight>मॅगाडन ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3303,7 +3326,8 @@
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
-					<standard>मॉरिशस वेळ</standard>
+					<generic>मॉरिशस वेळ</generic>
+					<standard>मॉरिशस प्रमाणवेळ</standard>
 					<daylight>मॉरिशस ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3314,8 +3338,8 @@
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic>मंगोलिया वेळ</generic>
-					<standard>उलान बातोर वेळ</standard>
+					<generic>उलान बातोर वेळ</generic>
+					<standard>उलान बातोर प्रमाणवेळ</standard>
 					<daylight>उलान बातोर ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3343,7 +3367,8 @@
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
-					<standard>न्यू कॅलेडोनिया वेळ</standard>
+					<generic>न्यू कॅलेडोनिया वेळ</generic>
+					<standard>न्यू कॅलेडोनिया प्रमाणवेळ</standard>
 					<daylight>न्यू कॅलेडोनिया ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3373,8 +3398,8 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>नोरोन्हा वेळ</generic>
-					<standard>फर्नांडो दी नोरोन्हा वेळ</standard>
+					<generic>फर्नांडो दी नोरोन्हा वेळ</generic>
+					<standard>फर्नांडो दी नोरोन्हा प्रमाणवेळ</standard>
 					<daylight>फर्नांडो दी नोरोन्हा ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3386,20 +3411,21 @@
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>नोवोसोबिर्स्क वेळ</generic>
-					<standard>नोवोसिबिर्स्क वेळ</standard>
+					<standard>नोवोसिबिर्स्क प्रमाणवेळ</standard>
 					<daylight>नोवोसिबिर्स्क ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic>ओम्स्क वेळ</generic>
-					<standard>ओम्स्क वेळ</standard>
+					<standard>ओम्स्क प्रमाणवेळ</standard>
 					<daylight>ओम्स्क ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
-					<standard>पाकिस्तान वेळ</standard>
+					<generic>पाकिस्तान वेळ</generic>
+					<standard>पाकिस्तान प्रमाणवेळ</standard>
 					<daylight>पाकिस्तान ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3415,19 +3441,22 @@
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
-					<standard>पराग्वे वेळ</standard>
+					<generic>पराग्वे वेळ</generic>
+					<standard>पराग्वे प्रमाणवेळ</standard>
 					<daylight>पराग्वे ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Peru">
 				<long>
-					<standard>पेरु वेळ</standard>
+					<generic>पेरु वेळ</generic>
+					<standard>पेरु प्रमाणवेळ</standard>
 					<daylight>पेरु ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
-					<standard>फिलिपिनी वेळ</standard>
+					<generic>फिलिपिनी वेळ</generic>
+					<standard>फिलिपिनी प्रमाणवेळ</standard>
 					<daylight>फिलिपिनी ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3455,7 +3484,8 @@
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
-					<standard>क़िझीलोर्डा वेळ</standard>
+					<generic>क़िझीलोर्डा वेळ</generic>
+					<standard>क़िझीलोर्डा प्रमाणवेळ</standard>
 					<daylight>क़िझीलोर्डा ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3472,20 +3502,21 @@
 			<metazone type="Sakhalin">
 				<long>
 					<generic>सखलिन वेळ</generic>
-					<standard>सखलिन वेळ</standard>
+					<standard>सखलिन प्रमाणवेळ</standard>
 					<daylight>सखलिन ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic>समारा वेळ</generic>
-					<standard>सामरा वेळ</standard>
+					<standard>सामरा प्रमाणवेळ</standard>
 					<daylight>सामरा ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samarkand">
 				<long>
-					<standard>समरकंद वेळ</standard>
+					<generic>समरकंद वेळ</generic>
+					<standard>समरकंद प्रमाणवेळ</standard>
 					<daylight>समरकंद ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3501,7 +3532,8 @@
 			</metazone>
 			<metazone type="Shevchenko">
 				<long>
-					<standard>शेवचेन्को वेळ</standard>
+					<generic>शेवचेन्को वेळ</generic>
+					<standard>शेवचेन्को प्रमाणवेळ</standard>
 					<daylight>शेवचेन्को ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3527,7 +3559,8 @@
 			</metazone>
 			<metazone type="Sverdlovsk">
 				<long>
-					<standard>स्वर्डलोव्हस्क वेळ</standard>
+					<generic>स्वर्डलोव्हस्क वेळ</generic>
+					<standard>स्वर्डलोव्हस्क प्रमाणवेळ</standard>
 					<daylight>स्वर्डलोव्हस्क ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3555,13 +3588,15 @@
 			</metazone>
 			<metazone type="Tashkent">
 				<long>
-					<standard>ताश्कंद वेळ</standard>
+					<generic>ताश्कंद वेळ</generic>
+					<standard>ताश्कंद प्रमाणवेळ</standard>
 					<daylight>ताश्कंद ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tbilisi">
 				<long>
-					<standard>बिलिसी वेळ</standard>
+					<generic>बिलिसी वेळ</generic>
+					<standard>बिलिसी प्रमाणवेळ</standard>
 					<daylight>बिलिसी ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3572,7 +3607,8 @@
 			</metazone>
 			<metazone type="Tonga">
 				<long>
-					<standard>टोंगा वेळ</standard>
+					<generic>टोंगा वेळ</generic>
+					<standard>टोंगा प्रमाणवेळ</standard>
 					<daylight>टोंगा ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3583,13 +3619,15 @@
 			</metazone>
 			<metazone type="Turkey">
 				<long>
-					<standard>तुर्की वेळ</standard>
+					<generic>तुर्की वेळ</generic>
+					<standard>तुर्की प्रमाणवेळ</standard>
 					<daylight>तुर्की ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
-					<standard>तुर्कमेनिस्तान वेळ</standard>
+					<generic>तुर्कमेनिस्तान वेळ</generic>
+					<standard>तुर्कमेनिस्तान प्रमाणवेळ</standard>
 					<daylight>तुर्कमेनिस्तान ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3600,13 +3638,15 @@
 			</metazone>
 			<metazone type="Uralsk">
 				<long>
-					<standard>उराल्स्क वेळ</standard>
+					<generic>उराल्स्क वेळ</generic>
+					<standard>उराल्स्क प्रमाणवेळ</standard>
 					<daylight>उराल्स्क ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
-					<standard>उरुग्वे वेळ</standard>
+					<generic>उरुग्वे वेळ</generic>
+					<standard>उरुग्वे प्रमाणवेळ</standard>
 					<daylight>उरुग्वे ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3617,13 +3657,15 @@
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
-					<standard>उझबेकिस्तान वेळ</standard>
+					<generic>उझबेकिस्तान वेळ</generic>
+					<standard>उझबेकिस्तान प्रमाणवेळ</standard>
 					<daylight>उझबेकिस्तान ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vanuatu">
 				<long>
-					<standard>वानाटु वेळ</standard>
+					<generic>वानाटु वेळ</generic>
+					<standard>वानाटु प्रमाणवेळ</standard>
 					<daylight>वानाटु ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3635,14 +3677,14 @@
 			<metazone type="Vladivostok">
 				<long>
 					<generic>व्लादिवोस्तोक</generic>
-					<standard>व्लादिवोस्तोक वेळ</standard>
+					<standard>व्लादिवोस्तोक प्रमाणवेळ</standard>
 					<daylight>व्लादिवोस्तोक ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic>व्होल्गोग्राड वेळ</generic>
-					<standard>व्होल्गोग्राड वेळ</standard>
+					<standard>व्होल्गोग्राड प्रमाणवेळ</standard>
 					<daylight>व्होल्गोग्राड ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
@@ -3664,20 +3706,21 @@
 			<metazone type="Yakutsk">
 				<long>
 					<generic>यकुत्स्क</generic>
-					<standard>युकुट्स्क वेळ</standard>
+					<standard>युकुट्स्क प्रमाणवेळ</standard>
 					<daylight>युकुट्स्क ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic>येक्तेरिनबर्ग वेळ</generic>
-					<standard>येकतरिनबर्ग वेळ</standard>
+					<standard>येकतरिनबर्ग प्रमाणवेळ</standard>
 					<daylight>येकतरिनबर्ग ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yerevan">
 				<long>
-					<standard>येरेवन वेळ</standard>
+					<generic>येरेवन वेळ</generic>
+					<standard>येरेवन प्रमाणवेळ</standard>
 					<daylight>येरेवन ग्रीष्मकालीन वेळ</daylight>
 				</long>
 			</metazone>

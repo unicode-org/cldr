@@ -451,6 +451,8 @@
             <attributeValues elements="character" attributes="value" type="regex">.</attributeValues>
             <attributeValues elements="collation" attributes="type">$collationType</attributeValues>
             <attributeValues elements="collations" attributes="version" >$version</attributeValues>
+            <attributeValues elements="contextTransform" attributes="type" type="choice">uiListOrMenu stand-alone</attributeValues>
+            <attributeValues elements="contextTransformUsage" attributes="type" type="regex">[a-z-]+</attributeValues>
             <attributeValues elements="cp" attributes="hex" type="regex">[0-9A-Fa-f]{4,6}</attributeValues>
             <attributeValues elements="currency" attributes="before from to">$date</attributeValues>
             <attributeValues elements="currency" attributes="iso4217">$currency</attributeValues>

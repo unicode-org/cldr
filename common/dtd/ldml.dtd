@@ -1,5 +1,5 @@
 <!--
-Copyright © 2003-2011 Unicode, Inc. and others. All rights reserved. Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
+Copyright © 2003-2012 Unicode, Inc. and others. All rights reserved. Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of the Unicode data files and any associated documentation (the "Data Files") or Unicode software and any associated documentation (the "Software") to deal in the Data Files or Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Data Files or Software, and to permit persons to whom the Data Files or Software are furnished to do so, provided that (a) the above copyright notice(s) and this permission notice appear with all copies of the Data Files or Software, (b) both the above copyright notice(s) and this permission notice appear in associated documentation, and (c) there is clear notice in each modified Data File or in the Software as well as in the documentation associated with the Data File(s) or Software that the data or software has been modified.
 
@@ -10,7 +10,7 @@ $Revision$
 $Date$
 -->
 
-<!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, references?, special*, metadata?))) >
+<!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, references?, special*, metadata?))) >
 <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!-- ######################################################### -->
@@ -209,13 +209,13 @@ $Date$
 <!ATTLIST orientation references CDATA #IMPLIED >
 <!ATTLIST orientation alt NMTOKENS #IMPLIED >
 
-<!ELEMENT inList ( #PCDATA ) >
+<!ELEMENT inList ( #PCDATA ) > <!-- deprecated, use contextTransforms -->
 <!ATTLIST inList casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED > <!-- deprecated -->
 <!ATTLIST inList draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST inList references CDATA #IMPLIED >
 <!ATTLIST inList alt NMTOKENS #IMPLIED >
 
-<!ELEMENT inText ( #PCDATA ) >
+<!ELEMENT inText ( #PCDATA ) > <!-- deprecated, use contextTransforms -->
 <!ATTLIST inText type ( languages | scripts | territories | variants | keys | types | measurementSystemNames | monthWidth | dayWidth | quarterWidth | long | fields | currency ) #IMPLIED >
 <!ATTLIST inText draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
 <!ATTLIST inText references CDATA #IMPLIED >
@@ -223,6 +223,24 @@ $Date$
 
 <!-- ######################################################### -->
 
+<!ELEMENT contextTransforms ( alias | (contextTransformUsage*, special*)) >
+<!ATTLIST contextTransforms draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST contextTransforms references CDATA #IMPLIED >
+<!ATTLIST contextTransforms alt NMTOKENS #IMPLIED >
+<!ATTLIST contextTransforms validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT contextTransformUsage ( alias | (contextTransform*, special*)) >
+<!ATTLIST contextTransformUsage type CDATA #REQUIRED >
+<!ATTLIST contextTransformUsage draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST contextTransformUsage references CDATA #IMPLIED >
+<!ATTLIST contextTransformUsage alt NMTOKENS #IMPLIED >
+<!ATTLIST contextTransformUsage validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT contextTransform ( #PCDATA ) >
+<!ATTLIST contextTransform type ( uiListOrMenu | stand-alone ) #REQUIRED >
+<!ATTLIST contextTransform draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST contextTransform references CDATA #IMPLIED >
+<!ATTLIST contextTransform alt NMTOKENS #IMPLIED >
 
 <!-- ######################################################### -->
 

@@ -22,6 +22,9 @@ $element=[a-zA-Z0-9]+;
 
 '/layout/orientation' > '1-misc|layout|orientation';
 
+'/contextTransforms/contextTransformUsage[@type="' ($avalue) '"]/contextTransform[@type="' ($avalue) '"]' > '|contextTransform|[' $2 ']-' $1;
+'/contextTransforms/contextTransformUsage[@type="' ($avalue) '"]/alias' > '|contextTransform|' $1 '-alias';
+
 '/characters/exemplarCharacters[@type="index"]' > '1-misc|indexCharacters|';
 '/characters/exemplarCharacters[@type="' ($avalue) '"]' > '1-misc|exemplarCharacters|2-' $1;
 '/characters/exemplarCharacters' > '1-misc|exemplarCharacters|2-main';

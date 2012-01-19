@@ -1105,6 +1105,20 @@
 			<codePattern type="territory">région : {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
+    <contextTransforms>
+        <contextTransformUsage type="month-format-except-narrow">
+             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+        <contextTransformUsage type="month-standalone-except-narrow">
+             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+        <contextTransformUsage type="day-format-except-narrow">
+             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+        <contextTransformUsage type="day-standalone-except-narrow">
+             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+    </contextTransforms>
 	<characters>
 		<exemplarCharacters>[a à â æ b c ç d e é è ê ë f g h i î ï j k l m n o ô œ p q r s t u ù û ü v w x y ÿ z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>

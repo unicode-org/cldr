@@ -913,7 +913,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             // LDMLConstants.ALIAS,
             // LDMLConstants.IDENTITY,
 
-            LDMLConstants.SPECIAL, LDMLConstants.LDN, LDMLConstants.LAYOUT,
+            LDMLConstants.SPECIAL, LDMLConstants.LDN, LDMLConstants.LAYOUT, LDMLConstants.CONTEXT_TRANSFORMS,
             // LDMLConstants.FALLBACK
             LDMLConstants.CHARACTERS, LDMLConstants.DELIMITERS, LDMLConstants.DATES, LDMLConstants.NUMBERS,
             // LDMLConstants.POSIX,
@@ -933,6 +933,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 res = parseLocaleDisplayNames(loc);
             } else if (name.equals(LDMLConstants.LAYOUT)) {
                 res = parseLayout(loc, xpath);
+            } else if (name.equals(LDMLConstants.CONTEXT_TRANSFORMS)) {
+                res = parseContextTransforms(loc, xpath);
             } else if (name.equals(LDMLConstants.FALLBACK)) {
                 // ignored
             } else if (name.equals(LDMLConstants.CHARACTERS)) {
@@ -1819,6 +1821,86 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         if (table.first != null) {
             return table;
+        }
+
+        return null;
+    }
+
+    private Resource parseContextTransforms(LDML2ICUInputLocale loc, String xpath) {
+        ResourceTable table = new ResourceTable();
+        Resource current = null;
+        table.name = LDMLConstants.CONTEXT_TRANSFORMS;
+
+        // if the whole thing is an alias
+        if ((current = getAliasResource(loc, xpath)) != null) {
+            current.name = table.name;
+            return current;
+        }
+
+        String origXpath = xpath;
+    	xpath = origXpath + "/" + LDMLConstants.CONTEXT_TRANSFORM_USAGE;
+
+        Set<String> contextTransformUsages = loc.getByType(xpath, LDMLConstants.CONTEXT_TRANSFORM_USAGE);
+        for (String contextTransformUsage : contextTransformUsages) {
+            String subXpath = xpath + "[@type=\"" + contextTransformUsage + "\"]";
+            // skip invalid & draft paths
+            if (loc.isPathNotConvertible(subXpath)) {
+                continue;
+            }
+            Resource res = parseContextTransformUsage(loc, subXpath);
+            if (res != null) {
+                if (current == null) {
+                    current = table.first = res;
+                } else {
+                    current.next = res;
+                    current = current.next;
+                }
+            }
+        }
+
+        if (table.first != null) {
+            return table;
+        }
+
+        return null;
+    }
+
+    private Resource parseContextTransformUsage(LDML2ICUInputLocale loc, String xpath) {
+        ResourceIntVector vector = new ResourceIntVector();
+        Resource current = null;
+        vector.name = XPPUtil.getAttributeValue(xpath, LDMLConstants.CONTEXT_TRANSFORM_USAGE, LDMLConstants.TYPE);
+
+        // if the whole thing is an alias
+        if ((current = getAliasResource(loc, xpath)) != null) {
+            current.name = vector.name;
+            return current;
+        }
+        ResourceInt titlecaseUIListOrMenu = new ResourceInt();
+        ResourceInt titlecaseStandalone = new ResourceInt();
+        vector.first = titlecaseUIListOrMenu;
+        titlecaseUIListOrMenu.next = titlecaseStandalone;
+        titlecaseUIListOrMenu.val = "0";
+        titlecaseStandalone.val = "0";
+
+		String origXpath = xpath;
+		xpath = origXpath + "/" + LDMLConstants.CONTEXT_TRANSFORM;
+		
+        Set<String> contextTransformTypes = loc.getByType(xpath, LDMLConstants.CONTEXT_TRANSFORM);
+        for (String contextTransformType : contextTransformTypes) {
+            String subXpath = xpath + "[@type=\"" + contextTransformType + "\"]";
+            // skip invalid & draft paths
+            if (loc.isPathNotConvertible(subXpath)) {
+                continue;
+            }
+            if (contextTransformType.equals("uiListOrMenu")) {
+                titlecaseUIListOrMenu.val = "1";
+            } else if (contextTransformType.equals("stand-alone")) {
+                titlecaseStandalone.val = "1";
+            }
+        }
+
+        if (vector.first != null) {
+            return vector;
         }
 
         return null;

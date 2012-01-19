@@ -1083,20 +1083,24 @@
 			<codePattern type="territory" draft="contributed">Regija: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-	<layout>
-		<inList>titlecase-firstword</inList>
-		<inText type="currency">titlecase-firstword</inText>
-		<inText type="fields">titlecase-firstword</inText>
-		<inText type="keys">titlecase-firstword</inText>
-		<inText type="languages">lowercase-words</inText>
-		<inText type="long">titlecase-firstword</inText>
-		<inText type="measurementSystemNames">titlecase-firstword</inText>
-		<inText type="quarterWidth">titlecase-firstword</inText>
-		<inText type="scripts">lowercase-words</inText>
-		<inText type="territories">titlecase-words</inText>
-		<inText type="types">titlecase-firstword</inText>
-		<inText type="variants">titlecase-firstword</inText>
-	</layout>
+    <contextTransforms>
+        <contextTransformUsage type="languages">
+             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+        <contextTransformUsage type="month-format-except-narrow">
+             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+        <contextTransformUsage type="month-standalone-except-narrow">
+             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+        <contextTransformUsage type="day-format-except-narrow">
+             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+        <contextTransformUsage type="day-standalone-except-narrow">
+             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+        </contextTransformUsage>
+    </contextTransforms>
 	<characters>
 		<exemplarCharacters>[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q w x y]</exemplarCharacters>

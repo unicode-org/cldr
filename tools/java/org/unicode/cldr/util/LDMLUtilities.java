@@ -434,6 +434,10 @@ public class LDMLUtilities {
             return "Layout";
         }else if(token.indexOf(LDMLConstants.ORIENTATION) > -1){
             //TODO fix this
+        }else if(token.indexOf(LDMLConstants.CONTEXT_TRANSFORMS) > -1){
+            return "contextTransforms";
+        }else if(token.indexOf(LDMLConstants.CONTEXT_TRANSFORM_USAGE) > -1){
+            return getAttributeValue(token, LDMLConstants.TYPE);
         }else if(token.indexOf(LDMLConstants.CHARACTERS) > -1){
             return "";
         }else if(token.indexOf(LDMLConstants.EXEMPLAR_CHARACTERS) > -1){

@@ -6,18 +6,20 @@
 		<generation date="$Date: $"/>
 		<language type="tg"/>
 	</identity>
-	<behavior>
-		<casing type="day-format-except-narrow">uppercase</casing>
-		<casing type="day-standalone-except-narrow">uppercase</casing>
-		<casing type="displayName">uppercase</casing>
-		<casing type="era-abbr">uppercase</casing>
-		<casing type="era-name">uppercase</casing>
-		<casing type="era-narrow">uppercase</casing>
-		<casing type="language">uppercase</casing>
-		<casing type="month-format-except-narrow">uppercase</casing>
-		<casing type="month-standalone-except-narrow">uppercase</casing>
-		<casing type="script">uppercase</casing>
-		<casing type="symbol">lowercase</casing>
-		<casing type="territory">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="day-format-except-narrow">uppercase</casingItem>
+			<casingItem type="day-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="displayName">uppercase</casingItem>
+			<casingItem type="era-abbr">uppercase</casingItem>
+			<casingItem type="era-name">uppercase</casingItem>
+			<casingItem type="era-narrow">uppercase</casingItem>
+			<casingItem type="language">uppercase</casingItem>
+			<casingItem type="month-format-except-narrow">uppercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="script">uppercase</casingItem>
+			<casingItem type="symbol">lowercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

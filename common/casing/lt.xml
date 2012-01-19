@@ -6,28 +6,30 @@
 		<generation date="$Date: $"/>
 		<language type="lt"/>
 	</identity>
-	<behavior>
-		<casing type="calendar-field">lowercase</casing>
-		<casing type="day-narrow">uppercase</casing>
-		<casing type="displayName">uppercase</casing>
-		<casing type="displayName-count">uppercase</casing>
-		<casing type="era-abbr">lowercase</casing>
-		<casing type="era-name">lowercase</casing>
-		<casing type="era-narrow">lowercase</casing>
-		<casing type="language">lowercase</casing>
-		<casing type="metazone-long">uppercase</casing>
-		<casing type="month-narrow">uppercase</casing>
-		<casing type="month-standalone-except-narrow">uppercase</casing>
-		<casing type="quarter-abbreviated">uppercase</casing>
-		<casing type="quarter-format-wide">uppercase</casing>
-		<casing type="quarter-narrow">uppercase</casing>
-		<casing type="quarter-standalone-wide">uppercase</casing>
-		<casing type="script">lowercase</casing>
-		<casing type="symbol">uppercase</casing>
-		<casing type="territory">uppercase</casing>
-		<casing type="type">uppercase</casing>
-		<casing type="unit-pattern">lowercase</casing>
-		<casing type="variant">uppercase</casing>
-		<casing type="zone-exemplarCity">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="calendar-field">lowercase</casingItem>
+			<casingItem type="day-narrow">uppercase</casingItem>
+			<casingItem type="displayName">uppercase</casingItem>
+			<casingItem type="displayName-count">uppercase</casingItem>
+			<casingItem type="era-abbr">lowercase</casingItem>
+			<casingItem type="era-name">lowercase</casingItem>
+			<casingItem type="era-narrow">lowercase</casingItem>
+			<casingItem type="language">lowercase</casingItem>
+			<casingItem type="metazone-long">uppercase</casingItem>
+			<casingItem type="month-narrow">uppercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="quarter-abbreviated">uppercase</casingItem>
+			<casingItem type="quarter-format-wide">uppercase</casingItem>
+			<casingItem type="quarter-narrow">uppercase</casingItem>
+			<casingItem type="quarter-standalone-wide">uppercase</casingItem>
+			<casingItem type="script">lowercase</casingItem>
+			<casingItem type="symbol">uppercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+			<casingItem type="type">uppercase</casingItem>
+			<casingItem type="unit-pattern">lowercase</casingItem>
+			<casingItem type="variant">uppercase</casingItem>
+			<casingItem type="zone-exemplarCity">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

@@ -186,7 +186,7 @@ public class CasingInfo {
                 if (typeName.equals(CheckConsistentCasing.NOT_USED)) continue;
                 FirstLetterType type = localeCasing.get(typeName);
                 if (type != FirstLetterType.other) {
-                    source.putValueAtDPath("//ldml/behavior/casing[@type=\"" + typeName + "\"]", type.toString());
+                    source.putValueAtDPath("//ldml/metadata/casingData/casingItem[@type=\"" + typeName + "\"]", type.toString());
                 }
             }
             CLDRFile cldrFile = new CLDRFile(source);
@@ -221,7 +221,7 @@ public class CasingInfo {
      * XML handler for parsing casing files.
      */
     private class CasingHandler extends XMLFileReader.SimpleHandler {
-        private Pattern casingPattern = Pattern.compile("//ldml/behavior/casing\\[@type=\"([/\\-\\w]+)\"\\]");
+        private Pattern casingPattern = Pattern.compile("//ldml/metadata/casingData/casingItem\\[@type=\"([/\\-\\w]+)\"\\]");
         private Pattern localePattern = Pattern.compile("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
         private String localeID;
         private Map<String, FirstLetterType> caseMap;

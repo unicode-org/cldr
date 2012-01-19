@@ -6,29 +6,31 @@
 		<generation date="$Date: $"/>
 		<language type="af"/>
 	</identity>
-	<behavior>
-		<casing type="calendar-field">uppercase</casing>
-		<casing type="day-format-except-narrow">uppercase</casing>
-		<casing type="day-narrow">uppercase</casing>
-		<casing type="day-standalone-except-narrow">uppercase</casing>
-		<casing type="displayName">uppercase</casing>
-		<casing type="displayName-count">uppercase</casing>
-		<casing type="era-abbr">lowercase</casing>
-		<casing type="era-name">lowercase</casing>
-		<casing type="era-narrow">lowercase</casing>
-		<casing type="key">uppercase</casing>
-		<casing type="language">uppercase</casing>
-		<casing type="metazone-long">uppercase</casing>
-		<casing type="metazone-short">uppercase</casing>
-		<casing type="month-format-except-narrow">uppercase</casing>
-		<casing type="month-narrow">uppercase</casing>
-		<casing type="month-standalone-except-narrow">uppercase</casing>
-		<casing type="quarter-abbreviated">uppercase</casing>
-		<casing type="script">uppercase</casing>
-		<casing type="symbol">uppercase</casing>
-		<casing type="tense">uppercase</casing>
-		<casing type="territory">uppercase</casing>
-		<casing type="type">uppercase</casing>
-		<casing type="zone-exemplarCity">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="calendar-field">uppercase</casingItem>
+			<casingItem type="day-format-except-narrow">uppercase</casingItem>
+			<casingItem type="day-narrow">uppercase</casingItem>
+			<casingItem type="day-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="displayName">uppercase</casingItem>
+			<casingItem type="displayName-count">uppercase</casingItem>
+			<casingItem type="era-abbr">lowercase</casingItem>
+			<casingItem type="era-name">lowercase</casingItem>
+			<casingItem type="era-narrow">lowercase</casingItem>
+			<casingItem type="key">uppercase</casingItem>
+			<casingItem type="language">uppercase</casingItem>
+			<casingItem type="metazone-long">uppercase</casingItem>
+			<casingItem type="metazone-short">uppercase</casingItem>
+			<casingItem type="month-format-except-narrow">uppercase</casingItem>
+			<casingItem type="month-narrow">uppercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="quarter-abbreviated">uppercase</casingItem>
+			<casingItem type="script">uppercase</casingItem>
+			<casingItem type="symbol">uppercase</casingItem>
+			<casingItem type="tense">uppercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+			<casingItem type="type">uppercase</casingItem>
+			<casingItem type="zone-exemplarCity">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

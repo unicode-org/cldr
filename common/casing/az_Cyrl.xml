@@ -7,14 +7,16 @@
 		<language type="az"/>
 		<script type="Cyrl"/>
 	</identity>
-	<behavior>
-		<casing type="day-format-except-narrow">lowercase</casing>
-		<casing type="day-standalone-except-narrow">lowercase</casing>
-		<casing type="displayName">lowercase</casing>
-		<casing type="language">lowercase</casing>
-		<casing type="month-format-except-narrow">lowercase</casing>
-		<casing type="month-standalone-except-narrow">lowercase</casing>
-		<casing type="symbol">lowercase</casing>
-		<casing type="territory">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="day-format-except-narrow">lowercase</casingItem>
+			<casingItem type="day-standalone-except-narrow">lowercase</casingItem>
+			<casingItem type="displayName">lowercase</casingItem>
+			<casingItem type="language">lowercase</casingItem>
+			<casingItem type="month-format-except-narrow">lowercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">lowercase</casingItem>
+			<casingItem type="symbol">lowercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

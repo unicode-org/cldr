@@ -6,23 +6,25 @@
 		<generation date="$Date: $"/>
 		<language type="luy"/>
 	</identity>
-	<behavior>
-		<casing type="calendar-field">uppercase</casing>
-		<casing type="day-format-except-narrow">uppercase</casing>
-		<casing type="day-narrow">uppercase</casing>
-		<casing type="day-standalone-except-narrow">uppercase</casing>
-		<casing type="displayName">uppercase</casing>
-		<casing type="era-abbr">uppercase</casing>
-		<casing type="era-name">uppercase</casing>
-		<casing type="era-narrow">uppercase</casing>
-		<casing type="language">uppercase</casing>
-		<casing type="month-format-except-narrow">uppercase</casing>
-		<casing type="month-narrow">uppercase</casing>
-		<casing type="month-standalone-except-narrow">uppercase</casing>
-		<casing type="quarter-abbreviated">uppercase</casing>
-		<casing type="quarter-format-wide">uppercase</casing>
-		<casing type="quarter-standalone-wide">uppercase</casing>
-		<casing type="tense">uppercase</casing>
-		<casing type="territory">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="calendar-field">uppercase</casingItem>
+			<casingItem type="day-format-except-narrow">uppercase</casingItem>
+			<casingItem type="day-narrow">uppercase</casingItem>
+			<casingItem type="day-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="displayName">uppercase</casingItem>
+			<casingItem type="era-abbr">uppercase</casingItem>
+			<casingItem type="era-name">uppercase</casingItem>
+			<casingItem type="era-narrow">uppercase</casingItem>
+			<casingItem type="language">uppercase</casingItem>
+			<casingItem type="month-format-except-narrow">uppercase</casingItem>
+			<casingItem type="month-narrow">uppercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="quarter-abbreviated">uppercase</casingItem>
+			<casingItem type="quarter-format-wide">uppercase</casingItem>
+			<casingItem type="quarter-standalone-wide">uppercase</casingItem>
+			<casingItem type="tense">uppercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

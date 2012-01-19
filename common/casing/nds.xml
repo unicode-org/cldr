@@ -6,13 +6,15 @@
 		<generation date="$Date: $"/>
 		<language type="nds"/>
 	</identity>
-	<behavior>
-		<casing type="key">uppercase</casing>
-		<casing type="language">uppercase</casing>
-		<casing type="script">uppercase</casing>
-		<casing type="territory">uppercase</casing>
-		<casing type="type">uppercase</casing>
-		<casing type="variant">uppercase</casing>
-		<casing type="zone-exemplarCity">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="key">uppercase</casingItem>
+			<casingItem type="language">uppercase</casingItem>
+			<casingItem type="script">uppercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+			<casingItem type="type">uppercase</casingItem>
+			<casingItem type="variant">uppercase</casingItem>
+			<casingItem type="zone-exemplarCity">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

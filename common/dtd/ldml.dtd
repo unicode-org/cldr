@@ -10,7 +10,7 @@ $Revision$
 $Date$
 -->
 
-<!ELEMENT ldml (identity, (alias | behavior |(fallback*, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, references?, special*))) >
+<!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, references?, special*, metadata?))) >
 <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!-- ######################################################### -->
@@ -75,14 +75,6 @@ $Date$
 <!-- This element can occur anywhere there may be localizable data -->
 <!ELEMENT cp (special*) >
 <!ATTLIST cp hex NMTOKEN #REQUIRED >
-
-<!-- ######################################################### -->
-
-<!-- This element only occurs in casing-specific files. -->
-<!ELEMENT behavior (casing*)>
-
-<!ELEMENT casing (#PCDATA) >
-<!ATTLIST casing type CDATA #REQUIRED >
 
 <!-- ######################################################### -->
 
@@ -1411,3 +1403,15 @@ $Date$
 <!ATTLIST reference uri CDATA #IMPLIED >
 <!ATTLIST reference draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST reference alt NMTOKENS #IMPLIED >
+
+<!-- ######################################################### -->
+
+<!-- This element contains metadata for Survey Tool internal use (optimization, etc). -->
+
+<!ELEMENT metadata (casingData?)>
+
+<!ELEMENT casingData (casingItem*)>
+
+<!ELEMENT casingItem (#PCDATA) >
+<!ATTLIST casingItem type CDATA #REQUIRED >
+

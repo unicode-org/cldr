@@ -8,8 +8,10 @@
 		<script type="Hans"/>
 		<territory type="HK"/>
 	</identity>
-	<behavior>
-		<casing type="metazone-short">uppercase</casing>
-		<casing type="month-standalone-except-narrow">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="metazone-short">uppercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

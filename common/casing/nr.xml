@@ -6,13 +6,15 @@
 		<generation date="$Date: $"/>
 		<language type="nr"/>
 	</identity>
-	<behavior>
-		<casing type="era-abbr">uppercase</casing>
-		<casing type="era-name">uppercase</casing>
-		<casing type="era-narrow">uppercase</casing>
-		<casing type="language">lowercase</casing>
-		<casing type="month-format-except-narrow">uppercase</casing>
-		<casing type="month-standalone-except-narrow">uppercase</casing>
-		<casing type="symbol">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="era-abbr">uppercase</casingItem>
+			<casingItem type="era-name">uppercase</casingItem>
+			<casingItem type="era-narrow">uppercase</casingItem>
+			<casingItem type="language">lowercase</casingItem>
+			<casingItem type="month-format-except-narrow">uppercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="symbol">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

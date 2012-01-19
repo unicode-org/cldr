@@ -7,24 +7,26 @@
 		<language type="es"/>
 		<territory type="419"/>
 	</identity>
-	<behavior>
-		<casing type="calendar-field">lowercase</casing>
-		<casing type="day-format-except-narrow">lowercase</casing>
-		<casing type="day-narrow">uppercase</casing>
-		<casing type="day-standalone-except-narrow">lowercase</casing>
-		<casing type="displayName">lowercase</casing>
-		<casing type="displayName-count">lowercase</casing>
-		<casing type="language">lowercase</casing>
-		<casing type="metazone-long">uppercase</casing>
-		<casing type="metazone-short">uppercase</casing>
-		<casing type="month-narrow">uppercase</casing>
-		<casing type="quarter-abbreviated">uppercase</casing>
-		<casing type="script">lowercase</casing>
-		<casing type="symbol">uppercase</casing>
-		<casing type="territory">uppercase</casing>
-		<casing type="type">uppercase</casing>
-		<casing type="unit-pattern">uppercase</casing>
-		<casing type="variant">uppercase</casing>
-		<casing type="zone-exemplarCity">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="calendar-field">lowercase</casingItem>
+			<casingItem type="day-format-except-narrow">lowercase</casingItem>
+			<casingItem type="day-narrow">uppercase</casingItem>
+			<casingItem type="day-standalone-except-narrow">lowercase</casingItem>
+			<casingItem type="displayName">lowercase</casingItem>
+			<casingItem type="displayName-count">lowercase</casingItem>
+			<casingItem type="language">lowercase</casingItem>
+			<casingItem type="metazone-long">uppercase</casingItem>
+			<casingItem type="metazone-short">uppercase</casingItem>
+			<casingItem type="month-narrow">uppercase</casingItem>
+			<casingItem type="quarter-abbreviated">uppercase</casingItem>
+			<casingItem type="script">lowercase</casingItem>
+			<casingItem type="symbol">uppercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+			<casingItem type="type">uppercase</casingItem>
+			<casingItem type="unit-pattern">uppercase</casingItem>
+			<casingItem type="variant">uppercase</casingItem>
+			<casingItem type="zone-exemplarCity">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

@@ -6,12 +6,14 @@
 		<generation date="$Date: $"/>
 		<language type="haw"/>
 	</identity>
-	<behavior>
-		<casing type="day-format-except-narrow">uppercase</casing>
-		<casing type="day-standalone-except-narrow">uppercase</casing>
-		<casing type="language">uppercase</casing>
-		<casing type="month-format-except-narrow">uppercase</casing>
-		<casing type="month-standalone-except-narrow">uppercase</casing>
-		<casing type="territory">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="day-format-except-narrow">uppercase</casingItem>
+			<casingItem type="day-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="language">uppercase</casingItem>
+			<casingItem type="month-format-except-narrow">uppercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">uppercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

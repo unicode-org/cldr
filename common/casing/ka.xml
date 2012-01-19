@@ -6,8 +6,10 @@
 		<generation date="$Date: $"/>
 		<language type="ka"/>
 	</identity>
-	<behavior>
-		<casing type="quarter-abbreviated">uppercase</casing>
-		<casing type="quarter-standalone-wide">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="quarter-abbreviated">uppercase</casingItem>
+			<casingItem type="quarter-standalone-wide">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

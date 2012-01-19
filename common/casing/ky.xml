@@ -6,9 +6,11 @@
 		<generation date="$Date: $"/>
 		<language type="ky"/>
 	</identity>
-	<behavior>
-		<casing type="language">lowercase</casing>
-		<casing type="symbol">lowercase</casing>
-		<casing type="territory">uppercase</casing>
-	</behavior>
+	<metadata>
+		<casingData>
+			<casingItem type="language">lowercase</casingItem>
+			<casingItem type="symbol">lowercase</casingItem>
+			<casingItem type="territory">uppercase</casingItem>
+		</casingData>
+	</metadata>
 </ldml>

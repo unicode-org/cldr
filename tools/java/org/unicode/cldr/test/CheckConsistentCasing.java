@@ -48,7 +48,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
 
-        Map<String, FirstLetterType> casing = casingInfo.getLocaleCasing(locale);
+        Map<String, CasingType> casing = casingInfo.getLocaleCasing(locale);
         if(casing == null) {
             possibleErrors.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.alertType)
@@ -58,7 +58,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         } else {
             for (int i = 0; i < typeNames.length; i++) {
                 types[i] = casing.get(typeNames[i]);
-                if (types[i] == null) types[i] = FirstLetterType.other;
+                if (types[i] == null) types[i] = CasingType.other;
             }
             hasCasingInfo = casing.size() > 0;
         }
@@ -84,15 +84,16 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     static final Matcher placeholder = Pattern.compile("\\{\\d+\\}").matcher("");
 
     /**
-     * The type of the first letter
+     * The casing type of a given string.
      */
-    enum FirstLetterType {
-        uppercase, lowercase, other;
-        public static FirstLetterType from(String s) {
+    enum CasingType {
+        titlecase, lowercase, other;
+        public static CasingType from(String s) {
             if (s == null || s.length() == 0) {
                 return other;
             }
             int cp;
+            // Look for the first meaningful character in the string to determine case.
             for (int i = 0; i < s.length(); i += Character.charCount(cp)) {
                 cp = s.codePointAt(i);
                 // used to skip the placeholders, but works better to have them be 'other'
@@ -110,7 +111,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                     
                 case UCharacter.UPPERCASE_LETTER:
                 case UCharacter.TITLECASE_LETTER:
-                    return uppercase;
+                    return titlecase;
                 
                 // for other letters / numbers / symbols, return other
                 case UCharacter.OTHER_LETTER:      
@@ -134,8 +135,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
          * @param firstLetterType
          * @return
          */
-        public static boolean works(FirstLetterType a, FirstLetterType b) {
-            return a == b || a == FirstLetterType.other || b == FirstLetterType.other;
+        public static boolean works(CasingType a, CasingType b) {
+            return a == b || a == CasingType.other || b == CasingType.other;
         }
     }
 
@@ -179,7 +180,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     public static final int LIMIT_COUNT = 31;
 
-    FirstLetterType[] types = new FirstLetterType[LIMIT_COUNT];
+    CasingType[] types = new CasingType[LIMIT_COUNT];
 
     public static String NOT_USED = "NOT_USED";
  
@@ -213,11 +214,11 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
      * @param resolved the resolved CLDRFile to calculate casing information from
      * @return
      */
-    public static Map<String, FirstLetterType> getSamples(CLDRFile resolved) {
-        Counter<FirstLetterType>[] counters = new Counter[LIMIT_COUNT];
+    public static Map<String, CasingType> getSamples(CLDRFile resolved) {
+        Counter<CasingType>[] counters = new Counter[LIMIT_COUNT];
 
         for (int i = 0; i < LIMIT_COUNT; ++i) {
-            counters[i] = new Counter<FirstLetterType>();
+            counters[i] = new Counter<CasingType>();
         }
         PathStarrer starrer = new PathStarrer();
         Set<String> items = new TreeSet<String>(CLDRFile.ldmlComparator);
@@ -242,7 +243,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             if (i >= 0) {
                 String value = resolved.getStringValue(path);
                 if (value == null || value.length() == 0) continue;
-                FirstLetterType ft = FirstLetterType.from(value);
+                CasingType ft = CasingType.from(value);
                 counters[i].add(ft, 1);
             } else if (DEBUG) {
                 String starred = starrer.set(path);
@@ -250,20 +251,20 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             }
         }
         
-        FirstLetterType[] types = new FirstLetterType[LIMIT_COUNT];
-        Map<String, FirstLetterType> info = new HashMap();
+        CasingType[] types = new CasingType[LIMIT_COUNT];
+        Map<String, CasingType> info = new HashMap();
         for (int i = 0; i < LIMIT_COUNT; ++i) {
-            long countLower = counters[i].getCount(FirstLetterType.lowercase);
-            long countUpper = counters[i].getCount(FirstLetterType.uppercase);
-            long countOther = counters[i].getCount(FirstLetterType.other);
+            long countLower = counters[i].getCount(CasingType.lowercase);
+            long countUpper = counters[i].getCount(CasingType.titlecase);
+            long countOther = counters[i].getCount(CasingType.other);
             if (countLower + countUpper == 0) {
-                types[i] = FirstLetterType.other;
+                types[i] = CasingType.other;
             } else if (countLower >= countUpper * MIN_FACTOR && countLower >= countOther) {
-                types[i] = FirstLetterType.lowercase;
+                types[i] = CasingType.lowercase;
             } else if (countUpper >= countLower * MIN_FACTOR && countUpper >= countOther) {
-                types[i] = FirstLetterType.uppercase;
+                types[i] = CasingType.titlecase;
             } else {
-                types[i] = FirstLetterType.other;
+                types[i] = CasingType.other;
             }
             if (!typeNames[i].equals(CheckConsistentCasing.NOT_USED)) {
                 info.put(typeNames[i], types[i]);
@@ -277,8 +278,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     
     private void checkConsistentCasing(int i, String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
-        FirstLetterType ft = FirstLetterType.from(value);
-        if (!FirstLetterType.works(ft, types[i])) {
+        CasingType ft = CasingType.from(value);
+        if (!CasingType.works(ft, types[i])) {
             result.add(new CheckStatus().setCause(this)
                     .setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType

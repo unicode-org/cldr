@@ -454,7 +454,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
         DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
         style += dateTimeLength.ordinal();
-        if (!dateTimePatterns[style].matcher(skeleton).matches()) {
+        if (!dateTimePatterns[style].matcher(skeleton).matches() && !pathParts.findAttributeValue("calendar", "type").equals("chinese")) {
             int i = RegexUtilities.findMismatch(dateTimePatterns[style], skeleton);
             String skeletonPosition = skeleton.substring(0,i) + "☹" + skeleton.substring(i);
             result.add(new CheckStatus()

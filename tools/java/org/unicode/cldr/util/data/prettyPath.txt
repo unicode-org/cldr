@@ -75,6 +75,9 @@ $element=[a-zA-Z0-9]+;
 '$%%/months/monthContext[@type="' ($avalue) '"]/monthWidth[@type="' ($avalue) '"]/month[@type="' ($avalue) '"]' > '|month|[' $3 ']-' $1 '-' $2;
 '$%%/months/monthContext[@type="' ($avalue) '"]/monthWidth[@type="' ($avalue) '"]/alias' > '|month|' $1 '-' $2 '-alias';
 
+'$%%/monthPatterns/monthPatternContext[@type="' ($avalue) '"]/monthPatternWidth[@type="' ($avalue) '"]/monthPattern[@type="' ($avalue) '"]' > '|monthPattern|[' $3 ']-' $1 '-' $2;
+'$%%/monthPatterns/monthPatternContext[@type="' ($avalue) '"]/monthPatternWidth[@type="' ($avalue) '"]/alias' > '|monthPattern|' $1 '-' $2 '-alias';
+
 '$%%/months/monthContext[@type="' ($element) '"]/default' > '|month|default-' $1;
 '$%%/days/dayContext[@type="' ($element) '"]/default' > '|day|default-' $1;
 
@@ -103,6 +106,10 @@ $element=[a-zA-Z0-9]+;
 '$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/dayPeriodWidth[@type="' ($avalue) '"]/alias' > '|dayPeriod|' $1 '-' $2 '-alias';
 '$%%/dayPeriods/dayPeriodContext[@type="' ($avalue) '"]/alias' > '|dayPeriod|' $1 '-alias';
 '$%%/dayPeriods/alias' > '|dayPeriod|-alias';
+
+'$%%/cyclicNameSets/cyclicNameSet[@type="' ($avalue) '"]/cyclicNameContext[@type="' ($avalue) '"]/cyclicNameWidth[@type="' ($avalue) '"]/cyclicName[@type="' ([0-9]) '"]' > '|cyclicName|[0' $4 ']-' $1 '-' $2 '-' $3;
+'$%%/cyclicNameSets/cyclicNameSet[@type="' ($avalue) '"]/cyclicNameContext[@type="' ($avalue) '"]/cyclicNameWidth[@type="' ($avalue) '"]/cyclicName[@type="' ($avalue) '"]' > '|cyclicName|[' $4 ']-' $1 '-' $2 '-' $3;
+'$%%/cyclicNameSets/cyclicNameSet[@type="' ($avalue) '"]/cyclicNameContext[@type="' ($avalue) '"]/cyclicNameWidth[@type="' ($avalue) '"]/alias' > '|cyclicName|' $1 '-' $2 '-' $3 '-alias';
 
 '$%%/fields/field[@type="' ($avalue) '"]/displayName' > '|field-label|' $1;
 

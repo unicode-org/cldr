@@ -268,7 +268,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
 
-            if (path.indexOf("[@type=\"narrow\"]") >= 0 && !path.contains("dayPeriod")) {
+            if (path.indexOf("[@type=\"narrow\"]") >= 0 && !path.contains("dayPeriod") && !path.contains("monthPatterns")) {
                 int end = isNarrowEnough(value, bi);
                 String locale = getCldrFileToCheck().getLocaleID();
                 // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to warningType in this case?)

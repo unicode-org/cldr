@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class MergeLists<T> {
@@ -59,6 +61,11 @@ public class MergeLists<T> {
     Set<T> first = new HashSet<T>();
     while (orderedWorkingSet.size() != 0) {
       getFirsts(first);
+      if (first.size() == 0) {
+          Map<T,Collection<T>> reasons = new LinkedHashMap();
+          getFirsts(first, reasons);
+          throw new IllegalArgumentException("Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: " + reasons);
+      }
       // now get first item that is in first
       T best = extractFirstOk(orderedWorkingSet, first); // removes from working set
       // remaining items now contains no non-first items
@@ -123,19 +130,26 @@ public class MergeLists<T> {
     throw new IllegalArgumentException("Internal Error");
   }
 
+  public void getFirsts(Set<T> result) {
+      getFirsts(result, null);
+  }
   /**
    * Get first of each sets. Guaranteed non-empty
    */
-  public void getFirsts(Set<T> result) {
-    result.clear();
-    result.addAll(orderedWorkingSet);
-    for (Collection<T> sublist : source) {
-      // get all the first items
-        final Iterator<T> iterator = sublist.iterator();
-        iterator.next(); // skip first
-        while (iterator.hasNext()) {
-          result.remove(iterator.next());
+  public void getFirsts(Set<T> result, Map<T,Collection<T>> reasons) {
+      result.clear();
+      result.addAll(orderedWorkingSet);
+      for (Collection<T> sublist : source) {
+          // get all the first items
+          final Iterator<T> iterator = sublist.iterator();
+          iterator.next(); // skip first
+          while (iterator.hasNext()) {
+              final T nextItem = iterator.next();
+              boolean changed = result.remove(nextItem);
+              if (changed && reasons != null) {
+                  reasons.put(nextItem, sublist);
+              }
+          }
       }
-    }
   }
 }

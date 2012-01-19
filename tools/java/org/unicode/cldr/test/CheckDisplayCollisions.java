@@ -15,6 +15,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.Relation;
@@ -31,8 +32,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     static long startDate = new Date(1995-1900, 1 - 1, 15).getTime(); // can be approximate
     static long endDate = new Date(2011-1900, 1 - 1, 15).getTime(); // can be approximate
 
+    static final String LANGUAGE_PREFIX = "//ldml/localeDisplayNames/languages/language";
+    static final int LANGUAGE_PREFIX_INDEX = 0; // sync with typesICareAbout
+    
     static final String[] typesICareAbout = {
-        "//ldml/localeDisplayNames/languages/language",
+        LANGUAGE_PREFIX,
         "//ldml/localeDisplayNames/scripts/script",
         "//ldml/localeDisplayNames/territories/territory",
         "//ldml/localeDisplayNames/variants/variant",
@@ -152,6 +156,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     it.remove();
                     continue main;
                 }
+                // special case languages: don't look at CODE_FALLBACK
+                if (dpath.startsWith(LANGUAGE_PREFIX) && isCodeFallback(dpath)) {
+                        it.remove();
+                        continue main;
+                }
                 // make sure the collision is with the same type
                 if (dpath.startsWith(typesICareAbout[myType]) && !exclusions.reset(dpath).find()) {
                     continue main;
@@ -159,6 +168,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 // no match, remove
                 it.remove();
             }
+    }
+    
+    private boolean isCodeFallback(String dpath) {
+        String locale = getResolvedCldrFileToCheck().getSourceLocaleID(dpath, null);
+        return locale.equals(XMLSource.CODE_FALLBACK_ID);
     }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
@@ -196,7 +210,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (!cldrFileToCheck.isWinningPath(xpath) || finalTesting && xpath.contains("proposed")) {
                 continue;
             }
-            //if (pha)
+            // special case language; exclude codeFallback
+            if (ii == LANGUAGE_PREFIX_INDEX && isCodeFallback(xpath)) {
+                continue;
+            }
             itemType = thisItemType;
             // Merge some namespaces
             if (itemType == CLDRFile.CURRENCY_NAME) itemType = CLDRFile.CURRENCY_SYMBOL;

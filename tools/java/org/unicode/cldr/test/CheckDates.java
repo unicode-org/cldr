@@ -115,7 +115,7 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     //Map<String, Set<String>> calPathsToSymbolSets;
-    Map<String, Map<String, String>> calPathsToSymbolMaps;
+    Map<String, Map<String, String>> calPathsToSymbolMaps = new HashMap<String, Map<String, String>>();
 
     public CheckDates(Factory factory) {
         super(factory);
@@ -165,8 +165,16 @@ public class CheckDates extends FactoryCheckCLDR {
         //          .setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
         //    }
         pathsWithConflictingOrder2sample = DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo);
+        if (pathsWithConflictingOrder2sample == null) {
+            CheckStatus item = new CheckStatus()
+            .setCause(this)
+            .setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.internalError)
+            .setMessage("DateOrder.getOrderingInfo fails");      
+            possibleErrors.add(item);
+        }
 
-        calPathsToSymbolMaps = new HashMap<String, Map<String, String>>();
+        calPathsToSymbolMaps.clear();
         for (String calTypePath: calTypePathsToCheck) {
             for (String calSymbolPath: calSymbolPathsWhichNeedDistinctValues) {
                 calPathsToSymbolMaps.put(calTypePath.concat(calSymbolPath), null);
@@ -211,14 +219,16 @@ public class CheckDates extends FactoryCheckCLDR {
             return this;
         }
 
-        Map<DateOrder, String> problem = pathsWithConflictingOrder2sample.get(path);
-        if (problem != null) {
-            CheckStatus item = new CheckStatus()
-            .setCause(this)
-            .setMainType(CheckStatus.warningType)
-            .setSubtype(Subtype.incorrectDatePattern)
-            .setMessage("The ordering of date fields is inconsistent with others: {0}", getValues(getResolvedCldrFileToCheck(), problem.values()));      
-            result.add(item);            
+        if (pathsWithConflictingOrder2sample != null) {
+            Map<DateOrder, String> problem = pathsWithConflictingOrder2sample.get(path);
+            if (problem != null) {
+                CheckStatus item = new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.warningType)
+                .setSubtype(Subtype.incorrectDatePattern)
+                .setMessage("The ordering of date fields is inconsistent with others: {0}", getValues(getResolvedCldrFileToCheck(), problem.values()));      
+                result.add(item);            
+            }
         }
         try {
 

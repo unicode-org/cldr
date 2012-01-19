@@ -504,11 +504,16 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     private List filteredCheckList = new ArrayList();
 
     public CompoundCheckCLDR add(CheckCLDR item) {
-      checkList.add(item);
-      if (filter == null || filter.reset(item.getClass().getName()).matches()) {
-        filteredCheckList.add(item);
-      }
-      return this;
+        checkList.add(item);
+        if (filter == null) {
+            filteredCheckList.add(item);
+        } else {
+            final String className = item.getClass().getName();
+            if (filter.reset(className).matches()) {
+                filteredCheckList.add(item);
+            }
+        }
+        return this;
     }
     public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {

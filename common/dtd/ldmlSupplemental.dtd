@@ -343,7 +343,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT plurals (pluralRules*) >
 <!ATTLIST plurals draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
 <!ATTLIST plurals references CDATA #IMPLIED >
-<!ATTLIST plurals type ( ordinal ) #IMPLIED >
+<!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED > <!-- default is cardinal -->
 
 <!ELEMENT pluralRules (pluralRule*) >
 <!ATTLIST pluralRules locales NMTOKENS #REQUIRED >

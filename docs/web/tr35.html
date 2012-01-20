@@ -4662,7 +4662,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 	data can be viewed in the
 	<a href="http://www.unicode.org/cldr/data/charts/supplemental/index.html">Supplemental Charts</a>.
 	</p>
-	<p>The data in CLDR is split into multiple files: supplementalData.xml, supplementalMetadata.xml, characters.xml, likelySubtags.xml, plurals.xml, telephoneCodeData.xml, plus transforms (see <i>Section 5.16 <a href="#Transforms">Transforms</a>
+	<p>The data in CLDR is split into multiple files: supplementalData.xml, supplementalMetadata.xml, characters.xml, likelySubtags.xml, <span class="changedspan">ordinals.xml,</span> plurals.xml, telephoneCodeData.xml, plus transforms (see <i>Section 5.16 <a href="#Transforms">Transforms</a>
 	</i>and<i> Appendix N: <a href="#Transform_Rules">Transform Rules</a></i>). The split is just 
 	for convenience: logically, they are treated as though they were a single file. Future versions 
 	of CLDR may split the data in a different fashion.</p>
@@ -5197,20 +5197,31 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	result in this example would be zh_Hant instead of zh_TW.</p>
 <h3>C.11 <a name="Language_Plural_Rules">Language Plural Rules</a></h3>
 	<p class="dtd">&lt;!ELEMENT plurals (pluralRules*) &gt;<br>
+    <span class="changedspan">&lt;!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED &gt;  &lt;!-- default is cardinal --&gt;<br></span>
 	<br>
 	&lt;!ELEMENT pluralRules (pluralRule*) &gt;<br>
 	&lt;!ATTLIST pluralRules locales NMTOKENS #REQUIRED &gt;<br>
 	<br>
 	&lt;!ELEMENT pluralRule ( #PCDATA ) &gt;<br>
 	&lt;!ATTLIST pluralRule count (zero | one | two | few | many) #REQUIRED &gt;</p>
-	<p>This section defines certain plural forms that exist in a language—specifically, just the plural forms for nouns that express units such
+	<p>This section defines certain <span class="changedspan">types of</span> plural forms that exist in a language—<span class="changedspan">namely, the cardinal and ordinal</span><span class="removedspan">specifically, just the</span> plural forms for nouns<span class="changedspan">. 
+	Cardinal plural forms</span><span class="removedspan">that</span> express units such
 	as time, currency or distance, used in conjunction with a number expressed in decimal digits (i.e. &quot;2&quot;, not &quot;two&quot;, and not an indefinite number
-	such as &quot;some&quot; or &quot;many&quot;). For example, English has two forms:</p>
+	such as &quot;some&quot; or &quot;many&quot;).
+	<span class="changedspan">Ordinal plural forms denote the order of items in a set and are always integers.</span>
+	For example, English has two forms for cardinals:</p>
 	<ul>
 		<li>form &quot;one&quot;: 1 day</li>
 		<li>form &quot;other&quot;: 0 days, 2 days, 10 days, 0.3 days</li>
 	</ul>
-	<p>Other languages may have additional forms or only one form. CLDR provides the following tags for designating the various plural forms
+	<p><span class="changedspan">and four forms for ordinals:</span></p>
+	<ul>
+        <li><span class="changedspan">form &quot;one&quot;: 1st floor, 21st floor, 101st floor</span></li>
+        <li><span class="changedspan">form &quot;two&quot;: 2nd floor, 22nd floor, 102nd floor</span></li>
+        <li><span class="changedspan">form &quot;few&quot;: 3rd floor, 23rd floor, 103rd floor</span></li>
+        <li><span class="changedspan">form &quot;other&quot;: 4th floor, 11th floor, 96th floor</span></li>
+	</ul>
+	<p>Other languages may have additional forms or only one form <span class="changedspan">for each type of plural</span>. CLDR provides the following tags for designating the various plural forms
 	of a language; for a given language, only the tags necessary for that language are defined, along with the specific numeric ranges covered by each tag (for 
 	example,
 	the plural form &quot;few&quot; may be used for the numeric range 2-4 in one language and 3-9 in another):</p>
@@ -5223,7 +5234,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	</ul>
 	<p>In addition, an &quot;other&quot; tag is always implicitly defined to cover the forms not explicitly designated by the tags defined
 	for a language. This &quot;other&quot; tag is also used for languages that only have a single form (in which case no plural-form tags are explicitly defined for
-	the language). For a more complex example, consider the rules for Russian and certain other languages:</p>
+	the language). For a more complex example, consider the <span class="changedspan">cardinal</span> rules for Russian and certain other languages:</p>
 	<pre>&lt;pluralRules locales=&quot;hr ru sr uk&quot;&gt;
 	&lt;pluralRules count=&quot;one&quot;&gt;<span style="color: blue">n mod 10 is 1 and n mod 100 is not 11</span>&lt;/pluralRule&gt;
 	&lt;pluralRules count=&quot;few&quot;&gt;<span style="color: blue">n mod 10 in 2..4 and n mod 100 not in 12..14</span>&lt;/pluralRule&gt;
@@ -5290,9 +5301,9 @@ range         = value'..'value</pre>
 				213, 214... </td>
 		</tr>
 	</table>
-	<h4>Using the plural rules</h4>
+	<h4>Using the <span class="changedspan">cardinal</span> plural rules</h4>
 	<p>Elements such as &lt;currencyFormats&gt;, &lt;currency&gt; and &lt;unit&gt; provide selection among subelements designating various
-	localized plural forms by tagging each of the relevant subelements with a different count value, or with no count value in some cases. Note that the plural forms
+	localized <span class="changedspan">cardinal</span> plural forms by tagging each of the relevant subelements with a different count value, or with no count value in some cases. Note that the plural forms
 	for a specific currencyFormat, unit type, or currency type may not use all of the different plural-form tags defined for the language. To format a currency or
 	unit type for a particular numeric value, determine the count value according to the plural rules for the language, then select the appropriate display form for
 	the currency format, currency type or unit type using the rules in those sections:</p>
@@ -8915,6 +8926,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Added documentation regarding the deprecation of the commonlyUsed element in formatting short time
 		zone names. [tickets <a href="http://unicode.org/cldr/trac/ticket/4052">#4052</a>, 
 		<a href="http://unicode.org/cldr/trac/ticket/4130">#4130</a>]</li>
+		<li>Added documentation for ordinal plural forms. [ticket <a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

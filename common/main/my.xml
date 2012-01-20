@@ -849,13 +849,13 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic>တောင်အာဖရိက အချိန်</generic>
-					<standard>တောင်အာဖရိက စံတော်ချိန်</standard>
+					<standard>တောင်အာဖရိက အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard>အနောက်ပိုင်း အာဖရိက အချိန်</standard>
+					<generic>အနောက်ပိုင်း အာဖရိက အချိန်</generic>
+					<standard>အနောက်ပိုင်း အာဖရိက စံတော်ချိန်</standard>
 					<daylight>အနောက်ပိုင်း အာဖရိက နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -870,7 +870,7 @@
 				<long>
 					<generic>အရှေ့ပိုင်း အမေရိက အချိန်</generic>
 					<standard>အရှေ့ပိုင်း အမေရိက စံတော်ချိန်</standard>
-					<daylight>အရှေ့ပိုင်း အမေရိက အချိန်</daylight>
+					<daylight>အရှေ့ပိုင်း အမေရိက နေ့ပိုင်း အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
@@ -896,18 +896,22 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<standard>အာဂျင်တီးနား အချိန်</standard>
+					<generic>အာဂျင်တီးနား အချိန်</generic>
+					<standard>အာဂျင်တီးနား စံတော်ချိန်</standard>
 					<daylight>အာဂျင်တီးနား နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<standard>အနောက် အာဂျင်တီးနား အချိန်</standard>
+					<generic>အနောက် အာဂျင်တီးနား အချိန်</generic>
+					<standard>အနောက် အာဂျင်တီးနား စံတော်ချိန်</standard>
+					<daylight>အနောက် အာဂျင်တီးနား နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
-					<standard>အာမေနီးယား အချိန်</standard>
+					<generic>အာမေနီးယား အချိန်</generic>
+					<standard>အာမေနီးယား စံတော်ချိန်</standard>
 					<daylight>အာမေနီးယား နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -948,7 +952,8 @@
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
-					<standard>အဇာဘိုင်ဂျန် အချိန်</standard>
+					<generic>အဇာဘိုင်ဂျန် အချိန်</generic>
+					<standard>အဇာဘိုင်ဂျန် စံတော်ချိန်</standard>
 					<daylight>အဇာဘိုင်ဂျန် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -969,14 +974,9 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<standard>ဘရာဇီး အချိန်</standard>
+					<generic>ဘရာဇီး အချိန်</generic>
+					<standard>ဘရာဇီး စံတော်ချိန်</standard>
 					<daylight>ဘရာဇီး နွေရာသီ အချိန်</daylight>
-				</long>
-			</metazone>
-			<metazone type="British">
-				<long>
-					<generic>ဗြိတိသျှ အချိန်</generic>
-					<daylight>ဗြိတိသျှ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -986,7 +986,8 @@
 			</metazone>
 			<metazone type="Chile">
 				<long>
-					<standard>ချီလီ အချိန်</standard>
+					<generic>ချီလီ အချိန်</generic>
+					<standard>ချီလီ စံတော်ချိန်</standard>
 					<daylight>ချီလီ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -999,7 +1000,8 @@
 			</metazone>
 			<metazone type="Colombia">
 				<long>
-					<standard>ကိုလံဘီယာ အချိန်</standard>
+					<generic>ကိုလံဘီယာ အချိန်</generic>
+					<standard>ကိုလံဘီယာ စံတော်ချိန်</standard>
 					<daylight>ကိုလံဘီယာ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -1028,26 +1030,28 @@
 			<metazone type="Europe_Central">
 				<long>
 					<generic>ပြင်သစ် အချိန်</generic>
-					<standard>ဥရောပ အလယ်ပိုင်း အချိန်</standard>
+					<standard>ဥရောပ အလယ်ပိုင်း စံတော်ချိန်</standard>
 					<daylight>ဥရောပ အလယ်ပိုင်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
 					<generic>ရိုမေးနီးယား အချိန်</generic>
-					<standard>အရှေ့ဥရောပ အချိန်</standard>
+					<standard>အရှေ့ဥရောပ စံတော်ချိန်</standard>
 					<daylight>အရှေ့ဥရောပ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard>အနောက်ပိုင်း ဥရောပ အချိန်</standard>
+					<generic>အနောက်ပိုင်း ဥရောပ အချိန်</generic>
+					<standard>အနောက်ပိုင်း ဥရောပ စံတော်ချိန်</standard>
 					<daylight>အနောက်ပိုင်း ဥရောပ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<standard>ဖောင်ကလန်ကျွန်းစု အချိန်</standard>
+					<generic>ဖောင်ကလန်ကျွန်းစု အချိန်</generic>
+					<standard>ဖောင်ကလန်ကျွန်းစု စံတော်ချိန်</standard>
 					<daylight>ဖောင်ကလန်ကျွန်းစု နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -1058,7 +1062,8 @@
 			</metazone>
 			<metazone type="Georgia">
 				<long>
-					<standard>ဂျော်ဂျီယာ အချိန်</standard>
+					<generic>ဂျော်ဂျီယာ အချိန်</generic>
+					<standard>ဂျော်ဂျီယာ စံတော်ချိန်</standard>
 					<daylight>ဂျော်ဂျီယာ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -1069,31 +1074,34 @@
 			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
-					<standard>အလယ်ဂရင်းလန်း အချိန်</standard>
+					<generic>အလယ်ဂရင်းလန်း အချိန်</generic>
+					<standard>အလယ်ဂရင်းလန်း စံတော်ချိန်</standard>
 					<daylight>အလယ်ဂရင်းလန်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
-					<standard>အရှေ့ဂရင်းလန်း အချိန်</standard>
+					<generic>အရှေ့ဂရင်းလန်း အချိန်</generic>
+					<standard>အရှေ့ဂရင်းလန်း စံတော်ချိန်</standard>
 					<daylight>အရှေ့ဂရင်းလန်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
-					<standard>အနောက် ဂရင်းလန်း အချိန်</standard>
+					<generic>အနောက် ဂရင်းလန်း အချိန်</generic>
+					<standard>အနောက် ဂရင်းလန်း စံတော်ချိန်</standard>
 					<daylight>အနောက် ဂရင်းလန်း နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<generic>ပင်လယ်ဂွေ့ အချိန်</generic>
-					<standard>ပင်လယ်ဂွေ့ စံတော်ချိန်</standard>
+					<standard>ပင်လယ်ဂွေ့ အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<standard>ဟောင်ကောင် အချိန်</standard>
+					<generic>ဟောင်ကောင် အချိန်</generic>
+					<standard>ဟောင်ကောင် စံတော်ချိန်</standard>
 					<daylight>ဟောင်ကောင် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -1129,13 +1137,9 @@
 			</metazone>
 			<metazone type="Iran">
 				<long>
+					<generic>အီရန် အချိန်</generic>
 					<standard>အီရန် စံတော်ချိန်</standard>
 					<daylight>အီရန် နေ့ပိုင်း အချိန်</daylight>
-				</long>
-			</metazone>
-			<metazone type="Irish">
-				<long>
-					<generic>အိုင်ယာလန် အချိန်</generic>
 				</long>
 			</metazone>
 			<metazone type="Israel">
@@ -1144,9 +1148,6 @@
 					<standard>အစ္စရေး စံတော်ချိန်</standard>
 					<daylight>အစ္စရေး နေ့ပိုင်း အချိန်</daylight>
 				</long>
-				<short>
-					<standard>IST (အစ္စရေး)</standard>
-				</short>
 			</metazone>
 			<metazone type="Japan">
 				<long>
@@ -1157,8 +1158,7 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic>အရှေ့ကာဇက်စတန် အချိန်</generic>
-					<standard>အရှေ့ကာဇက်စတန် စံတော်ချိန်</standard>
+					<standard>အရှေ့ကာဇက်စတန် အချိန်</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
@@ -1175,7 +1175,8 @@
 			</metazone>
 			<metazone type="Macau">
 				<long>
-					<standard>မကာအို အချိန်</standard>
+					<generic>မကာအို အချိန်</generic>
+					<standard>မကာအို စံတော်ချိန်</standard>
 					<daylight>မကာအို နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -1217,7 +1218,8 @@
 			</metazone>
 			<metazone type="Pakistan">
 				<long>
-					<standard>ပါကစ္စတန် အချိန်</standard>
+					<generic>ပါကစ္စတန် အချိန်</generic>
+					<standard>ပါကစ္စတန် စံတော်ချိန်</standard>
 					<daylight>ပါကစ္စတန် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -1228,19 +1230,22 @@
 			</metazone>
 			<metazone type="Paraguay">
 				<long>
-					<standard>ပါရာဂွေး အချိန်</standard>
+					<generic>ပါရာဂွေး အချိန်</generic>
+					<standard>ပါရာဂွေး စံတော်ချိန်</standard>
 					<daylight>ပါရာဂွေး နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Peru">
 				<long>
-					<standard>ပီရူး အချိန်</standard>
+					<generic>ပီရူး အချိန်</generic>
+					<standard>ပီရူး စံတော်ချိန်</standard>
 					<daylight>ပီရူး နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Philippines">
 				<long>
-					<standard>ဖိလစ်ပိုင် အချိန်</standard>
+					<generic>ဖိလစ်ပိုင် အချိန်</generic>
+					<standard>ဖိလစ်ပိုင် စံတော်ချိန်</standard>
 					<daylight>ဖိလစ်ပိုင် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
@@ -1256,19 +1261,22 @@
 			</metazone>
 			<metazone type="Turkey">
 				<long>
-					<standard>တူရကီ စံတော်ချိန် အချိန်</standard>
+					<generic>တူရကီ အချိန်</generic>
+					<standard>တူရကီ စံတော်ချိန်</standard>
 					<daylight>တူရကီ နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
 				<long>
-					<standard>ဥရုဂွေး အချိန်</standard>
+					<generic>ဥရုဂွေး အချိန်</generic>
+					<standard>ဥရုဂွေး စံတော်ချိန်</standard>
 					<daylight>ဥရုဂွေး နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
 				<long>
-					<standard>ဥဘက်ကစ္စတန် အချိန်</standard>
+					<generic>ဥဘက်ကစ္စတန် အချိန်</generic>
+					<standard>ဥဘက်ကစ္စတန် စံတော်ချိန်</standard>
 					<daylight>ဥဘက်ကစ္စတန် နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>

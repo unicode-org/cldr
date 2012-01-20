@@ -77,6 +77,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             "|localePattern" +
             "|listPatternPart" +
             "|ellipsis" +
+            "|monthPattern" +
     ")");
     private Matcher supposedToBeMessageFormat = SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN.matcher("");
 

@@ -4786,7 +4786,8 @@ text data in the rule. For example, the following are all disallowed:</p>
 	&lt;!ELEMENT group EMPTY &gt;<br>
 	&lt;!ATTLIST group type NMTOKEN #REQUIRED &gt;<br>
 	&lt;!ATTLIST group contains NMTOKENS #IMPLIED &gt;<br>	
-	&lt;!ATTLIST group grouping ( true | false ) #IMPLIED &gt;</p>
+	&lt;!ATTLIST group grouping ( true | false ) #IMPLIED &gt;<br>
+	<span class="changedspan">&lt;!ATTLIST group status ( deprecated ) #IMPLIED &gt;</span></p>
 <p>The following data provides information that shows groupings of countries (regions). The data is based on the <a href="#UNM49">UNM49</a>]. There is one special code, QO, which is used for outlying areas that are typically uninhabited. The territory containment forms a tree with the following levels:</p>
 <p align="center">World</p>
     <p align="center">Continent</p>
@@ -4807,6 +4808,8 @@ text data in the rule. For example, the following are all disallowed:</p>
     <p>There are groupings that don't follow this regular structure, such as:</p>
     <pre>&lt;group type=&quot;003&quot; contains=&quot;013 021 029&quot; grouping=&quot;true&quot;/&gt; &lt;!--North America --&gt;</pre>
     <p>These are marked with the attribute <span class="attribute">grouping</span>=&quot;<span class="attributeValue">true</span>&quot;.</p>
+    <p><span class="changedspan">When groupings have been deprecated but kept around for backwards compatibility, they are marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">deprecated</span>&quot;, like this:</span></p>
+    <pre><span class="changedspan">&lt;group type=&quot;029&quot; contains=&quot;AN&quot; status=&quot;deprecated&quot;/&gt; &lt;!--Caribbean --&gt;</span></pre>
 <h3>C.3 <a name="Supplemental_Language_Data">Supplemental Language Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT languageData ( language* ) &gt;<br>
 	&lt;!ELEMENT language EMPTY &gt;<br>
@@ -8927,6 +8930,7 @@ decimal?, group?, special*)) &gt;</pre>
 		zone names. [tickets <a href="http://unicode.org/cldr/trac/ticket/4052">#4052</a>, 
 		<a href="http://unicode.org/cldr/trac/ticket/4130">#4130</a>]</li>
 		<li>Added documentation for ordinal plural forms. [ticket <a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
+        <li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [ticket <a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

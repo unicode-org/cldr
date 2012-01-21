@@ -2376,7 +2376,8 @@
 			</zone>
 			<metazone type="Acre">
 				<long>
-					<standard>Acre-tid</standard>
+					<generic>Acre-tid</generic>
+					<standard>Acre normaltid</standard>
 					<daylight>Acre sommertid</daylight>
 				</long>
 			</metazone>
@@ -2392,13 +2393,13 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic draft="contributed">sørafrikansk tid</generic>
-					<standard>sørafrikansk normaltid</standard>
+					<standard>sørafrikansk tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard>vestafrikansk tid</standard>
+					<generic>vestafrikansk tid</generic>
+					<standard>vestafrikansk normaltid</standard>
 					<daylight>vestafrikansk sommertid</daylight>
 				</long>
 			</metazone>
@@ -2411,8 +2412,8 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic draft="contributed">Tidssone for Amazonas</generic>
-					<standard>Amazonas-tid</standard>
+					<generic>Amazonas-tid</generic>
+					<standard>Amazonas normaltid</standard>
 					<daylight>Amazonas sommertid</daylight>
 				</long>
 			</metazone>
@@ -2447,7 +2448,7 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic draft="contributed">Russisk (Anadyr) tid</generic>
-					<standard draft="contributed">Russisk (Anadyr) tid</standard>
+					<standard draft="contributed">Russisk (Anadyr) normaltid</standard>
 					<daylight draft="contributed">Russisk (Anadyr) sommertid</daylight>
 				</long>
 			</metazone>
@@ -2461,14 +2462,14 @@
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Argentinsk tid</generic>
-					<standard draft="contributed">Argentinsk tid</standard>
+					<standard draft="contributed">Argentinsk normaltid</standard>
 					<daylight draft="contributed">Argentinsk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic draft="contributed">Argentinsk tid (vest)</generic>
-					<standard draft="contributed">Argentinsk tid (vest)</standard>
+					<standard draft="contributed">Argentinsk normaltid (vest)</standard>
 					<daylight draft="contributed">Argentinsk sommertid (vest)</daylight>
 				</long>
 			</metazone>
@@ -2509,14 +2510,16 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic draft="contributed">Brasiliansk (Brasilia) tid</generic>
-					<standard>Brasilia-tid</standard>
+					<generic>Brasilia-tid</generic>
+					<standard>Brasilia normaltid</standard>
 					<daylight>Brasilia sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
+					<generic>kinesisk tid</generic>
 					<standard>kinesisk standardtid</standard>
+					<daylight>kinesisk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -2528,6 +2531,7 @@
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
+					<generic>sentraleuropeisk tid</generic>
 					<standard>sentraleuropeisk normaltid</standard>
 					<daylight>sentraleuropeisk sommertid</daylight>
 				</long>
@@ -2539,13 +2543,15 @@
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
+					<generic>østeuropeisk tid</generic>
 					<standard>østeuropeisk normaltid</standard>
 					<daylight>østeuropeisk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard>vesteuropeisk tid</standard>
+					<generic>vesteuropeisk tid</generic>
+					<standard>vesteuropeisk normaltid</standard>
 					<daylight>vesteuropeisk sommertid</daylight>
 				</long>
 			</metazone>
@@ -2560,18 +2566,21 @@
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Tidssone for Hawaii og Aleutene</generic>
+					<standard draft="contributed">Normaltid for Hawaii og Aleutene</standard>
+					<daylight draft="contributed">Sommertid for Hawaii og Aleutene</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<standard>Hong Kong-tid</standard>
+					<generic>Hong Kong-tid</generic>
+					<standard>Hong Kong-normaltid</standard>
 					<daylight>Hong Kong-sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic draft="contributed">Mongolsk (Khovd) tid</generic>
-					<standard draft="contributed">Mongolsk (Khovd) tid</standard>
+					<standard draft="contributed">Mongolsk (Khovd) normaltid</standard>
 					<daylight draft="contributed">Mongolsk (Khovd) sommertid</daylight>
 				</long>
 			</metazone>
@@ -2587,70 +2596,68 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="contributed">Indonesisk sentraltid</generic>
 					<standard>sentralindonesisk tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="contributed">Indonesisk tid (øst)</generic>
 					<standard>østindonesisk tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="contributed">Indonesisk tid (vest)</generic>
 					<standard>vestindonesisk tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<generic draft="contributed">Russisk (Irkutsk) tid</generic>
-					<standard draft="contributed">Russisk (Irkutsk) tid</standard>
+					<standard draft="contributed">Russisk (Irkutsk) normaltid</standard>
 					<daylight draft="contributed">Russisk (Irkutsk) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
+					<generic>israelsk tid</generic>
 					<standard>israelsk standardtid</standard>
 					<daylight>israelsk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
+					<generic>japansk tid</generic>
 					<standard>japansk standardtid</standard>
+					<daylight>japansk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">Russisk (Kamtsjatka) tid</generic>
-					<standard draft="contributed">Russisk (Petropavlovsk-Kamtsjatskij) tid</standard>
+					<generic draft="contributed">Russisk (Petropavlovsk-Kamtsjatskij) tid</generic>
+					<standard draft="contributed">Russisk (Petropavlovsk-Kamtsjatskij) normaltid</standard>
 					<daylight draft="contributed">Russisk (Petropavlovsk-Kamtsjatskij) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">Kasakhstansk tid (øst)</generic>
 					<standard draft="contributed">Kasakhstansk tid (øst)</standard>
-					<daylight draft="contributed">Kasakhstansk sommertid (øst)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">Kasakhstansk tid (vest)</generic>
-					<standard draft="contributed">Kasakhstansk normaltid (vest)</standard>
-					<daylight draft="contributed">Kasakhstansk sommertid (vest)</daylight>
+					<standard draft="contributed">Kasakhstansk tid (vest)</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
+					<generic>koreansk tid</generic>
 					<standard>koreansk standardtid</standard>
+					<daylight>koreansk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic draft="contributed">Russisk (Krasnojarsk) tid</generic>
-					<standard draft="contributed">Russisk (Krasnojarsk) tid</standard>
+					<standard draft="contributed">Russisk (Krasnojarsk) normaltid</standard>
 					<daylight draft="contributed">Russisk (Krasnojarsk) sommertid</daylight>
 				</long>
 			</metazone>
@@ -2663,26 +2670,26 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic draft="contributed">Australsk (Macquarie) tid</generic>
+					<standard draft="contributed">Australsk (Macquarie) tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic draft="contributed">Russisk (Magadan) tid</generic>
-					<standard draft="contributed">Russisk (Magadan) tid</standard>
+					<standard draft="contributed">Russisk (Magadan) normaltid</standard>
 					<daylight draft="contributed">Russisk (Magadan) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Mongolsk tid</generic>
-					<standard draft="contributed">Mongolsk (Ulan Bator) tid</standard>
+					<generic draft="contributed">Mongolsk (Ulan Bator) tid</generic>
+					<standard draft="contributed">Mongolsk (Ulan Bator) normaltid</standard>
 					<daylight draft="contributed">Mongolsk (Ulan Bator) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
-					<generic draft="contributed">Russisk (Moskva) tid</generic>
+					<generic>Moskva tid</generic>
 					<standard>Moskva normaltid</standard>
 					<daylight>Moskva sommertid</daylight>
 				</long>
@@ -2703,64 +2710,64 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Tidssone for Noronha</generic>
-					<standard draft="contributed">Brasiliansk (Fernando de Noronha) tid</standard>
+					<generic draft="contributed">Brasiliansk (Fernando de Noronha) tid</generic>
+					<standard draft="contributed">Brasiliansk (Fernando de Noronha) normaltid</standard>
 					<daylight draft="contributed">Brasiliansk (Fernando de Noronha) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic draft="contributed">Russisk (Novisibirsk) tid</generic>
-					<standard draft="contributed">Russisk (Novisibirsk) tid</standard>
+					<standard draft="contributed">Russisk (Novisibirsk) normaltid</standard>
 					<daylight draft="contributed">Russisk (Novosibirsk) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic draft="contributed">Russisk (Omsk) tid</generic>
-					<standard draft="contributed">Russisk (Omsk) tid</standard>
+					<standard draft="contributed">Russisk (Omsk) normaltid</standard>
 					<daylight draft="contributed">Russisk (Omsk) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic draft="contributed">Russisk (Sakhalin) tid</generic>
-					<standard draft="contributed">Russisk (Sakhalin) tid</standard>
+					<standard draft="contributed">Russisk (Sakhalin) normaltid</standard>
 					<daylight draft="contributed">Russisk (Sakhalin) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic draft="contributed">Russisk (Samara) tid</generic>
-					<standard draft="contributed">Russisk (Samara) tid</standard>
+					<standard draft="contributed">Russisk (Samara) normaltid</standard>
 					<daylight draft="contributed">Russisk (Samara) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic draft="contributed">Russisk (Vladivostok) tid</generic>
-					<standard draft="contributed">Russisk (Vladivostok) tid</standard>
+					<standard draft="contributed">Russisk (Vladivostok) normaltid</standard>
 					<daylight draft="contributed">Russisk (Vladivostok) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic draft="contributed">Russisk (Volgograd) tid</generic>
-					<standard draft="contributed">Russisk (Volgograd) tid</standard>
+					<standard draft="contributed">Russisk (Volgograd) normaltid</standard>
 					<daylight draft="contributed">Russisk (Volgograd) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic draft="contributed">Russisk (Jakutsk) tid</generic>
-					<standard draft="contributed">Russisk (Jakutsk) tid</standard>
+					<standard draft="contributed">Russisk (Jakutsk) normaltid</standard>
 					<daylight draft="contributed">Russisk (Jakutsk) sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic draft="contributed">Russisk (Jekaterinburg) tid</generic>
-					<standard draft="contributed">Russisk (Jekaterinburg) tid</standard>
+					<standard draft="contributed">Russisk (Jekaterinburg) normaltid</standard>
 					<daylight draft="contributed">Russisk (Jekaterinburg) sommertid</daylight>
 				</long>
 			</metazone>

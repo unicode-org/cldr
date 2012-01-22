@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-01-05</span></td>
+			<td><span class="changed">2012-01-22</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -2704,13 +2704,14 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
       <li>The fields are from the
       <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a> in <i>
       <a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></i>.</li>
-      <li>The canonical order is from top to bottom in 
-      that table; that is, &quot;yM&quot; not &quot;My&quot;.</li>
-      <li>Only one field of each type is allowed; that 
-      is &quot;Hh&quot; is not valid.</li>
-      <li>The &#39;a&#39; field is not allowed in the 
-      skeleton.</li>
+      <li>The canonical order is from top to bottom in that table; that is, &quot;yM&quot; not &quot;My&quot;.</li>
+      <li>Only one field of each type is allowed; that is &quot;Hh&quot; is not valid.</li>
+      <li>The &#39;a&#39; field is not allowed in the skeleton.</li>
     </ul>
+    <p><span class="changed">In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle time formats (using h or K) and
+    24-hour-cycle time formats (using H or k), even if one of those styles is not commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is
+    determined from the hour character used in the locale's standard short time format. Thus skeletons using h or K should have patterns that only use h or K for hours,
+    while skeletons using H or k should have patterns that only use H or k for hours.</span></p>
 	<p class="dtd">
 	&lt;!ELEMENT appendItems (alias | (appendItem*, special*))&gt;<br>
 	&lt;!ELEMENT appendItem ( #PCDATA ) &gt;<br>
@@ -5999,8 +6000,8 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left"><span class="changed">甲子</span></td>
 			<td rowspan="3" style="vertical-align: top; text-align: left"><span class="changed">Cyclic year name. Calendars such as the Chinese lunar calendar (and related calendars)
 			and the Hindu calendars use 60-year cycles of year names. Use one through three letters for the abbreviated name, four for the full name, or five for the narrow name
-			(currently the data only provides abbreviated names, which will be used for all requested name widths). If the calendar does not provide cyclic year name data, then
-			no format data is produced for this pattern character.</span></td>
+			(currently the data only provides abbreviated names, which will be used for all requested name widths). If the calendar does not provide cyclic year name data, or if the
+			year value to be formatted is out of the range of years for which cyclic name data is provided, then numeric formatting is used (behaves like 'y').</span></td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top"><span class="changed">4</span></td>
@@ -6196,34 +6197,38 @@ range         = value'..'value</pre>
 			<td style="text-align: center">h</td>
 			<td style="text-align: center">1..2</td>
 			<td>11</td>
-			<td>Hour [1-12]. </td>
+			<td>Hour [1-12]. <span class="changed">When used in skeleton data or in a skeleton passed in an API for flexible data pattern generation,
+			it should match the 12-hour-cycle format preferred by the locale (h or K); it should not match a 24-hour-cycle format (H or k). Use hh for zero padding.</span></td>
 		</tr>
 		<tr>
 			<td style="text-align: center">H</td>
 			<td style="text-align: center">1..2</td>
 			<td>13</td>
-			<td>Hour [0-23].</td>
+			<td>Hour [0-23]. <span class="changed">When used in skeleton data or in a skeleton passed in an API for flexible data pattern generation,
+			it should match the 24-hour-cycle format preferred by the locale (H or k); it should not match a 12-hour-cycle format (h or K). Use HH for zero padding.</span></td>
 		</tr>
 		<tr>
 			<td style="text-align: center">K</td>
 			<td style="text-align: center">1..2</td>
 			<td>0</td>
-			<td>Hour [0-11].</td>
+			<td>Hour [0-11]. <span class="changed">When used in a skelton, only matches K or h, see above. Use KK for zero padding.</span></td>
 		</tr>
 		<tr>
 			<td style="text-align: center">k</td>
 			<td style="text-align: center">1..2</td>
 			<td>24</td>
-			<td>Hour [1-24].</td>
+			<td>Hour [1-24]. <span class="changed">When used in a skelton, only matches k or H, see above. Use kk for zero padding.</span></td>
 		</tr>
 		<tr>
 			<td style="text-align: center">j</td>
 			<td style="text-align: center">1..2</td>
 			<td>n/a</td>
 			<td>This is a special-purpose symbol. It must not occur in pattern or skeleton data. Instead, it is reserved for use
-			in APIs doing flexible date pattern generation. In such a context, it requests the preferred format (12 versus 24 hour)
-			for the language in question, as determined by whether h, H, K, or k is used in the standard short time format for the locale,
-			and should be replaced by h, H, K, or k before beginning a match against availableFormats data.</td>
+			in <span class="changed">skeletons passed to </span>APIs doing flexible date pattern generation. In such a context, it requests
+			the preferred <span class="changed">hour format for the locale (h, H, K, or k)</span>, as determined by whether h, H, K, or k
+			is used in the standard short time format for the locale. <span class="changed">In the implementation of such an API, 'j' must</span>
+			be replaced by h, H, K, or k before beginning a match against availableFormats data. <span class="changed">Note that use of 'j' in
+			a skeleton passed to an API is the only way to have a skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</span></td>
 		</tr>
 		<tr>
 			<th>minute</th>
@@ -8931,6 +8936,9 @@ decimal?, group?, special*)) &gt;</pre>
 		<a href="http://unicode.org/cldr/trac/ticket/4130">#4130</a>]</li>
 		<li>Added documentation for ordinal plural forms. [ticket <a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
         <li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [ticket <a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
+        <li>Clarified use of hour pattern characters (h, H, K, k) in skeletons and associated patterns, in both
+        <i>Section 5.9.1 <a href="#Calendar_Elements">Calendar Elements</a></i> and in the <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.
+        [ticket <a href="http://unicode.org/cldr/trac/ticket/4061">#4061</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>
@@ -9300,7 +9308,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li><a name="1.3R1">Revision 1</a> (2005-06-30): added link to Corrigenda.</li>
 	</ul>
 	<hr>
-	<p class="copyright">Copyright © 2001-<span class="changed">2011 </span>Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and 
+	<p class="copyright">Copyright © 2001-<span class="changed">2012</span> Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and 
 	assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use 
 	of the information or programs contained or accompanying this technical report. The Unicode <a href="http://unicode.org/copyright.html">Terms of Use</a> apply.</p>
 	<p class="copyright">Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions. </p>

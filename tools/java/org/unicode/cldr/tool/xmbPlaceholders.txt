@@ -79,7 +79,11 @@
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; VVVV=TIMEZONE_GENERIC_LOCATION United States (Los Angeles) Time
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; V=TIMEZONE_SPECIFIC_NON_LOCATION_SHORT_FORCED PDT
 
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request="Day"] ; {0}=BASE_FORMAT January; {1}=APPEND_FIELD_FORMAT 23; {2}=APPEND_FIELD_NAME Day
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request="Day-Of-Week"] ; {0}=BASE_FORMAT January 23; {1}=APPEND_FIELD_FORMAT Monday
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request="Hour"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT 10 AM; {2}=APPEND_FIELD_NAME Hour
 ^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; {0}=START_DATE_OR_TIME Nov 10; {1}=END_DATE_OR_TIME Dec 10
+^//ldml/dates/calendars/calendar\[@type=".*"]/monthPatterns/monthPatternContext\[@type=".*"]/monthPatternWidth\[@type=".*"]/monthPattern\[@type=".*"] ; {0}=CHINESE_CALENDAR_MONTH_NAME Month4
 
 ^//ldml/dates/timeZoneNames/fallbackFormat ; {1}=METAZONE Pacific Time; {0}=CITY_OR_COUNTRY Los Angeles
 ^//ldml/dates/timeZoneNames/fallbackRegionFormat ; {1}=COUNTRY Argentina; {0}=CITY Buenos Aires

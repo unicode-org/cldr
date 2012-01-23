@@ -3314,12 +3314,6 @@
 			<zone type="Africa/Harare">
 				<exemplarCity>Хараре</exemplarCity>
 			</zone>
-			<metazone type="Acre">
-				<short>
-					<standard draft="provisional">ACT (Акрі)</standard>
-					<daylight draft="provisional">ACST (Акрі)</daylight>
-				</short>
-			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>за центральноафриканським часом</standard>
@@ -3332,13 +3326,13 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<generic>за південноафриканським часом</generic>
-					<standard>за південноафриканським стандартним часом</standard>
+					<standard>за південноафриканським часом</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard>за західноафриканським часом</standard>
+					<generic>за західноафриканським часом</generic>
+					<standard>за західноафриканським стандартним часом</standard>
 					<daylight>за західноафриканським літнім часом</daylight>
 				</long>
 			</metazone>
@@ -3352,6 +3346,8 @@
 			<metazone type="Amazon">
 				<long>
 					<generic draft="contributed">Час: Амазонка</generic>
+					<standard draft="contributed">Час: Амазонка, стандартний</standard>
+					<daylight draft="contributed">Час: Амазонка, літній</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -3385,7 +3381,7 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic draft="contributed">Час: Анадир</generic>
-					<standard draft="contributed">Час: Анадир</standard>
+					<standard draft="contributed">Час: Анадир, стандартний</standard>
 					<daylight draft="contributed">Час: Анадир, літній</daylight>
 				</long>
 			</metazone>
@@ -3399,20 +3395,21 @@
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Час: Аргентина</generic>
-					<standard draft="contributed">Час: Аргентина</standard>
+					<standard draft="contributed">Час: Аргентина, стандартний</standard>
 					<daylight draft="contributed">Час: Аргентина, літній</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic draft="contributed">Час: Аргентина, західний</generic>
-					<standard draft="contributed">Час: Аргентина, західний</standard>
+					<standard draft="contributed">Час: Аргентина, західний стандартний</standard>
 					<daylight draft="contributed">Час: Аргентина, західний літній</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
 				<long>
-					<standard draft="contributed">за вірменським часом</standard>
+					<generic draft="contributed">за вірменським часом</generic>
+					<standard draft="contributed">за вірменським стандартним часом</standard>
 					<daylight draft="contributed">за вірменським літнім часом</daylight>
 				</long>
 			</metazone>
@@ -3453,51 +3450,48 @@
 			</metazone>
 			<metazone type="Azores">
 				<long>
-					<standard draft="provisional">за часом на Азорських островах</standard>
+					<generic draft="provisional">за часом на Азорських островах</generic>
+					<standard draft="provisional">за стандартним часом на Азорських островах</standard>
 					<daylight draft="provisional">за літнім часом на Азорських островах</daylight>
 				</long>
-			</metazone>
-			<metazone type="Bering">
-				<short>
-					<generic draft="provisional">BT (Беринг)</generic>
-					<standard draft="provisional">BST (Беринг)</standard>
-					<daylight draft="provisional">BDT (Беринг)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic draft="contributed">Час: Бразилія</generic>
-					<standard draft="contributed">Час: Бразилія</standard>
+					<standard draft="contributed">Час: Бразилія, стандартний</standard>
 					<daylight draft="contributed">Час: Бразилія, літній</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
-					<standard draft="provisional">за часом на островах Кабо-Верде</standard>
+					<generic draft="provisional">за часом на островах Кабо-Верде</generic>
+					<standard draft="provisional">за стандартним часом на островах Кабо-Верде</standard>
 					<daylight draft="provisional">за літнім часом на островах Кабо-Верде</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<generic draft="provisional">за часом Північних Маріанських островів</generic>
-					<standard draft="provisional">за стандартним часом Північних Маріанських островів</standard>
+					<standard draft="provisional">за часом Північних Маріанських островів</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
+					<generic draft="provisional">за часом архіпелагу Чатем</generic>
 					<standard draft="provisional">за стандартним часом архіпелагу Чатем</standard>
 					<daylight draft="provisional">за літнім часом архіпелагу Чатем</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
+					<generic draft="contributed">за китайським часом</generic>
 					<standard draft="contributed">за китайським стандартним часом</standard>
+					<daylight draft="contributed">за китайським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">Час: Чойбалсан</generic>
-					<standard draft="contributed">Час: Чойбалсан</standard>
+					<standard draft="contributed">Час: Чойбалсан, стандартний</standard>
 					<daylight draft="contributed">Час: Чойбалсан, літній</daylight>
 				</long>
 			</metazone>
@@ -3513,49 +3507,50 @@
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<standard draft="provisional">за часом на островах Кука</standard>
-					<daylight draft="provisional">за часом на островах Кука</daylight>
+					<generic draft="provisional">за часом на островах Кука</generic>
+					<standard draft="provisional">за стандартним часом на островах Кука</standard>
+					<daylight draft="provisional">за літнім часом на островах Кука</daylight>
 				</long>
-			</metazone>
-			<metazone type="Cuba">
-				<short>
-					<standard draft="provisional">CST (Куба)</standard>
-					<daylight draft="provisional">CDT (Куба)</daylight>
-				</short>
 			</metazone>
 			<metazone type="Easter">
 				<long>
-					<standard draft="provisional">за часом на острові Пасхи</standard>
+					<generic draft="provisional">за часом на острові Пасхи</generic>
+					<standard draft="provisional">за стандартним часом на острові Пасхи</standard>
 					<daylight draft="provisional">за літнім часом на острові Пасхи</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<standard draft="contributed">за центральноєвропейським часом</standard>
+					<generic draft="contributed">за центральноєвропейським часом</generic>
+					<standard draft="contributed">за центральноєвропейським стандартним часом</standard>
 					<daylight draft="contributed">за центральноєвропейським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<standard draft="contributed">за східноєвропейським часом</standard>
+					<generic draft="contributed">за східноєвропейським часом</generic>
+					<standard draft="contributed">за східноєвропейським стандартним часом</standard>
 					<daylight draft="contributed">за східноєвропейським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<standard draft="contributed">за західноєвропейським часом</standard>
+					<generic draft="contributed">за західноєвропейським часом</generic>
+					<standard draft="contributed">за західноєвропейським стандартним часом</standard>
 					<daylight draft="contributed">за західноєвропейським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
-					<standard draft="provisional">за часом на Фолклендських островах</standard>
+					<generic draft="provisional">за часом на Фолклендських островах</generic>
+					<standard draft="provisional">за стандартним часом на Фолклендських островах</standard>
 					<daylight draft="provisional">за літнім часом на Фолклендських островах</daylight>
 				</long>
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<standard draft="provisional">за часом на островах Фіджі</standard>
+					<generic draft="provisional">за часом на островах Фіджі</generic>
+					<standard draft="provisional">за стандартним часом на островах Фіджі</standard>
 					<daylight draft="provisional">за літнім часом на островах Фіджі</daylight>
 				</long>
 			</metazone>
@@ -3591,14 +3586,15 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic draft="contributed">Час: Гаваї/Алеутські о-ви</generic>
-					<standard draft="provisional">за стандартним гавайсько-алеутським часом</standard>
+					<generic draft="contributed">за гавайсько-алеутським часом</generic>
+					<standard draft="contributed">за стандартним гавайсько-алеутським часом</standard>
+					<daylight draft="contributed">за літнім гавайсько-алеутським часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic draft="contributed">Час: Говд</generic>
-					<standard draft="contributed">Час: Говд</standard>
+					<standard draft="contributed">Час: Говд, стандартний</standard>
 					<daylight draft="contributed">Час: Говд, літній</daylight>
 				</long>
 			</metazone>
@@ -3614,29 +3610,30 @@
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<generic draft="contributed">Час: Індонезія, центральний</generic>
+					<standard draft="contributed">Час: Індонезія, центральний</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<generic draft="contributed">Час: Індонезія, східний</generic>
+					<standard draft="contributed">Час: Індонезія, східний</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<generic draft="contributed">Час: Індонезія, західний</generic>
+					<standard draft="contributed">Час: Індонезія, західний</standard>
 				</long>
 			</metazone>
 			<metazone type="Iran">
 				<long>
+					<generic draft="contributed">за іранським часом</generic>
 					<standard draft="contributed">за іранським стандартним часом</standard>
 					<daylight draft="contributed">за іранським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic draft="contributed">Час: Іркутськ</generic>
-					<standard draft="contributed">за іркутським часом</standard>
+					<generic draft="contributed">за іркутським часом</generic>
+					<standard draft="contributed">за іркутським стандартним часом</standard>
 					<daylight draft="contributed">за іркутським літнім часом</daylight>
 				</long>
 			</metazone>
@@ -3656,28 +3653,26 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">Час: Камчатка</generic>
-					<standard draft="contributed">за камчатським часом</standard>
+					<generic draft="contributed">за камчатським часом</generic>
+					<standard draft="contributed">за камчатським стандартним часом</standard>
 					<daylight draft="contributed">за камчатським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">Час: Казахстан, східний</generic>
-					<standard draft="contributed">Час: Казахстан, східний стандартний</standard>
-					<daylight draft="contributed">Час: Казахстан, східний літній</daylight>
+					<standard draft="contributed">Час: Казахстан, східний</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">Час: Казахстан, західний</generic>
-					<standard draft="contributed">Час: Казахстан, західний стандартний</standard>
-					<daylight draft="contributed">Час: Казахстан, західний літній</daylight>
+					<standard draft="contributed">Час: Казахстан, західний</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
+					<generic draft="contributed">за корейським часом</generic>
 					<standard draft="contributed">за корейським стандартним часом</standard>
+					<daylight draft="contributed">за корейським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -3687,14 +3682,15 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic draft="contributed">Час: Красноярськ</generic>
-					<standard draft="contributed">за красноярським часом</standard>
+					<generic draft="contributed">за красноярським часом</generic>
+					<standard draft="contributed">за красноярським стандартним часом</standard>
 					<daylight draft="contributed">за красноярським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kuybyshev">
 				<long>
-					<standard draft="contributed">за куйбишевським часом</standard>
+					<generic draft="contributed">за куйбишевським часом</generic>
+					<standard draft="contributed">за куйбишевським стандартним часом</standard>
 					<daylight draft="contributed">за куйбишевським літнім часом</daylight>
 				</long>
 			</metazone>
@@ -3717,13 +3713,13 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<generic draft="contributed">Час: Макквері</generic>
+					<standard draft="contributed">Час: Макквері</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
-					<generic draft="contributed">Час: Магадан</generic>
-					<standard draft="contributed">за магаданським часом</standard>
+					<generic draft="contributed">за магаданським часом</generic>
+					<standard draft="contributed">за магаданським стандартним часом</standard>
 					<daylight draft="contributed">за магаданським літнім часом</daylight>
 				</long>
 			</metazone>
@@ -3744,14 +3740,15 @@
 			</metazone>
 			<metazone type="Mauritius">
 				<long>
-					<standard draft="provisional">за часом на острові Маврикій</standard>
+					<generic draft="provisional">за часом на острові Маврикій</generic>
+					<standard draft="provisional">за стандартним часом на острові Маврикій</standard>
 					<daylight draft="provisional">за літнім часом на острові Маврикій</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Час: Монголія</generic>
-					<standard draft="contributed">Час: Улан-Батор</standard>
+					<generic draft="contributed">Час: Улан-Батор</generic>
+					<standard draft="contributed">Час: Улан-Батор, стандартний</standard>
 					<daylight draft="contributed">Час: Улан-Батор, літній</daylight>
 				</long>
 			</metazone>
@@ -3771,22 +3768,22 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Час: Норонья</generic>
-					<standard draft="contributed">Час: Фернандо-де-Норонья</standard>
+					<generic draft="contributed">Час: Фернандо-де-Норонья</generic>
+					<standard draft="contributed">Час: Фернандо-де-Норонья, стандартний</standard>
 					<daylight draft="contributed">Час: Фернандо-де-Норонья, літній</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
-					<generic draft="contributed">Час: Новосибірськ</generic>
-					<standard draft="contributed">за новосибірським часом</standard>
+					<generic draft="contributed">за новосибірським часом</generic>
+					<standard draft="contributed">за новосибірським стандартним часом</standard>
 					<daylight draft="contributed">за новосибірським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
-					<generic draft="contributed">Час: Омськ</generic>
-					<standard draft="contributed">за омським часом</standard>
+					<generic draft="contributed">за омським часом</generic>
+					<standard draft="contributed">за омським стандартним часом</standard>
 					<daylight draft="contributed">за омським літнім часом</daylight>
 				</long>
 			</metazone>
@@ -3797,15 +3794,15 @@
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
-					<generic draft="contributed">Час: Сахалін</generic>
-					<standard draft="contributed">за сахалін часом</standard>
+					<generic draft="contributed">за сахалін часом</generic>
+					<standard draft="contributed">за сахалін стандартним часом</standard>
 					<daylight draft="contributed">за сахалін літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<generic draft="contributed">Час: Самара</generic>
-					<standard draft="contributed">за самарським часом</standard>
+					<generic draft="contributed">за самарським часом</generic>
+					<standard draft="contributed">за самарським стандартним часом</standard>
 					<daylight draft="contributed">за самарським літнім часом</daylight>
 				</long>
 			</metazone>
@@ -3821,35 +3818,36 @@
 			</metazone>
 			<metazone type="Turkey">
 				<long>
-					<standard draft="contributed">за турецьким часом</standard>
+					<generic draft="contributed">за турецьким часом</generic>
+					<standard draft="contributed">за турецьким стандартним часом</standard>
 					<daylight draft="contributed">за турецьким літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
-					<generic draft="contributed">Час: Владивосток</generic>
-					<standard draft="contributed">за владивостоцьким часом</standard>
+					<generic draft="contributed">за владивостоцьким часом</generic>
+					<standard draft="contributed">за владивостоцьким стандартним часом</standard>
 					<daylight draft="contributed">за владивостоцьким літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<generic draft="contributed">Час: Волгоград</generic>
-					<standard draft="contributed">за волгоградським часом</standard>
+					<generic draft="contributed">за волгоградським часом</generic>
+					<standard draft="contributed">за волгоградським стандартним часом</standard>
 					<daylight draft="contributed">за волгоградським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic draft="contributed">Час: Якутськ</generic>
-					<standard draft="contributed">за якутським часом</standard>
+					<generic draft="contributed">за якутським часом</generic>
+					<standard draft="contributed">за якутським стандартним часом</standard>
 					<daylight draft="contributed">за якутським літнім часом</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic draft="contributed">Час: Єкатеринбург</generic>
-					<standard draft="contributed">за єкатеринбурзьким часом</standard>
+					<generic draft="contributed">за єкатеринбурзьким часом</generic>
+					<standard draft="contributed">за єкатеринбурзьким стандартним часом</standard>
 					<daylight draft="contributed">за єкатеринбурзьким літнім часом</daylight>
 				</long>
 			</metazone>

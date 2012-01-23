@@ -487,6 +487,6 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!-- Gender List support -->
 <!ELEMENT gender ( personList+ ) >
 <!ELEMENT personList EMPTY >
-<!ATTLIST personList type ( neutral, mixedNeutral, maleTaints ) #REQUIRED >
+<!ATTLIST personList type ( neutral | mixedNeutral | maleTaints ) #REQUIRED >
 <!ATTLIST personList locales NMTOKENS #REQUIRED >
 

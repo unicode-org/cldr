@@ -11,7 +11,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
     $Date$
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, references?, languageMatching?, dayPeriodRuleSet?, metaZones?, windowsZones?, coverageLevels?) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, measurementData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?,  gender?, references?, languageMatching?, dayPeriodRuleSet?, metaZones?, windowsZones?, coverageLevels?) >
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
@@ -483,4 +483,10 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT parentLocale EMPTY >
 <!ATTLIST parentLocale parent CDATA #REQUIRED >
 <!ATTLIST parentLocale locales CDATA #REQUIRED >
+
+<!-- Gender List support -->
+<!ELEMENT gender ( personList+ ) >
+<!ELEMENT personList EMPTY >
+<!ATTLIST personList type ( neutral, mixedNeutral, maleTaints ) #REQUIRED >
+<!ATTLIST personList locales NMTOKENS #REQUIRED >
 

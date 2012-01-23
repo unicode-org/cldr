@@ -14,6 +14,7 @@ package org.unicode.cldr.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FilenameFilter;
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -28,31 +29,69 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 public class XMLValidator {
+    public static boolean quiet = false;
     public static boolean parseonly=false;
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (args.length == 0) {
             System.out.println("No files specified. Validation failed");
             return;
         }
         for (int i = 0; i < args.length; i++) {
-            if(args[i].equals("--help")) {
+            if(args[i].equals("-q") || args[i].equals("--quiet")) {
+                quiet = true;
+            } else if(args[i].equals("--help")) {
                 usage();
                 return;
             } else if(args[i].equals("--parseonly")) {
                 System.err.println("# DTD Validation is disabled. Will only check for well formed XML.");
                 parseonly = true;
             } else {
-                System.out.println("Processing file " + args[i]);
-                /* Document doc = */parse(args[i]);
+                File f = new File(args[i]);
+                if(f.isDirectory()) {
+                    parseDirectory(f);
+                } else {
+                  if(!quiet) System.out.println("Processing file " + args[i]);
+                  /* Document doc = */parse(args[i]);
+                }
             }
         }
         if(parseonly) {
             System.err.println("# DTD Validation is disabled. Only checked for well formed XML.");
         }
     }
+    private static void parseDirectory(File f) throws IOException {
+        //System.err.println("Parsing directory " + f.getAbsolutePath());
+        for(File s : f.listFiles(new FilenameFilter(){
+            @Override
+            public boolean accept(File arg0, String arg1) {
+                if(arg1.startsWith(".")) {
+                    return false; // skip  .git, .svn, ...
+                }
+                File n  =new File(arg0,arg1);
+                //System.err.println("Considering " + n.getAbsolutePath() );
+                if(n.isDirectory()) {
+                    try {
+                        parseDirectory(n);
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                        System.err.println("Error " + e.toString() + " parsing " + arg0.getPath());
+                    }
+                    return false;
+                } else if(arg1.endsWith(".xml")) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }})) {
+            if(!quiet) System.out.println("Processing file " + s.getPath());
+            /* Document doc = */parse(s.getCanonicalPath());
+        }
+    }
     private static void usage() {
-        System.err.println("usage:  "+XMLValidator.class.getName()+" [ --help ] [ --parseonly ] file ...");
+        System.err.println("usage:  "+XMLValidator.class.getName()+" [ -q ] [ --help ] [ --parseonly ] file ...");
+        System.err.println("usage:  "+XMLValidator.class.getName()+" [ -q ] [ --help ] [ --parseonly ] directory ...");
     }
     /**
      * Utility method to translate a String filename to URL.

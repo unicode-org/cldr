@@ -191,9 +191,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li>5.14 <a href="#Collation_Elements">Collation Elements</a> </li>
 			<li>5.15 <a href="#Segmentations">Segmentations</a></li>
 			<li>5.16 <a href="#Transforms">Transforms</a></li>
-			<li>5.17
-			<a href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></li>
+			<li>5.17 <a href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></li>
 			<li>5.18 <a href="#ListPatterns">List Patterns</a></li>
+			<li><span class="changed">5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></span></li>
+			<li><span class="changed">5.20 <a href="#Metadata_Elements">Metadata Elements</a></span></li>
 		</ul>
 		<p>Appendix A: <a href="#Sample_Special_Elements">Sample Special Elements</a> </p>
 		<ul class="toc">
@@ -1427,6 +1428,7 @@ root</pre>
 	<ul>
 		<li>common/collation/ja.xml</li>
 		<li>common/main/ja.xml</li>
+		<li><span class="changed">common/rbnf/ja.xml</span></li>
 		<li>common/segmentations/ja.xml</li>
 	</ul>
 	<p>The status of the data is the same, whether or not data is split. That is, for the purpose of validation and lookup, all of the data for the above ja.xml 
@@ -1441,14 +1443,16 @@ root</pre>
 	<p>The following sections describe the structure of the XML format for language-dependent data. The more precise syntax is in the DTD, listed at the top of 
 	this document<i>; however, the DTD does not describe all the constraints on the structure.</i></p>
 	<p>To start with, the root element is &lt;ldml&gt;, with the following DTD entry:</p>
-	<span class="dtd">&lt;!ELEMENT ldml (identity, (alias |(fallback*, localeDisplayNames?, layout?, characters?, delimiters?,
-	measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?,
+	<span class="dtd">&lt;!ELEMENT ldml (identity, (alias |(fallback*, localeDisplayNames?, layout?,
+	<span class="changed">contextTransforms?, </span>characters?, delimiters?, measurement?, dates?, numbers?, units?,
+	listPatterns?, collations?, posix?, segmentations?, rbnf?, <span class="changed">metadata?, </span>
 	references?, special*))) &gt;</span><p>That element contains the following elements:</p>
 	<ul>
 		<li><a href="#Identity_Elements">&lt;identity&gt;</a></li>
 		<li><a href="#Fallback_Elements">&lt;fallback&gt;</a></li>
 		<li><a href="#Display_Name_Elements">&lt;localeDisplayNames&gt;</a></li>
 		<li><a href="#Layout_Elements">&lt;layout&gt;</a></li>
+		<li><span class="changed"><a href="#Context_Transform_Elements">&lt;contextTransforms&gt;</a></span></li>
 		<li><a href="#Character_Elements">&lt;characters&gt;</a></li>
 		<li><a href="#Delimiter_Elements">&lt;delimiters&gt;</a></li>
 		<li><a href="#Measurement_Elements">&lt;measurement&gt;</a></li>
@@ -1460,6 +1464,7 @@ root</pre>
 		<li><a href="#POSIX_Elements">&lt;posix&gt;</a></li>
 		<li><a href="#Segmentations">&lt;segmentations&gt;</a></li>
 		<li><a href="#Rule-Based_Number_Formatting">&lt;rbnf&gt;</a></li>
+		<li><span class="changed"><a href="#Metadata_Elements">&lt;metadata&gt;</a></span></li>
 		<li><a href="#Reference_Elements">&lt;references&gt;</a></li>
 	</ul>
 	<p>The structure of each of these elements and their contents will be described below. The first few elements have little structure, while dates, numbers, and 
@@ -1758,7 +1763,7 @@ root</pre>
 	<p class="example">&lt;territory type=&quot;UM&quot; references=&quot;R222&quot;&gt;USAs yttre öar&lt;/territory&gt;</p>
 	<p>The reference element may be inherited. Thus, for example, R222 may be used in sv_SE.xml even though it is not defined there, if it is defined in sv.xml.</p>
 	<p><br>
-	&lt;... allow=&quot;verbatim&quot; ...&gt;<br>
+	&lt;... allow=&quot;verbatim&quot; ...&gt; <span class="changed">(deprecated)</span><br>
 	<br>
 	In certain circumstances, one or more elements do not follow the rule of the majority. as indicated by the inText element. In this case, the allow attribute 
 	is used:<br>
@@ -1865,7 +1870,12 @@ root</pre>
 	<p class="dtd">&lt;!ELEMENT localeDisplayNames (alias | (localeDisplayPattern?, languages?, scripts?, territories?, variants?,
 	keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special*)) 
 	&gt;</p>
-	<p>Display names for scripts, languages, countries, currencies, and variants in this locale are supplied by this element. They supply localized names for these items for use in user-interfaces for displaying menu lists. In addition, the localized names for currency items may also be suitable for use in user-interfaces involving flowing text.
+	<p>Display names for scripts, languages, countries, currencies, and variants in this locale are supplied by this element.
+	They supply localized names for these items for use in user-interfaces for <span class="removed">displaying menu lists</span>
+	<span class="changed">various purposes such as displaying menu lists, displaying a language name in a dialog, and so on.
+	Capitalization should follow the conventions used in the middle of running text; the &lt;contextTransforms&gt; element may be used to
+	specify the appropriate capitalization for other contexts (see <i>Section 5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></i>)</span>.
+	<span class="removed">In addition, the localized names for currency items may also be suitable for use in user-interfaces involving flowing text.</span>
 	Examples are given below. </p>
 
 	<blockquote>
@@ -2014,8 +2024,10 @@ root</pre>
 	are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more 
 	information, see <i>UAX #9: The Bidirectional Algorithm</i> [<a href="http://www.unicode.org/reports/tr41/#UAX9">UAX9</a>]).</p>
 	<p>For dates, times, and other data to appear in the right order, the display for them should be set to the orientation of the locale.</p>
-	<p>&lt;inList&gt;</p>
-	<p>The following element controls whether display names (language, territory, etc) are 
+	<p>&lt;inList&gt; <span class="changed">(deprecated)</span></p>
+	<p><span class="changed">The &lt;inList&gt; element is deprecated and has been superseded by the &lt;contextTransforms&gt; element;
+	see <i>Section 5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></i>.</span></p>
+	<p><span class="changed">This</span> element controls whether display names (language, territory, etc) are 
 	title cased in GUI menu lists and the like. It is only used in languages 
 	where the normal display is lower case, but title case is used in lists. There are two options:</p>
 	<pre>&lt;inList casing=&quot;titlecase-words&quot;&gt;</pre>
@@ -2026,7 +2038,9 @@ root</pre>
 	as defined by the Unicode Standard will produce the wrong value. For example, suppose that &quot;turc de Crimée&quot; is a value, and the 
 	title case should be &quot;Turc de 
 	Crimée&quot;. Then that can be expressed using the alt=&quot;list&quot; value.</p>
-	<p>&lt;inText&gt;</p>
+	<p>&lt;inText&gt; <span class="changed">(deprecated)</span></p>
+	<p><span class="changed">The &lt;inList&gt; element is deprecated and has been superseded by the &lt;contextTransforms&gt; element;
+	see <i>Section 5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></i>.</span></p>
 	<p>This element indicates the casing of the data in the category identified by the inText type attribute, when that data is written in text or how it would 
 	appear in a dictionary. For example :</p>
 	<pre>&lt;inText type=&quot;languages&quot;&gt;lowercase-words&lt;/inText&gt;</pre>
@@ -2292,7 +2306,7 @@ The index Separator can used to separate the index characters if they occur in f
 	&lt;!ELEMENT eraNarrow ( alias | (era*, special*) ) &gt;<br>
 	</span></p>
 	<p>Month, day, and quarter names may vary along two axes: the width and the context. The context is either <i>format</i> (the default), the form used within 
-	a date format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in Calendar headers. The width 
+	a date format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in calendar headers. The width 
 	can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i>. The format values must be distinct for the wide and abbreviated widths.
 	However, values for the narrow width in either format or stand-alone contexts, as well as  values for other widths in stand-alone contexts, need not be distinct;
 	they might only be distinguished by context. For example, &quot;S&quot; may be used both for Saturday and for Sunday. The stand-alone context is typically 
@@ -2300,6 +2314,11 @@ The index Separator can used to separate the index characters if they occur in f
 	in stand-alone values, and the shortest possible widths (in terms of grapheme clusters) in format values.</p>
 	<p><span class="changed">Era names should be distinct within each of the widths, including narrow; there is less disambiguating information
 	for them, and they are more likely to be used in a format that requires parsing.</span></p>
+	<p><span class="changed">The most important distinction to make between format and stand-alone forms is a grammatical distinction, for languages that require it.
+	For example, many languages require that a month name without an associated day number be in the basic <i>nominative</i> form, while a month name with an associated day
+	number should be in a different grammatical form: <i>genitive</i>, <i>partitive</i>, etc. Another common type of distinction between format and stand-alone involves
+	capitalization; however, this can be controlled separately and more precisely using the &lt;contextTransforms&gt; element as described in
+	<i>Section 5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></i>.</span></p>
 	<p>Due to aliases in root, the forms inherit 
     &quot;sideways&quot;. (See <i>Section 4.1
 	<a href="#Multiple_Inheritance">Multiple Inheritance</a></i>.) 
@@ -4537,14 +4556,14 @@ text data in the rule. For example, the following are all disallowed:</p>
 	used for formatting year numbers in formal documents, such as &quot;nineteen 
 	hundred seventy-six&quot; instead of &quot;one thousand nine hundred seventy-six&quot;.</p>
 	<div>
-	  <h3>5.18 <a name="ListPatterns"></a>List Patterns</h3>
-	<p class="dtd">&lt;!ELEMENT listPatterns (alias | (listPattern*, special*)) &gt;</p>
-  <p class="dtd">&lt;!ELEMENT listPattern (alias | (listPatternPart*, special*)) &gt;<br>
+<h3>5.18 <a name="ListPatterns"></a>List Patterns</h3>
+<p class="dtd">&lt;!ELEMENT listPatterns (alias | (listPattern*, special*)) &gt;</p>
+<p class="dtd">&lt;!ELEMENT listPattern (alias | (listPatternPart*, special*)) &gt;<br>
     &lt;!ATTLIST listPattern type (NMTOKEN) #IMPLIED &gt;</p>
-  <p class="dtd">&lt;!ELEMENT listPatternPart ( #PCDATA ) &gt;<br>
+<p class="dtd">&lt;!ELEMENT listPatternPart ( #PCDATA ) &gt;<br>
     &lt;!ATTLIST listPatternPart type (start | middle | end | 2 | 3) #REQUIRED &gt;</p>
-  <p>List patterns can be used to format variable-length lists of things in a locale-sensitive manner, such as "Monday, Tuesday, Friday, and Saturday" (in English) versus &quot;lundi, mardi, vendredi et samedi&quot; (in French). For example, consider the following example:</p>
-  <pre class="example">&lt;listPatterns&gt;
+<p>List patterns can be used to format variable-length lists of things in a locale-sensitive manner, such as "Monday, Tuesday, Friday, and Saturday" (in English) versus &quot;lundi, mardi, vendredi et samedi&quot; (in French). For example, consider the following example:</p>
+<pre class="example">&lt;listPatterns&gt;
  &lt;listPattern&gt;
   &lt;listPatternPart type=&quot;2&quot;&gt;{0} and {1}&lt;/listPatternPart&gt;<br>  &lt;listPatternPart type=&quot;start&quot;&gt;{0}, {1}&lt;/listPatternPart&gt;
   &lt;listPatternPart type=&quot;middle&quot;&gt;{0}, {1}&lt;/listPatternPart&gt;
@@ -4562,6 +4581,99 @@ text data in the rule. For example, the following are all disallowed:</p>
   </ol>
   <p>Thus a list (a,b,c,...m, n) is formatted as: start(a,middle(b,middle(c,middle(...end(m, n))...)))</p>
 </div>
+<h3><span class="changed">5.19 <a name="Context_Transform_Elements"></a>ContextTransform Elements</span></h3>
+	<p class="dtd"><span class="changed">
+	&lt;!ELEMENT contextTransforms ( alias | (contextTransformUsage*, special*)) &gt;<br>
+	&lt;!ELEMENT contextTransformUsage ( alias | (contextTransform*, special*)) &gt;<br>
+	&lt;!ATTLIST contextTransformUsage type CDATA #REQUIRED &gt;<br>
+	&lt;!ELEMENT contextTransform ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST contextTransform type ( uiListOrMenu | stand-alone ) #REQUIRED &gt;<br>
+	</span></p>
+	<p><span class="changed">CLDR locale elements provide data for display names or symbols in many categories. The default capitalization for these elements is intended
+	to be the form used in the middle of running text. In many languages, other capitalization may be required in other contexts, depending on the type of name
+	or symbol.</span></p>
+	<p><span class="changed">Each &lt;contextTransformUsage&gt; element’s type attribute specifies a category of data from the table below; the element includes
+	one or more &lt;contextTransform&gt; elements that specify how to perform capitalization of this category of data in different contexts.
+	The &lt;contextTransform&gt; elements are only needed for cases in which the capitalization is other than the default form used in the middle of running text.
+	The only value currently defined for the &lt;contextTransform&gt; element is the transformation "titlecase-firstword", covering the case in which text that is
+	otherwise lowercase needs to have its first word titlecased. No other necessary case transforms have been identified.</span></p>
+	<p><span class="changed">Four contexts for capitalization behavior are currently identified. Two need no data, and hence have no corresponding 
+	&lt;contextTransform&gt; elements:</span></p>
+	<ul>
+	<li><span class="changed">In the middle of running text: This is the default form, so no additional data is required.</span></li>
+	<li><span class="changed">At the beginning of a complete sentence: The initial word is titlecased, no additional data is required to indicate this.</span></li>
+	</ul>
+	<p><span class="changed">Two other contexts require &lt;contextTransform&gt; elements if their capitalization behavior is other than the default for running text.
+	The context is identified by the type attribute, as follows:</span></p>
+	<ul>
+	<li><span class="changed">uiListOrMenu: Capitalization apprpriate to a user-interface list or menu.</span></li>
+	<li><span class="changed">stand-alone: Capitalization apprpriate to an isolated user-interface element (e.g. an isolated name on a calendar page)</span></li>
+	</ul>
+	<p><span class="changed">Example:</span></p>
+	<pre><span class="changed">    &lt;contextTransforms&gt;
+        &lt;contextTransformUsage type="languages"&gt;
+             &lt;contextTransform type="uiListOrMenu"&gt;titlecase-firstword&lt;/contextTransform&gt;
+             &lt;contextTransform type="stand-alone"&gt;titlecase-firstword&lt;/contextTransform&gt;
+        &lt;/contextTransformUsage&gt;
+        &lt;contextTransformUsage type="month-format-except-narrow"&gt;
+             &lt;contextTransform type="uiListOrMenu"&gt;titlecase-firstword&lt;/contextTransform&gt;
+        &lt;/contextTransformUsage&gt;
+        &lt;contextTransformUsage type="month-standalone-except-narrow"&gt;
+             &lt;contextTransform type="uiListOrMenu"&gt;titlecase-firstword&lt;/contextTransform&gt;
+        &lt;/contextTransformUsage&gt;
+    &lt;/contextTransforms&gt;
+</span></pre>
+	<table cellspacing="0" cellpadding="2" border="1">
+		<caption><span class="changed">&lt;contextTransformUsage&gt; type attribute values</span></caption>
+		<tr><th><span class="changed">type attribute value</span></th><th><span class="changed">Description</span></th></tr>
+		<tr><td><span class="changed">all</span></td><td><span class="changed">Special value, indicates that the specified transformation applies to all of the categories below</span></td></tr>
+		<tr><td><span class="changed">language</span></td><td><span class="changed">localeDisplayNames language names</span></td></tr>
+		<tr><td><span class="changed">script</span></td><td><span class="changed">localeDisplayNames script names</span></td></tr>
+		<tr><td><span class="changed">territory</span></td><td><span class="changed">localeDisplayNames territory names</span></td></tr>
+		<tr><td><span class="changed">variant</span></td><td><span class="changed">localeDisplayNames variant names</span></td></tr>
+		<tr><td><span class="changed">key</span></td><td><span class="changed">localeDisplayNames key names</span></td></tr>
+		<tr><td><span class="changed">type</span></td><td><span class="changed">localeDisplayNames type names</span></td></tr>
+		<tr><td><span class="changed">month-format-except-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/months format wide and abbreviated month names</span></td></tr>
+		<tr><td><span class="changed">month-standalone-except-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/months stand-alone wide and abbreviated month names</span></td></tr>
+		<tr><td><span class="changed">month-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/months format and stand-alone narrow month names</span></td></tr>
+		<tr><td><span class="changed">day-format-except-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/days format wide and abbreviated day names</span></td></tr>
+		<tr><td><span class="changed">day-standalone-except-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/days stand-alone wide and abbreviated day names</span></td></tr>
+		<tr><td><span class="changed">day-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/days format and stand-alone narrow day names</span></td></tr>
+		<tr><td><span class="changed">era-name</span></td><td><span class="changed">dates/calendars/calendar[type=*]/eras (wide) era names</span></td></tr>
+		<tr><td><span class="changed">era-abbr</span></td><td><span class="changed">dates/calendars/calendar[type=*]/eras abbreviated era names</span></td></tr>
+		<tr><td><span class="changed">era-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/eras narrow era names</span></td></tr>
+		<tr><td><span class="changed">quarter-format-wide</span></td><td><span class="changed">dates/calendars/calendar[type=*]/quarters format wide quarter names</span></td></tr>
+		<tr><td><span class="changed">quarter-standalone-wide</span></td><td><span class="changed">dates/calendars/calendar[type=*]/quarters stand-alone wide quarter names</span></td></tr>
+		<tr><td><span class="changed">quarter-abbreviated</span></td><td><span class="changed">dates/calendars/calendar[type=*]/quarters format and stand-alone abbreviated quarter names</span></td></tr>
+		<tr><td><span class="changed">quarter-narrow</span></td><td><span class="changed">dates/calendars/calendar[type=*]/quarters format and stand-alone narrow quarter names</span></td></tr>
+		<tr><td><span class="changed">calendar-field</span></td><td><span class="changed">dates/calendars/calendar[type=*]/fields/field[type=*]/displayName field names<br>(for relative forms see type "tense" below)</span></td></tr>
+		<tr><td><span class="changed">zone-exemplarCity</span></td><td><span class="changed">dates/timeZoneNames/zone[type=*]/exemplarCity city names</span></td></tr>
+		<tr><td><span class="changed">zone-long</span></td><td><span class="changed">dates/timeZoneNames/zone[type=*]/long zone names</span></td></tr>
+		<tr><td><span class="changed">zone-short</span></td><td><span class="changed">dates/timeZoneNames/zone[type=*]/short zone names</span></td></tr>
+		<tr><td><span class="changed">metazone-long</span></td><td><span class="changed">dates/timeZoneNames/metazone[type=*]/long metazone names</span></td></tr>
+		<tr><td><span class="changed">metazone-short</span></td><td><span class="changed">dates/timeZoneNames/metazone[type=*]/short metazone names</span></td></tr>
+		<tr><td><span class="changed">symbol</span></td><td><span class="changed">numbers/currencies/currency[type=*]/symbol symbol names</span></td></tr>
+		<tr><td><span class="changed">displayName-count</span></td><td><span class="changed">numbers/currencies/currency[type=*]/displayName[count=*] currency names for use with count</span></td></tr>
+		<tr><td><span class="changed">displayName</span></td><td><span class="changed">numbers/currencies/currency[type=*]/displayName currency names</span></td></tr>
+		<tr><td><span class="changed">tense</span></td><td><span class="changed">units/unit[type=*-(past|future)]/unitPattern[count=*] relative unit names; dates/calendars/calendar[type=*]/fields/field[type=*]/relative relative field names</span></td></tr>
+		<tr><td><span class="changed">unit-pattern</span></td><td><span class="changed">units/unit[type=*]/unitPattern[count=*] unit names</span></td></tr>
+	</table>
+<h3><span class="changed">5.20 <a name="Metadata_Elements"></a>Metadata Elements</span></h3>
+	<p class="dtd"><span class="changed">
+	&lt;!ELEMENT metadata (casingData?) &gt;<br>
+	&lt;!ELEMENT casingData (casingItem*) &gt;<br>
+	&lt;!ELEMENT casingItem ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST casingItem type CDATA #REQUIRED &gt;<br>
+	</span></p>
+	<p><span class="changed">The &lt;metadata&gt; element contains metadata about the locale for use by the Survey Tool or other tools in
+	checking locale data; this data is not intended for export as part of the locale itself.</span></p>
+	<p><span class="changed">The &lt;casingItem&gt; element specifies the capitalization currently used by the majority of the data in a given category
+	with the locale. Its type attribute has one of the values used for the &lt;contextTransformUsage&gt; element above, with the exception of the special
+	value "all"; its value is one of the following:</span></p>
+	<ul>
+	<li><span class="changed">lowercase</span></li>
+	<li><span class="changed">titlecase</span></li>
+	</ul>
 <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
 	<p>The elements in this section are <i><b>not</b></i> part of the Locale Data Markup Language 1.0 specification. Instead, they are special elements used for 
 	application-specific data to be stored in the Common Locale Repository. They may change or be removed future versions of this document, and are present her 
@@ -8937,8 +9049,13 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Added documentation for ordinal plural forms. [ticket <a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
         <li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [ticket <a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
         <li>Clarified use of hour pattern characters (h, H, K, k) in skeletons and associated patterns, in both
-        <i>Section 5.9.1 <a href="#Calendar_Elements">Calendar Elements</a></i> and in the <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.
+        <i>Section 5.9.1 <a href="#Calendar_Elements">Calendar Elements</a></i> and in the <i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></i>.
         [ticket <a href="http://unicode.org/cldr/trac/ticket/4061">#4061</a>]</li>
+        <li>Added <i>Section 5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></i> and
+        <i>Section 5.20 <a href="#Metadata_Elements">Metadata Elements</a></i>.
+        Deprecated the &lt;inList&gt; and &lt;inText&gt; elements.
+        Added guidance for capitalization of display names, and for consideration of grammar vs. capitalization in format vs. stand-alone calendar names.
+        [ticket <a href="http://unicode.org/cldr/trac/ticket/4317">#4317</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

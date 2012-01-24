@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-01-22</span></td>
+			<td><span class="changed">2012-01-23</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -1762,20 +1762,10 @@ root</pre>
 	<p><i>Example:</i></p>
 	<p class="example">&lt;territory type=&quot;UM&quot; references=&quot;R222&quot;&gt;USAs yttre öar&lt;/territory&gt;</p>
 	<p>The reference element may be inherited. Thus, for example, R222 may be used in sv_SE.xml even though it is not defined there, if it is defined in sv.xml.</p>
-	<p><br>
-	&lt;... allow=&quot;verbatim&quot; ...&gt; <span class="changed">(deprecated)</span><br>
-	<br>
-	In certain circumstances, one or more elements do not follow the rule of the majority. as indicated by the inText element. In this case, the allow attribute 
-	is used:<br>
-	The example below indicates that variant names are normally lower case with one exception.<br>
-	</p>
-	<p><code>&lt;inText type=&quot;languages&quot;&gt;lowercase-words&lt;/inText&gt;<br>
-	&lt;variants&gt;<br>
-&nbsp;&nbsp;&nbsp; &lt;variant type=&quot;1901&quot;&gt;ortografia tradizionale tedesca&lt;/variant&gt;<br>
-&nbsp;&nbsp;&nbsp; &lt;variant type=&quot;1996&quot;&gt;ortografia tedesca del 1996&lt;/variant&gt;<br>
-&nbsp;&nbsp;&nbsp; &lt;variant type=&quot;NEDIS&quot; allow=&quot;verbatim&quot;&gt;dialetto del Natisone&lt;/variant&gt;<br>
-	&lt;/variants&gt;</code><br>
-	</p>
+	<p>&lt;... allow=&quot;verbatim&quot; ...&gt; <span class="changed">(deprecated)</span></p>
+	<p><span class="changed">This attribute was originally intended for use in marking display names whose capitalization differed from what was indicated by the
+	now-deprecated &lt;inText&gt; element (perhaps, for example, because the names included a proper noun). It was never supported in the dtd and is not needed for use
+	with the new &lt;contextTransforms&gt; element.</span></p>
 	<h4>5.2.1 <a name="Date_Ranges">Date and Date Ranges</a></h4>
 	<p>When attribute specify date ranges, it is usually done with 
 	attributes <i>from</i> and <i>to</i>. The <i>from</i> attribute specifies the starting point, 

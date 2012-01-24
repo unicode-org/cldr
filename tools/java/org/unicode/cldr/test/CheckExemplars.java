@@ -192,8 +192,12 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 s.set(script);
             }
         }
-        if (s.cardinality() < 2) {
+        final int cardinality = s.cardinality();
+        if (cardinality < 2) {
             return;
+        }
+        if (cardinality == 2 && title.equals("currencySymbol") && s.get(UScript.LATIN)) {
+            return; // allow 2 scripts in exemplars for currencies.
         }
         // allowable combinations
         if (s.equals(Japn) || s.equals(Kore)) {
@@ -215,6 +219,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 scripts.append(cp);
                 count++;
                 if (count > 3) {
+                    scripts.append('…');
                     break;
                 }
             }

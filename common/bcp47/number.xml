@@ -10,7 +10,9 @@
             <type name="arabext" description="Extended Arabic-Indic digits"/>
             <type name="armn" description="Armenian upper case numerals"/>
             <type name="armnlow" description="Armenian lower case numerals"/>
+            <type name="bali" description="Balinese digits" since="21"/>
             <type name="beng" description="Bengali digits"/>
+            <type name="cham" description="Cham digits" since="21"/>
             <type name="deva" description="Devanagari digits"/>
             <type name="ethi" description="Ethiopic numerals"/>
             <type name="finance" description="Financial numerals" since="21"/>
@@ -26,25 +28,39 @@
             <type name="hant" description="Traditional Chinese numerals"/>
             <type name="hantfin" description="Traditional Chinese financial numerals"/>
             <type name="hebr" description="Hebrew numerals"/>
+            <type name="java" description="Javanese digits" since="21"/>
             <type name="jpan" description="Japanese numerals"/>
             <type name="jpanfin" description="Japanese financial numerals"/>
+            <type name="kali" description="Kayah Li digits" since="21"/>
             <type name="khmr" description="Khmer digits"/>
             <type name="knda" description="Kannada digits"/>
+            <type name="lanahora" description="Tai Tham Hora digits" since="21"/>
+            <type name="lanatham" description="Tai Tham Tham digits" since="21"/>
             <type name="laoo" description="Lao digits"/>
             <type name="latn" description="Latin digits"/>
+            <type name="lepc" description="Lepcha digits" since="21"/>
+            <type name="limb" description="Limbu digits" since="21"/>
             <type name="mlym" description="Malayalam digits"/>
             <type name="mong" description="Mongolian digits"/>
+            <type name="mtei" description="Meetei Mayek digits" since="21"/>
             <type name="mymr" description="Myanmar digits"/>
+            <type name="mymrshan" description="Myanmar Shan digits" since="21"/>
             <type name="native" description="Native digits" since="21"/>
+            <type name="nkoo" description="N'Ko digits" since="21"/>
+            <type name="olck" description="Ol Chiki digits" since="21"/>
             <type name="orya" description="Oriya digits"/>
             <type name="roman" description="Roman upper case numerals"/>
             <type name="romanlow" description="Roman lowercase numerals"/>
+            <type name="saur" description="Saurashtra digits" since="21"/>
+            <type name="sund" description="Sundanese digits" since="21"/>
+            <type name="talu" description="New Tai Lue digits" since="21"/>
             <type name="taml" description="Tamil numerals"/>
             <type name="tamldec" description="Modern Tamil decimal digits" since="2.0.1"/>
             <type name="telu" description="Telugu digits"/>
             <type name="thai" description="Thai digits"/>
             <type name="tibt" description="Tibetan digits"/>
             <type name="traditio" alias="traditional" description="Traditional numerals" since="21"/>
+            <type name="vaii" description="Vai digits" since="21"/>
         </key>
     </keyword>
 </ldmlBCP47>

@@ -5690,14 +5690,19 @@ range         = value'..'value</pre>
   <p>In some cases, the normal truncation inheritance does not function well. This happens when:</p>
   <ol>
     <li>The child locale is of a different script. In this case, mixing elements from the parent into the child data results in a mishmash.</li>
-    <li>A large number of  child locales behave similarly, and differently from the truncation parent.</li>
+    <li>A large number of child locales behave similarly, and differently from the truncation parent.</li>
   </ol>
-  <p>The <span class="element">parentLocale</span> element is used to override the normal inheritance when accessing all CLDR data.</p>
+  <p>The <span class="element">parentLocale</span> element is used to override the normal inheritance when accessing <span class="removed">all </span>CLDR data.</p>
   <p>For case 1, the children are script locales, and the parent is &quot;root&quot;. For example:</p>
   <pre> &lt;parentLocale parent=&quot;root&quot; locales=&quot;az_Cyrl ha_Arab … zh_Hant&quot;/&gt;</pre>
   <p>For case 2, the children and parent share the same primary language, but the region is changed. For example:</p>
   <pre> &lt;parentLocale parent=&quot;es_419&quot; locales=&quot;es_AR es_BO … es_UY es_VE&quot;/&gt;</pre>
- 
+  <p><span class="changed">Collation data, however, is an exception.  Since collation rules do not truly inherit
+  data from the parent for display purposes, the parentLocale element is not necessary and not used for collation.
+  Thus, for a locale like zh_Hant in the example above, the parentLocale element would dictate the parent as &quot;root&quot;
+  when referring to main locale data, but for collation data, the parent locale would still be &quot;zh&quot;, 
+  even though the parentLocale element is present for that locale.</span></p>
+  
 <h2>Appendix D: <a name="Language_and_Locale_IDs">Unicode Language and Locale IDs</a></h2>
 	<p>People have very slippery notions of what distinguishes a language code 
 	versus a locale code. The problem is that both are somewhat nebulous concepts.</p>
@@ -9047,6 +9052,7 @@ decimal?, group?, special*)) &gt;</pre>
         Added guidance for capitalization of display names, and for consideration of grammar vs. capitalization in format vs. stand-alone calendar names.
         [ticket <a href="http://unicode.org/cldr/trac/ticket/4317">#4317</a>]</li>
 		<li>Added clarification of YY as fixed width week of year. [ticket <a href="http://unicode.org/cldr/trac/ticket/3862">#3862</a>]</li>
+		<li>Clarified that the parentLocale element does not apply to collation. [ticket <a href="http://unicode.org/cldr/trac/ticket/3897">#3897</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

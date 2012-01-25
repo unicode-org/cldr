@@ -195,6 +195,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li>5.18 <a href="#ListPatterns">List Patterns</a></li>
 			<li><span class="changed">5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></span></li>
 			<li><span class="changed">5.20 <a href="#Metadata_Elements">Metadata Elements</a></span></li>
+			<li><span class="changed">5.21 <a href="#Alias_Elements">Alias Elements</a></span></li>
 		</ul>
 		<p>Appendix A: <a href="#Sample_Special_Elements">Sample Special Elements</a> </p>
 		<ul class="toc">
@@ -1528,95 +1529,9 @@ root</pre>
         &lt;/posix:messages&gt;
     &lt;/special&gt;
 &lt;/ldml&gt;</pre>
-	<p class="element2"><b><span class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
-	&lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
-	&lt;!ATTLIST alias path CDATA #IMPLIED&gt;</span></b></p>
-	<p>The contents of any element can be replaced by an alias, which points to another source for the data. The elements in that source 
-	(a locale ID) are to be fetched from 
-	the corresponding location in the other source based on the path. Consider the following example:</p>
-	<pre>
-	&lt;calendar type=&quot;gregorian&quot;&gt;<br>	&lt;months&gt;<br>		&lt;default choice=&quot;format&quot;/&gt;<br>		&lt;monthContext type=&quot;format&quot;&gt;<br>			&lt;default choice=&quot;wide&quot;/&gt;<br>			&lt;monthWidth type=&quot;abbreviated&quot;&gt;<br>				<strong>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type='wide']&quot;/&gt;</strong><br>						&lt;/monthWidth&gt;</pre>
-	<p>If the locale &quot;de_DE&quot; is being accessed for a month name for format/abbreviated, then a resource bundle at &quot;de_DE&quot; will be searched for a resource element at the that path. If not found there, then the 
-  resource bundle at &quot;de&quot; will be searched, and so on. When the alias is found in root, then the search is restarted, but searching for format/<strong>wide</strong> element instead of format/abbreviated.</p>
-
-	<p>If the <b>path</b> attribute is present, then its value is an [<a href="#XPath">XPath</a>] that points to a different node in the tree. For example:</p>
-	<pre>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</pre>
-	<p>The default value if the path is not present is the same position in the tree. All of the attributes in the 
-	[<a href="#XPath">XPath</a>] must be <i>distinguishing</i> elements. 
-	For more details, see <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
-	<p>There is a special value for the source attribute, the constant <b>source=&quot;locale&quot;</b>. This special value is equivalent to the 
-	locale being resolved. For example, consider the following example, where locale data for &#39;de&#39; is being resolved:</p>
-	<div align="center">
-		<center>
-		<table border="1" cellpadding="0" cellspacing="1">
-			<caption>Inheritance with source=&quot;locale&quot;</caption>
-			<tr>
-				<th>Root</th>
-				<th>de</th>
-				<th bgcolor="#C0C0C0">Resolved</th>
-			</tr>
-			<tr>
-				<td><code>&lt;x&gt;<br>
-&nbsp; &lt;a&gt;1&lt;/a&gt;<br>
-&nbsp; &lt;b&gt;2&lt;/b&gt;<br>
-&nbsp; &lt;c&gt;3&lt;/c&gt;<br>
-				<br>
-				&lt;/x&gt;</code></td>
-				<td><code>&lt;x&gt;<br>
-&nbsp;&lt;a&gt;11&lt;/a&gt;<br>
-&nbsp;&lt;b&gt;12&lt;/b&gt;<br>
-				<br>
-&nbsp;&lt;d&gt;14&lt;/d&gt;<br>
-				&lt;/x&gt;</code></td>
-				<td bgcolor="#C0C0C0"><code>&lt;x&gt;<br>
-&nbsp;&lt;a&gt;11&lt;/a&gt;<br>
-&nbsp;&lt;b&gt;12&lt;/b&gt;<br>
-&nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
-&nbsp;&lt;d&gt;14&lt;/d&gt;<br>
-				&lt;/x&gt;</code></td>
-			</tr>
-			<tr>
-				<td><code>&lt;y&gt;<br>
-&nbsp;&lt;alias source=&quot;locale&quot; path=&quot;../x&quot;&gt;<br>
-				&lt;/y&gt;</code></td>
-				<td><code>&lt;y&gt;<br>
-				<br>
-&nbsp;&lt;b&gt;22&lt;/b&gt;<br>
-				<br>
-				<br>
-&nbsp;&lt;e&gt;25&lt;/e&gt;<br>
-				&lt;/y&gt;</code></td>
-				<td bgcolor="#C0C0C0"><code>&lt;y&gt;<br>
-&nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;a&gt;11&lt;/a&gt;</span></span></span><br>
-&nbsp;&lt;b&gt;22&lt;/b&gt;<br>
-&nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
-&nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;d&gt;14&lt;/d&gt;</span></span></span><br>
-&nbsp;&lt;e&gt;25&lt;/e&gt;<br>
-				&lt;/y&gt;</code></td>
-			</tr>
-		</table>
-		</center></div>
-	<p>The first row shows the inheritance within the &lt;x&gt; element, whereby &lt;c&gt; is inherited from root. The second shows the inheritance within the &lt;y&gt; element, 
-	whereby &lt;a&gt;, &lt;c&gt;, and &lt;d&gt; are inherited also from root, but from an alias there. The alias in root is logically replaced not by the elements in root itself, 
-	but by elements in the &#39;target&#39; locale.</p>
-	<p>As of CLDR 2.0, aliases will only be used in CLDR in two  circumstances.</p>
-  <ol>
-      <li>in <strong>root</strong>, with the form: //ldml/.../alias[@source=&quot;locale&quot;][@path=&quot;...&quot;]</li>
-      <li>in <strong>other locales</strong>, with the form: //ldml/alias[@source=&quot;...&quot;][@path=&quot;//ldml&quot;]</li>
-  </ol>
-<p>    That is, either the locale is root and the source is &quot;locale&quot;, or there is nothing else in the locale, and the path is //ldml. The latter is  used to alias an entire locale, such as aliasing &quot;iw.xml&quot; to point to &quot;he.xml&quot;.	This second usage may be withdrawn in the future, since it is only used where the locale identifier is deprecated, which can be determined from CLDR metadata.</p>
-	<p>For more details on data resolution, see <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
-  <p>Aliases must be  resolved recursively. An alias may point to another path that results in another alias being found, and so on. For example, looking up Thai buddhist abbreviated months for the locale <strong>xx-YY</strong> may result in the following chain of aliases being followed:</p>
-  <blockquote>
-    <p>../../calendar[@type=&quot;buddhist&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
-    <p> xx-YY → xx → root // finds alias that changes path to:</p>
-    <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
-    <p> xx-YY → xx → root // finds alias that changes path to:</p>
-    <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;wide&quot;] </p>
-    <p>xx-YY → xx // finds value here</p>
-  </blockquote>
-  <p>It is an error to have a circular chain of aliases. That is, a collection of LDML XML documents must not have situations where a sequence of alias lookups 
-	  (including inheritance and multiple inheritance) can be followed indefinitely without terminating.</p>
+    <p><span class="changedspan">The alias element used to be a common element.
+    Its usage has since been modified so that it only occurs in root. See
+    <em>5.21 <a href="#Alias_Elements">Alias Elements</a></em> for more information.</span></p>
   <p class="dtd">&lt;displayName&gt;</p>
 	<p>Many elements can have a display name. This is a translated name that can be presented to users when discussing the particular service. For example, a number 
 	format, used to format numbers using the conventions of that locale, can have translated name for presentation in GUIs.</p>
@@ -4664,6 +4579,100 @@ text data in the rule. For example, the following are all disallowed:</p>
 	<li><span class="changed">lowercase</span></li>
 	<li><span class="changed">titlecase</span></li>
 	</ul>
+    <h3>5.21 <a name="Alias_Elements">Alias Elements</a></h3>
+      <p class="element2"><b><span class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
+      &lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
+      &lt;!ATTLIST alias path CDATA #IMPLIED&gt;</span></b></p>
+      <p>The contents of any element <span class="changedspan">in root</span>can be replaced by an alias,
+      which points to <span class="changedspan">the path where the data can be found</span><span class="removedspan">another source for the data</span>.</span>
+      <span class="removedspan">The elements in that source 
+      (a locale ID) are to be fetched from 
+      the corresponding location in the source based on the path. </span>
+      <p><span class="changedspan">Aliases will only ever appear in root with the form //ldml/.../alias[@source=&quot;locale&quot;][@path=&quot;...&quot;].</span></p>
+      Consider the following example <span class="changedspan">in root</span>:</p>
+      <pre>
+      &lt;calendar type=&quot;gregorian&quot;&gt;<br> &lt;months&gt;<br>      &lt;default choice=&quot;format&quot;/&gt;<br>      &lt;monthContext type=&quot;format&quot;&gt;<br>            &lt;default choice=&quot;wide&quot;/&gt;<br>            &lt;monthWidth type=&quot;abbreviated&quot;&gt;<br>             <strong>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type='wide']&quot;/&gt;</strong><br>                      &lt;/monthWidth&gt;</pre>
+      <p>If the locale &quot;de_DE&quot; is being accessed for a month name for format/abbreviated, then a resource bundle at &quot;de_DE&quot; will be searched for a resource element at the that path. If not found there, then the 
+    resource bundle at &quot;de&quot; will be searched, and so on. When the alias is found in root, then the search is restarted, but searching for format/<strong>wide</strong> element instead of format/abbreviated.</p>
+
+      <p>If the <b>path</b> attribute is present, then its value is an [<a href="#XPath">XPath</a>] that points to a different node in the tree. For example:</p>
+      <pre>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</pre>
+      <p>The default value if the path is not present is the same position in the tree. All of the attributes in the 
+      [<a href="#XPath">XPath</a>] must be <i>distinguishing</i> elements. 
+      For more details, see <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
+      <p>There is a special value for the source attribute, the constant <b>source=&quot;locale&quot;</b>. This special value is equivalent to the 
+      locale being resolved. For example, consider the following example, where locale data for &#39;de&#39; is being resolved:</p>
+      <div align="center">
+          <center>
+          <table border="1" cellpadding="0" cellspacing="1">
+              <caption>Inheritance with source=&quot;locale&quot;</caption>
+              <tr>
+                  <th>Root</th>
+                  <th>de</th>
+                  <th bgcolor="#C0C0C0">Resolved</th>
+              </tr>
+              <tr>
+                  <td><code>&lt;x&gt;<br>
+  &nbsp; &lt;a&gt;1&lt;/a&gt;<br>
+  &nbsp; &lt;b&gt;2&lt;/b&gt;<br>
+  &nbsp; &lt;c&gt;3&lt;/c&gt;<br>
+                  <br>
+                  &lt;/x&gt;</code></td>
+                  <td><code>&lt;x&gt;<br>
+  &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
+  &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
+                  <br>
+  &nbsp;&lt;d&gt;14&lt;/d&gt;<br>
+                  &lt;/x&gt;</code></td>
+                  <td bgcolor="#C0C0C0"><code>&lt;x&gt;<br>
+  &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
+  &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
+  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
+  &nbsp;&lt;d&gt;14&lt;/d&gt;<br>
+                  &lt;/x&gt;</code></td>
+              </tr>
+              <tr>
+                  <td><code>&lt;y&gt;<br>
+  &nbsp;&lt;alias source=&quot;locale&quot; path=&quot;../x&quot;&gt;<br>
+                  &lt;/y&gt;</code></td>
+                  <td><code>&lt;y&gt;<br>
+                  <br>
+  &nbsp;&lt;b&gt;22&lt;/b&gt;<br>
+                  <br>
+                  <br>
+  &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
+                  &lt;/y&gt;</code></td>
+                  <td bgcolor="#C0C0C0"><code>&lt;y&gt;<br>
+  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;a&gt;11&lt;/a&gt;</span></span></span><br>
+  &nbsp;&lt;b&gt;22&lt;/b&gt;<br>
+  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
+  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;d&gt;14&lt;/d&gt;</span></span></span><br>
+  &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
+                  &lt;/y&gt;</code></td>
+              </tr>
+          </table>
+          </center></div>
+      <p>The first row shows the inheritance within the &lt;x&gt; element, whereby &lt;c&gt; is inherited from root. The second shows the inheritance within the &lt;y&gt; element, 
+      whereby &lt;a&gt;, &lt;c&gt;, and &lt;d&gt; are inherited also from root, but from an alias there. The alias in root is logically replaced not by the elements in root itself, 
+      but by elements in the &#39;target&#39; locale.</p>
+      <p><span class="removedspan">As of CLDR 2.0, aliases will only be used in CLDR in two  circumstances.</span></p>
+    <ol>
+        <li><span class="removedspan">in <strong>root</strong>, with the form: //ldml/.../alias[@source=&quot;locale&quot;][@path=&quot;...&quot;]</span></li>
+        <li><span class="removedspan">in <strong>other locales</strong>, with the form: //ldml/alias[@source=&quot;...&quot;][@path=&quot;//ldml&quot;]</span></li>
+    </ol>
+  <p><span class="removedspan">    That is, either the locale is root and the source is &quot;locale&quot;, or there is nothing else in the locale, and the path is //ldml. The latter is  used to alias an entire locale, such as aliasing &quot;iw.xml&quot; to point to &quot;he.xml&quot;.    This second usage may be withdrawn in the future, since it is only used where the locale identifier is deprecated, which can be determined from CLDR metadata.</span></p>
+      <p>For more details on data resolution, see <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
+    <p>Aliases must be  resolved recursively. An alias may point to another path that results in another alias being found, and so on. For example, looking up Thai buddhist abbreviated months for the locale <strong>xx-YY</strong> may result in the following chain of aliases being followed:</p>
+    <blockquote>
+      <p>../../calendar[@type=&quot;buddhist&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
+      <p> xx-YY → xx → root // finds alias that changes path to:</p>
+      <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
+      <p> xx-YY → xx → root // finds alias that changes path to:</p>
+      <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;wide&quot;] </p>
+      <p>xx-YY → xx // finds value here</p>
+    </blockquote>
+    <p>It is an error to have a circular chain of aliases. That is, a collection of LDML XML documents must not have situations where a sequence of alias lookups 
+        (including inheritance and multiple inheritance) can be followed indefinitely without terminating.</p>
 <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
 	<p>The elements in this section are <i><b>not</b></i> part of the Locale Data Markup Language 1.0 specification. Instead, they are special elements used for 
 	application-specific data to be stored in the Common Locale Repository. They may change or be removed future versions of this document, and are present her 
@@ -9053,6 +9062,7 @@ decimal?, group?, special*)) &gt;</pre>
         [ticket <a href="http://unicode.org/cldr/trac/ticket/4317">#4317</a>]</li>
 		<li>Added clarification of YY as fixed width week of year. [ticket <a href="http://unicode.org/cldr/trac/ticket/3862">#3862</a>]</li>
 		<li>Clarified that the parentLocale element does not apply to collation. [ticket <a href="http://unicode.org/cldr/trac/ticket/3897">#3897</a>]</li>
+		<li>Moved the information about the alias element into <em>Section 5.21 <a href="#Alias_Elements">Alias Elements</a></em> and removed comments about whole-locale aliasing.</li>
 	</ul>
 
   <h3>Revision 21</h3>

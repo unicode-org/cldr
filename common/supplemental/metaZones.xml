@@ -474,6 +474,9 @@
 				<usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
 				<usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
 			</timezone>
+			<timezone type="America/Kralendijk">
+				<usesMetazone mzone="Atlantic"/>
+			</timezone>
 			<timezone type="America/La_Paz">
 				<usesMetazone mzone="Bolivia"/>
 			</timezone>
@@ -487,6 +490,9 @@
 				<usesMetazone to="1974-01-06 07:00" mzone="America_Eastern"/>
 				<usesMetazone to="1974-10-27 07:00" from="1974-01-06 07:00" mzone="America_Central"/>
 				<usesMetazone from="1974-10-27 07:00" mzone="America_Eastern"/>
+			</timezone>
+			<timezone type="America/Lower_Princes">
+				<usesMetazone mzone="Atlantic"/>
 			</timezone>
 			<timezone type="America/Maceio">
 				<usesMetazone mzone="Brasilia"/>
@@ -1557,6 +1563,7 @@
 			<mapZone other="Atlantic" territory="AW" type="America/Aruba"/>
 			<mapZone other="Atlantic" territory="BB" type="America/Barbados"/>
 			<mapZone other="Atlantic" territory="BM" type="Atlantic/Bermuda"/>
+			<mapZone other="Atlantic" territory="BQ" type="America/Kralendijk"/>
 			<mapZone other="Atlantic" territory="DM" type="America/Dominica"/>
 			<mapZone other="Atlantic" territory="GD" type="America/Grenada"/>
 			<mapZone other="Atlantic" territory="GL" type="America/Thule"/>
@@ -1567,6 +1574,7 @@
 			<mapZone other="Atlantic" territory="MQ" type="America/Martinique"/>
 			<mapZone other="Atlantic" territory="MS" type="America/Montserrat"/>
 			<mapZone other="Atlantic" territory="PR" type="America/Puerto_Rico"/>
+			<mapZone other="Atlantic" territory="SX" type="America/Lower_Princes"/>
 			<mapZone other="Atlantic" territory="TT" type="America/Port_of_Spain"/>
 			<mapZone other="Atlantic" territory="VC" type="America/St_Vincent"/>
 			<mapZone other="Atlantic" territory="VG" type="America/Tortola"/>

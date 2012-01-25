@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.CompoundCheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.FormatDemo;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.SimpleDemo;
@@ -281,7 +282,8 @@ public class ConsoleCheckCLDR {
         // set up the test
         Factory cldrFactory = Factory.make(sourceDirectory, factoryFilter)
         .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
-        CheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
+        CompoundCheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
+        System.out.println("filtered tests: " + checkCldr.getFilteredTests());
         try {
             english = cldrFactory.make("en", true);
         } catch (Exception e1) {

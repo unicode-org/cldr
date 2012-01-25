@@ -24,6 +24,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts;
 
+import sun.security.action.GetLongAction;
+
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.text.UnicodeSet;
@@ -56,6 +58,12 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (fullPath.indexOf('[') < 0) return this; // skip paths with no attributes
+        String locale = getCldrFileToCheck().getSourceLocaleID(path, null);
+        
+        // skip paths that are not in the immediate locale
+        if (!getCldrFileToCheck().getLocaleID().equals(locale)) {
+            return this;
+        }
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
             if (parts.getAttributeCount(i) == 0) continue;

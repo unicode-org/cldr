@@ -606,6 +606,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       }
       return this;
     }
+    
+    public String getFilteredTests() {
+        return filteredCheckList.toString();
+    }
   }
 
   //static Transliterator prettyPath = getTransliteratorFromFile("ID", "prettyPath.txt");

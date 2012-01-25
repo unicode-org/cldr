@@ -401,7 +401,7 @@
             </variable>
             <variable id="$collationType" type="choice">
                 big5han
-                dictionary direct ducet
+                dictionary ducet
                 gb2312han
                 phonebook phonetic pinyin
                 reformed
@@ -1419,6 +1419,7 @@
             <deprecatedItems type="ldml" elements="references"/>
             <deprecatedItems elements="commonlyUsed"/>
             <deprecatedItems elements="inList inText"/>
+            <deprecatedItems elements="collation" attributes="type" values="direct"/>
         </deprecated>
         <distinguishing>
              <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem"/>

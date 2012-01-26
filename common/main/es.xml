@@ -1069,28 +1069,28 @@
 			<codePattern type="territory">Región: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
-    <contextTransforms>
-        <contextTransformUsage type="languages">
-             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
-             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
-        </contextTransformUsage>
-        <contextTransformUsage type="month-format-except-narrow">
-             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
-             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
-        </contextTransformUsage>
-        <contextTransformUsage type="month-standalone-except-narrow">
-             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
-             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
-        </contextTransformUsage>
-        <contextTransformUsage type="day-format-except-narrow">
-             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
-             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
-        </contextTransformUsage>
-        <contextTransformUsage type="day-standalone-except-narrow">
-             <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
-             <contextTransform type="stand-alone">titlecase-firstword</contextTransform>
-        </contextTransformUsage>
-    </contextTransforms>
+	<contextTransforms>
+		<contextTransformUsage type="day-format-except-narrow">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+		<contextTransformUsage type="day-standalone-except-narrow">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+		<contextTransformUsage type="languages">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+		<contextTransformUsage type="month-format-except-narrow">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+		<contextTransformUsage type="month-standalone-except-narrow">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a á b c d e é f g h i í j k l m n ñ o ó p q r s t u ú ü v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[à ă â å ä ã ā æ ç è ĕ ê ë ē ì ĭ î ï ī º ò ŏ ô ö ø ō œ ù ŭ û ū ÿ]</exemplarCharacters>

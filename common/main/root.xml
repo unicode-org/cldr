@@ -221,6 +221,11 @@
 							<monthPattern type="leap">{0}bis</monthPattern>
 						</monthPatternWidth>
 					</monthPatternContext>
+					<monthPatternContext type="numeric">
+						<monthPatternWidth type="all">
+							<monthPattern type="leap">{0}bis</monthPattern>
+						</monthPatternWidth>
+					</monthPatternContext>
 					<monthPatternContext type="stand-alone">
 						<monthPatternWidth type="abbreviated">
 							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='abbreviated']"/>
@@ -230,11 +235,6 @@
 						</monthPatternWidth>
 						<monthPatternWidth type="wide">
 							<alias source="locale" path="../../monthPatternContext[@type='format']/monthPatternWidth[@type='wide']"/>
-						</monthPatternWidth>
-					</monthPatternContext>
-					<monthPatternContext type="numeric">
-						<monthPatternWidth type="all">
-							<monthPattern type="leap">{0}bis</monthPattern>
 						</monthPatternWidth>
 					</monthPatternContext>
 				</monthPatterns>
@@ -249,6 +249,36 @@
 				</dayPeriods>
 				<!-- chinese eras are computed, and don't fall back to gregorian -->
 				<cyclicNameSets>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">zi</cyclicName>
+								<cyclicName type="2">chou</cyclicName>
+								<cyclicName type="3">yin</cyclicName>
+								<cyclicName type="4">mao</cyclicName>
+								<cyclicName type="5">chen</cyclicName>
+								<cyclicName type="6">si</cyclicName>
+								<cyclicName type="7">wu</cyclicName>
+								<cyclicName type="8">wei</cyclicName>
+								<cyclicName type="9">shen</cyclicName>
+								<cyclicName type="10">you</cyclicName>
+								<cyclicName type="11">xu</cyclicName>
+								<cyclicName type="12">hai</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="days">
+						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
+					</cyclicNameSet>
+					<cyclicNameSet type="months">
+						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
+					</cyclicNameSet>
 					<cyclicNameSet type="years">
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
@@ -312,36 +342,6 @@
 								<cyclicName type="58">xin-you</cyclicName>
 								<cyclicName type="59">ren-xu</cyclicName>
 								<cyclicName type="60">gui-hai</cyclicName>
-							</cyclicNameWidth>
-							<cyclicNameWidth type="narrow">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
-							</cyclicNameWidth>
-							<cyclicNameWidth type="wide">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
-							</cyclicNameWidth>
-						</cyclicNameContext>
-					</cyclicNameSet>
-					<cyclicNameSet type="months">
-						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
-					</cyclicNameSet>
-					<cyclicNameSet type="days">
-						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
-					</cyclicNameSet>
-					<cyclicNameSet type="dayParts">
-						<cyclicNameContext type="format">
-							<cyclicNameWidth type="abbreviated">
-								<cyclicName type="1">zi</cyclicName>
-								<cyclicName type="2">chou</cyclicName>
-								<cyclicName type="3">yin</cyclicName>
-								<cyclicName type="4">mao</cyclicName>
-								<cyclicName type="5">chen</cyclicName>
-								<cyclicName type="6">si</cyclicName>
-								<cyclicName type="7">wu</cyclicName>
-								<cyclicName type="8">wei</cyclicName>
-								<cyclicName type="9">shen</cyclicName>
-								<cyclicName type="10">you</cyclicName>
-								<cyclicName type="11">xu</cyclicName>
-								<cyclicName type="12">hai</cyclicName>
 							</cyclicNameWidth>
 							<cyclicNameWidth type="narrow">
 								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
@@ -1783,6 +1783,9 @@
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>{1} ({0})</fallbackRegionFormat>
 			<singleCountries list="Europe/Kiev Pacific/Majuro Africa/Bamako America/Godthab America/Santiago America/Guayaquil Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"/>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>Lower Prince's Quarter</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, North Dakota</exemplarCity>
 			</zone>
@@ -1857,9 +1860,6 @@
 			</zone>
 			<zone type="America/Kentucky/Monticello">
 				<exemplarCity>Monticello, Kentucky</exemplarCity>
-			</zone>
-			<zone type="America/Lower_Princes">
-				<exemplarCity>Lower Prince's Quarter</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity>St. Vincent</exemplarCity>
@@ -2168,3 +2168,4 @@
 		</messages>
 	</posix>
 </ldml>
+

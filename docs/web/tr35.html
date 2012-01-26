@@ -4583,13 +4583,11 @@ text data in the rule. For example, the following are all disallowed:</p>
       <p class="element2"><b><span class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
       &lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
       &lt;!ATTLIST alias path CDATA #IMPLIED&gt;</span></b></p>
-      <p>The contents of any element <span class="changedspan">in root</span>can be replaced by an alias,
-      which points to <span class="changedspan">the path where the data can be found</span><span class="removedspan">another source for the data</span>.</span>
-      <span class="removedspan">The elements in that source 
-      (a locale ID) are to be fetched from 
-      the corresponding location in the source based on the path. </span>
+      <p>The contents of any element <span class="changedspan">in root </span>can be replaced by an alias,
+      which points to <span class="changedspan">the path where the data can be found</span><span class="removedspan">another source for the data.
+      The elements in that source (a locale ID) are to be fetched from the corresponding location in the source based on the path.</span></p>
       <p><span class="changedspan">Aliases will only ever appear in root with the form //ldml/.../alias[@source=&quot;locale&quot;][@path=&quot;...&quot;].</span></p>
-      Consider the following example <span class="changedspan">in root</span>:</p>
+      <p>Consider the following example <span class="changedspan">in root</span>:</p>
       <pre>
       &lt;calendar type=&quot;gregorian&quot;&gt;<br> &lt;months&gt;<br>      &lt;default choice=&quot;format&quot;/&gt;<br>      &lt;monthContext type=&quot;format&quot;&gt;<br>            &lt;default choice=&quot;wide&quot;/&gt;<br>            &lt;monthWidth type=&quot;abbreviated&quot;&gt;<br>             <strong>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type='wide']&quot;/&gt;</strong><br>                      &lt;/monthWidth&gt;</pre>
       <p>If the locale &quot;de_DE&quot; is being accessed for a month name for format/abbreviated, then a resource bundle at &quot;de_DE&quot; will be searched for a resource element at the that path. If not found there, then the 

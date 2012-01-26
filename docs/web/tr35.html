@@ -5077,6 +5077,8 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<br>
 	&lt;!ELEMENT mapTimezones ( mapZone* ) &gt;<br>
 	&lt;!ATTLIST mapTimezones type NMTOKEN #IMPLIED &gt;<br>
+	<span class="changed">&lt;!ATTLIST mapTimezones typeVersion CDATA #IMPLIED &gt;</span><br>
+	<span class="changed">&lt;!ATTLIST mapTimezones otherVersion CDATA #IMPLIED &gt;</span><br>
 	&lt;!ATTLIST mapTimezones references CDATA #IMPLIED &gt;<br>
 	<br>
 	&lt;!ELEMENT mapZone EMPTY &gt;<br>
@@ -5115,11 +5117,30 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<p>The &lt;mapTimezones&gt; element can be also used to provide mappings between Unicode time zone IDs and
 	other time zone IDs.  This example specifies a mapping from Windows TZIDs to Unicode time zone IDs
 	(<a href="http://unicode.org/cldr/data/common/supplemental/windowsZones.xml">windowsZones.xml</a>).</p>
-	<pre>&lt;mapTimezones&gt;
-	&lt;mapZone other=&quot;AUS Central Standard Time&quot; type=&quot;Australia/Darwin&quot;/&gt;
-	&lt;mapZone other=&quot;AUS Eastern Standard Time&quot; type=&quot;Australia/Sydney&quot;/&gt;
-	....</pre>
+	<pre><span class="changed">&lt;mapTimezones otherVersion="07dc0000" typeVersion="2011n"&gt;
+	....
+	&lt;!-- (UTC-08:00) Baja California --&gt;
+	&lt;mapZone other="Pacific Standard Time (Mexico)" territory="001" type="America/Santa_Isabel"/&gt;
+	&lt;mapZone other="Pacific Standard Time (Mexico)" territory="MX" type="America/Santa_Isabel"/&gt;
+
+	&lt;!-- (UTC-08:00) Pacific Time (US & Canada) --&gt;
+	&lt;mapZone other="Pacific Standard Time" territory="001" type="America/Los_Angeles"/&gt;
+	&lt;mapZone other="Pacific Standard Time" territory="CA" type="America/Vancouver America/Dawson America/Whitehorse"/&gt;
+	&lt;mapZone other="Pacific Standard Time" territory="MX" type="America/Tijuana"/&gt;
+	&lt;mapZone other="Pacific Standard Time" territory="US" type="America/Los_Angeles"/&gt;
+	&lt;mapZone other="Pacific Standard Time" territory="ZZ" type="PST8PDT"/&gt;
+	....</span></pre>
 	</div>
+	<p class="changed">The attributes otherVersion and typeVersion in &lt;mapTimezones&gt; specify the
+	versions of two systems. In the example above, otherVersion="07dc0000" specifies the version of Windows time zone
+	and typeVersion="2011n" specifies the version of Unicode time zone IDs. The attribute territory="001" in
+	&lt;mapZone&gt; element indicates the Unicode time zone ID specified by the type attribute is used as the default
+	mapping for the Windows TZID. For each unique Windows TZID, there must be exactly one &lt;mapZone&gt; element with
+	territory="001". &lt;mapZone&gt; elements other than territory="001" specify territory specific mappings. When multiple
+	Unicode time zone IDs are available for a single territory, the value of the type attribute will be a list of
+	Unicode time zone IDs delimited by space. In this case, the first entry represents the default mapping for
+	the territory. The territoy "ZZ" is used when a Unicode time zone ID is not associated with a specific territory.
+	</p>
 
 	<h3>C.8 <a name="Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT characters ( character-fallback*) &gt;<br>
@@ -9061,6 +9082,8 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Added clarification of YY as fixed width week of year. [ticket <a href="http://unicode.org/cldr/trac/ticket/3862">#3862</a>]</li>
 		<li>Clarified that the parentLocale element does not apply to collation. [ticket <a href="http://unicode.org/cldr/trac/ticket/3897">#3897</a>]</li>
 		<li>Moved the information about the alias element into <em>Section 5.21 <a href="#Alias_Elements">Alias Elements</a></em> and removed comments about whole-locale aliasing.</li>
+		<li>Updated <i>Section C.7 <a href="#Supplemental_Timezone_Data">Supplemental Time Zone Data</a></i> to specify the details of the
+		Windows TZID mapping data extended by ticket <a href="http://unicode.org/cldr/trac/ticket/4067">#4067</a> in this release.
 	</ul>
 
   <h3>Revision 21</h3>

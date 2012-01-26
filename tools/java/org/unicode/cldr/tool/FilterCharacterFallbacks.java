@@ -33,7 +33,7 @@ public class FilterCharacterFallbacks {
         Node n;
         fb = LDMLUtilities.parse(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY+File.separator+"characters.xml", true );
         if ( fb != null ) {
-            PrintWriter out = BagFormatter.openUTF8Writer("","report");
+            PrintWriter out = BagFormatter.openUTF8Writer(".","report");
             n = LDMLUtilities.getNode(fb,"//supplementalData/characters/character-fallback");
             for (Node cf=n.getFirstChild(); cf!=null; cf=cf.getNextSibling()) {
                 String srcChar = LDMLUtilities.getAttributeValue(cf,"value");

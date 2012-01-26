@@ -29,7 +29,7 @@ public class ExtractIsoCurrencyData {
     final String inputFile = CldrUtility.getProperty("input", CldrUtility.UTIL_DATA_DIR + "/currency_codes_list-1.htm");
     BufferedReader in = BagFormatter.openUTF8Reader("", inputFile);
     final String outputFile = CldrUtility.getProperty("output", CldrUtility.UTIL_DATA_DIR + "/currencycodeslist.txt");
-    PrintWriter out = BagFormatter.openUTF8Writer("", outputFile);
+    PrintWriter out = BagFormatter.openUTF8Writer(null, outputFile);
     try {
       String version = null;
       String[][] parts = new String[5][5];

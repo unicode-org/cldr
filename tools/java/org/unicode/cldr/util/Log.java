@@ -62,12 +62,12 @@ public class Log {
 	}
 
 	public static void setLog(String file) throws IOException {
-		log = BagFormatter.openUTF8Writer("", file);
+		log = BagFormatter.openUTF8Writer(null, file);
 		log.print('\uFEFF');
 	}
 	 
         public static void setLogNoBOM(String file) throws IOException {
-          log = BagFormatter.openUTF8Writer("", file);
+          log = BagFormatter.openUTF8Writer(null, file);
         }
 
         public static void setLogNoBOM(String dir, String file) throws IOException {

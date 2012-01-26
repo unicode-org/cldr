@@ -102,6 +102,7 @@
 ^//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern ; {0}=CATEGORY; {1}=SPECIFIC_NAME
 
 ^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
+^//ldml/numbers/currencyFormats\[@numberSystem=".*"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 
 ^//ldml/units/unit\[@type="day[^"]*"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/units/unit\[@type="hour[^"]*"]/unitPattern ; {0}=NUMBER_OF_HOURS 3

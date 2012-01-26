@@ -1105,9 +1105,9 @@ public class GenerateMaximalLocales {
       String comment = printingName(printingLocale, spacing) + spacing + "=>" + spacing + printingName(printingTarget, spacing);
 
       if (OUTPUT_STYLE == OutputStyle.XML) {
-        out.println("      <likelySubtag from=\"" +  printingLocale +
+        out.println("\t\t<likelySubtag from=\"" +  printingLocale +
                 "\" to=\"" + printingTarget + "\"" + 
-                "/>" + spacing + "<!--" +comment + "-->");
+                "/>" + "\n\t\t" + "<!--" +comment + "-->");
       } else {
         if (first) {
           first = false;

@@ -6417,20 +6417,24 @@ range         = value'..'value</pre>
 			HPG-8:00<p>GMT-08:00</td>
 		</tr>
 		<tr>
-			<td rowspan="2" style="vertical-align: top; text-align: left">Z</td>
+			<td rowspan="3" style="vertical-align: top; text-align: left">Z</td>
 			<td style="vertical-align: top; text-align: left">1..3</td>
 			<td style="vertical-align: top; text-align: left">-0800</td>
-			<td rowspan="2" style="vertical-align: top; text-align: left">Time 
-			Zone - Use one to three letters for RFC 822 
-			format, four letters for 
-			the localized GMT format.<p>For more information about 
+			<td style="vertical-align: top; text-align: left"><span class="changed">Time Zone - RFC 822 GMT format</span>
+			<p>For more information about 
 			timezone formats, see <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i></td>
 		</tr>
 		<tr>
 			<td style="vertical-align: top; text-align: left">4</td>
-			<td style="vertical-align: top; text-align: left">HPG+8:00<p>
-			<i>fallbacks:</i></p>
-			<p>GMT-08:00</td>
+			<td style="vertical-align: top; text-align: left">HPG-8:00</td>
+			<td style="vertical-align: top; text-align: left"><span class="changed">Time Zone - The localized GMT format.</span>
+			<p>For more information about timezone formats, see <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i></td>
+		</tr>
+		<tr class="changed">
+			<td style="vertical-align: top; text-align: left">5</td>
+			<td style="vertical-align: top; text-align: left">-08:00<p>
+			<td style="vertical-align: top; text-align: left">Time Zone - ISO8601 time zone format.
+			<p>For more information about timezone formats, see <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i></td>
 		</tr>
 		<tr>
 			<td rowspan="2" style="vertical-align: top; text-align: left">v</td>
@@ -7299,6 +7303,12 @@ range         = value'..'value</pre>
 	<ul>
 		<li>&quot;-0800&quot; </li>
 	</ul>
+	<p class="changed"><b>ISO 8601 time zone format:</b>
+	A constant, specific offset from UTC, which always has the same format except UTC itself (&quot;Z&quot;).</p>
+	<ul class="changed">
+		<li>&quot;-08:00&quot;
+		<li>&quot;Z&quot;
+	</ul>
 	<p><b><i>Raw Offset </i></b>- an offset from GMT that does not include any daylight savings behavior. For 
 	example, the raw offset for Pacific Time is -8, even though the <i>observed offset</i> may be -8 
 	or -7.</p>
@@ -7424,6 +7434,7 @@ range         = value'..'value</pre>
 			</li>
 			<li>Z - RFC 822 (no fallback necessary) </li>
 			<li>ZZZZ - Localized GMT (no fallback necessary) </li>
+			<li class="changed">ZZZZZ - ISO 8601 (no fallback necessary) </li>
 			<li>V - specific non-location<span class="removed"> (ignores commonlyUsed)</span><ul>
 			<li>falling 
 			back to 
@@ -7464,7 +7475,7 @@ range         = value'..'value</pre>
 			<li>Australia/ACT → Australia/Sydney</li>
 		</ul>
 		</li>
-		<li>For RFC 822 format (&quot;Z&quot;) return the results according to the RFC.<ul>
+		<li>For RFC 822 <span class="changed">GMT</span> format (&quot;Z&quot;) return the results according to the RFC.<ul>
 			<li>America/Los_Angeles → &quot;-0800&quot;</li>
 		</ul>
 		<p><b>Note: </b>The digits in this case are always from the western digits, 0..9.</p>
@@ -7478,6 +7489,13 @@ range         = value'..'value</pre>
 		</ul>
 		<p><b>Note:</b> The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. 
 		For example, they might be from ०..९.</p>
+		</li>
+		<li class="changed">For ISO 8601 time zone format (&quot;ZZZZZ&quot;) return the results according to the ISO 8601.
+			<ul>
+				<li>America/Los_Angeles → &quot;-08:00&quot;</li>
+				<li>Etc/GMT → Z // special case of UTC</li>
+			</ul>
+			<p><b>Note: </b>The digits in this case are always from the western digits, 0..9.</p>
 		</li>
 		<li>For the non-location formats (generic or specific),
 	<ol>
@@ -7575,11 +7593,11 @@ range         = value'..'value</pre>
 	other content. That requires certain adaptions to the following process.<ol style="background-color: rgb(255, 255, 255);">
 		<li><font color="#000000">Start with a string S.</font> 
 		</li>
-		<li><font color="#000000">If S matches the RFC 822 GMT format, 
+		<li><font color="#000000">If S matches the RFC 822 GMT format <span class="changed"> or ISO 8601 time zone format</span>, 
 		return it.</font>
 		<ul>
-			<li>F<font color="#000000">or example, &quot;-0800&quot; =&gt; Etc/GMT+8</font>
-			</li>
+			<li>For example, &quot;-0800&quot;<span class="changed"> (RFC 822),
+			&quot;-08:00&quot; (ISO 8601)</span> =&gt; Etc/GMT+8</li>
 		</ul>
 		</li>
 		<li>If S matches the English or localized 
@@ -9084,6 +9102,10 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Moved the information about the alias element into <em>Section 5.21 <a href="#Alias_Elements">Alias Elements</a></em> and removed comments about whole-locale aliasing.</li>
 		<li>Updated <i>Section C.7 <a href="#Supplemental_Timezone_Data">Supplemental Time Zone Data</a></i> to specify the details of the
 		Windows TZID mapping data extended by ticket <a href="http://unicode.org/cldr/trac/ticket/4067">#4067</a> in this release.
+		[ticket <a href="http://unicode.org/cldr/trac/ticket/4296">#4296</a>]
+		<li>Added doumentation for the new date format pattern "ZZZZZ" (ISO 8601 time zone format) in <i>Appendix F: <a href="#Date_Format_Patterns">
+		Date Format Patterns</a></i> and <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>.
+		[ticket <a href="http://unicode.org/cldr/trac/ticket/3995">#3995</a>]</li>
 	</ul>
 
   <h3>Revision 21</h3>

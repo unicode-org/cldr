@@ -1171,7 +1171,7 @@
 					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
@@ -1187,15 +1187,14 @@
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d:'e' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d:'e' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEEEd">EEE d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yM">G yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yMd">G yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, G yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yMEd">E, G yyyy-MM-dd</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE d MMM y G</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="yQ">G yyyy Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">G y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">G yy-MM</dateFormatItem>
@@ -1618,7 +1617,7 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
@@ -1633,15 +1632,14 @@
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d:'e' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d:'e' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEEEd">EEE d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">yyyy-MM</dateFormatItem>
 						<dateFormatItem id="yMd">yyyy-MM-dd</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, yyyy-MM-dd</dateFormatItem>
+						<dateFormatItem id="yMEd">E, yyyy-MM-dd</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
 						<dateFormatItem id="yQ">yyyy Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">yy-MM</dateFormatItem>
@@ -1942,7 +1940,7 @@
 					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
@@ -1957,7 +1955,6 @@
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d:'e' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d:'e' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEEEd">EEE d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM">G yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM -yy G</dateFormatItem>
@@ -1965,11 +1962,11 @@
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">G y-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">G y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, G y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, G y-MM-dd</dateFormatItem>
 						<dateFormatItem id="yyyyMM">G y-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">EEE d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQ">G y Q</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
@@ -2004,7 +2001,7 @@
 					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
@@ -2020,7 +2017,6 @@
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d:'e' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d:'e' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEEEd">EEE d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyMM">G yy-MM</dateFormatItem>
@@ -2029,11 +2025,11 @@
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">G y-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">G y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, G y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, G y-MM-dd</dateFormatItem>
 						<dateFormatItem id="yyyyMM">G y-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">EEE d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQ">G y Q</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
@@ -2139,7 +2135,7 @@
 					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="EEEd">EEE d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
@@ -2155,7 +2151,6 @@
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d:'e' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d:'e' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEEEd">EEE d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyMM">G yy-MM</dateFormatItem>
@@ -2164,11 +2159,11 @@
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">G y-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">G y-MM-dd</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, G y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, G y-MM-dd</dateFormatItem>
 						<dateFormatItem id="yyyyMM">G y-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">EEE d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQ">G y Q</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>

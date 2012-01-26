@@ -1163,14 +1163,14 @@
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yM">MM.y G</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, dd.MM.y G</dateFormatItem>
+						<dateFormatItem id="yMEd">E, dd.MM.y G</dateFormatItem>
 						<dateFormatItem id="yMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy G</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE, d MMM yy G</dateFormatItem>
+						<dateFormatItem id="yyMMMEd">E, d MMM yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyLLLL">LLLL y G</dateFormatItem>
@@ -1683,7 +1683,6 @@
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">ccc, d</dateFormatItem>
-						<dateFormatItem id="EEEd">ccc, d</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
@@ -1698,7 +1697,7 @@
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">MM.y</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.y</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">EEE, dd.MM.y</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">E, dd.MM.y</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="contributed">E, d MMM y</dateFormatItem>
@@ -1706,7 +1705,7 @@
 						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE, d MMM yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEd">E, d MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
 						<dateFormatItem id="yyyy">y</dateFormatItem>
 						<dateFormatItem id="yyyyLLLL">LLLL y</dateFormatItem>
@@ -1774,7 +1773,7 @@
 							<greatestDifference id="M" draft="contributed">d MMM - d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d" draft="contributed">ccc, d - EEE, d MMM</greatestDifference>
+							<greatestDifference id="d" draft="contributed">ccc, d - E, d MMM</greatestDifference>
 							<greatestDifference id="M" draft="contributed">ccc, d MMM - ccc, d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
@@ -2135,13 +2134,13 @@
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy G</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE, d MMM yy G</dateFormatItem>
+						<dateFormatItem id="yyMMMEd">E, d MMM yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyLLLL">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">MM.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, dd.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, dd.MM.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
@@ -2444,13 +2443,13 @@
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy G</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE, d MMM yy G</dateFormatItem>
+						<dateFormatItem id="yyMMMEd">E, d MMM yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyLLLL">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">MM.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, dd.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, dd.MM.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
@@ -2584,13 +2583,13 @@
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy G</dateFormatItem>
 						<dateFormatItem id="yyMMM">LLL yy G</dateFormatItem>
-						<dateFormatItem id="yyMMMEEEd">EEE, d MMM yy G</dateFormatItem>
+						<dateFormatItem id="yyMMMEd">E, d MMM yy G</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyLLLL">LLLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">MM.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">EEE, dd.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, dd.MM.y G</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM.yyyy G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>

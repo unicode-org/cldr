@@ -7278,6 +7278,15 @@ range         = value'..'value</pre>
 		<li>&quot;United States (Los Angeles) Time&quot;</li>
 		<li>&quot;Italy Time&quot;. </li>
 	</ul>
+		<blockquote class="changed">
+			<p class="note">Note: A generic location format is constructed by a part of time zone ID
+			representing an exemplar city name and its country as the final fallback. However, there are
+			Unicode time zones which are not associated with any locations, such as "Etc/GMT+5" and "PST8PDT".
+			The date format pattern "vvvv" specifies the generic location format, but it displays
+			localized GMT format for them. Some of these time zones observe daylight saving time, so
+			the result (localized GMT format) may change depending on input date. For generating a list
+			for user selection of time zone with format "vvvv", these non-location zones should be excluded.
+		</blockquote>
 	<p><b>Specific 
 		non-location format:</b> Reflects a specific standard or daylight time, which may or may not 
 	be the wall time. For example, &quot;10 am Pacific Standard Time&quot; will be GMT-8 in the winter and in 

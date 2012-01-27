@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-01-24</span></td>
+			<td><span class="changed">2012-01-27</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -543,8 +543,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			use &quot;ar-EG&quot; for Standard Arabic (Egypt), not &quot;arb-EG&quot;; they use &quot;zh-TW&quot; for Mandarin Chinese 
 			(Taiwan), not &quot;cmn-TW&quot;.</p>
 			<p>The private use codes from <code>qfz..qtz</code> will never be given specific semantics in Unicode 
-			identifiers, and are thus safe for use for other purposes by other applications.</p>
-			</td>
+			identifiers, and are thus safe for use for other purposes by other applications.            </p>
+			<p class="changed">The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing language/locale codes, including mapping overlong  codes like &quot;eng-840&quot; or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.  For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</p></td>
 		</tr>
 		<tr>
 			<td>unicode_script_subtag<p>(also known as a <i>Unicode 
@@ -601,33 +601,55 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			</i>or<i> a Unicode territory code)</i></td>
 			<td>ASCII letters and digits</td>
 			<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type: region</b>
-            <p>Unicode identifiers give specific semantics to three private use subtags:</p>
+            <p>Unicode identifiers give specific semantics to the following subtags:</p>
 			<table border="1" cellspacing="0" cellpadding="2" style="margin: 0.5em">
+				<tr class="changed">
+				  <td>&nbsp;</td>
+				  <td><strong>Name</strong></td>
+				  <td><strong>Comment</strong></td>
+				  <td class="changed"><strong> ISO 3166-1 status</strong></td>
+			  </tr>
 				<tr>
 					<td><code>QO</code></td>
 					<td>Outlying Oceania</td>
-					<td>&nbsp;</td>
+					<td class="changed">countries in Oceania [009] that do not have a  <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/territory_containment_un_m_49.html">subcontinent</a>.</td>
+					<td class="changed">private use</td>
 				</tr>
 				<tr>
 					<td><code>QU</code></td>
 					<td>European Union</td>
 					<td><em>the preferred form is now EU</em></td>
+					<td class="changed">private use</td>
 				</tr>
+				<tr>
+				  <td class="changed">UK</td>
+				  <td class="changed">United Kingdom</td>
+				  <td class="changed"><em>the correct form is GB</em></td>
+				  <td class="changed">exceptionally reserved</td>
+		      </tr>
 				<tr>
 					<td><code>ZZ</code></td>
 					<td>Unknown or Invalid Territory</td>
-					<td>&nbsp;</td>
+					<td class="changed">used in APIs or as replacement for invalid code</td>
+					<td class="changed">private use</td>
 				</tr>
 			</table>
 			<p>The private use subtags from XA..XZ will never  be given specific semantics in Unicode identifiers, and are thus safe for use for other purposes by 
 			other applications.</p>
+			<p><span class="changed">The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing territory/region codes, including mapping overlong  codes like &quot;eng-840&quot; or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;. For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</span></p>
+			<p class="changed">Special Codes:</p>
+			<ul>
+			  <li class="changed">The territory code 'UK' has a special status in ISO, and is used for the domain name instead of GB. It is thus recognized by CLDR as being an alternate (unnormalized) form of 'GB'.</li>
+			  <li class="changed">The territory code '001' (the World) is used to indicate a standardized form, such as &quot;ar-001&quot; for Modern Standard Arabic.</li>
+			  </ul>
 			</td>
 		</tr>
 		<tr>
 			<td>unicode_variant_subtag<p>(also known as a <i>Unicode language 
 			variant code)</i></td>
 			<td>ASCII letters</td>
-			<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type: variant</b></td>
+			<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type: variant</b>
+		    <p><span class="changed">The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing variant codes.  For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</span></p></td>
 		</tr>
 		<tr>
 			<td><i>attribute</i></td>
@@ -994,6 +1016,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			such as &quot;usnavajo&quot; for &quot;America/Shiprock Navajo&quot;, or &quot;utcw01&quot; for &quot;Etc/GMT+1&quot;.</p>
 		    <p>There is a special code &quot;unk&quot; for an Unknown or Invalid Timezone.
 		    This can be expressed in TZDB syntax as &quot;Etc/Unknown&quot; although it is not defined in [<a href="#Olson">Olson</a>].</p>
+		    <p><span class="changed">The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing timezone codes.  For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</span></p>
 		    </td>
 		</tr>
 
@@ -9112,12 +9135,13 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Updated <i>Section C.7 <a href="#Supplemental_Timezone_Data">Supplemental Time Zone Data</a></i> to specify the details of the
 		Windows TZID mapping data extended by ticket <a href="http://unicode.org/cldr/trac/ticket/4067">#4067</a> in this release.
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/4296">#4296</a>]
-		<li>Added doumentation for the new date format pattern "ZZZZZ" (ISO 8601 time zone format) in <i>Appendix F: <a href="#Date_Format_Patterns">
+		<li>Added documentation for the new date format pattern "ZZZZZ" (ISO 8601 time zone format) in <i>Appendix F: <a href="#Date_Format_Patterns">
 		Date Format Patterns</a></i> and <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>.
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/3995">#3995</a>]</li>
+		<li>Added an explanation of the use of the code 'UK', and pointers to the aliases for normalizing codes. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4250">4250</a>]</li>
 	</ul>
 
-  <h3>Revision 21</h3>
+<h3>Revision 21</h3>
 
 	<ul>
 		<li>Updated for CLDR 2.0.1.</li>

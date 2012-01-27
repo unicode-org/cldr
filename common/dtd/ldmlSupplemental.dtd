@@ -101,7 +101,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT calendarData ( calendar* ) >
 <!ELEMENT calendar ( calendarSystem?, eras? ) >
 <!ATTLIST calendar type NMTOKENS #REQUIRED >
-<!ATTLIST calendar territories NMTOKENS #IMPLIED > <!-- territories are deprectead.  use ordering attribute in calendarPreference element instead. -->
+<!ATTLIST calendar territories NMTOKENS #IMPLIED > <!-- territories are deprecated.  use ordering attribute in calendarPreference element instead. -->
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar references CDATA #IMPLIED >
 <!ATTLIST calendar alt NMTOKENS #IMPLIED >
@@ -386,14 +386,14 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST reference draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST reference alt NMTOKENS #IMPLIED >
 
-<!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) >
-<!ELEMENT mapKeys ( keyMap* ) >
-<!ELEMENT keyMap EMPTY >
+<!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) > <!-- deprecated. -->
+<!ELEMENT mapKeys ( keyMap* ) > <!-- deprecated. -->
+<!ELEMENT keyMap EMPTY > <!-- deprecated. -->
 <!ATTLIST keyMap type NMTOKEN #REQUIRED >
 <!ATTLIST keyMap bcp47 NMTOKEN #REQUIRED >
-<!ELEMENT mapTypes ( typeMap* ) >
+<!ELEMENT mapTypes ( typeMap* ) > <!-- deprecated. -->
 <!ATTLIST mapTypes type NMTOKEN #REQUIRED >
-<!ELEMENT typeMap EMPTY >
+<!ELEMENT typeMap EMPTY > <!-- deprecated. -->
 <!ATTLIST typeMap type CDATA #REQUIRED >
 <!ATTLIST typeMap bcp47 NMTOKEN #REQUIRED >
 

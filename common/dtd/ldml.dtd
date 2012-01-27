@@ -578,14 +578,14 @@ $Date$
 
 <!ELEMENT weekendStart (special*) >
 <!ATTLIST weekendStart day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
-<!ATTLIST weekendStart time CDATA "00:00" >
+<!ATTLIST weekendStart time CDATA "00:00" > <!-- the "time" attribute is deprecated everywhere. -->
 <!ATTLIST weekendStart draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST weekendStart references CDATA #IMPLIED >
 <!ATTLIST weekendStart alt NMTOKENS #IMPLIED >
 
 <!ELEMENT weekendEnd (special*) >
 <!ATTLIST weekendEnd day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
-<!ATTLIST weekendEnd time CDATA "24:00" >
+<!ATTLIST weekendEnd time CDATA "24:00" > <!-- the "time" attribute is deprecated everywhere. -->
 <!ATTLIST weekendEnd draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST weekendEnd references CDATA #IMPLIED >
 <!ATTLIST weekendEnd alt NMTOKENS #IMPLIED >
@@ -910,8 +910,8 @@ $Date$
 <!ATTLIST daylight alt NMTOKENS #IMPLIED >
 
 
-<!ELEMENT commonlyUsed ( #PCDATA ) >
-<!ATTLIST commonlyUsed used ( true | false ) #IMPLIED > <!-- deprecated -->
+<!ELEMENT commonlyUsed ( #PCDATA ) > <!-- deprecated -->
+<!ATTLIST commonlyUsed used ( true | false ) #IMPLIED >
 <!ATTLIST commonlyUsed draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST commonlyUsed references CDATA #IMPLIED >
 <!ATTLIST commonlyUsed alt NMTOKENS #IMPLIED >
@@ -1414,7 +1414,7 @@ $Date$
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
 <!ATTLIST rbnfrule draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 
-<!ELEMENT references ( reference* ) >
+<!ELEMENT references ( reference* ) > <!-- deprecated. -->
 <!ELEMENT reference ( #PCDATA ) >
 <!ATTLIST reference type NMTOKEN #REQUIRED>
 <!ATTLIST reference standard ( true | false ) #IMPLIED >

@@ -1404,12 +1404,14 @@
         <deprecated>
             <!-- items deprecated in ldml.dtd -->
             <deprecatedItems attributes="draft" values="true false"/>
-            <deprecatedItems elements="monthNames monthAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
+            <deprecatedItems elements="monthNames monthAbbr dayNames dayAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
             <deprecatedItems attributes="standard time"/> <!-- 'count' was probably in a different dtd -->
             <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
             <deprecatedItems elements="abbreviationFallback default hoursFormat localizedPatternChars mapping measurementSystem preferenceOrdering" attributes="type"/>
+            <deprecatedItems elements="inList" attributes="casing"/>
             <deprecatedItems type="supplementalData" elements="alternate"/>
             <deprecatedItems type="supplementalData" elements="calendar" attributes="territories"/>
+            <deprecatedItems type="supplementalData" elements="currency" attributes="before"/>
             <deprecatedItems type="supplementalData" elements="bcp47KeywordMappings mapKeys mapTypes keyMap typeMap"/>
             <deprecatedItems elements="cldrVersion"/>
             <deprecatedItems elements="calendar" attributes="type" values="civil-arabic thai-buddhist"/>

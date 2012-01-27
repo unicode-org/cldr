@@ -7275,8 +7275,8 @@ range         = value'..'value</pre>
 		and zones for the same country will be grouped together (and could be organized hierarchically
 		by country if desired). It is also a fallback format when there is no translation for the generic non-location format.</p>
 	<ul>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">&quot;United States (Los Angeles) Time&quot;</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">&quot;Italy Time&quot;. </li>
+		<li>&quot;United States (Los Angeles) Time&quot;</li>
+		<li>&quot;Italy Time&quot;. </li>
 	</ul>
 	<p><b>Specific 
 		non-location format:</b> Reflects a specific standard or daylight time, which may or may not 
@@ -7294,7 +7294,7 @@ range         = value'..'value</pre>
 	<ul>
 		<li>&quot;HMG+03.30&quot;</li>
 		<li>&quot;GMT+03:30&quot;</li>
-		<li>&quot;<span title="Griinuič{0}">Гриинуич</span>+03:30</li>
+		<li>&quot;Гриинуич+03:30</li>
 	</ul>
 	<p><b>Localized GMT-zero format:</b> The name for GMT (or UTC) itself
 	(i.e. an offset of 0 from GMT), which may be in a translated form.</p>
@@ -7446,13 +7446,13 @@ range         = value'..'value</pre>
 		<li><b>Generics</b>
 		<ul>
 			<li>v - [short form] generic non-location<span class="removed">, if commonlyUsed</span><br>
-			<i>(however, the rules are more complicated, see #4 below)</i><ul>
+			<i>(however, the rules are more complicated, see #<span class="changed">5</span> below)</i><ul>
 			<li>falling back to generic location</li>
 			<li>falling back to localized GMT </li>
 		</ul>
 			</li>
 			<li>vvvv - [long form] generic non-location<br>
-			<i>(however, the rules are more complicated, see #4 below)</i><ul>
+			<i>(however, the rules are more complicated, see #<span class="changed">5</span> below)</i><ul>
 			<li>falling back to generic location</li>
 			<li>falling back to localized GMT </li>
 		</ul>

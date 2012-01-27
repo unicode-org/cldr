@@ -3358,6 +3358,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<code>noexpr &quot;^([nN][oO]?)&quot;</code><br>
 	This would match n,N,no,nO,No,NO.</p>
 	<h3>5.13 <a name="Reference_Elements">Reference Element</a></h3>
+	<p><span class="changed">(Use only in supplemental data; deprecated for ldml.dtd and locale data)</span></p>
 	<p class="dtd">&lt;!ELEMENT references ( reference* ) &gt;<br>
 	&lt;!ELEMENT reference ( #PCDATA ) &gt;<br>
 	&lt;!ATTLIST reference type NMTOKEN #REQUIRED&gt;<br>
@@ -4998,7 +4999,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<pre class="dtd">&lt;!ELEMENT calendarData ( calendar* ) &gt;
 &lt;!ELEMENT calendar ( calendarSystem?, eras? ) &gt;
 &lt;!ATTLIST calendar type NMTOKENS #REQUIRED &gt;
-&lt;!ATTLIST calendar territories NMTOKENS #IMPLIED &gt; &lt;!-- territories are deprectead.  use ordering attribute in calendarPreference element instead. --&gt;
+&lt;!ATTLIST calendar territories NMTOKENS #IMPLIED &gt; &lt;!-- territories are deprecated.  use ordering attribute in calendarPreference element instead. --&gt;
 
 &lt;!ELEMENT calendarSystem EMPTY &gt;
 &lt;!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED &gt;
@@ -9141,6 +9142,7 @@ decimal?, group?, special*)) &gt;</pre>
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/3995">#3995</a>]</li>
 		<li>Added an explanation of the use of the code 'UK', and pointers to the aliases for normalizing codes. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4250">4250</a>]</li>
 		<li>Clarified the use of &lt;variable&gt; elements in checking attribute values. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4013">4013</a>]</li>
+		<li>Updated info on deprecated items. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4360">4360</a>]</li>
 	</ul>
 
 <h3>Revision 21</h3>

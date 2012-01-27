@@ -7764,9 +7764,10 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
 		<li>path: for a valid [<a href="#XPath">XPath</a>]</li>
 	</ul>
 	<p>If the attribute order=&quot;given&quot; is supplied, it indicates the order of elements when canonicalizing (see below).</p>
+	<p class="changed">The variable values are intended for internal testing, and the definition and usage may change between releases. They do not necessarily include all valid elements. For example, for primary language codes, they include the subset that occur in CLDR locale data. They are intended for a particular version of CLDR, and may omit  codes that were present in earlier versions, such as deprecated codes.</p>
 	<p>The &lt;deprecated&gt; element lists elements, attributes, and attribute values that are deprecated. If any deprecatedItems element contains more than one attribute, 
 	then only the listed combinations are deprecated. Thus the following means not that the draft attribute is deprecated, but that the true and false values for 
-	that attribute are:</p>
+</p>
 	<blockquote>
 		<pre>&lt;deprecatedItems attributes=&quot;draft&quot; values=&quot;true false&quot;/&gt; </pre>
 	</blockquote>
@@ -9139,6 +9140,7 @@ decimal?, group?, special*)) &gt;</pre>
 		Date Format Patterns</a></i> and <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>.
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/3995">#3995</a>]</li>
 		<li>Added an explanation of the use of the code 'UK', and pointers to the aliases for normalizing codes. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4250">4250</a>]</li>
+		<li>Clarified the use of &lt;variable&gt; elements in checking attribute values. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4013">4013</a>]</li>
 	</ul>
 
 <h3>Revision 21</h3>

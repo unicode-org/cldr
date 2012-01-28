@@ -945,10 +945,10 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			<td rowspan="12">"nu"<br>(numbers)</td>
 			<td rowspan="12">Numbering system</td>
 			<td><i>Unicode script subtag</i></td>
-			<td>Four-letter types indicate the decimal numbering system using digits
-			[:GeneralCategory=Nd:] for the script represented in Unicode.
-			<p class="note">For more information, see 
-			Section C.13 <a href="#Numbering_Systems">Numbering Systems</a>.</p></td>
+			<td><p><span class="changed">Four-letter types indicate the primary numbering system for the corresponding script represented in Unicode. Unless otherwise specified, it is a decimal numbering system using digits [:<a href="http://unicode.org/cldr/trac/wiki/GeneralCategory" rel="nofollow">GeneralCategory?</a>?=Nd:]. For example, &quot;latn&quot; refers to the ASCII / Western digits 0-9, while &quot;taml&quot; is an algorithmic (non-decimal) numbering system. (The code "tamldec" is indicates the "modern Tamil decimal digits".) See the BCP47 XML files or the <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/bcp47-u.txt">bcp47 listing</a> under the key: <strong>nu</strong>.</span><br>
+			  </p>
+<br><p class="note">For more information, see 
+		  Section C.13 <a href="#Numbering_Systems">Numbering Systems</a>.</p></td>
 		</tr>
 
 		<tr>
@@ -3297,7 +3297,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		<a href="#Supplemental_Data">Appendix C: Supplemental Data</a></i>.</p>
 	</blockquote>
 	<p>For background information on currency names, see [<a href="#CurrencyInfo">CurrencyInfo</a>].</p>
-	<h3>5.11 <a name="Unit_Elements">Unit Elements</a></h3>
+<h3>5.11 <a name="Unit_Elements">Unit Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT units (alias | (unit*, special*)) &gt;<br>
 	&lt;!ELEMENT unit (alias | (unitPattern*, special*)) &gt;<br>
 	&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;<br>
@@ -9143,8 +9143,8 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Added an explanation of the use of the code 'UK', and pointers to the aliases for normalizing codes. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4250">4250</a>]</li>
 		<li>Clarified the use of &lt;variable&gt; elements in checking attribute values. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4013">4013</a>]</li>
 		<li>Updated info on deprecated items. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4360">4360</a>]</li>
+		<li>Clarified the status of non-decimal numbering systems. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4177">4177</a>]</li>
 	</ul>
-
 <h3>Revision 21</h3>
 
 	<ul>

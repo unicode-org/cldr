@@ -4163,38 +4163,35 @@ text data in the rule. For example, the following are all disallowed:</p>
         &lt;pc&gt;<span style="color: blue">鯵梓圧斡扱</span>&lt;/pc&gt;
   &lt;/rules&gt;
 &lt;/collation&gt;</pre>
-	<h3 class="changed">5.14.12 <a name="Script_Reordering"></a>Script Reordering</h3>
+	<h3 class="changed">5.14.12 <a name="Script_Reordering"></a>Collation Reordering</h3>
 <p class="changed">Collation reordering allows scripts and some other defined blocks of characters to be moved relative to each other, without changing the detailed rules for all the characters involved. This reordering is done on top of ordering currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. The syntax is:</p>
-<p class="changed">xxx-u-kr-(<em><strong>reorder_code</strong></em>(-<strong><em>reorder_code</em></strong>)*)</p>
-<p class="c1">&nbsp;</p><p class="changed"><strong><em>reorder_code</em></strong> is any of the following special codes:</p>
+<p align="center" class="changed"><strong>xxx</strong>-u-kr-(<em><strong>reorder_code</strong></em>(-<strong><em>reorder_code</em></strong>)*)</p><p class="changed"><strong><em>reorder_code</em></strong> is any of the following special codes:</p>
 <ol>
-  <li class="changed">space, punct, symbol, currency, digit - core groups of characters below 'a'</li>
-  <li><span class="changed">any script code from the <a class="c14" href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> Table in UAX 31 except Katakana — latn, cylr, arab, etc.
+  <li class="changed"><strong>space, punct, symbol, currency, digit</strong> - core groups of characters below 'a'</li>
+  <li><span class="changed"><strong>any script code</strong> from the <a class="c14" href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> Table in UAX 31 except Katakana — latn, cylr, arab, etc.
     </span>
     <ol>
       <li class="changed">Katakana and Hiragana are treated as a single script for collation purposes.</li>
       <li class="changed">Characters in any script not in the <a class="c14" href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> Table are treated as being in the <a class="c14" href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> script preceding, in DUCET order. Thus Phoenician characters are treated as Hebrew, for reordering purposes.</li>
     </ol>
   </li>
-  <li class="changed">others - represents where all codes not explicitly mentioned should be ordered.</li>
+  <li class="changed"><strong>others</strong> - represents where all codes not explicitly mentioned should be ordered.</li>
 </ol>
 <p class="c1">&nbsp;</p><p class="changed"><em>Interpretation of a reordering list:</em></p>
-<ol class="c18" start="1"><li class="changed">No code can occur multiple times.</li>
+<p class="changed">The reordering list is interpreted as if it were processed in the following way.</p>
+<ol class="c18" start="1">
+  <li class="changed">Check that no code occurs multiple times.</li>
   <li class="changed">If any core code is not present, then it is inserted at the front of the list in the order given above.</li>
   <li class="changed">If the 'others' code is not present, then it is inserted at the end of the list.</li>
   <li class="changed">The 'others' code is replaced by the list of all script codes not explicitly mentioned, in DUCET order.</li>
   <li class="changed">The reordering list is now complete, and used to reorder characters in collation accordingly.</li>
-</ol><p class="changed">To completely reset any existing reordering to the ducet ordering, the code xxx-u-kr-others can be used.</p>
-<p class="c1">&nbsp;</p><p class="changed">Examples: </p>
-<table cellpadding="0" cellspacing="0" class="c8"><tbody><tr><th class="c2"><p class="changed">locale code</p></th><th class="c2"><p class="changed">effect</p>
-        <span class="changed">
-        </td>
-        </span>
-</tr><tr><td class="c2"><p class="changed">kr-latn-digit</p>
-    <span class="changed">
-    </th>
-    </span>
-<td class="c2"><p class="changed">reorder digits after latn characters</p></td></tr><tr><td class="c2"><p class="changed">kr-latn-others-digit</p></td><td class="c2"><p class="changed">reorder digits after all other characters</p></td></tr><tr><td class="c2"><p class="changed">kr-arab-latn-symbol</p></td><td class="c2"><p class="changed">reorder arab before latn, and digits afterwards</p></td></tr></tbody></table>
+</ol><p class="changed">To completely reset any existing reordering to the ducet ordering, the code <strong>xxx-u-kr-others</strong> can be used.</p>
+<p class="c1">&nbsp;</p><p class="changed"><em>Examples: </em></p>
+<table cellpadding="0" cellspacing="0" class="changed"><tbody><tr>
+  <th class="c2">Locale code</th>
+  <th class="c2">Effect        </td>
+</tr><tr>
+  <td class="c2">kr-latn-digit<td class="c2">reorder digits after latn characters</td></tr><tr><td class="c2">kr-latn-others-digit</td><td class="c2">reorder digits after all other characters</td></tr><tr><td class="c2">kr-arab-latn-symbol</td><td class="c2">reorder arab before latn, and digits afterwards</td></tr></tbody></table><br>
 <h3>5.15 <span><a name="Segmentations">Segmentations</a></span></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 
   notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an id attribute.</p>

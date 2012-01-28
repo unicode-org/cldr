@@ -219,7 +219,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 scripts.append(cp);
                 count++;
                 if (count > 3) {
-                    scripts.append('…');
+                    scripts.append('\u2026');
                     break;
                 }
             }

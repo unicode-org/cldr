@@ -58,6 +58,10 @@
             <type name="true" alias="yes" description="A sequence of decimal digits is sorted at primary level with its numeric value"/>
             <type name="false" alias="no" description="No special handling for numeric ordering"/>
         </key>
+        
+        <key name="kr" alias="colReorder" description="Collation reorder codes">
+            <type name="REORDER_CODE" description="One or more collation reorder codes: LDML 5.14.12)"/>
+        </key>
 
         <key name="ks" alias="colStrength" description="Collation parameter key for collation strength">
             <type name="level1" alias="primary" description="The primary level"/>
@@ -68,7 +72,7 @@
         </key>
 
         <key name="vt" alias="variableTop" description="Collation parameter key for variable top">
-            <type name="CODEPOINTS" description="The variable top (Unicode code point)"/>
+            <type name="CODEPOINTS" description="The variable top (one or more Unicode code points: LDML Appendix Q)"/>
         </key>
     </keyword>
 </ldmlBCP47>

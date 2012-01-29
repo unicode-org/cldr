@@ -909,7 +909,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			"false"<br>(no)</td>
 		</tr>
 		<tr class="changed">
-		  <td>&quot;kr&quot;</td>
+		  <td>&quot;kr&quot;<br>(colReorder)</td>
 		  <td>Collation reordering</td>
 		  <td>reorder_code<br>
 	      (-reorder_code)*</td>
@@ -4164,8 +4164,20 @@ text data in the rule. For example, the following are all disallowed:</p>
   &lt;/rules&gt;
 &lt;/collation&gt;</pre>
 	<h3 class="changed">5.14.12 <a name="Script_Reordering"></a>Collation Reordering</h3>
-<p class="changed">Collation reordering allows scripts and some other defined blocks of characters to be moved relative to each other, without changing the detailed rules for all the characters involved. This reordering is done on top of ordering currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. The syntax is:</p>
-<p align="center" class="changed"><strong>xxx</strong>-u-kr-(<em><strong>reorder_code</strong></em>(-<strong><em>reorder_code</em></strong>)*)</p><p class="changed"><strong><em>reorder_code</em></strong> is any of the following special codes:</p>
+<p class="changed">Collation reordering allows scripts and some other defined blocks of characters to be moved relative to each other parametrically, without changing the detailed rules for all the characters involved. This reordering is done on top of ordering currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. For example:</p>
+<table class="changed">
+  <tr>
+    <th>Basic</th>
+    <th>XML</th>
+    <th>BCP47</th>
+  </tr>
+  <tr>
+    <td><code>[reorder Grek Latn digit]</code></td>
+    <td><code>&lt;reorder&gt;Grek Latn digit&lt;/reorder&gt;</code></td>
+    <td><code>en-u-kr-grek-latn-digit</code></td>
+  </tr>
+</table>
+<p class="changed">The BCP47 syntax is: <strong>xxx</strong>-u-kr-(<em><strong>reorder_code</strong></em>(-<strong><em>reorder_code</em></strong>)*)</p><p class="changed"><strong><em>reorder_code</em></strong> is any of the following special codes:</p>
 <ol>
   <li class="changed"><strong>space, punct, symbol, currency, digit</strong> - core groups of characters below 'a'</li>
   <li><span class="changed"><strong>any script code</strong> from the <a class="c14" href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> Table in UAX 31 except Katakana — latn, cylr, arab, etc.
@@ -4177,16 +4189,16 @@ text data in the rule. For example, the following are all disallowed:</p>
   </li>
   <li class="changed"><strong>others</strong> - represents where all codes not explicitly mentioned should be ordered.</li>
 </ol>
-<p class="c1">&nbsp;</p><p class="changed"><em>Interpretation of a reordering list:</em></p>
+<p class="c1"><span class="changed">It is an error if a code occurs multiple times.</span></p>
+<h4 class="changed">Interpretation of a reordering list</h4>
 <p class="changed">The reordering list is interpreted as if it were processed in the following way.</p>
 <ol class="c18" start="1">
-  <li class="changed">Check that no code occurs multiple times.</li>
   <li class="changed">If any core code is not present, then it is inserted at the front of the list in the order given above.</li>
   <li class="changed">If the 'others' code is not present, then it is inserted at the end of the list.</li>
   <li class="changed">The 'others' code is replaced by the list of all script codes not explicitly mentioned, in DUCET order.</li>
   <li class="changed">The reordering list is now complete, and used to reorder characters in collation accordingly.</li>
-</ol><p class="changed">To completely reset any existing reordering to the ducet ordering, the code <strong>xxx-u-kr-others</strong> can be used.</p>
-<p class="c1">&nbsp;</p><p class="changed"><em>Examples: </em></p>
+</ol>
+<p class="changed">The locale data may have a particular ordering. For example, the Czech locale data could put digits after letters. Any reordering codes specified on top of that completely replace what was there. To specify a version of collation that completely resets any existing reordering to the ducet ordering, the single code 'others' can be used, as in <strong>cs-u-kr-others</strong>.</p><p class="changed"><em>Examples: </em></p>
 <table cellpadding="0" cellspacing="0" class="changed"><tbody><tr>
   <th class="c2">Locale code</th>
   <th class="c2">Effect        </td>

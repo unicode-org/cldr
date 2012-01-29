@@ -1279,6 +1279,7 @@ $Date$
 <!ATTLIST settings numeric              ( on | off ) #IMPLIED >
 <!ATTLIST settings private              ( true | false ) #IMPLIED >
 <!ATTLIST settings variableTop          CDATA #IMPLIED >
+<!ATTLIST settings reorder              NMTOKENS #REQUIRED >
 
 <!ELEMENT suppress_contractions (  #PCDATA | cp )* >
 

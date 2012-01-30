@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-01-27</span></td>
+			<td><span class="changed">2012-01-29</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -1713,9 +1713,9 @@ root</pre>
 	<h4>5.2.1 <a name="Date_Ranges">Date and Date Ranges</a></h4>
 	<p>When attribute specify date ranges, it is usually done with 
 	attributes <i>from</i> and <i>to</i>. The <i>from</i> attribute specifies the starting point, 
-	and the <i>to</i> attribute specifies the end point. <i>In</i> some cases, the attribute is <i>
-	time</i>, and the element itself specifies whether it is equivalent to a <i>from</i> or a <i>to</i>. 
-	For example, this is done with the weekEndStart and weekEndEnd elements.</p>
+	and the <i>to</i> attribute specifies the end point. <span class="changed">The deprecated
+	<i>time</i> attribute was formerly used to specify time with the deprecated weekEndStart and weekEndEnd elements,
+	which were themselves inherently <i>from</i> or <i>to</i>.</span></p>
 	<p>The data format is a restricted ISO 8601 format, restricted to the 
 	fields <i>year, month, day, hour, minute, </i>and<i> second</i> in that order, with &quot;-&quot; used as 
 	a separator between date fields, a space used as the separator between the date and the time 
@@ -1749,19 +1749,19 @@ root</pre>
 			.../&gt;</td>
 		</tr>
 	</table>
-	<p class="note">as are the following:</p>
+	<p class="note"><span class="removed">as are the following:</span></p>
 	<table style="margin-top: 0.5em; margin-bottom: 0.5em" id="table24">
 		<tr>
-			<td>&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot;/&gt;<br>
-			&lt;weekendEnd day=&quot;<span style="color: blue">sun</span>&quot;/&gt;</td>
+			<td><span class="removed">&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot;/&gt;<br>
+			&lt;weekendEnd day=&quot;<span style="color: blue">sun</span>&quot;/&gt;</span></td>
 		</tr>
 		<tr>
-			<td>&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;<br>
-			&lt;weekendEnd day=&quot;<span style="color: blue">sun</span>&quot; time=&quot;<span style="color: blue">24:00</span>&quot;/&gt;</td>
+			<td><span class="removed">&lt;weekendStart day=&quot;<span style="color: blue">sat</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;<br>
+			&lt;weekendEnd day=&quot;<span style="color: blue">sun</span>&quot; time=&quot;<span style="color: blue">24:00</span>&quot;/&gt;</span></td>
 		</tr>
 		<tr>
-			<td>&lt;weekendStart day=&quot;<span style="color: blue">fri</span>&quot; time=&quot;<span style="color: blue">24:00</span>&quot;/&gt;<br>
-			&lt;weekendEnd day=&quot;<span style="color: blue">mon</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;</td>
+			<td><span class="removed">&lt;weekendStart day=&quot;<span style="color: blue">fri</span>&quot; time=&quot;<span style="color: blue">24:00</span>&quot;/&gt;<br>
+			&lt;weekendEnd day=&quot;<span style="color: blue">mon</span>&quot; time=&quot;<span style="color: blue">00:00</span>&quot;/&gt;</span></td>
 		</tr>
 	</table>
 	<p>If the <i>from</i> element is missing, it is assumed to be as far backwards in time as 
@@ -4198,12 +4198,23 @@ text data in the rule. For example, the following are all disallowed:</p>
   <li class="changed">The 'others' code is replaced by the list of all script codes not explicitly mentioned, in DUCET order.</li>
   <li class="changed">The reordering list is now complete, and used to reorder characters in collation accordingly.</li>
 </ol>
-<p class="changed">The locale data may have a particular ordering. For example, the Czech locale data could put digits after letters. Any reordering codes specified on top of that completely replace what was there. To specify a version of collation that completely resets any existing reordering to the ducet ordering, the single code 'others' can be used, as in <strong>cs-u-kr-others</strong>.</p><p class="changed"><em>Examples: </em></p>
-<table cellpadding="0" cellspacing="0" class="changed"><tbody><tr>
-  <th class="c2">Locale code</th>
-  <th class="c2">Effect        </td>
-</tr><tr>
-  <td class="c2">kr-latn-digit<td class="c2">reorder digits after latn characters</td></tr><tr><td class="c2">kr-latn-others-digit</td><td class="c2">reorder digits after all other characters</td></tr><tr><td class="c2">kr-arab-latn-symbol</td><td class="c2">reorder arab before latn, and digits afterwards</td></tr></tbody></table><br>
+<p class="changed">The locale data may have a particular ordering. For example, the Czech locale data could put digits after letters.
+Any reordering codes specified on top of that completely replace what was there. To specify a version of collation that completely
+resets any existing reordering to the ducet ordering, the single code 'others' can be used, as in <strong>cs-u-kr-others</strong>.</p><p class="changed"><em>Examples: </em></p>
+<table cellpadding="0" cellspacing="0" class="changed"><tbody>
+<tr>
+  <th class="c2">Locale code</th> <th class="c2">Effect</th>
+</tr>
+<tr>
+  <td class="c2">kr-latn-digit</td><td class="c2">reorder digits after latn characters</td>
+</tr>
+<tr>
+  <td class="c2">kr-latn-others-digit</td><td class="c2">reorder digits after all other characters</td>
+</tr>
+<tr>
+  <td class="c2">kr-arab-latn-symbol</td><td class="c2">reorder arab before latn, and digits afterwards</td>
+</tr>
+</tbody></table><br>
 <h3>5.15 <span><a name="Segmentations">Segmentations</a></span></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 
   notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an id attribute.</p>

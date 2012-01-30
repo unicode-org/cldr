@@ -534,6 +534,12 @@ public class SupplementalDataParser {
         xpath.setLength(oldLength);
         continue;
       }
+      String status = LDMLUtilities.getAttributeValue(node, LDMLConstants.STATUS);
+      if ( "deprecated".equals(status)) {
+        xpath.setLength(oldLength);
+        continue;
+      }
+      
       if (name.equals(LDMLConstants.GROUP)) {
         String cont = LDMLUtilities.getAttributeValue(node, LDMLConstants.CONTAINS);
         String value = LDMLUtilities.getAttributeValue(node, LDMLConstants.TYPE);

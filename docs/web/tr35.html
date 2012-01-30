@@ -8758,30 +8758,42 @@ decimal?, group?, special*)) &gt;</pre>
 	into the base. There are tools in CLDR to perform this operation.</p>
 
 	<h2>Appendix Q. <a name="Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a></h2>
-	<p>The Unicode Consortium is  in the process of registering the
-	extension 'u' for Unicode locale extensions. The locale extension key and type data defines the complete list of valid key and type values in Unicode language and locale identifiers for each version of CLDR (LDML).  The data also contains backward compatibility
-	mappings for keys and types used by earlier version of LDML specification.</p>
+	<p>The Unicode Consortium <span class="removed">is  in the process of registering</span><span class="changed">registered</span> the
+	extension 'u' for Unicode locale extensions<span class="changed">[<a href="#RFC6067">RFC6067</a>]</span>. The locale extension key and type data
+	defines the complete list of valid key<span class="removed"> and type</span><span class="changed">, type and attribute</span> values in Unicode language and locale identifiers for each version of CLDR (LDML). 
+	The data also contains backward compatibility mappings for keys and types used by earlier version of LDML specification.</p>
+	<blockquote class="changed">
+		Note: There are no values defined for the locale extension attribute in the current CLDR release.
+	</blockquote>
 
 	<p>The data is stored in multiple XML files located under
 	common/bcp47 directory in CLDR.  Each file contains the key/type values appropriate for a particular
 	domain. For example, <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/collation.xml">common/bcp47/collation.xml</a>
 	contains key/type values for collation, including optional collation parameters and valid type values
-	for each  key.</p>
+	for each key.</p>
 
 <pre class="dtd">&lt;!ELEMENT keyword ( key* )&gt;
 
 &lt;!ELEMENT key ( type* ) &gt;
+<span class="changed">&lt;!ATTLIST key extension NMTOKEN #IMPLIED&gt;</span>
 &lt;!ATTLIST key name NMTOKEN #REQUIRED&gt;
 &lt;!ATTLIST key alias NMTOKEN #IMPLIED&gt;
+<span class="changed">&lt;!ATTLIST key description CDATA #IMPLIED&gt;</span>
 &lt;!ATTLIST key since CDATA #IMPLIED&gt;
 
 &lt;!ELEMENT type EMPTY&gt;
 &lt;!ATTLIST type name NMTOKEN #REQUIRED&gt;
 &lt;!ATTLIST type alias CDATA #IMPLIED&gt;
-&lt;!ATTLIST type since CDATA #IMPLIED&gt;</pre>
+<span class="changed">&lt;!ATTLIST type description CDATA #IMPLIED&gt;</span>
+&lt;!ATTLIST type since CDATA #IMPLIED&gt;
+
+<span class="changed">&lt;!ELEMENT attribute EMPTY&gt;
+&lt;!ATTLIST attribute name NMTOKEN #REQUIRED&gt;
+&lt;!ATTLIST attribute description CDATA #IMPLIED&gt;
+&lt;!ATTLIST attribute since CDATA #IMPLIED&gt;</span></pre>
 
 	<p>The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.  The common attributes
-	for the &lt;key&gt; and &lt;type&gt; elements are as follows:
+	for the &lt;key&gt;<span class="removed"> and</span><span class="changed">,</span> &lt;type&gt; <span class="changed">and &lt;attribute&gt;</span> elements are as follows:
 	<dl>
 		<dt><b>name</b></dt>
 		<dd>
@@ -8828,7 +8840,7 @@ decimal?, group?, special*)) &gt;</pre>
 
         </dd>
 
-		<dt><b>alias</b></dt>
+		<dt><b>alias</b> <span class="changed">(Not applicable to &lt;attribute&gt;)</span></dt>
 		<dd>
 			<p>The key or type name used by Unicode locale extension with
 			the old <a href="#Old_Locale_Extension_Syntax">"@key=type" syntax</a>.
@@ -8840,6 +8852,11 @@ decimal?, group?, special*)) &gt;</pre>
 			value. Other values might have been used in previous versions.</p>
 		</dd>
 
+		<dt class="changed"><b>description</b></dt>
+		<dd class="changed">
+			The description of the key, type or attribute element.
+		</dd>
+
 		<dt><b>since</b></dt>
 		<dd>
 			The version of CLDR in which this key or type was introduced.
@@ -8849,19 +8866,19 @@ decimal?, group?, special*)) &gt;</pre>
 	</dl>
 	<p>For example,
 <pre>
-&lt;key name="co" alias="collation"&gt;
-  &lt;type name="pinyin"/&gt;
+&lt;key name="co" alias="collation"<span class="changed"> description="Collation type key"</span>&gt;
+  &lt;type name="pinyin"<span class="changed"> description="Pinyin ordering for Latin and for CJK characters (used in Chinese)"</span>/&gt;
 &lt;/key&gt;
 
-&lt;key name="ka" alias="colAlternate"&gt;
-  &lt;type name="noignore" alias="non-ignorable"/&gt;
-  &lt;type name="shifted"/&gt;
+&lt;key name="ka" alias="colAlternate"<span class="changed"> description="Collation parameter key for alternate handling"</span>&gt;
+  &lt;type name="noignore" alias="non-ignorable"<span class="changed"> description="Variable collation elements are not reset to ignorable"</span>/&gt;
+  &lt;type name="shifted"<span class="changed">"Variable collation elements are reset to zero at levels one through three"</span>/&gt;
 &lt;/key&gt;
 
 &lt;key name="tz" alias="timezone"&gt;
   ...
-  &lt;type name="aumel" alias="Australia/Melbourne Australia/Victoria"/&gt;
-  &lt;type name="aumqi" alias="Antarctica/Macquarie" since="1.8.1"/&gt;
+  &lt;type name="aumel" alias="Australia/Melbourne Australia/Victoria"<span class="changed"> description="Melbourne, Australia"</span>/&gt;
+  &lt;type name="aumqi" alias="Antarctica/Macquarie"<span class="changed"> description="Macquarie Island Station, Macquarie Island"</span> since="1.8.1"/&gt;
   ...
 &lt;/key&gt;
 </pre>
@@ -9017,6 +9034,11 @@ decimal?, group?, special*)) &gt;</pre>
 		    <a href="http://www.unece.org/cefact/locode/">http://www.unece.org/cefact/locode/</a><br>
 	      Download at: <a href="http://www.unece.org/cefact/codesfortrade/codes_index.htm"> http://www.unece.org/cefact/codesfortrade/codes_index.htm</a></td>
 	  </tr>
+		<tr class="changed">
+			<td class="noborder" width="148">[<a name="RFC6067">RFC6067</a>]</td>
+			<td class="noborder" width="730">BCP 47 Extension U<br>
+			<a href="http://www.ietf.org/rfc/rfc6067.txt">http://www.ietf.org/rfc/rfc6067.txt</a></td>
+		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="UNM49">UNM49</a>]</td>
 			<td class="noborder" width="730">UN M.49: UN Statistics Division<p>Country or area &amp; region codes<br>
@@ -9026,7 +9048,7 @@ decimal?, group?, special*)) &gt;</pre>
 			</td>
 		</tr>
 		<tr>
-			<th class="noborder" width="148">[<a name="XMLSchema">XML Schema</a>]</th>
+			<td class="noborder" width="148">[<a name="XMLSchema">XML Schema</a>]</td>
 			<td class="noborder" width="730">W3C XML Schema<br>
 			<a href="http://www.w3.org/XML/Schema">http://www.w3.org/XML/Schema</a></td>
 		</tr>
@@ -9203,6 +9225,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Updated info on deprecated items. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4360">4360</a>]</li>
 		<li>Clarified the status of non-decimal numbering systems. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4177">4177</a>]</li>
 		<li>Described collation reordering. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4194">4194</a>]</li>
+		<li>Updated <i>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a></i>. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4361">4361</a>]</li>
 	</ul>
 <h3>Revision 21</h3>
 

@@ -378,7 +378,7 @@
                 Pacific/Wake Pacific/Wallis
             </variable>
             <variable id="$altList" type="choice">
-                stand-alone variant list secondary email www short arab arabext armn armnlow bali beng cham deva ethi fullwide geor grek greklow gujr guru hans hansfin hant hantfin hebr java jpan jpanfin kali knda khmr lanahora lanatham laoo latn lepc limb mlym mong mtei mymr mymrshan new nkoo olck orya roman romanlow saur sund talu taml telu thai tibt vaii
+                stand-alone variant list secondary email www short arab arabext armn armnlow bali beng cham deva ethi fullwide geor grek greklow gujr guru hans hansfin hant hantfin hebr java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb mlym mong mtei mymr mymrshan new nkoo olck orya roman romanlow saur sund talu taml telu thai tibt vaii
             </variable>
             <!-- specialized lists and types -->
             <variable id="$tzidList" type="list">$tzid</variable>
@@ -426,7 +426,7 @@
                 hanidec hans hansfin hant hantfin hebr
                 java jpan jpanfin
                 kali khmr knda
-                lanahora lanatham laoo latn lepc limb
+                lana lanatham laoo latn lepc limb
                 mlym mong mtei mymr mymrshan
                 native nkoo
                 olck orya
@@ -510,7 +510,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colStrength currency numbers x</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow bali beng big5han buddhist cham chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese java jpan jpanfin kali knda khmr lanahora lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya persian phonebook pinyin primary quarternary quaternary roc roman romanlow saur sund search searchjl secondary shifted stroke talu taml tamldec telu tertiary thai tibt traditional upper vaii yes</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow bali beng big5han buddhist cham chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya persian phonebook pinyin primary quarternary quaternary roc roman romanlow saur sund search searchjl secondary shifted stroke talu taml tamldec telu tertiary thai tibt traditional upper vaii yes</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>

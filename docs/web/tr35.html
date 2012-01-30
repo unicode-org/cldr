@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-01-29</span></td>
+			<td><span class="changed">2012-01-30</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -7379,16 +7379,23 @@ range         = value'..'value</pre>
 		<li>&quot;Pacific Daylight Time&quot;</li>
 		<li>&quot;PDT&quot; </li>
 	</ul>
-	<p><b>Localized 
-		GMT format:</b> A constant, specific offset from GMT (or UTC), which may be in a translated 
-	form.</p>
+	<p><b>Localized GMT format:</b> A constant, specific offset from GMT (or UTC), which may be in a translated form.
+	<span class="changed"> There are two styles for this. The first is used when there is an explicit non-zero offset
+	from GMT; this style is specified by the &lt;gmtFormat&gt; element:</span></p>
 	<ul>
 		<li>&quot;HMG+03.30&quot;</li>
 		<li>&quot;GMT+03:30&quot;</li>
-		<li>&quot;Гриинуич+03:30</li>
+		<li>&quot;Гриинуич+03:30&quot</li>
 	</ul>
-	<p><b>Localized GMT-zero format:</b> The name for GMT (or UTC) itself
-	(i.e. an offset of 0 from GMT), which may be in a translated form.</p>
+	<p><span class="changed">Otherwise (when the offset from GMT is zero, referring to GMT itself) the style specified
+	by the &lt;gmtZeroFormat&gt; element is used:</span></p>
+	<ul>
+		<li><span class="changed">&quot;HMG&quot;</span></li>
+		<li><span class="changed">&quot;GMT&quot;</span></li>
+		<li><span class="changed">&quot;Гриинуич&quot</span></li>
+	</ul>
+	<p><span class="removed"><b>Localized GMT-zero format:</b> The name for GMT (or UTC) itself
+	(i.e. an offset of 0 from GMT), which may be in a translated form.</span></p>
 	<p><b>RFC 822 GMT 
 		format:</b> A constant, specific offset from GMT (or UTC), which always has the same format.</p>
 	<ul>
@@ -9226,6 +9233,8 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Clarified the status of non-decimal numbering systems. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4177">4177</a>]</li>
 		<li>Described collation reordering. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4194">4194</a>]</li>
 		<li>Updated <i>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a></i>. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4361">4361</a>]</li>
+		<li>In <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, fold description of Localized GMT-zero format into that of
+		Localized GMT format. [ticket #<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
 	</ul>
 <h3>Revision 21</h3>
 

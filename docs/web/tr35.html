@@ -244,7 +244,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		<li>Appendix N: <a href="#Transform_Rules">Transform Rules</a></li>
 		<li>Appendix O: <a href="#Lenient_Parsing">Lenient Parsing</a></li>
 		<li>Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a></li>
-		<li>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a></li>
+		<li>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em"><a href="#References">References</a></li>
 		<li><a href="#Acknowledgments">Acknowledgments</a></li>
 		<li><a href="#Modifications">Modifications</a></li>
@@ -679,7 +679,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	is called a <i>territory locale</i> (or <i>country locale</i>).</p>
 	<p>The following chart contains a subset of key/type combinations currently available.  For the complete
 	list of keys and types defined for Unicode locale extensions, see
-	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a>.
+	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.
 	<p>
 
 	<table>
@@ -1036,8 +1036,8 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 	</table>
 
-	<p class="note">For more information on the allowed keys and types, see the specific elements below, and
-<a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a>.</p>
+	<p class="note">For more information on the allowed keys and types, see the specific elements below, and <span class="changed">Appendix Q: </span>
+	<a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.</p>
 
 	<p>Additional keys or types might be added in future versions.  Implementations of LDML should be robust
 	to handle any syntactically valid key or type values.</p>
@@ -1149,7 +1149,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	</p>
 
 	<p>The complete list of Unicode locale extension subtags are defined by Appendix Q:
-	<a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a>.  These
+	<a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.  These
 	subtags are all in lowercase (that is the canonical casing for these subtags), however,
 	subtags are case-insensitive and casing does not carry any specific meaning.</p>
 
@@ -1325,7 +1325,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	</table>
 
 	<p>For more information about the key/type definitions and their old code mappings,
-	see Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a>.
+	see Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.
 
 	<h2>4. <a name="Locale_Inheritance">Locale Inheritance</a></h2>
 	<p>The XML format relies on an inheritance model, whereby the resources are collected into <i>bundles</i>, and the bundles organized into a tree. Data for the 
@@ -5704,7 +5704,7 @@ range         = value'..'value</pre>
 	<h3>C.16 <a name="BCP47_Keyword_Mapping">BCP 47 Keyword Mapping</a></h3>
 
 	<p><b>Note:</b> <i>This data is deprecated and replaced with
-	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a>.
+	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.
 	The data might be removed in future CLDR releases.</i></p>
 
 	<p class="dtd">&lt;!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) &gt;<br>
@@ -8827,20 +8827,21 @@ decimal?, group?, special*)) &gt;</pre>
 	pushed out to the locales that inherit from it, then the new default content locale&#39;s data moved 
 	into the base. There are tools in CLDR to perform this operation.</p>
 
-	<h2>Appendix Q. <a name="Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a></h2>
-	<p>The Unicode Consortium <span class="removed">is  in the process of registering</span><span class="changed">registered</span> the
+	<h2>Appendix Q. <a name="Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a></h2>
+	<p class="removed">The Unicode Consortium <span class="removed">is  in the process of registering</span><span class="changed">registered</span> the
 	extension 'u' for Unicode locale extensions<span class="changed">[<a href="#RFC6067">RFC6067</a>]</span>. The locale extension key and type data
 	defines the complete list of valid key<span class="removed"> and type</span><span class="changed">, type and attribute</span> values in Unicode language and locale identifiers for each version of CLDR (LDML). 
 	The data also contains backward compatibility mappings for keys and types used by earlier version of LDML specification.</p>
-	<blockquote class="changed">
-		Note: There are no values defined for the locale extension attribute in the current CLDR release.
-	</blockquote>
+	<p class="changed">The Unicode Consortium registers BCP 47 language tag extension 'u' for Unicode locale extension[<a href="#RFC6067">RFC6067</a>]
+	and extension 't' for transformed content[<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of
+	valid Unicode locale key, type and attribute subtags used by the 'u' extension and valid field subtags used by 't' extension.
 
-	<p>The data is stored in multiple XML files located under
-	common/bcp47 directory in CLDR.  Each file contains the key/type values appropriate for a particular
-	domain. For example, <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/collation.xml">common/bcp47/collation.xml</a>
-	contains key/type values for collation, including optional collation parameters and valid type values
-	for each key.</p>
+	<p>The <span class="changed">'u' extension </span>data is stored in multiple XML files located under
+	common/bcp47 directory in CLDR.  Each file contains the <span class="changed">locale extension </span>key/type values
+	<span class="changed">and their backward compatibility mappings</span> appropriate for a particular domain.
+	For example, <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/collation.xml">common/bcp47/collation.xml</a>
+	contains key/type values for collation, including optional collation parameters and valid type values for each key.</p>
+	<p class="changed">The 't' extension data is stored in <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/transform.xml">common/bcp47/transform.xml</a>.</p>
 
 <pre class="dtd">&lt;!ELEMENT keyword ( key* )&gt;
 
@@ -8862,8 +8863,15 @@ decimal?, group?, special*)) &gt;</pre>
 &lt;!ATTLIST attribute description CDATA #IMPLIED&gt;
 &lt;!ATTLIST attribute since CDATA #IMPLIED&gt;</span></pre>
 
-	<p>The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.  The common attributes
+	<p><span class="changed">The extension attribute in &lt;key&gt; element specifies the BCP 47 language tag extension type. The default value of
+	the extension attribute is "u" (Unicode locale extension).</span> The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.</p>
+	
+	<h3 class="changed">Q.1 Unicode Locale Extension Data Files</h3>
+	<p><span class="changed">In the Unicode locale extension 'u' data files, </span>the common attributes
 	for the &lt;key&gt;<span class="removed"> and</span><span class="changed">,</span> &lt;type&gt; <span class="changed">and &lt;attribute&gt;</span> elements are as follows:
+
+	<blockquote class="changed">Note: There are no values defined for the locale extension attribute in the current CLDR release.</blockquote>
+
 	<dl>
 		<dt><b>name</b></dt>
 		<dd>
@@ -8967,6 +8975,24 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>type "aumqi" is valid for key "tz", supported by CLDR 1.8.1
 		or later versions.</li>
 	</ul>
+
+	<h3 class="changed">Q.2 Transformed Content Data File</h3>
+	<p class="changed">In the transformed content 't' data file, the name attribute in a &lt;key&gt; element
+	defines a valid field separator subtag. The name attribute in an enclosed &lt;type&gt; element defines a valid
+	field subtag. For example:
+<pre class="changed">
+&lt;key extension="t" name="m0" description="Transliteration extension mechanism"&gt;
+	&lt;type name="ungegn"
+		description="United Nations Group of Experts on Geographical Names" since="21"/&gt;
+&lt;key&gt;
+</pre>
+	<span class="changed">The data above indicates:</span>
+	<ul class="changed">
+		<li>"m0" is a valid field separator for the transformed content extension 't'.</li>
+		<li>field subtag "ungegn" is valid for field separator "m0".</li>
+		<li>field subtag "ungegn" is supported by CLDR 21 or later versions.</li>
+	</ul>
+	</p>
 
 	<hr>
 	<h2><a name="References">References</a></h2>
@@ -9108,6 +9134,11 @@ decimal?, group?, special*)) &gt;</pre>
 			<td class="noborder" width="148">[<a name="RFC6067">RFC6067</a>]</td>
 			<td class="noborder" width="730">BCP 47 Extension U<br>
 			<a href="http://www.ietf.org/rfc/rfc6067.txt">http://www.ietf.org/rfc/rfc6067.txt</a></td>
+		</tr>
+		<tr class="changed">
+			<td class="noborder" width="148">[<a name="RFC6497">RFC6497</a>]</td>
+			<td class="noborder" width="730">BCP 47 Extension T - Transformed Content<br>
+			<a href="http://www.ietf.org/rfc/rfc6497.txt">http://www.ietf.org/rfc/rfc6497.txt</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="UNM49">UNM49</a>]</td>
@@ -9296,7 +9327,8 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Updated info on deprecated items. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4360">4360</a>]</li>
 		<li>Clarified the status of non-decimal numbering systems. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4177">4177</a>]</li>
 		<li>Described collation reordering. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4194">4194</a>]</li>
-		<li>Updated <i>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a></i>. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4361">4361</a>]</li>
+		<li>Changed the section title of <i><a href="#Locale_Extension_Key_and_Type_Data">Appendix Q</a></i> from "Locale Extension Key and Type Data" to "BCP 47 Extension Data" and updated the description.
+		[ticket #<a href="http://unicode.org/cldr/trac/ticket/4361">4361</a>]</li>
 		<li>In <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, fold description of Localized GMT-zero format into that of
 		Localized GMT format. [ticket #<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
 	</ul>

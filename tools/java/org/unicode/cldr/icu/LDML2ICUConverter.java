@@ -4861,7 +4861,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return rules;
     }
 
-    private static final UnicodeSet needsQuoting = new UnicodeSet("[[:whitespace:][[:c:]-[:co:]][:z:][[:ascii:]-[a-zA-Z0-9]]]");
+    private static final UnicodeSet needsQuoting = new UnicodeSet("[[:whitespace:][[:c:]-[:co:]][:z:][[:ascii:]-[a-zA-Z0-9]]\u2260]");
     private static StringBuilder quoteOperandBuffer = new StringBuilder(); // faster
 
     private static final String quoteOperand(String s) {

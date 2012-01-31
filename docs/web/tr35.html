@@ -399,9 +399,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       <tr>
         <td><pre>unicode_locale_id</pre></td>
         <td><pre>= unicode_language_id
+<span class="changed">  transformed_extensions?</span>
   unicode_locale_extensions?</pre></td>
         <td><pre>= unicode_language_id
- [unicode_locale_extensions]</pre></td>
+<span class="changed">  [transformed_extensions]</span>
+  [unicode_locale_extensions]</pre></td>
       </tr>
       <tr>
         <td><pre>unicode_locale_extensions</pre></td>
@@ -411,6 +413,15 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
         <td><pre>= sep "u" 
   (1*(sep keyword)
  / 1*(sep attribute) *(sep keyword))</pre></td>
+      </tr>
+      <tr class="changed">
+        <td><pre>transformed_extensions</pre></td>
+        <td><pre>= sep &quot;t&quot;
+  (("-" tlang ("-" tfield)*)
+  | ("-" tfield)+)</pre></td>
+        <td><pre>= sep &quot;t&quot;
+  ((&quot;-&quot; tlang *(&quot;-&quot; tfield))
+  / 1*(&quot;-&quot; tfield))</pre></td>
       </tr>
       <tr>
         <td><pre>keyword</pre></td>
@@ -433,6 +444,27 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
         <td><pre>= 3*8alphanum</pre></td>
       </tr>
       <tr>
+        <td><pre><span class="changed">tlang</span></pre></td>
+        <td><pre><span class="changed">= unicode_language_subtag
+  (&quot;-&quot; unicode_script_subtag)?
+  (&quot;-&quot; unicode_region_subtag)?
+  (&quot;-&quot; unicode_variant_subtag)*</span></pre></td>
+        <td><pre><span class="changed">= unicode_language_subtag
+  [&quot;-&quot; unicode_script_subtag]
+  [&quot;-&quot; unicode_region_subtag]
+  *(&quot;-&quot;unicode_variant_subtag)</span></pre></td>
+      </tr>
+      <tr>
+        <td><pre><span class="changed">tfield</span></pre></td>
+        <td><pre><span class="changed">= fsep (&quot;-&quot; alphanum{3,8})+</span></pre></td>
+        <td><pre><span class="changed">= fsep 1*(&quot;-&quot; 3*8alphanum)</span></pre></td>
+      </tr>
+      <tr>
+        <td><pre><span class="changed">fsep</span></pre></td>
+        <td><pre><span class="changed">= [A-Z a-z] [0-9]</span></pre></td>
+        <td><pre><span class="changed">= ALPHA DIGIT</span></pre></td>
+      </tr>
+      <tr>
         <td><pre>alphanum</pre></td>
         <td><pre>= [0-9 A-Z a-z]</pre></td>
         <td><pre>= ALPHA / DIGIT</pre></td>
@@ -444,7 +476,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	identifier, and accesses
 	<span class="st">language</span>-based data. Except where it would be unclear, this document uses the term &quot;locale&quot; data loosely to encompass 
 	both types of data: for more information, see
-	<i><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></i>.	</p>
+<i><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></i>.	</p>
 	<p>Although not shown in the syntax above, Unicode locale identifiers may also have [<a href="#BCP47">BCP47</a>] extensions (other than &quot;u&quot;)
 	and private use subtags; these are not, however, relevant to their use in Unicode.</p>
 	<p></p>
@@ -1037,7 +1069,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	</table>
 
 	<p class="note">For more information on the allowed keys and types, see the specific elements below, and <span class="changed">Appendix Q: </span>
-	<a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.</p>
+<a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.</p>
 
 	<p>Additional keys or types might be added in future versions.  Implementations of LDML should be robust
 	to handle any syntactically valid key or type values.</p>
@@ -1134,40 +1166,38 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	of subtags from [<a href="#BCP47">BCP47</a>] Language Tags.  There are some
 	extensions and restrictions made for the use of identifiers in CLDR.</p>
 
-	<h4>3.2.1 <a name="u_Extension">-u- Extension</a></h4>
+	<h4>3.2.1 <a name="u_Extension">-u- <span class="changed">and -t- </span>Extension<span class="changed">s</span></a></h4>
 	<p>[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for extending language tags
 	for use in various applications by extension subtags. Each extension subtag is identified by
-	a single alphanumeric character subtag assigned by IANA.  Unicode is in the process of registring
-	a character 'u' for Unicode locale extensions.</p>
+	a single alphanumeric character subtag assigned by IANA.  The Unicode consortium has registered the character 'u' for Unicode locale extensions, and the character 't' for Transformed Content extensions.</p>
 
-	<p>The syntax of 'u' extension subtags is defined by the rule <code>unicode_locale_extensions</code>
-	in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>, except the separator of
-	subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of
-	BCP 47 language tag.  All subtags within the Unicode locale extension are alphanumeric characters
-	in length of two to eight that meet the rule <code>extension</code> in the [<a href="#BCP47">BCP47</a>]
-	specification.
-	</p>
-
-	<p>The complete list of Unicode locale extension subtags are defined by Appendix Q:
-	<a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.  These
+	<p>The complete list of Unicode locale extension subtags are defined by Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.  These
 	subtags are all in lowercase (that is the canonical casing for these subtags), however,
-	subtags are case-insensitive and casing does not carry any specific meaning.</p>
-
-  <p>A 'u' extension may contain multiple <code>attribute</code>s or <code>keyword</code>s
+	subtags are case-insensitive and casing does not carry any specific meaning. All subtags within the Unicode  extension<span class="changed">s</span> are alphanumeric characters
+	  in length of two to eight that meet the rule <code>extension</code> in the [<a href="#BCP47">BCP47</a>]
+    specification. </p>
+	<p><strong class="changed">The -u- Extension.</strong> The syntax of 'u' extension subtags is defined by the rule <code>unicode_locale_extensions</code>
+	  in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>, except the separator of
+	  subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of
+  BCP 47 language tag.  </p>
+<p>A 'u' extension may contain multiple <code>attribute</code>s or <code>keyword</code>s
 	as defined in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>.
 	Although the order of <code>attribute</code>s or <code>keyword</code>s does not matter,
 	this specification defines the canonical form as below:
-	<ul>
+<ul>
 		<li>All attributes are sorted in alphabetical order.
 		<li>All keywords are sorted by alphabetical order of keys.
       <li>All keywords are in lowercase.
       <li>All keys and types use the canonical form (from the name attribute; see Appendix Q).
   </ul>
-	<p>For example, the canonical form of 'u' extension "u-foo-bar-nu-thai-ca-buddhist" is
+  <p>For example, the canonical form of 'u' extension "u-foo-bar-nu-thai-ca-buddhist" is
     "u-bar-foo-ca-buddhist-nu-thai".  The attributes "foo" and "bar" in this example are provided only for illustration; no attribute subtags are defined
     by the current CLDR specification. </p>
+	<p class="changed"><strong>The -t- Extension.</strong> The syntax of 't' extension subtags is defined by the rule <code>unicode_locale_extensions</code> in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>, except the separator of
+	  subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of
+  BCP 47 language tag. For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
 
-	<h4>3.2.2 <a name="BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a></h4>
+<h4>3.2.2 <a name="BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a></h4>
 	<p>A Unicode language/locale identifier can be converted to a valid [<a href="#BCP47">BCP 47</a>]
 	language tag by performing the following transformation.
 	<ol>
@@ -8839,15 +8869,15 @@ decimal?, group?, special*)) &gt;</pre>
 	extension 'u' for Unicode locale extensions<span class="changed">[<a href="#RFC6067">RFC6067</a>]</span>. The locale extension key and type data
 	defines the complete list of valid key<span class="removed"> and type</span><span class="changed">, type and attribute</span> values in Unicode language and locale identifiers for each version of CLDR (LDML). 
 	The data also contains backward compatibility mappings for keys and types used by earlier version of LDML specification.</p>
-	<p class="changed">The Unicode Consortium registers BCP 47 language tag extension 'u' for Unicode locale extension[<a href="#RFC6067">RFC6067</a>]
-	and extension 't' for transformed content[<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of
-	valid Unicode locale key, type and attribute subtags used by the 'u' extension and valid field subtags used by 't' extension.
+	<p class="changed">The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>]
+	and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of
+	valid Unicode locale key, type and attribute subtags used by the 'u' extension and valid  subtags used by 't' extension.
 
 	<p>The <span class="changed">'u' extension </span>data is stored in multiple XML files located under
 	common/bcp47 directory in CLDR.  Each file contains the <span class="changed">locale extension </span>key/type values
 	<span class="changed">and their backward compatibility mappings</span> appropriate for a particular domain.
 	For example, <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/collation.xml">common/bcp47/collation.xml</a>
-	contains key/type values for collation, including optional collation parameters and valid type values for each key.</p>
+  contains key/type values for collation, including optional collation parameters and valid type values for each key.</p>
 	<p class="changed">The 't' extension data is stored in <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/transform.xml">common/bcp47/transform.xml</a>.</p>
 
 <pre class="dtd">&lt;!ELEMENT keyword ( key* )&gt;
@@ -8986,21 +9016,35 @@ decimal?, group?, special*)) &gt;</pre>
 	<h3 class="changed">Q.2 Transformed Content Data File</h3>
 	<p class="changed">In the transformed content 't' data file, the name attribute in a &lt;key&gt; element
 	defines a valid field separator subtag. The name attribute in an enclosed &lt;type&gt; element defines a valid
-	field subtag. For example:
+	field subtag for the field separator subtag. For example:
 <pre class="changed">
-&lt;key extension="t" name="m0" description="Transliteration extension mechanism"&gt;
+&lt;key extension="t" name="m0" 
+    description="Transliteration extension mechanism"&gt;
 	&lt;type name="ungegn"
-		description="United Nations Group of Experts on Geographical Names" since="21"/&gt;
+		description="United Nations Group of Experts on Geographical Names"
+      since="21"/&gt;
 &lt;key&gt;
 </pre>
 	<span class="changed">The data above indicates:</span>
 	<ul class="changed">
 		<li>"m0" is a valid field separator for the transformed content extension 't'.</li>
 		<li>field subtag "ungegn" is valid for field separator "m0".</li>
-		<li>field subtag "ungegn" is supported by CLDR 21 or later versions.</li>
+		<li>field subtag "ungegn" was introduced in CLDR 21.</li>
 	</ul>
-
-	<hr>
+	<p class="changed">The attributes are:</p>
+	<dl>
+	  <dt class="changed"><b>name</b></dt>
+	  <dd class="changed"> The name of the mechanism, limited to 3-8 characters (or sequences of them).</dd>
+	  <dt class="changed"><b>description</b></dt>
+	  <dd class="changed">A description of the name,    with all and only that information necessary to distinguish one name from     | American Library others with which it might be confused.  Descriptions are not intended to provide general background information.</dd>
+	  <dt class="changed"><b>since</b></dt>
+	  <dd class="changed"> Indicates the first version of CLDR where the name appears.  (Required for new items.) </dd>
+	  <dt>&nbsp;</dt>
+	  <dt class="changed"><b>alias</b></dt>
+	  <dd class="changed">Alternative name, not limited in number of characters.         Aliases are intended for       compatibility, not  to provide all possible       alternate names or            designations.  <em>(Optional)</em></dd>
+  </dl>
+  <p class="changed">For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
+<hr>
 	<h2><a name="References">References</a></h2>
 	<table cellpadding="4" cellspacing="0" class="noborder" border="0">
 		<tr>

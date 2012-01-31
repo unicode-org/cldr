@@ -196,6 +196,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li><span class="changed">5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></span></li>
 			<li><span class="changed">5.20 <a href="#Metadata_Elements">Metadata Elements</a></span></li>
 			<li><span class="changed">5.21 <a href="#Alias_Elements">Alias Elements</a></span></li>
+			<li><span class="changed">5.22 <a href="#List_Gender">Gender of Lists</a></span></li>
 		</ul>
 		<p>Appendix A: <a href="#Sample_Special_Elements">Sample Special Elements</a> </p>
 		<ul class="toc">
@@ -4568,6 +4569,7 @@ resets any existing reordering to the ducet ordering, the single code 'others' c
   </ol>
   <p>Thus a list (a,b,c,...m, n) is formatted as: start(a,middle(b,middle(c,middle(...end(m, n))...)))</p>
 </div>
+
 <h3><span class="changed">5.19 <a name="Context_Transform_Elements"></a>ContextTransform Elements</span></h3>
 	<p class="dtd"><span class="changed">
 	&lt;!ELEMENT contextTransforms ( alias | (contextTransformUsage*, special*)) &gt;<br>
@@ -4753,6 +4755,55 @@ resets any existing reordering to the ducet ordering, the single code 'others' c
     </blockquote>
     <p>It is an error to have a circular chain of aliases. That is, a collection of LDML XML documents must not have situations where a sequence of alias lookups 
         (including inheritance and multiple inheritance) can be followed indefinitely without terminating.</p>
+
+<h3 class="changed">5.18 <a name="List_Gender"></a>Gender of Lists</h3>
+  <p class="dtd"><span class="changed">
+  &lt;!-- Gender List support --&gt; <br>
+  &lt;!ELEMENT gender ( personList+ ) &gt; <br>
+  &lt;!ELEMENT personList EMPTY &gt; <br>
+  &lt;!ATTLIST personList type ( neutral | mixedNeutral | maleTaints )
+  #REQUIRED &gt; <br>
+  &lt;!ATTLIST personList locales NMTOKENS #REQUIRED &gt; <br>
+  </span></p>
+  
+  <span class="changed">This can be used to determine the gender of a list of 2 or more
+  persons, such as "Tom and Mary", for use with gender-selection
+  messages.  For example,</span>
+
+  <pre class="example">
+  <span class="changed">
+  &lt;supplementalData&gt;
+    &lt;gender&gt;
+      &lt;!-- neutral: gender(list) = other --&gt;
+      &lt;personList type="neutral" locales="af da en..."/&gt;
+  
+      &lt;!-- mixedNeutral: gender(all male) = male, gender(all female) = female, otherwise gender(list) = other --&gt;
+      &lt;personList type="mixedNeutral" locales="el"/&gt; 
+
+      &lt;!-- maleTaints: gender(all female) = female, otherwise gender(list) = male --&gt;
+      &lt;personList type="maleTaints" locales="ar ca..."/&gt; 
+    &lt;/gender&gt;
+  &lt;/supplementalData&gt;
+  </span>
+  </pre>
+
+  <span class="changed">There are three ways the gender of a list can be formatted:</span>
+
+  <ol class="changed">
+     <li><b>neutral:</b> A gender-independant "other" form will be used for
+     the list.</li>
+     <li><b>mixedNeutral:</b> If the elements of the list are all male,
+     "male" form is used for the list.  If all the elements of the
+     lists are female, "female" form is used.  If the list has a mix
+     of male, female and neutral names, the "other" form is used.</li>
+     <li><b>maleTaints:</b> If all the elements of the
+     lists are female, "female" form is used, otherwise the "male"
+     form is used.</li>
+  </ol>
+
+  <span class="changed">The data will be in <tt>gender.xml</tt>, where the locales belonging
+  to each of these types are enumerated.</span>
+
 <h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
 	<p>The elements in this section are <i><b>not</b></i> part of the Locale Data Markup Language 1.0 specification. Instead, they are special elements used for 
 	application-specific data to be stored in the Common Locale Repository. They may change or be removed future versions of this document, and are present her 
@@ -9209,7 +9260,8 @@ decimal?, group?, special*)) &gt;</pre>
 		zone names. [tickets <a href="http://unicode.org/cldr/trac/ticket/4052">#4052</a>, 
 		<a href="http://unicode.org/cldr/trac/ticket/4130">#4130</a>]</li>
 		<li>Added documentation for ordinal plural forms. [ticket <a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
-        <li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [ticket <a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
+    <li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [ticket <a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
+    <li>Added documentation for gender of lists. [ticket <a href="http://unicode.org/cldr/trac/ticket/4125">#4125</a>]</li>
         <li>Clarified use of hour pattern characters (h, H, K, k) in skeletons and associated patterns, in both
         <i>Section 5.9.1 <a href="#Calendar_Elements">Calendar Elements</a></i> and in the <i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></i>.
         [ticket <a href="http://unicode.org/cldr/trac/ticket/4061">#4061</a>]</li>

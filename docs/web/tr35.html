@@ -3058,27 +3058,35 @@ language may not be in common usage in a particular territory.</p>
 	) &gt;<br>
 	</span>This element indicates which numbering system should be used for 
 	presentation of numeric quantities in the given locale. </p>
-	<p><span class="dtd"><span class="changed">&lt;!ELEMENT otherNumberingSystems ( alias | ( native*, traditional*, finance*)) &gt;</span><br><br>
-	</span><span class="changed">This element defines general categories of numbering systems that 
+	<p><span class="dtd"><span class="changed">&lt;!ELEMENT otherNumberingSystems ( alias | ( native*, traditional*, finance*)) &gt;</span></p><p>
+	  <span class="changed">This element defines general categories of numbering systems that 
 	are sometimes used in the given locale for formatting numeric quantities.  These
 	additional numbering systems are often used in very specific contexts, such as in calendars or for
-	financial purposes.  There are currently three defined categories, as follows:<br><br>
-	&lt;native&gt; Defines the numbering system used for the native digits, usually defined as a part of the script used to write the language.
-	The native numbering system can only be a numeric (digit-based) numbering system.<br><br>
-	&lt;traditional&gt; Defines the traditional numerals for a locale.  This numbering system may be numeric or algorithmic. If the traditional numbering system is not defined, applications
-	should use the native numbering system as a fallback.<br><br>
-	&lt;finance&gt; Defines the numbering system used for financial quantities.  This is often used ideographic languages such as Chinese, where
+	financial purposes.  There are currently three defined categories, as follows:</span></p>
+	<p>
+	  <span class="changed">&lt;native&gt; Defines the numbering system used for the native digits, usually defined as a part of the script used to write the language.
+	The native numbering system can only be a numeric positional decimal-digit numbering system, using digits with General_Category=Decimal_Number.</span></p>
+	<p>
+	  <span class="changed">&lt;traditional&gt; Defines the traditional numerals for a locale.  This numbering system may be numeric or algorithmic. If the traditional numbering system is not defined, applications
+  should use the native numbering system as a fallback.</span></p>
+	<p>
+	  <span class="changed">&lt;finance&gt; Defines the numbering system used for financial quantities.  This numbering system may be numeric or algorithmic. This is often used for ideographic languages such as Chinese, where
 	it would be easy to alter an amount represented in the default numbering system simply by adding additional strokes.  If the financial numbering
-	system is not specified, applications should use the default numbering system as a fallback.<br><br>
+	system is not specified, applications should use the default numbering system as a fallback.</span></p>
+	<p class="changed">
 	
 	The categories defined for other numbering systems can be used in a Unicode locale identifier to select the proper numbering system
-	without having to know the specific numbering system by name.  For example,<br><br>
-	To select Hindi language using the native digits for numeric formatting, use locale ID: "hi-IN-u-nu-native"<br>
-	To select Chinese language using the appropriate financial numerals, use locale ID: "zh-u-nu-finance"<br>
-	To select Tamil language using the traditional Tamil numerals, use locale ID: "ta-u-nu-traditio"</span><br><br>
+	without having to know the specific numbering system by name.  For example:</p>
+    <ul>
+      <li class="changed">
+      To select Hindi language using the native digits for numeric formatting, use locale ID: "hi-IN-u-nu-native".</li>
+      <li class="changed">To select Chinese language using the appropriate financial numerals, use locale ID: "zh-u-nu-finance".</li>
+      <li class="changed">To select Tamil language using the traditional Tamil numerals, use locale ID: "ta-u-nu-traditio".</li>
+    </ul>
+<p>
 	For more information 
 	on numbering systems and their definitions, see <i>Section 
-	C.13 <a href="#Numbering_Systems">Numbering Systems</a></i>. </p>
+<a href="#Numbering_Systems">Numbering Systems</a></i>. </p>
 	<h4>5.10.1 <a name="Number_Symbols">Number Symbols</a></h4>
 	<p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*, list*,
 	percentSign*, nativeZeroDigit*, patternDigit*,
@@ -4668,8 +4676,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 	</span></p>
 	<p><span class="changed">The &lt;metadata&gt; element contains metadata about the locale for use by the Survey Tool or other tools in
 	checking locale data; this data is not intended for export as part of the locale itself.</span></p>
-	<p><span class="changed">The &lt;casingItem&gt; element specifies the capitalization currently used by the majority of the data in a given category
-	with the locale. Its type attribute has one of the values used for the &lt;contextTransformUsage&gt; element above, with the exception of the special
+	<p><span class="changed">The &lt;casingItem&gt; element specifies the capitalization intended for the majority of the data in a given category with the locale. The purpose is so that warnings can be issued to translators that anything deviating from that capitalization should be carefully reviewed. Its type attribute has one of the values used for the &lt;contextTransformUsage&gt; element above, with the exception of the special
 	value "all"; its value is one of the following:</span></p>
 	<ul>
 	<li><span class="changed">lowercase</span></li>
@@ -5871,7 +5878,7 @@ range         = value'..'value</pre>
   <p>For case 2, the children and parent share the same primary language, but the region is changed. For example:</p>
   <pre> &lt;parentLocale parent=&quot;es_419&quot; locales=&quot;es_AR es_BO … es_UY es_VE&quot;/&gt;</pre>
   <p><span class="changed">Collation data, however, is an exception.  Since collation rules do not truly inherit
-  data from the parent for display purposes, the parentLocale element is not necessary and not used for collation.
+  data from the parent, the parentLocale element is not necessary and not used for collation.
   Thus, for a locale like zh_Hant in the example above, the parentLocale element would dictate the parent as &quot;root&quot;
   when referring to main locale data, but for collation data, the parent locale would still be &quot;zh&quot;, 
   even though the parentLocale element is present for that locale.</span></p>

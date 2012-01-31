@@ -136,7 +136,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li>3.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a></li>
 			<li>3.2 <a href="#BCP_47_Conformance">BCP 47 Conformance</a>
 				<ul class="toc">
-					<li>3.2.1 <a href="#u_Extension">-u- Extension</a></li>
+					<li>3.2.1 <a href="#u_Extension">-u- <span class="changed">and -t- </span>Extension<span class="changed">s</span></a></li>
 					<li>3.2.2 <a href="#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a></li>
 				</ul>
 			</li>
@@ -5744,7 +5744,7 @@ range         = value'..'value</pre>
 	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.
 	The data might be removed in future CLDR releases.</i></p>
 
-	<p class="dtd">&lt;!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) &gt;<br>
+  <p class="dtd">&lt;!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) &gt;<br>
 	&lt;!ELEMENT mapKeys ( keyMap* ) &gt;<br>
 	&lt;!ELEMENT keyMap EMPTY &gt;<br>
 	&lt;!ATTLIST keyMap type NMTOKEN #REQUIRED &gt;<br>
@@ -5757,7 +5757,7 @@ range         = value'..'value</pre>
 	<p>
 	This section defines mappings between old Unicode locale identifier key/type 
 	values and their BCP 47 'u' extension subtag representations.  The 'u' extension syntax described in section <i>
-	Section 3.2.1 <a href="#u_Extension">-u- Extension</a></i> restricts a key to two ASCII alphanumerics and
+	Section 3.2.1 <a href="#u_Extension">-u- <span class="changed">and -t- </span>Extension<span class="changed">s</span></a></i> restricts a key to two ASCII alphanumerics and
 	a type to three to eight ASCII alphanumerics.  A key or a type which does not meet that syntax 
 	requirement is converted according to the mapping data defined by the mapKeys or mapTypes elements.  For example,
 	a keyword "collation=phonebook" is converted to BCP 47 'u' extension subtags "co-phonebk" by the mapping data below:</p>

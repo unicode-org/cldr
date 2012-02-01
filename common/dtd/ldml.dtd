@@ -1207,7 +1207,7 @@ $Date$
 <!ATTLIST symbol draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST symbol references CDATA #IMPLIED >
 <!ATTLIST symbol alt NMTOKENS #IMPLIED >
-<!ATTLIST symbol choice ( true | false ) #IMPLIED >
+<!ATTLIST symbol choice ( true | false ) #IMPLIED > <!-- deprecated -->
 <!-- ######################################################### -->
 
 <!ELEMENT units (alias | (unit*, special*)) >

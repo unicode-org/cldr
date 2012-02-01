@@ -3206,7 +3206,7 @@ language may not be in common usage in a particular territory.</p>
 	&lt;!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?,
 	decimal*, group*, special*)) &gt;<br>
 	&lt;!ELEMENT symbol ( #PCDATA ) &gt;<br>
-	&lt;!ATTLIST symbol choice ( true | false ) #IMPLIED &gt;
+	&lt;!ATTLIST symbol choice ( true | false ) #IMPLIED &gt;<span class="changed"> &lt;!-- deprecated --&gt;</span>
 	</p>
 	<blockquote>
 		<p><b>Note:</b> The term &quot;pattern&quot; appears twice in the above. The first is for consistency with all other cases of pattern + displayName; the second is for backwards 
@@ -3221,18 +3221,18 @@ language may not be in common usage in a particular territory.</p>
         &lt;displayName&gt;<span style="color: blue">Yen</span>&lt;/displayName&gt;
         &lt;symbol&gt;<span style="color: blue">¥</span>&lt;/symbol&gt;
     &lt;/currency&gt;
-    &lt;currency type =&quot;<span style="color: blue">INR</span>&quot;&gt;
+<span class="removed">    &lt;currency type =&quot;<span style="color: blue">INR</span>&quot;&gt;
         &lt;displayName&gt;<span style="color: blue">Rupee</span>&lt;/displayName&gt;
         &lt;symbol choice=&quot;<span style="color: blue">true</span>&quot;&gt;<span style="color: blue">0≤Rf|1≤Ru|1&amp;lt;Rf</span>&lt;/symbol&gt;
     &lt;/currency&gt;
-    &lt;currency type=&quot;PTE&quot;&gt;
+</span>    &lt;currency type=&quot;PTE&quot;&gt;
         &lt;displayName&gt;<span style="color: blue">Escudo</span>&lt;/displayName&gt;
         &lt;symbol&gt;<span style="color: blue">$</span>&lt;/symbol&gt;
     &lt;/currency&gt;
 &lt;/currencies&gt;</pre>
 	<p>In formatting currencies, the currency number format is used with the appropriate symbol from &lt;currencies&gt;, according to the currency code. The &lt;currencies&gt; 
-	list can contain codes that are no longer in current use, such as PTE. The choice attribute can be used to indicate that the value uses a pattern interpreted 
-	as in <a href="#Choice_Patterns">Appendix H: Choice Patterns</a>.</p>
+	list can contain codes that are no longer in current use, such as PTE. The choice attribute <span class="removed">can be used to indicate that the value uses a pattern interpreted 
+	as in <a href="#Choice_Patterns">Appendix H: Choice Patterns</a></span><span class="changed">has been deprecated</span>.</p>
 	<p>The count attribute distinguishes the different 
     plural forms, such as in the following:</p>
 	<pre>&lt;currencyFormats&gt;
@@ -9382,6 +9382,10 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>In <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, fold description of Localized GMT-zero format into that of
 		Localized GMT format. [ticket #<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
 		<li>Describe the 't' extension [ticket #<a href="http://unicode.org/cldr/trac/ticket/3976">3976</a>]</li>
+		<li>In <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, fold description of Localized GMT-zero format into that of
+		Localized GMT format. [ticket #<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
+        <li>In <i>Section 5.10.2 <a href="#Currencies">Currencies</a></i>, deprecated the "choice" attribute for currency symbols.
+        [ticket <a href="http://unicode.org/cldr/trac/ticket/3934">#3934</a>]</li>
 	</ul>
 <h3>Revision 21</h3>
 

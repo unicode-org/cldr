@@ -5,14 +5,10 @@ package org.unicode.cldr.draft;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.unicode.cldr.draft.CharacterListCompressor.Interval;
 
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UTF16;
 
 class Compacter {

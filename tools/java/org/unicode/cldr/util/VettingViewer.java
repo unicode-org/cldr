@@ -26,7 +26,6 @@ import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.LocaleIDParser;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;

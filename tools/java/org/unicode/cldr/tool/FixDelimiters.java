@@ -11,13 +11,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.tool.FixDelimiters.Quotes;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.With;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.impl.Row;

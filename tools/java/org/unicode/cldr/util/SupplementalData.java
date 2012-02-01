@@ -16,7 +16,6 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -28,7 +27,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.util.Relation;

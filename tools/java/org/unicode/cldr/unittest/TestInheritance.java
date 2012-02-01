@@ -14,8 +14,8 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.GenerateMaximalLocales;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;

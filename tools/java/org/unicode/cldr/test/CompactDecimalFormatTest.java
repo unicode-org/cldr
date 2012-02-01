@@ -21,17 +21,14 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.NumberFormat.SimpleNumberFormatFactory;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.CurrencyAmount;
 import com.ibm.icu.util.ULocale;

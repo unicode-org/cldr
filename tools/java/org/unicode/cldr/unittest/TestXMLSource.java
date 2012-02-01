@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;

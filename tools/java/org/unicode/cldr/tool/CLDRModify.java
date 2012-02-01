@@ -5,7 +5,6 @@
  ******************************************************************************
  */
 package org.unicode.cldr.tool;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -24,11 +23,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.draft.FileUtilities.FileProcessor;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
-import org.unicode.cldr.tool.CLDRModify.ConfigKeys;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;

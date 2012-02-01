@@ -10,8 +10,10 @@
 package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
-import com.ibm.icu.text.NumberingSystem;
+
 import org.unicode.cldr.util.CLDRFile;
+
+import com.ibm.icu.text.NumberingSystem;
 
 
 public class POSIX_LCTime {

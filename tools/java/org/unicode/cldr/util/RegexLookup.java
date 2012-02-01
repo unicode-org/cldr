@@ -2,9 +2,7 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,7 +12,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.RegexLookup.Finder;
 

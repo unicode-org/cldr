@@ -16,7 +16,6 @@ import org.unicode.cldr.icu.ICUResourceWriter;
 import org.unicode.cldr.icu.ICUResourceWriter.Resource;
 import org.unicode.cldr.icu.LDML2ICUConverter;
 import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.w3c.dom.Document;

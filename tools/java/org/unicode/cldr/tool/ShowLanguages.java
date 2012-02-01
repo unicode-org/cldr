@@ -6,7 +6,6 @@
  */
 package org.unicode.cldr.tool;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -31,7 +30,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
-import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;

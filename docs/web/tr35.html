@@ -505,23 +505,23 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     separator characters. The &quot;-&quot; and &quot;_&quot; separators are 
     treated as equivalent. All identifier field values are case-insensitive.
 	Although case distinctions do not carry any special meaning,
-	an implementation of LDML should use the casing recommendataions in [<a href="#BCP47">BCP47</a>],
+	an implementation of LDML should use the casing recommendations in [<a href="#BCP47">BCP47</a>],
 	especially when a Unicode locale identifier is used for locale data exchange in software
 	protocols.  The recommendation is that: the region subtag is in uppercase, the script subtag
-	is in title case, and all other subtags are in lowercase.</p>
+  is in title case, and all other subtags are in lowercase.</p>
 	<p><b>Note:</b> The current version of CLDR uses upper case letters for variant subtags
 	in its file names for backward compatibility reasons.  This might be changed in future
 	CLDR releases.
 	</p>
-	<p>The Unicode language and locale identifier field values are given in the 
-	following table. Note that some private-use field values may be given 
-	specific values.</p>
+	<p>Unicode language and locale identifier field values are provided in the 
+	following table. Note that some private-use BCP 47 field values are  given 
+	specific meanings in CLDR.</p>
 	<table>
-		<caption><a name="Language_Locale_Field_Definitions">Language/Locale Field Definitions</a></caption>
+<caption><a name="Language_Locale_Field_Definitions">Language/Locale Field Definitions</a></caption>
 		<tr>
 			<th>Field</th>
 			<th>Allowable Characters</th>
-			<th>Allowable values</th>
+			<th><span class="changed">Sample</span> values</th>
 		</tr>
 		<tr>
 			<td>unicode_language_subtag<p>(also known as a <i>Unicode base 
@@ -709,10 +709,10 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	</blockquote>
 	<p>A locale that only has a language subtag (and optionally a script subtag) is called a <i>language locale</i>; one with both language and territory subtag 
 	is called a <i>territory locale</i> (or <i>country locale</i>).</p>
-	<p>The following chart contains a subset of key/type combinations currently available.  For the complete
-	list of keys and types defined for Unicode locale extensions, see
+	<p>The following chart contains a <span class="changed">set  of key values that are  currently available, with a description or sampling of type values.  Each category is associated with an XML file in the bcp47 directory</span>. For the complete
+	list of <span class="changed">valid</span> keys and types defined for Unicode locale extensions, see
 	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data"><span class="removed">Locale Extension Key and Type Data</span><span class="changed">Unicode BCP 47 Extension Data</span></a>.
-	<p>
+  <p>
 
 	<table>
 		<caption><a name="Key_Type_Definitions">Key/Type Definitions</a></caption>
@@ -725,9 +725,10 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td rowspan="14">Calendar</td>
-			<td rowspan="14">"ca"<br>(calendar)</td>
-			<td rowspan="14">Calendar algorithm<br><br>
+			<td rowspan="5"><p>Calendar</p>
+		    <p class="changed"><em>bcp47/calendar.xml</em></p></td>
+			<td rowspan="5">"ca"<br>(calendar)</td>
+			<td rowspan="5">Calendar algorithm<br><br>
 			<i>(For information on the calendar algorithms associated with the data
 			used with these, see [<a href="#Calendars">Calendars</a>].)</i></td>
 			<td>"buddhist"</td>
@@ -740,18 +741,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td>"coptic"</td>
-			<td>Coptic calendar</td>
-		</tr>
-
-		<tr>
-			<td>"ethioaa"<br>(ethiopic-amete-alem)</td>
-			<td>Ethiopic calendar, Amete Alem (epoch approx. 5493 B.C.E.)</td>
-		</tr>
-
-		<tr>
-			<td>"ethiopic"</td>
-			<td>Ethiopic calendar, Amete Mihret (epoch approx. 8 C.E.)</td>
+			<td colspan="2" class="changed">…</td>
 		</tr>
 
 		<tr>
@@ -760,50 +750,14 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td>"hebrew"</td>
-			<td>Traditional Hebrew calendar</td>
+			<td colspan="2" class="changed">…</td>
 		</tr>
 
 		<tr>
-			<td>"indian"</td>
-			<td>Indian calendar</td>
-		</tr>
-
-		<tr>
-			<td>"islamic"</td>
-			<td>Astronomical Arabic calendar</td>
-		</tr>
-
-		<tr>
-			<td>"islamicc"<br>(islamic-civil)</td>
-			<td>Civil (algorithmic) Arabic calendar</td>
-		</tr>
-
-		<tr>
-			<td>"iso8601"</td>
-			<td>A variant of Gregorian calendar using the calendar week numbering rule
-			defined by ISO 8601.</td>
-		</tr>
-
-		<tr>
-			<td>"japanese"</td>
-			<td>Japanese Imperial calendar (same as Gregorian except for the year, with one era for each Emperor)</td>
-		</tr>
-
-		<tr>
-			<td>"persian"</td>
-			<td>Persian calendar</td>
-		</tr>
-
-		<tr>
-			<td>"roc"</td>
-			<td>Republic of China calendar</td>
-		</tr>
-
-		<tr>
-			<td rowspan="16">Collation</td>
-			<td rowspan="16">"co"<br>(collation)</td>
-			<td rowspan="16">Collation type</td>
+			<td rowspan="20"><p>Collation</p>
+		    <p class="changed"><em>bcp47/collation.xml</em></p></td>
+			<td rowspan="10">"co"<br>(collation)</td>
+			<td rowspan="10">Collation type</td>
 
 			<td>"standard"</td>
 			<td>The default ordering for each language. For root it is based on a modified version of
@@ -824,33 +778,12 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td colspan=2><p>The following keywords provide additional choices for certain locales;
+			<td colspan=2><p><span class="changed">Other</span> keywords provide additional choices for certain locales;
 			<i>they only have effect in certain locales.</i></p></td>
 		</tr>
 
 		<tr>
-			<td>"big5han"</td>
-			<td>Pinyin ordering for Latin, big5 charset ordering for CJK characters. (used in Chinese)</td>
-		</tr>
-
-		<tr>
-			<td>"dict"<br>(dictionary)</td>
-			<td>For a dictionary-style ordering (such as in Sinhala)</td>
-		</tr>
-
-		<tr>
-			<td>"direct"</td>
-			<td>Hindi variant</td>
-		</tr>
-
-		<tr>
-			<td>"gb2312"<br>(gb2312han)</td>
-			<td>Pinyin ordering for Latin, gb2312han charset ordering for CJK characters. (used in Chinese)</td>
-		</tr>
-
-		<tr>
-			<td>"phonebk"<br>(phonebook)</td>
-			<td>For a phonebook-style ordering (such as in German)</td>
+			<td colspan="2" class="changed">…</td>
 		</tr>
 
 		<tr>
@@ -883,22 +816,10 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td>"stroke"</td>
-			<td>Pinyin ordering for Latin, stroke order for CJK characters (used in Chinese)</td>
+			<td colspan="2" class="changed">…</td>
 		</tr>
 
 		<tr>
-			<td>"trad"<br>(traditional)</td>
-			<td>For a traditional-style ordering (such as in Spanish)</td>
-		</tr>
-
-		<tr>
-			<td>"unihan"</td>
-			<td>Pinyin ordering for Latin, Unihan radical-stroke ordering for CJK characters. (used in Chinese)</td>
-		</tr>
-
-		<tr>
-			<td rowspan="10">Collation parameters</td>
 			<td>"ka"<br>(colAlternate)</td>
 			<td>Alternate handling</td>
 			<td>"noignore"<br>(non-ignorable)<br><br>
@@ -967,11 +888,12 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td>Currency</td>
+			<td><p>Currency</p>
+		    <p class="changed"><em>bcp47/currency.xml</em></p></td>
 			<td>"cu"<br>(currency)</td>
 			<td>Currency type</td>
 			<td><i>ISO 4217 code,</i><p><i>plus others in common use</i></td>
-			<td><p>Valid types are codes that are or have been valid in ISO 4217, plus certain additional codes that are or have been in common use.
+			<td><p>Codes that are or have been valid in ISO 4217, plus certain additional codes that are or have been in common use.
 			  The full list of codes, with descriptions, is available in the common/main/en.xml file for each release of CLDR.
 			  The list of countries and time periods associated with each currency value is in the common/supplemental/supplementalData.xml file under the &lt;currencyData&gt; element.</p>
 			  <p>The XXX code is given a broader interpretation as Unknown or Invalid Currency. </p>
@@ -980,11 +902,12 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td rowspan="12">Number</td>
-			<td rowspan="12">"nu"<br>(numbers)</td>
-			<td rowspan="12">Numbering system</td>
+			<td rowspan="7"><p>Number</p>
+		    <p class="changed"><em>bcp47/number.xml</em></p></td>
+			<td rowspan="7">"nu"<br>(numbers)</td>
+			<td rowspan="7">Numbering system</td>
 			<td><i>Unicode script subtag</i></td>
-			<td><p><span class="changed">Four-letter types indicate the primary numbering system for the corresponding script represented in Unicode. Unless otherwise specified, it is a decimal numbering system using digits [:<a href="http://unicode.org/cldr/trac/wiki/GeneralCategory" rel="nofollow">GeneralCategory?</a>?=Nd:]. For example, &quot;latn&quot; refers to the ASCII / Western digits 0-9, while &quot;taml&quot; is an algorithmic (non-decimal) numbering system. (The code "tamldec" is indicates the "modern Tamil decimal digits".) See the BCP47 XML files or the <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/bcp47-u.txt">bcp47 listing</a> under the key: <strong>nu</strong>.</span><br>
+			<td><p><span class="changed">Four-letter types indicating the primary numbering system for the corresponding script represented in Unicode. Unless otherwise specified, it is a decimal numbering system using digits [:GeneralCategory=Nd:]. For example, &quot;latn&quot; refers to the ASCII / Western digits 0-9, while &quot;taml&quot; is an algorithmic (non-decimal) numbering system. (The code "tamldec" is indicates the "modern Tamil decimal digits".)</span><br>
 			  </p>
 <br><p class="note">For more information, see 
 		  Section C.13 <a href="#Numbering_Systems">Numbering Systems</a>.</p></td>
@@ -1001,32 +924,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td>"fullwide"</td>
-			<td>Full width digits</td>
-		</tr>
-
-		<tr>
-			<td>"greklow"</td>
-			<td>Greek lowercase numerals</td>
-		</tr>
-
-		<tr>
-			<td>&quot;hanidec&quot;</td>
-			<td>A positional decimal system using Chinese number ideographs as digits; often used to represent the year number in dates.</td>
-		</tr>
-		<tr>
-		  <td>"hansfin"</td>
-		  <td>Simplified Chinese financial numerals</td>
-      </tr>
-
-		<tr>
-			<td>"hantfin"</td>
-			<td>Traditional Chinese financial numerals</td>
-		</tr>
-
-		<tr>
-			<td>"jpanfin"</td>
-			<td>Japanese financial numerals</td>
+			<td colspan="2" class="changed">…</td>
 		</tr>
 
 		<tr>
@@ -1045,11 +943,12 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td>Time zone</td>
+			<td><p>Time zone</p>
+		    <p class="changed"><em>bcp47/timezone.xml</em></p></td>
 			<td>"tz"<br>(timezone)</td>
 			<td>Time zone</td>
 			<td><i>Unicode short time zone IDs</i></td>
-			<td><p>Valid types are short identifiers defined in terms of a TZ time zone database [<a href="#Olson">Olson</a>] identifier in the file common/bcp47/timezone.xml file.
+			<td><p>Short identifiers defined in terms of a TZ time zone database [<a href="#Olson">Olson</a>] identifier in the file common/bcp47/timezone.xml file.
 			The format of that file is specified in  Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Keys and Types</a>.
 			The short identifiers use UN [LOCODE] codes where possible. Identifiers of length not equal to 5 are used where there is no corresponding LOCODE,
 			such as &quot;usnavajo&quot; for &quot;America/Shiprock Navajo&quot;, or &quot;utcw01&quot; for &quot;Etc/GMT+1&quot;.</p>
@@ -1060,7 +959,8 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td>Locale variant</td>
+			<td><p>Locale variant</p>
+		    <p class="changed"><em>bcp47/variant.xml</em></p></td>
 			<td>"va"</td>
 			<td>Common variant type</td>
 			<td>"posix"</td>

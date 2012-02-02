@@ -59,7 +59,7 @@
             <type name="false" alias="no" description="No special handling for numeric ordering"/>
         </key>
         
-        <key name="kr" alias="colReorder" description="Collation reorder codes">
+        <key name="kr" alias="colReorder" description="Collation reorder codes" since="21">
             <type name="REORDER_CODE" description="One or more collation reorder codes: LDML 5.14.12)" since="21"/>
         </key>
 

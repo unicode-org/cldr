@@ -694,7 +694,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<td>ASCII letters and digits</td>
 			<td rowspan="2"><i>key</i>/<i>type</i> definitions are discussed below.
 			For information on the process for adding new <i>key</i>/<i>type</i>, see
-			[<a href="#localeProject">LocaleProject</a>].<strong> If the type is not included, and one of the possible type values is &quot;true&quot;, then that value is assumed. Note that the default for key with a possible &quot;true&quot; value is often &quot;false&quot;, but may not always be.</strong></td>
+			[<a href="#localeProject">LocaleProject</a>].
+			<p><span class="changed">All type values except ones used for key "ka" (colAlternate) and "vt" (variableTop) are represented by a single
+			subtag in the current version of CLDR.</span>
+			If the type is not included, and one of the possible type values is &quot;true&quot;,
+			then that value is assumed. Note that the default for key with a possible &quot;true&quot; value is often &quot;false&quot;, but may not always be.
+			</p></td>
 		</tr>
 		<tr>
 			<td><i>type</i></td>
@@ -8854,6 +8859,14 @@ decimal?, group?, special*)) &gt;</pre>
 			</blockquote>
 			<p>By default in UCA, variable characters are ignored in sorting at a primary, secondary, and tertiary level. But in CLDR, they are not ignorable by default. For more information, see <a href="#Setting_Options">Section 5.14.3 <em>Setting Options</em></a>.</p>
 
+			<p class="changed">The type name "REORDER_CODE" is reserved for reordering block names (e.g. "latn", "digit" and "others") defined by DUCET.
+			The type "REORDER_CODE" is used for locale extension key "kr" (colReorder). The value of type for "kr" is represented by one or more
+			reordering block names such as "latn-digit".
+			For more information, see <a href="#Script_Reordering">Section 5.14.12 Collation Reordering</a>.</p>
+
+			<p class="changed">In the current version of CLDR, all type names except "CODEPOINTS" and "REORDER_CODE" are final and used alone.
+			For example, "gregory" and "japanese" are valid type names for key "ca" (calendar). Both "u-ca-gregory" and "u-ca-japanese" are
+			valid representations of Unicode locale extension, but "u-ca-gregory-japanese" is not.</p>
         </dd>
 
 		<dt><b>alias</b> <span class="changed">(Not applicable to &lt;attribute&gt;)</span></dt>
@@ -9287,6 +9300,8 @@ decimal?, group?, special*)) &gt;</pre>
 		Localized GMT format. [ticket #<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
         <li>In <i>Section 5.10.2 <a href="#Currencies">Currencies</a></i>, deprecated the "choice" attribute for currency symbols.
         [ticket <a href="http://unicode.org/cldr/trac/ticket/3934">#3934</a>]</li>
+		<li>In <i>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">BCP 47 Extension Data</a></i>, clarified valid/invalid use case of
+		type value with multiple subtags. [ticket <a href="http://unicode.org/cldr/trac/ticket/4212">#4212</a>]<li>
 	</ul>
 <h3>Revision 21</h3>
 

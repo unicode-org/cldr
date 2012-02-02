@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="fi" /> 
+		<territory type="FI" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Tammi</month>
+							<month type="2">Helmi</month>
+							<month type="3">Maalis</month>
+							<month type="4">Huhti</month>
+							<month type="5">Touko</month>
+							<month type="6">Kesä</month>
+							<month type="7">Heinä</month>
+							<month type="8">Elo</month>
+							<month type="9">Syys</month>
+							<month type="10">Loka</month>
+							<month type="11">Marras</month>
+							<month type="12">Joulu</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Tammikuu</month>
+							<month type="2">Helmikuu</month>
+							<month type="3">Maaliskuu</month>
+							<month type="4">Huhtikuu</month>
+							<month type="5">Toukokuu</month>
+							<month type="6">Kesäkuu</month>
+							<month type="7">Heinäkuu</month>
+							<month type="8">Elokuu</month>
+							<month type="9">Syyskuu</month>
+							<month type="10">Lokakuu</month>
+							<month type="11">Marraskuu</month>
+							<month type="12">Joulukuu</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Su</day>
+							<day type="mon">Ma</day>
+							<day type="tue">Ti</day>
+							<day type="wed">Ke</day>
+							<day type="thu">To</day>
+							<day type="fri">Pe</day>
+							<day type="sat">La</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Sunnuntai</day>
+							<day type="mon">Maanantai</day>
+							<day type="tue">Tiistai</day>
+							<day type="wed">Keskiviikko</day>
+							<day type="thu">Torstai</day>
+							<day type="fri">Perjantai</day>
+							<day type="sat">Lauantai</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>.%.1m.yyyy </pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>.%.1m.yyyy HH:mm:ss</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>.%.1m.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>.%.1m.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

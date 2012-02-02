@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="Windows_XP"/>
+		<generation date="2004-05-27" />
+		<language type="th" /> 
+		<territory type="TH" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="th">ไทย</language>
+		</languages>
+		<territories>
+			<territory type="TH">ไทย</territory>
+		</territories>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ม.ค.</month>
+							<month type="2">ก.พ.</month>
+							<month type="3">มี.ค.</month>
+							<month type="4">เม.ย.</month>
+							<month type="5">พ.ค.</month>
+							<month type="6">มิ.ย.</month>
+							<month type="7">ก.ค.</month>
+							<month type="8">ส.ค.</month>
+							<month type="9">ก.ย.</month>
+							<month type="10">ต.ค.</month>
+							<month type="11">พ.ย.</month>
+							<month type="12">ธ.ค.</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">มกราคม</month>
+							<month type="2">กุมภาพันธ์</month>
+							<month type="3">มีนาคม</month>
+							<month type="4">เมษายน</month>
+							<month type="5">พฤษภาคม</month>
+							<month type="6">มิถุนายน</month>
+							<month type="7">กรกฎาคม</month>
+							<month type="8">สิงหาคม</month>
+							<month type="9">กันยายน</month>
+							<month type="10">ตุลาคม</month>
+							<month type="11">พฤศจิกายน</month>
+							<month type="12">ธันวาคม</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">อา.</day>
+							<day type="mon">จ.</day>
+							<day type="tue">อ.</day>
+							<day type="wed">พ.</day>
+							<day type="thu">พฤ.</day>
+							<day type="fri">ศ.</day>
+							<day type="sat">ส.</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">อาทิตย์</day>
+							<day type="mon">จันทร์</day>
+							<day type="tue">อังคาร</day>
+							<day type="wed">พุธ</day>
+							<day type="thu">พฤหัสบดี</day>
+							<day type="fri">ศุกร์</day>
+							<day type="sat">เสาร์</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<firstDay day="mon"/>
+				</week>
+				<am>AM</am>
+				<pm>PM</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>d MMMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>d/M/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>,</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>๐</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

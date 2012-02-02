@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="pa" /> 
+		<territory type="IN" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ਜਨਵਰੀ</month>
+							<month type="2">ਫਰਵਰੀ</month>
+							<month type="3">ਮਾਰਚ</month>
+							<month type="4">ਅਪਰੈਲ</month>
+							<month type="5">ਮੲੀ</month>
+							<month type="6">ਜੂਨ</month>
+							<month type="7">ਜੁਲਾੲਈ</month>
+							<month type="8">ਅਗਾਸਤ</month>
+							<month type="9">ਸਤੰਬਰ</month>
+							<month type="10">ਅਕਤੂਬਰ</month>
+							<month type="11">ਨਵੰਬਰ</month>
+							<month type="12">ਦਸੰਬਰ</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ਜਨਵਰੀ</month>
+							<month type="2">ਫਰਵਰੀ</month>
+							<month type="3">ਮਾਰਚ</month>
+							<month type="4">ਅਪਰੈਲ</month>
+							<month type="5">ਮੲੀ</month>
+							<month type="6">ਜੂਨ</month>
+							<month type="7">ਜੁਲਾੲਈ</month>
+							<month type="8">ਅਗਾਸਤ</month>
+							<month type="9">ਸਤੰਬਰ</month>
+							<month type="10">ਅਕਤੂਬਰ</month>
+							<month type="11">ਨਵੰਬਰ</month>
+							<month type="12">ਦਸੰਬਰ</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ਐਤ</day>
+							<day type="mon">ਸੋਮ</day>
+							<day type="tue">ਮੰਗਲ</day>
+							<day type="wed">ਬੁੱਧ</day>
+							<day type="thu">ਵੀਰ</day>
+							<day type="fri">ਸ਼ੁੱਕਰ</day>
+							<day type="sat">ਸ਼ਨਿਚੱਰਵਾਰ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">ਐਤਵਾਰ</day>
+							<day type="mon">ਸੋਮਵਾਰ</day>
+							<day type="tue">ਮੰਗਲਵਾਰ</day>
+							<day type="wed">ਬੁੱਧਵਾਰ</day>
+							<day type="thu">ਵੀਰਵਾਰ</day>
+							<day type="fri">ਸ਼ੁੱਕਰਵਾਰ</day>
+							<day type="sat">ਸ਼ਨਿਚੱਰਵਾਰ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<am>ਸਵੇਰੇ</am>
+				<pm>ਦੁਪਹਿਰ-ਰਾਤ</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEEE dd MMMM yyyy aa </pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEEE dd MMMM yyyy HH:mm:ss aa z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd MMMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd-MMMM-yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>PLUS_SIGN¤#,##0.00;-¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

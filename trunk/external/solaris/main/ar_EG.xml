@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<ldml>
+    <identity>
+        <version number="1.2">Generated from ConvertPOSIXLocale</version>
+        <generation date="2005-3-3"/>
+        <language type = "ar"/>
+        <territory type = "EG"/>
+    </identity>
+    <dates>
+        <calendars>
+            <calendar type = "gregorian">
+                <months>
+                    <monthContext type = "format">
+                        <monthWidth type = "wide">
+                            <month type = "1">يناير</month>
+                            <month type = "2">فبراير</month>
+                            <month type = "3">مارس</month>
+                            <month type = "4">إبريل</month>
+                            <month type = "5">مايو</month>
+                            <month type = "6">يونيه</month>
+                            <month type = "7">يوليه</month>
+                            <month type = "8">أغسطس</month>
+                            <month type = "9">سبتمبر</month>
+                            <month type = "10">أكتوبر</month>
+                            <month type = "11">نوفمبر</month>
+                            <month type = "12">ديسمبر</month>
+                        </monthWidth>
+                        <monthWidth type = "abbreviated">
+                            <month type = "1">ينا</month>
+                            <month type = "2">فبر</month>
+                            <month type = "3">مار</month>
+                            <month type = "4">إبر</month>
+                            <month type = "5">ماي</month>
+                            <month type = "6">يون</month>
+                            <month type = "7">يول</month>
+                            <month type = "8">أغس</month>
+                            <month type = "9">سبم</month>
+                            <month type = "10">أكت</month>
+                            <month type = "11">نوف</month>
+                            <month type = "12">ديس</month>
+                        </monthWidth>
+                    </monthContext>
+                </months>
+                <days>
+                    <dayContext type = "format">
+                        <dayWidth type = "wide">
+                            <day type = "sun">الأحد</day>
+                            <day type = "mon">الأثنين</day>
+                            <day type = "tue">الثلاثاء</day>
+                            <day type = "wed">الأربعاء</day>
+                            <day type = "thu">الخميس</day>
+                            <day type = "fri">الجمعة</day>
+                            <day type = "sat">السبت</day>
+                        </dayWidth>
+                        <dayWidth type = "abbreviated">
+                            <day type = "sun"> ح</day>
+                            <day type = "mon"> ن</day>
+                            <day type = "tue"> ث</day>
+                            <day type = "wed"> ر</day>
+                            <day type = "thu"> خ</day>
+                            <day type = "fri"> ج</day>
+                            <day type = "sat"> س</day>
+                        </dayWidth>
+                    </dayContext>
+                </days>
+                <am>ص</am>
+                <pm>م</pm>
+                <dateFormats>
+                    <dateFormatLength type = "full">
+                        <dateFormat>
+                            <pattern>EEEE dd MMMM </pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type = "long">
+                        <dateFormat>
+                            <pattern>EEEE dd MMMM </pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type = "medium">
+                        <dateFormat>
+                            <pattern>dd/MM/yy</pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                </dateFormats>
+                <timeFormats>
+                    <timeFormatLength type="full">
+                        <timeFormat>
+                            <pattern>HH:mm:ss yyyy</pattern>
+                        </timeFormat>
+                    </timeFormatLength>
+                    <timeFormatLength type="long">
+                        <timeFormat>
+                            <pattern>HH:mm:ss yyyy</pattern>
+                        </timeFormat>
+                    </timeFormatLength>
+                    <timeFormatLength type="medium">
+                        <timeFormat>
+                            <pattern>HH:mm:ss</pattern>
+                        </timeFormat>
+                    </timeFormatLength>
+                </timeFormats>
+                <dateTimeFormats>
+                    <dateTimeFormatLength>
+                        <dateTimeFormat>
+                            <pattern>{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                </dateTimeFormats>
+            </calendar>
+        </calendars>
+    </dates>
+    <numbers>
+        <symbols>
+            <decimal>,</decimal>
+            <group>.</group>
+        </symbols>
+        <decimalFormats>
+            <decimalFormatLength>
+                <decimalFormat>
+                    <pattern>#,##0.###;-#,##0.###</pattern>
+                </decimalFormat>
+            </decimalFormatLength>
+        </decimalFormats>
+        <currencyFormats>
+            <currencyFormatLength>
+                <currencyFormat>
+                    <pattern>¤#,##0.00;¤#,##0.00-</pattern>
+                    <pattern type="international">¤#,##0.00;¤#,##0.00-</pattern>
+                </currencyFormat>
+            </currencyFormatLength>
+        </currencyFormats>
+        <currencies>
+            <currency type="EGP">
+                <symbol>.ج.م</symbol>
+                <decimal>,</decimal>
+                <group>.</group>
+            </currency>
+        </currencies>
+    </numbers>
+    <posix>
+        <messages>
+            <yesstr>yes</yesstr>
+            <nostr>no</nostr>
+            <yesexpr>^([yY][eE][sS]|[yY]|[ن][ع][م]|[ن])</yesexpr>
+            <noexpr>^([nN][oO]|[nN]|[ل][ا]|[ل])</noexpr>
+        </messages>
+    </posix>
+</ldml>

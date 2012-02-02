@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Gurmukhi" target="InterIndic" direction="forward" visibility="internal">
+			<comment># Gurmukhi-InterIndic</comment>
+			<comment>#:: NFD (NFC) ;</comment>
+			<comment>#ਖ਼→\uE059; # LETTER KHHA</comment>
+			<comment>#ਗ਼→\uE05A; # LETTER GHHA</comment>
+			<comment>#ਜ਼→\uE05B; # LETTER ZA</comment>
+			<comment>#ਸ਼→\uE036; # LETTER SHA</comment>
+			<comment>#ਲ਼→\uE033; # LETTER LLA</comment>
+			<comment>#ਫ਼→\uE05E; # LETTER FA</comment>
+			<tRule>ਁ→\uE001;  # SIGN CHANDRABINDU</tRule>
+			<tRule>ਂ→\uE002;  # SIGN BINDI</tRule>
+			<tRule>ਅ→\uE005;  # LETTER A</tRule>
+			<tRule>ਆ→\uE006;  # LETTER AA</tRule>
+			<tRule>ਇ→\uE007;  # LETTER I</tRule>
+			<tRule>ਈ→\uE008;  # LETTER II</tRule>
+			<tRule>ਉ→\uE009;  # LETTER U</tRule>
+			<tRule>ਊ→\uE00A;  # LETTER UU</tRule>
+			<tRule>\u0A0C→\uE032;  # FALLBACK : VOCALLIC LA</tRule>
+			<tRule>ਏ→\uE00F;  # LETTER EE</tRule>
+			<tRule>ਐ→\uE010;  # LETTER AI</tRule>
+			<tRule>ਓ→\uE013;  # LETTER OO</tRule>
+			<tRule>ਔ→\uE014;  # LETTER AU</tRule>
+			<tRule>ਕ→\uE015;  # LETTER KA</tRule>
+			<tRule>ਖ→\uE016;  # LETTER KHA</tRule>
+			<tRule>ਗ→\uE017;  # LETTER GA</tRule>
+			<tRule>ਘ→\uE018;  # LETTER GHA</tRule>
+			<tRule>ਙ→\uE019;  # LETTER NGA</tRule>
+			<tRule>ਚ→\uE01A;  # LETTER CA</tRule>
+			<tRule>ਛ→\uE01B;  # LETTER CHA</tRule>
+			<tRule>ਜ→\uE01C;  # LETTER JA</tRule>
+			<tRule>ਝ→\uE01D;  # LETTER JHA</tRule>
+			<tRule>ਞ→\uE01E;  # LETTER NYA</tRule>
+			<tRule>ਟ→\uE01F;  # LETTER TTA</tRule>
+			<tRule>ਠ→\uE020;  # LETTER TTHA</tRule>
+			<tRule>ਡ→\uE021;  # LETTER DDA</tRule>
+			<tRule>ਢ→\uE022;  # LETTER DDHA</tRule>
+			<tRule>ਣ→\uE023;  # LETTER NNA</tRule>
+			<tRule>ਤ→\uE024;  # LETTER TA</tRule>
+			<tRule>ਥ→\uE025;  # LETTER THA</tRule>
+			<tRule>ਦ→\uE026;  # LETTER DA</tRule>
+			<tRule>ਧ→\uE027;  # LETTER DHA</tRule>
+			<tRule>ਨ→\uE028;  # LETTER NA</tRule>
+			<tRule>ਪ→\uE02A;  # LETTER PA</tRule>
+			<tRule>ਫ→\uE02B;  # LETTER PHA</tRule>
+			<tRule>ਬ→\uE02C;  # LETTER BA</tRule>
+			<tRule>ਭ→\uE02D;  # LETTER BHA</tRule>
+			<tRule>ਮ→\uE02E;  # LETTER MA</tRule>
+			<tRule>ਯ→\uE02F;  # LETTER YA</tRule>
+			<tRule>ਰ→\uE030;  # LETTER RA</tRule>
+			<tRule>ਲ→\uE032;  # LETTER LA</tRule>
+			<tRule>ਲ਼→\uE033; # FALLBACK</tRule>
+			<tRule>ਵ→\uE035;  # LETTER VA</tRule>
+			<tRule>ਸ਼→\uE036;</tRule>
+			<tRule>ਸ\0a3c→\uE036; # FALLBACK</tRule>
+			<tRule>ਸ→\uE038;  # LETTER SA</tRule>
+			<tRule>ਹ→\uE039;  # LETTER HA</tRule>
+			<tRule>਼→\uE03C;  # SIGN NUKTA</tRule>
+			<tRule>ਾ→\uE03E;  # VOWEL SIGN AA</tRule>
+			<tRule>ਿ→\uE03F;  # VOWEL SIGN I</tRule>
+			<tRule>ੀ→\uE040;  # VOWEL SIGN II</tRule>
+			<tRule>ੁ→\uE041;  # VOWEL SIGN U</tRule>
+			<tRule>ੂ→\uE042;  # VOWEL SIGN UU</tRule>
+			<tRule>ੇ→\uE047;  # VOWEL SIGN EE</tRule>
+			<tRule>ੈ→\uE048;  # VOWEL SIGN AI</tRule>
+			<tRule>ੋ→\uE04B;  # VOWEL SIGN OO</tRule>
+			<tRule>ੌ→\uE04C;  # VOWEL SIGN AU</tRule>
+			<tRule>੍→\uE04D;  # SIGN VIRAMA</tRule>
+			<tRule>ੜ→\uE05C;  # LETTER RRA</tRule>
+			<tRule>੦→\uE066;  # DIGIT ZERO</tRule>
+			<tRule>੧→\uE067;  # DIGIT ONE</tRule>
+			<tRule>੨→\uE068;  # DIGIT TWO</tRule>
+			<tRule>੩→\uE069;  # DIGIT THREE</tRule>
+			<tRule>੪→\uE06A;  # DIGIT FOUR</tRule>
+			<tRule>੫→\uE06B;  # DIGIT FIVE</tRule>
+			<tRule>੬→\uE06C;  # DIGIT SIX</tRule>
+			<tRule>੭→\uE06D;  # DIGIT SEVEN</tRule>
+			<tRule>੮→\uE06E;  # DIGIT EIGHT</tRule>
+			<tRule>੯→\uE06F;  # DIGIT NINE</tRule>
+			<tRule>ੰ→\uE07C;  # TIPPI</tRule>
+			<tRule>ੱ→\uE07D;  # ADDAK</tRule>
+			<tRule>ੲ→\uE07E;  # IRI</tRule>
+			<tRule>ੳ→\uE07F;  # URA</tRule>
+			<tRule>ੴ→\uE080;  # EK ONKAR</tRule>
+			<tRule>।→\uE064;        # DANDA</tRule>
+			<tRule>॥→\uE065;        # DOUBLE DANDA</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
+		</transform>
+	</transforms>
+</supplementalData>
+

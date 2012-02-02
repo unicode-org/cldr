@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="iw" /> 
+		<territory type="IL" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">וני</month>
+							<month type="2">רבפ</month>
+							<month type="3">ץרמ</month>
+							<month type="4">רפא</month>
+							<month type="5">יאמ</month>
+							<month type="6">נוי</month>
+							<month type="7">לוי</month>
+							<month type="8">גוא</month>
+							<month type="9">טפס</month>
+							<month type="10">קוא</month>
+							<month type="11">בונ</month>
+							<month type="12">מצד</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ראוני</month>
+							<month type="2">ראורבפ</month>
+							<month type="3">ץרמ</month>
+							<month type="4">לירפא</month>
+							<month type="5">יאמ</month>
+							<month type="6">ינוי</month>
+							<month type="7">ילוי</month>
+							<month type="8">טסוגוא</month>
+							<month type="9">רבמטפס</month>
+							<month type="10">רבוטקוא</month>
+							<month type="11">רבמבונ</month>
+							<month type="12">רבמצד</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">'א</day>
+							<day type="mon">'ב</day>
+							<day type="tue">'ג</day>
+							<day type="wed">'ד</day>
+							<day type="thu">'ה</day>
+							<day type="fri">'ו</day>
+							<day type="sat">'ש</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">ןושאר</day>
+							<day type="mon">ינש</day>
+							<day type="tue">ישילש</day>
+							<day type="wed">יעיבר</day>
+							<day type="thu">ישימח</day>
+							<day type="fri">ישש</day>
+							<day type="sat">תבש</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>yyyy MMM dd EEE</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>z HH:mm:ss yyyy MMM dd EEE</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>yyyy MMM dd</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd/MMMM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤ #,##0.00;¤ #,##0.00-</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

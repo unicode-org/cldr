@@ -1,0 +1,277 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>LDML Element Validity</title>
+<style>
+<!--
+.e{margin-left:1em;text-indent:-1em;margin-right:1em}
+.c{cursor:hand}
+.b{color:red;font-family:'Courier New';font-weight:bold;text-decoration:none}
+.m{color:blue}
+.t{color:#990000}
+.tx{font-weight:bold}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/common.css">
+</head>
+
+<body>
+
+<h1>LDML Element Validity</h1>
+<p>Mark Davis, 2004-07-25</p>
+<p>Latest:
+<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/cldr/ldmlValidity.htm">
+http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/design/cldr/ldmlValidity.htm</a> </p>
+<p>The following describes in more detail how to determine the validity of the data for a given 
+element in LDML. Part of this depends on the use of the attribute <i>draft</i>. If an element has 
+draft=&quot;true&quot;, then the data is explicitly not known to be valid. (&quot;Not known to be&quot; because it may 
+actually be valid, but it has not been vetted.). But it is a bit more complicated than that, since 
+draft=&quot;true&quot; is inherited by sub-elements, and child locales. So this document defines precisely 
+what it is to be implicitly draft.</p>
+<p>In addition, we are proposing a new attribute that allows separate data trees to be merged. 
+(Working out how that attribute would work precisely was actually the impetus for this document!)</p>
+<h2>Definitions</h2>
+<p>For any element in an XML file, <i>an element chain</i> is a resolved XPath leading from the root 
+to an element, with attributes on each element in alphabetical order. So in, say,
+<a href="http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml">
+http://oss.software.ibm.com/cvs/icu/~checkout~/locale/common/main/el.xml</a> we have:</p>
+<div class="c" style="text-indent: -2em; margin-left: 1em">
+  <a class="b" onfocus="h()" onclick="return false" href="#">-</a> <span class="m">&lt;</span><span class="t">ldml 
+  version</span><span class="m">=&quot;</span><b>1.1</b><span class="m">&quot;&gt;</span></div>
+<div>
+  <div class="e">
+    <div class="c" style="text-indent: -2em; margin-left: 1em">
+      <a class="b" onfocus="h()" onclick="return false" href="#">+</a> <span class="m">&lt;</span><span class="t">identity</span><span class="m">&gt;</span></div>
+    <div style="display: none">
+      <div class="e">
+        <div style="text-indent: -2em; margin-left: 1em">
+          <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">version</span>
+          <span class="t">number</span><span class="m">=&quot;</span><b>1.1</b><span class="m">&quot; /&gt;</span>
+        </div>
+      </div>
+      <div class="e">
+        <div style="text-indent: -2em; margin-left: 1em">
+          <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">generation</span>
+          <span class="t">date</span><span class="m">=&quot;</span><b>2004-06-04</b><span class="m">&quot; /&gt;</span>
+        </div>
+      </div>
+      <div class="e">
+        <div style="text-indent: -2em; margin-left: 1em">
+          <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">language</span>
+          <span class="t">type</span><span class="m">=&quot;</span><b>el</b><span class="m">&quot; /&gt;</span>
+        </div>
+      </div>
+      <div>
+        <span class="b">&nbsp;</span> <span class="m">&lt;/</span><span class="t">identity</span><span class="m">&gt;</span></div>
+    </div>
+  </div>
+  <div class="e">
+    <div class="c" style="text-indent: -2em; margin-left: 1em">
+      <a class="b" onfocus="h()" onclick="return false" href="#">-</a> <span class="m">&lt;</span><span class="t">localeDisplayNames</span><span class="m">&gt;</span></div>
+    <div>
+      <div class="e">
+        <div class="c" style="text-indent: -2em; margin-left: 1em">
+          <a class="b" onfocus="h()" onclick="return false" href="#">-</a> <span class="m">&lt;</span><span class="t">languages</span><span class="m">&gt;</span></div>
+        <div>
+          <div class="e">
+            <div style="text-indent: -2em; margin-left: 1em">
+              <span class="b">&nbsp;</span> <span class="m">&lt;</span><span class="t">language type</span><span class="m">=&quot;</span><b>ar</b><span class="m">&quot;&gt;</span><span class="tx">&#913;&#961;&#945;&#946;&#953;&#954;&#940;</span><span class="m">&lt;/</span><span class="t">language</span><span class="m">&gt;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p>...</p>
+<p>Which gives the following element chains (among others):</p>
+<ul>
+  <li>//ldml/identity/version@number=&quot;1.1&quot;</li>
+  <li>//ldml/localeDisplayNames/languages/language@type=&quot;ar&quot;</li>
+</ul>
+<p>An element chain A is an <i>extension</i> of an element chain B if the initial portion of A is 
+the equivalent to B. For example, #2 below is an extension of #1. (Equivalent, depending on the 
+tree, may not be &quot;identical to&quot;. See below for an example.)</p>
+<ol>
+  <li>//ldml/localeDisplayNames</li>
+  <li>//ldml/localeDisplayNames/languages/language@type=&quot;ar&quot;</li>
+</ol>
+<p>An LDML file can be thought of as an ordered list of <i>element pairs</i>: &lt;element chain, data&gt;, 
+where the element chains are all the chains for the end-nodes. (This works because LDML doesn't 
+allow mixed content.) The ordering is the ordering that the element chains are found in the file, 
+and thus determined by the DTD.</p>
+<p>For example, some of those pairs would be the following. Notice that the first has the null 
+string as element contents.</p>
+<ul>
+  <li>&lt;//ldml/identity/version@number=&quot;1.1&quot;, &quot;&quot;&gt;</li>
+  <li>&lt;//ldml/localeDisplayNames/languages/language@type=&quot;ar&quot;, &quot;&#913;&#961;&#945;&#946;&#953;&#954;&#940;&quot;&gt;</li>
+</ul>
+<blockquote>
+  <p><b>Note:</b> Some elements are not inherited from their parent locales. For example, all of the 
+  elements in a &lt;collation&gt; element are part of the structure of the collation data itself. So 
+  everything in a &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is 
+  concerned.</p>
+</blockquote>
+<p>Two LDML element chains are <i>equivalent</i> when they would be identical if all attributes 
+except the following list were removed: <b>type, width, context</b>. Thus the following are 
+equivalent:</p>
+<ul>
+  <li>//ldml/localeDisplayNames/languages/language@type=&quot;ar&quot;</li>
+  <li>//ldml/localeDisplayNames/languages/language@type=&quot;ar&quot;@draft=&quot;true&quot;</li>
+</ul>
+<p>For any locale ID, an <i>locale chain</i> is an ordered list starting with the root and leading 
+down to the ID. For example:</p>
+<blockquote>
+  <p>&lt;root, de, de-DE, de-DE-xxx&gt;</p>
+</blockquote>
+<h2>Resolved Data File</h2>
+<p>To produce fully resolved locale data file from CLDR for a locale ID L, you start with root, and 
+replace/add items from the child locales until you get down to L. More formally, this can be 
+expressed as the following procedure.</p>
+<ol>
+  <li>Let Result be an empty LDML file.</li>
+  <li>For each Li in the locale chain for L<ol>
+    <li>For each element pair P in the LDML file for Li:<ol>
+      <li>If Result has an element pair Q with an equivalent element chain, remove Q.</li>
+      <li>Add P to Result.</li>
+    </ol>
+    </li>
+  </ol>
+  </li>
+</ol>
+<p>Note: when adding an element pair to a result, it has to go in the right order for it to be valid 
+according to the DTD.</p>
+<h2><b>Valid Data</b></h2>
+<p>The attribute <i>draft='true'</i> in LDML means that the data is not known to be valid or not. 
+However, some data that is not explicitly marked as draft may be implicitly draft, either because it 
+inherits it from a parent, or from an enclosing element. </p>
+<p><b>Example 2. </b>Suppose that a new locale is added for af (Afrikans). To indicate that all of 
+the data is draft, that attribute can be added to the top level.</p>
+<p><code>&lt;ldml version=&quot;1.1&quot; <span style="background-color: #FF0000">draft=&quot;true&quot;</span>&gt;<br>
+&nbsp;&lt;identity&gt;<br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+&nbsp;&lt;/identity&gt;<br>
+&lt;/ldml&gt;</code></p>
+<p>Any data can be added to that file, and the status will all be draft. Once an item is vetted --
+<i>whether it is inherited or explicitly in the file</i> -- then its status can be changed to 
+non-draft. This can be done either by leaving draft=&quot;true&quot; on the enclosing element and marking the 
+child with draft=&quot;false&quot;, such as:</p>
+<p><code>&lt;ldml version=&quot;1.1&quot; <span style="background-color: #FF0000">draft=&quot;true&quot;</span>&gt;<br>
+&nbsp;&lt;identity&gt;<br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+&nbsp;&lt;/identity&gt;<br>
+&nbsp;&lt;characters <span style="background-color: #FF0000">draft=&quot;false&quot;</span>/&gt;<br>
+&nbsp;&lt;localeDisplayNames/&gt;<br>
+&nbsp;&lt;dates/&gt;<br>
+&nbsp;&lt;numbers/&gt;<br>
+&nbsp;&lt;collations/&gt;<br>
+&lt;/ldml&gt;</code></p>
+<p>Or it can be done by removing the draft=&quot;false&quot; from the enclosing element, and marking the<i> 
+other</i> children as draft.</p>
+<p><code>&lt;ldml version=&quot;1.1&quot;&gt;<br>
+&nbsp;&lt;identity&gt;<br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;af&quot; /&gt; <br>
+&nbsp;&lt;/identity&gt;<br>
+&nbsp;&lt;characters/&gt;<br>
+&nbsp;&lt;localeDisplayNames/&gt;<br>
+&nbsp;&lt;dates <span style="background-color: #FF0000">draft=&quot;true&quot;</span>/&gt;<br>
+&nbsp;&lt;numbers <span style="background-color: #FF0000">draft=&quot;true&quot;</span>/&gt;<br>
+&nbsp;&lt;collations <span style="background-color: #FF0000">draft=&quot;true&quot;</span>/&gt;<br>
+&lt;/ldml&gt;</code></p>
+<blockquote>
+  <p><b>Note: </b>A missing draft attribute is <i>not</i> the same as either a true or false value. 
+  A missing attribute means instead: <i>inherit</i> the draft status from enclosing elements and 
+  parent locales.</p>
+</blockquote>
+<p>This section also contains the proposed new attribute, <i>legitimateChildren</i>. <i>(This is a 
+provisional name: we'll come up with a more serious one!)</i> This attribute allows us to mark 
+children in a given tree that are valid, even though there is no file present. It only has an effect 
+for locales that inherit from the current file where a file is missing, and the elements wouldn't 
+otherwise be draft.</p>
+<p><b>Example 1. </b>Suppose that in a particular LDML tree, there are no region locales for German, 
+e.g. there is a de.xml file, but no files for de-AT.xml, de-CH.xml, or de-DE.xml. Then no elements 
+are valid for any of those region locales. If we want to mark one of those files as having valid 
+elements, then we introduce an empty file, such as the following.</p>
+<p><code>&lt;ldml version=&quot;1.1&quot;&gt;<br>
+&nbsp;&lt;identity&gt;<br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
+&nbsp; &lt;territory type=&quot;AT&quot; /&gt; <br>
+&nbsp;&lt;/identity&gt;<br>
+&lt;/ldml&gt;</code></p>
+<p>With the <i>legitimateChildren</i> attribute, instead of adding the empty files for de-AT.xml, 
+de-CH.xml, and de-DE.xml, in the de file we can add to the parent locale a list of the child locales 
+that should behave as if files were present.</p>
+<p><code>&lt;ldml version=&quot;1.1&quot; legitimateChildren=&quot;de-AT de-CH de-DE&quot;&gt;<br>
+&nbsp;&lt;identity&gt;<br>
+&nbsp; &lt;version number=&quot;1.1&quot; /&gt; <br>
+&nbsp; &lt;generation date=&quot;2004-06-04&quot; /&gt; <br>
+&nbsp; &lt;language type=&quot;de&quot; /&gt; <br>
+&nbsp;&lt;/identity&gt;<br>
+...<br>
+&lt;/ldml&gt;</code></p>
+<p>More formally, here is how to determine whether data for an element chain E is implicitly or 
+explicitly draft, given a locale L. Sections 1, 2, and 4 are simply formalizations of what is in 
+LDML already. Item 3 adds the new element.</p>
+<p>Checking for Draft Status:</p>
+<ol>
+  <li><b>Parent Locale Inheritance</b><ol>
+    <li>Walk through the locale chain until you find a locale ID L' with a data file D. (L' may 
+    equal L). </li>
+    <li>Produce the fully resolved data file D' for D.</li>
+    <li>In D', find the first element pair whose element chain E' is either equivalent to or an 
+    extension of E.</li>
+    <li>If there is no such E', return <i>true</i></li>
+    <li>If E' is not equivalent to E, truncate E' to the length of E.</li>
+  </ol>
+  </li>
+  <li><b>Enclosing Element Inheritance</b><ol>
+    <li>Walk through the elements in E', from back to front.<ol>
+      <li>If you ever encounter draft=<i>x</i>, return <i>x</i></li>
+    </ol>
+    </li>
+    <li>If L' = L, return <i>false</i></li>
+  </ol>
+  </li>
+  <li><span class="changed"><b>Missing File Inheritance</b></span><ol>
+    <li><span class="changed">Otherwise, walk again through the elements in E', from back to front.</span><ol>
+      <li><span class="changed">If you encounter a legitimateChildren attribute:</span><ol>
+        <li><span class="changed">If L is in the attribute value, return <i>false</i></span></li>
+        <li><span class="changed">Otherwise return <i>true</i></span></li>
+      </ol>
+      </li>
+    </ol>
+    </li>
+  </ol>
+  </li>
+  <li><b>Otherwise</b><ol>
+    <li>Return <i>true</i></li>
+  </ol>
+  </li>
+</ol>
+<p>The legitimateChildren in the most specific (farthest from root file) locale file wins through 
+the full resolution step (data from more specific files replacing data from less specific ones).</p>
+<h2>Separating Trees</h2>
+<p>To separate trees, add legitimateChildren or empty files wherever necessary. That is, wherever a 
+file is removed that had existed in the main tree, any non-draft, validly inherited elements will 
+need to have a legitimateChildren value added.</p>
+<h2>Merging Trees</h2>
+<p>When merging trees, draft='true' attributes need to be added whenever the merging of the trees 
+would cause additional elements to be considered non-draft that were not in the original. In 
+addition, legitimateChildren elements can be removed wherever they are no longer necessary (although 
+these are merely redundant; they will have no harmful effects).</p>
+
+</body>
+
+</html>

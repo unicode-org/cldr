@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--add CoreLocaleElements DTD reference here-->
+<!-- Tag was "CoreLocaleData" - this has been changed below to allow the
+Cupertino XML tool to work -->
+<!DOCTYPE localeData SYSTEM "./LocaleElements.dtd" >
+<localeData>
+<generation date="2002, June, 12"></generation>
+<!--
+Core Locale Data Format
+Version 1.0.4: 2002-05-23
+	
+Contains locale data elements from ICIR (version 1.4.1) that map into 
+CoreLocaleElements.xml.
+-->
+
+<!--ICIR VERSION information-->
+  <versioning>
+    <version number="1.4.1"></version>
+  </versioning>
+
+<!--IDENTIFICATION of the locale-->
+  <identity>
+    <!--Two letter ISO codes only-->
+    <language id="lt"/>
+    <country id="LT"/>
+  </identity>
+
+<!--CALENDAR INFORMATION.  Gregorian Only-->
+  <calendars>
+    <calendar class="Gregorian" default="true">
+      <monthNames>
+        <month id="1">sausio</month>
+        <month id="2">vasario</month>
+        <month id="3">kovo</month>
+        <month id="4">baland&#x017e;io</month>
+        <month id="5">gegu&#x017e;&#x0117;s</month>
+        <month id="6">bir&#x017e;elio</month>
+        <month id="7">liepos</month>
+        <month id="8">rugpj&#x016b;&#x010d;io</month>
+        <month id="9">rugs&#x0117;jo</month>
+        <month id="10">spalio</month>
+        <month id="11">lapkri&#x010d;io</month>
+        <month id="12">gruod&#x017e;io</month>
+        <month id="13"></month>
+      </monthNames>
+
+      <monthAbbr>
+        <month id="1">sau</month>
+        <month id="2">vas</month>
+        <month id="3">kov</month>
+        <month id="4">bal</month>
+        <month id="5">geg</month>
+        <month id="6">bir</month>
+        <month id="7">lie</month>
+        <month id="8">rgp</month>
+        <month id="9">rgs</month>
+        <month id="10">spa</month>
+        <month id="11">lap</month>
+        <month id="12">grd</month>
+        <month id="13"></month>
+      </monthAbbr>
+
+      <dayNames>
+        <day id="1">sekmadienis</day>
+        <day id="2">pirmadienis</day>
+        <day id="3">antradienis</day>
+        <day id="4">tre&#x010d;iadienis</day>
+        <day id="5">ketvirtadienis</day>
+        <day id="6">penktadienis</day>
+        <day id="7">&#x0161;e&#x0161;tadienis</day>
+      </dayNames>
+
+      <dayAbbr>
+        <day id="1">sk</day>
+        <day id="2">pr</day>
+        <day id="3">an</day>
+        <day id="4">tr</day>
+        <day id="5">kt</day>
+        <day id="6">pn</day>
+        <day id="7">&#x0161;t</day>
+      </dayAbbr>
+
+      <!--
+      Patterns used for formatting and parsing dates and times for this calendar
+      -->
+
+      <patterns>
+        <!-- <chars>GyMdhHmsSEDFwWakKz</chars> -->
+        <time>
+          <full>HH:mm:ss</full>
+          <medium>HH:mm:ss</medium>
+          <short>HH:mm</short>
+        </time>
+
+        <date>
+          <full>yyyy 'm'. MMMM d 'd'., EEEE</full>
+          <long>yyyy 'm'. MMMM d 'd'.</long>
+          <short>yyyy.MM.dd</short>
+        </date>
+      </patterns>
+    </calendar>
+  </calendars>
+
+<!--NUMERIC INFORMATION-->
+  <numberFormat class="decimal" default="true">
+    <patterns>
+      <decimal>#,###,##0.##;-#,###,##0.##</decimal>
+    </patterns>
+    <symbols>
+      <decimal>,</decimal>
+      <group>.</group>
+      <minusSign>-</minusSign>
+    </symbols>
+  </numberFormat>
+
+<!--MONETARY INFORMATION-->
+  <currencies>
+    <!--currency id as per ISO4217, three letter alphabetic code-->
+    <currency id="LTL">
+      <symbol>Lt</symbol>
+      <pattern>#,###,##0.00 &#x00A4;;-#,###,##0.00 &#x00A4;</pattern>
+      <decimal>,</decimal>
+      <group>.</group>
+    </currency>
+  </currencies>
+
+<!--POSIX TYPE INFORMATION-->
+  <PosixCompatibilityData>
+    <!--POSIX LC_MESSAGE EQUIVALENT-->
+    <messages>
+      <no>Ne</no>
+      <yes>Taip</yes>
+      <shortNo>N</shortNo>
+      <shortYes>T</shortYes>
+    </messages>
+
+    <!--TELEPHONE INFORMATION-->
+    <TelephoneFormat>
+      <!-- International Access Code is shown below -->
+      <InternationalDialCode>8w10 [w - wait for a tone]</InternationalDialCode>
+    </TelephoneFormat>
+  </PosixCompatibilityData>
+
+<!-- Tag was "/CoreLocaleData" - changed below to allow Cupertino XML
+tool to work -->
+</localeData>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 5313 $" />
+		<generation date="$Date: 2011-02-02 14:10:42 -0800 (Wed, 02 Feb 2011) $" />
+		<language type="root" />
+	</identity>
+
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<alias source="locale" path="../dayPeriodWidth[@type='wide']" />
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']" />
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+                    <dayPeriodContext type="stand-alone">
+                        <alias source="locale" path="../dayPeriodContext[@type='format']"/>
+                    </dayPeriodContext>
+				</dayPeriods>
+			</calendar>
+		</calendars>
+	</dates>
+</ldml>
+

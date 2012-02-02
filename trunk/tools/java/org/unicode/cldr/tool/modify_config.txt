@@ -1,0 +1,4 @@
+#http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes#TOC-CLDRModify-Configuration-Fil
+#Best is to use SearchXML with -p and -v set first, to check out what would be changed
+
+action=delete;	locale=	/.*/	; path=	/@type="BQ"/	;

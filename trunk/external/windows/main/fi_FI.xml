@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="Windows_XP"/>
+		<generation date="2004-05-27" />
+		<language type="fi" /> 
+		<territory type="FI" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="fi">suomi</language>
+		</languages>
+		<territories>
+			<territory type="FI">Suomi</territory>
+		</territories>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">tammi</month>
+							<month type="2">helmi</month>
+							<month type="3">maalis</month>
+							<month type="4">huhti</month>
+							<month type="5">touko</month>
+							<month type="6">kesä</month>
+							<month type="7">heinä</month>
+							<month type="8">elo</month>
+							<month type="9">syys</month>
+							<month type="10">loka</month>
+							<month type="11">marras</month>
+							<month type="12">joulu</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">tammikuu</month>
+							<month type="2">helmikuu</month>
+							<month type="3">maaliskuu</month>
+							<month type="4">huhtikuu</month>
+							<month type="5">toukokuu</month>
+							<month type="6">kesäkuu</month>
+							<month type="7">heinäkuu</month>
+							<month type="8">elokuu</month>
+							<month type="9">syyskuu</month>
+							<month type="10">lokakuu</month>
+							<month type="11">marraskuu</month>
+							<month type="12">joulukuu</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">su</day>
+							<day type="mon">ma</day>
+							<day type="tue">ti</day>
+							<day type="wed">ke</day>
+							<day type="thu">to</day>
+							<day type="fri">pe</day>
+							<day type="sat">la</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sunnuntai</day>
+							<day type="mon">maanantai</day>
+							<day type="tue">tiistai</day>
+							<day type="wed">keskiviikko</day>
+							<day type="thu">torstai</day>
+							<day type="fri">perjantai</day>
+							<day type="sat">lauantai</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<firstDay day="mon"/>
+				</week>
+				<am></am>
+				<pm></pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>d. MMMM'ta 'yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>d.M.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

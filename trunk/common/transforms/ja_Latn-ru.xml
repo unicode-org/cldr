@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="ja_Latn" target="ru" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Author: mjansche@google.com (Martin Jansche)
+			#
+			# Japanese (Rōmaji) to Russian (Cyrillic) Polivanov transliteration for ICU.
+			# Can be run in sequence after e.g. Katakana-Latin.
+			#
+			# These rules cannot be used to target Bulgarian, Serbian, Tajik, or Ukrainian.
+			#
+			# TODO: Cyrillization needs to respect morpheme/Kanji boundaries.
+			# 中井 becomes Накаи, but 北海道 becomes Хоккайдо.  We need boundary
+			# markup in the input in order to do that properly.
+			#
+			</comment>
+			<tRule>::NFD(NFC);</tRule>
+			<tRule>::[:Latin:] Lower();</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>$lengthMarker = [̂̄];</tRule>
+			<comment>
+			#
+			# Delete apostrophes.  Apostrophes after "n" are consumed below.
+			</comment>
+			<tRule>\' → ;</tRule>
+			<comment>
+			#
+			# Turn long /e:/ into diphthong /ei/.
+			# Note that /ei/ across a morpheme boundary (e.g. 武井 Takei) becomes эи.
+			</comment>
+			<tRule>e $lengthMarker → эй ;</tRule>
+			<comment>
+			#
+			# Turn long /i:/ into two vowels /ii/.
+			</comment>
+			<tRule>i $lengthMarker → | i i ;</tRule>
+			<comment>
+			#
+			# Ignore vowel length everywhere else.
+			</comment>
+			<tRule>$lengthMarker → ;</tRule>
+			<comment>
+			#
+			# Vowels.
+			#
+			# TODO(mjansche): Enable diphthongs once we have Kanji boundaries.
+			## ai → ай ;
+			</comment>
+			<tRule>a  → а ;</tRule>
+			<tRule>i\~e → | ye ;</tRule>
+			<tRule>i  → и ;</tRule>
+			<tRule>u\~ → в ;  # ウィ etc.</tRule>
+			<comment>
+			## ui → уй ;
+			</comment>
+			<tRule>u  → у ;</tRule>
+			<tRule>e  → э ;</tRule>
+			<tRule>o  → о ;</tRule>
+			<comment>
+			#
+			# Consonants.
+			#
+			</comment>
+			<tRule>k → к ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>sh → | sy ;</tRule>
+			<tRule>s → с ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ch     → | ty ;</tRule>
+			<tRule>c } ch → t ;</tRule>
+			<tRule>te\~   → | t ;   # テュ</tRule>
+			<tRule>to\~   → | t ;   # トゥ</tRule>
+			<tRule>tsu\~  → | ts ;  # ツァ, ツィ, etc.</tRule>
+			<tRule>ts → ц ;</tRule>
+			<tRule>t  → т ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>\~tsu → | tsu ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>n } [bpm] → м ;  # 群馬 → Гумма</tRule>
+			<tRule>n\' → нъ ;</tRule>
+			<tRule>n → н ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>h → х ;</tRule>
+			<tRule>fu\~ → | f ;  # フュ</tRule>
+			<tRule>f → ф ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>m → м ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ya → я ;</tRule>
+			<tRule>yi → и ;  # Added for convenience, after sh, ch, j.</tRule>
+			<tRule>yu → ю ;</tRule>
+			<tRule>ye → е ;  # ?? unobserved</tRule>
+			<tRule>yo → ё ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>r → р ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>wa → ва ;</tRule>
+			<tRule>w → ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>g → г ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>j → | zy ;</tRule>
+			<tRule>z → дз ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>de\~  → | d ;  # デュ</tRule>
+			<tRule>dji\~ → | z ;  # ヂャ, ヂュ, etc.</tRule>
+			<tRule>dj    → | j ;  # ヂ</tRule>
+			<tRule>do\~  → | d ;  # ドゥ</tRule>
+			<tRule>dzu\~ → | z ;  # ヅァ, ヅィ, etc.</tRule>
+			<tRule>dz    → | z ;  # ヅ</tRule>
+			<tRule>d → д ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>b → б ;</tRule>
+			<tRule>vu\~ → | v ;  # ヴァ, etc.</tRule>
+			<tRule>v → в ;  # ?? unobserved</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>p → п ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::NFC(NFD);</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

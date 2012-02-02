@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Oriya" target="InterIndic" direction="forward" visibility="internal">
+			<comment># Oriya-InterIndic</comment>
+			<comment>#:: NFD (NFC) ;</comment>
+			<comment>#ଡ଼→\uE05C;# LETTER RRA</comment>
+			<comment>#ଢ଼→\uE05D;# LETTER RHA</comment>
+			<tRule>ୈ→\uE048;# VOWEL SIGN AI</tRule>
+			<tRule>ୋ→\uE04B;# VOWEL SIGN O</tRule>
+			<tRule>ୌ→\uE04C;# VOWEL SIGN AU</tRule>
+			<tRule>ଁ→\uE001;      # SIGN CANDRABINDU</tRule>
+			<tRule>ଂ→\uE002;      # SIGN ANUSVARA</tRule>
+			<tRule>ଃ→\uE003;      # SIGN VISARGA</tRule>
+			<tRule>ଅ→\uE005;      # LETTER A</tRule>
+			<tRule>ଆ→\uE006;      # LETTER AA</tRule>
+			<tRule>ଇ→\uE007;      # LETTER I</tRule>
+			<tRule>ଈ→\uE008;      # LETTER II</tRule>
+			<tRule>ଉ→\uE009;      # LETTER U</tRule>
+			<tRule>ଊ→\uE00A;      # LETTER UU</tRule>
+			<tRule>ଋ→\uE00B;      # LETTER VOCALIC R</tRule>
+			<tRule>ଌ→\uE00C;      # LETTER VOCALIC L</tRule>
+			<tRule>ଏ→\uE00F;      # LETTER E</tRule>
+			<tRule>ଐ→\uE010;      # LETTER AI</tRule>
+			<tRule>ଓ→\uE013;      # LETTER O</tRule>
+			<tRule>ଔ→\uE014;      # LETTER AU</tRule>
+			<tRule>କ→\uE015;      # LETTER KA</tRule>
+			<tRule>ଖ→\uE016;      # LETTER KHA</tRule>
+			<tRule>ଗ→\uE017;      # LETTER GA</tRule>
+			<tRule>ଘ→\uE018;      # LETTER GHA</tRule>
+			<tRule>ଙ→\uE019;      # LETTER NGA</tRule>
+			<tRule>ଚ→\uE01A;      # LETTER CA</tRule>
+			<tRule>ଛ→\uE01B;      # LETTER CHA</tRule>
+			<tRule>ଜ→\uE01C;      # LETTER JA</tRule>
+			<tRule>ଝ→\uE01D;      # LETTER JHA</tRule>
+			<tRule>ଞ→\uE01E;      # LETTER NYA</tRule>
+			<tRule>ଟ→\uE01F;      # LETTER TTA</tRule>
+			<tRule>ଠ→\uE020;      # LETTER TTHA</tRule>
+			<tRule>ଡ→\uE021;      # LETTER DDA</tRule>
+			<tRule>ଢ→\uE022;      # LETTER DDHA</tRule>
+			<tRule>ଣ→\uE023;      # LETTER NNA</tRule>
+			<tRule>ତ→\uE024;      # LETTER TA</tRule>
+			<tRule>ଥ→\uE025;      # LETTER THA</tRule>
+			<tRule>ଦ→\uE026;      # LETTER DA</tRule>
+			<tRule>ଧ→\uE027;      # LETTER DHA</tRule>
+			<tRule>ନ→\uE028;      # LETTER NA</tRule>
+			<tRule>ପ→\uE02A;      # LETTER PA</tRule>
+			<tRule>ଫ→\uE02B;      # LETTER PHA</tRule>
+			<tRule>ବ→\uE02C;      # LETTER BA</tRule>
+			<tRule>ଭ→\uE02D;      # LETTER BHA</tRule>
+			<tRule>ମ→\uE02E;      # LETTER MA</tRule>
+			<tRule>ଯ→\uE02F;      # LETTER YA</tRule>
+			<tRule>ର→\uE030;      # LETTER RA</tRule>
+			<tRule>ଲ→\uE032;      # LETTER LA</tRule>
+			<tRule>ଳ→\uE033;      # LETTER LLA</tRule>
+			<tRule>ଵ→\uE035;      # LETTER VA</tRule>
+			<tRule>ଶ→\uE036;      # LETTER SHA</tRule>
+			<tRule>ଷ→\uE037;      # LETTER SSA</tRule>
+			<tRule>ସ→\uE038;      # LETTER SA</tRule>
+			<tRule>ହ→\uE039;      # LETTER HA</tRule>
+			<tRule>଼→\uE03C;      # SIGN NUKTA</tRule>
+			<tRule>ଽ→\uE03D;      # SIGN AVAGRAHA</tRule>
+			<tRule>ା→\uE03E;      # VOWEL SIGN AA</tRule>
+			<tRule>ି→\uE03F;      # VOWEL SIGN I</tRule>
+			<tRule>ୀ→\uE040;      # VOWEL SIGN II</tRule>
+			<tRule>ୁ→\uE041;      # VOWEL SIGN U</tRule>
+			<tRule>ୂ→\uE042;      # VOWEL SIGN UU</tRule>
+			<tRule>ୃ→\uE043;      # VOWEL SIGN VOCALIC R</tRule>
+			<tRule>େ→\uE047;      # VOWEL SIGN E</tRule>
+			<comment>#</comment>
+			<tRule>୍→\uE04D;      # SIGN VIRAMA</tRule>
+			<tRule>ୖ→\uE056;      # AI LENGTH MARK</tRule>
+			<tRule>ୗ→\uE057;      # AU LENGTH MARK</tRule>
+			<tRule>।→\uE064;      # DANDA</tRule>
+			<tRule>॥→\uE065;      # DOUBLE DANDA</tRule>
+			<comment>#</comment>
+			<tRule>ୟ→\uE05F;      # LETTER YYA</tRule>
+			<tRule>ୠ→\uE060;      # LETTER VOCALIC RR</tRule>
+			<tRule>ୡ→\uE061;      # LETTER VOCALIC LL</tRule>
+			<tRule>୦→\uE066;      # DIGIT ZERO</tRule>
+			<tRule>୧→\uE067;      # DIGIT ONE</tRule>
+			<tRule>୨→\uE068;      # DIGIT TWO</tRule>
+			<tRule>୩→\uE069;      # DIGIT THREE</tRule>
+			<tRule>୪→\uE06A;      # DIGIT FOUR</tRule>
+			<tRule>୫→\uE06B;      # DIGIT FIVE</tRule>
+			<tRule>୬→\uE06C;      # DIGIT SIX</tRule>
+			<tRule>୭→\uE06D;      # DIGIT SEVEN</tRule>
+			<tRule>୮→\uE06E;      # DIGIT EIGHT</tRule>
+			<tRule>୯→\uE06F;      # DIGIT NINE</tRule>
+			<tRule>୰→\uE07B;      # ISSHAR</tRule>
+			<tRule>ୱ→\uE081;      # LETTER WA</tRule>
+			<comment>#    :: NFC (NFD) ;</comment>
+			<comment># eof</comment>
+		</transform>
+	</transforms>
+</supplementalData>
+

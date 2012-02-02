@@ -1,0 +1,198 @@
+#DEBUGGING CASES
+checkPatrik
+
+VALID
+\u0915\u094D\u200C\u0916
+
+VALID
+# $ExceptionPvalid 
+# $BackwardCompatiblePvalid 
+
+ßς་〇
+۽۾
+
+# $LDH
+abcdefghijkl-mnopqrstuvwxyz-0123456789-öø
+
+INVALID
+
+# $ExceptionDisallowed
+# $BackwardCompatibleDisallowed
+a 〮〯
+
+# $Unassigned
+a\u0378b
+
+# $Unstable
+ÖL
+
+# $IgnorableProperties 
+a︀
+
+# $IgnorableBlocks 
+
+z𝄀a
+
+# $OldHangulJamo
+가ᄀ가
+
+
+# Title: Appendix A.1. HYPHEN-MINUS - Can't be at start or end; that is, ok only if medial
+
+VALID
+a-b
+a--b
+ab
+a
+
+INVALID
+-
+-a
+a-
+
+# Title: A1. Allow ZWNJ in the following context: /$L $T* ZWNJ $T* $R/
+
+VALID
+\u0645\u200C\u0646
+\u0645\u0300\u200C\u0300\u0300\u0300\u0646
+
+INVALID
+
+\u0645\u200C
+\u200C\u0646
+\u0627्\u200C\u0646
+a\u200C‌b
+
+# Title: ZWJ/ZWNJ apply to letter+virama of same script (and limited scripts)
+
+INVALID
+\u0915\u0A4D\u200C
+a\u0A4D\u200C
+
+# Title: A2. Allow ZWNJ in the following context: /$L $V ZWNJ/
+
+VALID
+\u0915\u094D\u0916
+\u0915\u094D\u200C\u0916
+
+INVALID
+\u094D\u200C
+\u0915\u200C
+\u094D\u200C\u0916
+\u0915\u200C\u0916
+
+# Appendix A.3. ZERO WIDTH JOINER
+
+VALID
+\u0915\u094D\u200D
+\u0915\u094D\u200D\u0916
+
+INVALID
+\u094D\u200D
+\u0915\u200D
+\u094D\u200D\u0916
+\u0915\u200D\u0916
+
+# Title: Appendix A.4. MIDDLE DOT
+
+VALID
+l\u00B7l
+
+INVALID
+l\u00B7a
+a\u00B7l
+\u00B7l
+l\u00B7
+
+# Title: Appendix A.8. HEBREW PUNCTUATION GERESH - \u05F3
+
+VALID
+\u05D0\u05F3\u05D1
+\u05D0\u05F3
+
+INVALID
+a\u05F3\u05D1
+\u05D0\u05F3b
+\u05F3\u05D1
+
+# Title: Appendix A.9. HEBREW PUNCTUATION GERSHAYIM - \u05F4
+
+VALID
+\u05D0\u05F4\u05D1
+
+INVALID
+a\u05F4\u05D1
+\u05D0\u05F4b
+\u05F4\u05D1
+\u05D0\u05F4
+
+# Title: Appendix A.13. ARABIC-INDIC DIGITS - 0660..0669
+
+VALID
+1234
+a1b
+\u0645\u0660\u0645
+\u0645\u0660
+
+INVALID
+1-\u0660
+\u0660-1
+\uu06F0-\u0660
+\u0660-\uu06F0
+
+#Title: Appendix A.14. EXTENDED ARABIC-INDIC DIGITS
+
+VALID
+\u0645\u06f0\u0645
+\u0645\u06f0
+
+INVALID
+1-\u06f0
+\u06f0-1
+
+# Title: 2.  ES and ON are not allowed in the first position
+
+VALID 
+\u0645-\u0644
+\u0645ʹ\u0644
+
+INVALID
+ʹ\u0645
+
+# Title: 3.  ES and ON, followed by zero or more NSM, is not allowed in the last position
+
+INVALID
+\u0645ʹ
+\u0645-\u0300
+\u0645\u0300ʹ
+
+# Title: 4.  If an R, AL or AN is present, no L may be present.
+
+INVALID
+\u0645a
+a-\u0645
+
+# Title: 6.  The first character may not be an NSM. General rule
+
+VALID
+q\u0300
+
+INVALID
+\u0300a
+\u0300\u0301a
+
+# Title: 7.  The first character may not be an EN (European Number) or an AN (Arabic Number).
+
+VALID
+\u06451
+\u0645\u0660
+\u0645\u06f0
+
+INVALID
+1\u0645
+\u0660\u0645
+\u06f0\u0645
+
+
+
+

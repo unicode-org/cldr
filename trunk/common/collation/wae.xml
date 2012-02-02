@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="wae"/>
+	</identity>
+	<collations validSubLocales="wae_CH">
+		<collation type="standard" draft="unconfirmed">
+			<rules>
+				<reset>á</reset>
+					<i>aa</i>
+				<reset>ã</reset>
+					<i>ää</i>
+				<reset>é</reset>
+					<i>ee</i>
+				<reset>í</reset>
+					<i>ii</i>
+				<reset>ó</reset>
+					<i>oo</i>
+				<reset>õ</reset>
+					<i>öö</i>
+				<reset>č</reset>
+					<i>ch</i>
+				<reset>š</reset>
+					<i>sch</i>
+				<reset>ú</reset>
+					<i>uu</i>
+				<reset>ũ</reset>
+					<i>üü</i>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

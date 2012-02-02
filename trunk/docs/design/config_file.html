@@ -1,0 +1,668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+
+
+  
+  
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+
+
+
+  
+  
+  
+  <title>Configuration File Requirements</title>
+</head>
+
+
+<body>
+
+
+
+
+<h1 style="text-align: center;">Configuration File Design</h1>
+
+
+
+
+<div style="text-align: center;">
+<address>Ram Viswanadha</address>
+
+
+
+
+<address>2005-09-26<br>
+
+
+
+
+<big><big><span style="color: rgb(255, 0, 0);">Draft</span></big></big></address>
+
+
+
+
+</div>
+
+
+
+
+<br>
+
+The tools that convert LDML data to different formats are currently
+ladden with special cases for generating correct data. It would be nice
+to move these special cases out of code to a configuration file. The
+tools would then read this file and generate the data. The
+configuration file can be included in the build.xml. An ant plug-in
+would read the appropriate tags and generate the data according to the
+rules spelled out. The syntax for the plug-in in build.xml is as given
+below: <br>
+
+<br>
+
+<span style="font-family: monospace;">&lt;target name="icu-locales" description="builds locale files in ICU text format"&gt;<br>
+
+&nbsp;&nbsp;&nbsp; &lt;cldr-build toolName="LDML2ICUConverter"&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- launch the tool and generate the data after reading the config file --&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run type="locales"&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;args&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;arg name="sourcedir" value="../../common/main" /&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;arg name="destdir" value="${env.ICU4C_LOCALES_DIR}"/&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;arg name="extras-dir" value="${env.ICU4C_LOCALES_DIR}../xml"/&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/args&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- http://ant.apache.org/faq.html#xml-entity-include --!&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;import file="./icu-config.xml"/&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/run&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run type="collation"&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;args&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;arg name="sourcedir" value="../../common/collation" /&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;arg name="destdir" value="${env.ICU4C_LOCALES_DIR}"/&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;arg name="extras-dir" value="${env.ICU4C_LOCALES_DIR}../xml"/&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/args&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&lt;!-- http://ant.apache.org/faq.html#xml-entity-include --!&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;import file="./icu-config.xml"/&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/run&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- launch the tool and
+create colfiles.mk, refiles.mk and others --&gt;&nbsp;&nbsp;&nbsp; <br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run name="makefiles"&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ....<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/run&gt;<br>
+
+&nbsp;&nbsp;&nbsp; &lt;/cldr-build&gt;<br>
+
+&lt;/target&gt;<br>
+
+&lt;target name="posix-locales" /&gt;<br>
+
+&nbsp;&nbsp;&nbsp; &lt;cldr-build toolName="GeneratePOSIX"&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;run type="locales"&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;args&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/args&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;import file="./posix-config.xml"/&gt;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/run&gt;<br>
+
+&nbsp;&nbsp;&nbsp; &lt;/cldr-build&gt;<br>
+
+&lt;/target&gt;<br>
+
+<br>
+
+</span>The Configuration file can be organized in the following ways.
+
+
+<ol>
+
+
+
+
+  
+  
+  
+  <ol>
+
+
+
+
+    
+    
+    
+    <ul>
+
+
+
+
+      
+      
+      
+      <ul>
+
+
+
+
+      
+      
+      
+      </ul>
+
+
+
+
+    
+    
+    
+    </ul>
+
+
+
+
+  
+  
+  
+  </ol>
+
+
+
+
+</ol>
+
+
+
+
+<ol>
+
+
+
+
+  <li> Configuration for generating a list of locales or all non
+draft locales.<br>
+
+
+
+
+e.g:<br>
+
+
+
+
+    
+    
+    
+    <ol>
+
+
+
+
+      <li> Generate all non draft locales
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*" allDraft="false"&gt; <br>        &lt;!-- <br>            allDraft= true|false|.* - this line matches if locale regex and ALL items are draft=true/false. <br>            '.*' is the default, means draft is ignored. allDraft is a regex. <br>            locale=.* a Perl compatible regular expression.<br>        --&gt;<br>    &lt;/locales&gt;<br>&lt;/config&gt;</pre>
+
+
+
+
+      </li>
+
+
+
+
+      <li> Generate the non draft locales for the given list
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale="de.*" allDraft="false"&gt; <br>        &lt;exclude "fi"/&gt;<br>        &lt;include "f.*"/&gt;<br>        &lt;exclude ".*"/&gt;<br>        &lt;!--<br>        The rules are additive. So the above rules mean: Include all 'de' locales, <br>        exclude 'fi' locale but include other locales starting with 'f' and exclude<br>        all other locales!<br>        --&gt;<br>    &lt;/locales&gt;<br>&lt;/config&gt;<br> </pre>
+
+
+
+
+      </li>
+
+
+
+
+      <li> Generate the locales for the given list irrespective
+of the draft status
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale="de.*" allDraft=".*"&gt; &lt;!-- ignore the draft status--&gt;<br>        &lt;exclude "fi"/&gt;<br>        &lt;include "f.*"/&gt;<br>        &lt;exclude ".*"/&gt;<br>    &lt;/locales&gt;<br>&lt;/config&gt;</pre>
+
+
+
+
+      </li>
+
+
+
+
+    
+    
+    
+    </ol>
+
+
+
+
+  </li>
+
+
+
+
+  <li> Ignore draft status of certain nodes in the LDML document.
+In LDML2ICUConverter we currently ignore the draft status of following
+nodes: </li>
+
+
+
+
+  
+  
+  
+  <ol>
+
+
+
+
+    
+    
+    
+    <ol>
+
+
+
+
+    
+    
+    
+    </ol>
+
+
+
+
+    
+    
+    
+    <ol>
+
+
+
+
+      <li> exemplarCharacters </li>
+
+
+
+
+      <li> Min days, first day </li>
+
+
+
+
+      <li> Weekend data </li>
+
+
+
+
+      <li> Symbols data </li>
+
+
+
+
+      <li> Currencies</li>
+
+
+
+
+    
+    
+    
+    </ol>
+
+
+
+
+    <br>
+
+
+
+
+Examples:<br>
+
+
+
+
+    
+    
+    
+    <ol>
+
+
+
+
+      <li> Ignore the draft status on specified nodes for all
+locales
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>            &lt;!--<br>            draft=true|false|.* <br>            Only incldude data from nodes that are not marked draft. <br>            --&gt;<br>        &lt;exclude xpath="//ldml/.*/weekendData/.*" draft=".*"/&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+
+
+
+
+      </li>
+
+
+
+
+      <li> Ignore the draft status on specified nodes for
+specifed locales
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>        &lt;exclude xpath="//ldml/.*/weekendData/.*" draft=".*" locale="de be_IN bla" /&gt;<br>        &lt;!--<br>        Ignore draft status on node weekendData but only for the locales specified<br>        --&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+
+
+
+
+      </li>
+
+
+
+
+    
+    
+    
+    </ol>
+
+
+
+
+  
+  
+  
+  </ol>
+
+
+
+
+  <li> Filter certain nodes 
+    
+    
+    
+    <ol>
+
+
+
+
+      <li> Ignore the specified node for all locales irrespective
+of the draft status<br>
+
+
+
+
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*" draft="false"&gt;<br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/fields/.*"/&gt;<br>        &lt;include xpath="//ldml/.*"/&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+
+
+
+
+      </li>
+
+
+
+
+      <li> Ignore the specified node for specified locales
+irrespective of the draft status
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/fields/.*" draft=".*" locale="en fi"/&gt;<br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+
+
+      </li>
+
+
+    
+    
+    </ol>
+
+
+
+
+  </li>
+
+
+
+
+  <li>Prefer the nodes that have the alternate attribute set. 
+    
+    
+    
+    <ol>
+
+
+      <li>Prefer the nodes that are marked alt irrespective of the draft status <br>
+
+
+
+
+        
+        
+        
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*" draft="false"&gt;<br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/fields/.*"/&gt;<br>        &lt;include xpath="//ldml/.*" preferAlt="variant proposed default" draft=".*"/&gt;<br>        &lt;!-- preferAlt=variant, proposed, default,.*. <br>             The value of this attribute is a preference list.<br>             The ordering of values determines which node will be picked.<br>        --&gt;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+      </li>
+
+
+      <li> Prefer only the nodes that are marked alt.
+        <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/languages/.*" preferAlt="variant" draft=".*"/&gt;       <br>        &lt;exclude xpath="//ldml/.*/countries/.*" preferAlt="proposed" draft=".*"/&gt;      <br>        &lt;include xpath="//ldml/.*" draft="false"/&gt;&nbsp;<br>    &lt;/paths&gt;<br>&lt;/config&gt;</pre>
+
+
+      </li>
+
+
+    
+    
+    </ol>
+
+
+
+
+  </li>
+
+
+
+  <li>Override mechanism for the default fallback or explicit fallback in the data at build time.
+    <pre>&lt;config&gt;<br>    &lt;locales&gt;<br>        &lt;include locale=".*"&gt; <br>    &lt;/locales&gt;<br>    &lt;paths&gt;<br>        &lt;exclude xpath="//ldml/.*/delimiters/.*" preferAlt="variant" draft=".*"/&gt;       <br>        &lt;exclude xpath="//ldml/.*/measurements/.*" preferAlt="proposed" draft=".*"/&gt;      <br>        &lt;include xpath="//ldml/.*" draft="false"/&gt; <br>    &lt;/paths&gt;<br>    &lt;overrideFallback fallback="se_NO no_NO"&gt;<br>        &lt;locales&gt;<br>            &lt;include locale="sms_FI" allDraft="false"&gt; <br>        &lt;/locales&gt;<br>        &lt;paths&gt;<br>            &lt;include xpath="//ldml/displayNames"/&gt;<br>            &lt;include xpath="//ldml/dates/timeZoneNames"/&gt;            <br>        &lt;/paths&gt;<br>    &lt;/overrideFallback&gt;    <br>&lt;/config&gt;</pre>
+  </li>
+  <li> For generating stub files for deprecated locales we hard code
+the data for alias generation in the
+configuration file. A test will be wirtten for veryfing that the list
+of &nbsp;aliases are in synch with list in supplementalData.xml.
+    <pre style="margin-left: 40px;">&lt;!-- collation aliases --&gt;<br>&lt;deprecates type="collation"&gt;<br>    &lt;alias from="de__PHONEBOOK" to="de@collation=phonebook" xpath="//ldml/collations/default[@type='phonebook']"/&gt;<br>    &lt;alias from="es__TRADITIONAL" to="es@collation=traditional" xpath="//ldml/collations/default[@type='traditional']"/&gt;<br>    &lt;alias from="in" to="id" /&gt; <br>    ...<br>&lt;/deprecates&gt;<br>&lt;!-- locale aliases (main) --&gt;<br>&lt;deprecates type="main" &gt;<br>    &lt;alias from="in" to="id" /&gt;<br>    &lt;alias from="in_ID" to="id_ID" /&gt;<br>    &lt;alias from="iw" to="he" /&gt; <br>    ...<br>&lt;/deprecates&gt;</pre>
+
+
+
+
+    <br>
+
+
+
+
+PROS:
+    
+    
+    
+    <ul>
+
+
+
+
+      
+      
+      
+      <ul>
+
+
+
+
+        <li> Easy to parse and generate the generate the stub
+files </li>
+
+
+
+
+        <li> All aliases need to be generated are explicitly
+noted&nbsp;</li>
+
+
+        <li>No new code. Functionality already exists in the tool</li>
+
+
+
+
+      
+      
+      
+      </ul>
+
+
+
+
+    
+    
+    
+    </ul>
+
+
+
+
+  </li>
+
+
+
+
+</ol>
+
+
+
+
+<div style="margin-left: 40px;">CONS:
+</div>
+
+
+
+
+<ul>
+
+
+
+
+  
+  
+  
+  <ul>
+
+
+
+
+    
+    
+    
+    <ul>
+
+
+
+
+      <li> Need to keep in synch with supplementalData.xml</li>
+    </ul>
+
+
+
+
+  
+  
+  
+  </ul>
+
+
+
+
+</ul>
+
+
+
+
+<ol>
+
+
+
+
+  
+  
+  
+  <ol>
+
+
+
+
+  
+  
+  
+  </ol>
+
+
+
+
+</ol>
+
+
+
+
+</body>
+</html>

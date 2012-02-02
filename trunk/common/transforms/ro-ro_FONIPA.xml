@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="ro" target="ro_FONIPA" direction="forward">
+			<comment>
+			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+			# Author: sascha@google.com (Sascha Brawer)
+			#
+			# Romanian orthography to phonemic transcription.
+			# http://en.wikipedia.org/wiki/Romanian_phonology
+			#
+			# Currently this transform does not generate allophones like [ŋ] for /n/,
+			# and it does not palatalize consonants.
+			#
+			# Transform input to normalized form NFC, and to lowercase.
+			</comment>
+			<tRule>:: NFC () ;</tRule>
+			<tRule>:: Lower () ;</tRule>
+			<comment>
+			#
+			# Special cases.
+			</comment>
+			<tRule>eoai → eo̯aj ;  # eg. leoaică → /leo̯ajkə/, not /le̯o̯aikə/</tRule>
+			<comment>
+			#
+			# Triphthongs.
+			</comment>
+			<tRule>eai → e̯aj ;</tRule>
+			<tRule>eau → e̯aw ;</tRule>
+			<tRule>eoa → e̯o̯a ;</tRule>
+			<tRule>i\-ai → jaj ;</tRule>
+			<tRule>ia\-i → jaj ;</tRule>
+			<tRule>iau → jaw ;</tRule>
+			<tRule>iei → jej ;</tRule>
+			<tRule>ieu → jew ;</tRule>
+			<tRule>[\uffff] { eu → jew ;</tRule>
+			<tRule>ioa → jo̯a ;</tRule>
+			<tRule>ioi → joj ;</tRule>
+			<tRule>i\-oi → joj ;</tRule>
+			<tRule>iou → jow ;</tRule>
+			<tRule>oai → o̯aj ;</tRule>
+			<tRule>uai → waj ;</tRule>
+			<tRule>uau → waw ;</tRule>
+			<tRule>uăi → wəj ;</tRule>
+			<comment>
+			#
+			# Diphthongs.
+			</comment>
+			<tRule>ai → aj ;</tRule>
+			<tRule>âi → ɨj ;</tRule>
+			<tRule>ăi → əj ;</tRule>
+			<tRule>au } r → au ;</tRule>
+			<tRule>au → aw ;</tRule>
+			<tRule>âu → ɨw ;</tRule>
+			<tRule>ău → əw ;</tRule>
+			<tRule>ea → e̯a ;</tRule>
+			<tRule>ei → ej ;</tRule>
+			<tRule>eo → e̯o ;</tRule>
+			<tRule>e\-o → e̯o ;</tRule>
+			<tRule>eu → ew ;</tRule>
+			<tRule>e\-u → e̯u ;</tRule>
+			<tRule>ia → ja ;</tRule>
+			<tRule>i\-a → ja ;</tRule>
+			<tRule>ie → je ;</tRule>
+			<tRule>ii → ij ;</tRule>
+			<tRule>io → jo ;</tRule>
+			<tRule>iu } [aâăeiîou$] → iw ;</tRule>
+			<tRule>iu → ju ;</tRule>
+			<tRule>oa → o̯a ;</tRule>
+			<tRule>oi → oj ;</tRule>
+			<tRule>ou → ow ;</tRule>
+			<tRule>ua → wa ;</tRule>
+			<tRule>uâ → wɨ ;</tRule>
+			<tRule>uă → wə ;</tRule>
+			<tRule>ue → we ;</tRule>
+			<tRule>ui → uj ;</tRule>
+			<tRule>uu → uw ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>a → a ;</tRule>
+			<tRule>â → ɨ ;</tRule>
+			<tRule>ă → ə ;</tRule>
+			<tRule>b → b ;</tRule>
+			<tRule>ch → k ;</tRule>
+			<tRule>c } [ei] → t \u0361 ʃ ;</tRule>
+			<tRule>c → k ;</tRule>
+			<tRule>d → d ;</tRule>
+			<tRule>e → e ;</tRule>
+			<tRule>f → f ;</tRule>
+			<tRule>gh → ɡ ;</tRule>
+			<tRule>g } [ei] → d \u0361 ʒ ;</tRule>
+			<tRule>g → ɡ ;</tRule>
+			<tRule>h → h ;</tRule>
+			<tRule>i → i ;</tRule>
+			<tRule>î → ɨ ;</tRule>
+			<tRule>j → ʒ ;</tRule>
+			<tRule>k → k ;</tRule>
+			<tRule>l → l ;</tRule>
+			<tRule>m → m ;</tRule>
+			<tRule>n → n ;</tRule>
+			<tRule>o → o ;</tRule>
+			<tRule>p → p ;</tRule>
+			<tRule>r → r ;</tRule>
+			<tRule>s → s ;</tRule>
+			<tRule>ş → ʃ ;</tRule>
+			<tRule>t → t ;</tRule>
+			<tRule>ţ → t \u0361 s ;</tRule>
+			<tRule>u → u ;</tRule>
+			<tRule>v → v ;</tRule>
+			<tRule>z → z ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

@@ -1,0 +1,119 @@
+#Remember to quote any [ character!
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/dateTimeFormatLength\[@type=".*"]/dateTimeFormat\[@type=".*"]/pattern\[@type=".*"] ; {1}=DATE Dec 10, 2010 ; {0}=TIME 3:59
+
+# strange values
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; cccc=UNKNOWN ?
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; ccc=UNKNOWN ?
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; EEEEE=DAY_OF_WEEK_NARROW T
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; EEEE=DAY_OF_WEEK_LONG Tuesday
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; EEE=DAY_OF_WEEK_SHORT Tues
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; E=DAY_OF_WEEK_SHORT Tues
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; GGGGG=NARROW_ERA A
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; GGGG=LONG_ERA Anno Domini
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; G=SHORT_ERA AD
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; yyyy=YEAR 0800
+##strange value
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; yyy=YEAR 10
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; yy=YEAR_2_DIGIT 10
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; y=YEAR 2010
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; QQQQ=QUARTER_LONG 2nd quarter
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; QQQ=QUARTER_SHORT Q2
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; QQ=QUARTER_NUMERIC 02
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; Q=QUARTER_NUMERIC 2
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; qqqq=QUARTER_LONG_STAND_ALONE 2nd quarter
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; qqq=QUARTER_SHORT_STAND_ALONE Q2
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; qq=QUARTER_NUMERIC_STAND_ALONE 2
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; q=QUARTER_NUMERIC_STAND_ALONE 2
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; MMMMM=MONTH_NARROW S
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; MMMM=MONTH_LONG September
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; MMM=MONTH_SHORT Sept
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; MM=MONTH_NUMERIC 9
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; M=MONTH_NUMERIC 9
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; LLLLL=MONTH_NARROW_STAND_ALONE S
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; LLLL=MONTH_LONG_STAND_ALONE September
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; LLL=MONTH_SHORT_STAND_ALONE Sept
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; LL=MONTH_NUMERIC_STAND_ALONE 09
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; L=MONTH_NUMERIC_STAND_ALONE 9
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; dd=DAY_NUMERIC 09
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; d=DAY_NUMERIC 9
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; eeeee=DAY_OF_WEEK_NARROW T
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; eeee=DAY_OF_WEEK_LONG Tuesday
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; eee=DAY_OF_WEEK_SHORT Tues
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; a=AM_PM am
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; hh==HOUR_12 9
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; h=HOUR_12 9
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; HH==HOUR_24 9
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; H=HOUR_24 9
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; mm=MINUTE 09
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; m=MINUTE 09
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; ss=SECOND 09
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; s=SECOND 09
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; S=FRACTIONAL_SECOND 234
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; zzzz=TIMEZONE_SPECIFIC_NON_LOCATION_LONG Pacific Daylight Time
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; z=TIMEZONE_SPECIFIC_NON_LOCATION_SHORT PDT
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; ZZZZ=LOCALIZED_GMT GMT+8:00
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; Z=RFC_822 -0800
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; vvvv=TIMEZONE_GENERIC_NON_LOCATION_SHORT Pacific Time
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; v=TIMEZONE_GENERIC_NON_LOCATION_SHORT PT
+#
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; VVVV=TIMEZONE_GENERIC_LOCATION United States (Los Angeles) Time
+#^//ldml/dates/.*(pattern|available|intervalFormatItem) ; V=TIMEZONE_SPECIFIC_NON_LOCATION_SHORT_FORCED PDT
+
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request="Day"] ; {0}=BASE_FORMAT January; {1}=APPEND_FIELD_FORMAT 23; {2}=APPEND_FIELD_NAME Day
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request="Day-Of-Week"] ; {0}=BASE_FORMAT January 23; {1}=APPEND_FIELD_FORMAT Monday
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/appendItems/appendItem\[@request="Hour"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT 10 AM; {2}=APPEND_FIELD_NAME Hour
+^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; {0}=START_DATE_OR_TIME Nov 10; {1}=END_DATE_OR_TIME Dec 10
+^//ldml/dates/calendars/calendar\[@type=".*"]/monthPatterns/monthPatternContext\[@type=".*"]/monthPatternWidth\[@type=".*"]/monthPattern\[@type=".*"] ; {0}=CHINESE_CALENDAR_MONTH_NAME Month4
+
+^//ldml/dates/timeZoneNames/fallbackFormat ; {1}=METAZONE Pacific Time; {0}=CITY_OR_COUNTRY Los Angeles
+^//ldml/dates/timeZoneNames/fallbackRegionFormat ; {1}=COUNTRY Argentina; {0}=CITY Buenos Aires
+^//ldml/dates/timeZoneNames/gmtFormat ; {0}=HOURS_FROM_GMT +3
+^//ldml/dates/timeZoneNames/regionFormat ; {0}=COUNTRY Canada
+
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM Apples ; {1}=REMAINING_ITEMS Oranges, Peaches, and Grapes
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, and Grapes
+^//ldml/listPatterns/listPattern/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
+
+^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="language"] ; {0}=LANGUAGE_CODE zh
+^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="script"] ; {0}=SCRIPT_CODE Hans
+^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="territory"] ; {0}=REGION_CODE CN
+^//ldml/localeDisplayNames/localeDisplayPattern/localePattern ; {0}=BASE_LANGUAGE Chinese; {1}=MODIFIERS Simplified, Singapore
+^//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern ; {0}=CATEGORY; {1}=SPECIFIC_NAME
+
+^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
+^//ldml/numbers/currencyFormats\[@numberSystem=".*"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
+
+^//ldml/units/unit\[@type="day[^"]*"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
+^//ldml/units/unit\[@type="hour[^"]*"]/unitPattern ; {0}=NUMBER_OF_HOURS 3
+^//ldml/units/unit\[@type="minute[^"]*"]/unitPattern ; {0}=NUMBER_OF_MINUTES 3
+^//ldml/units/unit\[@type="month[^"]*"]/unitPattern ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/units/unit\[@type="second[^"]*"]/unitPattern ; {0}=NUMBER_OF_SECONDS 3
+^//ldml/units/unit\[@type="week[^"]*"]/unitPattern ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/units/unit\[@type="year[^"]*"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
+
+# ^//ldml/numbers/currencyFormats/unitPattern\[@count="([^"]*)"]  ;  {0}=NUMBER 3 ; {1}=UNIT hour(s)
+
+^//ldml/characters/ellipsis\[@type="final"] ; {0}=FIRST_PART_OF_TEXT very long na
+^//ldml/characters/ellipsis\[@type="initial"] ; {0}=LAST_PART_OF_TEXT ry long name
+^//ldml/characters/ellipsis\[@type="medial"] ; {0}=FIRST_PART_OF_TEXT very l; {1}=LAST_PART_OF_TEXT g name

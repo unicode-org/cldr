@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="el" /> 
+		<territory type="GR" /> 
+		<variant type="EURO" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Ιαν</month>
+							<month type="2">Φεβ</month>
+							<month type="3">Μάρ</month>
+							<month type="4">Απρ</month>
+							<month type="5">Μάι</month>
+							<month type="6">Ιούν</month>
+							<month type="7">Ιούλ</month>
+							<month type="8">Αύγ</month>
+							<month type="9">Σεπ</month>
+							<month type="10">Οκτ</month>
+							<month type="11">Νοέ</month>
+							<month type="12">Δεκ</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Ιανοάριος</month>
+							<month type="2">Φεβροάριος</month>
+							<month type="3">Μάρτιος</month>
+							<month type="4">Απρίλιος</month>
+							<month type="5">Μάιος</month>
+							<month type="6">Ιούνιος</month>
+							<month type="7">Ιούλιος</month>
+							<month type="8">Αύγουστος</month>
+							<month type="9">Σεπτέμβριος</month>
+							<month type="10">Οκτώβριος</month>
+							<month type="11">Νοέμβριος</month>
+							<month type="12">Δεκέμβριος</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Κυρ</day>
+							<day type="mon">Δευ</day>
+							<day type="tue">Τρι</day>
+							<day type="wed">Τετ</day>
+							<day type="thu">Πεμ</day>
+							<day type="fri">Παρ</day>
+							<day type="sat">Σαβ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Κυριακη</day>
+							<day type="mon">Δευτέρα</day>
+							<day type="tue">Τρίτη</day>
+							<day type="wed">Τετάρτη</day>
+							<day type="thu">Πέμπτη</day>
+							<day type="fri">Παρασκευή</day>
+							<day type="sat">Σαββάτο</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEE dd MMM yyyy  z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEE dd MMM yyyy hh:mm:ss z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd/MMMM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd/MMMM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,#0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0.0000¤;-¤#,##0.0000</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="es_FONIPA" target="ja" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Author: takenaka@google.com (Hiroshi Takenaka)
+			#
+			# Phonemic transcription of Spanish into Katakana.
+			#
+			</comment>
+			<tRule>$word_boundary = [-\ $] ;</tRule>
+			<tRule>$vowel = [aeijouw] ;       # Vowels and glides</tRule>
+			<tRule>$not_vowel = [^$vowel] ;</tRule>
+			<comment>
+			#
+			# First pass: Collapse phonetic distinctions not preserved in Katakana.
+			</comment>
+			<tRule>β → | b;</tRule>
+			<tRule>ð → | d;</tRule>
+			<tRule>ɣ → | g;</tRule>
+			<tRule>ŋ → | n;</tRule>
+			<tRule>θ → | s;</tRule>
+			<tRule>ɾ → | r;</tRule>
+			<tRule>[ij{i̯}]+ → i;</tRule>
+			<tRule>[uw{u̯}]+ → u;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>nn → n ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::Null;</tRule>
+			<comment>
+			#
+			# Main pass: Phoneme to Katakana conversion.
+			</comment>
+			<tRule>'.' → ;</tRule>
+			<tRule>a → ア;</tRule>
+			<tRule>ba → バ;</tRule>
+			<tRule>bb → ッ | b;</tRule>
+			<tRule>be → ベ;</tRule>
+			<tRule>bi → ビ;</tRule>
+			<tRule>bo → ボ;</tRule>
+			<tRule>bu → ブ;</tRule>
+			<tRule>b → ブ ;</tRule>
+			<tRule>da → ダ;</tRule>
+			<tRule>dd → ッ | d;</tRule>
+			<tRule>de → デ;</tRule>
+			<tRule>di → ディ;</tRule>
+			<tRule>do → ド;</tRule>
+			<tRule>du → ドゥ;</tRule>
+			<comment>
+			#
+			# 'd' at the end of a word is usually ignored.
+			</comment>
+			<tRule>d } $word_boundary → ー;</tRule>
+			<tRule>d → ド;</tRule>
+			<tRule>e → エ;</tRule>
+			<tRule>fa → ファ;</tRule>
+			<tRule>fe → フェ;</tRule>
+			<tRule>ff → ッ | f;</tRule>
+			<tRule>fi → フィ;</tRule>
+			<tRule>fo → フォ;</tRule>
+			<tRule>fu → フ;</tRule>
+			<tRule>f → フ;</tRule>
+			<tRule>ga → ガ;</tRule>
+			<tRule>ge → グエ;</tRule>
+			<tRule>gi → グイ;</tRule>
+			<tRule>gg → ッ | g;</tRule>
+			<tRule>go → ゴ;</tRule>
+			<tRule>gu → グ;</tRule>
+			<tRule>g → グ;</tRule>
+			<tRule>i → イ ;</tRule>
+			<tRule>ʝa → ヤ ;</tRule>
+			<tRule>ʝe → イェ ;</tRule>
+			<tRule>ʝi → イ ;</tRule>
+			<tRule>ʝu → ユ ;</tRule>
+			<tRule>ʝo → ヨ ;</tRule>
+			<tRule>ʝ → イ ;</tRule>
+			<tRule>ka → カ;</tRule>
+			<tRule>ke → ケ;</tRule>
+			<tRule>ki → キ;</tRule>
+			<tRule>kk → ッ | k;</tRule>
+			<tRule>ko → コ;</tRule>
+			<tRule>ku → ク;</tRule>
+			<tRule>k → ク;</tRule>
+			<tRule>la → ラ ;</tRule>
+			<tRule>le → レ ;</tRule>
+			<tRule>li → リ ;</tRule>
+			<tRule>lo → ロ ;</tRule>
+			<tRule>lu → ル ;</tRule>
+			<tRule>l → ル ;</tRule>
+			<tRule>ʎa → リャ ;</tRule>
+			<tRule>ʎe → レ ;</tRule>
+			<tRule>ʎi → リ ;</tRule>
+			<tRule>ʎo → リョ ;</tRule>
+			<tRule>ʎu → リュ ;</tRule>
+			<tRule>ʎ → ル ;</tRule>
+			<tRule>ma → マ ;</tRule>
+			<tRule>me → メ ;</tRule>
+			<tRule>mi → ミ ;</tRule>
+			<tRule>mo → モ ;</tRule>
+			<tRule>mu → ム ;</tRule>
+			<tRule>m } $word_boundary → ム ;</tRule>
+			<tRule>m } $not_vowel → ン ;</tRule>
+			<tRule>m → ム ;</tRule>
+			<tRule>na → ナ ;</tRule>
+			<tRule>ne → ネ ;</tRule>
+			<tRule>ni → ニ ;</tRule>
+			<tRule>no → ノ ;</tRule>
+			<tRule>nu → ヌ ;</tRule>
+			<tRule>n → ン ;</tRule>
+			<tRule>ɲa → ニャ ;</tRule>
+			<tRule>ɲe → ニェ ;</tRule>
+			<tRule>ɲi → ニ ;</tRule>
+			<tRule>ɲo → ニョ ;</tRule>
+			<tRule>ɲu → ニュ ;</tRule>
+			<tRule>o → オ ;</tRule>
+			<tRule>pa → パ ;</tRule>
+			<tRule>pe → ペ ;</tRule>
+			<tRule>pi → ピ ;</tRule>
+			<tRule>po → ポ ;</tRule>
+			<tRule>pp → ッ | p;</tRule>
+			<tRule>pu → プ ;</tRule>
+			<tRule>p → プ ;</tRule>
+			<tRule>ra → ラ ;</tRule>
+			<tRule>re → レ ;</tRule>
+			<tRule>ri → リ ;</tRule>
+			<tRule>ro → ロ ;</tRule>
+			<tRule>ru → ル ;</tRule>
+			<tRule>r → ル;</tRule>
+			<tRule>sa → サ ;</tRule>
+			<tRule>se → セ ;</tRule>
+			<tRule>si → シ ;</tRule>
+			<tRule>so → ソ ;</tRule>
+			<tRule>su → ス ;</tRule>
+			<tRule>s → ス ;</tRule>
+			<tRule>ta → タ ;</tRule>
+			<tRule>te → テ ;</tRule>
+			<tRule>ti → ティ ;</tRule>
+			<tRule>to → ト ;</tRule>
+			<tRule>tsa → ツァ ;</tRule>
+			<tRule>tse → ツェ ;</tRule>
+			<tRule>tsi → ツィ ;</tRule>
+			<tRule>tso → ツォ ;</tRule>
+			<tRule>tsu → ツ ;</tRule>
+			<tRule>ts → ツ ;</tRule>
+			<tRule>tt → ッ | t;</tRule>
+			<tRule>tu → トゥ ;</tRule>
+			<tRule>t → ト ;</tRule>
+			<tRule>ʧa → チャ ;</tRule>
+			<tRule>ʧe → チェ ;</tRule>
+			<tRule>ʧi → チ ;</tRule>
+			<tRule>ʧo → チョ ;</tRule>
+			<tRule>ʧu → チュ ;</tRule>
+			<tRule>ʧ → チュ ;</tRule>
+			<tRule>u → ウ ;</tRule>
+			<tRule>xa → ハ ;</tRule>
+			<tRule>xe → ヘ ;</tRule>
+			<tRule>xi → ヒ ;</tRule>
+			<tRule>xo → ホ ;</tRule>
+			<tRule>xu → フ ;</tRule>
+			<tRule>x → フ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>::NFC;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

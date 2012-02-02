@@ -4108,7 +4108,7 @@ text data in the rule. For example, the following are all disallowed:</p>
   &lt;/rules&gt;
 &lt;/collation&gt;</pre>
 	<h3 class="changed">5.14.12 <a name="Script_Reordering"></a>Collation Reordering</h3>
-<p class="changed">Collation reordering allows scripts and certain other defined blocks of characters to be moved relative to each other parametrically, without changing the detailed rules for all the characters involved. This reordering is done on top of any specific ordering rules within the script or block currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. For example, to reorder Greek characters before Latin characters, and digits afterwards, the following can be used:</p>
+<p class="changed">Collation reordering allows scripts and certain other defined blocks of characters to be moved relative to each other parametrically, without changing the detailed rules for all the characters involved. This reordering is done on top of any specific ordering rules within the script or block currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. For example, to reorder Greek characters before Latin characters, and digits afterwards (but before other scripts), the following can be used:</p>
 <table class="changed">
   <tr>
     <th>Basic</th>
@@ -4162,7 +4162,7 @@ text data in the rule. For example, the following are all disallowed:</p>
     </tr>
     <tr>
       <td class="c2"><code>en-u-kr-arab-cyrl-others-symbol</code></td>
-      <td class="c2">Reorder Arabic characters first, then Cyrillic, and put symbols at the end—after other scripts.</td>
+      <td class="c2">Reorder Arabic characters first, then Cyrillic, and put symbols at the end—after all other characters.</td>
     </tr>
     <tr>
       <td class="c2"><code>en-u-kr-others</code></td>

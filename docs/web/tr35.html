@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-01-31</span></td>
+			<td><span class="changed">2012-02-03</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -563,7 +563,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 					<td><code>uzn</code></td>
 				</tr>
 				<tr>
-					<td>Standard Kokani</td>
+					<td>Standard Ko<span class="changed">n</span>kani</td>
 					<td><code>kok</code></td>
 					<td><code>knn</code></td>
 				</tr>
@@ -850,7 +850,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<tr>
 			<td>"kh"<br>(colHiraganaQuaternary)</td>
-			<td>Hiaragana quaternary</td>
+			<td>Hi<span class="removed">a</span>ragana quaternary</td>
 		</tr>
 
 		<tr>
@@ -1196,7 +1196,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<tr>
 			<td>POLYTONI</td>
-			<td>Politonic, variant of "el" Greek.
+			<td>Pol<span class="changed">y</span>tonic, variant of "el" Greek.
 			Use [<a href="#BCP47">BCP47</a>] variant subtag "polyton" to indicate this.</td>
 		</tr>
 
@@ -1937,7 +1937,7 @@ root</pre>
 	exemplar characters; just not in the main exemplar set. Thus  English has the following:</p>
 	<p>&lt;exemplarCharacters&gt;[a b c d e f g h i j k l m n o p q r s t u v w x y z]&lt;/exemplarCharacters&gt;<br>
     &lt;exemplarCharacters type=&quot;auxiliary&quot;&gt;[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ]&lt;/exemplarCharacters&gt;</p>
-  <p>For a given language, there are a few factors that help for determining whether a character belows in the auxiliary set, instead of the main set:</p>
+  <p>For a given language, there are a few factors that help for determining whether a character belo<span class="changed">ng</span>s in the auxiliary set, instead of the main set:</p>
   <ul>
     <li>The character is  not available on all normal keyboards.</li>
     <li>It is acceptable to always use spellings 
@@ -2071,7 +2071,7 @@ The index Separator can used to separate the index characters if they occur in f
   <br>
   The indexRangePattern is used for dynamic configuration. That is, if there are few items in X, Y, and Z, they can be grouped into a single bucket with &lt;indexRangePattern&gt;{0}-{1}&lt;/separator&gt;, giving "X-Z". The indexLabel and either be applied to a single string from the exemplars, or to the result of an indexRangePattern; so the localizer can turn "X-Z" into "XYZ" if desired.<br>
   <br>
-  The indexLabelBefore and After are used before and after a list. The default (root) value is an elipsis, as in the example at the top. When displaying index characters with multiple scripts, the main language can be used for all characters from the main script. For other scripts there are two possibilities:<br>
+  The indexLabelBefore and After are used before and after a list. The default (root) value is an el<span class="changed">l</span>ipsis, as in the example at the top. When displaying index characters with multiple scripts, the main language can be used for all characters from the main script. For other scripts there are two possibilities:<br>
   <ol>
     <li>Use the primary characters from the UCA. This has the disadvantage that many very uncommon characters show up.</li>
     <li>Use the likely-subtags language for each scripts. For example, if the main language is French, and Cyrillic characters are present, then the likely subtags language for Cyrillic is "ru" (derived by looking up "und-Cyrl"). <br>
@@ -2747,7 +2747,7 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
 	ID which is in the file zone.tab.</p>
 	<p>For lookup purposes specifications such as CLDR need a stable canonical ID,
 	one that does not change from release to release. The stable ID is maintained as the first alias item
-<i>type</i>element in the file bcp47/timezone.xml, such as:</p>
+<i>type</i><span class="changed"> </span>element in the file bcp47/timezone.xml, such as:</p>
 	<pre>&lt;type name=&quot;inccu&quot; alias=&quot;Asia/Calcutta Asia/Kolkata&quot;/&gt;</pre>
 	<p>That file also contains the short ID used in keywords. In versions of CLDR
 	previous to 1.8, the alias information (but not the short ID) was in supplementalData.xml under the zoneItem, such as:</p>
@@ -3337,7 +3337,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<ul>
 	  <li><b class="note">T</b>here is an on-line demonstration of collation at [<a href="#LocaleExplorer">LocaleExplorer</a>] that uses the basic syntax. (Pick the locale and scroll 
 	    to &quot;Collation Rules&quot;, near the end.)</li>
-	  <li><span class="note">Java uses </span>an early version of the basci collation syntax, but<span class="note"> has not been updated recently. It does not support any of the basic syntax marked with [...], 
+	  <li><span class="note">Java uses </span>an early version of the bas<span class="changed">ic</span> collation syntax, but<span class="note"> has not been updated recently. It does not support any of the basic syntax marked with [...], 
 	  and its default table is not the UCA.</span></li>
   </ul>
 <h4>5.14.1 <a name="Collation_Version">Version</a></h4>
@@ -3471,7 +3471,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>variableTop = &quot;<span style="color: blue">uXXuYYYY</span>&quot;<br>
 			  <br>
 		    &amp; \u00XX\uYYYY &lt; [variable top]</code></td>
-			<td>The parameter value is an encoded Unicode string, with code points in hex, leading zeros removed, and &#39;u&#39; inserted between successive elements. Note that this is <em>not</em> the syntax used in the corresponding Key/Type defintion for vt, which is described in <i> Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
+			<td>The parameter value is an encoded Unicode string, with code points in hex, leading zeros removed, and &#39;u&#39; inserted between successive elements. Note that this is <em>not</em> the syntax used in the corresponding Key/Type defin<span class="changed">i</span>tion for vt, which is described in <i> Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
 			Keys and Types</a>.</i> 			  <p>
 		  Sets the  string value for the variable top. All the code points with primary strengths less than that string will be considered variable, and thus 
 			affected by the alternate handling. Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but not in CLDR. See below for more information.</p>
@@ -4043,7 +4043,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 	<p>&lt;!ELEMENT import EMPTY &gt;<br>
     &lt;!ATTLIST import source CDATA #REQUIRED &gt;<br>
     &lt;!ATTLIST import type CDATA #IMPLIED &gt;</p>
-	<p>The import command imports rules from another collation. This allows for better maintenence and smaller rule sizes. The source is the locale of the source, and the type is the type (if any). If the source is &quot;locale&quot; it is the same locale. The type is defaulted to &quot;standard&quot;.</p>
+	<p>The import command imports rules from another collation. This allows for better mainten<span class="changed">a</span>nce and smaller rule sizes. The source is the locale of the source, and the type is the type (if any). If the source is &quot;locale&quot; it is the same locale. The type is defaulted to &quot;standard&quot;.</p>
 	<p><em>Example:</em></p>
 	<p><code>&lt;import source=&quot;de&quot; type=&quot;phonebook&quot;/&gt;</code></p>
     <table>
@@ -4141,7 +4141,7 @@ text data in the rule. For example, the following are all disallowed:</p>
   <li class="changed">The reordering list is now complete, and used to reorder characters in collation accordingly.</li>
 </ol>
 <p class="changed">The locale data may have a particular ordering. For example, the Czech locale data could put digits after all letters, with <code>[reorder others digit]</code>.
-  Any reordering codes specified on top of that (such as with a bcp47 locale identifer) completely replace what was there. To specify a version of collation that completely
+  Any reordering codes specified on top of that (such as with a bcp47 locale identifier) completely replace what was there. To specify a version of collation that completely
   resets any existing reordering to the ducet ordering, the single code <strong>others</strong> can be used, as below<strong></strong>.</p>
 <p class="changed"><em>Examples: </em></p>
 <table cellpadding="0" cellspacing="0" class="changed">
@@ -4315,7 +4315,7 @@ text data in the rule. For example, the following are all disallowed:</p>
     </tr>
   </table>
   <p>&nbsp;</p>
-<p>The source, target, and varient use "laddered" fallback, where the source changes the most quickly (using the above rules), then the target (using the above rules), then the variant if any, is discarded. That is, in pseudo code:</p>
+<p>The source, target, and vari<span class="changed">a</span>nt use "laddered" fallback, where the source changes the most quickly (using the above rules), then the target (using the above rules), then the variant if any, is discarded. That is, in pseudo code:</p>
 	<ul>
 	  <li>for variant in {variant, &quot;&quot;}
 	    <ul>
@@ -4472,7 +4472,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 	encapsulates a set of rules for mapping binary numbers to and from a 
 	readable representation. They are typically used for spelling out numbers, 
 	but can also be used for other number systems like roman numerals, Chinese 
-	numeals, or for ordinal numbers (1st, 2nd, 3rd,...). The syntax used in the 
+	nume<span class="changed">r</span>als, or for ordinal numbers (1st, 2nd, 3rd,...). The syntax used in the 
 	CLDR representation of rules is intended to be simply a transcription of ICU 
 	based RBNF rules into an XML compatible syntax. The rules are fairly 
 	sophisticated; for details see <i>Rule-Based Number Formatter</i> [<a href="#RBNF">RBNF</a>].
@@ -4548,8 +4548,8 @@ text data in the rule. For example, the following are all disallowed:</p>
 	<p><span class="changed">Two other contexts require &lt;contextTransform&gt; elements if their capitalization behavior is other than the default for running text.
 	The context is identified by the type attribute, as follows:</span></p>
 	<ul>
-	<li><span class="changed">uiListOrMenu: Capitalization apprpriate to a user-interface list or menu.</span></li>
-	<li><span class="changed">stand-alone: Capitalization apprpriate to an isolated user-interface element (e.g. an isolated name on a calendar page)</span></li>
+	<li><span class="changed">uiListOrMenu: Capitalization appropriate to a user-interface list or menu.</span></li>
+	<li><span class="changed">stand-alone: Capitalization appropriate to an isolated user-interface element (e.g. an isolated name on a calendar page)</span></li>
 	</ul>
 	<p><span class="changed">Example:</span></p>
 	<pre><span class="changed">    &lt;contextTransforms&gt;
@@ -4779,7 +4779,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 	<p>Moreover, the closer we are to end-user, the more we know about that user&#39;s preferred formats. If we format dates, for example, at the user&#39;s machine, then 
 	it can easily take into account any customizations that the user has specified. If the formatting is done elsewhere, either we have to transmit whatever user 
 	customizations are in play, or we only transmit the user&#39;s locale code, which may only approximate the desired format. Thus the closer the localization is to 
-	the end user, the less we need to ship all of the user&#39;s preferences arond to all the places that localization could possibly need to be done.</p>
+	the end user, the less we need to ship all of the user&#39;s preferences aro<span class="changed">u</span>nd to all the places that localization could possibly need to be done.</p>
 	<p>Even though localization should be done as close to the end-user as possible, there will be cases where different components need to be aware of whatever 
 	settings are appropriate for doing the localization. Thus information such as a locale code or 
 	time zone needs to be communicated between different components.</p>
@@ -4890,7 +4890,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 		financial instruments or precious metals, and do not represent normally 
 		interchanged currencies. </li>
 	</ul>
-	<p>That is, each currency element will list an interval in which it was valid. The<i>ordering</i> of the elements in the list tells us which was the primary 
+	<p>That is, each currency element will list an interval in which it was valid. The<span class="changed"> </span><i>ordering</i> of the elements in the list tells us which was the primary 
 	currency during any period in time. Here is an example of such an overlap:</p>
 	<pre>&lt;currency iso4217=&quot;CSD&quot; to=&quot;2002-05-15&quot;/&gt;
 &lt;currency iso4217=&quot;YUD&quot; from=&quot;1994-01-24&quot; to=&quot;2002-05-15&quot;/&gt;
@@ -5142,7 +5142,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	....</pre>
 
 	<p>The following subelement of &lt;metaZones&gt; specifies a mapping from a metazone to
-	golden zones for each territory.  For more information about golden zones, see <i>Apppendix J:
+	golden zones for each territory.  For more information about golden zones, see <i>App<span class="removed">p</span>endix J:
 	<a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>.</p>
 	<pre>&lt;mapTimezones type=&quot;metazones&quot;&gt;
 	&lt;mapZone other=&quot;Acre&quot; territory=&quot;001&quot; type=&quot;America/Rio_Branco&quot;/&gt;
@@ -5177,7 +5177,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	territory="001". &lt;mapZone&gt; elements other than territory="001" specify territory specific mappings. When multiple
 	Unicode time zone IDs are available for a single territory, the value of the type attribute will be a list of
 	Unicode time zone IDs delimited by space. In this case, the first entry represents the default mapping for
-	the territory. The territoy "ZZ" is used when a Unicode time zone ID is not associated with a specific territory.
+	the territory. The territory "ZZ" is used when a Unicode time zone ID is not associated with a specific territory.
 	</p>
 
 	<h3>C.8 <a name="Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></h3>
@@ -5714,7 +5714,7 @@ range         = value'..'value</pre>
     <p><strong>nb-NO</strong> → <strong>nb</strong> → <strong>root</strong></p>
   </blockquote>
   <p>That is, we first look in <strong>nb-NO</strong>. If there is no value for <strong>P</strong> there, then we look in <strong>nb</strong>. If there is no value for <strong>P</strong> there, we return the value for <strong>P</strong> in root (or a code value, if there is nothing there).	Remember that if there is an alias element along this path, then the lookup may restart with a different path in <strong>nb-NO</strong> (or another locale).</p>
-  <p>However, suppose that <strong>nb-NO</strong> has the fallback values <strong>[nn da sv en]</strong>, derived from language matching. In that case, an implementation <em>may</em> progressively lookup each of the listed locales, with the appropriate substitutions, returning the first value that is not found in <strong>root</strong>. This follows roughtly the following pseudocode:</p>
+  <p>However, suppose that <strong>nb-NO</strong> has the fallback values <strong>[nn da sv en]</strong>, derived from language matching. In that case, an implementation <em>may</em> progressively lookup each of the listed locales, with the appropriate substitutions, returning the first value that is not found in <strong>root</strong>. This follows rough<span class="removed">t</span>ly the following pseudocode:</p>
   <ul>
     <li>value = lookup(P, nb-NO); if (locationFound != root) return value;</li>
     <li>value = lookup(P, nn-NO); if (locationFound != root) return value;</li>
@@ -5803,7 +5803,7 @@ range         = value'..'value</pre>
   <span class="changed">There are three ways the gender of a list can be formatted:</span>
 
   <ol class="changed">
-     <li><b>neutral:</b> A gender-independant "other" form will be used for
+     <li><b>neutral:</b> A gender-independent "other" form will be used for
      the list.</li>
      <li><b>mixedNeutral:</b> If the elements of the list are all male,
      "male" form is used for the list.  If all the elements of the
@@ -6432,13 +6432,13 @@ range         = value'..'value</pre>
 			<td style="text-align: center">K</td>
 			<td style="text-align: center">1..2</td>
 			<td>0</td>
-			<td>Hour [0-11]. <span class="changed">When used in a skelton, only matches K or h, see above. Use KK for zero padding.</span></td>
+			<td>Hour [0-11]. <span class="changed">When used in a skeleton, only matches K or h, see above. Use KK for zero padding.</span></td>
 		</tr>
 		<tr>
 			<td style="text-align: center">k</td>
 			<td style="text-align: center">1..2</td>
 			<td>24</td>
-			<td>Hour [1-24]. <span class="changed">When used in a skelton, only matches k or H, see above. Use kk for zero padding.</span></td>
+			<td>Hour [1-24]. <span class="changed">When used in a skeleton, only matches k or H, see above. Use kk for zero padding.</span></td>
 		</tr>
 		<tr>
 			<td style="text-align: center">j</td>
@@ -6775,7 +6775,7 @@ range         = value'..'value</pre>
 			</tr>
 		</table>
 	</blockquote>
-	<p>A pattern contains a postive and may contain a negative subpattern, for example, &quot;#,##0.00;(#,##0.00)&quot;. Each subpattern has a prefix, a numeric part, and 
+	<p>A pattern contains a pos<span class="changed">i</span>tive and may contain a negative subpattern, for example, &quot;#,##0.00;(#,##0.00)&quot;. Each subpattern has a prefix, a numeric part, and 
 	a suffix. If there is no explicit negative subpattern, the negative subpattern is the localized minus sign prefixed to the positive subpattern. That is, &quot;0.00&quot; 
 	alone is equivalent to &quot;0.00;-0.00&quot;. If there is an explicit negative subpattern, it serves only to specify the negative prefix and suffix; the number of digits, 
 	minimal digits, and other characteristics are ignored in the negative subpattern. That means that &quot;#,##0.0#;(#)&quot; has precisely the same result as &quot;#,##0.0#;(#,##0.0#)&quot;.</p>
@@ -6822,7 +6822,7 @@ range         = value'..'value</pre>
 		For example, 0.125 is formatted as &quot;0.12&quot; if the maximum fraction digits is 2. This behavior can be changed by specifying a rounding increment and a rounding 
 		mode. </li>
 		<li>If the number of actual fraction digits is less than the <em>minimum fraction digits</em>, then trailing zeros are added. For example, 0.125 is formatted 
-		as &quot;0.1250&quot; if the mimimum fraction digits is set to 4. </li>
+		as &quot;0.1250&quot; if the mi<span class="changed">n</span>imum fraction digits is set to 4. </li>
 		<li>Trailing fractional zeros are not displayed if they occur <em>j</em> positions after the decimal, where <em>j</em> is less than the maximum fraction 
 		digits. For example, 0.10004 is formatted as &quot;0.1&quot; if the maximum fraction digits is four or less. </li>
 	</ul>
@@ -7164,7 +7164,7 @@ range         = value'..'value</pre>
 	<a href="http://cldr.unicode.org/index/process">Process</a>). However, some data 
 	that is not explicitly marked as <i>draft </i>may be implicitly <i>draft</i>, either because it inherits 
 	it from a parent, or from an enclosing element. </p>
-	<p><b>Example 2. </b>Suppose that new locale data is added for af (Afrikans). To indicate that all of the data is <i>unconfirmed</i>, the attribute can be added 
+	<p><b>Example 2. </b>Suppose that new locale data is added for af (Afrika<span class="changed">a</span>ns). To indicate that all of the data is <i>unconfirmed</i>, the attribute can be added 
 	to the top level.</p>
 	<p><code>&lt;ldml version=&quot;1.1&quot; draft=&quot;unconfirmed&quot;&gt;<br>
 &nbsp;&lt;identity&gt;<br>
@@ -7989,7 +7989,7 @@ decimal?, group?, special*)) &gt;</pre>
 	<h3>L.6 <a name="Attribute_Order_Table">Attribute Order Table</a></h3>
 	<p>The order of attributes is given by the attributeOrder table in the supplemental metadata.</p>
 	<h3>L.7 <a name="Value_Order_Table">Value Order Table</a></h3>
-	<p>The order of attribute values is given by the order of the values in the attributeValues elements that have the attibute order=&quot;given&quot;. Numeric values are 
+	<p>The order of attribute values is given by the order of the values in the attributeValues elements that have the att<span class="changed">r</span>ibute order=&quot;given&quot;. Numeric values are 
 	sorted in numeric order, while tzids are ordered by country, then longitude, then latitude.</p>
 	<h3>L.8 <a name="Defaulted_Values_Table">Defaulted Values Table</a></h3>
 	<p>The defaulted attributes are given by the <i>suppress</i> table in the supplemental metadata. There is one special value _q; that is used on serial elements 
@@ -8316,7 +8316,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>an optional filter rule</li>
 		<li>zero or more transform rules</li>
 		<li>zero or more variable-definition rules </li>
-		<li>zer or more conversion rules</li>
+		<li>zer<span class="changed">o</span> or more conversion rules</li>
 		<li>an optional inverse filter rule</li>
 	</ul>
 	<p>The filter rule, if present, must appear at the beginning of the list, before any of the other rules.&nbsp; The inverse filter rule, if present, must appear 
@@ -8332,7 +8332,7 @@ decimal?, group?, special*)) &gt;</pre>
 		</tr>
 	</table>
 	<p>If either the source or target is &#39;und&#39;, it can be omitted, thus &#39;und_NFC&#39; is equivalent to &#39;NFC&#39;. For compatibility, the English names for scripts can be 
-	used instead of the und_Latn locale name, and &quot;Any&quot; can be used instead of &quot;und&quot;. Case is not signficant. </p>
+	used instead of the und_Latn locale name, and &quot;Any&quot; can be used instead of &quot;und&quot;. Case is not sign<span class="changed">i</span>ficant. </p>
 	<p>The following transforms are defined not by rules, but by the operations in the Unicode Standard, and may be used in building any other transform:</p>
 	<blockquote>
 		<p><b>Any-NFC, Any-NFD, Any-NFKD, Any-NFKC</b> - the normalization forms 
@@ -9266,7 +9266,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<a href="http://unicode.org/cldr/trac/ticket/4130">#4130</a>]</li>
 		<li>Added documentation for ordinal plural forms. [ticket <a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
     <li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [ticket <a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
-    <li>Added documentation for gender of lists. [ticket <a href="http://unicode.org/cldr/trac/ticket/4125">#4125</a>]</li>
+    <li>Added documentation for gender of lists. [tickets <a href="http://unicode.org/cldr/trac/ticket/4125">#4125</a>, <a href="http://unicode.org/cldr/trac/ticket/4357">#4357</a>]</li>
         <li>Clarified use of hour pattern characters (h, H, K, k) in skeletons and associated patterns, in both
         <i>Section 5.9.1 <a href="#Calendar_Elements">Calendar Elements</a></i> and in the <i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></i>.
         [ticket <a href="http://unicode.org/cldr/trac/ticket/4061">#4061</a>]</li>
@@ -9300,6 +9300,8 @@ decimal?, group?, special*)) &gt;</pre>
         [ticket <a href="http://unicode.org/cldr/trac/ticket/3934">#3934</a>]</li>
 		<li>In <i>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">BCP 47 Extension Data</a></i>, clarified valid/invalid use case of
 		type value with multiple subtags. [ticket <a href="http://unicode.org/cldr/trac/ticket/4212">#4212</a>]</li>
+		<li>Misc editorial fixes (spelling etc.).
+		[ticket <a href="http://unicode.org/cldr/trac/ticket/4378">#4378</a>]</li>
 	</ul>
 <h3>Revision 21</h3>
 

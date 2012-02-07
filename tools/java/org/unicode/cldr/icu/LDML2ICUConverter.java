@@ -4054,7 +4054,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         for ( String sym : sym_paths ) {
             pathToTest = xpath + "[@numberSystem=\"" + ns + "\"]/" + sym;
             
-            String value = loc.getFile().getWinningValue(pathToTest);
+            String value = loc.getFile().getStringValue(pathToTest);
             if (loc.isPathNotConvertible(pathToTest) || value == null) {
                 continue;
             }
@@ -4178,7 +4178,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
         ResourceTable table = new ResourceTable();
         table.name = LDMLConstants.CURRENCY_UNIT_PATTERNS;
-        String xpathUnitPattern = xpath + "/currencyFormats/unitPattern";
+        String xpathUnitPattern = xpath + "/currencyFormats[@numberSystem=\"latn\"]/unitPattern";
         for (Iterator<String> iter = loc.getFile().iterator(xpathUnitPattern); iter.hasNext();) {
             String localxpath = iter.next();
             if (loc.isPathNotConvertible(localxpath)) {
@@ -4222,7 +4222,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         ResourceTable current = null;
         ResourceTable first = null;
         for (String section : CurrencySections) {
-            String xpathUnitPattern = xpath + "/" + LDMLConstants.CURRENCY_FORMATS + "/" + LDMLConstants.CURRENCY_SPACING + "/" + section;
+            // TODO: Parse currencySpacing by numbering system, right now using only "latn"
+            String xpathUnitPattern = xpath + "/" + LDMLConstants.CURRENCY_FORMATS + "[@numberSystem=\"latn\"]/" + LDMLConstants.CURRENCY_SPACING + "/" + section;
             int count = 0;
             for (Iterator<String> iter = loc.getFile().iterator(xpathUnitPattern); iter.hasNext();) {
                 String localxpath = iter.next();
@@ -4273,12 +4274,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String pathToTest;
         
         for ( String numFmtKey : numFmtKeys ) {
-            pathToTest = xpath + "/" + numFmtKey + "s/" + numFmtKey + "Length/" + numFmtKey + STD_SUFFIX;
-            if ( !ns.equals("latn")) {
-                pathToTest = pathToTest + "[@numberSystem=\"" + ns + "\"]";
-            }
-            
-            String value = loc.getFile().getWinningValue(pathToTest);
+            pathToTest = xpath + "/" + numFmtKey + "s[@numberSystem=\"" + ns + "\"]/" + numFmtKey + "Length/" + numFmtKey + STD_SUFFIX;
+            String value = loc.getFile().getStringValue(pathToTest);
             if (loc.isPathNotConvertible(pathToTest) || value == null) {
                 continue;
             }
@@ -4433,7 +4430,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             boolean isDecimalDup = false;
             boolean isGroupDup = false;
             if (pattern.val == null) {
-                pattern.val = loc.getResolvedString("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat" + STD_SUFFIX);
+                pattern.val = loc.getResolvedString("//ldml/numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat" + STD_SUFFIX);
                 isPatternDup = true;
                 if (pattern.val == null) {
                     throw new RuntimeException("Could not get pattern currency resource!!");

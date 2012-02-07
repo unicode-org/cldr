@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="it" target="ja" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google Inc
+			# Italian to Katakana Transliteration Table for ICU
+			# Author: Hiroshi Takenaka (takenaka@google.com)
+			# Based on:
+			#   "現代イタリア語入門" (大学書林, 1974. ISBN:978-4475017176)
+			#   http://ja.wikipedia.org/wiki/%E3%82%A4%E3%82%BF%E3%83%AA%E3%82%A2%E8%AA%9E
+			</comment>
+			<tRule>::NFD(NFC);</tRule>
+			<tRule>::Lower();</tRule>
+			<tRule>::[:Latin:] fullwidth-halfwidth();</tRule>
+			<comment>
+			#
+			# Variables.
+			</comment>
+			<tRule>$vowel = [aeiou];</tRule>
+			<tRule>$consonant = [bcdfghjklmnpqrstvwxyz];</tRule>
+			<comment>
+			#
+			# Ignore apostrophe.
+			</comment>
+			<tRule>($consonant) \' → | $1;</tRule>
+			<tRule>\' → ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>cqu → ック;</tRule>
+			<tRule>cc → ッ | c;</tRule>
+			<tRule>ca → カ;</tRule>
+			<tRule>ッ { cia → チャ;</tRule>
+			<tRule>cio → チョ;</tRule>
+			<tRule>ci → チ;</tRule>
+			<tRule>cu → ク;</tRule>
+			<tRule>ce → チェ;</tRule>
+			<tRule>co → コ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>cha → シャ;</tRule>
+			<tRule>chi → キ;</tRule>
+			<tRule>chu → チュ;</tRule>
+			<tRule>che → ケ;</tRule>
+			<tRule>cho → チョ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>gg → ッ | g;</tRule>
+			<tRule>ghi → ギ;</tRule>
+			<tRule>ghe → ゲ;</tRule>
+			<tRule>ghu → グ;</tRule>
+			<tRule>gli → | li;</tRule>
+			<tRule>gna → ニャ;</tRule>
+			<tRule>gni → ニ;</tRule>
+			<tRule>gnu → ヌ;</tRule>
+			<tRule>gne → ニェ;</tRule>
+			<tRule>gno → ニョ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ga → ガ;</tRule>
+			<tRule>gia → ジャ;</tRule>
+			<tRule>giu → ジュ;</tRule>
+			<tRule>gio → ジョ;</tRule>
+			<tRule>gi → ジ;</tRule>
+			<tRule>gu → グ;</tRule>
+			<tRule>ge → ジェ;</tRule>
+			<tRule>go → ゴ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>rr → ッ | r;</tRule>
+			<tRule>ra → ラ;</tRule>
+			<tRule>ri → リ;</tRule>
+			<tRule>ru → ル;</tRule>
+			<tRule>re → レ;</tRule>
+			<tRule>ro → ロ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ll → ッ | l;</tRule>
+			<tRule>la → ラ;</tRule>
+			<tRule>li → リ;</tRule>
+			<tRule>lu → ル;</tRule>
+			<tRule>le → レ;</tRule>
+			<tRule>lo → ロ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>tt → ッ | t;</tRule>
+			<tRule>ta → タ;</tRule>
+			<tRule>ti → ティ;</tRule>
+			<tRule>thi → ティ;</tRule>
+			<tRule>tu → トゥ;</tRule>
+			<tRule>thu → トゥ;</tRule>
+			<tRule>te → テ;</tRule>
+			<tRule>the → テ;</tRule>
+			<tRule>to → ト;</tRule>
+			<tRule>tho → ト;</tRule>
+			<tRule>tzu → | ッツ;</tRule>
+			<tRule>tz → | zz;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>dd → ッ | d;</tRule>
+			<tRule>da → ダ;</tRule>
+			<tRule>di → ディ;</tRule>
+			<tRule>du → ドゥ;</tRule>
+			<tRule>de → デ;</tRule>
+			<tRule>do → ド;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ma → マ;</tRule>
+			<tRule>mi → ミ;</tRule>
+			<tRule>mu → ム;</tRule>
+			<tRule>me → メ;</tRule>
+			<tRule>mo → モ;</tRule>
+			<tRule>m } $consonant → ン;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>na → ナ;</tRule>
+			<tRule>ni → ニ;</tRule>
+			<tRule>nu → ヌ;</tRule>
+			<tRule>ne → ネ;</tRule>
+			<tRule>no → ノ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ff → ッ | f;</tRule>
+			<tRule>fa → ファ;</tRule>
+			<tRule>fi → フィ;</tRule>
+			<tRule>fu → フ;</tRule>
+			<tRule>fe → フェ;</tRule>
+			<tRule>fo → フォ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>bb → ッ | b;</tRule>
+			<tRule>ba → バ;</tRule>
+			<tRule>bi → ビ;</tRule>
+			<tRule>bu → ブ;</tRule>
+			<tRule>be → ベ;</tRule>
+			<tRule>bo → ボ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>pp → ッ | p;</tRule>
+			<tRule>pa → パ;</tRule>
+			<tRule>pi → ピ;</tRule>
+			<tRule>pu → プ;</tRule>
+			<tRule>pe → ペ;</tRule>
+			<tRule>po → ポ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>vv → ッ | v;</tRule>
+			<tRule>va → ヴァ;</tRule>
+			<tRule>vi → ヴィ;</tRule>
+			<tRule>vu → ヴ;</tRule>
+			<tRule>ve → ヴェ;</tRule>
+			<tRule>vo → ヴォ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>sa } nt[ao] → サ;</tRule>
+			<tRule>ss → ッ | \~s;</tRule>
+			<comment>
+			#
+			# 's' is voiced before [bdglmnrv].
+			</comment>
+			<tRule>sb → ズ | b;</tRule>
+			<tRule>sd → ズ | d;</tRule>
+			<tRule>sg → ズ | g;</tRule>
+			<tRule>sl → ズ | l;</tRule>
+			<tRule>sm → ズ | m;</tRule>
+			<tRule>sn → ズ | n;</tRule>
+			<tRule>sr → ズ | r;</tRule>
+			<tRule>sv → ズ | v;</tRule>
+			<comment>
+			#
+			# Force 's' after a consonat to be unvoiced.
+			</comment>
+			<tRule>($consonant) s } $vowel → | $1 \~ s;</tRule>
+			<tRule>\~sa → サ;</tRule>
+			<tRule>\~si → シ;</tRule>
+			<tRule>\~su → ス;</tRule>
+			<tRule>\~se → セ;</tRule>
+			<tRule>\~so → ソ;</tRule>
+			<comment>
+			#
+			# 's' at the beginning is usually unvoiced.
+			</comment>
+			<tRule>[:^Letter:] { sa → サ;</tRule>
+			<tRule>[:^Letter:] { si → シ;</tRule>
+			<tRule>[:^Letter:] { su → ス;</tRule>
+			<tRule>[:^Letter:] { se → セ;</tRule>
+			<tRule>[:^Letter:] { so → ソ;</tRule>
+			<comment>
+			#
+			# Otherwise voiced 's' are common.
+			</comment>
+			<tRule>sa → ザ;</tRule>
+			<tRule>si → ジ;</tRule>
+			<tRule>su → ズ;</tRule>
+			<tRule>se → ゼ;</tRule>
+			<tRule>so → ゾ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>scia → シャ;</tRule>
+			<tRule>sci → シ;</tRule>
+			<tRule>sce → シェ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>zz → ッ | \~z;</tRule>
+			<comment>
+			# Force 'z' after a consonat to be unvoiced.
+			</comment>
+			<tRule>($consonant) z → | $1 \~z;</tRule>
+			<tRule>\~za → ツァ;</tRule>
+			<tRule>\~zi → ツィ;</tRule>
+			<tRule>\~zu → ツ;</tRule>
+			<tRule>\~ze → ツェ;</tRule>
+			<tRule>\~zo → ツォ;</tRule>
+			<comment>
+			#
+			# Otherwise voiced 'z' are common except for 'zi'.
+			</comment>
+			<tRule>za → ザ;</tRule>
+			<tRule>[:^Letter:] { zi → ジ;</tRule>
+			<tRule>zi → ツィ;</tRule>
+			<tRule>zu → ズ;</tRule>
+			<tRule>ze → ゼ;</tRule>
+			<tRule>zo → ゾ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ja → ヤ;</tRule>
+			<tRule>je → イェ;</tRule>
+			<tRule>j → | i;</tRule>
+			<comment>
+			#
+			# Standalone vowels and consonants.
+			</comment>
+			<tRule>a → ア;</tRule>
+			<tRule>i → イ;</tRule>
+			<tRule>u → ウ;</tRule>
+			<tRule>e → エ;</tRule>
+			<tRule>o → オ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>b → ブ;</tRule>
+			<tRule>c → ク;</tRule>
+			<tRule>d → ド;</tRule>
+			<tRule>f → フ;</tRule>
+			<tRule>g → グ;</tRule>
+			<tRule>h → ;</tRule>
+			<tRule>k → | c;</tRule>
+			<tRule>l → ル;</tRule>
+			<tRule>m → ム;</tRule>
+			<tRule>n → ン;</tRule>
+			<tRule>p → プ;</tRule>
+			<tRule>q → | c;</tRule>
+			<tRule>r → ル;</tRule>
+			<tRule>s → ス;</tRule>
+			<tRule>t → ト;</tRule>
+			<tRule>v → ヴ;</tRule>
+			<tRule>x → | cs;</tRule>
+			<tRule>y → | i;</tRule>
+			<tRule>z → ツ;</tRule>
+			<comment>
+			#
+			# word delimiter of transliterated foreign phrase is '・'.
+			</comment>
+			<tRule>' ' → ・;</tRule>
+			<comment>
+			#
+			# Latin hyphen should be transliterated to U+30A0 (KATAKANA-HIRAGANA
+			# DOUBLE HYPHEN), ideally. But since the character isn't supported by
+			# many fonts or softwares, we use U+FF1D (FULLWIDTH EQUALS SIGN),
+			# which is widely used as "double hyphen".
+			#
+			</comment>
+			<tRule>\- → ＝;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[:nonspacing mark:] → ;</tRule>
+			<tRule>::NFC(NFD);</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

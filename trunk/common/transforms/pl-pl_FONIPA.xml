@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="pl" target="pl_FONIPA" direction="forward">
+			<comment>
+			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+			# Author: sascha@google.com (Sascha Brawer)
+			#
+			# Polish orthography to phonemic transcription.
+			# http://en.wikipedia.org/wiki/Polish_phonology
+			#
+			# Transform input to normalized form NFC, and to lowercase.
+			</comment>
+			<tRule>:: NFC () ;</tRule>
+			<tRule>:: Lower () ;</tRule>
+			<comment>
+			#
+			# Definitions.
+			</comment>
+			<tRule>$voiceless = [cfhkpst];</tRule>
+			<tRule>$vowel = [ aąeęioóuy ];</tRule>
+			<comment>
+			#
+			# Digraphs and Trigraphs.
+			#
+			</comment>
+			<tRule>ch } i → ç ;</tRule>
+			<tRule>ch → x ;</tRule>
+			<tRule>ci } $vowel → t \u0361 ɕ ;</tRule>
+			<tRule>ci → t \u0361 ɕ i ;</tRule>
+			<tRule>cz → t \u0361 ʂ ;</tRule>
+			<tRule>dzi } $vowel → d \u0361 ʑ ;</tRule>
+			<tRule>dzi → d \u0361 ʑ i ;</tRule>
+			<tRule>dz } $voiceless → t \u0361 s ;</tRule>
+			<tRule>dz → d \u0361 z ;</tRule>
+			<tRule>dź } $voiceless → t \u0361 ɕ ;</tRule>
+			<tRule>dź → d \u0361 ʑ ;</tRule>
+			<tRule>dż } $voiceless → t \u0361 ʂ ;</tRule>
+			<tRule>dż → d \u0361 ʐ ;</tRule>
+			<tRule>kw → kf ;</tRule>
+			<tRule>krw → krf ;</tRule>
+			<tRule>ni } $vowel → ɲ ;</tRule>
+			<tRule>ni → ɲ i ;</tRule>
+			<tRule>$voiceless { rz → ʂ ;</tRule>
+			<tRule>rz } $voiceless → ʂ ;</tRule>
+			<tRule>rz → ʐ ;</tRule>
+			<tRule>sz → ʂ ;</tRule>
+			<tRule>trw → trf ;</tRule>
+			<tRule>tw → tf ;</tRule>
+			<tRule>zi } $vowel → ʑ ;</tRule>
+			<tRule>zi → ʑ i ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>a → a ;</tRule>
+			<tRule>ą } [bp] → ɔm ;</tRule>
+			<tRule>ą } [kg] → ɔŋ ;</tRule>
+			<tRule>ą } [cdt] → ɔn ;</tRule>
+			<tRule>ą → ɔ̃ ;</tRule>
+			<tRule>b } $voiceless → p ;</tRule>
+			<tRule>b → b ;</tRule>
+			<tRule>c → t \u0361 s ;</tRule>
+			<tRule>ć → t \u0361 ɕ ;</tRule>
+			<tRule>d } $voiceless → t ;</tRule>
+			<tRule>d → d ;</tRule>
+			<tRule>e → ɛ ;</tRule>
+			<tRule>ę } [bp] → ɛm ;</tRule>
+			<tRule>ę } [dt] → ɛn ;</tRule>
+			<tRule>ę } [gk] → ɛŋ ;</tRule>
+			<tRule>ę → ɛ̃;</tRule>
+			<tRule>f → f ;</tRule>
+			<tRule>g } $voiceless → k ;</tRule>
+			<tRule>g → ɡ ;</tRule>
+			<tRule>h } i → ç ;</tRule>
+			<tRule>h → x ;</tRule>
+			<tRule>i } $vowel → ʲ ;</tRule>
+			<tRule>i → i ;</tRule>
+			<tRule>j → j ;</tRule>
+			<tRule>k } [bdzż] → ɡ ;</tRule>
+			<tRule>k → k ;</tRule>
+			<tRule>l } i → ʎ ;</tRule>
+			<tRule>l → l ;</tRule>
+			<tRule>ł → w ;</tRule>
+			<tRule>m → m ;</tRule>
+			<tRule>n → n ;</tRule>
+			<tRule>ń → ɲ ;</tRule>
+			<tRule>o → ɔ ;</tRule>
+			<tRule>ó → u ;</tRule>
+			<tRule>r → r ;</tRule>
+			<tRule>si } $vowel → ɕ ;</tRule>
+			<tRule>si → ɕi ;</tRule>
+			<tRule>s → s ;</tRule>
+			<tRule>ś → ɕ ;</tRule>
+			<tRule>t → t ;</tRule>
+			<tRule>u → u ;</tRule>
+			<tRule>w } $voiceless → f ;</tRule>
+			<tRule>w → v ;</tRule>
+			<tRule>y → ɨ ;</tRule>
+			<tRule>ź } $voiceless → ɕ ;</tRule>
+			<tRule>ź → ʑ ;</tRule>
+			<tRule>ż } $voiceless → ʂ ;</tRule>
+			<tRule>ż → ʐ ;</tRule>
+			<comment>
+			#
+			# Second pass: Phoneme-to-phone rules.
+			</comment>
+			<tRule>:: Null ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>tʐ → tʂ ;</tRule>
+			<tRule>pʐ → pʂ ;</tRule>
+			<tRule>xʐ → xʂ ;</tRule>
+			<tRule>ʐt͡ʂ → ʂt͡ʂ ;</tRule>
+			<comment>
+			#
+			# Final de-voicing.
+			</comment>
+			<tRule>b } [$] → p ;</tRule>
+			<tRule>d \u0361 z } [$] → t \u0361 s ;  # rydz → rɨt͡s</tRule>
+			<tRule>d } [$] → t ;</tRule>
+			<tRule>ɡ } [$] → k ;</tRule>
+			<tRule>v } [$] → f ;</tRule>
+			<tRule>ʐ } [$] → ʂ ;</tRule>
+			<tRule>ʑ } [$] → ɕ ;</tRule>
+			<tRule>z } [$] → s ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

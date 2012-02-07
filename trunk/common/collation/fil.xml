@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="fil" /> 
+	</identity>
+		<collations validSubLocales="fil_PH">
+			<collation type="standard" references="http://std.dkuug.dk/jtc1/sc2/wg2/docs/N2300.htm (N2165)">
+				<rules>
+					<reset>N</reset>
+                    <p>ñ</p>
+                    <t>Ñ</t>
+                    <p>ng</p>
+                    <t>Ng</t>
+                    <t>NG</t>
+				</rules>
+			</collation>
+		</collations>
+</ldml>

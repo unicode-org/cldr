@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="am" /> 
+		<territory type="ET" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ጃንዩ</month>
+							<month type="2">ፌብሩ</month>
+							<month type="3">ማርች</month>
+							<month type="4">ኤፕረ</month>
+							<month type="5">ሜይ</month>
+							<month type="6">ጁን</month>
+							<month type="7">ጁላይ</month>
+							<month type="8">ኦገስ</month>
+							<month type="9">ሴፕቴ</month>
+							<month type="10">ኦክተ</month>
+							<month type="11">ኖቬም</month>
+							<month type="12">ዲሴም</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ጃንዩወሪ</month>
+							<month type="2">ፌብሩወሪ</month>
+							<month type="3">ማርች</month>
+							<month type="4">ኤፕረል</month>
+							<month type="5">ሜይ</month>
+							<month type="6">ጁን</month>
+							<month type="7">ጁላይ</month>
+							<month type="8">ኦገስት</month>
+							<month type="9">ሴፕቴምበር</month>
+							<month type="10">ኦክተውበር</month>
+							<month type="11">ኖቬምበር</month>
+							<month type="12">ዲሴምበር</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">እሑድ</day>
+							<day type="mon">ሰኞ</day>
+							<day type="tue">ማክሰኞ</day>
+							<day type="wed">ረቡዕ</day>
+							<day type="thu">ሐሙስ</day>
+							<day type="fri">ዓርብ</day>
+							<day type="sat">ቅዳሜ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">እሑድ</day>
+							<day type="mon">ሰኞ</day>
+							<day type="tue">ማክሰኞ</day>
+							<day type="wed">ረቡዕ</day>
+							<day type="thu">ሐሙስ</day>
+							<day type="fri">ዓርብ</day>
+							<day type="sat">ቅዳሜ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<am>ጠዋት</am>
+				<pm>ከሳዓት</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>dd/MMMM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEEE፣ MMM dd ቀን %l:mm:ss z yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd/MMMM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd/MMMM/yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤#,##0.00;-¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

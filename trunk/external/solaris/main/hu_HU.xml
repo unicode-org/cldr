@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.2/ldml.dtd">
+<ldml>
+    <identity>
+        <version number="1.2">Generated from ConvertPOSIXLocale</version>
+        <generation date="2005-3-3"/>
+        <language type = "hu"/>
+        <territory type = "HU"/>
+    </identity>
+    <dates>
+        <calendars>
+            <calendar type = "gregorian">
+                <months>
+                    <monthContext type = "format">
+                        <monthWidth type = "wide">
+                            <month type = "1">január</month>
+                            <month type = "2">február</month>
+                            <month type = "3">március</month>
+                            <month type = "4">április</month>
+                            <month type = "5">május</month>
+                            <month type = "6">június</month>
+                            <month type = "7">július</month>
+                            <month type = "8">augusztus</month>
+                            <month type = "9">szeptember</month>
+                            <month type = "10">október</month>
+                            <month type = "11">november</month>
+                            <month type = "12">december</month>
+                        </monthWidth>
+                        <monthWidth type = "abbreviated">
+                            <month type = "1">jan</month>
+                            <month type = "2">feb</month>
+                            <month type = "3">már</month>
+                            <month type = "4">ápr</month>
+                            <month type = "5">máj</month>
+                            <month type = "6">jún</month>
+                            <month type = "7">júl</month>
+                            <month type = "8">aug</month>
+                            <month type = "9">sep</month>
+                            <month type = "10">okt</month>
+                            <month type = "11">nov</month>
+                            <month type = "12">dec</month>
+                        </monthWidth>
+                    </monthContext>
+                </months>
+                <days>
+                    <dayContext type = "format">
+                        <dayWidth type = "wide">
+                            <day type = "sun">vasárnap</day>
+                            <day type = "mon">hétfő</day>
+                            <day type = "tue">kedd</day>
+                            <day type = "wed">szerda</day>
+                            <day type = "thu">csütörtök</day>
+                            <day type = "fri">péntek</day>
+                            <day type = "sat">szombat</day>
+                        </dayWidth>
+                        <dayWidth type = "abbreviated">
+                            <day type = "sun">v</day>
+                            <day type = "mon">h</day>
+                            <day type = "tue">k</day>
+                            <day type = "wed">sze</day>
+                            <day type = "thu">cs</day>
+                            <day type = "fri">p</day>
+                            <day type = "sat">szo</day>
+                        </dayWidth>
+                    </dayContext>
+                </days>
+                <am> </am>
+                <pm> </pm>
+                <dateFormats>
+                    <dateFormatLength type = "full">
+                        <dateFormat>
+                            <pattern>EEE dd MMM yyyy </pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type = "long">
+                        <dateFormat>
+                            <pattern>EEE dd MMM yyyy </pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type = "medium">
+                        <dateFormat>
+                            <pattern>yyyy-MM-dd</pattern>
+                        </dateFormat>
+                    </dateFormatLength>
+                </dateFormats>
+                <timeFormats>
+                    <timeFormatLength type="full">
+                        <timeFormat>
+                            <pattern>hh:mm:ss</pattern>
+                        </timeFormat>
+                    </timeFormatLength>
+                    <timeFormatLength type="long">
+                        <timeFormat>
+                            <pattern>hh:mm:ss z</pattern>
+                        </timeFormat>
+                    </timeFormatLength>
+                    <timeFormatLength type="medium">
+                        <timeFormat>
+                            <pattern>hh:mm:ss</pattern>
+                        </timeFormat>
+                    </timeFormatLength>
+                </timeFormats>
+                <dateTimeFormats>
+                    <dateTimeFormatLength>
+                        <dateTimeFormat>
+                            <pattern>{1} {0}</pattern>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                </dateTimeFormats>
+            </calendar>
+        </calendars>
+    </dates>
+    <numbers>
+        <symbols>
+            <decimal>,</decimal>
+            <group> </group>
+        </symbols>
+        <decimalFormats>
+            <decimalFormatLength>
+                <decimalFormat>
+                    <pattern>#,##0.###;-#,##0.###</pattern>
+                </decimalFormat>
+            </decimalFormatLength>
+        </decimalFormats>
+        <currencyFormats>
+            <currencyFormatLength>
+                <currencyFormat>
+                    <pattern>¤ #,##0.00;-¤ #,##0.00</pattern>
+                    <pattern type="international">¤ #,##0.00;-¤ #,##0.00</pattern>
+                </currencyFormat>
+            </currencyFormatLength>
+        </currencyFormats>
+        <currencies>
+            <currency type="HUF">
+                <symbol>FT</symbol>
+                <decimal>,</decimal>
+                <group> </group>
+            </currency>
+        </currencies>
+    </numbers>
+    <posix>
+        <messages>
+            <yesstr>yes</yesstr>
+            <nostr>no</nostr>
+            <yesexpr>[iIyY]</yesexpr>
+            <noexpr>[nN]</noexpr>
+        </messages>
+    </posix>
+</ldml>

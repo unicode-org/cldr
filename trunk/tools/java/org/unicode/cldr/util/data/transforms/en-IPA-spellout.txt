@@ -1,0 +1,30 @@
+# Author: Mark Davis
+# Email: mark.davis@icu-project.org
+# Description: English-IPA -- spelled out. For use with Acronyms
+# to use, have a rule [:^letter:] {([A-Z]+)} [:^letter:] > &en-IPA/spellout($1) ;
+[Aa] > e ;
+[Bb] > bi ;
+[Cc] > si ; 
+[Dd] > di ;
+[Ee] > i ;
+[Ff] > ɛf ; 
+[Gg] > dʒi ; 
+[Hh]> etʃ ; 
+[Ii] > ɑɪ ;
+[Jj] > dʒe ;
+[Kk] > ke ; 
+[Ll] > ɛl ; 
+[Mm] > ɛm ; 
+[Nn] > ɛn ; 
+[Oo] > o ;
+[Pp] > pi ;
+[Qq] > kju ;
+[Rr] > ɑr ;
+[Ss] > ɛs ;
+[Tt] > ti ;
+[Uu] > ju ;
+[Vv] > vi ;
+[Ww] > dəbjə ;
+[Xx] > ɛks ;
+[Yy] > wɑɪ ;
+[Zz] > zi ;

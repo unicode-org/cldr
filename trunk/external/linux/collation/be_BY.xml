@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-19" />
+		<language type="be" /> 
+		<territory type="BY" /> 
+	</identity>
+	<collations>
+		<collation type="standard" >
+			<base>
+				<alias source="ru_RU" type="standard" />
+			</base>
+			<rules>
+				<reset>Ѓ</reset>
+				<p>ґ</p>
+			</rules>
+		</collation  >
+	</collations>
+</ldml>

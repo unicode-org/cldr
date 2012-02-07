@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="Windows_XP"/>
+		<generation date="2004-05-27" />
+		<language type="uz" /> 
+		<script type="Cyrl" /> 
+		<territory type="UZ" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="uz">Ўзбек</language>
+		</languages>
+		<territories>
+			<territory type="UZ">Ўзбекистон</territory>
+		</territories>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Янв</month>
+							<month type="2">Фев</month>
+							<month type="3">Мар</month>
+							<month type="4">Апр</month>
+							<month type="5">Май</month>
+							<month type="6">Июн</month>
+							<month type="7">Июл</month>
+							<month type="8">Авг</month>
+							<month type="9">Сен</month>
+							<month type="10">Окт</month>
+							<month type="11">Ноя</month>
+							<month type="12">Дек</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Январ</month>
+							<month type="2">Феврал</month>
+							<month type="3">Март</month>
+							<month type="4">Апрел</month>
+							<month type="5">Май</month>
+							<month type="6">Июн</month>
+							<month type="7">Июл</month>
+							<month type="8">Август</month>
+							<month type="9">Сентябр</month>
+							<month type="10">Октябр</month>
+							<month type="11">Ноябр</month>
+							<month type="12">Декабр</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">якш</day>
+							<day type="mon">дш</day>
+							<day type="tue">сш</day>
+							<day type="wed">чш</day>
+							<day type="thu">пш</day>
+							<day type="fri">ж</day>
+							<day type="sat">ш</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">якшанба</day>
+							<day type="mon">душанба</day>
+							<day type="tue">сешанба</day>
+							<day type="wed">чоршанба</day>
+							<day type="thu">пайшанба</day>
+							<day type="fri">жума</day>
+							<day type="sat">шанба</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<firstDay day="mon"/>
+				</week>
+				<am></am>
+				<pm></pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>yyyy 'йил' d-MMMM</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

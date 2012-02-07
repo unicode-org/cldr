@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Multiple Inheritance</title>
+<link rel="stylesheet" type="text/css" href="http://oss.software.ibm.com/cvs/icu/~checkout~/icuhtml/common.css">
+</head>
+
+<body>
+
+<h1>Multiple Inheritance</h1>
+<p><i>2004-25-04, MED</i></p>
+<p>Right now, LDML documents 'multiple' inheritance, whereby if an element is not found searching 
+all the way up to the root, that a different element chain is accessed. See
+<a href="http://www.unicode.org/reports/tr35/#Multiple_Inheritance">
+http://www.unicode.org/reports/tr35/#Multiple_Inheritance</a> <br>
+<br>
+Markus made the suggestion (which I agree with) to instead put the information into the LDML 
+structure, not just in the documentation. I looked at what that would involve, and here is my 
+recommendation.</p>
+<hr color="#000000" width="50%">
+<p><br>
+The current cases are calendars, stand-alone months/days, and currency grouping, decimal, and 
+pattern elements. The idea is to have an item like an alias, but whereas an alias points to the same 
+element in a different locale, this item points to a different element (or element/attribute 
+combination) in the same locale.<br>
+<br>
+The simplest would be for this to be an alias with a special attribute, since we already have 
+provision for alias in lots of points in the DTD. An initial suggestion is:<br>
+<br>
+&lt;alias path={XPATH}/&gt;<br>
+<br>
+where XPATH is defined as in <a href="http://www.w3c.org/TR/xpath">http://www.w3c.org/TR/xpath</a>. 
+See tutorials on:</p>
+<ul>
+  <li><a href="http://www.zvon.org/xxl/XPathTutorial/General/examples.html">
+  http://www.zvon.org/xxl/XPathTutorial/General/examples.html</a> </li>
+  <li><a href="http://www.w3schools.com/xpath/">http://www.w3schools.com/xpath/</a> </li>
+</ul>
+<p>The additional restriction we would need to add is that the path has to distinguish a single 
+element.<br>
+<br>
+Here are the changes that would be necessary. Notice that I am not well conversant with the ins and 
+outs of XPath, so we would need to check over the paths before implementing this. We also probably 
+want to add [position()=1] to the path (somehow), to force it to be unique.</p>
+<ol>
+  <li>In the DTD, add path as an attribute to alias.</li>
+  <li>In root, add for gregorian months and days; and for hebrew, islamic, islamic-civil months<br>
+  <br>
+  &lt;dates&gt;<br>
+  &lt;calendars&gt;<br>
+  &lt;calendar type=&quot;gregorian&quot;&gt;<br>
+  &lt;months&gt;<br>
+  &lt;monthContext type='stand-alone'&gt;<br>
+  &lt;alias path=&quot;../@type='format'&quot;/&gt;<br>
+  ...<br>
+  &lt;days&gt;<br>
+  &lt;dayContext type='stand-alone'&gt;<br>
+  &lt;alias path=&quot;../@type='format'&quot;/&gt;<br>
+  ...</li>
+  <li>For each non-gregorian calendar that is not represented in root, we would add path aliases for 
+  any missing elements. Example, japanese currently has only eras in root:<br>
+  <br>
+  ...&lt;calendar type=&quot;japanese&quot;&gt;<br>
+  &lt;eras&gt;...&lt;/eras&gt;<br>
+  <br>
+  In root add:<br>
+  <br>
+  ...&lt;calendar type=&quot;japanese&quot;&gt;<br>
+  &lt;months&gt;&lt;alias path=&quot;../../@gregorian/months&quot;/&gt;&lt;months&gt;<br>
+  &lt;days&gt;&lt;alias path=&quot;../../@gregorian/days&quot;/&gt;&lt;days&gt;<br>
+  &lt;week&gt;&lt;alias path=&quot;../../@gregorian/week&quot;/&gt;&lt;week&gt;<br>
+  &lt;am&gt;&lt;alias path=&quot;../../@gregorian/am&quot;/&gt;&lt;am&gt;<br>
+  &lt;pm&gt;&lt;alias path=&quot;../../@gregorian/pm&quot;/&gt;&lt;pm&gt;<br>
+  <br>
+  &lt;eras&gt;...&lt;/eras&gt;<br>
+  <br>
+  &lt;dateFormats&gt;&lt;alias path=&quot;../../@gregorian/dateFormats&quot;/&gt;&lt;dateFormats&gt;<br>
+  &lt;timeFormats&gt;&lt;alias path=&quot;../../@gregorian/timeFormats&quot;/&gt;&lt;timeFormats&gt;<br>
+  &lt;dateTimeFormats&gt;&lt;alias path=&quot;../../@gregorian/dateTimeFormats&quot;/&gt;&lt;dateTimeFormats&gt;<br>
+  <br>
+  Note: as a part of this work, look at the elements in root: if an element is identical to 
+  gregorian, eg buddhist dateTimeFormats are the same, then replace by these aliases.</li>
+  <li>Currencies are harder to handle. They have optional symbol?, pattern?, decimal?, group?. For 
+  each currency (eg USD) in each language (eg German), the symbol should default to the display 
+  name; the decimal should default to the number decimal, the group should default to the number 
+  group, and pattern should default to the standard number currency pattern. So this has the 
+  following results:<br>
+  <br>
+  For the top level where each currency appears for the first time (usually either root or the 
+  language locales), add the following missing elements:<br>
+  <br>
+  &lt;currency type=xxx&gt;<br>
+  &lt;symbol&gt;&lt;alias path=&quot;../../@displayName&quot;&gt;&lt;/symbol&gt;<br>
+  &lt;pattern&gt;&lt;alias path=&quot;../../../../currencyFormats/currencyFormatLength/currencyFormat@type='standard'&quot;&gt;&lt;/symbol&gt;<br>
+  &lt;decimal&gt;&lt;alias path=&quot;../../../../symbols/decimal&quot;&gt;&lt;/symbol&gt;<br>
+  &lt;group&gt;&lt;alias path=&quot;../../../../symbols/decimal&quot;&gt;&lt;/group&gt;<br>
+  <br>
+  We would also have to introduce &lt;alias&gt; as a possible element for symbol, pattern, decimal, group.</li>
+</ol>
+<h2>Issues</h2>
+<ol>
+  <li>Alternatively, we could have path='...' as an attribute on the above elements. That would 
+  remove the need for one &quot;../&quot; in the path name, and overloading the alias element.</li>
+  <li>It is more than a bit ugly to add all the elements to the currency types. That would bulk up 
+  the data files quite considerably, and at levels other than the root. And in the root we'd be 
+  forced to add all the ISO currency codes. I think in this case it would be better to simply 
+  document the behavior.</li>
+  <li>Some elements are not inherited from their parent locales. For example, all of the elements in 
+  a &lt;collation&gt; element are part of the structure of the collation data itself. So everything in a 
+  &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is concerned. We 
+  should consider a way to handle this also by means of structure rather than documentation.<p><br>
+  <br>
+&nbsp;</li>
+</ol>
+
+</body>
+
+</html>

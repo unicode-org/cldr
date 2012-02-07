@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="se" /> 
+		<territory type="NO" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ođđj</month>
+							<month type="2">guov</month>
+							<month type="3">njuk</month>
+							<month type="4">cuoŋ</month>
+							<month type="5">mies</month>
+							<month type="6">geas</month>
+							<month type="7">suoi</month>
+							<month type="8">borg</month>
+							<month type="9">čakč</month>
+							<month type="10">golg</month>
+							<month type="11">skáb</month>
+							<month type="12">juov</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ođđajagemánu</month>
+							<month type="2">guovvamánu</month>
+							<month type="3">njukčamánu</month>
+							<month type="4">cuoŋománu</month>
+							<month type="5">miessemánu</month>
+							<month type="6">geassemánu</month>
+							<month type="7">suoidnemánu</month>
+							<month type="8">borgemánu</month>
+							<month type="9">čakčamánu</month>
+							<month type="10">golggotmánu</month>
+							<month type="11">skábmamánu</month>
+							<month type="12">juovlamánu</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">sotn</day>
+							<day type="mon">vuos</day>
+							<day type="tue">maŋ</day>
+							<day type="wed">gask</day>
+							<day type="thu">duor</day>
+							<day type="fri">bear</day>
+							<day type="sat">láv</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sotnabeaivi</day>
+							<day type="mon">vuossárga</day>
+							<day type="tue">maŋŋebarga</day>
+							<day type="wed">gaskavahkku</day>
+							<day type="thu">duorasdat</day>
+							<day type="fri">bearjadat</day>
+							<day type="sat">lávvardat</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEE, MMM dd. b. yyyy  z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEE, MMM dd. b. yyyy hh:mm:ss z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>yyyy-MMMM-dd</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>yyyy-MMMM-dd</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤#,##0.00;¤-#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

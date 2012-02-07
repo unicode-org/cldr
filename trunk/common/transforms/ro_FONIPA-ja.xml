@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="ro_FONIPA" target="ja" direction="forward">
+			<comment>
+			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+			# Author: takenaka@google.com (Hiroshi Takenaka)
+			#
+			# Transforms an IPA transcription of Romanian (ro_FONIPA) to Japanese Katakana.
+			#
+			</comment>
+			<tRule>$word_boundary = [-\ $] ;</tRule>
+			<tRule>$vowel = [aeiouw] ;       # Vowels and glides</tRule>
+			<tRule>$not_vowel = [^$vowel] ;</tRule>
+			<comment>
+			#
+			# First pass: Collapse phonetic distinctions that are not preserved in Katakana.
+			</comment>
+			<tRule>[ǎə] → | a ;</tRule>
+			<tRule>e̯ → | e ;</tRule>
+			<tRule>[jy] → | i ;</tRule>
+			<tRule>o̯ → | o ;</tRule>
+			<tRule>[ɨȋ] → | u ;</tRule>
+			<tRule>ul } $word_boundary → u ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ɡ → | g ;</tRule>
+			<tRule>ș → | ʃ ;</tRule>
+			<tRule>t͡ → | t ;</tRule>
+			<tRule>ț → | ts ;</tRule>
+			<tRule>x → | ks ;</tRule>
+			<tRule>dʒ → | ʒ ;</tRule>
+			<tRule>d͡ʒ → | ʒ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>:: Null ();</tRule>
+			<comment>
+			#
+			# Main pass: Phoneme to Katakana conversion.
+			</comment>
+			<tRule>a → ア;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ba → バ;</tRule>
+			<tRule>be → ベ;</tRule>
+			<tRule>bi → ビ;</tRule>
+			<tRule>bo → ボ;</tRule>
+			<tRule>bu → ブ;</tRule>
+			<tRule>b → ブ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>da → ダ ;</tRule>
+			<tRule>de → デ ;</tRule>
+			<tRule>di → ディ ;</tRule>
+			<tRule>do → ド ;</tRule>
+			<tRule>du → ドゥ ;</tRule>
+			<tRule>d → ド ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>e → エ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>fa → ファ ;</tRule>
+			<tRule>fe → フェ ;</tRule>
+			<tRule>fi → フィ ;</tRule>
+			<tRule>fo → フォ ;</tRule>
+			<tRule>fu → フ ;</tRule>
+			<tRule>f → フ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ga → ガ;</tRule>
+			<tRule>ge → ゲ;</tRule>
+			<tRule>gi → ギ;</tRule>
+			<tRule>go → ゴ;</tRule>
+			<tRule>gu → グ;</tRule>
+			<tRule>g → グ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ha → ハ ;</tRule>
+			<tRule>hwe → フェ ;</tRule>
+			<tRule>he → ヘ ;</tRule>
+			<tRule>hi → ヒ ; # not backed by data</tRule>
+			<tRule>ho → ホ ;</tRule>
+			<tRule>hu → フ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>^ { ia → ヤ ;</tRule>
+			<tRule>i → イ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ka → カ ;</tRule>
+			<tRule>ke → ケ ;</tRule>
+			<tRule>ki → キ ;</tRule>
+			<tRule>ko → コ ;</tRule>
+			<tRule>ku → ク ;</tRule>
+			<tRule>k → ク ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>la → ラ ;</tRule>
+			<tRule>le → レ ;</tRule>
+			<tRule>li → リ ;</tRule>
+			<tRule>lo → ロ ;</tRule>
+			<tRule>lu → ル ;</tRule>
+			<tRule>l →  ル ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ma → マ ;</tRule>
+			<tRule>me → メ ;</tRule>
+			<tRule>mi → ミ ;</tRule>
+			<tRule>mo → モ ;</tRule>
+			<tRule>mu → ム ;</tRule>
+			<tRule>m } [bp] → ン ;</tRule>
+			<tRule>m → ム ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>na → ナ ;</tRule>
+			<tRule>ne → ネ ;</tRule>
+			<tRule>ni → ニ ;</tRule>
+			<tRule>no → ノ ;</tRule>
+			<tRule>nu → ヌ ;</tRule>
+			<tRule>n → ン ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>o → オ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>pa → パ ;</tRule>
+			<tRule>pe → ペ ;</tRule>
+			<tRule>pi → ピ ;</tRule>
+			<tRule>po → ポ ;</tRule>
+			<tRule>pu → プ ;</tRule>
+			<tRule>p → プ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ra → ラ ;</tRule>
+			<tRule>re → レ ;</tRule>
+			<tRule>ri → リ ;</tRule>
+			<tRule>ro → ロ ;</tRule>
+			<tRule>ru → ル ;</tRule>
+			<tRule>r → ル;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>sa → サ ;</tRule>
+			<tRule>se → セ ;</tRule>
+			<tRule>si → シ ;</tRule>
+			<tRule>so → ソ ;</tRule>
+			<tRule>su → ス ;</tRule>
+			<tRule>s → ス ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ʃa → シャ ;</tRule>
+			<tRule>ʃe → シェ ;</tRule>
+			<tRule>ʃio → ショ ;</tRule>
+			<tRule>ʃi → シ ;</tRule>
+			<tRule>ʃo → ショ ;</tRule>
+			<tRule>ʃu → シュ ;</tRule>
+			<tRule>ʃ → シュ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ta → タ ;</tRule>
+			<tRule>te → テ ;</tRule>
+			<tRule>ti → ティ ;</tRule>
+			<tRule>to → ト ;</tRule>
+			<tRule>tu → トゥ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>tʃa → チャ ;</tRule>
+			<tRule>tʃea → チャ ;</tRule>
+			<tRule>tʃe → チェ ;</tRule>
+			<tRule>tʃiu → チュ ;</tRule>
+			<tRule>tʃi → チ ;</tRule>
+			<tRule>tʃo → チョ ;</tRule>
+			<tRule>tʃu → チュ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>tsa → ツァ ;</tRule>
+			<tRule>tse → ツェ ;</tRule>
+			<tRule>tsi → ツィ;</tRule>
+			<tRule>tso → ツォ ;</tRule>
+			<tRule>tsu → ツ ;</tRule>
+			<tRule>ts → ツ ;</tRule>
+			<tRule>t → ト ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>u → ウ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>va → バ ;</tRule>
+			<tRule>ve → ベ ;</tRule>
+			<tRule>vu → ブ ;</tRule>
+			<tRule>vi → ビ ;</tRule>
+			<tRule>vo → ボ ;</tRule>
+			<tRule>v → ヴ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>wa → ワ ;</tRule>
+			<tRule>we → エ ; # not backed by data</tRule>
+			<tRule>wi → イ ; # not backed by data</tRule>
+			<tRule>wo → オ ; # not backed by data</tRule>
+			<tRule>wu → ウ ; # not backed by data</tRule>
+			<tRule>w → ウ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>za → ザ ;</tRule>
+			<tRule>ze → ゼ ;</tRule>
+			<tRule>zi → ジ ;</tRule>
+			<tRule>zo → ゾ ;</tRule>
+			<tRule>zu → ズ ;</tRule>
+			<tRule>z → ズ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ʒa → ジャ ;</tRule>
+			<tRule>ʒea → ジャ ;</tRule>
+			<tRule>ʒe → ジェ ;</tRule>
+			<tRule>ʒiu → ジュ ;</tRule>
+			<tRule>ʒi → ジ ;</tRule>
+			<tRule>ʒo → ジョ ;</tRule>
+			<tRule>ʒu → ジュ ;</tRule>
+			<tRule>ʒ → ジュ ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>' ' → ・;</tRule>
+			<comment>
+			#
+			</comment>
+		</transform>
+	</transforms>
+</supplementalData>

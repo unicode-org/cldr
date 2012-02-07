@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-19" />
+		<language type="fa" /> 
+	</identity>
+	<collations>
+		<collation type="standard" >
+			<base>
+				<alias source="ar" type="standard" />
+			</base>
+			<rules>
+				<reset>ﺌ</reset>
+				<p>آ</p>
+				<tc>ﺁﺂ</tc>
+				<reset>ﻘ</reset>
+				<p>ک</p>
+				<reset>ﻨ</reset>
+				<p>و</p>
+				<tc>ﻭﻮ</tc>
+				<reset>ﻰ</reset>
+				<s>ی</s>
+			</rules>
+		</collation  >
+	</collations>
+</ldml>

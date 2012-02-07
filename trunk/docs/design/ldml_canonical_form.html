@@ -1,0 +1,298 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>LDML Canonical Form</title>
+</head>
+
+<body>
+
+<h1>LDML Canonical Form</h1>
+<p>MED, 2004-12-21</p>
+<p>To allow for simple comparison of LDML files, especially for vetting mechanical changes, we 
+should have a canonical form for those files. <a href="http://www.w3.org/TR/REC-xml/">XML</a> files 
+can have a wide variation in textual form, while representing precisely the same data. By putting 
+the LDML files in the repository into a canonical form, this allows us to use the simple diff tools 
+used widely (and in CVS) to detect differences when vetting changes, without those tools being 
+confused. This is not a requirement on other uses of LDML; just simply a way to manage repository 
+data more easily.</p>
+<p>See <a href="http://www.unicode.org/reports/tr35/">http://www.unicode.org/reports/tr35/</a> </p>
+<p>Here is a proposal.</p>
+<h2>Textual Content</h2>
+<ol>
+  <li>All start elements are on their own line, indented by <i>depth</i> tabs.</li>
+  <li>All end elements (except for leaf nodes) are on their own line, indented by <i>depth</i> tabs.
+  </li>
+  <li>Any leaf node with empty content is in the form &lt;foo/&gt;.</li>
+  <li>There are no blank lines except within comments or content.</li>
+  <li>Spaces are used within a start element. There are no extra spaces within elements.<ul>
+    <li><code>&lt;version number=&quot;1.2&quot;/&gt;</code>, not <code>&lt;version&nbsp; number = &quot;1.2&quot; /&gt;</code></li>
+    <li><code>&lt;/identity&gt;</code>, not <code>&lt;/identity &gt;</code></li>
+  </ul>
+  </li>
+  <li>All attribute values use double quote (&quot;), not single (').</li>
+  <li>There are no CDATA sections, and no escapes except those absolutely required.<ul>
+    <li>no &amp;apos; since it is not necessary</li>
+    <li>no '&amp;#x61;', it would be just 'a'</li>
+  </ul>
+  </li>
+  <li>All attributes with defaulted values are suppressed. See the <a href="#Defaulted_Values_Table">
+  Defaulted Attributes Table</a></li>
+</ol>
+<p><i>Example:</i></p>
+<pre>&lt;ldml draft=&quot;true&quot; &gt;
+	&lt;identity&gt;
+		&lt;version number=&quot;1.2&quot;/&gt;
+		&lt;generation date=&quot;2004-06-04&quot;/&gt;
+		&lt;language type=&quot;en&quot;/&gt;
+		&lt;territory type=&quot;AS&quot;/&gt;
+	&lt;/identity&gt;
+	&lt;numbers&gt;
+		&lt;currencyFormats&gt;
+			&lt;currencyFormatLength&gt;
+				&lt;currencyFormat&gt;
+					&lt;pattern&gt;¤#,##0.00;(¤#,##0.00)&lt;/pattern&gt;
+				&lt;/currencyFormat&gt;
+			&lt;/currencyFormatLength&gt;
+		&lt;/currencyFormats&gt;
+	&lt;/numbers&gt;
+&lt;/ldml&gt;</pre>
+<h2>Ordering</h2>
+<ol>
+  <li>Element names are ordered by the <a href="#Element_Order_Table">Element Order Table</a></li>
+  <li>Attribute names are ordered by the <a href="#Attribute_Order_Table">Attribute Order Table</a></li>
+  <li>Attribute value comparison is a bit more complicated, and may depend on the attribute and 
+  type. Compare two values by using the following steps:<ol>
+    <li>If two values are in the <a href="#Value_Order_Table">Value Order Table</a>, compare 
+    according to the order in the table. Otherwise if just one is, it goes first.</li>
+    <li>If two values are numeric [0-9], compare numerically (2 &lt; 12). Otherwise if just one is 
+    numeric, it goes first.</li>
+    <li>Otherwise values are ordered alphabetically</li>
+  </ol>
+  </li>
+  <li>An attribute-value pair is ordered first by attribute name, and then if the attribute names 
+  are identical, by the value.</li>
+  <li>An element is ordered first by the element name, and then if the element names are identical, 
+  by the sorted set of attribute-value pairs (sorted by #4). For the latter, compare the first pair 
+  in each (in sorted order by attribute pair). If not identical, go to the second pair, etc.</li>
+  <li>Any future additions to the DTD must be structured so as to allow compatibility with this 
+  ordering.</li>
+  <li>See also Appendix K: <a href="http://www.unicode.org/reports/tr35/#valid_attribute_values">
+  Valid Attribute Values</a></li>
+</ol>
+<h2>Comments</h2>
+<ol>
+  <li>Comments are of the form &lt;!-- <i>stuff</i> --&gt;.</li>
+  <li>They are logically attached to a node. There are 4 kinds:<ol>
+    <li>Inline always appear after a leaf node, on the same line at the end. These are a single 
+    line.</li>
+    <li>Preblock comments always precede the attachment node, and are indented on the same level.</li>
+    <li>Postblock comments always follow the attachment node, and are indented on the same level.</li>
+    <li>Final comment, after &lt;/ldml&gt;</li>
+  </ol>
+  </li>
+  <li>Multiline comments (except the final comment) have each line after the first indented to one 
+  deeper level.</li>
+</ol>
+<p><b>Examples:</b></p>
+<pre>&lt;eraAbbr&gt;
+	&lt;era type=&quot;0&quot;&gt;BC&lt;/era&gt; &lt;!-- might add alternate BDE in the future --&gt;
+...
+&lt;timeZoneNames&gt;
+	&lt;!-- Note: zones that don't use daylight time need further work --&gt; 
+	&lt;zone type=&quot;America/Los_Angeles&quot;&gt;
+	...
+	&lt;!-- Note: the following is known to be sparse,
+		and needs to be improved in the future --&gt;
+	&lt;zone type=&quot;Asia/Jerusalem&quot;&gt;</pre>
+<h2><b>Canonicalization</b></h2>
+<p>The process of canonicalization is fairly straightforward, except for comments. Inline comments 
+will have any linebreaks replaced by a space. There may be cases where the attachment node is not 
+permitted, such as the following.</p>
+<pre>		&lt;/dayWidth&gt;
+		&lt;!-- some comment --&gt;
+	&lt;/dayContext&gt;
+&lt;/days&gt;</pre>
+<p>In those cases, the comment will be made into a block comment on the last previous leaf node, if 
+it is at that level or deeper. (If there is one already, it will be appended, with a line-break 
+between.) If there is no place to attach the node (for example, as a result of processing that 
+removes the attachment node), the comment and its node's xpath will be appended to the final comment 
+in the document.</p>
+<p>Multiline comments will have leading tabs stripped, so any indentation should be done with 
+spaces.</p>
+<hr>
+<h3><a name="Element_Order_Table">Element Order Table</a></h3>
+<p>The organization into bullets is purely for clarity; the ordering is established by which comes 
+first in the overall list. Note that most combinations of pairs of items will never be peer 
+elements, and thus never be compared.</p>
+<ul>
+  <li>ldml, identity, alias, localeDisplayNames, layout, characters, delimiters, measurement, dates, 
+  numbers, collations, posix,</li>
+  <li>version, generation, language, script, territory, variant,</li>
+  <li>languages, scripts, territories, variants, keys, types,</li>
+  <li>key, type,</li>
+  <li>orientation, exemplarCharacters, mapping, cp,</li>
+  <li>quotationStart, quotationEnd, alternateQuotationStart, alternateQuotationEnd,</li>
+  <li>measurementSystem, paperSize, height, width,</li>
+  <li>localizedPatternChars, calendars, timeZoneNames,</li>
+  <li>months, monthNames, monthAbbr, days, dayNames, dayAbbr, week, am, pm, eras, dateFormats, 
+  timeFormats, dateTimeFormats, fields, month, day, minDays, firstDay, weekendStart, weekendEnd, 
+  eraNames, eraAbbr, era, pattern, displayName, hourFormat, hoursFormat, gmtFormat, regionFormat, 
+  fallbackFormat, abbreviationFallback, preferenceOrdering, default, calendar, monthContext, 
+  monthWidth, dayContext, dayWidth, dateFormatLength, dateFormat, timeFormatLength, timeFormat, 
+  dateTimeFormatLength, dateTimeFormat, zone, long, short, exemplarCity, generic, standard, 
+  daylight, field, relative,</li>
+  <li>symbols, decimalFormats, scientificFormats, percentFormats, currencyFormats, currencies,</li>
+  <li>decimalFormatLength, decimalFormat, scientificFormatLength, scientificFormat, 
+  percentFormatLength, percentFormat, currencyFormatLength, currencyFormat, currency, symbol, 
+  decimal, group, list, percentSign, nativeZeroDigit, patternDigit, plusSign, minusSign, 
+  exponential, perMille, infinity, nan,</li>
+  <li>collation,</li>
+  <li>messages, yesstr, nostr, yesexpr, noexpr,</li>
+  <li>special<i> (always last)</i></li>
+</ul>
+<h3><a name="Attribute_Order_Table">Attribute Order Table</a></h3>
+<p>The organization into bullets is purely for clarity; the ordering is established by which comes 
+first in the overall list. Note that most combinations of pairs of items will never be peer 
+elements, and thus never be compared.</p>
+<ul>
+  <li>type, key, registry, alt <i>(distinguishing types)</i></li>
+  <li>source, path,</li>
+  <li>day, date,</li>
+  <li>version, count,</li>
+  <li>lines, characters,</li>
+  <li>before,</li>
+  <li>number, time,</li>
+  <li>validSubLocales, standard, references,</li>
+  <li>draft</li>
+</ul>
+<h3><a name="Value_Order_Table">Value Order Table</a></h3>
+<blockquote>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber2" width="690">
+    <tr>
+      <td>weekendStart</td>
+      <td rowspan="2">day</td>
+      <td rowspan="3">sun, mon, tue, wed, thu, fri, sat</td>
+    </tr>
+    <tr>
+      <td>weekendEnd</td>
+    </tr>
+    <tr>
+      <td>day</td>
+      <td rowspan="12">type</td>
+    </tr>
+    <tr>
+      <td>dateFormatLength </td>
+      <td rowspan="7">full, long, medium, short</td>
+    </tr>
+    <tr>
+      <td>timeFormatLength </td>
+    </tr>
+    <tr>
+      <td>dateTimeFormatLength </td>
+    </tr>
+    <tr>
+      <td>decimalFormatLength </td>
+    </tr>
+    <tr>
+      <td>scientificFormatLength </td>
+    </tr>
+    <tr>
+      <td>percentFormatLength </td>
+    </tr>
+    <tr>
+      <td>currencyFormatLength </td>
+    </tr>
+    <tr>
+      <td>monthWidth </td>
+      <td rowspan="2">wide, abbreviated, narrow</td>
+    </tr>
+    <tr>
+      <td>dayWidth </td>
+    </tr>
+    <tr>
+      <td>field</td>
+      <td>era, year, month, week, day, weekday, dayperiod, hour, minute, second, zone</td>
+    </tr>
+    <tr>
+      <td>zone</td>
+      <td><i>The order for prefixes are: </i>America, Atlantic, Europe, Africa, Asia, Indian, 
+      Australia, Pacific, Arctic, Antarctica, Etc. <i>Within the same prefix, sort first by 
+      longitude, then latitude (both given by the zone.tab file in the Olson database), then by full 
+      tzid.</i></td>
+    </tr>
+    <tr>
+      <td colspan="3"><i>numeric order</i></td>
+    </tr>
+    <tr>
+      <td colspan="3"><i>alphabetic order</i></td>
+    </tr>
+  </table>
+</blockquote>
+<h3><a name="Defaulted_Values_Table">Defaulted Values Table</a></h3>
+<blockquote>
+  <table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+    <tr>
+      <td width="33%">ldml </td>
+      <td width="33%">version </td>
+      <td width="33%">&quot;1.2&quot;</td>
+    </tr>
+    <tr>
+      <td rowspan="2" width="33%"><i>orientation </i></td>
+      <td width="33%"><i>characters </i></td>
+      <td width="33%"><i>&quot;left-to-right&quot;</i></td>
+    </tr>
+    <tr>
+      <td width="33%"><i>lines </i></td>
+      <td width="33%"><i>&quot;top-to-bottom&quot;</i></td>
+    </tr>
+    <tr>
+      <td width="33%">weekendStart </td>
+      <td rowspan="2" width="33%">time </td>
+      <td width="33%">&quot;00:00&quot;</td>
+    </tr>
+    <tr>
+      <td width="33%">weekendEnd </td>
+      <td width="33%">&quot;24:00&quot;</td>
+    </tr>
+    <tr>
+      <td width="33%">dateFormat </td>
+      <td width="33%" rowspan="10">type</td>
+      <td width="33%" rowspan="10">&quot;standard&quot;</td>
+    </tr>
+    <tr>
+      <td width="33%">timeFormat </td>
+    </tr>
+    <tr>
+      <td width="33%">dateTimeFormat </td>
+    </tr>
+    <tr>
+      <td width="33%">decimalFormat </td>
+    </tr>
+    <tr>
+      <td width="33%">scientificFormat </td>
+    </tr>
+    <tr>
+      <td width="33%">percentFormat </td>
+    </tr>
+    <tr>
+      <td width="33%">currencyFormat </td>
+    </tr>
+    <tr>
+      <td width="33%">pattern </td>
+    </tr>
+    <tr>
+      <td width="33%">currency </td>
+    </tr>
+    <tr>
+      <td width="33%">collation </td>
+    </tr>
+  </table>
+</blockquote>
+
+</body>
+
+</html>

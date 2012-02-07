@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.openi18n.org/spec/ldml/1.0/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2003-12-19" />
+		<language type="et" /> 
+	</identity>
+	<collations>
+		<collation type="standard" >
+			<base>
+				<alias source="en" type="standard" />
+			</base>
+			<rules>
+				<reset>s</reset>
+				<x><p>ﬅ</p><extend>t</extend></x>
+				<t>ｓ</t>
+				<reset>Ｓ</reset>
+				<sc>ſʂƩˢƪƨ</sc>
+				<t>Ƨ</t>
+				<p>š</p>
+				<t>Š</t>
+				<p>z</p>
+				<t>Z</t>
+				<reset>Ｕ</reset>
+				<sc>ʉʊ</sc>
+				<t>Ʊ</t>
+				<reset>v</reset>
+				<t>V</t>
+				<s>w</s>
+				<t>W</t>
+				<p>õ</p>
+				<x><p>ʋ</p><extend>ˁ</extend></x>
+				<x><p>ʌ</p><extend>˂</extend></x>
+				<reset>ｖ</reset>
+				<t>Õ</t>
+				<reset>Ｖ</reset>
+				<p>ä</p>
+				<t>Ä</t>
+				<p>ö</p>
+				<t>Ö</t>
+				<s>Ẉ</s>
+				<p>ü</p>
+				<t>Ü</t>
+				<reset>ʸ</reset>
+				<sc>ẔẒ</sc>
+			</rules>
+		</collation  >
+	</collations>
+</ldml>

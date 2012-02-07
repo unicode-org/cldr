@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldml.dtd"
+[
+    <!ENTITY % icu SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd">
+    <!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">
+%icu;
+%openOffice;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0">Generated from convertLocaledefToLDML</version>
+		<generation date="2003-11-24"/>
+		<language type="he"/>
+		<territory type="he"/>
+	</identity>
+	<dates>
+		<calendars>
+			<default type="gregorian"/>
+			<calendar type="gregorian">
+<months>
+<monthContext type="format">
+<monthWidth type="wide">
+					<month type="1">ינואר</month>
+					<month type="2">פברואר</month>
+					<month type="3">מרץ</month>
+					<month type="4">אפריל</month>
+					<month type="5">מאי</month>
+					<month type="6">יוני</month>
+					<month type="7">יולי</month>
+					<month type="8">אוגוסט</month>
+					<month type="9">ספטמבר</month>
+					<month type="10">אוקטובר</month>
+					<month type="11">נובמבר</month>
+					<month type="12">דצמבר</month>
+</monthWidth>
+<monthWidth type="abbreviated">
+					<month type="1">ינו</month>
+					<month type="2">פבר</month>
+					<month type="3">מרץ</month>
+					<month type="4">אפר</month>
+					<month type="5">מאי</month>
+					<month type="6">יונ</month>
+					<month type="7">יול</month>
+					<month type="8">אוג</month>
+					<month type="9">ספט</month>
+					<month type="10">אוק</month>
+					<month type="11">נוב</month>
+					<month type="12">דצמ</month>
+</monthWidth>
+</monthContext>
+</months>
+<days>
+<dayContext type="format">
+<dayWidth type="wide">
+					<day type="sun">ראשון</day>
+					<day type="mon">שני</day>
+					<day type="tue">שלישי</day>
+					<day type="wed">רביעי</day>
+					<day type="thu">חמישי</day>
+					<day type="fri">ששי</day>
+					<day type="sat">שבת</day>
+</dayWidth>
+<dayWidth type="abbreviated">
+					<day type="sun">א'</day>
+					<day type="mon">ב'</day>
+					<day type="tue">ג'</day>
+					<day type="wed">ד'</day>
+					<day type="thu">ה'</day>
+					<day type="fri">ו'</day>
+					<day type="sat">ש'</day>
+</dayWidth>
+</dayContext>
+</days>
+				<am>AM</am>
+				<pm>PM</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>z HH:mm:ss yyyy MMM dd EEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>z HH:mm:ss yyyy MMM dd EEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength>
+						<dateTimeFormat>
+							<pattern>{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+		</symbols>
+		<decimalFormats>
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.##</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<currencyFormats>
+			<currencyFormatLength>
+				<currencyFormat>
+					<pattern>¤ ##0.00;¤ ##0.00-</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencies>
+			<default type="NIS"/>
+			<currency type="NIS">
+				<displayName>NIS</displayName>
+				<symbol>שח</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+<posix>
+		<messages>
+			<yesstr>yes</yesstr>
+			<nostr>no</nostr>
+			<yesexpr>[yYכ][[:alpha:]]*</yesexpr>
+			<noexpr>[nNל][[:alpha:]]*</noexpr>
+		</messages>
+</posix>
+</ldml>

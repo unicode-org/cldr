@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="it" target="am" direction="forward">
+			<comment>
+			# Copyright (C) 2009 Google, Inc.  All Rights Reserved.
+			# Italian to Amharic Transliteration Table for ICU.
+			# Author: sascha@google.com (Sascha Brawer)
+			#
+			</comment>
+			<tRule>::NFD(NFC);</tRule>
+			<tRule>::Lower();</tRule>
+			<tRule>::[:Latin:] fullwidth-halfwidth();</tRule>
+			<comment>
+			#
+			# Variables.
+			</comment>
+			<tRule>$vowel = [aeiou];</tRule>
+			<tRule>$consonant = [bcdfghjklmnpqrstvwxyz];</tRule>
+			<comment>
+			#
+			# Ignore apostrophe.
+			</comment>
+			<tRule>($consonant) \' → | $1;</tRule>
+			<tRule>\' → ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>cqu → ኩ ;</tRule>
+			<tRule>cc → | c;</tRule>
+			<tRule>ca → ካ;</tRule>
+			<tRule>cia → ቻ;</tRule>
+			<tRule>cio → ቺዮ;</tRule>
+			<tRule>ciu → ቺዩ;</tRule>
+			<tRule>ci → ቺ;</tRule>
+			<tRule>cu → ኩ;</tRule>
+			<tRule>ce → ቼ;</tRule>
+			<tRule>co → ኮ;</tRule>
+			<tRule>cha → ካ;</tRule>
+			<tRule>chi → ኪ;</tRule>
+			<tRule>chu → ኩ;</tRule>
+			<tRule>che → ኬ;</tRule>
+			<tRule>cho → ኮ;</tRule>
+			<tRule>c } $consonant → ክ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>gg → | g;</tRule>
+			<tRule>ghi → ጊ;</tRule>
+			<tRule>ghe → ጌ;</tRule>
+			<tRule>ghu → ጉ;</tRule>
+			<tRule>gli → | li;</tRule>
+			<tRule>gna → ኛ;</tRule>
+			<tRule>gni → ኚ;</tRule>
+			<tRule>gnu → ኙ;</tRule>
+			<tRule>gne → ኜ;</tRule>
+			<tRule>gno → ኞ;</tRule>
+			<tRule>gn } $consonant → ኝ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ga → ጋ;</tRule>
+			<tRule>gia → ጂያ;</tRule>
+			<tRule>giu → ጂዩ;</tRule>
+			<tRule>gio → ጂዮ;</tRule>
+			<tRule>gi → ጂ;</tRule>
+			<tRule>gu → ጉ;</tRule>
+			<tRule>ge → ጄ;</tRule>
+			<tRule>go → ጎ;</tRule>
+			<tRule>g } $consonant → ግ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>rr → | r;</tRule>
+			<tRule>ra → ራ;</tRule>
+			<tRule>ri → ሪ;</tRule>
+			<tRule>ru → ሩ;</tRule>
+			<tRule>re → ሬ;</tRule>
+			<tRule>ro → ሮ;</tRule>
+			<tRule>r } $consonant → ር;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ll → | l;</tRule>
+			<tRule>la → ላ;</tRule>
+			<tRule>li → ሊ;</tRule>
+			<tRule>lu → ሉ;</tRule>
+			<tRule>le → ሌ;</tRule>
+			<tRule>lo → ሎ;</tRule>
+			<tRule>l } $consonant → ል;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>tt → | t;</tRule>
+			<tRule>ta → ታ;</tRule>
+			<tRule>ti → ቲ;</tRule>
+			<tRule>thi → ቲ;</tRule>
+			<tRule>tu → ቱ;</tRule>
+			<tRule>thu → ቱ;</tRule>
+			<tRule>te → ቴ;</tRule>
+			<tRule>the → ቴ;</tRule>
+			<tRule>to → ቶ;</tRule>
+			<tRule>tho → ቶ;</tRule>
+			<tRule>tzu → ፁ;</tRule>
+			<tRule>tz → | zz;</tRule>
+			<tRule>t } $consonant → ት;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>dd → | d;</tRule>
+			<tRule>da → ዳ;</tRule>
+			<tRule>di → ዲ;</tRule>
+			<tRule>du → ዱ;</tRule>
+			<tRule>de → ዴ;</tRule>
+			<tRule>do → ዶ;</tRule>
+			<tRule>d } $consonant → ድ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>mm → | m;</tRule>
+			<tRule>ma → ማ;</tRule>
+			<tRule>mi → ሚ;</tRule>
+			<tRule>mu → ሙ;</tRule>
+			<tRule>me → ሜ;</tRule>
+			<tRule>mo → ሞ;</tRule>
+			<tRule>m } $consonant → ም;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>nn → | n;</tRule>
+			<tRule>na → ና;</tRule>
+			<tRule>ni → ኒ;</tRule>
+			<tRule>nu → ኑ;</tRule>
+			<tRule>ne → ኔ;</tRule>
+			<tRule>no → ኖ;</tRule>
+			<tRule>n } $consonant → ን;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ff → | f;</tRule>
+			<tRule>fa → ፋ;</tRule>
+			<tRule>fi → ፊ;</tRule>
+			<tRule>fu → ፉ;</tRule>
+			<tRule>fe → ፌ;</tRule>
+			<tRule>fo → ፎ;</tRule>
+			<tRule>f } $consonant → ፍ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>bb → | b;</tRule>
+			<tRule>ba → ባ;</tRule>
+			<tRule>bi → ቢ;</tRule>
+			<tRule>bu → ቡ;</tRule>
+			<tRule>be → ቤ;</tRule>
+			<tRule>bo → ቦ;</tRule>
+			<tRule>b } $consonant → ብ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>pp → | p;</tRule>
+			<tRule>pa → ፓ;</tRule>
+			<tRule>pi → ፒ;</tRule>
+			<tRule>pu → ፑ;</tRule>
+			<tRule>pe → ፔ;</tRule>
+			<tRule>po → ፖ;</tRule>
+			<tRule>p } $consonant → ፕ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>vv → | v;</tRule>
+			<tRule>va → ቫ;</tRule>
+			<tRule>vi → ቪ;</tRule>
+			<tRule>vu → ቩ;</tRule>
+			<tRule>ve → ቬ;</tRule>
+			<tRule>vo → ቮ;</tRule>
+			<tRule>v } $consonant → ቩ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>sa } nt[ao] → ሣ;</tRule>
+			<tRule>ss → | \~s;</tRule>
+			<comment>
+			#
+			# 's' is voiced before [bdglmnrv].
+			</comment>
+			<tRule>sb → ዝ | b;</tRule>
+			<tRule>sd → ዝ | d;</tRule>
+			<tRule>sg → ዝ | g;</tRule>
+			<tRule>sl → ዝ | l;</tRule>
+			<tRule>sm → ዝ | m;</tRule>
+			<tRule>sn → ዝ | n;</tRule>
+			<tRule>sr → ዝ | r;</tRule>
+			<tRule>sv → ዝ | v;</tRule>
+			<comment>
+			#
+			# Force 's' after a consonat to be unvoiced.
+			</comment>
+			<tRule>($consonant) s } $vowel → | $1 \~ s;</tRule>
+			<tRule>\~sa → ሣ;</tRule>
+			<tRule>\~si → ሢ;</tRule>
+			<tRule>\~su → ሡ;</tRule>
+			<tRule>\~se → ሤ;</tRule>
+			<tRule>\~so → ሦ;</tRule>
+			<comment>
+			#
+			# 's' at the beginning is usually unvoiced.
+			</comment>
+			<tRule>[:^Letter:] { sa → ሣ;</tRule>
+			<tRule>[:^Letter:] { si → ሢ;</tRule>
+			<tRule>[:^Letter:] { su → ሡ;</tRule>
+			<tRule>[:^Letter:] { se → ሤ;</tRule>
+			<tRule>[:^Letter:] { so → ሦ;</tRule>
+			<comment>
+			#
+			# Otherwise voiced 's' are common.
+			</comment>
+			<tRule>sa → ዛ;</tRule>
+			<tRule>si → ዚ;</tRule>
+			<tRule>su → ዙ;</tRule>
+			<tRule>se → ዜ;</tRule>
+			<tRule>so → ዞ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>scia → ሺያ;</tRule>
+			<tRule>sci → ሺ;</tRule>
+			<tRule>sce → ሼ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>zz → | \~z;</tRule>
+			<comment>
+			# Force 'z' after a consonat to be unvoiced.
+			</comment>
+			<tRule>($consonant) z → | $1 \~z;</tRule>
+			<tRule>\~za → ጻ;</tRule>
+			<tRule>\~zi → ጺ;</tRule>
+			<tRule>\~zu → ጹ;</tRule>
+			<tRule>\~ze → ጼ;</tRule>
+			<tRule>\~zo → ጾ;</tRule>
+			<comment>
+			#
+			# Otherwise voiced 'z' are common except for 'zi'.
+			</comment>
+			<tRule>za → ዛ;</tRule>
+			<tRule>[:^Letter:] { zi → ዚ;</tRule>
+			<tRule>zi → ዚ;</tRule>
+			<tRule>zu → ዙ;</tRule>
+			<tRule>ze → ዜ;</tRule>
+			<tRule>zo → ዞ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>ja → ያ;</tRule>
+			<tRule>je → ዬ;</tRule>
+			<tRule>j → | i;</tRule>
+			<comment>
+			#
+			# Standalone vowels and consonants.
+			</comment>
+			<tRule>a → አ;</tRule>
+			<tRule>i → ዒ;</tRule>
+			<tRule>u → ዑ;</tRule>
+			<tRule>e → ዔ;</tRule>
+			<tRule>o → ዖ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>b → ብ;</tRule>
+			<tRule>c → ክ;</tRule>
+			<tRule>d → ድ;</tRule>
+			<tRule>f → ፍ;</tRule>
+			<tRule>g → ግ;</tRule>
+			<tRule>h → ህ;</tRule>
+			<tRule>k → ክ;</tRule>
+			<tRule>l → ል;</tRule>
+			<tRule>m → ም;</tRule>
+			<tRule>n → ን;</tRule>
+			<tRule>p → ፕ;</tRule>
+			<tRule>q → ክ;</tRule>
+			<tRule>r → ር;</tRule>
+			<tRule>s → ስ;</tRule>
+			<tRule>t → ት;</tRule>
+			<tRule>v → ው;</tRule>
+			<tRule>x → | cs;</tRule>
+			<tRule>y → | i;</tRule>
+			<tRule>z → ዝ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>[:nonspacing mark:] → ;</tRule>
+			<tRule>::NFC(NFD);</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

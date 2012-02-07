@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Han" target="Spacedhan" direction="both" visibility="internal">
+            <comment># Only intended for internal use</comment>
+            <comment># Make sure Han are normalized, including characters that contain them. </comment>
+            <comment># The first set in the filter is computed with http://unicode.org/cldr/utility/list-unicodeset.jsp?a=[:tonfkd:/XXX/:]-[:ideographic:]-[:sc=han:]</comment>
+            <comment># Where XXX is the resolved [:ideographic:][:sc=han:]. It needs updating with each Unicode release!</comment>
+			<tRule>:: [[㆒-㆟㈠-㉇㊀-㊰㋀-㋋㍘-㍰㍻-㍿㏠-㏾ 🈐-🈒🈔-🈺🉀-🉈🉐🉑][:ideographic:][:sc=han:]] nfkc; </tRule>			
+            <tRule>:: fullwidth-halfwidth;</tRule>
+			<tRule>｡ → '.';</tRule>
+			<tRule>$terminalPunct = [\.\,\:\;\?\!．，：？！｡、；[:Pe:][:Pf:]];</tRule>
+			<tRule>$initialPunct = [:Ps:][:Pi:];</tRule>
+			<comment># add space between any Han or terminal punctuation and letters, and</comment>
+			<comment># between letters and Han or initial punct</comment>
+			<tRule>[[:Ideographic:] $terminalPunct] {} [:Letter:] → ' ' ;</tRule>
+			<tRule>[:Letter:] [:Mark:]* {} [[:Ideographic:] $initialPunct] → ' ' ;</tRule>
+			<comment># remove spacing between ideographs and other letters</comment>
+			<tRule>← [:Ideographic:] { ' ' } [:Letter:] ;</tRule>
+			<tRule>← [:Letter:] [:Mark:]* { ' ' } [:Ideographic:] ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="no" /> 
+		<territory type="NO" /> 
+		<variant type="NY" /> 
+	</identity>
+	<dates>
+		<localizedPatternChars>GyMdkHmsSEDFwWahKzZ</localizedPatternChars>
+		<calendars>
+			<calendar type="gregorian">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">su</day>
+							<day type="mon">må</day>
+							<day type="tue">ty</day>
+							<day type="wed">on</day>
+							<day type="thu">to</day>
+							<day type="fri">fr</day>
+							<day type="sat">lau</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sundag</day>
+							<day type="mon">måndag</day>
+							<day type="tue">tysdag</day>
+							<day type="wed">onsdag</day>
+							<day type="thu">torsdag</day>
+							<day type="fri">fredag</day>
+							<day type="sat">laurdag</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
+		</calendars>
+	</dates>
+</ldml>

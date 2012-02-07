@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="sk" target="sk_FONIPA" direction="forward">
+			<comment>
+			# Copyright (C) 2010 Google, Inc.  All Rights Reserved.
+			# Author: sascha@google.com (Sascha Brawer)
+			#
+			# Slovak orthography to phonemic transcription.
+			# http://en.wikipedia.org/wiki/Slovak_language
+			# http://en.wikipedia.org/wiki/Slovak_alphabet
+			#
+			# Letters that trigger softening; also triggered at end of word.
+			# Softening also occurs before "ch", but that starts in "c" so it
+			# is included in the set below.
+			</comment>
+			<tRule>$soften = [ptťkcčsš$] ;</tRule>
+			<comment>
+			#
+			# Transform input to normalized form NFC, and to lowercase.
+			</comment>
+			<tRule>:: NFC () ;</tRule>
+			<tRule>:: Lower () ;</tRule>
+			<comment>
+			#
+			# digraphs
+			</comment>
+			<tRule>ch → x ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>dž } $soften → t \u0361 ʃ ;  # affricate indicated by ligature tie</tRule>
+			<tRule>dz } $soften → t \u0361 s ;</tRule>
+			<tRule>dž → d \u0361 ʒ ;</tRule>
+			<tRule>dz → d \u0361 z ;</tRule>
+			<comment>
+			#
+			</comment>
+			<tRule>a → a ;</tRule>
+			<tRule>á → aː ;</tRule>
+			<tRule>ä → ɛ ;</tRule>
+			<tRule>b } $soften → p ;</tRule>
+			<tRule>b → b ;</tRule>
+			<tRule>c → t \u0361 s;  # affricate indicated by ligature tie</tRule>
+			<tRule>č → t \u0361 ʃ;  # affricate indicated by ligature tie</tRule>
+			<tRule>d } [ie] → ɟ ;</tRule>
+			<tRule>d } $soften → t ;</tRule>
+			<tRule>d → d ;</tRule>
+			<tRule>ď } $soften → c ;</tRule>
+			<tRule>ď → ɟ ;</tRule>
+			<tRule>e → e ;</tRule>
+			<tRule>é → eː ;</tRule>
+			<tRule>f → f ;</tRule>
+			<tRule>g } $soften → k ;</tRule>
+			<tRule>g → ɡ ;</tRule>
+			<tRule>h } $soften → x ;</tRule>
+			<tRule>h → ɦ ;</tRule>
+			<tRule>i → ɪ ;</tRule>
+			<tRule>í → iː ;</tRule>
+			<tRule>j → j ;</tRule>
+			<tRule>k → k ;</tRule>
+			<tRule>l → l ;</tRule>
+			<tRule>ĺ → l̩ː ;</tRule>
+			<tRule>ľ → ʎ ;</tRule>
+			<tRule>m } [fv] → ɱ ;</tRule>
+			<tRule>m → m ;</tRule>
+			<tRule>n } [kg] → ŋ ;</tRule>
+			<tRule>n } [ie] → ɲ ;</tRule>
+			<tRule>n → n ;</tRule>
+			<tRule>ň → ɲ ;</tRule>
+			<tRule>o → ɔ ;</tRule>
+			<tRule>ó → ɔː ;</tRule>
+			<tRule>ô → u̯o ;</tRule>
+			<tRule>p → p ;</tRule>
+			<tRule>q → kv ;</tRule>
+			<tRule>r → r ;</tRule>
+			<tRule>ŕ → r̩ː ;</tRule>
+			<tRule>s → s ;</tRule>
+			<tRule>š → ʃ ;</tRule>
+			<tRule>t } [ie] → c ;</tRule>
+			<tRule>t → t ;</tRule>
+			<tRule>ť → c ;</tRule>
+			<tRule>u → u ;</tRule>
+			<tRule>ú → uː ;</tRule>
+			<tRule>vz } $soften → fs ;</tRule>
+			<tRule>v } $soften → f ;</tRule>
+			<tRule>[ $] { v } ' ' $soften → f ;  # v as preposition</tRule>
+			<tRule>v → v ;</tRule>
+			<tRule>w → v ;</tRule>
+			<tRule>x → ks ;</tRule>
+			<tRule>y → ɪ ;</tRule>
+			<tRule>ý → iː ;</tRule>
+			<tRule>z } $soften → s ;</tRule>
+			<tRule>z → z ;</tRule>
+			<tRule>ž } $soften → ʃ ;</tRule>
+			<tRule>ž → ʒ ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

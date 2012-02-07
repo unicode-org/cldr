@@ -1,0 +1,186 @@
+# Template file for und-IPA
+# replace xxx in each case by the closest character(s) in the target language
+# if any of the following are not significant, they should just be deleted, and the arrow
+# changed to one direction, eg.
+#	←	X ; deleted
+
+	←	 ̀   ; # 0300 low tone
+	←	́ 	 ; # 0301 high tone
+	←	̃ 	 ; # 0303 nasalized
+	←	̄ 	 ; # 0304 mid tone
+	←	̆ 	 ; # 0306 extra-short
+	←	̈ 	 ; # 0308 centralized
+	←	̊ 	 ; # 030A voiceless (use if character has descender)
+	←	̋ 	 ; # 030B extra high tone
+	←	̏ 	 ; # 030F extra low tone
+	←	̘ 	 ; # 0318 advanced tongue root
+	←	̙ 	 ; # 0319 retracted tongue root
+	←	̚ 	 ; # 031A not audibly released
+	←	̜ 	 ; # 031C less rounded
+	←	̝ 	 ; # 031D raised
+	←	̞ 	 ; # 031E lowered
+	←	̟ 	 ; # 031F advanced
+	←	̠ 	 ; # 0320 retracted
+	←	̤ 	 ; # 0324 breathy voiced
+	←	̥ 	 ; # 0325 voiceless
+	←	̩ 	 ; # 0329 syllabic
+	←	̪ 	 ; # 032A dental
+	←	̬ 	 ; # 032C voiced
+	←	̯ 	 ; # 032F non-syllabic
+	←	̰ 	 ; # 0330 creaky voiced
+	←	̴ 	 ; # 0334 velarized or pharyngealized
+	←	̹ 	 ; # 0339 more rounded
+	←	̺ 	 ; # 033A apical
+	←	̻ 	 ; # 033B laminal
+	←	̼ 	 ; # 033C linguolabial
+	←	̽ 	 ; # 033D mid-centralized
+	←	ˈ 	 ; # 02C8 (primary) stress mark
+	←	ˌ 	 ; # 02CC secondary stress
+r	←	˞ 	 ; # 02DE rhotacized
+	←	↑ 	 ; # 2191 upstep
+	←	↓ 	 ; # 2193 downstep
+	←	↗ 	 ; # 2197 global rise
+	←	↘ 	 ; # 2198 global fall
+	←	ː 	 ; # 02D0 length mark
+	←	ˑ 	 ; # 02D1 half-length
+	
+ou ←	[aæɑ][ʊu];
+oy	←	o[iɪj] ;
+ā	←	[eɛ][iɪj] ;
+ē 	←	i ;
+ī	←	[aæɑ][iɪj] ;
+ō	←	[oɔ][ʊu] ;
+ō	←	o;
+ū	←	ju ;
+j ← dʒ;
+
+$short_a = ă ; # ă
+$short_e = ĕ ; # ĕ
+$short_i = ĭ; # ĭ
+$short_o = á; #ŏ
+$short_oo = ŏŏ; #ŏ
+$short_u = ŭ; #ŭ
+
+$short_a	←	a 	;
+$short_a	←	æ 	 ; # 00E6 raised open front unrounded
+$short_u	←	ɐ 	 ; # 0250 open-mid schwa
+$short_o	←	ɑ 	 ; # 0251 open back unrounded
+$short_o	←	ɒ 	 ; # 0252 open back rounded
+# b	←	b 	;
+b	←	ʙ 	 ; # 0299 vd bilabial trill
+b	←	ɓ 	 ; # 0253 vd bilabial implosive
+ch	←	ç 	 ; # 00E7 vl palatal fricative
+ch	←	ɕ 	 ; # 0255 vl alveolopalatal fricative
+ch	←	c 	;
+
+# d	←	d 	;
+ţh	←	ð 	 ; # 00F0 vd dental fricative
+j	←	ʤ 	 ; # 02A4 vd postalveolar affricate
+d	←	ɖ 	 ; # 0256 vd retroflex plosive
+d	←	ɗ 	 ; # 0257 vd alveolar implosive
+
+ā	←	e 	;
+$short_u	←	ə 	 ; # 0259 schwa
+$short_e 	←	ɛ 	 ; # 025B open-mid front unrounded
+$short_u	←	ɘ 	 ; # 0258 close-mid schwa
+$short_u r	←	ɚ 	 ; # 025A rhotacized schwa
+$short_e 	←	ɜ 	 ; # 025C open-mid central
+$short_u r		←	ɝ 	 ; # 025D rhotacized open-mid central
+$short_e	←	ɞ 	 ; # 025E open-mid central rounded
+$short_a	←	ɤ 	 ; # 0264 close-mid back unrounded
+# f	←	f 	;
+g	←	g 	;
+g	←	ɡ 	 ; # 0261 vd velar plosive
+g	←	ɢ 	 ; # 0262 vd uvular plosive
+g	←	ɠ 	 ; # 0260 vd velar implosive
+g	←	ʛ 	 ; # 029B vd uvular implosive
+gh	←	ɣ 	 ; # 0263 vd velar fricative
+	←	ˠ 	 ; # 02E0 velarized
+# h	←	h 	;
+h	←	ħ 	 ; # 0127 vl pharyngeal fricative
+h	←	ʰ 	 ; # 02B0 aspirated
+h	←	ʜ 	 ; # 029C vl epiglottal fricative
+h	←	ɦ 	 ; # 0266 vd glottal fricative
+h	←	ʱ 	 ; # 02B1 breathy-voice-aspirated
+h	←	ɧ 	 ; # 0267 vl multiple-place fricative
+
+$short_i	←	ɪ 	 ; # 026A lax close front unrounded
+$short_i	←	ɨ 	 ; # 0268 close central unrounded
+y	←	j 	;
+y	←	ʲ 	 ; # 02B2 palatalized
+j	←	ʝ 	 ; # 029D vd palatal fricative
+j	←	ɟ 	 ; # 025F vd palatal plosive
+j	←	ʄ 	 ; # 0284 vd palatal implosive
+# k	←	k 	;
+# l	←	l 	;
+l	←	ʟ 	 ; # 029F vd velar lateral
+l	←	ɫ 	 ; # 026B velarized vd alveolar lateral
+r	←	ɬ 	 ; # 026C vl alveolar lateral fricative
+l	←	ɭ 	 ; # 026D vd retroflex lateral
+r	←	ɮ 	 ; # 026E vd alveolar lateral fricative
+l	←	ʎ 	 ; # 028E vd palatal lateral
+# m	←	m 	;
+m	←	ɱ 	 ; # 0271 vd labiodental nasal
+# n	←	n 	;
+n	←	ɴ 	 ; # 0274 vd uvular nasal
+ny	←	ɲ 	 ; # 0272 vd palatal nasal
+n	←	ɳ 	 ; # 0273 vd retroflex nasal
+ng	←	ŋ 	 ; # 014B vd velar nasal
+	
+$short_oo	←	ø 	 ; # 00F8 front close-mid rounded
+$short_oo	←	œ 	 ; # 0153 front open-mid rounded
+$short_oo	←	ɶ 	 ; # 0276 front open rounded
+$short_a	←	ɔ 	 ; # 0254 open-mid back rounded
+$short_a	←	ɵ 	 ; # 0275 rounded schwa
+# p	←	p 	;
+f	←	ɸ 	 ; # 0278 vl bilabial fricative
+k	←	q 	;
+# r	←	r 	
+r	←	ʀ 	 ; # 0280 vd uvular trill
+r	←	ɹ 	 ; # 0279 vd (post)alveolar approximant
+r	←	ʴ 	 ; # 02B4 rhotacized
+r	←	ɺ 	 ; # 027A vd alveolar lateral flap
+r	←	ɻ 	 ; # 027B vd retroflex approximant
+r	←	ɽ 	 ; # 027D vd retroflex flap
+r	←	ɾ 	 ; # 027E vd alveolar tap
+r	←	ʁ 	 ; # 0281 vd uvular fricative
+# s	←	s 	;
+sh	←	ʂ 	 ; # 0282 vl retroflex fricative
+sh	←	ʃ 	 ; # 0283 vl postalveolar fricative
+ch ←	tʃ ;
+# t	←	t 	
+ch	←	ʧ 	 ; # 02A7 vl postalveolar affricate
+t	←	ʈ 	 ; # 0288 vl retroflex plosive
+ōō	←	u 	;
+ōō	←	ʉ 	 ; # 0289 close central rounded
+w	←	ɥ 	 ; # 0265 labial-palatal approximant
+ōō	←	ɯ 	 ; # 026F close back unrounded
+y	←	ɰ 	 ; # 0270 velar approximant
+$short_oo	←	ʊ 	 ; # 028A lax close back rounded
+# v	←	v 	;
+$short_u 	←	ʋ 	 ; # 028B vd labiodental approximant
+$short_u 	←	ʌ 	 ; # 028C open-mid back unrounded
+# w	←	w 	;
+w	←	ʷ 	 ; # 02B7 labialized
+w	←	ʍ 	 ; # 028D vl labial-velar fricative
+kh	←	x 	;
+$short_oo	←	y 	;
+$short_oo	←	ʏ 	 ; # 028F lax close front rounded
+# z	←	z 	;
+z	←	ʐ 	 ; # 0290 vd retroflex fricative
+z	←	ʑ 	 ; # 0291 vd alveolopalatal fricative
+ž	←	ʒ 	 ; # 0292 vd postalveolar fricative
+''	←	ʔ 	 ; # 0294 glottal plosive
+''	←	ʼ 	 ; # 02BC ejective
+''	←	ʕ 	 ; # 0295 vd pharyngeal fricative
+''	←	ˤ 	 ; # 02E4 pharyngealized
+''	←	ʡ 	 ; # 02A1 vd epiglottal plosive
+''	←	ʢ 	 ; # 02A2 vd epiglottal fricative
+''	←	ǀ 	 ; # 01C0 dental click
+''	←	ǁ 	 ; # 01C1 alveolar lateral click
+''	←	ǂ 	 ; # 01C2 alveolar click
+''	←	ǃ 	 ; # 01C3 retroflex click
+''	←	ʘ 	 ; # 0298 bilabial click
+v	←	β 	 ; # 03B2 vd bilabial fricative
+th	←	θ 	 ; # 03B8 vl dental fricative
+kh	←	χ 	 ; # 03C7 vl uvular fricative 

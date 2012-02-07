@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Thai" target="ThaiSemi" direction="both" visibility="internal">
+			<comment># The rules that convert space into semicolon are in this file;</comment>
+			<comment># since they have to come BEFORE the break iterator.</comment>
+			<tRule>$thai = [[:thai:] ก-ฺเ-๛] ;</tRule>
+			<tRule>$thai { ' ' } $thai → '; ' ;</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

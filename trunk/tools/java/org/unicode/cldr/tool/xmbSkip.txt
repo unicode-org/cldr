@@ -1,0 +1,39 @@
+# Items that we will skip (at least for now).
+
+# Remember to quote any [ character!
+
+# Needs special review, not for average translators
+
+^//ldml/dates/calendars/calendar\[@type="(?!gregorian) ; SKIP
+
+^//ldml/dates/timeZoneNames/metazone\[@type="([^"]*)"]/commonlyUsed ; SKIP
+
+^//ldml/characters/exemplarCharacters\[@type="currency"] ;   SKIP
+
+^//ldml/numbers/currencyFormats/currencySpacing ; SKIP
+^//ldml/numbers/defaultNumberingSystem ; SKIP
+^//ldml/references ; SKIP
+
+^//ldml/localeDisplayNames/variants/variant\[@type="([^"]*)"]   ;  SKIP
+
+# Should be deprecated?
+
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/appendItems/appendItem\[@request="([^"]*)"] ; SKIP
+# should use the fields instead?
+
+^//ldml/layout/inList ; SKIP
+^//ldml/layout/inText ; SKIP
+
+^//ldml/localeDisplayNames/codePatterns/codePattern ; SKIP
+
+^//ldml/numbers/symbols/list    ;   SKIP
+^//ldml/numbers/symbols/nativeZeroDigit ;   SKIP
+^//ldml/numbers/symbols/patternDigit    ;   SKIP
+
+^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/(long|short|commonlyUsed) ; SKIP
+
+# Skip for now, since we can't handle well:
+^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/displayName\[@count="([^"]*)"] ; SKIP
+^//ldml/numbers/currencyFormats/unitPattern\[@count="([^"]*)"]  ;   SKIP
+
+/calendar.*/dayPeriod.*\@alt   ;   SKIP

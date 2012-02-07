@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="ru" /> 
+		<territory type="RU" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">янв.</month>
+							<month type="2">февр</month>
+							<month type="3">март</month>
+							<month type="4">апр.</month>
+							<month type="5">мая</month>
+							<month type="6">июня</month>
+							<month type="7">июля</month>
+							<month type="8">авг.</month>
+							<month type="9">сен.</month>
+							<month type="10">окт.</month>
+							<month type="11">ноя.</month>
+							<month type="12">дек.</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">января</month>
+							<month type="2">февраля</month>
+							<month type="3">марта</month>
+							<month type="4">апреля</month>
+							<month type="5">мая</month>
+							<month type="6">июня</month>
+							<month type="7">июля</month>
+							<month type="8">августа</month>
+							<month type="9">сентября</month>
+							<month type="10">октября</month>
+							<month type="11">ноября</month>
+							<month type="12">декабря</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">вос.</day>
+							<day type="mon">пон.</day>
+							<day type="tue">вто.</day>
+							<day type="wed">сре.</day>
+							<day type="thu">чет.</day>
+							<day type="fri">пят.</day>
+							<day type="sat">суб.</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">воскресенье</day>
+							<day type="mon">понедельник</day>
+							<day type="tue">вторник</day>
+							<day type="wed">среда</day>
+							<day type="thu">четверг</day>
+							<day type="fri">пятница</day>
+							<day type="sat">суббота</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEEE dd MMMM yyyy г. </pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEEE dd MMMM yyyy г. HH.mm.ss</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd.MMMM.yy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>+#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

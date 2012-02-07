@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="is" /> 
+		<territory type="IS" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Jan</month>
+							<month type="2">Feb</month>
+							<month type="3">Mar</month>
+							<month type="4">Apr</month>
+							<month type="5">Maí</month>
+							<month type="6">Jún</month>
+							<month type="7">Júl</month>
+							<month type="8">Ágú</month>
+							<month type="9">Sep</month>
+							<month type="10">Okt</month>
+							<month type="11">Nóv</month>
+							<month type="12">Des</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Janúar</month>
+							<month type="2">Febrúar</month>
+							<month type="3">Mars</month>
+							<month type="4">Apríl</month>
+							<month type="5">Maí</month>
+							<month type="6">Júní</month>
+							<month type="7">Júlí</month>
+							<month type="8">Ágúst</month>
+							<month type="9">September</month>
+							<month type="10">Október</month>
+							<month type="11">Nóvember</month>
+							<month type="12">Desember</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Sun</day>
+							<day type="mon">Mán</day>
+							<day type="tue">Þri</day>
+							<day type="wed">Mið</day>
+							<day type="thu">Fim</day>
+							<day type="fri">Fös</day>
+							<day type="sat">Lau</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Sunnudagur</day>
+							<day type="mon">Mánudagur</day>
+							<day type="tue">Þriðjudagur</day>
+							<day type="wed">Miðvikudagur</day>
+							<day type="thu">Fimmtudagur</day>
+							<day type="fri">Föstudagur</day>
+							<day type="sat">Laugardagur</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<am>fh</am>
+				<pm>eh</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEE dd.MMM yyyy,  z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEE dd.MMM yyyy, hh:mm:ss z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>EEE dd.MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>EEE dd.MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0.# ¤;-#,##0.# ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

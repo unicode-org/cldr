@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="sa" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="sa">संस्कृत</language>
+		</languages>
+		<territories>
+			<territory type="IN">भारतम्</territory>
+		</territories>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">जनवरी</month>
+							<month type="2">फरवरी</month>
+							<month type="3">मार्च</month>
+							<month type="4">अप्रैल</month>
+							<month type="5">मई</month>
+							<month type="6">जून</month>
+							<month type="7">जुलाई</month>
+							<month type="8">अगस्त</month>
+							<month type="9">सितम्बर</month>
+							<month type="10">अक्तूबर</month>
+							<month type="11">नवम्बर</month>
+							<month type="12">दिसम्बर</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">जनवरी</month>
+							<month type="2">फरवरी</month>
+							<month type="3">मार्च</month>
+							<month type="4">अप्रैल</month>
+							<month type="5">मई</month>
+							<month type="6">जून</month>
+							<month type="7">जुलाई</month>
+							<month type="8">अगस्त</month>
+							<month type="9">सितम्बर</month>
+							<month type="10">अक्तूबर</month>
+							<month type="11">नवम्बर</month>
+							<month type="12">दिसम्बर</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">सोमवासरः</day>
+							<day type="mon">मङ्गलवासरः</day>
+							<day type="tue">बुधवासरः</day>
+							<day type="wed">गुरुवासरः</day>
+							<day type="thu">शुक्रवासरः</day>
+							<day type="fri">शनिवासरः</day>
+							<day type="sat">रविवासरः</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">सोमवासरः</day>
+							<day type="mon">मङ्गलवासरः</day>
+							<day type="tue">बुधवासरः</day>
+							<day type="wed">गुरुवासरः</day>
+							<day type="thu">शुक्रवासरः</day>
+							<day type="fri">शनिवासरः</day>
+							<day type="sat">रविवासरः</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<am>पूर्वाह्न</am>
+				<pm>अपराह्न</pm>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>०</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤ #,##0.00;-¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

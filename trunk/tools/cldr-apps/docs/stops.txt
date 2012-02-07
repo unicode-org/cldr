@@ -1,0 +1,73 @@
+OPERATION of the Survey Tool
+Steven R. Loomis srl@icu-project.org.    Updated 2008 Jan 25
+Copyright 2008 IBM and others. All Rights Reserved
+------------------------------------------------------------
+
+
+** -1. ABOUT THIS DOCUMENT:
+  This document is directed towards the Operation of the Survey Tool.
+Please see 'readme.txt' in this directory for the building and
+installation of the survey tool.
+
+  This document has not been tested on laboratory humans or otherwise.
+
+** 0. Prerequisite:   readme.txt in this dir.  You should have:
+
+   I.   Survey Tool installed in a web container
+  II.   Latest CLDR data available to ST
+ III.   CLDR_VAP password set up (user 'admin@')
+  IV.   CLDR_SMTP / CLDR_FROM set for email access
+
+** 1. Overview of administrative interface
+
+I. Login access
+
+  You can log in as the Administrator account with the email address
+'admin@' and the password specified in the CLDR_VAP parameter in the
+cldr.properties file.
+  When logged in, you will see a red bar at the top of the page that says:
+    'Be careful, you are an administrator!'
+  This is here to warn you that some normal user safeguards are not in place,
+and also that you have access to advanced functions.   Also, it reminds you that
+your votes have 'override' capability.
+
+II. Administrative override
+
+  As the administrative account has override capability, it is possible to break
+ties.  As well, another user named "Admin Override" was added, with level zero 
+(admin). In theory it has full administrator access as well. However, we have 
+given its access out to a select few TC members, with the express instruction
+that they were not to play with any of the other buttons, but just to cast the
+overriding votes where the TC had decided to do so. 
+
+III. SQL: "more than enough rope"
+
+  The SQL interface provides access to more or less anything that the admin
+interface does not cover.  It is both powerful and dangerous and will be covered
+separately.  SQL access does not actually require a login, but uses a special URL which includes the admin password. So, SQL activity can be done without logging in if the URL is kept.
+
+IV. User panel
+
+  The "Manage users for.." link works for the Admin user as it does for others,
+however all users are visible, not just those of one organization.  There are a few extra options, as well.
+
+V. Administrative panel
+
+   The "Admin" link in the top right corner brings up the "SurveyTool Administration" panel. It has two levels, the "main" level (fairly safe), and the "EXPERT" level (dangerous, possibly experimental). The EXPERT-ADMIN-use-only link brings up the additional items.
+
+   As with SQL, Admin does not actually require a login, but uses a special URL which includes the admin password. So, Admin activity can be done without logging in if the URL is kept.
+
+** 2. Configuration
+
+I. Officiality
+
+   By default, the ST runs in "unofficial mode" and declares itself to be so with a banner.  A configuration switch (????) turns this off, to declare itself as official.
+
+II. Phases
+
+   The "Phases" (vetting, submission, etc) are currently controlled by code changes in SurveyMain.java ... 
+
+III. Closing for maintenance 
+
+   Various messages can be shown to users either by configuration parameters, or  at run-time.
+

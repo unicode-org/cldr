@@ -1,0 +1,259 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CLDR-UTC Liaison Report</title>
+</head>
+
+<body>
+
+<p align="right"><b>L2/04-422</b></p>
+<table border="0" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" id="AutoNumber1">
+  <tr>
+    <td><b>Re:</b></td>
+    <td><b>Liaison Report</b></td>
+  </tr>
+  <tr>
+    <td><b>To:</b></td>
+    <td><b>Unicode Technical Committee</b></td>
+  </tr>
+  <tr>
+    <td><b>From:</b></td>
+    <td><b>CLDR Technical Committee</b></td>
+  </tr>
+  <tr>
+    <td><b>Date:</b></td>
+    <td><b>2004-11-16</b></td>
+  </tr>
+</table>
+<p><b>CLDR 1.2. </b>The main news is the release of CLDR 1.2. This new release contains data for 232 
+locales, covering 72 languages and 108 territories. There are also 63 draft locales in the process 
+of being developed, covering an additional 27 languages and 28 territories. (At the end of this 
+document is a list of languages and territories covered.) In this release, the major additions to 
+CLDR are: </p>
+<ul>
+  <li><font color="#330000"><b>Data</b>: Many names for languages, territories, and scripts have 
+  been added, as well as for time zones, calendars, and other named items such as collation</font>; 
+  the data has been compacted by removal of inherited or aliased data; plus other fixes and 
+  additions. </li>
+  <li><b>Structure</b>: The LDML specification has been enhanced substantially. It now has 
+  self-contained descriptions of date / number / choice format patterns, inheritance and validity, 
+  time zone fallbacks, and provides lists of all valid attribute values. The XML format adds 
+  structure to assist in vetting, to allow for multiple sets of exemplar characters (indicating 
+  characters in use in particular locales), to represent relative dates and times, to provide better 
+  support for time zone names, and to strengthen the alias mechanism. </li>
+  <li><b>Implementation</b>: The new collation tests allow implementations to verify correct use of 
+  locale data. For comparison of data, by-type charts and vetting charts were added. The CLDR source 
+  now does not require ICU for generation. </li>
+</ul>
+<p>This is a stable release and may be used as reference material or cited as a normative reference 
+by other specifications.</p>
+<p>To see the list of all bugs fixes and additions for this release, go to
+<a href="http://www.jtcsv.com/cgibin/locale-bugs/closed?expression=target.*1.2">Release Changes</a>. 
+This is a view into the feature/bug database that presents only those closed in this release.</p>
+<p><b>Process.</b> The process is somewhat different than the UTC, so it is worth reviewing that. 
+Instead of an action item list we manage the CLDR process using a bug database to report defects, 
+request features, and manage changes. A source-code repository system contains all the data, so 
+snapshots are available at any time. The meetings are also conducted differently: we have a weekly 
+teleconference to make decisions; other business is done via email and/or bug reports.</p>
+<p><b>CLDR 1.3</b>. This is targeted at April 1, 2005. All new data or defect reports for CLDR 1.3 
+must be submitted no later than January 15, 2005 (for schedule, see
+<a href="http://www.unicode.org/cldr/">http://www.unicode.org/cldr/</a>).&nbsp; In the CLDR 1.3 
+release, we are having an earlier freeze date, to allow us to manage the vetting process. Our major 
+deliverables have yet to be fully determined, but they are likely to include:</p>
+<ul>
+  <li><b>Survey Tool. </b>A web-based tool that presents an easier-to-understand interface for 
+  translators, allowing them to see what is in the repository (and its status), and request changes. 
+  For pattern-based information, examples will show the effect of different patterns. The survey 
+  tool will pre-format as XML, reducing the work involved in incorporating changes. Work is already 
+  underway on this.</li>
+  <li><b>POSIX conversion tool. </b>A tool that generates POSIX data from CLDR. Work is already 
+  underway on this as well.</li>
+  <li><b>Tests. </b>Add more 'native' consistency testing, using a library of Java tools.</li>
+  <li><b>Site Migration. </b>Move CVS and the bug database to the Unicode site.</li>
+  <li><b>Additional Mechanisms. </b>Provide mechanisms for: more lenient date/time/number parsing; 
+  different combinations of date fields; names for dialects; translated names for measurement 
+  systems.</li>
+  <li><b>Data Additions/Corrections. </b>And of course, additions of data for various locales. Some 
+  of these changes will be coordinated with UTC actions, such as CGJ in German sorting and changes 
+  in UCA. From particular countries, such as Finland (see letter below), we are expecting sizable 
+  additions in the near future.</li>
+</ul>
+<p>Bugs currently targeted at 1.3 can be seen at
+<a href="http://www.jtcsv.com/cgibin/locale-bugs?expression=target.*1.3">CLDR 1.3 Bugs</a>. Note: 
+being targeted at a release does not mean that the requested change will be incorporated as stated 
+-- the CLDR committee will review and assess any proposed change, and may change the target.</p>
+<hr>
+<p><b><i>Letter from Erkki I. Kolehmainen, Liaison to Unicode from RILF</i></b></p>
+<p><b><i>(This letter was addressed to a different topic, but contains useful information for this 
+liaison report.)</i></b></p>
+<p>...The solution that the emergence of CLDR has brought up in Finland might work well for other 
+smaller language and cultural environments, too. (In fact, I already made a comment to that effect 
+at the San Jose IUC.)</p>
+<p>After the Unicode announcement of CLDR, the Ministry of Education concluded in June 2004 that 
+providing data for the CLDR is a logical, pragmatic expansion of the language development activities 
+that are the responsibility of the Research Institute for the Languages of Finland (&quot;RILF&quot; aka &quot;Kotus&quot;). 
+The language environments to be covered in Finland are Finnish (language lead country: Finland), 
+Swedish (lead: Sweden), Northern Sámi (lead: Norway), Inari Sámi (lead: Finland), Skolt Sámi (lead: 
+Finland), and Romani (lead: Council of Europe?). For us, the means to document the national 
+preferences in the open is of at least the same importance as the goal of being able to use the 
+mechanism directly for implementations. </p>
+<p>In order to set up an orderly interface for the submissions, RILF became a Liaison member of 
+Unicode in July. In order to facilitate an open and transparent process, a fully open (and free of 
+charge) national group on language and cultural requirements on ICT was set up in the end of 
+September. This group represents currently over 30 different parties, including both commercial and 
+non-commercial organizations, and individuals. The steering group that was set up in early November 
+has kicked-off a number of task oriented working groups. The first results will be submitted for 
+public comments in mid-December. The comments are accepted from both the established group (by 
+invitation) and the general public via web pages to be set up at a new site, kotoistus.fi (a new 
+Finnish term for localization). </p>
+<p>This consensus seeking process is, admittedly, rather slow, but we already know that some topics 
+are likely to cause considerable debate. We will document the rationale for resolving any 
+controversial issues as well as deviations from any national standard. The results, where 
+applicable, are also expected to lead to new or revised national standards....</p>
+<hr>
+<p><i><b>CLDR 1.2 Languages and Territories</b></i></p>
+<p>The following shows the currently available languages and territories. The amount of data present 
+varies between different locales, especially with translated names for languages, territories, 
+currencies, and timezones.</p>
+<p><b>Languages:</b> <span title="af, Afrikaans">Afrikaans</span>, <span title="id, Indonesian">
+Bahasa Indonesia</span>, <span title="ms, Malay">Bahasa Melayu</span>, <span title="ca, Catalan">
+Català</span>, <span title="cs, Czech">&#268;eština</span>, <span title="cy, Welsh">Cymraeg</span>,
+<span title="da, Danish">Dansk</span>, <span title="de, German">Deutsch</span>,
+<span title="et, Estonian">Eesti</span>, <span title="en, English">English</span>,
+<span title="es, Spanish">Español</span>, <span title="eo, Esperanto">Esperanto</span>,
+<span title="eu, Basque">Euskara</span>, <span title="fo, Faroese">Føroyskt</span>,
+<span title="fr, French">Français</span>, <span title="ga, Irish">Gaeilge</span>,
+<span title="gv, Manx">Gaelg</span>, <span title="gl, Gallegan">Galego</span>,
+<span title="hr, Croatian">Hrvatski</span>, <span title="is, Icelandic">Íslenska</span>,
+<span title="it, Italian">Italiano</span>, <span title="kl, Kalaallisut">Kalaallisut</span>,
+<span title="kw, Cornish">Kernewek</span>, <span title="sw, Swahili">Kiswahili</span>,
+<span title="lv, Latvian">Latviešu</span>, <span title="lt, Lithuanian">Lietuvi&#371;</span>,
+<span title="hu, Hungarian">Magyar</span>, <span title="mt, Maltese">Malti</span>,
+<span title="nl, Dutch">Nederlands</span>, <span title="nb, Norwegian Bokmål">Norsk Bokmål</span>,
+<span title="nn, Norwegian Nynorsk">Norsk Nynorsk</span>, <span title="om, Oromo">Oromoo</span>,
+<span title="pl, Polish">Polski</span>, <span title="pt, Portuguese">Português</span>,
+<span title="ro, Romanian">Român&#259;</span>, <span title="sq, Albanian">Shqipe</span>,
+<span title="sl, Slovenian">Slovenš&#269;ina</span>, <span title="sk, Slovak">Slovenský</span>,
+<span title="so, Somali">Soomaali</span>, <span title="sr_Latn, Serbian">Srpski</span>,
+<span title="sh, Serbo-Croatian">Srpsko-Hrvatski</span>, <span title="fi, Finnish">Suomi</span>,
+<span title="sv, Swedish">Svenska</span>, <span title="vi, Vietnamese">Ti&#7871;ng Vi&#7879;t</span>,
+<span title="tr, Turkish">Türkçe</span>, <span title="el, Greek, Ell&#275;niká">&#917;&#955;&#955;&#951;&#957;&#953;&#954;&#940;</span>,
+<span title="be, Belarusian, Belaruskí">&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1082;&#1110;</span>, <span title="bg, Bulgarian, B&#698;lgarski">
+&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1089;&#1082;&#1080;</span>, <span title="kk, Kazakh, K&#716;azak&#716;">&#1178;&#1072;&#1079;&#1072;&#1179;</span>,
+<span title="mk, Macedonian, Makedonski">&#1052;&#1072;&#1082;&#1077;&#1076;&#1086;&#1085;&#1089;&#1082;&#1080;</span>, <span title="ru, Russian, Russkij">
+&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</span>, <span title="sr, Serbian, Srpski">&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;</span>,
+<span title="uk, Ukrainian, Ukraí&#776;ns&#697;ka">&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;</span>,
+<span title="hy_AM_REVISED, Armenian, Hayer&#275;n">&#1344;&#1377;&#1397;&#1381;&#1408;&#1383;&#1398;</span>, &#8206;<span title="he, Hebrew, &#699;bry&#355;">&#1506;&#1489;&#1512;&#1497;&#1514;</span>&#8206;, 
+&#8206;<span title="ar, Arabic, &#7840;l&#703;rby&#7831;">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</span>&#8206;, &#8206;<span title="ps, Pashto (Pushto), Ps&#716;tw">&#1662;&#1690;&#1578;&#1608;</span>&#8206;, 
+&#8206;<span title="fa, Persian, Dry&#816;">&#1583;&#1585;&#1740;</span>&#8206;, &#8206;<span title="fa, Persian, F&#7841;rsy&#816;">&#1601;&#1575;&#1585;&#1587;&#1740;</span>&#8206;,
+<span title="ti, Tigrinya, T&#299;g&#299;r&#299;nya">&#4725;&#4877;&#4653;&#4763;</span>, <span title="am, Amharic, &#703;&#275;mar&#299;nya">&#4768;&#4635;&#4653;&#4763;</span>,
+<span title="kok, Konkani, K&#333;&#7749;ka&#7751;&#299;">&#2325;&#2379;&#2306;&#2325;&#2339;&#2368;</span>, <span title="mr, Marathi, Mar&#257;&#7789;h&#299;">&#2350;&#2352;&#2366;&#2336;&#2368;</span>,
+<span title="hi, Hindi, Hind&#299;">&#2361;&#2367;&#2306;&#2342;&#2368;</span>, <span title="bn, Bengali, B&#257;nl&#257;">&#2476;&#2494;&#2434;&#2482;&#2494;</span>,
+<span title="pa, Punjabi, Paj&#257;b&#299;">&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;</span>, <span title="gu, Gujarati, Gujar&#257;t&#299;">&#2711;&#2753;&#2716;&#2736;&#2750;&#2724;&#2752;</span>,
+<span title="ta, Tamil, Tami&#7739;">&#2980;&#2990;&#3007;&#2996;&#3021;</span>, <span title="te, Telugu, Telugu">&#3108;&#3142;&#3122;&#3137;&#3095;&#3137;</span>,
+<span title="kn, Kannada, Kanna&#7693;a">&#3221;&#3240;&#3277;&#3240;&#3233;</span>, <span title="th, Thai, Th&#7883;y">&#3652;&#3607;&#3618;</span>,
+<span title="ko, Korean, Hangug" eo>&#54620;&#44397;&#50612;</span>, <span title="zh, Chinese, Zh&#333;ng Wén">&#20013;&#25991;</span>,
+<span title="ja, Japanese">&#26085;&#26412;&#35486;</span> </p>
+<p><b>Territories:</b> <span title="AR, Argentina">Argentina</span>, <span title="AU, Australia">
+Australia</span>, <span title="BE, Belgium">België</span>, <span title="BE, Belgium">Belgien</span>,
+<span title="BE, Belgium">Belgique</span>, <span title="BE, Belgium">Belgium</span>,
+<span title="BO, Bolivia">Bolivia</span>, <span title="BW, Botswana">Botswana</span>,
+<span title="BR, Brazil">Brasil</span>, <span title="BN, Brunei">Brunei</span>,
+<span title="CA, Canada">Canada</span>, <span title="CZ, Czech Republic">&#268;eská Republika</span>,
+<span title="CL, Chile">Chile</span>, <span title="CO, Colombia">Colombia</span>,
+<span title="CR, Costa Rica">Costa Rica</span>, <span title="DK, Denmark">Danmark</span>,
+<span title="DE, Germany">Deutschland</span>, <span title="EC, Ecuador">Ecuador</span>,
+<span title="EE, Estonia">Eesti</span>, <span title="IE, Ireland">Éire</span>,
+<span title="SV, El Salvador">El Salvador</span>, <span title="ES, Spain">Espainia</span>,
+<span title="ES, Spain">España</span>, <span title="ES, Spain">Espanya</span>,
+<span title="US, United States">Estados Unidos</span>, <span title="FI, Finland">Finland</span>,
+<span title="FO, Faroe Islands">Føroyar</span>, <span title="FR, France">France</span>,
+<span title="GT, Guatemala">Guatemala</span>, <span title="HN, Honduras">Honduras</span>,
+<span title="HK, Hong Kong S.A.R., China">Hong Kong S.A.R., China</span>, <span title="HR, Croatia">
+Hrvatska</span>, <span title="IN, India">India</span>, <span title="ID, Indonesia">Indonesia</span>,
+<span title="IE, Ireland">Ireland</span>, <span title="IS, Iceland">Ísland</span>,
+<span title="IT, Italy">Italia</span>, <span title="ET, Ethiopia">Itoobiya</span>,
+<span title="ET, Ethiopia">Itoophiyaa</span>, <span title="DJ, Djibouti">Jabuuti</span>,
+<span title="GL, Greenland">Kalaallit Nunaat</span>, <span title="KE, Kenya">Keeniyaa</span>,
+<span title="KE, Kenya">Kenya</span>, <span title="KE, Kenya">Kiiniya</span>,
+<span title="LV, Latvia">Latvija</span>, <span title="LT, Lithuania">Lietuva</span>,
+<span title="LU, Luxembourg">Luxembourg</span>, <span title="LU, Luxembourg">Luxemburg</span>,
+<span title="HU, Hungary">Magyarország</span>, <span title="MY, Malaysia">Malaysia</span>,
+<span title="MT, Malta">Malta</span>, <span title="MX, Mexico">México</span>,
+<span title="NL, Netherlands">Nederland</span>, <span title="NZ, New Zealand">New Zealand</span>,
+<span title="NI, Nicaragua">Nicaragua</span>, <span title="NO, Norway">Noreg</span>,
+<span title="NO, Norway">Norge</span>, <span title="AT, Austria">Österreich</span>,
+<span title="PA, Panama">Panamá</span>, <span title="PY, Paraguay">Paraguay</span>,
+<span title="PE, Peru">Perú</span>, <span title="PH, Philippines">Philippines</span>,
+<span title="PL, Poland">Polska</span>, <span title="PT, Portugal">Portugal</span>,
+<span title="GB, United Kingdom">Prydain Fawr</span>, <span title="PR, Puerto Rico">Puerto Rico</span>,
+<span title="DO, Dominican Republic">República Dominicana</span>, <span title="RO, Romania">România</span>,
+<span title="GB, United Kingdom">Rywvaneth Unys</span>, <span title="CH, Switzerland">Schweiz</span>,
+<span title="AL, Albania">Shqipëria</span>, <span title="SG, Singapore">Singapore</span>,
+<span title="SI, Slovenia">Slovenija</span>, <span title="SK, Slovakia">Slovenská Republika</span>,
+<span title="SO, Somalia">Soomaaliya</span>, <span title="ZA, South Africa">South Africa</span>,
+<span title="YU, Serbia and Montenegro">Srbija I Crna Gora</span>, <span title="ZA, South Africa">
+Suid-Afrika</span>, <span title="CH, Switzerland">Suisse</span>, <span title="FI, Finland">Suomi</span>,
+<span title="SE, Sweden">Sverige</span>, <span title="CH, Switzerland">Svizzera</span>,
+<span title="TZ, Tanzania">Tanzania</span>, <span title="TR, Turkey">Türkiye</span>,
+<span title="VI, U.S. Virgin Islands">U.S. Virgin Islands</span>, <span title="GB, United Kingdom">
+United Kingdom</span>, <span title="US, United States">United States</span>,
+<span title="UY, Uruguay">Uruguay</span>, <span title="VE, Venezuela">Venezuela</span>,
+<span title="VN, Vietnam">Vi&#7879;t Nam</span>, <span title="ZW, Zimbabwe">Zimbabwe</span>,
+<span title="GR, Greece, Elláda">&#917;&#955;&#955;&#940;&#948;&#945;</span>, <span title="BY, Belarus, Belarus&#697;">&#1041;&#1077;&#1083;&#1072;&#1088;&#1091;&#1089;&#1100;</span>,
+<span title="BG, Bulgaria, B&#698;lgariâ">&#1041;&#1098;&#1083;&#1075;&#1072;&#1088;&#1080;&#1103;</span>, <span title="KZ, Kazakhstan, K&#716;azak&#716;stan">
+&#1178;&#1072;&#1079;&#1072;&#1179;&#1089;&#1090;&#1072;&#1085;</span>, <span title="MK, Macedonia, Makedoni&#496;a">&#1052;&#1072;&#1082;&#1077;&#1076;&#1086;&#1085;&#1080;&#1112;&#1072;</span>,
+<span title="RU, Russia, Rossiâ">&#1056;&#1086;&#1089;&#1089;&#1080;&#1103;</span>,
+<span title="YU, Serbia and Montenegro, Srbi&#496;a I Crna Gora">&#1057;&#1088;&#1073;&#1080;&#1112;&#1072; &#1048; &#1062;&#1088;&#1085;&#1072; &#1043;&#1086;&#1088;&#1072;</span>,
+<span title="UA, Ukraine, Ukraina">&#1059;&#1082;&#1088;&#1072;&#1080;&#1085;&#1072;</span>, <span title="UA, Ukraine, Ukraí&#776;na">&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1072;</span>,
+<span title="AM, Armenia, Hayastani Hanrapetut&#699;iwn">&#1344;&#1377;&#1397;&#1377;&#1405;&#1407;&#1377;&#1398;&#1387; &#1344;&#1377;&#1398;&#1408;&#1377;&#1402;&#1381;&#1407;&#1400;&#1410;&#1385;&#1387;&#1410;&#1398;</span>, &#8206;<span title="IL, Israel, Y&#351;r&#700;l">&#1497;&#1513;&#1512;&#1488;&#1500;</span>&#8206;, 
+&#8206;<span title="AF, Afghanistan, &#7840;fg&#7830;&#7841;nst&#7841;n">&#1575;&#1601;&#1594;&#1575;&#1606;&#1587;&#1578;&#1575;&#1606;</span>&#8206;, &#8206;<span title="JO, Jordan, &#7840;l&#7841;rdn">&#1575;&#1604;&#1575;&#1585;&#1583;&#1606;</span>&#8206;, 
+&#8206;<span title="AE, United Arab Emirates, &#7840;l&#7841;m&#7841;r&#7841;t &#7840;l&#703;rby&#7831; &#7840;lmt&#7717;d&#7831;">&#1575;&#1604;&#1575;&#1605;&#1575;&#1585;&#1575;&#1578; &#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577; &#1575;&#1604;&#1605;&#1578;&#1581;&#1583;&#1577;</span>&#8206;, 
+&#8206;<span title="BH, Bahrain, &#7840;lb&#7717;ryn">&#1575;&#1604;&#1576;&#1581;&#1585;&#1610;&#1606;</span>&#8206;, &#8206;<span title="DZ, Algeria, &#7840;ljz&#7841;&#7927;r">&#1575;&#1604;&#1580;&#1586;&#1575;&#1574;&#1585;</span>&#8206;, 
+&#8206;<span title="SD, Sudan, &#7840;lswd&#7841;n">&#1575;&#1604;&#1587;&#1608;&#1583;&#1575;&#1606;</span>&#8206;, &#8206;<span title="IQ, Iraq, &#7840;l&#703;r&#7841;q">&#1575;&#1604;&#1593;&#1585;&#1575;&#1602;</span>&#8206;, &#8206;<span title="SA, Saudi Arabia, &#7840;l&#703;rby&#7831; &#7840;ls&#703;wdy&#7831;">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577; 
+&#1575;&#1604;&#1587;&#1593;&#1608;&#1583;&#1610;&#1577;</span>&#8206;, &#8206;<span title="KW, Kuwait, &#7840;lkwyt">&#1575;&#1604;&#1603;&#1608;&#1610;&#1578;</span>&#8206;, &#8206;<span title="MA, Morocco, &#7840;lmg&#7830;rb">&#1575;&#1604;&#1605;&#1594;&#1585;&#1576;</span>&#8206;, 
+&#8206;<span title="IN, India, &#7840;lhnd">&#1575;&#1604;&#1607;&#1606;&#1583;</span>&#8206;, &#8206;<span title="YE, Yemen, &#7840;lymn">&#1575;&#1604;&#1610;&#1605;&#1606;</span>&#8206;, &#8206;<span title="IR, Iran, &#7840;y&#816;r&#7841;n">&#1575;&#1740;&#1585;&#1575;&#1606;</span>&#8206;, 
+&#8206;<span title="TN, Tunisia, Twns">&#1578;&#1608;&#1606;&#1587;</span>&#8206;, &#8206;<span title="SY, Syria, Swry&#7831;">&#1587;&#1608;&#1585;&#1610;&#1577;</span>&#8206;, &#8206;<span title="OM, Oman, &#703;m&#7841;n">&#1593;&#1605;&#1575;&#1606;</span>&#8206;, 
+&#8206;<span title="QA, Qatar, Q&#7789;r">&#1602;&#1591;&#1585;</span>&#8206;, &#8206;<span title="LB, Lebanon, Lbn&#7841;n">&#1604;&#1576;&#1606;&#1575;&#1606;</span>&#8206;, &#8206;<span title="LY, Libya, Lyby&#7841;">&#1604;&#1610;&#1576;&#1610;&#1575;</span>&#8206;, 
+&#8206;<span title="EG, Egypt, M&#7779;r">&#1605;&#1589;&#1585;</span>&#8206;, <span title="ET, Ethiopia, &#703;it&#299;yoph&#299;ya">&#4770;&#4725;&#4846;&#4917;&#4843;</span>,
+<span title="ER, Eritrea, &#703;er&#299;t&#299;ra">&#4772;&#4653;&#4725;&#4651;</span>, <span title="IN, India, Bh&#257;rata">&#2349;&#2366;&#2352;&#2340;</span>,
+<span title="IN, India, Bh&#257;rata">&#2477;&#2494;&#2480;&#2468;</span>, <span title="IN, India, Bh&#257;rata">&#2605;&#2622;&#2608;&#2596;</span>,
+<span title="IN, India, Bh&#257;rata">&#2733;&#2750;&#2736;&#2724;</span>, <span title="IN, India, Intiy&#257;">&#2951;&#2984;&#3021;&#2980;&#3007;&#2991;&#3006;</span>,
+<span title="IN, India, Bh&#257;rata D&#275;&#7735;a0">&#3117;&#3134;&#3120;&#3108; &#3110;&#3143;&#3123;&#3174;</span>, <span title="IN, India, Bh&#257;rata">&#3245;&#3262;&#3248;&#3236;</span>,
+<span title="TH, Thailand, Prathe&#7779;&#772;th&#7883;y">&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;&#3652;&#3607;&#3618;</span>,
+<span title="KR, South Korea, Daehanmingug">&#45824;&#54620;&#48124;&#44397;</span>, <span title="CN, China, Zh&#333;ng Guó">&#20013;&#22269;</span>,
+<span title="HK, Hong Kong S.A.R., China, Zh&#333;ng Huá Rén Mín Gòng Hé Guó Xi&#257;ng G&#462;ng Tè Bié Xíng Zhèng Q&#363;">
+&#20013;&#33775;&#20154;&#27665;&#20849;&#21644;&#22283;&#39321;&#28207;&#29305;&#21029;&#34892;&#25919;&#21312;</span>, <span title="SG, Singapore, X&#299;n Ji&#257; P&#333;">&#26032;&#21152;&#22369;</span>, <span title="JP, Japan">
+&#26085;&#26412;</span>, <span title="MO, Macao S.A.R., China, Ào Mén Tè Bié Xíng Zhèng Q&#363;">&#28595;&#38272;&#29305;&#21029;&#34892;&#25919;&#21312;</span>,
+<span title="TW, Taiwan, Tái W&#257;n">&#33274;&#28771;</span> </p>
+<p><b>Draft languages:</b> <span title="aa, Afar">Afar</span>, <span title="as, Assamese">Assamese</span>,
+<span title="az, Azerbaijani">Azerbaijani</span>, <span title="byn, Blin">Blin</span>,
+<span title="dv, Divehi">Divehi</span>, <span title="dz, Dzongkha">Dzongkha</span>,
+<span title="gez, Geez">Geez</span>, <span title="ka, Georgian">Georgian</span>,
+<span title="haw, Hawaiian">Hawaiian</span>, <span title="iu, Inuktitut">Inuktitut</span>,
+<span title="km, Khmer">Khmer</span>, <span title="ky, Kirghiz">Kirghiz</span>,
+<span title="lo, Lao">Lao</span>, <span title="mn, Mongolian">Mongolian</span>,
+<span title="sa, Sanskrit">Sanskrit</span>, <span title="sid, Sidamo">Sidamo</span>,
+<span title="syr, Syriac">Syriac</span>, <span title="tt, Tatar">Tatar</span>,
+<span title="tig, Tigre">Tigre</span>, <span title="ur, Urdu">Urdu</span>, <span title="uz, Uzbek">
+Uzbek</span>, <span title="wal, Walamo">Walamo</span>, <span title="or, Oriya, &#332;&#7771;i" &#257;>&#2835;&#2908;&#2879;&#2822;</span>,
+<span title="ml, Malayalam, Malay&#257;&#7735;a&#7745;">&#3374;&#3378;&#3375;&#3390;&#3379;&#3330;</span> </p>
+<p><font style="font-size: 90%"><b>Notes: </b></font></p>
+<ul>
+  <li><font style="font-size: 90%">Territories with multiple locales may appear more than once.</font>
+  </li>
+  <li><font style="font-size: 90%">Tooltips will show the language/territory code, English name, and 
+  Latin transliteration. (To set your tooltip font, right click on the desktop, pick 
+  Properties&gt;Appearance&gt;Advanced&gt;Item: ToolTip, then set the font to Arial Unicode MS or other large 
+  font.)</font> </li>
+  <li><font style="font-size: 90%">If the above doesn't display in your browser, see
+  <a href="http://www.unicode.org/help/display_problems.html">Display Problems?</a></font> </li>
+</ul>
+
+</body>
+
+</html>

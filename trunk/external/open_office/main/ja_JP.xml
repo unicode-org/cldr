@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd"
+[
+	<!ENTITY % openOffice SYSTEM "http://www.unicode.org/cldr/dtd/1.3/ldmlOpenOffice.dtd">
+%openOffice;
+]
+>
+<ldml>
+    <identity>
+        <version number="1.2">Generated from ConvertOOLocale</version>
+        <generation date="2005-10-26"/>
+        <language type="ja"/>
+        <territory type="JP"/>
+    </identity>
+    <localeDisplayNames>
+        <languages>
+            <special xmlns:openOffice="http://www.openOffice.org">
+                <openOffice:defaultName type="ja">Japanese</openOffice:defaultName>
+            </special>
+        </languages>
+        <territories>
+            <special xmlns:openOffice="http://www.openOffice.org">
+                <openOffice:defaultName type="JP">Japan</openOffice:defaultName>
+            </special>
+        </territories>
+    </localeDisplayNames>
+    <delimiters>
+        <quotationStart>‘</quotationStart>
+        <quotationEnd>’</quotationEnd>
+        <alternateQuotationStart>“</alternateQuotationStart>
+        <alternateQuotationEnd>”</alternateQuotationEnd>
+    </delimiters>
+    <measurement>
+        <measurementSystem type="metric"/>
+    </measurement>
+    <dates>
+        <calendars>
+            <default type="gregorian"/>
+            <calendar type="gregorian">
+                <months>
+                    <monthContext type="format">
+                        <monthWidth type ="abbreviated">
+                            <month type="1">Jan</month>
+                            <month type="2">Feb</month>
+                            <month type="3">Mar</month>
+                            <month type="4">Apr</month>
+                            <month type="5">May</month>
+                            <month type="6">Jun</month>
+                            <month type="7">Jul</month>
+                            <month type="8">Aug</month>
+                            <month type="9">Sep</month>
+                            <month type="10">Oct</month>
+                            <month type="11">Nov</month>
+                            <month type="12">Dec</month>
+                        </monthWidth>
+                        <monthWidth type ="wide">
+                            <month type="1">January</month>
+                            <month type="2">February</month>
+                            <month type="3">March</month>
+                            <month type="4">April</month>
+                            <month type="5">May</month>
+                            <month type="6">June</month>
+                            <month type="7">July</month>
+                            <month type="8">August</month>
+                            <month type="9">September</month>
+                            <month type="10">October</month>
+                            <month type="11">November</month>
+                            <month type="12">December</month>
+                        </monthWidth>
+                    </monthContext>
+                </months>
+                <days>
+                    <dayContext type="format">
+                        <dayWidth type ="abbreviated">
+                            <day type="sun">Sun</day>
+                            <day type="mon">Mon</day>
+                            <day type="tue">Tue</day>
+                            <day type="wed">Wed</day>
+                            <day type="thu">Thu</day>
+                            <day type="fri">Fri</day>
+                            <day type="sat">Sat</day>
+                        </dayWidth>
+                        <dayWidth type ="wide">
+                            <day type="sun">Sunday</day>
+                            <day type="mon">Monday</day>
+                            <day type="tue">Tuesday</day>
+                            <day type="wed">Wednesday</day>
+                            <day type="thu">Thursday</day>
+                            <day type="fri">Friday</day>
+                            <day type="sat">Saturday</day>
+                        </dayWidth>
+                    </dayContext>
+                </days>
+                <week>
+                    <minDays count="7"/>
+                    <firstDay day="sun"/>
+                </week>
+                <am>午前</am>
+                <pm>午後</pm>
+                <eras>
+                    <eraNames>
+                        <era type="1">西暦</era>
+                        <era type="0">紀元前</era>
+                    </eraNames>
+                    <eraAbbr>
+                        <era type="1">A.D.</era>
+                        <era type="0">B.C.</era>
+                    </eraAbbr>
+                </eras>
+                <dateFormats>
+                    <dateFormatLength type="long">
+                        <default type="DateFormatskey6"/>
+                        <dateFormat type="DateFormatskey13">
+                            <pattern>yy年M月d日（yy）</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="30" default="false" openOffice:msgtype="DateFormatskey13" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey12">
+                            <pattern>yy年M月d日（YYY）</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="29" default="false" openOffice:msgtype="DateFormatskey12" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey11">
+                            <pattern>GGGGy年M月d日（YYY）</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="28" default="false" openOffice:msgtype="DateFormatskey11" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey10">
+                            <pattern>y年M月d日（yY）</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="27" default="false" openOffice:msgtype="DateFormatskey10" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey9">
+                            <pattern>GGGGy年M月d日（YYYY）</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="26" default="false" openOffice:msgtype="DateFormatskey9" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey8">
+                            <pattern>yy年M月d日</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="25" default="false" openOffice:msgtype="DateFormatskey8" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey7">
+                            <pattern>GGGGy年M月d日</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="24" default="false" openOffice:msgtype="DateFormatskey7" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey6">
+                            <pattern>yy年M月d日</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="23" default="true" openOffice:msgtype="DateFormatskey6" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey5">
+                            <pattern>y年M月d日</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="22" default="false" openOffice:msgtype="DateFormatskey5" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey2">
+                            <pattern>yy年MM月dd日（yy）</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="19" default="false" openOffice:msgtype="DateFormatskey2" type="long" openOffice:usage="DATE"/>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type="medium">
+                        <default type="DateFormatskey6"/>
+                        <dateFormat type="DateFormatskey18">
+                            <pattern>M月d日</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="35" default="true" openOffice:msgtype="DateFormatskey18" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey17">
+                            <pattern>y/MM</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="34" default="false" openOffice:msgtype="DateFormatskey17" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey16">
+                            <pattern>MTSHy.MM.dd</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="33" default="false" openOffice:msgtype="DateFormatskey16" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey15">
+                            <pattern>MTSHy.M.d</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="32" default="false" openOffice:msgtype="DateFormatskey15" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey14">
+                            <pattern>MM.dd</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="31" default="false" openOffice:msgtype="DateFormatskey14" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey4">
+                            <pattern>yy/MM/dd</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="21" default="false" openOffice:msgtype="DateFormatskey4" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey3">
+                            <pattern>y/MM/dd</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="20" default="false" openOffice:msgtype="DateFormatskey3" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey1">
+                            <pattern>y/M/d</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="18" default="false" openOffice:msgtype="DateFormatskey1" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey21">
+                            <pattern>ww 1</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="38" default="false" openOffice:msgtype="DateFormatskey21" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey20">
+                            <pattern>y年 QQQQ</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="37" default="false" openOffice:msgtype="DateFormatskey20" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                        <dateFormat type="DateFormatskey19">
+                            <pattern>M月</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="36" default="false" openOffice:msgtype="DateFormatskey19" type="medium" openOffice:usage="DATE"/>
+                        </dateFormat>
+                    </dateFormatLength>
+                    <dateFormatLength type="short">
+                    </dateFormatLength>
+                </dateFormats>
+                <timeFormats>
+                    <timeFormatLength type="long">
+                        <default type="TimeFormatskey2"/>
+                        <timeFormat type="TimeFormatskey7">
+                            <pattern>[HH]:mm:ss.SS</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="45" default="false" openOffice:msgtype="TimeFormatskey7" type="long" openOffice:usage="TIME"/>
+                        </timeFormat>
+                        <timeFormat type="TimeFormatskey5">
+                            <pattern>[HH]:mm:ss</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="43" default="false" openOffice:msgtype="TimeFormatskey5" type="long" openOffice:usage="TIME"/>
+                        </timeFormat>
+                        <timeFormat type="TimeFormatskey4">
+                            <pattern>a K:mm:ss</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="42" default="false" openOffice:msgtype="TimeFormatskey4" type="long" openOffice:usage="TIME"/>
+                        </timeFormat>
+                        <timeFormat type="TimeFormatskey2">
+                            <pattern>HH:mm:ss</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="40" default="true" openOffice:msgtype="TimeFormatskey2" type="long" openOffice:usage="TIME"/>
+                        </timeFormat>
+                        <timeFormat type="TimeFormatskey9">
+                            <pattern>H時mm分ss秒</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="54" default="false" openOffice:msgtype="TimeFormatskey9" type="long" openOffice:usage="TIME"/>
+                        </timeFormat>
+                    </timeFormatLength>
+                    <timeFormatLength type="medium">
+                        <default type="TimeFormatskey1"/>
+                        <timeFormat type="TimeFormatskey8">
+                            <pattern>H時mm分</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="52" default="false" openOffice:msgtype="TimeFormatskey8" type="medium" openOffice:usage="TIME"/>
+                        </timeFormat>
+                        <timeFormat type="TimeFormatskey6">
+                            <pattern>mm:ss.SS</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="44" default="false" openOffice:msgtype="TimeFormatskey6" type="medium" openOffice:usage="TIME"/>
+                        </timeFormat>
+                        <timeFormat type="TimeFormatskey3">
+                            <pattern>a K:mm</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="41" default="false" openOffice:msgtype="TimeFormatskey3" type="medium" openOffice:usage="TIME"/>
+                        </timeFormat>
+                        <timeFormat type="TimeFormatskey1">
+                            <pattern>H:mm</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="39" default="true" openOffice:msgtype="TimeFormatskey1" type="medium" openOffice:usage="TIME"/>
+                        </timeFormat>
+                    </timeFormatLength>
+                    <timeFormatLength type="short">
+                    </timeFormatLength>
+                </timeFormats>
+                <dateTimeFormats>
+                    <dateTimeFormatLength type="long">
+                        <default type="DateTimeFormatskey2"/>
+                        <dateTimeFormat type="DateTimeFormatskey2">
+                            <pattern>yy/M/d H:mm</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="47" default="true" openOffice:msgtype="DateTimeFormatskey2" type="long" openOffice:usage="DATE_TIME"/>
+                        </dateTimeFormat>
+                        <dateTimeFormat type="DateTimeFormatskey1">
+                            <pattern>y/MM/dd HH:mm</pattern>
+                            <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="46" default="false" openOffice:msgtype="DateTimeFormatskey1" type="long" openOffice:usage="DATE_TIME"/>
+                        </dateTimeFormat>
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="medium">
+                    </dateTimeFormatLength>
+                    <dateTimeFormatLength type="short">
+                    </dateTimeFormatLength>
+                </dateTimeFormats>
+            </calendar>
+            <calendar type="japanese">
+                <months>
+                    <monthContext type="format">
+                        <monthWidth type ="abbreviated">
+                            <month type="1">Jan</month>
+                            <month type="2">Feb</month>
+                            <month type="3">Mar</month>
+                            <month type="4">Apr</month>
+                            <month type="5">May</month>
+                            <month type="6">Jun</month>
+                            <month type="7">Jul</month>
+                            <month type="8">Aug</month>
+                            <month type="9">Sep</month>
+                            <month type="10">Oct</month>
+                            <month type="11">Nov</month>
+                            <month type="12">Dec</month>
+                        </monthWidth>
+                        <monthWidth type ="wide">
+                            <month type="1">January</month>
+                            <month type="2">February</month>
+                            <month type="3">March</month>
+                            <month type="4">April</month>
+                            <month type="5">May</month>
+                            <month type="6">June</month>
+                            <month type="7">July</month>
+                            <month type="8">August</month>
+                            <month type="9">September</month>
+                            <month type="10">October</month>
+                            <month type="11">November</month>
+                            <month type="12">December</month>
+                        </monthWidth>
+                    </monthContext>
+                </months>
+                <days>
+                    <dayContext type="format">
+                        <dayWidth type ="abbreviated">
+                            <day type="sun">日</day>
+                            <day type="mon">月</day>
+                            <day type="tue">火</day>
+                            <day type="wed">水</day>
+                            <day type="thu">木</day>
+                            <day type="fri">金</day>
+                            <day type="sat">土</day>
+                        </dayWidth>
+                        <dayWidth type ="wide">
+                            <day type="sun">日曜日</day>
+                            <day type="mon">月曜日</day>
+                            <day type="tue">火曜日</day>
+                            <day type="wed">水曜日</day>
+                            <day type="thu">木曜日</day>
+                            <day type="fri">金曜日</day>
+                            <day type="sat">土曜日</day>
+                        </dayWidth>
+                    </dayContext>
+                </days>
+                <week>
+                    <minDays count="7"/>
+                    <firstDay day="sun"/>
+                </week>
+                <am>午前</am>
+                <pm>午後</pm>
+                <eras>
+                    <eraNames>
+                        <era type="235">平成</era>
+                        <era type="234">昭和</era>
+                        <era type="233">大正</era>
+                        <era type="232">明治</era>
+                        <era type="-1">元号のサポート範囲外</era>
+                    </eraNames>
+                    <eraAbbr>
+                        <era type="235">平</era>
+                        <era type="234">昭</era>
+                        <era type="233">大</era>
+                        <era type="232">明</era>
+                        <era type="-1">?.</era>
+                    </eraAbbr>
+                </eras>
+            </calendar>
+        </calendars>
+    </dates>
+    <numbers>
+        <symbols>
+            <decimal>.</decimal>
+            <group>,</group>
+            <list>,</list>
+            <special xmlns:openOffice="http://www.openOffice.org">
+                <openOffice:dateSeparator>/</openOffice:dateSeparator>
+                <openOffice:timeSeparator>:</openOffice:timeSeparator>
+                <openOffice:time100SecSeparator>.</openOffice:time100SecSeparator>
+                <openOffice:longDateDayOfWeekSeparator>, </openOffice:longDateDayOfWeekSeparator>
+                <openOffice:longDateDaySeparator>日</openOffice:longDateDaySeparator>
+                <openOffice:longDateMonthSeparator>月</openOffice:longDateMonthSeparator>
+                <openOffice:longDateYearSeparator>年</openOffice:longDateYearSeparator>
+            </special>
+        </symbols>
+        <decimalFormats>
+            <decimalFormatLength type="long">
+            </decimalFormatLength>
+            <decimalFormatLength type="medium">
+            </decimalFormatLength>
+            <decimalFormatLength type="short">
+                <default type="FixedFormatskey1"/>
+                <decimalFormat type="FixedFormatskey6">
+                    <pattern>#,###.00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="5" default="false" openOffice:msgtype="FixedFormatskey6" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey5">
+                    <pattern>#,##0.00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="4" default="false" openOffice:msgtype="FixedFormatskey5" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey4">
+                    <pattern>#,##0</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="3" default="false" openOffice:msgtype="FixedFormatskey4" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey3">
+                    <pattern>0.00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="2" default="false" openOffice:msgtype="FixedFormatskey3" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey2">
+                    <pattern>0</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="1" default="false" openOffice:msgtype="FixedFormatskey2" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+                <decimalFormat type="FixedFormatskey1">
+                    <pattern>Standard</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="0" default="true" openOffice:msgtype="FixedFormatskey1" type="short" openOffice:usage="FIXED_NUMBER"/>
+                </decimalFormat>
+            </decimalFormatLength>
+        </decimalFormats>
+        <scientificFormats>
+            <scientificFormatLength type="long">
+                <default type="ScientificFormatskey1"/>
+                <scientificFormat type="ScientificFormatskey1">
+                    <pattern>0.00E+000</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="6" default="true" openOffice:msgtype="ScientificFormatskey1" type="long" openOffice:usage="SCIENTIFIC_NUMBER"/>
+                </scientificFormat>
+            </scientificFormatLength>
+            <scientificFormatLength type="medium">
+                <default type="ScientificFormatskey2"/>
+                <scientificFormat type="ScientificFormatskey2">
+                    <pattern>0.00E+00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="7" default="true" openOffice:msgtype="ScientificFormatskey2" type="medium" openOffice:usage="SCIENTIFIC_NUMBER"/>
+                </scientificFormat>
+            </scientificFormatLength>
+            <scientificFormatLength type="short">
+            </scientificFormatLength>
+        </scientificFormats>
+        <percentFormats>
+            <percentFormatLength type="long">
+                <default type="PercentFormatskey2"/>
+                <percentFormat type="PercentFormatskey2">
+                    <pattern>0.00%</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="9" default="true" openOffice:msgtype="PercentFormatskey2" type="long" openOffice:usage="PERCENT_NUMBER"/>
+                </percentFormat>
+            </percentFormatLength>
+            <percentFormatLength type="medium">
+                <default type="PercentFormatskey1"/>
+                <percentFormat type="PercentFormatskey1">
+                    <pattern>0%</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="8" default="true" openOffice:msgtype="PercentFormatskey1" type="medium" openOffice:usage="PERCENT_NUMBER"/>
+                </percentFormat>
+            </percentFormatLength>
+            <percentFormatLength type="short">
+            </percentFormatLength>
+        </percentFormats>
+        <currencyFormats>
+            <currencyFormatLength type="long">
+            </currencyFormatLength>
+            <currencyFormatLength type="medium">
+                <default type="CurrencyFormatskey3"/>
+                <currencyFormat type="CurrencyFormatskey1">
+                    <pattern>[$¥-411]#,##0;-[$¥-411]#,##0</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="12" default="false" openOffice:msgtype="CurrencyFormatskey1" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey6">
+                    <pattern>[$¥-411]#,##0.--;[RED]-[$¥-411]#,##0.--</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="17" default="false" openOffice:msgtype="CurrencyFormatskey6" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey5">
+                    <pattern>#,##0 CCC</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="16" default="false" openOffice:msgtype="CurrencyFormatskey5" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey4">
+                    <pattern>[$¥-411]#,##0.00;[RED]-[$¥-411]#,##0.00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="15" default="false" openOffice:msgtype="CurrencyFormatskey4" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey3">
+                    <pattern>[$¥-411]#,##0;[RED]-[$¥-411]#,##0</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="14" default="true" openOffice:msgtype="CurrencyFormatskey3" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+                <currencyFormat type="CurrencyFormatskey2">
+                    <pattern>[$¥-411]#,##0.00;-[$¥-411]#,##0.00</pattern>
+                    <special xmlns:openOffice="http://www.openOffice.org" openOffice:formatindex="13" default="false" openOffice:msgtype="CurrencyFormatskey2" type="medium" openOffice:usage="CURRENCY"/>
+                </currencyFormat>
+            </currencyFormatLength>
+            <currencyFormatLength type="short">
+            </currencyFormatLength>
+        </currencyFormats>
+        <currencies>
+            <default type="JPY"/>
+            <currency type="JPY">
+                <displayName>Japanese Yen</displayName>
+                <symbol>¥</symbol>
+                <special xmlns:openOffice="http://www.openOffice.org">
+                    <openOffice:currency openOffice:usedInCompatibleFormatCodes="true">
+                        <openOffice:currencyId>yen</openOffice:currencyId>
+                    </openOffice:currency>
+                </special>
+            </currency>
+        </currencies>
+    </numbers>
+    <special xmlns:openOffice="http://www.openOffice.org">
+        <openOffice:locale openOffice:versionDTD="2.0" openOffice:allowUpdateFromCLDR="no" openOffice:version="1.3"/>
+        <openOffice:forbiddenCharacters>
+            <openOffice:forbiddenLineBeginCharacters>!%),.:;?]}¢°’”‰′″℃、。々〉》」』】〕ぁぃぅぇぉっゃゅょゎ゛゜ゝゞァィゥェォッャュョヮヵヶ・ーヽヾ！％），．：；？］｝｡｣､･ｧｨｩｪｫｬｭｮｯｰﾞﾟ¢</openOffice:forbiddenLineBeginCharacters>
+            <openOffice:forbiddenLineEndCharacters>$([¥{£¥‘“〈《「『【〔＄（［｛｢£￥</openOffice:forbiddenLineEndCharacters>
+        </openOffice:forbiddenCharacters>
+        <openOffice:reservedWords>
+            <openOffice:trueWord>true</openOffice:trueWord>
+            <openOffice:falseWord>false</openOffice:falseWord>
+            <openOffice:quarter1Word>第１四半期</openOffice:quarter1Word>
+            <openOffice:quarter2Word>第２四半期</openOffice:quarter2Word>
+            <openOffice:quarter3Word>第３四半期</openOffice:quarter3Word>
+            <openOffice:quarter4Word>第４四半期</openOffice:quarter4Word>
+            <openOffice:aboveWord>前述</openOffice:aboveWord>
+            <openOffice:belowWord>後述</openOffice:belowWord>
+            <openOffice:quarter1Abbreviation>Q1</openOffice:quarter1Abbreviation>
+            <openOffice:quarter2Abbreviation>Q2</openOffice:quarter2Abbreviation>
+            <openOffice:quarter3Abbreviation>Q3</openOffice:quarter3Abbreviation>
+            <openOffice:quarter4Abbreviation>Q4</openOffice:quarter4Abbreviation>
+        </openOffice:reservedWords>
+        <openOffice:numberingLevels>
+            <openOffice:numberingLevel openOffice:numType="1" openOffice:prefix=" " openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="4" openOffice:prefix=" " openOffice:suffix="."/>
+            <openOffice:numberingLevel openOffice:numType="14" openOffice:prefix=" " openOffice:suffix=" "/>
+            <openOffice:numberingLevel openOffice:numType="2" openOffice:prefix=" " openOffice:suffix="."/>
+            <openOffice:numberingLevel openOffice:numType="0" openOffice:prefix=" " openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="21" openOffice:prefix="(" openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="23" openOffice:prefix=" " openOffice:suffix=")"/>
+            <openOffice:numberingLevel openOffice:numType="3" openOffice:prefix=" " openOffice:suffix="."/>
+        </openOffice:numberingLevels>
+        <openOffice:outLineNumberingLevels>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="1" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="2" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="3" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="4" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=" "/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="1" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="2" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="3" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="4" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="21" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="(" openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="14" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=" "/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="23" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="(" openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="3" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="(" openOffice:suffix=")"/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="章"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="節"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="項"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="15" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="章"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="15" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="節"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="15" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="項"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="15" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="20" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="章"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="20" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="節"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="20" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix="第" openOffice:suffix="項"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="20" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix=")"/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+            <openOffice:outlineStyle>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="0" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="2" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="50" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="0" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="100" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="4" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="150" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="3" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+                <openOffice:outLineNumberingLevel openOffice:symbolTextDistance="50" openOffice:leftMargin="200" openOffice:firstLineOffset="0" openOffice:parentNumbering="0" openOffice:numType="1" openOffice:bulletFontName="" openOffice:bulletChar="" openOffice:prefix=" " openOffice:suffix="."/>
+            </openOffice:outlineStyle>
+        </openOffice:outLineNumberingLevels>
+        <openOffice:transliterations>
+            <openOffice:transliteration openOffice:unoid="HALFWIDTH_FULLWIDTH"/>
+            <openOffice:transliteration openOffice:unoid="FULLWIDTH_HALFWIDTH"/>
+            <openOffice:transliteration openOffice:unoid="KATAKANA_HIRAGANA"/>
+            <openOffice:transliteration openOffice:unoid="HIRAGANA_KATAKANA"/>
+            <openOffice:transliteration openOffice:unoid="smallToLarge_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="largeToSmall_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="IGNORE_WIDTH"/>
+            <openOffice:transliteration openOffice:unoid="ignoreTraditionalKana_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreTraditionalKanji_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="IGNORE_KANA"/>
+            <openOffice:transliteration openOffice:unoid="ignoreMinusSign_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreIterationMark_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreSeparator_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreZiZu_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreBaFa_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreTiJi_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreHyuByu_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreSeZe_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreIandEfollowedByYa_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreKiKuFollowedBySa_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreSize_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreProlongedSoundMark_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreMiddleDot_ja_JP"/>
+            <openOffice:transliteration openOffice:unoid="ignoreSpace_ja_JP"/>
+        </openOffice:transliterations>
+        <openOffice:search>
+            <openOffice:searchOptions>
+                <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
+            </openOffice:searchOptions>
+        </openOffice:search>
+        <openOffice:index>
+            <openOffice:indexKey openOffice:phonetic="true" default="true" openOffice:unoid="phonetic (alphanumeric first) (grouped by syllable)"/>
+            <openOffice:indexKey openOffice:phonetic="true" default="false" openOffice:unoid="phonetic (alphanumeric first) (grouped by consonant)"/>
+            <openOffice:indexKey openOffice:phonetic="true" default="false" openOffice:unoid="phonetic (alphanumeric last) (grouped by syllable)"/>
+            <openOffice:indexKey openOffice:phonetic="true" default="false" openOffice:unoid="phonetic (alphanumeric last) (grouped by consonant)"/>
+            <openOffice:unicodeScript>70</openOffice:unicodeScript>
+            <openOffice:followPageWord>p.</openOffice:followPageWord>
+            <openOffice:followPageWord>pp.</openOffice:followPageWord>
+        </openOffice:index>
+        <openOffice:collations>
+            <openOffice:collator default="true" openOffice:unoid="phonetic (alphanumeric first)"/>
+            <openOffice:collator default="false" openOffice:unoid="phonetic (alphanumeric last)"/>
+            <openOffice:collator default="false" openOffice:unoid="charset"/>
+            <openOffice:collationOptions>
+                <openOffice:transliterationModules>IGNORE_CASE</openOffice:transliterationModules>
+            </openOffice:collationOptions>
+        </openOffice:collations>
+        <openOffice:format/>
+    </special>
+</ldml>

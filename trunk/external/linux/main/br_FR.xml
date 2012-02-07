@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="br" /> 
+		<territory type="FR" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Gen </month>
+							<month type="2">C'hw</month>
+							<month type="3">Meu </month>
+							<month type="4">Ebr </month>
+							<month type="5">Mae </month>
+							<month type="6">Eve </month>
+							<month type="7">Gou </month>
+							<month type="8">Eos </month>
+							<month type="9">Gwe </month>
+							<month type="10">Her </month>
+							<month type="11">Du  </month>
+							<month type="12">Ker </month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Genver</month>
+							<month type="2">C'hwevrer</month>
+							<month type="3">Meurzh</month>
+							<month type="4">Ebrel</month>
+							<month type="5">Mae</month>
+							<month type="6">Mezheven</month>
+							<month type="7">Gouere</month>
+							<month type="8">Eost</month>
+							<month type="9">Gwengolo</month>
+							<month type="10">Here</month>
+							<month type="11">Du</month>
+							<month type="12">Kerzu</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">sul</day>
+							<day type="mon">lun</day>
+							<day type="tue">meu</day>
+							<day type="wed">mer</day>
+							<day type="thu">yao</day>
+							<day type="fri">gwe</day>
+							<day type="sat">sad</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sul</day>
+							<day type="mon">lun</day>
+							<day type="tue">meurzh</day>
+							<day type="wed">merc'her</day>
+							<day type="thu">yaou</day>
+							<day type="fri">gwener</day>
+							<day type="sat">sadorn</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<am> </am>
+				<pm> </pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>dd.MMMM.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>D'ar EEEE dd a viz MMMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd.MMMM.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd.MMMM.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hhemm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>hh:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group></group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,#0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

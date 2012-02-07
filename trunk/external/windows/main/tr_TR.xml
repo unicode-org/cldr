@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="Windows_XP"/>
+		<generation date="2004-05-27" />
+		<language type="tr" /> 
+		<territory type="TR" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="tr">Türkçe</language>
+		</languages>
+		<territories>
+			<territory type="TR">Türkiye</territory>
+		</territories>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Oca</month>
+							<month type="2">Şub</month>
+							<month type="3">Mar</month>
+							<month type="4">Nis</month>
+							<month type="5">May</month>
+							<month type="6">Haz</month>
+							<month type="7">Tem</month>
+							<month type="8">Ağu</month>
+							<month type="9">Eyl</month>
+							<month type="10">Eki</month>
+							<month type="11">Kas</month>
+							<month type="12">Ara</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Ocak</month>
+							<month type="2">Şubat</month>
+							<month type="3">Mart</month>
+							<month type="4">Nisan</month>
+							<month type="5">Mayıs</month>
+							<month type="6">Haziran</month>
+							<month type="7">Temmuz</month>
+							<month type="8">Ağustos</month>
+							<month type="9">Eylül</month>
+							<month type="10">Ekim</month>
+							<month type="11">Kasım</month>
+							<month type="12">Aralık</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Paz</day>
+							<day type="mon">Pzt</day>
+							<day type="tue">Sal</day>
+							<day type="wed">Çar</day>
+							<day type="thu">Per</day>
+							<day type="fri">Cum</day>
+							<day type="sat">Cmt</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Pazar</day>
+							<day type="mon">Pazartesi</day>
+							<day type="tue">Salı</day>
+							<day type="wed">Çarşamba</day>
+							<day type="thu">Perşembe</day>
+							<day type="fri">Cuma</day>
+							<day type="sat">Cumartesi</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<firstDay day="mon"/>
+				</week>
+				<am></am>
+				<pm></pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>dd MMMM yyyy EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern></pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern></pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern></pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern></pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern></pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

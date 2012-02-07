@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="tl" /> 
+		<territory type="PH" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Ene</month>
+							<month type="2">Peb</month>
+							<month type="3">Mar</month>
+							<month type="4">Abr</month>
+							<month type="5">May</month>
+							<month type="6">Hun</month>
+							<month type="7">Hul</month>
+							<month type="8">Ago</month>
+							<month type="9">Sep</month>
+							<month type="10">Okt</month>
+							<month type="11">Nob</month>
+							<month type="12">Dis</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Enero</month>
+							<month type="2">Pebrero</month>
+							<month type="3">Marso</month>
+							<month type="4">Abril</month>
+							<month type="5">Mayo</month>
+							<month type="6">Hunyo</month>
+							<month type="7">Hulyo</month>
+							<month type="8">Agosto</month>
+							<month type="9">Septiyembre</month>
+							<month type="10">Oktubre</month>
+							<month type="11">Nobiyembre</month>
+							<month type="12">Disyembre</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Lin</day>
+							<day type="mon">Lun</day>
+							<day type="tue">Mar</day>
+							<day type="wed">Miy</day>
+							<day type="thu">Huw</day>
+							<day type="fri">Biy</day>
+							<day type="sat">Sab</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Linggo</day>
+							<day type="mon">Lunes</day>
+							<day type="tue">Martes</day>
+							<day type="wed">Miyerkoles</day>
+							<day type="thu">Huwebes</day>
+							<day type="fri">Biyernes</day>
+							<day type="sat">Sabado</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<am>AM</am>
+				<pm>PM</pm>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEE dd MMM yyyy  z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEE dd MMM yyyy hh:mm:ss aa z</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>MMMM/dd/yy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>MMMM/dd/yy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>hh:mm:ss aa</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>¤#,##0.00;-¤ #,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="hu" /> 
+		<territory type="HU" /> 
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">JAN</month>
+							<month type="2">FEB</month>
+							<month type="3">MÁR</month>
+							<month type="4">ÁPR</month>
+							<month type="5">MÁJ</month>
+							<month type="6">JÚN</month>
+							<month type="7">JÚL</month>
+							<month type="8">AUG</month>
+							<month type="9">SZE</month>
+							<month type="10">OKT</month>
+							<month type="11">NOV</month>
+							<month type="12">DEC</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">JANUÁR</month>
+							<month type="2">FEBRUÁR</month>
+							<month type="3">MÁRCIUS</month>
+							<month type="4">ÁPRILIS</month>
+							<month type="5">MÁJUS</month>
+							<month type="6">JÚNIUS</month>
+							<month type="7">JÚLIUS</month>
+							<month type="8">AUGUSZTUS</month>
+							<month type="9">SZEPTEMBER</month>
+							<month type="10">OKTÓBER</month>
+							<month type="11">NOVEMBER</month>
+							<month type="12">DECEMBER</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">V</day>
+							<day type="mon">H</day>
+							<day type="tue">K</day>
+							<day type="wed">SZE</day>
+							<day type="thu">CS</day>
+							<day type="fri">P</day>
+							<day type="sat">SZO</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">VASÁRNAP</day>
+							<day type="mon">HÉTFŐ</day>
+							<day type="tue">KEDD</day>
+							<day type="wed">SZERDA</day>
+							<day type="thu">CSÜTÖRTÖK</day>
+							<day type="fri">PÉNTEK</day>
+							<day type="sat">SZOMBAT</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy </pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy HH.mm.ss</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>EEE,  MMM yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>HH.mm.ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group>.</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+		<percentFormats>
+			<percentFormatLength >
+				<percentFormat >
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength >
+		</percentFormats>
+		<currencyFormats>
+			<currencyFormatLength >
+				<currencyFormat >
+					<pattern>#,##0.00 ¤;-#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength >
+		</currencyFormats>
+	</numbers>
+</ldml>

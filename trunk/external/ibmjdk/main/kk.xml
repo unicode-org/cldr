@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM " 	http://www.unicode.org/cldr/dtd/1.1/ldml.dtd" 
+[
+      <!ENTITY % icu SYSTEM " http://www.unicode.org/cldr/dtd/1.1/ldmlICU.dtd"> 
+%icu;
+]
+>
+<ldml>
+	<identity>
+		<version number="1.0"/>
+		<generation date="2004-05-27" />
+		<language type="kk" /> 
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="kk">Қазақ</language>
+		</languages>
+		<territories>
+			<territory type="KZ">Қазақстан</territory>
+		</territories>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Қаң</month>
+							<month type="2">Ақп</month>
+							<month type="3">Нау</month>
+							<month type="4">Сәу</month>
+							<month type="5">Мам</month>
+							<month type="6">Мау</month>
+							<month type="7">Шіл</month>
+							<month type="8">Там</month>
+							<month type="9">Қыр</month>
+							<month type="10">Қаз</month>
+							<month type="11">Қар</month>
+							<month type="12">Жел</month>
+							<month type="13"></month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">қаңтар</month>
+							<month type="2">ақпан</month>
+							<month type="3">наурыз</month>
+							<month type="4">сәуір</month>
+							<month type="5">мамыр</month>
+							<month type="6">маусым</month>
+							<month type="7">шілде</month>
+							<month type="8">тамыз</month>
+							<month type="9">қыркүйек</month>
+							<month type="10">қазан</month>
+							<month type="11">қараша</month>
+							<month type="12">желтоқсан</month>
+							<month type="13"></month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Дс</day>
+							<day type="mon">Сс</day>
+							<day type="tue">Ср</day>
+							<day type="wed">Бс</day>
+							<day type="thu">Жм</day>
+							<day type="fri">Сн</day>
+							<day type="sat">Жк</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Дүйсенбі</day>
+							<day type="mon">Сейсенбі</day>
+							<day type="tue">Сәрсенбі</day>
+							<day type="wed">Бейсенбі</day>
+							<day type="thu">Жұма</day>
+							<day type="fri">Сенбі</day>
+							<day type="sat">Жексенбі</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<week>
+					<minDays count="1"/>
+					<firstDay day="mon"/>
+				</week>
+				<dateFormats>
+					<default type="medium"/>
+					<dateFormatLength type="full">
+						<dateFormat >
+							<pattern>d MMMM yyyy 'г.'</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="long">
+						<dateFormat >
+							<pattern>d MMMM yyyy 'г.'</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="medium">
+						<dateFormat >
+							<pattern>dd.MM.yyyy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+					<dateFormatLength type="short">
+						<dateFormat >
+							<pattern>dd.MM.yy</pattern>
+						</dateFormat>
+					</dateFormatLength >
+				</dateFormats>
+				<timeFormats>
+					<default type="medium"/>
+					<timeFormatLength type="full">
+						<timeFormat >
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="long">
+						<timeFormat >
+							<pattern>H:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="medium">
+						<timeFormat >
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength >
+					<timeFormatLength type="short">
+						<timeFormat >
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormatLength >
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength >
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength >
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols>
+			<decimal>,</decimal>
+			<group> </group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<nativeZeroDigit>0</nativeZeroDigit>
+			<patternDigit>#</patternDigit>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>�</nan>
+		</symbols>
+	</numbers>
+</ldml>

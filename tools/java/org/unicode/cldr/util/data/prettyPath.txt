@@ -22,8 +22,8 @@ $element=[a-zA-Z0-9]+;
 
 '/layout/orientation' > '1-misc|layout|orientation';
 
-'/contextTransforms/contextTransformUsage[@type="' ($avalue) '"]/contextTransform[@type="' ($avalue) '"]' > '|contextTransform|[' $2 ']-' $1;
-'/contextTransforms/contextTransformUsage[@type="' ($avalue) '"]/alias' > '|contextTransform|' $1 '-alias';
+'/contextTransforms/contextTransformUsage[@type="' ($avalue) '"]/contextTransform[@type="' ($avalue) '"]' > '1-misc|contextTransforms|' $1 '/' $2;
+'/contextTransforms/contextTransformUsage[@type="' ($avalue) '"]/alias' > '1-misc|contextTransforms|$1-alias';
 
 '/characters/exemplarCharacters[@type="index"]' > '1-misc|indexCharacters|';
 '/characters/exemplarCharacters[@type="' ($avalue) '"]' > '1-misc|exemplarCharacters|2-' $1;
@@ -170,10 +170,10 @@ $element=[a-zA-Z0-9]+;
 '/numbers/currencyFormats[@numberSystem="latn"]/currencySpacing/afterCurrency/' (.*) > '2-number|currency|match-after-' $1;
 '/numbers/currencyFormats[@numberSystem="latn"]/unitPattern' > '2-number|currency|name-pattern';
 '/numbers/currencyFormats[@numberSystem="' ($avalue) '"]/unitPattern' > '2-number|currency|name-pattern-' $1;
-'/numbers/defaultNumberingSystem' > '2-number|symbol|defaultSystem';
-'/numbers/otherNumberingSystems/native' > '2-number|symbol|nativeSystem';
-'/numbers/otherNumberingSystems/finance' > '2-number|symbol|financialSystem';
-'/numbers/otherNumberingSystems/traditional' > '2-number|symbol|traditionalSystem';
+'/numbers/defaultNumberingSystem' > '2-number|numberingSystems|default';
+'/numbers/otherNumberingSystems/native' > '2-number|numberingSystems|native';
+'/numbers/otherNumberingSystems/finance' > '2-number|numberingSystems|financial';
+'/numbers/otherNumberingSystems/traditional' > '2-number|numberingSystems|traditional';
 '/posix/messages/' (.*) > '1-misc|posix|' $1;
 
 '/units/unit[@type="' ($avalue) '"]/unitPattern' > '0-units|pattern|' $1 ;

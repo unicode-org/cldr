@@ -431,6 +431,10 @@ public class LDMLConstants {
     public static final String DESC             = "desc";
     public static final String ALGORITHMIC      = "algorithmic";
     public static final String DEFAULT_NUMBERING_SYSTEM = "defaultNumberingSystem";
+    public static final String OTHER_NUMBERING_SYSTEMS = "otherNumberingSystems";
+    public static final String NATIVE           = "native";
+    public static final String FINANCE          = "finance";
+    public static final String TRADITIONAL      = "traditional";
 
     // Supplemental Metadata
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";

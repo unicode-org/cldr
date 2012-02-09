@@ -743,10 +743,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private static final String LOCALE_SCRIPT = "LocaleScript";
     private static final String NUMBER_ELEMENTS = "NumberElements";
-    private static final String NUMBER_PATTERNS = "NumberPatterns";
     private static final String AM_PM_MARKERS = "AmPmMarkers";
     private static final String DTP = "DateTimePatterns";
-    private static final String DTE = "DateTimeElements";
 
     private static Map<String, String> keyNameMap = new TreeMap<String, String>();
     private static final Map<String, String> deprecatedTerritories = new TreeMap<String, String>();
@@ -3707,7 +3705,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String names[] = { LDMLConstants.ALIAS, LDMLConstants.DEFAULT, LDMLConstants.SYMBOLS, LDMLConstants.DECIMAL_FORMATS, LDMLConstants.PERCENT_FORMATS, LDMLConstants.SCIENTIFIC_FORMATS,
             LDMLConstants.CURRENCY_FORMATS, LDMLConstants.CURRENCIES,
             // Currencies appears twice so we can handle the plurals.
-            LDMLConstants.CURRENCIES, LDMLConstants.DEFAULT_NUMBERING_SYSTEM };
+            LDMLConstants.CURRENCIES, LDMLConstants.DEFAULT_NUMBERING_SYSTEM, LDMLConstants.OTHER_NUMBERING_SYSTEMS };
         for (String name : names) {
             xpath = origXpath + "/" + name;
             if (loc.isPathNotConvertible(xpath)) {
@@ -3730,7 +3728,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 }
                 res = getDefaultResource(loc, xpath, name);
             } else if (name.equals(LDMLConstants.SYMBOLS)|| name.equals(LDMLConstants.DECIMAL_FORMATS) || name.equals(LDMLConstants.PERCENT_FORMATS) || name.equals(LDMLConstants.SCIENTIFIC_FORMATS)
-                || name.equals(LDMLConstants.CURRENCY_FORMATS) || name.equals(LDMLConstants.DEFAULT_NUMBERING_SYSTEM)) {
+                || name.equals(LDMLConstants.CURRENCY_FORMATS) || name.equals(LDMLConstants.DEFAULT_NUMBERING_SYSTEM) ||
+                name.equals(LDMLConstants.OTHER_NUMBERING_SYSTEMS)) {
                 if (writtenNumberElements == false) {
                     Resource ne = parseNumberElements(loc,origXpath);
                     res = ne;
@@ -3789,6 +3788,20 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if ( defaultNS != null ) {
             numElements.first = defaultNS;
             current = defaultNS;
+        }
+        
+        String [] otherNSTags = { LDMLConstants.NATIVE, LDMLConstants.TRADITIONAL, LDMLConstants.FINANCE };
+
+        for ( String tag : otherNSTags ) {
+            Resource otherNS = parseOtherNumberingSystem(loc,xpath,tag);
+            if ( otherNS != null ) {
+                if ( current != null ) {
+                    current.next = otherNS;
+                } else {
+                    numElements.first = otherNS;
+                }
+                current = otherNS;
+            }
         }
         
         for ( String ns : numSystems ) {
@@ -5542,8 +5555,18 @@ public class LDML2ICUConverter extends CLDRConverterTool {
 
     private Resource parseDefaultNumberingSystem(LDML2ICUInputLocale loc, String xpath) {
         ResourceString str = new ResourceString();
-        str.name = LDMLConstants.DEFAULT;;
+        str.name = LDMLConstants.DEFAULT;
         str.val = loc.getFile().getStringValue(xpath+"/"+LDMLConstants.DEFAULT_NUMBERING_SYSTEM);
+        if (str.val != null) {
+            return str;
+        }
+
+        return null;
+    }
+    private Resource parseOtherNumberingSystem(LDML2ICUInputLocale loc, String xpath, String tag) {
+        ResourceString str = new ResourceString();
+        str.name = tag;
+        str.val = loc.getFile().getStringValue(xpath+"/"+LDMLConstants.OTHER_NUMBERING_SYSTEMS+"/"+tag);
         if (str.val != null) {
             return str;
         }

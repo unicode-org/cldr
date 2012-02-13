@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.Set;
@@ -19,7 +20,7 @@ public class SimpleFactory extends Factory {
      */
     private static final int CACHE_LIMIT = 15;
 
-    private String sourceDirectory;
+    private String sourceDirectories[];
     private String matchString;
     private Set<String> localeList = new TreeSet<String>();
     private Map<String,CLDRFile>[] mainCache = new Map[DraftStatus.values().length];
@@ -47,16 +48,46 @@ public class SimpleFactory extends Factory {
     }
 
     public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
+        String list[] = { sourceDirectory };
+        return new SimpleFactory(list, matchString, minimalDraftStatus);
+    }
+
+    /**
+     * Create a factory from a source directory list, matchingString, and an optional log file.
+     * For the matchString meaning, see {@link getMatchingXMLFiles}
+     */
+    public static Factory make(String sourceDirectory[], String matchString) {
+        return make(sourceDirectory, matchString, DraftStatus.unconfirmed);
+    }
+
+    /**
+     * Create a factory from a source directory list
+     * @param sourceDirectory
+     * @param matchString
+     * @param minimalDraftStatus
+     * @return
+     */
+    public static Factory make(String sourceDirectory[], String matchString, DraftStatus minimalDraftStatus) {
         return new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
     }
-    
-    private SimpleFactory(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
-        this.sourceDirectory = sourceDirectory;
+
+    private SimpleFactory(String sourceDirectory[], String matchString, DraftStatus minimalDraftStatus) {
+        this.sourceDirectories = sourceDirectory;
         this.matchString = matchString;
         this.minimalDraftStatus = minimalDraftStatus;
         Matcher m = Pattern.compile(matchString).matcher("");
         this.localeList = CLDRFile.getMatchingXMLFiles(sourceDirectory, m);
-        setSupplementalDirectory(new File(sourceDirectory, "../supplemental"));
+        File goodSuppDir = null;
+        for(String sourceDirectoryPossibility : sourceDirectory) {
+            File suppDir = new File(sourceDirectoryPossibility, "../supplemental");
+            if(suppDir.isDirectory()) {
+                goodSuppDir = suppDir;
+                break;
+            }
+        }
+        if(goodSuppDir!=null) {
+            setSupplementalDirectory(goodSuppDir);
+        }
     }
 
 
@@ -76,17 +107,43 @@ public class SimpleFactory extends Factory {
             if (resolved) {
                 result = new CLDRFile(makeResolvingSource(localeName, minimalDraftStatus));
             } else {
-                final String dir = CLDRFile.isSupplementalName(localeName) ? sourceDirectory.replace("incoming/vetted/","common/") + File.separator + "../supplemental/" : sourceDirectory;
-                result = makeFile(localeName, dir, minimalDraftStatus);
-                result.freeze();
+                for(String sourceDirectory : this.sourceDirectories) {
+                    final String dir = CLDRFile.isSupplementalName(localeName) ? sourceDirectory.replace("incoming/vetted/","common/") + File.separator + "../supplemental/" : sourceDirectory;
+                    final File parentDir = new File(dir);
+                    final File xmlFile = makeFileName(localeName,parentDir);
+                    if(xmlFile.canRead()) {
+                        result = makeFile(localeName, dir, minimalDraftStatus);
+                        result.freeze();
+                        break;
+                    }
+                }
             }
             cache.put(localeName, result);
         }
         return result;
     }
+
+    /**
+     * @return 
+     * 
+     */
+    private StringBuilder getSourceDirectoriesList() {
+        StringBuilder dirs = new StringBuilder();
+        for(String dir : sourceDirectories) {
+            if(dirs.length()!=0) {
+                dirs.append(File.pathSeparator);
+            }
+            dirs.append(dir);
+        }
+        return dirs;
+    }
     
+    /**
+     * TODO: note, returns only the first source directory.
+     */
+    @Override
     public String getSourceDirectory() {
-        return sourceDirectory;
+        return sourceDirectories[0];
     }
 
     /**
@@ -96,7 +153,11 @@ public class SimpleFactory extends Factory {
      */
     // TODO make the directory a URL  
     public static CLDRFile makeFromFile(String fullFileName, String localeName, DraftStatus minimalDraftStatus) {
-        return CLDRFile.loadFromFile(new File(fullFileName), localeName, minimalDraftStatus);
+        return makeFromFile(new File(fullFileName),localeName,minimalDraftStatus);
+    }
+
+    private static CLDRFile makeFromFile(File file, String localeName, DraftStatus minimalDraftStatus) {
+        return CLDRFile.loadFromFile(file, localeName, minimalDraftStatus);
     }
 
     /**
@@ -132,8 +193,17 @@ public class SimpleFactory extends Factory {
     }
 
     public static CLDRFile makeFile(String localeName, String dir, CLDRFile.DraftStatus minimalDraftStatus) {
-        CLDRFile file = makeFromFile(dir + File.separator + localeName + ".xml", localeName, minimalDraftStatus);
+        CLDRFile file = makeFromFile(makeFileName(localeName, new File(dir)), localeName, minimalDraftStatus);
         return file;
+    }
+
+    /**
+     * @param localeName
+     * @param dir
+     * @return
+     */
+    private static File makeFileName(String localeName, File dir) {
+        return new File(dir, localeName + ".xml");
     }
 
     /**

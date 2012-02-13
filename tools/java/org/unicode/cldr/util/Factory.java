@@ -19,12 +19,17 @@ import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
     private File supplementalDirectory = null;
 
+    /**
+     * Note, the source director(ies) may be a list.
+     * TODO: make this a list? Get rid of it?
+     * @return
+     */
     public abstract String getSourceDirectory();
 
     protected abstract CLDRFile handleMake(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus);
 
     public CLDRFile make(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus) {
-      return handleMake(localeID, resolved, madeWithMinimalDraftStatus).setSupplementalDirectory(supplementalDirectory);
+      return handleMake(localeID, resolved, madeWithMinimalDraftStatus).setSupplementalDirectory(getSupplementalDirectory());
     }
 
     public CLDRFile make(String localeID, boolean resolved, boolean includeDraft) {

@@ -130,7 +130,7 @@
 	            encoding="UTF-8"/>
 	</target>
     <target name="test" depends="init,util,tool" description="build tests">
-        <javac includeantruntime="false" includes="org/unicode/cldr/test/**/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/test/**/*.java org/unicode/cldr/unittest/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"

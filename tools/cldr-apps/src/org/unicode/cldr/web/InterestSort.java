@@ -10,6 +10,8 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.Partition.Membership;
 
+import com.ibm.icu.text.Collator;
+
 /**
  * @author srl
  *
@@ -47,6 +49,7 @@ public class InterestSort extends SortMode {
 		final int ourKey = SortMode.SortKeyType.SORTKEY_INTEREST.ordinal();
 		
 		final Comparator<DataRow> nameComparator = NameSort.comparator();
+        final Collator collator = CodeSortMode.createCollator();
 	    return new Comparator<DataRow>() {
 
 	      public int compare(DataRow p1, DataRow p2){
@@ -68,7 +71,8 @@ public class InterestSort extends SortMode {
 	        } else if (p1IsName) {
 	          return nameComparator.compare(p1,p2);
 	        }
-	        return nameComparator.compare(p1,p2);
+	        // Sort by type if all else fails.
+	        return collator.compare(p1.type, p2.type);
 
 //	        if(rv == 0) { // try to avoid a compare
 //	          String p1d  = null;

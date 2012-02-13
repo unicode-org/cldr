@@ -14,7 +14,7 @@ if(false){ // debug
  </td>
 </tr>
 <% } %><tr class="tr_unknown" id="r_<%= dataRow.fullFieldHash() %>">
-	<th><tt><%= dataRow.type %></tt></th>
+	<th><tt><%=dataRow.prettyPath%></tt></th>
   <th><%=
 	  dataRow.getDisplayName() %></th>
   <td id="i_<%= dataRow.fullFieldHash() %>"> <input name="<%= dataRow.fullFieldHash() %>" value="<%= SurveyMain.CHANGETO %>" type='hidden'>

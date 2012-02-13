@@ -61,8 +61,8 @@ final CLDRLocale loc = CLDRLocale.getInstance(cf.getLocaleID());
 <h3>Locale: <%= loc + " - " + loc.getDisplayName(SurveyMain.BASELINE_LOCALE)  %></h3>
 <%
 //cs.stuff.put("SubmitLocale",cf);
-	CLDRFile baseFile = cs.sm.dbsrcfac.make(loc.getBaseName(),false);
-    XMLSource stSource = cs.sm.dbsrcfac.getInstance(loc);
+	CLDRFile baseFile = cs.sm.getDBSourceFactory().make(loc.getBaseName(),false);
+    XMLSource stSource = cs.sm.getDBSourceFactory().getInstance(loc);
 
 Set<String> all = new TreeSet<String>();
 for(String x : cf) {
@@ -212,9 +212,9 @@ for(String x : all) {
 </table>
 
 <hr/>
-Recast <%= updCnt  %> votes.
+Recast <%= updCnt  %> votes. TODO: update
 <%
-	if(doFinal && updCnt>0) {
+/* 	if(doFinal && updCnt>0) {
 	 cs.sm.startupThread.addTask(new SurveyThread.SurveyTask("UpdateAfterBulk:"+loc){
 		    public void run() throws Throwable {
 				cs.sm.updateLocale(loc);
@@ -225,7 +225,7 @@ Recast <%= updCnt  %> votes.
 		 
 	 });		
 	}
-%>
+ */%>
 
 </body>
 </html>

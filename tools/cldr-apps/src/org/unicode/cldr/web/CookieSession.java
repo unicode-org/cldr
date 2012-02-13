@@ -396,6 +396,7 @@ public class CookieSession {
      * @return string
      */
     public static String cheapEncode(byte b[]) {
+        @SuppressWarnings("restriction")
         StringBuffer sb = new StringBuffer(new sun.misc.BASE64Encoder().encode(b));
         for(int i=0;i<sb.length();i++) {
             char c = sb.charAt(i);

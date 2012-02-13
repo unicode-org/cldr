@@ -76,7 +76,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 			 */
 			public CachingErrorChecker(SurveyMain sm) {
 				this.sm = sm;
-				des = new DefaultErrorStatus(sm.dbsrcfac);
+				des = new DefaultErrorStatus(sm.getDBSourceFactory());
 			}
 
 			/* (non-Javadoc)
@@ -196,9 +196,9 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
 				try {
 					IntHash<Status> hash = new IntHash<Status>();
 
-					DefaultErrorStatus des = new DefaultErrorStatus(sm.dbsrcfac);
+					DefaultErrorStatus des = new DefaultErrorStatus(sm.getDBSourceFactory());
 					// TODO: DBSRC entry
-					CLDRFile cldrFile = sm.dbsrcfac.make(loc.toString(), true);
+					CLDRFile cldrFile = sm.getDBSourceFactory().make(loc.toString(), true);
 					des.initErrorStatus(cldrFile);
 					
 	

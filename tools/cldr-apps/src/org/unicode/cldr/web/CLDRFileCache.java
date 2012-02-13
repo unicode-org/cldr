@@ -759,7 +759,7 @@ public class CLDRFileCache {
                 sources.add(getSource(curLocale, false));
                 curLocale = curLocale.getParent();
             }
-            f = new CLDRFile(Factory.makeResolvingSource(sources)).setSupplementalDirectory(sm.dbsrcfac.getSupplementalDirectory());; // fallback
+            f = new CLDRFile(Factory.makeResolvingSource(sources)).setSupplementalDirectory(sm.supplementalDataDir); // fallback
 	    } else {
 	        XMLSource x = getSource(locale, false);
 	        f = new CLDRFile(x); // !fallback
@@ -782,7 +782,7 @@ public class CLDRFileCache {
 	        sources.add(getSource(curLocale, true));
 	        curLocale = curLocale.getParent();
 	    }
-		CLDRFile f = new CLDRFile(Factory.makeResolvingSource(sources)).setSupplementalDirectory(sm.dbsrcfac.getSupplementalDirectory());; // fallback
+		CLDRFile f = new CLDRFile(Factory.makeResolvingSource(sources)).setSupplementalDirectory(sm.supplementalDataDir); // fallback
 		// f.freeze();
 		return f;
 	}
@@ -858,7 +858,7 @@ public class CLDRFileCache {
 		XMLSource cachedFileSource = null;
 		try {
 			XMLSource src = srcfac.getInstance(localeID);
-			CLDRFile aFile = new CLDRFile(src).setSupplementalDirectory(sm.dbsrcfac.getSupplementalDirectory());;
+			CLDRFile aFile = new CLDRFile(src).setSupplementalDirectory(sm.supplementalDataDir);
 			FileOutputStream fos;
 			fos = new FileOutputStream(cacheFile);
 			PrintWriter pw = new PrintWriter(fos);

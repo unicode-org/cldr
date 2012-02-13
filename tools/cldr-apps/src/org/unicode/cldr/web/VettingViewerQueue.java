@@ -193,8 +193,8 @@ public class VettingViewerQueue {
 						return;
 					}
 					status="Beginning Process, Calculating";
-		            SubFactory ourFactory = sm.dbsrcfac.getFactory(false);
-		            dbEntry = sm.dbsrcfac.openEntry(ourFactory);
+		            SubFactory ourFactory = sm.getDBSourceFactory().getFactory(false);
+		            dbEntry = sm.getDBSourceFactory().openEntry(ourFactory);
 		            
 		            vv = new VettingViewer<VoteResolver.Organization>(
 		                    sm.getSupplementalDataInfo(), ourFactory, sm.getOldFactory(),
@@ -421,7 +421,7 @@ public class VettingViewerQueue {
     	return entry;
 	}
 	
-	private QueueEntry getSummaryEntry() {
+	private synchronized QueueEntry getSummaryEntry() {
     	QueueEntry entry = summaryEntry;
     	if(summaryEntry==null) {
     		entry=summaryEntry = new QueueEntry();
@@ -437,7 +437,7 @@ public class VettingViewerQueue {
             private Vetting.DataTester getTester(CLDRLocale loc) {
             	Vetting.DataTester tester = testMap.get(loc);
             	if(tester==null) {
-                	final XMLSource fac = sm.dbsrcfac.getInstance(loc);
+                	final XMLSource fac = sm.getDBSourceFactory().getInstance(loc);
                 	entry.add(fac);
             		tester = sm.vet.getTester(fac);
             		testMap.put(loc, tester);
@@ -462,12 +462,8 @@ public class VettingViewerQueue {
                 	
                 	r = sm.vet.getRace(loc, base_xpath, conn, tester);
                     VoteResolver.Organization org = (Organization) user;
-                    Race.Chad c =  r.getOrgVote(org);
-                    if(c==null) {
-                        //System.err.println("Error: organization " + org + " vote null for " + path + " [#"+base_xpath+"]");
-                        return null;
-                    }
-                    return c.value;
+                    
+                    return r.resolver.getOrgVote(org);
                 }catch (SQLException e) {
                     throw new RuntimeException(e);
                 } finally {

@@ -2,6 +2,7 @@
     <target name="init">
     	<!-- copied from cldr/tools/java's build.xml -->
         <tstamp/>
+
         <property name="src.dir" value="src"/>
         <property name="libs.dir" value="WebContent/WEB-INF/lib"/>
 
@@ -21,6 +22,7 @@
 
         <!-- CLDR_TOOLS defaults to ../java, override if not correct. -->        
         <property name="CLDR_TOOLS" value="../java"/>
+        <property name="CLDR_DIR" value="../../common/.."/>
         <property name="CLDR_JAR" value="${CLDR_TOOLS}/cldr.jar"/>
 
         <path id="build.classpath">
@@ -30,6 +32,8 @@
         <property name="ICU4J_JAR" value="${CLDR_TOOLS}/libs/icu4j.jar"/>
         <property name="UTILITIES_JAR" value="${CLDR_TOOLS}/libs/utilities.jar"/>
 
+        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -Dorg.unicode.cldr.unittest.web.dir=cldr_db_test -DDEBUG=true"/>
+        <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
 
         <!-- from webinit: -->
         <property name="tomcat.home"        value="${CATALINA_HOME}"/>
@@ -48,8 +52,10 @@
             <fileset dir="${libs.dir}">
               <include name="**/*.jar"/>
             </fileset>
+            <!-- <pathelement location="${CLDR_JAR}"/> -->
+            <pathelement path="${CLDR_TOOLS}/classes"/>
+            <pathelement location="${CATALINA_HOME}/lib/tomcat-dbcp.jar"/>
             <pathelement location="${ICU4J_JAR}"/>
-            <pathelement location="${CLDR_JAR}"/>
             <pathelement location="${UTILITIES_JAR}"/>
             <pathelement location="${XML_APIS_JAR}"/>
             <pathelement location="${DERBY_LIB}"/>
@@ -57,6 +63,7 @@
             <pathelement location="${SERVLET_JAR}"/>
             <pathelement location="${MAIL_LIB}"/>
             <pathelement location="${ROME_LIB}"/>
+
         </path>
         
  <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->
@@ -207,6 +214,7 @@
             encoding="UTF-8"/>
     </target>
  
+ 
     <!-- build as a WAR file -->
     <!-- TODO: include CLDR as a jar? Only include certain classes? -->
     <target name="war" depends="web" description="Build war">        
@@ -264,5 +272,34 @@
 	 </classpath>
 	</java>	
     </target>
+
+
+   <target name="tests" depends="all" description="Rebuild just tests">
+        <javac 
+            srcdir="${src.dir}"
+        	includes="org/unicode/cldr/unittest/web/*.java"
+            destdir="${build.dir}"
+            classpathref="project.class.path"
+            source="1.6"
+            target="1.6"
+            debug="on" deprecation="off"
+            encoding="UTF-8"/>
+    </target>
+
+    <target name="check" description="Run the standard ICU4J test suite" depends="init">
+        <antcall target="_runCheck">
+            <param name="runcheck.arg" value="-n"/>
+            <param name="runcheck.jvmarg" value="${jvm_options}"/>
+        </antcall>
+    </target>
+
+   <target name="_runCheck" depends="init,tests">
+        <echo message="JVM argument:   ${runcheck.jvmarg} -Djava.awt.headless=true"/>
+        <echo message="Test argument:   ${runcheck.arg}"/>
+        <java classname="org.unicode.cldr.unittest.web.TestAll" fork="yes" failonerror="true" classpathref="project.class.path">
+            <arg line="${runcheck.arg}"/>
+            <jvmarg line="${runcheck.jvmarg} -Djava.awt.headless=true"/>
+        </java>
+   </target>
 
 </project>

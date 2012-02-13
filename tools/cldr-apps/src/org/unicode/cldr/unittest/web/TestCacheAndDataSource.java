@@ -15,6 +15,7 @@ import org.unicode.cldr.web.CLDRDBSourceFactory;
 import org.unicode.cldr.web.CLDRFileCache;
 import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.Vetting;
 import org.unicode.cldr.web.XPathTable;
@@ -31,17 +32,20 @@ public class TestCacheAndDataSource  extends TestFmwk {
 	CLDRDBSourceFactory gFac = null;
 	
 	public static void main(String[] args) {
-		new TestCacheAndDataSource().run(args);
+		new TestCacheAndDataSource().run(TestAll.doResetDb(args));
 	}
 
 	public TestCacheAndDataSource() {
-		TestAll.setupTestDb();
+//		TestAll.setupTestDb();
 	}
 	String someLocales[] = { "mt" };
 
 	
+	public void TestNull() {
+		
+	}
 	
-	public void TestCacheLoadAll() throws SQLException {
+	public void _TestCacheLoadAll() throws SQLException {
 		CLDRDBSourceFactory dbsrcfac = getFactory();
 		
 		int n= dbsrcfac.update();
@@ -65,7 +69,7 @@ public class TestCacheAndDataSource  extends TestFmwk {
 	
 	public static final String LANGDISP = "//ldml/localeDisplayNames/languages";
 	
-	public void TestCacheModify() throws SQLException {
+	public void _TestCacheModify() throws SQLException {
 		
 		CLDRDBSourceFactory dbsrcfac = getFactory();
 		
@@ -260,20 +264,20 @@ public class TestCacheAndDataSource  extends TestFmwk {
 			logln("Setting up dbsrcfac");
 			SurveyMain sm = new SurveyMain();
 			sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose vetting
-			sm.logger = Logger.getAnonymousLogger();
+			SurveyLog.logger = Logger.getAnonymousLogger();
 			Connection conn = DBUtils.getInstance().getDBConnection();
 			
-			sm.reg = UserRegistry.createRegistry(sm.logger, sm);
+			sm.reg = UserRegistry.createRegistry(SurveyLog.logger, sm);
 			
-			sm.xpt = XPathTable.createTable(Logger.getAnonymousLogger(), conn, sm);
+			sm.xpt = XPathTable.createTable(conn, sm);
 			DBUtils.closeDBConnection(conn);
 			
-			sm.vet = Vetting.createTable(sm.logger, sm);
+			sm.vet = Vetting.createTable(SurveyLog.logger, sm);
 			
 			sm.fileBase = CldrUtility.MAIN_DIRECTORY;
 			CLDRDBSourceFactory fac = new CLDRDBSourceFactory(sm, sm.fileBase, Logger.getAnonymousLogger(), cacheDir);
 			logln("Setting up DB");
-			sm.dbsrcfac=fac;
+			sm.setDBSourceFactory(fac);
 			fac.setupDB(DBUtils.getInstance().getDBConnection());
 			logln("Vetter Ready (this will take a while..)");
 			fac.vetterReady(TestAll.getProgressIndicator(this));

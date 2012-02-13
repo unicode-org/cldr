@@ -39,13 +39,12 @@ public class XPathTable {
     
     /** 
      * Called by SM to create the reg
-     * @param xlogger the logger to use
      * @param ourConn the conn to use
      */
-    public static XPathTable createTable(java.util.logging.Logger xlogger, Connection ourConn, SurveyMain sm) throws SQLException {
+    public static XPathTable createTable(Connection ourConn, SurveyMain sm) throws SQLException {
         try {
             boolean isNew =  !DBUtils.hasTable(ourConn, CLDR_XPATHS);
-            XPathTable reg = new XPathTable(xlogger);
+            XPathTable reg = new XPathTable();
             reg.sm = sm;
             if(isNew) {
                 reg.setupDB();
@@ -58,7 +57,7 @@ public class XPathTable {
 	            	reg.getByXpath(xpath,ourConn);
 	            	n++;
 	            }
-	            System.err.println(et+" ("+n+" xpaths from "+sm.BASELINE_ID+") " + reg.statistics());
+	            SurveyLog.logger.warning(et+" ("+n+" xpaths from "+sm.BASELINE_ID+") " + reg.statistics());
             }
             
             return reg;
@@ -83,7 +82,7 @@ public class XPathTable {
     	Connection conn = null;
     	try {
     		conn = sm.dbUtils.getDBConnection();
-    		logger.info("XPathTable DB: initializing... conn: "+conn+", db:"+CLDR_XPATHS+", id:"+DBUtils.DB_SQL_IDENTITY);
+    		SurveyLog.logger.warning("XPathTable DB: initializing... conn: "+conn+", db:"+CLDR_XPATHS+", id:"+DBUtils.DB_SQL_IDENTITY);
     		Statement s = conn.createStatement();
     		if(s==null) {
     			throw new InternalError("S is null");
@@ -109,7 +108,7 @@ public class XPathTable {
     	} finally {
     		DBUtils.close(conn);
     		if(sql != null) { 
-    			System.err.println("Last SQL: " + sql);
+    			SurveyLog.logger.warning("Last SQL: " + sql);
     		}
     	}
     }
@@ -128,8 +127,7 @@ public class XPathTable {
     private static int stat_dbFetch = 0;
     private static int stat_allAdds = 0;
 
-    public XPathTable(java.util.logging.Logger xlogger) {
-        logger = xlogger;
+    public XPathTable() {
     }
     
     /**
@@ -204,7 +202,7 @@ public class XPathTable {
     		stat_allAdds++;
     		return nid;
     	} catch(SQLException sqe) {
-    		System.err.println("xpath ["+xpath+"] len " + xpath.length());
+    		SurveyLog.logger.warning("xpath ["+xpath+"] len " + xpath.length());
     		logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
     		sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
     	} finally {
@@ -464,7 +462,7 @@ public class XPathTable {
             lastAtts.put(LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
-        //System.err.println("xp2Bxp: " + xpath + " --> " + newXpath);
+        //SurveyLog.logger.warning("xp2Bxp: " + xpath + " --> " + newXpath);
         return newXpath;
     }
 
@@ -489,7 +487,7 @@ public class XPathTable {
             lastAtts.put(LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
-        //System.err.println("xp2Bxp: " + xpath + " --> " + newXpath);
+        //SurveyLog.logger.warning("xp2Bxp: " + xpath + " --> " + newXpath);
         return newXpath;
     }
 
@@ -502,11 +500,11 @@ public class XPathTable {
         lastAtts.remove(LDMLConstants.TYPE);
         lastAtts.remove(LDMLConstants.DRAFT);
         lastAtts.remove(LDMLConstants.REFERENCES);
-//        System.err.println("Type on " + path + " with -1 is " + type );
+//        SurveyLog.logger.warning("Type on " + path + " with -1 is " + type );
         if((type == null) && (path.indexOf(what)>=0)) try {
             // less common case - type isn't the last
             for(int n=-2;(type==null)&&((0-xpp.size())<n);n--) {
-  //              System.err.println("Type on n="+n +", "+path+" with "+n+" is " + type );
+  //              SurveyLog.logger.warning("Type on n="+n +", "+path+" with "+n+" is " + type );
                 lastAtts = xpp.getAttributes(n);
                 if(lastAtts != null) {
                     type = (String)lastAtts.remove(what);

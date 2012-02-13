@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.LruMap;
+import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VettingViewer.ErrorChecker;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -482,8 +483,9 @@ public class CLDRDBSourceFactory extends Factory implements MuxFactory {
     public XMLSource getInstance(String localeID, boolean finalData) {
         if(localeID == null) return null; // ???
         XMLSource result = null;
-        Map<String, XMLSource> cache = sourceCache[finalData ? 1 : 0];
+        Map<String, XMLSource>  cache = null;
         if(MAKE_CACHE) {
+            cache = sourceCache[finalData ? 1 : 0];
             result = cache.get(localeID);
         }
         if(result == null) {

@@ -27,6 +27,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
+import org.unicode.cldr.web.SurveyLog;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -42,20 +43,76 @@ import com.ibm.icu.text.RuleBasedCollator;
  */
 public class TestAll extends TestGroup {
 
-  private static final String DERBY_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-  public static final String DERBY_PREFIX="jdbc:derby:";
+	private static final String DB_SUBDIR = "db";
+	private static final String CLDR_TEST_KEEP_DB = TestAll.class.getPackage().getName()+".KeepDb";
+	private static boolean sane=false;
 
-public static void main(String[] args) {
-    new TestAll().run(args);
-  }
+	/**
+	 * Verify some setup things
+	 */
+	public static synchronized final void sanity() {
+		if(!sane) {
+			verifyIsDir(CldrUtility.BASE_DIRECTORY, "CLDR_DIR", "=${workspace_loc:common/..}");
+			verifyIsDir(CldrUtility.MAIN_DIRECTORY, "CLDR_MAIN", "=${workspace_loc:common/main}");
+			verifyIsFile(new File(CldrUtility.MAIN_DIRECTORY,"root.xml"));
+			sane=true;
+		} 
+	}
 
-  public TestAll() {
+	private static void verifyIsFile(File file) {
+		if(!file.isFile()||!file.canRead()) {
+			throw new IllegalArgumentException("Not a file: " + file.getAbsolutePath());
+		}
+	}
+
+	private static void verifyIsDir(String f, String string,String sugg) {
+		if(f==null) {
+			pleaseSet(string,"is null",sugg);
+		}
+		verifyIsDir(new File(f),string,sugg);
+	}
+
+	private static void verifyIsDir(File f, String string, String sugg) {
+		if(f==null) {
+			pleaseSet(string,"is null",sugg);
+		}
+		if(!f.isDirectory()) {
+			pleaseSet(string,"is not a directory",sugg);
+		}
+	}
+
+	private static void pleaseSet(String var, String err, String sugg) {
+		throw new IllegalArgumentException("Error: variable " + var + " " + err +", please set -D"+var+sugg);
+	}
+
+	private static final String DERBY_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
+	public static final String DERBY_PREFIX="jdbc:derby:";
+
+	public static void main(String[] args) {
+		args = TestAll.doResetDb(args);
+		new TestAll().run(args);
+	}
+
+  public static String[] doResetDb(String[] args) {
+	  if(CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
+		  SurveyLog.logger.warning("Keeping database..");
+	  } else {
+		  SurveyLog.logger.warning("Removing old test database..  set -D"+CLDR_TEST_KEEP_DB+"=true if you want to keep it..");
+		  File f = getEmptyDir(DB_SUBDIR);
+		  f.delete();
+		  SurveyLog.logger.warning("Erased: " + f.getAbsolutePath() + " - now exists=" + f.isDirectory());
+	  }
+	  return args;
+	}
+
+public TestAll() {
     super(
             new String[] {
             		// use class.getName so we are in sync with name changes and removals (if not additions)
             	TestIntHash.class.getName(),
             	TestXPathTable.class.getName(),
-            	TestCacheAndDataSource.class.getName()
+            	//TestCacheAndDataSource.class.getName()
+                TestSTFactory.class.getName()
             },
     "All tests in CLDR Web");
   }
@@ -145,6 +202,7 @@ public static void main(String[] args) {
    */
   public synchronized static void setupTestDb() {
 	  if(dbSetup==false) {
+		  sanity();
 		  DBUtils.makeInstanceFrom(getDataSource());
 		  dbSetup=true;
 	  }
@@ -155,19 +213,22 @@ public static void main(String[] args) {
 	  DBUtils.getInstance().doShutdown();
   }
   
-  public static final String CLDR_WEBTEST_DIR = "cldr_webtest_dir";
+  public static final String CORE_TEST_PATH= "cldr_db_test";
+  public static final String CLDR_WEBTEST_DIR = TestAll.class.getPackage().getName()+".dir";
+  public static final String CLDR_WEBTEST_DIR_STRING = CldrUtility.getProperty(CLDR_WEBTEST_DIR, System.getProperty("user.home")+File.separator+CORE_TEST_PATH);
+  public static final File CLDR_WEBTEST_FILE = new File(CLDR_WEBTEST_DIR_STRING);
   static File baseDir = null;
-  public static File getBaseDir() {
+  public synchronized static File getBaseDir() {
 	  if(baseDir==null) {
-		  String where = System.getProperty(CLDR_WEBTEST_DIR, System.getProperty("user.home")+File.separator+"cldr_db_test");
-		  baseDir = new File(where);
-		  if(!baseDir.exists()) {
-			  baseDir.mkdir();
+		  File newBaseDir = CLDR_WEBTEST_FILE;
+		  if(!newBaseDir.exists()) {
+		      newBaseDir.mkdir();
 		  }
-		  if(!baseDir.isDirectory()) {
-			  throw new IllegalArgumentException("Bad dir ["+CLDR_WEBTEST_DIR+"]: " + baseDir.getAbsolutePath());
+		  if(!newBaseDir.isDirectory()) {
+			  throw new IllegalArgumentException("Bad dir ["+CLDR_WEBTEST_DIR+"]: " + newBaseDir.getAbsolutePath());
 		  }
-		  System.err.println("Note: using test dir ["+CLDR_WEBTEST_DIR+"]: "+baseDir.getAbsolutePath());
+		  SurveyLog.logger.warning("Note: using test dir ["+CLDR_WEBTEST_DIR+"]: "+newBaseDir.getAbsolutePath());
+		  baseDir = newBaseDir;
 	  }
 	  return baseDir;
   }
@@ -178,12 +239,20 @@ public static void main(String[] args) {
 	  return emptyDir(getDir(forWhat));
   }
   public static File emptyDir(File dir) {
+	  SurveyLog.logger.warning("Erasing: " + dir.getAbsolutePath());
 	  if(dir.isDirectory()) {
 	      File cachedBFiles[] = dir.listFiles();
 	      if(cachedBFiles != null) {
 	          for(File f : cachedBFiles) {
 	              if(f.isFile()) {
 	                  f.delete();
+	              } else if(f.isDirectory()) {
+	            	  if(f.getAbsolutePath().contains(CORE_TEST_PATH)) {
+	            		  emptyDir(f);
+		            	  f.delete();
+	            	  } else {
+	            		  SurveyLog.logger.warning("Please manually remove: " + f.getAbsolutePath());
+	            	  }
 	              }
 	          }
 	      }
@@ -194,15 +263,14 @@ public static void main(String[] args) {
   }
   
   static DataSource getDataSource() {
-	  System.err.println();
-	  System.err.println("DB setup");
+	  SurveyLog.logger.warning("DB setup");
 	  try {
 		Class.forName(DERBY_DRIVER);
 	  } catch (ClassNotFoundException e) {
 		throw new RuntimeException(e);
 	  }
 	  
-	  return setupDerbyDataSource( getDir("db"));
+	  return setupDerbyDataSource( getDir(DB_SUBDIR));
   }
   
   // from http://svn.apache.org/viewvc/commons/proper/dbcp/trunk/doc/ManualPoolingDataSourceExample.java?view=co
@@ -211,17 +279,17 @@ public static void main(String[] args) {
 	  ObjectPool connectionPool = new GenericObjectPool(null);
 	  
 	  if(!theDir.exists()) {
-		  System.err.println("Using new: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
+		  SurveyLog.logger.warning("Using new: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
 
 		  String createURI = connectURI+";create=true";
 		  try {	
 			  new DriverManagerConnectionFactory(createURI,null).createConnection().close();
 		  } catch (SQLException e) {
-			  System.err.println("Error on connect to " + createURI + " - "+ DBUtils.unchainSqlException(e));
+			  SurveyLog.logger.warning("Error on connect to " + createURI + " - "+ DBUtils.unchainSqlException(e));
 		  }
-		  System.err.println("Connect/close to " + createURI);
+		  SurveyLog.logger.warning("Connect/close to " + createURI);
 	  } else {
-		  System.err.println("Using existing: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
+		  SurveyLog.logger.warning("Using existing: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
 	  }
 	  Properties props = new Properties();
 	  props.put("poolPreparedStatements","true");
@@ -248,7 +316,7 @@ public static void main(String[] args) {
 		}}
 	  		,null,false,true);
 	  PoolingDataSource dataSource = new PoolingDataSource(connectionPool);
-	  System.err.println("New datasource off and running: " + connectURI);
+	  SurveyLog.logger.warning("New datasource off and running: " + connectURI);
 	  return dataSource;
   }
   

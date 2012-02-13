@@ -71,8 +71,8 @@ public class InterestSort extends SortMode {
 	        } else if (p1IsName) {
 	          return nameComparator.compare(p1,p2);
 	        }
-	        // Sort by type if all else fails.
-	        return collator.compare(p1.type, p2.type);
+	        // Sort by xpath if all else fails.
+	        return collator.compare(p1.getXpath(), p2.getXpath());
 
 //	        if(rv == 0) { // try to avoid a compare
 //	          String p1d  = null;

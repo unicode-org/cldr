@@ -127,7 +127,7 @@ public class UserRegistry {
      * This nested class is the representation of an individual user. 
      * It may not have all fields filled out, if it is simply from the cache.
      */
-    public class User {
+    public class User implements Comparable<User> {
         public int    id;  // id number
         public int    userlevel=LOCKED;    // user level
         public String password;       // password
@@ -173,7 +173,7 @@ public class UserRegistry {
             UserRegistry.printPasswordLink(ctx, email, password);
         }
         public String toString() {
-            return email + "("+org+")-" + levelAsStr(userlevel)+"#"+userlevel;
+            return email + "("+org+")-" + levelAsStr(userlevel)+"#"+userlevel + " - " + name;
         }
         public String toHtml(User forUser) {
             if(forUser==null||!userIsTC(forUser)) {
@@ -294,6 +294,15 @@ public class UserRegistry {
             boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) || 
                         ( UserRegistry.userIsTC(this) && (other!=null) && this.org.equals(other.org)); 
             return adminOrRelevantTc;
+        }
+        @Override
+        public int compareTo(User other) {
+            if(other==this || other.equals(this)) return 0;
+            if(this.id < other.id){
+                return -1;
+            } else {
+                return 1;
+            }
         }
     }
         
@@ -1081,6 +1090,9 @@ public class UserRegistry {
 		if (ctx.session.user.userlevel > TC) {
 			return null;
 		}
+		logger.info("UR: Attempt newuser by " + ctx.session.user.email
+				+ ": of " + u.email + " @ " + ctx.userIP());
+
 		// prepare quotes
 		u.email = u.email.replace('\'', '_').toLowerCase();
 		u.org = u.org.replace('\'', '_');
@@ -1092,8 +1104,6 @@ public class UserRegistry {
 		try {
 			conn = sm.dbUtils.getDBConnection();
 			insertStmt = conn.prepareStatement(SQL_insertStmt);
-			logger.info("UR: Attempt newuser by " + ctx.session.user.email
-					+ ": of " + u.email + " @ " + ctx.userIP());
 			insertStmt.setInt(1, u.userlevel);
 			DBUtils.setStringUTF8(insertStmt, 2, u.name); // insertStmt.setString(2,
 															// u.name);
@@ -1711,7 +1721,7 @@ public class UserRegistry {
 		        out.println("\"/>");
 		    }            
 		}/*end synchronized(reg)*/ } catch(SQLException se) {
-		    SurveyMain.logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
+		    SurveyLog.logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
 		    out.println("<!-- Failure: " + DBUtils.unchainSqlException(se) + " -->");
 		} finally {
 			DBUtils.close(conn);

@@ -34,10 +34,12 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
+import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.text.Collator;
@@ -119,6 +121,7 @@ public class DataSection extends Registerable {
         xpathPrefix = prefix;
         fieldHash =  CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
         intgroup = loc.getLanguage(); // calculate interest group
+    	ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
     }
     private static int n =0;
     protected static synchronized int getN() { return ++n; } // serial number
@@ -176,7 +179,7 @@ public class DataSection extends Registerable {
      * @param p
      */
     public String xpath(DataRow p) {
-    	return p.xpath();
+    	return p.getXpath();
     }
         
     
@@ -200,32 +203,51 @@ public class DataSection extends Registerable {
         String[] valuesList = null; // if non null - list of acceptable values.  If null, freeform input
 //        public AttributeChoice attributeChoice = null; // obsolete: is an attributed list of items
         
-        public String type = null;
+        public String prettyPath = null;
         public String uri = null; // URI for the type
         
-        public String xpathSuffix = null; // if null:  prefix+type is sufficient (simple list).  If non-null: mixed Pod, prefix+suffix is required and type is informative only.
-        public String displayName = null;
+        private String displayName = null;
         public String altType = null; // alt type (NOT to be confused with -proposedn)
-        int base_xpath = -1;
+        int xpathId = -1;
 
-	public String getXpath() {
-		return sm.xpt.getById(base_xpath);
-	}
-	public int getXpathId() {
-		return base_xpath;
-	}
-	private String pp = null;
-	public String getPrettyPath() {
-		if(pp==null) {
-			pp=sm.xpt.getPrettyPath(base_xpath);
-		}
-		return pp;
-	}
+        private String xpath;
+        private String winningValue;
+
+        public DataRow(String xpath) {
+            this.xpath = xpath;
+            this.xpathId = sm.xpt.getByXpath(xpath);
+            this.prettyPath = sm.xpt.getPrettyPath(xpathId);
+            //this.setDisplayName(prettyPath);
+            
+            if(ballotBox==null) {
+            	throw new InternalError("ballotBox is null;");
+            }
+            if(ballotBox.getResolver(xpath)==null) {
+            	throw new InternalError(ballotBox.getClass().getName()+" [ballotBox].getResolver("+xpath+") is null");
+            }
+		    winningValue = ballotBox.getResolver(xpath).getWinningValue();
+        }
+        public String getXpath() {
+            return xpath;
+        }
+        public int getXpathId() {
+            return xpathId;
+        }
+        private String pp = null;
+        public String getPrettyPath() {
+            if(pp==null) {
+                pp=sm.xpt.getPrettyPath(xpathId);
+            }
+            return pp;
+        }
         
         // true even if only the non-winning subitems have tests.
         boolean hasTests = false;
 
         // the xpath id of the winner. If no winner or n/a, -1. 
+        /**
+         * @deprecated - winner is a value
+         */
         int winningXpathId = -1;
         
         // these apply to the 'winning' item, if applicable
@@ -259,7 +281,7 @@ public class DataSection extends Registerable {
             String pathWhereFound = null;
             String inheritFrom = null;
             boolean isParentFallback = false; // true if it is not actually part of this locale,but is just the parent fallback ( .inheritedValue );
-            public String altProposed = null; // proposed part of the name (or NULL for nondraft)
+            public static final String altProposed = "n/a"; // proposed part of the name (or NULL for nondraft)
             public int submitter = -1; // if this was submitted via ST, record user id. ( NOT from XML - in other words, we won't be parsing 'proposed-uXX' items. ) 
             public String value = null; // actual value
             public int id = -1; // id of CLDR_DATA table row
@@ -349,7 +371,7 @@ public class DataSection extends Registerable {
                     /* row */ hasTests = true;
                     parentRow.hasTests = true;
                                         
-                    if(((winningXpathId==-1)&&(xpathId==base_xpath)) || (xpathId == winningXpathId)) {
+                    if(((winningXpathId==-1)&&(xpathId==xpathId)) || (xpathId == winningXpathId)) {
                         if(errorCount>0) /* row */ hasErrors = true;
                         if(warningCount>0) /* row */ hasWarnings = true;
                         // propagate to parent
@@ -384,7 +406,7 @@ public class DataSection extends Registerable {
         CandidateItem inheritedValue = null; // vetted value inherited from parent
         
         public String toString() {
-            return "{DataRow t='"+type+"', n='"+displayName+"', x='"+xpathSuffix+"', item#='"+items.size()+"'}";
+            return "{DataRow t='"+prettyPath+"', n='"+getDisplayName()+"', x='"+"', item#='"+items.size()+"'}";
         }
         
         public String getDisplayName() {
@@ -398,16 +420,15 @@ public class DataSection extends Registerable {
                         if(p1==p2) { 
                             return 0;
                         }
-                        if((p1.altProposed==null)&&(p2.altProposed==null)) return 0;
-                        if(p1.altProposed == null) return -1;
-                        if(p2.altProposed == null) return 1;
-                        return myCollator.compare(p1.altProposed, p2.altProposed);
+                        if((p1.value==null)&&(p2.value==null)) return 0;
+                        if(p1.value == null) return -1;
+                        if(p2.value == null) return 1;
+                        return myCollator.compare(p1.value, p2.value);
                     }
                 });
-        public CandidateItem addItem(String value, String altProposed, List tests) {
+        public CandidateItem addItem(String value, List tests) {
             CandidateItem pi = new CandidateItem();
             pi.value = value;
-            pi.altProposed = altProposed;
             pi.tests = tests;
             items.add(pi);
 ///*srl*/            if(type.indexOf("Chicago")>-1) {
@@ -425,15 +446,7 @@ public class DataSection extends Registerable {
         public String fieldHash() { // deterministic. No need for sync.
             if(myFieldHash == null) {
                 String ret = "";
-                if(type != null) {
-                    ret = ret + ":" + CookieSession.cheapEncode(type.hashCode());
-                }
-                if(xpathSuffix != null) {
-                    ret = ret + ":" + CookieSession.cheapEncode(xpathSuffix.hashCode());
-                }
-                if(altType != null) {
-                    ret = ret + ":" + CookieSession.cheapEncode(altType.hashCode());
-                }
+                ret = ret + ":x" + CookieSession.cheapEncode(getXpathId());
                 myFieldHash = ret;
             }
             return myFieldHash;
@@ -443,26 +456,26 @@ public class DataSection extends Registerable {
         	return /*section.*/fieldHash + fieldHash();
         }
         
-        Hashtable<String,DataRow> subRows = null;
+//        Hashtable<String,DataRow> subRows = null;
 
-        public DataRow getSubDataRow(String altType) {
-            if(altType == null) {
-                return this;
-            }
-            if(subRows == null) {
-                subRows = new Hashtable<String,DataRow>();
-            }
-
-            DataRow p = subRows.get(altType);
-            if(p==null) {
-                p = new DataRow();
-                p.type = type;
-                p.altType = altType;
-                p.parentRow = this;
-                subRows.put(altType, p);
-            }
-            return p;
-        }
+//        public DataRow getSubDataRow(String altType) {
+//            if(altType == null) {
+//                return this;
+//            }
+//            if(subRows == null) {
+//                subRows = new Hashtable<String,DataRow>();
+//            }
+//
+//            DataRow p = subRows.get(altType);
+//            if(p==null) {
+//                p = new DataRow();
+//                p.type = type;
+//                p.altType = altType;
+//                p.parentRow = this;
+//                subRows.put(altType, p);
+//            }
+//            return p;
+//        }
         
         /**
          * Calculate the item from the vetted parent locale, without any tests
@@ -484,12 +497,12 @@ public class DataSection extends Registerable {
                 return;
             }
             
-            if(base_xpath == -1) {
+            if(xpathId == -1) {
                 return;
             }
             
 
-            String xpath = sm.xpt.getById(base_xpath);
+            String xpath = sm.xpt.getById(xpathId);
             if(TRACE_TIME) System.err.println("@@0:"+(System.currentTimeMillis()-lastTime));
             if(xpath == null) {
                 return;
@@ -523,7 +536,7 @@ public class DataSection extends Registerable {
                     
                     inheritedValue.value = value;
                     inheritedValue.xpath = xpath;
-                    inheritedValue.xpathId = base_xpath;
+                    inheritedValue.xpathId = xpathId;
                     inheritedValue.isFallback = true;                    
                 } else {
                  //   throw new InternalError("could not get inherited value: " + xpath);
@@ -640,7 +653,7 @@ public class DataSection extends Registerable {
 //        }
 
         public boolean isName() {
-          return NAME_TYPE_PATTERN.matcher(type).matches();
+          return NAME_TYPE_PATTERN.matcher(prettyPath).matches();
         }
 
 		public CLDRLocale getLocale() {
@@ -651,39 +664,19 @@ public class DataSection extends Registerable {
 			return intgroup;
 		}
 
-		public String xpath() {
-	        String path = xpathPrefix;
-	        if(path == null) {
-	            throw new InternalError("Can't handle mixed rows with no prefix");
-	        }
-	        if(xpathSuffix == null) {
-	            if(type != null) {
-	                path = path + "[@type='" + type +"']";
-	            }
-	            if(altType != null) {
-	                path = path + "[@alt='" + altType +"']";
-	            }
-	        } else {
-//		            if(p.xpathSuffix.startsWith("[")) {
-	                return xpathPrefix +  xpathSuffix;
-//		            } else {
-//		                return xpathPrefix+"/"+p.xpathSuffix;
-//		            }
-	        }
-	        
-	        return path;
-		}
-
 		private String resultXpath = null;
 		private int resultType[] = new int[1];
 		private int resultXpath_id = -1;
 		private boolean errorNoOutcome  = false;
 		
+		/**
+		 * @deprecated
+		 */
 		public String getResultXpath() {
 			if(resultXpath == null) {
-				if(base_xpath==-1) return xpath(); /* pseudo element. no real path */
+				if(xpathId==-1) return getXpath(); /* pseudo element. no real path */
 				int resultType[] = new int[1];
-				resultXpath_id =  sm.vet.queryResult(locale, base_xpath, resultType);
+				resultXpath_id =  sm.vet.queryResult(locale, xpathId, resultType);
 				if(resultXpath_id != -1) {
 					resultXpath = sm.xpt.getById(resultXpath_id); 
 				} else {
@@ -694,29 +687,32 @@ public class DataSection extends Registerable {
 			return resultXpath;
 		}
 		
+		/**
+		 * @deprecated
+		 */
 		public int getResultType() {
 			getResultXpath();
 			return resultType[0];
 		}
 		
+		/**
+		 * @deprecated
+		 */
 		public int getResultXpathId() {
 			getResultXpath();
 			return resultXpath_id;
 		}
 		
+		/**
+		 * @deprecated
+		 */
 		public boolean getErrorNoOutcome() {
 			getResultXpath();
 			return errorNoOutcome;
 		}
 		
 		public String getWinningValue() {
-		    CandidateItem item = getWinningItem();
-		    
-		    if(item!=null) {
-		        return item.value;
-		    } else {
-		        return null;
-		    }
+			return winningValue;
 		}
 		
 		/**
@@ -755,15 +751,10 @@ public class DataSection extends Registerable {
 
                 List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
                 List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
-
                 for (CandidateItem item : items) {
-                	if(sm.isUnofficial && DEBUG) System.err.println("Considering: " + item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.base_xpath+", ENO="+errorNoOutcome);
+//                	if(true || (sm.isUnofficial && DEBUG)) System.err.println("Considering: " + item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.xpathId+", ENO="+errorNoOutcome);
                 	// item.toString()
-                	if (((item.xpathId == resultXpath_id) || (resultXpath_id == -1
-                			&& item.xpathId == this.base_xpath && !errorNoOutcome))
-                			&& // do NOT add as current, if vetting said 'no' to
-                			// current item.
-                			!(item.isFallback || (item.inheritFrom != null))) {
+                	if (item.value.equals(winningValue) && !errorNoOutcome) {
                 		if(!currentItems.isEmpty()) {
                 			throw new InternalError(this.toString()+": can only have one candidate item, not " + currentItems.get(0) +" and " + item);
                 		}
@@ -855,6 +846,9 @@ public class DataSection extends Registerable {
 		public boolean userHasVoted(int userId) {
 		    return getVotesForUser(userId)!=null;
 		}
+        private void setDisplayName(String displayName) {
+            this.displayName = displayName;
+        }
     }
 
     Hashtable<String, DataRow> rowsHash = new Hashtable<String, DataRow>(); // hashtable of type->Row
@@ -964,8 +958,8 @@ public class DataSection extends Registerable {
                                 
 ///*srl*/         /*if(p.type.indexOf("Australia")!=-1)*/ {  System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches())); }
 
-                if(!matcher.matches(p.xpath(), p.base_xpath)) {
-                    if(DEBUG) System.err.println("not match: " + p.base_xpath + " / " + p.xpath());
+                if(!matcher.matches(p.getXpath(), p.getXpathId())) {
+                    if(DEBUG) System.err.println("not match: " + p.xpathId + " / " + p.getXpath());
                     continue;
                     
                 } else {
@@ -1003,30 +997,57 @@ public class DataSection extends Registerable {
     	if ( prefix.endsWith("ldml")) { // special check for the 'misc' section
     		section.hasExamples = true;
     	}
+    	if(ctx.sm.supplementalDataDir == null) {
+    		throw new InternalError("??!! ctx.sm.supplementalDataDir = null");
+    	}
     	
-    	XMLSource ourSrc = uf.resolvedSource;
+//    	XMLSource ourSrc = uf.resolvedSource;
+    	CLDRFile ourSrc = ctx.sm.getSTFactory().make(locale.getBaseName(), true, true).setSupplementalDirectory(ctx.sm.supplementalDataDir);
+    	if(ourSrc.getSupplementalDirectory()==null) {
+    		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+    	}
     	synchronized(ctx.session) {
     		CheckCLDR checkCldr = uf.getCheck(ctx);
+        	if(ourSrc.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        	}
     		if(checkCldr == null) {
     			throw new InternalError("checkCldr == null");
     		}
+        	if(ourSrc.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        	}
     		String workingCoverageLevel = section.getPtype();
     		com.ibm.icu.dev.test.util.ElapsedTimer cet = null;
     		if(SHOW_TIME) {
     			cet= new com.ibm.icu.dev.test.util.ElapsedTimer();
     			System.err.println("Begin populate of " + locale + " // " + prefix+":"+workingCoverageLevel + " - is:" + ourSrc.getClass().getName());
     		}
+        	if(ourSrc.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        	}
     		CLDRFile baselineFile = ctx.sm.getBaselineFile();
+        	if(ourSrc.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        	}
     		section.skippedDueToCoverage=0;
+        	if(ourSrc.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        	}
     		ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Populating...';</script>"); ctx.flush();
-
-    		section.populateFrom(ourSrc, checkCldr, baselineFile,ctx.getOptionsMap(), workingCoverageLevel);
+        	if(ourSrc.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        	}
+        	if(ourSrc.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        	}
+    		section.populateFrom(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(),workingCoverageLevel);
     		int popCount = section.getAll().size();
     		/*            if(SHOW_TIME) {
 	                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
 	            }*/
     		ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."+popCount+" items';</script>"); ctx.flush();
-    		section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
+    		section.ensureComplete(ourSrc,  checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
     		if(SHOW_TIME) {
     			int allCount = section.getAll().size();
     			System.err.println("Populate+complete " + locale + " // " + prefix +":"+section.getPtype()+ " = " + cet + " - Count: " + popCount+"+"+(allCount-popCount)+"="+allCount);
@@ -1146,15 +1167,17 @@ public class DataSection extends Registerable {
      * Divider denoting a specific Continent division.
      */
 	public static final String CONTINENT_DIVIDER = "\u2603";
+
+	private BallotBox<User> ballotBox;
     
-    private void populateFrom(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
-        if (!ourSrc.isResolving()) throw new IllegalArgumentException("CLDRFile must be resolved");
+    private void populateFrom(CLDRFile ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
+        //if (!ourSrc.isResolving()) throw new IllegalArgumentException("CLDRFile must be resolved");
         DBEntry vettedParentEntry = null;
         try  {
         	init();
         	XPathParts xpp = new XPathParts(null,null);
         	//        System.out.println("[] initting from pod " + locale + " with prefix " + xpathPrefix);
-        	CLDRFile aFile = new CLDRFile(ourSrc).setSupplementalDirectory(sm.dbsrcfac.getSupplementalDirectory());;
+        	CLDRFile aFile = ourSrc;
         	List examplesResult = new ArrayList();
         	SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         	long lastTime = -1;
@@ -1173,8 +1196,8 @@ public class DataSection extends Registerable {
         	CLDRLocale parentLoc = locale.getParent();
         	if(parentLoc != null) {
         		XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /*finalData*/, true);            
-        		vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(sm.dbsrcfac.getSupplementalDirectory());;
-        		vettedParentEntry = sm.dbsrcfac.openEntry(vettedParentSource.getUnresolving());
+        		vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(sm.supplementalDataDir);
+        		vettedParentEntry = sm.getDBSourceFactory().openEntry(vettedParentSource.getUnresolving());
         	}
 
         	int pn;
@@ -1190,6 +1213,8 @@ public class DataSection extends Registerable {
         	boolean isReferences = false;
         	String removePrefix = null;
         	String continent = null;
+        	
+        	/* ** Determine which xpaths to show */
         	if(xpathPrefix.equals("//ldml")) {
         		excludeMost = true;
         		useShorten = true;
@@ -1256,6 +1281,7 @@ public class DataSection extends Registerable {
 
         	List checkCldrResult = new ArrayList();
 
+        	/* ** Build the set of xpaths */
         	// iterate over everything in this prefix ..
         	Set<String> baseXpaths = new HashSet<String>();
         	for(Iterator<String> it = aFile.iterator(workPrefix);it.hasNext();) {
@@ -1267,14 +1293,17 @@ public class DataSection extends Registerable {
         	Set<String> extraXpaths = new HashSet<String>();
 
         	allXpaths.addAll(baseXpaths);
+        	if(aFile.getSupplementalDirectory()==null) {
+        		throw new InternalError("?!! aFile hsa no supplemental dir!");
+        	}
         	aFile.getExtraPaths(workPrefix,extraXpaths);
         	extraXpaths.removeAll(baseXpaths);
         	allXpaths.addAll(extraXpaths);
 
         	//        // Process extra paths.
         	if(DEBUG) System.err.println("@@X@ base["+workPrefix+"]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
-        	//        addExtraPaths(aFile, src, checkCldr, baselineFile, options, extraXpaths);
 
+        	/* ** iterate over all xpaths */
         	for(String xpath : allXpaths) {
         		boolean confirmOnly = false;
         		String isToggleFor= null;
@@ -1306,6 +1335,7 @@ public class DataSection extends Registerable {
         			}
         		}
 
+        		/* ** Skip unmatched things */
         		if(doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
         			// if(ndebug && (xpath.indexOf("Adak")!=-1))    System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
         			continue;
@@ -1339,7 +1369,6 @@ public class DataSection extends Registerable {
 
         		if(CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
         			//if(TRACE_TIME)                System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime) + " " + xpath);
-        			//		if(false) System.err.println("CheckCLDR.skipShowingInSurvey match for "+xpath);
         			continue;
         		}
 
@@ -1356,6 +1385,8 @@ public class DataSection extends Registerable {
         			} // else: would never be shown, don't care
         			continue;
         		}
+
+                String prettyPath = sm.xpt.getPrettyPath(base_xpath);
 
         		if(fullPath == null) { 
         			if(isExtraPath) {
@@ -1377,87 +1408,96 @@ public class DataSection extends Registerable {
         		if(TRACE_TIME)    System.err.println("ns0  "+(System.currentTimeMillis()-nextTime));
         		boolean mixedType = false;
         		String type;
-        		String lastType = sm.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
-        		String displaySuffixXpath;
-        		String peaSuffixXpath = null; // if non null:  write to suffixXpath
+        		
+                String value = isExtraPath?null:aFile.getStringValue(xpath);
+                String peaSuffixXpath = null; // if non null:  write to suffixXpath
 
-        		// these need to work on the base
-        		String fullSuffixXpath = baseXpath.substring(workPrefix.length(),baseXpath.length());
-        		if((removePrefix == null)||!baseXpath.startsWith(removePrefix)) {  
-        			displaySuffixXpath = baseXpath;
+
+                if(true) {
+        		    type = prettyPath;
         		} else {
-        			displaySuffixXpath = baseXpath.substring(removePrefix.length(),baseXpath.length());
-        		}
-        		if(useShorten == false) {
-        			type = lastType;
-        			if(type == null) {
-        				peaSuffixXpath = displaySuffixXpath; // Mixed pea
-        				if(xpath.startsWith("//ldml/characters")) {
-        					type = "standard";
-        				} else {
-        					type = displaySuffixXpath;
-        					mixedType = true;
-        				}
-        			}
-        		} else {
-        			// shorten
-        			peaSuffixXpath = displaySuffixXpath; // always mixed pea if we get here
+            		
+            		String lastType = sm.xpt.typeFromPathToTinyXpath(baseXpath, xpp);  // last type in the list
+            		String displaySuffixXpath;
+            		// these need to work on the base
+            		String fullSuffixXpath = baseXpath.substring(workPrefix.length(),baseXpath.length());
+            		if((removePrefix == null)||!baseXpath.startsWith(removePrefix)) {  
+            			displaySuffixXpath = baseXpath;
+            		} else {
+            			displaySuffixXpath = baseXpath.substring(removePrefix.length(),baseXpath.length());
+            		}
+            		if(useShorten == false) {
+            			type = lastType;
+            			if(type == null) {
+            				peaSuffixXpath = displaySuffixXpath; // Mixed pea
+            				if(xpath.startsWith("//ldml/characters")) {
+            					type = "standard";
+            				} else {
+            					type = displaySuffixXpath;
+            					mixedType = true;
+            				}
+            			}
+            		} else {
+            			// shorten
+            			peaSuffixXpath = displaySuffixXpath; // always mixed pea if we get here
+    
+            			Matcher m = typeReplacementPattern.matcher(displaySuffixXpath);
+            			type = m.replaceAll("/$1");
+            			Matcher n = noisePattern.matcher(type);
+            			type = n.replaceAll("");
+            			if(keyTypeSwap) { // see above
+            				Matcher o = keyTypeSwapPattern.matcher(type);
+            				type = o.replaceAll("$2/$1");
+            			}
+    
+            			for(pn=0;pn<fromto.length/2;pn++) {
+            				//                    String oldType = type;
+            				type = fromto_p[pn].matcher(type).replaceAll(fromto[(pn*2)+1]);
+            				// who caused the change?
+            				//                    if((type.indexOf("ldmls/")>0)&&(oldType.indexOf("ldmls/")<0)) {
+            				//                        System.err.println("ldmls @ #"+pn+", "+fromto[pn*2]+" -> " + fromto[(pn*2)+1]);
+            				//                    }
+            			}
+    
+            		}
+            		if(TRACE_TIME)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
+    
+    
+            		//if(ndebug)     System.err.println("n01  "+(System.currentTimeMillis()-nextTime));
+    
+            		if( xpath.indexOf("default[@type")!=-1 ) {
+            			peaSuffixXpath = displaySuffixXpath;
+            			int n = type.lastIndexOf('/');
+            			if(n==-1) {
+            				type = "(default type)";
+            			} else {
+            				type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
+            			}
+            			//                if(isExtraPath && SurveyMain.isUnofficial) System.err.println("About to replace ["+value+"] value: " + xpath);
+            			value = lastType;
+            			confirmOnly = true; // can't acccept new data for this.
+            		}
+    
+            		if(useShorten) {
+            			if((xpath.indexOf("/orientation")!=-1)||
+            					(xpath.indexOf("/alias")!=-1)) {
+            				if((value !=null)&&(value.length()>0)) {
+            					throw new InternalError("Shouldn't have a value for " + xpath + " but have '"+value+"'.");
+            				}
+            				peaSuffixXpath = displaySuffixXpath;
+            				int n = type.indexOf('[');
+            				if(n!=-1) {
+            					value = type.substring(n,type.length());
+            					type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)                        
+            					//value = lastType;
+            					confirmOnly = true; // can't acccept new data for this.
+            				}
+            			}
+            		}
+                    peaSuffixXpath = fullSuffixXpath; // for now...
 
-        			Matcher m = typeReplacementPattern.matcher(displaySuffixXpath);
-        			type = m.replaceAll("/$1");
-        			Matcher n = noisePattern.matcher(type);
-        			type = n.replaceAll("");
-        			if(keyTypeSwap) { // see above
-        				Matcher o = keyTypeSwapPattern.matcher(type);
-        				type = o.replaceAll("$2/$1");
-        			}
-
-        			for(pn=0;pn<fromto.length/2;pn++) {
-        				//                    String oldType = type;
-        				type = fromto_p[pn].matcher(type).replaceAll(fromto[(pn*2)+1]);
-        				// who caused the change?
-        				//                    if((type.indexOf("ldmls/")>0)&&(oldType.indexOf("ldmls/")<0)) {
-        				//                        System.err.println("ldmls @ #"+pn+", "+fromto[pn*2]+" -> " + fromto[(pn*2)+1]);
-        				//                    }
-        			}
-
-        		}
-
-        		if(TRACE_TIME)    System.err.println("n00  "+(System.currentTimeMillis()-nextTime));
-
-        		String value = isExtraPath?null:aFile.getStringValue(xpath);
-
-        		//if(ndebug)     System.err.println("n01  "+(System.currentTimeMillis()-nextTime));
-
-        		if( xpath.indexOf("default[@type")!=-1 ) {
-        			peaSuffixXpath = displaySuffixXpath;
-        			int n = type.lastIndexOf('/');
-        			if(n==-1) {
-        				type = "(default type)";
-        			} else {
-        				type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)
-        			}
-        			//                if(isExtraPath && SurveyMain.isUnofficial) System.err.println("About to replace ["+value+"] value: " + xpath);
-        			value = lastType;
-        			confirmOnly = true; // can't acccept new data for this.
-        		}
-
-        		if(useShorten) {
-        			if((xpath.indexOf("/orientation")!=-1)||
-        					(xpath.indexOf("/alias")!=-1)) {
-        				if((value !=null)&&(value.length()>0)) {
-        					throw new InternalError("Shouldn't have a value for " + xpath + " but have '"+value+"'.");
-        				}
-        				peaSuffixXpath = displaySuffixXpath;
-        				int n = type.indexOf('[');
-        				if(n!=-1) {
-        					value = type.substring(n,type.length());
-        					type = type.substring(0,n); //   blahblah/default/foo   ->  blahblah/default   ('foo' is lastType and will show up as the value)                        
-        					//value = lastType;
-        					confirmOnly = true; // can't acccept new data for this.
-        				}
-        			}
-        		}
+                }
+                
 
         		if(value == null) {
         			value = "(NOTHING)";  /* This is set to prevent crashes.. */
@@ -1485,25 +1525,19 @@ public class DataSection extends Registerable {
 
         		// Load the 'data row' which represents one user visible row of options 
         		// (may be nested in the case of alt types)
-        		DataRow p = getDataRow(type, altType);
-        		p.base_xpath = base_xpath;
-        		p.winningXpathId = sm.dbsrcfac.getWinningPathId(base_xpath, locale, false);
+        		DataRow p = getDataRow(xpath);
+        		p.winningXpathId = sm.getDBSourceFactory().getWinningPathId(base_xpath, locale, false);
 
         		p.coverageValue=coverageValue;
 
-        		DataRow superP = getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
+        		DataRow superP = p; // getDataRow(type);  // the 'parent' row (sans alt) - may be the same object
         		superP.coverageValue=coverageValue;
-        		peaSuffixXpath = fullSuffixXpath; // for now...
-
-        		if(peaSuffixXpath!=null) {
-        			p.xpathSuffix = peaSuffixXpath;
-        			superP.xpathSuffix = XPathTable.removeAltFromStub(peaSuffixXpath); // initialize parent row without alt
-        		}
 
         		if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
         			p.zoomOnly = superP.zoomOnly = true;
         		}
         		p.confirmOnly = superP.confirmOnly = confirmOnly;
+        		
 
         		if(isExtraPath) {
         			// Set up 'shim' tests, to display coverage
@@ -1553,20 +1587,20 @@ public class DataSection extends Registerable {
             }*/
 
         		// Some special cases.. a popup menu of values
-        		if(p.type.startsWith("layout/inText")) {
+        		if(p.prettyPath.startsWith("layout/inText")) {
         			p.valuesList = LAYOUT_INTEXT_VALUES;
         			superP.valuesList = p.valuesList;
-        		} else if(p.type.startsWith("defaultNumberingSystem")) { 
+        		} else if(p.prettyPath.startsWith("defaultNumberingSystem")) { 
         			// Not all available numbering systems are good candidates for default numbering system.
         			// Things like "roman" shouldn't really be an option.  So, in the interest of simplicity,
         			// we are hard-coding the choices here.
         			String [] values = { "latn", "arab", "arabext", "armn", "beng", "deva", "ethi", "geor", "gujr", "guru", "hans", "hant", "hebr", "jpan", "khmr", "knda", "laoo", "mlym", "mong", "orya", "tamldec", "telu", "thai", "tibt" };
         			p.valuesList = values;
         			superP.valuesList = p.valuesList;
-        		} else if(p.type.indexOf("commonlyUsed")!=-1) { 
+        		} else if(p.prettyPath.indexOf("commonlyUsed")!=-1) { 
         			p.valuesList = METAZONE_COMMONLYUSED_VALUES;
         			superP.valuesList = p.valuesList;
-        		} else if(p.type.startsWith("layout/inList")) {
+        		} else if(p.prettyPath.startsWith("layout/inList")) {
         			p.valuesList = LAYOUT_INLIST_VALUES;
         			superP.valuesList = p.valuesList;
         		}
@@ -1574,38 +1608,9 @@ public class DataSection extends Registerable {
 
         		if(TRACE_TIME) System.err.println("n05  "+(System.currentTimeMillis()-nextTime));
 
-        		// make sure the superP has its display name
-        		if(isReferences) {
-        			String eUri = xpp.findAttributeValue(lelement,"uri");
-        			if((eUri!=null)&&eUri.length()>0) {
-        				if(eUri.startsWith("isbn:")) {
-        					// linkbaton doesn't have ads, and lets you choose which provider to go to (including LOC).  
-        					// could also go to wikipedia's  ISBN special page.              
-        					p.uri = "http://my.linkbaton.com/isbn/"+
-        					eUri.substring(5,eUri.length());
-        					p.displayName = eUri;
-        				} else {
-        					p.uri = eUri;
-        					p.displayName = eUri.replaceAll("(/|&)","\u200b$0");  //  put zwsp before "/" or "&"
-        					//p.displayName = /*type + " - "+*/ "<a href='"+eUri+"'>"+eUri+"</a>";
-        				}
-        			} else {
-        				p.displayName = null;
-        			}
-        			if(superP.displayName == null) {
-        				superP.displayName = p.displayName;
-        			}
-        		} else {
-        			if(superP.displayName == null) {
-        				superP.displayName = baselineFile.getStringValue(xpath(superP)); 
-        			}
-        			if(p.displayName == null) {
-        				p.displayName = baselineFile.getStringValue(baseXpath);
-        			}
-        		}
 
-        		if((superP.displayName == null) ||
-        				(p.displayName == null)) {
+        		if((superP.getDisplayName() == null) ||
+        				(p.getDisplayName() == null)) {
         			canName = false; // disable 'view by name' if not all have names.
         		}
         		if(TRACE_TIME) System.err.println("n06  "+(System.currentTimeMillis()-nextTime));
@@ -1617,10 +1622,10 @@ public class DataSection extends Registerable {
         		}
 
         		// Inherit display names.
-        		if((superP != p) && (p.displayName == null)) {
-        			p.displayName = baselineFile.getStringValue(baseXpath); 
-        			if(p.displayName == null) {
-        				p.displayName = superP.displayName; // too: unscramble this a little bit
+        		if((superP != p) && (p.getDisplayName() == null)) {
+        			p.setDisplayName(baselineFile.getStringValue(baseXpath)); 
+        			if(p.getDisplayName() == null) {
+        				p.setDisplayName(superP.getDisplayName()); // too: unscramble this a little bit
         			}
         		}
         		if(TRACE_TIME) System.err.println("n06a  "+(System.currentTimeMillis()-nextTime));
@@ -1706,7 +1711,7 @@ public class DataSection extends Registerable {
                 value = newValue;
             }*/
         		if(TRACE_TIME) System.err.println("n08  (check) "+(System.currentTimeMillis()-nextTime));
-        		myItem = p.addItem( value, altProposed, null);
+        		myItem = p.addItem( value, null);
         		//if("gsw".equals(type)) System.err.println(myItem + " - # " + p.items.size());
 
         		myItem.xpath = xpath;
@@ -1723,7 +1728,7 @@ public class DataSection extends Registerable {
         		/*
                 Was this item submitted via SurveyTool? Let's find out.
         		 */
-        		myItem.submitter = sm.dbsrcfac.getSubmitterId(locale, myItem.xpathId);
+        		myItem.submitter = sm.getDBSourceFactory().getSubmitterId(locale, myItem.xpathId);
         		if(myItem.submitter != -1) {
         			///*srl*/                System.err.println("submitter set: " + myItem.submitter + " @ " + locale + ":"+ xpath);
         		}
@@ -1755,6 +1760,16 @@ public class DataSection extends Registerable {
         		if((eRefs != null) && (!isInherited)) {
         			myItem.references = eRefs;
         		}
+        		
+        		
+        		Set<String> v = ballotBox.getValues(xpath);
+        		if(v!=null) for(String avalue : v) {
+        		    System.err.println(" //val='"+avalue+"' vs " + value);
+        		    if(!avalue.equals(value)) {
+        		       CandidateItem item2 = p.addItem(avalue, null);
+        		       item2.xpath = xpath;
+        		    }
+        		}
 
         	}
         	//        aFile.close();
@@ -1769,37 +1784,11 @@ public class DataSection extends Registerable {
     	}
     }
     }
-
-//    /**
-//     * Create a 'shim' row for each of the named paths
-//     * @param extraXpaths
-//     */
-//    private void addExtraPaths(CLDRFile aFile, CLDRDBSource src, CheckCLDR checkCldr, CLDRFile baselineFile, Map options, Set<String> extraXpaths) {
-//        
-//        for(String xpath : extraXpaths) {
-//            DataSection.DataRow myp = getDataRow(xpath);
-//            int base_xpath = sm.xpt.getByXpath(xpath);
-//            myp.base_xpath = base_xpath;
-//            
-//            if(myp.xpathSuffix == null) {
-//                myp.xpathSuffix = xpath.substring(xpathPrefix.length());
-//                
-//                // set up the pea
-//                if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
-//                    myp.zoomOnly = true;
-//                }
-//
-//                // set up tests
-//                System.err.println("@@@shimmy - " + xpath);
-//                myp.setShimTests(base_xpath,xpath,checkCldr,options);
-//            }
-//        }
-//    }
     /**
      * Makes sure this pod contains the peas we'd like to see.
      */
-    private void ensureComplete(XMLSource ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
-    	if (!ourSrc.isResolving()) throw new IllegalArgumentException("CLDRFile must be resolved");
+    private void ensureComplete(CLDRFile ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String,String> options, String workingCoverageLevel) {
+    	//if (!ourSrc.isResolving()) throw new IllegalArgumentException("CLDRFile must be resolved");
 //    	if(xpathPrefix.contains("@type")) {
 //    		if(DEBUG) System.err.println("Bailing- no reason to complete a type-specifix xpath");
 //    		return; // don't try to complete if it's a specific item.
@@ -1860,7 +1849,7 @@ public class DataSection extends Registerable {
             }        
 
             String podBase = xpathPrefix;
-            CLDRFile resolvedFile = new CLDRFile(ourSrc);
+            CLDRFile resolvedFile = ourSrc;
 //            XPathParts parts = new XPathParts(null,null);
 //            TimezoneFormatter timezoneFormatter = new TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
 
@@ -1913,10 +1902,8 @@ public class DataSection extends Registerable {
                     
                     // set it up..
                     int base_xpath = sm.xpt.getByXpath(base_xpath_string);
-                    myp.base_xpath = base_xpath;
                     
-                    if(myp.xpathSuffix == null) {
-                        myp.xpathSuffix = ourSuffix+suff;
+                    if(false) {
                         
                         // set up the pea
                         if(CheckCLDR.FORCE_ZOOMED_EDIT.matcher(base_xpath_string).matches()) {
@@ -1925,10 +1912,12 @@ public class DataSection extends Registerable {
 
                         // set up tests
                         myp.setShimTests(base_xpath,base_xpath_string,checkCldr,options);
+                    } else {
+                        System.err.println("Note: Not setting up shims.");
                     }
                     
                     
-                    myp.displayName = baselineFile.getStringValue(podBase+ourSuffix+suff); // use the baseline (English) data for display name.
+                    myp.setDisplayName(baselineFile.getStringValue(podBase+ourSuffix+suff)); // use the baseline (English) data for display name.
                     
                 }
             }
@@ -1936,30 +1925,29 @@ public class DataSection extends Registerable {
     }
 // ==
 
-    public DataRow getDataRow(String type) {
-        if(type == null) {
+    public DataRow getDataRow(String xpath) {
+        if(xpath == null) {
             throw new InternalError("type is null");
         }
         if(rowsHash == null) {
             throw new InternalError("peasHash is null");
         }
-        DataRow p = (DataRow)rowsHash.get(type);
+        DataRow p = (DataRow)rowsHash.get(xpath);
         if(p == null) {
-            p = new DataRow();
-            p.type = type;
+            p = new DataRow(xpath);
             addDataRow(p);
         }
         return p;
     }
     
-    private DataRow getDataRow(String type, String altType) {
-        if(altType == null) {
-            return getDataRow(type);
-        } else {
-            DataRow superDataRow = getDataRow(type);
-            return superDataRow.getSubDataRow(altType);
-        }
-    }
+//    private DataRow getDataRow(String type, String altType) {
+//        if(altType == null) {
+//            return getDataRow(type);
+//        } else {
+//            DataRow superDataRow = getDataRow(type);
+//            return superDataRow.getSubDataRow(altType);
+//        }
+//    }
     
     /**
      * Linear search for matching item.
@@ -1967,27 +1955,28 @@ public class DataSection extends Registerable {
      * @return the matching DatRow
      */
     public DataRow getDataRow(int xpath) {
-    	// TODO: replace with better sort.
-    	for(DataRow dr : rowsHash.values()) {
-    		if(dr.base_xpath == xpath) {
-    			return dr;
-    		}
-    		// search subrows
-    		if(dr.subRows!=null) {
-    			for(DataRow subRow : dr.subRows.values()) {
-    				if(subRow.base_xpath == xpath) {
-    					return subRow;
-    				}
-    			}
-    		}
-    	}
-    	// look for sub-row
-    	
-    	return null;
+        return getDataRow(sm.xpt.getById(xpath));
+//     	// TODO: replace with better sort.
+//    	for(DataRow dr : rowsHash.values()) {
+//    		if(dr.base_xpath == xpath) {
+//    			return dr;
+//    		}
+//    		// search subrows
+//    		if(dr.subRows!=null) {
+//    			for(DataRow subRow : dr.subRows.values()) {
+//    				if(subRow.base_xpath == xpath) {
+//    					return subRow;
+//    				}
+//    			}
+//    		}
+//    	}
+//    	// look for sub-row
+//    	
+//    	return null;
     }
     
     void addDataRow(DataRow p) {
-        rowsHash.put(p.type, p);
+        rowsHash.put(p.prettyPath, p);
     }
     
     public String toString() {

@@ -80,10 +80,10 @@ public abstract class SortMode {
 	public String getDisplayName(DataRow p) {
 		if(p==null) {
 			return "(null)";
-		} else if(p.displayName != null) {
-			return p.displayName;
+		} else if(p.getDisplayName() != null) {
+			return p.getDisplayName();
 		} else {
-			return p.type;
+			return p.prettyPath;
 		}
 	}
 

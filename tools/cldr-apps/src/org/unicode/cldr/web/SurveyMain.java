@@ -90,6 +90,7 @@ import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
+import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
@@ -1517,7 +1518,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	            		if(alt.equals("XXXX")) {
 	            			alt = "proposed-u1-implicit1.7";
 	            			x = XPathTable.removeAlt(x, xpp);
-o	            		}*/
+	            		}*/
                             int n = XPathTable.altProposedToUserid(altPieces[1]);
                             if(n<0) {
                                 warner.warnOnce(ctx, "countNoUser", "warn", "Xpath with no userid in 'alt' tag: " + full);
@@ -3219,11 +3220,13 @@ o	            		}*/
             u.locales = new_locales;
             u.password = UserRegistry.makePassword(u.email+u.org+ctx.session.user.email);
             
-            UserRegistry.User registeredUser = registeredUser = reg.newUser(ctx, u);
+            UserRegistry.User registeredUser = reg.newUser(ctx, u);
             
             if(registeredUser == null) {
                 if(reg.get(new_email) != null) { // already exists..
-                    ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"A user with that email, <tt>" + new_email + "</tt> already exists. Couldn't add user. </div>");                
+                    ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"A user with that email already exists. If you have permission, you may be able to edit this user: <tt>");
+                    printUserZoomLink(ctx,new_email,new_email);
+                    ctx.println("</tt> </div>");                
                 } else {
                     ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Couldn't add user <tt>" + new_email + "</tt> - an unknown error occured.</div>");
                 }
@@ -3751,10 +3754,6 @@ o	            		}*/
     static final String LIST_MAILUSER_WHAT = "mailthem_t";
     static final String LIST_MAILUSER_CONFIRM = "mailthem_c";
 
-    static final String LIST_ACTION_CHANGE_EMAIL = "setemail_";
-    static final String LIST_ACTION_CHANGE_NAME = "setname_";
-    static final String LIST_ACTION_CHANGE_PASSWORD = "setpass_";
-
 	public static final String PREF_SHCOVERAGE = "showcov";
     
     public static final String changeAtTo40(String s) {
@@ -4173,11 +4172,12 @@ o	            		}*/
 							} else if (UserRegistry.userCanDeleteUser(
 									ctx.session.user, theirId, theirLevel)) {
 								// change of other stuff.
+								UserRegistry.InfoType type = UserRegistry.InfoType.fromAction(action);
+								
+								
 								if (UserRegistry.userIsAdmin(ctx.session.user)
-										&& action
-												.equals(LIST_ACTION_CHANGE_PASSWORD)) {
+										&& type == UserRegistry.InfoType.INFO_PASSWORD) {
 									String what = "password";
-									UserRegistry.InfoType type = UserRegistry.InfoType.INFO_PASSWORD;
 
 									String s0 = ctx.field("string0" + what);
 									String s1 = ctx.field("string1" + what);
@@ -4215,19 +4215,12 @@ o	            		}*/
 														.makePassword(theirEmail)
 												+ "</tt> )");
 									}
-								} else if (action
-										.equals(LIST_ACTION_CHANGE_EMAIL)
-										|| action
-												.equals(LIST_ACTION_CHANGE_NAME)) {
-									String what = action
-											.equals(LIST_ACTION_CHANGE_EMAIL) ? "Email"
-											: "Name";
-									UserRegistry.InfoType type = action
-											.equals(LIST_ACTION_CHANGE_EMAIL) ? UserRegistry.InfoType.INFO_EMAIL
-											: UserRegistry.InfoType.INFO_NAME;
+								} else if (type!=null) {
+									String what = type.toString();
 
 									String s0 = ctx.field("string0" + what);
 									String s1 = ctx.field("string1" + what);
+									if(type==InfoType.INFO_ORG) s1=s0; /* ignore */
 									if (s0.equals(s1) && s0.length() > 0) {
 										ctx.println("<h4>Change " + what
 												+ " to <tt class='codebox'>"
@@ -4246,13 +4239,26 @@ o	            		}*/
 										if (s0.length() > 0) {
 											ctx.println("<p class='ferrbox'>Both fields must match.</p>");
 										}
-										ctx.println("<label><b>New " + what
-												+ ":</b><input name='string0"
-												+ what + "' value='" + s0
-												+ "'></label><br>");
-										ctx.println("<label><b>New " + what
-												+ ":</b><input name='string1"
-												+ what + "'> (confirm)</label>");
+										if(type==InfoType.INFO_ORG){
+											ctx.println("<select name='string0"+what+"'>");
+											ctx.println("<option value='' >Choose...</option>");
+											for(String o : UserRegistry.getOrgList()) {
+													ctx.print("<option value='"+o+"' ");
+													if(o.equals(theirOrg)) {
+															ctx.print(" selected='selected' "); 
+													}
+													ctx.println(">"+o+"</option>");
+											}
+											ctx.println("</select>");
+										} else {
+											ctx.println("<label><b>New " + what
+													+ ":</b><input name='string0"
+													+ what + "' value='" + s0
+													+ "'></label><br>");
+											ctx.println("<label><b>New " + what
+													+ ":</b><input name='string1"
+													+ what + "'> (confirm)</label>");
+										}
 									}
 								}
 							}
@@ -4265,11 +4271,7 @@ o	            		}*/
 					}
 
 					if (just == null) {
-						ctx.print("<a href='" + ctx.url() + ctx.urlConnector()
-								+ "do=list&" + LIST_JUST + "="
-								+ changeAtTo40(theirEmail) + "' >"
-								+ ctx.iconHtml("zoom", "More on this user..")
-								+ "</a>");
+						printUserZoomLink(ctx, theirEmail, "");
 					}
 					ctx.println("</td>");
 
@@ -4373,37 +4375,16 @@ o	            		}*/
 									ctx.println("   <option disabled>"
 											+ LIST_ACTION_NONE + "</option>");
 
-									// CHANGE EMAIL
-									ctx.print(" <option ");
-									if (LIST_ACTION_CHANGE_EMAIL.equals(action)) {
-										ctx.print(" SELECTED ");
-									}
-									ctx.println(" value='"
-											+ LIST_ACTION_CHANGE_EMAIL
-											+ "'>Change Email...</option>");
-
-									// CHANGE NAME
-									ctx.print(" <option  ");
-									if (LIST_ACTION_CHANGE_NAME.equals(action)) {
-										ctx.print(" SELECTED ");
-									}
-									ctx.println(" value='"
-											+ LIST_ACTION_CHANGE_NAME
-											+ "'>Change Name...</option>");
-
-									// CHANGE PASSWORD
-									if (UserRegistry
-											.userIsAdmin(ctx.session.user)) {
-										ctx.print(" <option  ");
-										if (LIST_ACTION_CHANGE_PASSWORD
-												.equals(action)) {
+									InfoType current = InfoType.fromAction(action);
+									for(InfoType info : InfoType.values()) {
+										ctx.print(" <option ");
+										if (info==current) {
 											ctx.print(" SELECTED ");
 										}
 										ctx.println(" value='"
-												+ LIST_ACTION_CHANGE_PASSWORD
-												+ "'>Change Password...</option>");
+												+ info.toAction()
+												+ "'>Change "+info.toString()+"...</option>");
 									}
-
 								}
 							}
 							ctx.println("    </select>");
@@ -4452,6 +4433,16 @@ o	            		}*/
 				if (!justme) {
 					ctx.println("<div style='font-size: 70%'>Number of users shown: "
 							+ n + "</div><br>");
+					
+					if(n==0&&just!=null&&!just.isEmpty()) {
+						UserRegistry.User u = reg.get(just);
+						if(u==null) {
+							ctx.println("<h3 class='ferrbox'>"+ctx.iconHtml("stop", "Not Found Error") + " User '"+just+"' does not exist.</h3>");
+						} else {
+							ctx.println("<h3 class='ferrbox'>"+ctx.iconHtml("stop", "Not Found Error") + " User '"+just+"' from organization " + u.org + " is not visible to you. Ask an administrator.</h3>");
+						}
+					}
+					
 					if (UserRegistry.userIsTC(ctx.session.user) && locked > 0) {
 						showTogglePref(subCtx, PREF_SHOWLOCKED, "Show "
 								+ locked + " locked users:");
@@ -4620,6 +4611,25 @@ o	            		}*/
         }
         printFooter(ctx);
     }
+	/**
+	 * @param ctx
+	 * @param userEmail
+	 */
+	private void printUserZoomLink(WebContext ctx, String userEmail) {
+		printUserZoomLink(ctx, userEmail, "");
+	}
+	/**
+	 * @param ctx
+	 * @param userEmail
+	 * @param text TODO
+	 */
+	private void printUserZoomLink(WebContext ctx, String userEmail, String text) {
+		ctx.print("<a href='" + ctx.url() + ctx.urlConnector()
+				+ "do=list&" + LIST_JUST + "="
+				+ changeAtTo40(userEmail) + "' >"
+				+ ctx.iconHtml("zoom", "More on this user..") + text
+				+ "</a>");
+	}
     
     private void doChangeUserOption(WebContext ctx, int newLevel, int theirLevel, boolean selected)
     {

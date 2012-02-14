@@ -1,7 +1,7 @@
 //  UserRegistry.java
 //
 //  Created by Steven R. Loomis on 14/10/2005.
-//  Copyright 2005-2011 IBM. All rights reserved.
+//  Copyright 2005-2012 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -33,6 +33,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
+import org.unicode.cldr.web.UserRegistry.InfoType;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
@@ -113,13 +114,8 @@ public class UserRegistry {
     public static final String SQL_queryEmailStmt_FRO = "SELECT id,name,userlevel,org,locales,intlocs,lastlogin,password from " + CLDR_USERS +" where email=?"; 
     	//            ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
     public static final String SQL_touchStmt = "UPDATE "+CLDR_USERS+" set lastlogin=CURRENT_TIMESTAMP where id=?";
-    public static final String SQL_updateInfoEmailStmt = "UPDATE "+CLDR_USERS+" set email=? WHERE id=? AND email=?";
-    public static final String SQL_updateInfoNameStmt = "UPDATE "+CLDR_USERS+" set name=? WHERE id=? AND email=?";
-    public static final String SQL_updateInfoPasswordStmt = "UPDATE "+CLDR_USERS+" set password=? WHERE id=? AND email=?";
     public static final String SQL_removeIntLoc = "DELETE FROM "+CLDR_INTEREST+" WHERE uid=?";
     public static final String SQL_updateIntLoc = "INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)";
-
-    
     
     private UserSettingsData userSettings;
     
@@ -589,16 +585,17 @@ public class UserRegistry {
 
     /**
      * @param letmein The VAP was given - allow the user in regardless 
+     * @param pass the password to match. If NULL, means just do a lookup
      */
     public  UserRegistry.User get(String pass, String email, String ip, boolean letmein) {
         if((email == null)||(email.length()<=0)) {
             return null; // nothing to do
         }
-        if(((pass == null)||(pass.length()<=0)) && !letmein ) {
+        if(((pass!=null&&pass.length()<=0)) && !letmein ) {
             return null; // nothing to do
         }
         
-        if(email.startsWith("!") && pass.equals(sm.vap)) {
+        if(email.startsWith("!") && pass!=null&&pass.equals(sm.vap)) {
         	email=email.substring(1);
         	letmein=true;
         }
@@ -984,7 +981,32 @@ public class UserRegistry {
         return msg;
     }
     
-    public enum InfoType { INFO_EMAIL, INFO_NAME, INFO_PASSWORD };
+    public enum InfoType { INFO_EMAIL("E-mail","email"), INFO_NAME("Name","name"), INFO_PASSWORD("Password","password"), INFO_ORG("Organization","org") ;
+    	private static final String CHANGE = "change_";
+		private String sqlField;
+    	private String title;
+    	InfoType(String title, String sqlField) {
+    		this.title=title;
+    		this.sqlField = sqlField;
+    	}
+    	public String toString() {
+    		return title;
+    	}
+		public String field() {
+			return sqlField;
+		}
+		public static InfoType fromAction(String action) {
+			if(action!=null&&action.startsWith(CHANGE)) {
+				 String which = action.substring(CHANGE.length());
+				 return InfoType.valueOf(which);
+			} else {
+				return null;
+			}
+		}
+		public String toAction() {
+			return CHANGE+name();
+		}
+    };
     
     String updateInfo(WebContext ctx, int theirId, String theirEmail, InfoType type, String value) {
         if(ctx.session.user.userlevel > TC) {
@@ -997,21 +1019,7 @@ public class UserRegistry {
         try {
         		conn = sm.dbUtils.getDBConnection();
                 
-                //updateInfoStmt = conn.prepareStatement("UPDATE CLDR_USERS set ?=? WHERE id=? AND email=?");
-                switch(type) {
-                    case INFO_EMAIL: 
-                        updateInfoStmt = conn.prepareStatement(SQL_updateInfoEmailStmt);
-                        value = value.toLowerCase();
-                        break;
-                    case INFO_NAME:
-                        updateInfoStmt = conn.prepareStatement(SQL_updateInfoNameStmt);
-                        break;
-                    case INFO_PASSWORD:
-                        updateInfoStmt = conn.prepareStatement(SQL_updateInfoPasswordStmt);
-                        break;
-                    default:
-                        return("[unknown type: " + type.toString() +"]");
-                }
+                updateInfoStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set "+type.field()+"=? WHERE id=? AND email=?");
                 if(type==UserRegistry.InfoType.INFO_NAME) { // unicode treatment
                     DBUtils.setStringUTF8(updateInfoStmt, 1, value);
                 } else {
@@ -1126,9 +1134,11 @@ public class UserRegistry {
 				return null;
 			}
 		} catch (SQLException se) {
+			SurveyLog.logException(se,"Adding User");
 			logger.severe("UR: Adding: exception: "
 					+ DBUtils.unchainSqlException(se));
 		} catch (Throwable t) {
+			SurveyLog.logException(t,"Adding User");
 			logger.severe("UR: Adding: exception: " + t.toString());
 		} finally {
 			userModified(); // new user

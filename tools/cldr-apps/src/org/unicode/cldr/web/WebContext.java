@@ -1467,6 +1467,7 @@ public class WebContext implements Cloneable, Appendable {
         try {
             WebContext.includeFragment(request, response, filename);
         } catch(Throwable t) {
+        	SurveyLog.logException(t, "Including template " + filename);
             this.println("<div class='ferrorbox'><B>Error</b> while including template <tt class='code'>"+filename+"</tt>:<br>");
             this.print(t);
             this.println("</div>");

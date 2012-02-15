@@ -22,6 +22,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.tool.GetLanguageData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
@@ -352,6 +353,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 			} else {
 				r.clear();
 			}
+			// Set established locale
+			r.setEstablishedFromLocale(diskFile.getLocaleID());
 			XPathParts xpp = new XPathParts(null,null);
 			CLDRFile anOldFile = getOldFile();
 			if(anOldFile==null) anOldFile = diskFile;

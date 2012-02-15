@@ -1,4 +1,4 @@
-/* Copyright (c) 2004-2011 IBM and others. All Rights Reserved. */
+/* Copyright (c) 2004-2012 IBM and others. All Rights Reserved. */
 
 /* @override 
 	http://127.0.0.1:8080/cldr-apps/surveytool.css
@@ -752,11 +752,31 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 }
 
 .winner {
-	/
-
-*	border: 4px groove #0f0;*/
+	/*	border: 4px groove #0f0;*/
    border: 1px solid #0f0;
 	background-color: #DDFFDD;
+}
+
+.value {
+	/*	border: 4px groove #0f0;*/
+   border: 1px solid #028;
+   padding: 1px;
+	background-color: #ddd;
+}
+
+.scorebox {
+font-size: small;
+}
+
+.scorebox:before {
+	content: '(';
+}
+.scorebox:after {
+	content: ')';
+}
+
+table#voteinfo td,table#voteinfo th {
+	border-left,border-right: none !important;
 }
 
 .substituted {

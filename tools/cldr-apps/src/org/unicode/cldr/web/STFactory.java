@@ -3,7 +3,6 @@
  */
 package org.unicode.cldr.web;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,17 +21,15 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.tool.GetLanguageData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
-import org.unicode.cldr.web.STFactory.DataBackedSource;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -69,7 +66,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 //			if(m==null || m.isEmpty()) {
 //				return aliasOf.getFullPathAtDPath(path);
 //			} else {
-//				SurveyLog.logger.warning("Note: DBS.getFullPathAtDPath() todo!!"); TODO: 
+//				SurveyLog.logger.warning("Note: DBS.getFullPathAtDPath() todo!!"); TODO: show losing values
 				return delegate.getFullPathAtDPath(path);
 //			}
 		}
@@ -538,7 +535,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 		 * @param user
 		 * @param distinguishingXpath
 		 * @param value
-		 * @param source TODO
+		 * @param source
 		 * @return
 		 */
 		private final VoteResolver<String> internalSetVoteForValue(User user,
@@ -799,11 +796,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     		}
     		ExampleGenerator exampleGenerator = new ExampleGenerator(fileForGenerator, sm.getBaselineFile(), SurveyMain.fileBase + "/../supplemental/");
     		exampleGenerator.setVerboseErrors(sm.twidBool("ExampleGenerator.setVerboseErrors"));
-    		//SurveyLog.logger.warning("-revalid exgen-"+locale + " - " + exampleIsValid + " in " + this);
-    		//exampleIsValid.setValid();
-    		//SurveyLog.logger.warning(" >> "+locale + " - " + exampleIsValid + " in " + this);
-    		//exampleIsValid.register();
-    		//SurveyLog.logger.warning(" >>> "+locale + " - " + exampleIsValid + " in " + this);
         return exampleGenerator;
 	}
 	

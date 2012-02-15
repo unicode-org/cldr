@@ -58,6 +58,8 @@ public class DataSection extends Registerable {
      */
     private static final boolean TRACE_TIME=false;
     
+    
+    private static final boolean NOINHERIT = true;
     /**
      * Show time taken to populate?
      */
@@ -1041,8 +1043,14 @@ public class DataSection extends Registerable {
         	if(ourSrc.getSupplementalDirectory()==null) {
         		throw new InternalError("?!! ourSrc hsa no supplemental dir!");
         	}
-    		section.populateFrom(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(),workingCoverageLevel);
-    		int popCount = section.getAll().size();
+        	try {
+        		section.populateFrom(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(),workingCoverageLevel);
+        	} finally {
+        		if(NOINHERIT) {
+        			SurveyLog.errln(" ************** ERROR:  NOINHERIT=true in DataSection.  Inherited items are not properly calculated. TODO");
+        		}
+        	}
+        	int popCount = section.getAll().size();
     		/*            if(SHOW_TIME) {
 	                System.err.println("DP: Time taken to populate " + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et + " - Count: " + pod.getAll().size());
 	            }*/
@@ -1649,7 +1657,7 @@ public class DataSection extends Registerable {
         			if(TRACE_TIME) System.err.println("n06da  [src:"+sourceLocale+" vs " + locale+ ", sttus:"+sourceLocaleStatus+"] "+(System.currentTimeMillis()-nextTime));
         			if(!isReferences) {
         				if(TRACE_TIME) System.err.println("n06db  "+(System.currentTimeMillis()-nextTime));
-        				p.updateInheritedValue(vettedParent, checkCldr, options); // update the tests
+if(!NOINHERIT)        				p.updateInheritedValue(vettedParent, checkCldr, options); // update the tests
         				if(TRACE_TIME) System.err.println("n06dc  "+(System.currentTimeMillis()-nextTime));
         			}
         			continue;

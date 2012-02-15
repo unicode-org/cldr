@@ -106,7 +106,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 				res = (resolver=ballotBox.getResolver(m,path, resolver)).getWinningValue();
 			}
 //			SurveyLog.logger.info(path+"="+res+", by resolver.");
-			delegate.putValueAtDPath(path, res);
+			if(res!=null) {
+				delegate.putValueAtDPath(path, res);
+			} else {
+				delegate.removeValueAtDPath(path);
+			}
 			return resolver;
 		}
 
@@ -364,7 +368,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 			final String lastValue = anOldFile.getStringValue(path);
 			final Status lastStatus = VoteResolver.Status.fromString(xpp.getAttributeValue(-1, LDMLConstants.DRAFT));
 			r.setLastRelease(lastValue, lastStatus);
-			r.add(diskData.getValueAtDPath(path)); /* add the current value. */
+			String currentValue = diskData.getValueAtDPath(path);
+			r.add(currentValue); /* add the current value. */
 //			SurveyLog.logger.warning(path + ": LR '"+lastValue+"', " + lastStatus);
 			if(m!=null) {
 				for(Map.Entry<User, String>e : m.entrySet()) {
@@ -394,7 +399,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 				
 				// include the on-disk value, if not present.
 				String fbValue = diskData.getValueAtDPath(xpath);
-				ts.add(fbValue);
+				if(fbValue!=null) {
+					ts.add(fbValue);
+				}
 				return ts;
 			}
 		}

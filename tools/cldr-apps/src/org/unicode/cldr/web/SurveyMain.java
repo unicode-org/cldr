@@ -85,7 +85,6 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
-import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.InfoType;
@@ -7345,7 +7344,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             if(d != null) {
             
                 try {
-                    String path = ee.section.xpath(ee.dataRow);
+                    String path = ee.dataRow.getXpath();
                     String fullPath = cf.getFullXPath(path);
                     String value = ee.item.value;
                     String html = d.getHTML(m);
@@ -7450,7 +7449,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             return;
         }
 
-        boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
+        boolean canModify = ctx.getCanModify();
         
         WebContext subCtx = (WebContext)ctx.clone();
         subCtx.setQuery(QUERY_ZONE, zone);
@@ -7516,7 +7515,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<h3>Exemplar City</h3>");
         
         printSectionTableOpen(ctx, section, true, canModify);
-        showPeas(ctx, section, canModify, zoneXpath+"/exemplarCity", true);
+        section.showSection(ctx, canModify, zoneXpath+"/exemplarCity", true);
         printSectionTableClose(ctx, section, canModify);
         
         ctx.printHelpHtml(zoneXpath+"/exemplarCity");
@@ -7526,7 +7525,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("<hr><h3>Metazone "+currentMetaZone+"</h3>");
 
             printSectionTableOpen(ctx, metazoneSection, true, canModify);
-            showPeas(ctx, metazoneSection, canModify, metazoneXpath, true);
+            metazoneSection.showSection(ctx, canModify, metazoneXpath, true);
             printSectionTableClose(ctx, metazoneSection, canModify);
             if(canModify) {
                 ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:right'
@@ -7586,7 +7585,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 
         printSectionTableOpen(ctx, section, true, canModify);
         // use a special matcher.
-        showSection(ctx, section, canModify, XPathMatcher.regex(BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,zoneXpath),
+        section.showSection(ctx, canModify, XPathMatcher.regex(BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,zoneXpath),
         		 Pattern.compile(".*/((short)|(long))/.*")), true);
         printSectionTableClose(ctx, section, canModify);
         if(canModify) {
@@ -7645,7 +7644,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 fullThing = xpath;
             }    
                 
-            boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
+            boolean canModify = ctx.getCanModify();
             
             {
                 // TODO: move this into showExample. . .
@@ -7672,7 +7671,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     ctx.flush(); // give them some status.
             //        SurveyLog.logger.info("Pod's full thing: " + fullThing);
                     DataSection section = ctx.getSection(fullThing); // we load a new pod here - may be invalid by the modifications above.
-                    showSection(ctx, section, canModify, matcher, false);
+                    section.showSection(ctx, canModify, matcher, false);
                 }
             }
         //}
@@ -7685,8 +7684,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         	curThread.setName(threadName);
     	}
     }
-
-    static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
+	static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
 
     static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
         ctx.println("<a name='st_data'></a>");
@@ -7836,289 +7834,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("</table>");
     }
 
-    void showPeas(WebContext ctx, DataSection section, boolean canModify) { 
-        showPeas(ctx, section, canModify, -1, false);
-    }
-
-    void showPeas(WebContext ctx, DataSection section, boolean canModify, int only_base_xpath, boolean zoomedIn) {
-        showPeas(ctx, section, canModify, only_base_xpath, null, zoomedIn);
-    }
-
-    void showPeas(WebContext ctx, DataSection section, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {
-        showPeas(ctx, section, canModify, -1, only_prefix_xpath, zoomedIn);
-    }
-
-    /**
-     * Show a single item, in a very limited view.
-     * @param ctx
-     * @param section 
-     * @param item_xpath xpath of the one item to show
-     */
-	public void showPeasShort(WebContext ctx, DataSection section,
-			int item_xpath) {
-		DataRow row = section.getDataRow(item_xpath);
-		if(row!=null) {
-			showDataRowShort(ctx, row);
-		} else {
-			//if(this.isUnofficial) {
-				ctx.println("<tr><td colspan='2'>"+ctx.iconHtml("stop", "internal error")+"<i>internal error: nothing to show for xpath "+item_xpath+"," +
-						" "+xpt.getById(item_xpath)+"</i></td></tr>");
-			//}
-		}
-	}
-
-	/**
-	 * 
-     * Call this function to show a DataSection to the user.
-     * Caller must hold session sync.
-     * @param only_base_path only show this base xpath
-     * @param only_prefix_xpath only show this prefix
-     * @param zoomedIn show in zoomed-in mode
-     * @param canModify user is allowed to modify
-     * @param section the section to show
-     * @param ctx the context to show
-     * @deprecated use a custom XPathmatcher
-     */	
-    void showPeas(WebContext ctx, DataSection section, boolean canModify, int only_base_xpath, String only_prefix_xpath, boolean zoomedIn) {
-    	showSection(ctx, section, canModify, BaseAndPrefixMatcher.getInstance(only_base_xpath, only_prefix_xpath), zoomedIn);
-    }
-    
-    void showSection(WebContext ctx, DataSection section, boolean canModify, XPathMatcher matcher, boolean zoomedIn) {
-        int count = 0;
-        int skip = 0; // where the index points to
-        int oskip = ctx.fieldInt("skip",0); // original skip from user.
-        
-        //boolean partialPeas = (matcher != null); // true if we are filtering the section
-        boolean partialPeas = false; // TODO: always nonpartial
-        UserLocaleStuff uf = null;
-        synchronized(ctx.session) {
-            uf = ctx.getUserFile();
-
-            CLDRFile cf = uf.cldrfile;
-            XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
-            CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx);
-            
-            // get the name of the sortmode
-            String sortModeName = SortMode.getSortMode(ctx, section);
-            boolean disputedOnly = false;
-            if(ctx.field("only").equals("disputed")) { // are we in 'disputed-only' mode?
-                disputedOnly=true;
-                sortModeName = PREF_SORTMODE_WARNING; // so that disputed shows up on top- force the sortmode.
-            }
-            SortMode sortMode = SortMode.getInstance(sortModeName);
-       
-            // Calculate the names of the references (andn store them in temp hash)
-            String refs[] = calculateReferences(ctx, section);
-
-            // Get the set of things to display.
-            DataSection.DisplaySet dSet = section.createDisplaySet(sortMode, matcher);
-            
-            if(dSet.size() == 0) {
-                ctx.println("<h3>There are no items to display on this page ");
-                if(section.getSkippedDueToCoverage() > 0) { 
-                    ctx.println("due to the selected coverage level. To see "+section.getSkippedDueToCoverage()+" skipped items, " +
-                    "click on ");
-                
-    	            WebContext subCtx2 = new WebContext(ctx);
-    	            subCtx2.removeQuery(QUERY_LOCALE);
-    	            subCtx2.removeQuery(QUERY_LOCALE);
-    	            subCtx2.removeQuery(SurveyForum.F_FORUM);
-    	            printMenu(subCtx2, "", "options", "My Options", QUERY_DO);
-    	
-    	            ctx.println("and set your coverage level to a higher value.");
-                }
-                ctx.println("</h3>");
-	            return;
-		    }
-
-            boolean checkPartitions = (dSet.partitions.length > 0) && (dSet.partitions[0].name != null); // only check if more than 0 named partitions
-            int moveSkip=-1;  // move the "skip" marker?
-            int xfind = ctx.fieldInt(QUERY_XFIND);
-            if((xfind != -1) && !partialPeas) {
-                // see if we can find this base_xpath somewhere..
-                int pn = 0;
-                for(int i=0;i<dSet.rows.length && (moveSkip==-1);i++) {
-                	DataSection.DataRow p = dSet.rows[i];
-                    if(p.getXpathId() == xfind) {
-                        moveSkip = pn;
-                    }
-                    pn++;
-                }
-                if(moveSkip != -1) {
-                    oskip = (moveSkip / ctx.prefCodesPerPage())*ctx.prefCodesPerPage(); // make it fall on a page boundary.
-                }
-            }
-            // -----
-            if(!partialPeas && !(matcher!=null&&matcher.getXPath()!=XPathTable.NO_XPATH)) {
-                skip = showSkipBox(ctx, dSet, oskip);
-            } else {
-                skip = 0;
-            }
-            
-            if(!partialPeas) {
-                ctx.printUrlAsHiddenFields();   
-            }
-                
-            if(disputedOnly==true){
-                ctx.println("(<b>Disputed Only</b>)<br><input type='hidden' name='only' value='disputed'>");
-            }
-    
-            if(!partialPeas) {
-                ctx.println("<input type='hidden' name='skip' value='"+ctx.field("skip")+"'>");
-                printSectionTableOpen(ctx, section, zoomedIn, canModify);
-            }
-    
-                        
-            int peaStart = skip; // where should it start?
-            int peaCount = ctx.prefCodesPerPage(); // hwo many to show?
-            
-            if(disputedOnly) {            
-                // we want to go from VETTING_PROBLEMS_LIST[0]..VETTING_PROBLEMS_LIST[n] in range.
-                for(int j = 0;j<dSet.partitions.length;j++) {
-                    for(String part : DataSection.VETTING_PROBLEMS_LIST) {
-                        if(dSet.partitions[j].name.equals(part)) {
-                            if(peaStart != skip) { // set once
-                                peaStart=dSet.partitions[j].start;
-                            }
-                            peaCount=(dSet.partitions[j].limit - peaStart); // keep setting this.
-                        }
-                    }
-                }
-            }
-    
-            int peaEnd = peaStart+peaCount;
-            if(peaEnd > dSet.rows.length) {
-            	peaEnd = dSet.rows.length;
-            }
-            // if(partialPeas) { ??? }
-            for(int i=peaStart;i<peaEnd;i++) {
-                //for(ListIterator i = dSet.rows.listIterator(peaStart);(partialPeas||(count<peaCount))&&i.hasNext();count++) {
-                DataSection.DataRow p = dSet.rows[i];
-                
-                
-                if((!partialPeas) && checkPartitions) {
-                    for(int j = 0;j<dSet.partitions.length;j++) {
-                        if((dSet.partitions[j].name != null) &&
-                        		( (i == dSet.partitions[j].start) ||
-                        		((i==peaStart)&&(i>=dSet.partitions[j].start)&&(i<dSet.partitions[j].limit)))) { // ensure the first item has a header.
-                            ctx.print("<tr class='heading'><th class='partsection' align='left' colspan='"+PODTABLE_WIDTH+"'>" +
-                                    "<a name='" + dSet.partitions[j].name + "'");
-                            if (!dSet.partitions[j].helptext.isEmpty()) {
-                            	ctx.print("title='" + dSet.partitions[j].helptext + "'");
-                            }
-                             ctx.println(">" +
-                                dSet.partitions[j].name + "</a>" +
-                                "</th>");
-//                            if(isUnofficial) {
-//                            	ctx.println("<td>Partition #"+j+": "+dSet.partitions[j].start+"-"+dSet.partitions[j].limit+"</td>");
-//                            }
-                            ctx.println("</tr>");
-                        }
-                    }
-                }
-                
-                try {
-                    p.showDataRow(ctx, null, uf, cf, ourSrc, canModify, refs,checkCldr,zoomedIn);
-
-                } catch(Throwable t) {
-                    // failed to show pea. 
-                    ctx.println("<tr class='topbar'><td colspan='8'><b>"+section.xpath(p)+"</b><br>");
-                    SurveyLog.logException(t,ctx);
-                    ctx.print(t);
-                    ctx.print("</td></tr>");
-                }
-//                if(p.subRows != null) {
-//                    for(Iterator e = p.subRows.values().iterator();e.hasNext();) {
-//                        DataSection.DataRow subDataRow = (DataSection.DataRow)e.next();
-//                        try {
-//                            showDataRow(ctx, section, subDataRow, uf, cf, ourSrc, canModify, null,refs,checkCldr, zoomedIn);
-//                        } catch(Throwable t) {
-//                            // failed to show sub-pea.
-//                            ctx.println("<tr class='topbar'><td colspan='8'>sub pea: <b>"+section.xpath(subDataRow)+"."+subDataRow.altType+"</b><br>");
-//                            ctx.print(t);
-//                            ctx.print("</td></tr>");
-//                        }
-//                    }
-//                }
-            }
-            if(!partialPeas) {
-                printSectionTableClose(ctx, section, canModify);
-            
-                if(canModify && 
-                    section.xpathPrefix.indexOf("references")!=-1) {
-                    ctx.println("<hr>");
-                    ctx.println("<table class='listb' summary='New Reference Box'>");
-                    ctx.println("<tr><th colspan=2 >Add New Reference ( click '"+getSaveButtonText()+"' after filling in the fields.)</th></tr>");
-                    ctx.println("<tr><td align='right'>Reference: </th><td><input size='80' name='"+MKREFERENCE+"_v'></td></tr>");
-                    ctx.println("<tr><td align='right'>URI: </th><td><input size='80' name='"+MKREFERENCE+"_u'></td></tr>");
-                    ctx.println("</table>");
-                }
-                
-                
-                if(!(matcher!=null&&matcher.getXPath()!=XPathTable.NO_XPATH)) {
-                    /*skip = */ showSkipBox(ctx, dSet, oskip);
-                }
-                
-                if(!canModify) {
-                    ctx.println("<hr> <i>You are not authorized to make changes to this locale.</i>");
-                }
-            }
-        }
-    }
-
-    /**
-     * Calculate the references and put them in temporary hash.
-     * @param ctx context - to hold the temporary hash
-     * @param section -  the section being shown.
-     * @return list of possible references
-     */
-    private static String[] calculateReferences(WebContext ctx, DataSection section) {
-        
-        String refs[] = new String[0];
-        
-        // calculate references (references are deprecated)
-//        if(false && (section.xpathPrefix.indexOf("references")==-1)) { // if this is NOT the references section, itself:
-//            Hashtable<String,DataSection.DataRow> refsHash = new Hashtable<String, DataSection.DataRow>();
-//            Hashtable<String,DataSection.DataRow.CandidateItem> refsItemHash = new Hashtable<String, DataSection.DataRow.CandidateItem>();
-//
-//            Set refsSet = new TreeSet();
-//            WebContext refCtx = (WebContext)ctx.clone();
-//            refCtx.setQuery("_",ctx.getLocale().getLanguage());
-//            refCtx.setLocale(CLDRLocale.getInstance(ctx.getLocale().getLanguage())); // ensure it is from the language
-//            DataSection refSection = refCtx.getSection("//ldml/references");
-//            //int rType[] = new int[1];
-//            for(DataSection.DataRow p : refSection.getAll()) {
-//                // look for winning item
-//                int vetResultId =  ctx.sm.vet.getWinningXPath(p.base_xpath, refSection.locale);
-//                DataSection.DataRow.CandidateItem winner = null;
-//                DataSection.DataRow.CandidateItem someItem = null;
-//                for(Iterator j = p.items.iterator();j.hasNext();) {
-//                    DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
-//                    if(item.inheritFrom == null) {
-//                        refsSet.add(p.type);
-//                        refsHash.put(p.type, p);
-//                        if(item.xpathId == vetResultId) {
-//                            winner = item;
-//                        }
-//                        someItem = item;
-//                    }
-//                }
-//                if(winner == null) {
-//                    winner = someItem; // pick a random item. 
-//                }
-//                if(winner != null) {
-//                    refsItemHash.put(p.type, winner);
-//                }
-//            }
-//            if(!refsSet.isEmpty()) {
-//                refs = (String[])refsSet.toArray((Object[]) refs);
-//                ctx.temporaryStuff.put("refsHash",refsHash);
-//                ctx.temporaryStuff.put("refsItemHash",refsItemHash);
-//            }
-//        }
-        
-        return refs;
-	}
 	/**
      * Call from within session lock
      * @param ctx
@@ -8133,7 +7848,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         if(oldSection != null) {
             for(Iterator i = oldSection.getAll().iterator();i.hasNext();) {
                 DataSection.DataRow p = (DataSection.DataRow)i.next();
-                someDidChange = processDataRowChanges(ctx, oldSection, p, cf, ballotBox, dsrh) || someDidChange;
+                someDidChange = p.processDataRowChanges(ctx, this, cf, ballotBox, dsrh) || someDidChange;
 //                if(p.subRows != null) {
 //                    for(Iterator e = p.subRows.values().iterator();e.hasNext();) {
 //                        DataSection.DataRow subDataRow = (DataSection.DataRow)e.next();
@@ -8157,296 +7872,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         int n = vet.updateImpliedVotes(locale); // first implied votes
         SurveyLog.logger.warning("updateLocale:"+locale.toString()+":  vet_imp:"+n);
     }
-    /**
-     * Call from within  session lock
-     * @param ctx
-     * @param section
-     * @param p
-     * @param cf
-     * @param ballotBox
-     * @param dsrh 
-     * @return
-     */
-    boolean processDataRowChanges(WebContext ctx, DataSection section, DataSection.DataRow p, CLDRFile cf, BallotBox<User> ballotBox, DataSubmissionResultHandler dsrh) {
-        String fieldHash = section.fieldHash(p);
-        String altType = p.altType;
-        String choice = ctx.field(fieldHash); // checkmark choice
-        
-        
-        if(choice.length()==0) {
-            //SurveyLog.logger.warning("@@@@@  Unknown Hash: CH["+fieldHash+"]");
-            return false; // nothing to see..
-        }
-        String fullPathFull = section.xpath(p);
-        int base_xpath = xpt.xpathToBaseXpathId(fullPathFull);
-        if(SurveyLog.DEBUG) SurveyLog.logger.warning("@@@@@ CH["+fieldHash+"] -> " + choice + " @ " + fullPathFull + " / " + base_xpath) ;
-        
-        String oldVote = ballotBox.getVoteValue(ctx.session.user, fullPathFull);
-        // do modification here. 
-        String choice_v = ctx.field(fieldHash+QUERY_VALUE_SUFFIX); // choice + value
-        
-        if(SurveyLog.DEBUG) SurveyLog.logger.warning("@@@@@ v="+choice_v);
-        
-        
-        String choice_refDisplay = ""; // display value for ref
-        boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || p.hasProps || p.hasErrors || p.hasWarnings;
-        
-        //NOT a toggle.. proceed 'normally'
-        
-        if(!choice.equals(CHANGETO)) {
-            choice_v=""; // so that the value is ignored, as it is not changing
-        } else if (choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
-            choice_v = ctx.processor.processInput(xpt.getById(p.getXpathId()),choice_v, null);
-        }
-        
-//        SurveyLog.logger.warning("choice="+choice+", v="+choice_v);
-        
-        /* handle inherited value */
-        if(choice.equals(INHERITED_VALUE)) {
-            if(p.inheritedValue == null) {
-                throw new InternalError(p+" has no inherited value!");
-            }
-            
-            // remap. Will cause the 2nd if branch to be followed, below.se
-            choice = CHANGETO;
-            choice_v = p.inheritedValue.value;
-         //   SurveyLog.logger.warning("inherit -> CHANGETO");
-        }
-        
-        // . . .
-        DataSection.DataRow.CandidateItem voteForItem = null;
-        DataSection.DataRow.CandidateItem oldVoteItem = null;
-        Set<DataSection.DataRow.CandidateItem> deleteItems = null; // remove item
-		String[] deleteAlts = ctx.fieldValues(fieldHash+ACTION_DEL);
-		Set<String> deleteAltsSet = null;
-		
-		if(deleteAlts.length > 0) {
-			deleteAltsSet = new HashSet<String>();
-			deleteItems = new HashSet<DataSection.DataRow.CandidateItem>();
-			for(String anAlt : deleteAlts) {
-				deleteAltsSet.add(anAlt);
-			}
-		}
-		Set<DataSection.DataRow.CandidateItem> unvoteItems = null; // remove item
-		String[] unvoteAlts = ctx.fieldValues(fieldHash+ACTION_UNVOTE);
-		Set<String> unvoteAltsSet = null;
-		
-		if(unvoteAlts.length > 0) {
-		    unvoteAltsSet = new HashSet<String>();
-		    unvoteItems = new HashSet<DataSection.DataRow.CandidateItem>();
-		    for(String anAlt : unvoteAlts) {
-		        unvoteAltsSet.add(anAlt);
-		    }
-		}
-        
-		/* find the item.  Could fail if the HTML is stale. */
-		
-        for(Iterator j = p.items.iterator();j.hasNext();) {
-            DataSection.DataRow.CandidateItem item = (DataSection.DataRow.CandidateItem)j.next();
-            if(oldVoteItem==null && oldVote!=null && oldVote.equals(item.value)) {
-                oldVoteItem = item;
-            }
-            if(choice.equals(item.altProposed)) {
-                voteForItem = item;
-			} else if(choice.equals(CONFIRM)&&item.altProposed==null) {
-				voteForItem = item; // default item.
-			}
-			
-			if((item.altProposed != null) && 
-			   (deleteAltsSet != null) &&
-			   (deleteAltsSet.contains(item.altProposed))) {
-				deleteItems.add(item);
-			}
-			if((item.altProposed != null) && 
-			        (unvoteAltsSet != null) &&
-			        (unvoteAltsSet.contains(item.altProposed))) {
-			    unvoteItems.add(item);
-			}
-			
-        }
-        
-        if(voteForItem!=null) {
-        	if(voteForItem.inheritFrom!=null || voteForItem.isFallback || voteForItem.isParentFallback || (voteForItem.pathWhereFound!=null&&voteForItem.pathWhereFound.length()>0)) {
-                // remap as a NEW ITEM.
-                choice = CHANGETO;
-//                SurveyLog.logger.warning("v4i"+choice+" -> CHANGETO "+voteForItem.value);
-                choice_v = voteForItem.value;
-        	}
-        }
-        
-        
-		
-		boolean didSomething = false;  // Was any item modified?
-		
-		if(deleteItems != null && ctx.session.user!=null) {
-			for(DataSection.DataRow.CandidateItem item : deleteItems) {
-			    boolean adminOrRelevantTc = UserRegistry.userIsAdmin(ctx.session.user); // ctx.session.user.isAdminFor(reg.getInfo(item.submitter));
-				if((item.submitter != -1) && 
-					!( (item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) /*&&(p.inheritFrom==null)*/) && // not an alias / fallback / etc
-						( (item.getVotes() == null) || UserRegistry.userIsTC(ctx.session.user) ||  // nobody voted for it, or
-							((item.getVotes().size()==1)&& item.getVotes().contains(ctx.session.user) )) && // only user voted for it
-						( (item.submitter>0&&UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id) ) ) // user is TC or user is submitter
-				{
-					dsrh.handleRemoveItem(p, item, (voteForItem==item));
-					if(voteForItem == item) {
-						choice = DONTCARE;
-						voteForItem = null;
-					}
-			        String xpathIdToRemove = xpt.getById(item.xpathId);
-                    ballotBox.voteForValue(ctx.session.user, xpathIdToRemove, null);
-					didSomething = true;
-				} else {
-					dsrh.handleNoPermission(p, item, "remove");
-				}
-			}
-		}
-		if(unvoteItems != null && UserRegistry.userIsTC(ctx.session.user)) {
-		    for(DataSection.DataRow.CandidateItem item : unvoteItems) {
-		        if (item.getVotes()==null) continue;
-		        for(UserRegistry.User voter : item.getVotes()) {
-		            if(voter.org.equals(ctx.session.user.org)) {
-		                
-                        boolean did = doAdminRemoveVote(ctx, ctx.getLocale(), p.getXpathId(), voter.id);
-                        if(did) {
-                        	dsrh.handleRemoveVote(p, voter, item);
-    	                    didSomething = true;
-                        }
-		            }
-		        }
-		    }
-		}
-		
-        
-        if(choice.equals(CHANGETO)&& !choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
-        	dsrh.handleEmptyChangeto(p);
-            ctx.temporaryStuff.put(fieldHash+QUERY_VALUE_SUFFIX, choice_v);  // mark it for "this item not accepted"
-        } else if( (choice.equals(CHANGETO) && choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) ||
-             (HAVE_REMOVE&&choice.equals(REMOVE)) ) {
-            if(!canSubmit) {
-            	dsrh.handleNoPermission(p, null, "submit");
-//                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-//                ctx.println(ctx.iconHtml("stop","empty value")+" You are not allowed to submit data at this time.<br>");
-                return didSomething;
-            }
-            String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
-            if(fullPathMinusAlt.indexOf("/alias")!=-1) {
-            	dsrh.handleNoPermission(p, null, "modify an alias");
-//                ctx.print("<tt class='codebox'>"+ p.displayName +"</tt>: ");
-//                ctx.println(ctx.iconHtml("stop","alias")+" You are not allowed to submit data against this alias item. Contact your CLDR-TC representative.<br>");
-                return didSomething;
-            }
-            String altPrefix = null;
-            // handle FFT        
-            altPrefix = XPathTable.altProposedPrefix(ctx.session.user.id);
-            
-            // user requested a new alternate.
-            String newAlt = ctx.field(fieldHash+"_alt").trim();
-            if(newAlt.length()>0) {
-                altType = newAlt;
-            }
-            String aDisplayName = p.getDisplayName();
-            if(section.xpath(p).startsWith("//ldml/characters") && 
-                ((aDisplayName == null) || "null".equals(aDisplayName))) {
-                aDisplayName = "standard";
-            }
-            
-            dsrh.handleProposedValue(p, choice_v);
-//            dsrh.handleNewValue(p, choice_v);
-            // don't print 'new value' here until it is successful.
-
-            boolean doFail = false;
-            UserLocaleStuff uf = null;
-
-            // Test: is the value valid?
-            synchronized(ctx.session){
-                /* cribbed from elsewhere */
-                // The enclosion function already holds session sync
-                
-                uf=ctx.getUserFile();
-                // Set up checks
-                CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
-                List checkCldrResult = new ArrayList();
-                
-                checkCldr.check(fullPathMinusAlt, fullPathMinusAlt, choice_v, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);  // they get the full course
-                
-                if(!checkCldrResult.isEmpty()) {
-//                    boolean hadWarnings = false;
-                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                        if(status.getType().equals(status.errorType)) {
-                            if(status.getCause() instanceof org.unicode.cldr.test.CheckCoverage) {
-                                // coverage error, ignored
-                            } else {
-                                doFail = true;
-                            }
-                        }
-                        try{ 
-                            if (!(status.getCause() instanceof org.unicode.cldr.test.CheckCoverage) &&
-                                    !status.getType().equals(status.exampleType)) {
-//                                if(!hadWarnings) {
-//                                    hadWarnings = true;
-//                                    ctx.print("<br>");
-//                                }
-                            	dsrh.handleError(p, status, choice_v);
-                            	if(dsrh.rejectErrorItem(p)) {
-                            		return false;
-                            	}
-                            }
-                        } catch(Throwable t) {
-                            ctx.println("Error reading status item: <br><font size='-1'>"+status.toString()+"<br> - <br>" + t.toString()+"<hr><br>");
-                        }
-                    }
-                    if(doFail) {
-                    	if(dsrh.rejectErrorItem(p)) {
-                    		return false;
-                    	}
-                        // reject the value
-                        //if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
-                        //    ctx.temporaryStuff.put(fieldHash+"_v", choice_v);  // mark it 
-                        //}
-                        //return false;
-                    }
-                }
-            }
-            
-            String newProp = null;
-//            synchronized(vet) { // make sure that no-one else grabs our slot.
-            ballotBox.voteForValue(ctx.session.user, fullPathFull, choice_v);
-            // update implied vote
-//            ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" + newProp+"</tt>");
-            if(HAVE_REMOVE&&choice.equals(REMOVE)) {
-            	dsrh.handleRemoved(p);
-            } else {
-            	dsrh.handleNewValue(p, choice_v, doFail);
-            }
-            return true;
-        } else if(choice.equals(CONFIRM)) {
-            if(oldVoteItem != voteForItem) {
-            	dsrh.handleVote(p, oldVote, voteForItem.value);
-                ballotBox.voteForValue(ctx.session.user,fullPathFull, voteForItem.value);
-                return true || didSomething;
-            }
-        } else if (choice.equals(DONTCARE)) {
-            if(oldVote != null) {
-            	dsrh.handleVote(p, oldVote, null);
-                ballotBox.voteForValue(ctx.session.user,fullPathFull, null);
-                return true || didSomething;
-            }
-        } else if(voteForItem != null)  {
-            DataSection.DataRow.CandidateItem item = voteForItem;
-            if(oldVoteItem != item) {
-            	dsrh.handleVote(p, oldVote, voteForItem.value);
-                ballotBox.voteForValue(ctx.session.user,fullPathFull, item.value);
-                return true || didSomething;
-            } else {
-                return didSomething; // existing vote.
-            }
-		} else {
-			dsrh.handleUnknownChoice(p, choice);
-        }
-        return didSomething;
-    }
-
     boolean doVote(WebContext ctx, CLDRLocale locale, int xpath) {
         int base_xpath = xpt.xpathToBaseXpathId(xpath);
         return doVote(ctx, locale, xpath, base_xpath);
@@ -8478,261 +7903,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         return rs;
     }
 
-//    void showDataRow(WebContext ctx, DataSection section, DataSection.DataRow p, UserLocaleStuff uf, CLDRFile cf, 
-//        XMLSource ourSrc, boolean canModify, String specialUrl, String refs[], CheckCLDR checkCldr)  {
-//        showDataRow(ctx,section,p,uf, cf,ourSrc,canModify,specialUrl,refs,checkCldr,false);
-//    }
-//
-    /**
-     * Show a row of limited data.
-     * @param ctx
-     * @param row
-     */
-    void showDataRowShort(WebContext ctx, DataRow row) {
-        ctx.put(WebContext.DATA_ROW, row);
-        String whichFragment = (String)ctx.get(SurveyMain.DATAROW_JSP);
-        if(whichFragment == null) {
-        	whichFragment = SurveyMain.DATAROW_JSP_DEFAULT;
-        }
-        ctx.includeFragment(whichFragment);
-    }
-    
-    void printItemTypeName(WebContext ctx, DataRow p, boolean canModify, boolean zoomedIn)  {
-    	printItemTypeName(ctx, p, canModify, zoomedIn, null);
-    }
-    void printItemTypeName(WebContext ctx, DataRow p, boolean canModify, boolean zoomedIn, String specialUrl)  {
-        String disputeIcon = "";
-        if(canModify) {
-            if(vet.queryOrgDispute(ctx.session.user.voterOrg(), p.getLocale(), p.getXpathId())) {
-                disputeIcon = ctx.iconHtml("disp","Vetter Dispute");
-            }
-        }
-        ctx.print("<tt title='"+xpt.getPrettyPath(p.getXpathId())+"' >");
-        String typeShown = p.prettyPath.replaceAll("/","/\u200b");
-        if(!zoomedIn) {
-            if(specialUrl != null) {
-                ctx.print("<a class='notselected' "+ctx.atarget()+" href='"+specialUrl+"'>"+typeShown+disputeIcon+"</a>");
-            } else {
-                fora.showForumLink(ctx,p,p.parentRow.getXpathId(),typeShown+disputeIcon);
-            }
-        } else {
-            ctx.print(typeShown+disputeIcon);
-        }
-        ctx.print("</tt>");
-    }
+static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
+
 
     
-
-    static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
-
-    void showSkipBox_menu(WebContext ctx, SortMode sortMode, String aMode, String aDesc) {
-        WebContext nuCtx = (WebContext)ctx.clone();
-        nuCtx.addQuery(PREF_SORTMODE, aMode);
-        
-        if(!sortMode.getName().equals(aMode)) {
-            nuCtx.print("<a class='notselected' href='" + nuCtx.url() + "'>");
-        } else {
-            nuCtx.print("<span class='selected'>");
-        }
-        nuCtx.print(aDesc);
-        if(!sortMode.getName().equals(aMode)) {
-            nuCtx.println("</a>");
-        } else {
-            nuCtx.println("</span>");
-        }
-        
-        nuCtx.println(" ");
-    }
-
-    
-    public int showSkipBox(WebContext ctx, DataSection.DisplaySet displaySet,
-                 int skip) {
-    	SortMode sortMode = displaySet.sortMode;
-    	int total = displaySet.size();
-        DataRow displayList[] = null;
-        if(displaySet != null) {
-            displayList = displaySet.rows;
-        }
-        ctx.println("<div class='pager' style='margin: 2px'>");
-        if((ctx.getLocale() != null) && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale())) { // at least street level
-            if((ctx.field(QUERY_SECTION).length()>0) && !ctx.field(QUERY_SECTION).equals(xMAIN)) {
-                ctx.println("<input  type='submit' value='" + getSaveButtonText() + "'>"); // style='float:left'
-            }
-        }
-        // TODO: replace with ctx.fieldValue("skip",-1)
-        if(skip<=0) {
-            skip = 0;
-        } 
-        // calculate nextSkip
-        int from = skip+1;
-        int to = from + ctx.prefCodesPerPage()-1;
-        if(to >= total) {
-            to = total;
-        }
-
-        if(true) { // showsearchmode
-            ctx.println("<div style='float: right;'>Items " + from + " to " + to + " of " + total+"</div>");
-            ctx.println("<p class='hang' > " +  //float: right; tyle='margin-left: 3em;'
-                "<b>Sorted:</b>  ");
-            {
-               // boolean sortAlpha = (sortMode.equals(PREF_SORTMODE_ALPHA));
-                
-                //          showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_ALPHA, "Alphabetically");
-                showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE, "Code");
-                if (displaySet.isCalendar) {
-                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_CODE_CALENDAR, "Type");
-                }
-                if (displaySet.isMetazones) {
-                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_METAZONE, "Type");
-                }
-                showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_WARNING, "Priority");
-                if(displaySet.canName) {
-                    showSkipBox_menu(ctx, sortMode, PREF_SORTMODE_NAME, this.BASELINE_LANGUAGE_NAME+"-"+"Name");
-                }
-            }
-            
-            {
-                WebContext subCtx = (WebContext)ctx.clone();
-                if(skip > 0) {
-                    subCtx.setQuery("skip",new Integer(skip).toString());
-                }
-            }
-            
-            
-            ctx.println("</p>");
-        }
-
-        // Print navigation
-        if(true) { // showsearchmode
-
-            if(total>=(ctx.prefCodesPerPage())) {
-                int prevSkip = skip - ctx.prefCodesPerPage();
-                if(prevSkip<0) {
-                    prevSkip = 0;
-                }
-                ctx.print("<p class='hang'>");
-                if(skip<=0) {
-                    ctx.print("<span class='pagerl_inactive'>\u2190&nbsp;prev"/* + ctx.prefCodesPerPage() */ + "" +
-                            "</span>&nbsp;");  
-                } else {
-                    ctx.print("<a class='pagerl_active' href=\"" + ctx.url() + 
-                            ctx.urlConnector() + "skip=" + new Integer(prevSkip) + "\">" +
-                            "\u2190&nbsp;prev"/* + ctx.prefCodesPerPage()*/ + "");
-                    ctx.print("</a>&nbsp;");
-                }
-                int nextSkip = skip + ctx.prefCodesPerPage(); 
-                if(nextSkip >= total) {
-                    nextSkip = -1;
-                    if(total>=(ctx.prefCodesPerPage())) {
-                        ctx.println(" <span class='pagerl_inactive' >" +
-                                    "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
-                                    "</span>");
-                    }
-                } else {
-                    ctx.println(" <a class='pagerl_active' href=\"" + ctx.url() + 
-                                ctx.urlConnector() +"skip=" + new Integer(nextSkip) + "\">" +
-                                "next&nbsp;"/* + ctx.prefCodesPerPage()*/ + "\u2192" +
-                                "</a>");
-                }
-                ctx.print("</p>");
-            }
-//            ctx.println("<br/>");
-        }
-
-        if(total>=(ctx.prefCodesPerPage())) {
-            if(displaySet.partitions.length > 1) {
-                ctx.println("<table summary='navigation box' style='border-collapse: collapse'><tr valign='top'><td>");
-            }
-            if(skip>0) {
-                if(skip>=total) {
-                    skip = 0;
-                }
-            }
-            if(displaySet.partitions.length > 1) {
-                ctx.println("</td>");
-            }
-            for(int j=0;j<displaySet.partitions.length;j++) {
-                if(j>0) { 
-                    ctx.println("<tr valign='top'><td></td>");
-                }
-                if(displaySet.partitions[j].name != null) {
-                    ctx.print("<td  class='pagerln' align='left'><p style='margin-top: 2px; margin-bottom: 2px;' class='hang'><b>" + displaySet.partitions[j].name + ":</b>"
-                        /*+ "</td><td class='pagerln'>"*/);
-                }
-                int ourStart = displaySet.partitions[j].start;
-                int ourLimit = displaySet.partitions[j].limit;
-                for(int i=ourStart;i<ourLimit;i = (i - (i%ctx.prefCodesPerPage())) + ctx.prefCodesPerPage()) {
-                    int pageStart = i - (i%ctx.prefCodesPerPage()); // pageStart is the skip at the top of this page. should be == ourStart unless on a boundary.
-                    int end = pageStart + ctx.prefCodesPerPage()-1;
-                    if(end>=ourLimit) {
-                        end = ourLimit-1;
-                    }
-        // \u2013 = --
-        // \u2190 = <--
-        // \u2026 = ...
-                    boolean isus = (pageStart == skip);
-                    if(isus) {
-                        if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
-                            ctx.print(" <b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
-                        } else {
-                            ctx.println(" <b class='selected'>");
-                        }
-                    } else {
-                        ctx.print(" <a class='notselected' href=\"" + ctx.url() + 
-                                    ctx.urlConnector() +"skip=" + pageStart);
-                        if((i!=pageStart) && (displaySet.partitions[j].name != null)) {
-                            ctx.println("#"+displaySet.partitions[j].name);
-                        }
-                        ctx.println("\">"); // skip to the pageStart
-                    }
-                    if(displayList != null) {
-                        String iString = sortMode.getDisplayName(displayList[i]);
-                        if(iString.length() > PAGER_SHORTEN_WIDTH) {
-                            iString = iString.substring(0,PAGER_SHORTEN_WIDTH)+"\u2026";
-                        }
-                        ctx.print(iString);
-                    } else {
-                        ctx.print( ""+(i+1) );
-                        ctx.print( "\u2013" + (end+1));
-                    }
-                    if(isus) {
-                        if(((i!=pageStart) || (i==0)) && (displaySet.partitions[j].name != null)) {
-                            ctx.print("</a></b> ");
-                        } else {
-                            ctx.println("</b> ");
-                        }
-                    } else {
-                        ctx.println("</a> ");
-                    }
-                }
-                if(displaySet.partitions.length > 1) {
-                    ctx.print("</p>");
-                }
-                if(displaySet.partitions.length > 1) {
-                    ctx.println("</td></tr>");
-                }
-            }
-            if(displaySet.partitions.length > 1) {
-                ctx.println("</table>");
-            }
-        } // no multiple pages
-        else {
-            if(displaySet.partitions.length > 1) {
-                ctx.println("<br><b>Items:</b><ul>");
-                for(int j=0;j<displaySet.partitions.length;j++) {
-                    ctx.print("<b><a class='selected' style='text-decoration:none' href='#"+displaySet.partitions[j].name+"'>");
-                    ctx.print(displaySet.partitions[j].name + "</a></b> ");
-                    if(j<displaySet.partitions.length-1) {
-                        ctx.println("<br>");
-                    }
-                }
-                ctx.println("</ul>");
-            }
-        }
-        ctx.println("</div>");
-        return skip;
-    }
-
     public static int pages=0;
     public static int xpages=0;
     /**
@@ -10395,7 +9569,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     Pattern ALLOWED_EMPTY = Pattern.compile("//ldml/fallback(?![a-zA-Z])");
     // TODO move to central location
     
-    private boolean choiceNotEmptyOrAllowedEmpty(String choice_r, String path) {
+    boolean choiceNotEmptyOrAllowedEmpty(String choice_r, String path) {
       return choice_r.length()>0 || ALLOWED_EMPTY.matcher(path).matches();
     }
 	static String xmlescape(String str) {

@@ -43,6 +43,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.w3c.dom.Document;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -213,7 +214,7 @@ public class WebContext implements Cloneable, Appendable {
      * @param x field name
      * @return the field's value as an integer, or -1 if it was not found
      */
-    final int fieldInt(String x) {
+    public final int fieldInt(String x) {
         return fieldInt(x,-1);
     }
     
@@ -1495,8 +1496,13 @@ public class WebContext implements Cloneable, Appendable {
      * @param string
      * @param object
      */
-    public void put(String string, Object object) {
-        temporaryStuff.put(string, object);
+    @SuppressWarnings("unchecked")
+	public void put(String string, Object object) {
+    	if(object==null) {
+    		temporaryStuff.remove(string);
+    	} else {
+    		temporaryStuff.put(string, object);
+    	}
     }
     /**
      * Get something from the temporary (context, non session data) store
@@ -1744,5 +1750,24 @@ public class WebContext implements Cloneable, Appendable {
     public String toString() {
         return "{ " + this.getClass().getName() + ": url="+url()+", ip="+this.userIP()+", user="+this.user()+"}";
     }
+
+	/**
+	 * @return
+	 */
+	public String getAlign() {
+		String ourAlign = "left";
+		if (getDirectionForLocale().equals(HTMLDirection.RIGHT_TO_LEFT)) {
+			ourAlign = "right";
+		}
+		return ourAlign;
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean getCanModify() {
+		boolean canModify = (UserRegistry.userCanModifyLocale(session.user,getLocale()));
+		return canModify;
+	}
 
 }

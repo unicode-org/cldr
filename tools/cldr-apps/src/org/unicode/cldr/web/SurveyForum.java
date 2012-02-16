@@ -660,7 +660,7 @@ public class SurveyForum {
 		DataSection section = ctx.getSection(podBase);
 
 		baseCtx.sm.printSectionTableOpen(ctx, section, true, canModify);
-		baseCtx.sm.showPeas(ctx, section, canModify, item_xpath, true);
+		section.showSection(ctx, canModify, ctx.sm.xpt.getById(item_xpath), true);
 		baseCtx.sm.printSectionTableClose(ctx, section, canModify);
 		baseCtx.sm.printPathListClose(ctx);
 
@@ -728,7 +728,7 @@ public class SurveyForum {
 		ctx.put(WebContext.ZOOMED_IN, true);
 		String podBase = DataSection.xpathToSectionBase(base_xpath);        
 		DataSection section = ctx.getSection(podBase);
-		baseCtx.sm.showPeasShort(ctx, section, item_xpath);
+		section.showPeasShort(ctx, item_xpath);
 		return podBase;
 	}
 
@@ -804,7 +804,7 @@ public class SurveyForum {
 
 		DataSection section = ctx.getSection(podBase,Level.COMPREHENSIVE.toString()); // always use comprehensive - so no cov filtering
 
-		sm.showSection(ctx, section, canModify, BaseAndPrefixMatcher.getInstance(base_xpath,null), true);
+		section.showSection(ctx, canModify, BaseAndPrefixMatcher.getInstance(base_xpath,null), true);
 		sm.printPathListClose(ctx);
 
 		ctx.printHelpHtml(xpath);
@@ -1353,7 +1353,7 @@ public class SurveyForum {
 	/**
 	 * @deprecated section is not needed.
 	 * @param ctx
-	 * @param section
+	 * @param section ignored
 	 * @param p
 	 * @param xpath
 	 * @param contents
@@ -1370,8 +1370,38 @@ public class SurveyForum {
             title = " (not on your interest list)";
         }*/
 		//        title = null /*+ title*/;
-		ctx.println("<a "+ctx.atarget(WebContext.TARGET_ZOOMED)+"  href='"+forumUrl(ctx,p,xpath)+"' >" // title='"+title+"'
-				+contents+ "</a>");
+		String forumLinkContents = getForumLink(ctx, p, xpath, contents);
+		ctx.println(forumLinkContents);
+	}
+	void showForumLink(WebContext ctx, DataSection.DataRow p,String contents) {
+		//if(ctx.session.user == null) {     
+		//    return; // no user?
+		//}
+		//        String title;
+		/*        if(!ctx.session.user.interestedIn(forum)) {
+            title = " (not on your interest list)";
+        }*/
+		//        title = null /*+ title*/;
+		String forumLinkContents = getForumLink(ctx, p, contents);
+		ctx.println(forumLinkContents);
+	}
+
+	/**
+	 * @param ctx
+	 * @param p
+	 * @param xpath
+	 * @param contents
+	 * @return
+	 */
+	public String getForumLink(WebContext ctx, DataSection.DataRow p, int xpath, String contents) {
+		String forumLinkContents = "<a "+ctx.atarget(WebContext.TARGET_ZOOMED)+"  href='"+forumUrl(ctx,p,xpath)+"' >" // title='"+title+"'
+				+contents+ "</a>";
+		return forumLinkContents;
+	}
+	public String getForumLink(WebContext ctx, DataSection.DataRow p,  String contents) {
+		String forumLinkContents = "<a "+ctx.atarget(WebContext.TARGET_ZOOMED)+"  href='"+forumUrl(ctx,p,p.getXpath())+"' >" // title='"+title+"'
+				+contents+ "</a>";
+		return forumLinkContents;
 	}
 	void showForumLink(WebContext ctx, DataSection section, DataSection.DataRow p, int xpath) {
 		showForumLink(ctx,section,p,xpath,ctx.iconHtml("zoom","zoom"));
@@ -1379,11 +1409,13 @@ public class SurveyForum {
 	// "link" UI
 	static public String forumUrl(WebContext ctx, DataSection.DataRow p, int xpath) {
 		String xp = ctx.sm.xpt.getById(xpath);
-		if((xpath == -1) || (xp==null)) {
+		if(xp==null) {
 			xp = Integer.toString(xpath);
-		} else {
-			xp = java.net.URLEncoder.encode(xp);
 		}
+		return forumUrl(ctx,p,xp);
+	}
+	static public String forumUrl(WebContext ctx, DataSection.DataRow p, String xp) {
+		xp = java.net.URLEncoder.encode(xp);
 		return ctx.base()+"?_="+ctx.getLocale()+"&"+F_FORUM+"="+p.getIntgroup()+"&"+F_XPATH+"="+xp;
 	}
 	static public String localeToForum(String locale) {

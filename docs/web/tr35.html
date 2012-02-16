@@ -38,12 +38,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</tr>
 </table>
 <div class="body">
-	<h2 style="text-align: center">Unicode Technical Standard #35</h2>
+	<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
 	<h1 style="text-align: center">Unicode Locale Data Markup Language (LDML)</h1>
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td>21</td>
+			<td><span class="changed">22</span></td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -52,17 +52,17 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012-02-05</td>
+			<td>2012-02-<span class="changed">16</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-23.html">http://unicode.org/reports/tr35/tr35-23.html</a></td>
+			<a class="changed" href="http://unicode.org/reports/tr35/tr35-24.html">http://unicode.org/reports/tr35/tr35-24.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-21.html">http://unicode.org/reports/tr35/tr35-21.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-23.html" class="changed">http://unicode.org/reports/tr35/tr35-23.html</a></td>
 		</tr>
 		<tr>
 			<td>Latest Version</td>
@@ -93,7 +93,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a href="#Modifications">23</a></td>
+			<td><a href="#Modifications" class="changed">24</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
@@ -102,19 +102,19 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	
 	<h3><i>Status</i></h3>
 
-	   <!-- NOT YET APPROVED
+	   <!-- NOT YET APPROVED -->
 	  <p><i class="changed">This is a<b><font color="#ff3333"> draft </font></b>document which 
       may be updated, replaced, or superseded by other documents at any time. 
       Publication does not imply endorsement by the Unicode Consortium. This is 
       not a stable document; it is inappropriate to cite this document as other 
       than a work in progress.</i></p>
-      END NOT YET APPROVED -->
-	  <!-- APPROVED -->
+      <!-- END NOT YET APPROVED -->
+	  <!-- APPROVED
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-      <!-- END APPROVED -->
+      END APPROVED -->
 
 	<blockquote>
 		<p><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</i></p>
@@ -8922,9 +8922,17 @@ decimal?, group?, special*)) &gt;</pre>
 &nbsp;</i></td>
 		</tr>
 		<tr>
+			<td class="changed" width="148">[<a name="Bugs">Bugs</a>]</td>
+			<td class="changed" width="730">CLDR Bug Reporting form<br>
+			<a class="removed" href="http://www.unicode.org/cldr/filing_bug_reports.html">
+			http://www.unicode.org/cldr/filing_bug_reports.html</a><br>
+			<a href="http://cldr.unicode.org/index/bug-reports">
+			http://cldr.unicode.org/index/bug-reports</a></td>
+		</tr>
+		<tr>
 			<td class="noborder" width="148">[<a name="Charts">Charts</a>]</td>
 			<td class="noborder" width="730">The online code charts can be found at <a href="http://unicode.org/charts/">http://unicode.org/charts/</a> An index 
-			to characters names with links to the corresponding chart is found at <a href="http://unicode.org/charts/charindex.html">http://unicode.org/charts/charindex.html</a></td>
+			to character<span class="removed">s</span> names with links to the corresponding chart is found at <a href="http://unicode.org/charts/charindex.html">http://unicode.org/charts/charindex.html</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="DUCET">DUCET</a>]</td>
@@ -8944,11 +8952,6 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="http://unicode.org/notes/tn5/">http://unicode.org/notes/tn5/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Bugs">Bugs</a>]</td>
-			<td class="noborder" width="730">CLDR Bug Reporting form<br>
-			<a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a></td>
-		</tr>
-		<tr>
 			<td class="noborder" width="148">[<a name="Glossary">Glossary</a>]</td>
 			<td class="noborder" width="730">Unicode Glossary<a href="http://unicode.org/glossary/"><br>
 			http://unicode.org/glossary/<br>
@@ -8957,7 +8960,9 @@ decimal?, group?, special*)) &gt;</pre>
 		<tr>
 			<td class="noborder" width="148">[<a name="JavaChoice">JavaChoice</a>]</td>
 			<td class="noborder" width="730">Java ChoiceFormat<br>
-			<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html">http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html</a></td>
+			<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html" class="removed">http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html</a><br>
+			<a class="changed" href="http://docs.oracle.com/javase/1.4.2/docs/api/java/text/ChoiceFormat.html">
+			http://docs.oracle.com/javase/1.4.2/docs/api/java/text/ChoiceFormat.html</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="Olson">Olson</a>]</td>
@@ -8977,9 +8982,13 @@ decimal?, group?, special*)) &gt;</pre>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="Unicode">Unicode</a>]</td>
-			<td class="noborder" width="730">The Unicode Consortium. The Unicode Standard, Version 5.2.0, defined
-				by: <a href="http://www.unicode.org/versions/Unicode5.2.0/">The Unicode Standard, Version 5.2</a> (Mountain View, CA: The Unicode Consortium, 2009. ISBN 978-1-936213-00-9)
-			</td>
+			<td class="noborder" width="730">
+				<span class="removed">The Unicode Consortium. The Unicode Standard, Version 5.2.0, defined by: 
+				<a href="http://www.unicode.org/versions/Unicode5.2.0/">The Unicode Standard, Version 5.2</a> 
+				(Mountain View, CA: The Unicode Consortium, 2009. ISBN 978-1-936213-00-9)</span><br>
+				<span class="changed">The Unicode Consortium. The Unicode Standard, Version 6.1.0, 
+				(Mountain View, CA: The Unicode Consortium, 2012. ISBN 978-1-936213-02-3) <br>
+				<a href="http://www.unicode.org/versions/Unicode6.1.0/">http://www.unicode.org/versions/Unicode6.1.0/</a></span></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="Versions">Versions</a>]</td>
@@ -8993,15 +9002,15 @@ decimal?, group?, special*)) &gt;</pre>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="XPath">XPath</a>]</td>
-			<td class="noborder" width="730"><a href="http://www.w3.org/TR/xpath">
-			http://www.w3.org/TR/xpath</a> </td>
+			<td class="noborder" width="730"><a href="http://www.w3.org/TR/xpath/">
+			http://www.w3.org/TR/xpath/</a> </td>
 		</tr>
 		<tr>
 			<th class="noborder" width="148">Other Standards</th>
 			<td class="noborder" width="730"><i>Various standards define codes that are used as keys or values in Locale Data Markup Language. These include:</i></td>
 		</tr>
 		<tr>
-		  <th class="noborder">[<a name="BCP47">BCP47</a>]</th>
+		  <th class="noborder"><span style="font-weight: normal">[<a name="BCP47">BCP47</a>]</span></th>
 		  <td class="noborder"><a href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt"> http://www.rfc-editor.org/rfc/bcp/bcp47.txt</a>
 		    <p>The Registry<br>
 		      <a href="http://www.iana.org/assignments/language-subtag-registry">http://www.iana.org/assignments/language-subtag-registry</a></p></td>
@@ -9014,7 +9023,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="http://www.loc.gov/standards/iso639-2/langcodes.html">http://www.loc.gov/standards/iso639-2/langcodes.html</a></td>
 		</tr>
 		<tr>
-			<th class="noborder" width="148">[<a name="ISO1000">ISO1000</a>]</th>
+			<th class="noborder" width="148"><span style="font-weight: normal">[<a name="ISO1000">ISO1000</a>]</span></th>
 			<td class="noborder" width="730">ISO 1000: SI units and recommendations for the use of their multiples and of certain other units, International Organization for Standardization, 1992.<br>
 			<a href="http://www.iso.org/iso/catalogue_detail?csnumber=5448">http://www.iso.org/iso/catalogue_detail?csnumber=5448</a></td>
 		</tr>
@@ -9124,7 +9133,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html">http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html</a></td>
 		</tr>
 		<tr>
-			<th class="noborder" width="148">[<a name="ITUE164">ITUE164</a>]</th>
+			<th class="noborder" width="148"><span style="font-weight: normal">[<a name="ITUE164">ITUE164</a>]</span></th>
 			<td class="noborder" width="730">International Telecommunication Union: List Of ITU Recommendation E.164 Assigned Country Codes<br>
 			available at <a href="http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2">http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2</a></td>
 		</tr>
@@ -9205,9 +9214,14 @@ decimal?, group?, special*)) &gt;</pre>
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
 
+  <h3><span class="changed">Revision 24</span></h3>
+	<ul>
+		<li><span class="changed">Proposed update for CLDR Version 22.</span></li>
+	</ul>
+
   <h3>Revision 23</h3>
 	<ul>
-		<li>Updated&nbsp; for CLDR Version 21.</li>
+		<li>Updated for CLDR Version 21.</li>
 		<li>Note the change in version numbering scheme beginning with this release.</li>
 		<li>Added information on distinctness requirements for names of eras and dayPeriods.
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/3831">#3831</a>]</li>

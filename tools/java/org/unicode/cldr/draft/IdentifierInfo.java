@@ -56,15 +56,15 @@ public class IdentifierInfo {
     private static final UnicodeSet ASCII = new UnicodeSet(0,0x7F).freeze();
 
     private String identifier;
-    private final BitSet scripts = new BitSet();
-    private final Set<BitSet> alternates = new HashSet<BitSet>();
+    private final BitSet requiredScripts = new BitSet();
+    private final Set<BitSet> scriptSetSet = new HashSet<BitSet>();
     private final BitSet commonAmongAlternates = new BitSet();
     private final UnicodeSet numerics = new UnicodeSet();
     private final UnicodeSet identifierProfile = new UnicodeSet(0,0x10FFFF);
 
     private IdentifierInfo clear() {
-        scripts.clear();
-        alternates.clear();
+        requiredScripts.clear();
+        scriptSetSet.clear();
         numerics.clear();
         commonAmongAlternates.clear();
         return this;
@@ -88,38 +88,39 @@ public class IdentifierInfo {
             cp = Character.codePointAt(identifier, i);
             // Store a representative character for each kind of decimal digit
             if (UCharacter.getType(cp) == UCharacterCategory.DECIMAL_DIGIT_NUMBER) {
-                // Just store the zero character as a representative for comparison. Unicode guarantees it is cp-value
-                numerics.add(cp-UCharacter.getNumericValue(cp));
+                // Just store the zero character as a representative for comparison. Unicode guarantees it is cp - value
+                numerics.add(cp - UCharacter.getNumericValue(cp));
             }
             UScript.getScriptExtensions(cp, temp);
-            // HACK for older version of ICU
+            temp.clear(UScript.COMMON);
+            temp.clear(UScript.INHERITED);
             if (temp.cardinality() == 0) {
-                scripts.set(UScript.getScript(cp));
-                continue;
-            }
-            if (temp.cardinality() == 1) {
+                // HACK for older version of ICU
+                requiredScripts.set(UScript.getScript(cp));
+            } else if (temp.cardinality() == 1) {
                 // Single script, record it.
-                scripts.or(temp);
-            } else if (!scripts.intersects(temp) 
-                    && alternates.add(temp)) {
-                // Create new temporary for the next pass so we don't rewrite what's already in the set.
+                requiredScripts.or(temp);
+            } else if (!requiredScripts.intersects(temp) 
+                    && scriptSetSet.add(temp)) {
+                // If the set hasn't been added already, add it and create new temporary for the next pass,
+                // so we don't rewrite what's already in the set.
                 temp = new BitSet();
             }
         }
         // Now make a final pass through to remove alternates that came before singles.
         // [Kana], [Kana Hira] => [Kana]
         // This is relatively infrequent, so doesn't have to be optimized.
-        if (alternates.size() == 0) {
+        if (scriptSetSet.size() == 0) {
             commonAmongAlternates.clear();
         } else {
             commonAmongAlternates.set(0,UScript.CODE_LIMIT);
-            for (Iterator<BitSet> it = alternates.iterator(); it.hasNext();) {
+            for (Iterator<BitSet> it = scriptSetSet.iterator(); it.hasNext();) {
                 final BitSet next = it.next();
-                if (scripts.intersects(next)) {
+                if (requiredScripts.intersects(next)) {
                     it.remove();
                 } else {
                     // [[Arab Syrc Thaa]; [Arab Syrc]] => [[Arab Syrc]]
-                    for (BitSet other : alternates) {
+                    for (BitSet other : scriptSetSet) {
                         if (next != other && contains(next, other)) {
                             it.remove();
                             break;
@@ -137,18 +138,77 @@ public class IdentifierInfo {
         // That would be a possible optimization, but is probably not worth the extra processing
         return this;
     }
+    
+    static final BitSet COMMON_AND_INHERITED = set(new BitSet(), UScript.COMMON, UScript.INHERITED);
+
+    public static boolean isMultiScript(String identifier) {
+        // Non-optimized code, for simplicity
+        Set<BitSet> setOfScriptSets = new HashSet<BitSet>();
+        BitSet temp = new BitSet();
+        int cp;
+        for (int i = 0; i < identifier.length(); i += Character.charCount(i)) {
+            cp = Character.codePointAt(identifier, i);
+            UScript.getScriptExtensions(cp, temp);
+            if (temp.cardinality() == 0) {
+                // HACK for older version of ICU
+                final int script = UScript.getScript(cp);
+                temp.set(script);
+            }
+            temp.andNot(COMMON_AND_INHERITED);
+            if (temp.cardinality() != 0 && setOfScriptSets.add(temp)) {
+                // If the set hasn't been added already, add it and create new temporary for the next pass,
+                // so we don't rewrite what's already in the set.
+                temp = new BitSet();
+            }
+        }
+        if (setOfScriptSets.size() == 0) {
+            return true; // trivially true
+        }
+        temp.clear();
+        // check to see that there is at least one script common to all the sets
+        boolean first = true;
+        for (BitSet other : setOfScriptSets) {
+            if (first) {
+                temp.or(other);
+                first = false;
+            } else {
+                temp.and(other);
+            }
+        }
+        return temp.cardinality() != 0;
+    }
+
+    public boolean hasMixedNumberSystems(String identifier) {
+        int cp;
+        UnicodeSet numerics = new UnicodeSet();
+        for (int i = 0; i < identifier.length(); i += Character.charCount(i)) {
+            cp = Character.codePointAt(identifier, i);
+            // Store a representative character for each kind of decimal digit
+            switch (UCharacter.getType(cp)) {
+            case UCharacterCategory.DECIMAL_DIGIT_NUMBER:
+                // Just store the zero character as a representative for comparison. 
+                // Unicode guarantees it is cp - value
+                numerics.add(cp - UCharacter.getNumericValue(cp));
+                break;
+            case UCharacterCategory.OTHER_NUMBER:
+            case UCharacterCategory.LETTER_NUMBER:
+                throw new IllegalArgumentException("Should not be in identifiers.");
+            }
+        } 
+        return numerics.size() > 1;
+    }
 
     public String getIdentifier() {
         return identifier;
     }
 
     public BitSet getScripts() {
-        return (BitSet) scripts.clone();
+        return (BitSet) requiredScripts.clone();
     }
 
     public Set<BitSet> getAlternates() {
         Set<BitSet> result = new HashSet<BitSet>();
-        for (BitSet item : alternates) {
+        for (BitSet item : scriptSetSet) {
             result.add((BitSet) item.clone());
         }
         return result;
@@ -177,14 +237,14 @@ public class IdentifierInfo {
             return IdentifierStatus.ASCII;
         }
         BitSet temp = new BitSet();
-        temp.or(scripts);
+        temp.or(requiredScripts);
         temp.clear(UScript.COMMON);
         temp.clear(UScript.INHERITED);
         // This is a bit tricky. We look at a number of factors.
         // The number of scripts in the text. 
         // Plus 1 if there is some commonality among the alternates (eg [Arab Thaa]; [Arab Syrc])
         // Plus number of alternates otherwise (this only works because we only test cardinality up to 2.)
-        final int cardinalityPlus = temp.cardinality() + (commonAmongAlternates.isEmpty() ? alternates.size() : 1);
+        final int cardinalityPlus = temp.cardinality() + (commonAmongAlternates.isEmpty() ? scriptSetSet.size() : 1);
         if (cardinalityPlus < 2) {
             return IdentifierStatus.HIGHLY_RESTRICTIVE;
         }
@@ -205,8 +265,8 @@ public class IdentifierInfo {
     public String toString() {
         return identifier + ", " + identifierProfile.toPattern(false)
         + ", " + getRestrictionLevel()
-        + ", " + displayScripts(scripts) 
-        + ", " + displayAlternates(alternates)
+        + ", " + displayScripts(requiredScripts) 
+        + ", " + displayAlternates(scriptSetSet)
         + ", " + numerics.toPattern(false);
     }
 
@@ -214,7 +274,7 @@ public class IdentifierInfo {
         if (!contains(container, containee)) {
             return false;
         }
-        for (BitSet alternatives : alternates) {
+        for (BitSet alternatives : scriptSetSet) {
             if (!container.intersects(alternatives)) {
                 return false;
             }

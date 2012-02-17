@@ -94,6 +94,7 @@ public class Option {
 
     public static class Options implements Iterable<Option> {
 
+        private String mainMessage;
         final Map<String, Option> stringToValues = new LinkedHashMap<String, Option>();
         final Map<Character, Option> charToValues = new LinkedHashMap<Character, Option>();
         final Set<String> results = new LinkedHashSet<String>();
@@ -101,6 +102,14 @@ public class Option {
             add("help", null, "Provide the list of possible options");
         }
         final Option help = charToValues.values().iterator().next();
+
+        public Options(String mainMessage) {
+            this.mainMessage = (mainMessage.isEmpty() ? "" : mainMessage + "\n") + "Here are the options:\n";
+        }
+
+        public Options() {
+            this("");
+        }
 
         public Options add(String string, String helpText) {
             return add(string, string.charAt(0), null, null, helpText);
@@ -209,7 +218,7 @@ public class Option {
         }
 
         private String getHelp() {
-            StringBuilder buffer = new StringBuilder();
+            StringBuilder buffer = new StringBuilder(mainMessage);
             boolean first = true;
             for (Option option : stringToValues.values()) {
                 if (first) {

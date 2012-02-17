@@ -87,7 +87,7 @@ public class GenerateXMB {
     static final String stock = "en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|nb|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_HK";
     private static final HashSet<String> REGION_LOCALES = new HashSet<String>(Arrays.asList(stock.split("\\|")));
 
-    final static Options myOptions = new Options()
+    final static Options myOptions = new Options("In normal usage, you set the -t option for the target.")
     .add("target", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/xmb/", "The target directory for building. Will generate an English .xmb file, and .wsb files for other languages.")
     .add("file", ".*", stock, "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
     // "^(sl|fr)$", 
@@ -103,6 +103,7 @@ public class GenerateXMB {
     //static Matcher contentMatcher;
     static Matcher pathMatcher;
     static PrettyPath prettyPath = new PrettyPath();
+    static int errors = 0;
 
     //enum Handling {SKIP};
     static final Matcher datePatternMatcher = Pattern.compile("dates.*(pattern|available)").matcher("");
@@ -137,8 +138,8 @@ public class GenerateXMB {
         EnglishInfo englishInfo = new EnglishInfo(targetDir, english, root);
 
         option = myOptions.get("kompare");
-        compareDirectory = option.getValue();
-        if (compareDirectory != null) {
+        if (option.doesOccur()) {
+            compareDirectory = option.getValue();
             compareFiles(fileMatcherString, contentMatcher, targetDir, cldrFactory1, english, englishInfo);
             return;
         }
@@ -191,6 +192,7 @@ public class GenerateXMB {
             countFile.flush();
         }
         countFile.close();
+        System.out.println("Errors: " + errors);
     }
 
 
@@ -543,7 +545,8 @@ public class GenerateXMB {
             String var = pathInfo.getFirstVariable();
             String fullPlurals = showPlurals(var, fullValues, locale, pluralInfo, isEnglish);
             if (fullPlurals == null) {
-                System.out.println("Can't format plurals for: " + entry.getKey());
+                System.out.println(locale + "\tCan't format plurals for: " + entry.getKey());
+                errors++;
                 continue;
             }
 

@@ -55,20 +55,22 @@ public class TestSTFactory extends TestFmwk {
 	}
 	
 	private static final String ANY = "*";
-	
+	private static final String NULL = "<NULL>";
 	
 	private String expect(String path,
 										String expectString,
 										boolean expectVoted,
-										
-										CLDRLocale locale,
 										CLDRFile file,
 										BallotBox<User> box) {
+		CLDRLocale locale = CLDRLocale.getInstance(file.getLocaleID());
 		String currentWinner = file.getStringValue(path);
 		boolean didVote = box.userDidVote(getMyUser(),path);
 		StackTraceElement them =  Thread.currentThread().getStackTrace()[3];
 		String where = them.getFileName()+":"+them.getLineNumber()+": ";
 				
+		if(expectString==null) expectString = NULL;
+		if(currentWinner==null) currentWinner=NULL;
+		
 		if(expectString!=ANY && !expectString.equals(currentWinner)) {
 			errln ("ERR:" + where+"Expected '"+expectString+"': " + locale+":"+path+" ='"+currentWinner+"', " +   votedToString(didVote) + box.getResolver(path));
 		} else if(expectVoted!=didVote) {
@@ -92,16 +94,20 @@ public class TestSTFactory extends TestFmwk {
 		STFactory fac = getFactory();
 		
 		final String somePath =  "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+		final String somePath2 =  "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
 		String originalValue = null;
 		String changedTo = null;
+		String originalValue2 = null;
+		String changedTo2 = null;
 		
 		CLDRLocale locale = CLDRLocale.getInstance("mt");
+		CLDRLocale locale2 = CLDRLocale.getInstance("mt_MT");
 		{
 			CLDRFile mt = fac.make(locale, false);
 			BallotBox<User> box = fac.ballotBoxForLocale(locale);
 			
 			originalValue  = expect(somePath,ANY,false,
-					locale,mt,box);
+					mt,box);
 			
 			changedTo = "COLL_ATION!!!";
 			
@@ -112,7 +118,7 @@ public class TestSTFactory extends TestFmwk {
 			box.voteForValue(getMyUser(), somePath, changedTo);
 			
 			expect(somePath,changedTo,true,
-					locale,mt,box);
+					mt,box);
 		}
 		
 		// Restart STFactory.
@@ -122,13 +128,13 @@ public class TestSTFactory extends TestFmwk {
 			BallotBox<User> box = fac.ballotBoxForLocale(locale);
 
 			expect(somePath,changedTo,true,
-					locale,mt,box);
+					mt,box);
 			
 			// unvote
 			box.voteForValue(getMyUser(), somePath, null);
 
 			expect(somePath,originalValue,true,
-					locale,mt,box);
+					mt,box);
 		}
 		fac = resetFactory();
 		{
@@ -137,7 +143,7 @@ public class TestSTFactory extends TestFmwk {
 
 
 			expect(somePath,originalValue,true,
-					locale,mt,box);
+					mt,box);
 
 			// vote for ____2
 			changedTo = changedTo+"2";
@@ -146,7 +152,7 @@ public class TestSTFactory extends TestFmwk {
 			box.voteForValue(getMyUser(), somePath, changedTo);
 
 			expect(somePath,changedTo,true,
-					locale,mt,box);
+					mt,box);
 			
 			logln("Write out..");
 			File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName()+"_output");
@@ -167,6 +173,74 @@ public class TestSTFactory extends TestFmwk {
 			}
 		}
 		
+		// test sparsity
+		{
+			CLDRFile mt_MT = fac.make(locale2, false);
+			BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+			
+			originalValue2  = expect(somePath2,null,false,
+					mt_MT,box);
+			
+			changedTo2= "CAL_ENDA!!!";
+			
+			if(originalValue2.equals(changedTo2)) {
+				errln("for " + locale2 + " value " + somePath2 + " winner is already= " + originalValue2);
+			}
+
+			box.voteForValue(getMyUser(), somePath2, changedTo2);
+			
+			expect(somePath2,changedTo2,true,
+					mt_MT,box);
+		}
+		// Restart STFactory.
+		fac = resetFactory();
+		{
+			CLDRFile mt_MT = fac.make(locale2, false);
+			BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+
+			expect(somePath2,changedTo2,true,
+					mt_MT,box);
+			
+			// unvote
+			box.voteForValue(getMyUser(), somePath2, null);
+
+			expect(somePath2,null,true, mt_MT,box); // Expect null - no one has voted.
+		}
+		fac = resetFactory();
+		{
+			CLDRFile mt_MT = fac.make(locale2, false);
+			BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+
+
+			expect(somePath2,null,true,mt_MT,box);
+
+			// vote for ____2
+			changedTo2 = changedTo2+"2";
+			
+			logln("VoteFor: " + changedTo2);
+			box.voteForValue(getMyUser(), somePath2, changedTo2);
+
+			expect(somePath2,changedTo2,true,
+					mt_MT,box);
+			
+			logln("Write out..");
+			File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName()+"_output");
+			File outFile = new File(targDir,locale2.getBaseName()+".xml");
+			FileOutputStream fos = new FileOutputStream(outFile);
+			PrintWriter pw = new PrintWriter(fos);
+			mt_MT.write(pw,noDtdPlease);
+			pw.close();
+			
+			logln("Read back..");
+			CLDRFile readBack = CLDRFile.loadFromFile(outFile, locale2.getBaseName(), DraftStatus.unconfirmed);
+			
+			String reRead = readBack.getStringValue(somePath2);
+			
+			logln("reread:  " + outFile.getAbsolutePath()+ " value " + somePath2+ " = " + reRead);
+			if(!changedTo2.equals(reRead)) {
+				logln("reread:  " + outFile.getAbsolutePath()+ " value " + somePath2 + " = " + reRead + ", should be " + changedTo2);
+			}
+		}
 		
 		
 		

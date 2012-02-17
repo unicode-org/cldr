@@ -85,7 +85,8 @@ public class TestMixedScript {
         BitSet bitSet = new BitSet();
         UnicodeSet temp = new UnicodeSet();
         for (int i = 0; i < 0x10FFFF; ++i) {
-            if (UScript.getScriptExtensions(i, bitSet).cardinality() > 0) {
+            UScript.getScriptExtensions(i, bitSet);
+            if ( bitSet.cardinality() > 0) {
                 temp.add(i);
             }
         }
@@ -102,7 +103,9 @@ public class TestMixedScript {
         for (int i = 0; i < source.length(); i += Character.charCount(cp)) {
             cp = source.codePointAt(i);
             if (HAS_EXTENSIONS.contains(cp)) {
-                combinations.add(UScript.getScriptExtensions(cp, new BitSet()));
+                BitSet ext = new BitSet();
+                UScript.getScriptExtensions(cp,ext);
+                combinations.add(ext);
             } else {
                 int script = UScript.getScript(cp);
                 if (script == UScript.UNKNOWN) {

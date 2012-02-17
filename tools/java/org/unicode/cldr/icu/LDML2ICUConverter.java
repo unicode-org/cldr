@@ -5603,6 +5603,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 String rulesetGrouping = xpp.findAttributeValue(LDMLConstants.RULESETGROUPING, LDMLConstants.TYPE);
                 String rulesetType = xpp.findAttributeValue(LDMLConstants.RULESET, LDMLConstants.TYPE);
                 String rulesetAccess = xpp.findAttributeValue(LDMLConstants.RULESET, LDMLConstants.ACCESS);
+                String rulesetAllowsParsing = xpp.findAttributeValue(LDMLConstants.RULESET, LDMLConstants.ALLOWS_PARSING);
                 String ruleValue = xpp.findAttributeValue(LDMLConstants.RBNFRULE, LDMLConstants.VALUE);
                 String ruleRadix = xpp.findAttributeValue(LDMLConstants.RBNFRULE, LDMLConstants.RADIX);
                 String ruleDecExp = xpp.findAttributeValue(LDMLConstants.RBNFRULE, LDMLConstants.DECEXP);
@@ -5626,7 +5627,11 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                     if (rulesetAccess != null && rulesetAccess.equals("private")) {
                         rsNamePrefix = "%%";
                     }
-                    rsname.val = rsNamePrefix + rulesetType + ":";
+                    String rsNameSuffix = "";
+                    if (rulesetAllowsParsing != null && rulesetAllowsParsing.equals("false")) {
+                        rsNameSuffix = "@noparse";
+                    }
+                    rsname.val = rsNamePrefix + rulesetType + rsNameSuffix + ":";
                     ruleset.appendContents(rsname);
                     currentRulesetType = rulesetType;
                 }

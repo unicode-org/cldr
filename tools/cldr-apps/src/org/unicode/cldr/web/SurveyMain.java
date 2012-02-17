@@ -258,8 +258,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public static final String QUERY_SESSION = "s";
     public static final String QUERY_LOCALE = "_";
     public static final String QUERY_SECTION = "x";
-    static final String QUERY_EXAMPLE = "e";
-    static final String QUERY_DO = "do";
+    public static final String QUERY_EXAMPLE = "e";
+    public static final String QUERY_DO = "do";
 	
     static final String SURVEYTOOL_COOKIE_SESSION = CookieSession.class.getPackage().getName()+".id";
     static final String SURVEYTOOL_COOKIE_NONE = "0";
@@ -3020,150 +3020,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
     
     public void printUserTableWithHelp(WebContext ctx, String helpLink, String helpName) {
-        printUserTableBegin(ctx);
-        if(helpLink != null) {
-            ctx.println(" | ");
-            if(helpName != null) {
-                ctx.printHelpLink(helpLink, helpName);
-            } else {
-                ctx.printHelpLink(helpLink, "Page&nbsp;Instructions");
-            }
-        }
-        printUserTableMiddle(ctx);
-        printUserTableEnd(ctx);
+    	ctx.put("helpLink",helpLink);
+    	ctx.put("helpName",helpName);
+    	ctx.includeFragment("usermenu.jsp");    	
     }
     
-    /***
-     * print table that holds the menu of choices
-     */
-    public void printUserTableBegin(WebContext ctx) {
-            ctx.println("<table id='usertable' summary='header' border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' "+
-                        " width='100%' bgcolor='#EEEEEE'>"); //bordercolor='#111111'
-            ctx.println("<tr><td>");
-//            ctx.printHelpLink("","General&nbsp;Instructions"); // base help
-            ctx.println("(<a href='"+GENERAL_HELP_URL+"'>"+GENERAL_HELP_NAME+"</a>)"); // base help
-    }
-    
-    public void printUserTableMiddle(WebContext ctx) {
-            ctx.println("</td><td align='right'>");
-            printUserMenu(ctx);
-    }
-    public void printUserTableEnd(WebContext ctx) {
-            ctx.println("</td></tr></table>");
-    }
-    /**
-     * Print menu of choices available to the user.
-     */
-    public void printUserMenu(WebContext ctx) {
-        String doWhat = ctx.field(QUERY_DO);
-        
-//        ctx.println("The SurveyTool is in phase <b><span title='"+phase().name()+"'>"+phase().toString()+"</span></b> for version <b>"+getNewVersion()+"</b><br>" );
-        
-        if(ctx.session.user == null)  {
-            //ctx.println("<a class='notselected' href='" + ctx.jspLink("login.jsp") +"'>Login</a>");
-            ctx.println("<form id='login' method='POST' action='"+ctx.base()+"'>");
-            ctx.includeFragment("small_login.jsp");
-            ctx.println("</form>");
-//            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
-//                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-//                ctx.print(" | ");
-//            }
-            ctx.print(" | ");
-            printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
-            
-            showCoverageInHeader(ctx);
-            
-        } else {
-            boolean haveCookies = (ctx.getCookie(QUERY_EMAIL)!=null&&ctx.getCookie(QUERY_PASSWORD)!=null);
-            ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") ");
-            if(!haveCookies && !ctx.hasField(QUERY_SAVE_COOKIE)) {
-                ctx.println(" <a class='notselected' href='"+ctx.url()+ctx.urlConnector()+QUERY_SAVE_COOKIE+"=iva'><b>Remember Me!</b></a>");
-            }
-            ctx.print(" | ");
-            String cookieMessage = haveCookies?" and Forget Me":"";
-            ctx.println("<a class='notselected' href='" + ctx.base() + "?do=logout'>Logout"+cookieMessage+"</a> | ");
-//            if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT || isPhaseVettingClosed()) {
-//                printMenu(ctx, doWhat, "disputed", "Disputed", QUERY_DO);
-//                ctx.print(" | ");
-//            }
-            printMenu(ctx, doWhat, "options", "My Options", QUERY_DO);
-            showCoverageInHeader(ctx);
-            ctx.print(" | ");
-            printMenu(ctx, doWhat, "listu", "My Account", QUERY_DO);
-            //ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
-            if(UserRegistry.userIsAdmin(ctx.session.user)) {
-                ctx.println("| <a href='" + ctx.base() + "?dump=" + vap + "'>[Admin Panel]</a>");
-                if(ctx.session.user.id == 1) {
-                    ctx.println(" | <a href='" + ctx.base() + "?sql=" + vap + "'>[Raw SQL]</a>");
-                }
-            }
-            if(UserRegistry.userIsTC(ctx.session.user)) {
-                ctx.print(" | ");
-                printMenu(ctx, doWhat, "list", "Manage " + ctx.session.user.org + " Users", QUERY_DO);
-                ctx.print(" | ");
-//              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
-            } else {
-                if(UserRegistry.userIsVetter(ctx.session.user)) {
-                    ctx.print(" | ");
-                    printMenu(ctx, doWhat, "list", "List " + ctx.session.user.org + " Users", QUERY_DO);
-                } else if(UserRegistry.userIsLocked(ctx.session.user)) {
-                    ctx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + ctx.session.user.org + "'s CLDR Technical Committee member.</b> ");
-                }
-            }
-            printMenu(ctx, doWhat, "disputed", "Dispute Resolution", QUERY_DO); 
-            if(SurveyMain.isPhaseReadonly()) {
-				ctx.println("<br>(The SurveyTool is in a read-only state, no changes may be made.)");
-			} else if(SurveyMain.isPhaseVetting() 
-                && UserRegistry.userIsStreet(ctx.session.user)
-                && !UserRegistry.userIsExpert(ctx.session.user)) {
-                ctx.println("<br> (Note: in the Vetting phase, you may not submit new data.) ");
-            } else if(SurveyMain.isPhaseClosed() && !UserRegistry.userIsTC(ctx.session.user)) {
-                ctx.println("<br>(SurveyTool is closed to vetting and data submissions.)");
-            }
-            ctx.println("<br/>");
-            if((ctx.session != null) && (ctx.session.user != null) && (SurveyMain.isPhaseVettingClosed() && ctx.session.user.userIsSpecialForCLDR15(null))) {
-                ctx.println("<b class='selected'> you have been granted extended privileges for the CLDR "+getNewVersion()+" vetting period.</b><br>");
-            }
-        }
-        if(dbUtils.hasDataSource()) {
-        	ctx.println(" | <a class='notselected' href='"+ctx.jspUrl("statistics.jsp")+"'>Statistics</a>");
-        }
-        if(isUnofficial && (ctx.session!=null&&ctx.session.user!=null)) {
-        	ctx.println(" | <i>Experimental:</i>&nbsp;");
-        	ctx.println("<a class='notselected' href='"+ctx.jspUrl("upload.jsp"  )+ "&amp;s=" + ctx.session.id+"'>Upload XML</a>");
-        	if(ctx.session.user.userlevel<=UserRegistry.TC) {
-        		ctx.println("| <a class='notselected' href='"+ctx.jspUrl("vsummary.jsp"  ) +"'>Vetting Summary</a>");
-        	}
-        }
-    }
-    private static final String REDO_FIELD_LIST[] = {
+    public static final String REDO_FIELD_LIST[] = {
     	QUERY_LOCALE, QUERY_SECTION, QUERY_DO, "forum"
     };
-    private void showCoverageInHeader(WebContext ctx) {
-    	String curSetting = ctx.getCoverageSetting();
-    	if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
-    		ctx.println("<span style='border: 2px solid blue'>");
-    	}
-    	if(!(ctx.hasField("xpath")||ctx.hasField("forum")) && ( ctx.hasField(SurveyMain.QUERY_LOCALE) || ctx.field(QUERY_DO).equals("disputed"))) {
-    		WebContext subCtx = new WebContext(ctx);
-    		for(String field : REDO_FIELD_LIST) {
-	    		if(ctx.hasField(field)) {
-	    			subCtx.addQuery(field, ctx.field(field));
-	    		}
-    		}
-    		if(ctx.hasField(QUERY_LOCALE)) {
-    			subCtx.showCoverageSettingForLocale();	
-    		} else {
-    			subCtx.showCoverageSetting();
-    		}
-    	} else {
-    		ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
-    	}
-    	if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
-    		ctx.println("</span>");
-    	}
-	}
-	/**
+    /**
     * Handle creating a new user
     */
     public void doNew(WebContext ctx) {
@@ -5377,7 +5242,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                }
                 j++;
             }
-            ctx.println("</td");
+            ctx.println("</td>");
             ctx.println("</tr>");
         }
         ctx.println("</table> ");
@@ -5442,7 +5307,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param title the Title of this menu
      * @param key the URL field to use (such as 'x')
      */
-    protected void printMenu(WebContext ctx, String which, String menu, String title, String key) {
+    public void printMenu(WebContext ctx, String which, String menu, String title, String key) {
 		printMenu(ctx,which,menu,title,key,null);
 	}
     /**

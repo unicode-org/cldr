@@ -6,6 +6,7 @@ zoomed in: <%= zoomedIn %>
 
  -->
 
+<div id='explainIcons'>
 <i>For details and help on any item, zoom in by clicking on the status icon: 
              <%=   ctx.iconHtml("okay",null) +", "+
                 ctx.iconHtml("ques",null) + ", " +
@@ -21,4 +22,4 @@ zoomed in: <%= zoomedIn %>
                     </b>  was the one released with CLDR <%= ctx.sm.getOldVersion() %>
                     . A green value indicates that it is tentatively confirmed.
                     <hr>
-                    
+</div>                    

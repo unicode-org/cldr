@@ -1151,27 +1151,27 @@ public class UserRegistry {
     // All of the userlevel policy is concentrated here, or in above functions (search for 'userlevel')
     
     // * user types
-    static final boolean userIsAdmin(User u) {
+    public static final boolean userIsAdmin(User u) {
         return (u!=null)&&(u.userlevel <= UserRegistry.ADMIN);
     }
-    static final boolean userIsTC(User u) {
+    public static final boolean userIsTC(User u) {
         return (u!=null)&&(u.userlevel <= UserRegistry.TC);
     }
-    static final boolean userIsExpert(User u) {
+    public static final boolean userIsExpert(User u) {
         return (u!=null)&&(u.userlevel <= UserRegistry.EXPERT);
     }
-    static final boolean userIsVetter(User u) {
+    public static final boolean userIsVetter(User u) {
         return (u!=null)&&(u.userlevel <= UserRegistry.VETTER);
     }
-    static final boolean userIsStreet(User u) {
+   public static final boolean userIsStreet(User u) {
         return (u!=null)&&(u.userlevel <= UserRegistry.STREET);
     }
-    static final boolean userIsLocked(User u) {
+    public static final boolean userIsLocked(User u) {
         return (u!=null)&&(u.userlevel == UserRegistry.LOCKED);
     }
     // * user rights
     /** can create a user in a different organization? */
-    static final boolean userCreateOtherOrgs(User u) {
+    public  static final boolean userCreateOtherOrgs(User u) {
         return userIsAdmin(u);
     }
     /** What level can the new user be, given requested? */

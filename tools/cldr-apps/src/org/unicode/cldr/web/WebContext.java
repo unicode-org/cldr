@@ -554,7 +554,7 @@ public class WebContext implements Cloneable, Appendable {
      * Returns the string that must be appended to the URL to start the next parameter - either ? or &amp;
      * @return the connecting string
      */
-    final String urlConnector() {
+    public final String urlConnector() {
         return (url().indexOf('?')!=-1)?"&amp;":"?";
     }
     
@@ -1511,6 +1511,13 @@ public class WebContext implements Cloneable, Appendable {
      */
     public Object get(String string) {
         return temporaryStuff.get(string);
+    }
+    
+    public String getString(String k) {
+    	return (String)get(k);
+    }
+    public Boolean getBoolean(String k) {
+    	return (Boolean)get(k);
     }
 
     /**

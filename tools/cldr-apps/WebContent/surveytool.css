@@ -9,6 +9,7 @@
 	http://kwanyin.unicode.org/cldr-apps/surveytool.css
 	http://localhost:8080/cldr-apps/surveytool.css
 	http://10.0.0.112:8080/cldr-apps/surveytool.css
+	http://naf.priv:8080/cldr-apps/surveytool.css
 */
 
 /* @group Vetting View */
@@ -315,8 +316,71 @@ table.data tr.r0 {
 	background-color: #eff;
 }
 
-.list {
-	border-collapse: collapse
+table.list {
+	border-collapse: collapse;
+	display: inline;
+}
+
+div.minimenu {
+	border-collapse: collapse;
+	border-top:  1px solid black;
+	background-color: #ddf;	
+}
+
+div.minimenu a.forumlink {
+	float:  right;
+}
+
+h2.thisItem {
+	margin-top: 0;
+	font-family: Georgia;
+	font-size:  x-large;
+	background-color: #ddf;	
+	text-align: center;
+}
+
+.small_login_hidden {
+	/*transition: opacity .25s visibility .1s linear .5s;
+	-moz-transition:  opacity .25s visibility .1s linear .5s;
+	-o-transition: opacity .25s visibility .1s linear .5s;
+	-webkit-transition: opacity .25s visibility .1s linear .5s;
+	
+	visibility: visible;
+	opacity: .5;*/
+	display: none;
+}
+
+.small_login_normal {
+	/*position:  absolute;
+	top: 0;
+	right: 0;
+	z-index: 3;*/
+}
+
+.small_login_hot {
+	font-size:  larger;
+	border: 7px outset maroon;
+	background-color: #fad084;
+	padding: 3em;
+	text-shadow: #000000 0 0 0;
+	position:  absolute;
+	top: 0;
+	right: 0;
+	z-index: 3;
+}
+
+div#smalllogin {
+}
+
+.small_login_visible {
+	/*opacity: 1;*/
+	display:  inline;
+	/*visibility:  visible;*/
+}
+
+i.scary {
+	color: #f9514d;
+	font: normal normal x-small ocra10,Anaktoria;
 }
 
 .list.td .list.th {
@@ -764,8 +828,12 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 	background-color: #ddd;
 }
 
+table#usertable {
+}
+
 .scorebox {
-font-size: small;
+	font-size: small;
+	font-style: italic;
 }
 
 .scorebox:before {
@@ -775,8 +843,28 @@ font-size: small;
 	content: ')';
 }
 
-table#voteinfo td,table#voteinfo th {
-	border-left,border-right: none !important;
+table#voteinfo td{
+	border-right: none !important;
+	border-left: none !important;
+}
+
+table#voteinfo th {
+	background-color: #ddd;
+}
+
+table#voteinfo tbody th:first-child {
+	text-transform: capitalize;
+}
+
+table#voteinfo tbody th:first-child,
+table#voteinfo thead th:first-child {
+	background-color: #bbf;
+	border-right:  2px solid black;
+	font-weight: inherit;
+}
+
+table#voteinfo thead th:first-child {
+	font-weight:  bold;
 }
 
 .substituted {

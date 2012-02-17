@@ -363,9 +363,7 @@ public class SurveyForum {
 			sm.printHeader(ctx, "Forum");
 		}
 		sm.printUserTable(ctx);
-		if(prettyPath != null) {
-			ctx.println("<h2>"+prettyPath+"</h2>");
-		}
+		printMiniMenu(ctx,null,prettyPath);
 		if(sessionMessage != null) {
 			ctx.println(sessionMessage+"<hr>");
 		}
@@ -519,11 +517,9 @@ public class SurveyForum {
 			} else {
 				sm.printHeader(ctx, forum + " | Forum");
 			}
-			printForumMenu(ctx, forum);
-			ctx.println(forumLink(ctx,forum));
-			if(prettyPath != null) {
-				ctx.println("<h2>"+prettyPath+"</h2>");
-			}
+			
+			sm.printUserTable(ctx);
+			printMiniMenu(ctx, forum, prettyPath);
 		}
 
 		if(replyTo != -1) {
@@ -543,7 +539,7 @@ public class SurveyForum {
 				base_xpath != -1) {
 			// hide the 'post comment' thing
 			String warnHash = "post_comment"+base_xpath+"_"+forum;
-			ctx.println("<div id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
+			ctx.println("<div class='postcomment' id='h_"+warnHash+"'><a href='javascript:show(\"" + warnHash + "\")'>" + 
 					"<b>+</b> "+POST_SPIEL+"</a></div>");
 			ctx.println("<!-- <noscript>Warning: </noscript> -->" + 
 					"<div style='display: none' class='pager' id='" + warnHash + "'>" );
@@ -634,6 +630,23 @@ public class SurveyForum {
 			if(nopopups) {
 				ctx.println("<hr>"+returnText+"<br/>");
 			}
+		}
+	}
+
+	/**
+	 * @param ctx
+	 * @param forum
+	 */
+	public void printMiniMenu(WebContext ctx, String forum, String prettyPath) {
+		ctx.println("<div class='minimenu'>");
+		ctx.println("<a class='notselected' href=\"" + ctx.url() + "\">" + "<b>Locales</b>" + "</a> &gt; ");
+		ctx.println("<a class='selected' >" + 	ctx.getLocaleDisplayName() + "</a>");
+		if(forum!=null) {
+			ctx.println("&gt; " + forumLink(ctx,forum));
+		}
+		ctx.println("</div>");
+		if(prettyPath != null) {
+			ctx.println("<h2 class='thisItem'>"+prettyPath+"</h2>");
 		}
 	}
 
@@ -811,7 +824,7 @@ public class SurveyForum {
 	}
 
 	void printForumMenu(WebContext ctx, String forum) {
-		ctx.println("<table width='100%' border='0'><tr><td>");
+		ctx.println("<table class='forumMenu' id='forumMenu' width='100%' border='0'><tr><td>");
 		ctx.println("<a href=\"" + ctx.url() + "\">" + "<b>Locales</b>" + "</a><br>");
 		sm.printListFromInterestGroup(ctx, forum);
 		ctx.println("</td><td align='right'>");

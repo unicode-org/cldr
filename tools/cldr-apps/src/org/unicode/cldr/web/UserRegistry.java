@@ -384,7 +384,7 @@ public class UserRegistry {
                                                             "'" + sm.vap +"')");
                     s.execute(sql);
                     sql = null;
-                    logger.info("DB: added user Admin");
+                    SurveyLog.debug("DB: added user Admin");
                     
                     s.close();
                     conn.commit();
@@ -409,7 +409,7 @@ public class UserRegistry {
                     s.execute(sql); 
                     sql = "CREATE  INDEX " + CLDR_INTEREST + "_id_for ON " + CLDR_INTEREST + " (forum) ";
                     s.execute(sql); 
-                    logger.info("DB: created "+CLDR_INTEREST);
+                    SurveyLog.debug("DB: created "+CLDR_INTEREST);
                     sql=null;
                     s.close();
                     conn.commit();
@@ -744,7 +744,7 @@ public class UserRegistry {
 	            count++;
 	        }
 	        conn.commit();
-	        System.err.println("update:" + count + " user's locales updated " + et);
+	        SurveyLog.debug("update:" + count + " user's locales updated " + et);
     	} finally {
     		DBUtils.close(removeIntLoc, updateIntLoc, conn);
     	}

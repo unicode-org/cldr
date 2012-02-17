@@ -278,7 +278,7 @@ public class DBUtils {
 				// System.err.println("table " + canonName + " did exist.");
 				return true;
 			} else {
-				System.err.println("table " + canonName + " did not exist.");
+				SurveyLog.debug("table " + canonName + " did not exist.");
 				return false;
 			}
 		} catch (SQLException se) {
@@ -445,7 +445,7 @@ public class DBUtils {
 					DatabaseMetaData dmd = c.getMetaData();
 					dbInfo = dmd.getDatabaseProductName()+" v"+dmd.getDatabaseProductVersion();
 					setupSqlForServerType();
-					System.err.println("Metadata: "+ dbInfo);
+					SurveyLog.debug("Metadata: "+ dbInfo);
 				}
 			} catch (SQLException  t) {
                 datasource = null;
@@ -488,7 +488,7 @@ public class DBUtils {
 				if(autoCommit==true) {
 					throw new IllegalArgumentException("autoCommit was true, expected false. Check your configuration.");
 				}
-				System.err.println("Metadata: "+ dbInfo + ", autocommit: " + autoCommit);
+				SurveyLog.debug("Metadata: "+ dbInfo + ", autocommit: " + autoCommit);
 			}
 		} catch (SQLException  t) {
             datasource = null;
@@ -508,10 +508,10 @@ public class DBUtils {
 		}
 	}
 	private void setupSqlForServerType() {
-	    System.err.println("setting up SQL for database type " + dbInfo);
+		SurveyLog.debug("setting up SQL for database type " + dbInfo);
         if (dbInfo.contains("Derby")) {
             db_Derby = true;
-            System.err.println("Note: derby mode");
+            SurveyLog.debug("Note: derby mode");
             db_UnicodeType =             java.sql.Types.VARCHAR;
         } else if (dbInfo.contains("MySQL")) {
             System.err.println("Note: mysql mode");

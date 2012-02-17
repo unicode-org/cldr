@@ -34,6 +34,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -45,8 +46,9 @@ public class TestAll extends TestGroup {
 
 	private static final String DB_SUBDIR = "db";
 	private static final String CLDR_TEST_KEEP_DB = TestAll.class.getPackage().getName()+".KeepDb";
+	private static final String CLDR_TEST_DISK_DB = TestAll.class.getPackage().getName()+".DiskDb";
 	private static boolean sane=false;
-
+	private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 	/**
 	 * Verify some setup things
 	 */
@@ -95,12 +97,12 @@ public class TestAll extends TestGroup {
 
   public static String[] doResetDb(String[] args) {
 	  if(CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
-		  SurveyLog.logger.warning("Keeping database..");
+		  if(DEBUG) SurveyLog.logger.warning("Keeping database..");
 	  } else {
-		  SurveyLog.logger.warning("Removing old test database..  set -D"+CLDR_TEST_KEEP_DB+"=true if you want to keep it..");
+		  if(DEBUG) SurveyLog.logger.warning("Removing old test database..  set -D"+CLDR_TEST_KEEP_DB+"=true if you want to keep it..");
 		  File f = getEmptyDir(DB_SUBDIR);
 		  f.delete();
-		  SurveyLog.logger.warning("Erased: " + f.getAbsolutePath() + " - now exists=" + f.isDirectory());
+		  if(DEBUG) SurveyLog.logger.warning("Erased: " + f.getAbsolutePath() + " - now exists=" + f.isDirectory());
 	  }
 	  return args;
 	}
@@ -227,7 +229,7 @@ public TestAll() {
 		  if(!newBaseDir.isDirectory()) {
 			  throw new IllegalArgumentException("Bad dir ["+CLDR_WEBTEST_DIR+"]: " + newBaseDir.getAbsolutePath());
 		  }
-		  SurveyLog.logger.warning("Note: using test dir ["+CLDR_WEBTEST_DIR+"]: "+newBaseDir.getAbsolutePath());
+		  SurveyLog.debug("Note: using test dir ["+CLDR_WEBTEST_DIR+"]: "+newBaseDir.getAbsolutePath());
 		  baseDir = newBaseDir;
 	  }
 	  return baseDir;
@@ -239,7 +241,7 @@ public TestAll() {
 	  return emptyDir(getDir(forWhat));
   }
   public static File emptyDir(File dir) {
-	  SurveyLog.logger.warning("Erasing: " + dir.getAbsolutePath());
+	  if(DEBUG) System.err.println("Erasing: " + dir.getAbsolutePath());
 	  if(dir.isDirectory()) {
 	      File cachedBFiles[] = dir.listFiles();
 	      if(cachedBFiles != null) {
@@ -263,34 +265,63 @@ public TestAll() {
   }
   
   static DataSource getDataSource() {
-	  SurveyLog.logger.warning("DB setup");
+	  long start = System.currentTimeMillis();
 	  try {
 		Class.forName(DERBY_DRIVER);
 	  } catch (ClassNotFoundException e) {
 		throw new RuntimeException(e);
+	  } finally {
+		  if(DEBUG) System.err.println("Load " + DERBY_DRIVER + " - " + ElapsedTimer.elapsedTime(start));
 	  }
-	  
-	  return setupDerbyDataSource( getDir(DB_SUBDIR));
+	  if(CldrUtility.getProperty(CLDR_TEST_DISK_DB, false)) {
+		  return setupDerbyDataSource( getDir(DB_SUBDIR));
+	  } else {
+		  return setupDerbyDataSource(null);
+	  }
   }
   
   // from http://svn.apache.org/viewvc/commons/proper/dbcp/trunk/doc/ManualPoolingDataSourceExample.java?view=co
+  
+  private static boolean isSetup = false;
+  
+  /**
+   * null = inmemory.
+   * @param theDir
+   * @return
+   */
   public static DataSource setupDerbyDataSource(File theDir) {
-	  String connectURI = DERBY_PREFIX+theDir.getAbsolutePath();
+	  long start = System.currentTimeMillis();
+	  String connectURI;
+	  
+	  if(theDir != null) {
+		  connectURI = DERBY_PREFIX+theDir.getAbsolutePath();
+	  } else {
+		  connectURI = DERBY_PREFIX+"memory:sttest";
+	  }
 	  ObjectPool connectionPool = new GenericObjectPool(null);
 	  
-	  if(!theDir.exists()) {
-		  SurveyLog.logger.warning("Using new: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
-
+	  if(DEBUG) System.err.println("Load pools - " + ElapsedTimer.elapsedTime(start));
+	  if(isSetup == false || (theDir!=null && !theDir.exists())) {
+		  isSetup=true;
+		  if(theDir!=null) {
+			  if(DEBUG) SurveyLog.logger.warning("Using new: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
+		  }
+		  
 		  String createURI = connectURI+";create=true";
 		  try {	
 			  new DriverManagerConnectionFactory(createURI,null).createConnection().close();
 		  } catch (SQLException e) {
 			  SurveyLog.logger.warning("Error on connect to " + createURI + " - "+ DBUtils.unchainSqlException(e));
 		  }
-		  SurveyLog.logger.warning("Connect/close to " + createURI);
+		  if(DEBUG) SurveyLog.logger.warning("Connect/close to " + createURI);
 	  } else {
-		  SurveyLog.logger.warning("Using existing: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
+		  if(theDir!=null) {
+			  if(DEBUG) SurveyLog.logger.warning("Using existing: " + theDir.getAbsolutePath() + " baseDir = " + getBaseDir().getAbsolutePath());
+		  } else {
+			  if(DEBUG) SurveyLog.logger.warning("Using " + connectURI);
+		  }
 	  }
+	  if(DEBUG) System.err.println("connect - " + ElapsedTimer.elapsedTime(start));
 	  Properties props = new Properties();
 	  props.put("poolPreparedStatements","true");
 	  props.put("maxOpenPreparedStatements","150");
@@ -316,7 +347,7 @@ public TestAll() {
 		}}
 	  		,null,false,true);
 	  PoolingDataSource dataSource = new PoolingDataSource(connectionPool);
-	  SurveyLog.logger.warning("New datasource off and running: " + connectURI);
+	  if(DEBUG) SurveyLog.logger.warning("New datasource off and running: " + connectURI +  " setupDerbyDataSource took " + ElapsedTimer.elapsedTime(start));
 	  return dataSource;
   }
   

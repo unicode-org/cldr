@@ -30,6 +30,7 @@ import org.unicode.cldr.web.Vetting;
 import org.unicode.cldr.web.XPathTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 public class TestSTFactory extends TestFmwk {
 	
@@ -43,15 +44,15 @@ public class TestSTFactory extends TestFmwk {
 	public static void main(String[] args) {
 		new TestSTFactory().run(TestAll.doResetDb(args));
 	}
-
+	public void TestFactory() throws SQLException {
+		STFactory fac = getFactory();
+	}
+		
 	public void TestReadonlyLocales() throws SQLException {
-		logln("Setting up factory..");
 		STFactory fac = getFactory();
 		
 		verifyReadOnly(fac.make("root",false));
 		verifyReadOnly(fac.make("en",false));
-		
-		logln("Test done.");
 	}
 	
 	private static final String ANY = "*";
@@ -90,18 +91,13 @@ public class TestSTFactory extends TestFmwk {
 	}
 	
 	public void TestVoteBasic() throws SQLException, IOException {
-		logln("Setting up factory..");
 		STFactory fac = getFactory();
 		
 		final String somePath =  "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
-		final String somePath2 =  "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
 		String originalValue = null;
 		String changedTo = null;
-		String originalValue2 = null;
-		String changedTo2 = null;
 		
 		CLDRLocale locale = CLDRLocale.getInstance("mt");
-		CLDRLocale locale2 = CLDRLocale.getInstance("mt_MT");
 		{
 			CLDRFile mt = fac.make(locale, false);
 			BallotBox<User> box = fac.ballotBoxForLocale(locale);
@@ -172,7 +168,16 @@ public class TestSTFactory extends TestFmwk {
 				logln("reread:  " + outFile.getAbsolutePath()+ " value " + somePath + " = " + reRead + ", should be " + changedTo);
 			}
 		}
-		
+	}
+	
+	
+	public void TestVoteSparse() throws SQLException, IOException {
+		STFactory fac = getFactory();
+
+		final String somePath2 =  "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
+		String originalValue2 = null;
+		String changedTo2 = null;
+		CLDRLocale locale2 = CLDRLocale.getInstance("mt_MT");
 		// test sparsity
 		{
 			CLDRFile mt_MT = fac.make(locale2, false);
@@ -241,13 +246,7 @@ public class TestSTFactory extends TestFmwk {
 				logln("reread:  " + outFile.getAbsolutePath()+ " value " + somePath2 + " = " + reRead + ", should be " + changedTo2);
 			}
 		}
-		
-		
-		
-		logln("Test done.");
 	}
-	
-	
 	
 	private void verifyReadOnly(CLDRFile f) {
 		String loc = f.getLocaleID();
@@ -273,24 +272,38 @@ public class TestSTFactory extends TestFmwk {
 	
 	private STFactory getFactory() throws SQLException {
 		if(gFac==null) {
+			long start = System.currentTimeMillis();
 			TestAll.setupTestDb();
-
+			logln("Set up test DB: " + ElapsedTimer.elapsedTime(start));
+			
+			ElapsedTimer et0=new ElapsedTimer("clearing directory");
 			File cacheDir = TestAll.getEmptyDir(CACHETEST);
-			logln("Setting up STFactory");
+			logln(et0.toString());
+			
+			et0=new ElapsedTimer("setup SurveyMain");
 			SurveyMain sm = new SurveyMain();
-			sm.setFileBaseOld(CldrUtility.BASE_DIRECTORY);
-			sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose vetting
-			SurveyLog.logger = Logger.getAnonymousLogger();
-			Connection conn = DBUtils.getInstance().getDBConnection();
-			
-			sm.reg = UserRegistry.createRegistry(SurveyLog.logger, sm);
-			
-			sm.xpt = XPathTable.createTable(conn, sm);
-			DBUtils.closeDBConnection(conn);
-			//			sm.vet = Vetting.createTable(sm.logger, sm);
+			logln(et0.toString());
 			
 			sm.fileBase = CldrUtility.MAIN_DIRECTORY;
 			sm.fileBaseSeed = new File(CldrUtility.BASE_DIRECTORY,"seed/main/").getAbsolutePath();
+			sm.setFileBaseOld(CldrUtility.BASE_DIRECTORY);
+			sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose vetting
+			SurveyLog.logger = Logger.getAnonymousLogger();
+
+			et0=new ElapsedTimer("setup DB");
+			Connection conn = DBUtils.getInstance().getDBConnection();
+			logln(et0.toString());
+			
+			et0=new ElapsedTimer("setup Registry");
+			sm.reg = UserRegistry.createRegistry(SurveyLog.logger, sm);
+			logln(et0.toString());
+			
+			et0=new ElapsedTimer("setup XPT");
+			sm.xpt = XPathTable.createTable(conn, sm);
+			logln(et0.toString());
+			DBUtils.closeDBConnection(conn);
+			//			sm.vet = Vetting.createTable(sm.logger, sm);
+			
 //			CLDRDBSourceFactory fac = new CLDRDBSourceFactory(sm, sm.fileBase, Logger.getAnonymousLogger(), cacheDir);
 //			logln("Setting up DB");
 //			sm.setDBSourceFactory(fac);ignore
@@ -298,7 +311,9 @@ public class TestSTFactory extends TestFmwk {
 //			logln("Vetter Ready (this will take a while..)");
 //			fac.vetterReady(TestAll.getProgressIndicator(this));
 			
+			et0 = new ElapsedTimer("Set up STFactory");
 			gFac = sm.getSTFactory();
+			logln(et0.toString());
 		}
 		return gFac;
 	}

@@ -263,7 +263,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 		private DataBackedSource loadVoteValues(DataBackedSource dataBackedSource)  {
 			if(!readonly) {
 				VoteResolver<String> resolver= null; //save recalculating this.
-				ElapsedTimer et = new ElapsedTimer("Loading PLD for " + locale);
+				ElapsedTimer et = (SurveyLog.DEBUG)?new ElapsedTimer("Loading PLD for " + locale):null;
 				Connection conn = null;
 				PreparedStatement ps = null;
 				ResultSet rs = null;
@@ -289,7 +289,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 				} finally {
 					DBUtils.close(rs,ps,conn);
 				}
-				SurveyLog.logger.warning(et + " - read " + n + " items.");
+				SurveyLog.debug(et + " - read " + n + " items.");
 			}
 			return dataBackedSource;
 		}

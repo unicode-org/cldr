@@ -7,9 +7,9 @@ import com.ibm.icu.text.GenderInfo;
 import com.ibm.icu.text.GenderInfo.Gender;
 import com.ibm.icu.util.ULocale;
 
-public class GenderListTest extends TestFmwk {
+public class GenderInfoTest extends TestFmwk {
     public static void main(String[] args) {
-        new GenderListTest().run(args);
+        new GenderInfoTest().run(args);
     }
 
     public static GenderInfo NEUTRAL_LOCALE = new GenderInfo(ULocale.ENGLISH);

@@ -87,18 +87,18 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
     return map.size();
   }
   
-  private static class Entry<T, Double extends Number> {
-    Double count;
+  private static class Entry<T> {
+    double count;
     T value;
     int uniqueness;
     public Entry(Double count, T value, int uniqueness) {
-      this.count = count;
+      this.count = count.doubleValue();
       this.value = value;
       this.uniqueness = uniqueness;
     }
   }
   
-  private static class EntryComparator<T, Double extends Number> implements Comparator<Entry<T, Double>>{
+  private static class EntryComparator<T> implements Comparator<Entry<T>>{
     int countOrdering;
     Comparator<T> byValue;
     
@@ -106,18 +106,15 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
       countOrdering = ascending ? 1 : -1;
       this.byValue = byValue;
     }
-    public int compare(Entry<T,Double> o1, Entry<T,Double> o2) {
-      int comp = compare(o1.count, o2.count);
-      if (comp < 1) return -countOrdering;
-      if (comp > 1) return countOrdering;
-      if (byValue != null) {
-        return byValue.compare(o1.value, o2.value);
-      }
-      return o1.uniqueness - o2.uniqueness;
-    }
-    private int compare(Double count, Double count2) {
-      // TODO Auto-generated method stub
-      return 0;
+    public int compare(Entry<T> o1, Entry<T> o2) {
+        if (o1.count != o2.count) {
+            if (o1.count < o2.count) return -countOrdering;
+            return countOrdering;
+        }
+        if (byValue != null) {
+            return byValue.compare(o1.value, o2.value);
+        }
+        return o1.uniqueness - o2.uniqueness;
     }
   }
 
@@ -126,13 +123,13 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
   }
   
   public Set<T> getKeysetSortedByCount(boolean ascending, Comparator<T> byValue) {
-    Set<Entry<T,Double>> count_key = new TreeSet<Entry<T,Double>>(new EntryComparator<T,Double>(ascending, byValue));
+    Set<Entry<T>> count_key = new TreeSet<Entry<T>>(new EntryComparator<T>(ascending, byValue));
     int counter = 0;
     for (T key : map.keySet()) {
-      count_key.add(new Entry<T,Double>(map.get(key), key, counter++));
+      count_key.add(new Entry<T>(map.get(key), key, counter++));
     }
     Set<T> result = new LinkedHashSet<T>();
-    for (Entry<T,Double> entry : count_key) {
+    for (Entry<T> entry : count_key) {
        result.add(entry.value);
     }
     return result;

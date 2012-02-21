@@ -798,6 +798,8 @@ public class StandardCodes {
         // "CLDR", "True", "Deprecated", "True"},
     };
 
+    static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
+
     public static Map<String,Map<String,Map<String,String>>> getLStreg() {
 
         Map<String,Map<String,Map<String,String>>> result = new TreeMap();
@@ -806,7 +808,6 @@ public class StandardCodes {
 
         Set funnyTags = new TreeSet();
         String line;
-        String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
         try {
             BufferedReader lstreg = CldrUtility.getUTF8Data(registryName);
             boolean started = false;

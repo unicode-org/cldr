@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -121,7 +122,7 @@ public class GenerateXMB {
             return;
         }
         option = myOptions.get("file");
-        String fileMatcherString = option.doesOccur() ? option.getValue() : ".*";
+        String fileMatcherString = option.getValue();
         option = myOptions.get("content");
         Matcher contentMatcher = option.doesOccur() ? Pattern.compile(option.getValue()).matcher("") : null;
         option = myOptions.get("path");
@@ -519,7 +520,7 @@ public class GenerateXMB {
         int wordCount = 0;
         PluralInfo pluralInfo = supplementalDataInfo.getPlurals(locale);
         int lineCount = 0;
-
+        Set<String> errorSet = new LinkedHashSet<String>();
         for (Entry<String, Set<R2<PathInfo, String>>> entry : countItems.keyValuesSet()) {
             String countLessPath = entry.getKey();
             Map<String,String> fullValues = new TreeMap<String,String>();
@@ -543,9 +544,9 @@ public class GenerateXMB {
                 continue;
             }
             String var = pathInfo.getFirstVariable();
-            String fullPlurals = showPlurals(var, fullValues, locale, pluralInfo, isEnglish);
+            String fullPlurals = showPlurals(var, fullValues, locale, pluralInfo, isEnglish, errorSet);
             if (fullPlurals == null) {
-                System.out.println(locale + "\tCan't format plurals for: " + entry.getKey());
+                System.out.println(locale + "\tCan't format plurals for: " + entry.getKey() + "\t" + errorSet);
                 errors++;
                 continue;
             }
@@ -574,33 +575,35 @@ public class GenerateXMB {
     static final String[] PLURAL_KEYS = {"=0", "=1", "zero", "one", "two", "few", "many", "other"};
     static final String[] EXTRA_PLURAL_KEYS = {"0", "1", "zero", "one", "two", "few", "many"};
 
-    private static String showPlurals(String var, Map<String,String> values, String locale, PluralInfo pluralInfo, boolean isEnglish) {
+    private static String showPlurals(String var, Map<String,String> values, String locale, PluralInfo pluralInfo, boolean isEnglish, Set<String> errorSet) {
+        errorSet.clear();
         /*
-        <msg desc="[ICU Syntax] Plural forms for a number of hours. These are special messages: before translating, see cldr.org/translation/plurals.">
-         {LENGTH, select,
-          abbreviated {
-           {NUMBER_OF_HOURS, plural,
-            =0 {0 hrs}
-            =1 {1 hr}
-            zero {# hrs}
-            one {# hrs}
-            two {# hrs}
-            few {# hrs}
-            many {# hrs}
-            other {# hrs}}}
-          full {
-           {NUMBER_OF_HOURS, plural,
-            =0 {0 hours}
-            =1 {1 hour}
-            zero {# hours}
-            one {# hours}
-            two {# hours}
-            few {# hours}
-            many {# hours}
-            other {# hours}}}}
-         </msg>
+         * Desired output for English XMB
+<msg desc="[ICU Syntax] Plural forms for a number of hours. These are special messages: before translating, see cldr.org/translation/plurals.">
+ {LENGTH, select,
+  abbreviated {
+   {NUMBER_OF_HOURS, plural,
+    =0 {0 hrs}
+    =1 {1 hr}
+    zero {# hrs}
+    one {# hrs}
+    two {# hrs}
+    few {# hrs}
+    many {# hrs}
+    other {# hrs}}}
+  full {
+   {NUMBER_OF_HOURS, plural,
+    =0 {0 hours}
+    =1 {1 hour}
+    zero {# hours}
+    one {# hours}
+    two {# hours}
+    few {# hours}
+    many {# hours}
+    other {# hours}}}}
+ </msg>
 
-         NOTE: For the WSB, the format has to match the following, WITHOUT LFs
+ NOTE: For the WSB, the format has to match the following, WITHOUT LFs
 
 <msg id='1431840205484292448' desc='[ICU Syntax] who is viewing?​ This message requires special attention. Please follow the instructions here: https://sites.google.com/a/google.com/localization-info-site/Home/training/icusyntax'>
 <ph name='[PLURAL_NUM_USERS_OFFSET_1]' ex='Special placeholder used in [ICU Syntax] messages, see instructions page.'/>
@@ -626,20 +629,24 @@ public class GenerateXMB {
         }
         for (String key : PLURAL_KEYS) {
             String value;
-            value = values.get(key);
+            String coreKey = key.startsWith("=") ? key.substring(1,2) : key;
+            value = values.get(coreKey);
             if (value == null) {
                 if (key.startsWith("=")) {
                     String stringCount = key.substring(1);
+                    // handle both =x case, and the category
                     int intCount = Integer.parseInt(stringCount);
                     Count count = pluralInfo.getCount(intCount);
                     value = values.get(count.toString());
                     if (value == null) {
+                        errorSet.add("Bad key/value " + key + "='" + value + "' in " + values);
                         return null;
                     }
                     value = value.replace("{0}", stringCount);
                 } else {
                     value = values.get("other");
                     if (value == null) {
+                        errorSet.add("No 'other' value in " + values);
                         return null;
                     }
                 }
@@ -649,9 +656,6 @@ public class GenerateXMB {
                 result.append("\n            ").append(key).append(" {").append(newValue).append('}');
             } else {
                 String prefix = key.toUpperCase(Locale.ENGLISH);
-                if (key.equals("=0")) {
-                    prefix = '\u200b' + prefix;
-                }
                 result.append("<!--\n        --><ph name='[").append(prefix).append("]'/>").append(newValue);
             }
         }

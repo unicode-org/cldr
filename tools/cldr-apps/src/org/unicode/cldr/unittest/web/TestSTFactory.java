@@ -30,6 +30,7 @@ import org.unicode.cldr.web.Vetting;
 import org.unicode.cldr.web.XPathTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 public class TestSTFactory extends TestFmwk {
@@ -153,14 +154,19 @@ public class TestSTFactory extends TestFmwk {
 			logln("Write out..");
 			File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName()+"_output");
 			File outFile = new File(targDir,locale.getBaseName()+".xml");
-			FileOutputStream fos = new FileOutputStream(outFile);
-			PrintWriter pw = new PrintWriter(fos);
+			PrintWriter pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale.getBaseName()+".xml");
 			mt.write(pw,noDtdPlease);
 			pw.close();
 			
 			logln("Read back..");
-			CLDRFile readBack = CLDRFile.loadFromFile(outFile, locale.getBaseName(), DraftStatus.unconfirmed);
-			
+			CLDRFile readBack = null;
+			try {
+			    readBack = CLDRFile.loadFromFile(outFile, locale.getBaseName(), DraftStatus.unconfirmed);
+			} catch (IllegalArgumentException iae) {
+			    iae.getCause().printStackTrace();
+			    System.err.println(iae.getCause().toString());
+			    handleException(iae);
+			}
 			String reRead = readBack.getStringValue(somePath);
 			
 			logln("reread:  " + outFile.getAbsolutePath()+ " value " + somePath + " = " + reRead);
@@ -231,8 +237,7 @@ public class TestSTFactory extends TestFmwk {
 			logln("Write out..");
 			File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName()+"_output");
 			File outFile = new File(targDir,locale2.getBaseName()+".xml");
-			FileOutputStream fos = new FileOutputStream(outFile);
-			PrintWriter pw = new PrintWriter(fos);
+            PrintWriter pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale2.getBaseName()+".xml");
 			mt_MT.write(pw,noDtdPlease);
 			pw.close();
 			

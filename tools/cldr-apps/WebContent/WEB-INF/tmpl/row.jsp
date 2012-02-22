@@ -53,6 +53,18 @@
 </th>
 <th rowspan='<%= rowSpan %>' style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>
 	<%= p.getDisplayName() %>
+<%--
+	       <br/>
+	X=<%= p.getXpath() %>
+	       <br/>
+	W=<%= ballotBox.getResolver(p.getXpath()).getWinningValue()  %>
+	       <br/>
+	P=<%= currentItems.get(0).getPClass(ctx) %>
+	       <br/>
+	I=<%= currentItems.get(0).value %>
+	       <br/>
+	W? = <%= Boolean.toString(currentItems.get(0).isWinner()) %>
+  --%>
 </th>
 <% if(p.hasExamples()) { 
 			if(baseExample!=null) { %>

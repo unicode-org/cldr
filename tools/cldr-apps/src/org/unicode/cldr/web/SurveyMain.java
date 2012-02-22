@@ -6561,7 +6561,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 busted(msg);
                 throw new InternalError(msg);
             }
-            gOldFactory = SimpleFactory.make(oldCommon.getAbsolutePath(),".*");
+            File oldSeed = new File(oldBase,"seed/main");
+            if(!oldSeed.isDirectory()) {
+                String verAsMilestone = "release-"+oldVersion.replaceAll("\\.", "-");
+                String msg = ("Could not read old seed data - " + oldSeed.getAbsolutePath() + ": you might do 'svn export http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/seed "+ oldBase.getAbsolutePath() + "/seed' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
+                //svn export http://unicode.org/repos/cldr/tags/release-1-8 1.8
+                
+                busted(msg);
+                throw new InternalError(msg);
+            }
+            String roots[] = { oldCommon.getAbsolutePath(), oldSeed.getAbsolutePath() };
+            gOldFactory = SimpleFactory.make(roots,".*");
         }
         return gOldFactory;
     }

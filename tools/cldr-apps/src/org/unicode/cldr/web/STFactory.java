@@ -363,8 +363,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 			if(fullXPath==null) fullXPath = path; // throw new InternalError("null full xpath for " + path);
 			xpp.set(fullXPath);
 			final String lastValue = anOldFile.getStringValue(path);
-			final Status lastStatus = VoteResolver.Status.fromString(xpp.getAttributeValue(-1, LDMLConstants.DRAFT));
-			r.setLastRelease(lastValue, lastStatus);
+			
+			String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
+			final Status lastStatus = draft==null?Status.approved:
+			        VoteResolver.Status.fromString(draft);
+			
+			System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus + " ('"+lastValue+"')");
+			
+			r.setLastRelease(lastValue, lastValue==null?Status.missing:lastStatus);
 			String currentValue = diskData.getValueAtDPath(path);
 			r.add(currentValue); /* add the current value. */
 //			SurveyLog.logger.warning(path + ": LR '"+lastValue+"', " + lastStatus);

@@ -9,7 +9,7 @@ import java.util.Comparator;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.Partition.Membership;
-
+import org.unicode.cldr.util.VoteResolver.Status;
 import com.ibm.icu.text.Collator;
 
 /**
@@ -145,8 +145,8 @@ public class InterestSort extends SortMode {
             new Partition.Membership("Not (minimally) Approved") { 
               public boolean isMember(DataRow p) {
                 return p.winningXpathId != -1 
-                && p.confirmStatus != Vetting.Status.APPROVED
-                && p.confirmStatus != Vetting.Status.CONTRIBUTED;
+                && p.confirmStatus != Status.approved
+                && p.confirmStatus != Status.contributed;
                 // || p.winningXpathId == -1 && p.hasMultipleProposals;
               }
             },

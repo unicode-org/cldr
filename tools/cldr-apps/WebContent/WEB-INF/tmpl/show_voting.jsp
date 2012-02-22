@@ -1,6 +1,7 @@
 <%@ include file="/WEB-INF/jspf/stcontext.jspf" %><%-- setup 'ctx' --%><%
 
 VoteResolver<String> r = (VoteResolver<String>)ctx.get("resolver"); 
+if(r==null) { %><i>null resolver</i> <%  } else {
 WebContext.HTMLDirection dir = ctx.getDirectionForLocale();
 String winner = r.getWinningValue();
 %>
@@ -24,10 +25,11 @@ String winner = r.getWinningValue();
 	</thead>
 
 <%
-	String lastRelease = r.getLastReleaseValue();	
+	String lastRelease = r.getLastReleaseValue();
+if(lastRelease != null ) {
 %>
 <b><%= r.getLastReleaseStatus().toString().toUpperCase() %> Last Release:</b> 		<span class='<%= lastRelease.equals(winner)?"winner":"value" %>' dir='<%= dir %>' title='#'><%= lastRelease %></span>
-    
+<% } else { %><i>(was not in <%= ctx.sm.getOldVersion() %>)</i><br/><% }  %>
 <!--  now, per org.. -->
  <%
  
@@ -323,3 +325,8 @@ String winner = r.getWinningValue();
 %>
 
 <% if (r.isEstablished()) { %><a href='http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value'><%= ctx.iconHtml("warn", "established")%> This is an established locale.</a><br/><% } %>
+
+<%-- <%= r.toString() %>
+ --%>
+ 
+<% } /* end null resolver */ %>

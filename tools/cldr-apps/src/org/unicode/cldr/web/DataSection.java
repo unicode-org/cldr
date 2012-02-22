@@ -41,6 +41,8 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
@@ -62,7 +64,9 @@ import com.ibm.icu.util.ULocale;
  **/
 
 public class DataSection extends Registerable {
-	/**
+	public CLDRFile baselineFile;
+
+    /**
 	 * This class represents a "row" of data - a single distinguishing xpath
 	 * This class was formerly (and unfortunately) named "Pea"
 	 * 
@@ -77,7 +81,7 @@ public class DataSection extends Registerable {
 		 * The Item is a particular alternate which could be chosen It was
 		 * previously named "Item"
 		 */
-		public class CandidateItem implements java.lang.Comparable {
+		public class CandidateItem implements Comparable<CandidateItem> {
 			public static final String altProposed = "n/a"; // proposed part of
 			// the name (or NULL
 			// for nondraft)
@@ -119,7 +123,7 @@ public class DataSection extends Registerable {
 			}
 
 			@Override
-			public int compareTo(Object other) {
+			public int compareTo(CandidateItem other) {
 				if (other == this) {
 					return 0;
 				}
@@ -327,39 +331,38 @@ public class DataSection extends Registerable {
 			 * @return
 			 */
 			public String getPClass(WebContext ctx) {
-				String pClass = "";
-				{
-					boolean winner = isWinner();
-					if (winner) {
-						if (confirmStatus == Vetting.Status.APPROVED) {
-							pClass = "class='winner' title='Winning item.'";
-						} else if (confirmStatus != Vetting.Status.INDETERMINATE) {
-							pClass = "title='" + confirmStatus + "' ";
-						}
-					} else if (pathWhereFound != null) {
-						pClass = "class='alias' title='alias from " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
-					} else if (isFallback || (inheritFrom != null) /*
-					 * &&(p.
-					 * inheritFrom
-					 * ==null)
-					 */) {
-						if (XMLSource.CODE_FALLBACK_ID.equals(inheritFrom)) {
-							pClass = "class='fallback_code' title='Untranslated Code'";
-						} else if ("root".equals(inheritFrom)) {
-							pClass = "class='fallback_root' title='Fallback from Root'";
-						} else {
-							pClass = "class='fallback' title='Translated in "
-									+ new ULocale(inheritFrom).getDisplayName(ctx.displayLocale) + " and inherited here.'";
-						}
-					} else if (altProposed != null) {
-						pClass = "class='loser' title='proposed, losing item'";
-						/*
-						 * } else if(p.inheritFrom != null) { pClass =
-						 * "class='missing'";
-						 */
+				String pClass;
+				if (isWinner()) {
+					if (confirmStatus == Status.approved) {
+						pClass = "class='winner' title='Winning item.'";
+					} else if (confirmStatus == Status.missing) {
+						pClass = "title='" + confirmStatus + "' ";
 					} else {
-						pClass = "class='loser'";
+					    pClass = "class='winner' title='"+confirmStatus+"' ";
 					}
+				} else if (pathWhereFound != null) {
+					pClass = "class='alias' title='alias from " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
+				} else if (isFallback || (inheritFrom != null) /*
+				 * &&(p.
+				 * inheritFrom
+				 * ==null)
+				 */) {
+					if (XMLSource.CODE_FALLBACK_ID.equals(inheritFrom)) {
+						pClass = "class='fallback_code' title='Untranslated Code'";
+					} else if ("root".equals(inheritFrom)) {
+						pClass = "class='fallback_root' title='Fallback from Root'";
+					} else {
+						pClass = "class='fallback' title='Translated in "
+								+ new ULocale(inheritFrom).getDisplayName(ctx.displayLocale) + " and inherited here.'";
+					}
+				} else if (altProposed != null) {
+					pClass = "class='loser' title='proposed, losing item'";
+					/*
+					 * } else if(p.inheritFrom != null) { pClass =
+					 * "class='missing'";
+					 */
+				} else {
+					pClass = "class='loser'";
 				}
 				return pClass;
 			}
@@ -467,7 +470,7 @@ public class DataSection extends Registerable {
 		public boolean confirmOnly = false; // if true: don't accept new data,
 		// this row is something that might
 		// be confusing to input.
-		Vetting.Status confirmStatus = Vetting.Status.INDETERMINATE;
+		Status confirmStatus;
 
 		/**
 		 * Calculated coverage level for this row.
@@ -564,7 +567,12 @@ public class DataSection extends Registerable {
 			if (ballotBox.getResolver(xpath) == null) {
 				throw new InternalError(ballotBox.getClass().getName() + " [ballotBox].getResolver(" + xpath + ") is null");
 			}
-			winningValue = ballotBox.getResolver(xpath).getWinningValue();
+			VoteResolver<String> resolver = ballotBox.getResolver(xpath);
+			winningValue = resolver.getWinningValue();
+            confirmStatus = resolver.getWinningStatus();
+			
+            this.displayName = baselineFile.getStringValue(xpath);
+
 		}
 
 		public CandidateItem addItem(String value, List<CheckStatus> tests) {
@@ -1346,7 +1354,7 @@ public class DataSection extends Registerable {
 				boolean badInputBox = false;
 
 				if (areShowingInputBox) {
-					String oldValue = (String) ctx.temporaryStuff.get(fieldHash + SurveyMain.QUERY_VALUE_SUFFIX);
+					String oldValue = (String)ctx.temporaryStuff.get(fieldHash + SurveyMain.QUERY_VALUE_SUFFIX);
 					String fClass = "inputbox";
 					if (oldValue == null) {
 						oldValue = "";
@@ -1622,7 +1630,7 @@ public class DataSection extends Registerable {
 			String statusIcon = "";
 			if (hasErrors) {
 				statusIcon = ctx.iconHtml("stop", "Errors - please zoom in");
-			} else if (hasWarnings && confirmStatus != Vetting.Status.INDETERMINATE) {
+			} else if (hasWarnings /* && confirmStatus != Vetting.Status.INDETERMINATE */) {
 				statusIcon = ctx.iconHtml("warn", "Warnings - please zoom in");
 			}
 			return statusIcon;
@@ -1637,7 +1645,7 @@ public class DataSection extends Registerable {
 			String rclass = "vother";
 			if (hasErrors) {
 				rclass = "error";
-			} else if (hasWarnings && confirmStatus != Vetting.Status.INDETERMINATE) {
+			} else if (hasWarnings /* && confirmStatus != Vetting.Status.INDETERMINATE */) {
 				rclass = "warning";
 			}
 			return rclass;
@@ -1662,18 +1670,20 @@ public class DataSection extends Registerable {
 		public String getDraftIcon(WebContext ctx) {
 			String draftIcon = "";
 			switch (confirmStatus) {
-			case APPROVED:
+			case approved:
 				draftIcon = ctx.iconHtml("okay", "APPROVED");
 				break;
-			case CONTRIBUTED:
+			case contributed:
 				draftIcon = ctx.iconHtml("conf", "CONTRIBUTED");
 				break;
-			case PROVISIONAL:
+			case provisional:
 				draftIcon = ctx.iconHtml("conf2", "PROVISIONAL");
 				break;
-			case UNCONFIRMED:
+			case unconfirmed:
 				draftIcon = ctx.iconHtml("ques", "UNCONFIRMED");
 				break;
+			case missing:
+			    draftIcon = ctx.iconHtml("bar0", "MISSING");
 			}
 			return draftIcon;
 		}
@@ -2471,7 +2481,7 @@ public class DataSection extends Registerable {
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
-			CLDRFile baselineFile = ctx.sm.getBaselineFile();
+			section.baselineFile = ctx.sm.getBaselineFile();
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
@@ -2479,7 +2489,7 @@ public class DataSection extends Registerable {
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
-			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Populating...';</script>");
+			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading...';</script>");
 			ctx.flush();
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
@@ -2488,7 +2498,7 @@ public class DataSection extends Registerable {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
 			try {
-				section.populateFrom(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
+				section.populateFrom(ourSrc, checkCldr, ctx.getOptionsMap(), workingCoverageLevel);
 			} finally {
 				if (NOINHERIT) {
 					SurveyLog
@@ -2504,7 +2514,7 @@ public class DataSection extends Registerable {
 			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."
 					+ popCount + " items';</script>");
 			ctx.flush();
-			section.ensureComplete(ourSrc, checkCldr, baselineFile, ctx.getOptionsMap(), workingCoverageLevel);
+			section.ensureComplete(ourSrc, checkCldr, ctx.getOptionsMap(), workingCoverageLevel);
 			if (SHOW_TIME) {
 				int allCount = section.getAll().size();
 				System.err.println("Populate+complete " + locale + " // " + prefix + ":" + section.getPtype() + " = " + cet
@@ -2682,8 +2692,7 @@ public class DataSection extends Registerable {
 	/**
 	 * Makes sure this pod contains the rows we'd like to see.
 	 */
-	private void ensureComplete(CLDRFile ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String, String> options,
-			String workingCoverageLevel) {
+	private void ensureComplete(CLDRFile ourSrc, CheckCLDR checkCldr, Map<String, String> options, String workingCoverageLevel) {
 		// if (!ourSrc.isResolving()) throw new
 		// IllegalArgumentException("CLDRFile must be resolved");
 		// if(xpathPrefix.contains("@type")) {
@@ -2820,12 +2829,6 @@ public class DataSection extends Registerable {
 						System.err.println("Note: Not setting up shims.");
 					}
 
-					myp.setDisplayName(baselineFile.getStringValue(podBase + ourSuffix + suff)); // use
-																									// the
-																									// baseline
-																									// (English)
-					// data for display name.
-
 				}
 			}
 		} // tz
@@ -2913,8 +2916,7 @@ public class DataSection extends Registerable {
 		return skippedDueToCoverage;
 	}
 
-	private void populateFrom(CLDRFile ourSrc, CheckCLDR checkCldr, CLDRFile baselineFile, Map<String, String> options,
-			String workingCoverageLevel) {
+	private void populateFrom(CLDRFile ourSrc, CheckCLDR checkCldr, Map<String, String> options, String workingCoverageLevel) {
 		// if (!ourSrc.isResolving()) throw new
 		// IllegalArgumentException("CLDRFile must be resolved");
 		DBEntry vettedParentEntry = null;
@@ -3215,17 +3217,6 @@ public class DataSection extends Registerable {
 					}
 				}
 
-				// voting
-				// bitwise OR in the voting types. Needed for sorting.
-				if (p.voteType == 0) {
-					int vtypes[] = new int[1];
-					vtypes[0] = 0;
-					/* res = */sm.vet.queryResult(locale, base_xpath, vtypes);
-					p.confirmStatus = sm.vet.queryResultStatus(locale, base_xpath);
-					p.allVoteType |= vtypes[0];
-					superP.allVoteType |= p.allVoteType;
-					p.voteType = vtypes[0]; // no mask
-				}
 				// System.out.println("@@V "+type+"  v: " + value +
 				// " - base"+base_xpath+" , win: " + p.voteType);
 
@@ -3286,17 +3277,6 @@ public class DataSection extends Registerable {
 					altProposed = SurveyMain.PROPOSED_DRAFT;
 				}
 
-				// Inherit display names.
-				if ((superP != p) && (p.getDisplayName() == null)) {
-					p.setDisplayName(baselineFile.getStringValue(baseXpath));
-					if (p.getDisplayName() == null) {
-						p.setDisplayName(superP.getDisplayName()); // too:
-						// unscramble
-						// this a
-						// little
-						// bit
-					}
-				}
 				if (TRACE_TIME)
 					System.err.println("n06a  " + (System.currentTimeMillis() - nextTime));
 

@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.LDMLConverter.MultiFileOutput;
+import org.unicode.cldr.draft.LDMLConverter.PathValueInfo;
 import org.unicode.cldr.draft.LDMLConverter.RegexResult;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -51,7 +51,7 @@ public class RBChecker {
     }
 
     static void checkExistingRB(String locale) throws IOException {
-        MultiFileOutput output = new MultiFileOutput();
+        LDMLConverter output = new LDMLConverter();
         List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<Row.R2<MyTokenizer.Type, String>>();
         List<Row.R2<MyTokenizer.Type, String>> comments2 = comments;
         for (String dir : With.array("locales", "lang", "region", "curr", "zone")) {
@@ -79,11 +79,11 @@ public class RBChecker {
         }
     }
 
-    static void analyseMatches(String locale, MultiFileOutput output) {
+    static void analyseMatches(String locale, LDMLConverter converter) {
         // TBD change to HashMap for speed later
         Relation<String,String> rbValue2paths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         Relation<String,String> cldrValue2paths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        for (Entry<String, Map<String, List<String>>> entry : output.entrySet()) {
+        for (Entry<String, Map<String, List<String>>> entry : converter.entrySet()) {
             String dir = entry.getKey();
             for (Entry<String, List<String>> pathAndValues : entry.getValue().entrySet()) {
                 String path = pathAndValues.getKey();
@@ -94,7 +94,7 @@ public class RBChecker {
         }
         CLDRFile cldrResolved = factory.make(locale, true);
         
-        MultiFileOutput cldrOutput = new MultiFileOutput();
+        LDMLConverter cldrOutput = new LDMLConverter();
         cldrOutput.fillFromCLDR(factory, locale, null);
         
         for (String path : cldrOutput.getCldrPaths()) {
@@ -129,8 +129,11 @@ public class RBChecker {
                 if (regexResult == null) {
                     continue;
                 }
-                String rbPath = "/" + locale + regexResult.getRbPath(arguments.value);
-                generated.add(rbPath);
+                List<PathValueInfo> infoList = regexResult.processInfo(arguments.value);
+                for (PathValueInfo info : infoList) {
+                    String rbPath = "/" + locale + info.getRbPath();
+                    generated.add(rbPath);
+                }
                 cldrPathsGenerated.add(path);
             }
 
@@ -187,7 +190,7 @@ public class RBChecker {
      * @param output
      * @param comments
      */
-    static void parseRB(String filename, MultiFileOutput output, List<R2<MyTokenizer.Type, String>> comments) {
+    static void parseRB(String filename, LDMLConverter converter, List<R2<MyTokenizer.Type, String>> comments) {
         BufferedReader in = null;
         try {
             File file = new File(filename);
@@ -258,7 +261,7 @@ public class RBChecker {
                         afterCurly = true;
                     } else if (ch == '}') {
                         if (lastLabel != null) {
-                            output.add(directory, null, path, lastLabel);
+                            converter.add(directory, null, path, lastLabel);
                             lastLabel = null;
                         }
                         path = oldPaths.remove(oldPaths.size() - 1);
@@ -266,7 +269,7 @@ public class RBChecker {
                             System.out.println("POP:\t" + path);
                     } else if (ch == ',') {
                         if (lastLabel != null) {
-                            output.add(directory, null, path, lastLabel);
+                            converter.add(directory, null, path, lastLabel);
                             lastLabel = null;
                         }
                     } else {

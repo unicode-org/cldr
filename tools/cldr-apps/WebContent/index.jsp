@@ -33,6 +33,12 @@
     	</i>
     </p>
     <% } %>
+    
+    <% if(request.getParameter("stdown")!=null) { %>
+        <div class='ferrbox'>
+            <i><%= WebContext.iconHtml(request, "warn", "ST is down") %>The page you tried to access can't be loaded until the <a href='survey/'>Survey Tool</a> has been started. </i>
+        </div>
+    <% } %>
 
 				<img src="STLogo.png" align="right" border="0" title="[logo]" alt="[logo]" />
 
@@ -40,7 +46,8 @@
 		<ul>
 			<li><strong><a href="survey/">CLDR Survey Tool
 			</a></strong> - <a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">(Help)</a><br /></li>
-		    <li><strong><a href="about.jsp">About this Installation…</a></strong></li>
+            <li><strong><a href="about.jsp">About this Installation…</a></strong></li>
+            <li><strong><a href="browse.jsp">Browse Codes and Data</a></strong></li>
 		</ul>
         
         <hr />

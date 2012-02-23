@@ -1,4 +1,4 @@
-// Copyright (C) 2008-2009 IBM Corporation and Others. All Rights Reserved.
+// Copyright (C) 2008-2012 IBM Corporation and Others. All Rights Reserved.
 
 package org.unicode.cldr.util;
 
@@ -74,17 +74,22 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 //        }
         str = process(str);
         //System.err.println("bn: " + str);
-        parts = new LocaleIDParser();
-        parts.set(str);
-        basename = fullname = parts.toString();
+        if(str.equals(ULocale.ROOT.getBaseName())) {
+            fullname = ULocale.ROOT.getBaseName();
+        } else {
+            parts = new LocaleIDParser();
+            parts.set(str);
+            fullname = parts.toString();
+            String parentId = LocaleIDParser.getParent(str);
+            if(parentId != null) {
+                parent = CLDRLocale.getInstance(parentId);
+            } else {
+                parent = null; // probably, we are root or we are supplemental
+            }
+        }
+        basename = fullname;
         if(ulocale == null) {
             ulocale = new ULocale(fullname);
-        }
-        String parentId = LocaleIDParser.getParent(str);
-        if(parentId != null) {
-            parent = CLDRLocale.getInstance(parentId);
-        } else {
-            parent = null; // probably, we are root or we are supplemental
         }
     }
 
@@ -224,11 +229,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     public String getLanguage() {
-        return parts.getLanguage();
+        return parts==null?fullname:parts.getLanguage();
     }
 
     public String getScript() {
-        return parts.getScript();
+        return parts==null?null:parts.getScript();
     }
 
     /**
@@ -236,7 +241,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * @return
      */
     public String getCountry() {
-        return parts.getRegion();
+        return parts==null?null:parts.getRegion();
     }
 
     /**
@@ -259,7 +264,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /**
      * The root locale, a singleton.
      */
-    public static final CLDRLocale ROOT = getInstance("root");
+    public static final CLDRLocale ROOT = getInstance(ULocale.ROOT);
     
     /**
      * Testing.

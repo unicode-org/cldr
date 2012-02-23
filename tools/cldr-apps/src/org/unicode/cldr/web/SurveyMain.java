@@ -8058,7 +8058,8 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             //CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY = supplementalDataDir.getCanonicalPath();
     
             try {
-            	supplemental.defaultContentToParent("mt_MT");
+                // spin up the gears
+            	supplemental.defaultContentToParent(CLDRLocale.getInstance("mt_MT").getBaseName());
             } catch(InternalError ie) {
             	SurveyLog.logger.warning("can't do SupplementalData.defaultContentToParent() - " + ie);
             	ie.printStackTrace();

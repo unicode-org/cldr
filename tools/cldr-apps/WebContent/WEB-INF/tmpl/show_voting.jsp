@@ -45,7 +45,7 @@ if(lastRelease != null ) {
 		
 		<td>
 				  	<span class='<%= orgVote.equals(winner)?"winner":"value" %>' dir='<%= dir %>' title='#'><%= orgVote %></span>
-				  <span class='scorebox'><%= votes.get(orgVote) %>: <%= r.getStatusForOrganization(o) %></span>
+				  <span dir='ltr' class='scorebox'><%= votes.get(orgVote) %>: <%= r.getStatusForOrganization(o) %></span>
 		</td>
 		
 		<td>
@@ -53,7 +53,7 @@ if(lastRelease != null ) {
 				if(e.getKey().equals(orgVote)) continue;
 			%>
 				  	<span class='<%= e.getKey().equals(winner)?"winner":"value" %>'  dir='<%= dir %>' title='#'><%= e.getKey() %></span>
-				  <span class='scorebox'><%= e.getValue() %></span>
+				  <span dir='ltr' class='scorebox'><%= e.getValue() %></span>
 				  	<br/>
 			<% } %>
 		</td>

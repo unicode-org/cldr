@@ -112,6 +112,7 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
+					<default choice="medium"/>
 					<dateTimeFormatLength>
 						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
 					</dateTimeFormatLength>
@@ -383,6 +384,7 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
+					<default choice="medium"/>
 					<dateTimeFormatLength>
 						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
 					</dateTimeFormatLength>
@@ -2097,6 +2099,7 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
+					<default choice="medium"/>
 					<dateTimeFormatLength>
 						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength"/>
 					</dateTimeFormatLength>

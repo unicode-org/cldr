@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -136,7 +137,31 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
         }
         return null;
     }
-    
+
+    /**
+     * Returns all results of a regex lookup, with the group arguments that matched. Supplies failure cases for debugging.
+     * @param source
+     * @param context TODO
+     * @return
+     */
+    public List<T> getAll(String source, Object context, List<Finder> matcherList, List<String> failures) {
+        List<T> matches = new ArrayList<T>();
+        for (R2<Finder, T> entry : entries.values()) {
+            Finder matcher = entry.get0();
+            if (matcher.find(source, context)) {
+                if (matcherList != null) {
+                    matcherList.add(matcher);
+                }
+                matches.add(entry.get1());
+            } else if (failures != null) {
+                int failPoint = matcher.getFailPoint(source);
+                String show = source.substring(0,failPoint) + "☹" + source.substring(failPoint) + "\t" + matcher.toString();
+                failures.add(show);
+            }
+        }
+        return matches;
+    }
+
     /**
      * Find the patterns that haven't been matched. Requires the caller to collect the patterns that have, using matcherFound.
      * @return outputUnmatched

@@ -83,11 +83,10 @@ public class RBChecker {
         // TBD change to HashMap for speed later
         Relation<String,String> rbValue2paths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         Relation<String,String> cldrValue2paths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        for (Entry<String, Map<String, List<String>>> entry : converter.entrySet()) {
-            String dir = entry.getKey();
-            for (Entry<String, List<String>> pathAndValues : entry.getValue().entrySet()) {
-                String path = pathAndValues.getKey();
-                for (String value : pathAndValues.getValue()) {
+        for (Entry<String, List<String[]>> entry : converter.entrySet()) {
+            String path = entry.getKey();
+            for (String[] values : entry.getValue()) {
+                for (String value : values) {
                     rbValue2paths.put(value, path);
                 }
             }
@@ -96,12 +95,10 @@ public class RBChecker {
         
         LDMLConverter cldrOutput = new LDMLConverter();
         cldrOutput.fillFromCLDR(factory, locale, null);
-        
-        for (String path : cldrOutput.getCldrPaths()) {
+        for (String path : cldrOutput.keySet()) {
             String value = cldrResolved.getStringValue(path);
             cldrValue2paths.put(value, path);
         }
-        
         Set<String> NONE = new HashSet<String>();
         NONE.add("NONE");
         NONE = Collections.unmodifiableSet(NONE);
@@ -129,10 +126,8 @@ public class RBChecker {
                 if (regexResult == null) {
                     continue;
                 }
-                List<PathValueInfo> infoList = regexResult.processInfo(arguments.value);
-                for (PathValueInfo info : infoList) {
-                    String rbPath = "/" + locale + info.getRbPath();
-                    generated.add(rbPath);
+                for (PathValueInfo info : regexResult) {
+                    generated.add("/" + locale + info.processRbPath(arguments.value));
                 }
                 cldrPathsGenerated.add(path);
             }
@@ -199,8 +194,6 @@ public class RBChecker {
                 throw new IllegalArgumentException("missing .txt in: " + filename);
             }
             coreFile = coreFile.substring(0, coreFile.length()-4);
-            File parent = file.getParentFile();
-            String directory = parent.getName();
             // redo this later on to use fixed PatternTokenizer
             in = BagFormatter.openUTF8Reader("", filename);
             MyTokenizer tokenIterator = new MyTokenizer(in);
@@ -261,7 +254,7 @@ public class RBChecker {
                         afterCurly = true;
                     } else if (ch == '}') {
                         if (lastLabel != null) {
-                            converter.add(directory, null, path, lastLabel);
+                            converter.add(path, lastLabel);
                             lastLabel = null;
                         }
                         path = oldPaths.remove(oldPaths.size() - 1);
@@ -269,7 +262,7 @@ public class RBChecker {
                             System.out.println("POP:\t" + path);
                     } else if (ch == ',') {
                         if (lastLabel != null) {
-                            converter.add(directory, null, path, lastLabel);
+                            converter.add(path, lastLabel);
                             lastLabel = null;
                         }
                     } else {

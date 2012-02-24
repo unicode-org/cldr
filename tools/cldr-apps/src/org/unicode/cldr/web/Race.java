@@ -2,26 +2,12 @@
 
 package org.unicode.cldr.web;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
-import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.Vetting.Status;
 
 /**
  * This class represents a particular item that can be voted for, a single
@@ -41,8 +27,8 @@ public class Race {
     }
 
 
-    private Vetting.DataTester tester = null;
-    public void setTester(Vetting.DataTester tester) {
+    private DataTester tester = null;
+    public void setTester(DataTester tester) {
         STFactory.unimp();
     	this.tester = tester;
     }
@@ -101,8 +87,8 @@ public class Race {
     /**
      * Get the last release status
      */
-    public Status getLastReleaseStatus() {
-	return Status.toStatus(resolver.getLastReleaseStatus());
+    public org.unicode.cldr.util.VoteResolver.Status getLastReleaseStatus() {
+        return resolver.getLastReleaseStatus();
     }
 
 

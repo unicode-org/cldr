@@ -1,8 +1,6 @@
 package org.unicode.cldr.unittest.web;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -13,20 +11,16 @@ import java.util.logging.Logger;
 
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.web.BallotBox;
-import org.unicode.cldr.web.CLDRDBSourceFactory;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.Vetting;
 import org.unicode.cldr.web.XPathTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -292,7 +286,7 @@ public class TestSTFactory extends TestFmwk {
 			sm.fileBase = CldrUtility.MAIN_DIRECTORY;
 			sm.fileBaseSeed = new File(CldrUtility.BASE_DIRECTORY,"seed/main/").getAbsolutePath();
 			sm.setFileBaseOld(CldrUtility.BASE_DIRECTORY);
-			sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose vetting
+//			sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose vetting
 			SurveyLog.logger = Logger.getAnonymousLogger();
 
 			et0=new ElapsedTimer("setup DB");

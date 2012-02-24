@@ -126,11 +126,11 @@ public class InterestSort extends SortMode {
                 return (p.hasErrors);
               }
             },
-            new Partition.Membership("Disputed") { 
-              public boolean isMember(DataRow p) {
-                return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure why "allVoteType" is needed
-              }
-            },
+//            new Partition.Membership("Disputed") { 
+//              public boolean isMember(DataRow p) {
+//                return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure why "allVoteType" is needed
+//              }
+//            },
             new Partition.Membership("Warnings") { 
               public boolean isMember(DataRow p) {
                 return (p.hasWarnings);

@@ -265,23 +265,7 @@ public class JspWebContext extends WebContext {
 		this.println("<input name='pod_bases' type='hidden' value='"+sb+"'>");
 		closeMainForm();
 	}
-	
-	/**
-	 * Check based on user permissions.
-	 * @return true if the user is allowed to modify this locale
-	 */
-	public Boolean canModify() {
-		if(canModify == null) {
-			if(session==null||session.user==null) {
-				return setCanModify(false);
-			}
-			return setCanModify(UserRegistry.userCanModifyLocale(session.user, this.getLocale()));
-		} else {
-			return super.canModify();
-		}
-	}
-	
-	
+		
 	/**
 	 * @return URL to the 'top' of a survey tool locale.
 	 */

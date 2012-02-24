@@ -10,6 +10,8 @@
 
 package org.unicode.cldr.web;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -397,7 +399,7 @@ public class CookieSession {
      */
     public static String cheapEncode(byte b[]) {
         @SuppressWarnings("restriction")
-        StringBuffer sb = new StringBuffer(new sun.misc.BASE64Encoder().encode(b));
+        StringBuffer sb = new StringBuffer(base64.encode(b));
         for(int i=0;i<sb.length();i++) {
             char c = sb.charAt(i);
             if(c == '=') {
@@ -409,6 +411,51 @@ public class CookieSession {
             }
         }
         return sb.toString();
+    }
+    
+    static final Charset utf8 = Charset.forName("UTF-8");
+    @SuppressWarnings("restriction")
+    static final sun.misc.BASE64Encoder base64 = new sun.misc.BASE64Encoder();
+    @SuppressWarnings("restriction")
+    static final sun.misc.BASE64Decoder base64d = new sun.misc.BASE64Decoder();
+    @SuppressWarnings("restriction")
+    public static String cheapEncodeString(String s) {
+        StringBuffer sb = new StringBuffer(base64.encode(s.getBytes(utf8)));
+        for(int i=0;i<sb.length();i++) {
+            char c = sb.charAt(i);
+            if(c == '=') {
+                sb.setCharAt(i,',');
+            } else if(c == '/') {
+                sb.setCharAt(i,'.');
+            } else if(c == '+') {
+                sb.setCharAt(i,'_');
+            }
+        }
+        return sb.toString();
+    }
+    @SuppressWarnings("restriction")
+    public static String cheapDecodeString(String s) {
+        StringBuffer sb = new StringBuffer(s);
+        for(int i=0;i<sb.length();i++) {
+            char c = sb.charAt(i);
+            if(c == ',') {
+                sb.setCharAt(i,'=');
+            } else if(c == '.') {
+                sb.setCharAt(i,'/');
+            } else if(c == '_') {
+                sb.setCharAt(i,'+');
+            }
+        }
+        byte b[];
+        try {
+            b = base64d.decodeBuffer(sb.toString());
+        } catch (IOException e) {
+            SurveyLog.logException(e);
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
+        return new String(b,utf8);
     }
     
     

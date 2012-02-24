@@ -478,6 +478,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 			return xpathToVotes.get(xpath);
 		}
 		
+		
 		@Override
 		public synchronized void voteForValue(User user, String distinguishingXpath,
 				String value) {

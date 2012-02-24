@@ -64,7 +64,7 @@ public class WebContext implements Cloneable, Appendable {
     public CLDRLocale docLocale[] = new CLDRLocale[0];
     public CookieSession session = null;
     public ElapsedTimer reqTimer = null;
-    public Hashtable temporaryStuff = new Hashtable();
+    public Hashtable<String, Object> temporaryStuff = new Hashtable<String, Object>();
     public static final String CLDR_WEBCONTEXT="cldr_webcontext";
     
     public static final String TARGET_ZOOMED = "CLDR-ST-ZOOMED";
@@ -101,7 +101,7 @@ public class WebContext implements Cloneable, Appendable {
      * Return the parameter map of the underlying request.
      * @return {@link ServletRequest#getParameterMap()}
      */
-    public Map getParameterMap() { 
+    public Map<?, ?> getParameterMap() { 
         return request.getParameterMap();
     }
     
@@ -896,7 +896,7 @@ public class WebContext implements Cloneable, Appendable {
      */
     public int staticInfo_Reference(Object o) {
         int s = 0;
-        Object oo = ((Reference)o).get();
+        Object oo = ((Reference<?>)o).get();
         println("Reference -&gt; <ul>");
         s += staticInfo_Object(oo);
         println("</ul>");
@@ -949,9 +949,9 @@ public class WebContext implements Cloneable, Appendable {
      */
     public int staticInfo_Hashtable(Object o) {
         int s = 0;
-        Hashtable subHash = (Hashtable)o;
+        Hashtable<?, ?> subHash = (Hashtable<?, ?>)o;
         println("<ul>");
-        for(Iterator ee = subHash.keySet().iterator();ee.hasNext();) {
+        for(Iterator<?> ee = subHash.keySet().iterator();ee.hasNext();) {
             String kk = ee.next().toString();
             println(kk + ":");
             Object oo = subHash.get(kk);
@@ -1018,7 +1018,7 @@ public class WebContext implements Cloneable, Appendable {
      * Get an object from the specified static stuff
      */
     public static synchronized final Object getByLocaleStatic(String key, CLDRLocale aLocale) {
-        Hashtable subHash = staticStuff.get(aLocale);
+        Hashtable<?, ?> subHash = staticStuff.get(aLocale);
         if(subHash == null) {
             return null;
         }
@@ -1201,11 +1201,11 @@ public class WebContext implements Cloneable, Appendable {
      */
     DataSection getExistingSection(String prefix, String ptype) {
         synchronized(this) {
-            Reference sr = (Reference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
+            Reference<DataSection> sr = (Reference<DataSection>)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
             if(sr == null) {
                 return null; // wasn't never there
             }
-            DataSection dp = (DataSection)sr.get();
+            DataSection dp = sr.get();
             if(dp == null) {
 //                System.err.println("SR expired: " + locale + ":"+ prefix+":"+ptype);
             }
@@ -1243,11 +1243,11 @@ public class WebContext implements Cloneable, Appendable {
 
     	synchronized(this) {
     		println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Checking cache';</script>"); flush();
-    		section = getExistingSection(prefix, ptype);
-    		if((section != null) && (!section.isValid())) {
-    			section = null;
-    			loadString = "data was re-loaded due to a new user submission.";
-    		}
+    		//section = getExistingSection(prefix, ptype);
+//    		if((section != null) && (!section.isValid())) {
+//    			section = null;
+//    			loadString = "data was re-loaded due to a new user submission.";
+//    		}
     		if(section == null) {
     			CLDRProgressTask progress = sm.openProgress("Loading");
     			try {
@@ -1291,7 +1291,7 @@ public class WebContext implements Cloneable, Appendable {
     		if(section==null) {
     			throw new InternalError("No section.");
     		}
-    		section.register();
+//    		section.register();
     		//                    SoftReference sr = (SoftReference)getByLocaleStatic(DATA_POD+prefix+":"+ptype);  // GET******
     	}
     	putByLocaleStatic(DATA_POD+prefix+":"+ptype, new SoftReference<DataSection>(section)); // PUT******
@@ -1534,7 +1534,7 @@ public class WebContext implements Cloneable, Appendable {
      * @see SurveyMain#getLocaleDisplayName(CLDRLocale)
      */
     public String getLocaleDisplayName() {
-        return SurveyMain.getLocaleDisplayName(getLocale());
+        return getLocaleDisplayName(getLocale());
     }
 
 	// Display Context Data
@@ -1575,24 +1575,20 @@ public class WebContext implements Cloneable, Appendable {
         }
     }
 
-	/**
-	 * Set whether this user can modify this locale
-	 * @param canModify
-	 * @return true if the user can modify this locale
-	 */
-	public boolean setCanModify(boolean canModify) {
-		this.canModify = canModify;
-		return canModify;
-	}
-	
-	/**
-	 * Return true if the user can modify this locale
-	 * @return true if the user can modify this locale
-	 */
-	public Boolean canModify() {
-		if(canModify==null) throw new InternalError("canModify()- not set.");
-		return canModify;
-	}
+    /**
+     * Return true if the user can modify this locale
+     * @return true if the user can modify this locale
+     */
+    public Boolean canModify() {
+        if(canModify==null) {
+            if(session!=null && session.user!=null){
+                canModify = UserRegistry.userCanModifyLocale(session.user, locale);
+            } else {
+                canModify = false;
+            }
+        }
+        return canModify;
+    }
 
 	/**
 	 * Set the zoomed-in state of this context
@@ -1776,5 +1772,30 @@ public class WebContext implements Cloneable, Appendable {
 		boolean canModify = (UserRegistry.userCanModifyLocale(session.user,getLocale()));
 		return canModify;
 	}
+
+    /**
+     * @param locale
+     * @return
+     */
+    String urlForLocale(CLDRLocale locale) {
+        String localeUrl = url() 
+                + urlConnector() + SurveyMain.QUERY_LOCALE+"=" + locale.getBaseName();
+        return localeUrl;
+    }
+
+    public String getLocaleDisplayName(String loc) {
+        return getLocaleDisplayName(CLDRLocale.getInstance(loc));
+    }
+
+    public String getLocaleDisplayName(CLDRLocale instance) {
+        return instance.getDisplayName(displayLocale);
+    }
+
+    /**
+     * @return
+     */
+    public boolean hasAdminPassword() {
+        return field("dump").equals(SurveyMain.vap);
+    }
 
 }

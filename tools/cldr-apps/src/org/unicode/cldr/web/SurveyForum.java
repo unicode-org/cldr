@@ -701,7 +701,7 @@ public class SurveyForum {
 		if(ssrh == null) {
 			ssrh = new SummarizingSubmissionResultHandler();
 		}
-		ctx.sm.vet.processPodChanges(ctx, DataSection.xpathToSectionBase(baseXpath), ssrh, null);
+		ctx.sm.processChanges(ctx, null, null, DataSection.xpathToSectionBase(baseXpath), ctx.canModify(), ssrh);
 		return ssrh;
 	}
 
@@ -796,7 +796,7 @@ public class SurveyForum {
 		ctx.setLocale(locale);
 		// Show the Pod in question:
 		//        ctx.println("<hr> \n This post Concerns:<p>");
-		boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
+		boolean canModify =ctx.canModify();
 		
 		//String podBase = DataSection.xpathToSectionBase(xpath);
 		String podBase = XPathTable.xpathToBaseXpath(xpath); // each zoom-in in its own spot.
@@ -810,9 +810,9 @@ public class SurveyForum {
 			ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
 
 			ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
-			sm.vet.processPodChanges(ctx, podBase, new DefaultDataSubmissionResultHandler(ctx), Level.COMPREHENSIVE.toString());// always use comprehensive - so no cov filtering
+			sm.processChanges(ctx, null, null, podBase, canModify, new DefaultDataSubmissionResultHandler(ctx));
 		} else {
-			//            ctx.println("<br>cant modify " + ctx.locale + "<br>");
+			            ctx.println("<!-- <br>cant modify " + locale + "<br> -->");
 		}
 
 		DataSection section = ctx.getSection(podBase,Level.COMPREHENSIVE.toString()); // always use comprehensive - so no cov filtering

@@ -24,7 +24,7 @@ if(sm==null || !sm.isSetup) {
 	out.println("<i>Not booted yet, come back later.</i>");
 	return;
 }
-int totals[] = new int[SurveyMain.CacheableKinds.values().length];
+int totals[] = new int[OutputFileManager.Kind.values().length];
 %>
 
 <table class='sqlbox' style='float: left; font-size: 140%;'>
@@ -45,20 +45,20 @@ boolean flip=false;
 				%></table><table class='sqlbox' style='float: right; font-size: 140%;'>
 				<%
 			}
-			Timestamp locTime = sm.getLocaleTime(conn, loc);
+			Timestamp locTime = sm.outputFileManager.getLocaleTime(conn, loc);
 			%>
 			<tr>
 			<th>
 			<%=loc%>
 			</th>
 			<td><%= locTime %></td>
-			<% 
-				int j=0;
-				for(SurveyMain.CacheableKinds kind : SurveyMain.CacheableKinds.values()) {
-				boolean nu = sm.fileNeedsUpdate(locTime,loc,kind.name());
-				if(nu) totals[j]++;
-				j++;
-				%>
+			<%
+			    int j=0;
+							for(OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
+							boolean nu = sm.outputFileManager.fileNeedsUpdate(locTime,loc,kind.name());
+							if(nu) totals[j]++;
+							j++;
+			%>
 					<td style='background-color: <%= nu?"red":"green" %>'>
 						<%= kind %>
 					</td>

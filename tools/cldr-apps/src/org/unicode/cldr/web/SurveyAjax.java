@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 
@@ -63,8 +66,12 @@ public class SurveyAjax extends HttpServlet {
                     put("message", cs.getMessage());
                     put("htmlMessage", cs.getHTMLMessage());
                     put("type", cs.getType());
-                    put("cause", wrap(cs.getCause()));
-                    put("subType", cs.getSubtype().name());
+                    if(cs.getCause()!=null) {
+                        put("cause", wrap(cs.getCause()));
+                    }
+                    if(cs.getSubtype()!=null) {
+                        put("subType", cs.getSubtype().name());
+                    }
                 }
             };
         }
@@ -95,6 +102,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_STATUS = "status";
     public static final String AJAX_STATUS_SCRIPT = "ajax_status.jspf";
     public static final String WHAT_VERIFY = "verify";
+    public static final String WHAT_SUBMIT= "submit";
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
 
@@ -153,6 +161,7 @@ public class SurveyAjax extends HttpServlet {
         String sess = request.getParameter(SurveyMain.QUERY_SESSION);
         String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
         String xpath = request.getParameter(SurveyForum.F_XPATH);
+        String vhash = request.getParameter("vhash");
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
         CookieSession mySession = null;
         try {
@@ -168,7 +177,7 @@ public class SurveyAjax extends HttpServlet {
                 if(mySession==null) {
                     sendError(out, "Missing Session: " + sess);
                 } else {
-                    if(what.equals(WHAT_VERIFY)) {
+                    if(what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT)) {
                         CheckCLDR cc = sm.createCheckWithoutCollisions();
                         int id = Integer.parseInt(xpath);
                         String xp = sm.xpt.getById(id);
@@ -177,27 +186,86 @@ public class SurveyAjax extends HttpServlet {
                         //CLDRFile file = CLDRFile.make(loc);
                         //CLDRFile file = mySession.
                         SurveyMain.UserLocaleStuff uf = null;
-                        boolean dataEmpty;
+                        boolean dataEmpty = false;
                         JSONWriter r = newJSONStatus(sm);
                         synchronized(mySession) {
-	                        try {
-		                        uf = sm.getUserFile(mySession, CLDRLocale.getInstance(loc));
-		                        CLDRFile file = uf.cldrfile;
-		                        cc.setCldrFileToCheck(file, SurveyMain.basicOptionsMap(), result);
-		                        cc.check(xp, file.getFullXPath(xp), val, options, result);
-		                        dataEmpty = file.isEmpty();
-	                        
-		                        r.put(SurveyMain.QUERY_FIELDHASH, fieldHash);
-		
-		                        r.put("testResults", JSONWriter.wrap(result));
-		                        r.put("testsRun", cc.toString());
-		                        r.put("testsV", val);
-		                        r.put("testsLoc", loc);
-		                        r.put("xpathTested", xp);
-		                        r.put("dataEmpty", Boolean.toString(dataEmpty));
-	                        } finally {
-	                        	uf.close();
-	                        }
+                            try {
+                                CLDRLocale locale = CLDRLocale.getInstance(loc);
+                                BallotBox<UserRegistry.User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
+                                boolean foundVhash = false;
+                                Exception[] exceptionList = new Exception[1];
+                                if(vhash!=null && vhash.length()>0) {
+                                    if(vhash.equals("null")) {
+                                        val = null;
+                                        foundVhash=true;
+                                    } else {
+//                                        String newValue = null;
+//                                        for(String s : ballotBox.getValues(xp)) {
+//                                            if(vhash.equals(DataSection.getValueHash(s))) {
+//                                                val = newValue = s;
+//                                                foundVhash=true;
+//                                            }
+//                                        }
+//                                        if(newValue == null) {
+//                                            sendError(out, "Missing value hash: " + vhash);
+//                                            return;
+//                                        }
+                                        
+                                        val = DataSection.fromValueHash(vhash);
+//                                        System.err.println("'"+vhash+"' -> '"+val+"'");
+                                        foundVhash=true;
+                                    }
+                                } else {
+                                    if(val!=null) {
+                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale.toULocale());
+                                        val = daip.processInput(xp, val, exceptionList);
+                                    }
+                                }
+                                
+                                if(val!=null && !foundVhash) {
+                                    uf = sm.getUserFile(mySession, locale);
+                                    CLDRFile file = uf.cldrfile;
+                                    cc.setCldrFileToCheck(file, SurveyMain.basicOptionsMap(), result);
+                                    cc.check(xp, file.getFullXPath(xp), val, options, result);
+                                    dataEmpty = file.isEmpty();
+                                }
+                            
+                                r.put(SurveyMain.QUERY_FIELDHASH, fieldHash);
+        
+                                if(exceptionList[0]!=null) {
+                                    for(Exception e : exceptionList) {
+                                        result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
+                                                .setMessage("Input Processor Exception")
+                                                .setParameters(exceptionList));
+                                    }
+                                }
+                                
+                                r.put("testResults", JSONWriter.wrap(result));
+                                r.put("testsRun", cc.toString());
+                                r.put("testsV", val);
+                                r.put("testsHash", DataSection.getValueHash(val));
+                                r.put("testsLoc", loc);
+                                r.put("xpathTested", xp);
+                                r.put("dataEmpty", Boolean.toString(dataEmpty));
+                                
+                                if(what.equals(WHAT_SUBMIT)) {
+                                    if(!UserRegistry.userCanModifyLocale(mySession.user,locale)) {
+                                        throw new InternalError("User cannot modify locale.");
+                                    }
+                                    boolean hasError = false;
+                                    for(CheckStatus s : result) {
+                                        if(s.getType().equals(CheckStatus.errorType)) {
+                                            hasError = true;
+                                        }
+                                    }
+                                    if(!hasError) {
+                                        ballotBox.voteForValue(mySession.user, xp, val);
+                                        r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
+                                    }
+                                }
+                            } finally {
+                                if(uf!=null) uf.close();
+                            }
                         }
                         
                         send(r,out);

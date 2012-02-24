@@ -11,7 +11,6 @@
 
 package org.unicode.cldr.web;
 
-import java.io.ObjectInputStream.GetField;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,7 +31,6 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
-import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
@@ -45,11 +43,9 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.web.CLDRDBSourceFactory.DBEntry;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.Vetting.DataSubmissionResultHandler;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 
 import com.ibm.icu.text.Collator;
@@ -63,7 +59,7 @@ import com.ibm.icu.util.ULocale;
  * formerly, and unfortunately, named DataPod
  **/
 
-public class DataSection extends Registerable {
+public class DataSection  {
 	public CLDRFile baselineFile;
 
     /**
@@ -100,7 +96,7 @@ public class DataSection extends Registerable {
 			String pathWhereFound = null;
 			// public List examplesList = null;
 			String references = null;
-			public int submitter = -1; // if this was submitted via ST, record
+//			public int submitter = -1; // if this was submitted via ST, record
 			// user id. ( NOT from XML - in other
 			// words, we won't be parsing
 			// 'proposed-uXX' items. )
@@ -115,13 +111,12 @@ public class DataSection extends Registerable {
 			
 			private String valueHash = null;
 			
-			public String getValueHash() {
-				if(valueHash==null) {
-					valueHash = Long.toHexString(StringId.getId(value));
-				}
-				return valueHash;
-			}
-
+            public String getValueHash() {
+                if(valueHash==null) {
+                    valueHash = DataSection.getValueHash(value);
+                }
+                return valueHash;
+            }
 			@Override
 			public int compareTo(CandidateItem other) {
 				if (other == this) {
@@ -197,7 +192,10 @@ public class DataSection extends Registerable {
 					if (true /* !item.itemErrors */) { // exclude item from
 						// voting due to errors?
 						if (ctx.getCanModify()) {
-							ctx.print("<input title='#" + xpathId + "' name='" + fieldHash + "'  value='"+getValueHash()+"' "
+							ctx.print("<input title='#" + xpathId + "' name='" + fieldHash + "'  value='"+getValueHash()+"' " + 
+				                     " onclick=\"do_change('"
+		                                + fullFieldHash() + "','','"+getValueHash()+"'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+		                                + "')\"" 
 									+ (checkThis(ourVote) ? "CHECKED" : "") + "  type='radio'>");
 						} else {
 							ctx.print("<input title='#" + xpathId + "' type='radio' disabled>");
@@ -258,18 +256,18 @@ public class DataSection extends Registerable {
 					}
 
 					if ((ctx.session.user != null) && (zoomedIn || ctx.prefBool(SurveyMain.PREF_DELETEZOOMOUT))) {
-						boolean adminOrRelevantTc = UserRegistry.userIsAdmin(ctx.session.user); // ctx.session.user.isAdminFor(reg.getInfo(item.submitter));
-						if ((getVotes() == null) || adminOrRelevantTc || // nobody
-								((getVotes().size() == 1) && getVotes().contains(ctx.session.user))) { // ..
-							boolean deleteHidden = ctx.prefBool(SurveyMain.PREF_NOSHOWDELETE);
-							if (!deleteHidden && canModify && (submitter != -1)
-									&& !((pathWhereFound != null) || isFallback || (inheritFrom != null)) &&
-									(adminOrRelevantTc || (submitter == ctx.session.user.id))) {
-								ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"
-										+ "<input type='checkbox' title='#" + xpathId + "' value='" + altProposed + "' name='"
-										+ fieldHash + SurveyMain.ACTION_DEL + "'>" + "Delete&nbsp;item</label>");
-							}
-						}
+//						boolean adminOrRelevantTc = UserRegistry.userIsAdmin(ctx.session.user); // ctx.session.user.isAdminFor(reg.getInfo(item.submitter));
+//						if ((getVotes() == null) || adminOrRelevantTc || // nobody
+//								((getVotes().size() == 1) && getVotes().contains(ctx.session.user))) { // ..
+//							boolean deleteHidden = ctx.prefBool(SurveyMain.PREF_NOSHOWDELETE);
+//							if (!deleteHidden && canModify && (submitter != -1)
+//									&& !((pathWhereFound != null) || isFallback || (inheritFrom != null)) &&
+//									(adminOrRelevantTc || (submitter == ctx.session.user.id))) {
+//								ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"
+//										+ "<input type='checkbox' title='#" + xpathId + "' value='" + altProposed + "' name='"
+//										+ fieldHash + SurveyMain.ACTION_DEL + "'>" + "Delete&nbsp;item</label>");
+//							}
+//						}
 					}
 					if (UserRegistry.userIsTC(ctx.session.user) && ctx.prefBool(SurveyMain.PREF_SHOWUNVOTE)
 							&& votesByMyOrg(ctx.session.user)) {
@@ -771,10 +769,9 @@ public class DataSection extends Registerable {
 			return intgroup;
 		}
 
-		public CLDRLocale getLocale() {
-			return locale;
-		}
-
+        public CLDRLocale getLocale() {
+            return locale;
+        }
 		public String getPrettyPath() {
 			if (pp == null) {
 				pp = sm.xpt.getPrettyPath(xpathId);
@@ -905,7 +902,7 @@ public class DataSection extends Registerable {
 			StringBuilder sb = new StringBuilder();
 			String disputeIcon = "";
 			if (canModify) {
-				if (sm.vet.queryOrgDispute(ctx.session.user.voterOrg(), getLocale(), getXpathId())) {
+				if (DisputePageManager.getOrgDisputeCount(ctx.session.user.voterOrg(), getLocale(), getXpathId())) {
 					disputeIcon = ctx.iconHtml("disp", "Vetter Dispute");
 				}
 			}
@@ -944,7 +941,7 @@ public class DataSection extends Registerable {
 				DataSubmissionResultHandler dsrh) {
 			String subFieldHash = fieldHash();
 			String choice = ctx.field(subFieldHash); // checkmark choice
-
+if(true)return false;
 			if (choice.length() == 0) {
 				SurveyLog.logger.warning("@@@@@  Missing Hash: CH["+subFieldHash+"]");
 				return false; // nothing to see..
@@ -1033,43 +1030,43 @@ public class DataSection extends Registerable {
 
 			boolean didSomething = false; // Was any item modified?
 
-			if (deleteItems != null && ctx.session.user != null) {
-				for (CandidateItem item : deleteItems) {
-					UserRegistry.userIsAdmin(ctx.session.user);
-					if ((item.submitter != -1)
-							&& !((item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) ) && 
-							((item.getVotes() == null) || UserRegistry.userIsTC(ctx.session.user) ||
-							((item.getVotes().size() == 1) && item.getVotes().contains(ctx.session.user))) && 
-							((item.submitter > 0 && UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id))) 
-					{
-						dsrh.handleRemoveItem(this, item, (voteForItem == item));
-						if (voteForItem == item) {
-							choice = SurveyMain.DONTCARE;
-							voteForItem = null;
-						}
-						String xpathIdToRemove = surveyMain.xpt.getById(item.xpathId);
-						ballotBox.voteForValue(ctx.session.user, xpathIdToRemove, null);
-						didSomething = true;
-					} else {
-						dsrh.handleNoPermission(this, item, "remove");
-					}
-				}
-			}
+//			if (deleteItems != null && ctx.session.user != null) {
+//				for (CandidateItem item : deleteItems) {
+//					UserRegistry.userIsAdmin(ctx.session.user);
+//					if ((item.submitter != -1)
+//							&& !((item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) ) && 
+//							((item.getVotes() == null) || UserRegistry.userIsTC(ctx.session.user) ||
+//							((item.getVotes().size() == 1) && item.getVotes().contains(ctx.session.user))) && 
+//							((item.submitter > 0 && UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id))) 
+//					{
+//						dsrh.handleRemoveItem(this, item, (voteForItem == item));
+//						if (voteForItem == item) {
+//							choice = SurveyMain.DONTCARE;
+//							voteForItem = null;
+//						}
+//						String xpathIdToRemove = surveyMain.xpt.getById(item.xpathId);
+//						ballotBox.voteForValue(ctx.session.user, xpathIdToRemove, null);
+//						didSomething = true;
+//					} else {
+//						dsrh.handleNoPermission(this, item, "remove");
+//					}
+//				}
+//			}
 			if (unvoteItems != null && UserRegistry.userIsTC(ctx.session.user)) {
-				for (CandidateItem item : unvoteItems) {
-					if (item.getVotes() == null)
-						continue;
-					for (User voter : item.getVotes()) {
-						if (voter.org.equals(ctx.session.user.org)) {
-
-							boolean did = surveyMain.doAdminRemoveVote(ctx, ctx.getLocale(), getXpathId(), voter.id);
-							if (did) {
-								dsrh.handleRemoveVote(this, voter, item);
-								didSomething = true;
-							}
-						}
-					}
-				}
+//				for (CandidateItem item : unvoteItems) {
+//					if (item.getVotes() == null)
+//						continue;
+//					for (User voter : item.getVotes()) {
+//						if (voter.org.equals(ctx.session.user.org)) {
+//
+//							boolean did = surveyMain.doAdminRemoveVote(ctx, ctx.getLocale(), getXpathId(), voter.id);
+//							if (did) {
+//								dsrh.handleRemoveVote(this, voter, item);
+//								didSomething = true;
+//							}
+//						}
+//					}
+//				}
 			}
 
 			if (choice.equals(SurveyMain.CHANGETO) && !surveyMain.choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
@@ -1373,18 +1370,19 @@ public class DataSection extends Registerable {
 						ctx.println("</select>");
 					} else {
 						// regular change box (text)
-						ctx.print("<input dir='" + ctx.getDirectionForLocale() + "' onfocus=\"document.getElementById('"
-								+ fieldHash + "_ch').click()\" name='" + fieldHash + "_v' " + " onchange=\"do_change('"
-								+ fullFieldHash() + "',this.value," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
-								+ "')\"" + " value='" + oldValue + "' class='" + fClass + "'>");
-						ctx.print("<div id=\"e_" + fullFieldHash() + "\" ><!--  errs for this item --></div>");
+						ctx.print("<input  id='ch_" + fullFieldHash() + "' dir='" + ctx.getDirectionForLocale() + "' _onfocus=\"document.getElementById('"
+								+ fieldHash + "_ch').click()\" name='" + fieldHash + "_v' " + " onblur=\"do_change('"
+								+ fullFieldHash() + "',this.value,''," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+								+ "','verify')\"" + " value='" + oldValue + "' class='" + fClass + "'>");
+                        ctx.print("<button onclick=\"isubmit('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + "', '" + ctx.session+"')\" type='button' class='isubmit'  id='submit_" + fullFieldHash() + "' >Submit</button> ");
+                        ctx.print("<button onclick=\"icancel('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + "', '" + ctx.session+"')\" type='button' class='icancel'  id='cancel_" + fullFieldHash() + "' >Change</button> ");
 					}
 					// references
 					if (badInputBox) {
 						// ctx.print("</span>");
 					}
 
-					if (canModify && zoomedIn && (altType == null) && UserRegistry.userIsTC(ctx.session.user)) { // show
+					if (false && canModify && zoomedIn && (altType == null) && UserRegistry.userIsTC(ctx.session.user)) { // show
 						// 'Alt'
 						// popup
 						// for
@@ -1431,7 +1429,11 @@ public class DataSection extends Registerable {
 			if (canModify) {
 				ctx.print("<td width='20' rowspan='" + rowSpan + "'>");
 				ctx.print("<input name='" + fieldHash + "' value='" + SurveyMain.DONTCARE + "' type='radio' "
-						+ ((ourVote == null) ? "CHECKED" : "") + " >");
+						+ ((ourVote == null) ? "CHECKED" : "") + " "+ 
+						" onclick=\"do_change('"
+                                + fullFieldHash() + "','','null'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+                                + "')\"" +
+				        ">");
 				ctx.print("</td>");
 			}
 
@@ -1476,8 +1478,8 @@ public class DataSection extends Registerable {
 
 			// REFERENCE row
 			if (areShowingInputBox) {
-				ctx.print("<tr><td class='botgray' colspan=" + SurveyMain.PODTABLE_WIDTH + ">");
-				// references
+				ctx.print("<tr id='r2_"+fullFieldHash()+"'><td class='botgray' colspan=" + SurveyMain.PODTABLE_WIDTH+2 + ">");
+                ctx.print("<div class='itemerrs' id=\"e_" + fullFieldHash() + "\" ><!--  errs for this item --></div>");
 				ctx.println("</td></tr>");
 			}
 
@@ -2617,9 +2619,10 @@ public class DataSection extends Registerable {
 	long touchTime = -1; // when has this pod been hit?
 	public String xpathPrefix = null;
 
-	DataSection(SurveyMain sm, CLDRLocale loc, String prefix, String ptype) {
-		super(sm.lcr, loc); // initialize call to LCR
+    private CLDRLocale locale;
 
+	DataSection(SurveyMain sm, CLDRLocale loc, String prefix, String ptype) {
+	    this.locale = loc;
 		this.sm = sm;
 		this.ptype = ptype;
 		xpathPrefix = prefix;
@@ -2919,7 +2922,6 @@ public class DataSection extends Registerable {
 	private void populateFrom(CLDRFile ourSrc, CheckCLDR checkCldr, Map<String, String> options, String workingCoverageLevel) {
 		// if (!ourSrc.isResolving()) throw new
 		// IllegalArgumentException("CLDRFile must be resolved");
-		DBEntry vettedParentEntry = null;
 		try {
 			init();
 			XPathParts xpp = new XPathParts(null, null);
@@ -2945,7 +2947,6 @@ public class DataSection extends Registerable {
 			if (parentLoc != null) {
 				XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
 				vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
-				vettedParentEntry = sm.getDBSourceFactory().openEntry(vettedParentSource.getUnresolving());
 			}
 
 			boolean excludeCurrencies = false;
@@ -3191,7 +3192,6 @@ public class DataSection extends Registerable {
 				// options
 				// (may be nested in the case of alt types)
 				DataRow p = getDataRow(xpath);
-				p.winningXpathId = sm.getDBSourceFactory().getWinningPathId(base_xpath, locale, false);
 
 				p.coverageValue = coverageValue;
 
@@ -3398,14 +3398,6 @@ public class DataSection extends Registerable {
 					// if
 					// nonempty
 				}
-				/*
-				 * Was this item submitted via SurveyTool? Let's find out.
-				 */
-				myItem.submitter = sm.getDBSourceFactory().getSubmitterId(locale, myItem.xpathId);
-				if (myItem.submitter != -1) {
-					// /*srl*/ System.err.println("submitter set: " +
-					// myItem.submitter + " @ " + locale + ":"+ xpath);
-				}
 
 				if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
 						&& !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
@@ -3452,14 +3444,6 @@ public class DataSection extends Registerable {
 			}
 			// aFile.close();
 		} finally {
-			if (vettedParentEntry != null) {
-				try {
-					vettedParentEntry.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 
@@ -3705,9 +3689,27 @@ public class DataSection extends Registerable {
 	/**
 	 * @deprecated use p.xpath()
 	 * @param p
+	 * @see DataSection#xpath
 	 */
 	@Deprecated
 	public String xpath(DataRow p) {
 		return p.getXpath();
 	}
+    /**
+     * @deprecated use getLocale
+     * @return
+     * @see #getLocale
+     */
+    public CLDRLocale locale() {
+        return locale;
+    }
+    public static String getValueHash(String str) {
+        //return Long.toHexString(StringId.getId(str));
+        return (str==null)?"null":CookieSession.cheapEncodeString(str);
+    }
+    public static String fromValueHash(String s) {
+        return (s==null||s.equals("null"))?null:CookieSession.cheapDecodeString(s);
+    }
+
+
 }

@@ -1,9 +1,8 @@
 package org.unicode.cldr.unittest;
 
-import java.util.BitSet;
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,36 +20,61 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 
 public class LanguageTest extends TestFmwk {
     final TestInfo testInfo = TestInfo.getInstance();
     final SupplementalDataInfo supplementalDataInfo = testInfo.getSupplementalDataInfo();
     final Map<String, String> likelyMap = supplementalDataInfo.getLikelySubtags();
-    final HashMap<String,Map<Type,String>> language2scriptType = new HashMap<String,Map<Type,String>>();
-    final HashMap<String,Map<Type,String>> script2languageType = new HashMap<String,Map<Type,String>>();
+    final HashMap<String,String> language2likely = new HashMap<String,String>();
+    final HashMap<String,String> script2likely = new HashMap<String,String>();
     {
+        final HashMap<String,Map<Type,String>> language2script = new HashMap<String,Map<Type,String>>();
+        final HashMap<String,Map<Type,String>> language2territory = new HashMap<String,Map<Type,String>>();
+        final HashMap<String,Map<Type,String>> script2language = new HashMap<String,Map<Type,String>>();
+        final HashMap<String,Map<Type,String>> script2territory = new HashMap<String,Map<Type,String>>();
+        final HashSet<String> scriptSet = new HashSet();
         for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {
             for (BasicLanguageData basic : supplementalDataInfo.getBasicLanguageData(language)) {
-                Set<String> scripts = basic.getScripts();
-                final String script = scripts.size() == 0 ? "Zzzz" : scripts.iterator().next();
-                Set<String> territories = basic.getTerritories();
-                final String territory = territories.size() == 0 ? "ZZ" : territories.iterator().next();
                 Type type = basic.getType();
+                Set<String> scripts = basic.getScripts();
+                String script = null;
+                if (scripts != null && scripts.size() != 0) {
+                    script = scripts.iterator().next();
+                    addMap(language2script, language, script, type);
+                    addMap(script2language, script, language, type);
+                    scriptSet.add(script);
+                }
+                Set<String> territories = basic.getTerritories();
+                if (territories != null && territories.size() != 0) {
+                    String territory = territories.iterator().next();
+                    addMap(language2territory, language, territory, type);
+                    if (script != null) {
+                        addMap(script2territory, territory, language, type);
+                    }
+                }
+                final String territory = territories.size() == 0 ? "ZZ" : territories.iterator().next();
                 final String result = language + "_" + script + "_" + territory;
-                addMap(language2scriptType, language, result, type);
-                addMap(script2languageType, script, result, type);
-//                language2scriptType.put(language, Row.of(type, script));
-//                script2languageType.put(script, Row.of(type, language));
             }
         }
+        for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {
+            String bestScript = getBest(language2script, language, "Zzzz");
+            String bestTerritory = getBest(language2territory, language, "ZZ");
+            language2likely.put(language, language + "_" + bestScript + "_" + bestTerritory);
+        }
+        for (String script : scriptSet) {
+            String bestLanguage = getBest(script2language, script, "und");
+            String bestTerritory = getBest(script2territory, script, "ZZ");
+            script2likely.put(script, bestLanguage + "_" + script + "_" + bestTerritory);
+        }
+    }
+
+    public String getBest(final HashMap<String, Map<Type, String>> language2script, String language, String defaultValue) {
+        final Map<Type, String> bestMap = language2script.get(language);
+        return bestMap == null ? defaultValue : bestMap.values().iterator().next();
     }
 
     public void addMap(HashMap<String, Map<Type, String>> hashMap, String language, final String script, Type type) {
@@ -79,7 +103,7 @@ public class LanguageTest extends TestFmwk {
                 if (likely != null) {
                     script = parser.set(likely).getScript();
                 } else {
-                    final Map<Type, String> data = language2scriptType.get(base);
+                    final String data = language2likely.get(base);
                     if (data == null) {
                         errln("Language without likely script:\t" + base + "\t" + getLanguageName(base));
                     } else {
@@ -99,7 +123,7 @@ public class LanguageTest extends TestFmwk {
             }
         }
         for (String language : needTransfer) {
-            addLine(language, language2scriptType.get(language).values().iterator().next());
+            addLine(language, language2likely.get(language));
         }
         for (String script : scriptToLanguageCounter.keySet()) {
             Counter2<String> c = scriptToLanguageCounter.get(script);
@@ -116,7 +140,7 @@ public class LanguageTest extends TestFmwk {
         for (String script : unicodeScripts) {
             String likely = likelyMap.get("und_" + script);
             if (likely == null) {
-                final Map<Type, String> data = script2languageType.get(script);
+                final String data = script2likely.get(script);
                 if (data == null) {
                     errln("Script without likely language:\t" + script + "\t" + getScriptName(script));
                 } else {
@@ -125,7 +149,7 @@ public class LanguageTest extends TestFmwk {
             }
         }
         for (String script : needTransfer) {
-            addLine("und_" + script, script2languageType.get(script).values().iterator().next());
+            addLine("und_" + script, script2likely.get(script));
         }
     }
 

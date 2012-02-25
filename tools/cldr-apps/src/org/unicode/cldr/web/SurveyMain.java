@@ -382,6 +382,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         doGet(request,response);
     }
 
+    
+    public static String surveyBase = null;
     /**
      * IP blacklist
      */
@@ -500,7 +502,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         WebContext ctx = new WebContext(request,response);
         ctx.reqTimer = reqTimer;
         ctx.sm = this;
-        
+        if(surveyBase==null) {
+            surveyBase = ctx.base();
+        }
         /*
         String theIp = ctx.userIP();
         if(theIp.equals("66.154.103.161") // gigablast
@@ -642,6 +646,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             } else {
                 out.println("If this page does not load in "+sec+" seconds, you may <a href='"+base+"'>click here to go to the main Survey Tool page</a>");
             }
+            
+            out.println("<noscript><h1>JavaScript is required for logging into the SurveyTool.</h1></noscript>");
             out.print(sysmsg("startup_footer"));
             if(!SurveyMain.isUnofficial) {
             	out.println(ShowData.ANALYTICS);
@@ -3113,6 +3119,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             showTogglePref(ctx, "dummy", "A Dummy Setting");
 
      */
+    /**
+     * @deprecated JSP only
+     * @param ctx
+     * @param pref
+     * @param list
+     * @return
+     */
     String getListSetting(WebContext ctx, String pref, String[] list) {
     	return getListSetting(ctx,pref,list,false);
     }
@@ -3123,8 +3136,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     
     String getListSetting(WebContext ctx, String pref, String[] list, boolean doDef) {
         String settingsSet = ctx.settings().get(pref, doDef?"default":list[0]);
-    	String val = ctx.pref(pref, settingsSet);
-    	return val;
+        String val = ctx.pref(pref, settingsSet);
+        return val;
+    }
+    String getListSetting(UserSettings settings, String pref, String[] list, boolean doDef) {
+        return  settings.get(pref, doDef?"default":list[0]);
     }
     static void writeMenu(WebContext jout, String title, String field, String current, String items[])  {
     	writeMenu(jout,title,field,current,items,null);
@@ -4104,7 +4120,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     		// check for errors
     		{
-    			List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.getEffectiveCoverageLevel());
+    			List checkCldrResult = (List)uf.hash.get(CHECKCLDR_RES+ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
 
     			if((checkCldrResult != null) &&  (!checkCldrResult.isEmpty()) && 
     					(/* true || */ (checkCldr != null) && (xMAIN.equals(which))) ) {
@@ -4652,7 +4668,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             return checkCldr;
         }
         public CheckCLDR getCheck(WebContext ctx) {
-        	return getCheck(ctx.getEffectiveCoverageLevel(), ctx.getOptionsMap(basicOptionsMap()));
+        	return getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap(basicOptionsMap()));
         }
         
         /**
@@ -5159,7 +5175,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         
         ctx.println("<h3>Exemplar City</h3>");
         
-        printSectionTableOpen(ctx, section, true, canModify);
+        DataSection.printSectionTableOpen(ctx, section, true, canModify);
         section.showSection(ctx, canModify, zoneXpath+"/exemplarCity", true);
         printSectionTableClose(ctx, section, canModify);
         
@@ -5169,7 +5185,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             // #2 there's a MZ active. Explain it.
             ctx.println("<hr><h3>Metazone "+currentMetaZone+"</h3>");
 
-            printSectionTableOpen(ctx, metazoneSection, true, canModify);
+            DataSection.printSectionTableOpen(ctx, metazoneSection, true, canModify);
             metazoneSection.showSection(ctx, canModify, metazoneXpath, true);
             printSectionTableClose(ctx, metazoneSection, canModify);
             if(canModify&&false) {
@@ -5228,7 +5244,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just the contents.
         }
                 
-        printSectionTableOpen(ctx, section, true, canModify);
+        DataSection.printSectionTableOpen(ctx, section, true, canModify);
         // use a special matcher.
         section.showSection(ctx, canModify, XPathMatcher.regex(BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,zoneXpath),
         		 Pattern.compile(".*/((short)|(long))/.*")), true);
@@ -5357,61 +5373,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.flush(); // give them some status.
     }
 	static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
-
+    
+	/**
+	 * @deprecated
+	 * @param ctx
+	 * @param section
+	 * @param zoomedIn
+	 * @param canModify
+	 */
     static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
-        ctx.println("<a name='st_data'></a>");
-        ctx.println("<table summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' class='data' border='0'>");
-
-        int table_width = section.hasExamples?13:10;
-        int itemColSpan;
-        if (!canModify) {
-        	table_width -= 4; // No vote, change, or no opinion columns
-        }
-        if (zoomedIn) {
-        	table_width += 2;
-        	itemColSpan = 2;  // When zoomed in, Proposed and Other takes up 2 columns
-        } else {
-        	itemColSpan = 1;
-        }
-        if(/* !zoomedIn */ true) {
-            ctx.println("<tr><td colspan='"+table_width+"'>");
-            // dataitems_header.jspf
-            // some context
-            ctx.put(WebContext.DATA_SECTION, section);
-            ctx.put(WebContext.ZOOMED_IN, new Boolean(zoomedIn));
-            ctx.includeFragment("dataitems_header.jsp");
-            ctx.println("</td></tr>");
-        }
-            ctx.println("<tr class='headingb'>\n"+
-                    " <th width='30'>St.</th>\n"+                  // 1
-                    " <th width='30'>Draft</th>\n");                  // 1
-            if (canModify) {
-                ctx.print(" <th width='30'>Voted</th>\n");                  // 1
-            }
-            ctx.print(" <th>Code</th>\n"+                 // 2
-                        " <th title='["+BASELINE_LOCALE+"]'>"+BASELINE_LANGUAGE_NAME+"</th>\n");
-            if (section.hasExamples){ 
-                ctx.print(" <th title='"+BASELINE_LANGUAGE_NAME+" ["+BASELINE_LOCALE+"] Example'><i>Ex</i></th>\n"); 
-            }
-            
-            ctx.print(" <th colspan="+itemColSpan+">"+getProposedName()+"</th>\n");
-            if (section.hasExamples){ 
-                ctx.print(" <th title='Proposed Example'><i>Ex</i></th>\n"); 
-            }
-            ctx.print(" <th colspan="+itemColSpan+">"+CURRENT_NAME+"</th>\n");
-            if (section.hasExamples){ 
-                ctx.print(" <th title='Current Example'><i>Ex</i></th>\n");
-            }
-            if (canModify) { 
-                ctx.print(" <th colspan='2' width='25%'>Change</th>\n");  // 8
-                ctx.print( "<th width='20' title='No Opinion'>n/o</th>\n"); // 5
-            }
-            ctx.println("</tr>");
- 
-        if(zoomedIn) {
-            List<String> refsList = new ArrayList<String>();
-            ctx.temporaryStuff.put("references", refsList);
-        }
+        DataSection.printSectionTableOpen(ctx, section, zoomedIn, canModify);
     }
 
     /**
@@ -6508,7 +6479,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 	                    for(CLDRLocale locale : sm.getLocales()) {
 	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
 	                        xctx.setLocale(locale);
-	                    	DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false, "modern");
+	                    	DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, false, "modern");
 	                    	SurveyLog.logger.warning("Made: " + qt.toString() + " -- " + freeMem());
 	                    }
                     }
@@ -6523,7 +6494,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 //	                    for(CLDRLocale locale : sm.getLocales()) {
 	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
 	                        xctx.setLocale(locale);
-	                    	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false,"modern");
+	                    	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, false,"modern");
 	                        DataSection.DisplaySet set = ds.createDisplaySet(SortMode.getInstance(SurveyMain.PREF_SORTMODE_CODE_CALENDAR), null);
 	                    	SurveyLog.logger.warning("Made: " + qt.toString() + " -- " + freeMem());
 //	                    }
@@ -6535,7 +6506,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 	                xctx.session=cs;
 	                CLDRLocale locale = CLDRLocale.getInstance("az_Arab");
                     xctx.setLocale(locale);
-                	DataSection ds = DataSection.make(xctx, locale, SurveyMain.GREGO_XPATH, false,"modern");
+                	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, false,"modern");
                 	long startTime = System.currentTimeMillis();
                     com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName());
 	                for(int jj=0;jj<10000;jj++) {

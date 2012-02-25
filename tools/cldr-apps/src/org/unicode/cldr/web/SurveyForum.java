@@ -32,6 +32,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
+import org.unicode.cldr.web.WebContext.LoadingShow;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.text.DateFormat;
@@ -60,7 +61,7 @@ public class SurveyForum {
 
 	/* --------- FORUM ------------- */
 	static final String F_FORUM = "forum";
-	static final String F_XPATH = "xpath";
+	public static final String F_XPATH = "xpath";
 	static final String F_PATH = "path";
 	static final String F_DO = "d";
 	static final String F_LIST = "list";
@@ -672,7 +673,7 @@ public class SurveyForum {
 
 		DataSection section = ctx.getSection(podBase);
 
-		baseCtx.sm.printSectionTableOpen(ctx, section, true, canModify);
+		DataSection.printSectionTableOpen(ctx, section, true, canModify);
 		section.showSection(ctx, canModify, ctx.sm.xpt.getById(item_xpath), true);
 		baseCtx.sm.printSectionTableClose(ctx, section, canModify);
 		baseCtx.sm.printPathListClose(ctx);
@@ -815,7 +816,7 @@ public class SurveyForum {
 			            ctx.println("<!-- <br>cant modify " + locale + "<br> -->");
 		}
 
-		DataSection section = ctx.getSection(podBase,Level.COMPREHENSIVE.toString()); // always use comprehensive - so no cov filtering
+		DataSection section = ctx.getSection(podBase,Level.COMPREHENSIVE.toString(),LoadingShow.showLoading); // always use comprehensive - so no cov filtering
 
 		section.showSection(ctx, canModify, BaseAndPrefixMatcher.getInstance(base_xpath,null), true);
 		sm.printPathListClose(ctx);

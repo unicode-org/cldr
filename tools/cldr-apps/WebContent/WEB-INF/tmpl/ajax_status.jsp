@@ -72,7 +72,9 @@ function updateTestResults(fieldhash, testResults, what) {
     var newHtml = "";
     e_div.className="";
     v_td.className="v_warn";
-    v_tr.className="";
+    if(v_tr!=null) {
+            v_tr.className="";
+    }
     v_tr2.className="tr_warn";
     newHtml = "";
     
@@ -129,6 +131,7 @@ function isubmit(fieldhash,xpid,locale,session) {
 
 function icancel(fieldhash,xpid,locale,session) {
     var ch_input = document.getElementById('ch_'+fieldhash);
+    var chtd_input = document.getElementById('chtd_'+fieldhash);
     var submit_btn = document.getElementById('submit_'+fieldhash);
     var cancel_btn = document.getElementById('cancel_'+fieldhash);
     
@@ -139,6 +142,57 @@ function icancel(fieldhash,xpid,locale,session) {
     cancel_btn.style.display='none';
     submit_btn.style.display='none';
     ch_input.disabled=null;
+    chtd_input.style.width='25%';
+    ch_input.className='inputboxbig';
+}
+
+function refreshRow(fieldhash, xpid, locale, session) {
+    var v_tr = document.getElementById('r_'+fieldhash);
+    var e_div = document.getElementById('e_'+fieldhash);
+    var what = "<%= SurveyAjax.WHAT_GETROW %>";
+    var ourUrl = "<%= request.getContextPath() %>/RefreshRow.jsp?what="+what+"&xpath="+xpid +"&_="+locale+"&fhash="+fieldhash+"&vhash="+''+"&s="+session;
+    //console.log("refreshRow('" + fieldhash +"','"+value+"','"+vhash+"','"+xpid+"','"+locale+"','"+session+"')");
+    console.log(" url = " + ourUrl);
+    var errorHandler = function(err, ioArgs){
+        console.log('Error in refreshRow: ' + err + ' response ' + ioArgs.xhr.responseText);
+        v_tr.className="tr_err";
+        v_tr.innerHTML = "<td class='v_error' colspan=8><%= WebContext.iconHtml(request,"stop","Page Error") %> Couldn't reload this row- please refresh the page. <br>Error: " + err+"</td>";
+        e_div.innerHTML="";
+//        var st_err =  document.getElementById('st_err');
+//        wasBusted = true;
+//        st_err.className = "ferrbox";
+//        st_err.innerHTML="Disconnected from Survey Tool while processing a field: "+err.name + " <br> " + err.message;
+//        updateIf('progress','<hr><i>(disconnected from Survey Tool)</i></hr>');
+//        updateIf('uptime','down');
+//        updateIf('visitors','nobody');
+    };
+    var loadHandler = function(text){
+        try {
+             var newHtml = "";
+             if(text) {
+            	 v_tr.className='topbar';
+            	 v_tr.innerHTML = text;
+            	 e_div.innerHTML = "";
+            	 e_div.className="";
+             } else {
+                 v_tr.className='';
+                 v_tr.innerHTML = "<td colspan=4><%= WebContext.iconHtml(request,"stop","Page Error") %> Couldn't reload this row- please refresh the page.</td>";
+             }
+           }catch(e) {
+               console.log("Error in ajax get ",e.message);
+               console.log(" response: " + text);
+               e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
+           }
+    };
+    var xhrArgs = {
+            url: ourUrl,
+            handleAs:"text",
+            load: loadHandler,
+            error: errorHandler
+        };
+    window.xhrArgs = xhrArgs;
+    console.log('xhrArgs = ' + xhrArgs);
+    dojo.xhrGet(xhrArgs);
 }
 
 // for validating CLDR data values
@@ -167,7 +221,9 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
     hideSubmit(fieldhash);
 	e_div.innerHTML = '<i>Checking...</i>';
 	e_div.className="";
-    v_tr.className="tr_checking";
+	if(v_tr!=null) {
+	    v_tr.className="tr_checking";
+	}
     v_tr2.className="tr_checking";
     var st_err =  document.getElementById('st_err');
     var errorHandler = function(err, ioArgs){
@@ -214,7 +270,8 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
                  }
              }
              if(json.submitResultRaw) {
-                 e_div.innerHTML = e_div.innerHTML + "<br><b>SUBMIT RESULTS:</b> <tt>" + json.submitResultRaw+"</tt> <b>RELOAD THE PAGE TO SEE CHANGES</b>";
+                 e_div.innerHTML = e_div.innerHTML + "<br><b>SUBMIT RESULTS:</b> <tt>" + json.submitResultRaw+"</tt> <b>Refreshing row...</b>";
+                 refreshRow(fieldhash, xpid, locale, session);
              }
            }catch(e) {
                console.log("Error in ajax post ",e.message);

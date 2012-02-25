@@ -13,8 +13,16 @@
 */
 
 
-button.isubmit,button.icancel {
+button.icancel {
 	display: none;
+}
+label.isubmit {
+	display: none;
+	white-space: nowrap;
+	font-size:  small;
+	padding:  0.5em;
+	color:  maroon;
+	background-color:  white;
 }
 
 #explainIcons {
@@ -266,6 +274,9 @@ align: left;*/
 }
 
 .inputbox {
+	width: 2em;
+}
+.inputboxbig {
 	width: 95%;
 }
 
@@ -521,9 +532,6 @@ th.partsection, th.partsection a {
 }
 
 tr.headingb {
-	/
-
-* heading with a border */
     background: #ddd;
 }
 
@@ -892,6 +900,14 @@ td.generatedexample {
 solid silver;
 	border-right: 2px solid gray;
 }
+
+table.innerPropItems td.generatedexample,
+table.innerPropItems td.propcolumn {
+	border-left: none ;
+	border-right: none;
+	white-space: nowrap;
+}
+
 
 th.rowinfo {
 	font-size: small;

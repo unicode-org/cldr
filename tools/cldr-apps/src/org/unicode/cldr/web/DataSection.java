@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -44,6 +45,7 @@ import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.DataSection.EPrintCellSet;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
@@ -151,7 +153,38 @@ public class DataSection  {
 				}
 			}
 
+			
+			
 			/**
+             * print the cells which have to do with the item this may be called
+             * with NULL if there isn't a proposed item for this slot. it will
+             * be called once in the 'main' row, and once for any extra rows
+             * needed for proposed items
+             * 
+             * @param ctx
+             *            TODO
+             * @param ourVote
+             *            TODO
+             * @param canModify
+             *            TODO
+             * @param ourAlign
+             *            TODO
+             * @param uf
+             *            TODO
+             * @param zoomedIn
+             *            TODO
+             * @param numberedItemsList
+             *            All items are added here.
+             * @param exampleContext
+             *            TODO
+             */
+            void printCell(WebContext ctx, String ourVote, boolean canModify, String ourAlign, UserLocaleStuff uf,
+            		boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext) {
+                        printCell(ctx, ourVote, canModify, ourAlign, uf,
+                                zoomedIn, numberedItemsList, exampleContext,
+                                EnumSet.allOf(EPrintCellSet.class));
+                    }
+            /**
 			 * print the cells which have to do with the item this may be called
 			 * with NULL if there isn't a proposed item for this slot. it will
 			 * be called once in the 'main' row, and once for any extra rows
@@ -173,120 +206,120 @@ public class DataSection  {
 			 *            All items are added here.
 			 * @param exampleContext
 			 *            TODO
+			 * @param options TODO
 			 */
 			void printCell(WebContext ctx, String ourVote, boolean canModify, String ourAlign, UserLocaleStuff uf,
-					boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext) {
+					boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext, EnumSet<EPrintCellSet> options) {
 				String fieldHash = fieldHash();
 				// ##6.1 proposed - print the TOP item
 				int colspan = 1;
 				String itemExample = null;
-				itemExample = uf.getExampleGenerator().getExampleHtml(xpath, value,
-						zoomedIn ? ExampleGenerator.Zoomed.IN : ExampleGenerator.Zoomed.OUT, exampleContext,
-								ExampleType.NATIVE);
 
-				ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
-						+ ctx.getDirectionForLocale() + "' valign='top'>");
-				if(value!=null) {
-					String pClass = getPClass(ctx);
+				if(options.contains(EPrintCellSet.doShowValue)) {
+				    ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
+				            + ctx.getDirectionForLocale() + "' valign='top'>");
+				    if(value!=null) {
+				        String pClass = getPClass(ctx);
 
-					if (true /* !item.itemErrors */) { // exclude item from
-						// voting due to errors?
-						if (ctx.getCanModify()) {
-							ctx.print("<input title='#" + xpathId + "' name='" + fieldHash + "'  value='"+getValueHash()+"' " + 
-				                     " onclick=\"do_change('"
-		                                + fullFieldHash() + "','','"+getValueHash()+"'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
-		                                + "')\"" 
-									+ (checkThis(ourVote) ? "CHECKED" : "") + "  type='radio'>");
-						} else {
-							ctx.print("<input title='#" + xpathId + "' type='radio' disabled>");
-						}
-					}
+				        if (true /* !item.itemErrors */) { // exclude item from
+				            // voting due to errors?
+				            if (ctx.getCanModify()) {
+				                ctx.print("<input title='#" + xpathId + "' name='" + fieldHash + "'  value='"+getValueHash()+"' " + 
+				                        " onclick=\"do_change('"
+				                        + fullFieldHash() + "','','"+getValueHash()+"'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+				                        + "')\"" 
+				                        + (checkThis(ourVote) ? "CHECKED" : "") + "  type='radio'>");
+				            } else {
+				                ctx.print("<input title='#" + xpathId + "' type='radio' disabled>");
+				            }
+				        }
 
-					if (zoomedIn && (getVotes() != null)) {
-						int n = getVotes().size();
-						String title = "" + n + " vote" + ((n > 1) ? "s" : "");
-						if (canModify && UserRegistry.userIsVetter(ctx.session.user)) {
-							title = title + ": ";
-							boolean first = true;
-							for (User theU : getVotes()) {
-								if (theU != null) {
-									String add = theU.name + " of " + theU.org;
-									title = title + add.replaceAll("'", "\u2032"); // quote
-									// quotes
-									if (first) {
-										title = title + ", ";
-									} else {
-										first = false;
-									}
-								}
-							}
-						}
-						ctx.print("<span class='notselected' >" + ctx.iconHtml("vote", title) + "</span>"); // ballot
-						// box
-						// symbol
-					}
+				        if (zoomedIn && (getVotes() != null)) {
+				            int n = getVotes().size();
+				            String title = "" + n + " vote" + ((n > 1) ? "s" : "");
+				            if (canModify && UserRegistry.userIsVetter(ctx.session.user)) {
+				                title = title + ": ";
+				                boolean first = true;
+				                for (User theU : getVotes()) {
+				                    if (theU != null) {
+				                        String add = theU.name + " of " + theU.org;
+				                        title = title + add.replaceAll("'", "\u2032"); // quote
+				                        // quotes
+				                        if (first) {
+				                            title = title + ", ";
+				                        } else {
+				                            first = false;
+				                        }
+				                    }
+				                }
+				            }
+				            ctx.print("<span class='notselected' >" + ctx.iconHtml("vote", title) + "</span>"); // ballot
+				            // box
+				            // symbol
+				        }
 
-					ctx.print("<span " + pClass + ">");
-					String processed = null;
-					if (value.length() != 0) {
-						processed = ctx.processor.processForDisplay(sm.xpt.getById(getXpathId()), value);
-						ctx.print(processed);
-					} else {
-						ctx.print("<i dir='ltr'>(empty)</i>");
-						processed = null;
-					}
-					ctx.print("</span>");
-					if ((!isFallback || ((previousItem == null) && isParentFallback) || // it's
-							// either:
-							// not
-							// inherited
-							// OR
-							// not
-							// a
-							// "shim"
-							// and..
-							(pathWhereFound != null && !isFallback))
-							&& // .. or it's an alias (that is still the 1.4
-								// item)
-							xpathId == getXpathId()) { // its xpath is the base
-						// xpath.
-						ctx.print(ctx.iconHtml("star", "CLDR " + SurveyMain.getOldVersion() + " item"));
-					} else if (SurveyMain.isUnofficial && isParentFallback) {
-						// ctx.print(ctx.iconHtml("okay","parent fallback"));
-					}
+				        ctx.print("<span " + pClass + ">");
+				        String processed = null;
+				        if (value.length() != 0) {
+				            processed = ctx.processor.processForDisplay(sm.xpt.getById(getXpathId()), value);
+				            ctx.print(processed);
+				        } else {
+				            ctx.print("<i dir='ltr'>(empty)</i>");
+				            processed = null;
+				        }
+				        ctx.print("</span>");
+				        if ((!isFallback || ((previousItem == null) && isParentFallback) || // it's
+				                // either:
+				                // not
+				                // inherited
+				                // OR
+				                // not
+				                // a
+				                // "shim"
+				                // and..
+				                (pathWhereFound != null && !isFallback))
+				                && // .. or it's an alias (that is still the 1.4
+				                // item)
+				                xpathId == getXpathId()) { // its xpath is the base
+				            // xpath.
+				            ctx.print(ctx.iconHtml("star", "CLDR " + SurveyMain.getOldVersion() + " item"));
+				        } else if (SurveyMain.isUnofficial && isParentFallback) {
+				            // ctx.print(ctx.iconHtml("okay","parent fallback"));
+				        }
 
-					if ((ctx.session.user != null) && (zoomedIn || ctx.prefBool(SurveyMain.PREF_DELETEZOOMOUT))) {
-//						boolean adminOrRelevantTc = UserRegistry.userIsAdmin(ctx.session.user); // ctx.session.user.isAdminFor(reg.getInfo(item.submitter));
-//						if ((getVotes() == null) || adminOrRelevantTc || // nobody
-//								((getVotes().size() == 1) && getVotes().contains(ctx.session.user))) { // ..
-//							boolean deleteHidden = ctx.prefBool(SurveyMain.PREF_NOSHOWDELETE);
-//							if (!deleteHidden && canModify && (submitter != -1)
-//									&& !((pathWhereFound != null) || isFallback || (inheritFrom != null)) &&
-//									(adminOrRelevantTc || (submitter == ctx.session.user.id))) {
-//								ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"
-//										+ "<input type='checkbox' title='#" + xpathId + "' value='" + altProposed + "' name='"
-//										+ fieldHash + SurveyMain.ACTION_DEL + "'>" + "Delete&nbsp;item</label>");
-//							}
-//						}
-					}
-					if (UserRegistry.userIsTC(ctx.session.user) && ctx.prefBool(SurveyMain.PREF_SHOWUNVOTE)
-							&& votesByMyOrg(ctx.session.user)) {
-						ctx.println(" <label nowrap class='unvotebox' style='padding: 4px;'>" + "<input type='checkbox' title='#"
-								+ xpathId + "' value='" + altProposed + "' name='" + fieldHash + SurveyMain.ACTION_UNVOTE + "'>"
-								+ "Unvote&nbsp;item</label>");
-					}
-					if (zoomedIn) {
-						if (processed != null && /* direction.equals("rtl")&& */SurveyMain.CallOut.containsSome(processed)) {
-							String altProcessed = processed.replaceAll("\u200F", "\u200F<b dir=rtl>RLM</b>\u200F").replaceAll(
-									"\u200E", "\u200E<b>LRM</b>\u200E");
-							ctx.print("<br><span class=marks>" + altProcessed + "</span>");
-						}
-					}
+				        if ((ctx.session.user != null) && (zoomedIn || ctx.prefBool(SurveyMain.PREF_DELETEZOOMOUT))) {
+				            //						boolean adminOrRelevantTc = UserRegistry.userIsAdmin(ctx.session.user); // ctx.session.user.isAdminFor(reg.getInfo(item.submitter));
+				            //						if ((getVotes() == null) || adminOrRelevantTc || // nobody
+				            //								((getVotes().size() == 1) && getVotes().contains(ctx.session.user))) { // ..
+				            //							boolean deleteHidden = ctx.prefBool(SurveyMain.PREF_NOSHOWDELETE);
+				            //							if (!deleteHidden && canModify && (submitter != -1)
+				            //									&& !((pathWhereFound != null) || isFallback || (inheritFrom != null)) &&
+				            //									(adminOrRelevantTc || (submitter == ctx.session.user.id))) {
+				            //								ctx.println(" <label nowrap class='deletebox' style='padding: 4px;'>"
+				            //										+ "<input type='checkbox' title='#" + xpathId + "' value='" + altProposed + "' name='"
+				            //										+ fieldHash + SurveyMain.ACTION_DEL + "'>" + "Delete&nbsp;item</label>");
+				            //							}
+				            //						}
+				        }
+				        if (UserRegistry.userIsTC(ctx.session.user) && ctx.prefBool(SurveyMain.PREF_SHOWUNVOTE)
+				                && votesByMyOrg(ctx.session.user)) {
+				            ctx.println(" <label nowrap class='unvotebox' style='padding: 4px;'>" + "<input type='checkbox' title='#"
+				                    + xpathId + "' value='" + altProposed + "' name='" + fieldHash + SurveyMain.ACTION_UNVOTE + "'>"
+				                    + "Unvote&nbsp;item</label>");
+				        }
+				        if (zoomedIn) {
+				            if (processed != null && /* direction.equals("rtl")&& */SurveyMain.CallOut.containsSome(processed)) {
+				                String altProcessed = processed.replaceAll("\u200F", "\u200F<b dir=rtl>RLM</b>\u200F").replaceAll(
+				                        "\u200E", "\u200E<b>LRM</b>\u200E");
+				                ctx.print("<br><span class=marks>" + altProcessed + "</span>");
+				            }
+				        }
+				    }
+				    ctx.println("</td>");
 				}
-				ctx.println("</td>");
 				// 6.3 - If we are zoomed in, we WILL have an additional column
 				// withtests and/or references.
-				if (zoomedIn) {
+				if (options.contains(EPrintCellSet.doShowRef) && zoomedIn) {
 					ctx.println("<td nowrap class='warncell'>");
 					ctx.println("<span class='warningReference'>");
 					// ctx.print(ctx.iconHtml("warn","Warning"));
@@ -303,7 +336,10 @@ public class DataSection  {
 				}
 
 				// ##6.2 example column. always present
-				if (hasExamples) {
+				if (options.contains(EPrintCellSet.doShowExample) && hasExamples) {
+	                itemExample = uf.getExampleGenerator().getExampleHtml(xpath, value,
+	                        zoomedIn ? ExampleGenerator.Zoomed.IN : ExampleGenerator.Zoomed.OUT, exampleContext,
+	                                ExampleType.NATIVE);
 					if (itemExample != null) {
 						ctx.print("<td class='generatedexample' valign='top' align='" + ourAlign + "' dir='"
 								+ ctx.getDirectionForLocale() + "' >");
@@ -618,8 +654,12 @@ public class DataSection  {
 		// return p;
 		// }
 
+		/**
+		 * @deprecated now the same as fieldHash.
+		 * @return
+		 */
 		public String fullFieldHash() {
-			return /* section. */sectionHash + fieldHash();
+			return fieldHash(); 
 		}
 
 		/**
@@ -629,14 +669,16 @@ public class DataSection  {
 		 */
 		public CandidateItem getCurrentItem() {
 			if (this.currentItems == null) {
-
+if(true) System.err.println("Getting current items for " + xpath + " from " + items.size() + " items.: " + this);
 				List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 				List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 				for (CandidateItem item : items) {
-					// if(true || (sm.isUnofficial && DEBUG))
-					// System.err.println("Considering: " +
-					// item+", xpid="+item.xpathId+", result="+resultXpath_id+", base="+this.xpathId+", ENO="+errorNoOutcome);
-					// item.toString()
+				    
+					 if(true || (sm.isUnofficial && DEBUG))
+					 System.err.println("Considering: " +
+					 item+", xpid="+item.xpathId+", result="+""+", base="+this.xpathId+", ENO="+errorNoOutcome);
+					 item.toString();
+					 
 					if (item.value.equals(winningValue) && !errorNoOutcome) {
 						if (!currentItems.isEmpty()) {
 							throw new InternalError(this.toString() + ": can only have one candidate item, not "
@@ -933,8 +975,8 @@ public class DataSection  {
 		 * @param ballotBox
 		 * @param dsrh
 		 * @param section
-		 * @see #showDataRow(WebContext, UserLocaleStuff, boolean, CheckCLDR, boolean)
-		 * @see CandidateItem#printCell(WebContext, String, boolean, String, UserLocaleStuff, boolean, List, ExampleContext)
+		 * @see #showDataRow(WebContext, UserLocaleStuff, boolean, CheckCLDR, boolean, EnumSet)
+		 * @see CandidateItem#printCell(WebContext, String, boolean, String, UserLocaleStuff, boolean, List, ExampleContext, EnumSet)
 		 * @return
 		 */
 		boolean processDataRowChanges(WebContext ctx, SurveyMain surveyMain, CLDRFile cf, BallotBox<User> ballotBox,
@@ -1268,6 +1310,7 @@ if(true)return false;
 		 *            TODO
 		 * @param zoomedIn
 		 *            TODO
+		 * @param options TODO
 		 * @param cf
 		 *            TODO
 		 * @param ourSrc
@@ -1276,310 +1319,305 @@ if(true)return false;
 		 *            TODO
 		 * @see #processDataRowChanges(WebContext, SurveyMain, CLDRFile, BallotBox, DataSubmissionResultHandler)
 		 */
-		void showDataRow(WebContext ctx, UserLocaleStuff uf, boolean canModify, CheckCLDR checkCldr, boolean zoomedIn) {
-			String ourAlign = ctx.getAlign();
-			boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) 		|| (canModify);
-			boolean isAlias = (xpath.indexOf("/alias") != -1);
-			String fieldHash = fieldHash();
-			ExampleContext exampleContext = new ExampleContext();
-
-			
-			CandidateItem topCurrent = getTopCurrent();
-			String baseExample = getBaseExample(uf, zoomedIn, exampleContext, topCurrent);
+		public void showDataRow(WebContext ctx, UserLocaleStuff uf, boolean canModify, CheckCLDR checkCldr, boolean zoomedIn, EnumSet<EShowDataRowSet> options) {
+		    String ourAlign = ctx.getAlign();
+		    boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) 		|| (canModify);
+		    boolean isAlias = (xpath.indexOf("/alias") != -1);
+		    String fieldHash = fieldHash();
+		    ExampleContext exampleContext = new ExampleContext();
 
 
-			/* TOP BAR */
-			// Mark the line as disputed or insufficient, depending.
+		    CandidateItem topCurrent = getTopCurrent();
+		    String baseExample = getBaseExample(uf, zoomedIn, exampleContext, topCurrent);
 
-			ctx.put(WebContext.DATA_ROW, this);
-			ctx.put("DataRow.xpath",xpath);
-			ctx.put("DataRow.ballotBox",getBallotBox());
-			ctx.put(WebContext.CAN_MODIFY, canSubmit);
-			ctx.put(WebContext.ZOOMED_IN, zoomedIn);
-			ctx.put("DataRow.baseExample", baseExample);
-			ctx.includeFragment("row.jsp");
 
-			// TODO below should all move into the JSP..
-			String ourVote = null;
-			if (ctx.session.user != null) {
-				ourVote = ballotBox.getVoteValue(ctx.session.user, xpath);
-			}
-			int rowSpan = Math.max(proposedItems.size(), currentItems.size());
-			rowSpan = Math.max(rowSpan, 1);
-			List<CandidateItem> numberedItemsList = new ArrayList<CandidateItem>();
+		    if(options.contains(EShowDataRowSet.doShowTR)) {
+		        ctx.println("<tr id='r_" + fullFieldHash() + "' class='topbar'>");
+		    }
+		    /* TOP BAR */
+		    // Mark the line as disputed or insufficient, depending.
 
-			topCurrent.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext);
+		    ctx.put(WebContext.DATA_ROW, this);
+		    ctx.put("DataRow.xpath",xpath);
+		    ctx.put("DataRow.ballotBox",getBallotBox());
+		    ctx.put(WebContext.CAN_MODIFY, canSubmit);
+		    ctx.put(WebContext.ZOOMED_IN, zoomedIn);
+		    ctx.put("DataRow.baseExample", baseExample);
+		    ctx.includeFragment("row.jsp");
 
-			// ## 6.1, 6.2 - Print the top proposed item. Can be null if there
-			// aren't any.
-			CandidateItem topProposed = null;
-			if (proposedItems.size() > 0) {
-				topProposed = proposedItems.get(0);
-			}
-			if (topProposed != null) {
-				topProposed.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext);
-			} else {
-				printEmptyCells(ctx, ourAlign, zoomedIn);
-			}
+		    // TODO below should all move into the JSP..
+		    String ourVote = null;
+		    if (ctx.session.user != null) {
+		        ourVote = ballotBox.getVoteValue(ctx.session.user, xpath);
+		    }
+		    int rowSpan = 1;
+		    List<CandidateItem> numberedItemsList = new ArrayList<CandidateItem>();
 
-			boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !confirmOnly && (zoomedIn || !zoomOnly));
-			boolean areShowingInputColumn = canModify
-					&& (SurveyMain.isPhaseSubmit() == true)
-					|| UserRegistry.userIsTC(ctx.session.user)
-					|| (UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(locale))
-					|| ((SurveyMain.isPhaseVetting() || SurveyMain.isPhaseVettingClosed()) && (hasErrors || hasProps
-							|| hasWarnings || (false)));
-			
-			// submit box
-			if (areShowingInputColumn) {
-				String changetoBox = "<td id='i_" + fullFieldHash() + "' width='1%' class='noborder' rowspan='" + rowSpan
-						+ "' valign='top'>";
-				// ##7 Change
-				if (canModify && canSubmit && (zoomedIn || !zoomOnly)) {
-					changetoBox = changetoBox
-							+ ("<input name='" + fieldHash + "' id='" + fieldHash + "_ch' value='" + SurveyMain.CHANGETO + "' type='radio' >");
-				}
+		    if(topCurrent!=null) {
+		        ctx.print("<!-- topCurrent = " + topCurrent + " -->");
+		        topCurrent.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, EnumSet.allOf(EPrintCellSet.class));
+		    } else {
+		        ctx.print("<!-- topCurrent==null -->");
+                printEmptyCells(ctx, ourAlign, zoomedIn);
+		    }
+		    if(proposedItems.size() == 1) {
+		        proposedItems.get(0).printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, EnumSet.allOf(EPrintCellSet.class));
+		    }else if (proposedItems.size() > 1) {
 
-				changetoBox = changetoBox + ("</td>");
+		        ctx.print("<td colspan='"+(zoomedIn?2:1)+"'><table class='innerPropItems'>");
+		        for(CandidateItem item : proposedItems) {
+		            ctx.print("<tr>");
+		            item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, kValueCells);
+		            ctx.print("</tr>");
+		        }
+		        ctx.print("</table></td>");
+		        if(hasExamples) {
+		            ctx.print("<td colspan='"+(zoomedIn?2:1)+"'><table class='innerPropItems'>");
+		            for(CandidateItem item : proposedItems) {
+		                ctx.print("<tr>");
+		                item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, kExampleCells);
+		                ctx.print("</tr>");
+		            }
+		            ctx.print("</table></td>");
+		        }
+		    } else {
+		        printEmptyCells(ctx, ourAlign, zoomedIn);
+		    }
 
-				if (!(ctx.getDirectionForLocale() == HTMLDirection.RIGHT_TO_LEFT)) {
-					ctx.println(changetoBox);
-				}
+		    boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !confirmOnly && (zoomedIn || !zoomOnly));
+		    boolean areShowingInputColumn = canModify
+		            && (SurveyMain.isPhaseSubmit() == true)
+		            || UserRegistry.userIsTC(ctx.session.user)
+		            || (UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(locale))
+		            || ((SurveyMain.isPhaseVetting() || SurveyMain.isPhaseVettingClosed()) && (hasErrors || hasProps
+		                    || hasWarnings || (false)));
 
-				ctx.print("<td width='25%' class='noborder' rowspan='" + rowSpan + "' valign='top'>");
+		    // submit box
+		    if (areShowingInputColumn) {
+		        String changetoBox = "<td id='i_" + fullFieldHash() + "' width='1%' class='noborder' rowspan='" + rowSpan
+		                + "' valign='top'>";
+		        // ##7 Change
+		        if (canModify && canSubmit && (zoomedIn || !zoomOnly)) {
+		            changetoBox = changetoBox
+		                    + ("<label id='submit_" + fullFieldHash() + "' class='isubmit'><input onclick=\"isubmit('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + "', '" + ctx.session+"')\" type='radio' class='isubmit'   >Submit</label> ");
+		            //	+ ("<input name='" + fieldHash + "' id='" + fieldHash + "_ch' value='" + SurveyMain.CHANGETO + "' type='radio' >");
+		        }
 
-				boolean badInputBox = false;
+		        changetoBox = changetoBox + ("</td>");
 
-				if (areShowingInputBox) {
-					String oldValue = (String)ctx.temporaryStuff.get(fieldHash + SurveyMain.QUERY_VALUE_SUFFIX);
-					String fClass = "inputbox";
-					if (oldValue == null) {
-						oldValue = "";
-					} else {
-						ctx.print(ctx.iconHtml("stop", "this item was not accepted.") + "this item was not accepted.<br>");
-						// fClass = "badinputbox";
-						badInputBox = true;
-					}
-					if (valuesList != null) {
-						ctx.print("<select onclick=\"document.getElementById('" + fieldHash + "_ch').click()\" name='"
-								+ fieldHash + "_v'>");
-						ctx.print("  <option value=''></option> ");
-						for (String s : valuesList) {
-							ctx.print("  <option value='" + s + "'>" + s + "</option> ");
-						}
-						ctx.println("</select>");
-					} else {
-						// regular change box (text)
-						ctx.print("<input  id='ch_" + fullFieldHash() + "' dir='" + ctx.getDirectionForLocale() + "' _onfocus=\"document.getElementById('"
-								+ fieldHash + "_ch').click()\" name='" + fieldHash + "_v' " + " onblur=\"do_change('"
-								+ fullFieldHash() + "',this.value,''," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
-								+ "','verify')\"" + " value='" + oldValue + "' class='" + fClass + "'>");
-                        ctx.print("<button onclick=\"isubmit('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + "', '" + ctx.session+"')\" type='button' class='isubmit'  id='submit_" + fullFieldHash() + "' >Submit</button> ");
-                        ctx.print("<button onclick=\"icancel('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + "', '" + ctx.session+"')\" type='button' class='icancel'  id='cancel_" + fullFieldHash() + "' >Change</button> ");
-					}
-					// references
-					if (badInputBox) {
-						// ctx.print("</span>");
-					}
+		        if (!(ctx.getDirectionForLocale() == HTMLDirection.RIGHT_TO_LEFT)) {
+		            ctx.println(changetoBox);
+		        }
 
-					if (false && canModify && zoomedIn && (altType == null) && UserRegistry.userIsTC(ctx.session.user)) { // show
-						// 'Alt'
-						// popup
-						// for
-						// zoomed
-						// in
-						// main
-						// items
-						ctx.println("<br> ");
-						ctx.println("<span id='h_alt" + fieldHash + "'>");
-						ctx.println("<input onclick='javascript:show(\"alt" + fieldHash
-								+ "\")' type='button' value='Create Alternate'></span>");
-						ctx.println("<!-- <noscript> </noscript> -->" + "<span style='display: none' id='alt" + fieldHash + "'>");
-						String[] altList = sm.supplemental.getValidityChoice("$altList");
-						ctx.println("<label>Alt: <select name='" + fieldHash + "_alt'>");
-						ctx.println("  <option value=''></option>");
-						for (String s : altList) {
-							ctx.println("  <option value='" + s + "'>" + s + "</option>");
-						}
-						ctx.println("</select></label></span>");
-					}
+		        ctx.print("<td  id='chtd_"+fullFieldHash()+"' class='noborder' rowspan='" + rowSpan + "' valign='top'>");
 
-					ctx.println("</td>");
-				} else {
-					if (!zoomedIn && zoomOnly) {
-						ctx.println("<i>Must zoom in to edit</i>");
-					}
-					ctx.println("</td>");
-				}
+		        boolean badInputBox = false;
 
-				if (ctx.getDirectionForLocale() == HTMLDirection.RIGHT_TO_LEFT) {
-					ctx.println(changetoBox);
-				}
+		        if (areShowingInputBox) {
+		            String oldValue = (String)ctx.temporaryStuff.get(fieldHash + SurveyMain.QUERY_VALUE_SUFFIX);
+		            String fClass = "inputbox";
+		            if (oldValue == null) {
+		                oldValue = "";
+		            } else {
+		                ctx.print(ctx.iconHtml("stop", "this item was not accepted.") + "this item was not accepted.<br>");
+		                // fClass = "badinputbox";
+		                badInputBox = true;
+		            }
+		            if (valuesList != null) {
+		                //						ctx.print("<select onclick=\"document.getElementById('" + fieldHash + "_ch').click()\" name='"
+		                //								+ fieldHash + "_v'>");
+		                //						ctx.print("  <option value=''></option> ");
+		                //						for (String s : valuesList) {
+		                //							ctx.print("  <option value='" + s + "'>" + s + "</option> ");
+		                //						}
+		                //						ctx.println("</select>");
+		            } else {
+		                // regular change box (text)
+		                ctx.print("<input  id='ch_" + fullFieldHash() + "' dir='" + ctx.getDirectionForLocale() + "' onfocus=\"icancel('"
+		                        + fullFieldHash()+ "')\" name='" + fieldHash + "_v' " + " onblur=\"do_change('"
+		                        + fullFieldHash() + "',this.value,''," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+		                        + "','verify')\"" + " value='" + oldValue + "' class='" + fClass + "'>");
+		                ctx.print("<button onclick=\"icancel('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + "', '" + ctx.session+"')\" type='button' class='icancel'  id='cancel_" + fullFieldHash() + "' >Cancel</button> ");
+		            }
+		            // references
+		            if (badInputBox) {
+		                // ctx.print("</span>");
+		            }
 
-			} else {
-				areShowingInputBox = false;
-				if (canModify) {
-					ctx.println("<td rowspan='" + rowSpan + "' colspan='2'></td>"); // no
-																					// 'changeto'
-																					// cells.
-				}
-			}
+		            //					if (false && canModify && zoomedIn && (altType == null) && UserRegistry.userIsTC(ctx.session.user)) { // show
+		            //						// 'Alt'
+		            //						// popup
+		            //						// for
+		            //						// zoomed
+		            //						// in
+		            //						// main
+		            //						// items
+		            //						ctx.println("<br> ");
+		            //						ctx.println("<span id='h_alt" + fieldHash + "'>");
+		            //						ctx.println("<input onclick='javascript:show(\"alt" + fieldHash
+		            //								+ "\")' type='button' value='Create Alternate'></span>");
+		            //						ctx.println("<!-- <noscript> </noscript> -->" + "<span style='display: none' id='alt" + fieldHash + "'>");
+		            //						String[] altList = sm.supplemental.getValidityChoice("$altList");
+		            //						ctx.println("<label>Alt: <select name='" + fieldHash + "_alt'>");
+		            //						ctx.println("  <option value=''></option>");
+		            //						for (String s : altList) {
+		            //							ctx.println("  <option value='" + s + "'>" + s + "</option>");
+		            //						}
+		            //						ctx.println("</select></label></span>");
+		            //					}
 
-			// No/Opinion.
-			if (canModify) {
-				ctx.print("<td width='20' rowspan='" + rowSpan + "'>");
-				ctx.print("<input name='" + fieldHash + "' value='" + SurveyMain.DONTCARE + "' type='radio' "
-						+ ((ourVote == null) ? "CHECKED" : "") + " "+ 
-						" onclick=\"do_change('"
-                                + fullFieldHash() + "','','null'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
-                                + "')\"" +
-				        ">");
-				ctx.print("</td>");
-			}
+		            ctx.println("</td>");
+		        } else {
+		            if (!zoomedIn && zoomOnly) {
+		                ctx.println("<i>Must zoom in to edit</i>");
+		            }
+		            ctx.println("</td>");
+		        }
 
-			if (ctx.prefBool(SurveyMain.PREF_SHCOVERAGE)) {
-				ctx.print("<th>Cov=" + coverageValue + "<br/>V:" + userHasVoted(ctx.userId()) + "</th>");
-			}
+		        if (ctx.getDirectionForLocale() == HTMLDirection.RIGHT_TO_LEFT) {
+		            ctx.println(changetoBox);
+		        }
 
-			ctx.println("</tr>");
+		    } else {
+		        areShowingInputBox = false;
+		        if (canModify) {
+		            ctx.println("<td rowspan='" + rowSpan + "' colspan='2'></td>"); // no
+		            // 'changeto'
+		            // cells.
+		        }
+		    }
 
-			// Were there any straggler rows we need to go back and show
+		    // No/Opinion.
+		    if (canModify) {
+		        ctx.print("<td width='20' rowspan='" + rowSpan + "'>");
+		        ctx.print("<input name='" + fieldHash + "' value='" + SurveyMain.DONTCARE + "' type='radio' "
+		                + ((ourVote == null) ? "CHECKED" : "") + " "+ 
+		                " onclick=\"do_change('"
+		                + fullFieldHash() + "','','null'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+		                + "')\"" +
+		                ">");
+		        ctx.print("</td>");
+		    }
 
-			if (rowSpan > 1) {
-				for (int row = 1; row < rowSpan; row++) {
-					// do the rest of the rows - ONLY those which did not have
-					// rowSpan='rowSpan'.
+		    if (ctx.prefBool(SurveyMain.PREF_SHCOVERAGE)) {
+		        ctx.print("<th>Cov=" + coverageValue + "<br/>V:" + userHasVoted(ctx.userId()) + "</th>");
+		    }
 
-					ctx.print("<tr>");
+		    if(options.contains(EShowDataRowSet.doShowTR)) {
+		        ctx.println("</tr>");
+		    }
 
-					CandidateItem item = null;
+		    if(options.contains(EShowDataRowSet.doShowOtherRows)) {
+		        // Were there any straggler rows we need to go back and show
 
-					// current item
-					if (currentItems.size() > row) {
-						item = currentItems.get(row);
-						item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext);
-					} else {
-						item = null;
-						printEmptyCells(ctx, ourAlign, zoomedIn);
-					}
+		        // REFERENCE row
+		        if (areShowingInputBox) {
+		            ctx.print("<tr id='r2_"+fullFieldHash()+"'><td class='botgray' colspan=" + SurveyMain.PODTABLE_WIDTH+2 + ">");
+		            ctx.print("<div class='itemerrs' id=\"e_" + fullFieldHash() + "\" ><!--  errs for this item --></div>");
+		            ctx.println("</td></tr>");
+		        }
 
-					// #6.1, 6.2 - proposed items
-					if (proposedItems.size() > row) {
-						item = proposedItems.get(row);
-						item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext);
-					} else {
-						item = null;
-						printEmptyCells(ctx, ourAlign, zoomedIn);
-					}
+		        // now, if the warnings list isn't empty.. warnings rows
+		        if (!numberedItemsList.isEmpty()) {
+		            int mySuperscriptNumber = 0;
+		            for (CandidateItem item : numberedItemsList) {
+		                mySuperscriptNumber++;
+		                if (item == null)
+		                    continue; /* ?! */
+		                if (item.tests == null && item.examples == null)
+		                    continue; /* skip rows w/o anything */
+		                ctx.println("<tr class='warningRow'><td class='botgray'><span class='warningTarget'>#" + mySuperscriptNumber
+		                        + "</span></td>");
+		                if (item.tests != null) {
+		                    ctx.println("<td colspan='" + (SurveyMain.PODTABLE_WIDTH - 1) + "' class='warncell'>");
+		                    for (Iterator<CheckStatus> it3 = item.tests.iterator(); it3.hasNext();) {
+		                        CheckStatus status = it3.next();
+		                        if (!status.getType().equals(CheckStatus.exampleType)) {
+		                            ctx.println("<span class='warningLine'>");
+		                            String cls = SurveyMain.shortClassName(status.getCause());
+		                            if (status.getType().equals(CheckStatus.errorType)) {
+		                                ctx.print(ctx.iconHtml("stop", "Error: " + cls));
+		                            } else {
+		                                ctx.print(ctx.iconHtml("warn", "Warning: " + cls));
+		                            }
+		                            ctx.print(status.toString());
+		                            ctx.println("</span>");
 
-					ctx.println("</tr>");
-				}
-			}
+		                            ctx.println(" For help, see <a " + ctx.atarget(WebContext.TARGET_DOCS)
+		                                    + " href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>");
+		                            ctx.print("<br>");
+		                        }
+		                    }
+		                } else {
+		                    ctx.println("<td colspan='" + (SurveyMain.PODTABLE_WIDTH - 1) + "' class='examplecell'>");
+		                }
+		                if (item.examples != null) {
+		                    boolean first = true;
+		                    for (Iterator<ExampleEntry> it4 = item.examples.iterator(); it4.hasNext();) {
+		                        ExampleEntry e = it4.next();
+		                        if (first == false) {
+		                        }
+		                        String cls = SurveyMain.shortClassName(e.status.getCause());
+		                        if (e.status.getType().equals(CheckStatus.exampleType)) {
+		                            SurveyMain.printShortened(ctx, e.status.toString());
+		                            if (cls != null) {
+		                                ctx.printHelpLink("/" + cls + "", "Help");
+		                            }
+		                            ctx.println("<br>");
+		                        } else {
+		                            String theMenu = PathUtilities.xpathToMenu(sm.xpt.getById(parentRow.getXpathId()));
+		                            if (theMenu == null) {
+		                                theMenu = "raw";
+		                            }
+		                            ctx.print("<a " + ctx.atarget(WebContext.TARGET_EXAMPLE) + " href='" + ctx.url()
+		                                    + ctx.urlConnector() + "_=" + ctx.getLocale() + "&amp;x=" + theMenu + "&amp;"
+		                                    + SurveyMain.QUERY_EXAMPLE + "=" + e.hash + "'>");
+		                            ctx.print(ctx.iconHtml("zoom", "Zoom into " + cls) + cls);
+		                            ctx.print("</a>");
+		                        }
+		                        first = false;
+		                    }
+		                }
+		                ctx.println("</td>");
+		                ctx.println("</tr>");
+		            }
+		        }
+		    }
 
-			// REFERENCE row
-			if (areShowingInputBox) {
-				ctx.print("<tr id='r2_"+fullFieldHash()+"'><td class='botgray' colspan=" + SurveyMain.PODTABLE_WIDTH+2 + ">");
-                ctx.print("<div class='itemerrs' id=\"e_" + fullFieldHash() + "\" ><!--  errs for this item --></div>");
-				ctx.println("</td></tr>");
-			}
+		    if(options.contains(EShowDataRowSet.doShowVettingRows)) {
 
-			// now, if the warnings list isn't empty.. warnings rows
-			if (!numberedItemsList.isEmpty()) {
-				int mySuperscriptNumber = 0;
-				for (CandidateItem item : numberedItemsList) {
-					mySuperscriptNumber++;
-					if (item == null)
-						continue; /* ?! */
-					if (item.tests == null && item.examples == null)
-						continue; /* skip rows w/o anything */
-					ctx.println("<tr class='warningRow'><td class='botgray'><span class='warningTarget'>#" + mySuperscriptNumber
-							+ "</span></td>");
-					if (item.tests != null) {
-						ctx.println("<td colspan='" + (SurveyMain.PODTABLE_WIDTH - 1) + "' class='warncell'>");
-						for (Iterator<CheckStatus> it3 = item.tests.iterator(); it3.hasNext();) {
-							CheckStatus status = it3.next();
-							if (!status.getType().equals(CheckStatus.exampleType)) {
-								ctx.println("<span class='warningLine'>");
-								String cls = SurveyMain.shortClassName(status.getCause());
-								if (status.getType().equals(CheckStatus.errorType)) {
-									ctx.print(ctx.iconHtml("stop", "Error: " + cls));
-								} else {
-									ctx.print(ctx.iconHtml("warn", "Warning: " + cls));
-								}
-								ctx.print(status.toString());
-								ctx.println("</span>");
+		        if (zoomedIn && ((!SurveyMain.isPhaseSubmit() && !SurveyMain.isPhaseBeta()) || SurveyMain.isUnofficial || true)) {
 
-								ctx.println(" For help, see <a " + ctx.atarget(WebContext.TARGET_DOCS)
-										+ " href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>");
-								ctx.print("<br>");
-							}
-						}
-					} else {
-						ctx.println("<td colspan='" + (SurveyMain.PODTABLE_WIDTH - 1) + "' class='examplecell'>");
-					}
-					if (item.examples != null) {
-						boolean first = true;
-						for (Iterator<ExampleEntry> it4 = item.examples.iterator(); it4.hasNext();) {
-							ExampleEntry e = it4.next();
-							if (first == false) {
-							}
-							String cls = SurveyMain.shortClassName(e.status.getCause());
-							if (e.status.getType().equals(CheckStatus.exampleType)) {
-								SurveyMain.printShortened(ctx, e.status.toString());
-								if (cls != null) {
-									ctx.printHelpLink("/" + cls + "", "Help");
-								}
-								ctx.println("<br>");
-							} else {
-								String theMenu = PathUtilities.xpathToMenu(sm.xpt.getById(parentRow.getXpathId()));
-								if (theMenu == null) {
-									theMenu = "raw";
-								}
-								ctx.print("<a " + ctx.atarget(WebContext.TARGET_EXAMPLE) + " href='" + ctx.url()
-										+ ctx.urlConnector() + "_=" + ctx.getLocale() + "&amp;x=" + theMenu + "&amp;"
-										+ SurveyMain.QUERY_EXAMPLE + "=" + e.hash + "'>");
-								ctx.print(ctx.iconHtml("zoom", "Zoom into " + cls) + cls);
-								ctx.print("</a>");
-							}
-							first = false;
-						}
-					}
-					ctx.println("</td>");
-					ctx.println("</tr>");
-				}
-			}
+		            ctx.print("<tr>");
+		            ctx.print("<th colspan=2>Votes</th>");
+		            ctx.print("<td colspan=" + (SurveyMain.PODTABLE_WIDTH - 2) + ">");
 
-			if (zoomedIn && ((!SurveyMain.isPhaseSubmit() && !SurveyMain.isPhaseBeta()) || SurveyMain.isUnofficial || true)) {
+		            showVotingResults(ctx);
 
-				ctx.print("<tr>");
-				ctx.print("<th colspan=2>Votes</th>");
-				ctx.print("<td colspan=" + (SurveyMain.PODTABLE_WIDTH - 2) + ">");
+		            ctx.println("</td></tr>");
 
-				showVotingResults(ctx);
+		            if (aliasFromLocale != null) {
+		                ctx.print("<tr class='topgray'>");
+		                ctx.print("<th class='topgray' colspan=2>Alias Items</th>");
+		                ctx.print("<td class='topgray' colspan=" + (SurveyMain.PODTABLE_WIDTH - 2) + ">");
 
-				ctx.println("</td></tr>");
+		                String theURL = SurveyForum.forumUrl(ctx, aliasFromLocale, aliasFromXpath);
+		                String thePath = sm.xpt.getPrettyPath(aliasFromXpath);
+		                String theLocale = aliasFromLocale;
 
-				if (aliasFromLocale != null) {
-					ctx.print("<tr class='topgray'>");
-					ctx.print("<th class='topgray' colspan=2>Alias Items</th>");
-					ctx.print("<td class='topgray' colspan=" + (SurveyMain.PODTABLE_WIDTH - 2) + ">");
+		                ctx.println("Note: Before making changes here, first verify:<br> ");
+		                ctx.print("<a class='alias' href='" + theURL + "'>");
+		                ctx.print(thePath);
+		                if (!aliasFromLocale.equals(locale)) {
+		                    ctx.print(" in " + new ULocale(theLocale).getDisplayName(ctx.displayLocale));
+		                }
+		                ctx.print("</a>");
+		                ctx.print("");
 
-					String theURL = SurveyForum.forumUrl(ctx, aliasFromLocale, aliasFromXpath);
-					String thePath = sm.xpt.getPrettyPath(aliasFromXpath);
-					String theLocale = aliasFromLocale;
-
-					ctx.println("Note: Before making changes here, first verify:<br> ");
-					ctx.print("<a class='alias' href='" + theURL + "'>");
-					ctx.print(thePath);
-					if (!aliasFromLocale.equals(locale)) {
-						ctx.print(" in " + new ULocale(theLocale).getDisplayName(ctx.displayLocale));
-					}
-					ctx.print("</a>");
-					ctx.print("");
-
-					ctx.println("</td></tr>");
-				}
-			}
+		                ctx.println("</td></tr>");
+		            }
+		        }
+		    }
 		}
 
 		/**
@@ -1614,13 +1652,13 @@ if(true)return false;
 			if (getCurrentItems().size() > 0) {
 				topCurrent = currentItems.get(0);
 			}
-			boolean inheritedValueHasTestForCurrent = false; // if (no current
-			if (proposedItems.isEmpty() && inheritedValue != null && inheritedValue.value == null && inheritedValue.tests != null) {
-				inheritedValueHasTestForCurrent = true;
-			}
-			if ((topCurrent == null) && inheritedValueHasTestForCurrent) { // bring
-				topCurrent = inheritedValue;
-			}
+//			boolean inheritedValueHasTestForCurrent = false; // if (no current
+//			if (proposedItems.isEmpty() && inheritedValue != null && inheritedValue.value == null && inheritedValue.tests != null) {
+//				inheritedValueHasTestForCurrent = true;
+//			}
+//			if ((topCurrent == null) && inheritedValueHasTestForCurrent) { // bring
+//				topCurrent = inheritedValue;
+//			}
 			return topCurrent;
 		}
 
@@ -2230,7 +2268,7 @@ if(true)return false;
 	/**
 	 * Show time taken to populate?
 	 */
-	private static final boolean TRACE_TIME = false;
+	private static final boolean TRACE_TIME = true;
 	private static final boolean SHOW_TIME = false || TRACE_TIME || DEBUG || CldrUtility.getProperty("TEST", false);
 
 	public static String STATUS_QUO = "Status Quo";
@@ -2437,33 +2475,28 @@ if(true)return false;
 	 *            if true, means that data is simply xpath+type. If false, all
 	 *            xpaths under prefix.
 	 */
-	public static DataSection make(WebContext ctx, CLDRLocale locale, String prefix, boolean simple, String ptype) {
-		DataSection section = new DataSection(ctx.sm, locale, prefix, ptype);
-		// section.simple = simple;
-		SurveyMain.UserLocaleStuff uf = ctx.getUserFile();
+	public static DataSection make(WebContext ctx, CookieSession session, CLDRLocale locale, String prefix, boolean showLoading, String ptype) {
+		SurveyMain.UserLocaleStuff uf;
+		if(ctx!=null) {
+		    uf = ctx.getUserFile();
+		} else {
+		    uf = session.sm.getUserFile(session, locale);
+		}
+        DataSection section = new DataSection(session.sm, locale, prefix, ptype);
 
-		final String[] prefixesWithExamples = { "currencies", "calendars", "codePatterns", "numbers", "localeDisplayPattern" };
-		for (String s : prefixesWithExamples) {
-			if (prefix.contains(s)) {
-				section.hasExamples = true;
-				break;
-			}
-		}
-		if (prefix.endsWith("ldml")) { // special check for the 'misc' section
-			section.hasExamples = true;
-		}
+        section.hasExamples =  sectionHasExamples(DataSection.xpathToSectionBase(prefix));
 		if (SurveyMain.supplementalDataDir == null) {
-			throw new InternalError("??!! ctx.sm.supplementalDataDir = null");
+			throw new InternalError("??!! session.sm.supplementalDataDir = null");
 		}
 
 		// XMLSource ourSrc = uf.resolvedSource;
-		CLDRFile ourSrc = ctx.sm.getSTFactory().make(locale.getBaseName(), true, true)
+		CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true)
 				.setSupplementalDirectory(SurveyMain.supplementalDataDir);
 		if (ourSrc.getSupplementalDirectory() == null) {
 			throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 		}
-		synchronized (ctx.session) {
-			CheckCLDR checkCldr = uf.getCheck(ctx);
+		synchronized (session) {
+			CheckCLDR checkCldr = session.sm.getSTFactory().getCheck(locale);
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
@@ -2475,7 +2508,7 @@ if(true)return false;
 			}
 			String workingCoverageLevel = section.getPtype();
 			com.ibm.icu.dev.test.util.ElapsedTimer cet = null;
-			if (SHOW_TIME) {
+			if (showLoading&&SHOW_TIME) {
 				cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
 				System.err.println("Begin populate of " + locale + " // " + prefix + ":" + workingCoverageLevel + " - is:"
 						+ ourSrc.getClass().getName());
@@ -2483,7 +2516,7 @@ if(true)return false;
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
-			section.baselineFile = ctx.sm.getBaselineFile();
+			section.baselineFile = session.sm.getBaselineFile();
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
@@ -2491,16 +2524,20 @@ if(true)return false;
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
-			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading...';</script>");
-			ctx.flush();
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+			if(showLoading&&ctx!=null) {
+    			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading...';</script>");
+    			ctx.flush();
 			}
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
+			if (ourSrc.getSupplementalDirectory() == null) {
+				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+			}
+            Map options=null;
+            options = getOptions(ctx, session, locale);
 			try {
-				section.populateFrom(ourSrc, checkCldr, ctx.getOptionsMap(), workingCoverageLevel);
+                section.populateFrom(ourSrc, checkCldr, options, workingCoverageLevel);
 			} finally {
 				if (NOINHERIT) {
 					SurveyLog
@@ -2508,22 +2545,80 @@ if(true)return false;
 				}
 			}
 			int popCount = section.getAll().size();
+			System.err.println("PopCount: " + popCount );
+			if(popCount>0) {
+                System.err.println("Item[0] : " + section.getAll().iterator().next());
+                System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
+			}
 			/*
 			 * if(SHOW_TIME) { System.err.println("DP: Time taken to populate "
 			 * + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et +
 			 * " - Count: " + pod.getAll().size()); }
 			 */
-			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."
-					+ popCount + " items';</script>");
-			ctx.flush();
-			section.ensureComplete(ourSrc, checkCldr, ctx.getOptionsMap(), workingCoverageLevel);
-			if (SHOW_TIME) {
+			if(showLoading&&ctx!=null) {
+    			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."
+    					+ popCount + " items';</script>");
+    			ctx.flush();
+            }
+			section.ensureComplete(ourSrc, checkCldr, options, workingCoverageLevel);
+			popCount = section.getAll().size();
+            System.err.println("New PopCount: " + popCount );
+            if(popCount>0) {
+                System.err.println("Item[0] : " + section.getAll().iterator().next());
+                System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
+            }
+			if (showLoading&&ctx!=null&&SHOW_TIME) {
 				int allCount = section.getAll().size();
 				System.err.println("Populate+complete " + locale + " // " + prefix + ":" + section.getPtype() + " = " + cet
 						+ " - Count: " + popCount + "+" + (allCount - popCount) + "=" + allCount);
 			}
 		}
 		return section;
+	}
+
+    /**
+     * @param ctx
+     * @param session
+     * @param locale
+     * @return
+     */
+    static Map getOptions(WebContext ctx, CookieSession session,
+            CLDRLocale locale) {
+        Map options;
+        if(ctx!=null) {
+            options = ctx.getOptionsMap();
+        } else {
+            // ugly 
+            options = session.sm.basicOptionsMap();
+            String def = session.sm.getListSetting(session.settings(),SurveyMain.PREF_COVLEV,WebContext.PREF_COVLEV_LIST,false);
+            options.put("CheckCoverage.requiredLevel",def);
+            
+            String org = session.getEffectiveCoverageLevel(locale.toString());
+            if(org!=null) {
+                options.put("CoverageLevel.localeType",org);
+            }
+        }
+        return options;
+    }
+
+    /**
+     * @param prefix
+     * @param sectionHasExamples
+     * @return
+     */
+	private static boolean sectionHasExamples(String prefix) {
+	    boolean sectionHasExamples = false;
+	    final String[] prefixesWithExamples = { "currencies", "calendars", "codePatterns", "numbers", "localeDisplayPattern" };
+	    for (String s : prefixesWithExamples) {
+	        if (prefix.contains(s)) {
+	            sectionHasExamples = true;
+	            break;
+	        }
+	    }
+	    if (prefix.endsWith("ldml")) { // special check for the 'misc' section
+	        sectionHasExamples = true;
+	    }
+	    return sectionHasExamples;
 	}
 
 	/**
@@ -2612,8 +2707,7 @@ if(true)return false;
 	Hashtable<String, DataRow> rowsHash = new Hashtable<String, DataRow>(); // hashtable
 	// of
 	// type->Row
-	int skippedDueToCoverage = 0; // How many were skipped due to coverage?
-	// boolean simple = false; // is it a 'simple code list'?
+	public int skippedDueToCoverage = 0; // How many were skipped due to coverage?
 
 	private SurveyMain sm;
 	long touchTime = -1; // when has this pod been hit?
@@ -2632,7 +2726,7 @@ if(true)return false;
 	}
 
 	void addDataRow(DataRow p) {
-		rowsHash.put(p.prettyPath, p);
+		rowsHash.put(p.xpath, p);
 	}
 
 	/**
@@ -2858,23 +2952,6 @@ if(true)return false;
 	 */
 	public DataRow getDataRow(int xpath) {
 		return getDataRow(sm.xpt.getById(xpath));
-		// // TODO: replace with better sort.
-		// for(DataRow dr : rowsHash.values()) {
-		// if(dr.base_xpath == xpath) {
-		// return dr;
-		// }
-		// // search subrows
-		// if(dr.subRows!=null) {
-		// for(DataRow subRow : dr.subRows.values()) {
-		// if(subRow.base_xpath == xpath) {
-		// return subRow;
-		// }
-		// }
-		// }
-		// }
-		// // look for sub-row
-		//
-		// return null;
 	}
 
 	public DataRow getDataRow(String xpath) {
@@ -3381,6 +3458,10 @@ if(true)return false;
 				if (TRACE_TIME)
 					System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
 				myItem = p.addItem(value, null);
+				
+				if(true) {
+				    System.err.println("Added item " + value + " - now items="+ p.items.size());
+				}
 				// if("gsw".equals(type)) System.err.println(myItem + " - # " +
 				// p.items.size());
 
@@ -3389,7 +3470,6 @@ if(true)return false;
 				if (myItem.xpathId == base_xpath) {
 					p.previousItem = myItem; // did have a previous item.
 				}
-
 				if (!checkCldrResult.isEmpty()) {
 					myItem.setTests(checkCldrResult);
 					// set the parent
@@ -3434,7 +3514,7 @@ if(true)return false;
 				Set<String> v = ballotBox.getValues(xpath);
 				if (v != null)
 					for (String avalue : v) {
-						System.err.println(" //val='" + avalue + "' vs " + value);
+						if(DEBUG||true) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
 						if (!avalue.equals(value)) {
 							CandidateItem item2 = p.addItem(avalue, null);
 							item2.xpath = xpath;
@@ -3578,7 +3658,7 @@ if(true)return false;
 
 			if (!partialPeas) {
 				ctx.println("<input type='hidden' name='skip' value='" + ctx.field("skip") + "'>");
-				SurveyMain.printSectionTableOpen(ctx, this, zoomedIn, canModify);
+				DataSection.printSectionTableOpen(ctx, this, zoomedIn, canModify);
 			}
 
 			int rowStart = skip; // where should it start?
@@ -3637,7 +3717,7 @@ if(true)return false;
 				}
 
 				try {
-					p.showDataRow(ctx, uf, canModify, checkCldr, zoomedIn);
+					p.showDataRow(ctx, uf, canModify, checkCldr, zoomedIn, kAllRows);
 
 				} catch (Throwable t) {
 					// failed to show pea.
@@ -3703,6 +3783,64 @@ if(true)return false;
     public CLDRLocale locale() {
         return locale;
     }
+    /** width, in columns, of the typical data table **/
+    
+    static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
+        ctx.println("<a name='st_data'></a>");
+        ctx.println("<table summary='Data Items for "+ctx.getLocale().toString()+" " + section.xpathPrefix + "' class='data' border='0'>");
+    
+        int table_width = section.hasExamples?13:10;
+        int itemColSpan;
+        if (!canModify) {
+        	table_width -= 4; // No vote, change, or no opinion columns
+        }
+        if (zoomedIn) {
+        	table_width += 2;
+        	itemColSpan = 2;  // When zoomed in, Proposed and Other takes up 2 columns
+        } else {
+        	itemColSpan = 1;
+        }
+        if(/* !zoomedIn */ true) {
+            ctx.println("<tr><td colspan='"+table_width+"'>");
+            // dataitems_header.jspf
+            // some context
+            ctx.put(WebContext.DATA_SECTION, section);
+            ctx.put(WebContext.ZOOMED_IN, new Boolean(zoomedIn));
+            ctx.includeFragment("dataitems_header.jsp");
+            ctx.println("</td></tr>");
+        }
+            ctx.println("<tr class='headingb'>\n"+
+                    " <th width='30'>St.</th>\n"+                  // 1
+                    " <th width='30'>Draft</th>\n");                  // 1
+            if (canModify) {
+                ctx.print(" <th width='30'>Voted</th>\n");                  // 1
+            }
+            ctx.print(" <th>Code</th>\n"+                 // 2
+                        " <th title='["+SurveyMain.BASELINE_LOCALE+"]'>"+SurveyMain.BASELINE_LANGUAGE_NAME+"</th>\n");
+            if (section.hasExamples){ 
+                ctx.print(" <th title='"+SurveyMain.BASELINE_LANGUAGE_NAME+" ["+SurveyMain.BASELINE_LOCALE+"] Example'><i>Ex</i></th>\n"); 
+            }
+            
+            ctx.print(" <th colspan="+itemColSpan+">"+SurveyMain.getProposedName()+"</th>\n");
+            if (section.hasExamples){ 
+                ctx.print(" <th title='Proposed Example'><i>Ex</i></th>\n"); 
+            }
+            ctx.print(" <th colspan="+itemColSpan+">"+SurveyMain.CURRENT_NAME+"</th>\n");
+            if (section.hasExamples){ 
+                ctx.print(" <th title='Current Example'><i>Ex</i></th>\n");
+            }
+            if (canModify) { 
+                ctx.print(" <th colspan='2' >Change</th>\n");  // 8
+                ctx.print( "<th width='20' title='No Opinion'>n/o</th>\n"); // 5
+            }
+            ctx.println("</tr>");
+    
+        if(zoomedIn) {
+            List<String> refsList = new ArrayList<String>();
+            ctx.temporaryStuff.put("references", refsList);
+        }
+    }
+
     public static String getValueHash(String str) {
         //return Long.toHexString(StringId.getId(str));
         return (str==null)?"null":CookieSession.cheapEncodeString(str);
@@ -3711,5 +3849,10 @@ if(true)return false;
         return (s==null||s.equals("null"))?null:CookieSession.cheapDecodeString(s);
     }
 
-
+    enum EPrintCellSet{ doShowValue, doShowRef, doShowExample };
+    private static final EnumSet<EPrintCellSet> kValueCells = EnumSet.of(EPrintCellSet.doShowValue,EPrintCellSet.doShowRef);
+    private static final EnumSet<EPrintCellSet> kExampleCells = EnumSet.of(EPrintCellSet.doShowExample);
+    enum EShowDataRowSet{ doShowTR, doShowValueRows, doShowOtherRows , doShowVettingRows};
+    private static final EnumSet<EShowDataRowSet> kAllRows = EnumSet.allOf(EShowDataRowSet.class);
+    public static final EnumSet<EShowDataRowSet>  kAjaxRows= EnumSet.of(EShowDataRowSet.doShowValueRows);
 }

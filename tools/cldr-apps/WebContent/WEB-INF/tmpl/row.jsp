@@ -24,7 +24,6 @@
 %>
 
 
-<tr id='r_<%= p.fullFieldHash() %>' class='topbar'>
 <th rowspan='<%= rowSpan %>' class='<%= rclass %>' valign='top' width='30'>
 <% if(!zoomedIn) { %>
 	<% if(specialUrl!=null) { %>
@@ -50,22 +49,25 @@
 	<% if (p.altType !=null) { %>
 		<br> (<%= p.altType %> alternative)
 	<% } %>
+	<%-- <%= ctx.base() --%>
 </th>
 <th rowspan='<%= rowSpan %>' style='padding-left: 4px;' colspan='1' valign='top' align='left' class='botgray'>
-	<%= p.getDisplayName() %>
-<%--
-	       <br/>
+	<%= p.getDisplayName()  
+	      // + " " + p.fullFieldHash()
+	%>
+<% if(false) { %>	       <br/>
 	X=<%= p.getXpath() %>
 	       <br/>
 	W=<%= ballotBox.getResolver(p.getXpath()).getWinningValue()  %>
 	       <br/>
+	<% if(currentItems==null){ %><i>null currentitems!</i> <% } else if(currentItems.size()<1){%>no current items!<%}else { %>
 	P=<%= currentItems.get(0).getPClass(ctx) %>
 	       <br/>
 	I=<%= currentItems.get(0).value %>
 	       <br/>
+    CurrentItemsCount:<%= currentItems.size() %>, prop: <%= proposedItems.size() %>	       
 	W? = <%= Boolean.toString(currentItems.get(0).isWinner()) %>
-  --%>
-</th>
+<% }} %></th>
 <% if(p.hasExamples()) { 
 			if(baseExample!=null) { %>
 				<td rowspan='<%= rowSpan %>' align='left' valign='top' class='generatedexample'>

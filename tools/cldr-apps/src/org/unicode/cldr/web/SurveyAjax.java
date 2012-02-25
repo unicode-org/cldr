@@ -3,6 +3,7 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
@@ -23,6 +25,8 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.web.DataSection.DataRow;
 
 
 /**
@@ -103,6 +107,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String AJAX_STATUS_SCRIPT = "ajax_status.jspf";
     public static final String WHAT_VERIFY = "verify";
     public static final String WHAT_SUBMIT= "submit";
+    public static final String WHAT_GETROW= "getrow";
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
 
@@ -177,7 +182,38 @@ public class SurveyAjax extends HttpServlet {
                 if(mySession==null) {
                     sendError(out, "Missing Session: " + sess);
                 } else {
-                    if(what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT)) {
+//                    if(what.equals(WHAT_GETROW)) {
+//                        int id = Integer.parseInt(xpath);
+//                        String xp = sm.xpt.getById(id);
+//                        
+//
+//;
+//                        boolean dataEmpty = false;
+//                        boolean zoomedIn = request.getParameter("zoomedIn")!=null&&request.getParameter("zoomedIn").length()>0;
+//                        JSONWriter r = newJSONStatus(sm);
+//                        synchronized(mySession) {
+//                            CLDRLocale locale = CLDRLocale.getInstance(loc);
+//                            SurveyMain.UserLocaleStuff uf =  mySession.sm.getUserFile(mySession, locale);
+//                            DataSection section = DataSection.make(null, mySession, locale, xp, false,Level.COMPREHENSIVE.toString());
+//                           // r.put("testResults", JSONWriter.wrap(result));
+//                            //r.put("testsRun", cc.toString());
+//                            DataRow row = section.getDataRow(xp);
+//                            if(row!=null) {
+//                                CheckCLDR cc = sm.createCheckWithoutCollisions();
+//                                StringWriter sw = new StringWriter();
+//                                WebContext sctx = new WebContext(sw);
+//                                sctx.session=mySession;
+//                                row.showDataRow(sctx, uf, true, cc, zoomedIn, DataSection.kAjaxRows);
+//                                sctx.flush();
+//                                sctx.close();
+//                                r.put("rowHtml",sw.toString());
+//                            }
+//                        }
+//                        r.put("locTested", loc);
+//                        r.put("xpathTested", xp);
+//                        send(r,out);
+                    //} else 
+                   if(what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT)) {
                         CheckCLDR cc = sm.createCheckWithoutCollisions();
                         int id = Integer.parseInt(xpath);
                         String xp = sm.xpt.getById(id);

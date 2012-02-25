@@ -367,7 +367,7 @@ public class VettingViewerQueue {
 		Organization usersOrg;
 		if(ctx!=null) {
 			baseUrl = ctx.base();
-			usersLevel =  Level.get(ctx.getEffectiveCoverageLevel());
+			usersLevel =  Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
 		} else {
 			baseUrl = (String)sess.get("BASE_URL");
 			String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);;

@@ -23,6 +23,8 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.StandardCodes;
+
 /**
  * Instances of this class represent the session-persistent data kept on a per-user basis.
  * Instances are typically held by WebContext.session.
@@ -662,5 +664,41 @@ public class CookieSession {
             kickCount++;
             return "banned and kicked this session";
         }
+    }
+
+    /**
+     * User's organization or null.
+     * @return
+     */
+    public String getUserOrg() {
+    	if(user != null) {
+    		return user.org;
+    	} else {
+    		return null;
+    	}
+    }
+
+    /**
+     * @param locale
+     * @return
+     */
+    String getOrgCoverageLevel(String locale) {
+        String level;
+        String  myOrg = getUserOrg();
+        if((myOrg == null) || !WebContext.isCoverageOrganization(myOrg)) {
+        	level = WebContext.COVLEV_DEFAULT_RECOMMENDED_STRING;
+        } else {
+        	level = StandardCodes.make().getLocaleCoverageLevel(myOrg, locale).toString() ;
+        }
+        return level;
+    }
+
+    public String getEffectiveCoverageLevel( String locale) {
+        String level = sm.getListSetting(settings ,SurveyMain.PREF_COVLEV,WebContext.PREF_COVLEV_LIST,false);
+        if((level == null) || (level.equals(WebContext.COVLEV_RECOMMENDED))||(level.equals("default"))) {
+            // fetch from org
+            level = getOrgCoverageLevel(locale);
+        }
+        return level;
     }
 }

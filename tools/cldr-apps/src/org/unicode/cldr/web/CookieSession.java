@@ -1,4 +1,4 @@
-/* Copyright (C) 2005-2010, International Business Machines Corporation and   *
+/* Copyright (C) 2005-2012, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               */
 //
 //  CookieSession.java

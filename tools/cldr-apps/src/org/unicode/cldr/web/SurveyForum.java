@@ -2,7 +2,7 @@
 //  SurveyForum.java
 //
 //  Created by Steven R. Loomis on 27/10/2006.
-//  Copyright 2006-2011 IBM. All rights reserved.
+//  Copyright 2006-2012 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;

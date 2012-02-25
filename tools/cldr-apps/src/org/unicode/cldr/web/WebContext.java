@@ -15,7 +15,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.ref.Reference;
-import java.lang.ref.SoftReference;
 import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -31,7 +30,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.JspFactory;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
@@ -44,7 +42,6 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.w3c.dom.Document;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;

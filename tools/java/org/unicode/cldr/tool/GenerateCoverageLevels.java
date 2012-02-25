@@ -15,6 +15,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
@@ -397,11 +398,13 @@ public class GenerateCoverageLevels {
   }
 
   private static void markData(String title, Set<String> localesFound, LocaleLevelData mapLevelData, TreeSet<String> mainAvailable, Level level, long weight, R2<String, String> samples) {
-    if (!mainAvailable.containsAll(localesFound)) {
-      System.out.println(title + " Locales that are not in main: " + Builder.with(new TreeSet<String>())
-              .addAll(localesFound).removeAll(mainAvailable)
-              .filter(nonAliasLocaleFilter).get());
-    }
+      if (!mainAvailable.containsAll(localesFound)) {
+          final CBuilder<String, TreeSet<String>> cb = Builder.with(new TreeSet<String>());
+          System.out.println(title + " Locales that are not in main: " + cb
+                  .addAll(localesFound)
+                  .removeAll(mainAvailable)
+                  .filter(nonAliasLocaleFilter).get());
+      }
     for (String locale : mainAvailable) {
       if (localesFound.contains(locale)) {
         mapLevelData.get(locale).found.add(level, weight);

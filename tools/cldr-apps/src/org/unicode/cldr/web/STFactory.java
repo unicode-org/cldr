@@ -3,6 +3,7 @@
  */
 package org.unicode.cldr.web;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -818,8 +819,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 	 * @see org.unicode.cldr.util.Factory#getSourceDirectory()
 	 */
 	@Override
-	public String getSourceDirectory() {
-		return SurveyMain.fileBase;
+	public File[] getSourceDirectories() {
+		return sm.getDiskFactory().getSourceDirectories();
+	}
+	
+	@Override
+	public File getSourceDirectoryForLocale(String localeID) {
+	    return sm.getDiskFactory().getSourceDirectoryForLocale(localeID);
 	}
 
 	/* (non-Javadoc)

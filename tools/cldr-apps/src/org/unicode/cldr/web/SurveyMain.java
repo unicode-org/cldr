@@ -60,6 +60,8 @@ import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
+import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -1153,7 +1155,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
         ctx.println("<title>Survey Tool | ");
         if(ctx.getLocale() != null) {
-            ctx.print(ctx.getLocale().getDisplayName(ctx.displayLocale) + " | ");
+            ctx.print(ctx.getLocale().getDisplayName() + " | ");
         }
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
@@ -1673,7 +1675,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     
     
     public static void showCoverageLanguage(WebContext ctx, String group, String lang) {
-        ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+lang+"</tt> ("+CLDRLocale.getInstance(lang).getDisplayName(ctx.displayLocale)+":<i>"+group+"</i>)</tt>" );
+        ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"+lang+"</tt> ("+CLDRLocale.getInstance(lang).getDisplayName()+":<i>"+group+"</i>)</tt>" );
     }
     
     public void showAddUser(WebContext ctx) {
@@ -3490,7 +3492,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             String dcChild = supplemental.defaultContentToChild(ctx.getLocale().toString());
             if(dcParent != null) {
                 ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
-                ctx.println("<h1 title='"+ctx.getLocale().getBaseName()+"'>"+ctx.getLocale().getDisplayName(ctx.displayLocale)+"</h1>");
+                ctx.println("<h1 title='"+ctx.getLocale().getBaseName()+"'>"+ctx.getLocale().getDisplayName()+"</h1>");
                 ctx.println("<div class='ferrbox'>This locale is the default content for <b>"+
                     getLocaleLink(ctx,dcParent,null)+
                     "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
@@ -3580,7 +3582,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     protected synchronized LocaleTree getLocaleTree() {
         if(localeTree == null) {
-            LocaleTree newLocaleTree = new LocaleTree(BASELINE_LOCALE);
+            CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(getBaselineFile(),FormatBehavior.extendHtml);
+            CLDRLocale.setDefaultFormatter(defaultFormatter);
+            LocaleTree newLocaleTree = new LocaleTree(defaultFormatter);
             File inFiles[] = getInFiles();
             if(inFiles == null) {
                 busted("Can't load CLDR data files from " + fileBase);
@@ -3608,7 +3612,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
     
     public static String getLocaleDisplayName(CLDRLocale locale) {
-        return locale.getDisplayName(BASELINE_LOCALE);
+        return locale.getDisplayName();
     }
 
     String decoratedLocaleName(CLDRLocale localeName, String str, String explanation) {
@@ -3665,7 +3669,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
     String getLocaleLink(WebContext ctx, CLDRLocale locale, String n) {
         if(n == null) {
-            n = locale.getDisplayName(ctx.displayLocale) ;
+            n = locale.getDisplayName() ;
         }
 //        boolean hasDraft = draftSet.contains(localeName);
 //        ctx.print(hasDraft?"<b>":"") ;
@@ -4028,7 +4032,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
             ctx.print("\u2517&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
                 "\">");
-            ctx.print(decoratedLocaleName(ctx.docLocale[i],ctx.docLocale[i].toULocale().getDisplayName(ctx.displayLocale),""));
+            ctx.print(decoratedLocaleName(ctx.docLocale[i],ctx.docLocale[i].getDisplayName(),""));
             if(canModify) {
                 ctx.print(modifyThing(ctx));
             }
@@ -4042,7 +4046,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.print("\u2517&nbsp;");
         ctx.print("<span title='"+ctx.getLocale()+"' style='font-size: 120%'>");
         printMenu(subCtx, which, xMAIN, 
-            decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName(ctx.displayLocale)+(canModifyL?modifyThing(ctx):""), "") );
+            decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName()+(canModifyL?modifyThing(ctx):""), "") );
         ctx.print("</span>");
         ctx.println("<br/>");
         ctx.println("</td>");
@@ -4105,7 +4109,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
 
     		if(ctx.hasField(QUERY_EXAMPLE)) {
-    			ctx.println("<h3>"+ctx.getLocale()+" "+ctx.getLocale().getDisplayName(ctx.displayLocale)+" / " + which + " Example</h3>");
+    			ctx.println("<h3>"+ctx.getLocale()+" "+ctx.getLocale().getDisplayName()+" / " + which + " Example</h3>");
     		} else if(which.equals(R_STEPS)) {
     			// short menu.
     			ctx.includeFragment(STEPSMENU_TOP_JSP);
@@ -4334,9 +4338,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     private Factory gFactory = null;
 
-    synchronized Factory getDiskFactory() {
+    public synchronized Factory getDiskFactory() {
         if(gFactory == null) {
-        	final String list[] = { fileBase, fileBaseSeed };
+        	final File list[] = { new File(fileBase), new File(fileBaseSeed) };
             gFactory = SimpleFactory.make(list,".*");
         }
         return gFactory;
@@ -4372,7 +4376,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     	return new File(fileBase,loc.getBaseName()+".xml");
     }
 
-    synchronized Factory getOldFactory() {
+    public synchronized Factory getOldFactory() {
         if(gOldFactory == null) {
             File oldBase = new File(getFileBaseOld());
             File oldCommon = new File(oldBase,"common/main");
@@ -4393,7 +4397,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 busted(msg);
                 throw new InternalError(msg);
             }
-            String roots[] = { oldCommon.getAbsolutePath(), oldSeed.getAbsolutePath() };
+            File roots[] = { oldCommon, oldSeed };
             gOldFactory = SimpleFactory.make(roots,".*");
         }
         return gOldFactory;
@@ -4406,6 +4410,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 file.setSupplementalDirectory(supplementalDataDir); // so the icuServiceBuilder doesn't blow up.
                 file.freeze(); // so it can be shared.
                 gBaselineFile = file;
+                CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(gBaselineFile,FormatBehavior.extendHtml);
+                CLDRLocale.setDefaultFormatter(defaultFormatter);
             } catch (Throwable t) {
                 busted("Could not load baseline locale " + BASELINE_LOCALE, t);
             }

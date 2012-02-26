@@ -11,6 +11,8 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
+import com.ibm.icu.impl.IllegalIcuArgumentException;
+
 /**
    * A factory is the normal method to produce a set of CLDRFiles from a directory of XML files.
    * See SimpleFactory for a concrete subclass.
@@ -20,12 +22,68 @@ import org.unicode.cldr.util.XMLSource.ResolvingSource;
     private File supplementalDirectory = null;
 
     /**
-     * Note, the source director(ies) may be a list.
-     * TODO: make this a list? Get rid of it?
+     * Note, the source director(ies) may be a list (seed/common). Therefore, this function is deprecated
+     * @deprecated
+     * @return the first directory
+     */
+    public String getSourceDirectory() {
+        return getSourceDirectories()[0].getAbsolutePath();
+    }
+    
+    /**
+     * Note, the source director(ies) may be a list (seed/common).
+     * @return the first directory
+     */
+    public abstract File[] getSourceDirectories();
+    
+    /**
+     * Which source directory does this particular localeID belong to?
+     * @param localeID
      * @return
      */
-    public abstract String getSourceDirectory();
+    public abstract File getSourceDirectoryForLocale(String localeID);
+    
+    /**
+     * Classify the tree according to type (maturity)
+     * @author srl
+     *
+     */
+    public enum SourceTreeType { common, seed, other };
+    
+    /**
+     * Returns the source tree type of either an XML file or its parent directory.
+     * @param fileOrDir
+     * @return
+     */
+    public static final SourceTreeType getSourceTreeType(File fileOrDir) {
+        if(fileOrDir==null) return null;
+        File parentDir = fileOrDir.isFile()?fileOrDir.getParentFile():fileOrDir;
+        File grandparentDir = parentDir.getParentFile();
+        
+        try {
+            return SourceTreeType.valueOf(grandparentDir.getName());
+        } catch(IllegalArgumentException iae) {
+            try {
+                return SourceTreeType.valueOf(parentDir.getName());
+            } catch(IllegalArgumentException iae2) {
+                return SourceTreeType.other;
+            }
+        }
+    }
+    
+    public enum DirectoryType { main, supplemental, bcp47, casing, collation, dtd, rbnf, segments, transforms, other };
 
+    public static final DirectoryType getDirectoryType(File fileOrDir) {
+        if(fileOrDir==null) return null;
+        File parentDir = fileOrDir.isFile()?fileOrDir.getParentFile():fileOrDir;
+        
+        try {
+            return DirectoryType.valueOf(parentDir.getName());
+        } catch(IllegalArgumentException iae2) {
+            return DirectoryType.other;
+        }
+    }
+    
     protected abstract CLDRFile handleMake(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus);
 
     public CLDRFile make(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus) {

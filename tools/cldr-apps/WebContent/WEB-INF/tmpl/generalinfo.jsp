@@ -1,6 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%><%@ include file="/WEB-INF/jspf/stcontext.jspf" %>
+
 <i>TODO: General Info about this Locale.</i>
+
+<h3>Locale Type</h3>
+<blockquote>
+
+CLDR <%= ctx.sm.getNewVersion() %>(current): <tt class='codebox'><%= 
+    Factory.getSourceTreeType(ctx.sm.getDiskFactory()
+           .getSourceDirectoryForLocale(ctx.getLocale().getBaseName()))
+%></tt>  <br/>
+
+CLDR <%= ctx.sm.getOldVersion() %>(previous): <tt class='codebox'><%= 
+    Factory.getSourceTreeType(ctx.sm.getOldFactory()
+           .getSourceDirectoryForLocale(ctx.getLocale().getBaseName()))
+%></tt>  <br/>
+
+</blockquote>
+
 <%-- 
 // what should users be notified about?
          if(isPhaseSubmit() || isPhaseVetting() || isPhaseVettingClosed()) {

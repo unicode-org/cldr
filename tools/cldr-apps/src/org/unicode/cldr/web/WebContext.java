@@ -1813,7 +1813,7 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     public String getLocaleDisplayName(CLDRLocale instance) {
-        return instance.getDisplayName(displayLocale);
+        return instance.getDisplayName();
     }
 
     /**

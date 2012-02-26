@@ -5,6 +5,11 @@ package org.unicode.cldr.util;
 import java.util.Hashtable;
 import java.util.Iterator;
 
+import org.unicode.cldr.tool.GenerateEnums.LengthFirstComparator;
+import org.unicode.cldr.util.CLDRLocale.NameFormatter;
+
+import com.ibm.icu.impl.LocaleDisplayNamesImpl;
+import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -17,7 +22,129 @@ import com.ibm.icu.util.ULocale;
  * @see ULocale
  */
 public final class CLDRLocale implements Comparable<CLDRLocale> {
-	/**
+    public interface NameFormatter {
+        String getDisplayName(CLDRLocale cldrLocale);
+        String getDisplayLanguage(CLDRLocale cldrLocale);
+        String getDisplayScript(CLDRLocale cldrLocale);
+        String getDisplayVariant(CLDRLocale cldrLocale);
+        String getDisplayCountry(CLDRLocale cldrLocale);
+    }
+    public static class SimpleFormatter implements NameFormatter {
+	    private LocaleDisplayNames ldn;
+	    
+	    public SimpleFormatter(ULocale displayLocale) {
+	        this.ldn = LocaleDisplayNames.getInstance(displayLocale);
+	    }
+	    
+	    public LocaleDisplayNames getDisplayNames() {
+	        return ldn;
+	    }
+	    public LocaleDisplayNames setDisplayNames(LocaleDisplayNames ldn) {
+	        return this.ldn = ldn;
+	    }
+	    
+        @Override
+        public String getDisplayVariant(CLDRLocale cldrLocale) {
+            return ldn.variantDisplayName(cldrLocale.getVariant());
+        }
+
+        @Override
+        public String getDisplayCountry(CLDRLocale cldrLocale) {
+            return ldn.regionDisplayName(cldrLocale.getCountry());
+        }
+
+        @Override
+        public String getDisplayName(CLDRLocale cldrLocale) {
+            StringBuffer sb = new StringBuffer();
+            String l = cldrLocale.getLanguage();
+            String s = cldrLocale.getScript();
+            String r = cldrLocale.getCountry();
+            String v = cldrLocale.getVariant();
+            
+            if(l!=null&&!l.isEmpty()) {
+                sb.append(getDisplayLanguage(cldrLocale));
+            } else {
+                sb.append("?");
+            }
+            if((s!=null&&!s.isEmpty()) ||
+                (r!=null&&!r.isEmpty()) ||
+                (v!=null&&!v.isEmpty())) {
+                sb.append(" (");
+                if(s!=null&&!s.isEmpty()) {
+                    sb.append(getDisplayScript(cldrLocale)).append(",");
+                }
+                if(r!=null&&!r.isEmpty()) {
+                    sb.append(getDisplayCountry(cldrLocale)).append(",");
+                }
+                if(v!=null&&!v.isEmpty()) {
+                    sb.append(getDisplayVariant(cldrLocale)).append(",");
+                }
+                sb.replace(sb.length()-1, sb.length(), ")");
+            }
+            return sb.toString();
+        }
+
+        @Override
+        public String getDisplayScript(CLDRLocale cldrLocale) {
+            return ldn.scriptDisplayName(cldrLocale.getScript());
+        }
+
+        @Override
+        public String getDisplayLanguage(CLDRLocale cldrLocale) {
+            return ldn.languageDisplayName(cldrLocale.getLanguage());
+        }
+    }
+
+    private StandardCodes sc = StandardCodes.make();
+    /**
+     * @author srl
+     *
+     */
+    public static class CLDRFormatter extends SimpleFormatter {
+        private CLDRFile file;
+        private FormatBehavior behavior = FormatBehavior.extend;
+        public CLDRFormatter(CLDRFile fromFile) {
+            super(CLDRLocale.getInstance(fromFile.getLocaleID()).toULocale());
+            file = fromFile;
+        }
+        public CLDRFormatter(CLDRFile fromFile,FormatBehavior behavior) {
+            super(CLDRLocale.getInstance(fromFile.getLocaleID()).toULocale());
+            file = fromFile;
+            this.behavior = behavior;
+        }
+        public CLDRFormatter() {
+            super(ULocale.ROOT);
+            file = null;
+        }
+        public CLDRFormatter(FormatBehavior behavior) {
+            super(ULocale.ROOT);
+            file = null;
+            this.behavior = behavior;
+        }
+        
+        @Override
+        public String getDisplayLanguage(CLDRLocale cldrLocale) {
+            return tryForBetter(super.getDisplayLanguage(cldrLocale), 
+                                cldrLocale.getLanguage(),
+                                "language");
+        }
+        private String tryForBetter(String superString, String code, String type) {
+            if(superString.equals(code)) {
+                String fromLst = StandardCodes.make().getData("language",code);
+                if(fromLst!=null&&!fromLst.equals(code)) {
+                    switch(behavior) {
+                    case replace: return fromLst;
+                    case extend: return superString + " ["+fromLst+"]";
+                    case extendHtml: return superString + " [<i>"+fromLst+"</i>]";
+                    }
+                }
+            }
+            return superString;
+        }
+    }
+    public enum FormatBehavior { replace, extend, extendHtml };
+
+    /**
 	 * Reference to the parent CLDRLocale
 	 */
     private CLDRLocale parent = null;
@@ -224,9 +351,6 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         };
     }
    
-    public String getDisplayName(ULocale displayLocale) {
-        return toULocale().getDisplayName(displayLocale);
-    }
 
     public String getLanguage() {
         return parts==null?fullname:parts.getLanguage();
@@ -272,11 +396,72 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      */
     public static void main(String args[]) {
         System.out.println("Tests for CLDRLocale:");
-        String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON", "__UND"};
+        CLDRLocale.setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
+        String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON", "__UND", "en","en_GB","en_Shav","en_Shav_GB","en_Latn_GB_POLYTON","nnh"};
         for(String s:tests_str) {
             CLDRLocale loc = CLDRLocale.getInstance(s);
-            System.out.println(s+":  tostring:"+loc.toString()+", uloc:"+loc.toULocale().toString()+", fromloc:"+new ULocale(s).toString());
+            System.out.println(s+":  tostring:"+loc.toString()+", uloc:"+loc.toULocale().toString()+", fromloc:"+new ULocale(s).toString() + ", format: " + loc.getDisplayName());
         }
+    }
+
+    public String getDisplayName() {
+        return getDisplayName(getDefaultFormatter());
+    }
+
+    /**
+     * These functions wrap calls to the displayLocale, but are provided to supply an interface that looks similar to ULocale.getDisplay___(displayLocale)
+     * 
+     * @param displayLocale
+     * @return
+     */
+    public String getDisplayName(NameFormatter displayLocale) {
+        if(displayLocale==null) displayLocale=getDefaultFormatter();
+        return displayLocale.getDisplayName(this);
+    }
+
+    private static LruMap<ULocale,NameFormatter> defaultFormatters = new LruMap<ULocale,NameFormatter>(1);
+    private static NameFormatter gDefaultFormatter = getSimpleFormatterFor(ULocale.getDefault());
+
+    public static NameFormatter getSimpleFormatterFor(ULocale loc) {
+        NameFormatter nf = defaultFormatters.get(loc);
+        if(nf==null) {
+            nf=new SimpleFormatter(loc);
+            defaultFormatters.put(loc,nf);
+        }
+        return nf;
+    }
+    public String getDisplayName(ULocale displayLocale) {
+        return getSimpleFormatterFor(displayLocale).getDisplayName(this);
+    }
+    
+    public static NameFormatter getDefaultFormatter() {
+        return gDefaultFormatter;
+    }
+    
+    public static NameFormatter setDefaultFormatter(NameFormatter nf) {
+        return gDefaultFormatter = nf;
+    }
+
+    /**
+     * These functions wrap calls to the displayLocale, but are provided to supply an interface that looks similar to ULocale.getDisplay___(displayLocale)
+     * 
+     * @param displayLocale
+     * @return
+     */
+    public String getDisplayCountry(NameFormatter displayLocale) {
+        if(displayLocale==null) displayLocale=getDefaultFormatter();
+        return displayLocale.getDisplayCountry(this);
+    }
+
+    /**
+     * These functions wrap calls to the displayLocale, but are provided to supply an interface that looks similar to ULocale.getDisplay___(displayLocale)
+     * 
+     * @param displayLocale
+     * @return
+     */
+    public String getDisplayVariant(NameFormatter displayLocale) {
+        if(displayLocale==null) displayLocale=getDefaultFormatter();
+        return displayLocale.getDisplayVariant(this);
     }
 
  }

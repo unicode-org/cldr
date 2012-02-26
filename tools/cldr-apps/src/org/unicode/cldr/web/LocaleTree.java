@@ -6,15 +6,17 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRLocale.NameFormatter;
 
+import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 
 public class LocaleTree {
-    ULocale displayLocale;
+    NameFormatter displayLocale;
     
-    public LocaleTree(ULocale displayLocale) {
-        this.displayLocale = displayLocale;
+    public LocaleTree(CLDRLocale.NameFormatter nf) {
+        this.displayLocale = nf;
     }
     public void add(CLDRLocale localeName) {
         localeNameToCode.put(getLocaleDisplayName(localeName), (localeName));
@@ -83,9 +85,9 @@ public class LocaleTree {
         
         if(t != null || v!= null) {
             if(v == null) {
-                lm.put(localeName.toULocale().getDisplayCountry(displayLocale), localeName);
+                lm.put(localeName.getDisplayCountry(displayLocale), localeName);
             } else {
-                lm.put(localeName.toULocale().getDisplayCountry(displayLocale) + " (" + localeName.toULocale().getDisplayVariant(displayLocale) + ")", localeName);
+                lm.put(localeName.getDisplayCountry(displayLocale) + " (" + localeName.getDisplayVariant(displayLocale) + ")", localeName);
             }
         }
     }

@@ -896,16 +896,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
    * Utility to restrict to files matching a given regular expression. The expression does not contain ".xml".
    * Note that supplementalData is always skipped, and root is always included.
    */
-  public static Set<String> getMatchingXMLFiles(String sourceDirs[], Matcher m) {
+  public static Set<String> getMatchingXMLFiles(File sourceDirs[], Matcher m) {
     Set<String> s = new TreeSet<String>();
     
-    for(String sourceDir : sourceDirs) {
-        File dir = new File(sourceDir);
+    for(File dir : sourceDirs) {
         if (!dir.exists()) {
-          throw new IllegalArgumentException("Directory doesn't exist:\t" + sourceDir);
+          throw new IllegalArgumentException("Directory doesn't exist:\t" + dir.getPath());
         }
         if (!dir.isDirectory()) {
-          throw new IllegalArgumentException("Input isn't a file directory:\t" + sourceDir);
+          throw new IllegalArgumentException("Input isn't a file directory:\t" + dir.getPath());
         }
         File[] files = dir.listFiles();
         for (int i = 0; i < files.length; ++i) {

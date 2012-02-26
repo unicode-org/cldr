@@ -285,7 +285,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     /**
      * @see WebContext#prefCodesPerPage()
      */
-    static final int CODES_PER_PAGE = 80;  // This is only a default.
+    static final int CODES_PER_PAGE = 1024;  // This is only a default.
     static final int PAGER_SHORTEN_WIDTH = 25   ; // # of chars in the 'pager' list before they are shortened
     static final int REFS_SHORTEN_WIDTH = 120;
 

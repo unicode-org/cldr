@@ -780,13 +780,13 @@ public class SurveyForum {
 		WebContext ctx = new WebContext(baseCtx);
 		ctx.setLocale(loc);
 		boolean canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
-		if(canModify) {
+		if(false&&canModify) {
 			/* hidden fields for that */
 			//            ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.locale.getLanguage()+"'>");
 			//            ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
 			//            ctx.println("<input type='hidden' name='_' value='"+loc+"'>");
 
-			ctx.println("<input type='submit' value='" + ctx.sm.getSaveButtonText() + "'>"); //style='float:right' 
+//			ctx.println("<input type='submit' value='" + ctx.sm.getSaveButtonText() + "'>"); //style='float:right' 
 
 		}
 	}
@@ -810,7 +810,7 @@ public class SurveyForum {
 			ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
 			ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
 
-			ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
+			if(false) ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
 			sm.processChanges(ctx, null, null, podBase, canModify, new DefaultDataSubmissionResultHandler(ctx));
 		} else {
 			            ctx.println("<!-- <br>cant modify " + locale + "<br> -->");

@@ -1927,13 +1927,13 @@ if(true)return false;
 				displayList = rows;
 			}
 			ctx.println("<div class='pager' style='margin: 2px'>");
-			if ((ctx.getLocale() != null) && UserRegistry.userCanModifyLocale(ctx.session.user, ctx.getLocale())) { // at
+			if (false&&(ctx.getLocale() != null) && UserRegistry.userCanModifyLocale(ctx.session.user, ctx.getLocale())) { // at
 																													// least
 																													// street
 																													// level
 				if ((ctx.field(SurveyMain.QUERY_SECTION).length() > 0)
 						&& !ctx.field(SurveyMain.QUERY_SECTION).equals(SurveyMain.xMAIN)) {
-					ctx.println("<input  type='submit' value='" + SurveyMain.getSaveButtonText() + "'>"); // style='float:left'
+//					ctx.println("<input  type='submit' value='" + SurveyMain.getSaveButtonText() + "'>"); // style='float:left'
 				}
 			}
 			// TODO: replace with ctx.fieldValue("skip",-1)

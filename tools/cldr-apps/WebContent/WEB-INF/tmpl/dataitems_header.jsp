@@ -5,13 +5,13 @@ xpath: <%= dataSection.xpathPrefix %>  (will be //ldml for misc ..)
 zoomed in: <%= zoomedIn %>
 
  -->
-
+<% if(!zoomedIn) { %>
 <div id='explainIcons'>
 <i>For details and help on any item, zoom in by clicking on the status icon: 
              <%=   ctx.iconHtml("okay",null) +", "+
                 ctx.iconHtml("ques",null) + ", " +
                 ctx.iconHtml("warn",null) + ", " +
-                ctx.iconHtml("stop",null) + ", " +
+                        ctx.iconHtml("stop",null) + ", "  + ", " +
                 ctx.iconHtml("squo",null) + " "  %>
                     </i>
                     <br>
@@ -22,4 +22,5 @@ zoomed in: <%= zoomedIn %>
                     </b>  was the one released with CLDR <%= ctx.sm.getOldVersion() %>
                     . A green value indicates that it is tentatively confirmed.
                     <hr>
-</div>                    
+</div>            
+<% } %>        

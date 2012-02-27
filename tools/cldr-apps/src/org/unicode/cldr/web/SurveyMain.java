@@ -4098,7 +4098,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     			throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
     		}
     		// Set up checks
-    		CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx); //make it happen
+    		CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap(basicOptionsMap())); //make it happen
 
     		// Locale menu
     		if((which == null) ||
@@ -4638,7 +4638,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             synchronized(allUserLocaleStuffs) {
             	allUserLocaleStuffs.add(this);
             }
-            complete(locale);
+
+            // TODO: refactor.
+            if(cldrfile == null) {
+                resolvedSource = getSTFactory().makeSource(locale.getBaseName(),true);
+                dbSource = resolvedSource.getUnresolving();
+                cldrfile = getSTFactory().make(locale,true).setSupplementalDirectory(supplementalDataDir);
+//                cachedCldrFile = makeCachedCLDRFile(dbSource);
+                resolvedFile = cldrfile;
+                //XMLSource baseSource = makeDBSource(CLDRLocale.getInstance(BASELINE_LOCALE), false, true);
+                baselineFile = getBaselineFile();
+            }
         }
         
         public void clear() {
@@ -4667,28 +4677,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 //logger.info("Time to init tests: " + (t2-t0));
             }
             return checkCldr;
-        }
-        public CheckCLDR getCheck(WebContext ctx) {
-        	return getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap(basicOptionsMap()));
-        }
-        
-        /**
-         * 
-         * @param ctx
-         * @param user
-         * @param locale
-         */
-        private void complete(CLDRLocale locale) {
-            // TODO: refactor.
-            if(cldrfile == null) {
-                resolvedSource = getSTFactory().makeSource(locale.getBaseName(),true);
-                dbSource = resolvedSource.getUnresolving();
-                cldrfile = getSTFactory().make(locale,true).setSupplementalDirectory(supplementalDataDir);
-//                cachedCldrFile = makeCachedCLDRFile(dbSource);
-        		resolvedFile = cldrfile;
-        		//XMLSource baseSource = makeDBSource(CLDRLocale.getInstance(BASELINE_LOCALE), false, true);
-        		baselineFile = getBaselineFile();
-            }
         }
     };
 

@@ -1638,7 +1638,7 @@ public class WebContext implements Cloneable, Appendable {
         try {
             SurveyAjax.includeAjaxScript(request, response, type);
         } catch(Throwable t) {
-            this.println("<div class='ferrorbox'><B>Error</b> while including template :<br>");
+            this.println("<div class='ferrorbox'><B>Error</b> while expanding ajax template ajax_"+type.name().toLowerCase()+".jsp:<br>");
             this.print(t);
             this.println("</div>");
             System.err.println("While expanding ajax: " +t.toString());

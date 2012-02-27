@@ -666,12 +666,12 @@ public class DataSection  {
 		 */
 		public CandidateItem getCurrentItem() {
 			if (this.currentItems == null) {
-if(true) System.err.println("Getting current items for " + xpath + " from " + items.size() + " items.: " + this);
+if(false) System.err.println("Getting current items for " + xpath + " from " + items.size() + " items.: " + this);
 				List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 				List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
 				for (CandidateItem item : items) {
 				    
-					 if(true || (sm.isUnofficial && DEBUG))
+					 if(false || (sm.isUnofficial && DEBUG))
 					 System.err.println("Considering: " +
 					 item+", xpid="+item.xpathId+", result="+""+", base="+this.xpathId+", ENO="+errorNoOutcome);
 					 item.toString();
@@ -975,279 +975,282 @@ if(true) System.err.println("Getting current items for " + xpath + " from " + it
 		 * @see #showDataRow(WebContext, UserLocaleStuff, boolean, CheckCLDR, boolean, EnumSet)
 		 * @see CandidateItem#printCell(WebContext, String, boolean, String, UserLocaleStuff, boolean, List, ExampleContext, EnumSet)
 		 * @return
+		 * @deprecated not used
 		 */
 		boolean processDataRowChanges(WebContext ctx, SurveyMain surveyMain, CLDRFile cf, BallotBox<User> ballotBox,
 				DataSubmissionResultHandler dsrh) {
-			String subFieldHash = fieldHash();
-			String choice = ctx.field(subFieldHash); // checkmark choice
-if(true)return false;
-			if (choice.length() == 0) {
-				SurveyLog.logger.warning("@@@@@  Missing Hash: CH["+subFieldHash+"]");
-				return false; // nothing to see..
-			}
-			String fullPathFull = getXpath();
-			int base_xpath = surveyMain.xpt.xpathToBaseXpathId(fullPathFull);
-			if (true || SurveyLog.DEBUG)
-				SurveyLog.logger.warning("@@@@@ CH[" + subFieldHash + "] -> " + choice + " @ " + fullPathFull + " / " + base_xpath);
-
-			String oldVote = ballotBox.getVoteValue(ctx.session.user, fullPathFull);
-			// do modification here.
-			String choice_v = ctx.field(subFieldHash + SurveyMain.QUERY_VALUE_SUFFIX); // choice
-																					// +
-																					// value
-
-			if (true || SurveyLog.DEBUG)
-				SurveyLog.logger.warning("@@@@@ v=" + choice_v);
-
-			boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || hasProps || hasErrors || hasWarnings;
-
-			// NOT a toggle.. proceed 'normally'
-
-			if (!choice.equals(SurveyMain.CHANGETO)) {
-				choice_v = ""; // so that the value is ignored, as it is not changing
-			} else if (surveyMain.choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
-				choice_v = ctx.processor.processInput(surveyMain.xpt.getById(getXpathId()), choice_v, null);
-			}
-
-			// SurveyLog.logger.warning("choice="+choice+", v="+choice_v);
-
-			/* handle inherited value */
-			if (inheritedValue!=null && choice.equals(inheritedValue.getValueHash())) {
-				// remap. Will cause the 2nd if branch to be followed, below.se
-				choice = SurveyMain.CHANGETO;
-				choice_v = inheritedValue.value;
-				// SurveyLog.logger.warning("inherit -> CHANGETO");
-			}
-
-			// . . .
-			CandidateItem voteForItem = null;
-			CandidateItem oldVoteItem = null;
-			Set<CandidateItem> deleteItems = null; // remove item
-			String[] deleteAlts = ctx.fieldValues(subFieldHash + SurveyMain.ACTION_DEL);
-			Set<String> deleteAltsSet = null;
-
-			if (deleteAlts.length > 0) {
-				deleteAltsSet = new HashSet<String>();
-				deleteItems = new HashSet<CandidateItem>();
-				for (String anAlt : deleteAlts) {
-					deleteAltsSet.add(anAlt);
-				}
-			}
-			Set<CandidateItem> unvoteItems = null; // remove item
-			String[] unvoteAlts = ctx.fieldValues(subFieldHash + SurveyMain.ACTION_UNVOTE);
-			Set<String> unvoteAltsSet = null;
-
-			if (unvoteAlts.length > 0) {
-				unvoteAltsSet = new HashSet<String>();
-				unvoteItems = new HashSet<CandidateItem>();
-				for (String anAlt : unvoteAlts) {
-					unvoteAltsSet.add(anAlt);
-				}
-			}
-
-			/* find the item. Could fail if the HTML is stale. */
-
-			for (Iterator<CandidateItem> j = items.iterator(); j.hasNext();) {
-				CandidateItem item = j.next();
-				if (oldVoteItem == null && oldVote != null && oldVote.equals(item.value)) {
-					oldVoteItem = item;
-				}
-				if(choice.equals(item.getValueHash())) {
-					voteForItem = item;
-				}
-			}
-
-			if (voteForItem != null) {
-				if (voteForItem.inheritFrom != null || voteForItem.isFallback || voteForItem.isParentFallback
-						|| (voteForItem.pathWhereFound != null && voteForItem.pathWhereFound.length() > 0)) {
-					// remap as a NEW ITEM.
-					choice = SurveyMain.CHANGETO;
-					// SurveyLog.logger.warning("v4i"+choice+" -> CHANGETO "+voteForItem.value);
-					choice_v = voteForItem.value;
-				}
-			}
-
-			boolean didSomething = false; // Was any item modified?
-
-//			if (deleteItems != null && ctx.session.user != null) {
-//				for (CandidateItem item : deleteItems) {
-//					UserRegistry.userIsAdmin(ctx.session.user);
-//					if ((item.submitter != -1)
-//							&& !((item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) ) && 
-//							((item.getVotes() == null) || UserRegistry.userIsTC(ctx.session.user) ||
-//							((item.getVotes().size() == 1) && item.getVotes().contains(ctx.session.user))) && 
-//							((item.submitter > 0 && UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id))) 
-//					{
-//						dsrh.handleRemoveItem(this, item, (voteForItem == item));
-//						if (voteForItem == item) {
-//							choice = SurveyMain.DONTCARE;
-//							voteForItem = null;
-//						}
-//						String xpathIdToRemove = surveyMain.xpt.getById(item.xpathId);
-//						ballotBox.voteForValue(ctx.session.user, xpathIdToRemove, null);
-//						didSomething = true;
-//					} else {
-//						dsrh.handleNoPermission(this, item, "remove");
-//					}
+		    return false;
+		}
+//			String subFieldHash = fieldHash();
+//			String choice = ctx.field(subFieldHash); // checkmark choice
+//if(true)return false;
+//			if (choice.length() == 0) {
+//				SurveyLog.logger.warning("@@@@@  Missing Hash: CH["+subFieldHash+"]");
+//				return false; // nothing to see..
+//			}
+//			String fullPathFull = getXpath();
+//			int base_xpath = surveyMain.xpt.xpathToBaseXpathId(fullPathFull);
+//			if (false|| SurveyLog.DEBUG)
+//				SurveyLog.logger.warning("@@@@@ CH[" + subFieldHash + "] -> " + choice + " @ " + fullPathFull + " / " + base_xpath);
+//
+//			String oldVote = ballotBox.getVoteValue(ctx.session.user, fullPathFull);
+//			// do modification here.
+//			String choice_v = ctx.field(subFieldHash + SurveyMain.QUERY_VALUE_SUFFIX); // choice
+//																					// +
+//																					// value
+//
+//			if (true || SurveyLog.DEBUG)
+//				SurveyLog.logger.warning("@@@@@ v=" + choice_v);
+//
+//			boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || hasProps || hasErrors || hasWarnings;
+//
+//			// NOT a toggle.. proceed 'normally'
+//
+//			if (!choice.equals(SurveyMain.CHANGETO)) {
+//				choice_v = ""; // so that the value is ignored, as it is not changing
+//			} else if (surveyMain.choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
+//				choice_v = ctx.processor.processInput(surveyMain.xpt.getById(getXpathId()), choice_v, null);
+//			}
+//
+//			// SurveyLog.logger.warning("choice="+choice+", v="+choice_v);
+//
+//			/* handle inherited value */
+//			if (inheritedValue!=null && choice.equals(inheritedValue.getValueHash())) {
+//				// remap. Will cause the 2nd if branch to be followed, below.se
+//				choice = SurveyMain.CHANGETO;
+//				choice_v = inheritedValue.value;
+//				// SurveyLog.logger.warning("inherit -> CHANGETO");
+//			}
+//
+//			// . . .
+//			CandidateItem voteForItem = null;
+//			CandidateItem oldVoteItem = null;
+//			Set<CandidateItem> deleteItems = null; // remove item
+//			String[] deleteAlts = ctx.fieldValues(subFieldHash + SurveyMain.ACTION_DEL);
+//			Set<String> deleteAltsSet = null;
+//
+//			if (deleteAlts.length > 0) {
+//				deleteAltsSet = new HashSet<String>();
+//				deleteItems = new HashSet<CandidateItem>();
+//				for (String anAlt : deleteAlts) {
+//					deleteAltsSet.add(anAlt);
 //				}
 //			}
-			if (unvoteItems != null && UserRegistry.userIsTC(ctx.session.user)) {
-//				for (CandidateItem item : unvoteItems) {
-//					if (item.getVotes() == null)
-//						continue;
-//					for (User voter : item.getVotes()) {
-//						if (voter.org.equals(ctx.session.user.org)) {
+//			Set<CandidateItem> unvoteItems = null; // remove item
+//			String[] unvoteAlts = ctx.fieldValues(subFieldHash + SurveyMain.ACTION_UNVOTE);
+//			Set<String> unvoteAltsSet = null;
 //
-//							boolean did = surveyMain.doAdminRemoveVote(ctx, ctx.getLocale(), getXpathId(), voter.id);
-//							if (did) {
-//								dsrh.handleRemoveVote(this, voter, item);
-//								didSomething = true;
+//			if (unvoteAlts.length > 0) {
+//				unvoteAltsSet = new HashSet<String>();
+//				unvoteItems = new HashSet<CandidateItem>();
+//				for (String anAlt : unvoteAlts) {
+//					unvoteAltsSet.add(anAlt);
+//				}
+//			}
+//
+//			/* find the item. Could fail if the HTML is stale. */
+//
+//			for (Iterator<CandidateItem> j = items.iterator(); j.hasNext();) {
+//				CandidateItem item = j.next();
+//				if (oldVoteItem == null && oldVote != null && oldVote.equals(item.value)) {
+//					oldVoteItem = item;
+//				}
+//				if(choice.equals(item.getValueHash())) {
+//					voteForItem = item;
+//				}
+//			}
+//
+//			if (voteForItem != null) {
+//				if (voteForItem.inheritFrom != null || voteForItem.isFallback || voteForItem.isParentFallback
+//						|| (voteForItem.pathWhereFound != null && voteForItem.pathWhereFound.length() > 0)) {
+//					// remap as a NEW ITEM.
+//					choice = SurveyMain.CHANGETO;
+//					// SurveyLog.logger.warning("v4i"+choice+" -> CHANGETO "+voteForItem.value);
+//					choice_v = voteForItem.value;
+//				}
+//			}
+//
+//			boolean didSomething = false; // Was any item modified?
+//
+////			if (deleteItems != null && ctx.session.user != null) {
+////				for (CandidateItem item : deleteItems) {
+////					UserRegistry.userIsAdmin(ctx.session.user);
+////					if ((item.submitter != -1)
+////							&& !((item.pathWhereFound != null) || item.isFallback || (item.inheritFrom != null) ) && 
+////							((item.getVotes() == null) || UserRegistry.userIsTC(ctx.session.user) ||
+////							((item.getVotes().size() == 1) && item.getVotes().contains(ctx.session.user))) && 
+////							((item.submitter > 0 && UserRegistry.userIsTC(ctx.session.user)) || (item.submitter == ctx.session.user.id))) 
+////					{
+////						dsrh.handleRemoveItem(this, item, (voteForItem == item));
+////						if (voteForItem == item) {
+////							choice = SurveyMain.DONTCARE;
+////							voteForItem = null;
+////						}
+////						String xpathIdToRemove = surveyMain.xpt.getById(item.xpathId);
+////						ballotBox.voteForValue(ctx.session.user, xpathIdToRemove, null);
+////						didSomething = true;
+////					} else {
+////						dsrh.handleNoPermission(this, item, "remove");
+////					}
+////				}
+////			}
+//			if (unvoteItems != null && UserRegistry.userIsTC(ctx.session.user)) {
+////				for (CandidateItem item : unvoteItems) {
+////					if (item.getVotes() == null)
+////						continue;
+////					for (User voter : item.getVotes()) {
+////						if (voter.org.equals(ctx.session.user.org)) {
+////
+////							boolean did = surveyMain.doAdminRemoveVote(ctx, ctx.getLocale(), getXpathId(), voter.id);
+////							if (did) {
+////								dsrh.handleRemoveVote(this, voter, item);
+////								didSomething = true;
+////							}
+////						}
+////					}
+////				}
+//			}
+//
+//			if (choice.equals(SurveyMain.CHANGETO) && !surveyMain.choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
+//				dsrh.handleEmptyChangeto(this);
+//				ctx.temporaryStuff.put(subFieldHash + SurveyMain.QUERY_VALUE_SUFFIX, choice_v); // mark
+//																								// it
+//				// for
+//				// "this item not accepted"
+//			} else if ((choice.equals(SurveyMain.CHANGETO) && surveyMain.choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull))
+//					|| (SurveyMain.HAVE_REMOVE && choice.equals(SurveyMain.REMOVE))) {
+//				if (!canSubmit) {
+//					dsrh.handleNoPermission(this, null, "submit");
+//					// ctx.print("<tt class='codebox'>"+ p.displayName
+//					// +"</tt>: ");
+//					// ctx.println(ctx.iconHtml("stop","empty value")+" You are not allowed to submit data at this time.<br>");
+//					return didSomething;
+//				}
+//				String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
+//				if (fullPathMinusAlt.indexOf("/alias") != -1) {
+//					dsrh.handleNoPermission(this, null, "modify an alias");
+//					// ctx.print("<tt class='codebox'>"+ p.displayName
+//					// +"</tt>: ");
+//					// ctx.println(ctx.iconHtml("stop","alias")+" You are not allowed to submit data against this alias item. Contact your CLDR-TC representative.<br>");
+//					return didSomething;
+//				}
+//				XPathTable.altProposedPrefix(ctx.session.user.id);
+//
+//				// user requested a new alternate.
+//				String newAlt = ctx.field(subFieldHash + "_alt").trim();
+//				if (newAlt.length() > 0) {
+//					altType = newAlt;
+//				}
+//				String aDisplayName = getDisplayName();
+//				if (getXpath().startsWith("//ldml/characters")
+//						&& ((aDisplayName == null) || "null".equals(aDisplayName))) {
+//					aDisplayName = "standard";
+//				}
+//
+//				dsrh.handleProposedValue(this, choice_v);
+//				// dsrh.handleNewValue(p, choice_v);
+//				// don't print 'new value' here until it is successful.
+//
+//				boolean doFail = false;
+//				UserLocaleStuff uf = null;
+//
+//				// Test: is the value valid?
+//				synchronized (ctx.session) {
+//					/* cribbed from elsewhere */
+//					// The enclosion function already holds session sync
+//
+//					uf = ctx.getUserFile();
+//					// Set up checks
+//					CheckCLDR checkCldr = uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap(basicOptionsMap())); // make it happen
+//					List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
+//
+//					checkCldr.check(fullPathMinusAlt, fullPathMinusAlt, choice_v,
+//							ctx.getOptionsMap(SurveyMain.basicOptionsMap()), checkCldrResult); // they
+//																								// get
+//																								// the
+//																								// full
+//																								// course
+//
+//					if (!checkCldrResult.isEmpty()) {
+//						// boolean hadWarnings = false;
+//						for (Iterator<CheckStatus> it3 = checkCldrResult.iterator(); it3.hasNext();) {
+//							CheckStatus status = it3.next();
+//							if (status.getType().equals(CheckStatus.errorType)) {
+//								if (status.getCause() instanceof org.unicode.cldr.test.CheckCoverage) {
+//									// coverage error, ignored
+//								} else {
+//									doFail = true;
+//								}
 //							}
+//							try {
+//								if (!(status.getCause() instanceof org.unicode.cldr.test.CheckCoverage)
+//										&& !status.getType().equals(CheckStatus.exampleType)) {
+//									// if(!hadWarnings) {
+//									// hadWarnings = true;
+//									// ctx.print("<br>");
+//									// }
+//									dsrh.handleError(this, status, choice_v);
+//									if (dsrh.rejectErrorItem(this)) {
+//										return false;
+//									}
+//								}
+//							} catch (Throwable t) {
+//								ctx.println("Error reading status item: <br><font size='-1'>" + status.toString() + "<br> - <br>"
+//										+ t.toString() + "<hr><br>");
+//							}
+//						}
+//						if (doFail) {
+//							if (dsrh.rejectErrorItem(this)) {
+//								return false;
+//							}
+//							// reject the value
+//							// if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
+//							// ctx.temporaryStuff.put(subFieldHash+"_v", choice_v);
+//							// // mark it
+//							// }
+//							// return false;
 //						}
 //					}
 //				}
-			}
-
-			if (choice.equals(SurveyMain.CHANGETO) && !surveyMain.choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull)) {
-				dsrh.handleEmptyChangeto(this);
-				ctx.temporaryStuff.put(subFieldHash + SurveyMain.QUERY_VALUE_SUFFIX, choice_v); // mark
-																								// it
-				// for
-				// "this item not accepted"
-			} else if ((choice.equals(SurveyMain.CHANGETO) && surveyMain.choiceNotEmptyOrAllowedEmpty(choice_v, fullPathFull))
-					|| (SurveyMain.HAVE_REMOVE && choice.equals(SurveyMain.REMOVE))) {
-				if (!canSubmit) {
-					dsrh.handleNoPermission(this, null, "submit");
-					// ctx.print("<tt class='codebox'>"+ p.displayName
-					// +"</tt>: ");
-					// ctx.println(ctx.iconHtml("stop","empty value")+" You are not allowed to submit data at this time.<br>");
-					return didSomething;
-				}
-				String fullPathMinusAlt = XPathTable.removeAlt(fullPathFull);
-				if (fullPathMinusAlt.indexOf("/alias") != -1) {
-					dsrh.handleNoPermission(this, null, "modify an alias");
-					// ctx.print("<tt class='codebox'>"+ p.displayName
-					// +"</tt>: ");
-					// ctx.println(ctx.iconHtml("stop","alias")+" You are not allowed to submit data against this alias item. Contact your CLDR-TC representative.<br>");
-					return didSomething;
-				}
-				XPathTable.altProposedPrefix(ctx.session.user.id);
-
-				// user requested a new alternate.
-				String newAlt = ctx.field(subFieldHash + "_alt").trim();
-				if (newAlt.length() > 0) {
-					altType = newAlt;
-				}
-				String aDisplayName = getDisplayName();
-				if (getXpath().startsWith("//ldml/characters")
-						&& ((aDisplayName == null) || "null".equals(aDisplayName))) {
-					aDisplayName = "standard";
-				}
-
-				dsrh.handleProposedValue(this, choice_v);
-				// dsrh.handleNewValue(p, choice_v);
-				// don't print 'new value' here until it is successful.
-
-				boolean doFail = false;
-				UserLocaleStuff uf = null;
-
-				// Test: is the value valid?
-				synchronized (ctx.session) {
-					/* cribbed from elsewhere */
-					// The enclosion function already holds session sync
-
-					uf = ctx.getUserFile();
-					// Set up checks
-					CheckCLDR checkCldr = uf.getCheck(ctx); // make it happen
-					List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
-
-					checkCldr.check(fullPathMinusAlt, fullPathMinusAlt, choice_v,
-							ctx.getOptionsMap(SurveyMain.basicOptionsMap()), checkCldrResult); // they
-																								// get
-																								// the
-																								// full
-																								// course
-
-					if (!checkCldrResult.isEmpty()) {
-						// boolean hadWarnings = false;
-						for (Iterator<CheckStatus> it3 = checkCldrResult.iterator(); it3.hasNext();) {
-							CheckStatus status = it3.next();
-							if (status.getType().equals(CheckStatus.errorType)) {
-								if (status.getCause() instanceof org.unicode.cldr.test.CheckCoverage) {
-									// coverage error, ignored
-								} else {
-									doFail = true;
-								}
-							}
-							try {
-								if (!(status.getCause() instanceof org.unicode.cldr.test.CheckCoverage)
-										&& !status.getType().equals(CheckStatus.exampleType)) {
-									// if(!hadWarnings) {
-									// hadWarnings = true;
-									// ctx.print("<br>");
-									// }
-									dsrh.handleError(this, status, choice_v);
-									if (dsrh.rejectErrorItem(this)) {
-										return false;
-									}
-								}
-							} catch (Throwable t) {
-								ctx.println("Error reading status item: <br><font size='-1'>" + status.toString() + "<br> - <br>"
-										+ t.toString() + "<hr><br>");
-							}
-						}
-						if (doFail) {
-							if (dsrh.rejectErrorItem(this)) {
-								return false;
-							}
-							// reject the value
-							// if(!(HAVE_REMOVE&&choice.equals(REMOVE))) {
-							// ctx.temporaryStuff.put(subFieldHash+"_v", choice_v);
-							// // mark it
-							// }
-							// return false;
-						}
-					}
-				}
-
-				// synchronized(vet) { // make sure that no-one else grabs our
-				// slot.
-				ballotBox.voteForValue(ctx.session.user, fullPathFull, choice_v);
-				// update implied vote
-				// ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" +
-				// newProp+"</tt>");
-				if (SurveyMain.HAVE_REMOVE && choice.equals(SurveyMain.REMOVE)) {
-					dsrh.handleRemoved(this);
-				} else {
-					dsrh.handleNewValue(this, choice_v, doFail);
-				}
-				return true;
-			} else if (choice.equals(SurveyMain.CONFIRM)) {
-				if (oldVoteItem != voteForItem) {
-					dsrh.handleVote(this, oldVote, voteForItem.value);
-					ballotBox.voteForValue(ctx.session.user, fullPathFull, voteForItem.value);
-					return true || didSomething;
-				}
-			} else if (choice.equals(SurveyMain.DONTCARE)) {
-				if (oldVote != null) {
-					dsrh.handleVote(this, oldVote, null);
-					ballotBox.voteForValue(ctx.session.user, fullPathFull, null);
-					return true || didSomething;
-				}
-			} else if (voteForItem != null) {
-				CandidateItem item = voteForItem;
-				if (oldVoteItem != item) {
-					dsrh.handleVote(this, oldVote, voteForItem.value);
-					ballotBox.voteForValue(ctx.session.user, fullPathFull, item.value);
-					return true || didSomething;
-				} else {
-					return didSomething; // existing vote.
-				}
-			} else {
-				dsrh.handleUnknownChoice(this, choice);
-			}
-			return didSomething;
-		}
+//
+//				// synchronized(vet) { // make sure that no-one else grabs our
+//				// slot.
+//				ballotBox.voteForValue(ctx.session.user, fullPathFull, choice_v);
+//				// update implied vote
+//				// ctx.print(" &nbsp;&nbsp; <tt class='proposed'>" +
+//				// newProp+"</tt>");
+//				if (SurveyMain.HAVE_REMOVE && choice.equals(SurveyMain.REMOVE)) {
+//					dsrh.handleRemoved(this);
+//				} else {
+//					dsrh.handleNewValue(this, choice_v, doFail);
+//				}
+//				return true;
+//			} else if (choice.equals(SurveyMain.CONFIRM)) {
+//				if (oldVoteItem != voteForItem) {
+//					dsrh.handleVote(this, oldVote, voteForItem.value);
+//					ballotBox.voteForValue(ctx.session.user, fullPathFull, voteForItem.value);
+//					return true || didSomething;
+//				}
+//			} else if (choice.equals(SurveyMain.DONTCARE)) {
+//				if (oldVote != null) {
+//					dsrh.handleVote(this, oldVote, null);
+//					ballotBox.voteForValue(ctx.session.user, fullPathFull, null);
+//					return true || didSomething;
+//				}
+//			} else if (voteForItem != null) {
+//				CandidateItem item = voteForItem;
+//				if (oldVoteItem != item) {
+//					dsrh.handleVote(this, oldVote, voteForItem.value);
+//					ballotBox.voteForValue(ctx.session.user, fullPathFull, item.value);
+//					return true || didSomething;
+//				} else {
+//					return didSomething; // existing vote.
+//				}
+//			} else {
+//				dsrh.handleUnknownChoice(this, choice);
+//			}
+//			return didSomething;
+//		}
 
 		private void setDisplayName(String displayName) {
 			this.displayName = displayName;
@@ -1587,7 +1590,7 @@ if(true)return false;
 
 		            ctx.print("<tr>");
 		            ctx.print("<th colspan=2>Votes</th>");
-		            ctx.print("<td colspan=" + (SurveyMain.PODTABLE_WIDTH - 2) + ">");
+		            ctx.print("<td id='voteresults_"+fieldHash()+"' colspan=" + (SurveyMain.PODTABLE_WIDTH - 2) + ">");
 
 		            showVotingResults(ctx);
 
@@ -1742,7 +1745,7 @@ if(true)return false;
 		/**
 		 * @param ctx
 		 */
-		void showVotingResults(WebContext ctx) {
+		public void showVotingResults(WebContext ctx) {
 
 			BallotBox<User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale());
 			ctx.put("ballotBox", ballotBox);
@@ -2265,7 +2268,7 @@ if(true)return false;
 	/**
 	 * Show time taken to populate?
 	 */
-	private static final boolean TRACE_TIME = true;
+	private static final boolean TRACE_TIME = false;
 	private static final boolean SHOW_TIME = false || TRACE_TIME || DEBUG || CldrUtility.getProperty("TEST", false);
 
 	public static String STATUS_QUO = "Status Quo";
@@ -3456,7 +3459,7 @@ if(true)return false;
 					System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
 				myItem = p.addItem(value, null);
 				
-				if(true) {
+				if(false) {
 				    System.err.println("Added item " + value + " - now items="+ p.items.size());
 				}
 				// if("gsw".equals(type)) System.err.println(myItem + " - # " +
@@ -3583,7 +3586,7 @@ if(true)return false;
 		synchronized (ctx.session) {
 			uf = ctx.getUserFile();
 
-			CheckCLDR checkCldr = uf.getCheck(ctx);
+			CheckCLDR checkCldr = uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap(SurveyMain.basicOptionsMap()));
 
 			// get the name of the sortmode
 			String sortModeName = SortMode.getSortMode(ctx, this);

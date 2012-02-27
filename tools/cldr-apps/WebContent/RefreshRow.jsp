@@ -9,6 +9,7 @@
     String sess = request.getParameter(SurveyMain.QUERY_SESSION);
     String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
     String xpath = request.getParameter(SurveyForum.F_XPATH);
+    String voteinfo = request.getParameter("voteinfo");
     String vhash = request.getParameter("vhash");
     String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
     CookieSession mySession = null;
@@ -41,8 +42,13 @@
         DataSection.DataRow row = section.getDataRow(xp);
         if (row != null) {
             org.unicode.cldr.test.CheckCLDR cc = ctx.sm.createCheckWithoutCollisions();
-            row.showDataRow(ctx, ctx.getUserFile(), true, cc, zoomedIn,
-                    DataSection.kAjaxRows);
+            
+            if(voteinfo!=null&&voteinfo.length()>0) {
+                row.showVotingResults(ctx);
+            } else {
+	            row.showDataRow(ctx, ctx.getUserFile(), true, cc, zoomedIn,
+	                    DataSection.kAjaxRows);
+            }
             ctx.flush();
 
             if(false){

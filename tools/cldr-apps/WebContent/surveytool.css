@@ -967,6 +967,26 @@ div.topnotices p.unofficial {
 	background-color: goldenrod;
 }
 
+div#stchanged {
+	display: none;
+	background-color: yellow;
+	padding: 3px;
+	position: fixed;
+	margin-left: 100px;
+	top: 0;
+	width:  50%;
+	opacity: .9;
+	border: 2px solid gray;
+}
+
+.hidden {
+	display: none;
+}
+
+#stchanged_loc {
+	font-weight: bold;
+}
+
 div.topnotices div.unofficial {
 	background-color: goldenrod;
 	padding: 3px;

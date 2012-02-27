@@ -175,8 +175,7 @@ public class SurveyAjax extends HttpServlet {
             } else if(what==null) {
                 sendError(out, "Missing parameter: " + REQ_WHAT);
             } else if(what.equals(WHAT_STATUS)) {
-                sendStatus(sm,out);
-
+                sendStatus(sm,out,loc);
             } else if(sess!=null && !sess.isEmpty()) { // this and following: session needed
                 mySession = CookieSession.retrieve(sess);
                 if(mySession==null) {
@@ -346,7 +345,7 @@ public class SurveyAjax extends HttpServlet {
     }
 
 
-    private void sendStatus(SurveyMain sm, PrintWriter out) throws IOException {
+    private void sendStatus(SurveyMain sm, PrintWriter out, String locale) throws IOException {
         JSONWriter r = newJSONStatus(sm);
         //        StringBuffer progress = new StringBuffer(sm.getProgress());
         //        String threadInfo = sm.startupThread.htmlStatus();
@@ -354,7 +353,26 @@ public class SurveyAjax extends HttpServlet {
         //            progress.append("<br/><b>Processing:"+threadInfo+"</b><br>");
         //        }
         //r.put("progress", progress.toString());
+        
+        setLocaleStatus(sm, locale, r);
         send(r,out);
+    }
+
+
+    /**
+     * @param sm
+     * @param locale
+     * @param r
+     */
+    private void setLocaleStatus(SurveyMain sm, String locale, JSONWriter r) {
+        if(locale!=null&&
+                locale.length()>0&&
+                sm.isBusted==null&&
+                sm.isSetup) {
+            CLDRLocale loc = CLDRLocale.getInstance(locale);
+            r.put("localeStampName", loc.getDisplayName());
+            r.put("localeStamp", sm.getSTFactory().stampForLocale(loc).current());
+        }
     }
 
     private void setupStatus(SurveyMain sm, JSONWriter r) {

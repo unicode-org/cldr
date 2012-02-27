@@ -7,12 +7,19 @@
 //            ctx.print("<span class='admin' title='You're an admin!'>");
 //            ctx.printHelpLink("/Admin",ctx.iconHtml("warn","Admin!")+"Administrator");
 //            ctx.println("</span>");
-//        }%><%
+//        }%>
+<%
         if(SurveyMain.isUnofficial) { %>
 		    <div class='unofficial' title='Not an official SurveyTool' >
 		        <%= WebContext.iconHtml(request,"warn","Unofficial Site") %>Unofficial
 		    </div>
        <% } %>
+<div id='stchanged' style='display:none;' class='stchanged' title='st has changed'>
+    <%= WebContext.iconHtml(request,"warn","Locale Changed") %>
+    The locale, <span id='stchanged_loc'>YOUR LOCALE</span>, has changed again due to votes or new data being loaded. Please complete your work on this page and then refresh/reload this page to 
+    view the new changes.
+    <button type='button' onclick='dismissChangeNotice()'>OK</button>
+</div>
        <% if(SurveyMain.isPhaseBeta()) { %>
                 <div class='beta' title='Survey Tool is in Beta' >
                     <%= WebContext.iconHtml(request,"warn","beta") %>

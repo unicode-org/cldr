@@ -17,10 +17,34 @@ var wasBusted = false;
 var wasOk = false;
 var loadOnOk = null;
 var clickContinue = null;
+<%
+String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);
+String surveyCurrentSection = request.getParameter(SurveyMain.QUERY_SECTION);
+String surveyCurrentForum = request.getParameter(SurveyForum.F_XPATH);
+if(surveyCurrentLocale!=null&&surveyCurrentLocale.length()>0&&
+    (surveyCurrentSection!=null||surveyCurrentForum!=null)) {
+%>
+ var surveyCurrentLocale = '<%= surveyCurrentLocale %>';
+ var surveyCurrentLocaleStamp = 0;
+ var surveyNextLocaleStamp = 0;
+ var surveyLocaleUrl='&<%= SurveyMain.QUERY_LOCALE %>=<%= surveyCurrentLocale %>';
+<% }else{ %>
+var surveyCurrentLocale = null;
+var surveyCurrentLocaleStamp = 0;
+var surveyLocaleUrl='';
+<% } %>
+
+function dismissChangeNotice() {
+	surveyCurrentLocaleStamp = surveyNextLocaleStamp;
+    var locDiv = document.getElementById('stchanged');
+    if(locDiv) {
+        locDiv.style.display='none';
+    }
+}
 
 function updateStatus() {
     dojo.xhrGet({
-        url:"<%= request.getContextPath() %>/SurveyAjax?what=status",
+        url:"<%= request.getContextPath() %>/SurveyAjax?what=status"+surveyLocaleUrl,
         handleAs:"json",
         load: function(json){
             if(json.isBusted == 1) {
@@ -48,6 +72,26 @@ function updateStatus() {
             updateIf('progress',json.progress);
             updateIf('uptime',json.uptime);
             updateIf('visitors',json.visitors);
+            
+            if(json.localeStamp) {
+                if(surveyCurrentLocaleStamp==0) {
+                	surveyCurrentLocaleStamp = json.localeStamp;
+                    //console.log("STATUS0: " + json.localeStampName + "="+json.localeStamp);
+                } else {
+                	if(json.localeStamp > surveyCurrentLocaleStamp) {
+                        //console.log("STATUS>: " + json.localeStampName + "="+json.localeStamp);
+                        updateIf('stchanged_loc',json.localeStampName);
+                        var locDiv = document.getElementById('stchanged');
+                        if(locDiv) {
+                            locDiv.style.display='block';
+                        }
+                        surveyNextLocaleStamp = json.localeStamp;
+                	} else {
+                        //console.log("STATUS=: " + json.localeStampName + "="+json.localeStamp);
+                	}
+                }
+            }
+            
             if((wasBusted == false) && (json.isSetup == 1) && (loadOnOk != null)) {
                 window.location.replace(loadOnOk);
             }
@@ -151,8 +195,9 @@ function refreshRow(fieldhash, xpid, locale, session) {
     var e_div = document.getElementById('e_'+fieldhash);
     var what = "<%= SurveyAjax.WHAT_GETROW %>";
     var ourUrl = "<%= request.getContextPath() %>/RefreshRow.jsp?what="+what+"&xpath="+xpid +"&_="+locale+"&fhash="+fieldhash+"&vhash="+''+"&s="+session;
+    var ourUrlVI =  ourUrl+"&voteinfo=t";
     //console.log("refreshRow('" + fieldhash +"','"+value+"','"+vhash+"','"+xpid+"','"+locale+"','"+session+"')");
-    console.log(" url = " + ourUrl);
+    //console.log(" url = " + ourUrl);
     var errorHandler = function(err, ioArgs){
         console.log('Error in refreshRow: ' + err + ' response ' + ioArgs.xhr.responseText);
         v_tr.className="tr_err";
@@ -170,10 +215,10 @@ function refreshRow(fieldhash, xpid, locale, session) {
         try {
              var newHtml = "";
              if(text) {
-            	 v_tr.className='topbar';
-            	 v_tr.innerHTML = text;
-            	 e_div.innerHTML = "";
-            	 e_div.className="";
+                 v_tr.className='topbar';
+                 v_tr.innerHTML = text;
+                 e_div.innerHTML = "";
+                 e_div.className="";
              } else {
                  v_tr.className='';
                  v_tr.innerHTML = "<td colspan=4><%= WebContext.iconHtml(request,"stop","Page Error") %> Couldn't reload this row- please refresh the page.</td>";
@@ -191,8 +236,38 @@ function refreshRow(fieldhash, xpid, locale, session) {
             error: errorHandler
         };
     window.xhrArgs = xhrArgs;
-    console.log('xhrArgs = ' + xhrArgs);
+    //console.log('xhrArgs = ' + xhrArgs);
     dojo.xhrGet(xhrArgs);
+    
+    var voteinfo_div = document.getElementById('voteresults_'+fieldhash);
+    if(voteinfo_div) {
+    	voteinfo_div.innerHTML="<i>Updating...</i>";
+	    var loadHandlerVI = function(text){
+	        try {
+	             var newHtml = "";
+	             if(text) {
+	                 voteinfo_div.innerHTML = text;
+	                 voteinfo_div.className="";
+	             } else {
+	                 voteinfo_div.className='';
+	                 voteinfo_div.innerHTML = "<td colspan=4><%= WebContext.iconHtml(request,"stop","Page Error") %> Couldn't reload this row- please refresh the page.</td>";
+	             }
+	           }catch(e) {
+	               console.log("Error in ajax get ",e.message);
+	               console.log(" response: " + text);
+	               voteinfo_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
+	           }
+	    };
+        var xhrArgsVI = {
+                url: ourUrlVI,
+                handleAs:"text",
+                load: loadHandlerVI,
+                error: errorHandler
+            };
+        //console.log('urlVI = ' + ourUrlVI);
+	    dojo.xhrGet(xhrArgsVI);
+    }
+    
 }
 
 // for validating CLDR data values

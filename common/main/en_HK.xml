@@ -35,10 +35,11 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
-						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
-						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM, y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM, y</dateFormatItem>
+						<dateFormatItem id="yM">M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yMEd">E, d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM, y G</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d MMM, y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

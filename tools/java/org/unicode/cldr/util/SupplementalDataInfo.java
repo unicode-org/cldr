@@ -875,7 +875,8 @@ public class SupplementalDataInfo {
             // get bcp47 files also
             File files2[] = new File(canonicalpath + "/../bcp47").listFiles();
 
-            CBuilder<File, ArrayList<File>> builder = Builder.with(new ArrayList<File>()).addAll(files1);
+            CBuilder<File, ArrayList<File>> builder = Builder.with(new ArrayList<File>());
+            builder.addAll(files1);
             if (files2 != null) {
                 builder.addAll(files2);
             }

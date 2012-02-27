@@ -1141,7 +1141,7 @@
 						<dateFormatItem id="yMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
 						<dateFormatItem id="yQ">G y년 Q분기</dateFormatItem>
 						<dateFormatItem id="yQQQ">G y년 QQQ</dateFormatItem>
-						<dateFormatItem id="yyMM">G YY. M.</dateFormatItem>
+						<dateFormatItem id="yyMM">G yy. M.</dateFormatItem>
 						<dateFormatItem id="yyMMM">G y년 MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">G y년 Q분기</dateFormatItem>
 						<dateFormatItem id="yyyyMM">G y. MM</dateFormatItem>
@@ -1239,6 +1239,35 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d일</dateFormatItem>
+						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
+						<dateFormatItem id="EEEEd">d일 EEEE</dateFormatItem>
+						<dateFormatItem id="h">a h시</dateFormatItem>
+						<dateFormatItem id="H">H시</dateFormatItem>
+						<dateFormatItem id="hm">a h:mm</dateFormatItem>
+						<dateFormatItem id="hms">a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">H시 m분 s초</dateFormatItem>
+						<dateFormatItem id="M">M월</dateFormatItem>
+						<dateFormatItem id="Md">M. d.</dateFormatItem>
+						<dateFormatItem id="MEd">M. d. (E)</dateFormatItem>
+						<dateFormatItem id="MEEEEd">M. d. EEEE</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d일</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="y">U년</dateFormatItem>
+						<dateFormatItem id="yM">U. M.</dateFormatItem>
+						<dateFormatItem id="yMd">U. M. d.</dateFormatItem>
+						<dateFormatItem id="yMEd">U. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yMMM">U년 MMM</dateFormatItem>
+						<dateFormatItem id="yMMMd">U년 MMM d일</dateFormatItem>
+						<dateFormatItem id="yMMMEd">U년 MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">U년 MMM d일 EEEE</dateFormatItem>
+						<dateFormatItem id="yQ">U년 Q분기</dateFormatItem>
+						<dateFormatItem id="yQQQ">U년 QQQ</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>
@@ -1897,7 +1926,7 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">G yy년</dateFormatItem>
-						<dateFormatItem id="yyMM">G YY. M.</dateFormatItem>
+						<dateFormatItem id="yyMM">G yy. M.</dateFormatItem>
 						<dateFormatItem id="yyMMM">G yy년 MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">G yy년 Q분기</dateFormatItem>
 						<dateFormatItem id="yyyy">G yy년</dateFormatItem>
@@ -1965,7 +1994,7 @@
 						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM">G YY. M.</dateFormatItem>
+						<dateFormatItem id="yyMM">G yy. M.</dateFormatItem>
 						<dateFormatItem id="yyMMM">G yy년 MMM</dateFormatItem>
 						<dateFormatItem id="yyQ">G y년 Q분기</dateFormatItem>
 						<dateFormatItem id="yyyy">G yy년</dateFormatItem>

@@ -420,6 +420,7 @@ public class LDMLConstants {
     public static final String RULESETGROUPING  = "rulesetGrouping";
     public static final String SPELLOUTRULES    = "SpelloutRules";
     public static final String ACCESS           = "access";
+    public static final String ALLOWS_PARSING   = "allowsParsing";
     public static final String RBNFRULE         = "rbnfrule";
     public static final String VALUE            = "value";
     public static final String RBNFRULES        = "RBNFRules";

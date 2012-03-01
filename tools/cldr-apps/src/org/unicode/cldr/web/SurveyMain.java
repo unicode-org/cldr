@@ -78,7 +78,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.InfoType;
-import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -98,7 +97,8 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
-
+    public static Stamp surveyRunningStamp = Stamp.getInstance();
+    
 	public static final String QUERY_SAVE_COOKIE = "save_cookie";
 
     private static final String STEPSMENU_TOP_JSP = "stepsmenu_top.jsp";
@@ -380,7 +380,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
     
-    public static String surveyBase = null;
+    public static String defaultServletPath = null;
     /**
      * IP blacklist
      */
@@ -499,8 +499,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         WebContext ctx = new WebContext(request,response);
         ctx.reqTimer = reqTimer;
         ctx.sm = this;
-        if(surveyBase==null) {
-            surveyBase = ctx.base();
+        if(defaultServletPath==null) {
+            defaultServletPath = ctx.request.getServletPath();
         }
         /*
         String theIp = ctx.userIP();
@@ -535,11 +535,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	        	Thread.currentThread().setName(baseThreadName+" ST ");
 	        	doSession(ctx); // Session-based Survey main
 	        }
-        } catch (Throwable t) {
-        	SurveyLog.logException(t, ctx);
-        	ctx.println("<div class='ferrbox'><h2>Error processing session: </h2><pre>" + t.toString()+"</pre></div>");
-        	SurveyLog.logger.warning("Failure with user: " + t);
-        	t.printStackTrace();
+        } catch (Throwable t) { // should be THrowable
+            t.printStackTrace();
+            SurveyLog.logException(t, ctx);
+            ctx.println("<div class='ferrbox'><h2>Error processing session: </h2><pre>" + t.toString()+"</pre></div>");
+            SurveyLog.logger.warning("Failure with user: " + t);
         } finally {
         	Thread.currentThread().setName(baseThreadName);
 	        ctx.close();
@@ -4410,6 +4410,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 file.setSupplementalDirectory(supplementalDataDir); // so the icuServiceBuilder doesn't blow up.
                 file.freeze(); // so it can be shared.
                 gBaselineFile = file;
+                
+                // propagate it.
+                CheckCLDR.setDisplayInformation(gBaselineFile);
                 CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(gBaselineFile,FormatBehavior.extendHtml);
                 CLDRLocale.setDefaultFormatter(defaultFormatter);
             } catch (Throwable t) {
@@ -4496,8 +4499,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @return the map
      * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String, Map, List)
      */
-    public static Map basicOptionsMap() {
-        Map options = new HashMap();
+    public static Map<String,String> basicOptionsMap() {
+        Map<String, String> options = new HashMap<String, String>();
         
         // the following is highly suspicious. But, CheckCoverage seems to require it.
         options.put("submission", "true");
@@ -4529,7 +4532,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                checkCldr = CheckCLDR.getCheckAll("(?!.*DisplayCollisions.*).*" /*  ".*" */);
             //}
 
-            checkCldr.setDisplayInformation(getBaselineFile());
+            CheckCLDR.setDisplayInformation(getBaselineFile());
             
             return checkCldr;
     }
@@ -4550,7 +4553,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 checkCldr = CheckCLDR.getCheckAll(getSTFactory(), "(?!.*(DisplayCollisions|CheckCoverage).*).*" /*  ".*" */);
             }
 
-            checkCldr.setDisplayInformation(getBaselineFile());
+            CheckCLDR.setDisplayInformation(getBaselineFile());
             
             return checkCldr;
     }
@@ -5024,6 +5027,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
     public void showMetazones(WebContext ctx, String continent) {
+        STFactory.unimp();
         showPathList(ctx, "//ldml/dates/timeZoneNames/metazone"+DataSection.CONTINENT_DIVIDER+continent,null);
     }
 
@@ -5145,13 +5149,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         String metazoneXpath = metazonePodXpath+metazoneSuffix;
         String metazonePodBase = DataSection.xpathToSectionBase(metazonePodXpath);
 
-        if(canModify) {
-            processChanges(ctx, podBase);
-            if(currentMetaZone != null) {
-                processChanges(ctx, metazonePodBase);
-            }
-        }
-        
         DataSection section = ctx.getSection(podBase);
         DataSection metazoneSection = null;
         
@@ -5299,7 +5296,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 if(e.length() > 0) {
                     showPathListExample(ctx, xpath, lastElement, e, fullThing, cf);
                 } else {
-                    processChanges(ctx, fullThing);
+//                    processChanges(ctx, fullThing);
             //        SurveyLog.logger.info("Pod's full thing: " + fullThing);
                     DataSection section = ctx.getSection(fullThing); // we load a new pod here - may be invalid by the modifications above.
                     section.showSection(ctx, canModify, matcher, false);
@@ -5310,57 +5307,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         	curThread.setName(threadName);
     	}
     }
-    public void processChanges(WebContext ctx, String xpath) {
-        processChanges(ctx,null,null,xpath,ctx.getCanModify(),new DefaultDataSubmissionResultHandler(ctx));
-    }
-    /**
-     * @param ctx
-     * @param cf
-     * @param ballotBox
-     * @param xpath
-     * @param canModify
-     * @param if(ssrh ssrh 
-     */
-    public void processChanges(WebContext ctx, CLDRFile cf,
-            BallotBox<User> ballotBox, String xpath, boolean canModify, DataSubmissionResultHandler ssrh) {
-        if(cf==null) cf = getSTFactory().make(ctx.getLocale().getBaseName(), false,DraftStatus.unconfirmed);
-        if(ballotBox==null) ballotBox = getSTFactory().ballotBoxForLocale(ctx.getLocale());
 
-        // first, do submissions.
-        if(canModify&&false) {
-            ctx.println("<i id='processPea'>Processing submitted data...</i><br/>");ctx.flush();
-            try {
-                DataSection oldSection = ctx.getExistingSection(xpath);
-                ctx.println("(testing section " + xpath + "/" + oldSection+")");
-                boolean someDidChange = false;
-                if(oldSection != null) {
-                    for(DataSection.DataRow p : oldSection.getAll()) {
-                        ctx.println("Testing dataRow " + p+")");
-                        someDidChange = p.processDataRowChanges(ctx, this, cf, ballotBox, ssrh) || someDidChange;
-                        //                if(p.subRows != null) {
-                        //                    for(Iterator e = p.subRows.values().iterator();e.hasNext();) {
-                        //                        DataSection.DataRow subDataRow = (DataSection.DataRow)e.next();
-                        //                        someDidChange = processDataRowChanges(ctx, oldSection, subDataRow, cf, ballotBox, dsrh) || someDidChange;
-                        //                    }
-                        //                }
-                    }            
-                }
-                if(someDidChange) {
-                    SurveyLog.logger.warning("SomeDidChange: " + oldSection.locale());
-                    updateLocale(oldSection.locale());
-                }
-                if(someDidChange) {
-                    String j = "";
-                    ctx.println("<br> You submitted data or vote changes, <!-- and " + j + " results were updated. As a result, --> your items may show up under the 'priority' or 'proposed' categories.<br>");
-                } else {
-                    ctx.print("<!-- no changes in "+xpath + " -->");
-                }
-            } finally {
-                ctx.println("<script type=\"text/javascript\">document.getElementById('processPea').innerHTML='';</script>"); ctx.flush();
-            }
-        }
-        ctx.flush(); // give them some status.
-    }
+
 	static int PODTABLE_WIDTH = 13; /** width, in columns, of the typical data table **/
     
 	/**
@@ -5613,7 +5561,6 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
         if(isSetup == true) {
             return;
         }
-        
         ElapsedTimer setupTime = new ElapsedTimer();
         CLDRProgressTask progress = openProgress("Main Startup");
         try {
@@ -6095,16 +6042,6 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 		}
 		return m;
 	}
-
-
-    void writeRadio(WebContext ctx,String xpath,String type,String value,String checked) {
-        writeRadio(ctx, xpath, type, value, checked.equals(value));        
-    }
-
-    void writeRadio(WebContext ctx,String xpath,String type,String value,boolean checked) {
-        ctx.println("<input type=radio name='" + fieldsToHtml(xpath,type) + "' value='" + value + "' " +
-                    (checked?" CHECKED ":"") + "/>");
-    }
 
 
     public static final com.ibm.icu.text.Transliterator hexXML

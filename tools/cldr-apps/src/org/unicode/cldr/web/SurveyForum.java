@@ -687,6 +687,7 @@ public class SurveyForum {
 	 * @param ctx the current web context
 	 * @param baseXpath the xpath of one of the items being submitted
 	 * @return true if no errors were detected, otherwise false.
+	 * @deprecated
 	 */
 	public static SummarizingSubmissionResultHandler processDataSubmission(WebContext ctx, String baseXpath) {
 		return processDataSubmission(ctx,baseXpath,null);
@@ -697,12 +698,12 @@ public class SurveyForum {
 	 * @param baseXpath the xpath of one of the items being submitted
 	 * @param ssrh ResultHandler, if null one will be created.
 	 * @return true if no errors were detected, otherwise false.
+	 * @deprecated
 	 */
 	public static SummarizingSubmissionResultHandler processDataSubmission(WebContext ctx, String baseXpath, SummarizingSubmissionResultHandler ssrh) {
 		if(ssrh == null) {
 			ssrh = new SummarizingSubmissionResultHandler();
 		}
-		ctx.sm.processChanges(ctx, null, null, DataSection.xpathToSectionBase(baseXpath), ctx.canModify(), ssrh);
 		return ssrh;
 	}
 
@@ -810,8 +811,8 @@ public class SurveyForum {
 			ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
 			ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
 
-			if(false) ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
-			sm.processChanges(ctx, null, null, podBase, canModify, new DefaultDataSubmissionResultHandler(ctx));
+//			if(false) ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
+//			sm.processChanges(ctx, null, null, podBase, canModify, new DefaultDataSubmissionResultHandler(ctx));
 		} else {
 			            ctx.println("<!-- <br>cant modify " + locale + "<br> -->");
 		}

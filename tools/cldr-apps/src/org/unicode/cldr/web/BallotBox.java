@@ -54,5 +54,11 @@ public interface BallotBox<T> {
 	 */
 	VoteResolver<String> getResolver(String path);
 
+	/**
+	 * Whether the user voted at all. Returns false if user voted for null (no opinion).
+	 * @param myUser
+	 * @param somePath
+	 * @return
+	 */
 	public boolean userDidVote(User myUser, String somePath);
 }

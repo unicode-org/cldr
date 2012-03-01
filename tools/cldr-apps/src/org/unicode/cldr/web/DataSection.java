@@ -31,6 +31,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
+import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
@@ -221,13 +222,16 @@ public class DataSection  {
 				        if (true /* !item.itemErrors */) { // exclude item from
 				            // voting due to errors?
 				            if (ctx.getCanModify()) {
-				                ctx.print("<input title='#" + xpathId + "' name='" + fieldHash + "'  value='"+getValueHash()+"' " + 
+				                ctx.print("<button class='ichoice' title='#" + xpathId + "' name='" + fieldHash + "'  value='"+getValueHash()+"' " + 
 				                        " onclick=\"do_change('"
 				                        + fullFieldHash() + "','','"+getValueHash()+"'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
 				                        + "')\"" 
-				                        + (checkThis(ourVote) ? "CHECKED" : "") + "  type='radio'>");
+				                        + "  type='button'>" +
+				                           ctx.iconHtml(checkThis(ourVote)?"radx":"rado", "Vote") + "</button>");
 				            } else {
-				                ctx.print("<input title='#" + xpathId + "' type='radio' disabled>");
+				                ctx.print("<button class='inochoice' title='#" + xpathId + "' type='button' disabled>"
+				                        +                          ctx.iconHtml("rado", "Can't vote") +
+				                            "</button>");
 				            }
 				        }
 
@@ -962,25 +966,6 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		}
 
 
-		/**
-		 * Call from within session lock
-		 * 
-		 * @param ctx
-		 * @param surveyMain
-		 *            TODO
-		 * @param cf
-		 * @param ballotBox
-		 * @param dsrh
-		 * @param section
-		 * @see #showDataRow(WebContext, UserLocaleStuff, boolean, CheckCLDR, boolean, EnumSet)
-		 * @see CandidateItem#printCell(WebContext, String, boolean, String, UserLocaleStuff, boolean, List, ExampleContext, EnumSet)
-		 * @return
-		 * @deprecated not used
-		 */
-		boolean processDataRowChanges(WebContext ctx, SurveyMain surveyMain, CLDRFile cf, BallotBox<User> ballotBox,
-				DataSubmissionResultHandler dsrh) {
-		    return false;
-		}
 //			String subFieldHash = fieldHash();
 //			String choice = ctx.field(subFieldHash); // checkmark choice
 //if(true)return false;
@@ -1265,7 +1250,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		 * @param checkCldr
 		 * @param options
 		 */
-		void setShimTests(int base_xpath, String base_xpath_string, CheckCLDR checkCldr, Map<String, String> options) {
+		void setShimTests(int base_xpath, String base_xpath_string, TestResultBundle checkCldr, Map<String, String> options) {
 			CandidateItem shimItem = inheritedValue;
 
 			if (shimItem == null) {
@@ -1277,7 +1262,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				shimItem.isFallback = false;
 
 				List<CheckStatus> iTests = new ArrayList<CheckStatus>();
-				checkCldr.check(base_xpath_string, base_xpath_string, null, options, iTests);
+				checkCldr.check(base_xpath_string, iTests, null);
 				if (!iTests.isEmpty()) {
 					// Got a bite.
 					if (shimItem.setTests(iTests)) {
@@ -1399,8 +1384,8 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		        // ##7 Change
 		        if (canModify && canSubmit && (zoomedIn || !zoomOnly)) {
 		            changetoBox = changetoBox
-		                    + ("<label id='submit_" + fullFieldHash() + "' class='isubmit'><input onclick=\"isubmit('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + "', '" + ctx.session+"')\" type='radio' class='isubmit'   >Submit</label> ");
-		            //	+ ("<input name='" + fieldHash + "' id='" + fieldHash + "_ch' value='" + SurveyMain.CHANGETO + "' type='radio' >");
+		            +"<button id='submit_" + fullFieldHash() + "' display='none' class='isubmit' onclick=\"isubmit('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + 
+		            "', '" + ctx.session+"')\" type='button'   >" + ctx.iconHtml("rado", "submit this value") + "Submit</button>";
 		        }
 
 		        changetoBox = changetoBox + ("</td>");
@@ -1490,12 +1475,13 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		    // No/Opinion.
 		    if (canModify) {
 		        ctx.print("<td width='20' rowspan='" + rowSpan + "'>");
-		        ctx.print("<input name='" + fieldHash + "' value='" + SurveyMain.DONTCARE + "' type='radio' "
-		                + ((ourVote == null) ? "CHECKED" : "") + " "+ 
+		        ctx.print("<button class='ichoice' name='" + fieldHash + "' value='" + SurveyMain.DONTCARE + "' type='button' " +
 		                " onclick=\"do_change('"
 		                + fullFieldHash() + "','','null'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
 		                + "')\"" +
-		                ">");
+		                ">"+
+		                   ctx.iconHtml((ourVote == null)?"radx":"rado", "Don't Care") +
+		                "</button>");
 		        ctx.print("</td>");
 		    }
 
@@ -1779,7 +1765,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		 * @param options
 		 *            Test options
 		 */
-		void updateInheritedValue(CLDRFile vettedParent, CheckCLDR checkCldr, Map<String, String> options) {
+		void updateInheritedValue(CLDRFile vettedParent, TestResultBundle checkCldr, Map<String, String> options) {
 			long lastTime = System.currentTimeMillis();
 			if (vettedParent == null) {
 				return;
@@ -1843,7 +1829,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				if (TRACE_TIME)
 					System.err.println("@@7:" + (System.currentTimeMillis() - lastTime));
 				List<CheckStatus> iTests = new ArrayList<CheckStatus>();
-				checkCldr.check(xpath, xpath, inheritedValue.value, options, iTests);
+				checkCldr.check(xpath, iTests, inheritedValue.value);
 				if (TRACE_TIME)
 					System.err.println("@@8:" + (System.currentTimeMillis() - lastTime));
 				// checkCldr.getExamples(xpath, fullPath, value,
@@ -1866,7 +1852,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		 *         false if user changes their vote back to no opinion.
 		 */
 		public boolean userHasVoted(int userId) {
-			return getVotesForUser(userId) != null;
+		    return ballotBox.userDidVote(sm.reg.getInfo(userId), getXpath());
 		}
 	}
 
@@ -2496,7 +2482,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 			throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 		}
 		synchronized (session) {
-			CheckCLDR checkCldr = session.sm.getSTFactory().getCheck(locale);
+			TestResultBundle checkCldr = session.sm.getSTFactory().getTestResult(locale, getOptions(ctx,session,locale));
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
@@ -2534,10 +2520,8 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
-            Map options=null;
-            options = getOptions(ctx, session, locale);
 			try {
-                section.populateFrom(ourSrc, checkCldr, options, workingCoverageLevel);
+                section.populateFrom(ourSrc, checkCldr, null, workingCoverageLevel);
 			} finally {
 				if (NOINHERIT) {
 					SurveyLog
@@ -2545,8 +2529,8 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				}
 			}
 			int popCount = section.getAll().size();
-			System.err.println("PopCount: " + popCount );
-			if(popCount>0) {
+			if(false)System.err.println("PopCount: " + popCount );
+			if(false&&popCount>0) {
                 System.err.println("Item[0] : " + section.getAll().iterator().next());
                 System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
 			}
@@ -2560,10 +2544,10 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
     					+ popCount + " items';</script>");
     			ctx.flush();
             }
-			section.ensureComplete(ourSrc, checkCldr, options, workingCoverageLevel);
+			section.ensureComplete(ourSrc, checkCldr, null, workingCoverageLevel);
 			popCount = section.getAll().size();
-            System.err.println("New PopCount: " + popCount );
-            if(popCount>0) {
+            if(false)System.err.println("New PopCount: " + popCount );
+            if(false&&popCount>0) {
                 System.err.println("Item[0] : " + section.getAll().iterator().next());
                 System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
             }
@@ -2582,9 +2566,9 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
      * @param locale
      * @return
      */
-    static Map getOptions(WebContext ctx, CookieSession session,
+    static Map<String,String> getOptions(WebContext ctx, CookieSession session,
             CLDRLocale locale) {
-        Map options;
+        Map<String,String> options;
         if(ctx!=null) {
             options = ctx.getOptionsMap();
         } else {
@@ -2789,7 +2773,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 	/**
 	 * Makes sure this pod contains the rows we'd like to see.
 	 */
-	private void ensureComplete(CLDRFile ourSrc, CheckCLDR checkCldr, Map<String, String> options, String workingCoverageLevel) {
+	private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options, String workingCoverageLevel) {
 		// if (!ourSrc.isResolving()) throw new
 		// IllegalArgumentException("CLDRFile must be resolved");
 		// if(xpathPrefix.contains("@type")) {
@@ -2996,7 +2980,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		return skippedDueToCoverage;
 	}
 
-	private void populateFrom(CLDRFile ourSrc, CheckCLDR checkCldr, Map<String, String> options, String workingCoverageLevel) {
+	private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options, String workingCoverageLevel) {
 		// if (!ourSrc.isResolving()) throw new
 		// IllegalArgumentException("CLDRFile must be resolved");
 		try {
@@ -3270,7 +3254,18 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				// (may be nested in the case of alt types)
 				DataRow p = getDataRow(xpath);
 
-				p.coverageValue = coverageValue;
+                Set<String> v = ballotBox.getValues(xpath);
+                if (v != null) {
+                    for (String avalue : v) {
+                        if(DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
+                        if (!avalue.equals(value)) {
+                            CandidateItem item2 = p.addItem(avalue, null);
+                            item2.xpath = xpath;
+                        }
+                    }
+                }
+
+                p.coverageValue = coverageValue;
 
 				DataRow superP = p; // getDataRow(type); // the 'parent' row
 				// (sans alt) - may be the same object
@@ -3442,10 +3437,10 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				if ((checkCldr != null)/* &&(altProposed == null) */) {
 					if (TRACE_TIME)
 						System.err.println("n07.1  (check) " + (System.currentTimeMillis() - nextTime));
-					checkCldr.check(xpath, fullPath, isExtraPath ? null : value, options, checkCldrResult);
+					checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : value);
 					if (TRACE_TIME)
 						System.err.println("n07.2  (check) " + (System.currentTimeMillis() - nextTime));
-					checkCldr.getExamples(xpath, fullPath, isExtraPath ? null : value, options, examplesResult);
+					checkCldr.getExamples(xpath, isExtraPath ? null : value, examplesResult);
 				}
 				DataSection.DataRow.CandidateItem myItem = null;
 
@@ -3511,15 +3506,6 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 					myItem.references = eRefs;
 				}
 
-				Set<String> v = ballotBox.getValues(xpath);
-				if (v != null)
-					for (String avalue : v) {
-						if(DEBUG||true) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
-						if (!avalue.equals(value)) {
-							CandidateItem item2 = p.addItem(avalue, null);
-							item2.xpath = xpath;
-						}
-					}
 
 			}
 			// aFile.close();

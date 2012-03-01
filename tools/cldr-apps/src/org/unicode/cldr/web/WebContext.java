@@ -576,18 +576,18 @@ public class WebContext implements Cloneable, Appendable {
      * @return the servlet path in context
      */
     public String base() { 
-        if(theBase==null) {
+        if(theServletPath==null) {
             return context() + request.getServletPath();
         } else {
-            return theBase;
+            return context() + theServletPath;
         }
     }
     
-    public void setBase(String base) {
-        theBase = base;
+    public void setServletPath(String path) {
+        theServletPath = path;
     }
     
-    private String theBase = null;
+    private String theServletPath = null;
     
     /**
      * Get the base URL for some request
@@ -1484,7 +1484,7 @@ public class WebContext implements Cloneable, Appendable {
         sm = other.sm;
         processor = other.processor;
         temporaryStuff = other.temporaryStuff;
-        theBase = other.theBase;
+        theServletPath = other.theServletPath;
     }
 
     /**

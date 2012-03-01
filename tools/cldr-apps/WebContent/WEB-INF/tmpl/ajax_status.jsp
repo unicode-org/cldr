@@ -17,6 +17,7 @@ var wasBusted = false;
 var wasOk = false;
 var loadOnOk = null;
 var clickContinue = null;
+var surveyRunningStamp = '<%= SurveyMain.surveyRunningStamp.current() %>';
 <%
 String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);
 String surveyCurrentSection = request.getParameter(SurveyMain.QUERY_SECTION);
@@ -53,10 +54,18 @@ function updateStatus() {
             var st_err =  document.getElementById('st_err');
             if(json.err.length > 0) {
                st_err.innerHTML=json.err;
+               if(json.surveyRunningStamp!=surveyRunningStamp) {
+            	   st_err.innerHTML = st_err.innerHTML + " <b>Note: Lost connection with Survey Tool or it restarted.</b>"
+               }
                st_err.className = "ferrbox";
                wasBusted = true;
             } else {
-                if(wasBusted == true && (json.isBusted == 0) && (json.isSetup == 1)) {
+            	if(json.surveyRunningStamp!=surveyRunningStamp) {
+                    st_err.className = "ferrbox";
+                    st_err.innerHTML="The SurveyTool has been restarted. Please reload this page to continue.";
+                    wasBusted=true;
+            	}else if(wasBusted == true && (json.isBusted == 0) && (json.isSetup == 1)
+                      || (json.surveyRunningStamp!=surveyRunningStamp)) {
                     st_err.innerHTML="Note: Lost connection with Survey Tool or it restarted.";
                     if(clickContinue != null) {
                         st_err.innerHTML = st_err.innerHTML + " Please <a href='"+clickContinue+"'>click here</a> to continue.";
@@ -345,7 +354,7 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
                  }
              }
              if(json.submitResultRaw) {
-                 e_div.innerHTML = e_div.innerHTML + "<br><b>SUBMIT RESULTS:</b> <tt>" + json.submitResultRaw+"</tt> <b>Refreshing row...</b>";
+                 e_div.innerHTML = e_div.innerHTML + "<b>Updating...</b><!-- <br><b>SUBMIT RESULTS:</b> <tt>" + json.submitResultRaw+"</tt> <b>Refreshing row...</b> -->";
                  refreshRow(fieldhash, xpid, locale, session);
              }
            }catch(e) {

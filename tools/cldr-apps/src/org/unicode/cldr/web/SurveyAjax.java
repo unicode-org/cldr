@@ -23,6 +23,7 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
@@ -213,10 +214,11 @@ public class SurveyAjax extends HttpServlet {
 //                        send(r,out);
                     //} else 
                    if(what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT)) {
-                        CheckCLDR cc = sm.createCheckWithoutCollisions();
+                       CLDRLocale locale = CLDRLocale.getInstance(loc);
+                        Map<String,String> options = DataSection.getOptions(null, mySession, locale);
+                        TestResultBundle cc = sm.getSTFactory().getTestResult(locale, options);
                         int id = Integer.parseInt(xpath);
                         String xp = sm.xpt.getById(id);
-                        Map<String, String> options = null;
                         List<CheckStatus> result = new ArrayList<CheckStatus>();
                         //CLDRFile file = CLDRFile.make(loc);
                         //CLDRFile file = mySession.
@@ -225,7 +227,6 @@ public class SurveyAjax extends HttpServlet {
                         JSONWriter r = newJSONStatus(sm);
                         synchronized(mySession) {
                             try {
-                                CLDRLocale locale = CLDRLocale.getInstance(loc);
                                 BallotBox<UserRegistry.User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
                                 boolean foundVhash = false;
                                 Exception[] exceptionList = new Exception[1];
@@ -260,19 +261,16 @@ public class SurveyAjax extends HttpServlet {
                                 if(val!=null && !foundVhash) {
                                     uf = sm.getUserFile(mySession, locale);
                                     CLDRFile file = uf.cldrfile;
-                                    cc.setCldrFileToCheck(file, SurveyMain.basicOptionsMap(), result);
-                                    cc.check(xp, file.getFullXPath(xp), val, options, result);
+                                    cc.check(xp,result, val);
                                     dataEmpty = file.isEmpty();
                                 }
                             
                                 r.put(SurveyMain.QUERY_FIELDHASH, fieldHash);
         
                                 if(exceptionList[0]!=null) {
-                                    for(Exception e : exceptionList) {
-                                        result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
-                                                .setMessage("Input Processor Exception")
-                                                .setParameters(exceptionList));
-                                    }
+                                    result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
+                                            .setMessage("Input Processor Exception")
+                                            .setParameters(exceptionList));
                                 }
                                 
                                 r.put("testResults", JSONWriter.wrap(result));
@@ -384,6 +382,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("visitors", sm.getGuestsAndUsers()+memBuf.toString());
         r.put("uptime", sm.uptime.toString());
         r.put("progress", sm.getTopBox(false));
+        r.put("surveyRunningStamp", SurveyMain.surveyRunningStamp.current());
     }
 
     private JSONWriter newJSONStatus(SurveyMain sm) {

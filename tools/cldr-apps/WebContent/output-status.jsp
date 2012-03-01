@@ -45,7 +45,7 @@ boolean flip=false;
 				%></table><table class='sqlbox' style='float: right; font-size: 140%;'>
 				<%
 			}
-			Timestamp locTime = sm.outputFileManager.getLocaleTime(conn, loc);
+	         STFactory.unimp(); Timestamp locTime=null;// = sm.outputFileManager.getLocaleTime(conn, loc);
 			%>
 			<tr>
 			<th>
@@ -55,7 +55,7 @@ boolean flip=false;
 			<%
 			    int j=0;
 							for(OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
-							boolean nu = sm.outputFileManager.fileNeedsUpdate(locTime,loc,kind.name());
+							boolean nu=false; STFactory.unimp(); // = sm.outputFileManager.fileNeedsUpdate(locTime,loc,kind.name());
 							if(nu) totals[j]++;
 							j++;
 			%>

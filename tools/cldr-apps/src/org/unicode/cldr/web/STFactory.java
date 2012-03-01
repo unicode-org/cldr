@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +23,13 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.test.SimpleTestCache;
+import org.unicode.cldr.test.TestCache;
+import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -33,13 +38,14 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.UserRegistry.User;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 /**
  * @author srl
  *
  */
-public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User> {
+public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, SublocaleProvider {
     public class DataBackedSource extends DelegateXMLSource {
         PerLocaleData ballotBox;
         XMLSource aliasOf; // original XMLSource
@@ -281,9 +287,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
                     while(rs.next()) {
                         int xp = rs.getInt(1);
+                        String xpath = sm.xpt.getById(xp);
                         int submitter = rs.getInt(2);
                         String value = DBUtils.getStringUTF8(rs, 3);
-                        internalSetVoteForValue(sm.reg.getInfo(submitter), sm.xpt.getById(xp), value, resolver, dataBackedSource);
+                        internalSetVoteForValue(sm.reg.getInfo(submitter), xpath, value, resolver, dataBackedSource);
+                        gTestCache.notifyChange(locale, xpath);
                         n++;
                     }
 
@@ -374,7 +382,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             final Status lastStatus = draft==null?Status.approved:
                 VoteResolver.Status.fromString(draft);
 
-            System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus + " ('"+lastValue+"')");
+            if(false) System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus + " ('"+lastValue+"')");
 
             r.setLastRelease(lastValue, lastValue==null?Status.missing:lastStatus);
             String currentValue = diskData.getValueAtDPath(path);
@@ -559,6 +567,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 getXpathToVotes(distinguishingXpath).remove(user); 
                 allVoters.add(user);
             }
+            gTestCache.notifyChange(locale, distinguishingXpath);
             stamp.next();
             return resolver=source.setValueFromResolver(distinguishingXpath, resolver);
         }
@@ -568,8 +577,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             Map<User, String> x = getXpathToVotes(somePath);
             if(x==null) return false;
             if(x.containsKey(myUser)) return true;
-            if(allVoters.contains(myUser)) return true; // voted for null
+            //if(allVoters.contains(myUser)) return true; // voted for null
             return false;
+        }
+
+        public TestResultBundle getTestResultData(Map<String,String> options) {
+            return gTestCache.getBundle(locale, options);
         }
     }
 
@@ -733,7 +746,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /**
      * Throw an error. 
      */
-    static void unimp() {
+    static public void unimp() {
         throw new InternalError("NOT YET IMPLEMENTED - TODO!.");
     }
 
@@ -743,6 +756,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * Per locale map
      */
     private Map<CLDRLocale,PerLocaleData> locales = new HashMap<CLDRLocale,PerLocaleData>();
+    
+    /**
+     * Test cache
+     */
+    TestCache gTestCache = new SimpleTestCache();
 
     /**
      * The infamous back-pointer.
@@ -764,6 +782,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         super();
         this.sm = sm;
         setSupplementalDirectory(sm.getDiskFactory().getSupplementalDirectory());
+        
+        gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
     }
 
     @Override
@@ -794,18 +814,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     @SuppressWarnings("unchecked")
-    public CheckCLDR getCheck(CLDRLocale loc) {
-        SurveyLog.logger.warning("TODO:  STFactory.getCheck()  - slow and bad.");
-        CheckCLDR cc = sm.createCheck();
-        cc.setCldrFileToCheck(handleMake(loc.getBaseName(),true,getMinimalDraftStatus()), SurveyMain.basicOptionsMap(), new ArrayList<CheckStatus>());
-        return cc;
+    public TestCache.TestResultBundle getTestResult(CLDRLocale loc, Map<String,String> options) {
+        return get(loc).getTestResultData(options);
     }
-
-    @SuppressWarnings("rawtypes")
-    public List getCheckResult(CLDRLocale loc) {
-        // TODO Auto-generated method stub
-        return null;
-    };
 
     public ExampleGenerator getExampleGenerator() {
         CLDRFile fileForGenerator = sm.getBaselineFile();
@@ -846,6 +857,34 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     protected Set<String> handleGetAvailable() {
         return sm.getDiskFactory().getAvailable();
     }
+    
+    private Map<CLDRLocale,Set<CLDRLocale>> subLocaleMap = new HashMap<CLDRLocale,Set<CLDRLocale>>();
+    Set<CLDRLocale> allLocales = null;
+    private Set<CLDRLocale> getAvailableCLDRLocales() {
+        if(allLocales==null) {
+            allLocales =  CLDRLocale.getInstance(getAvailable());
+        }
+        return allLocales;
+    }
+    public Set<CLDRLocale> subLocalesOf(CLDRLocale forLocale) {
+        Set<CLDRLocale> result = subLocaleMap.get(forLocale);
+        if(result==null) {
+            result = calculateSubLocalesOf(forLocale, getAvailableCLDRLocales());
+            subLocaleMap.put(forLocale, result);
+        }
+        return result;
+    }
+
+    private Set<CLDRLocale> calculateSubLocalesOf(CLDRLocale locale, Set<CLDRLocale> available) {
+        Set<CLDRLocale> sub = new TreeSet<CLDRLocale>();
+        for(CLDRLocale l : available) {
+            if(l.getParent() == locale) {
+                sub.add(l);
+            }
+        }
+        return sub;
+    }
+
 
     /* (non-Javadoc)
      * @see org.unicode.cldr.util.Factory#handleMake(java.lang.String, boolean, org.unicode.cldr.util.CLDRFile.DraftStatus)

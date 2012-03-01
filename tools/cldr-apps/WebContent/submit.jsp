@@ -61,8 +61,8 @@ final CLDRLocale loc = CLDRLocale.getInstance(cf.getLocaleID());
 <h3>Locale: <%= loc + " - " + loc.getDisplayName(SurveyMain.BASELINE_LOCALE)  %></h3>
 <%
 //cs.stuff.put("SubmitLocale",cf);
-	CLDRFile baseFile = cs.sm.getDBSourceFactory().make(loc.getBaseName(),false);
-    XMLSource stSource = cs.sm.getDBSourceFactory().getInstance(loc);
+	CLDRFile baseFile = cs.sm.getSTFactory().make(loc.getBaseName(),false);
+    XMLSource stSource = cs.sm.getSTFactory().makeSource(loc.getBaseName());
 
 Set<String> all = new TreeSet<String>();
 for(String x : cf) {
@@ -135,7 +135,9 @@ for(String x : all) {
       //updUsers.add(ui);
       //String base_xpath = xpt.xpathToBaseXpath(x);
       int vet_type[] = new int[1];
-      int j = cs.sm.vet.queryVote(loc, u.id, base_xpath_id, vet_type);
+      STFactory.unimp();
+
+      int j = -1; //cs.sm.vet.queryVote(loc, u.id, base_xpath_id, vet_type);
       //int dpathId = xpt.getByXpath(xpathStr);
       // now, find the ID to vote for.
       Set<String> resultPaths = new HashSet<String>();
@@ -185,7 +187,8 @@ for(String x : all) {
     		resultIcon = "squo";
     		result = "<i>(Current Vote)</i>";
     	} else if(doFinal) {
-            cs.sm.vet.vote(loc, base_xpath_id, u.id, theVoteId, Vetting.VET_EXPLICIT);
+    	    STFactory.unimp();
+            //cs.sm.vet.vote(loc, base_xpath_id, u.id, theVoteId, Vetting.VET_EXPLICIT);
             updCnt++;
     	}
     }

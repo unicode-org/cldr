@@ -22,7 +22,7 @@
     String xp = mySession.sm.xpt.getById(id);
     ctx.session = mySession;
     ctx.sm = ctx.session.sm;
-    ctx.setBase(ctx.sm.surveyBase);
+    ctx.setServletPath(ctx.sm.defaultServletPath);
     CLDRLocale locale = CLDRLocale.getInstance(loc);
     ctx.setLocale(locale);
     
@@ -41,12 +41,10 @@
         int oldSize  = section.getAll().size();
         DataSection.DataRow row = section.getDataRow(xp);
         if (row != null) {
-            org.unicode.cldr.test.CheckCLDR cc = ctx.sm.createCheckWithoutCollisions();
-            
             if(voteinfo!=null&&voteinfo.length()>0) {
                 row.showVotingResults(ctx);
             } else {
-	            row.showDataRow(ctx, ctx.getUserFile(), true, cc, zoomedIn,
+	            row.showDataRow(ctx, ctx.getUserFile(), true, null, zoomedIn,
 	                    DataSection.kAjaxRows);
             }
             ctx.flush();

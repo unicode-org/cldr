@@ -60,9 +60,9 @@ public class SimpleTestCache extends TestCache {
         TestResultBundle b = r.get(k);
         System.err.println("Bundle " + b + " for " + k);
         if(b==null) {
-            ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
+            //ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
             b = new TestResultBundle(locale, options);
-            System.err.println(et.toString());
+            //System.err.println(et.toString());
             r.put(k, b);
         }
         return b;

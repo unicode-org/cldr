@@ -2,8 +2,11 @@
 
 package org.unicode.cldr.util;
 
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.tool.GenerateEnums.LengthFirstComparator;
 import org.unicode.cldr.util.CLDRLocale.NameFormatter;
@@ -464,5 +467,21 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return displayLocale.getDisplayVariant(this);
     }
 
+    /**
+     * Construct an instance from an array
+     * @param available
+     * @return
+     */
+    public static Set<CLDRLocale> getInstance(Iterable<String> available)  {
+        Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
+        for(String str : available) {
+            s.add(CLDRLocale.getInstance(str));
+        }
+        return s;
+    }
+
+    public interface SublocaleProvider {
+        public Set<CLDRLocale> subLocalesOf(CLDRLocale forLocale);
+    }
  }
 

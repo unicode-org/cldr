@@ -201,10 +201,10 @@ public class StandardCodes {
                 }
             } else if (type.equals("language")) {
                 SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
-                return sd.getValidLanguageCodes();
+                return sd.getCLDRLanguageCodes();
             } else if (type.equals("script")) {
                 SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
-                return sd.getValidScriptCodes();
+                return sd.getCLDRScriptCodes();
             } else if (!type.equals("tzid")) {
                 for (Iterator it = result.iterator(); it.hasNext();) {
                     String code = (String) it.next();

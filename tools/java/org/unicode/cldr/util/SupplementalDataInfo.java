@@ -1388,11 +1388,11 @@ public class SupplementalDataInfo {
                     validityInfo.put(attributes.get("id"), Row.of(attributes.get("type"), value));
                     if ("$language".equals(attributes.get("id")) && "choice".equals(attributes.get("type"))) {
                         String [] validCodeArray = value.trim().split("\\s+");
-                        validLanguageCodes = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
+                        CLDRLanguageCodes = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
                     }
                     if ("$script".equals(attributes.get("id")) && "choice".equals(attributes.get("type"))) {
                         String [] validCodeArray = value.trim().split("\\s+");
-                        validScriptCodes = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
+                        CLDRScriptCodes = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
                     }
                     return true;
                 }
@@ -1677,8 +1677,8 @@ public class SupplementalDataInfo {
     private Map<String, CoverageVariableInfo> coverageVariables = new TreeMap();    
     private Map<String,String> numberingSystems = new HashMap<String,String>();
     private Set<String> defaultContentLocales;
-    private Set<String> validLanguageCodes;
-    private Set<String> validScriptCodes;
+    private Set<String> CLDRLanguageCodes;
+    private Set<String> CLDRScriptCodes;
     
     /**
      * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
@@ -2652,19 +2652,19 @@ public class SupplementalDataInfo {
         return validityInfo;
     }
 
-    public Set<String> getValidLanguageCodes() {
-        return validLanguageCodes;
+    public Set<String> getCLDRLanguageCodes() {
+        return CLDRLanguageCodes;
     }
     
-    public boolean isValidLanguageCode(String code) {
-        return validLanguageCodes.contains(code);
+    public boolean isCLDRLanguageCode(String code) {
+        return CLDRLanguageCodes.contains(code);
     }
-    public Set<String> getValidScriptCodes() {
-        return validScriptCodes;
+    public Set<String> getCLDRScriptCodes() {
+        return CLDRScriptCodes;
     }
     
-    public boolean isValidScriptCode(String code) {
-        return validScriptCodes.contains(code);
+    public boolean isCLDRScriptCode(String code) {
+        return CLDRScriptCodes.contains(code);
     }
 }
 

@@ -9,6 +9,7 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +29,7 @@ import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -197,6 +199,12 @@ public class StandardCodes {
                         it.remove();
                     }
                 }
+            } else if (type.equals("language")) {
+                SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
+                return sd.getValidLanguageCodes();
+            } else if (type.equals("script")) {
+                SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
+                return sd.getValidScriptCodes();
             } else if (!type.equals("tzid")) {
                 for (Iterator it = result.iterator(); it.hasNext();) {
                     String code = (String) it.next();

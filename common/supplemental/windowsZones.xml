@@ -6,7 +6,7 @@
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="07dc0000" typeVersion="2011n">
+		<mapTimezones otherVersion="07dc0000" typeVersion="2012a">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -23,7 +23,6 @@
 			<mapZone other="Hawaiian Standard Time" territory="001" type="Pacific/Honolulu"/>
 			<mapZone other="Hawaiian Standard Time" territory="CK" type="Pacific/Rarotonga"/>
 			<mapZone other="Hawaiian Standard Time" territory="PF" type="Pacific/Tahiti"/>
-			<mapZone other="Hawaiian Standard Time" territory="TK" type="Pacific/Fakaofo"/>
 			<mapZone other="Hawaiian Standard Time" territory="UM" type="Pacific/Johnston"/>
 			<mapZone other="Hawaiian Standard Time" territory="US" type="Pacific/Honolulu"/>
 			<mapZone other="Hawaiian Standard Time" territory="ZZ" type="Etc/GMT+10"/>
@@ -45,7 +44,7 @@
 
 			<!-- (UTC-07:00) Arizona -->
 			<mapZone other="US Mountain Standard Time" territory="001" type="America/Phoenix"/>
-			<mapZone other="US Mountain Standard Time" territory="CA" type="America/Dawson_Creek"/>
+			<mapZone other="US Mountain Standard Time" territory="CA" type="America/Dawson_Creek America/Creston"/>
 			<mapZone other="US Mountain Standard Time" territory="MX" type="America/Hermosillo"/>
 			<mapZone other="US Mountain Standard Time" territory="US" type="America/Phoenix"/>
 			<mapZone other="US Mountain Standard Time" territory="ZZ" type="Etc/GMT+7"/>
@@ -180,6 +179,7 @@
 			<mapZone other="SA Eastern Standard Time" territory="001" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="AQ" type="Antarctica/Rothera"/>
 			<mapZone other="SA Eastern Standard Time" territory="BR" type="America/Fortaleza America/Araguaina America/Belem America/Maceio America/Recife America/Santarem"/>
+			<mapZone other="SA Eastern Standard Time" territory="FK" type="Atlantic/Stanley"/>
 			<mapZone other="SA Eastern Standard Time" territory="GF" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="SR" type="America/Paramaribo"/>
 			<mapZone other="SA Eastern Standard Time" territory="ZZ" type="Etc/GMT+3"/>

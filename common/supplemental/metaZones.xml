@@ -331,6 +331,9 @@
 			<timezone type="America/Costa_Rica">
 				<usesMetazone mzone="America_Central"/>
 			</timezone>
+			<timezone type="America/Creston">
+				<usesMetazone mzone="America_Mountain"/>
+			</timezone>
 			<timezone type="America/Cuiaba">
 				<usesMetazone mzone="Amazon"/>
 			</timezone>
@@ -739,7 +742,9 @@
 			<timezone type="Antarctica/Casey">
 				<usesMetazone to="2009-10-17 18:00" mzone="Australia_Western"/>
 				<usesMetazone to="2010-03-04 15:00" from="2009-10-17 18:00" mzone="Casey"/>
-				<usesMetazone from="2010-03-04 15:00" mzone="Australia_Western"/>
+				<usesMetazone to="2011-10-27 18:00" from="2010-03-04 15:00" mzone="Australia_Western"/>
+				<usesMetazone to="2012-02-21 17:00" from="2011-10-27 18:00" mzone="Casey"/>
+				<usesMetazone from="2012-02-21 17:00" mzone="Australia_Western"/>
 			</timezone>
 			<timezone type="Antarctica/Davis">
 				<usesMetazone mzone="Davis"/>

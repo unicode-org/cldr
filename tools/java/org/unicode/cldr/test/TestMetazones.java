@@ -45,8 +45,7 @@ public class TestMetazones {
   /**
    * Set if we are suppressing daylight differences in the test.
    */
-  final static SupplementalDataInfo supplementalData = SupplementalDataInfo
-      .getInstance("C:/cvsdata/unicode/cldr/common/supplemental/");
+  final static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance();
 
   // WARNING: right now, the only metazone rules are in root, so that's all we're testing.
   // if there were rules in other files, we'd have to check them to, by changing this line.

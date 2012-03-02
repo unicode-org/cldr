@@ -7,6 +7,7 @@
 
 package org.unicode.cldr.util;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,8 +44,11 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     private String localeID;
     private boolean nonInheriting;
     private TreeMap<String, String> aliases;
+    private LinkedHashMap<String, List<String>> reverseAliases;
     protected boolean locked;
     transient String[] fixedPath = new String[1];
+    // Listeners are stored using weak references so that they can be garbage collected.
+    private List<WeakReference<Listener>> listeners = new ArrayList<WeakReference<Listener>>();
 
     public String getLocaleID() {
         return localeID;
@@ -138,6 +142,17 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
 
     public static Map getPathsAllowingDuplicates() {
         return allowDuplicates;
+    }
+
+    /**
+     * A listener for XML source data.
+     */
+    public static interface Listener {
+        /**
+         * Called whenever the source being listened to has a data change.
+         * @param xpath The xpath that had its value changed.
+         */
+        public void valueChanged(String xpath);
     }
 
     /**
@@ -391,6 +406,28 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     }
 
     /**
+     * @return a reverse mapping of aliases
+     */
+    private LinkedHashMap<String, List<String>> getReverseAliases() {
+        if (reverseAliases != null) return reverseAliases;
+        // Aliases are only ever found in root.
+        Map<String, String> aliases = getAliases();
+        Map<String, List<String>> reverse = new HashMap<String, List<String>>();
+        for (Map.Entry<String, String> entry : aliases.entrySet()) {
+            List<String> list = reverse.get(entry.getValue());
+            if (list == null) {
+                list = new ArrayList<String>();
+                reverse.put(entry.getValue(), list);
+            }
+            list.add(entry.getKey());
+        }
+
+        // Sort map.
+        reverseAliases = new LinkedHashMap(new TreeMap(reverse));
+        return reverseAliases;
+    }
+
+    /**
      * Clear any internal caches.
      */
     private void clearCache() {
@@ -593,7 +630,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
      * @author davis
      *
      */
-    protected static class ResolvingSource extends XMLSource {
+    protected static class ResolvingSource extends XMLSource implements Listener {
         private XMLSource currentSource;
         private LinkedHashMap<String, XMLSource> sources;
 
@@ -623,17 +660,14 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                     + CldrUtility.LINE_SEPARATOR + "\t*source: " + currentSource.getClass().getName()
                     + CldrUtility.LINE_SEPARATOR + "\t*locale: " + currentSource.getLocaleID()
             );
-            String result = currentSource.getValueAtDPath(xpath);
-
-            if (result == null) {
-                AliasLocation fullStatus = getCachedFullStatus(xpath);
-                if (fullStatus != null) {
-                    if (TRACE_VALUE) {
-                        System.out.println("\t*pathWhereFound: " + fullStatus.pathWhereFound);
-                        System.out.println("\t*localeWhereFound: " + fullStatus.localeWhereFound);
-                    }
-                    result = getSource(fullStatus).getValueAtDPath(fullStatus.pathWhereFound);
+            String result = null;
+            AliasLocation fullStatus = getCachedFullStatus(xpath);
+            if (fullStatus != null) {
+                if (TRACE_VALUE) {
+                    System.out.println("\t*pathWhereFound: " + fullStatus.pathWhereFound);
+                    System.out.println("\t*localeWhereFound: " + fullStatus.localeWhereFound);
                 }
+                result = getSource(fullStatus).getValueAtDPath(fullStatus.pathWhereFound);
             }
             if (TRACE_VALUE) System.out.println("\t*value: " + result);
             return result;
@@ -863,9 +897,6 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
          */
         private Set<String> fillKeys() {
             Set<String> paths = findNonAliasedPaths();
-            // Create a sorted map of reverse aliases.
-            LinkedHashMap<String, List<String>> reverseAliases = getReverseAliases();
-
             // Find aliased paths and loop until no more aliases can be found.
             Set<String> newPaths = paths;
             int level = 0;
@@ -882,7 +913,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                 newPaths.toArray(sortedPaths);
                 Arrays.sort(sortedPaths);
 
-                newPaths = getDirectAliases(sortedPaths, reverseAliases);
+                newPaths = getDirectAliases(sortedPaths);
                 newPathsFound = paths.addAll(newPaths);
                 level++;
             } while (newPathsFound);
@@ -911,26 +942,6 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             }
             return paths;
         }
-
-        /**
-         * @return a reverse mapping of aliases
-         */
-        private LinkedHashMap<String, List<String>> getReverseAliases() {
-            // Aliases are only ever found in root.
-            Map<String, String> aliases = sources.get("root").getAliases();
-            Map<String, List<String>> reverseAliases = new HashMap<String, List<String>>();
-            for (Map.Entry<String, String> entry : aliases.entrySet()) {
-                List<String> list = reverseAliases.get(entry.getValue());
-                if (list == null) {
-                    list = new ArrayList<String>();
-                    reverseAliases.put(entry.getValue(), list);
-                }
-                list.add(entry.getKey());
-            }
-
-            // Sort map.
-            return new LinkedHashMap(new TreeMap(reverseAliases));
-        }
         
         /**
          * Takes in a list of xpaths and returns a new set of paths that alias
@@ -939,12 +950,12 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
          * @param reverseAliases a map of reverse aliases sorted by key.
          * @return
          */
-        private Set<String> getDirectAliases(String[] paths,
-                LinkedHashMap<String, List<String>> reverseAliases) {
+        private Set<String> getDirectAliases(String[] paths) {
             HashSet<String> newPaths = new HashSet<String>();
             // Keep track of the current path index: since it's sorted, we
             // never have to backtrack.
             int pathIndex = 0;
+            LinkedHashMap<String, List<String>> reverseAliases = sources.get("root").getReverseAliases();
             for (String subpath : reverseAliases.keySet()) {
                 // Find the first path that matches the current alias.
                 while(pathIndex < paths.length &&
@@ -971,13 +982,9 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         }
 
         private transient Set<String> cachedKeySet = null;
+
         /**
-         * This function is kinda tricky. What it does it come up with the set of all the paths that
-         * would return a value, fully resolved. This wouldn't be a problem but for aliases.
-         * Whenever there is an alias oldpath = p relativePath = x source=y
-         * Then you have to *not* add any of the oldpath... from the normal inheritance heirarchy
-         * Instead from source, you see everything that matches oldpath+relativePath + z, and for each one
-         * add oldpath+z
+         * @return an iterator over all the xpaths in this XMLSource.
          */
         public Iterator<String> iterator() {
             return getCachedKeySet().iterator();
@@ -1011,6 +1018,22 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             return this; // No-op. ResolvingSource is already read-only. 
         }
 
+        @Override
+        public void valueChanged(String xpath) {
+            AliasLocation location = getSourceLocaleIDCache.remove(xpath);
+            if (location == null) return;
+            // Paths aliasing to this path (directly or indirectly) may be affected,
+            // so clear them as well.
+            // There's probably a more elegant way to fix the paths than simply
+            // throwing everything out.
+            Set<String> dependentPaths = getDirectAliases(new String[]{xpath});
+            if (dependentPaths.size() > 0) {
+                for (String path : dependentPaths) {
+                    getSourceLocaleIDCache.remove(path);
+                }
+            }
+        }
+
         /**
          * Creates a new ResolvingSource with the given locale resolution chain.
          * @param sourceList the list of XMLSources to look in during resolution,
@@ -1025,6 +1048,12 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             sources = new LinkedHashMap<String, XMLSource>();
             for (XMLSource source : sourceList) {
                 sources.put(source.getLocaleID(), source);
+            }
+
+            // Add listeners to all locales except root, since we don't expect
+            // root to change programatically.
+            for (int i = 0, limit=sourceList.size() - 1; i < limit; i++) {
+                sourceList.get(i).addListener(this);
             }
         }
         public String getLocaleID() {
@@ -1238,6 +1267,32 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             }
         }
         return path;
+    }
+
+    /**
+     * Adds a listener to this XML source.
+     */
+    protected void addListener(Listener listener) {
+        listeners.add(new WeakReference<Listener>(listener));
+    }
+
+    /**
+     * Notifies all listeners that a change has occurred. This method should be
+     * called by the XMLSource being updated after any change
+     * (usually in putValueAtDPath() and removeValueAtDPath()).
+     * @param xpath the xpath where the change occurred.
+     */
+    protected void notifyListeners(String xpath) {
+        int i = 0;
+        while (i < listeners.size()) {
+           Listener listener = listeners.get(i).get();
+           if (listener == null) { // listener has been garbage-collected.
+               listeners.remove(i);
+           } else {
+               listener.valueChanged(xpath);
+               i++;
+           }
+        }
     }
 
     /**

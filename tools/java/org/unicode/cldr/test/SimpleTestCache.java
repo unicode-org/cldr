@@ -11,6 +11,7 @@ import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.LruMap;
+import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 
@@ -39,9 +40,14 @@ public class SimpleTestCache extends TestCache {
      * @see org.unicode.cldr.test.TestCache#notifyChange(org.unicode.cldr.util.CLDRLocale, java.lang.String)
      */
     @Override
-    public void notifyChange(CLDRLocale locale, String xpath) {
+    public void valueChanged(String xpath, XMLSource source) {
+        CLDRLocale locale = CLDRLocale.getInstance(source.getLocaleID());
+        valueChanged(xpath,locale);
+    }
+    
+    private void valueChanged(String xpath, CLDRLocale locale) {
         for(CLDRLocale sub : ((SublocaleProvider)getFactory()).subLocalesOf(locale)) {
-            notifyChange(sub,xpath);
+            valueChanged(xpath,sub);
         }
         map.remove(locale); // remove all
     }
@@ -67,5 +73,4 @@ public class SimpleTestCache extends TestCache {
         }
         return b;
     }
-
 }

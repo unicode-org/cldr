@@ -36,6 +36,7 @@ import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.STFactory.DataBackedSource;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
@@ -115,6 +116,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 delegate.removeValueAtDPath(path);
             }
+            notifyListeners(path);
             return resolver;
         }
 
@@ -254,6 +256,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private Map<String, Map<User,String>> xpathToVotes = new HashMap<String,Map<User,String>>();
         private Set <User> allVoters = new TreeSet<User>();
         private boolean oldFileMissing;
+        private XMLSource resolvedXmlsource = null;
 
 
         PerLocaleData(CLDRLocale locale) {
@@ -291,7 +294,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         int submitter = rs.getInt(2);
                         String value = DBUtils.getStringUTF8(rs, 3);
                         internalSetVoteForValue(sm.reg.getInfo(submitter), xpath, value, resolver, dataBackedSource);
-                        gTestCache.notifyChange(locale, xpath);
                         n++;
                     }
 
@@ -305,6 +307,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 SurveyLog.debug(et + " - read " + n + " items.");
             }
             stamp.next();
+            dataBackedSource.addListener(gTestCache);
             return dataBackedSource;
         }
 
@@ -339,7 +342,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 if(file == null) {
                     if(getSupplementalDirectory()==null) throw new InternalError("getSupplementalDirectory() == null!");
-                    file = new CLDRFile(makeSource()).setSupplementalDirectory(getSupplementalDirectory());
+                    file = new CLDRFile(makeSource(false)).setSupplementalDirectory(getSupplementalDirectory());
                 }
                 return file;
             }
@@ -463,23 +466,21 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return m;
         }
 
-        public final synchronized XMLSource makeSource() {
-            if(readonly) {
-                return diskData;
-            } else {
-                if(xmlsource == null) {
-                    xmlsource = loadVoteValues(new DataBackedSource(this));
-                }
-                return xmlsource;
-            }
-        }
-
-        public XMLSource makeSource(boolean resolved) {
+        public synchronized XMLSource makeSource(boolean resolved) {
             if(resolved==true) {
-                //SurveyLog.logger.warning("@@@@ STFactory " + locale + " requested resolved. Stack:\n" + StackTracker.currentStack());
-                return makeResolvingSource(locale.getBaseName(), getMinimalDraftStatus());
+            	if(resolvedXmlsource==null) {
+                 resolvedXmlsource = makeResolvingSource(locale.getBaseName(), getMinimalDraftStatus());
+            	}
+            	return resolvedXmlsource ;
             } else {
-                return makeSource();
+                if(readonly) {
+				    return diskData;
+				} else {
+				    if(xmlsource == null) {
+				        xmlsource = loadVoteValues(new DataBackedSource(this));
+				    }
+				    return xmlsource;
+				}
             }
         }
 
@@ -499,7 +500,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             SurveyLog.debug("V4v: "+locale+" "+distinguishingXpath + " : " + user + " voting for '" + value + "'");
 
             if(!readonly) {
-                makeSource();
+                makeSource(false);
                 ElapsedTimer et = !SurveyLog.DEBUG?null:new ElapsedTimer("Recording PLD for " + locale+" "+distinguishingXpath + " : " + user + " voting for '" + value);
                 Connection conn = null;
                 PreparedStatement ps = null;
@@ -567,12 +568,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 getXpathToVotes(distinguishingXpath).remove(user); 
                 allVoters.add(user);
             }
-            gTestCache.notifyChange(locale, distinguishingXpath);
             stamp.next();
             return resolver=source.setValueFromResolver(distinguishingXpath, resolver);
         }
 
-        @Override
+		@Override
         public boolean userDidVote(User myUser, String somePath) {
             Map<User, String> x = getXpathToVotes(somePath);
             if(x==null) return false;

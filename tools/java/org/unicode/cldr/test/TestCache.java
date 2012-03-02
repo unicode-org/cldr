@@ -8,8 +8,16 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.XMLSource;
 
-public abstract class TestCache {
+/**
+ * Caches tests
+ * Call XMLSource.addListener()  on the instance to notify it of changes to the XMLSource.
+ * 
+ * @author srl
+ * @see XMLSource#addListener(org.unicode.cldr.util.XMLSource.Listener)
+ */
+public abstract class TestCache implements XMLSource.Listener {
     public class TestResultBundle {
         protected List<CheckStatus> possibleProblems = new ArrayList<CheckStatus>();
         CLDRFile file;
@@ -55,18 +63,12 @@ public abstract class TestCache {
         this.nameMatcher =nameMatcher;
         this.displayInformation = displayInformation;
     }
-    
-    /**
-     * Something changed at this xpath.
-     */
-    public abstract void notifyChange(CLDRLocale locale, String xpath);
-    
+        
     /**
      * Get the bundle for this test
      * @param locale
      */
     public abstract TestResultBundle getBundle(CLDRLocale locale, Map<String, String> options);
-    
     
     /**
      * Create a check using the options

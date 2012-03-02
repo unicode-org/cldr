@@ -151,8 +151,9 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         /**
          * Called whenever the source being listened to has a data change.
          * @param xpath The xpath that had its value changed.
+         * @param source back-pointer to the source that changed
          */
-        public void valueChanged(String xpath);
+        public void valueChanged(String xpath, XMLSource source);
     }
 
     /**
@@ -1019,7 +1020,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         }
 
         @Override
-        public void valueChanged(String xpath) {
+        public void valueChanged(String xpath, XMLSource nonResolvingSource /*ignored*/) {
             AliasLocation location = getSourceLocaleIDCache.remove(xpath);
             if (location == null) return;
             // Paths aliasing to this path (directly or indirectly) may be affected,
@@ -1272,7 +1273,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     /**
      * Adds a listener to this XML source.
      */
-    protected void addListener(Listener listener) {
+    public void addListener(Listener listener) {
         listeners.add(new WeakReference<Listener>(listener));
     }
 
@@ -1280,6 +1281,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
      * Notifies all listeners that a change has occurred. This method should be
      * called by the XMLSource being updated after any change
      * (usually in putValueAtDPath() and removeValueAtDPath()).
+     * This should only be called by XMLSource / CLDRFile
      * @param xpath the xpath where the change occurred.
      */
     protected void notifyListeners(String xpath) {
@@ -1289,7 +1291,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
            if (listener == null) { // listener has been garbage-collected.
                listeners.remove(i);
            } else {
-               listener.valueChanged(xpath);
+               listener.valueChanged(xpath, this);
                i++;
            }
         }

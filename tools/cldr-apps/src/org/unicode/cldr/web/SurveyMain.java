@@ -978,9 +978,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         printAdminMenu(ctx, "/AdminDump");
         ctx.println("<h1>SurveyTool Administration</h1>");
         ctx.println("<hr>");
-
-        ctx.includeFragment("adminpanel.jsp");
         
+        if(action!=null && isUnofficial && action.equals("new_and_login")) {
+        	ctx.println("<hr>");
+            UserRegistry.User u = reg.getEmptyUser();
+            String real = ctx.field("real");
+            u.name= real+"_"+ctx.field("new_name").trim();
+            u.email = real+"_"+ctx.field("new_email").trim();
+            u.locales = ctx.field("new_locales").trim();
+            u.org = ctx.field("new_org").trim();
+            u.password = ctx.field("new_password");
+            u.userlevel = ctx.fieldInt("new_userlevel",-1);
+            UserRegistry.User registeredUser = reg.newUser(ctx, u);
+            ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added.</i>");
+            registeredUser.printPasswordLink(ctx);
+        } else {
+        	ctx.includeFragment("adminpanel.jsp");
+        }
                 
         printFooter(ctx);
     }
@@ -1650,6 +1664,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             u.locales = new_locales;
             u.password = UserRegistry.makePassword(u.email+u.org+ctx.session.user.email);
             
+    		if (ctx.session.user.userlevel > UserRegistry.TC) {
+    			return;
+    		}
+    		SurveyLog.debug("UR: Attempt newuser by " + ctx.session.user.email
+    				+ ": of " + u.email + " @ " + ctx.userIP());
             UserRegistry.User registeredUser = reg.newUser(ctx, u);
             
             if(registeredUser == null) {

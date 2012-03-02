@@ -1095,11 +1095,6 @@ public class UserRegistry {
     }
 
 	public User newUser(WebContext ctx, User u) {
-		if (ctx.session.user.userlevel > TC) {
-			return null;
-		}
-		logger.info("UR: Attempt newuser by " + ctx.session.user.email
-				+ ": of " + u.email + " @ " + ctx.userIP());
 
 		// prepare quotes
 		u.email = u.email.replace('\'', '_').toLowerCase();

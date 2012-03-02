@@ -2763,28 +2763,28 @@
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic draft="contributed">Централно време</generic>
+					<generic>Централно време</generic>
 					<standard>Американска централна часова зона</standard>
 					<daylight>Американска централна лятна часова зона</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic draft="contributed">Източно време</generic>
+					<generic>Източно време</generic>
 					<standard>Американска източна часова зона</standard>
 					<daylight>Американска източна лятна часова зона</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic draft="contributed">Планинско време</generic>
+					<generic>Планинско време</generic>
 					<standard>Американска планинска часова зона</standard>
 					<daylight>Американска планинска лятна часова зона</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic draft="contributed">Тихоокеанско време</generic>
+					<generic>Тихоокеанско време</generic>
 					<standard>Тихоокеанска часова зона</standard>
 					<daylight>Тихоокеанска лятна часова зона</daylight>
 				</long>
@@ -2819,7 +2819,7 @@
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
-					<generic draft="contributed">Атлантическо време</generic>
+					<generic>Атлантическо време</generic>
 					<standard>Атлантическа часова зона</standard>
 					<daylight>Атлантическа лятна часова зона</daylight>
 				</long>
@@ -2861,7 +2861,9 @@
 			</metazone>
 			<metazone type="China">
 				<long>
+					<generic>Китайска часова зона</generic>
 					<standard>Китайска часова зона</standard>
+					<daylight>Китайска – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -2961,21 +2963,19 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<generic draft="contributed">Казахстан – източно време</generic>
-					<standard draft="contributed">Казахстан – източно стандартно време</standard>
-					<daylight draft="contributed">Казахстан – източно лятно часово време</daylight>
+					<standard draft="contributed">Казахстан – източно време</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<generic draft="contributed">Казахстан – западно време</generic>
-					<standard draft="contributed">Казахстан – западно стандартно време</standard>
-					<daylight draft="contributed">Казахстан – западно лятно часово време</daylight>
+					<standard draft="contributed">Казахстан – западно време</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
+					<generic draft="provisional">Корейска часова зона</generic>
 					<standard draft="provisional">Корейска часова зона</standard>
+					<daylight draft="provisional">Корейска – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
@@ -3006,8 +3006,8 @@
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Монголия</generic>
-					<standard draft="contributed">Улан Батор</standard>
+					<generic draft="contributed">Улан Батор</generic>
+					<standard draft="contributed">Улан Батор – стандартно време</standard>
 					<daylight draft="contributed">Улан Батор – лятно часово време</daylight>
 				</long>
 			</metazone>
@@ -3020,7 +3020,7 @@
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
-					<generic draft="contributed">Нюфаундленд</generic>
+					<generic>Нюфаундленд</generic>
 					<standard>Часова зона Нюфаундленд</standard>
 					<daylight>Лятна часова зона Нюфаундленд</daylight>
 				</long>

@@ -2628,21 +2628,21 @@
 			<metazone type="America_Eastern">
 				<long>
 					<generic>שעון החוף המזרחי</generic>
-					<standard draft="contributed">שעון רגיל של החוף המזרחי</standard>
+					<standard>שעון רגיל של החוף המזרחי</standard>
 					<daylight>שעון קיץ מזרח ארה״ב</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
 					<generic>שעון אזור ההרים בארה״ב (דנוור)</generic>
-					<standard draft="contributed">שעון רגיל אזור ההרים</standard>
+					<standard>שעון רגיל אזור ההרים</standard>
 					<daylight>שעון קיץ, אזור ההרים בארה״ב</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<generic>שעון מערב ארה״ב (לוס אנג׳לס)</generic>
-					<standard draft="contributed">שעון רגיל האוקיינוס השקט</standard>
+					<standard>שעון רגיל האוקיינוס השקט</standard>
 					<daylight>שעון קיץ, מערב ארה״ב (לוס אנג׳לס)</daylight>
 				</long>
 			</metazone>
@@ -2806,7 +2806,9 @@
 			</metazone>
 			<metazone type="Japan">
 				<long>
-					<standard draft="provisional">שעון יפן</standard>
+					<generic draft="provisional">שעון יפן</generic>
+					<standard draft="provisional">שעון רגיל יפן</standard>
+					<daylight draft="provisional">שעון קיץ יפן</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">

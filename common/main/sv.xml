@@ -2654,8 +2654,8 @@
 			<metazone type="Atlantic">
 				<long>
 					<generic draft="contributed">nordamerikansk atlanttid</generic>
-					<standard>Atlantic, normaltid</standard>
-					<daylight>Atlantic, sommartid</daylight>
+					<standard draft="contributed">Atlantic, normaltid</standard>
+					<daylight draft="contributed">Atlantic, sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -2710,8 +2710,8 @@
 			<metazone type="Bangladesh">
 				<long>
 					<generic>bangladeshisk tid</generic>
-					<standard draft="contributed">bangladeshisk normaltid</standard>
-					<daylight draft="contributed">bangladeshisk sommartid</daylight>
+					<standard>bangladeshisk normaltid</standard>
+					<daylight>bangladeshisk sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bering">
@@ -2733,14 +2733,14 @@
 			</metazone>
 			<metazone type="Borneo">
 				<long>
-					<generic>borneotid</generic>
+					<generic draft="contributed">borneotid</generic>
 					<standard draft="contributed">Borneonormaltid</standard>
 					<daylight draft="contributed">Borneosommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic>brasiliansk tid</generic>
+					<generic draft="contributed">brasiliansk tid</generic>
 					<standard draft="contributed">Brasilianormaltid</standard>
 					<daylight draft="contributed">Brasiliasommartid</daylight>
 				</long>
@@ -2777,8 +2777,8 @@
 			<metazone type="Chile">
 				<long>
 					<generic>chilensk tid</generic>
-					<standard draft="contributed">chilensk normaltid</standard>
-					<daylight draft="contributed">chilensk sommartid</daylight>
+					<standard>chilensk normaltid</standard>
+					<daylight>chilensk sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
@@ -2872,7 +2872,7 @@
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic draft="contributed">centraleuropeisk tid</generic>
+					<generic>centraleuropeisk tid</generic>
 					<standard>Centraleuropa, normaltid</standard>
 					<daylight>Centraleuropa, sommartid</daylight>
 				</long>
@@ -2884,7 +2884,7 @@
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic draft="contributed">östeuropeisk tid</generic>
+					<generic>östeuropeisk tid</generic>
 					<standard>Östeuropa, normaltid</standard>
 					<daylight>Östeuropa, sommartid</daylight>
 				</long>
@@ -3070,14 +3070,14 @@
 			</metazone>
 			<metazone type="Israel">
 				<long>
-					<generic draft="contributed">israelisk tid</generic>
+					<generic>israelisk tid</generic>
 					<standard>Israel, normaltid</standard>
 					<daylight>Israel, sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
-					<generic draft="contributed">japansk tid</generic>
+					<generic>japansk tid</generic>
 					<standard>Japan, normaltid</standard>
 					<daylight>Japan, sommartid</daylight>
 				</long>
@@ -3270,7 +3270,7 @@
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
-					<generic draft="contributed">Newfoundlandtid</generic>
+					<generic>Newfoundlandtid</generic>
 					<standard>Newfoundland, normaltid</standard>
 					<daylight>Newfoundland, sommartid</daylight>
 				</long>
@@ -3309,13 +3309,6 @@
 					<generic draft="contributed">Omsktid</generic>
 					<standard draft="contributed">Omsknormaltid</standard>
 					<daylight draft="contributed">Omsksommartid</daylight>
-				</long>
-			</metazone>
-			<metazone type="Oral">
-				<long>
-					<generic draft="contributed">Oraltid</generic>
-					<standard draft="contributed">Oralnormaltid</standard>
-					<daylight draft="contributed">Oralsommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pakistan">

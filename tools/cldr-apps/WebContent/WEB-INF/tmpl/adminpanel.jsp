@@ -1,16 +1,96 @@
 <%@ include file="/WEB-INF/jspf/stcontext.jspf" %><%-- setup 'ctx' --%><%
     if(!ctx.hasAdminPassword()) return;
 %>
+<%@ page import="java.lang.management.*" %>
 
 <h1>Statics</h1>
       <% ctx.staticInfo();  ctx.flush(); %>
 
-<%--
-        
+<h1>Threads</h1>
+
+       <% 
+WebContext actionCtx = ctx;
         ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
         
         long deadlockedThreads[] = threadBean.findDeadlockedThreads();
+            // detect deadlocks
+            if(deadlockedThreads != null) {
+                ctx.println("<h2>"+ctx.iconHtml("stop", "deadlocks")+" deadlocks</h2>");
 
+                ThreadInfo deadThreadInfo[] = threadBean.getThreadInfo(deadlockedThreads, true, true);
+                for(ThreadInfo deadThread : deadThreadInfo) {
+                    ctx.println("<b>Name: " + deadThread.getThreadName()+" / #"+deadThread.getThreadId()+"</b><br>");
+                    ctx.println("<pre>"+deadThread.toString()+"</pre>");
+                }
+            } else {
+                ctx.println("<i>no deadlocked threads</i>");
+            }
+
+            ctx.println("<hr>");
+            ctx.println("<h2>Threads</h2>");
+            Map<Thread, StackTraceElement[]> s = Thread.getAllStackTraces();
+            ctx.print("<ul id='threadList'>");
+            
+            Set<Thread> threadSet = new TreeSet<Thread>(new Comparator<Thread>() {
+                @Override
+                public int compare(Thread o1, Thread o2) {
+                    int rc = 0;
+                    rc = o1.getState().compareTo(o2.getState());
+                    if(rc==0) {
+                        rc = o1.getName().compareTo(o2.getName());
+                    }
+                    return rc;
+                }
+            });
+            threadSet.addAll(s.keySet());
+            
+            for(Thread t : threadSet) {
+                ctx.println("<li class='"+t.getState().toString()+"'><a href='#"+t.getId()+"'>"+t.getName()+"</a>  - "+t.getState().toString());
+                ctx.println("</li>");
+            }
+            ctx.println("</ul>");
+            
+            // show all threads
+            for(Thread t : threadSet) {
+            if(t == ctx.sm.startupThread) { 
+            ctx.println("<a name='currentTask'></a>");
+            }
+            ctx.println("<a name='"+t.getId()+"'><h3>"+t.getName()+"</h3></a> - "+t.getState().toString());
+                
+                if(t.getName().indexOf(" ST ")>0) {
+                    ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
+//                    actionCtx.printUrlAsHiddenFields();
+                    ctx.println("<input type=hidden name=killtid value='"+t.getId()+"'>");
+                    ctx.println("<input type=submit value='Kill Thread #"+t.getId()+"'></form>");
+                    
+/*
+                    if(ctx.fieldLong("killtid") == (t.getId())) {
+                        ctx.println(" <br>(interrupt and stop called..)<br>\n");
+                        try {
+                            t.interrupt();
+                            t.stop(new InternalError("Admin wants you to stop"));
+                        } catch(Throwable tt) {
+                            SurveyLog.logException(tt, ctx);
+                            ctx.println("[caught exception " + tt.toString()+"]<br>");
+                        }
+                    }
+*/
+                    
+                }
+                
+                
+                StackTraceElement[] elem = s.get(t);
+                ctx.print("<pre>");
+                for(StackTraceElement el : elem) {
+                    ctx.println(el.toString());
+                }
+                ctx.print("</pre>");
+            }
+
+
+%>
+
+<%--
         
         if(action.equals("")) {
             action = "sessions";
@@ -130,28 +210,28 @@
 
         if(isUnofficial) {
             ctx.println("<form style='float: right;' method='POST' action='"+actionCtx.url()+"'>");
-            actionCtx.printUrlAsHiddenFields();
+//            actionCtx.printUrlAsHiddenFields();
             ctx.println("<input type=submit value='Do Nothing For Ten Seconds' name='10s'></form>");
             
             ctx.println("<form style='float: right;' method='POST' action='"+actionCtx.url()+"'>");
-            actionCtx.printUrlAsHiddenFields();
+//            actionCtx.printUrlAsHiddenFields();
             ctx.println("<input type=submit value='Do Nothing For Ten Minutes' name='10m'></form>");
             
             ctx.println("<form style='float: right;' method='POST' action='"+actionCtx.url()+"'>");
-            actionCtx.printUrlAsHiddenFields();
+//            actionCtx.printUrlAsHiddenFields();
             ctx.println("<input type=submit value='Do Nothing Every Ten Seconds' name='p10s'></form>");
         }
 
 
-        String fullInfo = startupThread.toString();
+        String fullInfo = ctx.sm.startupThread.toString();
 
         ctx.println("<h1 title='"+fullInfo+"'>Tasks</h1>");
         
-        if(!startupThread.mainThreadRunning()) {        
+        if(!ctx.sm.startupThread.mainThreadRunning()) {        
         ctx.println("<i>Main thread is not running.</i><br>");
         }
 
-            SurveyThread.SurveyTask acurrent = startupThread.current;
+            SurveyThread.SurveyTask acurrent = ctx.sm.startupThread.current;
 
             if(acurrent!=null) {
         ctx.println("<hr>");
@@ -235,77 +315,6 @@
                 }
             }
             
-            ctx.println("<hr>");
-            ctx.println("<h2>Threads</h2>");
-            Map<Thread, StackTraceElement[]> s = Thread.getAllStackTraces();
-            ctx.print("<ul id='threadList'>");
-            
-            Set<Thread> threadSet = new TreeSet<Thread>(new Comparator<Thread>() {
-                @Override
-                public int compare(Thread o1, Thread o2) {
-                    int rc = 0;
-                    rc = o1.getState().compareTo(o2.getState());
-                    if(rc==0) {
-                        rc = o1.getName().compareTo(o2.getName());
-                    }
-                    return rc;
-                }
-            });
-            threadSet.addAll(s.keySet());
-            
-            for(Thread t : threadSet) {
-                ctx.println("<li class='"+t.getState().toString()+"'><a href='#"+t.getId()+"'>"+t.getName()+"</a>  - "+t.getState().toString());
-                ctx.println("</li>");
-            }
-            ctx.println("</ul>");
-            // detect deadlocks
-            if(deadlockedThreads != null) {
-                ctx.println("<h2>"+ctx.iconHtml("stop", "deadlocks")+" deadlocks</h2>");
-                
-                ThreadInfo deadThreadInfo[] = threadBean.getThreadInfo(deadlockedThreads, true, true);
-                for(ThreadInfo deadThread : deadThreadInfo) {
-                    ctx.println("<b>Name: " + deadThread.getThreadName()+" / #"+deadThread.getThreadId()+"</b><br>");
-                    ctx.println("<pre>"+deadThread.toString()+"</pre>");
-                }
-            } else {
-                ctx.println("<i>no deadlocked threads</i>");
-            }
-            
-            
-            // show all threads
-            for(Thread t : threadSet) {
-            if(t == startupThread) { 
-            ctx.println("<a name='currentTask'></a>");
-            }
-            ctx.println("<a name='"+t.getId()+"'><h3>"+t.getName()+"</h3></a> - "+t.getState().toString());
-                
-                if(t.getName().indexOf(" ST ")>0) {
-                    ctx.println("<form method='POST' action='"+actionCtx.url()+"'>");
-                    actionCtx.printUrlAsHiddenFields();
-                    ctx.println("<input type=hidden name=killtid value='"+t.getId()+"'>");
-                    ctx.println("<input type=submit value='Kill Thread #"+t.getId()+"'></form>");
-                    
-                    if(ctx.fieldLong("killtid") == (t.getId())) {
-                        ctx.println(" <br>(interrupt and stop called..)<br>\n");
-                        try {
-                            t.interrupt();
-                            t.stop(new InternalError("Admin wants you to stop"));
-                        } catch(Throwable tt) {
-                            SurveyLog.logException(tt, ctx);
-                            ctx.println("[caught exception " + tt.toString()+"]<br>");
-                        }
-                    }
-                    
-                }
-                
-                
-                StackTraceElement[] elem = s.get(t);
-                ctx.print("<pre>");
-                for(StackTraceElement el : elem) {
-                    ctx.println(el.toString());
-                }
-                ctx.print("</pre>");
-            }
             
         } else if(action.equals("sessions"))  {
             ctx.println("<h1>Current Sessions</h1>");

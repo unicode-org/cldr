@@ -5046,7 +5046,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
     public void showMetazones(WebContext ctx, String continent) {
-        STFactory.unimp();
         showPathList(ctx, "//ldml/dates/timeZoneNames/metazone"+DataSection.CONTINENT_DIVIDER+continent,null);
     }
 

@@ -8,8 +8,8 @@
 	if (ctx.session.user != null) {
 		ourVote = ballotBox.getVoteValue(ctx.session.user, xpath);
 	}
-	List<DataSection.DataRow.CandidateItem> currentItems = p.getCurrentItems();
-	List<DataSection.DataRow.CandidateItem> proposedItems = p.getProposedItems();
+	Collection<DataSection.DataRow.CandidateItem> items = p.getItems();
+	DataSection.DataRow.CandidateItem winningItem =  p.getCurrentItem();
 	String statusIcon = p.getStatusIcon(ctx);
 	String specialUrl = p.getSpecialURL(ctx);
 	String rclass =  p.getRowClass();
@@ -18,7 +18,7 @@
 
 	// Does the inheritedValue contain a test that we need to display?
 	// calculate the max height of the current row.
-	int rowSpan = Math.max(proposedItems.size(), currentItems.size());
+	int rowSpan = Math.max(items.size()-1, winningItem!=null?1:0);
 	rowSpan = Math.max(rowSpan, 1);
 	String baseExample = (String)ctx.get("DataRow.baseExample");
 %>
@@ -55,19 +55,21 @@
 	<%= p.getDisplayName()  
 	      // + " " + p.fullFieldHash()
 	%>
-<% if(false) { %>	       <br/>
+<% if(false&&SurveyMain.isUnofficial) { %>	       <br/>
 	X=<%= p.getXpath() %>
 	       <br/>
 	W=<%= ballotBox.getResolver(p.getXpath()).getWinningValue()  %>
 	       <br/>
-	<% if(currentItems==null){ %><i>null currentitems!</i> <% } else if(currentItems.size()<1){%>no current items!<%}else { %>
-	P=<%= currentItems.get(0).getPClass(ctx) %>
+	curr=<%= winningItem %>
 	       <br/>
-	I=<%= currentItems.get(0).value %>
-	       <br/>
-    CurrentItemsCount:<%= currentItems.size() %>, prop: <%= proposedItems.size() %>	       
-	W? = <%= Boolean.toString(currentItems.get(0).isWinner()) %>
-<% }} %></th>
+    items: <%= items.size() %>	       
+<%
+if(items.size()>0) {
+	for(DataSection.DataRow.CandidateItem i : items) {
+		%><br><%= i %><%
+	}
+}
+} %></th>
 <% if(p.hasExamples()) { 
 			if(baseExample!=null) { %>
 				<td rowspan='<%= rowSpan %>' align='left' valign='top' class='generatedexample'>

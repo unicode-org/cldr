@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
 import java.util.regex.Pattern;
@@ -85,7 +86,7 @@ public class DataSection  {
 			public String example = "";
 			public Vector<ExampleEntry> examples = null;
 			public int id = -1; // id of CLDR_DATA table row
-			String inheritFrom = null;
+			CLDRLocale inheritFrom = null;
 			boolean isFallback = false; // item is from the parent locale -
 			// don't consider it a win.
 			boolean isParentFallback = false; // true if it is not actually part
@@ -104,14 +105,14 @@ public class DataSection  {
 			public String value = null; // actual value
 
 			public Set<UserRegistry.User> votes = null; // Set of Users who
-			// voted for this.
-			String xpath = null; // xpath of actual item
 
-			int xpathId = -1; // xpid of actual item
-			
 			private String valueHash = null;
+			public boolean isOldValue = false;
 			
-            public String getValueHash() {
+            private CandidateItem(String value) {
+    			this.value = value;
+			}
+			public String getValueHash() {
                 if(valueHash==null) {
                     valueHash = DataSection.getValueHash(value);
                 }
@@ -124,9 +125,6 @@ public class DataSection  {
 				}
 				CandidateItem i = (CandidateItem) other;
 				int rv = value.compareTo(i.value);
-				if (rv == 0) {
-					rv = xpath.compareTo(i.xpath);
-				}
 				return rv;
 			}
 
@@ -222,7 +220,7 @@ public class DataSection  {
 				        if (true /* !item.itemErrors */) { // exclude item from
 				            // voting due to errors?
 				            if (ctx.getCanModify()) {
-				                ctx.print("<button class='ichoice' title='#" + xpathId + "' name='" + fieldHash + "'  value='"+getValueHash()+"' " + 
+				                ctx.print("<button class='ichoice' title='#" + "x" + "' name='" + fieldHash + "'  value='"+getValueHash()+"' " + 
 				                        " onclick=\"do_change('"
 				                        + fullFieldHash() + "','','"+getValueHash()+"'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
 				                        + "')\"" 
@@ -269,19 +267,7 @@ public class DataSection  {
 				            processed = null;
 				        }
 				        ctx.print("</span>");
-				        if ((!isFallback || ((previousItem == null) && isParentFallback) || // it's
-				                // either:
-				                // not
-				                // inherited
-				                // OR
-				                // not
-				                // a
-				                // "shim"
-				                // and..
-				                (pathWhereFound != null && !isFallback))
-				                && // .. or it's an alias (that is still the 1.4
-				                // item)
-				                xpathId == getXpathId()) { // its xpath is the base
+				        if (this==previousItem) { // its xpath is the base
 				            // xpath.
 				            ctx.print(ctx.iconHtml("star", "CLDR " + SurveyMain.getOldVersion() + " item"));
 				        } else if (SurveyMain.isUnofficial && isParentFallback) {
@@ -367,7 +353,7 @@ public class DataSection  {
 			 */
 			public String getPClass(WebContext ctx) {
 				String pClass;
-				if (isWinner()) {
+				if (isWinner() && !isFallback && inheritFrom==null) {
 					if (confirmStatus == Status.approved) {
 						pClass = "class='winner' title='Winning item.'";
 					} else if (confirmStatus == Status.missing) {
@@ -377,18 +363,17 @@ public class DataSection  {
 					}
 				} else if (pathWhereFound != null) {
 					pClass = "class='alias' title='alias from " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
-				} else if (isFallback || (inheritFrom != null) /*
-				 * &&(p.
-				 * inheritFrom
-				 * ==null)
-				 */) {
-					if (XMLSource.CODE_FALLBACK_ID.equals(inheritFrom)) {
+				} else if (isFallback || (inheritFrom != null)) {
+					if(isOldValue) {
+						pClass = "class='fallback' title='Previous Version'";
+					} else if (inheritFrom!=null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
 						pClass = "class='fallback_code' title='Untranslated Code'";
 					} else if ("root".equals(inheritFrom)) {
 						pClass = "class='fallback_root' title='Fallback from Root'";
 					} else {
 						pClass = "class='fallback' title='Translated in "
-								+ new ULocale(inheritFrom).getDisplayName(ctx.displayLocale) + " and inherited here.'";
+								+ ((inheritFrom==null)?"(unknown)": 
+								 CLDRLocale.getDefaultFormatter().getDisplayName(inheritFrom)) + " and inherited here.'";
 					}
 				} else if (altProposed != null) {
 					pClass = "class='loser' title='proposed, losing item'";
@@ -428,7 +413,7 @@ public class DataSection  {
 						// isn't in exemplars).. they'll show up in missing
 						if (DEBUG)
 							System.err.println("err: " + status.getMessage() + ", test: " + status.getClass() + ", cause: "
-									+ status.getCause() + " on " + this.xpath);
+									+ status.getCause() + " on " + xpath);
 						weHaveTests = true;
 						if (status.getType().equals(CheckStatus.errorType)) {
 							errorCount++;
@@ -441,17 +426,15 @@ public class DataSection  {
 					/* row */hasTests = true;
 					parentRow.hasTests = true;
 
-					if (((winningXpathId == -1) && (xpathId == xpathId)) || (xpathId == winningXpathId)) {
-						if (errorCount > 0) /* row */
-							hasErrors = true;
-						if (warningCount > 0) /* row */
-							hasWarnings = true;
-						// propagate to parent
-						if (errorCount > 0) /* row */
-							parentRow.hasErrors = true;
-						if (warningCount > 0) /* row */
-							parentRow.hasWarnings = true;
-					}
+					if (errorCount > 0) /* row */
+						hasErrors = true;
+					if (warningCount > 0) /* row */
+						hasWarnings = true;
+					// propagate to parent
+					if (errorCount > 0) /* row */
+						parentRow.hasErrors = true;
+					if (warningCount > 0) /* row */
+						parentRow.hasWarnings = true;
 
 					if (errorCount > 0) /* row */{
 						itemErrors = true;
@@ -470,7 +453,10 @@ public class DataSection  {
 			@Override
 			public String toString() {
 				return "{Item v='" + value + "', altProposed='" + altProposed + "', inheritFrom='" + inheritFrom + "'"
-						+ (isWinner() ? ",winner" : "") + "}";
+						+ (isWinner() ? ",winner" : "") 
+						+ (isFallback ? ",isFallback" : "") 
+						+ (isParentFallback ? ",isParentFallback" : "") 
+						+"}";
 			}
 
 			/**
@@ -511,7 +497,7 @@ public class DataSection  {
 		 * Calculated coverage level for this row.
 		 */
 		public int coverageValue;
-		List<CandidateItem> currentItems = null, proposedItems = null;
+		List<CandidateItem> candidateItems = null;
 
 		private String displayName = null;
 		private boolean errorNoOutcome = false;
@@ -530,23 +516,8 @@ public class DataSection  {
 		public CandidateItem inheritedValue = null; // vetted value inherited from
 		// parent
 
-		public Set<CandidateItem> items = new TreeSet<CandidateItem>(new Comparator<CandidateItem>() {
-			@Override
-			public int compare(CandidateItem o1, CandidateItem o2) {
-				CandidateItem p1 = o1;
-				CandidateItem p2 = o2;
-				if (p1 == p2) {
-					return 0;
-				}
-				if ((p1.value == null) && (p2.value == null))
-					return 0;
-				if (p1.value == null)
-					return -1;
-				if (p2.value == null)
-					return 1;
-				return myCollator.compare(p1.value, p2.value);
-			}
-		});
+		private CandidateItem winningItem = null;
+		public Map<String,CandidateItem> items = new TreeMap<String,CandidateItem>(myCollator);
 
 		String myFieldHash = null;
 		/** Cache of field hash **/
@@ -586,6 +557,7 @@ public class DataSection  {
 
 		int xpathId = -1;
 		public boolean zoomOnly = false; // if true - don't show any editing in
+		public String oldValue;
 
 		// the zoomout view, they must zoom
 		// in.
@@ -610,15 +582,17 @@ public class DataSection  {
 
 		}
 
-		public CandidateItem addItem(String value, List<CheckStatus> tests) {
-			CandidateItem pi = new CandidateItem();
-			pi.value = value;
-			pi.tests = tests;
-			items.add(pi);
-			// /*srl*/ if(type.indexOf("Chicago")>-1) {
-			// System.out.println("@@ "+type+"  v: " + pi.value);
-			// }
-
+		public CandidateItem addItem(String value) {
+			CandidateItem pi = items.get(value);
+			if(pi!=null) return pi;
+			pi = new CandidateItem(value);
+			items.put(value,pi);
+			if(pi.isWinner()) {
+				winningItem = pi;
+			}
+			if(oldValue!=null && oldValue.equals(value)) {
+				previousItem = pi;
+			}
 			return pi;
 		}
 
@@ -669,76 +643,64 @@ public class DataSection  {
 		 * @return
 		 */
 		public CandidateItem getCurrentItem() {
-			if (this.currentItems == null) {
-if(false) System.err.println("Getting current items for " + xpath + " from " + items.size() + " items.: " + this);
-				List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
-				List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
-				for (CandidateItem item : items) {
-				    
-					 if(false || (sm.isUnofficial && DEBUG))
-					 System.err.println("Considering: " +
-					 item+", xpid="+item.xpathId+", result="+""+", base="+this.xpathId+", ENO="+errorNoOutcome);
-					 item.toString();
-					 
-					if (item.value.equals(winningValue) && !errorNoOutcome) {
-						if (!currentItems.isEmpty()) {
-							throw new InternalError(this.toString() + ": can only have one candidate item, not "
-									+ currentItems.get(0) + " and " + item);
-						}
-						currentItems.add(item);
-					} else {
-						proposedItems.add(item);
-					}
-				}
-				// if there is an inherited value available - see if we need to
-				// show it.
-				if ((inheritedValue != null) && (inheritedValue.value != null)) { // or
-					// an
-					// alias
-					if (currentItems.isEmpty()) { // no other current items..
-						currentItems.add(inheritedValue);
-					} else {
-						boolean found = false; /*
-												 * Have we found this value in
-												 * the inherited items? If so,
-												 * don't show it.
-												 */
-						for (DataSection.DataRow.CandidateItem i : proposedItems) {
-							if (inheritedValue.value.equals(i.value)) {
-								found = true;
-							}
-						}
-						if (!found)
-							for (DataSection.DataRow.CandidateItem i : currentItems) {
-								if (inheritedValue.value.equals(i.value)) {
-									found = true;
-								}
-							}
-						if (!found) {
-							proposedItems.add(inheritedValue);
-						}
-					}
-				}
-				this.currentItems = currentItems;
-				this.proposedItems = proposedItems;
-			}
-			if (!this.currentItems.isEmpty())
-				return this.currentItems.get(0);
-			else
-				return null;
-		}
-
-		/**
-		 * Get a list of current CandidateItems for this Row. The top item will
-		 * be the winning value, if any.
-		 * 
-		 * @deprecated use getCurrentItem - there's only one winner allowed.
-		 * @see #getCurrentItem()
-		 */
-		@Deprecated
-		public synchronized List<CandidateItem> getCurrentItems() {
-			getCurrentItem();
-			return currentItems;
+			return winningItem;
+//			if (this.currentItems == null) {
+//if(false) System.err.println("Getting current items for " + xpath + " from " + items.size() + " items.: " + this);
+//				List<DataSection.DataRow.CandidateItem> currentItems = new ArrayList<DataSection.DataRow.CandidateItem>();
+//				List<DataSection.DataRow.CandidateItem> proposedItems = new ArrayList<DataSection.DataRow.CandidateItem>();
+//				for (CandidateItem item : items) {
+//				    
+//					 if(false || (sm.isUnofficial && DEBUG))
+//					 System.err.println("Considering: " +
+//					 item+", xpid="+item.xpathId+", result="+""+", base="+this.xpathId+", ENO="+errorNoOutcome);
+//					 item.toString();
+//					 
+//					if (item.value.equals(winningValue) && !errorNoOutcome) {
+//						if (!currentItems.isEmpty()) {
+//							throw new InternalError(this.toString() + ": can only have one candidate item, not "
+//									+ currentItems.get(0) + " and " + item);
+//						}
+//						currentItems.add(item);
+//					} else {
+//						proposedItems.add(item);
+//					}
+//				}
+//				// if there is an inherited value available - see if we need to
+//				// show it.
+//				if ((inheritedValue != null) && (inheritedValue.value != null)) { // or
+//					// an
+//					// alias
+//					if (currentItems.isEmpty()) { // no other current items..
+//						currentItems.add(inheritedValue);
+//					} else {
+//						boolean found = false; /*
+//												 * Have we found this value in
+//												 * the inherited items? If so,
+//												 * don't show it.
+//												 */
+//						for (DataSection.DataRow.CandidateItem i : proposedItems) {
+//							if (inheritedValue.value.equals(i.value)) {
+//								found = true;
+//							}
+//						}
+//						if (!found)
+//							for (DataSection.DataRow.CandidateItem i : currentItems) {
+//								if (inheritedValue.value.equals(i.value)) {
+//									found = true;
+//								}
+//							}
+//						if (!found) {
+//							proposedItems.add(inheritedValue);
+//						}
+//					}
+//				}
+//				this.currentItems = currentItems;
+//				this.proposedItems = proposedItems;
+//			}
+//			if (!this.currentItems.isEmpty())
+//				return this.currentItems.get(0);
+//			else
+//				return null;
 		}
 
 		public String getDisplayName() {
@@ -825,11 +787,8 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		/**
 		 * Get a list of proposed items, if any.
 		 */
-		public List<CandidateItem> getProposedItems() {
-			if (currentItems == null) {
-				getCurrentItems();
-			}
-			return proposedItems;
+		public Collection<CandidateItem> getItems() {
+			return items.values();
 		}
 
 		public String getSpecialURL(WebContext ctx) {
@@ -871,13 +830,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 																	 */
 			if (infoForUser == null)
 				return null;
-			for (CandidateItem item : getCurrentItems()) {
-				Set<User> votes = item.getVotes();
-				if (votes != null && votes.contains(infoForUser)) {
-					return item;
-				}
-			}
-			for (CandidateItem item : getProposedItems()) {
+			for (CandidateItem item : getItems()) {
 				Set<User> votes = item.getVotes();
 				if (votes != null && votes.contains(infoForUser)) {
 					return item;
@@ -891,13 +844,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		 * @return
 		 */
 		CandidateItem getWinningItem() {
-			for (CandidateItem i : items) {
-				if (i.isWinner()) {
-					return i;
-				}
-			}
-
-			return getCurrentItem();
+			return items.get(winningValue);
 		}
 
 		public String getWinningValue() {
@@ -1254,11 +1201,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 			CandidateItem shimItem = inheritedValue;
 
 			if (shimItem == null) {
-				shimItem = new CandidateItem();
-
-				shimItem.value = null;
-				shimItem.xpath = base_xpath_string;
-				shimItem.xpathId = base_xpath;
+				shimItem = new CandidateItem(null);
 				shimItem.isFallback = false;
 
 				List<CheckStatus> iTests = new ArrayList<CheckStatus>();
@@ -1312,7 +1255,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		    ExampleContext exampleContext = new ExampleContext();
 
 
-		    CandidateItem topCurrent = getTopCurrent();
+		    CandidateItem topCurrent = getWinningItem();
 		    String baseExample = getBaseExample(uf, zoomedIn, exampleContext, topCurrent);
 
 
@@ -1345,12 +1288,15 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		        ctx.print("<!-- topCurrent==null -->");
                 printEmptyCells(ctx, ourAlign, zoomedIn);
 		    }
-		    if(proposedItems.size() == 1) {
-		        proposedItems.get(0).printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, EnumSet.allOf(EPrintCellSet.class));
-		    }else if (proposedItems.size() > 1) {
+		  /*  if(getItems().size() == 2) {
+		        getItems().get(1).printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, EnumSet.allOf(EPrintCellSet.class));
+		    }else*/ if (getItems().size() > 1) {
 
 		        ctx.print("<td colspan='"+(zoomedIn?2:1)+"'><table class='innerPropItems'>");
-		        for(CandidateItem item : proposedItems) {
+		        for(CandidateItem item : getItems()) {
+		        	if(item==winningItem) {
+		        		continue;
+		        	}
 		            ctx.print("<tr>");
 		            item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, kValueCells);
 		            ctx.print("</tr>");
@@ -1358,7 +1304,10 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		        ctx.print("</table></td>");
 		        if(hasExamples) {
 		            ctx.print("<td colspan='"+(zoomedIn?2:1)+"'><table class='innerPropItems'>");
-		            for(CandidateItem item : proposedItems) {
+			        for(CandidateItem item : getItems()) {
+			        	if(item==winningItem) {
+			        		continue;
+			        	}
 		                ctx.print("<tr>");
 		                item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext, kExampleCells);
 		                ctx.print("</tr>");
@@ -1480,7 +1429,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 		                + fullFieldHash() + "','','null'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
 		                + "')\"" +
 		                ">"+
-		                   ctx.iconHtml((ourVote == null)?"radx":"rado", "Don't Care") +
+		                   ctx.iconHtml((ourVote == null)?"radx":"rado", "No Opinion") +
 		                "</button>");
 		        ctx.print("</td>");
 		    }
@@ -1617,7 +1566,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 			String baseExample;
 			// Prime the Pump - Native must be called first.
 			if (topCurrent != null) {
-				/* ignored */uf.getExampleGenerator().getExampleHtml(topCurrent.xpath, topCurrent.value,
+				/* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), topCurrent.value,
 						zoomedIn ? ExampleGenerator.Zoomed.IN : ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
 			} else {
 				// no top item, so use NULL
@@ -1630,23 +1579,6 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 			return baseExample;
 		}
 
-		/**
-		 * @return
-		 */
-		public CandidateItem getTopCurrent() {
-			CandidateItem topCurrent = null;
-			if (getCurrentItems().size() > 0) {
-				topCurrent = currentItems.get(0);
-			}
-//			boolean inheritedValueHasTestForCurrent = false; // if (no current
-//			if (proposedItems.isEmpty() && inheritedValue != null && inheritedValue.value == null && inheritedValue.tests != null) {
-//				inheritedValueHasTestForCurrent = true;
-//			}
-//			if ((topCurrent == null) && inheritedValueHasTestForCurrent) { // bring
-//				topCurrent = inheritedValue;
-//			}
-			return topCurrent;
-		}
 
 		/**
 		 * @param ctx
@@ -1787,8 +1719,8 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				if (TRACE_TIME)
 					System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
 
-				if (value != null) {
-					inheritedValue = new CandidateItem();
+				if (value != null && !items.containsKey(value)) {
+					inheritedValue = addItem(value);
 					if (TRACE_TIME)
 						System.err.println("@@2:" + (System.currentTimeMillis() - lastTime));
 					inheritedValue.isParentFallback = true;
@@ -1800,7 +1732,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 					if (TRACE_TIME)
 						System.err.println("@@4:" + (System.currentTimeMillis() - lastTime));
 
-					inheritedValue.inheritFrom = sourceLocale;
+					inheritedValue.inheritFrom = CLDRLocale.getInstance(sourceLocale);
 
 					if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
 							&& !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
@@ -1815,9 +1747,6 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 							System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
 					}
 
-					inheritedValue.value = value;
-					inheritedValue.xpath = xpath;
-					inheritedValue.xpathId = xpathId;
 					inheritedValue.isFallback = true;
 				} else {
 					// throw new InternalError("could not get inherited value: "
@@ -2811,6 +2740,9 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 					isSingleXPath = true;
 				}
 			} else {
+				if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
+					throw new InternalError("Error: CONTINENT_DIVIDER found on non-metazone xpath " + xpathPrefix);
+				}
 				zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid").iterator();
 			}
 
@@ -2843,21 +2775,8 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				for (int i = 0; i < suffs.length; i++) {
 					String suff = suffs[i];
 
-					if (isSingleXPath && !xpathPrefix.contains(suff)) { // For a
-						// single
-						// xpath
-						// (
-						// zoom-in
-						// )
-						// only
-						// try
-						// to
-						// synthesize
-						// the
-						// one
-						// we
-						// need.
-						continue;
+					if (isSingleXPath && !xpathPrefix.contains(suff)) {
+						continue; // Try not to add paths that won't be shown.
 					} else {
 						podBase = "//ldml/dates/timeZoneNames/metazone";
 					}
@@ -2890,7 +2809,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 						continue;
 					}
 
-					DataSection.DataRow myp = getDataRow(rowXpath);
+					DataSection.DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
 
 					myp.coverageValue = coverageValue;
 
@@ -2989,6 +2908,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 			// System.out.println("[] initting from pod " + locale +
 			// " with prefix " + xpathPrefix);
 			CLDRFile aFile = ourSrc;
+			CLDRFile oldFile = sm.getOldFactory().make(locale.getBaseName(), true);
 			List<?> examplesResult = new ArrayList<Object>();
 			SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 			long lastTime = -1;
@@ -3259,11 +3179,15 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
                     for (String avalue : v) {
                         if(DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
                         if (!avalue.equals(value)) {
-                            CandidateItem item2 = p.addItem(avalue, null);
-                            item2.xpath = xpath;
+                            CandidateItem item2 = p.addItem(avalue);
                         }
                     }
                 }
+				p.oldValue = oldFile.getStringValue(xpath);
+				if (p.oldValue!=null && !p.oldValue.equals(value) && (v==null ||  !v.contains(p.oldValue))) {
+					CandidateItem oldItem = p.addItem(p.oldValue);
+					oldItem.isOldValue = true;
+				}
 
                 p.coverageValue = coverageValue;
 
@@ -3417,14 +3341,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 					}
 				}
 
-				String setInheritFrom = (isInherited) ? sourceLocale : null; // no
-				// inherit
-				// if
-				// it's
-				// current.
-				// boolean isCodeFallback = (setInheritFrom!=null)&&
-				// (setInheritFrom.equals(XMLSource.CODE_FALLBACK_ID)); // don't
-				// flag errors from code fallback.
+				CLDRLocale setInheritFrom = (isInherited) ? CLDRLocale.getInstance(sourceLocale) : null;
 
 				if (isExtraPath) { // No real data items if it's an extra path.
 					// System.err.println("ExtraPath: "+xpath);
@@ -3452,7 +3369,7 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				 */
 				if (TRACE_TIME)
 					System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
-				myItem = p.addItem(value, null);
+				myItem = p.addItem(value);
 				
 				if(false) {
 				    System.err.println("Added item " + value + " - now items="+ p.items.size());
@@ -3460,11 +3377,6 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 				// if("gsw".equals(type)) System.err.println(myItem + " - # " +
 				// p.items.size());
 
-				myItem.xpath = xpath;
-				myItem.xpathId = sm.xpt.getByXpath(xpath);
-				if (myItem.xpathId == base_xpath) {
-					p.previousItem = myItem; // did have a previous item.
-				}
 				if (!checkCldrResult.isEmpty()) {
 					myItem.setTests(checkCldrResult);
 					// set the parent
@@ -3484,6 +3396,10 @@ if(false) System.err.println("Getting current items for " + xpath + " from " + i
 					p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
 				}
 				myItem.inheritFrom = setInheritFrom;
+				if(setInheritFrom==null) {
+					myItem.isFallback=false;
+					myItem.isParentFallback=false;
+				}
 				// store who voted for what. [ this could be loaded at
 				// displaytime..]
 				// myItem.votes = sm.vet.gatherVotes(locale, xpath);

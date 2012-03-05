@@ -48,7 +48,7 @@ public class DefaultDataSubmissionResultHandler implements
 
 	@Override
 	public void handleRemoveVote(DataRow p, UserRegistry.User voter, CandidateItem item) {
-        ctx.print("<tt title='#"+p.getXpathId()+"' class='codebox'>"+ p.getDisplayName() +"</tt>:  Removing vote for <span title='#"+item.xpathId+"'>"+"\""+item.value+
+        ctx.print("<tt title='#"+p.getXpathId()+"' class='codebox'>"+ p.getDisplayName() +"</tt>:  Removing vote for <span title='#"+p.getXpathId()+"'>"+"\""+item.value+
                 "\" ("+item.altProposed+")</span> by " + voter.toHtml(ctx.session.user) +  "<br>");
 	}
 

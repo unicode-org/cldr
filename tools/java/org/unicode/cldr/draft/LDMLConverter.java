@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -51,7 +52,7 @@ public class LDMLConverter {
     /**
      * For debugging, set this to match a CLDR path. If there is no match in the Regex lookup, you'll see where it fails.
      */
-    private static Matcher                       DEBUG_MATCH_REGEX          = Pattern.compile("dateFormats/dateFormatLength").matcher("");
+    private static Matcher                       DEBUG_MATCH_REGEX          = Pattern.compile("currencyFormatLength").matcher("");
 
     private static Pattern TERRITORY_XPATH = Pattern.compile("//ldml/localeDisplayNames/territories/territory\\[@type=\"(\\w+)\"]");
 
@@ -77,11 +78,15 @@ public class LDMLConverter {
 
     static class PathValueInfo {
         private String rbPath;
-        private String[] values;
+        private String rawValues;
 
-        public PathValueInfo(String rbPath, String[] values) {
+        public PathValueInfo(String rbPath, String rawValues) {
             this.rbPath = rbPath;
-            this.values = values;
+            // HACK(jchye): Ideally we'd want to split raw values immediately,
+            // but //ldml/dates/timeZoneNames/singleCountries contains multiple
+            // values in its list attribute. We'll have to sacrifice performance
+            // here and keep the value regex as a string for now.
+            this.rawValues = rawValues == null ? "{value}" : rawValues.replace("$value", "{value}");
         }
 
         public String processRbPath(String[] arguments) {
@@ -89,36 +94,36 @@ public class LDMLConverter {
         }
         
         public String[] processValues(String[] arguments, CLDRFile cldrFile, String xpath) {
-            String[] processedValues;
-            if (values != null) {
-                processedValues = new String[values.length];
-                for (int i = 0; i < processedValues.length; i++) {
-                    String value = values[i];
-                    if (value.equals("$value")) {
+            String[] result;
+            if (rawValues != null) {
+                // Rename the value variable to avoid errors when processing the
+                // other arguments.
+                String processedValue = processString(rawValues, arguments);
+                result = processedValue.split("\\s+");
+                for (int i = 0; i < result.length; i++) {
+                    String value = result[i];
+                    if (value.equals("{value}")) {
                         value = cldrFile.getStringValue(xpath);
-                    } else {
-                        value = processString(value, arguments);
-                        if (value.startsWith("//ldml/")) {
-                            value = cldrFile.getStringValue(value);
-                        }
+                    } else if (value.startsWith("//ldml/")) {
+                        value = cldrFile.getStringValue(value);
                     }
-                    processedValues[i] = value;
+                    result[i] = value;
                 }
             } else {
-                processedValues = new String[] { cldrFile.getStringValue(xpath) };
+                result = new String[] { cldrFile.getStringValue(xpath) };
             }
-            return processedValues;
+            return result;
         }
         
         @Override
-        public String toString() { return rbPath + "=" + values[0]; }
+        public String toString() { return rbPath + "=" + rawValues; }
         
         @Override
         public boolean equals(Object o) {
             if (o instanceof PathValueInfo) {
                 PathValueInfo otherInfo = (PathValueInfo)o;
                 return rbPath.equals(otherInfo.rbPath)
-                        && values.equals(otherInfo.values);
+                        && rawValues.equals(otherInfo.rawValues);
             } else {
                 return false;
             }
@@ -150,9 +155,8 @@ public class LDMLConverter {
                         }
                     }
                 }
-                String[] values = value == null ? null : value.split("\\s+");
                 unprocessed = new HashSet<PathValueInfo>();
-                unprocessed.add(new PathValueInfo(rbPath, values));
+                unprocessed.add(new PathValueInfo(rbPath, value));
             } catch (Exception e) {
                 throw new IllegalArgumentException("Must be of form directory ; path: "
                         + source, e);
@@ -417,25 +421,32 @@ public class LDMLConverter {
         int maxWidth = 76;
         String[] firstArray;
         boolean wasSingular = false;
-        if (values.size() == 1 && (firstArray = values.get(0)).length == 1) {
-            String value = firstArray[0];
-            if (value.length() <= maxWidth) {
-                // Single value for path: don't add newlines.
-                appendQuoted(value, quote, out);
-                wasSingular = true;
+        if (values.size() == 1) {
+            if ((firstArray = values.get(0)).length == 1) {
+                String value = firstArray[0];
+                if (value.length() <= maxWidth) {
+                    // Single value for path: don't add newlines.
+                    appendQuoted(value, quote, out);
+                    wasSingular = true;
+                } else {
+                    // Value too long to fit in one line, so wrap.
+                    final String pad = Utility.repeat(TAB, numTabs);
+                    out.append('\n');
+                    int end;
+                    for (int i = 0; i < value.length(); i = end) {
+                        end = goodBreak(value, i + maxWidth);
+                        String part = value.substring(i, end);
+                        out.append(pad);
+                        appendQuoted(part, quote, out).append('\n');
+                    }
+                }
             } else {
-                // Value too long to fit in one line, so wrap.
+                // Only one array for the rbPath, so don't add an extra set of braces.
                 final String pad = Utility.repeat(TAB, numTabs);
                 out.append('\n');
-                int end;
-                for (int i = 0; i < value.length(); i = end) {
-                    end = goodBreak(value, i + maxWidth);
-                    String part = value.substring(i, end);
-                    out.append(pad);
-                    appendQuoted(part, quote, out).append('\n');
-                }
+                appendArray(pad, firstArray, quote, out);
             }
-        } else { // values.size() > 1
+        } else {
             final String pad = Utility.repeat(TAB, numTabs);
             out.append('\n');
             for (String[] valueArray : values) {
@@ -538,23 +549,19 @@ public class LDMLConverter {
             }
 
             // Regular conversions.
-            List<Finder> matchersFound = new ArrayList<Finder>();
-            List<RegexResult> resultList = getConvertedValues(cldr, xpath, matchersFound, cantConvert);
-            if (resultList == null) continue;
-            for (int i = 0; i < resultList.size(); i++) {
-                RegexResult regexResult = resultList.get(i);
-                String[] arguments = matchersFound.get(i).getInfo();
-                if (!regexResult.argumentsMatch(cldr, arguments)) continue;
-                for (PathValueInfo info : regexResult) {
-                    String rbPath = info.processRbPath(arguments);
-                    if (!rbPathToValues.containsKey(rbPath)) {
-                        rbPathToValues.put(rbPath, new ArrayList<String[]>());
-                    }
+            Output<Finder> matcherFound = new Output<Finder>();
+            RegexResult regexResult = getConvertedValues(pathConverter, cldr, xpath, matcherFound, cantConvert);
+            if (regexResult == null) continue;
+            String[] arguments = matcherFound.value.getInfo();
+            if (!regexResult.argumentsMatch(cldr, arguments)) continue;
+            for (PathValueInfo info : regexResult) {
+                String rbPath = info.processRbPath(arguments);
+                if (!rbPathToValues.containsKey(rbPath)) {
+                    rbPathToValues.put(rbPath, new ArrayList<String[]>());
                 }
             }
         }
         long time2 = System.currentTimeMillis();
-        System.out.println("getting paths: " + (time2-time) + " numPaths " + count);
 
         // Get all values from the resolved CLDRFile.
         // TODO(jchye): Major slowdown here. Fix!
@@ -562,22 +569,19 @@ public class LDMLConverter {
         List<String> sortedPaths = new ArrayList<String>();
         CollectionUtilities.addAll(resolvedCldr.iterator(), sortedPaths);
         Collections.sort(sortedPaths, SpecialLDMLComparator);
-        System.out.println("resolved paths " + sortedPaths.size());
         for (String xpath : sortedPaths) {
-            List<Finder> matchers = new ArrayList<Finder>();
-            List<RegexResult> resultList = getConvertedValues(resolvedCldr, xpath, matchers, null);
-            if (resultList == null) continue;
-            for (int i = 0; i < resultList.size(); i++) {
-                RegexResult regexResult = resultList.get(i);
-                String[] arguments = matchers.get(i).getInfo();
-                if (!regexResult.argumentsMatch(resolvedCldr, arguments)) continue;
-                for (PathValueInfo info : regexResult) {
-                    String rbPath = info.processRbPath(arguments);
-                    // Don't add additional paths at this stage.
-                    if (rbPathToValues.containsKey(rbPath)) {
-                        String[] values = info.processValues(arguments, resolvedCldr, xpath);
-                        add(rbPath, values);
-                    }
+            Output<Finder> matcher = new Output<Finder>();
+            RegexResult regexResult = getConvertedValues(pathConverter,
+                resolvedCldr, xpath, matcher, null);
+            if (regexResult == null) continue;
+            String[] arguments = matcher.value.getInfo();
+            if (!regexResult.argumentsMatch(resolvedCldr, arguments)) continue;
+            for (PathValueInfo info : regexResult) {
+                String rbPath = info.processRbPath(arguments);
+                // Don't add additional paths at this stage.
+                if (rbPathToValues.containsKey(rbPath)) {
+                    String[] values = info.processValues(arguments, resolvedCldr, xpath);
+                    add(rbPath, values);
                 }
             }
         }
@@ -695,31 +699,29 @@ public class LDMLConverter {
      * @param cantConvert
      * @return the result of converting an xpath into an ICU-style path
      */
-    private static List<RegexResult> getConvertedValues(CLDRFile cldr, String path,
-            List<Finder> matchersFound, Set<String> cantConvert) {
+    private static RegexResult getConvertedValues(RegexLookup<RegexResult> lookup,
+            CLDRFile cldr, String path,
+            Output<Finder> matcherFound, Set<String> cantConvert) {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
         List<String> errors = new ArrayList<String>();
-        List<RegexResult> resultList = pathConverter.getAll(fullPath, null, matchersFound, errors);
+        RegexResult result = lookup.get(fullPath, null, null, matcherFound, errors);
         // Cache patterns for later analysis.
-        for (Finder matcher : matchersFound) {
-            patternCache.add(matcher.toString());
-        }
-        if (resultList.size() == 0) {
+        patternCache.add(matcherFound.toString());
+        if (result == null) {
             if (cantConvert != null) {
                 cantConvert.add(fullPath);
             }
             if (DEBUG && errors != null) {
                 System.out.println("\tDEBUG\t" + CollectionUtilities.join(errors, "\n\tDEBUG\t"));
             }
-            return null;
         } else {
             if (DEBUG && DEBUG_MATCH_REGEX.reset(fullPath).find()) {
                 System.out.println("Matching:\t" + fullPath
-                    + "\n\t\twith\t" + matchersFound);
+                    + "\n\t\twith\t" + matcherFound.value);
             }
         }
-        return resultList;
+        return result;
     }
 
     /**
@@ -781,19 +783,20 @@ public class LDMLConverter {
     public static void main(String[] args) throws IOException {
         // TODO Handle more than just the main directory.
         // TODO(jchye): Add commandline args.
-        String fileRegexString = args.length == 0 ? "(aa)" : args[0];
+        String fileRegexString = args.length == 0 ? "(en|root|ja|zh|ru|fr|ar|ko|he|en_AU)" : args[0];
         Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileRegexString);
 
         LDMLConverter converter = new LDMLConverter();
         Set<String> cantConvert = new HashSet<String>(); // use HashSet for speed
 
+        long totalTime = System.currentTimeMillis();
         for (String locale : factory.getAvailable()) {
-            converter.fillFromCLDR(factory, locale, cantConvert);
             long time=System.currentTimeMillis();
+            converter.fillFromCLDR(factory, locale, cantConvert);
             converter.writeRB("/Users/jchye/tweaks/newicu/", locale);
-            System.out.println("writing took: " + (System.currentTimeMillis() - time));
-            System.out.println("Converted " + locale);
+            System.out.println("Time to convert locale " + locale + ": " + (System.currentTimeMillis() - time));
         }
+        System.out.println("Total time taken: " + (System.currentTimeMillis() - totalTime));
 /*
         // sort the can't-convert strings and print
         for (String unconverted : Builder.with(new TreeSet<String>(CLDRFile.ldmlComparator)).addAll(cantConvert).get()) {

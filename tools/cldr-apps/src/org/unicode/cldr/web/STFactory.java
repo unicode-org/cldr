@@ -47,7 +47,12 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
  *
  */
 public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, SublocaleProvider {
-    public class DataBackedSource extends DelegateXMLSource {
+	/**
+	 * If true: run EVERY xpath through the resolver.
+	 */
+    public static final boolean RESOLVE_ALL_XPATHS = false;
+
+	public class DataBackedSource extends DelegateXMLSource {
         PerLocaleData ballotBox;
         XMLSource aliasOf; // original XMLSource
         public DataBackedSource(PerLocaleData makeFrom) {
@@ -105,7 +110,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver) {
             Map<User,String> m = ballotBox.peekXpathToVotes(path);
             String res;
-            if(m==null || m.isEmpty()) { // no votes, so..
+            if((m==null || m.isEmpty()) && !RESOLVE_ALL_XPATHS) { // no votes, so..
                 res = ballotBox.diskData.getValueAtDPath(path);
             } else {
                 res = (resolver=ballotBox.getResolver(m,path, resolver)).getWinningValue();
@@ -277,6 +282,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private DataBackedSource loadVoteValues(DataBackedSource dataBackedSource)  {
             if(!readonly) {
                 VoteResolver<String> resolver= null; //save recalculating this.
+                Set<String> hitXpaths = new HashSet<String>();
                 ElapsedTimer et = (SurveyLog.DEBUG)?new ElapsedTimer("Loading PLD for " + locale):null;
                 Connection conn = null;
                 PreparedStatement ps = null;
@@ -291,6 +297,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     while(rs.next()) {
                         int xp = rs.getInt(1);
                         String xpath = sm.xpt.getById(xp);
+                        hitXpaths.add(xpath);
                         int submitter = rs.getInt(2);
                         String value = DBUtils.getStringUTF8(rs, 3);
                         internalSetVoteForValue(sm.reg.getInfo(submitter), xpath, value, resolver, dataBackedSource);
@@ -305,6 +312,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     DBUtils.close(rs,ps,conn);
                 }
                 SurveyLog.debug(et + " - read " + n + " items.");
+                if(RESOLVE_ALL_XPATHS) {
+                	et = (SurveyLog.DEBUG)?new ElapsedTimer("Loading PLD for " + locale):null;
+                	int j=0;
+                	for(String xp : diskData) {
+                		if(hitXpaths.contains(xp))
+                			continue;
+                        resolver=dataBackedSource.setValueFromResolver(xp, resolver);
+                		j++;
+                	}
+                    SurveyLog.debug(et + " - RESOLVE_ALL_XPATHS  - resolved " + j + " additional items, " + n + " total.");
+                }
             }
             stamp.next();
             dataBackedSource.addListener(gTestCache);

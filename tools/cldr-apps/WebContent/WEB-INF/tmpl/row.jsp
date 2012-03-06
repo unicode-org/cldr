@@ -18,8 +18,7 @@
 
 	// Does the inheritedValue contain a test that we need to display?
 	// calculate the max height of the current row.
-	int rowSpan = Math.max(items.size()-1, winningItem!=null?1:0);
-	rowSpan = Math.max(rowSpan, 1);
+	int rowSpan = 1;
 	String baseExample = (String)ctx.get("DataRow.baseExample");
 %>
 

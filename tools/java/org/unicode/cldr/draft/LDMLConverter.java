@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -418,12 +419,12 @@ public class LDMLConverter {
      * @return
      */
     private boolean appendValues(List<String[]> values, int numTabs, boolean quote, PrintWriter out) {
-        int maxWidth = 76;
         String[] firstArray;
         boolean wasSingular = false;
         if (values.size() == 1) {
             if ((firstArray = values.get(0)).length == 1) {
-                String value = firstArray[0];
+                String value = quoteInside(firstArray[0]);
+                int maxWidth = 84 - numTabs * TAB.length();
                 if (value.length() <= maxWidth) {
                     // Single value for path: don't add newlines.
                     appendQuoted(value, quote, out);
@@ -468,14 +469,14 @@ public class LDMLConverter {
     private PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {
         for (String value : valueArray) {
             out.append(padding);
-            appendQuoted(value, quote, out).append(",\n");
+            appendQuoted(quoteInside(value), quote, out).append(",\n");
         }
         return out;
     }
 
     private PrintWriter appendQuoted(String value, boolean quote, PrintWriter out) {
         if (quote) {
-            return out.append('"').append(quoteInside(value)).append('"');
+            return out.append('"').append(value).append('"');
         } else {
             return out.append(enumMap.containsKey(value) ? enumMap.get(value) : value);
         }
@@ -491,6 +492,15 @@ public class LDMLConverter {
     private static int goodBreak(String quoted, int end) {
         if (end > quoted.length()) {
             return quoted.length();
+        }
+        // Don't break escaped Unicode characters.
+        for (int i = end - 1; i > end - 6; i--) {
+            if (quoted.charAt(i) == '\\') {
+                if (quoted.charAt(i + 1) == 'u') {
+                    return i;
+                }
+                break;
+            }
         }
         while (end > 0) {
             char ch = quoted.charAt(end - 1);
@@ -534,11 +544,9 @@ public class LDMLConverter {
         deprecatedTerritories.removeAll(deprecatedTerritoriesToInclude);
 
         // First pass through the unresolved CLDRFile to get all icu paths.
-        long time = System.currentTimeMillis();
         CLDRFile cldr = factory.make(locale, false);
-        int count = 0;
+        Map<String,Map<String,String[]>> pathValueMap = new HashMap<String,Map<String,String[]>>();
         for (String xpath : cldr) {
-            count++;
             // Misc hacks.
             Matcher matcher = TERRITORY_XPATH.matcher(xpath);
             if (matcher.matches()) {
@@ -556,19 +564,21 @@ public class LDMLConverter {
             if (!regexResult.argumentsMatch(cldr, arguments)) continue;
             for (PathValueInfo info : regexResult) {
                 String rbPath = info.processRbPath(arguments);
+                Map<String, String[]> valueMap = pathValueMap.get(rbPath);
+                if (valueMap == null) {
+                    valueMap = new TreeMap<String, String[]>(SpecialLDMLComparator);
+                    pathValueMap.put(rbPath, valueMap);
+                }
                 if (!rbPathToValues.containsKey(rbPath)) {
                     rbPathToValues.put(rbPath, new ArrayList<String[]>());
                 }
             }
         }
-        long time2 = System.currentTimeMillis();
 
         // Get all values from the resolved CLDRFile.
-        // TODO(jchye): Major slowdown here. Fix!
         CLDRFile resolvedCldr = factory.make(locale, true);
         List<String> sortedPaths = new ArrayList<String>();
         CollectionUtilities.addAll(resolvedCldr.iterator(), sortedPaths);
-        Collections.sort(sortedPaths, SpecialLDMLComparator);
         for (String xpath : sortedPaths) {
             Output<Finder> matcher = new Output<Finder>();
             RegexResult regexResult = getConvertedValues(pathConverter,
@@ -579,15 +589,19 @@ public class LDMLConverter {
             for (PathValueInfo info : regexResult) {
                 String rbPath = info.processRbPath(arguments);
                 // Don't add additional paths at this stage.
-                if (rbPathToValues.containsKey(rbPath)) {
+                Map<String, String[]> valueMap = pathValueMap.get(rbPath);
+                if (valueMap != null) {
                     String[] values = info.processValues(arguments, resolvedCldr, xpath);
-                    add(rbPath, values);
+                    valueMap.put(xpath, values);
                 }
             }
         }
-        long time3 = System.currentTimeMillis();
-        System.out.println("getting values: " + (time3-time2));
 
+        // Convert values to final data structure.
+        for (String rbPath : pathValueMap.keySet()) {
+            List<String[]> values = new ArrayList<String[]>(pathValueMap.get(rbPath).values());
+            rbPathToValues.put(rbPath, values);
+        }
         // Hacks
         hackAddExtras(resolvedCldr, locale);
     }
@@ -704,7 +718,7 @@ public class LDMLConverter {
             Output<Finder> matcherFound, Set<String> cantConvert) {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
-        List<String> errors = new ArrayList<String>();
+        List<String> errors = DEBUG ? new ArrayList<String>() : null;
         RegexResult result = lookup.get(fullPath, null, null, matcherFound, errors);
         // Cache patterns for later analysis.
         patternCache.add(matcherFound.toString());
@@ -794,7 +808,7 @@ public class LDMLConverter {
             long time=System.currentTimeMillis();
             converter.fillFromCLDR(factory, locale, cantConvert);
             converter.writeRB("/Users/jchye/tweaks/newicu/", locale);
-            System.out.println("Time to convert locale " + locale + ": " + (System.currentTimeMillis() - time));
+            System.out.println("Converted locale " + locale + " in " + (System.currentTimeMillis() - time) + "ms");
         }
         System.out.println("Total time taken: " + (System.currentTimeMillis() - totalTime));
 /*

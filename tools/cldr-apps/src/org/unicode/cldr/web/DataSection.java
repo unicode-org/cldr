@@ -1641,7 +1641,7 @@ public class DataSection  {
 				draftIcon = ctx.iconHtml("ques", "UNCONFIRMED");
 				break;
 			case missing:
-			    draftIcon = ctx.iconHtml("bar0", "MISSING");
+			    draftIcon = ctx.iconHtml("bar1", "MISSING");
 			}
 			return draftIcon;
 		}

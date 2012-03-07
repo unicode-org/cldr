@@ -398,10 +398,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if(fullXPath==null) fullXPath = path; // throw new InternalError("null full xpath for " + path);
             xpp.set(fullXPath);
             final String lastValue = anOldFile.getStringValue(path);
-
+            final String srcid = anOldFile.getSourceLocaleID(path, null);
             String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
-            final Status lastStatus = draft==null?Status.approved:
+            
+            Status lastStatus = draft==null?Status.approved:
                 VoteResolver.Status.fromString(draft);
+            if ( !srcid.equals(diskFile.getLocaleID())) {
+            	lastStatus = Status.missing;
+            }
 
             if(false) System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus + " ('"+lastValue+"')");
 

@@ -58,7 +58,7 @@ public class CheckMetazones extends CheckCLDR {
                 getCldrFileToCheck().getPaths(pathPrefix , null, foundPaths);
                 if (foundPaths.size() != 3) {
                     String showError;
-                    if ( this.getPhase().equals(Phase.SUBMISSION)) {
+                    if ( this.getPhase() != null && this.getPhase().equals(Phase.SUBMISSION)) {
                         showError = CheckStatus.warningType;
                     } else {
                         showError = CheckStatus.errorType;
@@ -66,7 +66,7 @@ public class CheckMetazones extends CheckCLDR {
                     result.add(new CheckStatus().setCause(this).setMainType(showError).setSubtype(Subtype.missingMetazoneString) // typically warningType or errorType
                         .setMessage("Missing metazone string(s) - must contain a value for generic, standard, and daylight")); // the message; can be MessageFormat with arguments
                 }
-                if (this.getPhase().equals(Phase.FINAL_TESTING)) {
+                if (this.getPhase() != null && this.getPhase().equals(Phase.FINAL_TESTING)) {
                     Set<String> draftStatuses = new TreeSet<String>();
                     for ( String apath : foundPaths) {
                         parts.set(getCldrFileToCheck().getFullXPath(apath));

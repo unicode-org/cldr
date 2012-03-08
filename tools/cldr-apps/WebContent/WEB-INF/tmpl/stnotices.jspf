@@ -1,4 +1,5 @@
 <%@ page import="org.unicode.cldr.web.*" %>
+<!--  stnotices.jspf -->
 <div class='topnotices'>
 <% 
 //        if(/*!isUnofficial && */ 
@@ -31,3 +32,4 @@
 <span id='progress'>
 </span>
 <%= SurveyMain.SHOWHIDE_SCRIPT %>
+<!--  end stnotices.jspf -->

@@ -1215,11 +1215,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         StringBuffer out = new StringBuffer();
         if((specialHeader != null) && (specialHeader.length()>0)) {
             out.append("<div class='specialHeader'>");
-            if(ctx != null) {
-                out.append("News");
-                //ctx.printHelpLink("/BannerMessage","News",true,false);
-                out.append(": &nbsp; ");
-            }
             out.append(specialHeader);
             if(specialTimer != 0) {
                 long t0 = System.currentTimeMillis();

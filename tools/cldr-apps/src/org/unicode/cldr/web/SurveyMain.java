@@ -1614,7 +1614,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         if(UserRegistry.userCanCreateUsers(ctx.session.user)) {
         	showAddUser(ctx);
         }
-        ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
+        ctx.println("<a href='" + ctx.url() + "'><b>Main SurveyTool Page</b></a><hr>");
         
         String new_name = ctx.field("new_name");
         String new_email = ctx.field("new_email");

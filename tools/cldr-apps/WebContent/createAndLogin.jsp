@@ -15,6 +15,20 @@ String myorg = anOrg.name();
 	String randomEmail = UserRegistry.makePassword(null)+"@"+UserRegistry.makePassword(null).substring(0,4)+"."+myorg+".example.com";
 	String randomName = UserRegistry.makePassword(null).substring(0,5);
 	String randomPass = UserRegistry.makePassword(null);
+	
+    Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
+    if(c0!=null) {
+        c0.setValue("");
+        c0.setMaxAge(0);
+        response.addCookie(c0);
+    }
+    Cookie c1 = WebContext.getCookie(request,SurveyMain.QUERY_PASSWORD);
+    if(c1!=null) {
+        c1.setValue("");
+        c1.setMaxAge(0);
+        response.addCookie(c1);
+    }
+
 %>
 <html>
 <head>
@@ -24,7 +38,8 @@ String myorg = anOrg.name();
 </head>
 <body>
 <%@ include file="header.jspf"%>
-<h1>Add a Survey Tool user</h1>
+				<img src="STLogo.png" align="right" border="0" title="[logo]" alt="[logo]" />
+<h1>Add a Test Survey Tool user</h1>
 <form class="adduser" action='survey'
 	method="POST"><input type="hidden" name="dump"
 	value='<%=vap%>' /> <input type="hidden"
@@ -33,11 +48,17 @@ String myorg = anOrg.name();
 <table>
 	<tr>
 		<th><label for="new_name">Real Name (ONE WORD):</label></th>
-		<td><input size="40" value="REALNAME" name="real" /></td>
+		<td><input id='real' size="40" value="REALNAME" name="real" /></td>
+	</tr>
+	<tr class="submit">
+		<td colspan="2"><button type="submit">Login</button></td>
 	</tr>
 	</table>
 	<hr>
-	<table>
+	
+
+	
+	<table id='more' style='display: none;'>
 	<tr>
 		<th><label for="new_name">Fake Name:</label></th>
 		<td><input size="40" value="<%= randomName %>" name="new_name" /></td>
@@ -75,20 +96,20 @@ String myorg = anOrg.name();
 		<td><input name="new_locales" value="" /> <br>
 		(Space separated. Examples: "en de fr"  but not <strike>"zh_Hant"</strike> or <strike>"de_CH"</strike>. )</td>
 	</tr>
-	<tr class="submit">
-		<td colspan="2"><input type="submit" value="Login" /></td>
-	</tr>
 </table>
 </form>
 <hr />
-<a
+<script>
+document.getElementById('real').focus()
+</script>
+<%-- <a
 	href='<%=request.getParameter("a")%>?s=<%=request.getParameter("s")%>'>Cancel,
 return to Survey Tool</a>
+ --%>|
+<a href="./index.jsp">Return to CLDR Applications</a>  | <a href='javascript:document.getElementById("more").style.display="";'>(More Options...)</a>
 |
-<a href="./index.jsp">Return to CLDR Applications</a>
-|
-<a target="_new"
+<!-- <a target="_new"
 	href="http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyToolHelp/AddModifyUser">Help
 on this page (in a new window)</a>
-</body>
+ --></body>
 </html>

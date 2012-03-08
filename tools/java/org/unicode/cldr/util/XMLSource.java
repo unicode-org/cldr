@@ -841,7 +841,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             }
         }
 
-        private transient Map<String,AliasLocation> getSourceLocaleIDCache =  Collections.synchronizedMap(new HashMap());
+        private transient Map<String,AliasLocation> getSourceLocaleIDCache =  new HashMap();
   
         public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
             AliasLocation fullStatus = getCachedFullStatus(distinguishedXPath);

@@ -1,5 +1,6 @@
 package org.unicode.cldr.draft;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.Merger;
@@ -75,7 +77,7 @@ public class LDMLConverter {
         }
     };
 
-    static final Pattern                         SEMI                 = Pattern.compile("\\s*;\\s*");
+    static final Pattern                         SEMI                 = Pattern.compile("\\s*+;\\s*+");
 
     static class PathValueInfo {
         private String rbPath;
@@ -104,14 +106,14 @@ public class LDMLConverter {
                 for (int i = 0; i < result.length; i++) {
                     String value = result[i];
                     if (value.equals("{value}")) {
-                        value = cldrFile.getStringValue(xpath);
+                        value = getStringValue(cldrFile, xpath);
                     } else if (value.startsWith("//ldml/")) {
-                        value = cldrFile.getStringValue(value);
+                        value = getStringValue(cldrFile, value);
                     }
                     result[i] = value;
                 }
             } else {
-                result = new String[] { cldrFile.getStringValue(xpath) };
+                result = new String[] { getStringValue(cldrFile, xpath) };
             }
             return result;
         }
@@ -179,7 +181,7 @@ public class LDMLConverter {
                 if (arguments.length <= argNum) {
                     throw new IllegalArgumentException("Argument " + argNum + " mising");
                 }
-                String argFromCldr = file.getStringValue(requiredArgs.get(argNum));
+                String argFromCldr = getStringValue(file, requiredArgs.get(argNum));
                 if (argFromCldr != null && !arguments[argNum].equals(argFromCldr)) {
                     return false;
                 }
@@ -225,7 +227,9 @@ public class LDMLConverter {
      */
     private static Comparator<String> SpecialLDMLComparator = new Comparator<String>() {
         private final Matcher DATE_OR_TIME_FORMAT   = Pattern.compile("/(date|time)Formats/").matcher("");
-        private final Pattern MONTH_PATTERN = Pattern.compile(".*/month\\[@type=\"(\\d+)\"](\\[@yeartype=\"leap\"])?$");
+        private final Pattern MONTH_PATTERN = Pattern.compile("month\\[@type=\"(\\d++)\"](\\[@yeartype=\"leap\"])?$");
+        private final Pattern CONTEXT_TRANSFORM = Pattern.compile("//ldml/contextTransforms/contextTransformUsage\\[@type=\"([^\"]++)\"]/contextTransform\\[@type=\"([^\"]++)\"]");
+
         /**
          * Reverse the ordering of the following:
          * //ldml/numbers/currencies/currency[@type="([^"]*)"]/displayName ; curr ; /Currencies/$1
@@ -236,16 +240,20 @@ public class LDMLConverter {
         @SuppressWarnings("unchecked")
         @Override
         public int compare(String arg0, String arg1) {
+            // TODO: Optimize comparator.
             if (arg0.startsWith("//ldml/numbers/currencies/currency")
                     && arg1.startsWith("//ldml/numbers/currencies/currency")) {
                 int last0 = arg0.lastIndexOf('/');
                 int last1 = arg1.lastIndexOf('/');
+                // Use ldml ordering except that symbol should be first.
                 if (last0 == last1 && arg0.regionMatches(0, arg1, 0, last1)) {
-                    return -arg0.substring(last0, arg0.length()).compareTo(
-                            arg1.substring(last1, arg1.length()));
+                    if (arg0.substring(last0 + 1).equals("symbol")) {
+                        return -1;
+                    } else if (arg1.substring(last1 + 1).equals("symbol")) {
+                        return 1;
+                    }
                 }
-            }
-            if (arg0.startsWith("//ldml/dates/calendars/calendar")
+            } else if (arg0.startsWith("//ldml/dates/calendars/calendar")
                     && arg1.startsWith("//ldml/dates/calendars/calendar")
             ) {
                 if (DATE_OR_TIME_FORMAT.reset(arg0).find()) {
@@ -255,18 +263,26 @@ public class LDMLConverter {
                         int end1 = DATE_OR_TIME_FORMAT.end();
                         if (start0 == start1 && arg0.regionMatches(0, arg1, 0, start1)
                                 && !arg0.regionMatches(0, arg1, 0, end1)) {
-                            return -arg0.substring(start0, arg0.length()).compareTo(
-                                    arg1.substring(start1, arg1.length()));
+                            return -arg0.substring(start0).compareTo(
+                                    arg1.substring(start1));
                         }
                     }
+                }
+            } else if (arg0.startsWith("//ldml/contextTransforms")) {
+                // Sort uiListOrMenu before stand-alone.
+                Matcher matcher0 = CONTEXT_TRANSFORM.matcher(arg0);
+                Matcher matcher1 = CONTEXT_TRANSFORM.matcher(arg1);
+                    if (matcher0.matches() && matcher1.matches()
+                            && matcher0.group(1).equals(matcher1.group(1))) {
+                        return -matcher0.group(2).compareTo(matcher1.group(2));
                 }
             }
 
             // Sort leap year types after normal month types.
             Matcher matcher0 = MONTH_PATTERN.matcher(arg0);
-            if (matcher0.matches()) {
+            if (matcher0.find()) {
                 Matcher matcher1 = MONTH_PATTERN.matcher(arg1);
-                if (matcher1.matches() && matcher0.group(2) != matcher1.group(2)) {
+                if (matcher1.find() && matcher0.group(2) != matcher1.group(2)) {
                     return matcher0.group(2) == null && matcher1.group(2) != null ? -1 : 1;
                 }
             }
@@ -278,6 +294,7 @@ public class LDMLConverter {
     /**
      * Loads the data in from a file. That file is of the form cldrPath ; rbPath
      */
+    // TODO: this definitely shouldn't be static.
     static RegexLookup<RegexResult>              pathConverter         = new RegexLookup<RegexResult>()
             .setPatternTransform(RegexFinderTransform)
             .setValueTransform(PairValueTransform)
@@ -350,7 +367,7 @@ public class LDMLConverter {
         if (DEBUG) {
             System.out.println("+++\t" + path + "\t" + value);
         }
-        add(path, value.split("\\s+"));
+        add(path, value.split("\\s++"));
     }
 
     /**
@@ -424,7 +441,7 @@ public class LDMLConverter {
         if (values.size() == 1) {
             if ((firstArray = values.get(0)).length == 1) {
                 String value = quoteInside(firstArray[0]);
-                int maxWidth = 84 - numTabs * TAB.length();
+                int maxWidth = 84 - Math.min(3, numTabs) * TAB.length();
                 if (value.length() <= maxWidth) {
                     // Single value for path: don't add newlines.
                     appendQuoted(value, quote, out);
@@ -531,12 +548,8 @@ public class LDMLConverter {
     }
 
     private static Set<String> deprecatedTerritoriesToInclude = Builder.with(new HashSet<String>())
-            .add("062").add("172").add("200").add("830").add("AN").add("CS").get();
+            .add("062").add("172").add("200").add("830").add("AN").add("CS").add("QU").get();
     
-    private static Set<String> countriesWithoutCurrencySymbol = Builder.with(new HashSet<String>())
-            .add("ALK").add("CNX").add("ILR").add("ISJ").add("MVP").add("SSP")
-            .add("XSU").add("XUA").get();
-
     public void fillFromCLDR(Factory factory, String locale, Set<String> cantConvert) {
         clear();
         // Variables for hacks
@@ -544,10 +557,11 @@ public class LDMLConverter {
         deprecatedTerritories.removeAll(deprecatedTerritoriesToInclude);
 
         // First pass through the unresolved CLDRFile to get all icu paths.
+        Set<String> includedRbPaths = new HashSet<String>();
         CLDRFile cldr = factory.make(locale, false);
         Map<String,Map<String,String[]>> pathValueMap = new HashMap<String,Map<String,String[]>>();
         for (String xpath : cldr) {
-            // Misc hacks.
+            // Territory hacks to be removed once CLDR data is fixed.
             Matcher matcher = TERRITORY_XPATH.matcher(xpath);
             if (matcher.matches()) {
                 String country = matcher.group(1);
@@ -556,32 +570,28 @@ public class LDMLConverter {
                 }
             }
 
-            // Regular conversions.
+            // Add rb path.
             Output<Finder> matcherFound = new Output<Finder>();
-            RegexResult regexResult = getConvertedValues(pathConverter, cldr, xpath, matcherFound, cantConvert);
+            RegexResult regexResult = matchXPath(pathConverter, cldr, xpath, matcherFound, cantConvert);
             if (regexResult == null) continue;
             String[] arguments = matcherFound.value.getInfo();
-            if (!regexResult.argumentsMatch(cldr, arguments)) continue;
             for (PathValueInfo info : regexResult) {
                 String rbPath = info.processRbPath(arguments);
-                Map<String, String[]> valueMap = pathValueMap.get(rbPath);
-                if (valueMap == null) {
-                    valueMap = new TreeMap<String, String[]>(SpecialLDMLComparator);
-                    pathValueMap.put(rbPath, valueMap);
-                }
-                if (!rbPathToValues.containsKey(rbPath)) {
-                    rbPathToValues.put(rbPath, new ArrayList<String[]>());
+                if (includedRbPaths.add(rbPath)) {
+                    // The immediate parent of every path should also exist.
+                    includedRbPaths.add(rbPath.substring(0, rbPath.lastIndexOf('/')));
                 }
             }
         }
 
         // Get all values from the resolved CLDRFile.
         CLDRFile resolvedCldr = factory.make(locale, true);
-        List<String> sortedPaths = new ArrayList<String>();
-        CollectionUtilities.addAll(resolvedCldr.iterator(), sortedPaths);
-        for (String xpath : sortedPaths) {
+        Set<String> resolvedPaths = new HashSet<String>();
+        CollectionUtilities.addAll(resolvedCldr.iterator(), resolvedPaths);
+        resolvedPaths.addAll(getFallbackPaths().keySet());
+        for (String xpath : resolvedPaths) {
             Output<Finder> matcher = new Output<Finder>();
-            RegexResult regexResult = getConvertedValues(pathConverter,
+            RegexResult regexResult = matchXPath(pathConverter,
                 resolvedCldr, xpath, matcher, null);
             if (regexResult == null) continue;
             String[] arguments = matcher.value.getInfo();
@@ -589,11 +599,14 @@ public class LDMLConverter {
             for (PathValueInfo info : regexResult) {
                 String rbPath = info.processRbPath(arguments);
                 // Don't add additional paths at this stage.
+                if (!includedRbPaths.contains(rbPath)) continue;
                 Map<String, String[]> valueMap = pathValueMap.get(rbPath);
-                if (valueMap != null) {
-                    String[] values = info.processValues(arguments, resolvedCldr, xpath);
-                    valueMap.put(xpath, values);
+                if (valueMap == null) {
+                    valueMap = new TreeMap<String, String[]>(SpecialLDMLComparator);
+                    pathValueMap.put(rbPath, valueMap);
                 }
+                String[] values = info.processValues(arguments, resolvedCldr, xpath);
+                valueMap.put(xpath, values);
             }
         }
 
@@ -614,17 +627,6 @@ public class LDMLConverter {
      * @param locale
      */
     private void hackAddExtras(CLDRFile cldrResolved, String locale) {
-        // If countries without a currency symbol have a display name in
-        // this locale, add the country code as the symbol.
-        // TODO: Remove after the symbols have been added to CLDR.
-        for (String country : countriesWithoutCurrencySymbol) {
-            String rbPath = "/Currencies/" + country;
-            List<String[]> values = rbPathToValues.get(rbPath);
-            if (values != null) {
-                values.add(0, new String[]{country});
-            }
-        }
-
         UnicodeSet s = cldrResolved.getExemplarSet("", WinningChoice.WINNING);
         BitSet set = new BitSet();
         for (UnicodeSetIterator it = new UnicodeSetIterator(s); it.next();) {
@@ -654,7 +656,7 @@ public class LDMLConverter {
 
         // Specify parent of non-language locales.
         String parent = supplementalDataInfo.getExplicitParentLocale(locale);
-        if (parent != null && !parent.equals("root")) {
+        if (parent != null) {
             path = "/%%Parent";
             add(path, parent);
         }
@@ -672,13 +674,10 @@ public class LDMLConverter {
         add(path, versionValue);
 
         String localeID = cldrResolved.getLocaleID();
-        String region = localeID.equals("root") ? "001" : new LanguageTagParser().set(localeID).getRegion();
 
         // PaperSize:intvector{ 279, 216, }
-        Map<MeasurementType, Map<String, String>> regionMeasurementData = supplementalDataInfo.getTerritoryMeasurementData();
-        Map<String, String> paperSizeMap = regionMeasurementData.get(MeasurementType.paperSize);
-        String paperType = paperSizeMap.get(region);
         path = "/PaperSize:intvector";
+        String paperType = calculateTypeToAdd(localeID, MeasurementType.paperSize);
         if (paperType == null) {
             // do nothing
         } else if (paperType.equals("A4")) {
@@ -690,9 +689,8 @@ public class LDMLConverter {
         }
 
         // MeasurementSystem:int{1}
-        Map<String, String> measurementSystemMap = regionMeasurementData.get(MeasurementType.measurementSystem);
-        String measurementSystem = measurementSystemMap.get(region);
         path = "/MeasurementSystem:int";
+        String measurementSystem = calculateTypeToAdd(localeID, MeasurementType.measurementSystem);
         if (measurementSystem == null) {
             // do nothing
         } else if (measurementSystem.equals("metric")) {
@@ -703,8 +701,58 @@ public class LDMLConverter {
             throw new IllegalArgumentException("Unknown measurement system");
         }
     }
+    
+    private String calculateTypeToAdd(String localeID, MeasurementType measurementType) {
+        String type = getMeasurement(localeID, measurementType);
+        if (type == null) return null;
+        // Don't add type if a parent has the same value for that type.
+        String parent = LocaleIDParser.getParent(localeID);
+        String parentType = null;
+        while (parentType == null && parent != null) {
+            parentType = getMeasurement(parent, measurementType);
+            parent = LocaleIDParser.getParent(parent);
+        }
+        return type.equals(parentType) ? null : type;
+    }
 
-    private static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
+    private String getMeasurement(String localeID, MeasurementType measurementType) {
+        String region = localeID.equals("root") ? "001" : new LanguageTagParser().set(localeID).getRegion();
+        Map<MeasurementType, Map<String, String>> regionMeasurementData = supplementalDataInfo.getTerritoryMeasurementData();
+        Map<String, String> typeMap = regionMeasurementData.get(measurementType);
+        return typeMap.get(region);
+    }
+
+    private static String getStringValue(CLDRFile cldrFile, String xpath) {
+        String value = cldrFile.getStringValue(xpath);
+        if (value == null) value = getFallbackPaths().get(xpath);
+        return value;
+    }
+
+    private static Map<String, String> fallbackPaths;
+    private static Map<String, String> getFallbackPaths() {
+        if (fallbackPaths != null) return fallbackPaths;
+        fallbackPaths = new HashMap<String, String>();
+        BufferedReader reader = FileUtilities.openFile(LDMLConverter.class, "ldml2icu_fallback_paths.txt");
+        String line;
+        try {
+            int lineNum = 1;
+            while((line = reader.readLine()) != null) {
+                if (line.length() == 0 || line.startsWith("#")) continue;
+                String[] content = line.split(SEMI.toString());
+                if (content.length != 2) {
+                    throw new IllegalArgumentException("Invalid syntax of ldml2icu_fallback_values at line " + lineNum);
+                }
+                fallbackPaths.put(content[0], content[1]);
+                lineNum++;
+            }
+        } catch(IOException e) {
+            System.err.println("Failed to read fallback file.");
+            e.printStackTrace();
+        }
+        return fallbackPaths;
+    }
+
+    protected static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
 
     /**
      * @param cldr
@@ -713,27 +761,26 @@ public class LDMLConverter {
      * @param cantConvert
      * @return the result of converting an xpath into an ICU-style path
      */
-    private static RegexResult getConvertedValues(RegexLookup<RegexResult> lookup,
+    private static RegexResult matchXPath(RegexLookup<RegexResult> lookup,
             CLDRFile cldr, String path,
             Output<Finder> matcherFound, Set<String> cantConvert) {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
-        List<String> errors = DEBUG ? new ArrayList<String>() : null;
+        boolean debugRegex = DEBUG && DEBUG_MATCH_REGEX.reset(fullPath).find();
+        List<String> errors = debugRegex ? new ArrayList<String>() : null;
         RegexResult result = lookup.get(fullPath, null, null, matcherFound, errors);
-        // Cache patterns for later analysis.
-        patternCache.add(matcherFound.toString());
-        if (result == null) {
-            if (cantConvert != null) {
-                cantConvert.add(fullPath);
-            }
-            if (DEBUG && errors != null) {
-                System.out.println("\tDEBUG\t" + CollectionUtilities.join(errors, "\n\tDEBUG\t"));
-            }
-        } else {
-            if (DEBUG && DEBUG_MATCH_REGEX.reset(fullPath).find()) {
+        if (debugRegex) {
+            if (result != null) {
                 System.out.println("Matching:\t" + fullPath
                     + "\n\t\twith\t" + matcherFound.value);
+            } else if (errors != null) {
+                System.out.println("\tDEBUG\t" + CollectionUtilities.join(errors, "\n\tDEBUG\t"));
             }
+        }
+        // Cache patterns for later analysis.
+        patternCache.add(matcherFound.toString());
+        if (result == null && cantConvert != null) {
+            cantConvert.add(fullPath);
         }
         return result;
     }
@@ -815,11 +862,6 @@ public class LDMLConverter {
         // sort the can't-convert strings and print
         for (String unconverted : Builder.with(new TreeSet<String>(CLDRFile.ldmlComparator)).addAll(cantConvert).get()) {
             System.out.println("Can't Convert:\t" + unconverted);
-        }
-        
-        Map<String, RegexResult> outputUnmatched = new TreeMap<String, RegexResult>();
-        for (Entry<String, RegexResult> patternRegexResult : pathConverter.getUnmatchedPatterns(patternCache, outputUnmatched).entrySet()) {
-            System.out.println(patternRegexResult.getKey() + "\t" + patternRegexResult.getValue().unprocessed + "\t" + "***Unmatched***");
         }
         */
     }

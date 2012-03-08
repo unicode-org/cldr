@@ -761,12 +761,14 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         }
 
         private AliasLocation getCachedFullStatus(String xpath) {
-            AliasLocation fullStatus = getSourceLocaleIDCache.get(xpath);
-            if (fullStatus == null) {
-                fullStatus = getPathLocation(xpath);
-                getSourceLocaleIDCache.put(xpath, fullStatus); // cache copy
+            synchronized(getSourceLocaleIDCache) {
+                AliasLocation fullStatus = getSourceLocaleIDCache.get(xpath);
+                if (fullStatus == null) {
+                    fullStatus = getPathLocation(xpath);
+                    getSourceLocaleIDCache.put(xpath, fullStatus); // cache copy
+                }
+                return fullStatus;
             }
-            return fullStatus;
         }
 
         //    private String _getFullPathAtDPath(String xpath) {
@@ -1020,17 +1022,19 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         }
 
         @Override
-        public void valueChanged(String xpath, XMLSource nonResolvingSource /*ignored*/) {
-            AliasLocation location = getSourceLocaleIDCache.remove(xpath);
-            if (location == null) return;
-            // Paths aliasing to this path (directly or indirectly) may be affected,
-            // so clear them as well.
-            // There's probably a more elegant way to fix the paths than simply
-            // throwing everything out.
-            Set<String> dependentPaths = getDirectAliases(new String[]{xpath});
-            if (dependentPaths.size() > 0) {
-                for (String path : dependentPaths) {
-                    getSourceLocaleIDCache.remove(path);
+        public void valueChanged(String xpath, XMLSource nonResolvingSource) {
+            synchronized(getSourceLocaleIDCache) {
+                AliasLocation location = getSourceLocaleIDCache.remove(xpath);
+                if (location == null) return;
+                // Paths aliasing to this path (directly or indirectly) may be affected,
+                // so clear them as well.
+                // There's probably a more elegant way to fix the paths than simply
+                // throwing everything out.
+                Set<String> dependentPaths = getDirectAliases(new String[]{xpath});
+                if (dependentPaths.size() > 0) {
+                    for (String path : dependentPaths) {
+                        getSourceLocaleIDCache.remove(path);
+                    }
                 }
             }
         }

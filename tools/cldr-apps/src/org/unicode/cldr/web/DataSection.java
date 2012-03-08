@@ -844,6 +844,7 @@ public class DataSection  {
 		 * @return
 		 */
 		CandidateItem getWinningItem() {
+			if(winningValue==null) return null;
 			return items.get(winningValue);
 		}
 

@@ -21,9 +21,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -46,7 +49,20 @@ import com.ibm.icu.util.ULocale;
  * @see OldUserRegistry
  **/
 public class UserRegistry {
-    private static java.util.logging.Logger logger;
+    public interface UserChangedListener {
+    	public void handleUserChanged(User u);
+	}
+
+    private List<UserChangedListener> listeners = new LinkedList<UserChangedListener>();
+    public synchronized void addListener(UserChangedListener l) {
+    	listeners.add(l);
+    }
+    private  synchronized void notify(User u) {
+    	for(UserChangedListener l : listeners) {
+    		l.handleUserChanged(u);
+    	}
+    }
+	private static java.util.logging.Logger logger;
     // user levels
     public static final int ADMIN   = 0;  /** Administrator **/
     public static final int TC      = 1;  /** Technical Committee **/
@@ -1122,6 +1138,7 @@ public class UserRegistry {
 																	// old user
 				updateIntLocs(newu.id, conn);
 				resetOrgList(); // update with new org spelling.
+				notify(newu);
 				return newu;
 			} else {
 				ctx.println("Couldn't add user.");

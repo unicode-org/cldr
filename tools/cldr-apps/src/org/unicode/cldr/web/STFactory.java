@@ -46,7 +46,7 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
  * @author srl
  *
  */
-public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, SublocaleProvider {
+public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, SublocaleProvider, UserRegistry.UserChangedListener {
 	/**
 	 * If true: run EVERY xpath through the resolver.
 	 */
@@ -215,26 +215,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     }
 
-    public static abstract class DoIfNotRecent {
-        private long every = 0;
-        private long lastTime = 0;
-        protected DoIfNotRecent(long every) {
-            this.every = every;
-        }
-        public void doIf() {
-            long now = System.currentTimeMillis();
-            if((now-lastTime)>every) {
-                try {
-                    handleDo();
-                    lastTime = now;
-                } finally {
-                    //
-                }
-            }
-        }
-        public abstract void handleDo();
-    }
-
     /**
      * the STFactory maintains exactly one instance of this class per locale it is working with. It contains the XMLSource, Example Generator, etc..
      * @author srl
@@ -380,10 +360,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         //			return getResolver(m, path, null);
         //		}
 
-        public VoteResolver<String> getResolver(Map<User, String> m, String path, VoteResolver<String> r) {
+        
+        private VoteResolver<String> getResolverInternal(Map<User,String> m, String path, VoteResolver<String> r) {
             //			if(m==null) throw new InternalError("no Map for " + path);
             if(path==null) throw new IllegalArgumentException("path must not be null");
-            updateVoteInfo.doIf();
             if(r==null) {
                 r = new VoteResolver<String>();
             } else {
@@ -406,6 +386,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if ( !srcid.equals(diskFile.getLocaleID())) {
             	lastStatus = Status.missing;
             }
+            
 
             if(false) System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus + " ('"+lastValue+"')");
 
@@ -423,6 +404,22 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             //			SurveyLog.logger.warning("RESOLVER for " + path + " --> " + r.toString());
             return r;
+        }
+        
+        public VoteResolver<String> getResolver(Map<User, String> m, String path, VoteResolver<String> r) {
+        	try  {
+        		r = getResolverInternal(m,path,r);
+        	} catch (VoteResolver.UnknownVoterException uve) {
+        		handleUserChanged(null);
+        		try {
+        			r = getResolverInternal(m, path, r);
+        		} catch(VoteResolver.UnknownVoterException uve2) {
+        			SurveyLog.logException(uve2);
+        			sm.busted(uve2.toString(), uve2);
+        			throw new InternalError(uve2.toString());
+        		}
+        	}
+        	return r;
         }
 
         @Override
@@ -789,14 +786,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public SurveyMain sm = null;
 
-    DoIfNotRecent updateVoteInfo = new DoIfNotRecent(1000*60*5) {
-        @Override
-        public void handleDo() {
-            // update voter info
-            VoteResolver.setVoterToInfo(sm.reg.getVoterToInfo());	
-        }
-    };
-
     /**
      * Construct one.
      */
@@ -806,6 +795,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         setSupplementalDirectory(sm.getDiskFactory().getSupplementalDirectory());
         
         gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
+        sm.reg.addListener(this);
+        handleUserChanged(null);
     }
 
     @Override
@@ -1001,4 +992,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         sm.TESTING_removeSTFactory();
         return sm.getSTFactory();
     }
+
+	@Override
+	public synchronized void handleUserChanged(User u) {
+        VoteResolver.setVoterToInfo(sm.reg.getVoterToInfo());	
+	}
 }

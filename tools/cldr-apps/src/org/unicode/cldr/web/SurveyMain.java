@@ -973,27 +973,33 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     private void doAdminPanel(WebContext ctx)
     {
         String action = ctx.field("action");
-        printHeader(ctx, "Admin@"+localhost() + " | " + action);
-        ctx.println("<script type=\"text/javascript\">timerSpeed = 6000;</script>");
-        printAdminMenu(ctx, "/AdminDump");
-        ctx.println("<h1>SurveyTool Administration</h1>");
-        ctx.println("<hr>");
         
         if(action!=null && isUnofficial && action.equals("new_and_login")) {
         	ctx.println("<hr>");
-            UserRegistry.User u = reg.getEmptyUser();
-            String real = ctx.field("real");
-            u.name= real+"_"+ctx.field("new_name").trim();
-            u.email = real+"_"+ctx.field("new_email").trim();
-            u.locales = ctx.field("new_locales").trim();
-            u.org = ctx.field("new_org").trim();
-            u.password = ctx.field("new_password");
-            u.userlevel = ctx.fieldInt("new_userlevel",-1);
-            UserRegistry.User registeredUser = reg.newUser(ctx, u);
-            ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added.</i>");
-            registeredUser.printPasswordLink(ctx);
+            String real = ctx.field("real").trim();
+            if(real.isEmpty() || real.equals("REALNAME")) {
+            	ctx.println(ctx.iconHtml("stop", "fail")+"<b>Please go <a href='javascript:window.history.back();'>Back</a> and fill in your real name.</b>");
+            } else {
+	            UserRegistry.User u = reg.getEmptyUser();
+	            u.name= real+"_"+ctx.field("new_name").trim();
+	            u.email = real+"_"+ctx.field("new_email").trim();
+	            u.locales = ctx.field("new_locales").trim();
+	            u.org = ctx.field("new_org").trim();
+	            u.password = ctx.field("new_password");
+	            u.userlevel = ctx.fieldInt("new_userlevel",-1);
+	            UserRegistry.User registeredUser = reg.newUser(ctx, u);
+	            ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added. Click the following link if you aren't redirected automatically.</i>");
+	            registeredUser.printPasswordLink(ctx);
+	            ctx.println("<script>document.location = '"+ctx.base()+"/survey?email="+u.email+"&pw="+u.password+"';</script>");
+            }
         } else {
-        	ctx.includeFragment("adminpanel.jsp");
+            printHeader(ctx, "Admin@"+localhost() + " | " + action);
+            ctx.println("<script type=\"text/javascript\">timerSpeed = 6000;</script>");
+            printAdminMenu(ctx, "/AdminDump");
+            ctx.println("<h1>SurveyTool Administration</h1>");
+            ctx.println("<hr>");
+
+            ctx.includeFragment("adminpanel.jsp");
         }
                 
         printFooter(ctx);

@@ -306,7 +306,7 @@ public class UserRegistry {
         ctx.println("<a href='" + ctx.base() + "?email=" + email + "&amp;uid=" + password + "'>Login for " + 
             email + "</a>");
     }
-    
+        
     public static Organization computeVROrganization(String org) {
         VoteResolver.Organization o = null;
         try {

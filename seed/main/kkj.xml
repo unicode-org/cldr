@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 6194 $"/>
+		<generation date="$Date: 2011-10-04 11:10:10 +0100 (Tue, 04 Oct 2011) $"/>
+		<language type="kkj"/>
+	</identity>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right"/>
+	</layout>
+	<characters>
+		<exemplarCharacters>[a á à â {a̧} b ɓ c d ɗ {ɗy} e é è ê ɛ {ɛ́} {ɛ̀} {ɛ̂} {ɛ̧} f g {gb} {gw} h i í ì î {i̧} j k {kp} {kw} l m {mb} n {nd} ǌ {ny} ŋ {ŋg} {ŋgb} {ŋgw} o ó ò ô ɔ {ɔ́} {ɔ̀} {ɔ̂} {ɔ̧} p r s t u ú ù û {u̧} v w y ̌]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[q x z]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B Ɓ  C D Ɗ Ɗy E Ɛ F G Gb Gw H I {I̧} J K Kp Kw L M Mb N Nd ǋ Ny Ŋ Ŋg Ŋgb Ŋgw O Ɔ  {Ɔ̧} P R S T U {U̧} V W Y]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[. ? ! , : … « » ‘ “ ” ( ) *]</exemplarCharacters>
+	</characters>
+    <!--  
+    <plurals>
+        <pluralRule count="one">n is 1</pluralRule>
+    </plurals>
+    --> 
+    <!--
+    <regionInfo>
+        <region type="default">Cameroon</region>
+        <region type="other">Central African Republic, Congo</region>
+    </regionInfo>
+    -->
+</ldml>

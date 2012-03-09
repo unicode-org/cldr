@@ -17,8 +17,9 @@
        <% } %>
 <div id='stchanged' style='display:none;' class='stchanged' title='st has changed'>
     <%= WebContext.iconHtml(request,"warn","Locale Changed") %>
-    The locale, <span id='stchanged_loc'>YOUR LOCALE</span>, has changed again due to votes or new data being loaded. Please complete your work on this page and then refresh/reload this page to 
-    view the new changes.
+    The locale, <span id='stchanged_loc'>YOUR LOCALE</span>, has changed due to your or other's actions. Please <a href='javascript:window.location.reload(true);'>refresh</a> the page to 
+    view the new changes..
+    <button id='stchanged_btn' type='button' onclick='window.location.reload(true)'>Refresh</button>
     <button id='stchanged_btn' type='button' onclick='dismissChangeNotice()'>Close</button>
 </div>
        <% if(SurveyMain.isPhaseBeta()) { %>

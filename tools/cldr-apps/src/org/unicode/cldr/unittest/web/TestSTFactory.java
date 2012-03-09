@@ -100,7 +100,7 @@ public class TestSTFactory extends TestFmwk {
 			originalValue  = expect(somePath,ANY,false,
 					mt,box);
 			
-			changedTo = "COLL_ATION!!!";
+			changedTo = "The main pump fixing screws with the correct strength class"; // as per ticket:2260
 			
 			if(originalValue.equals(changedTo)) {
 				errln("for " + locale + " value " + somePath + " winner is already= " + originalValue);
@@ -186,7 +186,7 @@ public class TestSTFactory extends TestFmwk {
 			originalValue2  = expect(somePath2,null,false,
 					mt_MT,box);
 			
-			changedTo2= "CAL_ENDA!!!";
+			changedTo2= "The alternate pump fixing screws with the incorrect strength class";
 			
 			if(originalValue2.equals(changedTo2)) {
 				errln("for " + locale2 + " value " + somePath2 + " winner is already= " + originalValue2);

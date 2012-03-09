@@ -151,11 +151,11 @@ public class JspWebContext extends WebContext {
 	 */
 	public void openMainForm() {
 		if(mainFormState == MainFormState.CLOSED) {
-			if(debugJsp()) {
-				this.println("<h4>&lt;form url='"+url()+"'&gt;</h4>");
-			}
+//			if(debugJsp()) {
+//				this.println("<h4>&lt;form url='"+url()+"'&gt;</h4>");
+//			}
 			sm.printPathListOpen(this);
-            printUrlAsHiddenFields();   
+//            printUrlAsHiddenFields();   
 			mainFormState = MainFormState.OPEN;
 		} else 	if(debugJsp()) {
 			this.println("<h4><i>duplicate &lt;form/&gt;</i></h4>");
@@ -171,13 +171,15 @@ public class JspWebContext extends WebContext {
 		if(mainFormState == MainFormState.OPEN) {
 			String nextStep = (String)this.get("nextStep");
 			if(nextStep!=null) {
-				this.println("<input type='hidden' name='step' value='"+ nextStep+"'>");
+			    this.println("Not implemented:  nextStep");
+			    STFactory.unimp();
+//				this.println("<input type='hidden' name='step' value='"+ nextStep+"'>");
 			}
-			if(canModify()) {
-				this.println("<input type='submit' value='Submit'>");
-			} else {
-				this.println("<input type='submit' value='Continue'>");
-			}
+//			if(canModify()) {
+//				this.println("<input type='submit' value='Submit'>");
+//			} else {
+//				this.println("<input type='submit' value='Continue'>");
+//			}
 			sm.printPathListClose(this);
 			mainFormState = MainFormState.CLOSED;
 			if(debugJsp()) {

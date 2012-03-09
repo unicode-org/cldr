@@ -195,7 +195,7 @@ function icancel(fieldhash,xpid,locale,session) {
     cancel_btn.style.display='none';
     submit_btn.style.display='none';
     ch_input.disabled=null;
-    chtd_input.style.width='25%';
+//    chtd_input.style.width='25%';
     ch_input.className='inputboxbig';
 }
 
@@ -235,7 +235,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
            }catch(e) {
                console.log("Error in ajax get ",e.message);
                console.log(" response: " + text);
-               e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
+               e_div.innerHTML = "<i>JavaScript Error: " + e.message + "</i>";
            }
     };
     var xhrArgs = {

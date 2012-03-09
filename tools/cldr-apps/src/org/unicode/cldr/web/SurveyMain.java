@@ -3356,7 +3356,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @see printPathListClose
      */
     public void printPathListOpen(WebContext ctx) {
-        	ctx.println("<form name='"+STFORM+"' method=POST action='" + ctx.base() + "'>");
+//        	ctx.println("<form name='"+STFORM+"' method=POST action='" + ctx.base() + "'>");
     }
     
     /**
@@ -3365,7 +3365,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @see printPathListOpen
      */
     public void printPathListClose(WebContext ctx) {
-        	ctx.println("</form>");
+//        	ctx.println("</form>");
     }
     
     public void doSession(WebContext ctx) throws IOException

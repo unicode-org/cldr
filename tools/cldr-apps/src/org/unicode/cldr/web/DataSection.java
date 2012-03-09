@@ -226,11 +226,7 @@ public class DataSection  {
 				                        + "')\"" 
 				                        + "  type='button'>" +
 				                           ctx.iconHtml(checkThis(ourVote)?"radx":"rado", "Vote") + "</button>");
-				            } else {
-				                ctx.print("<button class='inochoice' title='#" + xpathId + "' type='button' disabled>"
-				                        +                          ctx.iconHtml("rado", "Can't vote") +
-				                            "</button>");
-				            }
+				            } // else, can't vote- no radio buttons.
 				        }
 
 				        if (zoomedIn && (getVotes() != null)) {

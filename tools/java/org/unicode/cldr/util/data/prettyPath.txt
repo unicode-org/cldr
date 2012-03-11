@@ -159,7 +159,7 @@ $element=[a-zA-Z0-9]+;
 '/numbers/' ([a-z]+) 'Formats/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > '2-number|pattern|' $1;
 '/numbers/' ([a-z]+) 'Formats[@numberSystem="latn"]/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > '2-number|pattern|' $1;
 '/numbers/' ([a-z]+) 'Formats[@numberSystem="' ($avalue) '"]/' ($element) '/' ($element) '[@type="' ($avalue) '"]/pattern[@type="standard"]' > '2-number|pattern|' $1 '-' $2;
-#'/numbers/decimalFormats/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="standard"]
+'/numbers/decimalFormats/decimalFormatLength[@type="' ($avalue) '"]/decimalFormat[@type="standard"]/pattern[@type="' ($avalue) '"]' > '2-number|pattern|decimal-' $1 '-' $2;
 
 '/numbers/' ([a-z]+) 'Formats[@numberSystem="latn"]/' ($element) '[@type="' ($avalue) '"]/' ($element) '[@type="standard"]/pattern[@type="' ($avalue) '"]' > '2-number|pattern|' $1 '-' $5;
 '/numbers/' ([a-z]+) 'Formats[@numberSystem="' ($avalue) '"]/' ($element) '[@type="' ($avalue) '"]/' ($element) '[@type="standard"]/pattern[@type="' ($avalue) '"]' > '2-number|pattern|' $1 '-' $6 '-' $2;

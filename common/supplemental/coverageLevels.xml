@@ -14,6 +14,7 @@
 		<coverageLevel value="20" match="numbers/symbols/(decimal|group)"/>
 		<coverageLevel value="20" match="posix/messages/(yes|no)str"/>
 		<coverageLevel value="20" match="numbers/defaultNumberingSystem"/>
+		<coverageLevel value="20" match="numbers/otherNumberingSystems/(native|traditional|finance)"/>
 		<coverageLevel value="20" match="numbers/decimalFormats/decimalFormatLength/decimalFormat.*"/>
 		<coverageLevel value="20" match="numbers/currencyFormats/currencyFormatLength/currencyFormat.*"/>
 		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='${Target-Language}']([@alt='(short|variant)'])?"/>

@@ -3015,6 +3015,9 @@ public class DataSection  {
 
 			/* ** iterate over all xpaths */
 			for (String xpath : allXpaths) {
+				if ( xpath.indexOf("umberingSystem") > 0) {
+					int foo = 0;
+				}
 				boolean confirmOnly = false;
 				if (xpath.equals(null)) {
 					throw new InternalError("null xpath in allXpaths");
@@ -3236,20 +3239,8 @@ public class DataSection  {
 				if (p.prettyPath.startsWith("layout/inText")) {
 					p.valuesList = LAYOUT_INTEXT_VALUES;
 					superP.valuesList = p.valuesList;
-				} else if (p.prettyPath.startsWith("defaultNumberingSystem")) {
-					// Not all available numbering systems are good candidates
-					// for default numbering system.
-					// Things like "roman" shouldn't really be an option. So, in
-					// the interest of simplicity,
-					// we are hard-coding the choices here.
-					String[] values = { "latn", "arab", "arabext", "armn", "beng", "deva", "ethi", "geor", "gujr", "guru",
-							"hans", "hant", "hebr", "jpan", "khmr", "knda", "laoo", "mlym", "mong", "orya", "tamldec", "telu",
-							"thai", "tibt" };
-					p.valuesList = values;
-					superP.valuesList = p.valuesList;
-				} else if (p.prettyPath.indexOf("commonlyUsed") != -1) {
-					p.valuesList = METAZONE_COMMONLYUSED_VALUES;
-					superP.valuesList = p.valuesList;
+				} else if (p.prettyPath.contains("numberingSystems")) {
+					p.confirmOnly = true;
 				} else if (p.prettyPath.startsWith("layout/inList")) {
 					p.valuesList = LAYOUT_INLIST_VALUES;
 					superP.valuesList = p.valuesList;

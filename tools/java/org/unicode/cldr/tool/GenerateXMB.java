@@ -963,9 +963,8 @@ public class GenerateXMB {
 
         EnglishInfo(String targetDir, CLDRFile english, CLDRFile root) throws Exception {
 
-            Map<String,String> oldPathValueMap = ReadXMB.load(
-                    "/Users/markdavis/Documents/workspace/" +
-                    "cldr/tools/java/org/unicode/cldr/unittest/data/xmb/", 
+            Map<String,String> oldPathValueMap = ReadXMB.load(CldrUtility.BASE_DIRECTORY + 
+                    "/tools/java/org/unicode/cldr/unittest/data/xmb/", 
             "en.xml");
 
 

@@ -3015,9 +3015,6 @@ public class DataSection  {
 
 			/* ** iterate over all xpaths */
 			for (String xpath : allXpaths) {
-				if ( xpath.indexOf("umberingSystem") > 0) {
-					int foo = 0;
-				}
 				boolean confirmOnly = false;
 				if (xpath.equals(null)) {
 					throw new InternalError("null xpath in allXpaths");

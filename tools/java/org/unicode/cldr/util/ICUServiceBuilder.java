@@ -427,7 +427,7 @@ public class ICUServiceBuilder {
 
   public NumberFormat getGenericNumberFormat(String ns) {
       //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-      NumberFormat result = (NumberFormat) cacheNumberFormats.get(ns);
+      NumberFormat result = (NumberFormat) cacheNumberFormats.get(cldrFile.getLocaleID()+"@numbers="+ns);
       if (result != null) return result;
       ULocale ulocale = new ULocale(cldrFile.getLocaleID()+"@numbers="+ns);
       result = NumberFormat.getInstance(ulocale);

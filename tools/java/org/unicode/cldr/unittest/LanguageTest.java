@@ -133,8 +133,9 @@ public class LanguageTest extends TestFmwk {
                     + "\t" + c.getCount(biggestLanguage));
         }
     }
-
+    
     public void TestScriptsWithoutLanguage() {
+        if (true) throw new IllegalArgumentException("    Remove Kana => Ainu, Bopo, Latn => Afar");
         Set<String> needTransfer = new LinkedHashSet<String>();
         Set<String> unicodeScripts = getUnicodeScripts();
         for (String script : unicodeScripts) {
@@ -151,6 +152,27 @@ public class LanguageTest extends TestFmwk {
         for (String script : needTransfer) {
             addLine("und_" + script, script2likely.get(script));
         }
+        for (String script : needTransfer) {
+            final String tag = script2likely.get(script);
+            LanguageTagParser parser = new LanguageTagParser().set(tag);
+            String lang = parser.getLanguage();
+            logln(script + "\t" + getScriptName(script) + 
+                    "\t" + lang + "\t" + getLanguageName(lang) + "\t*");
+        }
+        String[][] special = {
+                {"Hani", "zh"},
+                {"Hira", "ja"},
+                {"Kana", "ja"},
+                {"Hang", "ko"},
+                {"Bopo", "zh"},
+        };
+        for (String[] scriptLang : special) {
+            String script = scriptLang[0];
+            final String lang = scriptLang[1];
+            logln(script + "\t" + getScriptName(script) + 
+                    "\t" + lang + "\t" + getLanguageName(lang) + "\t*");
+        }
+
     }
 
     /*
@@ -158,13 +180,13 @@ public class LanguageTest extends TestFmwk {
      */
     public void addLine(String input, final String result) {
         errln("Add?:\t<likelySubtag from=\"" + input + 
-        		"\" to=\"" + result +
-        		"\"/> <!--{ " + getLocaleName(input) +
-        		" } => { " + getLocaleName(result) +
-        		" }-->");
+                "\" to=\"" + result +
+                "\"/> <!--{ " + getLocaleName(input) +
+                " } => { " + getLocaleName(result) +
+        " }-->");
     }
 
-    
+
     private String getLocaleName(String input) {
         LanguageTagParser parser = new LanguageTagParser().set(input);
         return (parser.getLanguage().isEmpty() ? "?" : getLanguageName(parser.getLanguage()))

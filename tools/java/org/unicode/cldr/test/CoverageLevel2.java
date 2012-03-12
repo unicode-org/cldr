@@ -21,6 +21,9 @@ import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.util.ULocale;
 
 public class CoverageLevel2 {
+    
+    // To modify the results, see /cldr/common/supplemental/coverageLevels.xml
+    
     private RegexLookup<Level> lookup = null;
     
     enum SetMatchType {Target_Language, Target_Scripts, Target_Territories, Target_TimeZones, Target_Currencies, Calendar_List}

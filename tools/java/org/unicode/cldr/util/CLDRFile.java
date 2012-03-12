@@ -51,6 +51,7 @@ import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ULocale;
@@ -1296,7 +1297,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
           //if (!isSupplemental) ldmlComparator.addAttribute(attribute); // must do BEFORE put
           //ldmlComparator.addValue(value);
           // special fix to remove version
-          if (attribute.equals("version") && (qName.equals("ldml") || qName.equals("supplementalData"))) {
+          if (attribute.equals("cldrVersion") 
+                  && (qName.equals("version"))) {
             target.dtdVersion = value;
           } else {
             putAndFixDeprecatedAttribute(qName, attribute, value);
@@ -2761,6 +2763,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
   }
 
+  static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
+  
   /**
    * Get the path with the given count. 
    * It acts like there is an alias in root from count=n to count=one, 
@@ -2774,27 +2778,43 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
    * @return
    */
   public String getCountPathWithFallback(String xpath, Count count, boolean winning) {
-    String result;
-    XPathParts parts = new XPathParts().set(xpath);
-    boolean isDisplayName = parts.contains("displayName");
+      String result;
+      XPathParts parts = new XPathParts().set(xpath);
+      boolean isDisplayName = parts.contains("displayName");
 
-    // try the given count first
-    result = getCountPathWithFallback2(parts, xpath, count, winning);
-    if (result != null && isNotRoot(result)) {
-      return result;
-    }
-    // now try fallback
-    if (count != Count.other) {
-      result = getCountPathWithFallback2(parts, xpath, Count.other, winning);
-      if (result != null && isNotRoot(result)) {
-        return result;
+      String intCount = parts.getAttributeValue(-1, "count");
+      if (intCount != null && DIGITS.containsAll(intCount)) {
+          try {
+              int item = Integer.parseInt(intCount);
+              String locale = getLocaleID();
+              // TODO get data from SupplementalDataInfo...
+              PluralRules rules = PluralRules.forLocale(new ULocale(locale));
+              String keyword = rules.select(item);
+              Count itemCount = Count.valueOf(keyword);
+              result = getCountPathWithFallback2(parts, xpath, itemCount, winning);
+              if (result != null && isNotRoot(result)) {
+                  return result;
+              }
+          } catch (NumberFormatException e) {}
       }
-    }
-    // now try deletion (for currency)
-    if (isDisplayName) {
-      result = getCountPathWithFallback2(parts, xpath, null, winning);
-    }
-    return result;
+
+      // try the given count first
+      result = getCountPathWithFallback2(parts, xpath, count, winning);
+      if (result != null && isNotRoot(result)) {
+          return result;
+      }
+      // now try fallback
+      if (count != Count.other) {
+          result = getCountPathWithFallback2(parts, xpath, Count.other, winning);
+          if (result != null && isNotRoot(result)) {
+              return result;
+          }
+      }
+      // now try deletion (for currency)
+      if (isDisplayName) {
+          result = getCountPathWithFallback2(parts, xpath, null, winning);
+      }
+      return result;
   }
 
   private String getCountPathWithFallback2(XPathParts parts, String xpathWithNoCount,

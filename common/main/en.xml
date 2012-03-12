@@ -3251,6 +3251,22 @@
 					<pattern type="100000000000000">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+			    <decimalFormat>
+			        <pattern type="1000">0.0 thousand</pattern>
+			        <pattern type="10000">00 thousand</pattern>
+			        <pattern type="100000">000 thousand</pattern>
+			        <pattern type="1000000">0.0 million</pattern>
+			        <pattern type="10000000">00 million</pattern>
+			        <pattern type="100000000">000 million</pattern>
+			        <pattern type="1000000000">0.0 billion</pattern>
+			        <pattern type="10000000000">00 billion</pattern>
+			        <pattern type="100000000000">000 billion</pattern>
+			        <pattern type="1000000000000">0.0 trillion</pattern>
+			        <pattern type="10000000000000">00 trillion</pattern>
+			        <pattern type="100000000000000">000 trillion</pattern>
+			    </decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>

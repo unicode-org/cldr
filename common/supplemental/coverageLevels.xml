@@ -131,7 +131,7 @@
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='Europe_(Central|(East|West)ern)']/long/.*"/>
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='(Atlantic|GMT)']/long/.*"/>
 		<coverageLevel value="40" match="delimiters/(alternateQ|q)uotation(Start|End)"/>
-		<coverageLevel value="40" match="numbers/decimalFormats/decimalFormatLength[@type='short']/decimalFormat[@type='standard']/pattern[@type='.*]"/>
+		<coverageLevel value="40" match="numbers/decimalFormats/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='.*]"/>
 		<coverageLevel value="60" match="characters/ellipsis[@type='.*']"/>
 		<coverageLevel value="60" match="characters/moreInformation"/>
 		<coverageLevel value="60" match="characters/stopwords/stopwordList[@type='.*']"/>

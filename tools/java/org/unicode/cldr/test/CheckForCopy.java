@@ -49,6 +49,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "|pattern" +
             "|field\\[@type=\"dayperiod\"]" +
             "|defaultNumberingSystem" +
+            "|otherNumberingSystems" +
             "|exemplarCharacters" +
             ")", true)
             .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)

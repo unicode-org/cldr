@@ -37,6 +37,7 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
@@ -72,6 +73,7 @@ public class ExampleGenerator {
     private final static boolean CACHING = false;
 
     public final static double NUMBER_SAMPLE = 12345.6789;
+    public final static double NUMBER_SAMPLE_WHOLE = 2345;
 
     public final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
     public final static TimeZone GMT_ZONE_SAMPLE = TimeZone.getTimeZone("Etc/GMT");
@@ -275,6 +277,9 @@ public class ExampleGenerator {
             }
             if (parts.contains("symbol")) {
                 return result = handleNumberSymbol();
+            }
+            if (parts.contains("defaultNumberingSystem") || parts.contains("otherNumberingSystems")) {
+                return result = handleNumberingSystem(value);
             }
             if (parts.contains("units")) {
                 return result = handleUnits(parts, xpath, value, context, type);
@@ -528,6 +533,11 @@ public class ExampleGenerator {
     private String handleNumberSymbol() {
         DecimalFormat x = icuServiceBuilder.getNumberFormat(2);
         return x.format(NUMBER_SAMPLE);
+    }
+    
+    private String handleNumberingSystem(String value) {
+        NumberFormat x = icuServiceBuilder.getGenericNumberFormat(value);
+        return x.format(NUMBER_SAMPLE_WHOLE);
     }
 
     private String handleTimeZoneName(String xpath, String value) {

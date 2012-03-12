@@ -421,8 +421,18 @@ public class ICUServiceBuilder {
   }
   
   public DecimalFormat getNumberFormat(int index) {
-    //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    return _getNumberFormat(NumberNames[index], OTHER_KEY, null);
+      //CLDRFile cldrFile = cldrFactory.make(localeID, true);
+      return _getNumberFormat(NumberNames[index], OTHER_KEY, null);
+    }
+
+  public NumberFormat getGenericNumberFormat(String ns) {
+      //CLDRFile cldrFile = cldrFactory.make(localeID, true);
+      NumberFormat result = (NumberFormat) cacheNumberFormats.get(ns);
+      if (result != null) return result;
+      ULocale ulocale = new ULocale(cldrFile.getLocaleID()+"@numbers="+ns);
+      result = NumberFormat.getInstance(ulocale);
+      cacheNumberFormats.put(cldrFile.getLocaleID()+"@numbers="+ns, result);
+      return result;
   }
   
   public DecimalFormat getNumberFormat(String pattern) {

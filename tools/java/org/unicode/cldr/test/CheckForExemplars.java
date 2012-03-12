@@ -41,6 +41,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "/localeDisplayNames/variants/",
         "/commonlyUsed",
         "/defaultNumberingSystem",
+        "/otherNumberingSystems",
         "/exponential",
         "/nan",
         "/inText"
@@ -206,6 +207,10 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             if (true) return this;
             if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
         }
+        
+        for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
+            if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.
+        }
 
         // add checks for patterns. Make sure that all and only the message format patterns have {n}
         Matcher matcher = patternMatcher.reset(value);
@@ -261,9 +266,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 .setMessage("This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",
                         new Object[]{}));
             // end checks for patterns
-            for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
-                if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.
-            }
         }
 
         if (path.startsWith("//ldml/posix/messages")) return this;

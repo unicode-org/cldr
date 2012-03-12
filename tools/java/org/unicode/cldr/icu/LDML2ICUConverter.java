@@ -980,7 +980,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             }
         }
 
-        if (sourceDir.indexOf("main") > 0 /* && !LDMLUtilities.isLocaleAlias(root) */) {
+        if ( (sourceDir.endsWith("main") || sourceDir.indexOf("main/") > 0) /* && !LDMLUtilities.isLocaleAlias(root) */) {
             String locName = loc.getLocale();
             String country = ULocale.getCountry(locName);
             String variant = ULocale.getVariant(locName);

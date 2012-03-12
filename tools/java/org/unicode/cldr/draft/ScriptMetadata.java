@@ -164,6 +164,10 @@ public class ScriptMetadata {
     public static Info getInfo(String s) {
         return data.get(s);
     }
+    
+    public static Set<String> getScripts() {
+        return data.keySet();
+    }
 
     public static Info getInfo(int i) {
         return data.get(UScript.getShortName(i));

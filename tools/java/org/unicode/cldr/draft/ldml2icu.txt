@@ -16,6 +16,8 @@
 %E=[\w\-]++
 # Greedy word match
 %G=[\w\-]+
+# Number match
+%N=\d++
 
 # Main locale data
 
@@ -31,8 +33,6 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%E)"]/alias[@source="locale"][@path="../\2[@type='(%A)']"]   ; locales ; /calendar/$1/$2s/$3:alias ; values=/LOCALE/calendar/$1/$2s/$4
 //ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%E)"]/(cyclicName)Context[@type="(%E)"]/\4Width[@type="(%E)"]/alias[@source="locale"][@path="../\4Width[@type='(%A)']"]   ; locales ; /calendar/$1/$2s/$3/$5/$6:alias ; values=/LOCALE/calendar/$1/$2s/$3/$5/$7
 //ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet|monthPattern|quarter)s/\2Context[@type="(%E)"]/\2Width[@type="(%E)"]/alias[@source="locale"][@path="../../\2Context[@type='(%E)']/\2Width[@type='(%A)']"]   ; locales ; /calendar/$1/$2s/$3/$4:alias ; values=/LOCALE/calendar/$1/$2s/$5/$6
-
-//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/%E[@type="(%A)"]/%E[@type="(%A)"]/alias[@source="locale"][@path="../%E[@type='(%A)']"] ; locales ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$3/$5
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/alias[@source="locale"][@path="../../%E[@type='(%A)']/%E"] ; locales ; /calendar/$1/$2Names:alias ; values=/LOCALE/calendar/$3/$2Names
 //ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/\2Context[@type="(%E)"]/\2Width[@type="(%E)"]/alias[@source="locale"][@path="../\2Width[@type='(%A)']"]   ; locales ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$3/$5
@@ -55,6 +55,8 @@
 //ldml/characters/exemplarCharacters[@type="index"] ; locales ; /ExemplarCharactersIndex
 //ldml/characters/exemplarCharacters[@type="punctuation"] ; locales ; /ExemplarCharactersPunctuation
 //ldml/characters/exemplarCharacters ; locales ; /ExemplarCharacters
+
+//ldml/characters/special/icu:scripts/icu:script[@type="%N"]    ; locales   ;   /LocaleScript
 
 # Defaults
 
@@ -95,14 +97,12 @@
 //ldml/dates/timeZoneNames/(%GFormat)   ; locales ; /zoneStrings/$1
 
 //ldml/dates/timeZoneNames/metazone[@type="(%A)"]/(\w)%E/(\w)%E ; locales ; /zoneStrings/"meta:$1"/$2$3
-//ldml/dates/timeZoneNames/metazone[@type="(%A)"]/commonlyUsed ; locales ; /zoneStrings/"meta:$1"/cu:int
 
 //ldml/dates/timeZoneNames/singleCountries[@list="(%A)"] ; locales ; /zoneStrings/singleCountries ; values=$1
 
 //ldml/dates/timeZoneNames/zone[@type="(%E)/(%E)"]/exemplarCity ; locales ; /zoneStrings/"$1:$2"/ec
 //ldml/dates/timeZoneNames/zone[@type="(%E)/(%E)"]/(\w)%E/(\w)%E ; locales ; /zoneStrings/"$1:$2"/$3$4
 //ldml/dates/timeZoneNames/zone[@type="(%E)/(%E)/(%E)"]/exemplarCity ; locales ; /zoneStrings/"$1:$2:$3"/ec
-//ldml/dates/timeZoneNames/zone[@type="(%E)"]/(\w)%E/(\w)%E ; locales ; /zoneStrings/$1/$2$3
 
 # Locale Display Names
 
@@ -110,7 +110,8 @@
 
 //ldml/localeDisplayNames/keys/key[@type="(%A)"] ; locales ; /Keys/$1
 
-//ldml/localeDisplayNames/languages/language[@type="(%A)"] ; locales ; /Languages/$1
+# There is a language element with a references attribute in gd.
+//ldml/localeDisplayNames/languages/language[@type="(%A)"]([@references="%A"])? ; locales ; /Languages/$1
 //ldml/localeDisplayNames/languages/language[@type="(%A)"][@alt="short"] ; locales ; /LanguagesShort/$1
 
 //ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern ; locales ; /localeDisplayPattern/keyTypePattern
@@ -119,7 +120,8 @@
 
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="(%A)"] ; locales ; /measurementSystemNames/$1
 
-//ldml/localeDisplayNames/scripts/script[@type="(%A)"] ; locales ; /Scripts/$1
+# There is a script element with a references attribute in gd.
+//ldml/localeDisplayNames/scripts/script[@type="(%A)"]([@references="%A"])? ; locales ; /Scripts/$1
 //ldml/localeDisplayNames/scripts/script[@type="(%A)"][@alt="stand-alone"] ; locales ; /Scripts%stand-alone/$1
 
 //ldml/localeDisplayNames/territories/territory[@type="(%A)"] ; locales ; /Countries/$1
@@ -134,6 +136,8 @@
 
 //ldml/numbers/currencies/currency[@type="(%A)"]/symbol ; locales ; /Currencies/$1
 //ldml/numbers/currencies/currency[@type="(%A)"]/displayName ; locales ; /Currencies/$1
+# HACK: put the following xpaths in one struct within Currencies/$1 by appending a slash.
+//ldml/numbers/currencies/currency[@type="(%A)"]/(pattern[@type="standard"]|decimal|group) ; locales ; /Currencies/$1/
 
 //ldml/numbers/currencyFormats[@numberSystem="(%A)"]/currencySpacing/(%E)/(%E)   ; locales ; /currencySpacing/$2/$3; $1=//ldml/numbers/defaultNumberingSystem
 //ldml/numbers/currencyFormats[@numberSystem="(%A)"]/unitPattern[@count="(%A)"] ; locales ; /CurrencyUnitPatterns/$2 ; $1=//ldml/numbers/defaultNumberingSystem

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.BitSet;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -21,9 +20,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility.Output;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -37,11 +34,10 @@ import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 
 /**
  * Prototype simpler mechanism for converting to ICU Resource Bundles. The
@@ -51,15 +47,9 @@ import com.ibm.icu.text.UnicodeSetIterator;
  * @author markdavis
  */
 public class LDMLConverter {
-    private static boolean                       DEBUG                = false;
-    /**
-     * For debugging, set this to match a CLDR path. If there is no match in the Regex lookup, you'll see where it fails.
-     */
-    private static Matcher                       DEBUG_MATCH_REGEX          = Pattern.compile("currencyFormatLength").matcher("");
+    private static final boolean DEBUG = false;
 
     private static Pattern TERRITORY_XPATH = Pattern.compile("//ldml/localeDisplayNames/territories/territory\\[@type=\"(\\w+)\"]");
-
-    static SupplementalDataInfo                  supplementalDataInfo = SupplementalDataInfo.getInstance();
 
     /**
      * What we use as ID characters (actually ASCII would suffice).
@@ -78,6 +68,12 @@ public class LDMLConverter {
     };
 
     static final Pattern                         SEMI                 = Pattern.compile("\\s*+;\\s*+");
+
+    private Factory factory;
+    private Factory specialFactory;
+    private String destinationDir;
+    private SupplementalDataInfo supplementalDataInfo;
+    private boolean usedSpecial = false; // TODO: refactor this
 
     static class PathValueInfo {
         private String rbPath;
@@ -383,6 +379,11 @@ public class LDMLConverter {
         PrintWriter out = BagFormatter.openUTF8Writer(dirPath, locale + ".txt");
         out.write('\uFEFF');
         FileUtilities.appendFile(LDMLConverter.class, "ldml2icu_header.txt", null, replacements, out);
+        if (usedSpecial) {
+            out.println("/**");
+            out.println(" *  ICU <specials> source: <path>/xml/main/" + locale + ".xml");
+            out.println(" */");
+        }
         String[] lastLabels = new String[] {};
 
         out.append(locale);
@@ -547,17 +548,22 @@ public class LDMLConverter {
         return rbPathToValues.keySet();
     }
 
-    private static Set<String> deprecatedTerritoriesToInclude = Builder.with(new HashSet<String>())
-            .add("062").add("172").add("200").add("830").add("AN").add("CS").add("QU").get();
-    
+    private Set<String> deprecatedTerritories;
+    private Set<String> getDeprecatedTerritories() {
+        if (deprecatedTerritories == null) {
+            deprecatedTerritories = Builder.with(
+                supplementalDataInfo.getLocaleAliasInfo().get("territory").keySet())
+                .remove("062").remove("172").remove("200").remove("830")
+                .remove("AN").remove("CS").remove("QU").get();
+        }
+        return deprecatedTerritories;
+    }
+
     public void fillFromCLDR(Factory factory, String locale, Set<String> cantConvert) {
         clear();
-        // Variables for hacks
-        Set<String> deprecatedTerritories = supplementalDataInfo.getLocaleAliasInfo().get("territory").keySet();
-        deprecatedTerritories.removeAll(deprecatedTerritoriesToInclude);
+        Set<String> deprecatedTerritories = getDeprecatedTerritories();
 
         // First pass through the unresolved CLDRFile to get all icu paths.
-        Set<String> includedRbPaths = new HashSet<String>();
         CLDRFile cldr = factory.make(locale, false);
         Map<String,Map<String,String[]>> pathValueMap = new HashMap<String,Map<String,String[]>>();
         for (String xpath : cldr) {
@@ -577,36 +583,29 @@ public class LDMLConverter {
             String[] arguments = matcherFound.value.getInfo();
             for (PathValueInfo info : regexResult) {
                 String rbPath = info.processRbPath(arguments);
-                if (includedRbPaths.add(rbPath)) {
-                    // The immediate parent of every path should also exist.
-                    includedRbPaths.add(rbPath.substring(0, rbPath.lastIndexOf('/')));
-                }
+                addSubMap(rbPath, pathValueMap);
+                // The immediate parent of every path should also exist.
+                addSubMap(rbPath.substring(0, rbPath.lastIndexOf('/')), pathValueMap);
             }
         }
-
+        
         // Get all values from the resolved CLDRFile.
         CLDRFile resolvedCldr = factory.make(locale, true);
         Set<String> resolvedPaths = new HashSet<String>();
         CollectionUtilities.addAll(resolvedCldr.iterator(), resolvedPaths);
         resolvedPaths.addAll(getFallbackPaths().keySet());
         for (String xpath : resolvedPaths) {
-            Output<Finder> matcher = new Output<Finder>();
-            RegexResult regexResult = matchXPath(pathConverter,
-                resolvedCldr, xpath, matcher, null);
-            if (regexResult == null) continue;
-            String[] arguments = matcher.value.getInfo();
-            if (!regexResult.argumentsMatch(resolvedCldr, arguments)) continue;
-            for (PathValueInfo info : regexResult) {
-                String rbPath = info.processRbPath(arguments);
-                // Don't add additional paths at this stage.
-                if (!includedRbPaths.contains(rbPath)) continue;
-                Map<String, String[]> valueMap = pathValueMap.get(rbPath);
-                if (valueMap == null) {
-                    valueMap = new TreeMap<String, String[]>(SpecialLDMLComparator);
-                    pathValueMap.put(rbPath, valueMap);
-                }
-                String[] values = info.processValues(arguments, resolvedCldr, xpath);
-                valueMap.put(xpath, values);
+            addMatchesForPath(xpath, resolvedCldr, pathValueMap, true);
+        }
+
+        // Add special values to file.
+        usedSpecial = false;
+        if (specialFactory != null && specialFactory.getAvailable().contains(locale)) {
+            usedSpecial = true;
+            CLDRFile specialCldrFile = specialFactory.make(locale, false);
+            for (String xpath : specialCldrFile) {
+                System.out.println(xpath + " " + specialCldrFile.getFullXPath(xpath));
+                addMatchesForPath(xpath, specialCldrFile, pathValueMap, false);
             }
         }
 
@@ -618,8 +617,37 @@ public class LDMLConverter {
         // Hacks
         hackAddExtras(resolvedCldr, locale);
     }
+    
+    private void addMatchesForPath(String xpath, CLDRFile cldrFile,
+            Map<String, Map<String, String[]>> pathValueMap, boolean selective) {
+        Output<Finder> matcher = new Output<Finder>();
+        RegexResult regexResult = matchXPath(pathConverter,
+            cldrFile, xpath, matcher, null);
+        if (regexResult == null) return;
+        String[] arguments = matcher.value.getInfo();
+        if (!regexResult.argumentsMatch(cldrFile, arguments)) return;
+        for (PathValueInfo info : regexResult) {
+            String rbPath = info.processRbPath(arguments);
+            // Don't add additional paths at this stage.
+            if (selective && !pathValueMap.containsKey(rbPath)) continue;
+            Map<String, String[]> valueMap = addSubMap(rbPath, pathValueMap);
+            String[] values = info.processValues(arguments, cldrFile, xpath);
+            valueMap.put(xpath, values);
+        }
+    }
+    
+    private Map<String, String[]> addSubMap(String key, Map<String, Map<String, String[]>> pathValueMap) {
+        Map<String, String[]> valueMap = pathValueMap.get(key);
+        if (valueMap == null) {
+            valueMap = new TreeMap<String, String[]>(SpecialLDMLComparator);
+            pathValueMap.put(key, valueMap);
+        }
+        return valueMap;
+    }
 
     static Matcher VERSION_MATCHER = Pattern.compile("\\$Revision:\\s*(\\d+)\\s*\\$").matcher("");
+
+    private static Map<String, Set<String>> localeScripts = new HashMap<String, Set<String>>();
 
     /**
      * Adds all mappings that couldn't be represented in the ldml2icu.txt file.
@@ -627,34 +655,8 @@ public class LDMLConverter {
      * @param locale
      */
     private void hackAddExtras(CLDRFile cldrResolved, String locale) {
-        UnicodeSet s = cldrResolved.getExemplarSet("", WinningChoice.WINNING);
-        BitSet set = new BitSet();
-        for (UnicodeSetIterator it = new UnicodeSetIterator(s); it.next();) {
-            if (it.codepoint == UnicodeSetIterator.IS_STRING) {
-                String character = it.getString();
-                for (int i = 0; i < character.length(); i++) {
-                    set.set(UScript.getScript(character.codePointAt(i)));
-                }
-            } else {
-                set.set(UScript.getScript(it.codepoint));
-            }
-        }
-        set.clear(UScript.COMMON);
-        set.clear(UScript.INHERITED);
-        String path = "/LocaleScript";
-        // TODO(jchye): Uncomment this bit when we've verified that the output
-        // from this class matches LDML2ICUConverter's exactly.
-//        if (set.isEmpty()) {
-//            add(path, "Zyyy");
-//        } else {
-//            for (int i = set.nextSetBit(0); i >= 0; i = set.nextSetBit(i + 1)) {
-//                // operate on index i here
-//                String name = UScript.getShortName(i);
-//                add(path, name);
-//            }
-//        }
-
         // Specify parent of non-language locales.
+        String path;
         String parent = supplementalDataInfo.getExplicitParentLocale(locale);
         if (parent != null) {
             path = "/%%Parent";
@@ -766,17 +768,7 @@ public class LDMLConverter {
             Output<Finder> matcherFound, Set<String> cantConvert) {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
-        boolean debugRegex = DEBUG && DEBUG_MATCH_REGEX.reset(fullPath).find();
-        List<String> errors = debugRegex ? new ArrayList<String>() : null;
-        RegexResult result = lookup.get(fullPath, null, null, matcherFound, errors);
-        if (debugRegex) {
-            if (result != null) {
-                System.out.println("Matching:\t" + fullPath
-                    + "\n\t\twith\t" + matcherFound.value);
-            } else if (errors != null) {
-                System.out.println("\tDEBUG\t" + CollectionUtilities.join(errors, "\n\tDEBUG\t"));
-            }
-        }
+        RegexResult result = lookup.get(fullPath, null, null, matcherFound, null);
         // Cache patterns for later analysis.
         patternCache.add(matcherFound.toString());
         if (result == null && cantConvert != null) {
@@ -835,6 +827,81 @@ public class LDMLConverter {
         return rbPath.endsWith(":int") || rbPath.endsWith(":intvector");
     }
 
+    private void usage() {
+        System.out.println(
+            "\nUsage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
+            "This program is used to convert LDML files to ICU data text files.\n" +
+            "Please refer to the following options. Options are not case sensitive.\n" +
+            "Options:\n" +
+            "-s or --sourcedir          source directory for files followed by path, " +
+                                       "default is current directory.\n" +
+            "-d or --destdir            destination directory, followed by the path, "+
+                                       "default is current directory.\n" +
+            "-p or --specialsdir        source directory for files containing special data " +
+                                       "followed by the path. None if not specified\n" +
+            "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
+            "-h or -? or --help         this usage text.\n" +
+            "-v or --verbose            print out verbose output.\n" +
+            "example: org.unicode.cldr.drafts.LDMLConverter -s xxx -d yyy en.xml");
+        System.exit(-1);
+    }
+    
+    /**
+     * These must be kept in sync with getOptions().
+     */
+    private static final int HELP1 = 0;
+    private static final int HELP2 = 1;
+    private static final int SOURCEDIR = 2;
+    private static final int DESTDIR = 3;
+    private static final int SPECIALSDIR = 4;
+    private static final int SUPPLEMENTALDIR = 5;
+    private static final int VERBOSE = 6;
+
+    private void processArgs(String[] args) {
+        UOption[] options = new UOption[] {
+            UOption.HELP_H(),
+            UOption.HELP_QUESTION_MARK(),
+            UOption.SOURCEDIR(),
+            UOption.DESTDIR(),
+            UOption.create("specialsdir", 'p', UOption.REQUIRES_ARG),
+            UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
+            UOption.VERBOSE(),
+        };
+
+        int remainingArgs = 0;
+        try {
+            remainingArgs = UOption.parseArgs(args, options);
+        } catch (Exception e) {
+            System.out.println("Error parsing args: " + e.getMessage());
+            e.printStackTrace();
+            usage();
+        }
+        if (args.length == 0 || options[HELP1].doesOccur || options[HELP2].doesOccur) {
+            usage();
+        }
+        String filePattern = remainingArgs > 0 ? args[0] : ".*";
+        if (options[SOURCEDIR].doesOccur) {
+            factory = Factory.make(options[SOURCEDIR].value, filePattern);
+        }
+        destinationDir = options[DESTDIR].doesOccur ? options[DESTDIR].value : ".";
+        if (options[SPECIALSDIR].doesOccur) {
+            specialFactory = Factory.make(options[SPECIALSDIR].value, filePattern);
+        }
+        if (options[SUPPLEMENTALDIR].doesOccur) {
+            supplementalDataInfo = SupplementalDataInfo.getInstance(options[SUPPLEMENTALDIR].value);
+        }
+    }
+    
+    private void processFiles() throws IOException {
+        Set<String> cantConvert = new HashSet<String>(); // use HashSet for speed
+        for (String filename : factory.getAvailable()) {
+            long time = System.currentTimeMillis();
+            fillFromCLDR(factory, filename, cantConvert);
+            writeRB(destinationDir, filename);
+            System.out.println("Converted " + filename + ".xml in " + (System.currentTimeMillis() - time) + "ms");
+        }
+    }
+
     /**
      * In this prototype, just convert one file.
      * 
@@ -843,20 +910,11 @@ public class LDMLConverter {
      */
     public static void main(String[] args) throws IOException {
         // TODO Handle more than just the main directory.
-        // TODO(jchye): Add commandline args.
-        String fileRegexString = args.length == 0 ? "(en|root|ja|zh|ru|fr|ar|ko|he|en_AU)" : args[0];
-        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileRegexString);
-
-        LDMLConverter converter = new LDMLConverter();
-        Set<String> cantConvert = new HashSet<String>(); // use HashSet for speed
-
         long totalTime = System.currentTimeMillis();
-        for (String locale : factory.getAvailable()) {
-            long time=System.currentTimeMillis();
-            converter.fillFromCLDR(factory, locale, cantConvert);
-            converter.writeRB("/Users/jchye/tweaks/newicu/", locale);
-            System.out.println("Converted locale " + locale + " in " + (System.currentTimeMillis() - time) + "ms");
-        }
+        LDMLConverter converter = new LDMLConverter();
+        converter.processArgs(args);
+
+        converter.processFiles();
         System.out.println("Total time taken: " + (System.currentTimeMillis() - totalTime));
 /*
         // sort the can't-convert strings and print

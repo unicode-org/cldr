@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.output.ByteArrayOutputStream;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
@@ -92,6 +93,7 @@ public class SurveyAjax extends HttpServlet {
         }
 
         public static List<Object> wrap(List<CheckStatus> list) throws JSONException {
+        	if(list==null || list.isEmpty()) return null;
             List<Object> newList = new ArrayList<Object>();
             for(final CheckStatus cs : list) {
                 newList.add(wrap(cs));

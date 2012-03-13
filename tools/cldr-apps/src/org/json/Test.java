@@ -60,7 +60,8 @@ public class Test {
             	return "x";
             }
             
-            public String toJSONString() {
+            @Override
+            public String toJSONString() throws JSONException{
             	return "{" + JSONObject.quote(this.aString) + ":" + 
             	JSONObject.doubleToString(this.aNumber) + "}";
             }            

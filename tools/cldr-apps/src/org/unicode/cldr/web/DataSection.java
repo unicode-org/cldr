@@ -26,6 +26,11 @@ import java.util.TreeSet;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -60,7 +65,7 @@ import com.ibm.icu.util.ULocale;
  * formerly, and unfortunately, named DataPod
  **/
 
-public class DataSection  {
+public class DataSection implements JSONString {
 	public CLDRFile baselineFile;
 
     /**
@@ -70,7 +75,7 @@ public class DataSection  {
 	 * @author srl
 	 * 
 	 */
-	public class DataRow {
+	public class DataRow implements JSONString {
 
 		// String inheritFrom = null;
 		// String pathWhereFound = null;
@@ -78,7 +83,7 @@ public class DataSection  {
 		 * The Item is a particular alternate which could be chosen It was
 		 * previously named "Item"
 		 */
-		public class CandidateItem implements Comparable<CandidateItem> {
+		public class CandidateItem implements Comparable<CandidateItem>, JSONString {
 			public static final String altProposed = "n/a"; // proposed part of
 			// the name (or NULL
 			// for nondraft)
@@ -383,6 +388,42 @@ public class DataSection  {
 				return pClass;
 			}
 
+			public String getPClass() {
+				String pClass;
+				if (isWinner() && !isFallback && inheritFrom==null) {
+					if (confirmStatus == Status.approved) {
+						pClass = "winner"; // ' title='Winning item.'";
+					} else if (confirmStatus == Status.missing) {
+						pClass = "title='" + confirmStatus + "' ";
+					} else {
+					    pClass = "winner"; // class='winner' title='"+confirmStatus+"' ";
+					}
+				} else if (pathWhereFound != null) {
+					pClass = "alias"; // class='alias' title='alias from " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
+				} else if (isFallback || (inheritFrom != null)) {
+					if(isOldValue) {
+						pClass = "fallback"; // class='fallback' title='Previous Version'";
+					} else if (inheritFrom!=null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
+						pClass = "fallback_code"; //class='fallback_code' title='Untranslated Code'";
+					} else if ("root".equals(inheritFrom)) {
+						pClass = "fallback_root"; // class='fallback_root' title='Fallback from Root'";
+					} else {
+						pClass = "fallback"; // class='fallback' title='Translated in "
+//								+ ((inheritFrom==null)?"(unknown)": 
+//								 CLDRLocale.getDefaultFormatter().getDisplayName(inheritFrom)) + " and inherited here.'";
+					}
+				} else if (altProposed != null) {
+					pClass = "loser"; // class='loser' title='proposed, losing item'";
+					/*
+					 * } else if(p.inheritFrom != null) { pClass =
+					 * "class='missing'";
+					 */
+				} else {
+					pClass = "loser"; // class='loser'";
+				}
+				return pClass;
+			}
+
 			/* return true if any valid tests were found */
 			public boolean setTests(List<CheckStatus> testList) {
 				tests = testList;
@@ -469,6 +510,16 @@ public class DataSection  {
 					}
 				}
 				return false;
+			}
+			@Override
+			public String toJSONString() throws JSONException {
+				return new JSONObject().put("votes", getVotes()).put("valueHash", getValueHash()).put("value", value)
+						.put("isOldValue", isOldValue)
+						.put("inheritFrom", inheritFrom)
+						.put("isFallback", isFallback)
+						.put("pClass", getPClass())
+						.put("tests", SurveyAjax.JSONWriter.wrap(this.tests))
+						.toString();
 			}
 		}
 
@@ -588,6 +639,7 @@ public class DataSection  {
 			}
 			if(oldValue!=null && oldValue.equals(value)) {
 				previousItem = pi;
+				pi.isOldValue=true;
 			}
 			return pi;
 		}
@@ -1330,8 +1382,8 @@ public class DataSection  {
 		        // ##7 Change
 		        if (canModify && canSubmit && (zoomedIn || !zoomOnly)) {
 		            changetoBox = changetoBox
-		            +"<button id='submit_" + fullFieldHash() + "' display='none' class='isubmit' onclick=\"isubmit('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + 
-		            "', '" + ctx.session+"')\" type='button'   >" + ctx.iconHtml("rado", "submit this value") + "Submit</button>";
+		            +"<button id='submit_" + fullFieldHash() + "' class='isubmit' onclick=\"isubmit('"+fullFieldHash()+"',"+getXpathId() + ",'" + getLocale() + 
+		            "', '" + ctx.session+"')\" type='button'   >" + ctx.iconHtml("rado", "submit this value") + "</button>";
 		        }
 
 		        changetoBox = changetoBox + ("</td>");
@@ -1780,6 +1832,51 @@ public class DataSection  {
 		public boolean userHasVoted(int userId) {
 		    return ballotBox.userDidVote(sm.reg.getInfo(userId), getXpath());
 		}
+
+		@Override
+		public String toJSONString() throws JSONException  {
+			String winningVhash = "";
+        	CandidateItem winningItem = getWinningItem();
+        	if(winningItem!=null) {
+        		winningVhash = winningItem.getValueHash();
+        	}
+			String voteVhash = "";
+			String ourVote = null;
+			if(userForVotelist!=null) {
+		        ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
+		        if(ourVote!=null) {
+		        	CandidateItem voteItem = items.get(ourVote);
+		        	if(voteItem!=null) {
+		        		voteVhash = voteItem.getValueHash();
+		        	}
+		        }
+			}
+			
+			JSONObject itemsJson = new JSONObject();
+			for(CandidateItem i : items.values() ) {
+				itemsJson.put(i.getValueHash(), i);
+			}
+			
+				return new JSONObject()
+					.put("xpath", xpath)
+					.put("xpid", xpathId)
+					.put("winningValue", winningValue)
+					.put("displayName", this.displayName)
+					.put("prettyPath", this.getPrettyPath())
+					.put("hasErrors", hasErrors)
+					.put("hasWarnings", hasWarnings)
+					.put("confirmStatus", confirmStatus)
+					.put("hasVoted", userForVotelist!=null?userHasVoted(userForVotelist.id):false)
+					.put("winningVhash", winningVhash)
+					.put("ourVote", ourVote)
+					.put("voteVhash", voteVhash)
+					.put("items",itemsJson).toString();
+		}
+	}
+	
+	private User userForVotelist = null;
+	public void setUserForVotelist(User u) {
+		userForVotelist = u;
 	}
 
 	/**
@@ -3646,7 +3743,7 @@ public class DataSection  {
 
 	@Override
 	public String toString() {
-		return "{DataPod " + locale + ":" + xpathPrefix + " #" + super.toString() + ", " + getAll().size() + " items} ";
+		return "{"+getClass().getSimpleName() + " " + locale + ":" + xpathPrefix + " #" + super.toString() + ", " + getAll().size() + " items} ";
 	}
 
 	public void touch() {
@@ -3742,4 +3839,13 @@ public class DataSection  {
     enum EShowDataRowSet{ doShowTR, doShowValueRows, doShowOtherRows , doShowVettingRows};
     private static final EnumSet<EShowDataRowSet> kAllRows = EnumSet.allOf(EShowDataRowSet.class);
     public static final EnumSet<EShowDataRowSet>  kAjaxRows= EnumSet.of(EShowDataRowSet.doShowValueRows);
+
+	@Override
+	public String toJSONString() throws JSONException {
+		JSONObject itemList = new JSONObject();
+		for(Map.Entry<String, DataRow>e : rowsHash.entrySet()) {
+			itemList.put(e.getValue().fieldHash(), e.getValue());
+		}
+		return itemList.toString();
+	}
 }

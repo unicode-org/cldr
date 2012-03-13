@@ -17,13 +17,15 @@ button.icancel {
 	display: none;
 }
 button.isubmit {
-	display: none;
+/*
 	white-space: nowrap;
 	font-size:  small;
 	padding:  0.5em;
 	color:  maroon;
 	background-color:  white;
+	*/
 }
+
 button.ichoice {
 }
 button.inochoice {
@@ -502,8 +504,8 @@ td.botgray {
 	border-bottom: 1px solid #ddd;
 }
 
-th.topgray {
-	border-top: 1px solid #ddd;
+th.topgray, table.data tr.vother td, table.data tr.vother th {
+	border-top: 2px solid #ccf;
 }
 
 td.topgray {
@@ -1273,3 +1275,95 @@ div.helpHtml {
 border: 1px solid gray; margin: 3px;	
 font-size: small;
 }
+
+
+
+/* @group AJAX build */
+
+.d-st-warn {
+	width:  16px;
+	height:  16px;
+	background: yellow url(warn.png) no-repeat center center;
+}
+
+.d-st-stop {
+	width:  16px;
+	height:  16px;
+	background:  url(stop.png) no-repeat center center;
+}
+
+.d-st-okay {
+	width:  16px;
+	height:  16px;
+}
+
+.d-dr-approved {
+	width:  16px;
+	height:  16px;
+	background:  url(okay.png) no-repeat center center;
+}
+.d-dr-contributed {
+	width:  16px;
+	height:  16px;
+	background:  url(conf.png) no-repeat center center;
+}
+.d-dr-provisional {
+	width:  16px;
+	height:  16px;
+	background:  url(conf2.png) no-repeat center center;
+}
+.d-dr-unconfirmed {
+	width:  16px;
+	height:  16px;
+	background:  url(ques.png) no-repeat center center;
+}
+.d-dr-missing {
+	width:  16px;
+	height:  16px;
+	background:  url(bar1.png) no-repeat center center;
+}
+
+.d-code {
+	font: bold small "Courier New", Courier, mono;
+	vertical-align: middle;
+}
+
+.d-disp {
+	vertical-align: top;
+}
+
+.d-win {
+	vertical-align: top;
+}
+
+.d-vo-false {
+	width:  16px;
+	height:  16px;
+	background:  url(bar0.png) no-repeat center center;
+}
+
+.d-vo-true {
+	width:  16px;
+	height:  16px;
+	background:  url(vote.png) no-repeat center center;
+}
+
+button.ichoice-o {
+	width:  2em;
+	height:  2em;
+	background:  url(rado.png) no-repeat center center;
+}
+button.ichoice-x {
+	width:  2em;
+	height:  2em;
+	background:  url(radx.png) no-repeat center center;
+}
+
+.i-star {
+	width:  16px;
+	height:  16px;
+	background:  url(star.png) no-repeat center center;
+}
+
+
+/* @end */

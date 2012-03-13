@@ -34,3 +34,6 @@
 </span>
 <%= SurveyMain.SHOWHIDE_SCRIPT %>
 <!--  end stnotices.jspf -->
+<div style='display: none' id='hidden-stuff'>
+<%@ include file='/WEB-INF/tmpl/hidden.html' %>
+</div>

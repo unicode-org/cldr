@@ -1,9 +1,5 @@
-<%@page import="org.unicode.cldr.web.*"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*"%>
-<!-- Copyright (C) 2012 IBM and Others. All Rights Reserved -->
-<!--  RefreshRow.jsp -->
-<%
+<%@page import="org.unicode.cldr.web.*"%><%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved  --%><%
     WebContext ctx = new WebContext(request, response);
     String what = request.getParameter(SurveyAjax.REQ_WHAT);
     String sess = request.getParameter(SurveyMain.QUERY_SESSION);
@@ -18,8 +14,13 @@
         response.sendError(500, "Session missing");
         return;
     }
-    int id = Integer.parseInt(xpath);
-    String xp = mySession.sm.xpt.getById(id);
+    String xp = xpath;
+    try {
+	    int id = Integer.parseInt(xpath);
+	    xp = mySession.sm.xpt.getById(id);
+    } catch(NumberFormatException nfe) {
+    	
+    }
     ctx.session = mySession;
     ctx.sm = ctx.session.sm;
     ctx.setServletPath(ctx.sm.defaultServletPath);
@@ -34,6 +35,18 @@
                 mySession, locale);
  */ 
  DataSection section = ctx.getSection(XPathTable.xpathToBaseXpath(xp),Level.COMPREHENSIVE.toString(),WebContext.LoadingShow.dontShowLoading);
+ section.setUserForVotelist(ctx.session.user);
+ 
+ if(request.getParameter("json")!=null) {
+	 request.setCharacterEncoding("UTF-8");
+	 response.setCharacterEncoding("UTF-8");
+	 response.setContentType("application/json");
+     JSONWriter r = new JSONWriter(out)
+     	.object().key("section").value(section).endObject();
+	 return;
+ }
+
+ 
 /*         DataSection section = DataSection.make(null, mySession, locale,
                 xp, false, Level.COMPREHENSIVE.toString());
  */        // r.put("testResults", JSONWriter.wrap(result));
@@ -50,8 +63,7 @@
             ctx.flush();
 
             if(false){
-            %>
-            <td>
+           %><td>
             ROw: <%= row %><br>
             current: <%= row.getCurrentItem() %>
             uf: <%= ctx.getUserFile().cldrfile.isEmpty() %>

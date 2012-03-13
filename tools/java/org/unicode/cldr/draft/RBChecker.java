@@ -8,19 +8,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.LDMLConverter.PathValueInfo;
-import org.unicode.cldr.draft.LDMLConverter.RegexResult;
+import org.unicode.cldr.draft.LdmlLocaleMapper.IcuData;
+import org.unicode.cldr.draft.LdmlLocaleMapper.PathValueInfo;
+import org.unicode.cldr.draft.LdmlLocaleMapper.RegexResult;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.With;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -41,6 +43,12 @@ import com.ibm.icu.text.UnicodeSet;
  *
  */
 public class RBChecker {
+    /**
+     * What we use as ID characters (actually ASCII would suffice).
+     */
+    private static final UnicodeSet                      ID_CHARACTERS        = new UnicodeSet("[-:[:xid_continue:]]").freeze();
+    private static final UnicodeSet                      ID_START             = new UnicodeSet("[:xid_start:]").freeze();
+
     private static final boolean DEBUG = false;
     static Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 
@@ -51,20 +59,17 @@ public class RBChecker {
     }
 
     static void checkExistingRB(String locale) throws IOException {
-        LDMLConverter output = new LDMLConverter();
         List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<Row.R2<MyTokenizer.Type, String>>();
-        List<Row.R2<MyTokenizer.Type, String>> comments2 = comments;
+        IcuData icuData = new IcuData();
         for (String dir : With.array("locales", "lang", "region", "curr", "zone")) {
             String source = "/Users/markdavis/Documents/workspace/icu/source/data/" + dir + "/" + locale + ".txt";
-            parseRB(source, output, comments);
-            comments2 = null; // only record first comments
+            parseRB(source, icuData, comments);
         }
         // for (Entry<String, List<String>> entry : output.entrySet()) {
         // System.out.println(entry);
         // }
-        analyseMatches(locale, output);
-        // TODO(jchye): figure out what to do about this class.
-        //output.writeRB(CldrUtility.TMP_DIRECTORY + "dropbox/mark/converter/rb-formatted/", locale);
+        analyseMatches(locale, icuData);
+        IcuTextWriter.writeToFile(icuData, CldrUtility.TMP_DIRECTORY + "dropbox/mark/converter/rb-formatted/", locale, false);
     }
 
     private static void writeComments(List<R2<MyTokenizer.Type, String>> comments, Appendable output) throws IOException {
@@ -80,11 +85,11 @@ public class RBChecker {
         }
     }
 
-    static void analyseMatches(String locale, LDMLConverter converter) {
+    static void analyseMatches(String locale, IcuData dataFromTextFile) {
         // TBD change to HashMap for speed later
         Relation<String,String> rbValue2paths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         Relation<String,String> cldrValue2paths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        for (Entry<String, List<String[]>> entry : converter.entrySet()) {
+        for (Entry<String, List<String[]>> entry : dataFromTextFile.entrySet()) {
             String path = entry.getKey();
             for (String[] values : entry.getValue()) {
                 for (String value : values) {
@@ -94,9 +99,10 @@ public class RBChecker {
         }
         CLDRFile cldrResolved = factory.make(locale, true);
         
-        LDMLConverter cldrOutput = new LDMLConverter();
-        cldrOutput.fillFromCLDR(factory, locale, null);
-        for (String path : cldrOutput.keySet()) {
+        SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
+        LdmlLocaleMapper mapper = new LdmlLocaleMapper(factory, null, supplementalDataInfo);
+        IcuData icuData = mapper.fillFromCLDR(locale);
+        for (String path : icuData.keySet()) {
             String value = cldrResolved.getStringValue(path);
             cldrValue2paths.put(value, path);
         }
@@ -122,8 +128,9 @@ public class RBChecker {
             // get generated
             Set<String> generated = new TreeSet<String>();
             Output<String[]> arguments = new Output();
+            RegexLookup<RegexResult> lookup = LdmlLocaleMapper.getPathConverter();
             for (String path : cldrPaths) {
-                RegexResult regexResult = LDMLConverter.pathConverter.get(path, null, arguments);
+                RegexResult regexResult = lookup.get(path, null, arguments);
                 if (regexResult == null) {
                     continue;
                 }
@@ -186,7 +193,7 @@ public class RBChecker {
      * @param output
      * @param comments
      */
-    static void parseRB(String filename, LDMLConverter converter, List<R2<MyTokenizer.Type, String>> comments) {
+    static void parseRB(String filename, IcuData icuData, List<R2<MyTokenizer.Type, String>> comments) {
         BufferedReader in = null;
         try {
             File file = new File(filename);
@@ -255,7 +262,7 @@ public class RBChecker {
                         afterCurly = true;
                     } else if (ch == '}') {
                         if (lastLabel != null) {
-                            converter.add(path, lastLabel);
+                            icuData.add(path, lastLabel);
                             lastLabel = null;
                         }
                         path = oldPaths.remove(oldPaths.size() - 1);
@@ -263,7 +270,7 @@ public class RBChecker {
                             System.out.println("POP:\t" + path);
                     } else if (ch == ',') {
                         if (lastLabel != null) {
-                            converter.add(path, lastLabel);
+                            icuData.add(path, lastLabel);
                             lastLabel = null;
                         }
                     } else {
@@ -290,7 +297,7 @@ public class RBChecker {
         private final UForwardCharacterIterator source;
         private final UnicodeSet syntaxCharacters = new UnicodeSet("[:pattern_syntax:]");
         private final UnicodeSet spaceCharacters = new UnicodeSet("[\\u0000\\uFEFF[:pattern_whitespace:]]");
-        private final UnicodeSet idCharacters = new UnicodeSet(LDMLConverter.ID_CHARACTERS);
+        private final UnicodeSet idCharacters = new UnicodeSet(ID_CHARACTERS);
         private final UnicodeSet quoteCharacters = new UnicodeSet("[\"']");
 
         private int bufferedChar;

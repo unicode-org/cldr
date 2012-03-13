@@ -1,6 +1,7 @@
 package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -131,19 +132,17 @@ public class LDMLConverter {
 
     static class RegexResult implements Iterable<PathValueInfo> {
         private static final Pattern ARGUMENT_PATTERN = Pattern.compile("^\\$(\\d+)=(//.*)");
-        final String         dir;
         private Set<PathValueInfo> unprocessed;
         private Map<Integer, String> requiredArgs;
 
         public RegexResult(String source) {
             try {
                 String[] parts = SEMI.split(source);
-                dir = parts[0];
-                String rbPath = parts[1];
+                String rbPath = parts[0];
                 String value = null;
                 requiredArgs = new HashMap<Integer, String>();
-                if (parts.length > 2) {
-                    String[] rawValues = parts[2].split(",");
+                if (parts.length > 1) {
+                    String[] rawValues = parts[1].split(",");
                     for (String rawValue : rawValues) {
                         Matcher argMatcher = ARGUMENT_PATTERN.matcher(rawValue);
                         if (rawValue.startsWith("values=")) {
@@ -157,7 +156,7 @@ public class LDMLConverter {
                 unprocessed = new HashSet<PathValueInfo>();
                 unprocessed.add(new PathValueInfo(rbPath, value));
             } catch (Exception e) {
-                throw new IllegalArgumentException("Must be of form directory ; path: "
+                throw new IllegalArgumentException("Error while parsing "
                         + source, e);
             }
         }
@@ -296,7 +295,7 @@ public class LDMLConverter {
             .setValueTransform(PairValueTransform)
             .setValueMerger(RegexValueMerger)
             .loadFromFile(LDMLConverter.class, "ldml2icu.txt");
-
+    
     /**
      * ICU paths have a simple comparison, alphabetical within a level. We do
      * have to catch the / so that it is lower than everything.
@@ -370,10 +369,10 @@ public class LDMLConverter {
      * Write a file in ICU format. LDML2ICUConverter currently has some
      * funny formatting in a few cases; don't try to match everything.
      * 
-     * @param dirPath
-     * @param locale
+     * @param dirPath the directory to write the file to
+     * @param locale  the locale that the file is being written for
      */
-    void writeRB(String dirPath, String locale) throws IOException {
+    void writeRB(Map<String, List<String[]>> rbValues, String dirPath, String locale) throws IOException {
         boolean wasSingular = false;
         String[] replacements = { "%file%", locale };
         PrintWriter out = BagFormatter.openUTF8Writer(dirPath, locale + ".txt");
@@ -387,7 +386,7 @@ public class LDMLConverter {
         String[] lastLabels = new String[] {};
 
         out.append(locale);
-        List<String> sortedPaths = new ArrayList<String>(rbPathToValues.keySet());
+        List<String> sortedPaths = new ArrayList<String>(rbValues.keySet());
         Collections.sort(sortedPaths, PATH_COMPARATOR);
         for (String path : sortedPaths) {
             // Write values to file.
@@ -410,7 +409,7 @@ public class LDMLConverter {
                 }
             }
             boolean quote = !isIntRbPath(path);
-            List<String[]> values = rbPathToValues.get(path);
+            List<String[]> values = rbValues.get(path);
             wasSingular = appendValues(values, labels.length, quote, out);
             out.flush();
             lastLabels = labels;
@@ -732,9 +731,26 @@ public class LDMLConverter {
 
     private static Map<String, String> fallbackPaths;
     private static Map<String, String> getFallbackPaths() {
-        if (fallbackPaths != null) return fallbackPaths;
-        fallbackPaths = new HashMap<String, String>();
-        BufferedReader reader = FileUtilities.openFile(LDMLConverter.class, "ldml2icu_fallback_paths.txt");
+        if (fallbackPaths == null) {
+            fallbackPaths = loadMapFromFile("ldml2icu_fallback_paths.txt");
+        }
+        return fallbackPaths;
+    }
+    
+    /**
+     * Maps ICU paths to the directories they should end up in.
+     */
+    private Map<String, String> dirMapping;
+    private Map<String, String> getDirMapping() {
+        if (dirMapping == null) {
+            dirMapping = loadMapFromFile("ldml2icu_dir_mapping.txt");
+        }
+        return dirMapping;
+    }
+    
+    private static Map<String, String> loadMapFromFile(String filename) {
+        Map<String, String> map = new HashMap<String, String>();
+        BufferedReader reader = FileUtilities.openFile(LDMLConverter.class, filename);
         String line;
         try {
             int lineNum = 1;
@@ -742,16 +758,17 @@ public class LDMLConverter {
                 if (line.length() == 0 || line.startsWith("#")) continue;
                 String[] content = line.split(SEMI.toString());
                 if (content.length != 2) {
-                    throw new IllegalArgumentException("Invalid syntax of ldml2icu_fallback_values at line " + lineNum);
+                    throw new IllegalArgumentException("Invalid syntax of " + filename + " at line " + lineNum);
                 }
-                fallbackPaths.put(content[0], content[1]);
+                map.put(content[0], content[1]);
                 lineNum++;
             }
         } catch(IOException e) {
             System.err.println("Failed to read fallback file.");
             e.printStackTrace();
         }
-        return fallbackPaths;
+        return map;
+
     }
 
     protected static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
@@ -840,6 +857,7 @@ public class LDMLConverter {
             "-p or --specialsdir        source directory for files containing special data " +
                                        "followed by the path. None if not specified\n" +
             "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
+            "-k or --keeptogether       write locale data to one file instead of splitting.\n" +
             "-h or -? or --help         this usage text.\n" +
             "-v or --verbose            print out verbose output.\n" +
             "example: org.unicode.cldr.drafts.LDMLConverter -s xxx -d yyy en.xml");
@@ -856,7 +874,10 @@ public class LDMLConverter {
     private static final int SPECIALSDIR = 4;
     private static final int SUPPLEMENTALDIR = 5;
     private static final int VERBOSE = 6;
-
+    // Debugging: doesn't split up locale into separate directories.
+    private static final int KEEP_TOGETHER = 7;
+    
+    private boolean keepTogether = false;
     private void processArgs(String[] args) {
         UOption[] options = new UOption[] {
             UOption.HELP_H(),
@@ -866,6 +887,7 @@ public class LDMLConverter {
             UOption.create("specialsdir", 'p', UOption.REQUIRES_ARG),
             UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
             UOption.VERBOSE(),
+            UOption.create("keeptogether", 'k', UOption.NO_ARG)
         };
 
         int remainingArgs = 0;
@@ -890,6 +912,33 @@ public class LDMLConverter {
         if (options[SUPPLEMENTALDIR].doesOccur) {
             supplementalDataInfo = SupplementalDataInfo.getInstance(options[SUPPLEMENTALDIR].value);
         }
+        keepTogether = options[KEEP_TOGETHER].doesOccur;
+    }
+    
+    private Map<String, Set<String>> mapDirToPaths(Set<String> paths) {
+        Map<String, String> dirMapping = getDirMapping();
+        Map<String, Set<String>> dirPaths = new HashMap<String, Set<String>>();
+        dirPaths.put("locales", new HashSet<String>());
+        for (String path : paths) {
+            boolean matched = false;
+            for (String prefix : dirMapping.keySet()) {
+                if (path.startsWith(prefix)) {
+                    String dir = dirMapping.get(prefix);
+                    Set<String> filteredPaths = dirPaths.get(dir);
+                    if (filteredPaths == null) {
+                        filteredPaths = new HashSet<String>();
+                        dirPaths.put(dir, filteredPaths);
+                    }
+                    filteredPaths.add(path);
+                    matched = true;
+                    break;
+                }
+                if (!matched) {
+                    dirPaths.get("locales").add(path);
+                }
+            }
+        }
+        return dirPaths;
     }
     
     private void processFiles() throws IOException {
@@ -897,7 +946,22 @@ public class LDMLConverter {
         for (String filename : factory.getAvailable()) {
             long time = System.currentTimeMillis();
             fillFromCLDR(factory, filename, cantConvert);
-            writeRB(destinationDir, filename);
+            if (keepTogether) {
+                writeRB(rbPathToValues, destinationDir, filename);
+            } else {
+                Map<String, Set<String>> dirPaths = mapDirToPaths(rbPathToValues.keySet());
+                for (String dir : dirPaths.keySet()) {
+                    Map<String, List<String[]>> rbValues = new HashMap<String, List<String[]>>();
+                    Set<String> paths = dirPaths.get(dir);
+                    for (String path : paths) {
+                        rbValues.put(path, rbPathToValues.get(path));
+                    }
+                    String dirPath = destinationDir + '/' + dir;
+                    File dirFile = new File(dirPath);
+                    if (!dirFile.exists()) dirFile.mkdir();
+                    writeRB(rbValues, dirPath, filename);
+                }
+            }
             System.out.println("Converted " + filename + ".xml in " + (System.currentTimeMillis() - time) + "ms");
         }
     }

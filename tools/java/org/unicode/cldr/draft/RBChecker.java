@@ -63,7 +63,8 @@ public class RBChecker {
         // System.out.println(entry);
         // }
         analyseMatches(locale, output);
-        output.writeRB(CldrUtility.TMP_DIRECTORY + "dropbox/mark/converter/rb-formatted/", locale);
+        // TODO(jchye): figure out what to do about this class.
+        //output.writeRB(CldrUtility.TMP_DIRECTORY + "dropbox/mark/converter/rb-formatted/", locale);
     }
 
     private static void writeComments(List<R2<MyTokenizer.Type, String>> comments, Appendable output) throws IOException {

@@ -1,0 +1,19 @@
+# Mapping of ICU paths to their respective folders.
+# Any leftover paths will be written to the locales folder.
+# Used by LDMLConverter.
+
+/Keys/                   ; lang
+/Languages/              ; lang
+/LanguagesShort/         ; lang
+/Scripts/                ; lang
+/Scripts%stand-alone/    ; lang
+/Types/                  ; lang
+/Variants/               ; lang
+/codePatterns/           ; lang
+/localeDisplayPattern/   ; lang
+/Countries/              ; region
+/Currencies/             ; curr
+/CurrencyPlurals/        ; curr
+/CurrencyUnitPatterns/   ; curr
+/currencySpacing/        ; curr
+/zoneStrings/            ; zone

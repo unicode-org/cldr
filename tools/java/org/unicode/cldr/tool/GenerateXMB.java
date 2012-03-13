@@ -305,7 +305,7 @@ public class GenerateXMB {
         } else if (skipPath.equals("KEEP")) {
             return PathStatus.KEEP;
         }
-        throw new IllegalArgumentException("Unexpected xmbSkip.txt value");
+        throw new IllegalArgumentException("Unexpected xmbSkip.txt value: " + skipPath);
     }
 
     private static String ssquote(String englishValue, boolean showRemoved) {

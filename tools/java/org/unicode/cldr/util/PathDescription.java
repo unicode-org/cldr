@@ -19,7 +19,9 @@ import com.ibm.icu.text.MessageFormat;
 public class PathDescription {
 
     public enum ErrorHandling {SKIP, CONTINUE}
-    public static final Set<String> EXTRA_LANGUAGES = new TreeSet<String>(Arrays.asList("ace en zh ja de ru es ko fr pl ar pt it tr nl cs id th sv vi ro nb hu fi he bg da et sk sr el lt hr lv fa sl uk ca is ms fil az sq eu ka gl hi be af mk la hy mn fy kk ta bn kn mt lb ur uz eo si km ky cy ne ku sw oc mi fo jv te ml ug pa mr ga ps gu my lo yo su tg ht am tt gd qu bo dv to sd sa iu or bho gn".split(" ")));
+    public static final Set<String> EXTRA_LANGUAGES = new TreeSet<String>(Arrays.asList(
+            "es_ES|de_CH|de_AT|en_AU|en_CA|en_GB|en_US|es_419|fr_CA|fr_CH|gsw|nl_BE|pt_BR|und|zh_Hans|zxx|ach|af|ak|am|ar|az|be|bem|bg|bh|bn|br|bs|ca|chr|ckb|co|crs|cs|cy|da|de|ee|el|en|eo|es|es_419|et|eu|fa|fi|fil|fo|fr|fy|ga|gaa|gd|gl|gn|gu|ha|haw|he|hi|hr|ht|hu|hy|ia|id|ig|is|it|ja|jv|ka|kg|kk|km|kn|ko|kri|ku|ky|la|lg|ln|lo|loz|lt|lua|lv|mfe|mg|mi|mk|ml|mn|mr|ms|mt|nb|ne|nl|nn|nso|ny|nyn|oc|om|or|pa|pcm|pl|ps|pt|pt_PT|qu|rm|rn|ro|ro_MO|ru|rw|sd|sh|si|sk|sl|sn|so|sq|sr|sr_ME|st|su|sv|sw|ta|te|tg|th|ti|tk|tlh|tn|to|tr|tt|tum|tw|ug|uk|ur|uz|vi|wo|xh|yi|yo|zh|zh_Hant|zu"
+            .split("|")));
 
     private static final Pattern METAZONE_PATTERN = Pattern.compile("//ldml/dates/timeZoneNames/metazone\\[@type=\"([^\"]*)\"]/(.*)/(.*)");
     private static final Pattern STAR_ATTRIBUTE_PATTERN = Pattern.compile("=\"([^\"]*)\"");

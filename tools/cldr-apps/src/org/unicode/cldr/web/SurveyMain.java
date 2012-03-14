@@ -4199,7 +4199,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     		for(int j=0;j<CALENDARS_ITEMS.length;j++) {
     			if(CALENDARS_ITEMS[j].equals(which)) {
     				String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
-    				showPathList(subCtx, CAL_XPATH, null);
+    				showPathList(subCtx, CAL_XPATH, null, true);
     				return;
     			}
     		}
@@ -4980,14 +4980,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param which menu item to use
      */
     public void showLocaleCodeList(WebContext ctx, String which) {
-        showPathListNew(ctx, PathUtilities.LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
+        showPathList(ctx, PathUtilities.LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
     }
 
-    private void showPathListNew(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
+    private void showPathList(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
 		if(ctx.canModify()) {
 	        ctx.println("   	<div id='DataSection'>    	</div>    	<script type='text/javascript'>    	showRows('DataSection', '"+xpath+"', '"+ctx.session.id+"');    	</script>");
 		} else {
-			showPathList(ctx,xpath,typeToSubtype,b);
+			showPathListOld(ctx,xpath,typeToSubtype,b);
 		}
 	}
 	public void showPathListExample(WebContext ctx, String xpath, String lastElement,
@@ -5286,7 +5286,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param lastElement the 'final element' of each item, such as 'exemplarCharacters' 
      * @param simple (ignored)
      */
-    public void showPathList(WebContext ctx, String xpath, String lastElement, boolean simple) {
+    public void showPathListOld(WebContext ctx, String xpath, String lastElement, boolean simple) {
     	// old way (nonDOM)
     		showPathList(ctx,xpath,null, lastElement);
     	

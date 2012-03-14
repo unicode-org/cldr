@@ -1099,4 +1099,17 @@ public class ExampleGenerator {
             column = 0;
         }
     }
+
+    /**
+     * Returns TRUE if Zoomed.IN results in a different value from Zoomed.OUT
+     * @param xpath
+     * @return
+     */
+    public static boolean hasDifferentZoomIn(String xpath) {
+        if(xpath.startsWith("//ldml/characters")) {
+            return true; 
+        } else {
+            return false;
+        }
+    }
 }

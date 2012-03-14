@@ -35,7 +35,6 @@
                 mySession, locale);
  */ 
  DataSection section = ctx.getSection(XPathTable.xpathToBaseXpath(xp),Level.COMPREHENSIVE.toString(),WebContext.LoadingShow.dontShowLoading);
- section.setUserForVotelist(ctx.session.user);
  
  if(request.getParameter("json")!=null) {
 	 request.setCharacterEncoding("UTF-8");

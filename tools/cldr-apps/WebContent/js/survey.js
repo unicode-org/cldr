@@ -466,6 +466,7 @@ function addIcon(td, className) {
 	star.className=className;
 	star.innerHTML="&nbsp; &nbsp;";
 	td.appendChild(star);
+	return star;
 }
 
 function showInPop(tr,theRow, str) {
@@ -580,6 +581,9 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 		h3.appendChild(cloneAnon(div.getElementsByTagName("span")[0]));
 		h3.className="span";
 		td.appendChild(h3);
+		
+		
+		
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
 		var newHtml = "";
@@ -589,7 +593,15 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 		} else {
 			newHtml = "<i>no tests</i>";
 		}
+		
 		newDiv.innerHTML = newHtml;
+		
+		if(item.inExample) {
+			appendExample(td, item.inExample);
+		} else if(item.example) {
+			appendExample(td, item.example);
+		}
+		
 
 		tr.infoRow.className = "d-inforow";
 //		tr.infoRow.onClick = function() {
@@ -653,6 +665,14 @@ function popInfoInto(tr, theRow, theChild) {
 }
 
 
+function appendExample(parent, text) {
+	var div = document.createElement("div");
+	div.className="d-example";
+	div.innerHTML=text;
+	parent.appendChild(div);
+	return div;
+}
+
 function addVitem(td, tr,theRow,item,vHash,newButton) {
 	var div = document.createElement("div");
 	div.className = "d-item";
@@ -678,8 +698,13 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	}
 	div.onclick = function(){ showItemInfo(td,tr,theRow,item,vHash,newButton,div); return false;};
 	td.appendChild(div);
+	
+	if(item.inExample) {
+		addIcon(div,"i-example-zoom").onclick = div.onclick;
+	} else if(item.example) {
+		appendExample(td,item.example).onclick = div.onclick;
+	}
 }
-
 
 function updateRow(tr, theRow) {
 	if(!tr.infoRow) { 
@@ -721,6 +746,9 @@ function updateRow(tr, theRow) {
 	children[2].onclick = doPopInfo;
 	children[3].innerHTML=theRow.prettyPath;
 	children[4].innerHTML=theRow.displayName;
+	if(theRow.displayExample) {
+		appendExample(children[4], theRow.displayExample);
+	}
 	children[5].innerHTML=""; // win
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[5],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));

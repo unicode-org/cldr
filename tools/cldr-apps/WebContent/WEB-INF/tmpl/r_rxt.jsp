@@ -7,6 +7,10 @@ if(!SurveyMain.isUnofficial) {
 	return;
 }
 String xp = ctx.field("xp", "//ldml");
+
+if(xp.equals("gregorian")) {
+	xp= SurveyMain.GREGO_XPATH;
+}
 %>
 hi, session=<%= ctx.session.id %>
 <hr>

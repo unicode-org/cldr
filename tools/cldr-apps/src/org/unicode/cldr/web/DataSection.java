@@ -36,6 +36,7 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
+import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -66,8 +67,8 @@ import com.ibm.icu.util.ULocale;
 
 public class DataSection implements JSONString {
 	public CLDRFile baselineFile;
-	public DisplayAndInputProcessor processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE);
-
+	private DisplayAndInputProcessor processor = null;
+	
     /**
 	 * This class represents a "row" of data - a single distinguishing xpath
 	 * This class was formerly (and unfortunately) named "Pea"
@@ -117,7 +118,7 @@ public class DataSection implements JSONString {
 			private String dv = null;
 			public String getProcessedValue() {
 				if(value==null) return null;
-	            return processor.processForDisplay(xpath, value);
+	            return getProcessor().processForDisplay(xpath, value);
 			}
 			
             private CandidateItem(String value) {
@@ -521,6 +522,8 @@ public class DataSection implements JSONString {
 			public String toJSONString() throws JSONException {
 				JSONObject j =  new JSONObject().put("valueHash", getValueHash()).put("rawValue", value)
 						.put("value", getProcessedValue())
+						.put("example", getExample())
+						.put("inExample", getInExample())
 						.put("isOldValue", isOldValue)
 						.put("inheritFrom", inheritFrom)
 						.put("isFallback", isFallback)
@@ -535,6 +538,21 @@ public class DataSection implements JSONString {
 					j.put("votes", voteList);
 				}
 				return j.toString();
+			}
+
+			private String getExample() {
+				if(examplebuilder==null) {
+					return null;
+				} else {
+					return getExampleBuilder().getExampleHtml(xpath, value, Zoomed.OUT, ExampleType.NATIVE);
+				}
+			}
+			private String getInExample() {
+				if( examplebuilder==null || !ExampleGenerator.hasDifferentZoomIn(xpath)) {
+					return null;
+				} else {
+					return getExampleBuilder().getExampleHtml(xpath, value, Zoomed.IN, ExampleType.NATIVE);
+				}
 			}
 		}
 
@@ -1872,12 +1890,24 @@ public class DataSection implements JSONString {
 				itemsJson.put(i.getValueHash(), i);
 			}
 			
+			String displayExample = null;
+			String displayInExample = null;
+			ExampleBuilder b = getExampleBuilder();
+			if(b!=null) {
+				displayExample=b.getExampleHtml(xpath, displayName, Zoomed.OUT, ExampleType.ENGLISH);
+				if(ExampleGenerator.hasDifferentZoomIn(xpath)) {
+					displayInExample=b.getExampleHtml(xpath, displayName, Zoomed.OUT, ExampleType.ENGLISH);
+				}
+			}
+			
 				return new JSONObject()
 					.put("xpath", xpath)
 					.put("xpid", xpathId)
 					.put("winningValue", winningValue)
-					.put("displayName", this.displayName)
-					.put("prettyPath", this.getPrettyPath())
+					.put("displayName", displayName)
+					.put("displayExample", displayExample)
+					.put("displayInExample", displayInExample)
+					.put("prettyPath", getPrettyPath())
 					.put("hasErrors", hasErrors)
 					.put("hasWarnings", hasWarnings)
 					.put("confirmStatus", confirmStatus)
@@ -1890,8 +1920,9 @@ public class DataSection implements JSONString {
 	}
 	
 	private User userForVotelist = null;
-	public void setUserForVotelist(User u) {
+	public void setUserAndFileForVotelist(User u, CLDRFile f) {
 		userForVotelist = u;
+		getExampleBuilder(f);
 	}
 
 	/**
@@ -2536,6 +2567,9 @@ public class DataSection implements JSONString {
 		// XMLSource ourSrc = uf.resolvedSource;
 		CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true)
 				.setSupplementalDirectory(SurveyMain.supplementalDataDir);
+		if(ctx!=null) {
+			section.setUserAndFileForVotelist(ctx.session!=null?ctx.session.user:null,ourSrc);
+		}
 		if (ourSrc.getSupplementalDirectory() == null) {
 			throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 		}
@@ -2650,7 +2684,7 @@ public class DataSection implements JSONString {
      */
 	private static boolean sectionHasExamples(String prefix) {
 	    boolean sectionHasExamples = false;
-	    final String[] prefixesWithExamples = { "currencies", "calendars", "codePatterns", "numbers", "localeDisplayPattern" };
+	    final String[] prefixesWithExamples = { "currencies", "calendars", "codePatterns", "numbers", "localeDisplayPattern", "characters"};
 	    for (String s : prefixesWithExamples) {
 	        if (prefix.contains(s)) {
 	            sectionHasExamples = true;
@@ -2756,6 +2790,7 @@ public class DataSection implements JSONString {
 	public String xpathPrefix = null;
 
     private CLDRLocale locale;
+	private ExampleBuilder examplebuilder;
 
 	DataSection(SurveyMain sm, CLDRLocale loc, String prefix, String ptype) {
 	    this.locale = loc;
@@ -3901,6 +3936,32 @@ public class DataSection implements JSONString {
 		for(Map.Entry<String, DataRow>e : rowsHash.entrySet()) {
 			itemList.put(e.getValue().fieldHash(), e.getValue());
 		}
-		return new JSONObject().put("rows",itemList).toString();
+		return new JSONObject().put("rows",itemList)
+				.put("hasExamples", hasExamples)
+				.put("xpathPrefix", xpathPrefix)
+				.toString();
 	}
+
+	/**
+	 * @return the processor
+	 */
+	private DisplayAndInputProcessor getProcessor() {
+		if(processor==null) {
+			 processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE);
+		}
+		return processor;
+	}
+	/**
+	 * @return the processor
+	 */
+	private ExampleBuilder getExampleBuilder(CLDRFile file) {
+		if(examplebuilder==null) {
+			examplebuilder = new ExampleBuilder(sm.getBaselineFile(),file);
+		}
+		return examplebuilder;
+	}
+	private ExampleBuilder getExampleBuilder() {
+		return examplebuilder;
+	}
+
 }

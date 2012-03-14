@@ -992,12 +992,19 @@ div.loading {
 	margin-left: 100px;
 	top: 0;
 	width:  50%;
-	opacity: .9;
-	border: 2px solid gray;
+	opacity: 1;
+	background-color: #FFEECC;
+	border: 5px outset gray;
 }
 
 .hidden {
 	display: none;
+}
+
+div.d-example {
+	font: small "Courier New", Courier, mono;
+	background-color: #fbf9f2;
+	white-space: pre;
 }
 
 #stchanged_loc {
@@ -1458,9 +1465,10 @@ button.ichoice-o:hover {
 button.ichoice-o-okay {
 	width:  2em;
 	height:  2em;
-	background:  url(rado.png) no-repeat center center;
+	background: lime url(rado.png) no-repeat center center;
 	margin: 1px;
 	border:  2px solid green;
+	
 }
 button.ichoice-o-okay:hover {
 	width:  2em;
@@ -1488,6 +1496,27 @@ button.ichoice-x:hover {
 	height:  16px;
 	background:  url(star.png) no-repeat center center;
 }
+
+.d-item-selected:hover .i-example-zoom,span.i-example-zoom {
+	padding:  2px;
+	width:  16px;
+	height:  16px;
+	background:  url(zoom.png) no-repeat center center;
+	float: right;
+}
+
+.d-item-selected .i-example-zoom,
+.i-example-zoom:hover,
+.d-item:hover .i-example-zoom {
+	padding:  2px;
+	width:  16px;
+	height:  16px;
+	background:  none;
+	float: right;
+}
+
+
+
 
 .i-vote {
 	padding:  2px;

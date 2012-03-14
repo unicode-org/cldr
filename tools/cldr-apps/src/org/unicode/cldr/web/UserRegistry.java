@@ -194,6 +194,13 @@ public class UserRegistry {
                 return "<a href='mailto:"+email+"'>"+name+"</a>-"+levelAsStr(userlevel).toLowerCase();
             }
         }
+        public String toString(User forUser) {
+            if(forUser==null||!userIsTC(forUser)) {
+                return "("+org+"#"+id+")";
+            } else {
+                return email + "("+org+")-" + levelAsStr(userlevel)+"#"+userlevel + " - " + name;
+            }
+        }
         public int hashCode() { 
             return id;
         }

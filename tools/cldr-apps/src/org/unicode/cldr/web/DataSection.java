@@ -25,12 +25,14 @@ import java.util.TreeSet;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
@@ -64,6 +66,7 @@ import com.ibm.icu.util.ULocale;
 
 public class DataSection implements JSONString {
 	public CLDRFile baselineFile;
+	public DisplayAndInputProcessor processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE);
 
     /**
 	 * This class represents a "row" of data - a single distinguishing xpath
@@ -73,6 +76,7 @@ public class DataSection implements JSONString {
 	 * 
 	 */
 	public class DataRow implements JSONString {
+
 
 		// String inheritFrom = null;
 		// String pathWhereFound = null;
@@ -110,6 +114,11 @@ public class DataSection implements JSONString {
 
 			private String valueHash = null;
 			public boolean isOldValue = false;
+			private String dv = null;
+			public String getProcessedValue() {
+				if(value==null) return null;
+	            return processor.processForDisplay(xpath, value);
+			}
 			
             private CandidateItem(String value) {
     			this.value = value;
@@ -510,13 +519,22 @@ public class DataSection implements JSONString {
 			}
 			@Override
 			public String toJSONString() throws JSONException {
-				return new JSONObject().put("votes", getVotes()).put("valueHash", getValueHash()).put("value", value)
+				JSONObject j =  new JSONObject().put("valueHash", getValueHash()).put("rawValue", value)
+						.put("value", getProcessedValue())
 						.put("isOldValue", isOldValue)
 						.put("inheritFrom", inheritFrom)
 						.put("isFallback", isFallback)
 						.put("pClass", getPClass())
-						.put("tests", SurveyAjax.JSONWriter.wrap(this.tests))
-						.toString();
+						.put("tests", SurveyAjax.JSONWriter.wrap(this.tests));
+				Set<User> theVotes = getVotes();
+				if(theVotes!=null && !theVotes.isEmpty()) {
+					JSONObject voteList = new JSONObject();
+					for(UserRegistry.User u : theVotes) {
+						voteList.put(Integer.toString(u.id), u.toString(userForVotelist));
+					}
+					j.put("votes", voteList);
+				}
+				return j.toString();
 			}
 		}
 
@@ -1879,7 +1897,7 @@ public class DataSection implements JSONString {
 	/**
 	 * A class representing a list of rows, in sorted and divided order.
 	 */
-	public class DisplaySet {
+	public class DisplaySet implements JSONString {
 		public boolean canName = true; // can use the 'name' view?
 		public boolean isCalendar = false;
 		public boolean isMetazones = false;
@@ -2186,6 +2204,26 @@ public class DataSection implements JSONString {
 
 		public int size() {
 			return rows.length;
+		}
+
+		@Override
+		public String toJSONString() throws JSONException {
+			JSONArray r = new JSONArray();
+			for(DataRow row : rows) {
+				r.put(row.fieldHash());
+			}
+			JSONObject p= new JSONObject();
+			for(Partition partition : partitions) {
+				p.put(partition.name!=null?partition.name:"", new JSONObject().put("start",partition.start).put("limit",partition.limit).put("helptext", partition.helptext));
+			}
+			return new JSONObject()
+			  .put("canName",canName)
+			  .put("isCalendar",isCalendar)
+			  .put("isMetazones",isMetazones)
+			  .put("sortMode", sortMode.getName())
+			  .put("rows", r)
+			  .put("partitions", p)
+			  .toString();
 		}
 
 	}
@@ -2747,7 +2785,7 @@ public class DataSection implements JSONString {
 		return System.currentTimeMillis() - touchTime;
 	}
 
-	DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
+	public DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
 		DisplaySet aDisplaySet = new DisplaySet(createSortedList(sortMode, matcher), sortMode);
 		aDisplaySet.canName = canName;
 		aDisplaySet.isCalendar = isCalendar;
@@ -3569,23 +3607,10 @@ public class DataSection implements JSONString {
 
 			CheckCLDR checkCldr = uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap(SurveyMain.basicOptionsMap()));
 
-			// get the name of the sortmode
-			String sortModeName = SortMode.getSortMode(ctx, this);
-			boolean disputedOnly = false;
-			if (ctx.field("only").equals("disputed")) { // are we in
-				// 'disputed-only' mode?
-				disputedOnly = true;
-				sortModeName = SurveyMain.PREF_SORTMODE_WARNING; // so that
-				// disputed
-				// shows up
-				// on top-
-				// force the
-				// sortmode.
-			}
-			SortMode sortMode = SortMode.getInstance(sortModeName);
-
-			// Get the set of things to display.
-			DisplaySet dSet = createDisplaySet(sortMode, matcher);
+			boolean disputedOnly = ctx.field("only").equals("disputed");
+			
+			
+			DisplaySet dSet=  getDisplaySet(ctx, matcher);
 
 			if (dSet.size() == 0) {
 				ctx.println("<h3>There are no items to display on this page ");
@@ -3738,6 +3763,39 @@ public class DataSection implements JSONString {
 		}
 	}
 
+	/**
+	 * @param ctx
+	 * @param matcher
+	 * @return
+	 */
+	public DisplaySet getDisplaySet(WebContext ctx, XPathMatcher matcher) {
+		SortMode sortMode = getSortMode(ctx);
+
+		// Get the set of things to display.
+		DisplaySet dSet = createDisplaySet(sortMode, matcher);
+		return dSet;
+	}
+
+	/**
+	 * @param ctx
+	 * @return
+	 */
+	public SortMode getSortMode(WebContext ctx) {
+		// get the name of the sortmode
+		String sortModeName = SortMode.getSortMode(ctx, this);
+			if (ctx.field("only").equals("disputed")) { // are we in
+				// 'disputed-only' mode?
+				sortModeName = SurveyMain.PREF_SORTMODE_WARNING; // so that
+				// disputed
+				// shows up
+				// on top-
+				// force the
+				// sortmode.
+			}
+		SortMode sortMode = SortMode.getInstance(sortModeName);
+		return sortMode;
+	}
+
 	@Override
 	public String toString() {
 		return "{"+getClass().getSimpleName() + " " + locale + ":" + xpathPrefix + " #" + super.toString() + ", " + getAll().size() + " items} ";
@@ -3843,6 +3901,6 @@ public class DataSection implements JSONString {
 		for(Map.Entry<String, DataRow>e : rowsHash.entrySet()) {
 			itemList.put(e.getValue().fieldHash(), e.getValue());
 		}
-		return itemList.toString();
+		return new JSONObject().put("rows",itemList).toString();
 	}
 }

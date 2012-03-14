@@ -4,6 +4,7 @@
 <h1>Hidden Stuff</h1>
 <h3>Prototype datarow:</h3>
 <table>
+<tbody>
 <tr id='proto-datarow'
 	class='vother'>
 	<td class='d-st-okay'>
@@ -32,17 +33,40 @@
 	<td class='d-no'>
 	</td>
 </tr>
+<tr id='proto-inforow' class='d-inforow-hid' >
+	<td colspan='8'>
+	</td>
+	<td>
+		<button type='button' class='d-inforow-hider'>(hide)</button>
+	</td>
+</tr>
+<tr id='proto-parrow' class='d-parrow' >
+	<th class='partsection' colspan='9'>
+		<a>Partition</a>
+	</td>
+</tr>
+</tbody>
 </table>
 
-<button id='proto-button' class='ichoice-o'></button>
+<button id='proto-button' class='ichoice-o' title='click to vote'></button>
 
 <span id='proto-item'>
 
 </span>
 
+<div id='proto-sortmode' class='d-sortmode'>
+</div>
+<input id='proto-inputbox' class='inputbox'/>
+
+<div id='proto-loading' class='loading' style='display:none;'>
+	<p>
+		Your message here.
+	</p>
+</div>
+
 <table id='proto-datatable' class='data'>
 <thead>
-<tr>
+<tr class="headingb">
 	<th>St.</th>
 	<th>Draft</th>
 	<th>Voted</th>
@@ -54,6 +78,8 @@
 	<th>n/o</th>
 </tr>
 </thead>
+<tbody>
+</tbody>
 </table>
 
 <!--  end hidden.html -->

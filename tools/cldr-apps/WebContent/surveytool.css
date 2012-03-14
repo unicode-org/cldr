@@ -251,9 +251,7 @@ tr.warnrow {
 	border: 1px solid gray;
 	background-color: #FFEECC;
 	padding: 0.2em 0.2em 0.2em 0.2em;
-	/
-
-*	padding: 1em 1em 1em 1em; */
+	/*	padding: 1em 1em 1em 1em; */
 	margin-top: 2px;
 	font-size: smaller;
 }
@@ -536,6 +534,8 @@ th.partsection, th.partsection a {
 	background-color: #9edbec;
 	color: #111111;
 	font-size: 1.1em;
+	text-align: left;
+	border-top:  2px solid gray;
 }
 
 tr.headingb {
@@ -985,6 +985,16 @@ div#stchanged {
 	opacity: .9;
 	border: 2px solid gray;
 }
+div.loading {
+	background-color: whitesmoke;
+	padding: 3px;
+	position: fixed;
+	margin-left: 100px;
+	top: 0;
+	width:  50%;
+	opacity: .9;
+	border: 2px solid gray;
+}
 
 .hidden {
 	display: none;
@@ -1237,7 +1247,12 @@ select.menutop-other {
 /* classes for ajax form responses */
 
 tr.tr_checking {
-	background-color: goldenrod;
+	background-color: silver;
+	opacity: 0.5;
+}
+tr.tr_checking2 {
+	background-color: gray;
+	opacity: 0.75;
 }
 
 tr.tr_warn {
@@ -1279,6 +1294,42 @@ font-size: small;
 
 
 /* @group AJAX build */
+
+.d-parrow td {
+	
+}
+
+.d-parrow {
+	position: relative;
+    top: expression(this.offsetParent.scrollTop);
+}
+
+.d-sortmode {
+		border: 1px solid gray;
+	background-color: #FFEECC;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	margin-top: 2px;
+	font-size: smaller;
+	/*width:  40em;*/
+}
+
+.d-sortmode:before {
+	content: 'Sorted:';
+	font-weight:bold;
+	font-size:  small;
+}
+
+
+.d-sortmode li {
+	display: inline;
+	margin-left: 10px;
+}
+
+.d-sortmode li.notselected {
+	text-decoration: underline;
+	color: blue;
+}
+
 
 .d-st-warn {
 	width:  16px;
@@ -1348,22 +1399,117 @@ font-size: small;
 	background:  url(vote.png) no-repeat center center;
 }
 
+.d-vo-false:hover, .d-vo-true:hover,
+.d-st-warn:hover, .d-st-stop:hover, .d-st-okay:hover {
+	border:  2px solid navy;
+	width:  16px;
+	height:  16px;
+	background:  url(zoom.png) no-repeat center center;
+}
+
+.d-item {
+	border:  2px solid white;
+}
+
+.d-item:hover {
+	border: 2px solid navy;
+		background:  url(zoom.png) no-repeat right center;
+}
+
+tr.d-inforow, .d-item-selected {
+	background-color: #eff;
+}
+
+tr.d-inforow td {
+	padding:  0.5em;
+	/*border-top: 1em solid #dff ;
+	border-left: 1em solid #dff ;
+	border-right: 1em solid #dff ;
+	background-color:  white;*/
+	border-bottom:  3px solid gray;
+}
+
+tr.d-inforow td h3.span {
+	font-size:  large;
+}
+
+.d-item-selected {
+	border:  2px solid navy;
+}
+
+tr.d-inforow-hid {
+	display:  none;
+}
+
+
 button.ichoice-o {
 	width:  2em;
 	height:  2em;
 	background:  url(rado.png) no-repeat center center;
+	margin: 1px;
+}
+button.ichoice-o:hover {
+	width:  2em;
+	height:  2em;
+	background:  url(rado.png) no-repeat center center;
+	background-color: gray;
+	margin: 1px;
+}
+button.ichoice-o-okay {
+	width:  2em;
+	height:  2em;
+	background:  url(rado.png) no-repeat center center;
+	margin: 1px;
+	border:  2px solid green;
+}
+button.ichoice-o-okay:hover {
+	width:  2em;
+	height:  2em;
+	background:  url(rado.png) no-repeat center center;
+	background-color: gray;
+	margin: 1px;
 }
 button.ichoice-x {
 	width:  2em;
 	height:  2em;
 	background:  url(radx.png) no-repeat center center;
+	margin: 1px;
 }
-
+button.ichoice-x:hover {
+	width:  2em;
+	height:  2em;
+	background:  url(radx.png) no-repeat center center;
+	background-color: gray;
+	margin: 1px;
+}
 .i-star {
+	padding:  2px;
 	width:  16px;
 	height:  16px;
 	background:  url(star.png) no-repeat center center;
 }
 
+.i-vote {
+	padding:  2px;
+	width:  17px;
+	height:  17px;
+	background:  url(vote.png) no-repeat center center;
+}
+
+td.d-change {
+}
+td.d-change .inputbox {
+	width: 75%;
+}
+
+td.d-change-err {
+	background-color: red !important;
+	background: url(stop.png) no-repeat right top;
+	border:  2px soldi red;
+}
+td.d-change-warn {
+	background-color: yellow;
+	background: url(warn.png) no-repeat right top;
+}
 
 /* @end */

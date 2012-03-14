@@ -41,8 +41,20 @@
 	 request.setCharacterEncoding("UTF-8");
 	 response.setCharacterEncoding("UTF-8");
 	 response.setContentType("application/json");
+	 JSONObject dsets = new JSONObject();
+	 {
+		 XPathMatcher matcher = BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH,xp);
+		 for(String n : SortMode.getSortModesFor(xp)) {
+			 dsets.put(n,section.createDisplaySet(SortMode.getInstance(n),matcher));
+		 }
+		//DataSection.DisplaySet ds = section.getDisplaySet(ctx, matcher);
+		 dsets.put("default",SortMode.getSortMode(ctx, section));
+	 }
      JSONWriter r = new JSONWriter(out)
-     	.object().key("section").value(section).endObject();
+     	.object().key("section").value(section)
+     	              .key("displaySets").value(dsets)
+     	              .key("dir").value(ctx.getDirectionForLocale())
+     	              .endObject();
 	 return;
  }
 

@@ -1,6 +1,7 @@
 // survey.js  -Copyright (C) 2012 IBM Corporation and Others. All Rights Reserved.
 // move anything that's not dynamically generated here.
 
+
 function dismissChangeNotice() {
 	surveyCurrentLocaleStamp = surveyNextLocaleStamp;
     var locDiv = document.getElementById('stchanged');
@@ -80,6 +81,28 @@ var clickContinue = null;
 // hashtable of items already verified
 var alreadyVerifyValue = {};
 
+var showers={};
+
+function handleChangedLocaleStamp(stamp,name) {
+	if(stamp <= surveyNextLocaleStamp) {
+		return;
+	}
+	if(Object.keys(showers).length==0) {
+        //console.log("STATUS>: " + json.localeStampName + "="+json.localeStamp);
+        updateIf('stchanged_loc',name);
+        var locDiv = document.getElementById('stchanged');
+        if(locDiv) {
+            locDiv.style.display='block';
+        }
+	} else {
+		for(i in showers) {
+			showers[i]();
+		}
+	}
+	console.log("Reloaded due to change: " + stamp);
+    surveyNextLocaleStamp = stamp;
+}
+
 function updateStatus() {
     dojo.xhrGet({
         url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl,
@@ -125,13 +148,7 @@ function updateStatus() {
                     //console.log("STATUS0: " + json.localeStampName + "="+json.localeStamp);
                 } else {
                 	if(json.localeStamp > surveyCurrentLocaleStamp) {
-                        //console.log("STATUS>: " + json.localeStampName + "="+json.localeStamp);
-                        updateIf('stchanged_loc',json.localeStampName);
-                        var locDiv = document.getElementById('stchanged');
-                        if(locDiv) {
-                            locDiv.style.display='block';
-                        }
-                        surveyNextLocaleStamp = json.localeStamp;
+                		handleChangedLocaleStamp(json.localeStamp, json.localeStampName);
                 	} else {
                         //console.log("STATUS=: " + json.localeStampName + "="+json.localeStamp);
                 	}
@@ -285,9 +302,9 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
 		return;
 	}
 	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+xpid +"&_="+locale+"&fhash="+fieldhash+"&vhash="+vhash+"&s="+session;
-	console.log("do_change('" + fieldhash +"','"+value+"','"+vhash+"','"+xpid+"','"+locale+"','"+session+"')");
+	//console.log("do_change('" + fieldhash +"','"+value+"','"+vhash+"','"+xpid+"','"+locale+"','"+session+"')");
 //	console.log(" what = " + what);
-	console.log(" url = " + ourUrl);
+//	console.log(" url = " + ourUrl);
     hideSubmit(fieldhash);
 	e_div.innerHTML = '<i>Checking...</i>';
 	e_div.className="";
@@ -356,7 +373,7 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
             error: errorHandler
         };
     window.xhrArgs = xhrArgs;
-    console.log('xhrArgs = ' + xhrArgs);
+//    console.log('xhrArgs = ' + xhrArgs);
     dojo.xhrPost(xhrArgs);
 }
 
@@ -399,16 +416,45 @@ function getTagChildren(tr) {
 }
 
 
-function wireUpButton(button, tr, theRow, vHash) {
-	if(vHash==null) {
+function showLoader(loaderDiv, text) {
+	var para = loaderDiv.getElementsByTagName("p");
+	if(para) {
+		para=para[0];
+	} else {
+		para = loaderDiv;
+	}
+	para.innerHTML = text;
+	loaderDiv.style.display="";
+}
+
+function hideLoader(loaderDiv) {
+	loaderDiv.style.display="none";
+}
+
+function wireUpButton(button, tr, theRow, vHash,box) {
+	if(box) {
+		button.id="CHANGE_" + tr.rowHash;
+		vHash="";
+		box.onchange=function(){ handleWiredClick(tr,theRow,vHash,box,button,'verify'); return false; };
+		box.onkeypress=function(){ 
+			if(event.keyCode == 13) {
+				handleWiredClick(tr,theRow,vHash,box,button); 
+				return false;
+			} else {
+				return true;
+			}
+		};
+	} else if(vHash==null) {
 		button.id="NO_" + tr.rowHash;
 		vHash="";
 	} else {
 		button.id = "v"+vHash+"_"+tr.rowHash;
 	}
-	button.onclick=function(){ handleWiredClick(tr,theRow,vHash); }
+	button.addEventListener("click",
+			function(e){ handleWiredClick(tr,theRow,vHash,box,button); e.stopPropagation(); return false; },
+			false);
 	
-	if(theRow.voteVhash==vHash) {
+	if(theRow.voteVhash==vHash && !box) {
 		button.className = "ichoice-x";
 	} else {
 		button.className = "ichoice-o";
@@ -422,6 +468,191 @@ function addIcon(td, className) {
 	td.appendChild(star);
 }
 
+function showInPop(tr,theRow, str) {
+	tr.lastShown = null;
+	if(tr.unShow) tr.unShow();
+	tr.unShow=null;
+//	tr.unShow=(function(){ var d2 = div; return function(){	console.log("hiding " + d2); 	d2.className="d-item";  };})();
+//	div.className = 'd-item-selected';
+	var td = tr.infoRow.getElementsByTagName("td")[0];
+	td.innerHTML=str;
+	tr.infoRow.className = "d-inforow";
+}
+
+function testsToHtml(tests) {
+	var newHtml = "";
+	for ( var i = 0; i < tests.length; i++) {
+		var testItem = tests[i];
+		newHtml += "<p class='tr_" + testItem.type + "' title='" + testItem.type
+				+ "'>";
+		if (testItem.type == 'Warning') {
+			newHtml += warnIcon;
+			// what='warn';
+		} else if (testItem.type == 'Error') {
+			//td.className = "tr_err";
+			newHtml += stopIcon;
+//			what = 'error';
+		}
+		newHtml += tests[i].message;
+		newHtml += "</p>";
+	}
+	return newHtml;
+}
+
+function showProposedItem(inTd,tr,theRow,value,tests) {
+	if(tr.unShow) {
+		tr.unShow();
+	}
+	var newHtml = "";
+	if (tests && tests.length>0) {
+		newHtml += testsToHtml(tests);
+	} else {
+		// no tests, bail.
+		tr.inputTd.className="d-change";
+		if(tr.lastShown==inTd) {
+			tr.infoRow.className = "d-inforow-hid";
+			tr.lastShown=null;
+		}
+		return false;
+	}
+	tr.lastShown = inTd;
+//	tr.unShow=(function(){ var d2 = div; return function(){ 	d2.className="d-item";  };})();
+	tr.unShow=null;
+//	div.className = 'd-item-selected';
+	var td = tr.infoRow.getElementsByTagName("td")[0];
+	td.innerHTML="";
+
+	var h3 = document.createElement("h3");
+	var span = document.createElement("span");
+	span.className="value";
+	span.dir = tr.theTable.json.dir;
+	span.appendChild(document.createTextNode(value));
+	h3.appendChild(span);
+	h3.className="span";
+	td.appendChild(h3);
+	var newDiv = document.createElement("div");
+	td.appendChild(newDiv);
+	
+	newDiv.innerHTML = newHtml;
+
+	tr.infoRow.className = "d-inforow";
+	
+	if(tests) {
+		var hadWarn = false;
+		var hadErr = false;
+		for(var i=0;i<tests.length;i++) {
+			var testItem = tests[i];
+			if(testItem.type == 'Warning') hadWarn = true;
+			if(testItem.type == 'Error') hadErr = true;
+		}
+		if(hadErr) {
+			tr.inputTd.className="d-change-err";
+			return true;
+		} else if(hadWarn) {
+			tr.inputTd.className="d-change-warn";
+			return false;
+		}
+	}
+	tr.inputTd.className="d-change";
+	return false;
+}
+
+function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
+	if (tr.lastShown == div) {
+		if(tr.unShow) {
+			tr.unShow();
+		}
+		tr.unShow=null;
+		tr.lastShown = null;
+		tr.infoRow.className = "d-inforow-hid";
+		return true;
+	} else {
+		if(tr.unShow) {
+			tr.unShow();
+		}
+		tr.lastShown = div;
+		tr.unShow=(function(){ var d2 = div; return function(){ 	d2.className="d-item";  };})();
+		div.className = 'd-item-selected';
+		var td = tr.infoRow.getElementsByTagName("td")[0];
+
+		td.innerHTML="";
+		var h3 = document.createElement("h3");
+		h3.appendChild(cloneAnon(div.getElementsByTagName("span")[0]));
+		h3.className="span";
+		td.appendChild(h3);
+		var newDiv = document.createElement("div");
+		td.appendChild(newDiv);
+		var newHtml = "";
+		
+		if (item.tests) {
+			newHtml += testsToHtml(item.tests);
+		} else {
+			newHtml = "<i>no tests</i>";
+		}
+		newDiv.innerHTML = newHtml;
+
+		tr.infoRow.className = "d-inforow";
+//		tr.infoRow.onClick = function() {
+//			showItemInfo(td, tr, theRow, item, vHash, newButton, div);
+//		};
+		return true;
+	}
+}
+
+
+
+function popInfoInto(tr, theRow, theChild) {
+	if (tr.lastShown == theChild) {
+		if (tr.unShow) {
+			tr.unShow();
+		}
+		tr.unShow = null;
+		tr.lastShown = null;
+		tr.infoRow.className = "d-inforow-hid";
+		return true;
+	}
+	var what = WHAT_GETROW;
+	var ourUrl = contextPath + "/RefreshRow.jsp?what=" + WHAT_GETROW
+			+ "&xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
+			+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
+			+ "&voteinfo=t";
+	var errorHandler = function(err, ioArgs) {
+		console.log('Error in refreshRow: ' + err + ' response '
+				+ ioArgs.xhr.responseText);
+		showInPop(
+				tr,
+				theRow,
+				stopIcon
+						+ " Couldn't reload this row- please refresh the page. <br>Error: "
+						+ err + "</td>");
+		return true;
+	};
+	var loadHandler = function(text) {
+		try {
+			if (text) {
+				showInPop(tr, theRow, text);
+				tr.lastShown = theChild;
+			} else {
+				showInPop(tr, theRow, stopIcon + " (no voting info received)");
+			}
+		} catch (e) {
+			console.log("Error in ajax get ", e.message);
+			console.log(" response: " + text);
+			showInPop(tr, theRow, stopIcon + " exception: " + e.message);
+		}
+	};
+	var xhrArgs = {
+		url : ourUrl,
+		handleAs : "text",
+		load : loadHandler,
+		error : errorHandler
+	};
+	// window.xhrArgs = xhrArgs;
+	// console.log('xhrArgs = ' + xhrArgs);
+	dojo.xhrGet(xhrArgs);
+}
+
+
 function addVitem(td, tr,theRow,item,vHash,newButton) {
 	var div = document.createElement("div");
 	div.className = "d-item";
@@ -433,43 +664,69 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	var text = document.createTextNode(item.value);
 	var span = document.createElement("span");
 	span.className = item.pClass;
+	span.dir = tr.theTable.json.dir;
 	span.appendChild(text);
-	
+	newButton.value=item.value;
 	wireUpButton(newButton,tr,theRow,vHash);
 	div.appendChild(newButton);
 	div.appendChild(span);
 	if(item.isOldValue==true) {
 		addIcon(div,"i-star");
 	}
+	if(item.votes) {
+		addIcon(div,"i-vote");
+	}
+	div.onclick = function(){ showItemInfo(td,tr,theRow,item,vHash,newButton,div); return false;};
 	td.appendChild(div);
 }
 
+
 function updateRow(tr, theRow) {
-	
+	if(!tr.infoRow) { 
+		var toAddI = dojo.byId('proto-inforow');
+		tr.infoRow = cloneAnon(toAddI);
+		tr.infoRow.getElementsByTagName("button")[0].onclick=function(){if(tr.unShow) { tr.unShow(); tr.unShow=null;}  tr.infoRow.className="d-inforow-hid"; };
+	}
+	if(!theRow || !theRow.xpid) {
+		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
+		return;
+	}
 	tr.xpid = theRow.xpid;
 	var children = getTagChildren(tr);
 	var protoButton = dojo.byId('proto-button');
 	
+	var doPopInfo = function() {
+		popInfoInto(tr,theRow,children[1]);
+	};
+	
 	children[0].innerHTML = "";
 	if(theRow.hasWarnings) {
 		children[0].className = "d-st-warn";
+	} else if(theRow.hasErrors) {
+		children[0].className = "d-st-stop";
 	} else {
 		children[0].className = "d-st-okay";
 	}
 	
 	children[1].innerHTML = "";
 	children[1].className = "d-dr-"+theRow.confirmStatus;
+	children[1].onclick = doPopInfo;
+
 	children[2].innerHTML = "";
 	if(theRow.hasVoted) {
 		children[2].className = "d-vo-true";
 	} else {
 		children[2].className = "d-vo-false";
 	}
-	children[3].innerText=theRow.prettyPath;
-	children[4].innerText=theRow.displayName;
+	children[2].onclick = doPopInfo;
+	children[3].innerHTML=theRow.prettyPath;
+	children[4].innerHTML=theRow.displayName;
 	children[5].innerHTML=""; // win
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[5],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
+		children[0].onclick = children[5].getElementsByTagName("div")[0].onclick;
+	} else {
+		children[0].onclick = null;
 	}
 	children[6].innerHTML=""; // other
 	for(k in theRow.items) {
@@ -478,134 +735,353 @@ function updateRow(tr, theRow) {
 		}
 		addVitem(children[6],tr,theRow,theRow.items[k],k,cloneAnon(protoButton));
 	}
-	
-	children[7].innerHTML="";
-	var changeButton = cloneAnon(protoButton);
-	wireUpButton(changeButton,tr, theRow, "[change]");
-	children[7].appendChild(changeButton);
-	children[7].appendChild(document.createElement("input"));
+
+	if(!children[7].isSetup) {
+		children[7].innerHTML="";
+		var changeButton = cloneAnon(protoButton);
+		children[7].appendChild(changeButton);
+		var changeBox = cloneAnon(dojo.byId("proto-inputbox"));
+		wireUpButton(changeButton,tr, theRow, "[change]",changeBox);
+		tr.inputBox = changeBox;
+		children[7].appendChild(changeBox);
+		children[7].isSetup=true;
+		children[7].theButton = changeButton;
+		tr.inputTd = children[7];
+	} else {
+		children[7].theButton.className="ichoice-o";
+	}
 			
 	children[8].innerHTML=""; // no opinion
 	var noOpinion = cloneAnon(protoButton);
 	wireUpButton(noOpinion,tr, theRow, null);
+	noOpinion.value=null;
 	children[8].appendChild(noOpinion);
+	
+	tr.className='vother';
+	
+	
 }
 
-function insertRows(theDiv,xpath,session,theRows) {
-	theDiv.innerHTML=""; // empty it
-	var theTable = cloneAnon(dojo.byId('proto-datatable'));
-	theDiv.appendChild(theTable);
+function findPartition(partitions,partitionList,curPartition,i) {
+	if(curPartition && 
+			i>=curPartition.start &&
+			i<curPartition.limit) {
+		return curPartition;
+	}
+	for(var j in partitionList) {
+		var name = partitionList[j];
+		var p = partitions[name];
+		if(i>=p.start &&
+			i<p.limit) {
+				p.name = name;
+				return p;
+			}
+	}
+	return null;
+}
+
+function insertRowsIntoTbody(theTable,tbody) {
+	theTable.hitCount++;
+	var theRows = theTable.json.section.rows;
 	var toAdd = dojo.byId('proto-datarow');
-	// append header row
-	
-	theTable.session = session;
-	theTable.xpath = xpath;
-	theTable.theRows = theRows;
-	
-	for(k in theRows) {
+	var parRow = dojo.byId('proto-parrow');
+	tbody.innerHTML="";
+	var theSort = theTable.json.displaySets[theTable.curSortMode];
+	var partitions = theSort.partitions;
+	var rowList = theSort.rows;
+	//console.log("rows: " + Object.keys(theTable.myTRs)  + ", hitcount: " + theTable.hitCount);
+	var partitionList = Object.keys(partitions);
+	var curPartition = null;
+	for(i in rowList ) {
+		var newPartition = findPartition(partitions,partitionList,curPartition,i);
+		
+		if(newPartition != curPartition) {
+			if(newPartition.name != "") {
+				var newPar = cloneAnon(parRow);
+				var newTd = getTagChildren(newPar);
+				var newHeading = getTagChildren(newTd[0]);
+				newHeading[0].innerHTML = newPartition.name;
+				newHeading[0].id = newPartition.name;
+				tbody.appendChild(newPar);
+			}
+			curPartition = newPartition;
+		}
+		
+		var k = rowList[i];
 		var theRow = theRows[k];
 		
-		
-		var tr = cloneAnon(toAdd);
+		var tr = theTable.myTRs[k];
+		if(!tr) {
+			//console.log("new " + k);
+			tr = cloneAnon(toAdd);
+			theTable.myTRs[k]=tr; // save for later use
+		}
 		tr.id="r_"+k;
 		tr.rowHash = k;
 		tr.theTable = theTable;
+		if(!theRow) {
+			console.log("Missing row " + k);
+		}
 		updateRow(tr,theRow);
 		
+		tbody.appendChild(tr);
+
+		tbody.appendChild(tr.infoRow);
+	}
+	//console.log("POST rows: " + Object.keys(theTable.myTRs)  + ", hitcount: " + theTable.hitCount);
+}
+
+function reSort(theTable,k) {
+	if(theTable.curSortMode==k) {
+		return; // no op
+	}
+	theTable.curSortMode=k;
+	insertRowsIntoTbody(theTable,theTable.getElementsByTagName("tbody")[0]);
+	var lis = theTable.sortMode.getElementsByTagName("li");
+	for(i in lis) {
+		var li = lis[i];
+		if(li.mode==k) {
+			li.className="selected";
+		} else {
+			li.className = "notselected";
+		}
+	}
+}
+function setupSortmode(theTable) {
+	var theSortmode = theTable.sortMode;
+	// ignore what's there
+	theSortmode.innerHTML="";
+	var listOfLists = Object.keys(theTable.json.displaySets);
+	for(i in listOfLists) {
+		var k = listOfLists[i];
+		if(k=="default") continue;
 		
-		
-//		var tr = document.createElement("tr");
-//		
-//		var st = document.createElement("td");
-//		st.appendChild(document.createTextNode(k));
-//		tr.appendChild(st);
-//		var dr = document.createElement("td");
-//		tr.appendChild(dr);
-//		var vo = document.createElement("td");
-//		tr.appendChild(vo);
-//		var code = document.createElement("td");
-//		tr.appendChild(code);
-//		var displayName = document.createElement("td");
-//		var display = document.createTextNode(theRow.displayName);
-//		displayName.appendChild(display);
-//		tr.appendChild(displayName);
-//		var win = document.createElement("td");
-//		tr.appendChild(win);
-//		var prop = document.createElement("td");
-//		tr.appendChild(prop);
-//		var no = document.createElement("td");
-//		tr.appendChild(no);
-//		
-		theTable.appendChild(tr);
+		var a = document.createElement("li");
+		a.onclick = (function() {
+			var kk = k;
+			return function() {
+				reSort(theTable, kk);
+			};
+		})();
+		a.appendChild(document.createTextNode(k));
+		a.mode=k;
+		if(k==theTable.curSortMode) {
+			a.className="selected";
+		} else {
+			a.className = "notselected";
+		}
+		theSortmode.appendChild(a);
 	}
 }
 
-// move this into showRows to handle multiple containers.
-var theRows = null;
+function insertRows(theDiv,xpath,session,json) {
+	var theTable = theDiv.theTable;
 
+	if(!theTable) {
+		theTable = cloneAnon(dojo.byId('proto-datatable'));
+		theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
+		theDiv.appendChild(theTable.sortMode);
+		theTable.myTRs = [];
+		theDiv.theTable = theTable;
+		theTable.theDiv = theDiv;
+  		theDiv.appendChild(theTable);
+	}
+	// append header row
+	
+	theTable.json = json;
+	theTable.xpath = xpath;
+	theTable.hitCount=0;
+	theTable.session = session;
+	
+	if(!theTable.curSortMode) { 
+		theTable.curSortMode = theTable.json.displaySets["default"];
+	}
+	setupSortmode(theTable);
+
+	var tbody = theTable.getElementsByTagName("tbody")[0];
+	insertRowsIntoTbody(theTable,tbody);
+	hideLoader(theDiv.loader);
+}
+
+// move this into showRows to handle multiple containers.
 
 ////////
 /// showRows() ..
-function showRows(container, xpath, session) {
+function showRows(container,xpath,session) {
 	var theDiv = dojo.byId(container);
-
-	theDiv.innerHTML="<i>loading..</i>";
+	var shower = null;
+	var theTable = theDiv.theTable;
+	shower = function() {
 	
-	dojo.ready(function() {
-	    var errorHandler = function(err, ioArgs){
-	    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-	        theDiv.className = "ferrbox";
-	        theDiv.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
-	    };
-	    var loadHandler = function(json){
-	        try {
-	        	
-	        	if(!json.section) {
-	        		theDiv.innerHTML="<i>Err, no section</i>";
-	        	} else {
-	        		theRows = json.section;
-	        		theDiv.innerHTML="<i>Loaded " + Object.keys(theRows).length + " rows</i>";
-	        		
-	        		insertRows(theDiv,xpath,session,theRows);
-	        	}
-	        	
-	           }catch(e) {
-	               console.log("Error in ajax post ",e.message);
-  	   	           theDiv.className = "ferrbox";
-	               theDiv.innerHTML = "<i>Internal Error: " + e.message + "</i>";
-	           }
-	    };
-	    var xhrArgs = {
-	            url: contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+session+"&xpath="+xpath,
-	            handleAs:"json",
-	            load: loadHandler,
-	            error: errorHandler
-	        };
-	    window.xhrArgs = xhrArgs;
-	    console.log('xhrArgs = ' + xhrArgs);
-	    dojo.xhrGet(xhrArgs);
-	});
+		if(!theTable) {
+			var theTableList = theDiv.getElementsByTagName("table");
+			if(theTableList) {
+				theTable = theTableList[0];
+				theDiv.theTable = theTable;
+			}
+		}
+
+		var theLoader = theDiv.loader;
+		if(!theLoader) {
+			theLoader =  cloneAnon(dojo.byId("proto-loading"));
+			theDiv.appendChild(theLoader);
+			theDiv.loader = theLoader;
+		}
+		
+		showLoader(theDiv.loader, "Loading...");
+		
+		dojo.ready(function() {
+		    var errorHandler = function(err, ioArgs){
+		    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+		        showLoader(theDiv.loader,"<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+		    };
+		    var loadHandler = function(json){
+		        try {
+		        	
+		        	if(!json.section) {
+				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+		        	} else {
+		        		showLoader(theDiv.loader, "Loaded " + Object.keys(json.section.rows).length + " rows");
+		        		insertRows(theDiv,xpath,session,json);
+		        	}
+		        	
+		           }catch(e) {
+		               console.log("Error in ajax post ",e.message);
+				        showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
+		           }
+		    };
+		    var xhrArgs = {
+		            url: contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+session+"&xpath="+xpath,
+		            handleAs:"json",
+		            load: loadHandler,
+		            error: errorHandler
+		        };
+		    window.xhrArgs = xhrArgs;
+		    //console.log('xhrArgs = ' + xhrArgs);
+		    dojo.xhrGet(xhrArgs);
+		});
+	};
+	
+	shower(); // first load
+	theDiv.shower = shower;
+	showers[theDiv.id]=shower;
+//	console.log("Wrote shower " + theDiv.id + " as " + shower);
 }
 
-function handleWiredClick(tr,theRow,vHash) {
-	var ourUrl = contextPath + "/SurveyAjax?what="+"submit"+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
-	
+function refreshRow2(tr,theRow,vHash,onSuccess) {
+	showLoader(tr.theTable.theDiv.loader,"Loading 1 row");
+    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t";
     var loadHandler = function(json){
         try {
-            // var newHtml = "";
-             if(json.err && json.err.length >0) {
-                // v_tr.className="tr_err";
-                // v_tr2.className="tr_err";
-                // newHtml = stopIcon + " Could not check value. Try reloading the page.<br>"+json.err;
-                // e_div.innerHTML = newHtml;
-             } else 
-             if(json.submitResultRaw) {
-                 refreshRow2(tr,theRow,vHash);
-             }
+        		if(json.section.rows[tr.rowHash]) {
+        			theRow = json.section.rows[tr.rowHash];
+        			tr.theTable.json.section.rows[tr.rowHash] = theRow;
+        			updateRow(tr, theRow);
+        			hideLoader(tr.theTable.theDiv.loader);
+        			onSuccess();
+        		} else {
+        	        tr.className = "ferrbox";
+        	        tr.innerHTML="No content found "+tr.rowHash+ "  while  loading";
+        	        console.log("could not find " + tr.rowHash + " in " + json);
+        		}
            }catch(e) {
                console.log("Error in ajax post ",e.message);
  //              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
            }
+    };
+    var errorHandler = function(err, ioArgs){
+    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+        tr.className = "ferrbox";
+        tr.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+    };
+    var xhrArgs = {
+            url: ourUrl,
+            //postData: value,
+            handleAs:"json",
+            load: loadHandler,
+            error: errorHandler
+        };
+    window.xhrArgs = xhrArgs;
+    console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
+    dojo.xhrGet(xhrArgs);
+}
+
+function handleWiredClick(tr,theRow,vHash,box,button,what) {
+	if(!what) {
+		what='submit';
+	}
+	if(what=='submit') {
+		button.className="ichoice-x";  // TODO: ichoice-inprogress?  spinner?
+		showLoader(tr.theTable.theDiv.loader,"Voting");
+	} else {
+		showLoader(tr.theTable.theDiv.loader, "Checking");
+	}
+	
+	
+	var value="";
+	if(box) {
+		value = box.value;
+		tr.inputTd.className="d-change";
+	}
+	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
+	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+	tr.className='tr_checking';
+    var loadHandler = function(json){
+        try {
+            // var newHtml = "";
+             if(json.err && json.err.length >0) {
+            	 tr.className='tr_err';
+                // v_tr.className="tr_err";
+                // v_tr2.className="tr_err";
+                tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+json.err;
+                // e_div.innerHTML = newHtml;
+             } else {
+            	 if(json.testResults) {
+            		 var valToShow = "";
+            		 if(box) {
+            			 valToShow=box.value;
+            		 } else {
+            			 valToShow=button.value;
+            		 }
+            		 if(showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults)) {
+            			 tr.className = 'vother';
+            			 button.className='ichoice-o';
+            			 hideLoader(tr.theTable.theDiv.loader);
+            			 return; // had error
+            		 }
+            	 } else if(tr.lastShown && tr.lastShown==tr.inputTd) {
+            		 // if we were watching warnings and there aren't any,hide them.
+            			tr.lastShown = null;
+            			tr.infoRow.className = "d-inforow-hid";
+            	 }
+	             if(json.submitResultRaw) {
+	            	 tr.className='tr_checking2';
+	                 refreshRow2(tr,theRow,vHash,function(){
+	                	 if(box) {
+	                		 box.value="";
+	                	 }
+	                	 tr.inputTd.className="d-change";
+	                 });
+	                 // end: async
+	             } else {
+	            	 tr.className='vother';
+	            	 button.className='ichoice-o-okay';
+        			 hideLoader(tr.theTable.theDiv.loader);
+	             }
+             }
+           }catch(e) {
+          	 tr.className='tr_err';
+             // v_tr.className="tr_err";
+             // v_tr2.className="tr_err";
+             tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
+               console.log("Error in ajax post ",e.message);
+ //              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
+           }
+    };
+    var errorHandler = function(err, ioArgs){
+    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+        theRow.className = "ferrbox";
+        theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
     };
     var xhrArgs = {
             url: ourUrl,
@@ -615,8 +1091,12 @@ function handleWiredClick(tr,theRow,vHash) {
             error: errorHandler
         };
     window.xhrArgs = xhrArgs;
-    console.log('xhrArgs = ' + xhrArgs);
-    dojo.xhrPost(xhrArgs);
+    console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
+    if(box) {
+    	dojo.xhrPost(xhrArgs);
+    } else {
+    	dojo.xhrGet(xhrArgs); // value ignored
+    }
 }
 
 

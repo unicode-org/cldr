@@ -1823,4 +1823,8 @@ public class WebContext implements Cloneable, Appendable {
         return field("dump").equals(SurveyMain.vap);
     }
 
+	public boolean hasTestPassword() {
+        return field("dump").equals(SurveyMain.testpw) || hasAdminPassword();
+	}
+
 }

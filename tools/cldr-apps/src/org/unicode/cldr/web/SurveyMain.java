@@ -214,6 +214,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     
     // ========= SYSTEM PROPERTIES
     public static  String vap = System.getProperty("CLDR_VAP"); // Vet Access Password
+    public static  String testpw = System.getProperty("CLDR_TESTPW"); // Vet Access Password
     public static  String vetdata = System.getProperty("CLDR_VET_DATA"); // dir for vetted data
     File vetdir = null;
     public static  String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for web data
@@ -525,7 +526,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 }
             }
 
-	        if(ctx.hasAdminPassword()) {
+            if(isUnofficial && (ctx.hasTestPassword() || ctx.hasAdminPassword()) && ctx.field("action").equals("new_and_login")) {
+                	ctx.println("<hr>");
+                    String real = ctx.field("real").trim();
+                    if(real.isEmpty() || real.equals("REALNAME")) {
+                    	ctx.println(ctx.iconHtml("stop", "fail")+"<b>Please go <a href='javascript:window.history.back();'>Back</a> and fill in your real name.</b>");
+                    } else {
+        	            UserRegistry.User u = reg.getEmptyUser();
+        	            u.name= real+"_"+ctx.field("new_name").trim();
+        	            u.email = real+"_"+ctx.field("new_email").trim();
+        	            u.locales = ctx.field("new_locales").trim();
+        	            u.org = ctx.field("new_org").trim();
+        	            u.password = ctx.field("new_password");
+        	            u.userlevel = ctx.fieldInt("new_userlevel",-1);
+        	            UserRegistry.User registeredUser = reg.newUser(ctx, u);
+        	            ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added. Click the following link if you aren't redirected automatically.</i>");
+        	            registeredUser.printPasswordLink(ctx);
+        	            ctx.println("<script>document.location = '"+ctx.base()+"/survey?email="+u.email+"&pw="+u.password+"';</script>");
+                    }
+            } else if(ctx.hasAdminPassword()) {
 	        	Thread.currentThread().setName(baseThreadName+" ST admin");
 	            doAdminPanel(ctx); // admin interface
 	        } else if(ctx.field("sql").equals(vap)) {
@@ -974,25 +993,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     {
         String action = ctx.field("action");
         
-        if(action!=null && isUnofficial && action.equals("new_and_login")) {
-        	ctx.println("<hr>");
-            String real = ctx.field("real").trim();
-            if(real.isEmpty() || real.equals("REALNAME")) {
-            	ctx.println(ctx.iconHtml("stop", "fail")+"<b>Please go <a href='javascript:window.history.back();'>Back</a> and fill in your real name.</b>");
-            } else {
-	            UserRegistry.User u = reg.getEmptyUser();
-	            u.name= real+"_"+ctx.field("new_name").trim();
-	            u.email = real+"_"+ctx.field("new_email").trim();
-	            u.locales = ctx.field("new_locales").trim();
-	            u.org = ctx.field("new_org").trim();
-	            u.password = ctx.field("new_password");
-	            u.userlevel = ctx.fieldInt("new_userlevel",-1);
-	            UserRegistry.User registeredUser = reg.newUser(ctx, u);
-	            ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added. Click the following link if you aren't redirected automatically.</i>");
-	            registeredUser.printPasswordLink(ctx);
-	            ctx.println("<script>document.location = '"+ctx.base()+"/survey?email="+u.email+"&pw="+u.password+"';</script>");
-            }
-        } else {
             printHeader(ctx, "Admin@"+localhost() + " | " + action);
             ctx.println("<script type=\"text/javascript\">timerSpeed = 6000;</script>");
             printAdminMenu(ctx, "/AdminDump");
@@ -1000,7 +1000,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.println("<hr>");
 
             ctx.includeFragment("adminpanel.jsp");
-        }
                 
         printFooter(ctx);
     }
@@ -5477,6 +5476,9 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             pw.println("## your password. Login as user 'admin@' and this password for admin access.");
             pw.println("CLDR_VAP="+UserRegistry.makePassword("admin@"));
             pw.println();
+            pw.println("## Special Test Enablement.");
+            pw.println("#CLDR_TESTPW="+UserRegistry.makePassword("admin@"));
+            pw.println();
             pw.println("## Special message shown to users as to why survey tool is down.");
             pw.println("## Comment out for normal start-up.");
             pw.println("CLDR_MESSAGE=Welcome to SurveyTool@"+localhost()+". Please edit "+propsFile.getAbsolutePath()+". Comment out CLDR_MESSAGE to continue normal startup.");
@@ -5676,6 +5678,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             }
     
             progress.update("Setup vap and message..");
+            testpw = survprops.getProperty("CLDR_TESTPW"); // Vet Access Password
             vap = survprops.getProperty("CLDR_VAP"); // Vet Access Password
             if((vap==null)||(vap.length()==0)) {
                 /*throw new UnavailableException*/

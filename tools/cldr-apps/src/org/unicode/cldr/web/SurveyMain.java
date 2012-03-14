@@ -4980,10 +4980,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param which menu item to use
      */
     public void showLocaleCodeList(WebContext ctx, String which) {
-        showPathList(ctx, PathUtilities.LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
+        showPathListNew(ctx, PathUtilities.LOCALEDISPLAYNAMES+which, typeToSubtype(which), true /* simple */);
     }
 
-    public void showPathListExample(WebContext ctx, String xpath, String lastElement,
+    private void showPathListNew(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
+		if(ctx.canModify()) {
+	        ctx.println("   	<div id='DataSection'>    	</div>    	<script type='text/javascript'>    	showRows('DataSection', '"+xpath+"', '"+ctx.session.id+"');    	</script>");
+		} else {
+			showPathList(ctx,xpath,typeToSubtype,b);
+		}
+	}
+	public void showPathListExample(WebContext ctx, String xpath, String lastElement,
             String e, String fullThing, CLDRFile cf) {
         DataSection oldSection =  ctx.getExistingSection(fullThing);
         DataSection.ExampleEntry ee = null;
@@ -5269,6 +5276,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      */
     public void showPathList(WebContext ctx, String xpath, String lastElement) {
         showPathList(ctx,xpath,lastElement,false);
+
     }
 
     /**
@@ -5279,7 +5287,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param simple (ignored)
      */
     public void showPathList(WebContext ctx, String xpath, String lastElement, boolean simple) {
-    	showPathList(ctx,xpath,null, lastElement);
+    	// old way (nonDOM)
+    		showPathList(ctx,xpath,null, lastElement);
+    	
     }
     public void showPathList(WebContext ctx, String xpath, XPathMatcher matcher, String lastElement) {
     	/* all simple */

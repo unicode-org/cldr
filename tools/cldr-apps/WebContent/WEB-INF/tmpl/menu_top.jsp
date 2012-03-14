@@ -55,7 +55,7 @@
 	
 	<%
 			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
-	        if(ctx.session.user!=null) {
+	        if(false && ctx.session.user!=null) {
 	%><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Vetting Viewer</a>
     <%   } %>
     

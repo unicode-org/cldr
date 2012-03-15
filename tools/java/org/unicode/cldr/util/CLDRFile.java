@@ -1823,7 +1823,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     boolean isCompound = localeOrTZID.contains("_");
     String name = isCompound && onlyConstructCompound ? null : getName(LANGUAGE_NAME, localeOrTZID);
     // TODO - handle arbitrary combinations
-    if (name != null && !name.contains("_")) {
+    if (name != null && !name.contains("_") && !name.contains("-")) {
       return name;
     }
     lparser.set(localeOrTZID);

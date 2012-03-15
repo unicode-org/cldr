@@ -56,7 +56,8 @@
 ^//ldml/localeDisplayNames/scripts/script\[@type="(Kore|Jpan)"] ; KEEP
 ^//ldml/localeDisplayNames/scripts/script\[@type="(Cans|Tfng|Yiii)"] ; SKIP
 
-^//ldml/localeDisplayNames/languages/language\[@type="(es_ES|de_CH|de_AT|en_AU|en_CA|en_GB|en_US|es_419|fr_CA|fr_CH|gsw|nl_BE|pt_BR|und|zh_Hans|zxx|ach|af|ak|am|ar|az|be|bem|bg|bh|bn|br|bs|ca|chr|ckb|co|crs|cs|cy|da|de|ee|el|en|eo|es|es_419|et|eu|fa|fi|fil|fo|fr|fy|ga|gaa|gd|gl|gn|gu|ha|haw|he|hi|hr|ht|hu|hy|ia|id|ig|is|it|ja|jv|ka|kg|kk|km|kn|ko|kri|ku|ky|la|lg|ln|lo|loz|lt|lua|lv|mfe|mg|mi|mk|ml|mn|mr|ms|mt|nb|ne|nl|nn|nso|ny|nyn|oc|om|or|pa|pcm|pl|ps|pt|pt_PT|qu|rm|rn|ro|ro_MO|ru|rw|sd|sh|si|sk|sl|sn|so|sq|sr|sr_ME|st|su|sv|sw|ta|te|tg|th|ti|tk|tlh|tn|to|tr|tt|tum|tw|ug|uk|ur|uz|vi|wo|xh|yi|yo|zh|zh_Hant|zu)"] ; KEEP
+# Make sure to duplicate this list in PathDescription.EXTRA_LANGUAGES!!!
+^//ldml/localeDisplayNames/languages/language\[@type="(ach|af|ak|ak|am|ar|az|be|bem|bg|bh|bn|br|bs|ca|chr|ckb|co|crs|cs|cy|da|de|de_AT|de_CH|ee|el|en|en_AU|en_CA|en_GB|en_US|eo|es|es_419|es_ES|et|eu|fa|fi|fil|fo|fr|fr_CA|fr_CH|fy|ga|gaa|gd|gl|gn|gsw|gu|ha|haw|he|hi|hr|ht|hu|hy|ia|id|ig|is|it|ja|jv|ka|kg|kk|km|kn|ko|kri|ku|ky|la|lg|ln|lo|loz|lt|lua|lv|mfe|mg|mi|mk|ml|mn|mr|ms|mt|my|nb|ne|nl|nl_BE|nn|nso|ny|nyn|oc|om|or|pa|pcm|pl|ps|pt|pt_BR|pt_PT|qu|rm|rn|ro|ro|ro_MD|ru|rw|sd|si|sk|sl|sn|so|sq|sr|sr_Latn|sr_ME|st|su|sv|sw|ta|te|tg|th|ti|tk|tlh|tn|to|tr|tt|tum|ug|uk|und|ur|uz|vi|wo|xh|yi|yo|zh|zh_Hans|zh_Hant|zh_HK|zu|zxx)"] ; KEEP
 #skip all other languages!
 ^//ldml/localeDisplayNames/languages/language\[@type="([^"]*)"] ; SKIP
 

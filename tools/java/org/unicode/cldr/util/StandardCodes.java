@@ -38,6 +38,8 @@ import com.ibm.icu.text.UnicodeSet;
  * tzids
  */
 public class StandardCodes {
+    public static final String DESCRIPTION_SEPARATOR = "\u25AA";
+
     public static final String NO_COUNTRY = "001";
 
     private static StandardCodes singleton;
@@ -808,6 +810,12 @@ public class StandardCodes {
 
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
+    /**
+     * Returns a map like {extlang={aao={Added=2009-07-29, Description=Algerian Saharan Arabic, ...<br>
+     * That is, type => subtype => map<tag,value>. Descriptions are concatenated together, separated by
+     * DESCRIPTION_SEPARATOR.
+     * @return
+     */
     public static Map<String,Map<String,Map<String,String>>> getLStreg() {
 
         Map<String,Map<String,Map<String,String>>> result = new TreeMap();
@@ -905,7 +913,7 @@ public class StandardCodes {
                     lastRest = TransliteratorUtilities.fromXML.transliterate(rest);
                     String oldValue = (String) currentData.get(lastLabel);
                     if (oldValue != null) {
-                        lastRest = oldValue + "\u25AA" + lastRest;
+                        lastRest = oldValue + DESCRIPTION_SEPARATOR + lastRest;
                     }
                     currentData.put(lastLabel, lastRest);
                 }

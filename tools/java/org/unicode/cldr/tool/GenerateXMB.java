@@ -519,7 +519,7 @@ public class GenerateXMB {
         out1.flush();
         out3.flush();
 
-        String file = getName(localeId);
+        String file = LanguageCodeConverter.toGoogleLocaleId(localeId);
         String localeName = englishInfo.getName(localeId);
         PrintWriter out = BagFormatter.openUTF8Writer(targetDir, file + "." + extension);
 
@@ -571,22 +571,6 @@ public class GenerateXMB {
         out3.println("              {\"" + pathInfo.getId() + "\",\"" + pathInfo.path.replace("\"","\\\"") + "\",\"" + value.replace("\\","\\\\").replace("\"","\\\"") + "\"},");
     }
 
-
-    private static String getName(String localeId) {
-        // TODO fix to do languages, etc. field by field
-        String result = NAME_REMAP.get(localeId);
-        result = result == null ? localeId : result;
-        return result.replace("_", "-");
-    }
-
-    static final Map<String,String> NAME_REMAP = Builder.with(new HashMap<String,String>())
-    .put("he", "iw")
-    .put("nb", "no")
-    .put("pt", "pt_BR")
-    .put("zh", "zh_CN")
-    .put("zh_Hant", "zh_TW")
-    .put("zh_Hant_HK", "zh_HK")
-    .freeze();
 
     private static UnicodeSet getExemplars(CLDRFile cldrFile) {
         UnicodeSet exemplars = cldrFile.getExemplarSet("", CLDRFile.WinningChoice.WINNING);

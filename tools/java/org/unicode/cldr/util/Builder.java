@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -363,11 +364,18 @@ public final class Builder {
             if (equalAction == EqualAction.NATIVE) {
                 map.putAll(m);
             } else {
-                for (K key : m.keySet()) {
-                    put(key, m.get(key));
+                for (Entry<? extends K, ? extends V> keyValue : m.entrySet()) {
+                    put(keyValue.getKey(), keyValue.getValue());
                 }
             }
             keys = null;
+            return this;
+        }
+
+        public MBuilder<K, V, M> putAllTransposed(Map<? extends V, ? extends K> m) {
+            for (Entry<? extends V, ? extends K> keyValue : m.entrySet()) {
+                put(keyValue.getValue(), keyValue.getKey());
+            }
             return this;
         }
 

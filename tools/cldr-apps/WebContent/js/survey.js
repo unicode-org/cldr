@@ -973,7 +973,8 @@ function insertRows(theDiv,xpath,session,json) {
 
 ////////
 /// showRows() ..
-function showRows(container,xpath,session) {
+function showRows(container,xpath,session,coverage) {
+	if(!coverage) coverage="";
 	var theDiv = dojo.byId(container);
 	var shower = null;
 	var theTable = theDiv.theTable;
@@ -1030,7 +1031,7 @@ function showRows(container,xpath,session) {
 		           }
 		    };
 		    var xhrArgs = {
-		            url: contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+session+"&xpath="+xpath,
+		            url: contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+session+"&xpath="+xpath+"&p_covlev="+coverage,
 		            handleAs:"json",
 		            load: loadHandler,
 		            error: errorHandler

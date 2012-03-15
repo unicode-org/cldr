@@ -7,6 +7,11 @@
 			String voteinfo = request.getParameter("voteinfo");
 			String vhash = request.getParameter("vhash");
 			String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
+			String covlev = request.getParameter("p_covlev");
+			Level coverage = Level.COMPREHENSIVE;
+			if(covlev!=null && covlev.length()>0) {
+				coverage = Level.get(covlev);
+			}
 			CookieSession mySession = null;
 			mySession = CookieSession.retrieve(sess);
 			boolean isJson = request.getParameter("json")!=null;
@@ -48,7 +53,7 @@
 				DataSection section = null;
 				try {
 					section = ctx.getSection(XPathTable.xpathToBaseXpath(xp),
-							Level.COMPREHENSIVE.toString(),
+							coverage.toString(),
 							WebContext.LoadingShow.dontShowLoading);
 				} catch (Throwable t) {
 					SurveyLog.logException(t);

@@ -1083,6 +1083,9 @@ public class WebContext implements Cloneable, Appendable {
 		}
 	}
 	
+    public String getEffectiveCoverageLevel(CLDRLocale locale) {
+     return getEffectiveCoverageLevel(locale.getBaseName());
+    }
 	    public String getEffectiveCoverageLevel(String locale) {
         String level = sm.getListSetting(this,SurveyMain.PREF_COVLEV,WebContext.PREF_COVLEV_LIST,false);
         if((level == null) || (level.equals(COVLEV_RECOMMENDED))||(level.equals("default"))) {

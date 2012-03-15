@@ -4984,7 +4984,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     private void showPathList(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
 		if(ctx.canModify()) {
-	        ctx.println("   	<div id='DataSection'>    	</div>    	<script type='text/javascript'>    	showRows('DataSection', '"+xpath+"', '"+ctx.session.id+"');    	</script>");
+	        ctx.println("   	<div id='DynamicDataSection'><noscript>JavaScript is required.</noscript></div>    	<script type='text/javascript'>    	showRows('DynamicDataSection', '"+xpath+"', '"+ctx.session.id+"','"+ ctx.getEffectiveCoverageLevel(ctx.getLocale()) +"');    	</script>");
 		} else {
 			showPathListOld(ctx,xpath,typeToSubtype,b);
 		}

@@ -3944,6 +3944,8 @@ public class DataSection implements JSONString {
 		return new JSONObject().put("rows",itemList)
 				.put("hasExamples", hasExamples)
 				.put("xpathPrefix", xpathPrefix)
+				.put("skippedDueToCoverage", getSkippedDueToCoverage())
+				.put("coverage", getPtype())
 				.toString();
 	}
 

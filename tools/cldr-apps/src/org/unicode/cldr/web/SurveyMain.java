@@ -3217,6 +3217,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		
 		}
 		jout.println("</select>");
+		
+		jout.println("<span id='info_"+hash+"'/>");
+		
 		jout.println("</label>");
 	}
     

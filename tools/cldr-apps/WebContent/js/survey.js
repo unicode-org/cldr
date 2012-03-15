@@ -889,6 +889,8 @@ function insertRowsIntoTbody(theTable,tbody) {
 
 		tbody.appendChild(tr.infoRow);
 	}
+	
+	
 	//console.log("POST rows: " + Object.keys(theTable.myTRs)  + ", hitcount: " + theTable.hitCount);
 }
 
@@ -937,6 +939,13 @@ function setupSortmode(theTable) {
 	var size = document.createElement("div");
 	size.className="d-sort-size";
 	size.appendChild(document.createTextNode("Items: " + Object.keys(theTable.json.section.rows).length));
+	if(theTable.json.section.skippedDueToCoverage) {
+		size.appendChild(document.createTextNode("(Hidden due to coverage: " + theTable.json.section.skippedDueToCoverage +")"));
+//		var minfo = dojo.byId("info_menu_p_covlev");
+//		if(minfo) {
+//			minfo.innerHTML = theTable.json.section.skippedDueToCoverage + " hidden";
+//		}
+	}
 	theSortmode.appendChild(size);
 }
 
@@ -961,6 +970,12 @@ function insertRows(theDiv,xpath,session,json) {
 	
 	if(!theTable.curSortMode) { 
 		theTable.curSortMode = theTable.json.displaySets["default"];
+		// hack - choose one of these
+		if(theTable.json.displaySets.codecal) {
+			theTable.curSortMode = "codecal";
+		} else if(theTable.json.displaySets.metazon) {
+			theTable.curSortMode = "metazon";
+		}
 	}
 	setupSortmode(theTable);
 

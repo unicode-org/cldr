@@ -47,19 +47,19 @@ public class SurveyLog {
 		logger.severe(s);
 	}
 
-	static void logException(Throwable t) {
+	public static void logException(Throwable t) {
 		logException(t,"");
 	}
 
-	static void logException(Throwable t, String what) {
+	public static void logException(Throwable t, String what) {
 		logException(t,"(exception " + what + ")",StackTracker.stackToString(t.getStackTrace(), 0), null);
 	}
 
-	static void logException(Throwable t, String what, String stack) {
+	public static void logException(Throwable t, String what, String stack) {
 		logException(t,what,stack,null);
 	}
 
-	static synchronized void logException(Throwable t, String what, String stack, WebContext ctx) {
+	public static synchronized void logException(Throwable t, String what, String stack, WebContext ctx) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("** ST Exception:"+new Date()+", uptime " + SurveyMain.uptime+"\n");
 		sb.append("EXCEPTION: " + t+"\n");

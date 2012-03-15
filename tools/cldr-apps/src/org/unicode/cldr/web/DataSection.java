@@ -2886,20 +2886,23 @@ public class DataSection implements JSONString {
 			// Make sure the pod contains the rows we'd like to see.
 			// regular zone
 
-			Iterator<String> zoneIterator;
+			Set<String> zoneIterator;
 
 			if (isMetazones) {
 				if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
 					String[] pieces = xpathPrefix.split(CONTINENT_DIVIDER, 2);
 					xpathPrefix = pieces[0];
-					zoneIterator = sm.getMetazones(pieces[1]).iterator();
+					zoneIterator = sm.getMetazones(pieces[1]);
 				} else { // This is just a single metazone from a zoom-in
 					Set<String> singleZone = new HashSet<String>();
 					XPathParts xpp = new XPathParts();
 					xpp.set(xpathPrefix);
 					String singleMetazoneName = xpp.findAttributeValue("metazone", "type");
+					if(singleMetazoneName == null) {
+						throw new NullPointerException("singleMetazoneName is null for xpp:"+xpathPrefix);
+					}
 					singleZone.add(singleMetazoneName);
-					zoneIterator = singleZone.iterator();
+					zoneIterator = singleZone;
 
 					isSingleXPath = true;
 				}
@@ -2907,7 +2910,7 @@ public class DataSection implements JSONString {
 				if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
 					throw new InternalError("Error: CONTINENT_DIVIDER found on non-metazone xpath " + xpathPrefix);
 				}
-				zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid").iterator();
+				zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid");
 			}
 
 			final String tzsuffs[] = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
@@ -2928,9 +2931,11 @@ public class DataSection implements JSONString {
 			// TimezoneFormatter timezoneFormatter = new
 			// TimezoneFormatter(resolvedFile, true); // TODO: expensive here.
 
-			for (; zoneIterator.hasNext();) {
-				String zone = zoneIterator.next().toString();
-				// System.err.println(">> " + zone);
+			for (String zone : zoneIterator) {
+				if(zone==null) {
+					throw new NullPointerException("zoneIterator.next() returned null! zoneIterator.size: " + zoneIterator.size() + ", isEmpty: " + zoneIterator.isEmpty());
+				}
+				 System.err.println(">> " + zone);
 				/** some compatibility **/
 				String ourSuffix = "[@type=\"" + zone + "\"]";
 				if (isMetazones) {
@@ -2980,7 +2985,7 @@ public class DataSection implements JSONString {
 					// set it up..
 					int base_xpath = sm.xpt.getByXpath(base_xpath_string);
 
-					if (false) {
+					if (true) {
 
 						// set up the row
 						if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(base_xpath_string).matches()) {

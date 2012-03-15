@@ -71,6 +71,40 @@ function updateIf(id, txt) {
     }
 }
 
+// work around IE8 fail
+function listenFor(what, event, fn, ievent) {
+	if(what.addEventListener) {
+		what.addEventListener(event,fn,false);
+	} else {
+		if(!ievent) {
+			ievent = "on"+event;
+		}
+		what.attachEvent(ievent,fn);
+	}
+}
+
+// ?!!!!
+if(!Object.keys) {
+	Object.keys = function(x) {
+		var r = [];
+		for (j in x) {
+			r.push(j);
+		}
+		return r;
+	};
+}
+
+function getAbsolutePosition (x) {
+    var hh = 0;
+    var vv = 0;
+    for(var xx=x;xx.offsetParent;xx=xx.offsetParent) {
+        hh += xx.offsetLeft;
+        vv += xx.offsetTop;
+    }
+    return {left:hh, top: vv};
+}
+
+
 var wasBusted = false;
 var wasOk = false;
 var loadOnOk = null;
@@ -361,7 +395,7 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
                  refreshRow(fieldhash, xpid, locale, session);
              }
            }catch(e) {
-               console.log("Error in ajax post ",e.message);
+               console.log("Error in ajax post [do_change]  ",e.message);
                e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
            }
     };
@@ -392,7 +426,7 @@ function resetTimerSpeed(speed) {
 	timerID = setInterval(updateStatus, timerSpeed);
 }
 
-window.addEventListener('load',setTimerOn,false);
+listenFor(window,'load',setTimerOn);
 
 function cloneAnon(i) {
 	if(i==null) return null;
@@ -450,9 +484,8 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	} else {
 		button.id = "v"+vHash+"_"+tr.rowHash;
 	}
-	button.addEventListener("click",
-			function(e){ handleWiredClick(tr,theRow,vHash,box,button); e.stopPropagation(); return false; },
-			false);
+	listenFor(button,"click",
+			function(e){ handleWiredClick(tr,theRow,vHash,box,button); e.stopPropagation(); return false; });
 	
 	if(theRow.voteVhash==vHash && !box) {
 		button.className = "ichoice-x";
@@ -900,6 +933,11 @@ function setupSortmode(theTable) {
 		}
 		theSortmode.appendChild(a);
 	}
+	
+	var size = document.createElement("div");
+	size.className="d-sort-size";
+	size.appendChild(document.createTextNode("Items: " + Object.keys(theTable.json.section.rows).length));
+	theSortmode.appendChild(size);
 }
 
 function insertRows(theDiv,xpath,session,json) {
@@ -961,21 +999,34 @@ function showRows(container,xpath,session) {
 		dojo.ready(function() {
 		    var errorHandler = function(err, ioArgs){
 		    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-		        showLoader(theDiv.loader,"<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+		        showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
 		    };
 		    var loadHandler = function(json){
 		        try {
-		        	
-		        	if(!json.section) {
+		        	showLoader(theDiv.loader,"Analyzing response..");
+		        	if(!json) {
+		        		console.log("!json");
+				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+		        	} else if(json.err) {
+		        		console.log("json.err!");
+				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+				    } else if(!json.section) {
+		        		console.log("!json.section");
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+				    } else if(!json.section.rows) {
+		        		console.log("!json.section.rows");
+				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
 		        	} else {
+		        		console.log("json.section.rows OK..");
 		        		showLoader(theDiv.loader, "Loaded " + Object.keys(json.section.rows).length + " rows");
 		        		insertRows(theDiv,xpath,session,json);
 		        	}
 		        	
 		           }catch(e) {
-		               console.log("Error in ajax post ",e.message);
-				        showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
+		               console.log("Error in ajax post [showRows]  " + e.message + " / " + e.name );
+				        showLoader(theDiv.loader,"Exception while  loading: " + e.message + ", n="+e.name); // in case the 2nd line doesn't work
+//				        showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
+//			               console.log("Error in ajax post [showRows]  " + e.message);
 		           }
 		    };
 		    var xhrArgs = {
@@ -1013,7 +1064,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess) {
         	        console.log("could not find " + tr.rowHash + " in " + json);
         		}
            }catch(e) {
-               console.log("Error in ajax post ",e.message);
+               console.log("Error in ajax post [refreshRow2] ",e.message);
  //              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
            }
     };
@@ -1102,7 +1153,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
              // v_tr.className="tr_err";
              // v_tr2.className="tr_err";
              tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
-               console.log("Error in ajax post ",e.message);
+               console.log("Error in ajax post [handleWiredClick] ",e.message);
  //              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
            }
     };

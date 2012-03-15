@@ -137,6 +137,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
           "|localizedPatternChars" + // deprecated
           "|abbreviationFallback" + // deprecated
           "|default" + // deprecated
+          "|inText" + // internal use only
+          "|inList" + // internal use only
           "|mapping" + // deprecated
           "|measurementSystem" + // deprecated
           "|preferenceOrdering" + // deprecated

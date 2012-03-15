@@ -502,8 +502,13 @@ function addIcon(td, className) {
 	return star;
 }
 
-function showInPop(tr,theRow, str) {
-	tr.lastShown = null;
+function showInPop(tr,theRow, str, hideIfLast) {
+	if(hideIfLast && tr.lastShown==hideIfLast) {
+		tr.infoRow.className="d-inforow-hid";
+		tr.lastShown=null;
+		return;
+	}
+	tr.lastShown = hideIfLast;
 	if(tr.unShow) tr.unShow();
 	tr.unShow=null;
 //	tr.unShow=(function(){ var d2 = div; return function(){	console.log("hiding " + d2); 	d2.className="d-item";  };})();
@@ -675,15 +680,15 @@ function popInfoInto(tr, theRow, theChild) {
 	var loadHandler = function(text) {
 		try {
 			if (text) {
-				showInPop(tr, theRow, text);
+				showInPop(tr, theRow, text, theChild);
 				tr.lastShown = theChild;
 			} else {
-				showInPop(tr, theRow, stopIcon + " (no voting info received)");
+				showInPop(tr, theRow, stopIcon + " (no voting info received)", theChild);
 			}
 		} catch (e) {
 			console.log("Error in ajax get ", e.message);
 			console.log(" response: " + text);
-			showInPop(tr, theRow, stopIcon + " exception: " + e.message);
+			showInPop(tr, theRow, stopIcon + " exception: " + e.message, theChild);
 		}
 	};
 	var xhrArgs = {
@@ -707,6 +712,7 @@ function appendExample(parent, text) {
 }
 
 function addVitem(td, tr,theRow,item,vHash,newButton) {
+	var canModify = tr.theTable.json.canModify;
 	var div = document.createElement("div");
 	div.className = "d-item";
 	
@@ -719,9 +725,11 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	span.className = item.pClass;
 	span.dir = tr.theTable.json.dir;
 	span.appendChild(text);
-	newButton.value=item.value;
-	wireUpButton(newButton,tr,theRow,vHash);
-	div.appendChild(newButton);
+	if(newButton) {
+		newButton.value=item.value;
+		wireUpButton(newButton,tr,theRow,vHash);
+		div.appendChild(newButton);
+	}
 	div.appendChild(span);
 	if(item.isOldValue==true) {
 		addIcon(div,"i-star");
@@ -740,6 +748,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 }
 
 function updateRow(tr, theRow) {
+	var canModify = tr.theTable.json.canModify;
 	if(!tr.infoRow) { 
 		var toAddI = dojo.byId('proto-inforow');
 		tr.infoRow = cloneAnon(toAddI);
@@ -752,6 +761,9 @@ function updateRow(tr, theRow) {
 	tr.xpid = theRow.xpid;
 	var children = getTagChildren(tr);
 	var protoButton = dojo.byId('proto-button');
+	if(!canModify) {
+		protoButton = null;
+	}
 	
 	var doPopInfo = function() {
 		popInfoInto(tr,theRow,children[1]);
@@ -778,6 +790,11 @@ function updateRow(tr, theRow) {
 	}
 	children[2].onclick = doPopInfo;
 	children[3].innerHTML=theRow.prettyPath;
+	
+	children[3].onclick = function() {
+		showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
+	};
+	
 	children[4].innerHTML=theRow.displayName;
 	if(theRow.displayExample) {
 		appendExample(children[4], theRow.displayExample);
@@ -799,24 +816,38 @@ function updateRow(tr, theRow) {
 
 	if(!children[7].isSetup) {
 		children[7].innerHTML="";
-		var changeButton = cloneAnon(protoButton);
-		children[7].appendChild(changeButton);
-		var changeBox = cloneAnon(dojo.byId("proto-inputbox"));
-		wireUpButton(changeButton,tr, theRow, "[change]",changeBox);
-		tr.inputBox = changeBox;
-		children[7].appendChild(changeBox);
-		children[7].isSetup=true;
-		children[7].theButton = changeButton;
 		tr.inputTd = children[7];
+		
+		if(!canModify) {
+			children[7].style.display="none";
+		} else if(theRow.confirmOnly) {
+			children[7].className="d-change-confirmonly";
+		} else {
+			var changeButton = cloneAnon(protoButton);
+			children[7].appendChild(changeButton);
+			var changeBox = cloneAnon(dojo.byId("proto-inputbox"));
+			wireUpButton(changeButton,tr, theRow, "[change]",changeBox);
+			tr.inputBox = changeBox;
+			children[7].appendChild(changeBox);
+			children[7].isSetup=true;
+			children[7].theButton = changeButton;
+		}
 	} else {
-		children[7].theButton.className="ichoice-o";
+		if(children[7].theButton) {
+			children[7].theButton.className="ichoice-o";
+		}
 	}
 			
-	children[8].innerHTML=""; // no opinion
-	var noOpinion = cloneAnon(protoButton);
-	wireUpButton(noOpinion,tr, theRow, null);
-	noOpinion.value=null;
-	children[8].appendChild(noOpinion);
+	
+	if(canModify) {
+		children[8].innerHTML=""; // no opinion
+		var noOpinion = cloneAnon(protoButton);
+		wireUpButton(noOpinion,tr, theRow, null);
+		noOpinion.value=null;
+		children[8].appendChild(noOpinion);
+	} else {
+		children[8].style.display="none";
+	}
 	
 	tr.className='vother';
 	
@@ -954,6 +985,10 @@ function insertRows(theDiv,xpath,session,json) {
 
 	if(!theTable) {
 		theTable = cloneAnon(dojo.byId('proto-datatable'));
+		if(!json.canModify) {
+			var children = getTagChildren(theTable.getElementsByTagName("tr")[0]);
+			children[7].style.display=children[8].style.display="none";
+		}
 		theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
 		theDiv.appendChild(theTable.sortMode);
 		theTable.myTRs = [];

@@ -1292,6 +1292,7 @@ public class UserRegistry {
     
     public static final boolean userCanModifyLocale(User u, CLDRLocale locale) {
         if(u==null) return false; // no user, no dice
+        if(STFactory.isReadOnlyLocale(locale)) return false;
 
         if(!userIsStreet(u)) return false; // at least street level
         if(SurveyMain.isPhaseReadonly()) return false; // readonly = locked for ALL

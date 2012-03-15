@@ -4052,7 +4052,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 ctx.print("&nbsp;&nbsp;");
             }
             boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-            ctx.print("\u2517&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
+            ctx.print("&raquo;&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
                 "\">");
             ctx.print(decoratedLocaleName(ctx.docLocale[i],ctx.docLocale[i].getDisplayName(),""));
             if(canModify) {
@@ -4065,7 +4065,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             ctx.print("&nbsp;&nbsp;");
         }
         boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale());
-        ctx.print("\u2517&nbsp;");
+        ctx.print("&raquo;&nbsp;");
         ctx.print("<span title='"+ctx.getLocale()+"' style='font-size: 120%'>");
         printMenu(subCtx, which, xMAIN, 
             decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName()+(canModifyL?modifyThing(ctx):""), "") );
@@ -4986,11 +4986,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
 
     private void showPathList(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
-		if(ctx.canModify()) {
-	        ctx.println("   	<div id='DynamicDataSection'><noscript>JavaScript is required.</noscript></div>    	<script type='text/javascript'>    	showRows('DynamicDataSection', '"+xpath+"', '"+ctx.session.id+"','"+ ctx.getEffectiveCoverageLevel(ctx.getLocale()) +"');    	</script>");
-		} else {
-			showPathListOld(ctx,xpath,typeToSubtype,b);
-		}
+//		if(ctx.canModify()) {
+	        ctx.println("   	<div id='DynamicDataSection'><noscript>"+ctx.iconHtml("stop", "sorry")+ "JavaScript is required.</noscript></div>    	<script type='text/javascript'>    	showRows('DynamicDataSection', '"+xpath+"', '"+ctx.session.id+"','"+ ctx.getEffectiveCoverageLevel(ctx.getLocale()) +"');    	</script>");
+//		} else {
+//			showPathListOld(ctx,xpath,typeToSubtype,b);
+//		}
 	}
 	public void showPathListExample(WebContext ctx, String xpath, String lastElement,
             String e, String fullThing, CLDRFile cf) {

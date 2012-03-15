@@ -23,10 +23,10 @@
 
 			if (mySession == null) {
 				if(!isJson) {
-					response.sendError(500, "Session missing");
+					response.sendError(500, "Your session has timed out or the SurveyTool has restarted.");
 				} else {
 					JSONWriter r = new JSONWriter(out).object().
-							key("err").value("Session missing").endObject();
+							key("err").value("Your session has timed out or the SurveyTool has restarted.").endObject();
 				}
 				return;
 			}
@@ -86,6 +86,7 @@
 					JSONWriter r = new JSONWriter(out).object().key("section")
 							.value(section).key("displaySets").value(dsets)
 							.key("dir").value(ctx.getDirectionForLocale())
+							.key("canModify").value(ctx.canModify())
 							.endObject();
 					return;
 				}

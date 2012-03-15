@@ -1907,6 +1907,7 @@ public class DataSection implements JSONString {
 					.put("displayName", displayName)
 					.put("displayExample", displayExample)
 					.put("displayInExample", displayInExample)
+					.put("confirmOnly", confirmOnly)
 					.put("prettyPath", getPrettyPath())
 					.put("hasErrors", hasErrors)
 					.put("hasWarnings", hasWarnings)

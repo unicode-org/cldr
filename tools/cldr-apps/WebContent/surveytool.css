@@ -12,6 +12,7 @@
 	http://naf.priv:8080/cldr-apps/surveytool.css
 	http://127.0.0.1:8081/cldr-apps/surveytool.css
 	http://st.unicode.org/smoketest/surveytool.css
+	http://10.0.0.148:8080/cldr-apps/surveytool.css
 */
 
 button.icancel {
@@ -1533,10 +1534,17 @@ td.d-change .inputbox {
 	width: 75%;
 }
 
+td.d-change 
+
 td.d-change-err {
 	background-color: red !important;
 	background: url(stop.png) no-repeat right top;
 	border:  2px soldi red;
+}
+
+td.d-change-confirmonly:after {
+ content: '(Open a ticket)';
+	font-style: italic;
 }
 td.d-change-warn {
 	background-color: yellow;

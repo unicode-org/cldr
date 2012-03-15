@@ -743,7 +743,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @return
      */
     public static final boolean isReadOnlyLocale(CLDRLocale loc) {
-        return isReadOnlyLocale(loc.getBaseName());
+        for(int i=0;i<readOnlyLocales.length;i++) {
+            if(readOnlyLocales[i].equals(loc)) return true;
+            // don't check parent locales.
+        }
+        return false;
     }
 
     /**
@@ -752,10 +756,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @return
      */
     public static final boolean isReadOnlyLocale(String loc) {
-        for(int i=0;i<readOnlyLocales.length;i++) {
-            if(readOnlyLocales[i].equals(loc)) return true;
-        }
-        return false;
+    	return isReadOnlyLocale(CLDRLocale.getInstance(loc));
     }
 
     private static void readonly() {

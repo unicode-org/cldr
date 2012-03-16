@@ -140,6 +140,9 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
           "|inText" + // internal use only
           "|inList" + // internal use only
           "|mapping" + // deprecated
+          "|zone/long" + 
+          "|zone/short" + 
+          "|zone/commonlyUsed" + 
           "|measurementSystem" + // deprecated
           "|preferenceOrdering" + // deprecated
           ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element

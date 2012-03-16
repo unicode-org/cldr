@@ -3413,7 +3413,9 @@ public class DataSection implements JSONString {
 				if (p.prettyPath.startsWith("layout/inText")) {
 					p.valuesList = LAYOUT_INTEXT_VALUES;
 					superP.valuesList = p.valuesList;
-				} else if (p.prettyPath.contains("numberingSystems")) {
+				} else if (p.prettyPath.contains("numberingSystems") || 
+						   p.prettyPath.contains("exemplarCharacters") ||
+						   p.prettyPath.contains("indexCharacters")) {
 					p.confirmOnly = true;
 				} else if (p.prettyPath.startsWith("layout/inList")) {
 					p.valuesList = LAYOUT_INLIST_VALUES;

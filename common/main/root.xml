@@ -2489,6 +2489,9 @@
 					<pattern type="100000000000000">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+            <decimalFormatLength type="long">
+                <alias source="locale" path="../decimalFormatLength[@type='short']"/>
+            </decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="lepc">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>

@@ -531,7 +531,7 @@ public class GenerateXMB {
             out.println("</messagebundle>");
 
             PrintWriter out3File = BagFormatter.openUTF8Writer(targetDir, "IdToPath.java");
-            out3File.println("package org.unicode.cldr.draft;");
+            out3File.println("package org.unicode.cldr.test;");
             out3File.println("import java.util.HashMap;");
             out3File.println("public class IdToPath {");
             out3File.println("  static final HashMap<String,String> map = new HashMap<String,String>();");

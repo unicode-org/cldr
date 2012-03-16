@@ -32,10 +32,10 @@ import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.Transform;
 
 public class LdmlLocaleMapper {
-    private static final boolean DEBUG = false;
     private static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
-    private static Pattern TERRITORY_XPATH = Pattern.compile("//ldml/localeDisplayNames/territories/territory\\[@type=\"(\\w+)\"]");
-    private static Pattern VERSION_PATTERN = Pattern.compile("\\$Revision:\\s*(\\d+)\\s*\\$");
+    private static final Pattern TERRITORY_XPATH = Pattern.compile("//ldml/localeDisplayNames/territories/territory\\[@type=\"(\\w+)\"]");
+    private static final Pattern VERSION_PATTERN = Pattern.compile("\\$Revision:\\s*(\\d+)\\s*\\$");
+
     private static RegexLookup<RegexResult> pathConverter  = null;
     private static Map<String, String> fallbackPaths;
 
@@ -60,7 +60,7 @@ public class LdmlLocaleMapper {
          * @param value
          * @return
          */
-        private void add(String path, String[] value) {
+        public void add(String path, String[] value) {
             List<String[]> list = rbPathToValues.get(path);
             if (list == null) {
                 rbPathToValues.put(path, list = new ArrayList<String[]>(1));
@@ -76,11 +76,8 @@ public class LdmlLocaleMapper {
          * @param value
          * @return
          */
-        void add(String path, String value) {
-            if (DEBUG) {
-                System.out.println("+++\t" + path + "\t" + value);
-            }
-            add(path, value.split("\\s++"));
+        private void add(String path, String value) {
+            add(path, new String[]{value});
         }
         
         void addAll(String path, List<String[]> values) {
@@ -105,6 +102,10 @@ public class LdmlLocaleMapper {
             return rbPathToValues.keySet();
         }
         
+        public boolean containsKey(String key) {
+            return rbPathToValues.containsKey(key);
+        }
+        
         public List<String[]> get(String path) {
             return rbPathToValues.get(path);
         }
@@ -113,7 +114,7 @@ public class LdmlLocaleMapper {
     /**
      * A wrapper class for storing and working with the unprocessed values of a RegexResult.
      */
-    static class PathValueInfo {
+    private static class PathValueInfo {
         private String rbPath;
         private String rawValues;
 
@@ -123,7 +124,9 @@ public class LdmlLocaleMapper {
             // but //ldml/dates/timeZoneNames/singleCountries contains multiple
             // values in its list attribute. We'll have to sacrifice performance
             // here and keep the value regex as a string for now.
-            this.rawValues = rawValues == null ? "{value}" : rawValues.replace("$value", "{value}");
+            // Rename the value variable to avoid errors when processing the
+            // other arguments.
+            this.rawValues = rawValues == null ? null: rawValues.replace("$value", "{value}");
         }
 
         /**
@@ -137,8 +140,6 @@ public class LdmlLocaleMapper {
         public String[] processValues(String[] arguments, CLDRFile cldrFile, String xpath) {
             String[] result;
             if (rawValues != null) {
-                // Rename the value variable to avoid errors when processing the
-                // other arguments.
                 String processedValue = processString(rawValues, arguments);
                 result = processedValue.split("\\s+");
                 for (int i = 0; i < result.length; i++) {
@@ -155,7 +156,7 @@ public class LdmlLocaleMapper {
             }
             return result;
         }
-        
+
         @Override
         public String toString() { return rbPath + "=" + rawValues; }
         
@@ -256,7 +257,7 @@ public class LdmlLocaleMapper {
      * The value for the regex is a pair, with the directory and the path. There
      * is an optional 3rd parameter, which is used for "fleshing out"
      */
-    public static Transform<String, RegexResult> PairValueTransform    = new Transform<String, RegexResult>() {
+    private static Transform<String, RegexResult> PairValueTransform    = new Transform<String, RegexResult>() {
         public RegexResult transform(String source) {
             return new RegexResult(source);
         }
@@ -274,7 +275,7 @@ public class LdmlLocaleMapper {
      * The source for path regexes is much simpler if we automatically quote the
      * [ character in front of @.
      */
-    public static Transform<String, RegexFinder> RegexFinderTransform = new Transform<String, RegexFinder>() {
+    private static Transform<String, RegexFinder> RegexFinderTransform = new Transform<String, RegexFinder>() {
         public RegexFinder transform(String source) {
             return new RegexFinder("^" + source.replace("[@", "\\[@") + "$");
         }
@@ -407,16 +408,16 @@ public class LdmlLocaleMapper {
                 }
             }
 
-            // Add rb path.
+            // Add rb paths.
             Output<Finder> matcherFound = new Output<Finder>();
             RegexResult regexResult = matchXPath(pathConverter, cldr, xpath, matcherFound);
             if (regexResult == null) continue;
             String[] arguments = matcherFound.value.getInfo();
             for (PathValueInfo info : regexResult) {
                 String rbPath = info.processRbPath(arguments);
-                addSubMap(rbPath, pathValueMap);
+                getSubMap(rbPath, pathValueMap);
                 // The immediate parent of every path should also exist.
-                addSubMap(rbPath.substring(0, rbPath.lastIndexOf('/')), pathValueMap);
+                getSubMap(rbPath.substring(0, rbPath.lastIndexOf('/')), pathValueMap);
             }
         }
         
@@ -441,7 +442,9 @@ public class LdmlLocaleMapper {
         IcuData icuData = new IcuData();
         for (String rbPath : pathValueMap.keySet()) {
             List<String[]> values = new ArrayList<String[]>(pathValueMap.get(rbPath).values());
-            icuData.addAll(rbPath, values);
+            if (values.size() > 0) {
+                icuData.addAll(rbPath, values);
+            }
         }
         // Hacks
         hackAddExtras(resolvedCldr, locale, icuData);
@@ -480,13 +483,13 @@ public class LdmlLocaleMapper {
             String rbPath = info.processRbPath(arguments);
             // Don't add additional paths at this stage.
             if (selective && !pathValueMap.containsKey(rbPath)) continue;
-            Map<String, String[]> valueMap = addSubMap(rbPath, pathValueMap);
+            Map<String, String[]> valueMap = getSubMap(rbPath, pathValueMap);
             String[] values = info.processValues(arguments, cldrFile, xpath);
             valueMap.put(xpath, values);
         }
     }
     
-    private Map<String, String[]> addSubMap(String key, Map<String, Map<String, String[]>> pathValueMap) {
+    private Map<String, String[]> getSubMap(String key, Map<String, Map<String, String[]>> pathValueMap) {
         Map<String, String[]> valueMap = pathValueMap.get(key);
         if (valueMap == null) {
             valueMap = new TreeMap<String, String[]>(SpecialLDMLComparator);
@@ -502,11 +505,9 @@ public class LdmlLocaleMapper {
      */
     private void hackAddExtras(CLDRFile cldrResolved, String locale, IcuData icuData) {
         // Specify parent of non-language locales.
-        String path;
         String parent = supplementalDataInfo.getExplicitParentLocale(locale);
         if (parent != null) {
-            path = "/%%Parent";
-            icuData.add(path, parent);
+            icuData.add("/%%Parent", parent);
         }
         
         // <version number="$Revision: 5806 $"/>
@@ -519,14 +520,12 @@ public class LdmlLocaleMapper {
         }
         int versionNum = Integer.parseInt(versionMatcher.group(1));
         String versionValue = "2.0." + (versionNum / 100) + "." + (versionNum % 100);
-        path = "/Version";
-        icuData.add(path, versionValue);
-
-        String localeID = cldrResolved.getLocaleID();
+        icuData.add("/Version", versionValue);
 
         // PaperSize:intvector{ 279, 216, }
-        path = "/PaperSize:intvector";
-        String paperType = calculateTypeToAdd(localeID, MeasurementType.paperSize);
+        String localeID = cldrResolved.getLocaleID();
+        String path = "/PaperSize:intvector";
+        String paperType = getMeasurementToDisplay(localeID, MeasurementType.paperSize);
         if (paperType == null) {
             // do nothing
         } else if (paperType.equals("A4")) {
@@ -539,7 +538,7 @@ public class LdmlLocaleMapper {
 
         // MeasurementSystem:int{1}
         path = "/MeasurementSystem:int";
-        String measurementSystem = calculateTypeToAdd(localeID, MeasurementType.measurementSystem);
+        String measurementSystem = getMeasurementToDisplay(localeID, MeasurementType.measurementSystem);
         if (measurementSystem == null) {
             // do nothing
         } else if (measurementSystem.equals("metric")) {
@@ -551,7 +550,15 @@ public class LdmlLocaleMapper {
         }
     }
     
-    private String calculateTypeToAdd(String localeID, MeasurementType measurementType) {
+    /**
+     * Returns the measurement to be displayed for the specified locale and
+     * measurement type. Measurements should not be displayed if the immediate
+     * parent of the locale has the same measurement as the locale.
+     * @param localeID
+     * @param measurementType
+     * @return the measurement to be displayed, or null if it should not be displayed
+     */
+    private String getMeasurementToDisplay(String localeID, MeasurementType measurementType) {
         String type = getMeasurement(localeID, measurementType);
         if (type == null) return null;
         // Don't add type if a parent has the same value for that type.
@@ -564,6 +571,11 @@ public class LdmlLocaleMapper {
         return type.equals(parentType) ? null : type;
     }
 
+    /**
+     * @param localeID
+     * @param measurementType the type of measurement required
+     * @return the measurement of the specified locale
+     */
     private String getMeasurement(String localeID, MeasurementType measurementType) {
         String region = localeID.equals("root") ? "001" : new LanguageTagParser().set(localeID).getRegion();
         Map<MeasurementType, Map<String, String>> regionMeasurementData = supplementalDataInfo.getTerritoryMeasurementData();
@@ -571,12 +583,22 @@ public class LdmlLocaleMapper {
         return typeMap.get(region);
     }
 
+    /**
+     * @param cldrFile
+     * @param xpath
+     * @return the value of the specified xpath (fallback or otherwise)
+     */
     private static String getStringValue(CLDRFile cldrFile, String xpath) {
         String value = cldrFile.getStringValue(xpath);
         if (value == null) value = getFallbackPaths().get(xpath);
         return value;
     }
 
+    /**
+     * Returns a mapping of fallback paths to their values. Fallback values are
+     * used when the CLDR file doesn't contain a path that happens to have a fallback.
+     * @return a mapping of fallback paths to their values
+     */
     private static Map<String, String> getFallbackPaths() {
         if (fallbackPaths == null) {
             fallbackPaths = LDMLConverter.loadMapFromFile("ldml2icu_fallback_paths.txt");

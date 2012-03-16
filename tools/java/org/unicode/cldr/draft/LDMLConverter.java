@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -35,12 +34,14 @@ public class LDMLConverter {
     private static final int DESTDIR = 3;
     private static final int SPECIALSDIR = 4;
     private static final int SUPPLEMENTALDIR = 5;
-    private static final int VERBOSE = 6;
     // Debugging: doesn't split up locale into separate directories.
-    private static final int KEEP_TOGETHER = 7;
+    private static final int KEEP_TOGETHER = 6;
     
+    private static final String LOCALES_DIR = "locales";
+
     private boolean keepTogether = false;
     private Map<String, String> dirMapping;
+    private Set<String> allDirs;
     private String destinationDir;
 
     /**
@@ -49,6 +50,9 @@ public class LDMLConverter {
     private Map<String, String> getDirMapping() {
         if (dirMapping == null) {
             dirMapping = loadMapFromFile("ldml2icu_dir_mapping.txt");
+            allDirs = new HashSet<String>(dirMapping.values());
+            allDirs.remove("*");
+            allDirs.add(LOCALES_DIR);
         }
         return dirMapping;
     }
@@ -78,27 +82,38 @@ public class LDMLConverter {
     private Map<String, Set<String>> mapDirToPaths(Set<String> paths) {
         Map<String, String> dirMapping = getDirMapping();
         Map<String, Set<String>> dirPaths = new HashMap<String, Set<String>>();
-        dirPaths.put("locales", new HashSet<String>());
+        dirPaths.put(LOCALES_DIR, new HashSet<String>());
         for (String path : paths) {
             boolean matched = false;
             for (String prefix : dirMapping.keySet()) {
                 if (path.startsWith(prefix)) {
                     String dir = dirMapping.get(prefix);
-                    Set<String> filteredPaths = dirPaths.get(dir);
-                    if (filteredPaths == null) {
-                        filteredPaths = new HashSet<String>();
-                        dirPaths.put(dir, filteredPaths);
+                    // Handle wildcard folder.
+                    if (dir.equals("*")) {
+                        for (String currDir : allDirs) {
+                            addToMap(currDir, path, dirPaths);
+                        }
+                    } else {
+                        addToMap(dir, path, dirPaths);
                     }
-                    filteredPaths.add(path);
                     matched = true;
                     break;
                 }
                 if (!matched) {
-                    dirPaths.get("locales").add(path);
+                    dirPaths.get(LOCALES_DIR).add(path);
                 }
             }
         }
         return dirPaths;
+    }
+    
+    private void addToMap(String key, String value, Map<String, Set<String>> map) {
+        Set<String> set = map.get(key);
+        if (set == null) {
+            set = new HashSet<String>();
+            map.put(key, set);
+        }
+        set.add(value);
     }
     
     private void usage() {
@@ -116,7 +131,6 @@ public class LDMLConverter {
             "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
             "-k or --keeptogether       write locale data to one file instead of splitting.\n" +
             "-h or -? or --help         this usage text.\n" +
-            "-v or --verbose            print out verbose output.\n" +
             "example: org.unicode.cldr.drafts.LDMLConverter -s xxx -d yyy en.xml");
         System.exit(-1);
     }
@@ -129,7 +143,6 @@ public class LDMLConverter {
             UOption.DESTDIR(),
             UOption.create("specialsdir", 'p', UOption.REQUIRES_ARG),
             UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
-            UOption.VERBOSE(),
             UOption.create("keeptogether", 'k', UOption.NO_ARG)
         };
 
@@ -144,6 +157,7 @@ public class LDMLConverter {
         if (args.length == 0 || options[HELP1].doesOccur || options[HELP2].doesOccur) {
             usage();
         }
+
         String filePattern = remainingArgs > 0 ? args[0] : ".*";
         Factory factory = null;
         if (options[SOURCEDIR].doesOccur) {
@@ -151,14 +165,20 @@ public class LDMLConverter {
         } else {
             throw new IllegalArgumentException("Source directory must be specified.");
         }
+
+        SupplementalDataInfo supplementalDataInfo = null;
+        if (options[SUPPLEMENTALDIR].doesOccur) {
+            supplementalDataInfo = SupplementalDataInfo.getInstance(options[SUPPLEMENTALDIR].value);
+        } else if (factory.getSupplementalDirectory() != null) {
+            supplementalDataInfo = SupplementalDataInfo.getInstance(factory.getSupplementalDirectory());
+        } else {
+            throw new IllegalArgumentException("Supplemental directory must be specified.");
+        }
+
         destinationDir = options[DESTDIR].doesOccur ? options[DESTDIR].value : ".";
         Factory specialFactory = null;
         if (options[SPECIALSDIR].doesOccur) {
             specialFactory = Factory.make(options[SPECIALSDIR].value, filePattern);
-        }
-        SupplementalDataInfo supplementalDataInfo = null;
-        if (options[SUPPLEMENTALDIR].doesOccur) {
-            supplementalDataInfo = SupplementalDataInfo.getInstance(options[SUPPLEMENTALDIR].value);
         }
         keepTogether = options[KEEP_TOGETHER].doesOccur;
         return new LdmlLocaleMapper(factory, specialFactory, supplementalDataInfo);
@@ -179,10 +199,7 @@ public class LDMLConverter {
                     for (String path : paths) {
                         dirData.addAll(path, icuData.get(path));
                     }
-                    String dirPath = destinationDir + '/' + dir;
-                    File dirFile = new File(dirPath);
-                    if (!dirFile.exists()) dirFile.mkdir();
-                    IcuTextWriter.writeToFile(dirData, dirPath, filename, hasSpecial);
+                    IcuTextWriter.writeToFile(dirData, destinationDir + '/' + dir, filename, hasSpecial);
                 }
             }
             System.out.println("Converted " + filename + ".xml in " + (System.currentTimeMillis() - time) + "ms");

@@ -147,4 +147,12 @@ public abstract class XPathMatcher implements Comparable<XPathMatcher> {
 	public static XPathMatcher regex(final Pattern pattern) {
 		return regex(null, pattern);
 	}
+	
+	public static XPathMatcher getMatcherForString(String str) {
+		if(str.contains(DataSection.CONTINENT_DIVIDER)) {
+			return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH, str.substring(0, str.indexOf(DataSection.CONTINENT_DIVIDER))); // just return prefix
+		} else {
+			return BaseAndPrefixMatcher.getInstance(XPathTable.NO_XPATH, str);
+		}
+	}
 }

@@ -72,8 +72,7 @@
 					response.setContentType("application/json");
 					JSONObject dsets = new JSONObject();
 					{
-						XPathMatcher matcher = BaseAndPrefixMatcher
-								.getInstance(XPathTable.NO_XPATH, xp);
+						XPathMatcher matcher = XPathMatcher.getMatcherForString(xp);
 						for (String n : SortMode.getSortModesFor(xp)) {
 							dsets.put(
 									n,

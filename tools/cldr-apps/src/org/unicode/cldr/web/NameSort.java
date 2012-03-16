@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 IBM Corporation and Others. All Rights Reserved.
+ * Copyright (C) 2011-2012 IBM Corporation and Others. All Rights Reserved.
  *
  */
 package org.unicode.cldr.web;

@@ -1,4 +1,4 @@
-// Copyright 2011 International Business Machines, Inc. All Rights Reserved.
+// Copyright 2011-2012 International Business Machines, Inc. All Rights Reserved.
 
 package org.unicode.cldr.icu;
 

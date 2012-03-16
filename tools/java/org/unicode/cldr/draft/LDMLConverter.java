@@ -1,7 +1,6 @@
 package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.draft.LdmlLocaleMapper.IcuData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -16,13 +16,19 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import com.ibm.icu.dev.tool.UOption;
 
 /**
- * Prototype simpler mechanism for converting to ICU Resource Bundles. The
+ * Simpler mechanism for converting CLDR data to ICU Resource Bundles. The
  * format is almost entirely data-driven instead of having lots of special-case
  * code.
  * 
+ * Unlike the instructions in CLDRConverterTool, this converter does not invoke
+ * computeConvertibleXPaths to check if each xpath is convertible because the
+ * xpaths that are convertible have already been filtered out by the regex lookups.
+ * It may make more sense down the road to refactor CLDRConverterTool such that
+ * this class doesn't inherit unnecessary functionality.
+ * 
  * @author markdavis
  */
-public class LDMLConverter {
+public class LDMLConverter extends CLDRConverterTool {
     static final Pattern                         SEMI                 = Pattern.compile("\\s*+;\\s*+");
     
     /**
@@ -135,7 +141,8 @@ public class LDMLConverter {
         System.exit(-1);
     }
 
-    private LdmlLocaleMapper processArgs(String[] args) {
+    @Override
+    public void processArgs(String[] args) {
         UOption[] options = new UOption[] {
             UOption.HELP_H(),
             UOption.HELP_QUESTION_MARK(),
@@ -158,12 +165,25 @@ public class LDMLConverter {
             usage();
         }
 
-        String filePattern = remainingArgs > 0 ? args[0] : ".*";
-        Factory factory = null;
-        if (options[SOURCEDIR].doesOccur) {
-            factory = Factory.make(options[SOURCEDIR].value, filePattern);
-        } else {
+        if (!options[SOURCEDIR].doesOccur) {
             throw new IllegalArgumentException("Source directory must be specified.");
+        }
+        String sourceDir = options[SOURCEDIR].value;
+
+        // LocalesMap passed in from ant
+        Set<String> locales = new HashSet<String>();
+        Factory factory = null;
+        if (getLocalesMap() != null && getLocalesMap().size() > 0) {
+            for (String filename : getLocalesMap().keySet()) {
+                // Remove ".xml" from the end.
+                locales.add(filename.substring(0, filename.length() - 4));
+            }
+            factory = Factory.make(sourceDir, ".*");
+        } else if (remainingArgs > 0) {
+            factory = Factory.make(sourceDir, args[0]);
+            locales.addAll(factory.getAvailable());
+        } else {
+            throw new IllegalArgumentException("No files specified!");
         }
 
         SupplementalDataInfo supplementalDataInfo = null;
@@ -178,14 +198,19 @@ public class LDMLConverter {
         destinationDir = options[DESTDIR].doesOccur ? options[DESTDIR].value : ".";
         Factory specialFactory = null;
         if (options[SPECIALSDIR].doesOccur) {
-            specialFactory = Factory.make(options[SPECIALSDIR].value, filePattern);
+            specialFactory = Factory.make(options[SPECIALSDIR].value, ".*");
         }
         keepTogether = options[KEEP_TOGETHER].doesOccur;
-        return new LdmlLocaleMapper(factory, specialFactory, supplementalDataInfo);
+        LdmlLocaleMapper mapper = new LdmlLocaleMapper(factory, specialFactory, supplementalDataInfo);
+        try {
+            processFiles(mapper, locales);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
     
-    private void processFiles(LdmlLocaleMapper mapper) throws IOException {
-        for (String filename : mapper.getAvailable()) {
+    private void processFiles(LdmlLocaleMapper mapper, Set<String> locales) throws IOException {
+        for (String filename : locales) {
             long time = System.currentTimeMillis();
             IcuData icuData = mapper.fillFromCLDR(filename);
             boolean hasSpecial = mapper.hasSpecialFile(filename);
@@ -216,8 +241,7 @@ public class LDMLConverter {
         // TODO Handle more than just the main directory.
         long totalTime = System.currentTimeMillis();
         LDMLConverter converter = new LDMLConverter();
-        LdmlLocaleMapper mapper = converter.processArgs(args);
-        converter.processFiles(mapper);
+        converter.processArgs(args);
         System.out.println("Total time taken: " + (System.currentTimeMillis() - totalTime));
     }
 }

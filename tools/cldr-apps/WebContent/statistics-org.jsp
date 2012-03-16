@@ -17,7 +17,7 @@
 		title = "Participation by Org";
 		theSql = "select  cldr_users.org,count(*) as count from cldr_vet,cldr_users  where submitter is not null and cldr_users.id=cldr_vet.submitter group by cldr_users.org order by count desc ";
 %>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SurveyTool Statistics | <%=title%></title>
 </head>
 <body>

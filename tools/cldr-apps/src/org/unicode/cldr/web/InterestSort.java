@@ -175,5 +175,9 @@ public class InterestSort extends SortMode {
             }
 	};
     
+	@Override
+	String getDisplayName() {
+		return "Priority";
+	}
 
 }

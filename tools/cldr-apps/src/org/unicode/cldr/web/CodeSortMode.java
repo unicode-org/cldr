@@ -62,5 +62,9 @@ public class CodeSortMode extends SortMode {
 	public String getDisplayName(DataRow p) {
     	return p.getPrettyPath(); // always code.
     }
+	@Override
+	String getDisplayName() {
+		return "Code";
+	}
 
 }

@@ -224,4 +224,10 @@ public class CalendarSortMode extends SortMode {
 	}
 
 
+	@Override
+	String getDisplayName() {
+		return "Type";
+	}
+
+
 }

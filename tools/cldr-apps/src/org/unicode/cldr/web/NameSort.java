@@ -81,4 +81,9 @@ public class NameSort extends SortMode {
 		    };
 		}
 
+	@Override
+	String getDisplayName() {
+		return SurveyMain.BASELINE_LOCALE.getDisplayLanguage() + " Name";
+	}
+
 }

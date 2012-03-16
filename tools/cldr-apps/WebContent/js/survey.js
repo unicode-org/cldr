@@ -971,7 +971,7 @@ function setupSortmode(theTable) {
 				reSort(theTable, kk);
 			};
 		})();
-		a.appendChild(document.createTextNode(k));
+		a.appendChild(document.createTextNode(theTable.json.displaySets[k].displayName));
 		a.mode=k;
 		if(k==theTable.curSortMode) {
 			a.className="selected";

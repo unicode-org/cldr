@@ -2253,6 +2253,7 @@ public class DataSection implements JSONString {
 			}
 			return new JSONObject()
 			  .put("canName",canName)
+			  .put("displayName",sortMode.getDisplayName())
 			  .put("isCalendar",isCalendar)
 			  .put("isMetazones",isMetazones)
 			  .put("sortMode", sortMode.getName())

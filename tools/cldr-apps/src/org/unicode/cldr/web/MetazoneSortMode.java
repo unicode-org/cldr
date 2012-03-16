@@ -1062,5 +1062,9 @@ public class MetazoneSortMode extends SortMode {
 		};
 	}
 
+	@Override
+	String getDisplayName() {
+		return "Type";
+	}
 
 }

@@ -79,6 +79,7 @@ public abstract class SortMode {
 	 */
 	abstract String getName();
 	
+	abstract String getDisplayName();
 	/**
 	 * 
 	 * @return

@@ -783,10 +783,10 @@ function updateRow(tr, theRow) {
 	};
 	
 	children[0].innerHTML = "";
-	if(theRow.hasWarnings) {
-		children[0].className = "d-st-warn";
-	} else if(theRow.hasErrors) {
+	if(theRow.hasErrors) {
 		children[0].className = "d-st-stop";
+	} else if(theRow.hasWarnings) {
+		children[0].className = "d-st-warn";
 	} else {
 		children[0].className = "d-st-okay";
 	}

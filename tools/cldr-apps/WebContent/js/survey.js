@@ -568,6 +568,8 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 //	div.className = 'd-item-selected';
 	var td = tr.infoRow.getElementsByTagName("td")[0];
 	td.innerHTML="";
+	
+	var docFrag = document.createDocumentFragment();
 
 	var h3 = document.createElement("h3");
 	var span = document.createElement("span");
@@ -576,9 +578,9 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 	span.appendChild(document.createTextNode(value));
 	h3.appendChild(span);
 	h3.className="span";
-	td.appendChild(h3);
+	docFrag.appendChild(h3);
 	var newDiv = document.createElement("div");
-	td.appendChild(newDiv);
+	docFrag.appendChild(newDiv);
 	appendHelp(td,theRow);
 	
 	newDiv.innerHTML = newHtml;
@@ -586,6 +588,9 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 
 	tr.infoRow.className = "d-inforow";
 	
+	td.appendChild(docFrag);
+	docFrag=null;
+
 	if(tests) {
 		var hadWarn = false;
 		var hadErr = false;
@@ -603,7 +608,7 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 		}
 	}
 	
-	
+
 	tr.inputTd.className="d-change";
 	return false;
 }
@@ -782,7 +787,6 @@ function updateRow(tr, theRow) {
 		popInfoInto(tr,theRow,children[1]);
 	};
 	
-	children[0].innerHTML = "";
 	if(theRow.hasErrors) {
 		children[0].className = "d-st-stop";
 	} else if(theRow.hasWarnings) {
@@ -791,11 +795,9 @@ function updateRow(tr, theRow) {
 		children[0].className = "d-st-okay";
 	}
 	
-	children[1].innerHTML = "";
 	children[1].className = "d-dr-"+theRow.confirmStatus;
 	children[1].onclick = doPopInfo;
 
-	children[2].innerHTML = "";
 	if(theRow.hasVoted) {
 		children[2].className = "d-vo-true";
 	} else {
@@ -809,9 +811,12 @@ function updateRow(tr, theRow) {
 		return false;
 	};
 	
-	children[4].innerHTML=theRow.displayName;
-	if(theRow.displayExample) {
-		appendExample(children[4], theRow.displayExample);
+	if(!children[4].isSetup) {
+		children[4].appendChild(document.createTextNode(theRow.displayName));
+		if(theRow.displayExample) {
+			appendExample(children[4], theRow.displayExample);
+		}
+		children[4].isSetup=true;
 	}
 	children[5].innerHTML=""; // win
 	if(theRow.items&&theRow.winningVhash) {
@@ -997,6 +1002,8 @@ function setupSortmode(theTable) {
 function insertRows(theDiv,xpath,session,json) {
 	var theTable = theDiv.theTable;
 
+	var doInsertTable = null;
+	
 	if(!theTable) {
 		theTable = cloneAnon(dojo.byId('proto-datatable'));
 		if(!json.canModify) {
@@ -1008,7 +1015,7 @@ function insertRows(theDiv,xpath,session,json) {
 		theTable.myTRs = [];
 		theDiv.theTable = theTable;
 		theTable.theDiv = theDiv;
-  		theDiv.appendChild(theTable);
+		doInsertTable=theTable;
 	}
 	// append header row
 	
@@ -1030,6 +1037,9 @@ function insertRows(theDiv,xpath,session,json) {
 
 	var tbody = theTable.getElementsByTagName("tbody")[0];
 	insertRowsIntoTbody(theTable,tbody);
+	if(doInsertTable) {
+		theDiv.appendChild(doInsertTable);
+	}
 	hideLoader(theDiv.loader);
 }
 
@@ -1084,6 +1094,9 @@ function showRows(container,xpath,session,coverage) {
 		        	} else {
 		        		console.log("json.section.rows OK..");
 		        		showLoader(theDiv.loader, "Loaded " + Object.keys(json.section.rows).length + " rows");
+		        		if(json.dataLoadTime) {
+		        			updateIf("dynload", json.dataLoadTime);
+		        		}
 		        		insertRows(theDiv,xpath,session,json);
 		        	}
 		        	
@@ -1117,6 +1130,9 @@ function refreshRow2(tr,theRow,vHash,onSuccess) {
     var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t";
     var loadHandler = function(json){
         try {
+	    		if(json&&json.dataLoadTime) {
+	    			updateIf("dynload", json.dataLoadTime);
+	    		}
         		if(json.section.rows[tr.rowHash]) {
         			theRow = json.section.rows[tr.rowHash];
         			tr.theTable.json.section.rows[tr.rowHash] = theRow;

@@ -2570,8 +2570,9 @@ public class DataSection implements JSONString {
 		}
 
 		// XMLSource ourSrc = uf.resolvedSource;
-		CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true)
-				.setSupplementalDirectory(SurveyMain.supplementalDataDir);
+		CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true);
+		
+				ourSrc.setSupplementalDirectory(SurveyMain.supplementalDataDir);
 		if(ctx!=null) {
 			section.setUserAndFileForVotelist(ctx.session!=null?ctx.session.user:null,ourSrc);
 		}

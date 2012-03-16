@@ -5126,8 +5126,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //        }
 
         // simple case - show the list of zones.
-        if((zone == null)||(zone.length()==0)) {
-            showPathList(ctx, DataSection.EXEMPLAR_PARENT, XPathMatcher.regex(Pattern.compile(".*exemplarCity.*")), null);
+//        if((zone == null)||(zone.length()==0)) {
+        if(true) {
+//            showPathList(ctx, DataSection.EXEMPLAR_PARENT, XPathMatcher.regex(Pattern.compile(".*exemplarCity.*")), null);
+        	showPathList(ctx,DataSection.EXEMPLAR_PARENT, null, false);
             return;
         }
 

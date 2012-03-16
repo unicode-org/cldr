@@ -17,4 +17,8 @@ public class ExampleBuilder {
 	synchronized String getExampleHtml(String xpath, String value, Zoomed zoomed, ExampleType type) {
 		return eg.getExampleHtml(xpath, value, zoomed, ec, type);
 	}
+
+	public String getHelpHtml(String xpath, String value) {
+		return eg.getHelpHtml(xpath, value);
+	}
 }

@@ -1892,12 +1892,14 @@ public class DataSection implements JSONString {
 			
 			String displayExample = null;
 			String displayInExample = null;
+			String displayHelp = null;
 			ExampleBuilder b = getExampleBuilder();
 			if(b!=null) {
 				displayExample=b.getExampleHtml(xpath, displayName, Zoomed.OUT, ExampleType.ENGLISH);
 				if(ExampleGenerator.hasDifferentZoomIn(xpath)) {
 					displayInExample=b.getExampleHtml(xpath, displayName, Zoomed.OUT, ExampleType.ENGLISH);
 				}
+				displayHelp = b.getHelpHtml(xpath,displayName);
 			}
 			
 				return new JSONObject()
@@ -1906,6 +1908,7 @@ public class DataSection implements JSONString {
 					.put("winningValue", winningValue)
 					.put("displayName", displayName)
 					.put("displayExample", displayExample)
+					.put("displayHelp", displayHelp)
 					.put("displayInExample", displayInExample)
 					.put("confirmOnly", confirmOnly)
 					.put("prettyPath", getPrettyPath())

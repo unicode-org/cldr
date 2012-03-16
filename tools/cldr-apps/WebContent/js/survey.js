@@ -515,6 +515,7 @@ function showInPop(tr,theRow, str, hideIfLast) {
 //	div.className = 'd-item-selected';
 	var td = tr.infoRow.getElementsByTagName("td")[0];
 	td.innerHTML=str;
+	appendHelp(td,theRow);
 	tr.infoRow.className = "d-inforow";
 }
 
@@ -536,6 +537,13 @@ function testsToHtml(tests) {
 		newHtml += "</p>";
 	}
 	return newHtml;
+}
+function appendHelp(td,theRow) {
+	if(theRow.displayHelp) {
+		var helpDiv = cloneAnon(dojo.byId("proto-help"));
+		helpDiv.innerHTML += theRow.displayHelp;
+		td.appendChild(helpDiv);
+	}
 }
 
 function showProposedItem(inTd,tr,theRow,value,tests) {
@@ -571,8 +579,10 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 	td.appendChild(h3);
 	var newDiv = document.createElement("div");
 	td.appendChild(newDiv);
+	appendHelp(td,theRow);
 	
 	newDiv.innerHTML = newHtml;
+
 
 	tr.infoRow.className = "d-inforow";
 	
@@ -592,6 +602,8 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 			return false;
 		}
 	}
+	
+	
 	tr.inputTd.className="d-change";
 	return false;
 }
@@ -640,6 +652,7 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 			appendExample(td, item.example);
 		}
 		
+		appendHelp(td,theRow);
 
 		tr.infoRow.className = "d-inforow";
 //		tr.infoRow.onClick = function() {
@@ -793,6 +806,7 @@ function updateRow(tr, theRow) {
 	
 	children[3].onclick = function() {
 		showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
+		return false;
 	};
 	
 	children[4].innerHTML=theRow.displayName;
@@ -802,9 +816,9 @@ function updateRow(tr, theRow) {
 	children[5].innerHTML=""; // win
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[5],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
-		children[0].onclick = children[5].getElementsByTagName("div")[0].onclick;
+		/* tr.onclick = */ children[0].onclick = children[5].getElementsByTagName("div")[0].onclick;
 	} else {
-		children[0].onclick = null;
+		/* tr.onclick = */ children[0].onclick = function() {showInPop(tr,theRow,"",tr); return false;};
 	}
 	children[6].innerHTML=""; // other
 	for(k in theRow.items) {
@@ -1137,6 +1151,15 @@ function refreshRow2(tr,theRow,vHash,onSuccess) {
 }
 
 function handleWiredClick(tr,theRow,vHash,box,button,what) {
+	var value="";
+	if(box) {
+		value = box.value;
+		if(value.length ==0 ) {
+			box.focus();
+			return; // nothing entered.
+		}
+		tr.inputTd.className="d-change";
+	}
 	if(!what) {
 		what='submit';
 	}
@@ -1148,11 +1171,6 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	}
 	
 	
-	var value="";
-	if(box) {
-		value = box.value;
-		tr.inputTd.className="d-change";
-	}
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
 	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
 	tr.className='tr_checking';

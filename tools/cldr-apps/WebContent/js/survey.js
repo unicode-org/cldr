@@ -1,6 +1,13 @@
 // survey.js  -Copyright (C) 2012 IBM Corporation and Others. All Rights Reserved.
 // move anything that's not dynamically generated here.
 
+// These need to be available @ bootstrap time.
+
+dojo.require("dojo.i18n");
+dojo.require("dojo.string");
+dojo.requireLocalization("surveyTool", "stui");
+
+var stui = {online: "Online", 			disconnected: "Disconnected", startup: "Starting up..."};
 
 function dismissChangeNotice() {
 	surveyCurrentLocaleStamp = surveyNextLocaleStamp;
@@ -124,6 +131,7 @@ var showers={};
 var deferUpdates = false;
 var deferUpdateFn = {};
 
+
 function doDeferredUpdates() {
 	if(deferUpdateFn==null) {
 		return;
@@ -147,7 +155,7 @@ function undeferUpdate(what) {
 
 function doUpdate(what,fn) {
 	if(deferUpdates) {
-		updateAjaxWord("(new data waiting)");
+		updateAjaxWord(stui.newDataWaiting);
 		deferUpdate(what,fn);
 	} else {
 		fn();
@@ -212,7 +220,7 @@ function showWord() {
 	var p = dojo.byId("progress");	
 	var oneword = dojo.byId("progress_oneword");
 	if(progressWord&&progressWord=="disconnected") { // top priority
-		oneword.innerHTML = stopIcon +  "Disconnected";
+		oneword.innerHTML = stopIcon +  stui.disconnected;
 		p.className = "progress-disconnected";
 		busted();
 	} else if(ajaxWord) {
@@ -220,10 +228,10 @@ function showWord() {
 		oneword.innerHTML = ajaxWord;
 	} else if(!progressWord || progressWord == "ok") {
 		p.className = "progress-ok";
-		oneword.innerHTML = "Online";
+		oneword.innerHTML = stui.online;
 	} else if(progressWord=="startup") {
 		p.className = "progress-ok";
-		oneword.innerHTML = "Starting up...";
+		oneword.innerHTML = stui.startup;
 	}
 }
 
@@ -552,6 +560,42 @@ function cloneAnon(i) {
 	return o;
 }
 
+function localizeAnon(o) {
+	if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
+		var k = o.childNodes[i];
+		if(k.id && k.id.indexOf("stui-html")==0) {
+			var key = k.id.slice(5);
+			if(stui[key]) {
+				k.innerHTML=stui[key];
+			}
+			k.id=null;
+		} else {
+			localizeAnon(k);
+		}
+	}
+}
+function localizeFlyover(o) {
+	if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
+		var k = o.childNodes[i];
+		if(k.title && k.title.indexOf("$")==0) {
+			var key = k.title.slice(1);
+			if(stui[key]) {
+				k.title=stui[key];
+			} else {
+				k.title=null;
+			}
+		} else {
+			localizeFlyover(k);
+		}
+	}
+}
+
+function cloneLocalizeAnon(i) {
+	var o = cloneAnon(i);
+	if(o) localizeAnon(o);
+	return o;
+}
+
 function getTagChildren(tr) {
 	var rowChildren = [];
 	
@@ -822,7 +866,7 @@ function popInfoInto(tr, theRow, theChild) {
 				showInPop(tr, theRow, text, theChild);
 				tr.lastShown = theChild;
 			} else {
-				showInPop(tr, theRow, stopIcon + " (no voting info received)", theChild);
+				showInPop(tr, theRow, stopIcon + stui.noVotingInfo, theChild);
 			}
 		} catch (e) {
 			console.log("Error in ajax get ", e.message);
@@ -907,6 +951,10 @@ function updateRow(tr, theRow) {
 	var doPopInfo = function() {
 		popInfoInto(tr,theRow,children[1]);
 	};
+	
+	for(var i=0;i<children.length;i++) {
+		children[i].title = tr.theTable.theadChildren[i].title;
+	}
 	
 	if(theRow.hasErrors) {
 		children[0].className = "d-st-stop";
@@ -1119,13 +1167,29 @@ function setupSortmode(theTable) {
 	
 	var size = document.createElement("div");
 	size.className="d-sort-size";
-	size.appendChild(document.createTextNode("Items: " + Object.keys(theTable.json.section.rows).length));
-	if(theTable.json.section.skippedDueToCoverage) {
-		size.appendChild(document.createTextNode("(Hidden due to coverage: " + theTable.json.section.skippedDueToCoverage +")"));
+	var itemCount = Object.keys(theTable.json.section.rows).length;
+	if(itemCount==0 && theTable.json.section.skippedDueToCoverage) {
+		size.appendChild(document.createTextNode(
+				stui.sub("itemCountAllHidden", [itemCount,theTable.json.section.skippedDueToCoverage])
+				
+				));
+	} else if(itemCount==0) {
+		size.appendChild(document.createTextNode(
+				stui.sub("itemCountNone", [])
+				
+				));
+	} else if(theTable.json.section.skippedDueToCoverage) {
+		size.appendChild(document.createTextNode(
+				stui.sub("itemCountHidden", [itemCount,theTable.json.section.skippedDueToCoverage])
+				
+				));
 //		var minfo = dojo.byId("info_menu_p_covlev");
 //		if(minfo) {
 //			minfo.innerHTML = theTable.json.section.skippedDueToCoverage + " hidden";
 //		}
+	} else {
+		size.appendChild(document.createTextNode(
+				stui.sub("itemCount", [Object.keys(theTable.json.section.rows).length])));
 	}
 	theSortmode.appendChild(size);
 }
@@ -1136,10 +1200,11 @@ function insertRows(theDiv,xpath,session,json) {
 	var doInsertTable = null;
 	
 	if(!theTable) {
-		theTable = cloneAnon(dojo.byId('proto-datatable'));
+		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+		localizeFlyover(theTable);
+		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
 		if(!json.canModify) {
-			var children = getTagChildren(theTable.getElementsByTagName("tr")[0]);
-			children[7].style.display=children[8].style.display="none";
+				theTable.theadChildren[7].style.display=theTable.theadChildren[8].style.display="none";
 		}
 		theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
 		theDiv.appendChild(theTable.sortMode);
@@ -1179,8 +1244,14 @@ function insertRows(theDiv,xpath,session,json) {
 ////////
 /// showRows() ..
 function showRows(container,xpath,session,coverage) {
+ dojo.addOnLoad(function(){
 	if(!coverage) coverage="";
 	var theDiv = dojo.byId(container);
+	
+	stui = theDiv.stui  = dojo.i18n.getLocalization("surveyTool", "stui", "en" /* lame */);
+	
+	stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
+	
 	var shower = null;
 	var theTable = theDiv.theTable;
 	shower = function() {
@@ -1200,7 +1271,7 @@ function showRows(container,xpath,session,coverage) {
 			theDiv.loader = theLoader;
 		}
 		
-		showLoader(theDiv.loader, "loading");
+		showLoader(theDiv.loader, theDiv.stui.loading);
 		
 		dojo.ready(function() {
 		    var errorHandler = function(err, ioArgs){
@@ -1209,7 +1280,7 @@ function showRows(container,xpath,session,coverage) {
 		    };
 		    var loadHandler = function(json){
 		        try {
-		        	showLoader(theDiv.loader,"loading.");
+		        	showLoader(theDiv.loader,stui.loading2);
 		        	if(!json) {
 		        		console.log("!json");
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
@@ -1229,7 +1300,7 @@ function showRows(container,xpath,session,coverage) {
 		        			updateIf("dynload", json.dataLoadTime);
 		        		}
 		        		doUpdate(theDiv.id, function() {
-		        				showLoader(theDiv.loader,"loading..");
+		        				showLoader(theDiv.loader,stui.loading3);
 		        				insertRows(theDiv,xpath,session,json);
 		        		});
 		        	}
@@ -1248,7 +1319,7 @@ function showRows(container,xpath,session,coverage) {
 		            error: errorHandler
 		        };
 		    window.xhrArgs = xhrArgs;
-		    //console.log('xhrArgs = ' + xhrArgs);
+		    console.log('xhrArgs = ' + xhrArgs);
 		    dojo.xhrGet(xhrArgs);
 		});
 	};
@@ -1257,10 +1328,11 @@ function showRows(container,xpath,session,coverage) {
 	theDiv.shower = shower;
 	showers[theDiv.id]=shower;
 //	console.log("Wrote shower " + theDiv.id + " as " + shower);
+  });
 }
 
 function refreshRow2(tr,theRow,vHash,onSuccess) {
-	showLoader(tr.theTable.theDiv.loader,"loading....");
+	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
     var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t";
     var loadHandler = function(json){
         try {
@@ -1315,9 +1387,9 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	}
 	if(what=='submit') {
 		button.className="ichoice-x";  // TODO: ichoice-inprogress?  spinner?
-		showLoader(tr.theTable.theDiv.loader,"Voting");
+		showLoader(tr.theTable.theDiv.loader,stui.voting);
 	} else {
-		showLoader(tr.theTable.theDiv.loader, "Checking");
+		showLoader(tr.theTable.theDiv.loader, stui.checking);
 	}
 	
 	

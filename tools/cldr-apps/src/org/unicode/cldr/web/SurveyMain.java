@@ -52,6 +52,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
@@ -164,6 +166,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     private static ElapsedTimer isBustedTimer = null;
     static ServletConfig config = null;
     public static OperatingSystemMXBean osmxbean = ManagementFactory.getOperatingSystemMXBean();
+    static double nProcs = osmxbean.getAvailableProcessors();
 
     
     // ===== UI constants
@@ -1003,6 +1006,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 
         printFooter(ctx);
     }
+    
 
     public static void appendMemoryInfo(StringBuffer buf, boolean inline) {
         Runtime r = Runtime.getRuntime();
@@ -1245,6 +1249,42 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             out.append(getProgress());
         }
         return out.toString();
+    }
+    
+    /*
+     * 
+     */
+    public JSONObject statusJSON() throws JSONException {
+        Runtime r = Runtime.getRuntime();
+        double total = r.totalMemory();
+        total = total / 1024000.0;
+        double free = r.freeMemory();
+        free = free / 1024000.0;       
+
+        int guests = CookieSession.nGuests;
+        int users = CookieSession.nUsers;
+        double load = osmxbean.getSystemLoadAverage();
+
+        return new JSONObject()
+    		.put("isBusted", isBusted)
+    		.put("lockOut", lockOut!=null)
+    		.put("isSetup",isSetup)
+    		.put("isUnofficial",isUnofficial)
+    		.put("specialHeader",specialHeader)
+    		.put("specialTimerRemaining",specialTimer!=0?timeDiff(System.currentTimeMillis(),specialTimer):null)
+    		.put("processing", startupThread.htmlStatus())
+    		.put("guests", CookieSession.nGuests)
+    		.put("users", CookieSession.nUsers)
+    		.put("uptime", uptime)
+    		.put("surveyRunningStamp",surveyRunningStamp.current())
+    		.put("memfree",free)
+	    	.put("memtotal",total)
+	    	.put("pages", pages)
+	    	.put("uptime", uptime)
+	    	.put("sysload", load)
+	    	.put("sysprocs", nProcs)
+	    	.put("dbopen", DBUtils.db_number_open)
+	    	.put("dbused", DBUtils.db_number_used);
     }
     
     /**

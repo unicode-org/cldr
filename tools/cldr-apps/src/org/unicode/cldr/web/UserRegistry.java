@@ -1298,15 +1298,9 @@ public class UserRegistry {
         if(SurveyMain.isPhaseReadonly()) return false; // readonly = locked for ALL
         if((sm.isLocaleAliased(locale)!=null) ||
             sm.supplemental.defaultContentToParent(locale.toString())!=null) return false; // it's a defaultcontent locale or a pure alias.
-
         if(userIsAdmin(u)) return true; // Admin can modify all
         if(userIsTC(u)) return true; // TC can modify all
         if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
-//            if(u.userIsSpecialForCLDR15(locale)) {
-//                return true;
-//            } else {
-//                return false;
-//            }
         }
         if(userIsTC(u)) return true; // TC can modify all
         if(SurveyMain.isPhaseClosed()) return false;

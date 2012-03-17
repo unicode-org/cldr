@@ -732,7 +732,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /**
      * These locales can not be modified.
      */
-    private static final String readOnlyLocales[] = { "root", "en", "en_ZZ" };
+    private static final CLDRLocale readOnlyLocales[] = { 
+    		CLDRLocale.getInstance("root"), 
+    		CLDRLocale.getInstance("en"), 
+    		CLDRLocale.getInstance("en_ZZ")
+    	};
 
 
     //private static final String SOME_KEY = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
@@ -744,8 +748,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public static final boolean isReadOnlyLocale(CLDRLocale loc) {
         for(int i=0;i<readOnlyLocales.length;i++) {
-            if(readOnlyLocales[i].equals(loc)) return true;
-            // don't check parent locales.
+            if(readOnlyLocales[i] == loc) return true;
         }
         return false;
     }

@@ -371,14 +371,12 @@ public class SurveyAjax extends HttpServlet {
 
     private void setupStatus(SurveyMain sm, JSONWriter r) {
         r.put("SurveyOK","1");
-        r.put("isSetup", (sm.isSetup)?"1":"0");
-        r.put("isBusted", (sm.isBusted!=null)?"1":"0");
-        StringBuffer memBuf = new StringBuffer();
-        SurveyMain.appendMemoryInfo(memBuf, true);
-        r.put("visitors", sm.getGuestsAndUsers()+memBuf.toString());
-        r.put("uptime", sm.uptime.toString());
-        r.put("progress", sm.getTopBox(false));
-        r.put("surveyRunningStamp", SurveyMain.surveyRunningStamp.current());
+//        r.put("progress", sm.getTopBox(false));
+        try {
+			r.put("status", sm.statusJSON());
+		} catch (JSONException e) {
+			SurveyLog.logException(e,"getting status");
+		}
     }
 
     private JSONWriter newJSONStatus(SurveyMain sm) {
@@ -389,7 +387,7 @@ public class SurveyAjax extends HttpServlet {
 
     private JSONWriter newJSON() {
         JSONWriter r = new JSONWriter();
-        r.put("progress", "");
+        r.put("progress", "(obsolete-progress)");
         r.put("visitors", "");
         r.put("uptime", "");
         r.put("err", "");
@@ -397,6 +395,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("isSetup","0");
         r.put("isBusted","0");
         return r;
+        
     }
 
     private void sendNoSurveyMain(PrintWriter out) throws IOException {

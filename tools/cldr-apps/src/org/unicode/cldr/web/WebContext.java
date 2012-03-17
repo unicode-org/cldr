@@ -1608,6 +1608,7 @@ public class WebContext implements Cloneable, Appendable {
      * @return true if the user can modify this locale
      */
     public Boolean canModify() {
+        if(STFactory.isReadOnlyLocale(locale)) return(canModify= false);
         if(canModify==null) {
             if(session!=null && session.user!=null){
                 canModify = UserRegistry.userCanModifyLocale(session.user, locale);

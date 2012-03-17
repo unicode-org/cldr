@@ -151,11 +151,11 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         buf.append("<table id='progress-list' border=0 class='progress-list"+(orderedTasks.isEmpty()?" progress-idle":" progress-busy")+"'><tr>");
         buf.append("<th>");
         if(orderedTasks.isEmpty()) {
-            buf.append("<span id='busy0' onclick='document.getElementById(\"progress\").className=\"popout\";'>Idle\u00BB</span>");
+            buf.append("<span id='busy0' onclick='document.getElementById(\"progress\").className=\"popout\";'><!-- idle -->\u00BB</span>");
         } else {
-            buf.append("<span id='busy0' onclick='document.getElementById(\"progress\").className=\"popout\";'>Busy\u00BB</span>");
+            buf.append("<span id='busy0' onclick='document.getElementById(\"progress\").className=\"popout\";'><!-- busy -->\u00BB</span>");
         }
-        buf.append("<span id='busy1' onclick='document.getElementById(\"progress\").className=\"\";'>Hide\u00AB</span>" +
+        buf.append("<span id='busy1' onclick='document.getElementById(\"progress\").className=\"\";'><!-- hide -->\u00AB</span>" +
                 "</th>");
         for(SurveyProgressTask t : orderedTasks) {
             buf.append("<td>");

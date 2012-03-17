@@ -5,6 +5,8 @@
 			String what = request.getParameter(SurveyAjax.REQ_WHAT);
 			String sess = request.getParameter(SurveyMain.QUERY_SESSION);
 			String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
+			CLDRLocale l;
+			ctx.setLocale(l=CLDRLocale.getInstance(loc));
 			String xpath = WebContext.decodeFieldString(request.getParameter(SurveyForum.F_XPATH));
 			String voteinfo = request.getParameter("voteinfo");
 			String vhash = request.getParameter("vhash");
@@ -84,10 +86,13 @@
 						//DataSection.DisplaySet ds = section.getDisplaySet(ctx, matcher);
 						dsets.put("default", SortMode.getSortMode(ctx, section));
 					}
-					JSONWriter r = new JSONWriter(out).object().key("section")
-							.value(section).key("displaySets").value(dsets)
+					JSONWriter r = new JSONWriter(out).object()
+							.key("stro").value(STFactory.isReadOnlyLocale(ctx.getLocale()))
+							.key("section").value(section)
+							.key("displaySets").value(dsets)
 							.key("dir").value(ctx.getDirectionForLocale())
 							.key("canModify").value(ctx.canModify())
+							.key("locale").value(ctx.getLocale())
 							.key("dataLoadTime").value(et.toString())
 							.endObject();
 					return;

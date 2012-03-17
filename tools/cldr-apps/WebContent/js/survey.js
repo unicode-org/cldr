@@ -117,6 +117,40 @@ var alreadyVerifyValue = {};
 
 var showers={};
 
+var deferUpdates = false;
+var deferUpdateFn = {};
+
+function doDeferredUpdates() {
+	if(deferUpdateFn==null) {
+		return;
+	}
+	for(i in deferUpdateFn) {
+		if(deferUpdateFn[i]) {
+			var fn = deferUpdateFn[i];
+			deferUpdateFn[i]=null;
+			fn();
+		}
+	}
+}
+
+function deferUpdate(what, fn) {
+	deferUpdateFn[what]=fn;
+}
+
+function undeferUpdate(what) {
+	deferUpdateFn[what]=null;
+}
+
+function doUpdate(what,fn) {
+	if(deferUpdates) {
+		updateAjaxWord("(new data waiting)");
+		deferUpdate(what,fn);
+	} else {
+		fn();
+		undeferUpdate(what);
+	}
+}
+
 function handleChangedLocaleStamp(stamp,name) {
 	if(stamp <= surveyNextLocaleStamp) {
 		return;
@@ -137,29 +171,103 @@ function handleChangedLocaleStamp(stamp,name) {
     surveyNextLocaleStamp = stamp;
 }
 
+////    updateStatusBox({err: err.message, err_name: err.name, disconnected: true});
+/*
+ * {
+"status": {
+"memfree": 378.6183984375,
+"lockOut": false,
+"pages": 16,
+"specialHeader": "Welcome to SurveyTool@oc7426272865.ibm.com. Please edit /home/srl/apache-tomcat-7.0.8/cldr/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely.",
+"dbopen": 0,
+"users": 1,
+"uptime": "uptime: 49:47",
+"isUnofficial": true,
+"memtotal": 492.274,
+"sysprocs": 8,
+"isSetup": true,
+"sysload": 0.33,
+"dbused": 1439,
+"guests": 0,
+"surveyRunningStamp": 1331941056940
+},
+"isSetup": "0",
+"err": "",
+"visitors": "",
+"SurveyOK": "1",
+"uptime": "",
+"isBusted": "0",
+"progress": "(obsolete-progress)"
+}
+ */
+
+var progressWord = null;
+var ajaxWord = null;
+
+function showWord() {
+	var p = dojo.byId("progress");	
+	var oneword = dojo.byId("progress_oneword");
+	if(progressWord&&progressWord=="disconnected") { // top priority
+		oneword.innerHTML = stopIcon +  "Disconnected";
+		p.className = "progress-disconnected";
+	} else if(ajaxWord) {
+		p.className = "progress-ok";
+		oneword.innerHTML = ajaxWord;
+	} else if(!progressWord || progressWord == "ok") {
+		p.className = "progress-ok";
+		oneword.innerHTML = "Online";
+	} else if(progressWord=="startup") {
+		p.className = "progress-ok";
+		oneword.innerHTML = "Starting up...";
+	}
+}
+
+function updateProgressWord(prog) {
+	progressWord = prog;
+	showWord();
+}
+
+function updateAjaxWord(ajax) {
+	ajaxWord = ajax;
+	showWord();
+}
+
+function updateStatusBox(json) {
+	if(json.disconnected || (json.SurveyOK==0) || (json.status && json.status.isBusted)
+				|| !json.status || (json.status.surveyRunningStamp!=surveyRunningStamp)) {
+		updateProgressWord("disconnected");
+	} else if(json.status && json.status.isSetup==false && json.SurveyOK==1) {
+		updateProgressWord("startup");
+	} else {
+		updateProgressWord("ok");
+	}
+}
+
 function updateStatus() {
     dojo.xhrGet({
         url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl,
         handleAs:"json",
         load: function(json){
-            if(json.isBusted == 1) {
+            if(json.status&&json.status.isBusted) {
                 wasBusted = true;
             }
             var st_err =  document.getElementById('st_err');
             if(json.err != null && json.err.length > 0) {
                st_err.innerHTML=json.err;
-               if(json.surveyRunningStamp!=surveyRunningStamp) {
+               if(json.status&&json.status.surveyRunningStamp!=surveyRunningStamp) {
             	   st_err.innerHTML = st_err.innerHTML + " <b>Note: Lost connection with Survey Tool or it restarted.</b>"
+                   updateStatusBox({disconnected: true});
                }
                st_err.className = "ferrbox";
                wasBusted = true;
             } else {
-            	if(json.surveyRunningStamp!=surveyRunningStamp) {
+            	if(json.status.surveyRunningStamp!=surveyRunningStamp) {
                     st_err.className = "ferrbox";
                     st_err.innerHTML="The SurveyTool has been restarted. Please reload this page to continue.";
                     wasBusted=true;
-            	}else if(wasBusted == true && (json.isBusted == 0) && (json.isSetup == 1)
-                      || (json.surveyRunningStamp!=surveyRunningStamp)) {
+            	}else if(wasBusted == true && 
+            			(!json.status.isBusted) 
+                      || (json.status.surveyRunningStamp!=surveyRunningStamp)) {
                     st_err.innerHTML="Note: Lost connection with Survey Tool or it restarted.";
                     if(clickContinue != null) {
                         st_err.innerHTML = st_err.innerHTML + " Please <a href='"+clickContinue+"'>click here</a> to continue.";
@@ -172,9 +280,7 @@ function updateStatus() {
                    st_err.innerHTML="";
                 }
             }
-            updateIf('progress',json.progress);
-            updateIf('uptime',json.uptime);
-            updateIf('visitors',json.visitors);
+            updateStatusBox(json);
             
             if(json.localeStamp) {
                 if(surveyCurrentLocaleStamp==0) {
@@ -189,18 +295,18 @@ function updateStatus() {
                 }
             }
             
-            if((wasBusted == false) && (json.isSetup == 1) && (loadOnOk != null)) {
+            if((wasBusted == false) && (json.status.isSetup) && (loadOnOk != null)) {
                 window.location.replace(loadOnOk);
             }
         },
         error: function(err, ioArgs){
-            var st_err =  document.getElementById('st_err');
+//            var st_err =  document.getElementById('st_err');
             wasBusted = true;
-            st_err.className = "ferrbox";
-            st_err.innerHTML="Disconnected from Survey Tool: "+err.name + " <br> " + err.message;
-            updateIf('progress','<hr><i>(disconnected from Survey Tool)</i></hr>');
-            updateIf('uptime','down');
-            updateIf('visitors','nobody');
+//            st_err.className = "ferrbox";
+//            st_err.innerHTML="Disconnected from Survey Tool: "+err.name + " <br> " + err.message;
+            updateStatusBox({err: err.message, err_name: err.name, disconnected: true});
+//            updateIf('uptime','down');
+//            updateIf('visitors','nobody');
         }
     });
 }
@@ -449,20 +555,26 @@ function getTagChildren(tr) {
 	return rowChildren;
 }
 
-
 function showLoader(loaderDiv, text) {
-	var para = loaderDiv.getElementsByTagName("p");
-	if(para) {
-		para=para[0];
-	} else {
-		para = loaderDiv;
-	}
-	para.innerHTML = text;
-	loaderDiv.style.display="";
+	updateAjaxWord(text);
+//	updateIf("progress_ajax",text);
+//	console.log("Load: " + text);
+//	return;
+//	
+//	var para = loaderDiv.getElementsByTagName("p");
+//	if(para) {
+//		para=para[0];
+//	} else {
+//		para = loaderDiv;
+//	}
+//	para.innerHTML = text;
+//	loaderDiv.style.display="";
 }
 
 function hideLoader(loaderDiv) {
-	loaderDiv.style.display="none";
+	updateAjaxWord(null);
+//	updateIf("progress_ajax","");
+//	loaderDiv.style.display="none";
 }
 
 function wireUpButton(button, tr, theRow, vHash,box) {
@@ -847,6 +959,16 @@ function updateRow(tr, theRow) {
 			var changeBox = cloneAnon(dojo.byId("proto-inputbox"));
 			wireUpButton(changeButton,tr, theRow, "[change]",changeBox);
 			tr.inputBox = changeBox;
+			
+			changeBox.onfocus = function() {
+				deferUpdates = true;
+				return true;
+			};
+			changeBox.onblur = function() {
+				deferUpdates = false;
+				doDeferredUpdates();
+			};
+			
 			children[7].appendChild(changeBox);
 			children[7].isSetup=true;
 			children[7].theButton = changeButton;
@@ -1069,7 +1191,7 @@ function showRows(container,xpath,session,coverage) {
 			theDiv.loader = theLoader;
 		}
 		
-		showLoader(theDiv.loader, "Loading...");
+		showLoader(theDiv.loader, "loading");
 		
 		dojo.ready(function() {
 		    var errorHandler = function(err, ioArgs){
@@ -1078,7 +1200,7 @@ function showRows(container,xpath,session,coverage) {
 		    };
 		    var loadHandler = function(json){
 		        try {
-		        	showLoader(theDiv.loader,"Analyzing response..");
+		        	showLoader(theDiv.loader,"loading.");
 		        	if(!json) {
 		        		console.log("!json");
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
@@ -1093,11 +1215,14 @@ function showRows(container,xpath,session,coverage) {
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
 		        	} else {
 		        		console.log("json.section.rows OK..");
-		        		showLoader(theDiv.loader, "Loaded " + Object.keys(json.section.rows).length + " rows");
+		        		showLoader(theDiv.loader, "loading..");
 		        		if(json.dataLoadTime) {
 		        			updateIf("dynload", json.dataLoadTime);
 		        		}
-		        		insertRows(theDiv,xpath,session,json);
+		        		doUpdate(theDiv.id, function() {
+		        				showLoader(theDiv.loader,"loading..");
+		        				insertRows(theDiv,xpath,session,json);
+		        		});
 		        	}
 		        	
 		           }catch(e) {
@@ -1126,7 +1251,7 @@ function showRows(container,xpath,session,coverage) {
 }
 
 function refreshRow2(tr,theRow,vHash,onSuccess) {
-	showLoader(tr.theTable.theDiv.loader,"Loading 1 row");
+	showLoader(tr.theTable.theDiv.loader,"loading....");
     var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t";
     var loadHandler = function(json){
         try {
@@ -1197,7 +1322,8 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
             	 tr.className='tr_err';
                 // v_tr.className="tr_err";
                 // v_tr2.className="tr_err";
-                tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+json.err;
+            	 showLoader(tr.theTable.theDiv.loader,"Error!");
+                tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
                 // e_div.innerHTML = newHtml;
              } else {
             	 if(json.testResults) {

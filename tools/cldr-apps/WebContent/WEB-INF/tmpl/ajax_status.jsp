@@ -27,7 +27,7 @@ var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";
 var WHAT_GETROW = "<%= SurveyAjax.WHAT_GETROW %>";
 var WHAT_SUBMIT = "<%= SurveyAjax.WHAT_SUBMIT %>";
 </script>
-<script type='text/javascript' src='<%= request.getContextPath() %>/js/survey.js'></script>
+<script type='text/javascript' src='<%= request.getContextPath() %>/js/survey.js<%-- ?sick_of_getting_stale_javascript=<%= SurveyMain.surveyRunningStamp.current() %> --%>'></script>
 
 <%= VettingViewer.getHeaderStyles() %>
 

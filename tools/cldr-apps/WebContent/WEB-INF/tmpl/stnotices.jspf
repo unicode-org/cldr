@@ -30,8 +30,16 @@
        <% } %>
 </div>
 <div id='st_err'><!-- for ajax errs --></div>
-<span id='progress'>
-</span>
+
+<div id='progress' class='progress-connecting'>
+	<span id='progress_oneword' class='oneword'>
+		Online
+	</span>
+	<span id='progress_ajax' class='ajaxword'>
+	&nbsp;
+	</span>
+</div>
+
 <%= SurveyMain.SHOWHIDE_SCRIPT %>
 <!--  end stnotices.jspf -->
 <div style='display: none' id='hidden-stuff'>

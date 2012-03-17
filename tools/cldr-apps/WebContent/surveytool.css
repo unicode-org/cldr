@@ -785,7 +785,7 @@ div#toparea img#stlogo {
 }
 
 h4#toptitle {
-	margin-top: 0;
+	margin-top: 1.5em;
 	margin-bottom: 0;
 	line-height: 2.5em;
 }
@@ -1154,9 +1154,38 @@ span#visitors td.remain {
 	border: none !important;
 }
 
+div#progress {
+	position:  fixed;
+	top: 0;
+	left:  0;
+	margin-right:  0.5;
+	margin-bottom:  0.5;
+	border-right:  4px solid gray;
+	border-bottom:  4px solid gray;
+	background-color: #f5edeb;
+	padding:  2px;
+	width:  20em;
+}
+
+div#progress.progress-connecting {
+	opacity: 0.5;
+}
+div#progress.progress-disconnected {
+	opacity: 1;
+	background-color: #fba2a4;
+}
+
+div#progress.progress-disconnected span.oneword {
+	font-size: x-large;
+}
+
+div#progress span.oneword {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 table.progress-list {
 	border-collapse: collapse;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 }
@@ -1316,7 +1345,7 @@ font-size: small;
 
 .d-sortmode {
 		border: 1px solid gray;
-	background-color: #FFEECC;
+	background-color: #e3fbff;
 	padding: 0.2em 0.2em 0.2em 0.2em;
 	margin-top: 2px;
 	font-size: smaller;

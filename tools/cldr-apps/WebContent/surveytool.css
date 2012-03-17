@@ -1522,6 +1522,33 @@ button.ichoice-x:hover {
 	background-color: gray;
 	margin: 1px;
 }
+
+body.disconnected table{
+	/*background-color: #ddd;*/
+	/*opacity: 0.6;*/
+}
+body.disconnected table.data button,
+body.disconnected table.data input,
+body.disconnected table.data .d-change,
+body.disconnected table.data .d-no
+ {
+	display: none !important;
+}
+body.disconnected div#progress {
+	/*opacity: 1.0;*/
+}
+
+button#progress-refresh {
+	display: none;
+	bottom: 0;
+	position: absolute;
+	right: 0;
+	font-size: x-small;
+}
+body.disconnected div#progress button#progress-refresh {
+	display: block !important;
+}
+
 .i-star {
 	padding:  2px;
 	width:  16px;

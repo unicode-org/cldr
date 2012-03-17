@@ -111,6 +111,10 @@ var loadOnOk = null;
 var clickContinue = null;
  var surveyCurrentLocaleStamp = 0;
  var surveyNextLocaleStamp = 0;
+ 
+ function busted() {
+	 document.getElementsByTagName("body")[0].className="disconnected"; // hide buttons when disconnected.
+ }
 
 // hashtable of items already verified
 var alreadyVerifyValue = {};
@@ -210,6 +214,7 @@ function showWord() {
 	if(progressWord&&progressWord=="disconnected") { // top priority
 		oneword.innerHTML = stopIcon +  "Disconnected";
 		p.className = "progress-disconnected";
+		busted();
 	} else if(ajaxWord) {
 		p.className = "progress-ok";
 		oneword.innerHTML = ajaxWord;
@@ -250,6 +255,7 @@ function updateStatus() {
         load: function(json){
             if(json.status&&json.status.isBusted) {
                 wasBusted = true;
+                busted();
             }
             var st_err =  document.getElementById('st_err');
             if(json.err != null && json.err.length > 0) {
@@ -260,11 +266,13 @@ function updateStatus() {
                }
                st_err.className = "ferrbox";
                wasBusted = true;
+               busted();
             } else {
             	if(json.status.surveyRunningStamp!=surveyRunningStamp) {
                     st_err.className = "ferrbox";
                     st_err.innerHTML="The SurveyTool has been restarted. Please reload this page to continue.";
                     wasBusted=true;
+                    busted();
             	}else if(wasBusted == true && 
             			(!json.status.isBusted) 
                       || (json.status.surveyRunningStamp!=surveyRunningStamp)) {
@@ -275,6 +283,7 @@ function updateStatus() {
                     	st_err.innerHTML = st_err.innerHTML + " Please reload this page to continue.";
                     }
                     st_err.className = "ferrbox";
+                    busted();
                 } else {
                    st_err.className = "";
                    st_err.innerHTML="";

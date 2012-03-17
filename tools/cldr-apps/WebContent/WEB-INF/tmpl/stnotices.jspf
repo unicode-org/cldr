@@ -38,6 +38,7 @@
 	<span id='progress_ajax' class='ajaxword'>
 	&nbsp;
 	</span>
+	<button id='progress-refresh' onclick='javascript:window.location.reload(true);'>Refresh</button>
 </div>
 
 <%= SurveyMain.SHOWHIDE_SCRIPT %>

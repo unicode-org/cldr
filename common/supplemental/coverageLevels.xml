@@ -145,12 +145,12 @@
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='(CZK|HUF|LTL|LVL)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='Africa_(Central|(East|South|West)ern)']/long/(generic|standard|daylight)"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='(Arabian|Australia_(Central(Western)?|(East|West)ern)|China|India|Indochina|Indonesia_(Central|(East|West)ern)|Israel|Japan|Korea|Moscow)']/long/(generic|standard|daylight)"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ab|ady|af|ak|am|as|ast|av|ay|az|ba|be|bg|bi|bo|bs|ca|ce|ceb|ch|chk|cs|cy|da|dv|dz|ee|efi|el|et|eu)']([@alt='(short|variant)'])?"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(fa|fi|fil|fj|fo|fy|ga|gaa|gag|gd|gil|gl|gn|gu|ha|haw|he|hil|ho|hr|ht|hu|hy|ig|ilo|inh|is)']([@alt='(short|variant)'])?"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ka|kbd|kg|kha|kj|kk|kl|km|kn|koi|kok|kos|kpv|krc|ks|ku|kum|ky|la|lb|lbe|lez|ln|lo|lt|lua|lv)']([@alt='(short|variant)'])?"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(mai|mdh|mdf|mg|mh|mk|mi|ml|mn|mr|ms|mt|my|myv|na|nb|nd|ne|niu|nn|nr|nso|ny|or|os)']([@alt='(short|variant)'])?"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(pa|pag|pap|pau|pon|ps|qu|rm|rn|ro|ru|rw|sa|sah|sat|sd|se|sg|si|sk|sl|sm|sn|so|sq|sr|ss|st|su|sv|sw)']([@alt='(short|variant)'])?"/>
-		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ta|te|tet|tg|th|ti|tk|tkl|tn|to|tpi|ts|tsg|tt|tvl|ty|tyv|udm|ug|uk|uli|ur|uz|ve|vi|war|wo|xh|yap|yo|za|zdj|zu|jv|zxx|gsw|eo)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ab|af|am|as|az|be|bg|bo|bs|ca|cs|cy|da|el|eo|et|eu)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(fa|fi|fil|fj|fo|fy|ga|gag|gl|gn|gsw|gu|ha|haw|he|hr|ht|hu|hy|ig|is)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(jv|ka|kk|km|kn|koi|kpv|ks|ku|ky|la|lb|lbe|lo|lt|lv)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(mdh|mg|mk|mi|ml|mr|ms|mt|my|nb|ne|nn|or)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(pa|ps|qu|rm|ro|ru|sa|sd|si|sk|sl|so|sq|sr|su|sv|sw)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='(ta|te|tg|th|ti|tk|to|tsg|tt|ug|uk|uli|ur|uz|vi|wo|xh|yo|zdj|zu|zxx)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="80" match="localeDisplayNames/scripts/script[@type='(Zyyy|Arab|Armn|Beng|Bopo|Brai|Cyrl|Deva|Ethi|Geor|Grek|Gujr|Guru|Hani|Hang|Hebr|Hira|Knda|Kana|Khmr|Laoo|Latn|Mlym|Mong|Mymr|Orya|Sinh|Taml|Telu|Thaa|Thai|Tibt|Zsym)']"/>
     	<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='0(0[12359]|1[1345789]|2[19]|3[0459]|5[347]|61)']([@alt='(short|variant)'])?"/>
     	<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='1(4[235]|5[01459])']([@alt='(short|variant)'])?"/>
@@ -204,11 +204,9 @@
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(NAD|NGN|NIO|NPR|NZD|OMR|PAB|PEN|PGK|PHP|PKR|PYG|QAR|RON|RSD|RWF)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(SBD|SCR|SDG|SGD|SHP|SLL|SOS|SRD|STD|SYP|SZL|TJS|TMT|TND|TOP|TTD|TZS)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(UAH|UGX|UYU|UZS|VEF|VND|VUV|WST|XCD|XAF|XOF|XPF|YER|ZMK)']/(symbol|displayName([@count='[^']++'])?)"/>
-
         <coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
 		<coverageLevel value="80" match="localeDisplayNames/keys/key[@type='[^']++']"/>
-		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='[^']++'][@key='[^']++']"/>
-		
+		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='[^']++'][@key='[^']++']"/>		
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='[^']++']"/>
@@ -216,9 +214,12 @@
         <coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat[@type='standard']/pattern[@type='standard']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|islamic|japanese|roc)']/dateTimeFormats/availableFormats/dateFormatItem[@id='(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|coptic|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='(format|stand-alone)']/monthWidth[@type='(wide|abbreviated|narrow)']/month[@type='[^']++']"/>
-		
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(agq|asa|bas|bem|bez|bm|br|brx|dua|dyo|ebu|ff|ksf|lah|lu|luy|mgh|mua|mul)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(nmg|no|nus|rof|rwk|sbp|sh|swb|tl|twq|vai|wae|yav|yue)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(ady|ak|ast|av|ay|ba|bi|ce|ceb|ch|chk|dv|dz|ee|efi|gaa|gd|gil|hil|ho)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(ilo|inh|kbd|kg|kha|kj|kl|kok|kos|krc|kum|lez|ln|lua|mai|mdf|mh|mn|myv)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(na|nd|niu|nr|nso|ny|os|pag|pap|pau|pon|rn|rw|sah|sat|se|sg|sm|sn|ss|st)']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(tet|tkl|tn|tpi|ts|tvl|ty|tyv|udm|ve|war|yap|za)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Cans|Tfng|Yiii)']"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='[^']++']"/>
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='.{3}']/(symbol|displayName)([@count='[^']++'])?"/>

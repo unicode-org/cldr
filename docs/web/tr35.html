@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012-02-<span class="changed">25</span></td>
+			<td>2012-0<span class="changed">3-17</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -5705,7 +5705,16 @@ range         = value'..'value</pre>
     <li>Remove the final field from each, and if any fields are left, repeat these steps.</li>
   </ol>
   <p>The end result is the product of the matched values.</p>
-  <p>For example, suppose that nn-DE and nb-FR are being compared. They are first maximized to nn-Latn-DE and nb-Latn-FR, respectively. The list is searched. The first match is with &quot;*-*-*&quot;, for a match of 96%. The languages are truncated to nn-Latn and nb-Latn, then to nn and nb. The first match is also for a value of 96%, so the result is 92%.</p>
+  <p class="changed">There is one special case. Suppose we have the following situation:</p>
+  <ul>
+    <li class="changed">desired languages: {und, it}</li>
+    <li class="changed">supported languages: {en, it}</li>
+    <li class="changed">resulting language: en<br>
+    </li>
+  </ul>
+<p class="changed">Part of this is because 'und' has a special function in BCP47; it stands in for 'no supplied base language'. To prevent this from happening, if the desired base language is und, the language matcher should not apply likely subtags to it. </p>
+<p class="changed">Examples:</p>
+<p>For example, suppose that nn-DE and nb-FR are being compared. They are first maximized to nn-Latn-DE and nb-Latn-FR, respectively. The list is searched. The first match is with &quot;*-*-*&quot;, for a match of 96%. The languages are truncated to nn-Latn and nb-Latn, then to nn and nb. The first match is also for a value of 96%, so the result is 92%.</p>
   <p>Note that language matching is orthogonal to the how closely two languages are related linguistically. For example, Breton is more closely related to Welsh than to French, but French is the better match (because it is more likely that a Breton reader will understand French than Welsh). This also illustrates that the matches are often asymmetric: it is not likely that a French reader will understand Breton. </p>
   <p>The &quot;*&quot; acts as a wild card, as shown in the following example:</p>
   <p class="example">&lt;languageMatch desired=&quot;es-*-ES&quot; supported=&quot;es-*-ES&quot; percent=&quot;100&quot;/&gt;<br>
@@ -9218,6 +9227,7 @@ decimal?, group?, special*)) &gt;</pre>
 	<ul>
 		<li><span class="changed">Proposed update for CLDR Version 21.0.1.</span></li>
 		<li class="changed">Fixed typo in 't' extension.</li>
+		<li class="changed">Added note on the special case of 'und' in language matching.</li>
 	</ul>
 
 <h3>Revision 23</h3>

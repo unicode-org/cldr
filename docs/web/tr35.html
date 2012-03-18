@@ -8164,10 +8164,10 @@ decimal?, group?, special*)) &gt;</pre>
 	can both apply at a given point in the string, then the transform applies the first rule in the list.</p>
 	<p>All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters →, ←, ↔. Normally, these characters 
 	do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole 
-	string of text. The slash affects only the character immediately after it. For example, to convert from an arrow signs to the word &quot;arrow&quot;, use one of the following 
+	string of text. The slash affects only the character immediately after it. For example, to convert from <span class="changed">a U+2190 ( ← ) LEFTWARDS ARROW to the string &quot;arrow sign&quot; (with a space)</span>, use one of the following 
 	rules: </p>
 	<table cellspacing="0" cellpadding="8" border="1">
-		<tr>
+	  <tr>
 			<td valign="top" bgcolor="#eeeeee"><code>\←&nbsp;&nbsp; →&nbsp; arrow\ sign ;<br>
 			&#39;←&#39;&nbsp;&nbsp; →&nbsp;&nbsp; &#39;arrow sign&#39; ;<br>
 			&#39;←&#39;&nbsp;&nbsp; →&nbsp;&nbsp; arrow&#39; &#39;sign ;</code></td>
@@ -9231,8 +9231,9 @@ decimal?, group?, special*)) &gt;</pre>
 	<ul>
 		<li><span class="changed">Proposed update for CLDR Version 21.0.1.</span></li>
 		<li class="changed">Fixed typo in 't' extension.</li>
-		<li class="changed">Added note on the special case of 'und' in language matching.</li>
-		<li class="changed">Added explanation of Empty Override.</li>
+		<li class="changed">Added note on the special case of 'und' in language matching:  <a href="http://unicode.org/cldr/trac/ticket/3439">#3439</a></li>
+		<li class="changed">Added explanation of Empty Override: <a href="http://unicode.org/cldr/trac/ticket/4012">#4012</a></li>
+		<li class="changed">Fix typo in Annex N: <a href="http://unicode.org/cldr/trac/ticket/4110">#4110</a></li>
 	</ul>
 
 <h3>Revision 23</h3>

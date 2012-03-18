@@ -1378,7 +1378,11 @@ root</pre>
 	<p><b>Warning: </b>If a locale has a different script than its parent (for 
 	example, sr_Latn), then special attention must be paid to make sure that all inheritance is 
   covered. For example, auxiliary exemplar characters may need to be empty (&quot;[]&quot;) to block inheritance.</p>
-	<h3>4.1 <a name="Multiple_Inheritance">Multiple Inheritance</a></h3>
+	<p class="changed"><strong>Empty Override:</strong> There is one special value reserved in LDML to indicate that a child locale is to have no value for a path, even if the parent locale has a value for that path. That value is &quot;∅∅∅&quot;. For example, if there is no phrase for &quot;two days ago&quot; in a language, that can be indicated with:</p>
+	<pre class="changed">&lt;field type="day"&gt;
+  &lt;relative type="-2"&gt;∅∅∅&lt;/relative&gt;
+</pre>
+<h3>4.1 <a name="Multiple_Inheritance">Multiple Inheritance</a></h3>
 	<p>In clearly specified instances, resources may inherit from within the same locale. For example, currency format symbols inherit from the number format symbols; 
 	the Buddhist calendar inherits from the Gregorian calendar. This <i>only</i> happens where documented in this specification. In these special cases, the inheritance 
 	functions as normal, up to the root. If the data is not found along that path, then a second search is made, logically changing the element/attribute to the 
@@ -9228,6 +9232,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li><span class="changed">Proposed update for CLDR Version 21.0.1.</span></li>
 		<li class="changed">Fixed typo in 't' extension.</li>
 		<li class="changed">Added note on the special case of 'und' in language matching.</li>
+		<li class="changed">Added explanation of Empty Override.</li>
 	</ul>
 
 <h3>Revision 23</h3>

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -49,6 +50,11 @@ public class LanguageCodeConverter {
         .put("zh-CN", "zh")
         .put("zh-TW", "zh_Hant")
         .put("zh-HK", "zh_Hant_HK")
+        .put("sit-NP", "lif")
+        .put("ut", "und")
+        .put("un", "und")
+        .put("xx", "und")
+        
         //.put("sh", "fil")
         .freeze();
 
@@ -134,13 +140,14 @@ public class LanguageCodeConverter {
             }
             addNameToCode("exception", code, name);
         }
-        for (String cldr : CLDR_GOOGLE.keySet()) {
+        for (String cldr : GOOGLE_CLDR.values()) {
             String goodCode = toUnderbarLocale(cldr);
             exceptionCodes.add(goodCode);
         }
     }
 
-    private static void addNameToCode(final String type, final String code, final String name) {
+    private static void addNameToCode(final String type, final String code, String name) {
+        name = name.toLowerCase(Locale.ENGLISH);
         String oldCode = languageNameToCode.get(name);
         if (oldCode != null) {
             if (!oldCode.equals(code)) {
@@ -175,17 +182,40 @@ public class LanguageCodeConverter {
     public static String toHyphenLocale(String localeId) {
         return localeId.replace("_", "-");
     }
+    
+    static class LanguageName extends Row.R2<String,String> {
+
+        public LanguageName(String a, String b) {
+            super(a, b);
+            // TODO Auto-generated constructor stub
+        }
+        
+    }
+    
+    public static String getCodeForName(String languageName) {
+        return languageNameToCode.get(languageName.toLowerCase(Locale.ENGLISH));
+    }
 
     public static void main(String[] args) {
         CLDRFile english = testInfo.getEnglish();
         System.out.println("Input Name" + "\t" + "Std Code" + "\t" + "Std Name");
+        Set<LanguageName> names = new TreeSet();
         for (Entry<String, String> codeName : languageNameToCode.entrySet()) {
             String name = codeName.getKey();
             String code = codeName.getValue();
             if (exceptionCodes.contains(code)) {
                 String cldrName = getName(english, code);
-                System.out.println(name + "\t" + code + "\t" + cldrName);
+                names.add(new LanguageName(code, cldrName));
+                if (!name.equalsIgnoreCase(cldrName)) {
+                    names.add(new LanguageName(code,name));
+                }
             }
+        }
+        for (LanguageName item : names) {
+            String code = item.get0();
+            String name = item.get1();
+            String cldrName = getName(english, code);
+            System.out.println(name.toLowerCase(Locale.ENGLISH) + "\t" + code + "\t" + cldrName);
         }
 
         System.out.println();
@@ -203,6 +233,12 @@ public class LanguageCodeConverter {
                 String googleCode = toGoogleLocaleId(goodCode);
                 addLine(lines, badCode, goodCode, googleCode, cldrName);
             }
+        }
+        for (Entry<String, String> entry : GOOGLE_CLDR.entrySet()) {
+            String googleCode = entry.getKey();
+            String goodCode = toHyphenLocale(entry.getValue());
+            String cldrName = getName(english, goodCode);
+            addLine(lines, googleCode, goodCode, googleCode, cldrName);
         }
         for (String goodCode : exceptionCodes) {
             String cldrName = getName(english, goodCode);
@@ -237,6 +273,7 @@ public class LanguageCodeConverter {
             }
         }
 
+        System.out.println();
         System.out.println("Bcp47 Code" + "\t" + "Name" + "\t" + "Script\tEncomp.Lang?\tName");
 
         for (String code : exceptionCodes) {

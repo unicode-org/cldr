@@ -80,6 +80,16 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
     };
 
     /**
+     * The same as a RegexFinderTransform, except that [@ is changed to \[@, to work better with XPaths.
+     */
+    public static Transform<String, RegexFinder> RegexFinderTransformPath = new Transform<String, RegexFinder>() {
+        public RegexFinder transform(String source) {
+            final String newSource = source.replace("[@", "\\[@");
+            return new RegexFinder(newSource);
+        }
+    };
+
+    /**
      * Allows for merging items of the same type.
      * @param <T>
      */
@@ -304,7 +314,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
         return Collections.unmodifiableCollection(entries.values()).iterator();
     }
 
-    public String replace(String lookup, String... arguments) {
+    public static String replace(String lookup, String... arguments) {
         StringBuilder result = new StringBuilder();
         int last = 0;
         while (true) {
@@ -315,7 +325,11 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
             }
             result.append(lookup.substring(last, pos));
             final int arg = lookup.charAt(pos+1)-'0';
-            result.append(arguments[arg]);
+            try {
+                result.append(arguments[arg]);
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Replacing $" + arg + " in <" + lookup + ">, but too few arguments supplied.");
+            }
             last = pos + 2;
         }
         return result.toString();

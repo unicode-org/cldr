@@ -2139,6 +2139,7 @@ public class SupplementalDataInfo {
         return likelySubtags;
     }
 
+    public enum PluralType { cardinal, ordinal };
     private Map<String,PluralInfo> localeToPluralInfo = new LinkedHashMap<String,PluralInfo>();
     private Map<String,PluralInfo> localeToOrdinalInfo = new LinkedHashMap<String,PluralInfo>();
     private Map<String,DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String,DayPeriodInfo>();
@@ -2411,14 +2412,23 @@ public class SupplementalDataInfo {
         }
     }
 
+    /**
+     * @deprecated use {@link #getPlurals(PluralType)} instead
+     */
     public Set<String> getPluralLocales() {
-        return localeToPluralInfo.keySet();
+        return getPluralLocales(PluralType.cardinal);
     }
 
     /**
-     * Returns the plural info for a given locale.
-     * @param locale
-     * @return
+     * @param type
+     * @return the set of locales that have rules for the specified plural type
+     */
+    public Set<String> getPluralLocales(PluralType type) {
+        return type == PluralType.cardinal ? localeToPluralInfo.keySet() : localeToOrdinalInfo.keySet();
+    }
+
+    /**
+     * @deprecated use {@link #getPlurals(PluralType, String)} instead
      */
     public PluralInfo getPlurals(String locale) {
         return getPlurals(locale, true);
@@ -2429,18 +2439,36 @@ public class SupplementalDataInfo {
      * @param locale
      * @return
      */
+    public PluralInfo getPlurals(PluralType type, String locale) {
+        return getPlurals(type, locale, true);
+    }
+
+    /**
+     * @deprecated use {@link #getPlurals(PluralType, String, boolean)} instead.
+     */
     public PluralInfo getPlurals(String locale, boolean allowRoot) {
+        return getPlurals(PluralType.cardinal, locale, allowRoot);
+    }
+
+    /**
+     * Returns the plural info for a given locale.
+     * @param locale
+     * @param allowRoot
+     * @param type
+     * @return
+     */
+    public PluralInfo getPlurals(PluralType type, String locale, boolean allowRoot) {
+        Map<String, PluralInfo> infoMap = type == PluralType.cardinal ? localeToPluralInfo : localeToOrdinalInfo;
         while (locale != null) {
             if (!allowRoot && locale.equals("root")) {
                 break;
             }
-            PluralInfo result = localeToPluralInfo.get(locale);
+            PluralInfo result = infoMap.get(locale);
             if (result != null) return result;
             locale = LocaleIDParser.getSimpleParent(locale);
         }
         return null;
     }
-
 
     public DayPeriodInfo getDayPeriods(String locale) {
         while (locale != null) {

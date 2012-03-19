@@ -9,17 +9,19 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
-import org.unicode.cldr.draft.LdmlLocaleMapper.IcuData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.tool.UOption;
 
 /**
- * Simpler mechanism for converting CLDR data to ICU Resource Bundles. The
- * format is almost entirely data-driven instead of having lots of special-case
- * code.
- * 
+ * Simpler mechanism for converting CLDR data to ICU Resource Bundles, intended
+ * to replace LDML2ICUConverter. The format is almost entirely data-driven
+ * instead of having lots of special-case code.
+ *
+ * The flags used to specify the data to be generated are copied directly from
+ * LDML2ICUConverter.
+ *
  * Unlike the instructions in CLDRConverterTool, this converter does not invoke
  * computeConvertibleXPaths to check if each xpath is convertible because the
  * xpaths that are convertible have already been filtered out by the regex lookups.
@@ -29,7 +31,7 @@ import com.ibm.icu.dev.tool.UOption;
  * @author markdavis
  */
 public class LDMLConverter extends CLDRConverterTool {
-    static final Pattern                         SEMI                 = Pattern.compile("\\s*+;\\s*+");
+    static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
     
     /**
      * These must be kept in sync with getOptions().
@@ -42,6 +44,7 @@ public class LDMLConverter extends CLDRConverterTool {
     private static final int SUPPLEMENTALDIR = 5;
     // Debugging: doesn't split up locale into separate directories.
     private static final int KEEP_TOGETHER = 6;
+    private static final int PLURALS = 7;
     
     private static final String LOCALES_DIR = "locales";
 
@@ -136,6 +139,8 @@ public class LDMLConverter extends CLDRConverterTool {
                                        "followed by the path. None if not specified\n" +
             "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
             "-k or --keeptogether       write locale data to one file instead of splitting.\n" +
+            "-r or --plurals-only       read the plurals files from the supplemental directory and " +
+                                       "write the output to the destination directory\n" +
             "-h or -? or --help         this usage text.\n" +
             "example: org.unicode.cldr.drafts.LDMLConverter -s xxx -d yyy en.xml");
         System.exit(-1);
@@ -150,7 +155,8 @@ public class LDMLConverter extends CLDRConverterTool {
             UOption.DESTDIR(),
             UOption.create("specialsdir", 'p', UOption.REQUIRES_ARG),
             UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
-            UOption.create("keeptogether", 'k', UOption.NO_ARG)
+            UOption.create("keeptogether", 'k', UOption.NO_ARG),
+            UOption.create("plurals-only", 'r', UOption.NO_ARG)
         };
 
         int remainingArgs = 0;
@@ -165,32 +171,16 @@ public class LDMLConverter extends CLDRConverterTool {
             usage();
         }
 
-        if (!options[SOURCEDIR].doesOccur) {
+        // plurals.txt only requires the supplemental directory to be specified.
+        boolean sourceDirRequired = !options[PLURALS].doesOccur;
+        if (sourceDirRequired && !options[SOURCEDIR].doesOccur) {
             throw new IllegalArgumentException("Source directory must be specified.");
         }
         String sourceDir = options[SOURCEDIR].value;
 
-        // LocalesMap passed in from ant
-        Set<String> locales = new HashSet<String>();
-        Factory factory = null;
-        if (getLocalesMap() != null && getLocalesMap().size() > 0) {
-            for (String filename : getLocalesMap().keySet()) {
-                // Remove ".xml" from the end.
-                locales.add(filename.substring(0, filename.length() - 4));
-            }
-            factory = Factory.make(sourceDir, ".*");
-        } else if (remainingArgs > 0) {
-            factory = Factory.make(sourceDir, args[0]);
-            locales.addAll(factory.getAvailable());
-        } else {
-            throw new IllegalArgumentException("No files specified!");
-        }
-
         SupplementalDataInfo supplementalDataInfo = null;
         if (options[SUPPLEMENTALDIR].doesOccur) {
             supplementalDataInfo = SupplementalDataInfo.getInstance(options[SUPPLEMENTALDIR].value);
-        } else if (factory.getSupplementalDirectory() != null) {
-            supplementalDataInfo = SupplementalDataInfo.getInstance(factory.getSupplementalDirectory());
         } else {
             throw new IllegalArgumentException("Supplemental directory must be specified.");
         }
@@ -201,33 +191,64 @@ public class LDMLConverter extends CLDRConverterTool {
             specialFactory = Factory.make(options[SPECIALSDIR].value, ".*");
         }
         keepTogether = options[KEEP_TOGETHER].doesOccur;
-        LdmlLocaleMapper mapper = new LdmlLocaleMapper(factory, specialFactory, supplementalDataInfo);
-        try {
-            processFiles(mapper, locales);
-        } catch(IOException e) {
-            e.printStackTrace();
+
+        // Process files.
+        if (options[PLURALS].doesOccur) {
+            processPlurals(supplementalDataInfo);
+        } else {
+            // LocalesMap passed in from ant
+            Set<String> locales = new HashSet<String>();
+            Factory factory = null;
+            if (getLocalesMap() != null && getLocalesMap().size() > 0) {
+                for (String filename : getLocalesMap().keySet()) {
+                    // Remove ".xml" from the end.
+                    locales.add(filename.substring(0, filename.length() - 4));
+                }
+                factory = Factory.make(sourceDir, ".*");
+            } else if (remainingArgs > 0) {
+                factory = Factory.make(sourceDir, args[0]);
+                locales.addAll(factory.getAvailable());
+            } else {
+                throw new IllegalArgumentException("No files specified!");
+            }
+
+            LdmlLocaleMapper mapper = new LdmlLocaleMapper(factory, specialFactory, supplementalDataInfo);
+            processLocales(mapper, locales);
         }
     }
     
-    private void processFiles(LdmlLocaleMapper mapper, Set<String> locales) throws IOException {
-        for (String filename : locales) {
+    private void processPlurals(SupplementalDataInfo supplementalDataInfo) {
+        PluralsMapper mapper = new PluralsMapper(supplementalDataInfo);
+        writeIcuData(mapper.fillFromCldr(), destinationDir);
+    }
+    
+    private static void writeIcuData(IcuData icuData, String outputDir) {
+        try {
+            IcuTextWriter.writeToFile(icuData, outputDir);
+        } catch (IOException e) {
+            System.err.println("Error while converting " + icuData.getSourceFile());
+            e.printStackTrace();
+        }
+    }
+
+    private void processLocales(LdmlLocaleMapper mapper, Set<String> locales) {
+        for (String locale : locales) {
             long time = System.currentTimeMillis();
-            IcuData icuData = mapper.fillFromCLDR(filename);
-            boolean hasSpecial = mapper.hasSpecialFile(filename);
+            IcuData icuData = mapper.fillFromCLDR(locale);
             if (keepTogether) {
-                IcuTextWriter.writeToFile(icuData, destinationDir, filename, hasSpecial);
+                writeIcuData(icuData, destinationDir);
             } else {
                 Map<String, Set<String>> dirPaths = mapDirToPaths(icuData.keySet());
                 for (String dir : dirPaths.keySet()) {
-                    IcuData dirData = new IcuData();
+                    IcuData dirData = new IcuData("common/main/" + locale + ".xml", locale);
                     Set<String> paths = dirPaths.get(dir);
                     for (String path : paths) {
                         dirData.addAll(path, icuData.get(path));
                     }
-                    IcuTextWriter.writeToFile(dirData, destinationDir + '/' + dir, filename, hasSpecial);
+                    writeIcuData(dirData, destinationDir + '/' + dir);
                 }
             }
-            System.out.println("Converted " + filename + ".xml in " + (System.currentTimeMillis() - time) + "ms");
+            System.out.println("Converted " + locale + ".xml in " + (System.currentTimeMillis() - time) + "ms");
         }
     }
 
@@ -238,7 +259,6 @@ public class LDMLConverter extends CLDRConverterTool {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        // TODO Handle more than just the main directory.
         long totalTime = System.currentTimeMillis();
         LDMLConverter converter = new LDMLConverter();
         converter.processArgs(args);

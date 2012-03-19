@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.unicode.cldr.draft.LdmlLocaleMapper.IcuData;
 import org.unicode.cldr.util.Builder;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -61,25 +60,29 @@ public class IcuTextWriter {
      * 
      * @param icuData the icu data structure to be written
      * @param dirPath the directory to write the file to
-     * @param locale  the locale that the file is being written for
+     * @param hasSpecial true if a special file was used to create the ICU data
      */
-    public static void writeToFile(IcuData icuData, String dirPath,
-            String locale, boolean hasSpecial) throws IOException {
-        boolean wasSingular = false;
-        String[] replacements = { "%file%", locale };
-        PrintWriter out = BagFormatter.openUTF8Writer(dirPath, locale + ".txt");
+    public static void writeToFile(IcuData icuData, String dirPath) throws IOException {
+        String name = icuData.getName();
+        PrintWriter out = BagFormatter.openUTF8Writer(dirPath, name + ".txt");
         out.write('\uFEFF');
+
+        // Append the header.
+        String[] replacements = { "%source%", icuData.getSourceFile() };
         FileUtilities.appendFile(LDMLConverter.class, "ldml2icu_header.txt", null, replacements, out);
-        if (hasSpecial) {
+        if (icuData.hasSpecial()) {
             out.println("/**");
-            out.println(" *  ICU <specials> source: <path>/xml/main/" + locale + ".xml");
+            out.println(" *  ICU <specials> source: <path>/xml/main/" + name + ".xml");
             out.println(" */");
         }
-        String[] lastLabels = new String[] {};
 
-        out.append(locale);
+        // Write the ICU data to file.
+        out.append(name);
+        if (!icuData.hasFallback()) out.append(":table(nofallback)");
         List<String> sortedPaths = new ArrayList<String>(icuData.keySet());
         Collections.sort(sortedPaths, PATH_COMPARATOR);
+        String[] lastLabels = new String[] {};
+        boolean wasSingular = false;
         for (String path : sortedPaths) {
             // Write values to file.
             String[] labels = path.split("/", -1); // Don't discard trailing slashes.
@@ -118,7 +121,7 @@ public class IcuTextWriter {
         out.append("}\n");
         out.close();
     }
-    
+
     /**
      * Inserts padding and values between braces.
      * @param values
@@ -133,7 +136,7 @@ public class IcuTextWriter {
         if (values.size() == 1) {
             if ((firstArray = values.get(0)).length == 1) {
                 String value = quoteInside(firstArray[0]);
-                int maxWidth = 84 - Math.min(3, numTabs) * TAB.length();
+                int maxWidth = 84 - Math.min(4, numTabs) * TAB.length();
                 if (value.length() <= maxWidth) {
                     // Single value for path: don't add newlines.
                     appendQuoted(value, quote, out);

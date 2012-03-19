@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.LdmlLocaleMapper.IcuData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.With;
@@ -140,13 +139,13 @@ public class RBChecker {
 
     private static IcuData loadDataFromTextfiles(String icuPath, String locale) throws IOException {
         List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<Row.R2<MyTokenizer.Type, String>>();
-        IcuData icuData = new IcuData();
+        IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale);
         String filename = icuPath + '/' + locale + ".txt";
         if (new File(filename).exists()) {
             parseRB(filename, icuData, comments);
         } else {
             for (String dir : With.array("locales", "lang", "region", "curr", "zone")) {
-                String source = icuPath + '/' + dir + "/" + locale + ".txt";
+                String source = icuPath + '/' + dir + '/' + locale + ".txt";
                 parseRB(source, icuData, comments);
             }
         }

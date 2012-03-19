@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,6 +30,12 @@ import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.text.Transform;
 
+/**
+ * Converts CLDR locale XML files to a format suitable for outputting ICU data
+ * with.
+ * @author jchye
+ *
+ */
 public class LdmlLocaleMapper {
     private static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
     private static final Pattern TERRITORY_XPATH = Pattern.compile("//ldml/localeDisplayNames/territories/territory\\[@type=\"(\\w+)\"]");
@@ -42,74 +47,6 @@ public class LdmlLocaleMapper {
     private SupplementalDataInfo supplementalDataInfo;
     private Factory factory;
     private Factory specialFactory;
-
-    /**
-     * Wrapper class for converted ICU data.
-     */
-    static class IcuData {
-        private Map<String, List<String[]>> rbPathToValues;
-        public IcuData() {
-            rbPathToValues = new HashMap<String,List<String[]>>();
-        }
-
-        /**
-         * The RB path,value pair actually has an array as the value. So when we
-         * add to it, add to a list.
-         * 
-         * @param path
-         * @param value
-         * @return
-         */
-        public void add(String path, String[] value) {
-            List<String[]> list = rbPathToValues.get(path);
-            if (list == null) {
-                rbPathToValues.put(path, list = new ArrayList<String[]>(1));
-            }
-            list.add(value);
-        }
-
-        /**
-         * The RB path,value pair actually has an array as the value. So when we
-         * add to it, add to a list.
-         * 
-         * @param path
-         * @param value
-         * @return
-         */
-        private void add(String path, String value) {
-            add(path, new String[]{value});
-        }
-        
-        void addAll(String path, List<String[]> values) {
-            rbPathToValues.put(path, values);
-        }
-
-        /**
-         * Get items
-         * 
-         * @return
-         */
-        public Set<Entry<String, List<String[]>>> entrySet() {
-            return rbPathToValues.entrySet();
-        }
-
-        /**
-         * Get items
-         * 
-         * @return
-         */
-        public Set<String> keySet() {
-            return rbPathToValues.keySet();
-        }
-        
-        public boolean containsKey(String key) {
-            return rbPathToValues.containsKey(key);
-        }
-        
-        public List<String[]> get(String path) {
-            return rbPathToValues.get(path);
-        }
-    }
 
     /**
      * A wrapper class for storing and working with the unprocessed values of a RegexResult.
@@ -376,7 +313,7 @@ public class LdmlLocaleMapper {
         return factory.getAvailable();
     }
     
-    public boolean hasSpecialFile(String filename) {
+    private boolean hasSpecialFile(String filename) {
         return specialFactory != null && specialFactory.getAvailable().contains(filename);
     }
 
@@ -431,7 +368,9 @@ public class LdmlLocaleMapper {
         }
 
         // Add special values to file.
+        IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale);
         if (hasSpecialFile(locale)) {
+            icuData.setHasSpecial(true);
             CLDRFile specialCldrFile = specialFactory.make(locale, false);
             for (String xpath : specialCldrFile) {
                 addMatchesForPath(xpath, specialCldrFile, pathValueMap, false);
@@ -439,7 +378,6 @@ public class LdmlLocaleMapper {
         }
 
         // Convert values to final data structure.
-        IcuData icuData = new IcuData();
         for (String rbPath : pathValueMap.keySet()) {
             List<String[]> values = new ArrayList<String[]>(pathValueMap.get(rbPath).values());
             if (values.size() > 0) {

@@ -31,7 +31,7 @@ public class PathHeader implements Comparable<PathHeader> {
     private final String page;
     private final String header;
     private final String code;
-    
+
     // Used for ordering
     private final int sectionOrder;
     private final int pageOrder;
@@ -99,10 +99,10 @@ public class PathHeader implements Comparable<PathHeader> {
 
     @Override
     public String toString() { 
-        return section + "\t(" + sectionOrder + ");\t"
-        + page + "\t(" + pageOrder + ");\t"
-        + header + "\t(" + headerOrder + ");\t"
-        + code + "\t(" + codeOrder + ")";
+        return section + "\t" + sectionOrder + "\t"
+        + page + "\t" + pageOrder + "\t"
+        + header + "\t" + headerOrder + "\t"
+        + code + "\t" + codeOrder + "";
     }
     @Override
     public int compareTo(PathHeader other) {
@@ -138,7 +138,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
 
     public static class Factory {
-        static final RegexLookup<RawData> lookup = RegexLookup.of(new PathHeaderTransform())
+        static final RegexLookup<RawData> lookup = RegexLookup
+        .of(new PathHeaderTransform())
         .setPatternTransform(RegexLookup.RegexFinderTransformPath)
         .loadFromFile(PathHeader.class, "PathHeader.txt");
 
@@ -225,35 +226,65 @@ public class PathHeader implements Comparable<PathHeader> {
             return sectionsToPages;
         }
 
-        private static class ChronologicalOrder<T> {
-            Map<T,Integer> map = new HashMap<T,Integer>();
-            int getOrder(T item) {
+        private static class ChronologicalOrder {
+            private Map<String,Integer> map = new HashMap<String,Integer>();
+            private String item;
+            private int order;
+            private ChronologicalOrder toClear;
+            
+            ChronologicalOrder(ChronologicalOrder toClear) {
+                this.toClear = toClear;
+            }
+            
+            int getOrder() {
+                return order;
+            }
+            
+            public String set(String itemToOrder) {
+                if (itemToOrder.startsWith("*")) {
+                    item = itemToOrder.substring(1, itemToOrder.length());
+                    return item; // keep old order
+                }
+                item = itemToOrder;
                 Integer old = map.get(item);
                 if (old != null) {
-                    return old.intValue();
+                    order = old.intValue();
+                } else {
+                    order = map.size();
+                    map.put(item, order);
+                    clearLower();
                 }
-                int result = map.size();
-                map.put(item, result);
-                return result;
+                return item;
+            }
+
+            private void clearLower() {
+                if (toClear != null) {
+                    toClear.map.clear();
+                    toClear.order = 0;
+                    toClear.clearLower();
+                }
             }
         }
 
         static class RawData {
-            static ChronologicalOrder<String> sectionOrdering = new ChronologicalOrder<String>();
-            static ChronologicalOrder<String> pageOrdering = new ChronologicalOrder<String>();
-            static ChronologicalOrder<String> headerOrdering = new ChronologicalOrder<String>();
-            static ChronologicalOrder<String> codeOrdering = new ChronologicalOrder<String>();
+            static ChronologicalOrder codeOrdering = new ChronologicalOrder(null);
+            static ChronologicalOrder headerOrdering = new ChronologicalOrder(codeOrdering);
+            static ChronologicalOrder pageOrdering = new ChronologicalOrder(headerOrdering);
+            static ChronologicalOrder sectionOrdering = new ChronologicalOrder(pageOrdering);
 
             public RawData(String source) {
                 String[] split = SEMI.split(source);
-                section = split[0];
-                sectionOrder = sectionOrdering.getOrder(section);
-                page = split[1];
-                pageOrder = pageOrdering.getOrder(page);
-                header = split[2];
-                headerOrder = headerOrdering.getOrder(header);
-                code = split[3];
-                codeOrder = codeOrdering.getOrder(code);
+                section = sectionOrdering.set(split[0]);
+                sectionOrder = sectionOrdering.getOrder();
+                
+                page = pageOrdering.set(split[1]);
+                pageOrder = pageOrdering.getOrder();
+                
+                header = headerOrdering.set(split[2]);
+                headerOrder = headerOrdering.getOrder();
+                
+                code = codeOrdering.set(split[3]);
+                codeOrder = codeOrdering.getOrder();
             }
             public final String section;
             public final int sectionOrder;
@@ -265,15 +296,14 @@ public class PathHeader implements Comparable<PathHeader> {
             public final int codeOrder;
             @Override
             public String toString() {
-                return section + "\t(" + sectionOrder + ");\t"
-                + page + "\t(" + pageOrder + ");\t"
-                + header + "\t(" + headerOrder + ");\t"
-                + code + "\t(" + codeOrder + ")";
+                return section + "\t" + sectionOrder + "\t"
+                + page + "\t" + pageOrder + "\t"
+                + header + "\t" + headerOrder + "\t"
+                + code + "\t" + codeOrder + "";
             }
         }
 
         static class PathHeaderTransform implements Transform<String,RawData> {
-            static ChronologicalOrder<String> pathOrder = new ChronologicalOrder<String>();
             @Override
             public RawData transform(String source) {
                 return new RawData(source);
@@ -359,7 +389,7 @@ public class PathHeader implements Comparable<PathHeader> {
             return input;
         }
     }
-    
+
     public static void main(String[] args) {
 
         PathStarrer pathStarrer = new PathStarrer();
@@ -368,7 +398,7 @@ public class PathHeader implements Comparable<PathHeader> {
         // move to test
         CLDRFile english = TestInfo.getInstance().getEnglish();
         Factory factory = getFactory(english);
-        
+
         Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
         Map<String,String> missing = new TreeMap<String,String>();
         Map<String,String> skipped = new TreeMap<String,String>();
@@ -404,16 +434,20 @@ public class PathHeader implements Comparable<PathHeader> {
             if (!lastSection.equals(pathHeader.section)) {
                 System.out.println();
                 threeLevel.add(pathHeader.section);
+                threeLevel.add("\t" + pathHeader.page);
+                threeLevel.add("\t\t" + pathHeader.header);
                 lastSection = pathHeader.section;
-                lastPage = lastHeader = "";
+                lastPage = pathHeader.page;
+                lastHeader = pathHeader.header;
             } else if (!lastPage.equals(pathHeader.page)) {
                 System.out.println();
                 threeLevel.add("\t" + pathHeader.page);
-                lastHeader = "";
+                threeLevel.add("\t\t" + pathHeader.header);
                 lastPage = pathHeader.page;
+                lastHeader = pathHeader.header;
             } else if (!lastHeader.equals(pathHeader.header)) {
                 System.out.println();
-                threeLevel.add("\t\t" + (pathHeader.header.equals("null") ? "<no-header>" : pathHeader.header));
+                threeLevel.add("\t\t" + pathHeader.header);
                 lastHeader = pathHeader.header;
             }
             System.out.println(pathHeader + ";\t" + entry.getValue());

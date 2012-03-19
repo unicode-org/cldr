@@ -5,6 +5,7 @@
 # If you add new paths, change @type="..." => @type="%A"
 # The syntax &function(data) means that a function generates both the string and the ordering. The functions MUST be supported in PathHeader.java
 # The only function that can be in Page right now are &metazone and &calendar, and NO functions can be in Section
+# A * at the front (like *$1) means to not change the sorting group.
 
 # VARIABLES
 %A = ([^"]*+)
@@ -22,7 +23,7 @@
 //ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity                  ; Code Lists ; Timezone Cities ; $1 ; $2
 //ldml/localeDisplayNames/variants/variant[@type="%A"]                      ; Code Lists ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                              ; Code Lists ; Keys ; $1 ; Key
-//ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]                 ; Code Lists ; Keys ; $2 ; $1
+//ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]                 ; Code Lists ; Keys ; *$2 ; $1
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Code Lists ; Measurement Systems ; null ; $1
 
 //ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Code Lists ; Currencies ; $1 ; Symbol
@@ -63,8 +64,8 @@
 
 //ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Patterns for Displaying Lists ; null ; $1
 
-//ldml/numbers/(default)NumberingSystem                     ; Misc ; Patterns for Numbers ; NumberingSystem ; $1
-//ldml/numbers/otherNumberingSystems/(%E)                   ; Misc ; Patterns for Numbers ; NumberingSystem ; $1
+//ldml/numbers/(default)NumberingSystem                     ; Misc ; Patterns for Numbers ; Numbering System ; $1
+//ldml/numbers/otherNumberingSystems/(%E)                   ; Misc ; Patterns for Numbers ; Numbering System ; $1
 
 //ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Misc ; Patterns for Numbers ; $1 ; $2
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"] ; Misc ; Patterns for Numbers ; $2 ; $7-$4

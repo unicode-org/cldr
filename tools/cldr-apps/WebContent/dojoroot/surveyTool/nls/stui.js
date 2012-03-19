@@ -1,5 +1,5 @@
 define({
-	    root: ({
+	root: ({
 			copyright: "(C) 2012 IBM Corporation and Others. All Rights Reserved",
 			loading: "loading",
 			loading2: "loading.",
@@ -39,9 +39,7 @@ define({
 			online: "Online",
 			disconnected: "Disconnected",
 			startup: "Starting up...",
-			"": ""
-		    }),
-
+			"": ""}),
 //		"mt-MT": false
 	
   // sublocales

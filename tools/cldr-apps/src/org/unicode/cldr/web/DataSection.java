@@ -2,7 +2,7 @@
 //  DataSection.java
 //
 //  Created by Steven R. Loomis on 18/11/2005.
-//  Copyright 2005-2011 IBM. All rights reserved.
+//  Copyright 2005-2012 IBM. All rights reserved.
 //
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain

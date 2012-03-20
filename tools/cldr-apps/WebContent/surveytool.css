@@ -150,13 +150,8 @@ A.nodraft:visited {
 }
 
 .fallback {
-	/
-
-*	background-color: #3da;
-	border: 1px dotted #9b7dff;
-	*/
-	border: 1px solid #0cc;
-	background-color: #0ff;
+	background-color: #b8ffff;
+	border: 1px groove #0079cb;
 }
 
 .fallback_root {
@@ -793,7 +788,7 @@ table.sqlbox form {
 
 div#toparea {
 	margin-top: 1em;
-	border-bottom: 3px solid green;
+	border-bottom: 3px solid #e9f6e9;
 	background-color: whitesmoke;
 	font: normal 1.2em Georgia, "Times New Roman", Times, serif;
 }
@@ -809,10 +804,11 @@ h4#toptitle {
 	margin-top: 1.5em;
 	margin-bottom: 0;
 	line-height: 2.5em;
+	font-weight: normal;
 }
 
 h4#toptitle b {
-	
+	font-weight: bold;	
 }
 
 .sterrmsg {
@@ -851,10 +847,11 @@ deletebox:
 border: 1px solid red; margin: 1em; padding: 1em;	 */
 
 .fnotebox {
-	background-color: #ddd;
-	border: 1px solid green;
+	border: 1px solid #94a694;
 	margin: 0.5em;
 	padding: 0.2em;
+	padding-left: 2em;
+	background: #e4dcd4 url(warn.png) no-repeat 0.25em center;
 }
 
 .specialHeader {
@@ -922,10 +919,6 @@ table#voteinfo thead th:first-child {
 	font-weight: bold;
 }
 
-.substituted {
-	border: 1px solid #BBBBBB;
-	background-color: #DDDDDD;
-}
 
 .loser {
 	
@@ -1031,9 +1024,15 @@ div.loading {
 	display: none;
 }
 
+.substituted {
+	border: 1px solid #BBBBBB;
+	background-color: #cdcfdc;
+	color: #02105c;
+}
+
 div.d-example {
 	font: small "Courier New", Courier, mono;
-	background-color: #ebe9e2;
+	background-color: #eae3c9;
 	padding: 1px;
 }
 
@@ -1392,15 +1391,39 @@ div.helpHtml {
 	padding: 0.2em 0.2em 0.2em 0.2em;
 	margin-top: 2px;
 	font-size: smaller;
-/*
-
-width:  40em;*/
 }
 
-.d-sortmode:before {
+/*.d-sortmode:before {
 	content: 'Sorted:';
 	font-weight: bold;
 	font-size: small;
+}*/
+
+
+.d-sortmode d-sort-size {
+	
+}
+
+.d-sortmode .d-sort-size0 {
+	font-size: x-large;
+	padding-left:  1em;
+	background: url(warn.png) no-repeat left center;
+	background-color: white;
+}
+
+.d-sortmode ul {
+	display: table-row;
+	width: 50%;
+	margin: 0;
+	margin-left: 0;
+}
+
+
+div.d-sort-size {
+ text-align: right;
+ display: compact;
+	clear: none;
+	float: none;
 }
 
 .d-sortmode li {
@@ -1467,6 +1490,8 @@ width:  40em;*/
 
 .d-disp {
 	vertical-align: top;
+	padding-left:  2px;
+	padding-right:  2px;
 }
 
 .d-win {

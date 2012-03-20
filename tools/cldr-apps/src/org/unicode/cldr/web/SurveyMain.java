@@ -3191,7 +3191,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
     
     String getListSetting(WebContext ctx, String pref, String[] list, boolean doDef) {
-        String settingsSet = ctx.settings().get(pref, doDef?"default":list[0]);
+    	String defaultVal = doDef?"default":list[0];
+        String settingsSet = defaultVal; // do NOT persist!>>  ctx.settings().get(pref, default);
         String val = ctx.pref(pref, settingsSet);
         return val;
     }
@@ -3210,9 +3211,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		}
 
 		String hash = "menu_"+field;
+		String theTitle="";
+		if(rec!=null&&!rec.isEmpty()) {
+			theTitle="(* denotes default value)";
+		}
 		
 		jout.println("<label id='m_"+hash+"' class='"
-				+ (!current.equals(items[0]) ? "menutop-active" : "menutop-other") + "' >");
+				+ (!current.equals(items[0]) ? "menutop-active" : "menutop-other") + "' title='"+
+				theTitle
+				+"' >");
 		
 //		if(!any) {
 //			WebContext ssc = new WebContext(jout);

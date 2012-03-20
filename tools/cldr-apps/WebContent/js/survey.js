@@ -1238,40 +1238,46 @@ function setupSortmode(theTable) {
 	// ignore what's there
 	removeAllChildNodes(theSortmode);
 	var listOfLists = Object.keys(theTable.json.displaySets);
-	for(i in listOfLists) {
-		var k = listOfLists[i];
-		if(k=="default") continue;
-		
-		var a = document.createElement("li");
-		a.onclick = (function() {
-			var kk = k;
-			return function() {
-				reSort(theTable, kk);
-			};
-		})();
-		a.appendChild(document.createTextNode(theTable.json.displaySets[k].displayName));
-		a.mode=k;
-		if(k==theTable.curSortMode) {
-			a.className="selected";
-		} else {
-			a.className = "notselected";
+	var itemCount = Object.keys(theTable.json.section.rows).length;
+	var ul = document.createElement("ul");
+	if(itemCount>0) {
+		for(i in listOfLists) {
+			var k = listOfLists[i];
+			if(k=="default") continue;
+			
+			var a = document.createElement("li");
+			a.onclick = (function() {
+				var kk = k;
+				return function() {
+					reSort(theTable, kk);
+				};
+			})();
+			a.appendChild(document.createTextNode(theTable.json.displaySets[k].displayName));
+			a.mode=k;
+			if(k==theTable.curSortMode) {
+				a.className="selected";
+			} else {
+				a.className = "notselected";
+			}
+			ul.appendChild(a);
 		}
-		theSortmode.appendChild(a);
+		theSortmode.appendChild(ul);
 	}
 	
 	var size = document.createElement("div");
 	size.className="d-sort-size";
-	var itemCount = Object.keys(theTable.json.section.rows).length;
 	if(itemCount==0 && theTable.json.section.skippedDueToCoverage) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCountAllHidden", [itemCount,theTable.json.section.skippedDueToCoverage])
 				
 				));
+		size.className = "d-sort-size0";
 	} else if(itemCount==0) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCountNone", [])
 				
 				));
+		size.className = "d-sort-size0";
 	} else if(theTable.json.section.skippedDueToCoverage) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCountHidden", [itemCount,theTable.json.section.skippedDueToCoverage])

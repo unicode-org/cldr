@@ -39,7 +39,7 @@ define({
 			online: "Online",
 			disconnected: "Disconnected",
 			startup: "Starting up...",
-			"": ""}),
+			"": ""})
 //		"mt-MT": false
 	
   // sublocales

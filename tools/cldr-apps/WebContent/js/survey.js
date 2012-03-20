@@ -17,6 +17,12 @@ function dismissChangeNotice() {
     }
 }
 
+function removeAllChildNodes(td) {
+	while(td.firstChild) {
+		td.removeChild(td.firstChild);
+	}
+}
+
 function readyToSubmit(fieldhash) {
     var ch_input = document.getElementById('ch_'+fieldhash);
     var submit_btn = document.getElementById('submit_'+fieldhash);
@@ -294,7 +300,7 @@ function updateStatus() {
                     busted();
                 } else {
                    st_err.className = "";
-                   st_err.innerHTML="";
+                   removeAllChildNodes(st_err);
                 }
             }
             updateStatusBox(json);
@@ -374,7 +380,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
         console.log('Error in refreshRow: ' + err + ' response ' + ioArgs.xhr.responseText);
         v_tr.className="tr_err";
         v_tr.innerHTML = "<td class='v_error' colspan=8>" + stopIcon + " Couldn't reload this row- please refresh the page. <br>Error: " + err+"</td>";
-        e_div.innerHTML="";
+        removeAllChildNodes(e_div);
 //        var st_err =  document.getElementById('st_err');
 //        wasBusted = true;
 //        st_err.className = "ferrbox";
@@ -389,7 +395,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
              if(text) {
                  v_tr.className='topbar';
                  v_tr.innerHTML = text;
-                 e_div.innerHTML = "";
+                 removeAllChildNodes(e_div);
                  e_div.className="";
              } else {
                  v_tr.className='';
@@ -472,7 +478,7 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
     var st_err =  document.getElementById('st_err');
     var errorHandler = function(err, ioArgs){
     	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-        e_div.innerHTML = '';
+    	removeAllChildNodes(e_div);
         e_div.className="";
 //      v_td.className="v_warn";
         v_tr.className="";
@@ -635,10 +641,12 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 		button.id="CHANGE_" + tr.rowHash;
 		vHash="";
 		box.onchange=function(){ handleWiredClick(tr,theRow,vHash,box,button,'verify'); return false; };
-		box.onkeypress=function(){ 
-			if(event.keyCode == 13) {
+		box.onkeypress=function(e){ 
+			if(e.keyCode == 13) {
 				handleWiredClick(tr,theRow,vHash,box,button); 
 				return false;
+//			} else if(e.keyCode ==9) {
+// TAB			
 			} else {
 				return true;
 			}
@@ -667,22 +675,116 @@ function addIcon(td, className) {
 	return star;
 }
 
-function showInPop(tr,theRow, str, hideIfLast) {
+
+function showInPopOld(tr,theRow, str, hideIfLast, fn) {
+	if(tr.unShow) {
+		tr.unShow();
+		tr.unShow=null;
+	}
 	if(hideIfLast && tr.lastShown==hideIfLast) {
 		tr.infoRow.className="d-inforow-hid";
 		tr.lastShown=null;
 		return;
 	}
 	tr.lastShown = hideIfLast;
-	if(tr.unShow) tr.unShow();
-	tr.unShow=null;
 //	tr.unShow=(function(){ var d2 = div; return function(){	console.log("hiding " + d2); 	d2.className="d-item";  };})();
 //	div.className = 'd-item-selected';
-	var td = tr.infoRow.getElementsByTagName("td")[0];
-	td.innerHTML=str;
-	appendHelp(td,theRow);
+	
+	var td_real = tr.infoRow.getElementsByTagName("td")[0];
+	var td = document.createDocumentFragment();
+
+	if(str) {
+		var div2 = document.createElement("div");
+		div2.innerHTML=str;
+		td.appendChild(div2);
+	}
+	if(fn!=null) {
+		tr.unShow=fn(td);
+	}
+	// always append this
+	if(theRow) {
+		appendHelp(td,theRow);
+	}
+
+	removeAllChildNodes(td_real);
+	td_real.appendChild(td);
+	td=null;
+	
 	tr.infoRow.className = "d-inforow";
 }
+
+// new pop stuff
+dojo.ready(function() {
+	var unShow = null;
+	var lastShown = null;
+	var pucontent = dojo.byId("pu-content");
+	var puouter = dojo.byId("pu-outer");
+	var pupeak = dojo.byId("pu-peak");
+	var nudgeh=10;
+	var nudgev=-4;
+	var nudgehpost=-65;
+	var nudgevpost=0;
+	var hardleft = 10;
+	var hardtop = 10;
+	
+	if(false) {
+	window.showInPop = function(tr,theRow, str, hideIfLast, fn) {
+		if(unShow) {
+			unShow();
+			unShow=null;
+		}
+		if(hideIfLast && lastShown==hideIfLast) {
+			// HIDEPOP
+			tr.lastShown=null;
+			
+			puouter.style.display="none";
+			
+			return;
+		}
+		lastShown = hideIfLast;
+
+		var td = document.createDocumentFragment();
+
+		if(str) {
+			td.innerHTML=str;
+		}
+		if(fn!=null) {
+			unShow=fn(td);
+		}
+		// always append this
+		if(theRow) {
+			appendHelp(td,theRow);
+		}
+
+		removeAllChildNodes(pucontent);
+		pucontent.appendChild(td);
+		td=null;
+		
+		if(hideIfLast) {
+			var loc = getAbsolutePosition(hideIfLast);
+			var newTop = (loc.top+hideIfLast.offsetHeight+nudgev);
+			if(newTop<hardtop) newTop=hardtop;
+			puouter.style.top = (newTop+nudgevpost)+"px";
+			newLeft = (loc.left+nudgeh);
+			if(newLeft<hardleft) {
+				pupeak.style.left = (newLeft - hardleft)+"px";
+				newLeft = hardleft;
+			} else {
+				pupeak.style.left = "0px";
+			}
+			puouter.style.left = (newLeft+nudgehpost)+"px";
+			puouter.style.display="block";
+		} else {
+			alert("Errow showPop with no td");
+		}
+		//tr.infoRow.className = "d-inforow";
+	};
+	} else {
+		window.showInPop = showInPopOld;
+	}
+	/* old system */
+});
+
 
 function testsToHtml(tests) {
 	var newHtml = "";
@@ -712,49 +814,29 @@ function appendHelp(td,theRow) {
 }
 
 function showProposedItem(inTd,tr,theRow,value,tests) {
-	if(tr.unShow) {
-		tr.unShow();
-	}
-	var newHtml = "";
-	if (tests && tests.length>0) {
+	if(!tests || tests.length==0) return false;
+
+	showInPop(tr, theRow, null, inTd, function(td) {
+		var newHtml = "";
 		newHtml += testsToHtml(tests);
-	} else {
-		// no tests, bail.
-		tr.inputTd.className="d-change";
-		if(tr.lastShown==inTd) {
-			tr.infoRow.className = "d-inforow-hid";
-			tr.lastShown=null;
-		}
-		return false;
-	}
-	tr.lastShown = inTd;
-//	tr.unShow=(function(){ var d2 = div; return function(){ 	d2.className="d-item";  };})();
-	tr.unShow=null;
-//	div.className = 'd-item-selected';
-	var td = tr.infoRow.getElementsByTagName("td")[0];
-	td.innerHTML="";
-	
-	var docFrag = document.createDocumentFragment();
 
-	var h3 = document.createElement("h3");
-	var span = document.createElement("span");
-	span.className="value";
-	span.dir = tr.theTable.json.dir;
-	span.appendChild(document.createTextNode(value));
-	h3.appendChild(span);
-	h3.className="span";
-	docFrag.appendChild(h3);
-	var newDiv = document.createElement("div");
-	docFrag.appendChild(newDiv);
-	appendHelp(td,theRow);
-	
-	newDiv.innerHTML = newHtml;
+		var h3 = document.createElement("h3");
+		var span = document.createElement("span");
+		span.className="value";
+		span.dir = tr.theTable.json.dir;
+		span.appendChild(document.createTextNode(value));
+		h3.appendChild(span);
+		h3.className="span";
+		td.appendChild(h3);
+		var newDiv = document.createElement("div");
+		td.appendChild(newDiv);
+		appendHelp(td,theRow);
 
+		newDiv.innerHTML = newHtml;
 
-	tr.infoRow.className = "d-inforow";
-	
-	td.appendChild(docFrag);
-	docFrag=null;
+		return null;
+	});
+
 
 	if(tests) {
 		var hadWarn = false;
@@ -771,32 +853,14 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 			tr.inputTd.className="d-change-warn";
 			return false;
 		}
+		return false;
 	}
-	
-
-	tr.inputTd.className="d-change";
-	return false;
 }
 
 function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
-	if (tr.lastShown == div) {
-		if(tr.unShow) {
-			tr.unShow();
-		}
-		tr.unShow=null;
-		tr.lastShown = null;
-		tr.infoRow.className = "d-inforow-hid";
-		return true;
-	} else {
-		if(tr.unShow) {
-			tr.unShow();
-		}
-		tr.lastShown = div;
-		tr.unShow=(function(){ var d2 = div; return function(){ 	d2.className="d-item";  };})();
+	showInPop(tr, theRow, "", div, function(td) {
 		div.className = 'd-item-selected';
-		var td = tr.infoRow.getElementsByTagName("td")[0];
 
-		td.innerHTML="";
 		var h3 = document.createElement("h3");
 		h3.appendChild(cloneAnon(div.getElementsByTagName("span")[0]));
 		h3.className="span";
@@ -822,28 +886,13 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 			appendExample(td, item.example);
 		}
 		
-		appendHelp(td,theRow);
-
-		tr.infoRow.className = "d-inforow";
-//		tr.infoRow.onClick = function() {
-//			showItemInfo(td, tr, theRow, item, vHash, newButton, div);
-//		};
-		return true;
-	}
+		return function(){ var d2 = div; return function(){ 	d2.className="d-item";  };}();
+	}); // end fn
 }
 
 
 
 function popInfoInto(tr, theRow, theChild) {
-	if (tr.lastShown == theChild) {
-		if (tr.unShow) {
-			tr.unShow();
-		}
-		tr.unShow = null;
-		tr.lastShown = null;
-		tr.infoRow.className = "d-inforow-hid";
-		return true;
-	}
 	var what = WHAT_GETROW;
 	var ourUrl = contextPath + "/RefreshRow.jsp?what=" + WHAT_GETROW
 			+ "&xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
@@ -864,7 +913,6 @@ function popInfoInto(tr, theRow, theChild) {
 		try {
 			if (text) {
 				showInPop(tr, theRow, text, theChild);
-				tr.lastShown = theChild;
 			} else {
 				showInPop(tr, theRow, stopIcon + stui.noVotingInfo, theChild);
 			}
@@ -932,6 +980,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 
 function updateRow(tr, theRow) {
 	var canModify = tr.theTable.json.canModify;
+	// TODO: old inrow
 	if(!tr.infoRow) { 
 		var toAddI = dojo.byId('proto-inforow');
 		tr.infoRow = cloneAnon(toAddI);
@@ -987,14 +1036,14 @@ function updateRow(tr, theRow) {
 		}
 		children[4].isSetup=true;
 	}
-	children[5].innerHTML=""; // win
+	removeAllChildNodes(children[5]); // win
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[5],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
 		/* tr.onclick = */ children[0].onclick = children[5].getElementsByTagName("div")[0].onclick;
 	} else {
 		/* tr.onclick = */ children[0].onclick = function() {showInPop(tr,theRow,"",tr); return false;};
 	}
-	children[6].innerHTML=""; // other
+	removeAllChildNodes(children[6]); // other
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
 			continue;
@@ -1003,7 +1052,7 @@ function updateRow(tr, theRow) {
 	}
 
 	if(!children[7].isSetup) {
-		children[7].innerHTML="";
+		removeAllChildNodes(children[7]);
 		tr.inputTd = children[7];
 		
 		if(!canModify) {
@@ -1038,7 +1087,7 @@ function updateRow(tr, theRow) {
 			
 	
 	if(canModify) {
-		children[8].innerHTML=""; // no opinion
+		removeAllChildNodes(children[8]); // no opinion
 		var noOpinion = cloneAnon(protoButton);
 		wireUpButton(noOpinion,tr, theRow, null);
 		noOpinion.value=null;
@@ -1075,7 +1124,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 	var theRows = theTable.json.section.rows;
 	var toAdd = dojo.byId('proto-datarow');
 	var parRow = dojo.byId('proto-parrow');
-	tbody.innerHTML="";
+	removeAllChildNodes(tbody);
 	var theSort = theTable.json.displaySets[theTable.curSortMode];
 	var partitions = theSort.partitions;
 	var rowList = theSort.rows;
@@ -1116,6 +1165,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 		
 		tbody.appendChild(tr);
 
+		// TODO: inforow
 		tbody.appendChild(tr.infoRow);
 	}
 	
@@ -1142,7 +1192,7 @@ function reSort(theTable,k) {
 function setupSortmode(theTable) {
 	var theSortmode = theTable.sortMode;
 	// ignore what's there
-	theSortmode.innerHTML="";
+	removeAllChildNodes(theSortmode);
 	var listOfLists = Object.keys(theTable.json.displaySets);
 	for(i in listOfLists) {
 		var k = listOfLists[i];
@@ -1420,10 +1470,11 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
             			 hideLoader(tr.theTable.theDiv.loader);
             			 return; // had error
             		 }
-            	 } else if(tr.lastShown && tr.lastShown==tr.inputTd) {
-            		 // if we were watching warnings and there aren't any,hide them.
-            			tr.lastShown = null;
-            			tr.infoRow.className = "d-inforow-hid";
+//            	 } else if(tr.lastShown && tr.lastShown==tr.inputTd) {
+//            		 // if we were watching warnings and there aren't any,hide them.
+//            			tr.lastShown = null;
+//            			// TODO: hidepop.
+//            			tr.infoRow.className = "d-inforow-hid";
             	 }
 	             if(json.submitResultRaw) {
 	            	 tr.className='tr_checking2';

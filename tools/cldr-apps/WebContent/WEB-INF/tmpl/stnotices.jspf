@@ -31,6 +31,7 @@
 </div>
 <div id='st_err'><!-- for ajax errs --></div>
 
+<%-- unobtrusive status box --%>
 <div id='progress' class='progress-connecting'>
 	<span id='progress_oneword' class='oneword'>
 		Online
@@ -39,6 +40,14 @@
 	&nbsp;
 	</span>
 	<button id='progress-refresh' onclick='javascript:window.location.reload(true);'>Refresh</button>
+</div>
+
+<%-- pop-up stuff. --%>
+<div id='pu-outer'>
+	<div id='pu-peak'></div>
+	<div id='pu-body'>
+		<div id='pu-content'></div>
+	</div>
 </div>
 
 <%= SurveyMain.SHOWHIDE_SCRIPT %>

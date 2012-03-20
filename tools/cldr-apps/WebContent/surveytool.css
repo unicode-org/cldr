@@ -1,3 +1,4 @@
+
 /* Copyright (c) 2004-2012 IBM and others. All Rights Reserved. */
 
 /* @override 
@@ -1662,3 +1663,51 @@ td.d-change-warn {
 }
 
 /* @end */
+
+/* @group Popup */
+
+div#pu-outer {
+	/*border:  1px solid orange;*/
+	position: absolute;
+	top: 500px;
+	left: 100px;
+	display: none;
+}
+
+div#pu-peak {
+	width: 433px;
+	height:  182px;
+	/*border:  1px solid green;*/
+	background: url(peak.png) no-repeat scroll center center;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
+div#pu-body {
+	background-color: white;
+	/*border:  1px solid purple;*/
+	position: relative;
+	top: -48px;
+	right: -160px;
+/*	height:  100px;*/
+	/*width:  300px;*/
+	/*margin-left:  auto;
+	margin-right:  100px;
+	width: 80%;*/
+	padding: 0.5em;
+	background: url(peakfill.png);
+}
+
+div#pu-content {
+	/*width:  300px;*/
+	padding:  0.5em;
+	/*margin:  0.5em;*/
+	/*border:  1px solid red;*/
+	background-color: white;
+}
+
+/* @end */
+
+
+

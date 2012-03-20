@@ -1,7 +1,8 @@
+<%@page import="com.ibm.icu.dev.test.util.ElapsedTimer"%>
 <%@page import="org.unicode.cldr.web.SurveyMain"%><%@page 
         import="org.unicode.cldr.web.WebContext, java.util.List"%><%@ page 
         language="java" contentType="text/html; charset=UTF-8"  
-        import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*" %><%--
+        import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.unicode.cldr.web.*" %><%--
  Copyright (C) 2012 IBM and Others. All Rights Reserved  --%>
     <link rel='stylesheet' type='text/css' href='./surveytool.css' />
  <%
@@ -11,8 +12,45 @@ if(!SurveyMain.isSetup || SurveyMain.isBusted()) {
 }
 
 String loc = request.getParameter("loc");
-String q = request.getParameter("q").trim();
-if(q.length()==0) return;
+String q = WebContext.decodeFieldString(request.getParameter("q").trim());
+if(q==null||q.length()==0) return;
+ElapsedTimer et = new ElapsedTimer("results in");
+
+if(q.startsWith("\\u") || q.startsWith("=")) {
+	String q2 = 	com.ibm.icu.impl.Utility.unescape(q);
+	if(q2.startsWith("=")) q2 = q2.substring(1);
+	%><h3>XPATH search String match '<%= q %>' ('<%= q2 %>') </h3> <%
+	SurveyMain sm = CookieSession.sm;
+	int xpc=0;
+	for(CLDRLocale loc2 : sm.getLocalesSet()) {
+		boolean hdr = false;
+		CLDRFile f = null;
+		try {
+			f = sm.getDiskFactory().make(loc2.getBaseName(), false);
+		} catch(Throwable t) {
+			%><pre><%= t.toString()  %> loading <%= loc2.getDisplayName() %> - <%= loc2 %>
+			<% t.printStackTrace(); %></pre><%
+		}
+		if(f==null) continue;
+		for(String xp : f) {
+			String str = f.getStringValue(xp);
+			xpc++;
+			if(str.contains(q2)) {
+				if(!hdr) {
+					%><h4><%= loc2 %> - <%= loc2.getDisplayName() %></h4>
+					<ul><%
+					hdr=true;
+				}
+				%><li><tt class='codebox'><%= xp %></tt> = <span class='value'><%= str %></span></li><%
+			}
+			if(hdr) {
+				%></ul><%
+			}
+		}
+	}
+	%><hr><i>end of results - checked <%= xpc %> xpaths in <%= sm.getLocalesSet().size() %> locales - <%= et %></i><%
+} else {
+
 StandardCodes sc = StandardCodes.make();
 %><h2>Results for <tt><%= q %></tt></h2>
 <% q = q.toLowerCase();
@@ -80,4 +118,6 @@ StandardCodes sc = StandardCodes.make();
            }
        }
    }
+%><hr><i><%= et %></i><%
+}
 %>

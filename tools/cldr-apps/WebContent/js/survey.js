@@ -24,9 +24,9 @@ function removeAllChildNodes(td) {
 }
 
 function readyToSubmit(fieldhash) {
-    var ch_input = document.getElementById('ch_'+fieldhash);
-    var submit_btn = document.getElementById('submit_'+fieldhash);
-    var cancel_btn = document.getElementById('cancel_'+fieldhash);
+//    var ch_input = document.getElementById('ch_'+fieldhash);
+//    var submit_btn = document.getElementById('submit_'+fieldhash);
+//    var cancel_btn = document.getElementById('cancel_'+fieldhash);
     
 //    ch_input.disabled='1';
 //    submit_btn.style.display='block';
@@ -34,8 +34,8 @@ function readyToSubmit(fieldhash) {
 }
 
 function hideSubmit(fieldhash) {
-    var ch_input = document.getElementById('ch_'+fieldhash);
-    var submit_btn = document.getElementById('submit_'+fieldhash);
+//    var ch_input = document.getElementById('ch_'+fieldhash);
+//    var submit_btn = document.getElementById('submit_'+fieldhash);
     var cancel_btn = document.getElementById('cancel_'+fieldhash);
 
 //    submit_btn.style.display='none';
@@ -45,8 +45,8 @@ function hideSubmit(fieldhash) {
 
 function isubmit(fieldhash,xpid,locale,session) {
     var ch_input = document.getElementById('ch_'+fieldhash);
-    var submit_btn = document.getElementById('submit_'+fieldhash);
-    var cancel_btn = document.getElementById('cancel_'+fieldhash);
+//    var submit_btn = document.getElementById('submit_'+fieldhash);
+//    var cancel_btn = document.getElementById('cancel_'+fieldhash);
     
     if(!ch_input) {
     	console.log("Not a field hash: submit " + fieldhash);
@@ -59,8 +59,8 @@ function isubmit(fieldhash,xpid,locale,session) {
 
 function icancel(fieldhash,xpid,locale,session) {
     var ch_input = document.getElementById('ch_'+fieldhash);
-    var chtd_input = document.getElementById('chtd_'+fieldhash);
-    var submit_btn = document.getElementById('submit_'+fieldhash);
+//    var chtd_input = document.getElementById('chtd_'+fieldhash);
+//    var submit_btn = document.getElementById('submit_'+fieldhash);
     var cancel_btn = document.getElementById('cancel_'+fieldhash);
     
     if(!ch_input) {
@@ -275,7 +275,7 @@ function updateStatus() {
             if(json.err != null && json.err.length > 0) {
                st_err.innerHTML=json.err;
                if(json.status&&json.status.surveyRunningStamp!=surveyRunningStamp) {
-            	   st_err.innerHTML = st_err.innerHTML + " <b>Note: Lost connection with Survey Tool or it restarted.</b>"
+            	   st_err.innerHTML = st_err.innerHTML + " <b>Note: Lost connection with Survey Tool or it restarted.</b>";
                    updateStatusBox({disconnected: true});
                }
                st_err.className = "ferrbox";
@@ -391,7 +391,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
     };
     var loadHandler = function(text){
         try {
-             var newHtml = "";
+//             var newHtml = "";
              if(text) {
                  v_tr.className='topbar';
                  v_tr.innerHTML = text;
@@ -422,7 +422,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
     	voteinfo_div.innerHTML="<i>Updating...</i>";
 	    var loadHandlerVI = function(text){
 	        try {
-	             var newHtml = "";
+//	             var newHtml = "";
 	             if(text) {
 	                 voteinfo_div.innerHTML = text;
 	                 voteinfo_div.className="";
@@ -454,7 +454,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
 //           v_HASH - the entire td
 function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
 	var e_div = document.getElementById('e_'+fieldhash);
-	var v_td = document.getElementById('i_'+fieldhash);
+//	var v_td = document.getElementById('i_'+fieldhash);
     var v_tr = document.getElementById('r_'+fieldhash);
     var v_tr2 = document.getElementById('r2_'+fieldhash);
     alreadyVerifyValue[fieldhash]=null;
@@ -475,7 +475,7 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
 	    v_tr.className="tr_checking";
 	}
     v_tr2.className="tr_checking";
-    var st_err =  document.getElementById('st_err');
+//    var st_err =  document.getElementById('st_err');
     var errorHandler = function(err, ioArgs){
     	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
     	removeAllChildNodes(e_div);
@@ -640,7 +640,10 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	if(box) {
 		button.id="CHANGE_" + tr.rowHash;
 		vHash="";
-		box.onchange=function(){ handleWiredClick(tr,theRow,vHash,box,button,'verify'); return false; };
+		box.onchange=function(){ 
+			handleWiredClick(tr,theRow,vHash,box,button,'submit'); 
+			return false; 
+		};
 		box.onkeypress=function(e){ 
 			if(e.keyCode == 13) {
 				handleWiredClick(tr,theRow,vHash,box,button); 
@@ -675,18 +678,26 @@ function addIcon(td, className) {
 	return star;
 }
 
+var gPopStatus = {
+		unShow: null,
+		lastShown: null,
+		lastTr: null
+};
 
 function showInPopOld(tr,theRow, str, hideIfLast, fn) {
-	if(tr.unShow) {
-		tr.unShow();
-		tr.unShow=null;
+	if(gPopStatus.unShow) {
+		gPopStatus.unShow();
+		gPopStatus.unShow=null;
 	}
-	if(hideIfLast && tr.lastShown==hideIfLast) {
-		tr.infoRow.className="d-inforow-hid";
-		tr.lastShown=null;
+	if(hideIfLast && gPopStatus.lastShown==hideIfLast) {
+		if(gPopStatus.lastTr) {
+			gPopStatus.lastTr.infoRow.className="d-inforow-hid";
+		}
+		gPopStatus.lastShown=null;
 		return;
 	}
-	tr.lastShown = hideIfLast;
+	gPopStatus.lastShown = hideIfLast;
+	
 //	tr.unShow=(function(){ var d2 = div; return function(){	console.log("hiding " + d2); 	d2.className="d-item";  };})();
 //	div.className = 'd-item-selected';
 	
@@ -699,7 +710,7 @@ function showInPopOld(tr,theRow, str, hideIfLast, fn) {
 		td.appendChild(div2);
 	}
 	if(fn!=null) {
-		tr.unShow=fn(td);
+		gPopStatus.unShow=fn(td);
 	}
 	// always append this
 	if(theRow) {
@@ -710,7 +721,26 @@ function showInPopOld(tr,theRow, str, hideIfLast, fn) {
 	td_real.appendChild(td);
 	td=null;
 	
+	if(gPopStatus.lastTr && gPopStatus.lastTr != tr) {
+		gPopStatus.lastTr.infoRow.className="d-inforow-hid"; // hide old row
+	}
 	tr.infoRow.className = "d-inforow";
+	gPopStatus.lastTr = tr;
+	gPopStatus.infoRow = theRow;
+}
+
+function hidePopOld(tr) {
+	if(gPopStatus.unShow) {
+		gPopStatus.unShow();
+		gPopStatus.unShow=null;
+	}
+	if(gPopStatus.lastTr) {
+		gPopStatus.lastTr.infoRow.className="d-inforow-hid";
+	}
+	gPopStatus.lastShown=null;
+}
+function resetPopOld(tr) {
+	gPopStatus.lastShown=null;
 }
 
 // new pop stuff
@@ -779,8 +809,17 @@ dojo.ready(function() {
 		}
 		//tr.infoRow.className = "d-inforow";
 	};
+	window.hidePop = function() {
+		puouter.style.display="none";
+		lastShown = null;
+	};
+	window.resetPop = function() {
+		lastShown = null;
+	};
 	} else {
 		window.showInPop = showInPopOld;
+		window.hidePop = hidePopOld;
+		window.resetPop = resetPopOld;
 	}
 	/* old system */
 });
@@ -830,7 +869,6 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 		td.appendChild(h3);
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
-		appendHelp(td,theRow);
 
 		newDiv.innerHTML = newHtml;
 
@@ -893,7 +931,7 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 
 
 function popInfoInto(tr, theRow, theChild) {
-	var what = WHAT_GETROW;
+//	var what = WHAT_GETROW;
 	var ourUrl = contextPath + "/RefreshRow.jsp?what=" + WHAT_GETROW
 			+ "&xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
 			+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
@@ -943,7 +981,7 @@ function appendExample(parent, text) {
 }
 
 function addVitem(td, tr,theRow,item,vHash,newButton) {
-	var canModify = tr.theTable.json.canModify;
+//	var canModify = tr.theTable.json.canModify;
 	var div = document.createElement("div");
 	div.className = "d-item";
 	
@@ -1423,14 +1461,19 @@ function refreshRow2(tr,theRow,vHash,onSuccess) {
 }
 
 function handleWiredClick(tr,theRow,vHash,box,button,what) {
+	resetPop(tr);
 	var value="";
+	var valToShow;
 	if(box) {
+		valToShow=box.value;
 		value = box.value;
 		if(value.length ==0 ) {
 			box.focus();
 			return; // nothing entered.
 		}
 		tr.inputTd.className="d-change";
+	} else {
+		valToShow=button.value;
 	}
 	if(!what) {
 		what='submit';
@@ -1441,84 +1484,105 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	} else {
 		showLoader(tr.theTable.theDiv.loader, stui.checking);
 	}
-	
-	
+
+
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
 	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
-	tr.className='tr_checking';
-    var loadHandler = function(json){
-        try {
-            // var newHtml = "";
-             if(json.err && json.err.length >0) {
-            	 tr.className='tr_err';
-                // v_tr.className="tr_err";
-                // v_tr2.className="tr_err";
-            	 showLoader(tr.theTable.theDiv.loader,"Error!");
-                tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
-                // e_div.innerHTML = newHtml;
-             } else {
-            	 if(json.testResults) {
-            		 var valToShow = "";
-            		 if(box) {
-            			 valToShow=box.value;
-            		 } else {
-            			 valToShow=button.value;
-            		 }
-            		 if(showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults)) {
-            			 tr.className = 'vother';
-            			 button.className='ichoice-o';
-            			 hideLoader(tr.theTable.theDiv.loader);
-            			 return; // had error
-            		 }
-//            	 } else if(tr.lastShown && tr.lastShown==tr.inputTd) {
-//            		 // if we were watching warnings and there aren't any,hide them.
-//            			tr.lastShown = null;
-//            			// TODO: hidepop.
-//            			tr.infoRow.className = "d-inforow-hid";
-            	 }
-	             if(json.submitResultRaw) {
-	            	 tr.className='tr_checking2';
-	                 refreshRow2(tr,theRow,vHash,function(){
-	                	 if(box) {
-	                		 box.value="";
-	                	 }
-	                	 tr.inputTd.className="d-change";
-	                 });
-	                 // end: async
-	             } else {
-	            	 tr.className='vother';
-	            	 button.className='ichoice-o-okay';
-        			 hideLoader(tr.theTable.theDiv.loader);
-	             }
-             }
-           }catch(e) {
-          	 tr.className='tr_err';
-             // v_tr.className="tr_err";
-             // v_tr2.className="tr_err";
-             tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
-               console.log("Error in ajax post [handleWiredClick] ",e.message);
- //              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
-           }
-    };
-    var errorHandler = function(err, ioArgs){
-    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-        theRow.className = "ferrbox";
-        theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
-    };
-    var xhrArgs = {
-            url: ourUrl,
-            postData: value,
-            handleAs:"json",
-            load: loadHandler,
-            error: errorHandler
-        };
-    window.xhrArgs = xhrArgs;
-    console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
-    if(box) {
-    	dojo.xhrPost(xhrArgs);
-    } else {
-    	dojo.xhrGet(xhrArgs); // value ignored
-    }
+//	tr.className='tr_checking';
+	var loadHandler = function(json){
+		try {
+			// var newHtml = "";
+			if(json.err && json.err.length >0) {
+				tr.className='tr_err';
+				// v_tr.className="tr_err";
+				// v_tr2.className="tr_err";
+				showLoader(tr.theTable.theDiv.loader,"Error!");
+				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
+				// e_div.innerHTML = newHtml;
+			} else {
+				if(what=='verify') { // TODO: obsolete
+//					if(json.testResults) {
+//					if(json.testWarnings || json.testErrors) {
+//					if(showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults)) {
+//					tr.className = 'vother';
+//					button.className='ichoice-o';
+//					hideLoader(tr.theTable.theDiv.loader);
+//					return; // had error
+//					}
+//					} else {
+//					hidePop(tr);
+//					}
+//					} else {
+//					hidePop(tr);
+//					}
+//					hideLoader(tr.theTable.theDiv.loader);
+//					return;
+//					// END obsolete
+					return;
+				}
+				if(json.submitResultRaw) { // if submitted..
+					tr.className='tr_checking2';
+					refreshRow2(tr,theRow,vHash,function(){
+						tr.inputTd.className="d-change";
+
+						// submit went through. Now show the pop.
+						button.className='ichoice-o';
+						hideLoader(tr.theTable.theDiv.loader);
+						if(json.testResults && (json.testWarnings || json.testErrors)) {
+							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults);
+							if(json.testErrors && box) {
+								setTimeout(function(){box.focus();},100); // make sure the box gets focus
+								box.focus();
+							}
+						} else {
+							if(box) {
+								box.value=""; // submitted - dont show.
+							}
+							hidePop(tr);
+						}
+						//tr.className = 'vother';
+					}); // end refresh-loaded-fcn
+					// end: async
+				} else {
+					// Did not submit. Show errors, etc
+					if(json.testResults && (json.testWarnings || json.testErrors)) {
+						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults);
+					} else {
+						hidePop(tr);
+					}
+					//tr.className='vother';
+					button.className='ichoice-o';
+					hideLoader(tr.theTable.theDiv.loader);
+				}
+			}
+		}catch(e) {
+			tr.className='tr_err';
+			// v_tr.className="tr_err";
+			// v_tr2.className="tr_err";
+			tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
+			console.log("Error in ajax post [handleWiredClick] ",e.message);
+			//              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
+		}
+	};
+	var errorHandler = function(err, ioArgs){
+		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+		theRow.className = "ferrbox";
+		theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+	};
+	var xhrArgs = {
+			url: ourUrl,
+			postData: value,
+			handleAs:"json",
+			load: loadHandler,
+			error: errorHandler
+	};
+	window.xhrArgs = xhrArgs;
+	console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
+	if(box) {
+		dojo.xhrPost(xhrArgs);
+	} else {
+		dojo.xhrGet(xhrArgs); // value ignored
+	}
 }
 
 
@@ -1553,7 +1617,7 @@ function changeStyle(hideRegex) {
 
 function setStyles() {
     var hideRegexString = "X1234X";
-    for (i=0; i < document.checkboxes.elements.length; i++){
+    for (var i=0; i < document.checkboxes.elements.length; i++){
         var item = document.checkboxes.elements[i];
         if (!item.checked) {
             hideRegexString += "|";

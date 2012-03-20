@@ -269,6 +269,9 @@ public class SurveyAjax extends HttpServlet {
                                             .setParameters(exceptionList));
                                 }
                                 
+                                
+                                r.put("testErrors", hasErrors(result));
+                                r.put("testWarnings", hasWarnings(result));
                                 r.put("testResults", JSONWriter.wrap(result));
                                 r.put("testsRun", cc.toString());
                                 r.put("testsV", val);
@@ -338,8 +341,28 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
+    public static  boolean has(List<CheckStatus>result, String type) {
+    	if(result!=null) {
+    		for(CheckStatus s : result) {
+	    		if(s.getType().equals(type)) {
+	    			return true;
+	    		}
+    		}
+    	}
+    	return false;
+    }
+    
+    public static boolean hasWarnings(List<CheckStatus> result) {
+    	return(has(result,CheckStatus.warningType));
+	}
 
-    private void sendStatus(SurveyMain sm, PrintWriter out, String locale) throws IOException {
+
+	public static boolean hasErrors(List<CheckStatus> result) {
+    	return(has(result,CheckStatus.errorType));
+	}
+
+
+	private void sendStatus(SurveyMain sm, PrintWriter out, String locale) throws IOException {
         JSONWriter r = newJSONStatus(sm);
         //        StringBuffer progress = new StringBuffer(sm.getProgress());
         //        String threadInfo = sm.startupThread.htmlStatus();

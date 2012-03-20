@@ -14,6 +14,7 @@
 	http://127.0.0.1:8081/cldr-apps/surveytool.css
 	http://st.unicode.org/smoketest/surveytool.css
 	http://10.0.0.148:8080/cldr-apps/surveytool.css
+	http://10.0.0.158:8080/cldr-apps/surveytool.css
 */
 
 button.icancel {
@@ -1361,6 +1362,7 @@ tr.tr_unknown {
 }
 
 div.helpHtml {
+	margin-top:  0.4em;
 	margin-left: 1em;
 	padding-left: 0.5em;
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -1506,15 +1508,14 @@ tr.d-inforow, .d-item-selected {
 
 tr.d-inforow td {
 	padding: 0.5em;
-	/
-
-*border-top: 1em solid #dff ;
+	/*border-top: 1em solid #dff ;
 	border-left: 1em solid #dff ;
 	border-right: 1em solid #dff ;
 	background-color:  white;*/
 	border-bottom: 3px solid gray;
+	border-left:  none;
+	border-right:  none;
 }
-
 tr.d-inforow td h3.span {
 	font-size: large;
 }
@@ -1637,7 +1638,13 @@ body.disconnected div#progress button#progress-refresh {
 }
 
 td.d-change {
-	
+	white-space: nowrap;
+}
+
+tr.d-inforow td.d-inforow-hidetd {
+}
+button.d-inforow-hider {
+	float: right;
 }
 
 td.d-change .inputbox {

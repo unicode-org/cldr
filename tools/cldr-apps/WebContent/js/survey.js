@@ -1045,19 +1045,25 @@ function updateRow(tr, theRow) {
 	
 	if(theRow.hasErrors) {
 		children[0].className = "d-st-stop";
+		children[0].title = stui.testError;
 	} else if(theRow.hasWarnings) {
 		children[0].className = "d-st-warn";
+		children[0].title = stui.testWarn;
 	} else {
 		children[0].className = "d-st-okay";
+		children[0].title = stui.testOkay;
 	}
 	
 	children[1].className = "d-dr-"+theRow.confirmStatus;
 	children[1].onclick = doPopInfo;
+	children[1].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
 
 	if(theRow.hasVoted) {
 		children[2].className = "d-vo-true";
+		children[2].title=stui.voTrue;
 	} else {
 		children[2].className = "d-vo-false";
+		children[2].title=stui.voFalse;
 	}
 	children[2].onclick = doPopInfo;
 	children[3].innerHTML=theRow.prettyPath;
@@ -1336,9 +1342,11 @@ function showRows(container,xpath,session,coverage) {
 	if(!coverage) coverage="";
 	var theDiv = dojo.byId(container);
 	
-	stui = theDiv.stui  = dojo.i18n.getLocalization("surveyTool", "stui", "en" /* lame */);
+	stui = theDiv.stui  = dojo.i18n.getLocalization("surveyTool", "stui", "en" /* TODO: lame */);
 	
 	stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
+	
+	stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
 	
 	var shower = null;
 	var theTable = theDiv.theTable;

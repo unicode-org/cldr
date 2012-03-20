@@ -34,8 +34,25 @@ define({
 			flyoverothers: "Other non-winning items",
 			flyoverchange: "Enter new values here",
 			flyovernoopinion: "Abstain from voting on this row",
-
 			
+			draftStatus: "Status: ${0}",
+			confirmed: "Confirmed", 
+			approved: "Approved", 
+			unconfirmed: "Approved", 
+			contributed: "Contributed", 
+			confirmed: "Confirmed", 
+			approved: "Approved", 
+			unconfirmed: "Approved", 
+			contributed: "Contributed", 
+
+
+			testOkay: "has no errors or warnings",
+			testWarn: "has warnings",
+			testError: "has errors",
+			
+			voTrue: "You have already voted on this item.",
+			voFalse: "You have not yet voted on this item.",
+
 			online: "Online",
 			disconnected: "Disconnected",
 			startup: "Starting up...",

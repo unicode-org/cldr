@@ -44,6 +44,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import javax.security.auth.callback.NameCallback;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -117,6 +118,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 	static final String ACTION_DEL = "_del";
     static final String ACTION_UNVOTE = "_unvote";
     private static final String XML_CACHE_PROPERTIES = "xmlCache.properties";
+    static UnicodeSet supportedNameSet = new UnicodeSet("[a-zA-Z]").freeze();
+    static final int TWELVE_WEEKS=3600*24*7*12;
+
     /**
      * 
      */
@@ -535,15 +539,27 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     	ctx.println(ctx.iconHtml("stop", "fail")+"<b>Please go <a href='javascript:window.history.back();'>Back</a> and fill in your real name.</b>");
                     } else {
         	            UserRegistry.User u = reg.getEmptyUser();
-        	            u.name= real+"_"+ctx.field("new_name").trim();
-        	            u.email = real+"_"+ctx.field("new_email").trim();
-        	            u.locales = ctx.field("new_locales").trim();
+        	            StringBuffer myRealName = new StringBuffer(real.trim());
+        	            StringBuilder newRealName = new StringBuilder();
+        	            for(int j=0;j<myRealName.length();j++) {
+        	            	if(supportedNameSet.contains(myRealName.charAt(j))) {
+        	            		newRealName.append(myRealName.charAt(j));
+        	            	}
+        	            }
         	            u.org = ctx.field("new_org").trim();
-        	            u.password = ctx.field("new_password");
+        	        	String randomEmail = UserRegistry.makePassword(null)+"@"+UserRegistry.makePassword(null).substring(0,4)+"."+u.org+".example.com";
+//        	        	String randomName = UserRegistry.makePassword(null).substring(0,5);
+        	        	String randomPass = UserRegistry.makePassword(null);
+        	            u.name= newRealName.toString()+"_TESTER_";
+        	            u.email = newRealName+"_"+randomEmail.trim();
+        	            u.locales = ctx.field("new_locales").trim();
+        	            u.password = randomPass;
         	            u.userlevel = ctx.fieldInt("new_userlevel",-1);
         	            UserRegistry.User registeredUser = reg.newUser(ctx, u);
-        	            ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added. Click the following link if you aren't redirected automatically.</i>");
+        	            ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added '"+u.name+"'. Click the following link if you aren't redirected automatically.</i>");
         	            registeredUser.printPasswordLink(ctx);
+                        ctx.addCookie(QUERY_EMAIL, u.email, TWELVE_WEEKS);
+                        ctx.addCookie(QUERY_PASSWORD, u.password, TWELVE_WEEKS);
         	            ctx.println("<script>document.location = '"+ctx.base()+"/survey?email="+u.email+"&pw="+u.password+"';</script>");
                     }
             } else if(ctx.hasAdminPassword()) {
@@ -3448,7 +3464,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         	Thread.currentThread().setName(Thread.currentThread().getName()+" "+ctx.session.user.id+":"+ctx.session.user.toString());        	
 
             if(ctx.hasField(QUERY_SAVE_COOKIE)) {
-                int TWELVE_WEEKS=3600*24*7*12;
                 ctx.addCookie(QUERY_EMAIL, ctx.session.user.email, TWELVE_WEEKS);
                 ctx.addCookie(QUERY_PASSWORD, ctx.session.user.password, TWELVE_WEEKS);
             }

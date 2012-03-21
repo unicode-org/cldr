@@ -1154,11 +1154,11 @@ public class UserRegistry {
 			}
 		} catch (SQLException se) {
 			SurveyLog.logException(se,"Adding User");
-			logger.severe("UR: Adding: exception: "
+			logger.severe("UR: Adding " + u.toString() + ": exception: "
 					+ DBUtils.unchainSqlException(se));
 		} catch (Throwable t) {
 			SurveyLog.logException(t,"Adding User");
-			logger.severe("UR: Adding: exception: " + t.toString());
+			logger.severe("UR: Adding  " + u.toString() + ": exception: " + t.toString());
 		} finally {
 			userModified(); // new user
 			DBUtils.close(insertStmt,conn);

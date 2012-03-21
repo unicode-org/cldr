@@ -15,9 +15,6 @@ VoteResolver.Organization orgs[] = VoteResolver.Organization.values();
 VoteResolver.Organization anOrg = orgs[(int)Math.rint(Math.random()*(double)(orgs.length-1))];
 String myorg = anOrg.name();
 	
-	String randomEmail = UserRegistry.makePassword(null)+"@"+UserRegistry.makePassword(null).substring(0,4)+"."+myorg+".example.com";
-	String randomName = UserRegistry.makePassword(null).substring(0,5);
-	String randomPass = UserRegistry.makePassword(null);
 	
     Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
     if(c0!=null) {
@@ -62,18 +59,6 @@ String myorg = anOrg.name();
 
 	
 	<table id='more' style='display: none;'>
-	<tr>
-		<th><label for="new_name">Fake Name:</label></th>
-		<td><input size="40" value="<%= randomName %>" name="new_name" /></td>
-	</tr>
-	<tr>
-		<th><label for="new_email">E-mail:</label></th>
-		<td><input value='<%= randomEmail %>' size="40" name="new_email" /></td>
-	</tr>
-	<tr>
-		<th><label for="new_password">Password:</label></th>
-		<td><input value='<%= randomPass %>' size="40" name="new_password" /></td>
-	</tr>
 	<tr>
 		<th><label for="new_org">Organization:</label></th>
 		

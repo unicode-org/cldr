@@ -14,7 +14,9 @@ define({
 			itemCountNone: "No items!",
 			noVotingInfo: " (no voting info received)",
 			newDataWaiting: "(new data waiting)",
-			
+
+			clickToCopy: "click to copy to input box",
+
 			htmlst: "St.",
 			htmldraft: "Draft",
 			htmlvoted: "Voted",
@@ -44,6 +46,7 @@ define({
 			approved: "Approved", 
 			unconfirmed: "Approved", 
 			contributed: "Contributed", 
+			
 
 
 			testOkay: "has no errors or warnings",

@@ -902,6 +902,13 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 		var h3 = document.createElement("h3");
 		h3.appendChild(cloneAnon(div.getElementsByTagName("span")[0]));
 		h3.className="span";
+		h3.onclick = function() {
+			if(tr.inputBox) {
+				tr.inputBox.value  = item.value;
+			}
+			return false;
+		};
+		h3.title = stui.clickToCopy;
 		td.appendChild(h3);
 		
 		

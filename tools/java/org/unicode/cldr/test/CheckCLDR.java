@@ -506,7 +506,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
   static class CompoundCheckCLDR extends CheckCLDR {
     private Matcher filter;
     private List checkList = new ArrayList();
-    private List filteredCheckList = new ArrayList();
+    private List<CheckCLDR> filteredCheckList = new ArrayList<CheckCLDR>();
 
     public CompoundCheckCLDR add(CheckCLDR item) {
         checkList.add(item);
@@ -614,6 +614,9 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     
     public String getFilteredTests() {
         return filteredCheckList.toString();
+    }
+    public List<CheckCLDR> getFilteredTestList() {
+        return filteredCheckList;
     }
   }
 

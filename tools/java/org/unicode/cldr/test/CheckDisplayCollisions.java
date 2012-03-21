@@ -26,7 +26,7 @@ import com.ibm.icu.util.TimeZone;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
     static final boolean USE_OLD_COLLISION = CldrUtility.getProperty("OLD_COLLISION", false);
-    
+
     // TODO probably need to fix this to be more accurate over time
     static long year = (long)(365.2425 * 86400 * 1000); // can be approximate
     static long startDate = new Date(1995-1900, 1 - 1, 15).getTime(); // can be approximate
@@ -34,7 +34,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     static final String LANGUAGE_PREFIX = "//ldml/localeDisplayNames/languages/language";
     static final int LANGUAGE_PREFIX_INDEX = 0; // sync with typesICareAbout
-    
+    static final int CURRENCY_PREFIX_INDEX = 4; // sync with typesICareAbout
+
     static final String[] typesICareAbout = {
         LANGUAGE_PREFIX,
         "//ldml/localeDisplayNames/scripts/script",
@@ -43,14 +44,19 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         "//ldml/numbers/currencies/currency",
         //"\"]/displayName", "currency",
         "//ldml/dates/timeZoneNames/zone",	
+        "//ldml/dates/timeZoneNames/metazone"
     };
     transient static final int[] pathOffsets = new int[2];
     transient static final int[] otherOffsets = new int[2];
+    static final boolean SKIP_TYPE_CHECK = true;
 
-    Matcher exclusions = Pattern.compile("[mM]etazone").matcher("");
-    Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*)\"]").matcher("");
+    Matcher exclusions = Pattern.compile("XXXX").matcher(""); // no matches
+    Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*+)\"]").matcher("");
+    Matcher attributesToIgnore = Pattern.compile("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
+
     boolean[] builtCollisions;
     Set<String> paths = new HashSet<String>();
+    Set<String> retrievedPaths = new HashSet<String>();
     Set<String> collidingTypes = new TreeSet<String>();
 
     private XPathParts parts1 = new XPathParts(null, null);
@@ -94,9 +100,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
             // find my type; bail if I don't have one.
             int myType = -1;
+            String myPrefix = null;
             for (int i = 0; i < typesICareAbout.length; ++i) {
                 if (path.startsWith(typesICareAbout[i])) {
                     myType = i;
+                    myPrefix = typesICareAbout[i];
                     break;
                 }
             }
@@ -105,14 +113,36 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
 
             // get the paths with the same value. If there aren't duplicates, continue;
+            retrievedPaths.clear();
             paths.clear();
-            getResolvedCldrFileToCheck().getPathsWithValue(value, null, null, paths);
-            paths.remove(path);
+            getResolvedCldrFileToCheck().getPathsWithValue(value, myPrefix, null, retrievedPaths);
+            
+            // Do first cleanup
+            // remove paths with "alt/count"; they can be duplicates
+            for (String pathName : retrievedPaths) {
+                if (exclusions.reset(pathName).find()) {
+                    continue;
+                }
+                // we only care about winning paths
+                if (!getResolvedCldrFileToCheck().isWinningPath(path)) {
+                    continue ;
+                }
+                // special cases: don't look at CODE_FALLBACK
+                if ((myType == CURRENCY_PREFIX_INDEX || myType == CURRENCY_PREFIX_INDEX) && isCodeFallback(path)) {
+                    continue;
+                }
+                // clean up the pat
+                String newPath = attributesToIgnore.reset(pathName).replaceAll("");
+                paths.add(newPath);
+            }
+            String cleanPath = attributesToIgnore.reset(path).replaceAll("");
+            paths.remove(cleanPath);
+            
             if (paths.isEmpty()) {
                 return this;
             }
 
-            removeMatches(myType);
+            //removeMatches(myType);
             // check again on size
             if (paths.isEmpty()) {
                 return this;
@@ -120,23 +150,30 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
             // ok, we probably have a collision! Extract the types
             collidingTypes.clear();
-            for (String dpath : paths) {
-                if (!typePattern.reset(dpath).find()) {
-                    throw new IllegalArgumentException("Internal error: " + dpath + " doesn't match " + typePattern.pattern());
+            if (SKIP_TYPE_CHECK) {
+                int prefix = typesICareAbout[myType].length();
+                for (String pathName : paths) {
+                    attributesToIgnore.reset(pathName);
+                    collidingTypes.add(pathName.substring(prefix)); // later make this more readable.
                 }
-                collidingTypes.add(typePattern.group(1));
-            }
-
-            // remove my type, and check again
-            if (!typePattern.reset(path).find()) {
-                throw new IllegalArgumentException("Internal error: " + path + " doesn't match " + typePattern.pattern());
             } else {
-                collidingTypes.remove(typePattern.group(1));
-            }
-            // check one last time...
-            if (collidingTypes.isEmpty()) {
-                return this;
-            }
+                for (String dpath : paths) {
+                    if (!typePattern.reset(dpath).find()) {
+                        throw new IllegalArgumentException("Internal error: " + dpath + " doesn't match " + typePattern.pattern());
+                    }
+                    collidingTypes.add(typePattern.group(1));
+                }
+
+                // remove my type, and check again
+                if (!typePattern.reset(path).find()) {
+                    throw new IllegalArgumentException("Internal error: " + path + " doesn't match " + typePattern.pattern());
+                } else {
+                    collidingTypes.remove(typePattern.group(1));
+                }
+                // check one last time...
+                if (collidingTypes.isEmpty()) {
+                    return this;
+                }}
 
             CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.displayCollision)
             .setCheckOnSubmit(false)
@@ -158,18 +195,19 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
                 // special case languages: don't look at CODE_FALLBACK
                 if (dpath.startsWith(LANGUAGE_PREFIX) && isCodeFallback(dpath)) {
-                        it.remove();
-                        continue main;
-                }
-                // make sure the collision is with the same type
-                if (dpath.startsWith(typesICareAbout[myType]) && !exclusions.reset(dpath).find()) {
+                    it.remove();
                     continue main;
                 }
+//                // make sure the collision is with the same type
+//                if (dpath.startsWith(typesICareAbout[myType]) 
+//                        && !exclusions.reset(dpath).find()) {
+//                    continue main;
+//                }
                 // no match, remove
                 it.remove();
             }
     }
-    
+
     private boolean isCodeFallback(String dpath) {
         String locale = getResolvedCldrFileToCheck().getSourceLocaleID(dpath, null);
         return locale.equals(XMLSource.CODE_FALLBACK_ID);

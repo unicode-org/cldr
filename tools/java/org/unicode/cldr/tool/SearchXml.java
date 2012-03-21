@@ -2,6 +2,8 @@ package org.unicode.cldr.tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,6 +37,9 @@ public class SearchXml {
     private static boolean levelExclude = false;
     private static boolean valueExclude = false;
     private static boolean fileExclude = false;
+    private static boolean unique = false;
+    private static boolean groups = false;
+    private static Counter<String> uniqueData = new Counter<String>();
 
     private static String valuePattern;
 
@@ -48,6 +53,8 @@ public class SearchXml {
     .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
     .add("count", null, null, "only count items")
     .add("kount", null, null, "count regex group matches in pattern")
+    .add("unique", null, null, "only unique lines")
+    .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
     .add("Verbose", null, null, "verbose output")
     ;
 
@@ -79,6 +86,9 @@ public class SearchXml {
             }
         }
 
+        unique = myOptions.get("unique").doesOccur();
+        groups = myOptions.get("groups").doesOccur();
+
         countOnly = myOptions.get("count").doesOccur();
         kountRegexMatches = myOptions.get("kount").doesOccur() ? new Counter<String>() : null;
 
@@ -101,6 +111,12 @@ public class SearchXml {
         if (kountRegexMatches != null) {
             for (String item : kountRegexMatches.getKeysetSortedByCount(false)) {
                 System.out.println(kountRegexMatches.getCount(item) + "\t" + item);
+            }
+        }
+
+        if (unique) {
+            for (String item : uniqueData.getKeysetSortedByCount(false)) {
+                System.out.println(uniqueData.getCount(item) + item);
             }
         }
 
@@ -236,8 +252,26 @@ public class SearchXml {
                 firstMessage = null;
             }
             if (!countOnly) {
-                System.out.println(file + "\t" + value + "\t" + path);
+                String data = groups 
+                ? group(value, valueMatcher) + "\t" + group(path, pathMatcher) 
+                        : value + "\t" + path;
+                if (!unique) {
+                    System.out.println(file + "\t" + data);
+                } else {
+                    uniqueData.add(data,1);
+                }
             }
+        }
+
+        private String group(String item, Matcher matcher) {
+            if (matcher == null) {
+                return item;
+            }
+            StringBuilder b = new StringBuilder();
+            for (int i = 1; i <= matcher.groupCount(); ++i) {
+                b.append(matcher.group(i));
+            }
+            return b.toString();
         }
     }
 }

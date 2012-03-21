@@ -283,6 +283,9 @@ public class ConsoleCheckCLDR {
         Factory cldrFactory = Factory.make(sourceDirectory, factoryFilter)
         .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
         CompoundCheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
+        if (checkCldr.getFilteredTestList().size() == 0) {
+            throw new IllegalArgumentException("The filter doesn't match any tests.");
+        }
         System.out.println("filtered tests: " + checkCldr.getFilteredTests());
         try {
             english = cldrFactory.make("en", true);
@@ -540,15 +543,15 @@ public class ConsoleCheckCLDR {
                         // survey tool will use: if (status.hasHTMLMessage()) System.out.println(status.getHTMLMessage());
                     }
                     if (!showedOne && phase != Phase.FINAL_TESTING) {
-                        if (fullPath != null && draftStatusMatcher.reset(fullPath).find() && localeID.equals(sourceLocaleID) && path.equals(otherPath.pathWhereFound)) {
-                            final String draftStatus = draftStatusMatcher.group(1);
-                            // see if value is same as parents, then skip
-                            String parentValue = parent == null ? null : parent.getStringValue(path);
-                            if (parentValue == null || !parentValue.equals(value)) {
-                                showValue(file, prettyPath, localeID, example, path, value, fullPath, draftStatus, Subtype.none, exampleContext);
-                                showedOne = true;
-                            }
-                        }
+//                        if (fullPath != null && draftStatusMatcher.reset(fullPath).find() && localeID.equals(sourceLocaleID) && path.equals(otherPath.pathWhereFound)) {
+//                            final String draftStatus = draftStatusMatcher.group(1);
+//                            // see if value is same as parents, then skip
+//                            String parentValue = parent == null ? null : parent.getStringValue(path);
+//                            if (parentValue == null || !parentValue.equals(value)) {
+//                                showValue(file, prettyPath, localeID, example, path, value, fullPath, draftStatus, Subtype.none, exampleContext);
+//                                showedOne = true;
+//                            }
+//                        }
                         if (!showedOne && showAll) {
                             showValue(file, prettyPath, localeID, example, path, value, fullPath, "ok", Subtype.none, exampleContext);
                             showedOne = true;

@@ -3561,12 +3561,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             if(dcParent != null) {
                 ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
                 ctx.println("<h1 title='"+ctx.getLocale().getBaseName()+"'>"+ctx.getLocale().getDisplayName()+"</h1>");
-                ctx.println("<div class='ferrbox'>This locale is the default content for <b>"+
+                ctx.println("<div class='ferrbox'>This locale is the " +
+                		"<i><a href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b>"+
                     getLocaleLink(ctx,dcParent,null)+
                     "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
                     getLocaleLink(ctx,dcParent,null)+
-                    "</b> instead.  ");
-                ctx.printHelpLink("/DefaultContent","Help with Default Content");
+                    "</b> instead.");
+//                ctx.printHelpLink("/DefaultContent","Help with Default Content");
                 ctx.print("</div>");
                 
                 //printLocaleTreeMenu(ctx, which);

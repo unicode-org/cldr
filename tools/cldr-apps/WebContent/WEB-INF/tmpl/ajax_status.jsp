@@ -26,10 +26,13 @@ var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
 var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";
 var WHAT_GETROW = "<%= SurveyAjax.WHAT_GETROW %>";
 var WHAT_SUBMIT = "<%= SurveyAjax.WHAT_SUBMIT %>";
+var TARGET_TOCS = "<%= WebContext.TARGET_DOCS %>";
+var BASELINE_LOCALE = "<%= SurveyMain.BASELINE_LOCALE %>";
+var BASELINE_LANGUAGE_NAME = "<%= SurveyMain.BASELINE_LANGUAGE_NAME %>";
 </script>
-<script type='text/javascript' src='<%= request.getContextPath() %>/js/survey.js<%-- ?sick_of_getting_stale_javascript=<%= SurveyMain.surveyRunningStamp.current() %> --%>'></script>
+<script type='text/javascript' src='<%= request.getContextPath() %>/js/survey.js'></script>
 
 <%= VettingViewer.getHeaderStyles() %>
 
-<% if(!SurveyMain.isUnofficial) { out.println(org.unicode.cldr.tool.ShowData.ANALYTICS); } %>
+<%= (!SurveyMain.isUnofficial) ? (org.unicode.cldr.tool.ShowData.ANALYTICS) : "" %>
 <!--  end ajax_status.jsp -->

@@ -38,12 +38,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</tr>
 </table>
 <div class="body">
-	<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+	<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 	<h1 style="text-align: center">Unicode Locale Data Markup Language (LDML)</h1>
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td><span class="changed">21.0.1 draft</span></td>
+			<td>21.0.1</td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -52,17 +52,17 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012-0<span class="changed">3-17</span></td>
+			<td>2012-03-20</td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a class="changed" href="http://unicode.org/reports/tr35/tr35-24.html">http://unicode.org/reports/tr35/tr35-24.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-25.html">http://unicode.org/reports/tr35/tr35-25.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-23.html" class="changed">http://unicode.org/reports/tr35/tr35-23.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-23.html">http://unicode.org/reports/tr35/tr35-23.html</a></td>
 		</tr>
 		<tr>
 			<td>Latest Version</td>
@@ -93,7 +93,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a href="#Modifications" class="changed">24</a></td>
+			<td><a href="#Modifications">25</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
@@ -102,19 +102,19 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	
 	<h3><i>Status</i></h3>
 
-	   <!-- NOT YET APPROVED -->
+	   <!-- NOT YET APPROVED
 	  <p><i class="changed">This is a<b><font color="#ff3333"> draft </font></b>document which 
       may be updated, replaced, or superseded by other documents at any time. 
       Publication does not imply endorsement by the Unicode Consortium. This is 
       not a stable document; it is inappropriate to cite this document as other 
       than a work in progress.</i></p>
-      <!-- END NOT YET APPROVED -->
-	  <!-- APPROVED
+      END NOT YET APPROVED -->
+	  <!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-      END APPROVED -->
+      <!-- END APPROVED -->
 
 	<blockquote>
 		<p><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</i></p>
@@ -1378,8 +1378,8 @@ root</pre>
 	<p><b>Warning: </b>If a locale has a different script than its parent (for 
 	example, sr_Latn), then special attention must be paid to make sure that all inheritance is 
   covered. For example, auxiliary exemplar characters may need to be empty (&quot;[]&quot;) to block inheritance.</p>
-	<p class="changed"><strong>Empty Override:</strong> There is one special value reserved in LDML to indicate that a child locale is to have no value for a path, even if the parent locale has a value for that path. That value is &quot;∅∅∅&quot;. For example, if there is no phrase for &quot;two days ago&quot; in a language, that can be indicated with:</p>
-	<pre class="changed">&lt;field type="day"&gt;
+	<p ><strong>Empty Override:</strong> There is one special value reserved in LDML to indicate that a child locale is to have no value for a path, even if the parent locale has a value for that path. That value is &quot;∅∅∅&quot;. For example, if there is no phrase for &quot;two days ago&quot; in a language, that can be indicated with:</p>
+	<pre>&lt;field type="day"&gt;
   &lt;relative type="-2"&gt;∅∅∅&lt;/relative&gt;
 </pre>
 <h3>4.1 <a name="Multiple_Inheritance">Multiple Inheritance</a></h3>
@@ -5709,15 +5709,15 @@ range         = value'..'value</pre>
     <li>Remove the final field from each, and if any fields are left, repeat these steps.</li>
   </ol>
   <p>The end result is the product of the matched values.</p>
-  <p class="changed">There is one special case. Suppose we have the following situation:</p>
+  <p>There is one special case. Suppose we have the following situation:</p>
   <ul>
-    <li class="changed">desired languages: {und, it}</li>
-    <li class="changed">supported languages: {en, it}</li>
-    <li class="changed">resulting language: en<br>
+    <li>desired languages: {und, it}</li>
+    <li>supported languages: {en, it}</li>
+    <li>resulting language: en<br>
     </li>
   </ul>
-<p class="changed">Part of this is because 'und' has a special function in BCP47; it stands in for 'no supplied base language'. To prevent this from happening, if the desired base language is und, the language matcher should not apply likely subtags to it. </p>
-<p class="changed">Examples:</p>
+<p>Part of this is because 'und' has a special function in BCP47; it stands in for 'no supplied base language'. To prevent this from happening, if the desired base language is und, the language matcher should not apply likely subtags to it. </p>
+<p>Examples:</p>
 <p>For example, suppose that nn-DE and nb-FR are being compared. They are first maximized to nn-Latn-DE and nb-Latn-FR, respectively. The list is searched. The first match is with &quot;*-*-*&quot;, for a match of 96%. The languages are truncated to nn-Latn and nb-Latn, then to nn and nb. The first match is also for a value of 96%, so the result is 92%.</p>
   <p>Note that language matching is orthogonal to the how closely two languages are related linguistically. For example, Breton is more closely related to Welsh than to French, but French is the better match (because it is more likely that a Breton reader will understand French than Welsh). This also illustrates that the matches are often asymmetric: it is not likely that a French reader will understand Breton. </p>
   <p>The &quot;*&quot; acts as a wild card, as shown in the following example:</p>
@@ -8164,7 +8164,7 @@ decimal?, group?, special*)) &gt;</pre>
 	can both apply at a given point in the string, then the transform applies the first rule in the list.</p>
 	<p>All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters →, ←, ↔. Normally, these characters 
 	do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole 
-	string of text. The slash affects only the character immediately after it. For example, to convert from <span class="changed">a U+2190 ( ← ) LEFTWARDS ARROW to the string &quot;arrow sign&quot; (with a space)</span>, use one of the following 
+	string of text. The slash affects only the character immediately after it. For example, to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string &quot;arrow sign&quot; (with a space), use one of the following 
 	rules: </p>
 	<table cellspacing="0" cellpadding="8" border="1">
 	  <tr>
@@ -8899,7 +8899,7 @@ decimal?, group?, special*)) &gt;</pre>
 	field subtag for the field separator subtag. For example:
 <pre>
 &lt;key extension="t" name="m0" 
-    description="<span class="changed">Transform</span> extension mechanism"&gt;
+    description="Transform extension mechanism"&gt;
 	&lt;type name="ungegn"
 		description="United Nations Group of Experts on Geographical Names"
       since="21"/&gt;
@@ -8935,17 +8935,15 @@ decimal?, group?, special*)) &gt;</pre>
 &nbsp;</i></td>
 		</tr>
 		<tr>
-			<td class="changed" width="148">[<a name="Bugs">Bugs</a>]</td>
-			<td class="changed" width="730">CLDR Bug Reporting form<br>
-			<a class="removed" href="http://www.unicode.org/cldr/filing_bug_reports.html">
-			http://www.unicode.org/cldr/filing_bug_reports.html</a><br>
+			<td width="148">[<a name="Bugs">Bugs</a>]</td>
+			<td width="730">CLDR Bug Reporting form<br>
 			<a href="http://cldr.unicode.org/index/bug-reports">
 			http://cldr.unicode.org/index/bug-reports</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="Charts">Charts</a>]</td>
 			<td class="noborder" width="730">The online code charts can be found at <a href="http://unicode.org/charts/">http://unicode.org/charts/</a> An index 
-			to character<span class="removed">s</span> names with links to the corresponding chart is found at <a href="http://unicode.org/charts/charindex.html">http://unicode.org/charts/charindex.html</a></td>
+			to character names with links to the corresponding chart is found at <a href="http://unicode.org/charts/charindex.html">http://unicode.org/charts/charindex.html</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="DUCET">DUCET</a>]</td>
@@ -8973,8 +8971,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<tr>
 			<td class="noborder" width="148">[<a name="JavaChoice">JavaChoice</a>]</td>
 			<td class="noborder" width="730">Java ChoiceFormat<br>
-			<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html" class="removed">http://java.sun.com/j2se/1.4.2/docs/api/java/text/ChoiceFormat.html</a><br>
-			<a class="changed" href="http://docs.oracle.com/javase/1.4.2/docs/api/java/text/ChoiceFormat.html">
+			<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/text/ChoiceFormat.html">
 			http://docs.oracle.com/javase/1.4.2/docs/api/java/text/ChoiceFormat.html</a></td>
 		</tr>
 		<tr>
@@ -8996,12 +8993,9 @@ decimal?, group?, special*)) &gt;</pre>
 		<tr>
 			<td class="noborder" width="148">[<a name="Unicode">Unicode</a>]</td>
 			<td class="noborder" width="730">
-				<span class="removed">The Unicode Consortium. The Unicode Standard, Version 5.2.0, defined by: 
-				<a href="http://www.unicode.org/versions/Unicode5.2.0/">The Unicode Standard, Version 5.2</a> 
-				(Mountain View, CA: The Unicode Consortium, 2009. ISBN 978-1-936213-00-9)</span><br>
-				<span class="changed">The Unicode Consortium. The Unicode Standard, Version 6.1.0, 
-				(Mountain View, CA: The Unicode Consortium, 2012. ISBN 978-1-936213-02-3) <br>
-				<a href="http://www.unicode.org/versions/Unicode6.1.0/">http://www.unicode.org/versions/Unicode6.1.0/</a></span></td>
+				The Unicode Consortium. The Unicode Standard, Version 6.1.0, 
+				(Mountain View, CA: The Unicode Consortium, 2012. ISBN 978-1-936213-02-3)<br>
+				<a href="http://www.unicode.org/versions/Unicode6.1.0/">http://www.unicode.org/versions/Unicode6.1.0/</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="Versions">Versions</a>]</td>
@@ -9227,15 +9221,16 @@ decimal?, group?, special*)) &gt;</pre>
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
 
-  <h3><span class="changed">Revision 24</span></h3>
+  <h3>Revision 25</h3>
 	<ul>
-		<li><span class="changed">Proposed update for CLDR Version 21.0.1.</span></li>
-		<li class="changed">Fixed typo in 't' extension.</li>
-		<li class="changed">Added note on the special case of 'und' in language matching:  <a href="http://unicode.org/cldr/trac/ticket/3439">#3439</a></li>
-		<li class="changed">Added explanation of Empty Override: <a href="http://unicode.org/cldr/trac/ticket/4012">#4012</a></li>
-		<li class="changed">Fix typo in Annex N: <a href="http://unicode.org/cldr/trac/ticket/4110">#4110</a></li>
+		<li>Updated for CLDR Version 21.0.1.</li>
+		<li>Fixed typo in 't' extension.</li>
+		<li>Added note on the special case of 'und' in language matching:  <a href="http://unicode.org/cldr/trac/ticket/3439">#3439</a></li>
+		<li>Added explanation of Empty Override: <a href="http://unicode.org/cldr/trac/ticket/4012">#4012</a></li>
+		<li>Fix typo in Annex N: <a href="http://unicode.org/cldr/trac/ticket/4110">#4110</a></li>
 	</ul>
 
+<p>Revision 24 being a proposed update, only changes between revisions 23 and 25 are summarized here.</p>
 <h3>Revision 23</h3>
 	<ul>
 		<li>Updated for CLDR Version 21.</li>

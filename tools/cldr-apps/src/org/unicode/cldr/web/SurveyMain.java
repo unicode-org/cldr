@@ -100,6 +100,7 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
+
     public static Stamp surveyRunningStamp = Stamp.getInstance();
     
 	public static final String QUERY_SAVE_COOKIE = "save_cookie";
@@ -120,6 +121,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     private static final String XML_CACHE_PROPERTIES = "xmlCache.properties";
     static UnicodeSet supportedNameSet = new UnicodeSet("[a-zA-Z]").freeze();
     static final int TWELVE_WEEKS=3600*24*7*12;
+    
+    private static final String DEFAULT_CONTENT_LINK = "<i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i>";
 
     /**
      * 
@@ -3577,7 +3580,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
                 ctx.println("<h1 title='"+ctx.getLocale().getBaseName()+"'>"+ctx.getLocale().getDisplayName()+"</h1>");
                 ctx.println("<div class='ferrbox'>This locale is the " +
-                		"<i><a href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i>" +
+                		DEFAULT_CONTENT_LINK +
                 		" for <b>"+
                     getLocaleLink(ctx,dcParent,null)+
                     "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
@@ -3593,7 +3596,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             } else if (dcChild != null) {
                 String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
                 ctx.println("<div class='fnotebox'>This locale supplies the " +
-                        "<i><a href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i>" +
+                        DEFAULT_CONTENT_LINK +
                 		" for <b>"+
                     dcChildDisplay+
                     "</b>. Please make sure that all the changes that you make here are appropriate for <b>"+

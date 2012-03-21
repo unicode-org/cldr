@@ -26,7 +26,7 @@ if(q.startsWith("\\u") || q.startsWith("=")) {
 		boolean hdr = false;
 		CLDRFile f = null;
 		try {
-			f = sm.getDiskFactory().make(loc2.getBaseName(), false);
+			f = sm.getSTFactory().make(loc2.getBaseName(), false);
 		} catch(Throwable t) {
 			%><pre><%= t.toString()  %> loading <%= loc2.getDisplayName() %> - <%= loc2 %>
 			<% t.printStackTrace(); %></pre><%

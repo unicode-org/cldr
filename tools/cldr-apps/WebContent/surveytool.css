@@ -15,6 +15,7 @@
 	http://st.unicode.org/smoketest/surveytool.css
 	http://10.0.0.148:8080/cldr-apps/surveytool.css
 	http://10.0.0.158:8080/cldr-apps/surveytool.css
+	http://st.unicode.org:8080/cldr-apps/surveytool.css
 */
 
 button.icancel {
@@ -137,14 +138,10 @@ A.nodraft:visited {
 }
 
 .alias {
-	/
-
-*	font-size: smaller;
+	/*	font-size: smaller;
 	*/
 
-/
-
-*	font-color: #F22;
+/*	font-color: #F22;
 	*/
  background-color: #ddf;
 }
@@ -218,9 +215,7 @@ a.notselected {
 
 .warning {
 	font-size: smaller;
-	/
-
-*	font-color: #F22;
+	/*	font-color: #F22;
 	*/
 	color: #F22;
 	background-color: #fee;
@@ -242,9 +237,7 @@ td.warncell {
 }
 
 tr.warnrow {
-	/
-
-*    font-color: #f22;
+	/*    font-color: #f22;
 	*/
     color: #f22;
 	background-color: #fee;
@@ -619,9 +612,7 @@ div.person a {
 }
 
 .actionbox {
-	/
-
-*    color: #000;
+	/*    color: #000;
 	background: #ddd;
 	*/
     font-size: 80%;
@@ -689,9 +680,7 @@ td.insufficient span.loser {
 /* @group tzbox */
 
 table.tzbox {
-	/
-
-*	border: 1px solid gray;
+	/*	border: 1px solid gray;
 	*/
 	border-collapse: collapse;
 }
@@ -822,7 +811,7 @@ h4#toptitle b {
 	font-size: small;
 	margin-left: 1px;
 	margin-right: 1px;
-	color: #d00
+	color: #d00;
 	font-weight: bold;
 	white-space: nowrap;
 }
@@ -1060,47 +1049,22 @@ div.topnotices p.beta {
 }
 
 div.topnotices div.beta {
-	/
-
-* for firefox, safari, chrome, etc. */
+	/* for firefox, safari, chrome, etc. */
 -webkit-transform: rotate(-90deg);
 	-webkit-transform-origin: right bottom;
 	-moz-transform: rotate(-90deg);
 	-moz-transform-origin: right bottom;
-	-o-transform: rotate(-90
+	-o-transform: rotate(-90 deg);
+	/* For Opera*/
+-o-transform-origin: right bottom;
+	/* For Opera*/
+-khtml-transform: rotate (-90deg);
+	/* For Lunix*/
+-khtml-transform-origin: right bottom;
+	/*For Lunix*/
+/* for ie */
 
-deg);
-	/
-
-* For Opera*/
--o-transform-origin: right 
-
-bottom;
-	/
-
-* For Opera*/
--khtml-transform: rotate
-
-(-90deg);
-	/
-
-* For Lunix*/
--khtml-transform-origin: ri
-
-ght bottom;
-	/
-
-*
-
-For Lunix*/
-
-
-/
-
-* for ie */
-/
-
-* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
+/* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
 
     background-color: yellow;
 	padding: 3px;
@@ -1198,8 +1162,8 @@ div#progress {
 	position: fixed;
 	top: 0;
 	left: 0;
-	margin-right: 0.5;
-	margin-bottom: 0.5;
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
 	border-right: 4px solid gray;
 	border-bottom: 4px solid gray;
 	background-color: #f5edeb;
@@ -1247,7 +1211,7 @@ table.progress-list tr th {
 	background-color: #eee;
 	opacity: .8;
 	padding-left: 1em;
-	font-color: red;
+	color: red;
 }
 
 table.progress-list tbody tr td {
@@ -1382,7 +1346,7 @@ div.helpHtml {
 
 .d-parrow {
 	position: relative;
-	top: expression(this.offsetParent.scrollTop);
+	/*top: expression(this.offsetParent.scrollTop);*/
 }
 
 .d-sortmode {
@@ -1681,7 +1645,7 @@ td.d-change
 td.d-change-err {
 	background-color: red !important;
 	background: url(stop.png) no-repeat right top;
-	border: 2px soldi red;
+	border: 2px solid red;
 }
 
 td.d-change-confirmonly:after {

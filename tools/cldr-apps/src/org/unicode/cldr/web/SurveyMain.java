@@ -189,7 +189,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //    public static final String CLDR_HELP_LINK_EDIT = CLDR_HELP_LINK;
     public static final String CLDR_HELP_LINK = GENERAL_HELP_URL+"#";
      
-    public static final String SLOW_PAGE_NOTICE = ("<i>Note: The first time a page is loaded it may take some time, please be patient.</i>");    
 
     // ===== Hash keys and field values
     public static final String SUBVETTING = "//v";
@@ -2366,7 +2365,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                 ctx.println("<h1>sending mail to users...</h4>");
 				didConfirmMail=true;
                 mailBody = "Message from " + getRequester(ctx) + ":\n--------\n"+sendWhat+
-                    "\n--------\n\nSurvey Tool: http://" + ctx.serverHostport() + ctx.base()+"\n\n";
+                    "\n--------\n\nSurvey Tool: http://st.unicode.org" +/* ctx.serverHostport() +*/ ctx.base()+"\n\n";
                 mailSubj = "CLDR SurveyTool message from " +getRequester(ctx);
 				if(!areSendingDisp) {
 					areSendingMail= true; // we are ready to go ahead and mail..
@@ -3827,7 +3826,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
         ctx.print(fora.mainFeedIcon(ctx)+"<br>");
 				
-        ctx.println(SLOW_PAGE_NOTICE);
         LocaleTree lm = getLocaleTree();
 //        if(lm == null) {
 //            busted("Can't load CLDR data files from " + fileBase);
@@ -4041,10 +4039,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     void notifyUser(WebContext ctx, String theirEmail, String pass) {
         String body = getRequester(ctx) +  " is notifying you of the CLDR vetting account for you.\n" +
         "To access it, visit: \n" +
-        "   http://" + ctx.serverHostport() + ctx.base() + "?"+QUERY_PASSWORD+"=" + pass + "&"+QUERY_EMAIL+"=" + theirEmail + "\n" +
+        "   http://st.unicode.org" + /*ctx.serverHostport()+*/  ctx.base() + "?"+QUERY_PASSWORD+"=" + pass + "&"+QUERY_EMAIL+"=" + theirEmail + "\n" +
         //                                                                          // DO NOT ESCAPE THIS AMPERSAND.
         "\n" +
-        "Or you can visit\n   http://" + ctx.serverHostport() + ctx.base() + "\n    username: " + theirEmail + "\n    password: " + pass + "\n" +
+        "Or you can visit\n   http://st.unicode.org" + /*ctx.serverHostport() +*/ ctx.base() + "\n    username: " + theirEmail + "\n    password: " + pass + "\n" +
         "\n" +
         " Please keep this link to yourself. Thanks.\n" +
         " Follow the 'Instructions' link on the main page for more help.\n" +
@@ -4351,7 +4349,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 //                    "hen you navigate away from any page, any     data changes you've made will be lost <b>unless</b> you hit the"+
 //                    " <b>"+getSaveButtonText()+"</b> button!</font></i></li> "+
                     "   <li><i><font size='4'>"+
-                                SLOW_PAGE_NOTICE+
+//                                SLOW_PAGE_NOTICE+
                     "</font></i></li>    <li><i><font size='4'>Be sure to read </font>    "+
     //                "<a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>"
                     "<font size='4'>");
@@ -4368,7 +4366,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 ////                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
 ////            }
 //        }    
-        ctx.println(SLOW_PAGE_NOTICE);
+//        ctx.println(SLOW_PAGE_NOTICE);
         if(ctx.session.user!=null) {
         	ctx.println("<br>");
         	ctx.println("<a href='"+ctx.jspLink("xpath.jsp")+"&_="+ctx.getLocale().toString()+"'>Go to XPath...</a><br>");

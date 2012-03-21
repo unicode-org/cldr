@@ -17,9 +17,9 @@ define({
 
 			clickToCopy: "click to copy to input box",
 
-			htmlst: "St.",
-			htmldraft: "Draft",
-			htmlvoted: "Voted",
+			htmlst: "Errors",
+			htmldraft: "Approved",
+			htmlvoted: "Voting",
 			htmlcode: "Code",
 			htmlbaseline: "English",
 			htmlproposed: "Proposed",

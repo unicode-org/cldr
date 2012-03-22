@@ -5,7 +5,6 @@ String vap = request.getParameter("vap");
 if(vap==null ||
 	(SurveyMain.vap==null||SurveyMain.vap.isEmpty()) ||
     vap.length()==0 ||
-    	!SurveyMain.isUnofficial || 
 			(!SurveyMain.vap.equals(vap) )  ) {
 	response.sendRedirect("http://cldr.unicode.org"); // Get out.
 	return;

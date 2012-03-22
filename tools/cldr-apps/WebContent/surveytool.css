@@ -18,6 +18,75 @@
 	http://st.unicode.org:8080/cldr-apps/surveytool.css
 */
 
+#adminStuff ul.adminList  {
+	display:  table-row;
+	border: 1px solid gray;
+}
+
+ul.adminList li {
+	display:  table-cell;
+	padding:  1em;
+}
+
+div.adminPanel {
+	border:  1px solid gray;
+}
+
+h3.adminTitle {
+	font-size: x-large;	
+	border-bottom:  2px solid black;
+}
+
+div.adminUserUser i {
+	font-weight: normal;
+	font-style: normal;
+	font-variant: small-caps;
+	float:  right;
+	color: white;
+	background-color: black;
+	margin:  0.5em;
+	padding:  3px;
+}
+
+/* todo: replace w/ icons */
+
+
+div.adminUser {
+	margin:  1em;
+	border:  1px solid gray ;
+	width:  50em;
+	background-color: #e3e3e3;
+}
+
+span.adminUserSession {
+	font: small Georgia, "Times New Roman", Times, serif;
+	text-align: left;
+	float: right;
+}
+
+span.adminUserInfo {
+	font-size: small;
+	text-align: right;
+	margin:  8px;
+}
+
+
+div.adminUserUser {
+	background-color: #92c1c9;
+	width:  30em;
+	margin:  1em;
+}
+
+span.adminUserName {
+	font-size:  x-large;
+}
+
+address.adminUserAddress {
+	font: normal smaller "Courier New", Courier, mono;
+}
+
+
+
 button.icancel {
 	display: none;
 }
@@ -201,6 +270,73 @@ text-decoration: none; */
 a.notselected {
 	color: #358cc3;
 	text-decoration: underline;
+}
+
+div.adminThreads {
+	display:  table;
+}
+
+div.adminThreadList {
+	width:  43%;	
+	clear:  right;
+	padding-right:  1em;
+	display:  table;
+}
+
+div.adminThreadList span {
+	display:  table-cell;
+}
+
+span.adminThreadState_RUNNABLE {
+	background-color: lime;
+}
+
+span.adminThreadState_WAITING {
+	background-color: lightgreen;
+}
+span.adminThreadState_BLOCKED {
+	background-color: red;
+}
+span.adminThreadState_TIMED_WAITING {
+	background-color: silver;
+}
+
+div.adminThread {
+	border-bottom:  1px dotted gray;
+	display:  table-row;
+	padding-right: 0.5em;
+}
+
+
+span.adminThreadId {
+	width:  5em;
+	padding-right:  1em;
+}
+
+span.adminThreadName {
+	border-bottom: 1px solid silver;
+}
+
+span.adminThreadState_RUNNABLE,
+span.adminThreadState_TIMED_WAITING,
+span.adminThreadState_WAITING,
+span.adminThreadState_BLOCKED {
+	text-align: right;
+	font-size: small;
+	font-weight: bold;
+}
+
+div.adminThreadStack {
+	display:  inline;	
+	white-space: pre;
+	width: 43%;
+	display:  table-cell;
+	font: small "Courier New", Courier, mono;
+	background-color: white;
+}
+
+div.adminThreadStack b, span.adminThreadName {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
 .sep {

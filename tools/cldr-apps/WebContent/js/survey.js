@@ -8,6 +8,12 @@ dojo.require("dojo.string");
 dojo.requireLocalization("surveyTool", "stui");
 
 var stui = {online: "Online", 			disconnected: "Disconnected", startup: "Starting up..."};
+var stdebug_enabled=false;
+function stdebug(x) {
+	if(stdebug_enabled) {
+		console.log(x);
+	}
+}
 
 function dismissChangeNotice() {
 	surveyCurrentLocaleStamp = surveyNextLocaleStamp;
@@ -126,6 +132,7 @@ var clickContinue = null;
  var surveyNextLocaleStamp = 0;
  
  function busted() {
+	 //console.log("disconnected.");
 	 document.getElementsByTagName("body")[0].className="disconnected"; // hide buttons when disconnected.
  }
 
@@ -185,7 +192,7 @@ function handleChangedLocaleStamp(stamp,name) {
 			showers[i]();
 		}
 	}
-	console.log("Reloaded due to change: " + stamp);
+	stdebug("Reloaded due to change: " + stamp);
     surveyNextLocaleStamp = stamp;
 }
 
@@ -251,14 +258,92 @@ function updateAjaxWord(ajax) {
 	showWord();
 }
 
+var saidDisconnect=false;
+function handleDisconnect(why, json) {
+	updateProgressWord("disconnected");
+	if(!saidDisconnect) {
+		saidDisconnect=true;
+		console.log("Disconnect: " + why);
+		if(json) {
+			stdebug("JSON: " + json.toString());
+		}
+	}
+}
+
+var updateParts = null;
+
 function updateStatusBox(json) {
-	if(json.disconnected || (json.SurveyOK==0) || (json.status && json.status.isBusted)
-				|| !json.status || (json.status.surveyRunningStamp!=surveyRunningStamp)) {
-		updateProgressWord("disconnected");
+	if(json.disconnected) {
+		handleDisconnect("Misc Disconnect", json);
+	} else if (json.SurveyOK==0) {
+		handleDisconnect("Server says: SurveyOK=0", json);
+	} else if (json.status && json.status.isBusted) {
+		handleDisconnect("Server says: busted", json);
+	} else if(!json.status) {
+		handleDisconnect("!json.status",json);
+	} else if(json.status.surveyRunningStamp!=surveyRunningStamp) {
+		handleDisconnect("Server restarted since page was loaded",json);
 	} else if(json.status && json.status.isSetup==false && json.SurveyOK==1) {
 		updateProgressWord("startup");
 	} else {
 		updateProgressWord("ok");
+	}
+	
+	/* 
+"memfree": 378.6183984375,
+"lockOut": false,
+"pages": 16,
+"specialHeader": "Welcome to SurveyTool@oc7426272865.ibm.com. Please edit /home/srl/apache-tomcat-7.0.8/cldr/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely.",
+"dbopen": 0,
+"users": 1,
+"uptime": "uptime: 49:47",
+"isUnofficial": true,
+"memtotal": 492.274,
+"sysprocs": 8,
+"isSetup": true,
+"sysload": 0.33,
+"dbused": 1439,
+"guests": 0,
+"surveyRunningStamp": 1331941056940
+	 */
+	if(json.status) {
+		if(!updateParts) {
+			var visitors = dojo.byId("visitors");
+			updateParts = {
+					visitors: visitors,
+					ug: document.createElement("span"),
+					load: document.createElement("span"),
+					db: document.createElement("span")
+			};
+		}
+		//"~1 users, 8pg/uptime: 38:44/load:28% db:0/1"
+		
+		
+		var ugtext = "~";
+		ugtext = ugtext + (json.status.users) + " users, ";
+		if(json.status.guests > 0) {
+			ugtext= ugtext + (json.status.guests) + " guests, ";
+		}
+		ugtext=ugtext+(json.status.pages)+"pg/"+json.status.uptime;
+		removeAllChildNodes(updateParts.ug);
+		updateParts.ug.appendChild(document.createTextNode(ugtext));
+
+		removeAllChildNodes(updateParts.load);
+		updateParts.load.appendChild(document.createTextNode("Load:"+json.status.sysload));
+
+		removeAllChildNodes(updateParts.db);
+		updateParts.db.appendChild(document.createTextNode("db:"+json.status.dbopen+"/"+json.status.dbused));
+
+
+		
+		var fragment = document.createDocumentFragment();
+		fragment.appendChild(updateParts.ug);
+		fragment.appendChild(document.createTextNode(" "));
+		fragment.appendChild(updateParts.load);
+		fragment.appendChild(document.createTextNode(" "));
+		fragment.appendChild(updateParts.db);
+		removeAllChildNodes(updateParts.visitors);
+		updateParts.visitors.appendChild(fragment);
 	}
 }
 
@@ -413,7 +498,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
             load: loadHandler,
             error: errorHandler
         };
-    window.xhrArgs = xhrArgs;
+    //window.xhrArgs = xhrArgs;
     //console.log('xhrArgs = ' + xhrArgs);
     dojo.xhrGet(xhrArgs);
     
@@ -535,7 +620,7 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
             load: loadHandler,
             error: errorHandler
         };
-    window.xhrArgs = xhrArgs;
+    //window.xhrArgs = xhrArgs;
 //    console.log('xhrArgs = ' + xhrArgs);
     dojo.xhrPost(xhrArgs);
 }
@@ -1348,18 +1433,22 @@ function insertRows(theDiv,xpath,session,json) {
 
 // move this into showRows to handle multiple containers.
 
+function loadStui(loc) {
+	stui  = dojo.i18n.getLocalization("surveyTool", "stui", "en" /* TODO: lame */);
+	stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
+	stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
+	stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
+	
+	return stui;
+}
 ////////
 /// showRows() ..
 function showRows(container,xpath,session,coverage) {
  dojo.addOnLoad(function(){
 	if(!coverage) coverage="";
 	var theDiv = dojo.byId(container);
-	
-	stui = theDiv.stui  = dojo.i18n.getLocalization("surveyTool", "stui", "en" /* TODO: lame */);
-	
-	stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
-	stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
-	stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
+
+	theDiv.stui = loadStui("en");
 	
 	var shower = null;
 	var theTable = theDiv.theTable;
@@ -1427,7 +1516,7 @@ function showRows(container,xpath,session,coverage) {
 		            load: loadHandler,
 		            error: errorHandler
 		        };
-		    window.xhrArgs = xhrArgs;
+		    //window.xhrArgs = xhrArgs;
 		    console.log('xhrArgs = ' + xhrArgs);
 		    dojo.xhrGet(xhrArgs);
 		});
@@ -1476,7 +1565,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess) {
             load: loadHandler,
             error: errorHandler
         };
-    window.xhrArgs = xhrArgs;
+    //window.xhrArgs = xhrArgs;
     console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
     dojo.xhrGet(xhrArgs);
 }
@@ -1597,13 +1686,209 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			load: loadHandler,
 			error: errorHandler
 	};
-	window.xhrArgs = xhrArgs;
+	//window.xhrArgs = xhrArgs;
 	console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
 	if(box) {
 		dojo.xhrPost(xhrArgs);
 	} else {
 		dojo.xhrGet(xhrArgs); // value ignored
 	}
+}
+
+
+///////////////////
+// admin
+function loadAdminPanel() {
+	if(!vap) return;
+	loadStui("en");
+	var adminStuff=dojo.byId("adminStuff");
+	if(!adminStuff) return;
+	
+	var content = document.createDocumentFragment();
+	
+	var list = document.createElement("ul");
+	list.className="adminList";
+	content.appendChild(list);
+	
+	
+	function loadOrFail(urlAppend,theDiv, loadHandler) {
+		var ourUrl = contextPath + "/AdminAjax.jsp?vap="+vap+"&"+urlAppend;
+		var errorHandler = function(err, ioArgs){
+			console.log('adminload ' + urlAppend + ' Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+			theDiv.className = "ferrbox";
+			theDiv.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+		};
+		var xhrArgs = {
+				url: ourUrl,
+				handleAs:"json",
+				load: loadHandler,
+				error: errorHandler
+		};
+		if(!loadHandler) {
+			xhrArgs.handleAs = "text";
+			xhrArgs.load = function(text) {
+				theDiv.innerHTML = text;
+			};
+		}
+		dojo.xhrGet(xhrArgs);
+		console.log("ourUrl: " + ourUrl);
+	}
+	var panelLast = null;
+	var panels={};
+
+	function panelSwitch(name) {
+		if(panelLast) {
+			panelLast.div.style.display='none';
+			panelLast.listItem.className='notselected';
+			panelLast=null;
+		}
+		if(name&&panels[name]) {
+			panelLast=panels[name];
+			panelLast.listItem.className='selected';
+			panelLast.fn(panelLast.udiv);
+			panelLast.div.style.display='block';			
+		}
+	}
+
+	function addAdminPanel(type, fn) {
+		var panel = panels[type]={type: type, name: stui.str(type), desc: stui.str(type+"_desc"), fn: fn};
+		panel.div = document.createElement("div");
+		panel.div.style.display='none';
+		panel.div.className='adminPanel';
+		
+		var h = document.createElement("h3");
+		h.className="adminTitle";
+		h.appendChild(document.createTextNode(panel.desc));
+		panel.div.appendChild(h);
+
+		panel.udiv = document.createElement("div");
+		panel.div.appendChild(panel.udiv);
+
+		panel.listItem = document.createElement("li");
+		panel.listItem.appendChild(document.createTextNode(panel.name));
+		panel.listItem.title = panel.desc;
+		panel.listItem.className="notselected";
+		panel.listItem.onclick=function(e){panelSwitch(panel.type);return false;};
+		list.appendChild(panel.listItem);
+		
+		content.appendChild(panel.div);
+		
+		if(!panelLast) {
+			panelSwitch(panel.type);
+		}
+	}
+	
+	function createChunk(text, tag, className) {
+		if(!tag) {
+			tag="span";
+		}
+		var chunk = document.createElement(tag);
+		if(className) {
+			chunk.className = className;
+		}
+		if(text) {
+			chunk.appendChild(document.createTextNode(text));
+		}
+		chunk.title=stui.str(className+"_desc");
+		return chunk;
+	}
+	
+	function createUser(user) {
+		var div = createChunk(null,"div","adminUserUser");
+		div.appendChild(createChunk(stui.str("userlevel_"+user.userlevelname),"i","userlevel_"+user.userlevelname));
+		div.appendChild(createChunk(user.name,"span","adminUserName"));
+		div.appendChild(createChunk(user.email,"address","adminUserAddress"));
+		return div;
+	}
+	
+	addAdminPanel("admin_users", function(div) {
+		var frag = document.createDocumentFragment();
+		
+		//frag.appendChild(document.createTextNode("hello"));
+		
+		var u = document.createElement("div");
+		u.appendChild(document.createTextNode("Loading..."));
+		frag.appendChild(u);
+		
+		removeAllChildNodes(div);
+		div.appendChild(frag);
+		loadOrFail("do=users", u, function(json) {
+			var frag2 = document.createDocumentFragment();
+			
+			if(!json || !json.users || Object.keys(json.users)==0) {
+				frag2.appendChild(document.createTextNode(stui.str("No users.")))
+			} else {
+				for(sess in json.users) {
+					var cs = json.users[sess];
+					var user = createChunk(null,"div","adminUser");
+					user.appendChild(createChunk("Session: " + sess, "span","adminUserSession"));
+					if(cs.user) {
+						user.appendChild(createUser(cs.user));
+					} else {
+						user.appendChild(createChunk("(anonymous)","div","adminUserUser"));
+					}
+					user.appendChild(createChunk("Last: " + cs.last + ", IP: " + cs.ip, "span","adminUserInfo"));
+					
+					frag2.appendChild(user);
+					
+					
+					frag2.appendChild(document.createElement("hr"));
+				}
+			}
+			
+			removeAllChildNodes(u);
+			u.appendChild(frag2);
+		});
+	});
+
+	addAdminPanel("admin_threads", function(div) {
+		var frag = document.createDocumentFragment();
+		
+		div.className="adminThreads";
+		var u = createChunk("Loading...","div","adminThreadList");
+		var stack = createChunk(null,"div","adminThreadStack");
+		frag.appendChild(u);
+		frag.appendChild(stack);
+		
+		removeAllChildNodes(div);
+		var clicked = null;
+	
+		div.appendChild(frag);
+		loadOrFail("do=threads", u, function(json) {
+			if(!json || !json.threads || Object.keys(json.threads.all)==0) {
+				removeAllChildNodes(u);
+				u.appendChild(document.createTextNode(stui.str("No threads.")));
+			} else {
+				var frag2 = document.createDocumentFragment();
+				removeAllChildNodes(stack);
+				stack.innerHTML = stui.str("adminClickToViewThreads");
+				if(json.threads.dead) {
+					frag2.appendChunk(json.threads.dead.toString(),"span","adminDeadThreads");
+					// TODO
+				}
+				for(id in json.threads.all) {
+					var t = json.threads.all[id];
+					var thread = createChunk(null,"div","adminThread");
+					thread.appendChild(createChunk(id,"span","adminThreadId"));
+					thread.appendChild(createChunk(t.name,"span","adminThreadName"));
+					thread.appendChild(createChunk(stui.str(t.state),"span","adminThreadState_"+t.state));
+					thread.onclick=(function (t,id){return (function() {
+						stack.innerHTML = "<b>"+id+":"+t.name+"</b>\n";
+						for(var q in t.stack) {
+							stack.innerHTML = stack.innerHTML + t.stack[q] + "\n";
+						}
+					});})(t,id);
+					frag2.appendChild(thread);
+				}
+				
+				removeAllChildNodes(u);
+				u.appendChild(frag2);
+			}
+		});
+	});
+	// last panel loaded.
+		
+	adminStuff.appendChild(content);
 }
 
 

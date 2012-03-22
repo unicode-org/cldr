@@ -67,8 +67,12 @@ public class CookieSession {
      * @return iterator over all sessions.
      **/
     public static Iterator getAll() {
+        return getAllSet().iterator();
+    }
+    
+    public static Set<CookieSession> getAllSet() {
         synchronized(gHash) {
-            TreeSet sessSet = new TreeSet(new Comparator() {
+            TreeSet<CookieSession> sessSet = new TreeSet<CookieSession>(new Comparator<Object>() {
                   public int compare(Object a, Object b) {
                     CookieSession aa = (CookieSession)a;
                     CookieSession bb = (CookieSession)b;
@@ -80,11 +84,10 @@ public class CookieSession {
                 });
     //      sessSet.addAll(uHash.values()); // all users (reg'd)
             sessSet.addAll(gHash.values()); // ALL sessions
-            return sessSet.iterator();
+            return sessSet;
             //return uHash.values().iterator();
         }
     }
-    
     /** 
      * Fetch a specific session.  'touch' it (mark it as recently active) if found.
      * @return session or null

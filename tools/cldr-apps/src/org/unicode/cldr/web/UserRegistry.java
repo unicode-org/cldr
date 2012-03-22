@@ -273,7 +273,7 @@ public class UserRegistry {
          * Convert the level to a VoteResolver.Level
          * @return VoteResolver.Level format
          */
-        private VoteResolver.Level computeVRLevel() {
+        public VoteResolver.Level computeVRLevel() {
             switch (this.userlevel) {
             case ADMIN: return VoteResolver.Level.admin;
             case TC: return VoteResolver.Level.tc;

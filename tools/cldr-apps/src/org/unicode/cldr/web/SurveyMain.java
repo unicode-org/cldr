@@ -565,9 +565,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                         ctx.addCookie(QUERY_PASSWORD, u.password, TWELVE_WEEKS);
         	            ctx.println("<script>document.location = '"+ctx.base()+"/survey?email="+u.email+"&pw="+u.password+"';</script>");
                     }
-            } else if(ctx.hasAdminPassword()) {
-	        	Thread.currentThread().setName(baseThreadName+" ST admin");
-	            doAdminPanel(ctx); // admin interface
+//            } else if(ctx.hasAdminPassword()) {
+//	        	Thread.currentThread().setName(baseThreadName+" ST admin");
+//	            doAdminPanel(ctx); // admin interface
 	        } else if(ctx.field("sql").equals(vap)) {
 	        	Thread.currentThread().setName(baseThreadName+" ST sql");
 	            doSql(ctx); // SQL interface
@@ -1002,7 +1002,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     
         ctx.print("<div style='float: right'><a class='notselected' href='" + ctx.base() + "'><b>[SurveyTool main]</b></a> | ");
         ctx.print("<a class='notselected' href='" + ctx.base() + "?letmein="+vap+"&amp;email=admin@'><b>Login as admin@</b></a> | ");
-        ctx.print("<a class='"+(isDump?"":"not")+"selected' href='" + ctx.base() + "?dump="+vap+"'>Admin</a>");
+        ctx.print("<a class='"+(isDump?"":"not")+"selected' href='" + ctx.context("AdminPanel.jsp")+ "?vap="+vap+"'>Admin</a>");
         ctx.print(" | ");
         ctx.print("<a class='"+(isSql?"":"not")+"selected' href='" + ctx.base() + "?sql="+vap+"'>SQL</a>");
         ctx.print("<br>");

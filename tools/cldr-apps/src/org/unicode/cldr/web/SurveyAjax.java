@@ -76,6 +76,15 @@ public class SurveyAjax extends HttpServlet {
             };
         }
 
+        public static JSONObject wrap(UserRegistry.User u) throws JSONException {
+        	return new JSONObject()
+        	.put("id", u.id)
+        	.put("email", u.email)
+        	.put("name", u.name)
+        	.put("userlevel", u.userlevel)
+        	.put("userlevelname", u.computeVRLevel());
+        }
+        
         public static JSONObject wrap(CheckCLDR check) throws JSONException {
             final CheckCLDR cc = check;
             return new JSONObject() {

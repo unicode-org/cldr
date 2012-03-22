@@ -97,7 +97,7 @@ String helpName = ctx.getString("helpName");
     		ctx.sm.printMenu(ctx, doWhat, "listu", "My Account", SurveyMain.QUERY_DO);
     		//ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
     		if(UserRegistry.userIsAdmin(ctx.session.user)) {
-    			ctx.println("| <a href='" + ctx.base() + "?dump=" + ctx.sm.vap + "'>[Admin Panel]</a>");
+    			ctx.println("| <a href='" + ctx.context("AdminPanel.jsp") + "?vap=" + ctx.sm.vap + "'>[Admin Panel]</a>");
     			if(ctx.session.user.id == 1) {
     				ctx.println(" | <a href='" + ctx.base() + "?sql=" + ctx.sm.vap + "'>[Raw SQL]</a>");
     			}

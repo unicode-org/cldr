@@ -47,7 +47,24 @@ define({
 			unconfirmed: "Approved", 
 			contributed: "Contributed", 
 			
+			
+			userlevel_admin: "Admin",
+			userlevel_tc: "TC",
+			userlevel_expert: "Expert",
+			userlevel_vetter: "Vetter",
+			userlevel_street: "Guest",
+			userlevel_locked: "Locked",
 
+			userlevel_admin_desc: "Administrator",
+			userlevel_tc_desc: "CLDR-Technical Committee member",
+			userlevel_expert_desc: "Language Expert",
+			userlevel_vetter_desc: "Regular Vetter",
+			userlevel_street_desc: "Guest User",
+			userlevel_locked_desc: "Locked User, no login",
+			
+			admin_threads: "Threads",
+			admin_threads_desc: "All Threads",
+			adminClickToViewThreads: "Click a thread to view its call stack",
 
 			testOkay: "has no errors or warnings",
 			testWarn: "has warnings",
@@ -59,6 +76,10 @@ define({
 			online: "Online",
 			disconnected: "Disconnected",
 			startup: "Starting up...",
+			
+			admin_users: "Users",
+			admin_users_desc: "Currently logged-in users",
+			
 			"": ""})
 //		"mt-MT": false
 	

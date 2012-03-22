@@ -36,7 +36,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     //private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 
     // "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
     static String[] EXEMPLAR_SKIPS = {"/currencySpacing", "/hourFormat", "/exemplarCharacters", "/pattern",
-        "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references", "/unitPattern",
+        "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references",
         "/intervalFormatItem",
         "/localeDisplayNames/variants/",
         "/commonlyUsed",

@@ -13,12 +13,12 @@
 	if (stat == null)
 		stat = "s";
 
-	if (stat.equals("v")) {
+	if (false|| stat.equals("v")) {
 		doingByLocaleVote = true;
 		title = "Locales by Vote";
 		theSql = "select  locale,count(*) as count from cldr_vet  where submitter is not null group by locale order by count desc ";
 	} else {
-		theSql = "select  locale,count(*) as count from cldr_data  where submitter is not null group by locale order by count desc ";
+		theSql = "select  locale,count(*) as count from cldr_votevalue group by locale order by count desc ";
 		title = "Locales by Submitted Data";
 		doingByLocaleSubmit = true;
 	}
@@ -29,7 +29,7 @@
 <body>
 
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
-	| <a class='notselected' href="statistics-org.jsp">by Organization</a>
+<!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->
 
 <br>
 <!-- 
@@ -57,20 +57,16 @@ Switch to:
 %>
 	<h1>SurveyTool Statistics: <%=title%></h1>
 
-	Total New/Changed Submitted: <%=dbUtils
+	Total Data Submitted: <%=dbUtils
 						.sqlQuery(conn,
-								"select count(*) from cldr_data where submitter is not null")%> <br/>
-	Total Votes Cast: <%=dbUtils
-						.sqlQuery(conn,
-								"select count(*) from cldr_vet where submitter is not null")%> <br/>
+								"select count(*) from cldr_votevalue where submitter is not null")%> <br/>
 
 
 
 	<%
-		String theSqlVet = "select  locale,count(*) as count from cldr_vet  where submitter is not null "
+		String theSqlVet = "select  locale,count(*) as count from cldr_votevalue  where submitter is not null "
 					+ limit + " group by locale ";
-			String theSqlData = "select  locale,count(*) as count from cldr_data  where submitter is not null "
-					+ limit + " group by locale  ";
+			String theSqlData = theSqlVet;
 
 			String[][] submitsV = dbUtils.sqlQueryArrayArray(conn,
 					theSqlVet);

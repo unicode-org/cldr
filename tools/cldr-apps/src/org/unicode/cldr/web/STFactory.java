@@ -975,7 +975,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     "locale VARCHAR(20), " + 
                     "xpath  INT NOT NULL, " +
                     "submitter INT NOT NULL, " +
-                    "value "+DBUtils.DB_SQL_UNICODE+" " +
+                    "value "+DBUtils.DB_SQL_UNICODE+", " +
+                    DBUtils.DB_SQL_LAST_MOD + " " +
                     ", PRIMARY KEY (locale,submitter,xpath) " +
 
 			" )";

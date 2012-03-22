@@ -61,7 +61,7 @@ public class DBUtils {
 	public static String CLDR_DB_SHUTDOWNSUFFIX = null;
 	public static boolean db_Derby = false;
 	public static boolean db_Mysql = false;
-	// === DB workarounds :(
+	// === DB workarounds :( - derby by default
 	public static String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
 	public static String DB_SQL_VARCHARXPATH = "varchar(1024)";
 	public static String DB_SQL_WITHDEFAULT = "WITH DEFAULT";
@@ -69,8 +69,8 @@ public class DBUtils {
 	public static String DB_SQL_CURRENT_TIMESTAMP0 = "CURRENT_TIMESTAMP";
 	public static String DB_SQL_MIDTEXT = "VARCHAR(1024)";
 	public static String DB_SQL_BIGTEXT = "VARCHAR(16384)";
-	public static String DB_SQL_UNICODE = "VARCHAR(16384)"; // unicode type
-															// string
+	public static String DB_SQL_UNICODE = "VARCHAR(16384)"; // unicode type string
+    public static  String DB_SQL_LAST_MOD =  " last_mod TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP  ";
 	public static String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
 	public static String DB_SQL_BINCOLLATE = "";
 	public static String DB_SQL_BINTRODUCER = "";
@@ -523,6 +523,7 @@ public class DBUtils {
             DB_SQL_BINTRODUCER = "_latin1";
             DB_SQL_WITHDEFAULT = "DEFAULT";
             DB_SQL_TIMESTAMP0 = "DATETIME";
+            DB_SQL_LAST_MOD = " last_mod TIMESTAMP ";
             DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
             DB_SQL_MIDTEXT = "TEXT(1024)";
             DB_SQL_BIGTEXT = "TEXT(16384)";

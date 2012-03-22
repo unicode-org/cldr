@@ -523,7 +523,7 @@ public class DBUtils {
             DB_SQL_BINTRODUCER = "_latin1";
             DB_SQL_WITHDEFAULT = "DEFAULT";
             DB_SQL_TIMESTAMP0 = "DATETIME";
-            DB_SQL_LAST_MOD = " last_mod TIMESTAMP ";
+            DB_SQL_LAST_MOD = " last_mod TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ";
             DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
             DB_SQL_MIDTEXT = "TEXT(1024)";
             DB_SQL_BIGTEXT = "TEXT(16384)";

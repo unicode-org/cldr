@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: $"/>
+		<generation date="$Date: $"/>
+		<language type="mgo"/>
+	</identity>
+	<layout>
+		<orientation lines="top-to-bottom" characters="left-to-right"/>
+	</layout>
+	<characters>
+		<exemplarCharacters>[a à b {ch} d e è ə {ə̀} f g {gh} i ì j k m n ŋ o ò ɔ {ɔ̀} p r s t u ù w y z ʼ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[c h l q v x]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B CH D E Ə F G GH I J K M N Ŋ O Ɔ  P R S T U W Y Z ʼ]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[, . : ; ' " ? !]</exemplarCharacters>
+	</characters>
+    <!--  
+    <plurals>
+        <pluralRule count="one">n is 1</pluralRule>
+    </plurals>
+    --> 
+    <!--
+    <regionInfo>
+        <region type="default">Cameroon</region>
+        <region type="other">none</region>
+    </regionInfo>
+    -->
+</ldml>

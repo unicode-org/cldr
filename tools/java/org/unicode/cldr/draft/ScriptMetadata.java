@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.unicode.cldr.util.StandardCodes;
 
+import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.lang.UScript;
 
 public class ScriptMetadata {
@@ -49,7 +50,11 @@ public class ScriptMetadata {
         }
     }
     public enum IdUsage {
-        UNKNOWN, EXCLUSION, LIMITED_USE, ASPIRATIONAL, RECOMMENDED
+        UNKNOWN("Other"), EXCLUSION("Historic"), LIMITED_USE("Limited Use"), ASPIRATIONAL("Aspirational"), RECOMMENDED("Major Use");
+        public final String name;
+        private IdUsage(String name) {
+            this.name = name;
+        }
     }
 
     public enum Trinary {UNKNOWN, NO, YES}
@@ -150,6 +155,12 @@ public class ScriptMetadata {
 
             String script = items[2];
             data.put(script, info);
+            Set<String> extras = EXTRAS.get(script);
+            if (extras != null) {
+                for (String script2 : extras) {
+                    data.put(script2, info);
+                }
+            }
             return true;
         }
         @Override
@@ -158,6 +169,13 @@ public class ScriptMetadata {
             return this;
         }
 
+    }
+    static Relation<String, String> EXTRAS = Relation.of(new HashMap<String,Set<String>>(), HashSet.class);
+    static {
+        EXTRAS.put("Hani", "Hans");
+        EXTRAS.put("Hani", "Hant");
+        EXTRAS.put("Hang", "Kore");
+        EXTRAS.put("Hira", "Jpan");
     }
     static Map<String,Info> data = new MyFileReader().process(ScriptMetadata.class, "Script_Metadata.csv").data;
 

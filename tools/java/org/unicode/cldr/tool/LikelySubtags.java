@@ -1,11 +1,16 @@
 package org.unicode.cldr.tool;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 
 public class LikelySubtags {
     static final boolean DEBUG = true;
@@ -13,12 +18,14 @@ public class LikelySubtags {
 
     private Map<String, String> toMaximized;
     private boolean favorRegion = false;
+    private SupplementalDataInfo supplementalDataInfo;
 
     /**
      * Create the likely subtags. 
      * @param toMaximized
      */
     public LikelySubtags(Map<String, String> toMaximized) {
+        this.supplementalDataInfo = SupplementalDataInfo.getInstance();
         this.toMaximized = toMaximized;
     }
 
@@ -27,6 +34,7 @@ public class LikelySubtags {
      * @param toMaximized
      */
     public LikelySubtags(SupplementalDataInfo supplementalDataInfo) {
+        this.supplementalDataInfo = supplementalDataInfo;
         this.toMaximized = supplementalDataInfo.getLikelySubtags();
     }
 
@@ -35,7 +43,7 @@ public class LikelySubtags {
      * @param toMaximized
      */
     public LikelySubtags() {
-        this.toMaximized = SupplementalDataInfo.getInstance().getLikelySubtags();
+        this(SupplementalDataInfo.getInstance());
     }
 
     public boolean isFavorRegion() {
@@ -154,4 +162,40 @@ public class LikelySubtags {
         }
         return maximized;
     }
+    
+    static final Map<String,String> EXTRA_SCRIPTS = 
+        Builder.with(new HashMap<String,String>())
+        .on("crs", "pcm", "tlh").put("Latn")
+        .freeze();
+
+
+    public String getLikelyScript(String code) {
+        String max = this.maximize(code);
+
+        String script = null;
+        if (max != null) {
+            script = new LanguageTagParser().set(max).getScript();
+        } else {
+            Set<BasicLanguageData> data = supplementalDataInfo.getBasicLanguageData(code);
+            if (data != null) {
+                for (BasicLanguageData item : data) {
+                    Set<String> scripts = item.getScripts();
+                    if (scripts == null || scripts.size() == 0) continue;
+                    script = scripts.iterator().next();
+                    Type type = item.getType();
+                    if (type == Type.primary) {
+                        break;
+                    }
+                }
+            }
+            if (script == null) {
+                script = EXTRA_SCRIPTS.get(code);
+                if (script == null) {
+                    script = "Zzzz";
+                }
+            }
+        }
+        return script;
+    }
+
 }

@@ -17,10 +17,10 @@
 /alias$           ; Skip ; ? ; ? ; ?
 /identity/        ; Skip ; ? ; ? ; ?
 
-//ldml/localeDisplayNames/languages/language[@type="%A"]                    ; Code Lists ; Languages ; null ; $1
-//ldml/localeDisplayNames/scripts/script[@type="%A"]                        ; Code Lists ; Scripts ; null ; $1
-//ldml/localeDisplayNames/territories/territory[@type="%A"]                 ; Code Lists ; Territories ; null ; $1
-//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity                  ; Code Lists ; Timezone Cities ; $1 ; $2
+//ldml/localeDisplayNames/languages/language[@type="%A"]                    ; Code Lists ; Languages ; &scriptFromLanguage($1) ; $1
+//ldml/localeDisplayNames/scripts/script[@type="%A"]                        ; Code Lists ; Scripts ; &categoryFromScript($1) ; $1
+//ldml/localeDisplayNames/territories/territory[@type="%A"]                 ; Code Lists ; Territories ; &categoryFromTerritory($1) ; $1
+//ldml/dates/timeZoneNames/zone[@type="%B%A"]/exemplarCity                  ; Code Lists ; Timezone Cities ; &categoryFromTimezone($1$2) ; $2
 //ldml/localeDisplayNames/variants/variant[@type="%A"]                      ; Code Lists ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                              ; Code Lists ; Keys ; $1 ; Key
 //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]                 ; Code Lists ; Keys ; *$2 ; $1
@@ -39,8 +39,8 @@
 //ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; Calendars ; &calendar($1) ; Days: $2-$3 ; &day($4)
 //ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; Calendars ; &calendar($1) ; Day Period: $2-$3 ; &day($4)
 
-//ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; Calendars ; &calendar($1) ; $2 Formats ; $4
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; Calendars ; &calendar($1); date Formats ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; Calendars ; &calendar($1) ; &titlecase($2) Formats ; $4
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; Calendars ; &calendar($1); Date Formats ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; Calendars ; &calendar($1) ; Interval Formats ; Fallback
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; Calendars ; &calendar($1) ; Interval Formats ; $2/$3
 

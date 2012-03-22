@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -14,10 +15,15 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.tool.ScriptPopulations;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
 
+import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
@@ -337,6 +343,9 @@ public class PathHeader implements Comparable<PathHeader> {
         static Map<String,Transform<String,String>> functionMap = new HashMap<String,Transform<String,String>>();
         static String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Und"};
         static List<String> days = Arrays.asList("sun", "mon", "tue", "wed", "thu", "fri", "sat");
+        static Map<String, String> likelySubtags = supplementalDataInfo.getLikelySubtags();
+        static HyphenSplitter hyphenSplitter = new HyphenSplitter();
+        static Transform<String, String> catFromTerritory;
         static {
             functionMap.put("month", new Transform<String,String>(){
                 public String transform(String source) {
@@ -367,6 +376,95 @@ public class PathHeader implements Comparable<PathHeader> {
                     String result = fixNames.get(source);
                     return result != null ? result : UCharacter.toTitleCase(source, null);
                 }});
+            functionMap.put("titlecase", new Transform<String,String>(){
+                public String transform(String source) {
+                    return UCharacter.toTitleCase(source, null);
+                }});
+            functionMap.put("categoryFromScript", new Transform<String,String>(){
+                public String transform(String source) {
+                    String script = hyphenSplitter.split(source);
+                    Info info = ScriptMetadata.getInfo(script);
+                    if (info == null) {
+                        info = ScriptMetadata.getInfo("Zzzz");
+                    }
+                    order = 100-info.idUsage.ordinal();
+                    return info.idUsage.name;
+                }});
+            functionMap.put("scriptFromLanguage", new Transform<String,String>(){
+                LikelySubtags likelySubtags = new LikelySubtags();
+                public String transform(String source0) {
+                    String language = hyphenSplitter.split(source0);
+                    String script = likelySubtags.getLikelyScript(language);
+                    if (script == null) {
+                        script = likelySubtags.getLikelyScript(language);
+                    }
+                    String scriptName = TestInfo.getInstance().getEnglish().getName(CLDRFile.SCRIPT_NAME, script);
+                    return 
+                    script.equals("Hans") || script.equals("Hant") ? "Han Script" 
+                            : scriptName.endsWith(" Script") ? scriptName 
+                            : scriptName + " Script";
+                }});
+            functionMap.put("categoryFromTerritory", catFromTerritory = new Transform<String,String>(){
+                Relation<String, String> containmentCore = supplementalDataInfo.getContainmentCore();
+                Relation<String, String> containmentFull = supplementalDataInfo.getTerritoryToContained();
+                Relation<String, String> containedToContainer = Relation.of(new HashMap<String,Set<String>>(), HashSet.class).addAllInverted(containmentFull);
+                Relation<String, String> containedToContainerCore = Relation.of(new HashMap<String,Set<String>>(), HashSet.class).addAllInverted(containmentCore);
+                Map<String,Integer> toOrder = new LinkedHashMap<String,Integer>();
+                int level = 0;
+                {
+                    getOrder("001");
+                    System.out.println(order);
+                }
+                public String transform(String source) {
+                    String territory = hyphenSplitter.split(source);
+                    Set<String> containers = containedToContainerCore.get(territory);
+                    if (containers == null) {
+                        containers = containedToContainer.get(territory);
+                    }
+                    String container = containers != null ? containers.iterator().next() : territory.equals("001") ? "001" : "ZZ" ;
+                    Integer temp = toOrder.get(container);
+                    order = temp != null ? temp.intValue() : level;
+                    return TestInfo.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, container);
+                }
+                private void getOrder(String source) {
+                    if (toOrder.containsKey(source)) {
+                        return;
+                    }
+                    toOrder.put(source, ++level);
+                    Set<String> contained = containmentCore.get(source);
+                    if (contained == null) {
+                        return ;
+                    }
+                    for (String subitem : contained) {
+                        getOrder(subitem);
+                    }
+                }});
+            functionMap.put("categoryFromTimezone", new Transform<String,String>(){
+                Map<String,String> zone2country = StandardCodes.make().getZoneToCounty();
+                public String transform(String source0) {
+                    String territory = zone2country.get(source0);
+                    if (territory == null) {
+                        territory = "ZZ";
+                    }
+                    return catFromTerritory.transform(territory);
+                }});
+
+        }
+        
+        static class HyphenSplitter {
+            String main;
+            String extras;
+            String split (String source) {
+                int hyphenPos = source.indexOf('-');
+                if (hyphenPos < 0) {
+                    main = source;
+                    extras = "";
+                } else {
+                    main = source.substring(0,hyphenPos);
+                    extras = source.substring(hyphenPos);
+                }
+                return main;
+            }
         }
 
         /**

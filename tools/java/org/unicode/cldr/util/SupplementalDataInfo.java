@@ -750,8 +750,8 @@ public class SupplementalDataInfo {
 
     private Set<String> allLanguages = new TreeSet();
 
-    private Relation<String, String> containment = new Relation(new TreeMap(),
-            TreeSet.class);
+    private Relation<String, String> containment = new Relation(new LinkedHashMap(), LinkedHashSet.class);
+    private Relation<String, String> containmentCore = new Relation(new LinkedHashMap(), LinkedHashSet.class);
 
     private Map<String, CurrencyNumberInfo> currencyToCurrencyNumberInfo = new TreeMap();
 
@@ -931,6 +931,8 @@ public class SupplementalDataInfo {
         zoneToMetaZoneRanges.freeze();
 
         containment.freeze();
+        containmentCore.freeze();
+        
         languageToBasicLanguageData.freeze();
         for (String language : languageToTerritories2.keySet()) {
             for (Pair<Boolean, Pair<Integer, String>> pair : languageToTerritories2.getAll(language)) {
@@ -1605,8 +1607,15 @@ public class SupplementalDataInfo {
 
         private void handleTerritoryContainment() {
             // <group type="001" contains="002 009 019 142 150"/>
-            containment.putAll(parts.getAttributeValue(-1, "type"), Arrays
-                    .asList(parts.getAttributeValue(-1, "contains").split("\\s+")));
+            final String container = parts.getAttributeValue(-1, "type");
+            final List<String> contained = Arrays
+                    .asList(parts.getAttributeValue(-1, "contains").split("\\s+"));
+            containment.putAll(container, contained);
+            String deprecatedAttribute = parts.getAttributeValue(-1, "status");
+            String grouping = parts.getAttributeValue(-1, "grouping");
+            if (deprecatedAttribute == null && grouping == null) {
+                containmentCore.putAll(container, contained);
+            }
         }
 
         private void handleLanguageData() {
@@ -1728,6 +1737,10 @@ public class SupplementalDataInfo {
 
     public Set<String> getBasicLanguageDataLanguages() {
         return languageToBasicLanguageData.keySet();
+    }
+
+    public Relation<String, String> getContainmentCore() {
+        return containmentCore;
     }
 
     public Set<String> getContained(String territoryCode) {

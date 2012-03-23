@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -25,7 +26,6 @@ import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.jsp.JspWriter;
 import javax.sql.DataSource;
 
 import org.unicode.cldr.util.CLDRLocale;
@@ -898,7 +898,7 @@ public class DBUtils {
 		public void close() throws SQLException;
 	}
 	
-	public static void writeCsv(ResultSet rs, JspWriter out) throws SQLException, IOException {
+	public static void writeCsv(ResultSet rs, Writer out) throws SQLException, IOException {
         ResultSetMetaData rsm = rs.getMetaData();
         int cc = rsm.getColumnCount();
         for(int i=1;i<=cc;i++) {

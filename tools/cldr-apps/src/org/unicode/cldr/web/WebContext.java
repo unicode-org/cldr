@@ -30,7 +30,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.JspWriter;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
@@ -2048,7 +2047,7 @@ public class WebContext implements Cloneable, Appendable {
 	}
 
 	private static UnicodeSet csvSpecial = new UnicodeSet("[, \"]").freeze();
-	public static final void csvWrite(JspWriter out, String str) throws IOException {
+	public static final void csvWrite(Writer out, String str) throws IOException {
 		str = str.trim();
 		if(csvSpecial.containsSome(str)) {
 			out.write('"');

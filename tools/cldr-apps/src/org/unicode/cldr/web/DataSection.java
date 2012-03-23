@@ -44,6 +44,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -1905,6 +1906,7 @@ public class DataSection implements JSONString {
 				return new JSONObject()
 					.put("xpath", xpath)
 					.put("xpid", xpathId)
+					.put("xpstrid", StringId.getId(xpath))
 					.put("winningValue", winningValue)
 					.put("displayName", displayName)
 					.put("displayExample", displayExample)

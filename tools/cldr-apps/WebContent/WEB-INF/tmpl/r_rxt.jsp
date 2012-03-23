@@ -7,9 +7,12 @@ if(!SurveyMain.isUnofficial) {
 	return;
 }
 String xp = ctx.field("xp", "//ldml");
-
+int xpid = ctx.fieldInt("xp", -1);
 if(xp.equals("gregorian")) {
 	xp= SurveyMain.GREGO_XPATH;
+}
+if(xpid!=-1) {
+	xp = ctx.sm.xpt.getById(xpid);
 }
 %>
 hi, session=<%= ctx.session.id %>

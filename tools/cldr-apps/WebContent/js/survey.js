@@ -8,7 +8,8 @@ dojo.require("dojo.string");
 dojo.requireLocalization("surveyTool", "stui");
 
 var stui = {online: "Online", 			disconnected: "Disconnected", startup: "Starting up..."};
-var stdebug_enabled=false;
+var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
+
 function stdebug(x) {
 	if(stdebug_enabled) {
 		console.log(x);
@@ -263,7 +264,14 @@ function handleDisconnect(why, json) {
 	updateProgressWord("disconnected");
 	if(!saidDisconnect) {
 		saidDisconnect=true;
+		if(json&&json.err) {
+			why = why + " err="+json.err;
+		}
 		console.log("Disconnect: " + why);
+		var oneword = dojo.byId("progress_oneword");
+		if(oneword) {
+			oneword.title = "Disconnected: " + why;
+		}
 		if(json) {
 			stdebug("JSON: " + json.toString());
 		}
@@ -276,9 +284,9 @@ function updateStatusBox(json) {
 	if(json.disconnected) {
 		handleDisconnect("Misc Disconnect", json);
 	} else if (json.SurveyOK==0) {
-		handleDisconnect("Server says: SurveyOK=0", json);
+		handleDisconnect("Server says: SurveyOK=0 - ", json);
 	} else if (json.status && json.status.isBusted) {
-		handleDisconnect("Server says: busted", json);
+		handleDisconnect("Server says: busted " + json.status.isBusted, json);
 	} else if(!json.status) {
 		handleDisconnect("!json.status",json);
 	} else if(json.status.surveyRunningStamp!=surveyRunningStamp) {
@@ -1158,12 +1166,31 @@ function updateRow(tr, theRow) {
 		children[2].title=stui.voFalse;
 	}
 	children[2].onclick = doPopInfo;
-	children[3].innerHTML=theRow.prettyPath;
+
+	if(!tr.anch || stdebug_enabled) {
+		children[3].innerHTML=theRow.prettyPath;
+		var anch = document.createElement("a");
+		anch.className="anch";
+		anch.id=theRow.xpid;
+		anch.href="#"+anch.id;
+		children[3].appendChild(anch);
+		if(stdebug_enabled) {
+			anch.appendChild(document.createTextNode("#"));
+
+			var go = document.createElement("a");
+			go.className="anch-go";
+			go.appendChild(document.createTextNode(">"));
+			go.href=window.location.pathname + "?_="+surveyCurrentLocale+"&x=r_rxt&xp="+theRow.xpid;
+			children[3].appendChild(go);
+		}
+		listenFor(children[3],"click",
+				function(e){ 		
+					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
+					e.stopPropagation(); return false; 
+				});
+		tr.anch = anch;
+	}
 	
-	children[3].onclick = function() {
-		showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
-		return false;
-	};
 	
 	if(!children[4].isSetup) {
 		children[4].appendChild(document.createTextNode(theRow.displayName));

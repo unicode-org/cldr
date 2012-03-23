@@ -16,9 +16,10 @@
 	http://10.0.0.148:8080/cldr-apps/surveytool.css
 	http://10.0.0.158:8080/cldr-apps/surveytool.css
 	http://st.unicode.org:8080/cldr-apps/surveytool.css
+	http://st.unicode.org/cldr-apps/surveytool.css
 */
 
-#adminStuff ul.adminList  {
+ul.adminList  {
 	display:  table-row;
 	border: 1px solid gray;
 }
@@ -47,6 +48,32 @@ div.adminUserUser i {
 	margin:  0.5em;
 	padding:  3px;
 }
+
+i.userlevel_street {
+	background-color: navy !important;
+	color:  white !important;
+}
+i.userlevel_vetter {
+	background-color: green !important;
+	color:  black !important;
+}
+i.userlevel_locked {
+	background-color: gray !important;
+	color:  silver !important;
+}
+i.userlevel_expert {
+	background-color: teal !important;
+	color:  black !important;
+}
+i.userlevel_admin {
+	background-color: maroon !important;
+	color:  silver !important;
+}
+i.userlevel_tc {
+	background-color: orange !important;
+	color:  black !important;
+}
+
 
 /* todo: replace w/ icons */
 
@@ -332,7 +359,8 @@ div.adminThreadStack {
 	width: 43%;
 	display:  table-cell;
 	font: small "Courier New", Courier, mono;
-	background-color: white;
+	background-color: wheat;
+	padding:  3px;
 }
 
 div.adminThreadStack b, span.adminThreadName {
@@ -1185,21 +1213,16 @@ div.topnotices p.beta {
 }
 
 div.topnotices div.beta {
-	/* for firefox, safari, chrome, etc. */
+	/*
 -webkit-transform: rotate(-90deg);
 	-webkit-transform-origin: right bottom;
 	-moz-transform: rotate(-90deg);
 	-moz-transform-origin: right bottom;
 	-o-transform: rotate(-90 deg);
-	/* For Opera*/
 -o-transform-origin: right bottom;
-	/* For Opera*/
 -khtml-transform: rotate (-90deg);
-	/* For Lunix*/
 -khtml-transform-origin: right bottom;
-	/*For Lunix*/
-/* for ie */
-
+*/
 /* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
 
     background-color: yellow;
@@ -1207,9 +1230,9 @@ div.topnotices div.beta {
 	float: right;
 	font-size: smaller;
 	clear: right;
-	position: absolute;
+	position: fixed;
+	left: 0;
 	top: 0;
-	right: 0;
 	opacity: 0.8;
 	z-index: 0;
 }
@@ -1296,15 +1319,19 @@ span#visitors td.remain {
 
 div#progress {
 	position: fixed;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	margin-right: 0.5em;
-	margin-bottom: 0.5em;
-	border-right: 4px solid gray;
-	border-bottom: 4px solid gray;
-	background-color: #f5edeb;
-	padding: 2px;
+	margin-top: 0.5em;
+	border-top: 4px groove gray;
+	border-right: 4px groove gray;
+	background-color: #e0f4ea;
+	padding-right: 2px;
+	padding-top: 2px;
+	padding-left:  2px;
+	padding-bottom: 0.5em;
 	width: 20em;
+	z-index: 6;
 }
 
 div#progress.progress-connecting {
@@ -1728,6 +1755,10 @@ button#progress-refresh {
 
 body.disconnected div#progress button#progress-refresh {
 	display: block !important;
+}
+
+body.disconnected div#progress.progress-ok  button#progress-refresh {
+	display: none !important;
 }
 
 .i-star {

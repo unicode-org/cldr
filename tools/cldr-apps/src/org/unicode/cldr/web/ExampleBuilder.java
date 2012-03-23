@@ -7,18 +7,27 @@ import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.util.CLDRFile;
 
 public class ExampleBuilder {
-	ExampleContext ec;
-	ExampleGenerator eg;
+	ExampleContext ec_e,ec_n;
+	ExampleGenerator eg_e,eg_n;
 	public ExampleBuilder(CLDRFile englishFile, CLDRFile cldrFile)  {
-		eg = new ExampleGenerator(englishFile, cldrFile, englishFile.getSupplementalDirectory().getPath());
-		ec = new ExampleContext();
+		eg_e = new ExampleGenerator(englishFile, englishFile, englishFile.getSupplementalDirectory().getPath());
+		eg_n = new ExampleGenerator(cldrFile, englishFile, englishFile.getSupplementalDirectory().getPath());
+		ec_e = new ExampleContext();
+		ec_n = new ExampleContext();
 	}
 	
 	synchronized String getExampleHtml(String xpath, String value, Zoomed zoomed, ExampleType type) {
-		return eg.getExampleHtml(xpath, value, zoomed, ec, type);
+		String s;
+		if(type==ExampleType.ENGLISH) {
+			s =  eg_e.getExampleHtml(xpath, value, zoomed, ec_e, type);
+		} else {
+			s =  eg_n.getExampleHtml(xpath, value, zoomed, ec_n, type);
+		}
+//		if(SurveyMain.isUnofficial) System.err.println(s + "  = geh + " + xpath + ", " + value + ", " + zoomed + ", (ec),"  + type);
+		return s;
 	}
 
 	public String getHelpHtml(String xpath, String value) {
-		return eg.getHelpHtml(xpath, value);
+		return eg_e.getHelpHtml(xpath, value);
 	}
 }

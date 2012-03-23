@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
+import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -2361,10 +2362,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool main</b></a><hr>");
         String org = ctx.session.user.org;
         if(just!=null) {
-            ctx.println("<a href='"+ctx.url()+ctx.urlConnector()+"do=list'>\u22d6 Show all users</a><br>");
+            ctx.println("<a href='"+ctx.url()+ctx.urlConnector()+"do=list&p_justorg='>\u22d6 Show all users</a><br>");
         }
-        if(UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
-            org = null; // all
+        if(UserRegistry.userIsAdmin(ctx.session.user)) {
+            if(reg.userIsAdmin(ctx.session.user)) {
+//            	WebContext subsubCtx = new WebContext(subCtx);
+//            	subsubCtx.put(string, object)
+            	String list0[] = UserRegistry.getOrgList();
+            	String list1[] = new String[list0.length +1];
+            	System.arraycopy(list0, 0, list1, 1, list0.length);
+            	list1[0]="Show All";
+            	org =  showListSetting(subCtx, "p_justorg", "Filter Organization", list1,true);
+            	if(org.equals(list1[0])) {
+            		org=null;
+            	}
+            } else {
+            	org = null; // all
+            }
         }
         String cleanEmail = null;
         String sendWhat = ctx.field(LIST_MAILUSER_WHAT);
@@ -2406,7 +2420,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 					ctx.println("<i>No results...</i>");
 					return;
 				}
-				if (UserRegistry.userCreateOtherOrgs(ctx.session.user)) {
+				if (org==null) {
 					org = "ALL"; // all
 				}
 				if (justme) {
@@ -2420,7 +2434,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 					ctx.println("<br>");
 					if (UserRegistry.userCanModifyUsers(ctx.session.user)) {
 						ctx.println("<div class='fnotebox'>"
-								+ ctx.iconHtml("warn", "warning")
 								+ "Changing user level or locales while a user is active will result in  "
 								+ " destruction of their session. Check if they have been working recently.</div>");
 					}
@@ -3098,6 +3111,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 					ctx.println("<br>");
 					ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
 					ctx.println("</form>");
+					
+					
+					if(!justme && UserRegistry.userCanModifyUsers(ctx.session.user)) {
+						WebContext subsubCtx = new WebContext(ctx);
+						subsubCtx.addQuery("s",ctx.session.id);
+						if(org!=null) {
+							subsubCtx.addQuery("org", org);
+						}
+						subsubCtx.addQuery("do", "list");
+						subsubCtx.println("<hr><form method='POST' action='"+subsubCtx.context("DataExport.jsp")+"'>");
+						subsubCtx.printUrlAsHiddenFields();
+						subsubCtx.print("<input type='submit' class='csvDownload' value='Download .csv'>");
+						subsubCtx.println("</form>");
+					}
 				}
 			}/* end synchronized(reg) */
 		} catch(SQLException se) {

@@ -25,6 +25,7 @@ import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.jsp.JspWriter;
 import javax.sql.DataSource;
 
 import org.unicode.cldr.util.CLDRLocale;
@@ -895,5 +896,46 @@ public class DBUtils {
 		 * Close this object
 		 */
 		public void close() throws SQLException;
+	}
+	
+	public static void writeCsv(ResultSet rs, JspWriter out) throws SQLException, IOException {
+        ResultSetMetaData rsm = rs.getMetaData();
+        int cc = rsm.getColumnCount();
+        for(int i=1;i<=cc;i++) {
+        	if(i>1) {
+				out.write(',');
+        	}
+			WebContext.csvWrite(out, rsm.getColumnName(i).toUpperCase());
+        }
+		out.write('\r');
+		out.write('\n');
+		
+		while(rs.next()) {
+            for(int i=1;i<=cc;i++) {
+            	if(i>1) {
+    				out.write(',');
+            	}
+                String v;
+                try {
+                    v = rs.getString(i);
+                } catch(SQLException se) {
+                    if(se.getSQLState().equals("S1009")) {
+                        v="0000-00-00 00:00:00";
+                    } else {
+                    	throw se;
+                    }
+                }
+                if(v != null) {
+                    if(rsm.getColumnType(i)==java.sql.Types.LONGVARBINARY) {
+                        String uni = DBUtils.getStringUTF8(rs, i);
+                        WebContext.csvWrite(out, uni);
+                    } else {
+                        WebContext.csvWrite(out, v);
+                    }
+                }
+            }
+    		out.write('\r');
+    		out.write('\n');
+        }
 	}
 }

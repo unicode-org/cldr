@@ -222,15 +222,19 @@ public class GenerateSidewaysView {
                 out.println("<tr><th" + valueClass + ">" + DataShower.getPrettyValue(value) + "</th><td class='td'>");
                 Set<String> locales = value_locales.get(value);
                 boolean first = true;
+                boolean containsRoot = locales.contains("root");
                 for (String locale : locales) {
                     if (first) first = false;
                     else out.print(" ");
                     if (locale.endsWith("*")) {
                         locale = locale.substring(0,locale.length()-1);
                         out.print("<i>\u00B7" + locale + "\u00B7</i>");
-                    } else {
+                    } else if (!containsRoot) {
                         out.print("\u00B7" + locale + "\u00B7");         
                     }
+                }
+                if (containsRoot) {
+                    out.print("<b>\u00B7others\u00B7</b>");
                 }
                 out.println("</td><tr>");
             }

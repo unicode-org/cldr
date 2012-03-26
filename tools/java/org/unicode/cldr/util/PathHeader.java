@@ -343,7 +343,8 @@ public class PathHeader implements Comparable<PathHeader> {
         static Map<String,Transform<String,String>> functionMap = new HashMap<String,Transform<String,String>>();
         static String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Und"};
         static List<String> days = Arrays.asList("sun", "mon", "tue", "wed", "thu", "fri", "sat");
-        static Map<String, String> likelySubtags = supplementalDataInfo.getLikelySubtags();
+        //static Map<String, String> likelySubtags = supplementalDataInfo.getLikelySubtags();
+        static LikelySubtags likelySubtags = new LikelySubtags();
         static HyphenSplitter hyphenSplitter = new HyphenSplitter();
         static Transform<String, String> catFromTerritory;
         static {
@@ -391,7 +392,6 @@ public class PathHeader implements Comparable<PathHeader> {
                     return info.idUsage.name;
                 }});
             functionMap.put("scriptFromLanguage", new Transform<String,String>(){
-                LikelySubtags likelySubtags = new LikelySubtags();
                 public String transform(String source0) {
                     String language = hyphenSplitter.split(source0);
                     String script = likelySubtags.getLikelyScript(language);
@@ -448,7 +448,15 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     return catFromTerritory.transform(territory);
                 }});
-
+            functionMap.put("categoryFromCurrency", new Transform<String,String>(){
+                public String transform(String source0) {
+                    String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
+                    if (territory == null || territory.equals("ZZ")) {
+                        order = 999;
+                        return "Not Current Tender";
+                    }
+                    return catFromTerritory.transform(territory) + ": " + TestInfo.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, territory);
+                }});
         }
         
         static class HyphenSplitter {

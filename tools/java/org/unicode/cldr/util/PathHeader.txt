@@ -20,15 +20,15 @@
 //ldml/localeDisplayNames/languages/language[@type="%A"]                    ; Code Lists ; Languages ; &scriptFromLanguage($1) ; $1
 //ldml/localeDisplayNames/scripts/script[@type="%A"]                        ; Code Lists ; Scripts ; &categoryFromScript($1) ; $1
 //ldml/localeDisplayNames/territories/territory[@type="%A"]                 ; Code Lists ; Territories ; &categoryFromTerritory($1) ; $1
-//ldml/dates/timeZoneNames/zone[@type="%B%A"]/exemplarCity                  ; Code Lists ; Timezone Cities ; &categoryFromTimezone($1$2) ; $2
+//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity                  ; Code Lists ; Timezone Cities ; &categoryFromTimezone($1$2) ; $2
 //ldml/localeDisplayNames/variants/variant[@type="%A"]                      ; Code Lists ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                              ; Code Lists ; Keys ; $1 ; Key
 //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]                 ; Code Lists ; Keys ; *$2 ; $1
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Code Lists ; Measurement Systems ; null ; $1
 
-//ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Code Lists ; Currencies ; $1 ; Symbol
-//ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Code Lists ; Currencies ; $1 ; Name
-//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Code Lists ; Currencies ; $1 ; count=$2
+//ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; $1-symbol
+//ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; *$1-name
+//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; *$1-count=$2
 
 //ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; Calendars ; &calendar($1) ; Eras: abbr ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]                                                       ; Calendars ; &calendar($1) ; Eras: name ; $2

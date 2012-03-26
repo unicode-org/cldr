@@ -50,6 +50,8 @@ import com.ibm.icu.util.ULocale;
  *
  */
 public class ExampleGenerator {
+    private static final boolean SHOW_ERROR = false;
+
     private static final Pattern URL_PATTERN = Pattern.compile("http://[\\-a-zA-Z0-9]+(\\.[\\-a-zA-Z0-9]+)*([/#][\\-a-zA-Z0-9]+)*");
 
     private final static boolean DEBUG_SHOW_HELP = false;
@@ -114,6 +116,7 @@ public class ExampleGenerator {
     private static final String backgroundStartSymbol = "\uE234";
 
     private static final String backgroundEndSymbol = "\uE235";
+
 
     // Matcher skipMatcher = Pattern.compile(
     // "/localeDisplayNames(?!"
@@ -295,6 +298,9 @@ public class ExampleGenerator {
             return null;
 
         } catch (NullPointerException e) {
+            if (SHOW_ERROR) {
+                e.printStackTrace();
+            }
             return null;
         } catch (RuntimeException e) {
             String unchained = verboseErrors?("<br>"+unchainException(e)):"";
@@ -317,9 +323,11 @@ public class ExampleGenerator {
     static Calendar generatingCalendar = Calendar.getInstance(ULocale.US);
 
     private static Date getDate(int year, int month, int date, int hour, int minute, int second, TimeZone zone) {
-        generatingCalendar.setTimeZone(GMT_ZONE_SAMPLE);
-        generatingCalendar.set(year, month, date, hour, minute, second);
-        return generatingCalendar.getTime();
+        synchronized (generatingCalendar) {
+            generatingCalendar.setTimeZone(GMT_ZONE_SAMPLE);
+            generatingCalendar.set(year, month, date, hour, minute, second);
+            return generatingCalendar.getTime();
+        }
     }
 
     static Date FIRST_INTERVAL = getDate(2008,1,13,5,7,9, GMT_ZONE_SAMPLE);
@@ -534,7 +542,7 @@ public class ExampleGenerator {
         DecimalFormat x = icuServiceBuilder.getNumberFormat(2);
         return x.format(NUMBER_SAMPLE);
     }
-    
+
     private String handleNumberingSystem(String value) {
         NumberFormat x = icuServiceBuilder.getGenericNumberFormat(value);
         return x.format(NUMBER_SAMPLE_WHOLE);
@@ -859,9 +867,9 @@ public class ExampleGenerator {
      * @return null if none available.
      */
     public synchronized String getHelpHtml(String xpath, String value) {
-        
+
         // lazy initialization
-        
+
         if (pathDescription == null) {
             Map<String, List<Set<String>>> starredPaths = new HashMap();
             Map<String, String> extras = new HashMap();
@@ -873,9 +881,9 @@ public class ExampleGenerator {
                 helpMessages = new HelpMessages("test_help_messages.html");
             }
         }
-        
+
         // now get the description
-        
+
         Level level = coverageLevel.getLevel(xpath);
         String description = pathDescription.getDescription(xpath, value, level, null);
         if (description == null || description.equals("SKIP")) {

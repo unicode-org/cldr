@@ -623,7 +623,9 @@ public class ICUServiceBuilder {
     try {
       numsys = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem"); 
       value = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);
-      value.charAt(0); // just throw error if not big enough or null
+      if (value == null || value.length() < 1) {
+          throw new RuntimeException();
+      }
       return value;
     } catch (RuntimeException e) {
       throw new IllegalArgumentException("Illegal value <" + value + "> at " + "//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);

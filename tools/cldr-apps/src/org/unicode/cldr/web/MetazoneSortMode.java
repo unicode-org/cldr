@@ -28,7 +28,7 @@ public class MetazoneSortMode extends SortMode {
 			        "The time zone is 2 hours ahead of UTC (UTC+2) and does not use daylight savings time.") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Central.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Central:.++"));
 				}
 			},
 			new Partition.Membership("East Africa",
@@ -36,7 +36,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 3 hours ahead of UTC (UTC+3) and does not use daylight savings time.") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Eastern.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Eastern:.++"));
 				}
 			},
 			new Partition.Membership("South Africa",
@@ -44,7 +44,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 2 hours ahead of UTC (UTC+2) and does not use daylight savings time.") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Southern.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Southern:.++"));
 				}
 			},
 			new Partition.Membership("West Africa",
@@ -55,7 +55,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 2 hours ahead of UTC (UTC+2).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Western.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Africa_Western:.++"));
 				}
 			},
 			new Partition.Membership("North America - Eastern",
@@ -69,7 +69,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 4 hours behind UTC (UTC-4).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|America_Eastern.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|America_Eastern:.++"));
 				}
 			},
 			new Partition.Membership("North America - Central",
@@ -84,7 +84,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 5 hours behind UTC (UTC-5).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|America_Central.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|America_Central:.++"));
 				}
 			},
 			new Partition.Membership("North America - Mountain",
@@ -98,7 +98,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 4 hours behind UTC (UTC-4).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|America_Mountain.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|America_Mountain:.++"));
 				}
 			},
 			new Partition.Membership("North America - Pacific",
@@ -110,7 +110,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 7 hours behind UTC (UTC-7).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|America_Pacific.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|America_Pacific:.++"));
 				}
 			},
 			new Partition.Membership("Alaska",
@@ -120,7 +120,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone was 8 hours behind UTC (UTC-8).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Alaska:.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Alaska:.++"));
 				}
 			},
 			new Partition.Membership("Alaska-Hawaii",
@@ -131,7 +131,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 9 hours behind UTC (UTC-9).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Alaska_Hawaii.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Alaska_Hawaii:.++"));
 				}
 			},
 			new Partition.Membership("Bering",
@@ -142,7 +142,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 10 hours behind UTC (UTC-10).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Bering.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Bering:.++"));
 				}
 			},
 			new Partition.Membership("Yukon",
@@ -153,7 +153,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 9 hours behind UTC (UTC-9).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Yukon.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Yukon:.++"));
 				}
 			},
 			new Partition.Membership("Atlantic",
@@ -164,7 +164,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 3 hours behind UTC (UTC-3).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Atlantic.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Atlantic:.++"));
 				}
 			},
 			new Partition.Membership("Newfoundland",
@@ -174,7 +174,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 2 1/2 hours behind UTC (UTC-2:30).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Newfoundland.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Newfoundland:.++"));
 				}
 			},
 			new Partition.Membership("Pierre and Miquelon",
@@ -185,7 +185,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 2 hours behind UTC (UTC-2).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Pierre_Miquelon.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Pierre_Miquelon:.++"));
 				}
 			},
 			new Partition.Membership("Brasilia",
@@ -196,7 +196,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 2 hours behind UTC (UTC-2).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Brasilia.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Brasilia:.++"));
 				}
 			},
 			new Partition.Membership("Amazon",
@@ -206,7 +206,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 3 hours behind UTC (UTC-3).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Amazon.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Amazon:.++"));
 				}
 			},
 			new Partition.Membership("Noronha",
@@ -217,7 +217,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 1 hour behind UTC (UTC-1).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Noronha.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Noronha:.++"));
 				}
 			},
 			new Partition.Membership("Acre",
@@ -228,7 +228,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 4 hours behind UTC (UTC-4).") { 
 				public boolean isMember(DataRow p) {
 						String pp = p.getPrettyPath();
-						return (pp != null && pp.matches("0-names\\|metazone\\|Acre.*"));
+						return (pp != null && pp.matches("0-names\\|metazone\\|Acre:.++"));
 					}
 			},
 			new Partition.Membership("Argentina",
@@ -238,7 +238,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 2 hours behind UTC (UTC-2).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Argentina:.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Argentina::.++"));
 				}
 			},
 			new Partition.Membership("Western Argentina",
@@ -248,7 +248,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 3 hours behind UTC (UTC-3).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Argentina_Western.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Argentina_Western:.++"));
 				}
 			},
 			new Partition.Membership("Bolivia",
@@ -256,7 +256,7 @@ public class MetazoneSortMode extends SortMode {
 			        "The time zone is 4 hours behind UTC (UTC-4) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Bolivia.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Bolivia:.++"));
 				}
 			},
 			new Partition.Membership("Chile",
@@ -266,7 +266,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 3 hours behind UTC (UTC-3).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Chile.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Chile:.++"));
 				}
 			},
 			new Partition.Membership("Colombia",
@@ -275,7 +275,7 @@ public class MetazoneSortMode extends SortMode {
 					"DST was observed for a brief period in 1992, during which time the time zone was UTC-4." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Colombia.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Colombia:.++"));
 				}
 			},
 			new Partition.Membership("Cuba",
@@ -285,7 +285,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 4 hours behind UTC (UTC-4).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Cuba.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Cuba:.++"));
 				}
 			},
 			new Partition.Membership("Dutch Guiana",
@@ -295,7 +295,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone was 3 1/2 hours behind UTC (UTC-3:30). " ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Dutch_Guiana.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Dutch_Guiana:.++"));
 				}
 			},
 			new Partition.Membership("Ecuador",
@@ -303,7 +303,7 @@ public class MetazoneSortMode extends SortMode {
 	                "The time zone is 5 hours behind UTC (UTC-5) and does not use daylight savings time.") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Ecuador.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Ecuador:.++"));
 				}
 			},
 			new Partition.Membership("French Guiana",
@@ -311,7 +311,7 @@ public class MetazoneSortMode extends SortMode {
 	                "The time zone is 3 hours behind UTC (UTC-3) and does not use daylight savings time.") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|French_Guiana.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|French_Guiana:.++"));
 				}
 			},
 			new Partition.Membership("Eastern Greenland",
@@ -321,7 +321,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is the same as UTC.") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Greenland_Eastern.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Greenland_Eastern:.++"));
 				}
 			},
 			new Partition.Membership("Central Greenland",
@@ -332,7 +332,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 1 hour behind UTC (UTC-1).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Greenland_Central.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Greenland_Central:.++"));
 				}
 			},
 			new Partition.Membership("Western Greenland",
@@ -342,7 +342,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 2 hours behind UTC (UTC-2).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Greenland_Western.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Greenland_Western:.++"));
 				}
 			},
 			new Partition.Membership("Guyana",
@@ -350,7 +350,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 4 hours behind UTC (UTC-4) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Guyana.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Guyana:.++"));
 				}
 			},
 			new Partition.Membership("Paraguay",
@@ -360,7 +360,7 @@ public class MetazoneSortMode extends SortMode {
 		    		"When DST is in effect, the time zone is 3 hours behind UTC (UTC-3).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Paraguay.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Paraguay:.++"));
 				}
 			},
 			new Partition.Membership("Peru",
@@ -368,7 +368,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 5 hours behind UTC (UTC-5) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Peru.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Peru:.++"));
 				}
 			},
 			new Partition.Membership("Suriname",
@@ -376,7 +376,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 3 hours behind UTC (UTC-3) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Suriname.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Suriname:.++"));
 				}
 			},
 			new Partition.Membership("Uruguay",
@@ -386,7 +386,7 @@ public class MetazoneSortMode extends SortMode {
 				    "When DST is in effect, the time zone is 2 hours behind UTC (UTC-2).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Uruguay.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Uruguay:.++"));
 				}
 			},
 			new Partition.Membership("Venezuela",
@@ -394,7 +394,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 4 1/2 hours behind UTC (UTC-4:30) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Venezuela.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Venezuela:.++"));
 				}
 			},
 			new Partition.Membership("Casey",
@@ -402,7 +402,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 8 hours ahead of UTC (UTC+8) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Casey.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Casey:.++"));
 				}
 			},
 			new Partition.Membership("Davis",
@@ -410,7 +410,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 7 hours ahead of UTC (UTC+7) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Davis.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Davis:.++"));
 				}
 			},
 			new Partition.Membership("Dumont d&apos;Urville",
@@ -418,7 +418,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 10 hours ahead of UTC (UTC+10) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|DumontDUrville.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|DumontDUrville:.++"));
 				}
 			},
 			new Partition.Membership("Macquarie",
@@ -427,7 +427,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone was 11 hours ahead of UTC (UTC+11) and did not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Macquarie.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Macquarie:.++"));
 				}
 			},
 			new Partition.Membership("Mawson",
@@ -435,7 +435,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 5 hours ahead of UTC (UTC+5) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Mawson.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Mawson:.++"));
 				}
 			},
 			new Partition.Membership("Rothera",
@@ -443,7 +443,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 3 hours behind UTC (UTC-3) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Rothera.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Rothera:.++"));
 				}
 			},
 			new Partition.Membership("Syowa",
@@ -451,7 +451,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 3 hours ahead of UTC (UTC+3) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Syowa.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Syowa:.++"));
 				}
 			},
 			new Partition.Membership("Vostok",
@@ -459,7 +459,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 6 hours ahead of UTC (UTC+6) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Vostok.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Vostok:.++"));
 				}
 			},
 			new Partition.Membership("Afghanistan",
@@ -467,7 +467,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 4 1/2 hours ahead of UTC (UTC+4:30) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Afghanistan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Afghanistan:.++"));
 				}
 			},
 			new Partition.Membership("Aktyubinsk",
@@ -478,7 +478,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 6 hours ahead of UTC (UTC+6).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Aktyubinsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Aktyubinsk:.++"));
 				}
 			},
 			new Partition.Membership("Almaty",
@@ -489,7 +489,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 7 hours ahead of UTC (UTC+7).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Almaty.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Almaty:.++"));
 				}
 			},
 			new Partition.Membership("Aqtau",
@@ -500,7 +500,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 5 hours ahead of UTC (UTC+5).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Aqtau.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Aqtau:.++"));
 				}
 			},
 			new Partition.Membership("Aqtobe",
@@ -511,7 +511,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 6 hours ahead of UTC (UTC+6).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Aqtobe.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Aqtobe:.++"));
 				}
 			},
 			new Partition.Membership("Arabian",
@@ -523,7 +523,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 4 hours ahead of UTC (UTC+4).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Arabian.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Arabian:.++"));
 				}
 			},
 			new Partition.Membership("Armenia",
@@ -533,7 +533,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 5 hours ahead of UTC (UTC+5).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Armenia.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Armenia:.++"));
 				}
 			},
 			new Partition.Membership("Ashkhabad",
@@ -544,7 +544,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 6 hours ahead of UTC (UTC+6).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Ashkhabad.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Ashkhabad:.++"));
 				}
 			},
 			new Partition.Membership("Azerbaijan",
@@ -554,7 +554,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 5 hours ahead of UTC (UTC+5).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Azerbaijan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Azerbaijan:.++"));
 				}
 			},
 			new Partition.Membership("Baku",
@@ -564,7 +564,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 4 hours ahead of UTC (UTC+4).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Baku.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Baku:.++"));
 				}
 			},
 			new Partition.Membership("Bangladesh",
@@ -574,7 +574,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 5 hours ahead of UTC (UTC+7).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Bangladesh.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Bangladesh:.++"));
 				}
 			},
 			new Partition.Membership("Bhutan",
@@ -582,7 +582,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 6 hours ahead of UTC (UTC+6) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Bhutan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Bhutan:.++"));
 				}
 			},
 			new Partition.Membership("Borneo",
@@ -593,7 +593,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST was in effect, the time zone was 9 hours ahead of UTC (UTC+9).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Borneo.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Borneo:.++"));
 				}
 			},
 			new Partition.Membership("Brunei",
@@ -601,7 +601,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone is 8 hours ahead of UTC (UTC+8) and does not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Brunei.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Brunei:.++"));
 				}
 			},
 			new Partition.Membership("Changbai",
@@ -609,7 +609,7 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone was 8 1/2 hours ahead of UTC (UTC+8:30) and did not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Changbai.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Changbai:.++"));
 				}
 			},
 			new Partition.Membership("China",
@@ -619,7 +619,7 @@ public class MetazoneSortMode extends SortMode {
 					"When DST is in effect, the time zone is 9 hours ahead of UTC (UTC+9).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|China.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|China:.++"));
 				}
 			},
 			new Partition.Membership("Choibalsan",
@@ -629,7 +629,7 @@ public class MetazoneSortMode extends SortMode {
 				    "When DST was in effect, the time zone was 10 hours ahead of UTC (UTC+10).") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Choibalsan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Choibalsan:.++"));
 				}
 			},
 			new Partition.Membership("Dacca",
@@ -637,398 +637,824 @@ public class MetazoneSortMode extends SortMode {
 					"The time zone was 6 hours ahead of UTC (UTC+6) and did not use daylight savings time." ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Dacca.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Dacca:.++"));
 				}
 			},
 			new Partition.Membership("Dushanbe",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Dushanbe.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Dushanbe:.++"));
 				}
 			},
-			new Partition.Membership("East_Timor",
+			new Partition.Membership("East Timor",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|East_Timor.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|East_Timor:.++"));
 				}
 			},
 			new Partition.Membership("Frunze",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Frunze.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Frunze:.++"));
 				}
 			},
 			new Partition.Membership("Georgia",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Georgia.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Georgia:.++"));
 				}
 			},
 			new Partition.Membership("Gulf",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Gulf.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Gulf:.++"));
 				}
 			},
-			new Partition.Membership("Hong_Kong",
+			new Partition.Membership("Hong Kong",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Hong_Kong.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Hong_Kong:.++"));
 				}
 			},
 			new Partition.Membership("Hovd",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Hovd.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Hovd:.++"));
 				}
 			},
 			new Partition.Membership("India",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|India.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|India:.++"));
 				}
 			},
 			new Partition.Membership("Indochina",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Indochina.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Indochina:.++"));
 				}
 			},
-			new Partition.Membership("Indonesia_Central",
+			new Partition.Membership("Central Indonesia",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Indonesia_Central.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Indonesia_Central:.++"));
 				}
 			},
-			new Partition.Membership("Indonesia_Eastern",
+			new Partition.Membership("Eastern Indonesia",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Indonesia_Eastern.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Indonesia_Eastern:.++"));
 				}
 			},
-			new Partition.Membership("Indonesia_Western",
+			new Partition.Membership("Western Indonesia",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Indonesia_Western.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Indonesia_Western:.++"));
 				}
 			},
 			new Partition.Membership("Iran",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Iran.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Iran:.++"));
 				}
 			},
 			new Partition.Membership("Irkutsk",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Irkutsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Irkutsk:.++"));
 				}
 			},
 			new Partition.Membership("Israel",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Israel.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Israel:.++"));
 				}
 			},
 			new Partition.Membership("Japan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Japan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Japan:.++"));
 				}
 			},
 			new Partition.Membership("Karachi",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Karachi.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Karachi:.++"));
 				}
 			},
 			new Partition.Membership("Kashgar",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Kashgar.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kashgar:.++"));
 				}
 			},
-			new Partition.Membership("Kazakhstan_Eastern",
+			new Partition.Membership("Eastern Kazakhstan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Kazakhstan_Eastern.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kazakhstan_Eastern:.++"));
 				}
 			},
-			new Partition.Membership("Kazakhstan_Western",
+			new Partition.Membership("Western Kazakhstan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Kazakhstan_Western.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kazakhstan_Western:.++"));
 				}
 			},
 			new Partition.Membership("Kizilorda",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Kizilorda.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kizilorda:.++"));
 				}
 			},
 			new Partition.Membership("Korea",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Korea.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Korea:.++"));
 				}
 			},
 			new Partition.Membership("Krasnoyarsk",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Krasnoyarsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Krasnoyarsk:.++"));
 				}
 			},
 			new Partition.Membership("Kyrgystan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Kyrgystan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kyrgystan:.++"));
 				}
 			},
 			new Partition.Membership("Lanka",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Lanka.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Lanka:.++"));
 				}
 			},
-			new Partition.Membership("Long_Shu",
+			new Partition.Membership("Long Shu",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Long_Shu.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Long_Shu:.++"));
 				}
 			},
 			new Partition.Membership("Macau",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Macau.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Macau:.++"));
 				}
 			},
 			new Partition.Membership("Magadan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Magadan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Magadan:.++"));
 				}
 			},
 			new Partition.Membership("Malaya",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Malaya.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Malaya:.++"));
 				}
 			},
 			new Partition.Membership("Malaysia",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Malaysia.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Malaysia:.++"));
 				}
 			},
 			new Partition.Membership("Mongolia",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Mongolia.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Mongolia:.++"));
 				}
 			},
 			new Partition.Membership("Myanmar",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Myanmar.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Myanmar:.++"));
 				}
 			},
 			new Partition.Membership("Nepal",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Nepal.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Nepal:.++"));
 				}
 			},
 			new Partition.Membership("Novosibirsk",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Novosibirsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Novosibirsk:.++"));
 				}
 			},
 			new Partition.Membership("Omsk",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Omsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Omsk:.++"));
 				}
 			},
 			new Partition.Membership("Pakistan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Pakistan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Pakistan:.++"));
 				}
 			},
 			new Partition.Membership("Philippines",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Philippines.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Philippines:.++"));
 				}
 			},
 			new Partition.Membership("Qyzylorda",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Qyzylorda.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Qyzylorda:.++"));
 				}
 			},
 			new Partition.Membership("Sakhalin",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Sakhalin.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Sakhalin:.++"));
 				}
 			},
 			new Partition.Membership("Samarkand",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Samarkand.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Samarkand:.++"));
 				}
 			},
 			new Partition.Membership("Shevchenko",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Shevchenko.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Shevchenko:.++"));
 				}
 			},
 			new Partition.Membership("Singapore",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Singapore.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Singapore:.++"));
 				}
 			},
 			new Partition.Membership("Sverdlovsk",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Sverdlovsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Sverdlovsk:.++"));
 				}
 			},
 			new Partition.Membership("Taipei",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Taipei.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Taipei:.++"));
 				}
 			},
 			new Partition.Membership("Tajikistan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Tajikistan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Tajikistan:.++"));
 				}
 			},
 			new Partition.Membership("Tashkent",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Tashkent.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Tashkent:.++"));
 				}
 			},
 			new Partition.Membership("Tbilisi",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Tbilisi.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Tbilisi:.++"));
 				}
 			},
 			new Partition.Membership("Turkmenistan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Turkmenistan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Turkmenistan:.++"));
 				}
 			},
 			new Partition.Membership("Uralsk",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Uralsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Uralsk:.++"));
 				}
 			},
 			new Partition.Membership("Urumqi",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Urumqi.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Urumqi:.++"));
 				}
 			},
 			new Partition.Membership("Uzbekistan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Uzbekistan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Uzbekistan:.++"));
 				}
 			},
 			new Partition.Membership("Vladivostok",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Vladivostok.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Vladivostok:.++"));
 				}
 			},
 			new Partition.Membership("Yakutsk",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Yakutsk.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Yakutsk:.++"));
 				}
 			},
 			new Partition.Membership("Yekaterinburg",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Yekaterinburg.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Yekaterinburg:.++"));
 				}
 			},
 			new Partition.Membership("Yerevan",
 					"Description TBD" ) {
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("0-names\\|metazone\\|Yerevan.*"));
+					return (pp != null && pp.matches("0-names\\|metazone\\|Yerevan:.++"));
+				}
+			},
+			new Partition.Membership("Central Australia",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Australia_Central:.++"));
+				}
+			},
+			new Partition.Membership("Central Western Australia",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Australia_CentralWestern:.++"));
+				}
+			},
+			new Partition.Membership("Eastern Australia",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Australia_Eastern:.++"));
+				}
+			},
+			new Partition.Membership("Western Australia",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Australia_Western:.++"));
+				}
+			},
+			new Partition.Membership("Lord Howe Island",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Lord_Howe:.++"));
+				}
+			},
+			new Partition.Membership("Central Europe",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Europe_Central:.++"));
+				}
+			},
+			new Partition.Membership("Eastern Europe",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Europe_Eastern:.++"));
+				}
+			},
+			new Partition.Membership("Western Europe",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Europe_Western:.++"));
+				}
+			},
+			new Partition.Membership("Kuybyshev",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kuybyshev:.++"));
+				}
+			},
+			new Partition.Membership("Moscow",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Moscow:.++"));
+				}
+			},
+			new Partition.Membership("Turkey",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Turkey:.++"));
+				}
+			},
+			new Partition.Membership("Volgograd",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Volgograd:.++"));
+				}
+			},
+			new Partition.Membership("Azores",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Azores:.++"));
+				}
+			},
+			new Partition.Membership("Cape Verde",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Cape_Verde:.++"));
+				}
+			},
+			new Partition.Membership("Falkland Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Falkland:.++"));
+				}
+			},
+			new Partition.Membership("Greenwich Mean Time",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|GMT:.++"));
+				}
+			},
+			new Partition.Membership("South Georgia",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|South_Georgia:.++"));
+				}
+			},
+			new Partition.Membership("Christmas Island",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Christmas:.++"));
+				}
+			},
+			new Partition.Membership("Cocos",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Cocos:.++"));
+				}
+			},
+			new Partition.Membership("French Southern",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|French_Southern:.++"));
+				}
+			},
+			new Partition.Membership("Indian Ocean",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Indian_Ocean:.++"));
+				}
+			},
+			new Partition.Membership("Maldives",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Maldives:.++"));
+				}
+			},
+			new Partition.Membership("Mauritius",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Mauritius:.++"));
+				}
+			},
+			new Partition.Membership("Reunion",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Reunion:.++"));
+				}
+			},
+			new Partition.Membership("Seychelles",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Seychelles:.++"));
+				}
+			},
+			new Partition.Membership("Chamorro",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Chamorro:.++"));
+				}
+			},
+			new Partition.Membership("Chatham",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Chatham:.++"));
+				}
+			},
+			new Partition.Membership("Cook Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Cook:.++"));
+				}
+			},
+			new Partition.Membership("Easter Island",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Easter:.++"));
+				}
+			},
+			new Partition.Membership("Fiji",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Fiji:.++"));
+				}
+			},
+			new Partition.Membership("Galapagos",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Galapagos:.++"));
+				}
+			},
+			new Partition.Membership("Gambier",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Gambier:.++"));
+				}
+			},
+			new Partition.Membership("Gilbert Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Gilbert_Islands:.++"));
+				}
+			},
+			new Partition.Membership("Guam",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Guam:.++"));
+				}
+			},
+			new Partition.Membership("Hawaii-Aleutian",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Hawaii_Aleutian:.++"));
+				}
+			},
+			new Partition.Membership("Kosrae",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kosrae:.++"));
+				}
+			},
+			new Partition.Membership("Kwajalein",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Kwajalein:.++"));
+				}
+			},
+			new Partition.Membership("Line Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Line_Islands:.++"));
+				}
+			},
+			new Partition.Membership("Marquesas",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Marquesas:.++"));
+				}
+			},
+			new Partition.Membership("Marshall Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Marshall_Islands:.++"));
+				}
+			},
+			new Partition.Membership("Nauru",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Nauru:.++"));
+				}
+			},
+			new Partition.Membership("New Caledonia",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|New_Caledonia:.++"));
+				}
+			},
+			new Partition.Membership("New Zealand",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|New_Zealand:.++"));
+				}
+			},
+			new Partition.Membership("Niue",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Niue:.++"));
+				}
+			},
+			new Partition.Membership("Norfolk Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Norfolk:.++"));
+				}
+			},
+			new Partition.Membership("North Mariana Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|North_Mariana:.++"));
+				}
+			},
+			new Partition.Membership("Palau",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Palau:.++"));
+				}
+			},
+			new Partition.Membership("Papua New Guinea",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Papua_New_Guinea:.++"));
+				}
+			},
+			new Partition.Membership("Phoenix Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Phoenix_Islands:.++"));
+				}
+			},
+			new Partition.Membership("Pitcairn",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Pitcairn:.++"));
+				}
+			},
+			new Partition.Membership("Ponape",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Ponape:.++"));
+				}
+			},
+			new Partition.Membership("Samoa",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Samoa:.++"));
+				}
+			},
+			new Partition.Membership("Solomon Islands",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Solomon:.++"));
+				}
+			},
+			new Partition.Membership("Tahiti",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Tahiti:.++"));
+				}
+			},
+			new Partition.Membership("Tokelau",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Tokelau:.++"));
+				}
+			},
+			new Partition.Membership("Tonga",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Tonga:.++"));
+				}
+			},
+			new Partition.Membership("Truk (Chuuk)",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Truk:.++"));
+				}
+			},
+			new Partition.Membership("Tuvalu",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Tuvalu:.++"));
+				}
+			},
+			new Partition.Membership("Vanuatu",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Vanuatu:.++"));
+				}
+			},
+			new Partition.Membership("Wake Island",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Wake:.++"));
+				}
+			},
+			new Partition.Membership("Wallis and Futuna",
+					"Description TBD" ) {
+				public boolean isMember(DataRow p) {
+					String pp = p.getPrettyPath();
+					return (pp != null && pp.matches("0-names\\|metazone\\|Wallis:.++"));
 				}
 			},
 	};
-	// TODO: Add rest of continents to the above.
-    
-    @Override
+
+	@Override
     Partition.Membership[] memberships() {
     	return memberships;
     }

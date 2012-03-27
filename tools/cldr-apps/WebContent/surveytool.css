@@ -709,6 +709,7 @@ tr.heading {
 
 tr.heading th.partsection {
 	border-top: 2px solid black;
+	z-index: 0;
 }
 
 th.partsection, th.partsection a {
@@ -719,6 +720,7 @@ th.partsection, th.partsection a {
 	font-size: 1.1em;
 	text-align: left;
 	border-top: 2px solid gray;
+	z-index: 0;
 }
 
 tr.headingb {
@@ -1880,6 +1882,7 @@ div#pu-peak {
 	color: black;
 	vertical-align: top;
 	text-align: right;
+	z-index: 6;
 }
 
 body {
@@ -1894,7 +1897,8 @@ div#pu-body {
 	padding: 0.2em;
 	padding-bottom: 0;
 	background: #f8c871 none;
-	box-shadow: 8px 8px 5px gray; 
+	box-shadow: 8px 8px 5px gray;
+	z-index: 6;
 }
 
 div#pu-body-OLD {
@@ -1911,6 +1915,7 @@ div#pu-content {
 	font-size:  small;
 	height:  90%;
 	overflow: scroll;
+	z-index: 6;
 }
 
 #pu-content h3.span {

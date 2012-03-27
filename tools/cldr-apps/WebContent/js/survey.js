@@ -1049,7 +1049,7 @@ dojo.ready(function() {
 		}
 		//tr.infoRow.className = "d-inforow";
 	};
-	if(true) {
+	if(false) {
 		window.showInPop = window.showInPop2;
 	} else {
 		// delay before show
@@ -1063,7 +1063,7 @@ dojo.ready(function() {
 			}
 			hideInterval=setTimeout(function() {
 				window.showInPop2(tr,theRow,str,hideIfLast,fn);
-			}, 50);
+			}, 2500);
 		};
 	}
 	window.hidePop = function() {

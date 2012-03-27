@@ -1196,7 +1196,8 @@ div.loading {
 
 div.d-example {
 	font: small "Courier New", Courier, mono;
-	background-color: #eae3c9;
+	/*background-color: #eae3c9; */
+	border: 1px solid #ab98ea;
 	padding: 1px;
 }
 
@@ -1887,10 +1888,11 @@ body {
 
 div#pu-body {
 	position: fixed;
-	bottom: 0;
+	bottom: 10px;
 	width:  97%;
 	height: 10em;
 	padding: 0.2em;
+	padding-bottom: 0;
 	background: #f8c871 none;
 	box-shadow: 8px 8px 5px gray; 
 }

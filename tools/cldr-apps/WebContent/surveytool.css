@@ -1847,29 +1847,33 @@ td.d-change-warn {
 /* @group Popup */
 
 div#pu-outer {
-	/*border:  1px solid orange;*/
+	/*border:  1px solid orange;
 	position: absolute;
 	top: 500px;
-	left: 100px;
+	left: 100px;*/
 	display: none;
 }
 
 div#pu-peak {
-	width: 433px;
-	height:  182px;
+	width: 15px;
+	height:  16px;
 	/*border:  1px solid green;*/
-	background: url(peak.png) no-repeat scroll center center;
-	position: relative;
-	left: 0;
-	top: 0;
+	background: url(peakfill.png);
+	position: absolute;
+	left: 100px;
+	top: 10em;
+	opacity:  0.9;
+	color: black;
+	vertical-align: top;
+	text-align: right;
 }
 
 div#pu-body {
 	background-color: white;
 	/*border:  1px solid purple;*/
-	position: relative;
-	top: -48px;
-	right: -160px;
+	position: absolute;
+	/*top: -48px;
+	right: -160px;*/
 /*	height:  100px;*/
 	/*width:  300px;*/
 	/*margin-left:  auto;

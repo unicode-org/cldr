@@ -922,41 +922,61 @@ function hidePopOld(tr) {
 function resetPopOld(tr) {
 	gPopStatus.lastShown=null;
 }
-
-// new pop stuff
+function hidePopHandler(e){ 		
+	window.hidePop(null);
+	e.stopPropagation(); return false; 
+}// new pop stuff
 dojo.ready(function() {
 	var unShow = null;
 	var lastShown = null;
 	var pucontent = dojo.byId("pu-content");
 	var puouter = dojo.byId("pu-outer");
 	var pupeak = dojo.byId("pu-peak");
-	var nudgeh=10;
-	var nudgev=-4;
-	var nudgehpost=-65;
+	var pubody = dojo.byId("pu-body");
+	var nudgeh=0;
+	var nudgev=0;
+	var nudgehpost=0;
 	var nudgevpost=0;
 	var hardleft = 10;
 	var hardtop = 10;
+	var pupeak_height = pupeak.offsetHeight;
 	
-	if(false) {
+	var hideInterval=null;
+	
+	listenFor(pubody, "mouseover", function() {
+		clearTimeout(hideInterval);
+		hideInterval=null;
+	});
+	listenFor(pubody, "mouseout", hidePopHandler);
+	
+	if(true) {
 	window.showInPop = function(tr,theRow, str, hideIfLast, fn) {
+		if(hideIfLast&&lastShown==hideIfLast) {
+			return; // keep up
+		}
 		if(unShow) {
 			unShow();
 			unShow=null;
 		}
-		if(hideIfLast && lastShown==hideIfLast) {
-			// HIDEPOP
-			tr.lastShown=null;
-			
-			puouter.style.display="none";
-			
-			return;
+		if(hideInterval) {
+			clearTimeout(hideInterval);
+			hideInterval=null;
 		}
+//		if(hideIfLast && lastShown==hideIfLast) {
+//			lastShown=null;
+//			
+//			puouter.style.display="none";
+//			
+//			return;
+//		}
 		lastShown = hideIfLast;
 
 		var td = document.createDocumentFragment();
 
 		if(str) {
-			td.innerHTML=str;
+			var div2 = document.createElement("div");
+			div2.innerHTML=str;
+			td.appendChild(div2);
 		}
 		if(fn!=null) {
 			unShow=fn(td);
@@ -970,19 +990,34 @@ dojo.ready(function() {
 		pucontent.appendChild(td);
 		td=null;
 		
-		if(hideIfLast) {
+		if(hideIfLast) { // context
 			var loc = getAbsolutePosition(hideIfLast);
-			var newTop = (loc.top+hideIfLast.offsetHeight+nudgev);
-			if(newTop<hardtop) newTop=hardtop;
-			puouter.style.top = (newTop+nudgevpost)+"px";
-			newLeft = (loc.left+nudgeh);
-			if(newLeft<hardleft) {
-				pupeak.style.left = (newLeft - hardleft)+"px";
-				newLeft = hardleft;
+			var newTopPeak = (loc.top+hideIfLast.offsetHeight-16);
+			//if(newTop<hardtop) newTop=hardtop;
+			//puouter.style.top = (newTop+nudgevpost)+"px";
+			newLeftPeak = (loc.left);
+			
+			pupeak.style.left = (newLeftPeak-16) + "px";
+			pupeak.style.top = newTopPeak + "px";
+			
+			// now, body style
+			var bodyTop;
+			if(hideIfLast.popParent) {
+				loc = getAbsolutePosition(hideIfLast.popParent); // specifies:  move the v part here
+				bodyTop = (loc.top+hideIfLast.popParent.offsetHeight+nudgeh);
 			} else {
-				pupeak.style.left = "0px";
+				bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
 			}
-			puouter.style.left = (newLeft+nudgehpost)+"px";
+			pubody.style.top = bodyTop+"px";
+			pupeak.style.height = (bodyTop-newTopPeak) + "px";
+			
+//			if(newLeft<hardleft) {
+//				pupeak.style.left = (newLeft - hardleft)+"px";
+//				newLeft = hardleft;
+//			} else {
+//				pupeak.style.left = "0px";
+//			}
+//			puouter.style.left = (newLeft+nudgehpost)+"px";
 			puouter.style.display="block";
 		} else {
 			alert("Errow showPop with no td");
@@ -990,8 +1025,13 @@ dojo.ready(function() {
 		//tr.infoRow.className = "d-inforow";
 	};
 	window.hidePop = function() {
-		puouter.style.display="none";
-		lastShown = null;
+		if(hideInterval) {
+			clearTimeout(hideInterval);
+		}
+		hideInterval=setTimeout(function() {
+			puouter.style.display="none";
+			lastShown = null;
+		}, 2000);
 	};
 	window.resetPop = function() {
 		lastShown = null;
@@ -1003,6 +1043,7 @@ dojo.ready(function() {
 	}
 	/* old system */
 });
+
 
 
 function testsToHtml(tests) {
@@ -1077,7 +1118,7 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 
 function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 	showInPop(tr, theRow, "", div, function(td) {
-		div.className = 'd-item-selected';
+		//div.className = 'd-item-selected';
 
 		var h3 = document.createElement("h3");
 		h3.appendChild(cloneAnon(div.getElementsByTagName("span")[0]));
@@ -1111,7 +1152,7 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 			appendExample(td, item.example);
 		}
 		
-		return function(){ var d2 = div; return function(){ 	d2.className="d-item";  };}();
+		//return function(){ var d2 = div; return function(){ 	d2.className="d-item";  };}();
 	}); // end fn
 }
 
@@ -1193,13 +1234,16 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	if(item.votes) {
 		addIcon(div,"i-vote");
 	}
-	div.onclick = function(){ showItemInfo(td,tr,theRow,item,vHash,newButton,div); return false;};
+	div.popParent = tr;
+	var onmove = function(){ showItemInfo(td,tr,theRow,item,vHash,newButton,div); return false;};
+	listenFor(div,"mouseover", onmove);
+	td._onmove = onmove;
 	td.appendChild(div);
 	
 	if(item.inExample) {
 		addIcon(div,"i-example-zoom").onclick = div.onclick;
 	} else if(item.example) {
-		appendExample(td,item.example).onclick = div.onclick;
+		listenFor(appendExample(td,item.example),"mouseover", onmove);
 	}
 }
 
@@ -1222,12 +1266,16 @@ function updateRow(tr, theRow) {
 		protoButton = null;
 	}
 	
-	var doPopInfo = function() {
+	var doPopInfo = function(e) {
 		popInfoInto(tr,theRow,children[1]);
+		e.stopPropagation(); return false; 
 	};
 	
 	for(var i=0;i<children.length;i++) {
 		children[i].title = tr.theTable.theadChildren[i].title;
+	}
+	if(!tr._onmove) {
+		tr._onmove = function(e) {showInPop(tr,theRow,"",tr); e.stopPropagation(); return false;};
 	}
 	
 	if(theRow.hasErrors) {
@@ -1240,9 +1288,14 @@ function updateRow(tr, theRow) {
 		children[0].className = "d-st-okay";
 		children[0].title = stui.testOkay;
 	}
+	listenFor(children[0],"mouseover",function(e){return children[0]._onmove(e);});
 	
 	children[1].className = "d-dr-"+theRow.confirmStatus;
-	children[1].onclick = doPopInfo;
+	if(!children[1].isSetup) {
+		listenFor(children[1],"mouseover",
+				doPopInfo);
+		children[1].isSetup=true;
+	}
 	children[1].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
 
 	if(theRow.hasVoted) {
@@ -1252,7 +1305,11 @@ function updateRow(tr, theRow) {
 		children[2].className = "d-vo-false";
 		children[2].title=stui.voFalse;
 	}
-	children[2].onclick = doPopInfo;
+	if(!children[2].isSetup) {
+		listenFor(children[2],"mouseover",
+				doPopInfo);
+		children[2].isSetup=true;
+	}
 
 	if(!tr.anch || stdebug_enabled) {
 		children[3].innerHTML=theRow.prettyPath;
@@ -1270,7 +1327,12 @@ function updateRow(tr, theRow) {
 			go.href=window.location.pathname + "?_="+surveyCurrentLocale+"&x=r_rxt&xp="+theRow.xpid;
 			children[3].appendChild(go);
 		}
-		listenFor(children[3],"click",
+//		listenFor(children[3],"click",
+//				function(e){ 		
+//					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
+//					e.stopPropagation(); return false; 
+//				});
+		listenFor(children[3],"mouseover",
 				function(e){ 		
 					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
 					e.stopPropagation(); return false; 
@@ -1284,14 +1346,16 @@ function updateRow(tr, theRow) {
 		if(theRow.displayExample) {
 			appendExample(children[4], theRow.displayExample);
 		}
+		listenFor(children[4],"mouseover",tr._onmove);
 		children[4].isSetup=true;
 	}
 	removeAllChildNodes(children[5]); // win
 	if(theRow.items&&theRow.winningVhash) {
+		children[5]._onmove=null;
 		addVitem(children[5],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
-		/* tr.onclick = */ children[0].onclick = children[5].getElementsByTagName("div")[0].onclick;
+		children[0]._onmove = children[5]._onmove;
 	} else {
-		/* tr.onclick = */ children[0].onclick = function() {showInPop(tr,theRow,"",tr); return false;};
+		children[0]._onmove = tr._onmove;
 	}
 	removeAllChildNodes(children[6]); // other
 	for(k in theRow.items) {
@@ -1517,6 +1581,8 @@ function insertRows(theDiv,xpath,session,json) {
 		theDiv.theTable = theTable;
 		theTable.theDiv = theDiv;
 		doInsertTable=theTable;
+		listenFor(theTable,"mouseout",
+				hidePopHandler);
 	}
 	// append header row
 	

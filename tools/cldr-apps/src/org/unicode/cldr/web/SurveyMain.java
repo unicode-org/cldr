@@ -4381,23 +4381,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     * Show the 'main info about this locale' (General) panel.
      */
     public void doMain(WebContext ctx) {
-        //SLOW: String diskVer = LDMLUtilities.loadFileRevision(fileBase, ctx.getLocale().toString() + ".xml"); // just get ver of the latest file.
 
-        DisputePageManager.showGeneralInfoPage(ctx);
+        ctx.includeFragment("generalinfo.jsp");
 
-        
-        
-//        if(dbVer != null) {
-//            ctx.println( LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "version #" + dbVer + "</a>");
-////            if((diskVer != null)&&(!diskVer.equals(dbVer))) {
-////                ctx.println( " " + LDMLUtilities.getCVSLink(ctx.getLocale().toString(), dbVer) + "(Note: version " + diskVer + " is available to the administrator.)</a>");
-////            }
-//        }    
-//        ctx.println(SLOW_PAGE_NOTICE);
-        if(ctx.session.user!=null) {
-        	ctx.println("<br>");
-        	ctx.println("<a href='"+ctx.jspLink("xpath.jsp")+"&_="+ctx.getLocale().toString()+"'>Go to XPath...</a><br>");
-        }
     }
 
     public static String getAttributeValue(Document doc, String xpath, String attribute) {

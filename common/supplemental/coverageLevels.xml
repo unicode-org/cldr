@@ -53,12 +53,13 @@
  		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='latn'][@key='numbers']"/>
  		<coverageLevel inScript="Mong" value="30" match="localeDisplayNames/types/type[@type='mong'][@key='numbers']"/>
  		<coverageLevel inScript="Mlym" value="30" match="localeDisplayNames/types/type[@type='mlym'][@key='numbers']"/>
- 		<coverageLevel inScript="Mymr" value="30" match="localeDisplayNames/types/type[@type='mymr'][@key='numbers']"/>
+ 		<coverageLevel inScript="Mymr" value="30" match="localeDisplayNames/types/type[@type='mymr(shan)?'][@key='numbers']"/>
  		<coverageLevel inScript="Orya" value="30" match="localeDisplayNames/types/type[@type='orya'][@key='numbers']"/>
  		<coverageLevel inScript="Taml" value="30" match="localeDisplayNames/types/type[@type='taml'][@key='numbers']"/>
- 		<coverageLevel inScript="Telu" value="30" match="localeDisplayNames/types/type[@type='talu'][@key='numbers']"/>
+ 		<coverageLevel inScript="Telu" value="30" match="localeDisplayNames/types/type[@type='telu'][@key='numbers']"/>
  		<coverageLevel inScript="Thai" value="30" match="localeDisplayNames/types/type[@type='thai'][@key='numbers']"/>
  		<coverageLevel inScript="Tibt" value="30" match="localeDisplayNames/types/type[@type='tibt'][@key='numbers']"/>
+ 		<coverageLevel inLanguage="vai" value="30" match="localeDisplayNames/types/type[@type='vaii'][@key='numbers']"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='${Target-Currencies}']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='XXX']/displayName([@count='[^']++'])?"/>
 		<coverageLevel value="30" match="numbers/currencyFormats/unitPattern[@count='[^']++']"/>
@@ -180,7 +181,9 @@
     	<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='W[FS]']([@alt='(short|variant)'])?"/>
     	<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='Y[ET]']([@alt='(short|variant)'])?"/>
     	<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='Z[AMWZ]']([@alt='(short|variant)'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/keys/key[@type='(calendar|collation|currency|numbers)']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='(ducet|search)'][@key='collation']"/>
+		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='(arab(ext)?|armn(low)?|beng|deva|ethi|fullwide|geor|grek(low)?|gujr|guru|hanidec|han[st](fin)?|hebr|jpan(fin)?|khmr|knda|laoo|mlym|mymr|orya|roman(low)?|taml(dec)?|telu|thai|tibt)'][@key='numbers']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='day']/relative[@type='\-?(2|3)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Afghanistan|Alaska|Amazon|Argentina(_Western)?|Armenia|Azerbaijan|Azores)']/long/(generic|standard|daylight)"/>
@@ -205,8 +208,6 @@
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(SBD|SCR|SDG|SGD|SHP|SLL|SOS|SRD|STD|SYP|SZL|TJS|TMT|TND|TOP|TTD|TZS)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(UAH|UGX|UYU|UZS|VEF|VND|VUV|WST|XCD|XAF|XOF|XPF|YER|ZMK)']/(symbol|displayName([@count='[^']++'])?)"/>
         <coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
-		<coverageLevel value="80" match="localeDisplayNames/keys/key[@type='[^']++']"/>
-		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='[^']++'][@key='[^']++']"/>		
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='[^']++']"/>
@@ -222,6 +223,8 @@
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(tet|tkl|tn|tpi|ts|tvl|ty|tyv|udm|ve|war|yap|za)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Cans|Tfng|Yiii)']"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='[^']++']"/>
+		<coverageLevel value="100" match="localeDisplayNames/keys/key[@type='[^']++']"/>
+		<coverageLevel value="100" match="localeDisplayNames/types/type[@type='[^']++'][@key='[^']++']"/>		
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='.{3}']/(symbol|displayName)([@count='[^']++'])?"/>
 		<coverageLevel value="100" match="numbers/currencyFormats/currencySpacing/(before|after)Currency/(insertBetween|(currency|surrounding)Match)"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/era(Names|Narrow)/era[@type='(0|1)']"/>

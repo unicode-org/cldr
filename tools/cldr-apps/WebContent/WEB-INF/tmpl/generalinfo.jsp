@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><%@ include file="/WEB-INF/jspf/stcontext.jspf" %>
 
-<i>TODO: General Info about this Locale.</i>
+<!--  this is generalinfo.jsp  -->
+<!-- <i>TODO: General Info about this Locale.</i> -->
 
 <h3>Locale Type</h3>
 <blockquote>
@@ -17,6 +18,26 @@ CLDR <%= ctx.sm.getOldVersion() %>(previous): <tt class='codebox'><%=
 %></tt>  <br/>
 
 </blockquote>
+
+<hr/><p><p>
+<h3>Basic information about the Locale</h3>
+        
+<%
+        // coverage level
+        ctx.showCoverageLevel();
+%>    
+         <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul>
+<!--  <li><font size='4'><i>W</i></font><i><font size='4'>hen you navigate away from any page, any     data changes you've made will be lost <b>unless</b> you hit the <b>"+getSaveButtonText()+"</b> button!</font></i></li> "+ -->
+<!--   <li><i><font size='4'>"+ -->
+<!-- //                                SLOW_PAGE_NOTICE+ -->
+<!--                     "</font></i></li>  -->
+
+ <li><i><font size='4'>Be sure to read </font>
+<font size='4'><a href='<%= SurveyMain.GENERAL_HELP_URL %>'><%= SurveyMain.GENERAL_HELP_NAME %></a>
+</font><font size='4'>     once before going further.</font></i></li> 
+<!-- <li> <font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font> 
+</li> --> </ul>
+
 
 <%-- 
 // what should users be notified about?

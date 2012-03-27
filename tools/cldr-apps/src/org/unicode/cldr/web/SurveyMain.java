@@ -4386,27 +4386,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
         DisputePageManager.showGeneralInfoPage(ctx);
 
-        ctx.println("<hr/><p><p>");
-        ctx.println("<h3>Basic information about the Locale</h3>");
-        
-        // coverage level
-        ctx.showCoverageLevel();
-    
-        
-        ctx.print("  <p><i><font size='+1' color='red'>Important Notes:</font></i></p>  <ul> "+
-//        "   <li><font size='4'><i>W</i></font><i><font size='4'>"+
-//                    "hen you navigate away from any page, any     data changes you've made will be lost <b>unless</b> you hit the"+
-//                    " <b>"+getSaveButtonText()+"</b> button!</font></i></li> "+
-                    "   <li><i><font size='4'>"+
-//                                SLOW_PAGE_NOTICE+
-                    "</font></i></li>    <li><i><font size='4'>Be sure to read </font>    "+
-    //                "<a href='http://www.unicode.org/cldr/wiki?SurveyToolHelp'>"
-                    "<font size='4'>");
-        ctx.println("<a href='"+GENERAL_HELP_URL+"'>"+GENERAL_HELP_NAME+"</a>"); // base help
-        ctx.print("</font>"+
-                    "<font size='4'>     once before going further.</font></i></li>   "+
-                    " <!-- <li> <font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font> "+
-                    "</li> --> </ul>");
         
         
 //        if(dbVer != null) {

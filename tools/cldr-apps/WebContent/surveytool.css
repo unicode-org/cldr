@@ -1515,13 +1515,10 @@ div.helpHtml {
 
 /* @group AJAX build */
 
-.d-parrow td {
-	
+.d-parrow td {	
 }
 
 .d-parrow {
-	position: relative;
-	/*top: expression(this.offsetParent.scrollTop);*/
 }
 
 .d-sortmode {
@@ -1530,6 +1527,8 @@ div.helpHtml {
 	padding: 0.2em 0.2em 0.2em 0.2em;
 	margin-top: 2px;
 	font-size: smaller;
+	display:  table;
+	width:  100% !important;
 }
 
 /*.d-sortmode:before {
@@ -1551,18 +1550,16 @@ div.helpHtml {
 }
 
 .d-sortmode ul {
-	display: table-row;
-	width: 50%;
-	margin: 0;
-	margin-left: 0;
+	display: inline;
+	margin-top: 0;
+	margin-bottom: 0;
+ 	margin-left: 0;
+ 	padding-left:  0;
 }
 
 
-div.d-sort-size {
- text-align: right;
- display: compact;
-	clear: none;
-	float: none;
+span.d-sort-size {
+	float: right;
 }
 
 .d-sortmode li {
@@ -1699,7 +1696,7 @@ tr.d-inforow-hid {
 button.ichoice-o {
 	width: 2em;
 	height: 2em;
-	background: url(rado.png) no-repeat center center;
+	background: white url(rado.png) no-repeat center center;
 	margin: 1px;
 }
 
@@ -1730,7 +1727,7 @@ button.ichoice-o-okay:hover {
 button.ichoice-x {
 	width: 2em;
 	height: 2em;
-	background: url(radx.png) no-repeat center center;
+	background: white url(radx.png) no-repeat center center;
 	margin: 1px;
 }
 
@@ -1825,8 +1822,7 @@ body.disconnected div#progress.progress-ok  button#progress-refresh {
 	background: url(vote.png) no-repeat center center;
 }
 
-td.d-change,
-td.d-change-err {
+td.d-change,td.d-change-err {
 	white-space: nowrap;
 }
 
@@ -1836,15 +1832,12 @@ button.d-inforow-hider {
 	float: right;
 }
 
-td.d-change .inputbox {
+.inputbox {
 	width: 75%;
 }
 
-td.d-change 
-
 td.d-change-err {
-	background-color: red !important;
-	background: url(stop.png) no-repeat right top;
+	background: #fa9092 url(stop.png) no-repeat left bottom;
 	border: 2px solid red;
 }
 
@@ -1854,8 +1847,8 @@ td.d-change-confirmonly:after {
 }
 
 td.d-change-warn {
-	background-color: yellow;
-	background: url(warn.png) no-repeat right top;
+	border: 2px solid yellow;
+	background: #fbfea1 url(warn.png) no-repeat left bottom;
 }
 
 /* @end */
@@ -1899,14 +1892,6 @@ div#pu-body {
 	background: #f8c871 none;
 	box-shadow: 8px 8px 5px gray;
 	z-index: 6;
-}
-
-div#pu-body-OLD {
-	position: absolute;
-	width:  97%;
-	padding: 0.2em;
-	background: #f8c871 none;
-	box-shadow: 8px 8px 5px gray; 
 }
 
 div#pu-content {

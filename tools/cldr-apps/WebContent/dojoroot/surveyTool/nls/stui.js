@@ -40,12 +40,9 @@ define({
 			draftStatus: "Status: ${0}",
 			confirmed: "Confirmed", 
 			approved: "Approved", 
-			unconfirmed: "Approved", 
+			unconfirmed: "Unconfirmed", 
 			contributed: "Contributed", 
-			confirmed: "Confirmed", 
-			approved: "Approved", 
-			unconfirmed: "Approved", 
-			contributed: "Contributed", 
+			provisional: "Provisional",
 			
 			
 			userlevel_admin: "Admin",

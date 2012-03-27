@@ -875,66 +875,7 @@ function incrPopToken(x) {
 	return gPopStatus.popToken;
 }
 
-function showInPopOld(tr,theRow, str, hideIfLast, fn) {
-	if(gPopStatus.unShow) {
-		gPopStatus.unShow();
-		gPopStatus.unShow=null;
-	}
-	if(hideIfLast && gPopStatus.lastShown==hideIfLast) {
-		if(gPopStatus.lastTr) {
-			gPopStatus.lastTr.infoRow.className="d-inforow-hid";
-		}
-		gPopStatus.lastShown=null;
-		incrPopToken('oldHide');
-		return;
-	}
-	gPopStatus.lastShown = hideIfLast;
-	
-//	tr.unShow=(function(){ var d2 = div; return function(){	console.log("hiding " + d2); 	d2.className="d-item";  };})();
-//	div.className = 'd-item-selected';
-	
-	var td_real = tr.infoRow.getElementsByTagName("td")[0];
-	var td = document.createDocumentFragment();
 
-	appendHelp(td,theRow);
-
-	if(str) {
-		var div2 = document.createElement("div");
-		div2.innerHTML=str;
-		td.appendChild(div2);
-	}
-	if(fn!=null) {
-		gPopStatus.unShow=fn(td); // run their function
-	}
-	// always append this
-
-	removeAllChildNodes(td_real);
-	td_real.appendChild(td);
-	td=null;
-	
-	if(gPopStatus.lastTr && gPopStatus.lastTr != tr) {
-		gPopStatus.lastTr.infoRow.className="d-inforow-hid"; // hide old row
-	}
-	tr.infoRow.className = "d-inforow";
-	gPopStatus.lastTr = tr;
-	gPopStatus.infoRow = theRow;
-	incrPopToken('oldShow');
-}
-
-function hidePopOld(tr) {
-	if(gPopStatus.unShow) {
-		gPopStatus.unShow();
-		gPopStatus.unShow=null;
-	}
-	if(gPopStatus.lastTr) {
-		gPopStatus.lastTr.infoRow.className="d-inforow-hid";
-	}
-	gPopStatus.lastShown=null;
-	incrPopToken('oldHide');
-}
-function resetPopOld(tr) {
-	gPopStatus.lastShown=null;
-}
 function hidePopHandler(e){ 		
 	window.hidePop(null);
 	e.stopPropagation(); return false; 
@@ -1047,7 +988,6 @@ dojo.ready(function() {
 		} else {
 			alert("Errow showPop with no td");
 		}
-		//tr.infoRow.className = "d-inforow";
 	};
 	if(false) {
 		window.showInPop = window.showInPop2;
@@ -1080,9 +1020,7 @@ dojo.ready(function() {
 		lastShown = null;
 	};
 	} else {
-		window.showInPop = showInPopOld;
-		window.hidePop = hidePopOld;
-		window.resetPop = resetPopOld;
+		alert('old pop handlers are gone.');
 	}
 	/* old system */
 });
@@ -1229,11 +1167,11 @@ function popInfoInto(tr, theRow, theChild) {
 				theRow.voteInfoText = stopIcon + stui.noVotingInfo;
 			}
 			if(getPopToken()==popShowingToken) {
-				resetPopOld(); // Force display.
+				resetPop(); // Force display.
 				showInPop(tr, theRow, theRow.voteInfoText, theChild);
 //				stdebug("success with token " + popShowingToken);
 			} else { // else, something else happened meanwhile.
-				stdebug("our token was " + popShowingToken + " but now at " + getPopToken() );
+//				stdebug("our token was " + popShowingToken + " but now at " + getPopToken() );
 			}
 		} catch (e) {
 			console.log("Error in ajax get ", e.message);
@@ -1302,12 +1240,6 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 
 function updateRow(tr, theRow) {
 	var canModify = tr.theTable.json.canModify;
-	// TODO: old inrow
-	if(!tr.infoRow) { 
-		var toAddI = dojo.byId('proto-inforow');
-		tr.infoRow = cloneAnon(toAddI);
-		tr.infoRow.getElementsByTagName("button")[0].onclick=function(){if(tr.unShow) { tr.unShow(); tr.unShow=null;}  tr.infoRow.className="d-inforow-hid"; };
-	}
 	if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
@@ -1551,8 +1483,6 @@ function insertRowsIntoTbody(theTable,tbody) {
 		
 		tbody.appendChild(tr);
 
-		// TODO: inforow
-		tbody.appendChild(tr.infoRow);
 	}
 	
 	
@@ -1581,6 +1511,9 @@ function setupSortmode(theTable) {
 	removeAllChildNodes(theSortmode);
 	var listOfLists = Object.keys(theTable.json.displaySets);
 	var itemCount = Object.keys(theTable.json.section.rows).length;
+	var size = document.createElement("span");
+	size.className="d-sort-size";
+	theSortmode.appendChild(size);
 	var ul = document.createElement("ul");
 	if(itemCount>0) {
 		for(i in listOfLists) {
@@ -1606,8 +1539,6 @@ function setupSortmode(theTable) {
 		theSortmode.appendChild(ul);
 	}
 	
-	var size = document.createElement("div");
-	size.className="d-sort-size";
 	if(itemCount==0 && theTable.json.section.skippedDueToCoverage) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCountAllHidden", [itemCount,theTable.json.section.skippedDueToCoverage])
@@ -1633,7 +1564,6 @@ function setupSortmode(theTable) {
 		size.appendChild(document.createTextNode(
 				stui.sub("itemCount", [Object.keys(theTable.json.section.rows).length])));
 	}
-	theSortmode.appendChild(size);
 }
 
 function insertRows(theDiv,xpath,session,json) {
@@ -1897,26 +1827,6 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 				// e_div.innerHTML = newHtml;
 				myUnDefer();
 			} else {
-//				if(what=='verify') { // TODO: obsolete
-////					if(json.testResults) {
-////					if(json.testWarnings || json.testErrors) {
-////					if(showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults)) {
-////					tr.className = 'vother';
-////					button.className='ichoice-o';
-////					hideLoader(tr.theTable.theDiv.loader);
-////					return; // had error
-////					}
-////					} else {
-////					hidePop(tr);
-////					}
-////					} else {
-////					hidePop(tr);
-////					}
-////					hideLoader(tr.theTable.theDiv.loader);
-////					return;
-////					// END obsolete
-//					return;
-//				}
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
 					refreshRow2(tr,theRow,vHash,function(){

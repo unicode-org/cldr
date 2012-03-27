@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -16,6 +17,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
@@ -36,7 +38,7 @@ public class Keyboard {
 
     private static final boolean DEBUG = false;
 
-    private static final String BASE = "/Users/markdavis/Documents/workspace/DATA/keyboards/";
+    private static final String BASE = CldrUtility.BASE_DIRECTORY + "keyboards/";
 
     public enum Iso {
         E00, E01, E02, E03, E04, E05, E06, E07, E08, E09, E10, E11, E12, E13,
@@ -44,10 +46,6 @@ public class Keyboard {
         C00, C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13,
         B00, B01, B02, B03, B04, B05, B06, B07, B08, B09, B10, B11, B12, B13,
         A02, A03, A04;
-        public char toPrivateUse() {
-            String name = name();
-            return (char)(0xE000 + 16*(name.charAt(0)-'A') + 10*(name.charAt(1)-'0') + (name.charAt(2)-'0'));
-        }
     }
     // add whatever is needed
 
@@ -65,10 +63,12 @@ public class Keyboard {
         public static Set<ModifierSet> parseSet(String input) {
             //ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL? ...
             Set<ModifierSet> results = new HashSet<ModifierSet>(); // later, Treeset
-            for (String ms : input.trim().split(" ")) {
-                ModifierSet temp = new ModifierSet();
-                temp.temp = ms;
-                results.add(temp);
+            if (input != null) {
+                for (String ms : input.trim().split(" ")) {
+                    ModifierSet temp = new ModifierSet();
+                    temp.temp = ms;
+                    results.add(temp);
+                }
             }
             return results;
             //                Set<ModifierSet> current = new LinkedHashSet();EnumSet.noneOf(Modifier.class);
@@ -108,31 +108,40 @@ public class Keyboard {
 
     public static Set<String> getKeyboardIDs(String platformId) {
         Set<String> results = new LinkedHashSet<String>();
-        File file = new File(BASE + platformId + "/");
-        for (String f : file.list())
-            if (!f.startsWith(".") && !f.startsWith("_")) {
-                results.add(f);
+        File base = new File(BASE + platformId + "/");
+        for (String f : base.list())
+            if (f.endsWith(".xml") && !f.startsWith(".") && !f.startsWith("_")) {
+                results.add(f.substring(0,f.length()-4));
             }
         return results;
     }
 
     public static Platform getPlatform(String platformId) {
-        final PlatformHandler platformHandler = new PlatformHandler();
-        new XMLFileReader()
-        .setHandler(platformHandler)
-        .read(BASE + platformId, -1, true);
-        return platformHandler.platform;
+        final String fileName = BASE + platformId + "/_platform.xml";
+        try {
+            final PlatformHandler platformHandler = new PlatformHandler();
+            new XMLFileReader()
+            .setHandler(platformHandler)
+            .read(fileName, -1, true);
+            return platformHandler.getPlatform();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(fileName, e);
+        }
     }
 
-    public Keyboard(String platformId, BaseMap baseMap, Set<KeyMap> keyMaps, Map<TransformType,Transforms> transforms) {
-        this.platformId = platformId;
-        this.baseMap = baseMap;
+    public Keyboard(String locale, String version, String platformVersion, String generation, Set<String> names, Fallback fallback, Set<KeyMap> keyMaps, Map<TransformType,Transforms> transforms) {
+        this.locale = locale;
+        this.version = version;
+        this.platformVersion = platformVersion;
+        this.generation = generation;
+        this.fallback = fallback;
+        this.names = Collections.unmodifiableSet(names);
         this.keyMaps = Collections.unmodifiableSet(keyMaps);
         this.transforms = Collections.unmodifiableMap(transforms);
     }
 
     public static Keyboard getKeyboard(String platformId, String keyboardId, Set<String> errors) {
-        final String fileName = BASE + platformId + "/" + keyboardId;
+        final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
         try {
             final KeyboardHandler keyboardHandler = new KeyboardHandler();
             new XMLFileReader()
@@ -145,11 +154,21 @@ public class Keyboard {
     }
 
     public static class Platform {
-        // not yet wired in.
-        public String getId() {return null;}
-        public Map<String, Iso> getHardwareMap() {return null;}
-        public Iterable<String> getKeyboardIds() {return null;}
-        public Keyboard getKeyboard(String id) {return null;}
+        final String id;
+        final Map<String, Iso> hardwareMap;
+
+        public String getId() {
+            return id;
+        }
+        public Map<String, Iso> getHardwareMap() {
+            return hardwareMap;
+        }
+
+        public Platform(String id, Map<String, Iso> hardwareMap) {
+            super();
+            this.id = id;
+            this.hardwareMap = Collections.unmodifiableMap(hardwareMap);
+        }
     }
 
     public enum Gesture {
@@ -182,19 +201,12 @@ public class Keyboard {
         }
     }
 
-    public static class BaseMap {
-        final Map<Iso,Output> iso2output;
-        public BaseMap(Map<Iso, Output> iso2output) {
-            this.iso2output = Collections.unmodifiableMap(iso2output);
-        }
-    }
-
     public static class KeyMap {
         final Set<ModifierSet> modifiers;
-        final Map<String,Output> string2output;
-        public KeyMap(Set<ModifierSet> modifiers, Map<String, Output> data) {
+        final Map<Iso,Output> iso2output;
+        public KeyMap(Set<ModifierSet> modifiers, Map<Iso, Output> data) {
             this.modifiers = Collections.unmodifiableSet(modifiers);
-            this.string2output = Collections.unmodifiableMap(data);
+            this.iso2output = Collections.unmodifiableMap(data);
         }
     }
 
@@ -205,16 +217,32 @@ public class Keyboard {
         }
     }
 
-    final String platformId;
-    final BaseMap baseMap;
-    final Set<KeyMap> keyMaps;
-    final Map<TransformType,Transforms> transforms;
+    private final String locale;
+    private final String version;
+    private final String platformVersion;
+    private final String generation;
+    private final Fallback fallback;
+    private final Set<String> names;
+    private final Set<KeyMap> keyMaps;
+    private final Map<TransformType,Transforms> transforms;
 
-    public Platform getPlatform() {
-        return null;
+    public String getLocaleId() {
+        return locale;
     }
-    public BaseMap getBaseMap() {
-        return baseMap;
+    public String getVersion() {
+        return version;
+    }
+    public String getPlatformVersion() {
+        return platformVersion;
+    }
+    public String getGeneration() {
+        return generation;
+    }
+    public Fallback getFallback() {
+        return fallback;
+    }
+    public Set<String> getNames() {
+        return names;
     }
     public Set<KeyMap> getKeyMaps() {
         return keyMaps;
@@ -228,9 +256,8 @@ public class Keyboard {
      */
     public UnicodeSet getPossibleResults()  {
         UnicodeSet results = new UnicodeSet();
-        addOutput(getBaseMap().iso2output.values(), results);
         for (KeyMap keymap : getKeyMaps()) {
-            addOutput(keymap.string2output.values(), results);
+            addOutput(keymap.iso2output.values(), results);
         }
         for (Transforms transforms : getTransforms().values()) {
             // loop, to catch empty case
@@ -255,35 +282,75 @@ public class Keyboard {
     }
 
     private static class PlatformHandler extends SimpleHandler {
-        Platform platform = new Platform();
+        String id;
+        Map<String, Iso> hardwareMap = new HashMap<String, Iso>();
+        XPathParts parts = new XPathParts();
+
         public void handlePathValue(String path, String value) {
+            parts.set(path);
+            // <platform id='android'/>
+            id = parts.getAttributeValue(0, "id");
+            if (parts.size() > 1) {
+                String element1 = parts.getElement(1);
+                // <platform> <hardwareMap> <map keycode='0' iso='C01'/>
+                if (element1.equals("hardwareMap")) {
+                    hardwareMap.put(parts.getAttributeValue(2, "keycode"), Iso.valueOf(parts.getAttributeValue(2, "iso")));
+                }
+            }
         };
+        public Platform getPlatform() {
+            return new Platform(id, hardwareMap);
+        }
+    }
+
+    public enum Fallback {
+        BASE, OMIT;
+        public static Fallback forString(String string) {
+            return string == null ? Fallback.BASE : Fallback.valueOf(string.toUpperCase(Locale.ENGLISH));
+        }
     }
 
     private static class KeyboardHandler extends SimpleHandler {
         Set<String> errors = new LinkedHashSet<String>();
         // doesn't do any error checking for collisions, etc. yet.
-        String platformId;
-        Map<Iso,Output> iso2output = new EnumMap<Iso,Output>(Iso.class);
+        String locale; // TODO
+        String version; // TODO
+        String platformVersion; // TODO
+        String generation; // TODO
+
+        Set<String> names = new LinkedHashSet<String>();
+        Fallback fallback = Fallback.BASE;
 
         Set<ModifierSet> keyMapModifiers = null;
-        Map<String,Output> string2output = null;
-
+        Map<Iso,Output> iso2output = new EnumMap<Iso,Output>(Iso.class);
         Set<KeyMap> keyMaps = new LinkedHashSet<KeyMap>();
+
         TransformType currentType = null;
         Map<String,String> currentTransforms = null;
         Map<TransformType,Transforms> transformMap = new EnumMap<TransformType,Transforms>(TransformType.class);
+
         XPathParts parts = new XPathParts();
+
+        public Keyboard getKeyboard(Set<String> errors) {
+            // clean up
+            keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
+            if (currentType != null) {
+                transformMap.put(currentType, new Transforms(currentTransforms));
+            }
+            errors.clear();
+            errors.addAll(this.errors);
+            return new Keyboard(locale, version, platformVersion, generation, names, fallback, keyMaps, transformMap);
+        }
 
         public void handlePathValue(String path, String value) {
             //            System.out.println(path);
             try {
                 parts.set(path);
-                String element1 = parts.getElement(1);
-                // quick hack
-                if (parts.size() < 3) {
-                    return;
+                if (locale == null) {
+                    // <keyboard locale='bg-t-k0-chromeos-phonetic'>
+                    locale = parts.getAttributeValue(0, "locale");
                 }
+                String element1 = parts.getElement(1);
                 if (element1.equals("baseMap")) {
                     //<baseMap fallback='true'>/ <map iso="E00" chars="ـ"/> <!-- ` -->
                     Iso iso = Iso.valueOf(parts.getAttributeValue(2, "iso"));
@@ -296,23 +363,17 @@ public class Keyboard {
                     Set<ModifierSet> newMods = ModifierSet.parseSet(parts.getAttributeValue(1, "modifiers"));
                     if (!newMods.equals(keyMapModifiers)) {
                         if (keyMapModifiers != null) {
-                            keyMaps.add(new KeyMap(keyMapModifiers, string2output));
+                            keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
                         }
                         keyMapModifiers = new LinkedHashSet<ModifierSet>();
-                        string2output = new LinkedHashMap<String,Output>();
+                        iso2output = new LinkedHashMap<Iso,Output>();
                         keyMapModifiers = newMods;
                     }
-                    String baseValue = parts.getAttributeValue(2, "base");
-                    if (baseValue == null) {
-                        //errors.add("Missing base value: " + path);
-                        Iso iso = Iso.valueOf(parts.getAttributeValue(2, "iso"));
-                        baseValue = String.valueOf(iso.toPrivateUse());
-                    }
-                    baseValue = fixValue(baseValue);
+                    String isoString = parts.getAttributeValue(2, "iso");
                     if (DEBUG) {
-                        System.out.println("keyMap: base=" + baseValue + ";");
+                        System.out.println("keyMap: base=" + isoString + ";");
                     }
-                    string2output.put(baseValue, getOutput());
+                    iso2output.put(Iso.valueOf(isoString), getOutput());
                 } else if (element1.equals("transforms")) {
                     // <transforms type='simple'> <transform from="` " to="`"/>
                     TransformType type = TransformType.forString(parts.getAttributeValue(1, "type"));
@@ -332,8 +393,20 @@ public class Keyboard {
                     //                    System.out.println("**Empty result at " + path);
                     //                }
                     currentTransforms.put(from, to);
-                } else if (element1.equals("version") || element1.equals("generation")) {
+                } else if (element1.equals("version")) {
+                    // <version platform='0.17' number='$Revision$'/>
+                    platformVersion = parts.getAttributeValue(1, "platform");
+                    version = parts.getAttributeValue(1, "number");
+                } else if (element1.equals("generation")) {
+                    // <generation date='$Date$'/>
+                    generation = parts.getAttributeValue(1, "date");
                     // ignore for now
+                } else if (element1.equals("names")) {
+                    //<names> <name value='cs'/>
+                    names.add(parts.getAttributeValue(2, "value"));
+                } else if (element1.equals("settings")) {
+                    // <settings fallback='omit'/>
+                    fallback = Fallback.forString(parts.getAttributeValue(1, "fallback"));
                 } else {
                     throw new IllegalArgumentException("Unexpected element: " + element1);
                 }
@@ -343,18 +416,6 @@ public class Keyboard {
         }
 
         private String fixValue(String value) {
-            // hack for now
-            if (value.contains("&")) {
-                value = value.replace("&amp;", "&");
-                value = value.replace("&apos;", "'");
-                value = value.replace("&gt;", ">");
-                value = value.replace("&lt;", "<");
-                value = value.replace("&quot;", "\"");
-            }
-            if (value.equals("\\\\")) {
-                value = "\\";
-            }
-
             StringBuilder b = new StringBuilder();
             int last = 0;
             while (true) {
@@ -367,10 +428,6 @@ public class Keyboard {
                     break;
                 }
                 b.append(value.substring(last, pos)).appendCodePoint(Integer.parseInt(value.substring(pos+3, posEnd),16));
-                // Hack for \\u{...}
-                if (value.length() > posEnd+1 && value.charAt(posEnd+1) == ';') {
-                    posEnd++;
-                }
                 last = posEnd+1;
             }
             b.append(value.substring(last));
@@ -385,7 +442,7 @@ public class Keyboard {
             for (Entry<String, String> attributeAndValue : parts.getAttributes(-1).entrySet()) {
                 String attribute = attributeAndValue.getKey();
                 String attributeValue = attributeAndValue.getValue();
-                if (attribute.equals("chars")) {
+                if (attribute.equals("to")) {
                     chars = fixValue(attributeValue);
                     if (DEBUG) {
                         System.out.println("\tchars=" + chars + ";");
@@ -410,18 +467,10 @@ public class Keyboard {
             }
             return new Output(chars, gestures, transformStatus);
         };
-        public Keyboard getKeyboard(Set<String> errors) {
-            // clean up
-            keyMaps.add(new KeyMap(keyMapModifiers, string2output));
-            if (currentType != null) {
-                transformMap.put(currentType, new Transforms(currentTransforms));
-            }
-            errors.clear();
-            errors.addAll(this.errors);
-            return new Keyboard(platformId, new BaseMap(iso2output), keyMaps, transformMap);
-        }
     }
+    // *********************************************
     // Temporary, for some simple testing
+    // *********************************************
     public static void main(String[] args) {
         Set<String> totalErrors = new LinkedHashSet<String>();
         Set<String> errors = new LinkedHashSet<String>();
@@ -430,13 +479,16 @@ public class Keyboard {
         Map<Id,UnicodeSet> id2unicodeset = new TreeMap<Id,UnicodeSet>();
         Relation<String, Id> locale2ids = Relation.of(new TreeMap<String,Set<Id>>(), TreeSet.class);
         for (String platformId : Keyboard.getPlatformIDs()) {
+            Platform p = getPlatform(platformId);
+//            System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
                 Keyboard keyboard = Keyboard.getKeyboard(platformId, keyboardId, errors);
                 totalErrors.addAll(errors);
                 UnicodeSet unicodeSet = keyboard.getPossibleResults().removeAll(controls);
-                final Id id = new Id(keyboardId);
+                final Id id = new Id(keyboardId, keyboard.platformVersion);
                 id2unicodeset.put(id, unicodeSet);
                 locale2ids.put(id.locale, id);
+                System.out.println(id.toString().replace('/','\t') + "\t" + keyboard.getNames());
             }
         }
         if (errors.size() != 0) {
@@ -448,25 +500,34 @@ public class Keyboard {
 
             System.out.println();
             final ULocale uLocale = ULocale.forLanguageTag(key);
-            final String heading = key 
-            + "\t" + uLocale.getDisplayName(ULocale.ENGLISH)
+            final String heading = uLocale.getDisplayName(ULocale.ENGLISH)
             + "\t" + ULocale.addLikelySubtags(uLocale).getScript() 
             + "\t";
             UnicodeSet common = UnicodeSet.EMPTY;
             if (keyboardIds.size() > 1) {
-                common = new UnicodeSet(0,0x10FFFF);
+                common = UnicodeSet.EMPTY;
+                String locale = null;
                 for (Id keyboardId : keyboardIds) {
-                    common.retainAll(id2unicodeset.get(keyboardId));
+                    locale = keyboardId.locale;
+                    if (common == UnicodeSet.EMPTY) {
+                        common = id2unicodeset.get(keyboardId);
+                    } else {
+                        common.retainAll(id2unicodeset.get(keyboardId));
+                    }
                 }
                 common.freeze();
-                System.out.println(heading + getScripts(common)
-                        + "\t" + "COMMON"
+                System.out.println(
+                        locale + "\tCOMMON\t\t-"
+                        + "\t" + heading + getScripts(common)
                         + "\t" + common.toPattern(false));
             }
             for (Id keyboardId : keyboardIds) {
-                final UnicodeSet remainder = id2unicodeset.get(keyboardId).removeAll(common);
-                System.out.println(heading + getScripts(remainder)
-                        + "\t" + keyboardId 
+                final UnicodeSet remainder = new UnicodeSet(id2unicodeset.get(keyboardId)).removeAll(common);
+                
+                System.out.println(
+                        keyboardId.toString().replace('/','\t')
+                        + "\t" + keyboardId.platformVersion
+                        + "\t" + heading + getScripts(remainder)
                         + "\t" + remainder.toPattern(false));
             }
         }
@@ -488,22 +549,21 @@ public class Keyboard {
         final String locale;
         final String platform;
         final String variant;
-        Id(String input) {
-            if (input.endsWith("xml")) {
-                input = input.substring(0,input.length()-4);
-            }
+        final String platformVersion;
+        Id(String input, String platformVersion) {
             int pos = input.indexOf("-t-k0-");
             String localeTemp = input.substring(0, pos);
             locale = ULocale.minimizeSubtags(ULocale.forLanguageTag(localeTemp)).toLanguageTag();
             pos += 6;
-            int pos2 = input.lastIndexOf('-');
-            if (pos2 > pos) {
-                platform = input.substring(pos2+1);
-                variant = input.substring(pos, pos2);
+            int pos2 = input.indexOf('-',pos);
+            if (pos2 > 0) {
+                platform = input.substring(pos, pos2);
+                variant = input.substring(pos2+1);
             } else {
                 platform = input.substring(pos);
                 variant = "";
             }
+            this.platformVersion = platformVersion;
         }
         @Override
         public int compareTo(Id other) {
@@ -521,7 +581,33 @@ public class Keyboard {
         }
         @Override
         public String toString() {
-            return locale + "/" + platform + (variant.isEmpty() ? "" : "/" + variant);
+            return locale + "/" + platform + "/" + variant;
         }
     }
+
+    //    public static class Key {
+    //        Iso iso;
+    //        ModifierSet modifierSet;
+    //    }
+    //    /**
+    //     * Return all possible results. Could be external utility. WARNING: doesn't account for transform='no' or failure='omit'.
+    //     */
+    //    public Map<String,List<Key>> getPossibleSource()  {
+    //        Map<String,List<Key>> results = new HashMap<String,List<Key>>();
+    //        UnicodeSet results = new UnicodeSet();
+    //        addOutput(getBaseMap().iso2output.values(), results);
+    //        for (KeyMap keymap : getKeyMaps()) {
+    //            addOutput(keymap.string2output.values(), results);
+    //        }
+    //        for (Transforms transforms : getTransforms().values()) {
+    //            // loop, to catch empty case
+    //            for (String result : transforms.string2string.values()) {
+    //                if (!result.isEmpty()) {
+    //                    results.add(result);
+    //                }
+    //            }
+    //        }
+    //        return results;
+    //    }
+
 }

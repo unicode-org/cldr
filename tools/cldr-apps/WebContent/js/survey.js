@@ -8,13 +8,77 @@ dojo.require("dojo.string");
 dojo.requireLocalization("surveyTool", "stui");
 
 var stui = {online: "Online", 			disconnected: "Disconnected", startup: "Starting up..."};
+
+stui_str = function(x) {
+    if(stui && stui[x]) {
+    	return stui[x];
+    } else {
+    	return x;
+    }
+};
 var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
+
+var queueOfXhr=[];
+
+var queueOfXhrTimeout=null;
+
+var myLoad0= null;
+var myErr0 = null;
+
+var processXhrQueue = function() {
+	if(!queueOfXhr || queueOfXhr.length==0) {
+		queueOfXhr=[];
+		stdebug("PXQ: 0");
+		queueOfXhrTimeout=null;
+		return; // nothing to do, reset.
+	} else {
+		var top =queueOfXhr.shift();
+		
+		top.load2 = top.load;
+		top.err2 = top.err;
+		top.load=function(){return myLoad0(top,arguments); };
+		top.err=function(){return myErr0(top,arguments); };
+		if(top.postData) {
+			stdebug("PXQ("+queueOfXhr.length+"): dispatch POST " + top.url);
+			dojo.xhrPost(top);
+		} else {
+			stdebug("PXQ("+queueOfXhr.length+"): dispatch GET " + top.url);
+			dojo.xhrGet(top);
+		}
+	}
+};
+
+var xhrQueueTimeout = 3;
+myLoad0 = function(top,args) {
+	stdebug("myLoad0!:" + top.url + " - a="+args.length);
+	var r = top.load2(args[0],args[1]);
+	queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
+	return r;
+};
+
+myErr0 = function(top,args) {
+	stdebug("myErr0!:" + top.url+ " - a="+args.toString());
+	var r = top.err2.call(args[0],args[1]);
+	queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
+	return r;
+};
+
+
+function queueXhr(xhr) {
+	queueOfXhr.push(xhr);
+	stdebug("pushed:  PXQ="+queueOfXhr.length + ", postData: " + xhr.postData);
+	if(!queueOfXhrTimeout) {
+		queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
+	}
+}
 
 function stdebug(x) {
 	if(stdebug_enabled) {
 		console.log(x);
 	}
 }
+
+stdebug('stdebug is enabled.');
 
 function dismissChangeNotice() {
 	surveyCurrentLocaleStamp = surveyNextLocaleStamp;
@@ -142,7 +206,7 @@ var alreadyVerifyValue = {};
 
 var showers={};
 
-var deferUpdates = false;
+var deferUpdates = 0;
 var deferUpdateFn = {};
 
 
@@ -159,6 +223,21 @@ function doDeferredUpdates() {
 	}
 }
 
+function setDefer(defer) {
+	if(defer) {
+		deferUpdates++;
+	} else {
+		deferUpdates--;
+	}
+	if(deferUpdates==0) {
+		doDeferredUpdates();
+	} else if(deferUpdates<0) {
+		stdebug("deferUpdates=" + deferUpdates);
+		deferUpdates=0;
+	}
+	stdebug("deferUpdates="+deferUpdates);
+}
+
 function deferUpdate(what, fn) {
 	deferUpdateFn[what]=fn;
 }
@@ -168,8 +247,8 @@ function undeferUpdate(what) {
 }
 
 function doUpdate(what,fn) {
-	if(deferUpdates) {
-		updateAjaxWord(stui.newDataWaiting);
+	if(deferUpdates>0) {
+		updateAjaxWord(stui_str('newDataWaiting'));
 		deferUpdate(what,fn);
 	} else {
 		fn();
@@ -234,7 +313,7 @@ function showWord() {
 	var p = dojo.byId("progress");	
 	var oneword = dojo.byId("progress_oneword");
 	if(progressWord&&progressWord=="disconnected") { // top priority
-		oneword.innerHTML = stopIcon +  stui.disconnected;
+		oneword.innerHTML = stopIcon +  stui_str('disconnected');
 		p.className = "progress-disconnected";
 		busted();
 	} else if(ajaxWord) {
@@ -242,10 +321,10 @@ function showWord() {
 		oneword.innerHTML = ajaxWord;
 	} else if(!progressWord || progressWord == "ok") {
 		p.className = "progress-ok";
-		oneword.innerHTML = stui.online;
+		oneword.innerHTML = stui_str('online');
 	} else if(progressWord=="startup") {
 		p.className = "progress-ok";
-		oneword.innerHTML = stui.startup;
+		oneword.innerHTML = stui_str('startup');
 	}
 }
 
@@ -355,10 +434,14 @@ function updateStatusBox(json) {
 	}
 }
 
+var timerSpeed = 15000;
+
 function updateStatus() {
+	stdebug("UpdateStatus...");
     dojo.xhrGet({
         url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl,
         handleAs:"json",
+        timeout: 15000,
         load: function(json){
             if(json.status&&json.status.isBusted) {
                 wasBusted = true;
@@ -413,6 +496,8 @@ function updateStatus() {
             
             if((wasBusted == false) && (json.status.isSetup) && (loadOnOk != null)) {
                 window.location.replace(loadOnOk);
+            } else {
+            	setTimeout(updateStatus, timerSpeed)
             }
         },
         error: function(err, ioArgs){
@@ -426,6 +511,22 @@ function updateStatus() {
         }
     });
 }
+
+
+function setTimerOn() {
+    updateStatus();
+//    timerID = setInterval(updateStatus, timerSpeed);
+    
+}
+
+function resetTimerSpeed(speed) {
+	timerSpeed = speed;
+//	clearInterval(timerID);
+//	timerID = setInterval(updateStatus, timerSpeed);
+}
+
+listenFor(window,'load',setTimerOn);
+
 
 function updateTestResults(fieldhash, testResults, what) {
     var e_div = document.getElementById('e_'+fieldhash);
@@ -635,21 +736,6 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
 
 
 
-var timerSpeed = 15000;
-
-function setTimerOn() {
-    updateStatus();
-    timerID = setInterval(updateStatus, timerSpeed);
-}
-
-function resetTimerSpeed(speed) {
-	timerSpeed = speed;
-	clearInterval(timerID);
-	timerID = setInterval(updateStatus, timerSpeed);
-}
-
-listenFor(window,'load',setTimerOn);
-
 function cloneAnon(i) {
 	if(i==null) return null;
 	var o = i.cloneNode(true);
@@ -741,8 +827,9 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 			if(e.keyCode == 13) {
 				handleWiredClick(tr,theRow,vHash,box,button); 
 				return false;
-//			} else if(e.keyCode ==9) {
-// TAB			
+//			} else if(e.keyCode ==9) { // TAB
+//				handleWiredClick(tr,theRow,vHash,box,button); 
+//				return false;
 			} else {
 				return true;
 			}
@@ -1068,7 +1155,7 @@ function popInfoInto(tr, theRow, theChild) {
 	};
 	// window.xhrArgs = xhrArgs;
 	// console.log('xhrArgs = ' + xhrArgs);
-	dojo.xhrGet(xhrArgs);
+	queueXhr(xhrArgs);
 }
 
 
@@ -1230,12 +1317,11 @@ function updateRow(tr, theRow) {
 			tr.inputBox = changeBox;
 			
 			changeBox.onfocus = function() {
-				deferUpdates = true;
+				setDefer(true);
 				return true;
 			};
 			changeBox.onblur = function() {
-				deferUpdates = false;
-				doDeferredUpdates();
+				setDefer(false);
 			};
 			
 			children[7].appendChild(changeBox);
@@ -1519,7 +1605,7 @@ function showRows(container,xpath,session,coverage) {
 		        		console.log("!json.section.rows");
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
 		        	} else {
-		        		console.log("json.section.rows OK..");
+		        		stdebug("json.section.rows OK..");
 		        		showLoader(theDiv.loader, "loading..");
 		        		if(json.dataLoadTime) {
 		        			updateIf("dynload", json.dataLoadTime);
@@ -1544,8 +1630,8 @@ function showRows(container,xpath,session,coverage) {
 		            error: errorHandler
 		        };
 		    //window.xhrArgs = xhrArgs;
-		    console.log('xhrArgs = ' + xhrArgs);
-		    dojo.xhrGet(xhrArgs);
+//		    console.log('xhrArgs = ' + xhrArgs);
+		    queueXhr(xhrArgs);
 		});
 	};
 	
@@ -1556,7 +1642,7 @@ function showRows(container,xpath,session,coverage) {
   });
 }
 
-function refreshRow2(tr,theRow,vHash,onSuccess) {
+function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
     var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t";
     var loadHandler = function(json){
@@ -1574,6 +1660,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess) {
         	        tr.className = "ferrbox";
         	        tr.innerHTML="No content found "+tr.rowHash+ "  while  loading";
         	        console.log("could not find " + tr.rowHash + " in " + json);
+        	        onFailure("no content");
         		}
            }catch(e) {
                console.log("Error in ajax post [refreshRow2] ",e.message);
@@ -1584,28 +1671,33 @@ function refreshRow2(tr,theRow,vHash,onSuccess) {
     	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
         tr.className = "ferrbox";
         tr.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+        onFailure("err",err,ioArgs);
     };
     var xhrArgs = {
             url: ourUrl,
             //postData: value,
             handleAs:"json",
             load: loadHandler,
-            error: errorHandler
+            error: errorHandler,
+            timeout: 15000
         };
     //window.xhrArgs = xhrArgs;
-    console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
-    dojo.xhrGet(xhrArgs);
+    //console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
+    queueXhr(xhrArgs);
 }
 
 function handleWiredClick(tr,theRow,vHash,box,button,what) {
-	resetPop(tr);
 	var value="";
 	var valToShow;
+	if(tr.wait) {
+		return;
+	}
 	if(box) {
 		valToShow=box.value;
 		value = box.value;
 		if(value.length ==0 ) {
 			box.focus();
+			myUnDefer();
 			return; // nothing entered.
 		}
 		tr.inputTd.className="d-change";
@@ -1616,11 +1708,19 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		what='submit';
 	}
 	if(what=='submit') {
-		button.className="ichoice-x";  // TODO: ichoice-inprogress?  spinner?
+		button.className="ichoice-x-ok";  // TODO: ichoice-inprogress?  spinner?
 		showLoader(tr.theTable.theDiv.loader,stui.voting);
 	} else {
 		showLoader(tr.theTable.theDiv.loader, stui.checking);
 	}
+
+	var myUnDefer = function() {
+		tr.wait=false;
+		setDefer(false);
+	};
+	tr.wait=true;
+	resetPop(tr);
+	setDefer(true);
 
 
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
@@ -1636,27 +1736,28 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 				showLoader(tr.theTable.theDiv.loader,"Error!");
 				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
 				// e_div.innerHTML = newHtml;
+				myUnDefer();
 			} else {
-				if(what=='verify') { // TODO: obsolete
-//					if(json.testResults) {
-//					if(json.testWarnings || json.testErrors) {
-//					if(showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults)) {
-//					tr.className = 'vother';
-//					button.className='ichoice-o';
-//					hideLoader(tr.theTable.theDiv.loader);
-//					return; // had error
-//					}
-//					} else {
-//					hidePop(tr);
-//					}
-//					} else {
-//					hidePop(tr);
-//					}
-//					hideLoader(tr.theTable.theDiv.loader);
+//				if(what=='verify') { // TODO: obsolete
+////					if(json.testResults) {
+////					if(json.testWarnings || json.testErrors) {
+////					if(showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults)) {
+////					tr.className = 'vother';
+////					button.className='ichoice-o';
+////					hideLoader(tr.theTable.theDiv.loader);
+////					return; // had error
+////					}
+////					} else {
+////					hidePop(tr);
+////					}
+////					} else {
+////					hidePop(tr);
+////					}
+////					hideLoader(tr.theTable.theDiv.loader);
+////					return;
+////					// END obsolete
 //					return;
-//					// END obsolete
-					return;
-				}
+//				}
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
 					refreshRow2(tr,theRow,vHash,function(){
@@ -1678,7 +1779,8 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 							hidePop(tr);
 						}
 						//tr.className = 'vother';
-					}); // end refresh-loaded-fcn
+						myUnDefer();
+					}, myUnDefer); // end refresh-loaded-fcn
 					// end: async
 				} else {
 					// Did not submit. Show errors, etc
@@ -1690,6 +1792,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 					//tr.className='vother';
 					button.className='ichoice-o';
 					hideLoader(tr.theTable.theDiv.loader);
+					myUnDefer();
 				}
 			}
 		}catch(e) {
@@ -1699,27 +1802,29 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
 			console.log("Error in ajax post [handleWiredClick] ",e.message);
 			//              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
+			myUnDefer();
 		}
 	};
 	var errorHandler = function(err, ioArgs){
 		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
 		theRow.className = "ferrbox";
 		theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+		myUnDefer();
 	};
 	var xhrArgs = {
 			url: ourUrl,
-			postData: value,
 			handleAs:"json",
+			timeout: 15000,
 			load: loadHandler,
 			error: errorHandler
 	};
 	//window.xhrArgs = xhrArgs;
-	console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
+	//stdebug('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
 	if(box) {
-		dojo.xhrPost(xhrArgs);
-	} else {
-		dojo.xhrGet(xhrArgs); // value ignored
+		stdebug("this is a psot: " + value);
+		xhrArgs.postData = value;
 	}
+	queueXhr(xhrArgs);
 }
 
 

@@ -1,6 +1,7 @@
 <%@page import="org.unicode.cldr.util.VettingViewer"%>
 <%@ page import="org.unicode.cldr.web.*" %>
 <!--  begin ajax_status.jsp -->
+<%= VettingViewer.getHeaderStyles() %>
 <script type='text/javascript' src='<%= request.getContextPath()+"/dojoroot/dojo/dojo.js" %>'
     djConfig='parseOnLoad: true, isDebug: false'></script>
 <script type="text/javascript">
@@ -32,7 +33,6 @@ var BASELINE_LANGUAGE_NAME = "<%= SurveyMain.BASELINE_LANGUAGE_NAME %>";
 </script>
 <script type='text/javascript' src='<%= request.getContextPath() %>/js/survey.js'></script>
 
-<%= VettingViewer.getHeaderStyles() %>
 
 <%= (!SurveyMain.isUnofficial) ? (org.unicode.cldr.tool.ShowData.ANALYTICS) : "" %>
 <!--  end ajax_status.jsp -->

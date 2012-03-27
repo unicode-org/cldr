@@ -301,6 +301,17 @@ public class SurveyAjax extends HttpServlet {
                                     }
                                     if(!hasError) {
                                         ballotBox.voteForValue(mySession.user, xp, val);
+                                        
+                                        
+//                                        if(SurveyMain.isUnofficial  ) {
+//                                            try {
+//                                                Thread.sleep(5000);
+//                                            } catch (InterruptedException e) {
+//                                                // TODO Auto-generated catch block
+//                                                e.printStackTrace();
+//                                            }
+//                                        }
+                                        
                                         r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
                                     }
                                 }

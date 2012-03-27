@@ -623,13 +623,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head>");
             out.println("<title>"+sysmsg("startup_title")+"</title>");
+            out.println("<link rel='stylesheet' type='text/css' href='"+base+"/../surveytool.css'>");
             SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
-	    if(isUnofficial) {
-            	out.println("<script type=\"text/javascript\">timerSpeed = 2500;</script>");
+            if(isUnofficial) {
+                out.println("<script type=\"text/javascript\">timerSpeed = 2500;</script>");
             } else {
                 out.println("<script type=\"text/javascript\">timerSpeed = 10000;</script>");
-	    }
-            out.println("<link rel='stylesheet' type='text/css' href='"+base+"/../surveytool.css'>");
+            }
             // todo: include st_top.jsp instead
             out.println("</head><body>");
             if(isUnofficial) {
@@ -1192,9 +1192,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<meta name=\"gigabot\" content=\"noindex\">");
         ctx.println("<meta name=\"gigabot\" content=\"noarchive\">");
         ctx.println("<meta name=\"gigabot\" content=\"nofollow\">");
+        ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
 
         ctx.includeAjaxScript(AjaxType.STATUS);
-        ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
         ctx.println("<title>Survey Tool | ");
         if(ctx.getLocale() != null) {
             ctx.print(ctx.getLocale().getDisplayName() + " | ");

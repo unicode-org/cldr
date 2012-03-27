@@ -861,8 +861,19 @@ function addIcon(td, className) {
 var gPopStatus = {
 		unShow: null,
 		lastShown: null,
-		lastTr: null
+		lastTr: null,
+		popToken: 0
 };
+
+function getPopToken() {
+	return gPopStatus.popToken;
+}
+
+function incrPopToken(x) {
+	++gPopStatus.popToken;
+	//stdebug("PT@"+gPopStatus.popToken+" - " + x);
+	return gPopStatus.popToken;
+}
 
 function showInPopOld(tr,theRow, str, hideIfLast, fn) {
 	if(gPopStatus.unShow) {
@@ -874,6 +885,7 @@ function showInPopOld(tr,theRow, str, hideIfLast, fn) {
 			gPopStatus.lastTr.infoRow.className="d-inforow-hid";
 		}
 		gPopStatus.lastShown=null;
+		incrPopToken('oldHide');
 		return;
 	}
 	gPopStatus.lastShown = hideIfLast;
@@ -884,18 +896,17 @@ function showInPopOld(tr,theRow, str, hideIfLast, fn) {
 	var td_real = tr.infoRow.getElementsByTagName("td")[0];
 	var td = document.createDocumentFragment();
 
+	appendHelp(td,theRow);
+
 	if(str) {
 		var div2 = document.createElement("div");
 		div2.innerHTML=str;
 		td.appendChild(div2);
 	}
 	if(fn!=null) {
-		gPopStatus.unShow=fn(td);
+		gPopStatus.unShow=fn(td); // run their function
 	}
 	// always append this
-	if(theRow) {
-		appendHelp(td,theRow);
-	}
 
 	removeAllChildNodes(td_real);
 	td_real.appendChild(td);
@@ -907,6 +918,7 @@ function showInPopOld(tr,theRow, str, hideIfLast, fn) {
 	tr.infoRow.className = "d-inforow";
 	gPopStatus.lastTr = tr;
 	gPopStatus.infoRow = theRow;
+	incrPopToken('oldShow');
 }
 
 function hidePopOld(tr) {
@@ -918,6 +930,7 @@ function hidePopOld(tr) {
 		gPopStatus.lastTr.infoRow.className="d-inforow-hid";
 	}
 	gPopStatus.lastShown=null;
+	incrPopToken('oldHide');
 }
 function resetPopOld(tr) {
 	gPopStatus.lastShown=null;
@@ -949,15 +962,28 @@ dojo.ready(function() {
 	});
 	listenFor(pubody, "mouseout", hidePopHandler);
 	
+	if(stdebug_enabled) {
+		listenFor(pubody, "click", function() {
+			window.hidePop = function() {
+				
+			};
+			pupeak.innerHTML=">";
+			e.stopPropagation(); return false; 
+		});
+		
+	}
+	
 	if(true) {
-	window.showInPop = function(tr,theRow, str, hideIfLast, fn) {
-		if(hideIfLast&&lastShown==hideIfLast) {
-			return; // keep up
-		}
+	
+	window.showInPop2 = function(tr,theRow, str, hideIfLast, fn) {
+//		if(hideIfLast&&lastShown==hideIfLast) {
+//			return; // keep up
+//		}
 		if(unShow) {
 			unShow();
 			unShow=null;
 		}
+		incrPopToken('newShow' + str);
 		if(hideInterval) {
 			clearTimeout(hideInterval);
 			hideInterval=null;
@@ -973,6 +999,8 @@ dojo.ready(function() {
 
 		var td = document.createDocumentFragment();
 
+		appendHelp(td,theRow);
+
 		if(str) {
 			var div2 = document.createElement("div");
 			div2.innerHTML=str;
@@ -981,10 +1009,6 @@ dojo.ready(function() {
 		if(fn!=null) {
 			unShow=fn(td);
 		}
-		// always append this
-		if(theRow) {
-			appendHelp(td,theRow);
-		}
 
 		removeAllChildNodes(pucontent);
 		pucontent.appendChild(td);
@@ -992,12 +1016,12 @@ dojo.ready(function() {
 		
 		if(hideIfLast) { // context
 			var loc = getAbsolutePosition(hideIfLast);
-			var newTopPeak = (loc.top+hideIfLast.offsetHeight-16);
+			var newTopPeak = (loc.top+((hideIfLast.offsetHeight)/2)-8);
 			//if(newTop<hardtop) newTop=hardtop;
 			//puouter.style.top = (newTop+nudgevpost)+"px";
 			newLeftPeak = (loc.left);
 			
-			pupeak.style.left = (newLeftPeak-16) + "px";
+			pupeak.style.left = (newLeftPeak-pupeak.offsetWidth) + "px";
 			pupeak.style.top = newTopPeak + "px";
 			
 			// now, body style
@@ -1008,9 +1032,10 @@ dojo.ready(function() {
 			} else {
 				bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
 			}
-			pubody.style.top = bodyTop+"px";
-			pupeak.style.height = (bodyTop-newTopPeak) + "px";
-			
+			if(false) {
+				pubody.style.top = bodyTop+"px";
+				pupeak.style.height = (bodyTop-newTopPeak) + "px";
+			}			
 //			if(newLeft<hardleft) {
 //				pupeak.style.left = (newLeft - hardleft)+"px";
 //				newLeft = hardleft;
@@ -1024,6 +1049,23 @@ dojo.ready(function() {
 		}
 		//tr.infoRow.className = "d-inforow";
 	};
+	if(true) {
+		window.showInPop = window.showInPop2;
+	} else {
+		// delay before show
+		window.showInPop = function(tr,theRow,str,hideIfLast,fn) {
+			if(hideIfLast&&lastShown==hideIfLast) {
+				return; // keep up
+			}
+			if(hideInterval) {
+				clearTimeout(hideInterval);
+				hideInterval=null;
+			}
+			hideInterval=setTimeout(function() {
+				window.showInPop2(tr,theRow,str,hideIfLast,fn);
+			}, 50);
+		};
+	}
 	window.hidePop = function() {
 		if(hideInterval) {
 			clearTimeout(hideInterval);
@@ -1031,6 +1073,7 @@ dojo.ready(function() {
 		hideInterval=setTimeout(function() {
 			puouter.style.display="none";
 			lastShown = null;
+			incrPopToken('newHide');
 		}, 2000);
 	};
 	window.resetPop = function() {
@@ -1066,7 +1109,7 @@ function testsToHtml(tests) {
 	return newHtml;
 }
 function appendHelp(td,theRow) {
-	if(theRow.displayHelp) {
+	if(theRow && theRow.displayHelp) {
 		var helpDiv = cloneAnon(dojo.byId("proto-help"));
 		helpDiv.innerHTML += theRow.displayHelp;
 		td.appendChild(helpDiv);
@@ -1074,46 +1117,42 @@ function appendHelp(td,theRow) {
 }
 
 function showProposedItem(inTd,tr,theRow,value,tests) {
+	theRow.proposedResults = null;
 	if(!tests || tests.length==0) return false;
+	var div3 = document.createElement("div");
+	var newHtml = "";
+	newHtml += testsToHtml(tests);
 
-	showInPop(tr, theRow, null, inTd, function(td) {
-		var newHtml = "";
-		newHtml += testsToHtml(tests);
+	var h3 = document.createElement("h3");
+	var span = document.createElement("span");
+	span.className="value";
+	span.dir = tr.theTable.json.dir;
+	span.appendChild(document.createTextNode(value));
+	h3.appendChild(span);
+	h3.className="span";
+	div3.appendChild(h3);
+	var newDiv = document.createElement("div");
+	div3.appendChild(newDiv);
+	newDiv.innerHTML = newHtml;
+	theRow.proposedResults = div3;
+	
+	tr._showProposedResults();  // trigger
 
-		var h3 = document.createElement("h3");
-		var span = document.createElement("span");
-		span.className="value";
-		span.dir = tr.theTable.json.dir;
-		span.appendChild(document.createTextNode(value));
-		h3.appendChild(span);
-		h3.className="span";
-		td.appendChild(h3);
-		var newDiv = document.createElement("div");
-		td.appendChild(newDiv);
-
-		newDiv.innerHTML = newHtml;
-
-		return null;
-	});
-
-
-	if(tests) {
-		var hadWarn = false;
-		var hadErr = false;
-		for(var i=0;i<tests.length;i++) {
-			var testItem = tests[i];
-			if(testItem.type == 'Warning') hadWarn = true;
-			if(testItem.type == 'Error') hadErr = true;
-		}
-		if(hadErr) {
-			tr.inputTd.className="d-change-err";
-			return true;
-		} else if(hadWarn) {
-			tr.inputTd.className="d-change-warn";
-			return false;
-		}
+	var hadWarn = false;
+	var hadErr = false;
+	for(var i=0;i<tests.length;i++) {
+		var testItem = tests[i];
+		if(testItem.type == 'Warning') hadWarn = true;
+		if(testItem.type == 'Error') hadErr = true;
+	}
+	if(hadErr) {
+		tr.inputTd.className="d-change-err";
+		return true;
+	} else if(hadWarn) {
+		tr.inputTd.className="d-change-warn";
 		return false;
 	}
+	return false;
 }
 
 function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
@@ -1159,6 +1198,13 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 
 
 function popInfoInto(tr, theRow, theChild) {
+	if(theRow.voteInfoText) {
+		showInPop(tr, theRow, theRow.voteInfoText, theChild);
+		return;
+	}
+	showInPop(tr, theRow, "<i>" + stui.str("loading") + "</i>", theChild);
+	var popShowingToken = getPopToken();
+	stdebug('Got token ' + popShowingToken);
 //	var what = WHAT_GETROW;
 	var ourUrl = contextPath + "/RefreshRow.jsp?what=" + WHAT_GETROW
 			+ "&xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
@@ -1178,9 +1224,16 @@ function popInfoInto(tr, theRow, theChild) {
 	var loadHandler = function(text) {
 		try {
 			if (text) {
-				showInPop(tr, theRow, text, theChild);
+				theRow.voteInfoText = text;
 			} else {
-				showInPop(tr, theRow, stopIcon + stui.noVotingInfo, theChild);
+				theRow.voteInfoText = stopIcon + stui.noVotingInfo;
+			}
+			if(getPopToken()==popShowingToken) {
+				resetPopOld(); // Force display.
+				showInPop(tr, theRow, theRow.voteInfoText, theChild);
+//				stdebug("success with token " + popShowingToken);
+			} else { // else, something else happened meanwhile.
+				stdebug("our token was " + popShowingToken + " but now at " + getPopToken() );
 			}
 		} catch (e) {
 			console.log("Error in ajax get ", e.message);
@@ -1275,7 +1328,7 @@ function updateRow(tr, theRow) {
 		children[i].title = tr.theTable.theadChildren[i].title;
 	}
 	if(!tr._onmove) {
-		tr._onmove = function(e) {showInPop(tr,theRow,"",tr); e.stopPropagation(); return false;};
+		tr._onmove = function(e) {showInPop(tr,theRow,"",children[3]); e.stopPropagation(); return false;};
 	}
 	
 	if(theRow.hasErrors) {
@@ -1332,9 +1385,13 @@ function updateRow(tr, theRow) {
 //					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
 //					e.stopPropagation(); return false; 
 //				});
+		var xpathStr = "";
+		if(stdebug_enabled) {
+			xpathStr = "XPath: " + theRow.xpath;
+		}
 		listenFor(children[3],"mouseover",
 				function(e){ 		
-					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
+					showInPop(tr, theRow, xpathStr, children[3]);
 					e.stopPropagation(); return false; 
 				});
 		tr.anch = anch;
@@ -1392,6 +1449,22 @@ function updateRow(tr, theRow) {
 			children[7].isSetup=true;
 			children[7].theButton = changeButton;
 		}
+		tr._showProposedResults = function(e) {
+			if(theRow.proposedResults) {
+				showInPop(tr, theRow, null, children[7], function(td) {
+					td.appendChild(theRow.proposedResults);
+					return null;
+				});
+				if(e) {
+					e.stopPropagation();
+				}
+				return false; 
+			} else {
+				return tr._onmove(e); // show row generically
+			}
+		};
+		listenFor(children[7],"mouseover",tr._showProposedResults);
+		
 	} else {
 		if(children[7].theButton) {
 			children[7].theButton.className="ichoice-o";
@@ -1606,6 +1679,9 @@ function insertRows(theDiv,xpath,session,json) {
 	insertRowsIntoTbody(theTable,tbody);
 	if(doInsertTable) {
 		theDiv.appendChild(doInsertTable);
+		if(theDiv.theLoadingMessage) {
+			theDiv.theLoadingMessage.style.display="none";
+		}
 	}
 	hideLoader(theDiv.loader);
 }
@@ -1620,6 +1696,20 @@ function loadStui(loc) {
 	
 	return stui;
 }
+function createChunk(text, tag, className) {
+	if(!tag) {
+		tag="span";
+	}
+	var chunk = document.createElement(tag);
+	if(className) {
+		chunk.className = className;
+	}
+	if(text) {
+		chunk.appendChild(document.createTextNode(text));
+	}
+	chunk.title=stui_str(className+"_desc");
+	return chunk;
+}
 ////////
 /// showRows() ..
 function showRows(container,xpath,session,coverage) {
@@ -1628,6 +1718,8 @@ function showRows(container,xpath,session,coverage) {
 	var theDiv = dojo.byId(container);
 
 	theDiv.stui = loadStui("en");
+	theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
+	theDiv.appendChild(theDiv.theLoadingMessage);
 	
 	var shower = null;
 	var theTable = theDiv.theTable;
@@ -1787,6 +1879,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	tr.wait=true;
 	resetPop(tr);
 	setDefer(true);
+	theRow.proposedResults = null;
 
 
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
@@ -1833,6 +1926,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						button.className='ichoice-o';
 						hideLoader(tr.theTable.theDiv.loader);
 						if(json.testResults && (json.testWarnings || json.testErrors)) {
+							// tried to submit, have errs or warnings.
 							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults);
 							if(json.testErrors && box) {
 								setTimeout(function(){box.focus();},100); // make sure the box gets focus
@@ -1976,20 +2070,6 @@ function loadAdminPanel() {
 		}
 	}
 	
-	function createChunk(text, tag, className) {
-		if(!tag) {
-			tag="span";
-		}
-		var chunk = document.createElement(tag);
-		if(className) {
-			chunk.className = className;
-		}
-		if(text) {
-			chunk.appendChild(document.createTextNode(text));
-		}
-		chunk.title=stui.str(className+"_desc");
-		return chunk;
-	}
 	
 	function createUser(user) {
 		var div = createChunk(null,"div","adminUserUser");

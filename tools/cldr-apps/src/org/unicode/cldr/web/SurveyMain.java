@@ -1172,7 +1172,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     }
     
 //    static boolean showedComplaint = false;
-     
     /**
     * print the header of the thing
     */
@@ -1192,7 +1191,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         ctx.println("<meta name=\"gigabot\" content=\"noindex\">");
         ctx.println("<meta name=\"gigabot\" content=\"noarchive\">");
         ctx.println("<meta name=\"gigabot\" content=\"nofollow\">");
-        ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.schemeHostPort()  + ctx.context("surveytool.css") + "'>");
+        ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.context("surveytool.css") + "'>");
 
         ctx.includeAjaxScript(AjaxType.STATUS);
         ctx.println("<title>Survey Tool | ");

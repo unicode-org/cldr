@@ -175,6 +175,7 @@ body {
 	padding-right: 0.5em;
 }
 
+
 hr {
 	border: 1px dashed #ccd
 }
@@ -551,16 +552,25 @@ h2.thisItem {
 
 }
 
+i.loadingMsg {
+	font-size: x-large;
+	text-align: justify;
+	font-weight: bold;
+	font-variant: small-caps;
+	margin-left:  2em;
+}
+
 .small_login_hot {
 	font-size: larger;
 	border: 7px outset maroon;
 	background-color: #fad084;
-	padding: 3em;
+	padding: 2.0em;
 	text-shadow: #000000 0 0 0;
 	position: absolute;
-	top: 0;
+	top: 25px;
 	right: 0;
-	z-index: 3;
+	z-index: 4;
+	line-height: 1.34m;
 }
 
 div#smalllogin {
@@ -951,6 +961,7 @@ div#toparea img#stlogo {
 	margin-left: auto;
 	height: 2.5em;
 	margin-right: 5.5em;
+	padding-top:  8px;
 }
 
 h4#toptitle {
@@ -1197,15 +1208,11 @@ div.topnotices div.unofficial {
 	background-color: goldenrod;
 	padding: 3px;
 	position: fixed;
-	bottom: 0;
+	top: 30px;
 	right: 0;
 	opacity: 0.9;
-	
-
-/*
-
-width:  100%;*/
 	text-align: center;
+	
 }
 
 div.topnotices p.beta {
@@ -1293,9 +1300,9 @@ span.elapsedtime {
 }
 
 span#visitors {
-	position: absolute;
-	top: 0;
-	right: 0;
+	/*position: fixed;
+	bottom: 0;
+	right: 0;*/
 }
 
 span#visitors table {
@@ -1319,19 +1326,21 @@ span#visitors td.remain {
 
 div#progress {
 	position: fixed;
-	bottom: 0;
-	left: 0;
-	margin-right: 0.5em;
-	margin-top: 0.5em;
-	border-top: 4px groove gray;
-	border-right: 4px groove gray;
+	top: 0;
+	right: 0;
+	margin-left: 0.5em;
+	margin-bottom: 0.5em;
+	border-bottom: 4px groove gray;
+	border-left: 4px groove gray;
 	background-color: #e0f4ea;
 	padding-right: 2px;
 	padding-top: 2px;
 	padding-left:  2px;
 	padding-bottom: 0.5em;
 	width: 20em;
+	height:  18px;
 	z-index: 6;
+	overflow: auto;
 }
 
 div#progress.progress-connecting {
@@ -1344,7 +1353,7 @@ div#progress.progress-disconnected {
 }
 
 div#progress.progress-disconnected span.oneword {
-	font-size: x-large;
+	font-size: large;
 }
 
 div#progress span.oneword {
@@ -1637,21 +1646,25 @@ div.d-sort-size {
 	background: url(vote.png) no-repeat center center;
 }
 
-.d-vo-false:hover, .d-vo-true:hover,
+/*.d-vo-false:hover, .d-vo-true:hover,
 .d-st-warn:hover, .d-st-stop:hover, .d-st-okay:hover {
 	border: 2px solid navy;
 	width: 16px;
 	height: 16px;
 	background: url(zoom.png) no-repeat center center;
-}
+}*/
 
 .d-item {
 	border: 2px solid white;
 }
 
-.d-item:hover {
+/*.d-item:hover {
 	border: 2px solid navy;
 	background: url(zoom.png) no-repeat right center;
+}*/
+
+#pu-content div.helpHtml {
+	margin-bottom:  0.5em;
 }
 
 tr.d-inforow, .d-item-selected {
@@ -1855,10 +1868,10 @@ div#pu-outer {
 }
 
 div#pu-peak {
-	width: 15px;
+	width: 11px;
 	height:  16px;
 	/*border:  1px solid green;*/
-	background: url(peakfill.png);
+	background: #f8c871 none;
 	position: absolute;
 	left: 100px;
 	top: 10em;
@@ -1868,27 +1881,39 @@ div#pu-peak {
 	text-align: right;
 }
 
+body {
+	margin-bottom: 100px;
+}
+
 div#pu-body {
-	background-color: white;
-	/*border:  1px solid purple;*/
+	position: fixed;
+	bottom: 0;
+	width:  97%;
+	height: 10em;
+	padding: 0.2em;
+	background: #f8c871 none;
+	box-shadow: 8px 8px 5px gray; 
+}
+
+div#pu-body-OLD {
 	position: absolute;
-	/*top: -48px;
-	right: -160px;*/
-/*	height:  100px;*/
-	/*width:  300px;*/
-	/*margin-left:  auto;
-	margin-right:  100px;
-	width: 80%;*/
-	padding: 0.5em;
-	background: url(peakfill.png);
+	width:  97%;
+	padding: 0.2em;
+	background: #f8c871 none;
+	box-shadow: 8px 8px 5px gray; 
 }
 
 div#pu-content {
-	/*width:  300px;*/
-	padding:  0.5em;
-	/*margin:  0.5em;*/
-	/*border:  1px solid red;*/
+	padding:  .5em;
 	background-color: white;
+	font-size:  small;
+	height:  90%;
+	overflow: scroll;
+}
+
+#pu-content h3.span {
+	margin-top:  0;
+	margin-bottom: 0;
 }
 
 /* @end */

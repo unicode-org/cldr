@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -581,7 +582,6 @@ public class DataSection implements JSONString {
 		List<CandidateItem> candidateItems = null;
 
 		private String displayName = null;
-		private boolean errorNoOutcome = false;
 		// these apply to the 'winning' item, if applicable
 		boolean hasErrors = false;
 		boolean hasInherited = false; // True if has inherited value
@@ -859,12 +859,15 @@ public class DataSection implements JSONString {
         public CLDRLocale getLocale() {
             return locale;
         }
-		public String getPrettyPath() {
-			if (pp == null) {
-				pp = sm.xpt.getPrettyPath(xpathId);
-			}
-			return pp;
-		}
+        public String getPrettyPath() {
+            if (pp == null) {
+                pp = sm.xpt.getPrettyPath(xpathId);
+            }
+            return pp;
+        }
+        public PathHeader getPathHeader() {
+            return sm.getSTFactory().getPathHeader(xpath);
+        }
 
 		/**
 		 * Get a list of proposed items, if any.
@@ -1266,10 +1269,6 @@ public class DataSection implements JSONString {
 //			}
 //			return didSomething;
 //		}
-
-		private void setDisplayName(String displayName) {
-			this.displayName = displayName;
-		}
 
 		/**
 		 * A Shim is a candidate item which does not correspond to actual XML
@@ -1913,7 +1912,7 @@ public class DataSection implements JSONString {
 					.put("displayHelp", displayHelp)
 					.put("displayInExample", displayInExample)
 					.put("confirmOnly", confirmOnly)
-					.put("prettyPath", getPrettyPath())
+					.put("prettyPath", getPathHeader().getCode())
 					.put("hasErrors", hasErrors)
 					.put("hasWarnings", hasWarnings)
 					.put("confirmStatus", confirmStatus)

@@ -31,6 +31,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
@@ -798,6 +799,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public SurveyMain sm = null;
 
+    private org.unicode.cldr.util.PathHeader.Factory phf;
+
     /**
      * Construct one.
      */
@@ -809,6 +812,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
         sm.reg.addListener(this);
         handleUserChanged(null);
+        phf = PathHeader.getFactory(sm.getBaselineFile());
     }
 
     @Override
@@ -1010,4 +1014,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 	public synchronized void handleUserChanged(User u) {
         VoteResolver.setVoterToInfo(sm.reg.getVoterToInfo());	
 	}
+	
+    public final PathHeader getPathHeader(String xpath) {
+        return phf.fromPath(xpath);
+    }
 }

@@ -1084,10 +1084,10 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 		if(testItem.type == 'Error') hadErr = true;
 	}
 	if(hadErr) {
-		tr.inputTd.className="d-change-err";
+		tr.inputTd.className="d-change-err"; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		return true;
 	} else if(hadWarn) {
-		tr.inputTd.className="d-change-warn";
+		tr.inputTd.className="d-change-warn";// TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		return false;
 	}
 	return false;
@@ -1246,63 +1246,61 @@ function updateRow(tr, theRow) {
 	}
 	tr.xpid = theRow.xpid;
 	var children = getTagChildren(tr);
+	var config = tr.theTable.config;
 	var protoButton = dojo.byId('proto-button');
 	if(!canModify) {
 		protoButton = null;
 	}
 	
 	var doPopInfo = function(e) {
-		popInfoInto(tr,theRow,children[1]);
+		popInfoInto(tr,theRow,children[config.statuscell]);
 		e.stopPropagation(); return false; 
 	};
 	
-	for(var i=0;i<children.length;i++) {
-		children[i].title = tr.theTable.theadChildren[i].title;
-	}
 	if(!tr._onmove) {
-		tr._onmove = function(e) {showInPop(tr,theRow,"",children[3]); e.stopPropagation(); return false;};
+		tr._onmove = function(e) {showInPop(tr,theRow,"",children[config.codecell]); e.stopPropagation(); return false;};
 	}
 	
 	if(theRow.hasErrors) {
-		children[0].className = "d-st-stop";
-		children[0].title = stui.testError;
+		children[config.errcell].className = "d-st-stop";
+		children[config.errcell].title = stui.testError;
 	} else if(theRow.hasWarnings) {
-		children[0].className = "d-st-warn";
-		children[0].title = stui.testWarn;
+		children[config.errcell].className = "d-st-warn";
+		children[config.errcell].title = stui.testWarn;
 	} else {
-		children[0].className = "d-st-okay";
-		children[0].title = stui.testOkay;
+		children[config.errcell].className = "d-st-okay";
+		children[config.errcell].title = stui.testOkay;
 	}
-	listenFor(children[0],"mouseover",function(e){return children[0]._onmove(e);});
+	listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
-	children[1].className = "d-dr-"+theRow.confirmStatus;
-	if(!children[1].isSetup) {
-		listenFor(children[1],"mouseover",
+	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus;
+	if(!children[config.statuscell].isSetup) {
+		listenFor(children[config.statuscell],"mouseover",
 				doPopInfo);
-		children[1].isSetup=true;
+		children[config.statuscell].isSetup=true;
 	}
-	children[1].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
+	children[config.statuscell].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
 
 	if(theRow.hasVoted) {
-		children[2].className = "d-vo-true";
-		children[2].title=stui.voTrue;
+		children[config.votedcell].className = "d-vo-true";
+		children[config.votedcell].title=stui.voTrue;
 	} else {
-		children[2].className = "d-vo-false";
-		children[2].title=stui.voFalse;
+		children[config.votedcell].className = "d-vo-false";
+		children[config.votedcell].title=stui.voFalse;
 	}
-	if(!children[2].isSetup) {
-		listenFor(children[2],"mouseover",
+	if(!children[config.votedcell].isSetup) {
+		listenFor(children[config.votedcell],"mouseover",
 				doPopInfo);
-		children[2].isSetup=true;
+		children[config.votedcell].isSetup=true;
 	}
 
 	if(!tr.anch || stdebug_enabled) {
-		children[3].innerHTML=theRow.prettyPath;
+		children[config.codecell].innerHTML=theRow.prettyPath;
 		var anch = document.createElement("a");
 		anch.className="anch";
 		anch.id=theRow.xpid;
 		anch.href="#"+anch.id;
-		children[3].appendChild(anch);
+		children[config.codecell].appendChild(anch);
 		if(stdebug_enabled) {
 			anch.appendChild(document.createTextNode("#"));
 
@@ -1310,61 +1308,62 @@ function updateRow(tr, theRow) {
 			go.className="anch-go";
 			go.appendChild(document.createTextNode(">"));
 			go.href=window.location.pathname + "?_="+surveyCurrentLocale+"&x=r_rxt&xp="+theRow.xpid;
-			children[3].appendChild(go);
+			children[config.codecell].appendChild(go);
 		}
-//		listenFor(children[3],"click",
+//		listenFor(children[config.codecell],"click",
 //				function(e){ 		
-//					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[3]);
+//					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[config.codecell]);
 //					e.stopPropagation(); return false; 
 //				});
 		var xpathStr = "";
 		if(stdebug_enabled) {
 			xpathStr = "XPath: " + theRow.xpath;
 		}
-		listenFor(children[3],"mouseover",
-				function(e){ 		
-					showInPop(tr, theRow, xpathStr, children[3]);
+		listenFor(children[config.codecell],"mouseover",
+				function(e){
+					showInPop(tr, theRow, xpathStr, children[config.codecell]);
 					e.stopPropagation(); return false; 
 				});
 		tr.anch = anch;
 	}
 	
 	
-	if(!children[4].isSetup) {
-		children[4].appendChild(document.createTextNode(theRow.displayName));
+	if(!children[config.comparisoncell].isSetup) {
+		children[config.comparisoncell].appendChild(document.createTextNode(theRow.displayName));
 		if(theRow.displayExample) {
-			appendExample(children[4], theRow.displayExample);
+			appendExample(children[config.comparisoncell], theRow.displayExample);
 		}
-		listenFor(children[4],"mouseover",tr._onmove);
-		children[4].isSetup=true;
+		listenFor(children[config.comparisoncell],"mouseover",tr._onmove);
+		children[config.comparisoncell].isSetup=true;
 	}
-	removeAllChildNodes(children[5]); // win
+	removeAllChildNodes(children[config.proposedcell]); // win
 	if(theRow.items&&theRow.winningVhash) {
-		children[5]._onmove=null;
-		addVitem(children[5],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
-		children[0]._onmove = children[5]._onmove;
+		children[config.proposedcell]._onmove=null;
+		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
+		children[config.errcell]._onmove = children[config.proposedcell]._onmove;
 	} else {
-		children[0]._onmove = tr._onmove;
+		children[config.errcell]._onmove = tr._onmove;
 	}
-	removeAllChildNodes(children[6]); // other
+	
+	removeAllChildNodes(children[config.othercell]); // other
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
 			continue;
 		}
-		addVitem(children[6],tr,theRow,theRow.items[k],k,cloneAnon(protoButton));
+		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton));
 	}
 
-	if(!children[7].isSetup) {
-		removeAllChildNodes(children[7]);
-		tr.inputTd = children[7];
+	if(!children[config.changecell].isSetup) {
+		removeAllChildNodes(children[config.changecell]);
+		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		
 		if(!canModify) {
-			children[7].style.display="none";
+			children[config.changecell].style.display="none";
 		} else if(theRow.confirmOnly) {
-			children[7].className="d-change-confirmonly";
+			children[config.changecell].className="d-change-confirmonly";
 		} else {
 			var changeButton = cloneAnon(protoButton);
-			children[7].appendChild(changeButton);
+			children[config.changecell].appendChild(changeButton);
 			var changeBox = cloneAnon(dojo.byId("proto-inputbox"));
 			wireUpButton(changeButton,tr, theRow, "[change]",changeBox);
 			tr.inputBox = changeBox;
@@ -1377,13 +1376,13 @@ function updateRow(tr, theRow) {
 				setDefer(false);
 			};
 			
-			children[7].appendChild(changeBox);
-			children[7].isSetup=true;
-			children[7].theButton = changeButton;
+			children[config.changecell].appendChild(changeBox);
+			children[config.changecell].isSetup=true;
+			children[config.changecell].theButton = changeButton;
 		}
 		tr._showProposedResults = function(e) {
 			if(theRow.proposedResults) {
-				showInPop(tr, theRow, null, children[7], function(td) {
+				showInPop(tr, theRow, null, children[config.changecell], function(td) {
 					td.appendChild(theRow.proposedResults);
 					return null;
 				});
@@ -1395,11 +1394,11 @@ function updateRow(tr, theRow) {
 				return tr._onmove(e); // show row generically
 			}
 		};
-		listenFor(children[7],"mouseover",tr._showProposedResults);
+		listenFor(children[config.changecell],"mouseover",tr._showProposedResults);
 		
 	} else {
-		if(children[7].theButton) {
-			children[7].theButton.className="ichoice-o";
+		if(children[config.changecell].theButton) {
+			children[config.changecell].theButton.className="ichoice-o";
 		}
 	}
 			
@@ -1440,7 +1439,7 @@ function findPartition(partitions,partitionList,curPartition,i) {
 function insertRowsIntoTbody(theTable,tbody) {
 	theTable.hitCount++;
 	var theRows = theTable.json.section.rows;
-	var toAdd = dojo.byId('proto-datarow');
+	var toAdd = theTable.toAdd;
 	var parRow = dojo.byId('proto-parrow');
 	removeAllChildNodes(tbody);
 	var theSort = theTable.json.displaySets[theTable.curSortMode];
@@ -1575,8 +1574,30 @@ function insertRows(theDiv,xpath,session,json) {
 		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
 		localizeFlyover(theTable);
 		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
+		var toAdd = dojo.byId('proto-datarow');
+		if(!theTable.config) {
+			var rowChildren = getTagChildren(toAdd);
+			theTable.config={};
+			for(var c in rowChildren) {
+				rowChildren[c].title = theTable.theadChildren[c].title;
+				if(rowChildren[c].id) {
+					theTable.config[rowChildren[c].id] = c;
+					stdebug("  config."+rowChildren[c].id+" = children["+c+"]");
+					if(false&&stdebug_enabled) {
+						removeAllChildNodes(rowChildren[c]);
+						rowChildren[c].appendChild(createChunk("config."+rowChildren[c].id+"="+c));
+					}
+					rowChildren[c].id=null;
+				} else {
+					stdebug("(proto-datarow #"+c+" has no id");
+				}
+			}
+			stdebug("Table Config: " + JSON.stringify(theTable.config));
+		}
+		theTable.toAdd = toAdd;
+
 		if(!json.canModify) {
-				theTable.theadChildren[7].style.display=theTable.theadChildren[8].style.display="none";
+				theTable.theadChildren[theTable.config.changecell].style.display=theTable.theadChildren[theTable.config.nocell].style.display="none";
 		}
 		theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
 		theDiv.appendChild(theTable.sortMode);
@@ -1788,7 +1809,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			myUnDefer();
 			return; // nothing entered.
 		}
-		tr.inputTd.className="d-change";
+		tr.inputTd.className="d-change"; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 	} else {
 		valToShow=button.value;
 	}
@@ -1830,14 +1851,14 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
 					refreshRow2(tr,theRow,vHash,function(){
-						tr.inputTd.className="d-change";
+						tr.inputTd.className="d-change"; // TODO: use  inputTd=(getTagChildren(tr)[tr.theTable.config.changecell])
 
 						// submit went through. Now show the pop.
 						button.className='ichoice-o';
 						hideLoader(tr.theTable.theDiv.loader);
 						if(json.testResults && (json.testWarnings || json.testErrors)) {
 							// tried to submit, have errs or warnings.
-							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults);
+							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 							if(json.testErrors && box) {
 								setTimeout(function(){box.focus();},100); // make sure the box gets focus
 								box.focus();
@@ -1855,7 +1876,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 				} else {
 					// Did not submit. Show errors, etc
 					if(json.testResults && (json.testWarnings || json.testErrors)) {
-						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults);
+						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 					} else {
 						hidePop(tr);
 					}

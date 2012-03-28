@@ -965,15 +965,15 @@ dojo.ready(function() {
 			pupeak.style.left = (newLeftPeak-pupeak.offsetWidth) + "px";
 			pupeak.style.top = newTopPeak + "px";
 			
-			// now, body style
-			var bodyTop;
-			if(hideIfLast.popParent) {
-				loc = getAbsolutePosition(hideIfLast.popParent); // specifies:  move the v part here
-				bodyTop = (loc.top+hideIfLast.popParent.offsetHeight+nudgeh);
-			} else {
-				bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
-			}
 			if(false) {
+				// now, body style
+				var bodyTop;
+				if(hideIfLast.popParent) {
+					loc = getAbsolutePosition(hideIfLast.popParent); // specifies:  move the v part here
+					bodyTop = (loc.top+hideIfLast.popParent.offsetHeight+nudgeh);
+				} else {
+					bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
+				}
 				pubody.style.top = bodyTop+"px";
 				pupeak.style.height = (bodyTop-newTopPeak) + "px";
 			}			
@@ -984,10 +984,12 @@ dojo.ready(function() {
 //				pupeak.style.left = "0px";
 //			}
 //			puouter.style.left = (newLeft+nudgehpost)+"px";
-			puouter.style.display="block";
 		} else {
-			alert("Errow showPop with no td");
+			pupeak.style.left = "0px";
+			pupeak.style.top = "0px";
+			stdebug("Note: showPop with no td");
 		}
+		puouter.style.display="block";
 	};
 	if(false) {
 		window.showInPop = window.showInPop2;

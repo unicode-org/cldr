@@ -2628,14 +2628,7 @@ public class DataSection implements JSONString {
 			if (ourSrc.getSupplementalDirectory() == null) {
 				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 			}
-			try {
-                section.populateFrom(ourSrc, checkCldr, null, workingCoverageLevel);
-			} finally {
-				if (NOINHERIT) {
-					SurveyLog
-							.errln(" ************** ERROR:  NOINHERIT=true in DataSection.  Inherited items are not properly calculated. TODO");
-				}
-			}
+			section.populateFrom(ourSrc, checkCldr, null, workingCoverageLevel);
 			int popCount = section.getAll().size();
 			if(false)System.err.println("PopCount: " + popCount );
 			if(false&&popCount>0) {

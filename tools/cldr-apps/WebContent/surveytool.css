@@ -1091,9 +1091,7 @@ table#voteinfo thead th:first-child {
 }
 
 td.generatedexample {
-	border-left: 1px 
-
-solid silver;
+	border-left: 1px solid silver;
 	border-right: 2px solid gray;
 }
 
@@ -1201,6 +1199,7 @@ div.d-example {
 	/*background-color: #eae3c9; */
 	border: 1px solid #ab98ea;
 	padding: 1px;
+	text-indent: 0;
 }
 
 #stchanged_loc {
@@ -1341,7 +1340,6 @@ div#progress {
 	padding-left:  2px;
 	padding-bottom: 0.5em;
 	width: 20em;
-	height:  18px;
 	z-index: 6;
 	overflow: auto;
 }
@@ -1550,7 +1548,7 @@ div.helpHtml {
 }
 
 .d-sortmode ul {
-	display: inline;
+	display: none; /* inline*/
 	margin-top: 0;
 	margin-bottom: 0;
  	margin-left: 0;
@@ -1559,7 +1557,6 @@ div.helpHtml {
 
 
 span.d-sort-size {
-	float: right;
 }
 
 .d-sortmode li {
@@ -1630,10 +1627,6 @@ span.d-sort-size {
 	padding-right:  2px;
 }
 
-.d-win {
-	vertical-align: top;
-}
-
 .d-vo-false {
 	width: 16px;
 	height: 16px;
@@ -1644,6 +1637,10 @@ span.d-sort-size {
 	width: 16px;
 	height: 16px;
 	background: url(vote.png) no-repeat center center;
+}
+
+.d-no-vo-false {
+	background: #9999d0;
 }
 
 /*.d-vo-false:hover, .d-vo-true:hover,
@@ -1760,12 +1757,14 @@ body.disconnected table {
 
 }
 
-body.disconnected table.
-
-data button,
+body.disconnected table.data button,
 body.disconnected table.data input,
 body.disconnected table.data .d-change,
-body.disconnected table.data .d-no {
+body.disconnected table.data .d-change-err,
+body.disconnected table.data .d-change-warn,
+body.disconnected table.data .d-no,
+body.disconnected table.data .d-no-vo-false,
+body.disconnected table.data .d-no-vo-true, {
 	display: none !important;
 }
 
@@ -1822,7 +1821,8 @@ body.disconnected div#progress.progress-ok  button#progress-refresh {
 	background: url(vote.png) no-repeat center center;
 }
 
-td.d-change,td.d-change-err {
+
+td.d-change,td.d-change-err,td.d-change-warn {
 	white-space: nowrap;
 }
 
@@ -1836,9 +1836,17 @@ button.d-inforow-hider {
 	width: 75%;
 }
 
-td.d-change-err {
-	background: #fa9092 url(stop.png) no-repeat left bottom;
-	border: 2px solid red;
+/* anything that COULD have an icon */
+.d-win, .d-win-err, .d-win-warn,
+td.d-change,td.d-change-err,td.d-change-warn {
+	vertical-align: top;
+	/*padding-left:  18px;*/
+	padding-bottom: 16px !important;
+}
+
+td.d-change-err, td.d-win-err {
+	background: #fa9092 url(stop.png) no-repeat left bottom !important;
+	border: 2px solid red !important;
 }
 
 td.d-change-confirmonly:after {
@@ -1846,9 +1854,9 @@ td.d-change-confirmonly:after {
 	font-style: italic;
 }
 
-td.d-change-warn {
-	border: 2px solid yellow;
-	background: #fbfea1 url(warn.png) no-repeat left bottom;
+td.d-change-warn, td.d-win-warn {
+	border: 2px solid yellow !important;
+	background: #fbfea1 url(warn.png) no-repeat left bottom !important;
 }
 
 /* @end */

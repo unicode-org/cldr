@@ -403,16 +403,14 @@ public class DataSection implements JSONString {
 					if (confirmStatus == Status.approved) {
 						pClass = "winner"; // ' title='Winning item.'";
 					} else if (confirmStatus == Status.missing) {
-						pClass = "title='" + confirmStatus + "' ";
+						pClass = "winner"; // was missing- doesn't matter
 					} else {
 					    pClass = "winner"; // class='winner' title='"+confirmStatus+"' ";
 					}
 				} else if (pathWhereFound != null) {
 					pClass = "alias"; // class='alias' title='alias from " + sm.xpt.getPrettyPath(pathWhereFound) + "'";
 				} else if (isFallback || (inheritFrom != null)) {
-					if(isOldValue) {
-						pClass = "fallback"; // class='fallback' title='Previous Version'";
-					} else if (inheritFrom!=null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
+					if (inheritFrom!=null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
 						pClass = "fallback_code"; //class='fallback_code' title='Untranslated Code'";
 					} else if ("root".equals(inheritFrom)) {
 						pClass = "fallback_root"; // class='fallback_root' title='Fallback from Root'";

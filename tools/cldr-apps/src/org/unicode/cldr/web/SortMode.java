@@ -47,13 +47,17 @@ public abstract class SortMode {
 	
 	public static List<String> getSortModesFor(String xpath) {
 		List<String> list = new LinkedList<String>();
-		list.add(CodeSortMode.name);
-		list.add(InterestSort.name);
-		list.add(NameSort.name);
-		if(xpath.contains("/calendars")) 
+		if(xpath.contains("/calendars")) {
 			list.add(CalendarSortMode.name);
-		if(xpath.contains("zone")) 
+		}else if(xpath.contains("zone")) {
 			list.add(MetazoneSortMode.name);
+		} else {
+		    list.add(CodeSortMode.name);
+		}
+		if(false) { // hide others
+		    list.add(NameSort.name);
+		    list.add(InterestSort.name);
+		}
 		return list;
 	}
 

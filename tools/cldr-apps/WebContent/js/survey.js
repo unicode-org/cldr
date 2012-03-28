@@ -904,7 +904,7 @@ dojo.ready(function() {
 	listenFor(pubody, "mouseout", hidePopHandler);
 	
 	if(stdebug_enabled) {
-		listenFor(pubody, "click", function() {
+		listenFor(pubody, "click", function(e) {
 			window.hidePop = function() {
 				
 			};
@@ -993,17 +993,18 @@ dojo.ready(function() {
 		window.showInPop = window.showInPop2;
 	} else {
 		// delay before show
-		window.showInPop = function(tr,theRow,str,hideIfLast,fn) {
-			if(hideIfLast&&lastShown==hideIfLast) {
-				return; // keep up
-			}
+		window.showInPop = function(tr,theRow,str,hideIfLast,fn,immediate) {
 			if(hideInterval) {
 				clearTimeout(hideInterval);
 				hideInterval=null;
 			}
-			hideInterval=setTimeout(function() {
-				window.showInPop2(tr,theRow,str,hideIfLast,fn);
-			}, 2500);
+			if(immediate) {
+				return window.showInPop2(tr,theRow,str,hideIfLast,fn);
+			} else {
+				hideInterval=setTimeout(function() {
+					window.showInPop2(tr,theRow,str,hideIfLast,fn);
+				}, 2500);
+			}
 		};
 	}
 	window.hidePop = function() {
@@ -1202,10 +1203,11 @@ function appendExample(parent, text) {
 function addVitem(td, tr,theRow,item,vHash,newButton) {
 //	var canModify = tr.theTable.json.canModify;
 	var div = document.createElement("div");
+	var isWinner = (td==tr.proposedcell);
 	div.className = "d-item";
 	
 	if(item==null)  {
-		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
+//		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
 		return;
 	}
 	var text = document.createTextNode(item.value);
@@ -1219,10 +1221,10 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 		div.appendChild(newButton);
 	}
 	div.appendChild(span);
-	if(item.isOldValue==true) {
+	if(item.isOldValue==true && !isWinner) {
 		addIcon(div,"i-star");
 	}
-	if(item.votes) {
+	if(item.votes && !isWinner) {
 		addIcon(div,"i-vote");
 	}
 	div.popParent = tr;
@@ -1264,12 +1266,15 @@ function updateRow(tr, theRow) {
 	if(theRow.hasErrors) {
 		children[config.errcell].className = "d-st-stop";
 		children[config.errcell].title = stui.testError;
+		children[config.proposedcell].className = 'd-win-err';
 	} else if(theRow.hasWarnings) {
 		children[config.errcell].className = "d-st-warn";
 		children[config.errcell].title = stui.testWarn;
+		children[config.proposedcell].className = 'd-win-warn';
 	} else {
 		children[config.errcell].className = "d-st-okay";
 		children[config.errcell].title = stui.testOkay;
+		children[config.proposedcell].className = 'd-win';
 	}
 	listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
@@ -1284,9 +1289,13 @@ function updateRow(tr, theRow) {
 	if(theRow.hasVoted) {
 		children[config.votedcell].className = "d-vo-true";
 		children[config.votedcell].title=stui.voTrue;
+		children[config.nocell].title=stui.voTrue;
+		children[config.nocell].className= "d-no-vo-true";
 	} else {
 		children[config.votedcell].className = "d-vo-false";
 		children[config.votedcell].title=stui.voFalse;
+		children[config.nocell].title=stui.voFalse;
+		children[config.nocell].className= "d-no-vo-false";
 	}
 	if(!children[config.votedcell].isSetup) {
 		listenFor(children[config.votedcell],"mouseover",
@@ -1295,7 +1304,10 @@ function updateRow(tr, theRow) {
 	}
 
 	if(!tr.anch || stdebug_enabled) {
-		children[config.codecell].innerHTML=theRow.prettyPath;
+		if(tr.anch) { // clear out old (only for debug)
+			removeAllChildNodes(children[config.codecell]);
+		}
+		children[config.codecell].appendChild(createChunk(theRow.code));
 		var anch = document.createElement("a");
 		anch.className="anch";
 		anch.id=theRow.xpid;
@@ -1309,6 +1321,12 @@ function updateRow(tr, theRow) {
 			go.appendChild(document.createTextNode(">"));
 			go.href=window.location.pathname + "?_="+surveyCurrentLocale+"&x=r_rxt&xp="+theRow.xpid;
 			children[config.codecell].appendChild(go);
+			
+			var js = document.createElement("a");
+			js.className="anch-go";
+			js.appendChild(document.createTextNode("{}"));
+			js.onclick=function() { showInPop(tr,theRow,JSON.stringify(theRow),children[config.codecell],null,true);return false;};
+			children[config.codecell].appendChild(js);
 		}
 //		listenFor(children[config.codecell],"click",
 //				function(e){ 		
@@ -1337,6 +1355,7 @@ function updateRow(tr, theRow) {
 		children[config.comparisoncell].isSetup=true;
 	}
 	removeAllChildNodes(children[config.proposedcell]); // win
+	tr.proposedcell = children[config.proposedcell];
 	if(theRow.items&&theRow.winningVhash) {
 		children[config.proposedcell]._onmove=null;
 		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
@@ -1385,7 +1404,7 @@ function updateRow(tr, theRow) {
 				showInPop(tr, theRow, null, children[config.changecell], function(td) {
 					td.appendChild(theRow.proposedResults);
 					return null;
-				});
+				},true);
 				if(e) {
 					e.stopPropagation();
 				}

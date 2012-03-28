@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -18,10 +19,10 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.tool.ScriptPopulations;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
+import org.unicode.cldr.util.With.SimpleIterator;
 
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
@@ -37,6 +38,7 @@ public class PathHeader implements Comparable<PathHeader> {
     private final String page;
     private final String header;
     private final String code;
+    private final String originalPath;
 
     // Used for ordering
     private final int sectionOrder;
@@ -67,7 +69,7 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param codeOrder
      */
     private PathHeader(String section, int sectionOrder, String page, int pageOrder, String header,
-            int headerOrder, String code, int codeOrder) {
+            int headerOrder, String code, int codeOrder, String originalPath) {
         this.section = section;
         this.sectionOrder = sectionOrder;
         this.page = page;
@@ -76,6 +78,7 @@ public class PathHeader implements Comparable<PathHeader> {
         this.headerOrder = headerOrder;
         this.code = code;
         this.codeOrder = codeOrder;
+        this.originalPath = originalPath;
     }
 
     /**
@@ -101,6 +104,10 @@ public class PathHeader implements Comparable<PathHeader> {
 
     public String getCode() {
         return code;
+    }
+
+    public String getOriginalPath() {
+        return originalPath;
     }
 
     @Override
@@ -153,6 +160,7 @@ public class PathHeader implements Comparable<PathHeader> {
         static final Counter<RawData> counter = new Counter<RawData>(); // synchronized with lookup
         static final Map<RawData, String> samples = new HashMap<RawData, String>(); // synchronized with lookup
         static int order; // only gets used when synchronized under lookup
+        static final Map<String,PathHeader> cache = new HashMap<String,PathHeader>();
 
         private CLDRFile englishFile;
 
@@ -171,14 +179,24 @@ public class PathHeader implements Comparable<PathHeader> {
             if (distinguishingPath == null) {
                 throw new NullPointerException("Path cannot be null");
             }
+            synchronized (cache) {
+                PathHeader old = cache.get(distinguishingPath);
+                if (old != null) {
+                    return old;
+                }
+            }
             synchronized (lookup) {
                 // special handling for alt
                 String alt = null;
                 int altPos = distinguishingPath.indexOf("[@alt=");
                 if (altPos >= 0) {
                     if (ALT_MATCHER.reset(distinguishingPath).find()) {
-                        alt = ALT_MATCHER.group(1);
                         distinguishingPath = distinguishingPath.substring(0,ALT_MATCHER.start()) + distinguishingPath.substring(ALT_MATCHER.end());
+                        alt = ALT_MATCHER.group(1);
+                        int pos = alt.indexOf("proposed");
+                        if (pos >= 0) {
+                            alt = pos == 0 ? null : alt.substring(0,pos-1); // drop "proposed", change "xxx-proposed" to xxx.
+                        }
                     } else {
                         throw new IllegalArgumentException();
                     }
@@ -192,17 +210,26 @@ public class PathHeader implements Comparable<PathHeader> {
                     samples.put(data, distinguishingPath);
                 }
                 try {
-                    return new PathHeader(
+                    PathHeader result = new PathHeader(
                             fix(data.section, data.sectionOrder), order, 
                             fix(data.page, data.pageOrder), order,  
                             fix(data.header, data.headerOrder), order,
-                            fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), order);
+                            fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), order,
+                            distinguishingPath);
+                    synchronized (cache) {
+                        PathHeader old = cache.get(distinguishingPath);
+                        if (old == null) {
+                            cache.put(distinguishingPath, result);
+                        } else {
+                            result = old;
+                        }
+                    }
+                    return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException("Probably too few capturing groups in regex for " + distinguishingPath, e);
                 }
             }
         }
-
 
         /**
          * Return the Sections and Pages that are in use, for display in menus. Both are ordered.
@@ -232,20 +259,66 @@ public class PathHeader implements Comparable<PathHeader> {
             return sectionsToPages;
         }
 
+        public Iterable<String> filterCldr(String section, String page, CLDRFile file) {
+            return new FilteredIterable(section, page, file);
+        }
+
+        private class FilteredIterable implements Iterable<String>, SimpleIterator<String> {
+            private final String section;
+            private final String page;
+            private final CLDRFile file;
+            private final Iterator<String> fileIterator;
+            private Iterator<String> extraPaths;
+
+            FilteredIterable(String section, String page, CLDRFile file) {
+                this.section = section;
+                this.page = page;
+                this.file = file;
+                this.fileIterator = file.iterator();
+            }
+
+            @Override
+            public Iterator<String> iterator() {
+                return With.toIterator(this);
+            }
+
+            @Override
+            public String next() {
+                while (fileIterator.hasNext()) {
+                    String path = fileIterator.next();
+                    PathHeader pathHeader = fromPath(path);
+                    if (section.equals(pathHeader.section) && page.equals(pathHeader.page)) {
+                        return path;
+                    }
+                }
+                if (extraPaths == null) {
+                    extraPaths = file.getExtraPaths().iterator();
+                }
+                while (extraPaths.hasNext()) {
+                    String path = extraPaths.next();
+                    PathHeader pathHeader = fromPath(path);
+                    if (section.equals(pathHeader.section) && page.equals(pathHeader.page)) {
+                        return path;
+                    }
+                }
+                return null;
+            }
+        }
+
         private static class ChronologicalOrder {
             private Map<String,Integer> map = new HashMap<String,Integer>();
             private String item;
             private int order;
             private ChronologicalOrder toClear;
-            
+
             ChronologicalOrder(ChronologicalOrder toClear) {
                 this.toClear = toClear;
             }
-            
+
             int getOrder() {
                 return order;
             }
-            
+
             public String set(String itemToOrder) {
                 if (itemToOrder.startsWith("*")) {
                     item = itemToOrder.substring(1, itemToOrder.length());
@@ -282,13 +355,13 @@ public class PathHeader implements Comparable<PathHeader> {
                 String[] split = SEMI.split(source);
                 section = sectionOrdering.set(split[0]);
                 sectionOrder = sectionOrdering.getOrder();
-                
+
                 page = pageOrdering.set(split[1]);
                 pageOrder = pageOrdering.getOrder();
-                
+
                 header = headerOrdering.set(split[2]);
                 headerOrder = headerOrdering.getOrder();
-                
+
                 code = codeOrdering.set(split[3]);
                 codeOrder = codeOrdering.getOrder();
             }
@@ -402,7 +475,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return 
                     script.equals("Hans") || script.equals("Hant") ? "Han Script" 
                             : scriptName.endsWith(" Script") ? scriptName 
-                            : scriptName + " Script";
+                                    : scriptName + " Script";
                 }});
             functionMap.put("categoryFromTerritory", catFromTerritory = new Transform<String,String>(){
                 Relation<String, String> containmentCore = supplementalDataInfo.getContainmentCore();
@@ -458,7 +531,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return catFromTerritory.transform(territory) + ": " + TestInfo.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, territory);
                 }});
         }
-        
+
         static class HyphenSplitter {
             String main;
             String extras;
@@ -580,14 +653,22 @@ public class PathHeader implements Comparable<PathHeader> {
                     + "\t" + item.get1() 
             );
         }
-        LinkedHashMap<String, Set<String>> sectionsToPages = factory.getSectionsToPages();
-        System.out.println("\nMenus:\t" + sectionsToPages.size());
-        for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {
-            System.out.println("\t" + item.getKey() + "\t" + item.getValue());
-        }
         System.out.println("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {
             System.out.println(item);
+        }
+        LinkedHashMap<String, Set<String>> sectionsToPages = factory.getSectionsToPages();
+        System.out.println("\nMenus:\t" + sectionsToPages.size());
+        for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {
+            final String section = item.getKey();
+            for (String page : item.getValue()) {
+                System.out.print("\t" + section + "\t" + page);
+                int count = 0;
+                for (String path : factory.filterCldr(section, page, english)) {
+                    count += 1; // just count them.
+                }
+                System.out.println("\t" + count);
+            }
         }
     }
 }

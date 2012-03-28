@@ -254,6 +254,18 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         }
     }
 
+    public static <T> Iterator<T> toIterator(SimpleIterator<T> simple) {
+        return new ToIterator<T>(simple);
+    }
+    
+    public static <T> Iterable<T> toIterable(SimpleIterator<T> simple) {
+        return new ToIterator<T>(simple);
+    }
+    
+    public static <T> ToSimpleIterator<T> toSimpleIterator(Iterator<T> iterator) {
+        return new ToSimpleIterator<T>(iterator);
+    }
+    
     private static class ToIterator<T> implements Iterator<T>, Iterable<T> {
         private final SimpleIterator<T> simpleIterator;
         private T current;

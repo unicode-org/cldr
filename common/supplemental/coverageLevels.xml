@@ -221,7 +221,10 @@
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(ilo|inh|kbd|kg|kha|kj|kl|kok|kos|krc|kum|lez|ln|lua|mai|mdf|mh|mn|myv)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(na|nd|niu|nr|nso|ny|os|pag|pap|pau|pon|rn|rw|sah|sat|se|sg|sm|sn|ss|st)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='(tet|tkl|tn|tpi|ts|tvl|ty|tyv|udm|ve|war|yap|za)']([@alt='(short|variant)'])?"/>
-		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Cans|Tfng|Yiii)']"/>
+		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Armi|Avst|Bali|Bamu|Batk|Blis|Brah|Buhd|Cakm|Cans|Cari|Cham|Cher|Cirt|Copt|Cprt|Cyrs|Dsrt|Egy[dhp]|Geok|Glag|Goth|Gran)']"/>
+		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Hano|Hmng|Hrkt|Hung|Inds|Ital|Java|Kali|Khar|Khoj|Kthi|Lana|Lat[fg]|Lepc|Limb|Lin[ab]|Lisu|Ly[cd]i|Man[di]|Maya|Mer[co])']"/>
+		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Moon|Mtei|Nkgb|Nkoo|Ogam|Olck|Orkh|Osma|Perm|Phag|Phl[ipv]|Phnx|Plrd|Prti|Rjng|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw)']"/>
+		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='(Sund|Sylo|Syr[cejn]|Tagb|Tal[eu]|Tavt|Teng|Tfng|Tglg|Tirh|Ugar|Vaii|Visp|Wara|Xpeo|Xsux|Yiii|Zinh|Zmth)']"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='[^']++']"/>
 		<coverageLevel value="100" match="localeDisplayNames/keys/key[@type='[^']++']"/>
 		<coverageLevel value="100" match="localeDisplayNames/types/type[@type='[^']++'][@key='[^']++']"/>		

@@ -55,6 +55,19 @@ public class Keyboard {
 
     public static class ModifierSet {
         private String temp; // later on expand into something we can use.
+        @Override
+        public String toString() {
+            return temp;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            final ModifierSet other = (ModifierSet)obj;
+            return temp.equals(other.temp);
+        }
+        @Override
+        public int hashCode() {
+            return temp.hashCode();
+        };
 
         /**
          * Parses string like "AltCapsCommand? RShiftCtrl" and returns a set of modifier sets, like:
@@ -477,6 +490,7 @@ public class Keyboard {
         UnicodeSet controls = new UnicodeSet("[:Cc:]").freeze();
         // check what the characters are, excluding controls.
         Map<Id,UnicodeSet> id2unicodeset = new TreeMap<Id,UnicodeSet>();
+        Set<String> totalModifiers = new LinkedHashSet<String>();
         Relation<String, Id> locale2ids = Relation.of(new TreeMap<String,Set<Id>>(), TreeSet.class);
         for (String platformId : Keyboard.getPlatformIDs()) {
             Platform p = getPlatform(platformId);
@@ -489,7 +503,13 @@ public class Keyboard {
                 id2unicodeset.put(id, unicodeSet);
                 locale2ids.put(id.locale, id);
                 System.out.println(id.toString().replace('/','\t') + "\t" + keyboard.getNames());
+                for (KeyMap keymap : keyboard.getKeyMaps()) {
+                    totalModifiers.add(keymap.modifiers.toString());
+                }
             }
+        }
+        for (String item : totalModifiers) {
+            System.out.println(item);
         }
         if (errors.size() != 0) {
             System.out.println("\t" + CollectionUtilities.join(errors, "\n\t"));

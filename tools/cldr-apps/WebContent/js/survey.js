@@ -1404,13 +1404,13 @@ function updateRow(tr, theRow) {
 			
 	
 	if(canModify) {
-		removeAllChildNodes(children[8]); // no opinion
+		removeAllChildNodes(children[config.nocell]); // no opinion
 		var noOpinion = cloneAnon(protoButton);
 		wireUpButton(noOpinion,tr, theRow, null);
 		noOpinion.value=null;
-		children[8].appendChild(noOpinion);
+		children[config.nocell].appendChild(noOpinion);
 	} else {
-		children[8].style.display="none";
+		children[config.nocell].style.display="none";
 	}
 	
 	tr.className='vother';

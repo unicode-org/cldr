@@ -1,6 +1,9 @@
 <%@ include file="/WEB-INF/jspf/stcontext.jspf" %><!--  menu_top.jspf begin -->
 
-<%!static String CALENDARS_ITEMS[] = SurveyMain.CALENDARS_ITEMS;
+<%!
+
+
+    static String CALENDARS_ITEMS[] = SurveyMain.CALENDARS_ITEMS;
 	static String METAZONES_ITEMS[] = SurveyMain.METAZONES_ITEMS;%><%
 	WebContext subCtx = ctx;
 	int n;
@@ -61,11 +64,18 @@
     
 <%
 	if (!ctx.prefBool(SurveyMain.PREF_NOJAVASCRIPT)) {
-		writeMenu(out, ctx, "Code Lists",
+		writeMenu(out, ctx, 
+		        ctx.sm.getSTFactory().getSectionName("//ldml/localeDisplayNames/scripts/script[@type=\"Arab\"]"), //"Code Lists",
 				PathUtilities.LOCALEDISPLAYNAMES_ITEMS);
-		writeMenu(out, ctx, "Calendars", CALENDARS_ITEMS);
-		writeMenu(out, ctx, "Time Zones", METAZONES_ITEMS);
-		writeMenu(out, ctx, "Other Items", SurveyMain.OTHERROOTS_ITEMS);
+		writeMenu(out, ctx, 
+		        ctx.sm.getSTFactory().getSectionName("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]"), //"Calendars",
+		        CALENDARS_ITEMS);
+		writeMenu(out, ctx, 
+		        ctx.sm.getSTFactory().getSectionName("//ldml/dates/timeZoneNames/metazone[@type=\"Africa_Central\"]/long/standard"), // "Time Zones",
+		        METAZONES_ITEMS);
+		writeMenu(out, ctx, 
+		        ctx.sm.getSTFactory().getSectionName("//ldml/posix/messages/nostr"), // "Other Items", 
+		        SurveyMain.OTHERROOTS_ITEMS);
 		out.flush();
 		ctx.flush();
 		// commenting out easy steps until we have time to work on it more

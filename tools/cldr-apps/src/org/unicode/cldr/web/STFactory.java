@@ -1018,4 +1018,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public final PathHeader getPathHeader(String xpath) {
         return phf.fromPath(xpath);
     }
+    
+    public final String getSectionName(String xpath) {
+        return getPathHeader(xpath).getSection();
+    }
+    public final String getPageName(String xpath) {
+        return getPathHeader(xpath).getPage();
+    }
+    public final String getHeaderName(String xpath) {
+        PathHeader ph = getPathHeader(xpath);
+        if(ph!=null) {
+            return ph.getHeader();
+        } else {
+            return "[null]";
+        }
+    }
 }

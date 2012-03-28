@@ -866,7 +866,12 @@ public class DataSection implements JSONString {
             return pp;
         }
         public PathHeader getPathHeader() {
-            return sm.getSTFactory().getPathHeader(xpath);
+            try {
+                return sm.getSTFactory().getPathHeader(xpath);
+            }catch(Throwable t) {
+                SurveyLog.logException(t,t.toString() + "while fetching ph for " + xpath);
+                return null;
+            }
         }
 
 		/**
@@ -1901,6 +1906,11 @@ public class DataSection implements JSONString {
 				}
 				displayHelp = b.getHelpHtml(xpath,displayName);
 			}
+			String pathCode = "?";
+			PathHeader ph = getPathHeader();
+			if(ph!=null) {
+			    pathCode = ph.getCode();
+			}
 			
 				return new JSONObject()
 					.put("xpath", xpath)
@@ -1912,7 +1922,8 @@ public class DataSection implements JSONString {
 					.put("displayHelp", displayHelp)
 					.put("displayInExample", displayInExample)
 					.put("confirmOnly", confirmOnly)
-					.put("prettyPath", getPathHeader().getCode())
+					.put("prettyPath", getPrettyPath())
+					.put("code", pathCode)
 					.put("hasErrors", hasErrors)
 					.put("hasWarnings", hasWarnings)
 					.put("confirmStatus", confirmStatus)

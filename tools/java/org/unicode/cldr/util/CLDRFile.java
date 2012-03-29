@@ -34,6 +34,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.With.SimpleIterator;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -948,6 +949,41 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     CollectionUtilities.addAll(it, orderedSet);
     return orderedSet.iterator();
   }
+  
+  public Iterable<String> fullIterable() {
+      return new FullIterable(this);
+  }
+
+  public static class FullIterable implements Iterable<String>, SimpleIterator<String> {
+      private final CLDRFile file;
+      private final Iterator<String> fileIterator;
+      private Iterator<String>       extraPaths;
+
+      FullIterable(CLDRFile file) {
+          this.file = file;
+          this.fileIterator = file.iterator();
+      }
+
+      @Override
+      public Iterator<String> iterator() {
+          return With.toIterator(this);
+      }
+
+      @Override
+      public String next() {
+          if (fileIterator.hasNext()) {
+              return fileIterator.next();
+          }
+          if (extraPaths == null) {
+              extraPaths = file.getExtraPaths().iterator();
+          }
+          if (extraPaths.hasNext()) {
+              return extraPaths.next();
+          }
+          return null;
+      }
+  }
+
 
 
   public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {

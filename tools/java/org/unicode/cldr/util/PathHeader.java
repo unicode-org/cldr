@@ -32,11 +32,19 @@ import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
 public class PathHeader implements Comparable<PathHeader> {
+    public enum SurveyToolStatus {
+        DEPRECATED,
+        HIDE,
+        READ_ONLY,
+        READ_WRITE
+    }
+
     private final String              section;
     private final String              page;
     private final String              header;
     private final String              code;
     private final String              originalPath;
+    private final SurveyToolStatus    status;
 
     // Used for ordering
     private final int                 sectionOrder;
@@ -68,9 +76,10 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param headerOrder
      * @param code
      * @param codeOrder
+     * @param status 
      */
     private PathHeader(String section, int sectionOrder, String page, int pageOrder, String header,
-            int headerOrder, String code, int codeOrder, String originalPath) {
+            int headerOrder, String code, int codeOrder, SurveyToolStatus status, String originalPath) {
         this.section = section;
         this.sectionOrder = sectionOrder;
         this.page = page;
@@ -80,6 +89,7 @@ public class PathHeader implements Comparable<PathHeader> {
         this.code = code;
         this.codeOrder = codeOrder;
         this.originalPath = originalPath;
+        this.status = status;
     }
 
     /**
@@ -110,6 +120,10 @@ public class PathHeader implements Comparable<PathHeader> {
 
     public String getOriginalPath() {
         return originalPath;
+    }
+
+    public SurveyToolStatus getSurveyToolStatus() {
+        return status;
     }
 
     @Override
@@ -248,12 +262,9 @@ public class PathHeader implements Comparable<PathHeader> {
                         alt = ALT_MATCHER.group(1);
                         int pos = alt.indexOf("proposed");
                         if (pos >= 0) {
-                            alt = pos == 0 ? null : alt.substring(0, pos - 1); // drop
-                            // "proposed",
-                            // change
-                            // "xxx-proposed"
-                            // to
-                            // xxx.
+                            alt = pos == 0 ? null : alt.substring(0, pos - 1); 
+                            // drop "proposed",
+                            // change "xxx-proposed" to xxx.
                         }
                     } else {
                         throw new IllegalArgumentException();
@@ -273,6 +284,7 @@ public class PathHeader implements Comparable<PathHeader> {
                             fix(data.page, data.pageOrder), order,
                             fix(data.header, data.headerOrder), order,
                             fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), order,
+                            data.status,
                             distinguishingPath);
                     synchronized (cache) {
                         PathHeader old = cache.get(distinguishingPath);
@@ -557,6 +569,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
                 code = codeOrdering.set(split[3]);
                 codeOrder = codeOrdering.getOrder();
+                
+                status = split.length < 5 ? SurveyToolStatus.READ_WRITE : SurveyToolStatus.valueOf(split[4]);
             }
 
             public final String section;
@@ -567,13 +581,15 @@ public class PathHeader implements Comparable<PathHeader> {
             public final int    headerOrder;
             public final String code;
             public final int    codeOrder;
+            public final SurveyToolStatus status;
 
             @Override
             public String toString() {
                 return section + "\t" + sectionOrder + "\t"
                         + page + "\t" + pageOrder + "\t"
                         + header + "\t" + headerOrder + "\t"
-                        + code + "\t" + codeOrder + "";
+                        + code + "\t" + codeOrder + "\t"
+                        + status;
             }
         }
 

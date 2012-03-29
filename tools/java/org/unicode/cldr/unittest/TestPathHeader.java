@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -17,10 +18,14 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathStarrer;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Row;
+import com.sun.tools.javac.comp.Attr;
 
 public class TestPathHeader extends TestFmwk {
     public static void main(String[] args) {
@@ -55,7 +60,39 @@ public class TestPathHeader extends TestFmwk {
         }
     }
 
-    public void TestCompleteness() {
+    public void TestStatus() {
+        CLDRFile nativeFile = factory.make("en", true);
+        PathStarrer starrer = new PathStarrer();
+        EnumMap<SurveyToolStatus, Relation<String,String>> info2 = new EnumMap<SurveyToolStatus,Relation<String,String>>(SurveyToolStatus.class);
+        Counter<SurveyToolStatus> counter = new Counter<SurveyToolStatus>();
+        Set<String> nuked = new HashSet<String>();
+        for (String path : nativeFile.fullIterable()) {
+            PathHeader p = pathHeaderFactory.fromPath(path);
+            String starred = starrer.set(path);
+            List<String> attr = starrer.getAttributes();
+            final SurveyToolStatus surveyToolStatus = p.getSurveyToolStatus();
+            if (surveyToolStatus != SurveyToolStatus.READ_WRITE) {
+                nuked.add(starred);
+            }
+            Relation<String, String> data = info2.get(surveyToolStatus);
+            if (data == null) {
+                info2.put(surveyToolStatus, data = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class));
+            }
+            data.put(starred, CollectionUtilities.join(attr, "|"));
+        }
+        for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {
+            final SurveyToolStatus status = entry.getKey();
+            for (Entry<String, Set<String>> item : entry.getValue().keyValuesSet()) {
+                final String starred = item.getKey();
+                if (status == SurveyToolStatus.READ_WRITE && !nuked.contains(starred)) {
+                    continue;
+                }
+                logln(status + "\t" + starred + "\t" + item.getValue());
+            }
+        }
+    }
+
+    public void TestZCompleteness() {
         Map<String,PathHeader> uniqueness = new HashMap();
         Set<String> alreadySeen = new HashSet();
         LanguageTagParser ltp = new LanguageTagParser();

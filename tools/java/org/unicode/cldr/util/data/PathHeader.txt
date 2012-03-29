@@ -14,12 +14,12 @@
 %S = ([^/]*+)
 
 #RULES
-//ldml/identity/%E[@type="%A"]    ; Special ; Identity ; $1 ; $2
-//ldml/identity/version                 ; Special ; Version ; null ; version
-//ldml/identity/generation                 ; Special ; Version ; null ; generation
+//ldml/identity/%E[@type="%A"]    ; Special ; Identity ; $1 ; $2 ; HIDE
+//ldml/identity/version                 ; Special ; Version ; null ; version ; HIDE
+//ldml/identity/generation                 ; Special ; Version ; null ; generation ; HIDE
 
-//ldml/(.*)/default$         ; Special ; Suppress ; Default ; $1
-//ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1
+//ldml/(.*)/default$         ; Special ; Suppress ; Default ; $1 ; DEPRECATED
+//ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1 ; HIDE
 
 //ldml/localeDisplayNames/languages/language[@type="%A"]                    ; Code Lists ; Languages ; &scriptFromLanguage($1) ; $1
 //ldml/localeDisplayNames/scripts/script[@type="%A"]                        ; Code Lists ; Scripts ; &categoryFromScript($1) ; $1
@@ -62,9 +62,9 @@
 //ldml/delimiters/alternateQuotation%E                      ; Misc ; Characters ; Quotation Marks ; embedded-$1
 //ldml/characters/moreInformation                           ; Misc ; Characters ; Symbols ; More Information
 
-//ldml/characters/exemplarCharacters$                       ; Misc ; Characters ; Characters in Use ; Main Letters
-//ldml/characters/exemplarCharacters[@type="%A"]            ; Misc ; Characters ; Characters in Use ; Others: $1
-//ldml/characters/stopwords/stopwordList[@type="%A"]        ; Misc ; Characters ; Words to Ignore ; In: $1
+//ldml/characters/exemplarCharacters$                       ; Misc ; Characters ; Characters in Use ; Main Letters; READ_ONLY
+//ldml/characters/exemplarCharacters[@type="%A"]            ; Misc ; Characters ; Characters in Use ; Others: $1; READ_ONLY
+//ldml/characters/stopwords/stopwordList[@type="%A"]        ; Misc ; Characters ; Words to Ignore ; In: $1; READ_ONLY
 
 //ldml/localeDisplayNames/localeDisplayPattern/%E           ; Misc ; Patterns for Locale Names ; null ; $1
 
@@ -79,32 +79,37 @@
 
 //ldml/numbers/currencyFormats/unitPattern[@count="%A"]                     ; Misc ; Patterns for Numbers ; latn ; currencies-count=$1
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"] ; Misc ; Patterns for Numbers ; $1 ; currencies-count=$2
+//ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"]              ; Misc ; Labels ; Code Patterns ; $1
 
 //ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Patterns for Units ; $1 ; count=$2  
-# These should not be in gregorian; they are common to all calendars
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Patterns for Units ; *$2-relative ; $3
 
-//ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"]              ; Misc ; Labels ; Code Patterns ; $1
-//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Misc ; Labels ; Date Fields ; $2
+# These should not be in gregorian; they are common to all calendars
+//ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="%A"]/displayName               ; Special ; Labels ; Date Fields ; $1
+# Hide others
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Special ; Labels ; Date Fields-$1 ; $2 ; DEPRECATED
+
+# These should not be in gregorian; they are common to all calendars
 //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Misc ; Labels ; Append-Fallback ; $1
+# Hide others
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Labels ; Append-Fallback-$1 ; $2 ; DEPRECATED
 
 //ldml/posix/messages/%Estr                                         ; Misc ; Posix ; null ; $1
 
-//ldml/fallback                             ; Special ; Deprecated ; null ; fallback
-//ldml/layout/inList                        ; Special ; Deprecated ; null ; inList
-//ldml/layout/(orientation)                 ; Special ; Deprecated ; null ; orientation
-//ldml/layout/inText[@type="%A"]            ; Special ; Deprecated ; inText ; $1
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Deprecated ; AppendItem-$1 ; $2
+//ldml/fallback                             ; Special ; Deprecated ; null ; fallback ; DEPRECATED
+//ldml/layout/orientation                   ; Special ; Deprecated ; null ; orientation ; HIDE
+//ldml/layout/inList                        ; Special ; Deprecated ; null ; inList ; DEPRECATED
+//ldml/layout/inText[@type="%A"]            ; Special ; Deprecated ; inText ; $1 ; DEPRECATED
 
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Special ; Deprecated ; $1 ; $2-$3
 
 
 # Suppress the numbers with numbering system.
-//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Suppress-Numbers ; Numbers ; currencySpacing-$1-$2
-//ldml/numbers/symbols/%E                                                                               ; Special ; Suppress-Numbers ; Numbers ; symbols-$1
-//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Suppress-Numbers ; Numbers ; pattern-$5
-//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Suppress-Numbers ; Numbers ; pattern-$6
+//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Suppress-Numbers ; Numbers ; currencySpacing-$1-$2 ; HIDE
+//ldml/numbers/symbols/%E                                                                               ; Special ; Suppress-Numbers ; Numbers ; symbols-$1 ; DEPRECATED
+//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Suppress-Numbers ; Numbers ; pattern-$5 ; DEPRECATED
+//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Suppress-Numbers ; Numbers ; pattern-$6 ; DEPRECATED
 
 # Ultimate fallback (Error)
-//ldml/%S/(.*)                                                                              ; Special ; Unknown ; $1 ; $2
-//ldml/(.*)                                                                                 ; Special ; Unknown ; Unknown ; $2
+//ldml/%S/(.*)                                                                              ; Special ; Unknown ; $1 ; $2 ; DEPRECATED
+//ldml/(.*)                                                                                 ; Special ; Unknown ; Unknown ; $2 ; DEPRECATED

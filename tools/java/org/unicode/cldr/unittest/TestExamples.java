@@ -12,11 +12,13 @@ import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DeprecationChecker;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.StringId;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
@@ -24,29 +26,44 @@ import com.ibm.icu.dev.test.util.Relation;
 
 public class TestExamples extends TestFmwk {
     static String DEBUG = "ALK";
+    static boolean resolved = false;
+    
     public static void main(String[] args) {
         new TestExamples().run(args);
     }
+    static TestInfo testInfo = TestInfo.getInstance();
     public void TestBasic() {
+        final String localeId = "fr";
+        checkLocale(localeId);
+    }
+    public void checkLocale(final String localeId) {
+        final CLDRFile nativeFile = testInfo.getCldrFactory().make(localeId, true);
+        PathHeader.Factory header = PathHeader.getFactory(testInfo.getEnglish());
+
+
         RegexLookup<String> expectPathsWithExamples = new RegexLookup<String>()
         .setPatternTransform(RegexLookup.RegexFinderTransformPath)
         .loadFromFile(TestExamples.class, "TestExamples.txt");
-        
-        TestInfo testInfo = TestInfo.getInstance();
-        PathHeader.Factory header = PathHeader.getFactory(testInfo.getEnglish());
-        final CLDRFile nativeFile = testInfo.getCldrFactory().make("fr", true);
+
         PathStarrer pathStarrer = new PathStarrer();
         Relation<String,String> pathsToAttributes = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         Relation<String,String> examplePathToAttributes = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
 
         DeprecationChecker deprecationTester = new DeprecationChecker();
         Set<String> deprecated = new TreeSet<String>();
-        
+
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeFile, testInfo.getEnglish(), CldrUtility.SUPPLEMENTAL_DIRECTORY);
         ExampleContext exampleContext = new ExampleContext();
         Map<PathHeader, String> sortedExamples = isVerbose() ? new TreeMap() : null;
+        Status status = new Status();
         
         for (String path : nativeFile) {
+            if (!resolved) {
+                String sourceLocale = nativeFile.getSourceLocaleID(path, status);
+                if (!localeId.equals(sourceLocale) || !path.equals(status.pathWhereFound)) {
+                    continue;
+                }
+            }
             if (deprecationTester.isBoilerplate(path)) {
                 continue;
             }
@@ -71,7 +88,8 @@ public class TestExamples extends TestFmwk {
         }
         if (sortedExamples != null) {
             for (Entry<PathHeader, String> item : sortedExamples.entrySet()) {
-                logln("examples:\t" + item.getKey() + item.getValue());
+                final PathHeader pathHeader = item.getKey();
+                logln("examples:\t" + pathHeader + StringId.getId(pathHeader.getOriginalPath()) + "\t" + item.getValue());
             }
         }
         for (String item : deprecated) {
@@ -86,8 +104,6 @@ public class TestExamples extends TestFmwk {
         for (Entry<String, Set<String>> item : pathsToAttributes.keyValuesSet()) {
             logln("no example:\t" + item.getKey() + "\t" + item.getValue().iterator().next() + "...");
         }
-
-
     }
     public void addSample(PathStarrer pathStarrer, Relation<String, String> pathsToAttributes,
             String path, String value) {

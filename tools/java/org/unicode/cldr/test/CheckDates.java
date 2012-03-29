@@ -21,6 +21,8 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XPathParts;
 
@@ -95,7 +97,7 @@ public class CheckDates extends FactoryCheckCLDR {
     //  "/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"abbreviated\"]/quarter",
     //  "/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"narrow\"]/quarter",
     //  "/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"wide\"]/quarter",
-    
+
     // The above are followed by trailing pieces such as
     //  "[@type=\"am\"]",
     //  "[@type=\"sun\"]",
@@ -115,7 +117,7 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     //Map<String, Set<String>> calPathsToSymbolSets;
-    Map<String, Map<String, String>> calPathsToSymbolMaps = new HashMap<String, Map<String, String>>();
+    //Map<String, Map<String, String>> calPathsToSymbolMaps = new HashMap<String, Map<String, String>>();
 
     public CheckDates(Factory factory) {
         super(factory);
@@ -174,12 +176,12 @@ public class CheckDates extends FactoryCheckCLDR {
             possibleErrors.add(item);
         }
 
-        calPathsToSymbolMaps.clear();
-        for (String calTypePath: calTypePathsToCheck) {
-            for (String calSymbolPath: calSymbolPathsWhichNeedDistinctValues) {
-                calPathsToSymbolMaps.put(calTypePath.concat(calSymbolPath), null);
-            }
-        }
+        //calPathsToSymbolMaps.clear();
+        //        for (String calTypePath: calTypePathsToCheck) {
+        //            for (String calSymbolPath: calSymbolPathsWhichNeedDistinctValues) {
+        //                calPathsToSymbolMaps.put(calTypePath.concat(calSymbolPath), null);
+        //            }
+        //        }
 
         return this;
     }
@@ -205,13 +207,19 @@ public class CheckDates extends FactoryCheckCLDR {
     FlexibleDateFromCLDR flexInfo;
     Collection redundants = new HashSet();
     Status status = new Status();
+    PathStarrer pathStarrer = new PathStarrer();
+    PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(null);
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (fullPath == null) {
             return this; // skip paths that we don't have
         }
 
-        if (path.indexOf("/dates") < 0) return this;
+        if (path.indexOf("/dates") < 0
+                || path.endsWith("/default")
+                || path.endsWith("/alias")) {
+            return this;
+        }
 
         final String sourceLocaleID = getCldrFileToCheck().getSourceLocaleID(path, status);
 
@@ -242,41 +250,97 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
 
-            // Test for duplicate date symbol names (in format wide/abbrev months/days/quarters, or any context/width dayPeriods/eras)
-            int truncateAt = path.lastIndexOf("[@type="); // want path without any final [@type="sun"], [@type="12"], etc.
-            if ( truncateAt >= 0 ) {
-                String truncPath = path.substring(0,truncateAt);
-                if ( calPathsToSymbolMaps.containsKey(truncPath) ) {
-                    // Need to check whether this symbol duplicates another
-                    String type = path.substring(truncateAt); // the final part e.g. [@type="am"]
-                    Map<String, String> mapForThisPath = calPathsToSymbolMaps.get(truncPath);
-                    if ( mapForThisPath == null ) {
-                        mapForThisPath = new HashMap<String, String>();
-                        mapForThisPath.put(value, type);
-                        calPathsToSymbolMaps.put(truncPath, mapForThisPath);
-                    } else if ( !mapForThisPath.containsKey(value) ) {
-                        mapForThisPath.put(value, type);
-                        calPathsToSymbolMaps.put(truncPath, mapForThisPath);
-                    } else {
-                        // this value duplicates a previous one in the same set. May be only a warning.
-                        String statusType = CheckStatus.errorType;
-                        String typeForPrev = mapForThisPath.get(value);
-                        if (path.contains("/eras/")) {
-                            statusType = CheckStatus.warningType;
-                        } else if (path.contains("/dayPeriods/")) {
-                            // certain duplicates only merit a warning:
-                            // "am" and "morning", "noon" and "midDay", "pm" and "afternoon"
-                            String typeEquiv = dayPeriodsEquivMap.get(type);
-                            if ( typeForPrev.equals(typeEquiv) ) {
-                                statusType = CheckStatus.warningType;
-                            }
-                        }
-                        result.add(new CheckStatus()
-                          .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
-                          .setMessage("Date symbol value {0} duplicates an earlier symbol in the same set, for {1}", value, typeForPrev)); 
+            final String collisionPrefix = "//ldml/dates/calendars/calendar";
+            main:
+                if (path.startsWith(collisionPrefix)) {
+                    int pos = path.indexOf("\"]"); // end of first type
+                    if (pos < 0 || skipPath(path)) { // skip narrow, no-calendar
+                        break main;
                     }
+                    pos += 2;
+                    String myType = getLastType(path);
+                    if (myType == null) {
+                        break main;
+                    }
+                    String calendarPrefix = path.substring(0,pos);
+                    boolean endsWithDisplayName = path.endsWith("displayName"); // special hack, these shouldn't be in calendar.
+
+                    Set<String> retrievedPaths = new HashSet<String>();
+                    getResolvedCldrFileToCheck().getPathsWithValue(value, calendarPrefix, null, retrievedPaths);
+                    if (retrievedPaths.size() < 2) {
+                        break main;
+                    }
+                    //ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"], 
+                    //ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"], 
+                    //ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="0"]]
+                    Set<String> filteredPaths = new HashSet<String>();
+                    for (String item : retrievedPaths) {
+                        if (item.equals(path) 
+                                || skipPath(item) 
+                                || endsWithDisplayName != item.endsWith("displayName")) {
+                            continue;
+                        }
+                        String otherType = getLastType(item);
+                        if (myType.equals(otherType)) { // we don't care about items with the same type value
+                            continue;
+                        }
+                        filteredPaths.add(item);
+                    }
+                    if (filteredPaths.size() == 0) {
+                        break main;
+                    }
+                    Set<String> others = new TreeSet<String>();
+                    for (String path2 : filteredPaths) {
+                        PathHeader pathHeader = pathHeaderFactory.fromPath(path2);
+                        others.add(pathHeader.getCode());
+                    }
+                    String statusType = CheckStatus.errorType;
+                    result.add(new CheckStatus()
+                    .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
+                    .setMessage("The date value “{0}” is the same as what is used for a different item: {1}", value, others.toString())); 
+
                 }
-            }
+
+            //          result.add(new CheckStatus()
+            //          .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
+            //          .setMessage("Date symbol value {0} duplicates an earlier symbol in the same set, for {1}", value, typeForPrev)); 
+
+
+            //            // Test for duplicate date symbol names (in format wide/abbrev months/days/quarters, or any context/width dayPeriods/eras)
+            //            int truncateAt = path.lastIndexOf("[@type="); // want path without any final [@type="sun"], [@type="12"], etc.
+            //            if ( truncateAt >= 0 ) {
+            //                String truncPath = path.substring(0,truncateAt);
+            //                if ( calPathsToSymbolMaps.containsKey(truncPath) ) {
+            //                    // Need to check whether this symbol duplicates another
+            //                    String type = path.substring(truncateAt); // the final part e.g. [@type="am"]
+            //                    Map<String, String> mapForThisPath = calPathsToSymbolMaps.get(truncPath);
+            //                    if ( mapForThisPath == null ) {
+            //                        mapForThisPath = new HashMap<String, String>();
+            //                        mapForThisPath.put(value, type);
+            //                        calPathsToSymbolMaps.put(truncPath, mapForThisPath);
+            //                    } else if ( !mapForThisPath.containsKey(value) ) {
+            //                        mapForThisPath.put(value, type);
+            //                        calPathsToSymbolMaps.put(truncPath, mapForThisPath);
+            //                    } else {
+            //                        // this value duplicates a previous one in the same set. May be only a warning.
+            //                        String statusType = CheckStatus.errorType;
+            //                        String typeForPrev = mapForThisPath.get(value);
+            //                        if (path.contains("/eras/")) {
+            //                            statusType = CheckStatus.warningType;
+            //                        } else if (path.contains("/dayPeriods/")) {
+            //                            // certain duplicates only merit a warning:
+            //                            // "am" and "morning", "noon" and "midDay", "pm" and "afternoon"
+            //                            String typeEquiv = dayPeriodsEquivMap.get(type);
+            //                            if ( typeForPrev.equals(typeEquiv) ) {
+            //                                statusType = CheckStatus.warningType;
+            //                            }
+            //                        }
+            //                        result.add(new CheckStatus()
+            //                          .setCause(this).setMainType(statusType).setSubtype(Subtype.dateSymbolCollision)
+            //                          .setMessage("Date symbol value {0} duplicates an earlier symbol in the same set, for {1}", value, typeForPrev)); 
+            //                    }
+            //                }
+            //            }
 
             if (path.indexOf("[@type=\"narrow\"]") >= 0 && !path.contains("dayPeriod") && !path.contains("monthPatterns")) {
                 int end = isNarrowEnough(value, bi);
@@ -322,6 +386,28 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    public boolean skipPath(String path) {
+        return path.contains("arrow") 
+                || path.contains("/availableFormats") 
+                || path.contains("/interval") 
+                || path.contains("/dateTimeFormat")
+                || path.contains("/dayPeriod[") 
+                    && !path.endsWith("=\"pm\"]") 
+                    && !path.endsWith("=\"am\"]");
+    }
+
+    public String getLastType(String path) {
+        int secondType = path.lastIndexOf("[@type=\"");
+        if (secondType < 0) {
+            return null;
+        }
+        int secondEnd = path.indexOf("\"]", secondType);
+        if (secondEnd < 0) {
+            return null;
+        }
+        return path.substring(secondType+8,secondEnd);
     }
 
     private String getValues(CLDRFile resolvedCldrFileToCheck, Collection<String> values) {

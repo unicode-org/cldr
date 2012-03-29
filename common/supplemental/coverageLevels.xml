@@ -143,9 +143,6 @@
 		<coverageLevel value="40" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel inLanguage="ar" value="40" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel inLanguage="(fa|pa|ps|uz)" value="40" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
-		<coverageLevel value="60" match="characters/ellipsis[@type='[^']++']"/>
-		<coverageLevel value="60" match="characters/moreInformation"/>
-		<coverageLevel value="60" match="characters/stopwords/stopwordList[@type='[^']++']"/>
 		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='(ar|bn|hi|id|ko|nl(_BE)?|pl|th|tr)']([@alt='(short|variant)'])?"/>
 		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/languages/language[@type='(cs|da|el|et|fi|hu|lv|mt|sk|sl|sv)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="60" match="localeDisplayNames/scripts/script[@type='(Jpan|Kore)']"/>
@@ -219,6 +216,9 @@
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(SBD|SCR|SDG|SGD|SHP|SLL|SOS|SRD|STD|SYP|SZL|TJS|TMT|TND|TOP|TTD|TZS)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(UAH|UGX|UYU|UZS|VEF|VND|VUV|WST|XCD|XAF|XOF|XPF|YER|ZMK)']/(symbol|displayName([@count='[^']++'])?)"/>
         <coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
+		<coverageLevel value="100" match="characters/ellipsis[@type='[^']++']"/>
+		<coverageLevel value="100" match="characters/moreInformation"/>
+		<coverageLevel value="100" match="characters/stopwords/stopwordList[@type='[^']++']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
         <coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='[^']++']"/>

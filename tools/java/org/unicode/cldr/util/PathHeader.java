@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,7 +8,6 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -86,10 +84,9 @@ public class PathHeader implements Comparable<PathHeader> {
 
     /**
      * Return a factory for use in creating the headers. This should be cached.
-     * The calls are thread-safe.
+     * The calls are thread-safe. The englishFile sets a static for now; after the first time, null can be passed.
      * 
      * @param englishFile
-     * @return
      */
     public static Factory getFactory(CLDRFile englishFile) {
         return new Factory(englishFile);
@@ -157,7 +154,7 @@ public class PathHeader implements Comparable<PathHeader> {
         }
         return 0;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         PathHeader other;
@@ -170,51 +167,65 @@ public class PathHeader implements Comparable<PathHeader> {
                 && header.equals(other.header) && code.equals(other.code)
                 && originalPath.equals(other.originalPath);
     }
-    
+
     @Override
     public int hashCode() {
         return originalPath.hashCode();
     }
 
     public static class Factory {
-        static final RegexLookup<RawData>    lookup  = RegexLookup
-                                                             .of(new PathHeaderTransform())
-                                                             .setPatternTransform(
-                                                                     RegexLookup.RegexFinderTransformPath)
-                                                             .loadFromFile(PathHeader.class,
-                                                                     "PathHeader.txt");
+        static final RegexLookup<RawData>                  lookup                     = RegexLookup
+                                                                                              .of(new PathHeaderTransform())
+                                                                                              .setPatternTransform(
+                                                                                                      RegexLookup.RegexFinderTransformPath)
+                                                                                              .loadFromFile(
+                                                                                                      PathHeader.class,
+                                                                                                      "data/PathHeader.txt");
+        // synchronized with lookup
+        static final Output<String[]>                      args                       = new Output<String[]>();
+        // synchronized with lookup
+        static final Counter<RawData>                      counter                    = new Counter<RawData>();
+        // synchronized with lookup
+        static final Map<RawData, String>                  samples                    = new HashMap<RawData, String>();
+        // synchronized with lookup
+        static int                                         order;
 
-        static final Output<String[]>        args    = new Output<String[]>();           // synchronized
-                                                                                          // with
-                                                                                          // lookup
-        static final Counter<RawData>        counter = new Counter<RawData>();           // synchronized
-                                                                                          // with
-                                                                                          // lookup
-        static final Map<RawData, String>    samples = new HashMap<RawData, String>();   // synchronized
-                                                                                          // with
-                                                                                          // lookup
-        static int                           order;                                      // only
-                                                                                          // gets
-                                                                                          // used
-                                                                                          // when
-                                                                                          // synchronized
-                                                                                          // under
-                                                                                          // lookup
-        static final Map<String, PathHeader> cache   = new HashMap<String, PathHeader>();
+        static final Map<String, PathHeader>               cache                      = new HashMap<String, PathHeader>();
+        // synchronized with cache
+        static final Map<String, Map<String, SectionPage>> sectionToPageToSectionPage = new HashMap<String, Map<String, SectionPage>>();
+        static final Relation<SectionPage, String>         sectionPageToPaths         = Relation
+                                                                                              .of(new TreeMap<SectionPage, Set<String>>(),
+                                                                                                      HashSet.class);
 
-        private CLDRFile                     englishFile;
+        private static CLDRFile                            englishFile;
 
+        /**
+         * Create a factory for creating PathHeaders.
+         * @param englishFile
+         *            - only sets the file (statically!) if not already set.
+         */
         private Factory(CLDRFile englishFile) {
-            this.englishFile = englishFile;
+            setEnglishCLDRFileIfNotSet(englishFile); // temporary
         }
 
         /**
-         * Return the PathHeader for a given path.
+         * Returns true if we set it, false if set before.
          * 
-         * @param section
-         * @param page
-         * @param header
-         * @param code
+         * @param englishFile2
+         * @return
+         */
+        private static boolean setEnglishCLDRFileIfNotSet(CLDRFile englishFile2) {
+            synchronized (Factory.class) {
+                if (englishFile != null) {
+                    return false;
+                }
+                englishFile = englishFile2;
+                return true;
+            }
+        }
+
+        /**
+         * Return the PathHeader for a given path. Thread-safe.
          */
         public PathHeader fromPath(String distinguishingPath) {
             if (distinguishingPath == null) {
@@ -238,11 +249,11 @@ public class PathHeader implements Comparable<PathHeader> {
                         int pos = alt.indexOf("proposed");
                         if (pos >= 0) {
                             alt = pos == 0 ? null : alt.substring(0, pos - 1); // drop
-                                                                               // "proposed",
-                                                                               // change
-                                                                               // "xxx-proposed"
-                                                                               // to
-                                                                               // xxx.
+                            // "proposed",
+                            // change
+                            // "xxx-proposed"
+                            // to
+                            // xxx.
                         }
                     } else {
                         throw new IllegalArgumentException();
@@ -270,6 +281,19 @@ public class PathHeader implements Comparable<PathHeader> {
                         } else {
                             result = old;
                         }
+                        Map<String, SectionPage> pageToPathHeaders = sectionToPageToSectionPage
+                                .get(result.section);
+                        if (pageToPathHeaders == null) {
+                            sectionToPageToSectionPage.put(result.section, pageToPathHeaders
+                                    = new HashMap<String, SectionPage>());
+                        }
+                        SectionPage sectionPage = pageToPathHeaders.get(result.page);
+                        if (sectionPage == null) {
+                            pageToPathHeaders.put(result.page, sectionPage
+                                    = new SectionPage(result.section, result.sectionOrder,
+                                            result.page, result.pageOrder));
+                        }
+                        sectionPageToPaths.put(sectionPage, distinguishingPath);
                     }
                     return result;
                 } catch (Exception e) {
@@ -280,31 +304,148 @@ public class PathHeader implements Comparable<PathHeader> {
             }
         }
 
+        private static class SectionPage implements Comparable<SectionPage> {
+            private final String section;
+            private final String page;
+            // Used for ordering
+            private final int    sectionOrder;
+            private final int    pageOrder;
+
+            public SectionPage(String section, int sectionOrder, String page, int pageOrder) {
+                this.section = section;
+                this.sectionOrder = sectionOrder;
+                this.page = page;
+                this.pageOrder = pageOrder;
+            }
+
+            @Override
+            public int compareTo(SectionPage other) {
+                // Within each section, order alphabetically if the integer
+                // orders are
+                // not different.
+                int result;
+                if (0 != (result = sectionOrder - other.sectionOrder)) {
+                    return result;
+                }
+                if (0 != (result = alphabetic.compare(section, other.section))) {
+                    return result;
+                }
+                if (0 != (result = pageOrder - other.pageOrder)) {
+                    return result;
+                }
+                if (0 != (result = alphabetic.compare(page, other.page))) {
+                    return result;
+                }
+                return 0;
+            }
+
+            @Override
+            public boolean equals(Object obj) {
+                PathHeader other;
+                try {
+                    other = (PathHeader) obj;
+                } catch (Exception e) {
+                    return false;
+                }
+                return section.equals(other.section) && page.equals(other.page);
+            }
+
+            @Override
+            public int hashCode() {
+                return section.hashCode() ^ page.hashCode();
+            }
+        }
+
+        /**
+         * Returns a set of paths currently associated with the given section
+         * and page.
+         * <p>
+         * <b>Warning:</b>
+         * <ol>
+         * <li>The set may not be complete for a cldrFile unless all of paths in
+         * the file have had fromPath called. And this includes getExtraPaths().
+         * </li>
+         * <li>The set may include paths that have no value in the current
+         * cldrFile.</li>
+         * <li>The set may be empty, if the section/page aren't valid.</li>
+         * </ol>
+         * Thread-safe.
+         * 
+         * @target a collection where the paths are to be returned.
+         */
+        public static Set<String> getCachedPaths(String section, String page) {
+            Set<String> target = new HashSet<String>();
+            synchronized (cache) {
+                Map<String, SectionPage> pageToSectionPage = sectionToPageToSectionPage
+                        .get(section);
+                if (pageToSectionPage == null) {
+                    return null;
+                }
+                SectionPage sectionPage = pageToSectionPage.get(page);
+                if (sectionPage == null) {
+                    return null;
+                }
+                Set<String> set = sectionPageToPaths.getAll(sectionPage);
+                target.addAll(set);
+            }
+            return target;
+        }
+
+        /**
+         * Returns a set of section/pages currently cached.
+         * <p>
+         * <b>Warning:</b>
+         * <ol>
+         * <li>The set may not be complete for a cldrFile unless all of paths in
+         * the file have had fromPath called. And this includes getExtraPaths().
+         * </li>
+         * </ol>
+         * Thread-safe.
+         * 
+         * @target a collection where the paths are to be returned.
+         */
+        public static Relation<String, String> getCachedSectionToPages() {
+            Relation<String, String> target = Relation.of(new LinkedHashMap<String, Set<String>>(),
+                    LinkedHashSet.class);
+            synchronized (cache) {
+                for (SectionPage sectionPage : sectionPageToPaths.keySet()) {
+                    target.put(sectionPage.section, sectionPage.page);
+                }
+            }
+            return target;
+        }
+
         /**
          * Return the Sections and Pages that are in use, for display in menus.
          * Both are ordered.
+         * 
+         * @deprecated Use getCachedSectionToPages instead. Make sure that you
+         *             process the paths first.
          */
-        public LinkedHashMap<String, Set<String>> getSectionsToPages() {
+        public static LinkedHashMap<String, Set<String>> getSectionsToPages() {
             LinkedHashMap<String, Set<String>> sectionsToPages = new LinkedHashMap<String, Set<String>>();
-            for (R2<Finder, RawData> foo : lookup) {
-                RawData data = foo.get1();
-                Set<String> pages = sectionsToPages.get(data.section);
-                if (pages == null) {
-                    sectionsToPages.put(data.section, pages = new LinkedHashSet<String>());
-                }
-                // Special Hack for Metazones and Calendar
-                // We could make this more general by having a
-                // TransformWithRange.getValues() for each function. Not worth
-                // doing right now.
-                if (!data.page.contains("&")) {
-                    pages.add(data.page);
-                } else if (data.page.contains("metazone")) {
-                    pages.addAll(new TreeSet<String>(metazoneToContinent.values()));
-                } else if (data.page.contains("calendar")) {
-                    Set<String> calendars = supplementalDataInfo.getBcp47Keys().get("ca");
-                    Transform<String, String> calendarFunction = functionMap.get("calendar");
-                    for (String calendar : calendars) {
-                        pages.add(calendarFunction.transform(calendar));
+            synchronized (lookup) {
+                for (R2<Finder, RawData> foo : lookup) {
+                    RawData data = foo.get1();
+                    Set<String> pages = sectionsToPages.get(data.section);
+                    if (pages == null) {
+                        sectionsToPages.put(data.section, pages = new LinkedHashSet<String>());
+                    }
+                    // Special Hack for Metazones and Calendar
+                    // We could make this more general by having a
+                    // TransformWithRange.getValues() for each function. Not
+                    // worth
+                    // doing right now.
+                    if (!data.page.contains("&")) {
+                        pages.add(data.page);
+                    } else if (data.page.contains("metazone")) {
+                        pages.addAll(new TreeSet<String>(metazoneToContinent.values()));
+                    } else if (data.page.contains("calendar")) {
+                        Set<String> calendars = supplementalDataInfo.getBcp47Keys().get("ca");
+                        Transform<String, String> calendarFunction = functionMap.get("calendar");
+                        for (String calendar : calendars) {
+                            pages.add(calendarFunction.transform(calendar));
+                        }
                     }
                 }
             }
@@ -541,10 +682,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     if (script == null) {
                         script = likelySubtags.getLikelyScript(language);
                     }
-                    String scriptName = TestInfo.getInstance().getEnglish()
-                            .getName(CLDRFile.SCRIPT_NAME, script);
-                    return
-                    script.equals("Hans") || script.equals("Hant") ? "Han Script"
+                    String scriptName = englishFile.getName(CLDRFile.SCRIPT_NAME, script);
+                    return script.equals("Hans") || script.equals("Hant") ? "Han Script"
                             : scriptName.endsWith(" Script") ? scriptName
                                     : scriptName + " Script";
                 }

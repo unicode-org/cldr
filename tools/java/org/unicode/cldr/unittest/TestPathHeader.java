@@ -20,6 +20,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathStarrer;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.util.Relation;
 
 public class TestPathHeader extends TestFmwk {
     public static void main(String[] args) {
@@ -29,6 +30,30 @@ public class TestPathHeader extends TestFmwk {
     static final Factory factory = info.getCldrFactory();
     static final CLDRFile english = info.getEnglish();
     static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
+
+    public void TestAFile() {
+        Map<String,PathHeader> uniqueness = new HashMap();
+        Set<String> alreadySeen = new HashSet();
+        check("en", uniqueness, alreadySeen);
+        // check paths
+        for (Entry<String, Set<String>> sectionAndPages : PathHeader.Factory.getCachedSectionToPages().keyValuesSet()) {
+            final String section = sectionAndPages.getKey();
+            logln(section); 
+            for (String page : sectionAndPages.getValue()) {
+                final Set<String> cachedPaths = PathHeader.Factory.getCachedPaths(section, page);
+                if (cachedPaths == null) {
+                    errln("Null pages for: " + section + "\t" + page);
+                } else {
+                    int count2 = cachedPaths.size();
+                    if (count2 == 0) {
+                        errln("Missing pages for: " + section + "\t" + page);
+                    } else {
+                        logln("\t" + page + "\t" + count2); 
+                    }
+                }
+            }
+        }
+    }
 
     public void TestCompleteness() {
         Map<String,PathHeader> uniqueness = new HashMap();

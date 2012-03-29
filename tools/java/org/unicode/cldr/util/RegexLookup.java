@@ -80,12 +80,14 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
     };
 
     /**
-     * The same as a RegexFinderTransform, except that [@ is changed to \[@, to work better with XPaths.
+     * The same as a RegexFinderTransform, except that [@ is changed to \[@, and ^ is added before //. To work better with XPaths.
      */
     public static Transform<String, RegexFinder> RegexFinderTransformPath = new Transform<String, RegexFinder>() {
         public RegexFinder transform(String source) {
             final String newSource = source.replace("[@", "\\[@");
-            return new RegexFinder(newSource);
+            return new RegexFinder(newSource.startsWith("//") 
+                    ? "^" + newSource 
+                            : newSource);
         }
     };
 

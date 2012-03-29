@@ -11,11 +11,15 @@
 %A = ([^"]*+)
 %B = ([^"/]*+)
 %E = ([-a-zA-Z_]*)
+%S = ([^/]*+)
 
 #RULES
-/default$         ; Skip ; ? ; ? ; ?
-/alias$           ; Skip ; ? ; ? ; ?
-/identity/        ; Skip ; ? ; ? ; ?
+//ldml/identity/%E[@type="%A"]    ; Special ; Identity ; $1 ; $2
+//ldml/identity/version                 ; Special ; Version ; null ; version
+//ldml/identity/generation                 ; Special ; Version ; null ; generation
+
+//ldml/(.*)/default$         ; Special ; Suppress ; Default ; $1
+//ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1
 
 //ldml/localeDisplayNames/languages/language[@type="%A"]                    ; Code Lists ; Languages ; &scriptFromLanguage($1) ; $1
 //ldml/localeDisplayNames/scripts/script[@type="%A"]                        ; Code Lists ; Scripts ; &categoryFromScript($1) ; $1
@@ -25,6 +29,8 @@
 //ldml/localeDisplayNames/keys/key[@type="%A"]                              ; Code Lists ; Keys ; $1 ; Key
 //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]                 ; Code Lists ; Keys ; *$2 ; $1
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Code Lists ; Measurement Systems ; null ; $1
+
+//ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Code Lists ; Transforms ; null ; $1
 
 //ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; $1-symbol
 //ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; *$1-name
@@ -80,24 +86,25 @@
 
 //ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"]              ; Misc ; Labels ; Code Patterns ; $1
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Misc ; Labels ; Date Fields ; $2
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Misc ; Labels ; Append-Fallback ; $1
 
 //ldml/posix/messages/%Estr                                         ; Misc ; Posix ; null ; $1
 
-//ldml/(fallback)                           ; Skip ; ? ; ? ; ?
-//ldml/layout/(inList)                      ; Skip ; ? ; ? ; ?
-//ldml/layout/(orientation)                 ; Skip ; ? ; ? ; ?
-//ldml/layout/inText[@type="%A"]            ; Skip ; ? ; ? ; ?
+//ldml/fallback                             ; Special ; Deprecated ; null ; fallback
+//ldml/layout/inList                        ; Special ; Deprecated ; null ; inList
+//ldml/layout/(orientation)                 ; Special ; Deprecated ; null ; orientation
+//ldml/layout/inText[@type="%A"]            ; Special ; Deprecated ; inText ; $1
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Deprecated ; AppendItem-$1 ; $2
 
-//ldml/numbers/currencyFormats/currencySpacing/%E/%E                            ; Skip ; ? ; ? ; ?
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Skip ; ? ; ? ; ?
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Skip ; ? ; ? ; ?
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Special ; Deprecated ; $1 ; $2-$3
 
-# Should enable the following after the -t- support is in
-//ldml/localeDisplayNames/transformNames ; Skip ; ? ; ? ; ?
 
 # Suppress the numbers with numbering system.
-//ldml/numbers/symbols/%E                                                                               ; Skip ; ? ; ? ; ?
-//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Skip ; ? ; ? ; ?
-//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Skip ; ? ; ? ; ?
+//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Suppress-Numbers ; Numbers ; currencySpacing-$1-$2
+//ldml/numbers/symbols/%E                                                                               ; Special ; Suppress-Numbers ; Numbers ; symbols-$1
+//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Suppress-Numbers ; Numbers ; pattern-$5
+//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Suppress-Numbers ; Numbers ; pattern-$6
 
-
+# Ultimate fallback (Error)
+//ldml/%S/(.*)                                                                              ; Special ; Unknown ; $1 ; $2
+//ldml/(.*)                                                                                 ; Special ; Unknown ; Unknown ; $2

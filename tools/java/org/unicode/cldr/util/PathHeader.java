@@ -34,29 +34,32 @@ import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
 public class PathHeader implements Comparable<PathHeader> {
-    private final String section;
-    private final String page;
-    private final String header;
-    private final String code;
-    private final String originalPath;
+    private final String              section;
+    private final String              page;
+    private final String              header;
+    private final String              code;
+    private final String              originalPath;
 
     // Used for ordering
-    private final int sectionOrder;
-    private final int pageOrder;
-    private final int headerOrder;
-    private final int codeOrder;
+    private final int                 sectionOrder;
+    private final int                 pageOrder;
+    private final int                 headerOrder;
+    private final int                 codeOrder;
 
-    static final Pattern SEMI = Pattern.compile("\\s*;\\s*");
-    static final Matcher ALT_MATCHER = Pattern.compile("\\[@alt=\"([^\"]*+)\"]").matcher("");
+    static final Pattern              SEMI                 = Pattern.compile("\\s*;\\s*");
+    static final Matcher              ALT_MATCHER          = Pattern.compile(
+                                                                   "\\[@alt=\"([^\"]*+)\"]")
+                                                                   .matcher("");
 
-    static final RuleBasedCollator alphabetic = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+    static final RuleBasedCollator    alphabetic           = (RuleBasedCollator) Collator
+                                                                   .getInstance(ULocale.ENGLISH);
     static {
         alphabetic.setNumericCollation(true);
     }
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-    static final Map<String, String> metazoneToContinent = supplementalDataInfo.getMetazoneToContinentMap();
-    static final StandardCodes standardCode = StandardCodes.make();
-
+    static final Map<String, String>  metazoneToContinent  = supplementalDataInfo
+                                                                   .getMetazoneToContinentMap();
+    static final StandardCodes        standardCode         = StandardCodes.make();
 
     /**
      * @param section
@@ -82,7 +85,9 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     /**
-     * Return a factory for use in creating the headers. This should be cached. The calls are thread-safe.
+     * Return a factory for use in creating the headers. This should be cached.
+     * The calls are thread-safe.
+     * 
      * @param englishFile
      * @return
      */
@@ -111,15 +116,17 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     @Override
-    public String toString() { 
+    public String toString() {
         return section + "\t" + sectionOrder + "\t"
-        + page + "\t" + pageOrder + "\t"
-        + header + "\t" + headerOrder + "\t"
-        + code + "\t" + codeOrder + "";
+                + page + "\t" + pageOrder + "\t"
+                + header + "\t" + headerOrder + "\t"
+                + code + "\t" + codeOrder + "";
     }
+
     @Override
     public int compareTo(PathHeader other) {
-        // Within each section, order alphabetically if the integer orders are not different.
+        // Within each section, order alphabetically if the integer orders are
+        // not different.
         int result;
         if (0 != (result = sectionOrder - other.sectionOrder)) {
             return result;
@@ -142,27 +149,60 @@ public class PathHeader implements Comparable<PathHeader> {
         if (0 != (result = codeOrder - other.codeOrder)) {
             return result;
         }
-        // Question: make English value order??
         if (0 != (result = alphabetic.compare(code, other.code))) {
+            return result;
+        }
+        if (0 != (result = alphabetic.compare(originalPath, other.originalPath))) {
             return result;
         }
         return 0;
     }
-
+    
+    @Override
+    public boolean equals(Object obj) {
+        PathHeader other;
+        try {
+            other = (PathHeader) obj;
+        } catch (Exception e) {
+            return false;
+        }
+        return section.equals(other.section) && page.equals(other.page)
+                && header.equals(other.header) && code.equals(other.code)
+                && originalPath.equals(other.originalPath);
+    }
+    
+    @Override
+    public int hashCode() {
+        return originalPath.hashCode();
+    }
 
     public static class Factory {
-        static final RegexLookup<RawData> lookup = RegexLookup
-        .of(new PathHeaderTransform())
-        .setPatternTransform(RegexLookup.RegexFinderTransformPath)
-        .loadFromFile(PathHeader.class, "PathHeader.txt");
+        static final RegexLookup<RawData>    lookup  = RegexLookup
+                                                             .of(new PathHeaderTransform())
+                                                             .setPatternTransform(
+                                                                     RegexLookup.RegexFinderTransformPath)
+                                                             .loadFromFile(PathHeader.class,
+                                                                     "PathHeader.txt");
 
-        static final Output<String[]> args = new Output<String[]>(); // synchronized with lookup
-        static final Counter<RawData> counter = new Counter<RawData>(); // synchronized with lookup
-        static final Map<RawData, String> samples = new HashMap<RawData, String>(); // synchronized with lookup
-        static int order; // only gets used when synchronized under lookup
-        static final Map<String,PathHeader> cache = new HashMap<String,PathHeader>();
+        static final Output<String[]>        args    = new Output<String[]>();           // synchronized
+                                                                                          // with
+                                                                                          // lookup
+        static final Counter<RawData>        counter = new Counter<RawData>();           // synchronized
+                                                                                          // with
+                                                                                          // lookup
+        static final Map<RawData, String>    samples = new HashMap<RawData, String>();   // synchronized
+                                                                                          // with
+                                                                                          // lookup
+        static int                           order;                                      // only
+                                                                                          // gets
+                                                                                          // used
+                                                                                          // when
+                                                                                          // synchronized
+                                                                                          // under
+                                                                                          // lookup
+        static final Map<String, PathHeader> cache   = new HashMap<String, PathHeader>();
 
-        private CLDRFile englishFile;
+        private CLDRFile                     englishFile;
 
         private Factory(CLDRFile englishFile) {
             this.englishFile = englishFile;
@@ -170,6 +210,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         /**
          * Return the PathHeader for a given path.
+         * 
          * @param section
          * @param page
          * @param header
@@ -191,17 +232,23 @@ public class PathHeader implements Comparable<PathHeader> {
                 int altPos = distinguishingPath.indexOf("[@alt=");
                 if (altPos >= 0) {
                     if (ALT_MATCHER.reset(distinguishingPath).find()) {
-                        distinguishingPath = distinguishingPath.substring(0,ALT_MATCHER.start()) + distinguishingPath.substring(ALT_MATCHER.end());
+                        distinguishingPath = distinguishingPath.substring(0, ALT_MATCHER.start())
+                                + distinguishingPath.substring(ALT_MATCHER.end());
                         alt = ALT_MATCHER.group(1);
                         int pos = alt.indexOf("proposed");
                         if (pos >= 0) {
-                            alt = pos == 0 ? null : alt.substring(0,pos-1); // drop "proposed", change "xxx-proposed" to xxx.
+                            alt = pos == 0 ? null : alt.substring(0, pos - 1); // drop
+                                                                               // "proposed",
+                                                                               // change
+                                                                               // "xxx-proposed"
+                                                                               // to
+                                                                               // xxx.
                         }
                     } else {
                         throw new IllegalArgumentException();
                     }
                 }
-                RawData data = lookup.get(distinguishingPath,null,args);
+                RawData data = lookup.get(distinguishingPath, null, args);
                 if (data == null) {
                     return null;
                 }
@@ -211,8 +258,8 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
                 try {
                     PathHeader result = new PathHeader(
-                            fix(data.section, data.sectionOrder), order, 
-                            fix(data.page, data.pageOrder), order,  
+                            fix(data.section, data.sectionOrder), order,
+                            fix(data.page, data.pageOrder), order,
                             fix(data.header, data.headerOrder), order,
                             fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), order,
                             distinguishingPath);
@@ -226,16 +273,19 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     return result;
                 } catch (Exception e) {
-                    throw new IllegalArgumentException("Probably too few capturing groups in regex for " + distinguishingPath, e);
+                    throw new IllegalArgumentException(
+                            "Probably too few capturing groups in regex for " + distinguishingPath,
+                            e);
                 }
             }
         }
 
         /**
-         * Return the Sections and Pages that are in use, for display in menus. Both are ordered.
+         * Return the Sections and Pages that are in use, for display in menus.
+         * Both are ordered.
          */
-        public LinkedHashMap<String,Set<String>> getSectionsToPages() {
-            LinkedHashMap<String,Set<String>> sectionsToPages = new LinkedHashMap<String,Set<String>>();
+        public LinkedHashMap<String, Set<String>> getSectionsToPages() {
+            LinkedHashMap<String, Set<String>> sectionsToPages = new LinkedHashMap<String, Set<String>>();
             for (R2<Finder, RawData> foo : lookup) {
                 RawData data = foo.get1();
                 Set<String> pages = sectionsToPages.get(data.section);
@@ -243,14 +293,16 @@ public class PathHeader implements Comparable<PathHeader> {
                     sectionsToPages.put(data.section, pages = new LinkedHashSet<String>());
                 }
                 // Special Hack for Metazones and Calendar
-                // We could make this more general by having a TransformWithRange.getValues() for each function. Not worth doing right now.
+                // We could make this more general by having a
+                // TransformWithRange.getValues() for each function. Not worth
+                // doing right now.
                 if (!data.page.contains("&")) {
                     pages.add(data.page);
                 } else if (data.page.contains("metazone")) {
                     pages.addAll(new TreeSet<String>(metazoneToContinent.values()));
                 } else if (data.page.contains("calendar")) {
                     Set<String> calendars = supplementalDataInfo.getBcp47Keys().get("ca");
-                    Transform<String, String> calendarFunction = functionMap.get("calendar"); 
+                    Transform<String, String> calendarFunction = functionMap.get("calendar");
                     for (String calendar : calendars) {
                         pages.add(calendarFunction.transform(calendar));
                     }
@@ -264,11 +316,11 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         private class FilteredIterable implements Iterable<String>, SimpleIterator<String> {
-            private final String section;
-            private final String page;
-            private final CLDRFile file;
+            private final String           section;
+            private final String           page;
+            private final CLDRFile         file;
             private final Iterator<String> fileIterator;
-            private Iterator<String> extraPaths;
+            private Iterator<String>       extraPaths;
 
             FilteredIterable(String section, String page, CLDRFile file) {
                 this.section = section;
@@ -306,10 +358,10 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         private static class ChronologicalOrder {
-            private Map<String,Integer> map = new HashMap<String,Integer>();
-            private String item;
-            private int order;
-            private ChronologicalOrder toClear;
+            private Map<String, Integer> map = new HashMap<String, Integer>();
+            private String               item;
+            private int                  order;
+            private ChronologicalOrder   toClear;
 
             ChronologicalOrder(ChronologicalOrder toClear) {
                 this.toClear = toClear;
@@ -346,9 +398,9 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         static class RawData {
-            static ChronologicalOrder codeOrdering = new ChronologicalOrder(null);
-            static ChronologicalOrder headerOrdering = new ChronologicalOrder(codeOrdering);
-            static ChronologicalOrder pageOrdering = new ChronologicalOrder(headerOrdering);
+            static ChronologicalOrder codeOrdering    = new ChronologicalOrder(null);
+            static ChronologicalOrder headerOrdering  = new ChronologicalOrder(codeOrdering);
+            static ChronologicalOrder pageOrdering    = new ChronologicalOrder(headerOrdering);
             static ChronologicalOrder sectionOrdering = new ChronologicalOrder(pageOrdering);
 
             public RawData(String source) {
@@ -365,39 +417,44 @@ public class PathHeader implements Comparable<PathHeader> {
                 code = codeOrdering.set(split[3]);
                 codeOrder = codeOrdering.getOrder();
             }
+
             public final String section;
-            public final int sectionOrder;
+            public final int    sectionOrder;
             public final String page;
-            public final int pageOrder;
+            public final int    pageOrder;
             public final String header;
-            public final int headerOrder;
+            public final int    headerOrder;
             public final String code;
-            public final int codeOrder;
+            public final int    codeOrder;
+
             @Override
             public String toString() {
                 return section + "\t" + sectionOrder + "\t"
-                + page + "\t" + pageOrder + "\t"
-                + header + "\t" + headerOrder + "\t"
-                + code + "\t" + codeOrder + "";
+                        + page + "\t" + pageOrder + "\t"
+                        + header + "\t" + headerOrder + "\t"
+                        + code + "\t" + codeOrder + "";
             }
         }
 
-        static class PathHeaderTransform implements Transform<String,RawData> {
+        static class PathHeaderTransform implements Transform<String, RawData> {
             @Override
             public RawData transform(String source) {
                 return new RawData(source);
             }
         }
 
-        class CounterData extends Row.R4<String,RawData,String, String> {
+        /**
+         * Internal data, for testing and debugging.
+         */
+        public class CounterData extends Row.R4<String, RawData, String, String> {
             public CounterData(String a, RawData b, String c) {
-                super(a, b, c == null ? "no sample" : c, c == null ? "no sample" : fromPath(c).toString());
+                super(a, b, c == null ? "no sample" : c, c == null ? "no sample" : fromPath(c)
+                        .toString());
             }
         }
 
         /**
          * Get the internal data, for testing and debugging.
-         * @return
          */
         public Counter<CounterData> getInternalCounter() {
             synchronized (lookup) {
@@ -412,136 +469,174 @@ public class PathHeader implements Comparable<PathHeader> {
             }
         }
 
-
-        static Map<String,Transform<String,String>> functionMap = new HashMap<String,Transform<String,String>>();
-        static String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Und"};
-        static List<String> days = Arrays.asList("sun", "mon", "tue", "wed", "thu", "fri", "sat");
-        //static Map<String, String> likelySubtags = supplementalDataInfo.getLikelySubtags();
-        static LikelySubtags likelySubtags = new LikelySubtags();
-        static HyphenSplitter hyphenSplitter = new HyphenSplitter();
-        static Transform<String, String> catFromTerritory;
+        static Map<String, Transform<String, String>> functionMap    = new HashMap<String, Transform<String, String>>();
+        static String[]                               months         = { "Jan", "Feb", "Mar",
+                                                                             "Apr", "May", "Jun",
+                                                                             "Jul", "Aug", "Sep",
+                                                                             "Oct", "Nov", "Dec",
+                                                                             "Und" };
+        static List<String>                           days           = Arrays.asList("sun", "mon",
+                                                                             "tue", "wed", "thu",
+                                                                             "fri", "sat");
+        // static Map<String, String> likelySubtags =
+        // supplementalDataInfo.getLikelySubtags();
+        static LikelySubtags                          likelySubtags  = new LikelySubtags();
+        static HyphenSplitter                         hyphenSplitter = new HyphenSplitter();
+        static Transform<String, String>              catFromTerritory;
         static {
-            functionMap.put("month", new Transform<String,String>(){
+            functionMap.put("month", new Transform<String, String>() {
                 public String transform(String source) {
                     int m = Integer.parseInt(source);
                     order = m;
-                    return months[m-1];
-                }});
-            functionMap.put("day", new Transform<String,String>(){
+                    return months[m - 1];
+                }
+            });
+            functionMap.put("day", new Transform<String, String>() {
                 public String transform(String source) {
                     int m = days.indexOf(source);
                     order = m;
                     return source;
-                }});
-            functionMap.put("metazone", new Transform<String,String>(){
+                }
+            });
+            functionMap.put("metazone", new Transform<String, String>() {
                 public String transform(String source) {
                     String continent = metazoneToContinent.get(source);
                     return continent;
-                }});
-            functionMap.put("calendar", new Transform<String,String>(){
-                Map<String, String> fixNames = Builder.with(new HashMap<String,String>())
-                .put("islamicc","Islamic Civil")
-                .put("roc", "ROC")
-                .put("Ethioaa", "Ethiopic Amete Alem")
-                .put("Gregory", "Gregorian")
-                .put("iso8601", "ISO 8601")
-                .freeze();
+                }
+            });
+            functionMap.put("calendar", new Transform<String, String>() {
+                Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
+                                                     .put("islamicc", "Islamic Civil")
+                                                     .put("roc", "ROC")
+                                                     .put("Ethioaa", "Ethiopic Amete Alem")
+                                                     .put("Gregory", "Gregorian")
+                                                     .put("iso8601", "ISO 8601")
+                                                     .freeze();
+
                 public String transform(String source) {
                     String result = fixNames.get(source);
                     return result != null ? result : UCharacter.toTitleCase(source, null);
-                }});
-            functionMap.put("titlecase", new Transform<String,String>(){
+                }
+            });
+            functionMap.put("titlecase", new Transform<String, String>() {
                 public String transform(String source) {
                     return UCharacter.toTitleCase(source, null);
-                }});
-            functionMap.put("categoryFromScript", new Transform<String,String>(){
+                }
+            });
+            functionMap.put("categoryFromScript", new Transform<String, String>() {
                 public String transform(String source) {
                     String script = hyphenSplitter.split(source);
                     Info info = ScriptMetadata.getInfo(script);
                     if (info == null) {
                         info = ScriptMetadata.getInfo("Zzzz");
                     }
-                    order = 100-info.idUsage.ordinal();
+                    order = 100 - info.idUsage.ordinal();
                     return info.idUsage.name;
-                }});
-            functionMap.put("scriptFromLanguage", new Transform<String,String>(){
+                }
+            });
+            functionMap.put("scriptFromLanguage", new Transform<String, String>() {
                 public String transform(String source0) {
                     String language = hyphenSplitter.split(source0);
                     String script = likelySubtags.getLikelyScript(language);
                     if (script == null) {
                         script = likelySubtags.getLikelyScript(language);
                     }
-                    String scriptName = TestInfo.getInstance().getEnglish().getName(CLDRFile.SCRIPT_NAME, script);
-                    return 
-                    script.equals("Hans") || script.equals("Hant") ? "Han Script" 
-                            : scriptName.endsWith(" Script") ? scriptName 
+                    String scriptName = TestInfo.getInstance().getEnglish()
+                            .getName(CLDRFile.SCRIPT_NAME, script);
+                    return
+                    script.equals("Hans") || script.equals("Hant") ? "Han Script"
+                            : scriptName.endsWith(" Script") ? scriptName
                                     : scriptName + " Script";
-                }});
-            functionMap.put("categoryFromTerritory", catFromTerritory = new Transform<String,String>(){
-                Relation<String, String> containmentCore = supplementalDataInfo.getContainmentCore();
-                Relation<String, String> containmentFull = supplementalDataInfo.getTerritoryToContained();
-                Relation<String, String> containedToContainer = Relation.of(new HashMap<String,Set<String>>(), HashSet.class).addAllInverted(containmentFull);
-                Relation<String, String> containedToContainerCore = Relation.of(new HashMap<String,Set<String>>(), HashSet.class).addAllInverted(containmentCore);
-                Map<String,Integer> toOrder = new LinkedHashMap<String,Integer>();
-                int level = 0;
-                {
-                    getOrder("001");
-                    System.out.println(order);
                 }
-                public String transform(String source) {
-                    String territory = hyphenSplitter.split(source);
-                    Set<String> containers = containedToContainerCore.get(territory);
-                    if (containers == null) {
-                        containers = containedToContainer.get(territory);
-                    }
-                    String container = containers != null ? containers.iterator().next() : territory.equals("001") ? "001" : "ZZ" ;
-                    Integer temp = toOrder.get(container);
-                    order = temp != null ? temp.intValue() : level;
-                    return TestInfo.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, container);
-                }
-                private void getOrder(String source) {
-                    if (toOrder.containsKey(source)) {
-                        return;
-                    }
-                    toOrder.put(source, ++level);
-                    Set<String> contained = containmentCore.get(source);
-                    if (contained == null) {
-                        return ;
-                    }
-                    for (String subitem : contained) {
-                        getOrder(subitem);
-                    }
-                }});
-            functionMap.put("categoryFromTimezone", new Transform<String,String>(){
-                Map<String,String> zone2country = StandardCodes.make().getZoneToCounty();
+            });
+            functionMap.put("categoryFromTerritory",
+                    catFromTerritory = new Transform<String, String>() {
+                        Relation<String, String> containmentCore          = supplementalDataInfo
+                                                                                  .getContainmentCore();
+                        Relation<String, String> containmentFull          = supplementalDataInfo
+                                                                                  .getTerritoryToContained();
+                        Relation<String, String> containedToContainer     = Relation
+                                                                                  .of(new HashMap<String, Set<String>>(),
+                                                                                          HashSet.class)
+                                                                                  .addAllInverted(
+                                                                                          containmentFull);
+                        Relation<String, String> containedToContainerCore = Relation
+                                                                                  .of(new HashMap<String, Set<String>>(),
+                                                                                          HashSet.class)
+                                                                                  .addAllInverted(
+                                                                                          containmentCore);
+                        Map<String, Integer>     toOrder                  = new LinkedHashMap<String, Integer>();
+                        int                      level                    = 0;
+                        {
+                            getOrder("001");
+                            System.out.println(order);
+                        }
+
+                        public String transform(String source) {
+                            String territory = hyphenSplitter.split(source);
+                            Set<String> containers = containedToContainerCore.get(territory);
+                            if (containers == null) {
+                                containers = containedToContainer.get(territory);
+                            }
+                            String container = containers != null ? containers.iterator().next()
+                                    : territory.equals("001") ? "001" : "ZZ";
+                            Integer temp = toOrder.get(container);
+                            order = temp != null ? temp.intValue() : level;
+                            return TestInfo.getInstance().getEnglish()
+                                    .getName(CLDRFile.TERRITORY_NAME, container);
+                        }
+
+                        private void getOrder(String source) {
+                            if (toOrder.containsKey(source)) {
+                                return;
+                            }
+                            toOrder.put(source, ++level);
+                            Set<String> contained = containmentCore.get(source);
+                            if (contained == null) {
+                                return;
+                            }
+                            for (String subitem : contained) {
+                                getOrder(subitem);
+                            }
+                        }
+                    });
+            functionMap.put("categoryFromTimezone", new Transform<String, String>() {
+                Map<String, String> zone2country = StandardCodes.make().getZoneToCounty();
+
                 public String transform(String source0) {
                     String territory = zone2country.get(source0);
                     if (territory == null) {
                         territory = "ZZ";
                     }
                     return catFromTerritory.transform(territory);
-                }});
-            functionMap.put("categoryFromCurrency", new Transform<String,String>(){
+                }
+            });
+            functionMap.put("categoryFromCurrency", new Transform<String, String>() {
                 public String transform(String source0) {
                     String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
                     if (territory == null || territory.equals("ZZ")) {
                         order = 999;
                         return "Not Current Tender";
                     }
-                    return catFromTerritory.transform(territory) + ": " + TestInfo.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, territory);
-                }});
+                    return catFromTerritory.transform(territory)
+                            + ": "
+                            + TestInfo.getInstance().getEnglish()
+                                    .getName(CLDRFile.TERRITORY_NAME, territory);
+                }
+            });
         }
 
         static class HyphenSplitter {
             String main;
             String extras;
-            String split (String source) {
+
+            String split(String source) {
                 int hyphenPos = source.indexOf('-');
                 if (hyphenPos < 0) {
                     main = source;
                     extras = "";
                 } else {
-                    main = source.substring(0,hyphenPos);
+                    main = source.substring(0, hyphenPos);
                     extras = source.substring(hyphenPos);
                 }
                 return main;
@@ -550,6 +645,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         /**
          * This converts "functions", like &month, and sets the order.
+         * 
          * @param input
          * @param order
          * @return
@@ -561,114 +657,13 @@ public class PathHeader implements Comparable<PathHeader> {
             if (functionStart >= 0) {
                 int functionEnd = input.indexOf('(', functionStart);
                 int argEnd = input.indexOf(')', functionEnd);
-                Transform<String, String> func = functionMap.get(input.substring(functionStart+1, functionEnd));
-                String temp = func.transform(input.substring(functionEnd+1, argEnd));
-                input = input.substring(0,functionStart) + temp + input.substring(argEnd+1);
+                Transform<String, String> func = functionMap.get(input.substring(functionStart + 1,
+                        functionEnd));
+                String temp = func.transform(input.substring(functionEnd + 1, argEnd));
+                input = input.substring(0, functionStart) + temp + input.substring(argEnd + 1);
             }
             return input;
         }
     }
 
-    public static void main(String[] args) {
-
-        PathStarrer pathStarrer = new PathStarrer();
-        pathStarrer.setSubstitutionPattern("%A");
-
-        // move to test
-        CLDRFile english = TestInfo.getInstance().getEnglish();
-        Factory factory = getFactory(english);
-
-        Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
-        Map<String,String> missing = new TreeMap<String,String>();
-        Map<String,String> skipped = new TreeMap<String,String>();
-        Map<String,String> collide = new TreeMap<String,String>();
-
-        System.out.println("Traversing Paths");
-        for (String path : english) {
-            PathHeader pathHeader = factory.fromPath(path);
-            String value = english.getStringValue(path);
-            if (pathHeader == null) {
-                final String starred = pathStarrer.set(path);
-                missing.put(starred, value + "\t" + path);
-                continue;
-            }
-            if (pathHeader.section.equalsIgnoreCase("skip")) {
-                final String starred = pathStarrer.set(path);
-                skipped.put(starred, value + "\t" + path);
-                continue;
-            }
-            String old = sorted.get(pathHeader);
-            if (old != null && !path.equals(old)) {
-                collide.put(path, old + "\t" + pathHeader);
-            }
-            sorted.put(pathHeader, value + ";\t" + path);
-        }
-        System.out.println("\nConverted:\t" + sorted.size());
-        String lastHeader = "";
-        String lastPage = "";
-        String lastSection = "";
-        List<String> threeLevel = new ArrayList<String>();
-        for (Entry<PathHeader, java.lang.String> entry : sorted.entrySet()) {
-            final PathHeader pathHeader = entry.getKey();
-            if (!lastSection.equals(pathHeader.section)) {
-                System.out.println();
-                threeLevel.add(pathHeader.section);
-                threeLevel.add("\t" + pathHeader.page);
-                threeLevel.add("\t\t" + pathHeader.header);
-                lastSection = pathHeader.section;
-                lastPage = pathHeader.page;
-                lastHeader = pathHeader.header;
-            } else if (!lastPage.equals(pathHeader.page)) {
-                System.out.println();
-                threeLevel.add("\t" + pathHeader.page);
-                threeLevel.add("\t\t" + pathHeader.header);
-                lastPage = pathHeader.page;
-                lastHeader = pathHeader.header;
-            } else if (!lastHeader.equals(pathHeader.header)) {
-                System.out.println();
-                threeLevel.add("\t\t" + pathHeader.header);
-                lastHeader = pathHeader.header;
-            }
-            System.out.println(pathHeader + ";\t" + entry.getValue());
-        }
-        System.out.println("\nCollide:\t" + collide.size());
-        for (Entry<String, String> item : collide.entrySet()) {
-            System.out.println("\t" + item);
-        }
-        System.out.println("\nMissing:\t" + missing.size());
-        for (Entry<String, String> item : missing.entrySet()) {
-            System.out.println("\t" + item.getKey() + "\tvalue:\t" + item.getValue());
-        }
-        System.out.println("\nSkipped:\t" + skipped.size());
-        for (Entry<String, String> item : skipped.entrySet()) {
-            System.out.println("\t" + item);
-        }
-        Counter<Factory.CounterData> counterData = factory.getInternalCounter();
-        System.out.println("\nInternal Counter:\t" + counterData.size());
-        for (Factory.CounterData item : counterData.keySet()) {
-            System.out.println("\t" + counterData.getCount(item)
-                    + "\t" + item.get2() // externals
-                    + "\t" + item.get3()
-                    + "\t" + item.get0() // internals
-                    + "\t" + item.get1() 
-            );
-        }
-        System.out.println("\nMenus/Headers:\t" + threeLevel.size());
-        for (String item : threeLevel) {
-            System.out.println(item);
-        }
-        LinkedHashMap<String, Set<String>> sectionsToPages = factory.getSectionsToPages();
-        System.out.println("\nMenus:\t" + sectionsToPages.size());
-        for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {
-            final String section = item.getKey();
-            for (String page : item.getValue()) {
-                System.out.print("\t" + section + "\t" + page);
-                int count = 0;
-                for (String path : factory.filterCldr(section, page, english)) {
-                    count += 1; // just count them.
-                }
-                System.out.println("\t" + count);
-            }
-        }
-    }
 }

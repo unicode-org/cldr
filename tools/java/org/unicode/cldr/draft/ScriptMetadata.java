@@ -177,7 +177,7 @@ public class ScriptMetadata {
         EXTRAS.put("Hang", "Kore");
         EXTRAS.put("Hira", "Jpan");
     }
-    static Map<String,Info> data = new MyFileReader().process(ScriptMetadata.class, "../util/data/Script_Metadata.csv").data;
+    static Map<String,Info> data = new MyFileReader().process(ScriptMetadata.class, "/org/unicode/cldr/util/data/Script_Metadata.csv").data;
 
     public static Info getInfo(String s) {
         return data.get(s);

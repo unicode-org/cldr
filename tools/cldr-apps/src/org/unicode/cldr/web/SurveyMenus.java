@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
 
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
@@ -68,8 +69,10 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             private String pageXpathBase = null;
             private String pageDisplayName;
             private String pageKey;
+            private Matcher regexMatcher = null;
+            private XPathMatcher  xpathMatcher = null;
             
-            private Page(String key) {
+            private Page(final String key) {
                 pageKey = key;
                 
                 pageDisplayName = key;
@@ -80,8 +83,36 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                     
                     pageXpathBase =  "//ldml/dates/calendars/calendar[@type=\"" + key + "\"]";
                     pageXpath =  pageXpathBase+"/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]";
+                } else if(displayName.equals("Timezones")) {
+                    pageXpathBase = "//ldml/" + "dates/timeZoneNames/metazone";
+                    xpathMatcher = new XPathMatcher() {
+
+                        @Override
+                        public String getName() {
+                            return "Continent: " + key;
+                        }
+
+                        @Override
+                        public boolean matches(String xpath, int xpid) {
+                            return(CookieSession.sm.getMetazoneContinent(xpath).contentEquals(key));
+                        }
+                        
+                    };
                 }
-                
+                if(pageXpath==null && (pageXpathBase!=null)) {
+                    Set<String> paths = new HashSet<String>();
+                    // get the first.
+                    fac.make(SurveyMain.BASELINE_ID,true).getPaths(pageXpathBase, regexMatcher, paths );
+                    if(!paths.isEmpty()) {
+                        for(String xp : paths) {
+                            if(xpathMatcher!=null && !xpathMatcher.matches(xp, XPathTable.NO_XPATH)) {
+                                continue;
+                            }
+                            pageXpath = xp; // first match
+                            break;
+                        }
+                    }
+                }
                 if(pageXpath!=null) {
                     if(ph==null) {
                         ph = phf.fromPath(pageXpath);
@@ -106,14 +137,17 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             public synchronized int getCoverageLevel(CLDRLocale loc) {
                 Integer ret = levs.get(loc);
                 if(ret==null) {
-                    if(pageXpath==null) {
+                    if(pageXpath==null && pageXpathBase==null) {
                         ret = Level.COMPREHENSIVE.getValue(); // unknown
                     } else {
                         if(pageXpathBase!=null) {
                             int min = 108;
                             Set<String> paths = new HashSet<String>();
-                            fac.make(loc,true).getPaths(pageXpathBase, null, paths );
+                            fac.make(loc,true).getPaths(pageXpathBase, regexMatcher, paths );
                             for(String xp : paths) {
+                                if(xpathMatcher!=null && !xpathMatcher.matches(xp, XPathTable.NO_XPATH)) {
+                                    continue;
+                                }
                                 int l = sdi.getCoverageValue(xp, loc.toULocale());
                                 if(l<min) {
                                     min=l;

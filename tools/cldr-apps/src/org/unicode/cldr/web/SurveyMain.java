@@ -307,8 +307,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
     public static String xMAIN = "general";
     public static String xREMOVE = "REMOVE";
 
-    public static final String GREGORIAN_CALENDAR = "gregorian calendar";
-    public static final String OTHER_CALENDARS = "other calendars";
     // 
     public static String CALENDARS_ITEMS[] = PathUtilities.getCalendarsItems();
     public static String METAZONES_ITEMS[] = PathUtilities.getMetazonesItems();
@@ -4308,11 +4306,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     		for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
     			if(OTHERROOTS_ITEMS[j].equals(which)) {
-    				if(which.equals(GREGORIAN_CALENDAR)) {
-    					showPathList(subCtx, GREGO_XPATH, null);
-    				} else if(which.equals(OTHER_CALENDARS)) {
-    					showPathList(subCtx, PathUtilities.OTHER_CALENDARS_XPATH, null);
-    				} else if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
+    				if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
     					showPathList(subCtx, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, null);
     				} else if(which.equals("units")) {
     					showPathList(subCtx, "//ldml/units", null);

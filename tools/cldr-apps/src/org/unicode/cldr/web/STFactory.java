@@ -813,6 +813,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         sm.reg.addListener(this);
         handleUserChanged(null);
         phf = PathHeader.getFactory(sm.getBaselineFile());
+        surveyMenus= new SurveyMenus(this, phf);
     }
 
     @Override
@@ -1032,5 +1033,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         } else {
             return "[null]";
         }
+    }
+    
+    private SurveyMenus surveyMenus;
+    
+    public final SurveyMenus getSurveyMenus() {
+        return surveyMenus;
     }
 }

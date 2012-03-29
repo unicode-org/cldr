@@ -2574,7 +2574,7 @@ public class DataSection implements JSONString {
 		}
         DataSection section = new DataSection(session.sm, locale, prefix, ptype);
 
-        section.hasExamples =  sectionHasExamples(DataSection.xpathToSectionBase(prefix));
+        section.hasExamples =  true;
 		if (SurveyMain.supplementalDataDir == null) {
 			throw new InternalError("??!! session.sm.supplementalDataDir = null");
 		}
@@ -2686,25 +2686,6 @@ public class DataSection implements JSONString {
         return options;
     }
 
-    /**
-     * @param prefix
-     * @param sectionHasExamples
-     * @return
-     */
-	private static boolean sectionHasExamples(String prefix) {
-	    boolean sectionHasExamples = false;
-	    final String[] prefixesWithExamples = { "currencies", "calendars", "codePatterns", "numbers", "localeDisplayPattern", "characters"};
-	    for (String s : prefixesWithExamples) {
-	        if (prefix.contains(s)) {
-	            sectionHasExamples = true;
-	            break;
-	        }
-	    }
-	    if (prefix.endsWith("ldml")) { // special check for the 'misc' section
-	        sectionHasExamples = true;
-	    }
-	    return sectionHasExamples;
-	}
 
 	/**
 	 * Given a (cleaned, etc) xpath, this returns the podBase, i.e.

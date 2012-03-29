@@ -11,7 +11,66 @@
 	String forum = ctx.getLocale().getLanguage();
 	subCtx.addQuery(SurveyMain.QUERY_LOCALE, ctx.getLocale().toString());
 %>
-<%!static void writeMenu(JspWriter jout, WebContext wCtx, String title,
+<%!
+static void writeMenu(JspWriter jout, WebContext wCtx, SurveyMenus.Section sec, int covlev)  throws java.io.IOException {
+    String which = (String) wCtx.get("which");
+    
+    List<SurveyMenus.Section.Page> pages = new ArrayList<SurveyMenus.Section.Page>();
+  //  jout.println("covlev="+covlev+"<br>");
+    for(SurveyMenus.Section.Page p : sec) {
+        // if coverage..
+        if(true || p.getCoverageLevel(wCtx.getLocale())<=covlev) {
+                    pages.add(p);
+                   // jout.println(p.getKey() + " = " + p.getCoverageLevel(wCtx.getLocale()) + "<br>");
+        }
+    }
+    
+    boolean any = false;
+    for (int i = 0; !any && (i < pages.size()); i++) {
+        if (pages.get(i).getKey().equals(which))
+            any = true;
+    }
+
+    jout.println("<label class='"
+            + (any ? "menutop-active" : "menutop-other") + "' >");
+    
+    if(!any) {
+        WebContext ssc = new WebContext(wCtx);
+        ssc.setQuery(SurveyMain.QUERY_SECTION, pages.get(0).getKey());
+        jout.println("<a href='"+ssc.url()+"' style='text-decoration: none;'>");
+    }
+    jout.println(sec.getDisplayName());
+    if(!any) {
+        jout.println("</a>");
+    }
+
+    jout.println("<select class='"
+            + (any ? "menutop-active" : "menutop-other")
+            + "' onchange='window.location=this.value'>");
+    if (!any) {
+        jout.println("<option selected value=\"\">Jump to...</option>");
+    }
+    for (int i = 0; i < pages.size(); i++) {
+        String key = pages.get(i).getKey();
+        WebContext ssc = new WebContext(wCtx);
+        ssc.setQuery(SurveyMain.QUERY_SECTION, key);
+        jout.print("<option ");
+        if(pages.get(i).getCoverageLevel(wCtx.getLocale())>covlev) {
+            jout.print(" disabled ");
+        }
+        if (key.equals(which)) {
+            jout.print(" selected ");
+        } else {
+            jout.print("value=\"" + ssc.url() + "\" ");
+        }
+        jout.print(">" + pages.get(i).getDisplayName());
+//        jout.print( " c="+pages.get(i).getCoverageLevel(wCtx.getLocale()));
+        jout.println("</option>");
+    }
+    jout.println("</select>");
+    jout.println("</label>");
+}
+static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 			String items[]) throws java.io.IOException {
 		String which = (String) wCtx.get("which");
 		boolean any = false;
@@ -64,18 +123,24 @@
     
 <%
 	if (!ctx.prefBool(SurveyMain.PREF_NOJAVASCRIPT)) {
-		writeMenu(out, ctx, 
-		        ctx.sm.getSTFactory().getSectionName("//ldml/localeDisplayNames/scripts/script[@type=\"Arab\"]"), //"Code Lists",
-				PathUtilities.LOCALEDISPLAYNAMES_ITEMS);
-		writeMenu(out, ctx, 
-		        ctx.sm.getSTFactory().getSectionName("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]"), //"Calendars",
-		        CALENDARS_ITEMS);
-		writeMenu(out, ctx, 
-		        ctx.sm.getSTFactory().getSectionName("//ldml/dates/timeZoneNames/metazone[@type=\"Africa_Central\"]/long/standard"), // "Time Zones",
-		        METAZONES_ITEMS);
-		writeMenu(out, ctx, 
-		        ctx.sm.getSTFactory().getSectionName("//ldml/posix/messages/nostr"), // "Other Items", 
-		        SurveyMain.OTHERROOTS_ITEMS);
+	    if(false) {
+			writeMenu(out, ctx, "Code Lists",
+					PathUtilities.LOCALEDISPLAYNAMES_ITEMS);
+			writeMenu(out, ctx, "Calendars", CALENDARS_ITEMS);
+			writeMenu(out, ctx, "Time Zones", METAZONES_ITEMS);
+			writeMenu(out, ctx, "Other Items", SurveyMain.OTHERROOTS_ITEMS);
+	    } else {
+            String covlev = ctx.getCoverageSetting();
+            Level coverage = Level.COMPREHENSIVE;
+            if(covlev!=null && covlev.length()>0) {
+                coverage = Level.get(covlev);
+            }
+             int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+
+             for(SurveyMenus.Section sec : ctx.sm.getSTFactory().getSurveyMenus()) {
+	            writeMenu(out,ctx, sec, workingCoverageValue);
+	        }
+	    }
 		out.flush();
 		ctx.flush();
 		// commenting out easy steps until we have time to work on it more

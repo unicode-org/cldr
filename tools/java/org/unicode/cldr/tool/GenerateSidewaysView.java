@@ -32,6 +32,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Fields;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.SAXException;
 
@@ -129,7 +130,7 @@ public class GenerateSidewaysView {
         UCA = new com.ibm.icu.impl.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
     }
 
-    private static Map<Path,Map<String,Set<String>>> path_value_locales = new TreeMap<Path,Map<String,Set<String>>>();
+    private static Map<PathHeader,Map<String,Set<String>>> path_value_locales = new TreeMap<PathHeader,Map<String,Set<String>>>();
     private static XPathParts parts = new XPathParts(null, null);
     private static long startTime = System.currentTimeMillis();
 
@@ -162,7 +163,7 @@ public class GenerateSidewaysView {
 
         System.out.println("Getting types " + path_value_locales.size());
         //        Set<String> types = new TreeSet<String>();
-        //        for (Path path : path_value_locales.keySet()) {       	
+        //        for (PathHeader path : path_value_locales.keySet()) {       	
         //            String main = getFileName2(path);
         //            if (!main.equals(oldMain)) {
         //                oldMain = main;
@@ -177,17 +178,17 @@ public class GenerateSidewaysView {
         //UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
 
         String oldHeader = "";
-        for (Path path : path_value_locales.keySet()) {       	
+        for (PathHeader path : path_value_locales.keySet()) {       	
             String main = getFileName2(path);
             if (!main.equals(oldMain)) {
                 oldMain = main;
                 out = start(out, main, headerString);
                 oldHeader = "";
             }
-            String key = path.get0().getCode();
+            String key = path.getCode();
             String anchor = toHTML.transliterate(key);
 
-            String originalPath = path.get1(); // prettyPath.getOriginal(path);
+            String originalPath = path.getOriginalPath(); // prettyPath.getOriginal(path);
             String englishValue = english.getStringValue (originalPath);
             if (englishValue != null) {
                 englishValue = "English: ‹" + englishValue + "›";
@@ -195,7 +196,7 @@ public class GenerateSidewaysView {
                 englishValue = "";
             }
 
-            String header = path.get0().getHeader();
+            String header = path.getHeader();
             if (!header.equals(oldHeader) && !header.equals("null")) {
                 final String htmlHeader = toHTML.transliterate(header);
                 out.println("<tr><th colSpan='2' class='pathHeader'><a name=\"" + htmlHeader + "\">" + htmlHeader.replace("_", " ") + "</a></th><tr>");
@@ -266,7 +267,7 @@ public class GenerateSidewaysView {
         finish(out);
         out = start(out,filename, headerString);
         out.println("<table>");
-        Path cleanPath = new Path("//ldml/characters/exemplarCharacters" + variant);
+        PathHeader cleanPath = fixPath("//ldml/characters/exemplarCharacters" + variant, null);
         Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
 
         // TODO change logic so that aux characters and currencySymbol characters work well.
@@ -528,9 +529,10 @@ public class GenerateSidewaysView {
                 if (path.indexOf("/alias") >= 0) continue;
                 if (path.indexOf("/identity") >= 0) continue;
                 if (path.indexOf("/references") >= 0) continue;
-                Path cleanPath = fixPath(path, postFix);
-                if (cleanPath.get0() == null || cleanPath.get0().getSection().equals("Skip")) {
-                    System.out.println("Skipping " + path);
+                PathHeader cleanPath = fixPath(path, postFix);
+                final SurveyToolStatus surveyToolStatus = cleanPath.getSurveyToolStatus();
+                if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
+                    //System.out.println("Skipping " + path);
                     continue;
                 }
                 String fullPath = cldrFile.getFullXPath(path);
@@ -557,24 +559,18 @@ public class GenerateSidewaysView {
 
     static PathHeader.Factory pathHeaderFactory;
 
-    static class Path extends Row.R2<PathHeader, String>{
-        public Path(String path) {
-            super(pathHeaderFactory.fromPath(path), path);
-        }
-    }
-
     // static org.unicode.cldr.util.PrettyPath prettyPath = new org.unicode.cldr.util.PrettyPath();
     /**
      * 
      */
-    private static Path fixPath(String path, String[] localePrefix) {
-        localePrefix[0] = "";
+    private static PathHeader fixPath(String path, String[] localePrefix) {
+        if (localePrefix != null) localePrefix[0] = "";
         if (path.indexOf("[@alt=") >= 0 || path.indexOf("[@draft=") >= 0) {
-            localePrefix[0] = "*";
+            if (localePrefix != null) localePrefix[0] = "*";
             path = removeAttributes(path, skipSet);
         }
         //if (usePrettyPath) path = prettyPath.getPrettyPath(path);
-        return new Path(path);
+        return pathHeaderFactory.fromPath(path);
     }
 
     private static String removeAttributes(String xpath, Set<String> skipAttributes) {
@@ -626,8 +622,7 @@ public class GenerateSidewaysView {
         return value;
     }
 
-    private static String getFileName2(Path inputPath) {
-        PathHeader header = inputPath.get0();
+    private static String getFileName2(PathHeader header) {
         String result = (header.getSection() + "." + header.getPage()).replace(" ", "_").toLowerCase(Locale.ENGLISH);
         return result;
     }
@@ -646,12 +641,11 @@ public class GenerateSidewaysView {
         return out;
     }
 
-    public static String getHeader(Set<Path> set) {
+    public static String getHeader(Set<PathHeader> set) {
         StringBuffer out = new StringBuffer("<p>");
         String lastMain = "";
         String lastSub = "";
-        for (Path fileName : set) {
-            PathHeader pathHeader = fileName.get0();
+        for (PathHeader pathHeader : set) {
             String mainName = pathHeader.getSection();
             String subName = pathHeader.getPage();
             if (!mainName.equals(lastMain)) {
@@ -667,7 +661,7 @@ public class GenerateSidewaysView {
             } else {
                 continue; // identical, skip
             }
-            out.append("<a href='" + getFileName2(fileName) + ".html'>" + subName + "</a>");
+            out.append("<a href='" + getFileName2(pathHeader) + ".html'>" + subName + "</a>");
             continue;
         }
         return out.append("</p>").toString();

@@ -84,10 +84,11 @@
 //ldml/characters/exemplarCharacters[@type="%A"]            ; Misc ; Characters ; Characters in Use ; Others: $1; READ_ONLY
 //ldml/characters/stopwords/stopwordList[@type="%A"]        ; Misc ; Characters ; Words to Ignore ; In: $1; READ_ONLY
 
-//ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"]              ; Misc ; Labels ; Code Patterns ; $1
+//ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"]              ; Misc ; Labels ; Locale Fields ; $1
 
 # These should not be in gregorian; they are common to all calendars
-//ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="%A"]/displayName               ; Special ; Labels ; Date Fields ; $1
+//ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="%A"]/displayName               ; Misc ; Labels ; Date Fields ; $1
+
 # Hide others
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Special ; Labels ; Date Fields-$1 ; $2 ; DEPRECATED
 

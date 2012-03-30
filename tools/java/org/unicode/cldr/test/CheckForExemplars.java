@@ -74,6 +74,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             "|fallbackFormat" +
             "|unitPattern.*@count=\"(zero|one|two|few|many|other)\"" +
             "|localePattern" +
+            "|localeKeyTypePattern" +
             "|listPatternPart" +
             "|ellipsis" +
             "|monthPattern" +

@@ -66,10 +66,16 @@ public class SurveyLog {
 		sb.append("STACK:\n" + stack);
 		sb.append("LOG SITE:\n" + StackTracker.currentStack()+"\n");
 		sb.append("CTX:" + ctx +"\n");
+		Throwable c = t.getCause();
+		while(c!=null) {
+	        sb.append(" CAUSE: " + c+"\n");
+	        sb.append(" STACK:\n" + StackTracker.stackToString(c.getStackTrace(), 0) );
+	        c = c.getCause();
+		}
 		// First, log to file
 		if(SurveyMain.homeFile!=null) try {
 			File logFile = new File(SurveyMain.homeFile, "exception.log");
-			OutputStream file = new FileOutputStream(logFile, false); // Append
+			OutputStream file = new FileOutputStream(logFile, true); // Append
 			PrintWriter pw = new PrintWriter(file);
 			pw.append(sb);
 			pw.close();

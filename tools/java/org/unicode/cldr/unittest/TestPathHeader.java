@@ -24,8 +24,6 @@ import org.unicode.cldr.util.PathStarrer;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.impl.Row;
-import com.sun.tools.javac.comp.Attr;
 
 public class TestPathHeader extends TestFmwk {
     public static void main(String[] args) {

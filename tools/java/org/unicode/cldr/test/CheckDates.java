@@ -126,6 +126,9 @@ public class CheckDates extends FactoryCheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        
+        pathHeaderFactory = PathHeader.getFactory(getDisplayInformation());
+        
         icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released version).
         try {
@@ -183,6 +186,7 @@ public class CheckDates extends FactoryCheckCLDR {
         //            }
         //        }
 
+        
         return this;
     }
 
@@ -208,7 +212,7 @@ public class CheckDates extends FactoryCheckCLDR {
     Collection redundants = new HashSet();
     Status status = new Status();
     PathStarrer pathStarrer = new PathStarrer();
-    PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(null);
+    PathHeader.Factory pathHeaderFactory;
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (fullPath == null) {

@@ -152,6 +152,7 @@ public class GenerateSidewaysView {
 
         Factory cldrFactory = Factory.make(options[SOURCEDIR].value, options[MATCH].value);
         english = cldrFactory.make("en", true);
+        pathHeaderFactory = PathHeader.getFactory(english);
 
         // now get the info
 
@@ -554,7 +555,7 @@ public class GenerateSidewaysView {
         }
     }
 
-    static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(null);
+    static PathHeader.Factory pathHeaderFactory;
 
     static class Path extends Row.R2<PathHeader, String>{
         public Path(String path) {

@@ -570,7 +570,7 @@ i.loadingMsg {
 	top: 25px;
 	right: 0;
 	z-index: 4;
-	line-height: 1.34m;
+	line-height: 1.34em;
 }
 
 div#smalllogin {
@@ -1764,7 +1764,7 @@ body.disconnected table.data .d-change-err,
 body.disconnected table.data .d-change-warn,
 body.disconnected table.data .d-no,
 body.disconnected table.data .d-no-vo-false,
-body.disconnected table.data .d-no-vo-true, {
+body.disconnected table.data .d-no-vo-true {
 	display: none !important;
 }
 
@@ -1796,13 +1796,13 @@ body.disconnected div#progress.progress-ok  button#progress-refresh {
 	background: url(star.png) no-repeat center center;
 }
 
-.d-item-selected:hover .i-example-zoom,span.i-example-zoom {
+/*.d-item-selected:hover .i-example-zoom,span.i-example-zoom {
 	padding: 2px;
 	width: 16px;
 	height: 16px;
 	background: url(zoom.png) no-repeat center center;
 	float: right;
-}
+}*/
 
 .d-item-selected .i-example-zoom,
 .i-example-zoom:hover,
@@ -1849,9 +1849,8 @@ td.d-change-err, td.d-win-err {
 	border: 2px solid red !important;
 }
 
-td.d-change-confirmonly:after {
-	content: '(Open a ticket)';
-	font-style: italic;
+td.d-change-confirmonly {
+	background: #ddfafa ;
 }
 
 td.d-change-warn, td.d-win-warn {

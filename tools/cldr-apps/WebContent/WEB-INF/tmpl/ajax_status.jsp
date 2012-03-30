@@ -17,6 +17,8 @@ if(surveyCurrentLocale!=null&&surveyCurrentLocale.length()>0&&
 %>
 var surveyLocaleUrl='&<%= SurveyMain.QUERY_LOCALE %>=<%= surveyCurrentLocale %>';
 var surveyCurrentLocale = '<%= surveyCurrentLocale %>';
+var surveyOfficial = <%= !SurveyMain.isUnofficial %>;
+var BUG_URL_BASE = '<%= SurveyMain.BUG_URL_BASE %>';
 var surveyCurrentLocaleStamp = 0;
 <% }else{ %>
 var surveyCurrentLocale = null;

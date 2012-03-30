@@ -1378,10 +1378,34 @@ function updateRow(tr, theRow) {
 		removeAllChildNodes(children[config.changecell]);
 		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		
+		tr._showProposedResults = function(e) {
+			if(theRow.proposedResults) {
+				showInPop(tr, theRow, null, children[config.changecell], function(td) {
+					td.appendChild(theRow.proposedResults);
+					return null;
+				},false);
+				if(e) {
+					e.stopPropagation();
+				}
+				return false; 
+			} else {
+				return tr._onmove(e); // show row generically
+			}
+		};
 		if(!canModify) {
 			children[config.changecell].style.display="none";
 		} else if(theRow.confirmOnly) {
 			children[config.changecell].className="d-change-confirmonly";
+			var link = createChunk(stui.str("file_a_ticket"),"a");
+			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath;
+			if(window.surveyOfficial) {
+				link.href = newUrl;
+				theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
+				theRow.proposedResults.href = newUrl;
+			} else {
+				theRow.proposedResults = createChunk(stui.str("file_ticket_unofficial") + "  <" + newUrl + ">","div","fnotebox");
+			}
+			children[config.changecell].appendChild(link);
 		} else {
 			var changeButton = cloneAnon(protoButton);
 			children[config.changecell].appendChild(changeButton);
@@ -1401,20 +1425,6 @@ function updateRow(tr, theRow) {
 			children[config.changecell].isSetup=true;
 			children[config.changecell].theButton = changeButton;
 		}
-		tr._showProposedResults = function(e) {
-			if(theRow.proposedResults) {
-				showInPop(tr, theRow, null, children[config.changecell], function(td) {
-					td.appendChild(theRow.proposedResults);
-					return null;
-				},true);
-				if(e) {
-					e.stopPropagation();
-				}
-				return false; 
-			} else {
-				return tr._onmove(e); // show row generically
-			}
-		};
 		listenFor(children[config.changecell],"mouseover",tr._showProposedResults);
 		
 	} else {
@@ -1675,11 +1685,11 @@ function createChunk(text, tag, className) {
 	var chunk = document.createElement(tag);
 	if(className) {
 		chunk.className = className;
+		chunk.title=stui_str(className+"_desc");
 	}
 	if(text) {
 		chunk.appendChild(document.createTextNode(text));
 	}
-	chunk.title=stui_str(className+"_desc");
 	return chunk;
 }
 ////////

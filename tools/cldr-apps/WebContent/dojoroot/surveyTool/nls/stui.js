@@ -16,6 +16,9 @@ define({
 			newDataWaiting: "(new data waiting)",
 
 			clickToCopy: "click to copy to input box",
+			file_a_ticket: "File a ticket...",
+			file_ticket_unofficial: "This is not an official Survey Tool instance.",
+			file_ticket_must: "You must file a ticket to modify this item.",
 
 			htmlst: "Errors",
 			htmldraft: "Approved",

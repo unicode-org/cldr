@@ -58,7 +58,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST group grouping ( true | false )  #IMPLIED >
 <!ATTLIST group draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST group references CDATA #IMPLIED >
-<!ATTLIST group status ( deprecated ) #IMPLIED >
+<!ATTLIST group status ( deprecated | grouping ) #IMPLIED >
 
 <!ELEMENT languageData ( language* ) >
 <!ELEMENT language EMPTY >

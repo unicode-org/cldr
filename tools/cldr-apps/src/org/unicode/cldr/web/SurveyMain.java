@@ -1496,7 +1496,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             }
         }
         if(locale != null && (locale.length()>0)) {
-            ctx.setLocale(CLDRLocale.getInstance(locale));
+            CLDRLocale l = CLDRLocale.getInstance(locale);
+            CLDRLocale theDefaultContent = defaultContentToParent(l);
+            if(theDefaultContent != null) {
+                l = theDefaultContent;
+            }
+            ctx.setLocale(l);
         }
     }
     
@@ -2127,7 +2132,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 					ctx.println("</ul>");
 				}
 			}
-            boolean localeIsDefaultContent = (null!=supplemental.defaultContentToParent(aLocale.toString()));
+            boolean localeIsDefaultContent = isDefaultContent(aLocale);
 			if(localeIsDefaultContent) {
                         ctx.println(" (<i>default content</i>)");
             } else if(participation && nullStatus!=null && !nullStatus.isEmpty()) {
@@ -2182,7 +2187,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                     if(showCodes) {
                         ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                     }
-                    boolean isDc = (null!=supplemental.defaultContentToParent(subLocale.toString()));
+                    boolean isDc = isDefaultContent(subLocale);
                     
 					if(localeStatus!=null&&!nullStatus.isEmpty()) {
 						Hashtable<Integer, String> what = localeStatus.get(subLocale);
@@ -2244,6 +2249,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 		}
 
         printFooter(ctx);
+    }
+    /**
+     * @param aLocale
+     * @return
+     */
+    public boolean isDefaultContent(CLDRLocale aLocale) {
+        boolean localeIsDefaultContent = (null!=supplemental.defaultContentToParent(aLocale.toString()));
+        return localeIsDefaultContent;
+    }
+    public CLDRLocale defaultContentToParent(CLDRLocale aLocale) {
+        return CLDRLocale.getInstance(supplemental.defaultContentToParent(aLocale.toString()));
     }
     
     // ============= User list management
@@ -3785,16 +3801,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         if(n == null) {
             n = locale.getDisplayName() ;
         }
+        boolean isDefaultContent = isDefaultContent(locale);
 //        boolean hasDraft = draftSet.contains(localeName);
 //        ctx.print(hasDraft?"<b>":"") ;
         String title = locale.toString();
         String classstr = "";
         String localeUrl = ctx.urlForLocale(locale);
+        if(isDefaultContent) {
+            classstr = "class='dcLocale'";
+             localeUrl = ctx.urlForLocale(defaultContentToParent(locale));
+        }
         String rv = 
             ("<a " +classstr
            +" title='" + title + "' href=\"" + localeUrl+ "\">");
         rv = rv + decoratedLocaleName(locale, n, locale.toString());
-        boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,locale);
+        boolean canModify = !isDefaultContent && UserRegistry.userCanModifyLocale(ctx.session.user,locale);
         if(canModify) {
             rv = rv + (modifyThing(ctx));
             int odisp = 0;

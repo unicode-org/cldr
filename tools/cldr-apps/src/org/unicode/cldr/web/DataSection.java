@@ -2310,7 +2310,7 @@ public class DataSection implements JSONString {
 	/**
 	 * Divider denoting a specific Continent division.
 	 */
-	public static final String CONTINENT_DIVIDER = "\u2603";
+	public static final String CONTINENT_DIVIDER = "~";
 
 	public static final String DATASECTION_MISSING = "Inherited";
 
@@ -2925,7 +2925,7 @@ public class DataSection implements JSONString {
 				if(zone==null) {
 					throw new NullPointerException("zoneIterator.next() returned null! zoneIterator.size: " + zoneIterator.size() + ", isEmpty: " + zoneIterator.isEmpty());
 				}
-				 System.err.println(">> " + zone);
+//				 System.err.println(">> " + zone);
 				/** some compatibility **/
 				String ourSuffix = "[@type=\"" + zone + "\"]";
 				if (isMetazones) {

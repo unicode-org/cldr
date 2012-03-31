@@ -16,6 +16,20 @@ stui_str = function(x) {
     	return x;
     }
 };
+
+function stStopPropagation(e) {
+	if(!e) {
+		return false;
+	} else if(e.stopPropagation) {
+		return e.stopPropagation();
+	} else if(e.cancelBubble) {
+		return e.cancelBubble();
+	} else {
+		// hope for the best
+	}
+}
+
+
 var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
 
 var queueOfXhr=[];
@@ -824,7 +838,9 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 			return false; 
 		};
 		box.onkeypress=function(e){ 
-			if(e.keyCode == 13) {
+			if(!e || !e.keyCode)  {
+				return true; // not getting the point here.
+			} else if(e.keyCode == 13) {
 				handleWiredClick(tr,theRow,vHash,box,button); 
 				return false;
 //			} else if(e.keyCode ==9) { // TAB
@@ -841,7 +857,7 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 		button.id = "v"+vHash+"_"+tr.rowHash;
 	}
 	listenFor(button,"click",
-			function(e){ handleWiredClick(tr,theRow,vHash,box,button); e.stopPropagation(); return false; });
+			function(e){ handleWiredClick(tr,theRow,vHash,box,button); stStopPropagation(e); return false; });
 	
 	if(theRow.voteVhash==vHash && !box) {
 		button.className = "ichoice-x";
@@ -878,7 +894,7 @@ function incrPopToken(x) {
 
 function hidePopHandler(e){ 		
 	window.hidePop(null);
-	e.stopPropagation(); return false; 
+	stStopPropagation(e); return false; 
 }// new pop stuff
 dojo.ready(function() {
 	var unShow = null;
@@ -909,7 +925,7 @@ dojo.ready(function() {
 				
 			};
 			pupeak.innerHTML=">";
-			e.stopPropagation(); return false; 
+			stStopPropagation(e); return false; 
 		});
 		
 	}
@@ -1258,11 +1274,11 @@ function updateRow(tr, theRow) {
 	
 	var doPopInfo = function(e) {
 		popInfoInto(tr,theRow,children[config.statuscell]);
-		e.stopPropagation(); return false; 
+		stStopPropagation(e); return false; 
 	};
 	
 	if(!tr._onmove) {
-		tr._onmove = function(e) {showInPop(tr,theRow,"",children[config.codecell]); e.stopPropagation(); return false;};
+		tr._onmove = function(e) {showInPop(tr,theRow,"",children[config.codecell]); stStopPropagation(e); return false;};
 	}
 	
 	if(theRow.hasErrors) {
@@ -1333,7 +1349,7 @@ function updateRow(tr, theRow) {
 //		listenFor(children[config.codecell],"click",
 //				function(e){ 		
 //					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[config.codecell]);
-//					e.stopPropagation(); return false; 
+//					stStopPropagation(e); return false; 
 //				});
 		var xpathStr = "";
 		if(stdebug_enabled) {
@@ -1342,7 +1358,7 @@ function updateRow(tr, theRow) {
 		listenFor(children[config.codecell],"mouseover",
 				function(e){
 					showInPop(tr, theRow, xpathStr, children[config.codecell]);
-					e.stopPropagation(); return false; 
+					stStopPropagation(e); return false; 
 				});
 		tr.anch = anch;
 	}
@@ -1385,7 +1401,7 @@ function updateRow(tr, theRow) {
 					return null;
 				},false);
 				if(e) {
-					e.stopPropagation();
+					stStopPropagation(e);
 				}
 				return false; 
 			} else {
@@ -1623,7 +1639,7 @@ function insertRows(theDiv,xpath,session,json) {
 					stdebug("(proto-datarow #"+c+" has no id");
 				}
 			}
-			stdebug("Table Config: " + JSON.stringify(theTable.config));
+			if(stdebug_enabled) stdebug("Table Config: " + JSON.stringify(theTable.config));
 		}
 		theTable.toAdd = toAdd;
 
@@ -1736,14 +1752,17 @@ function showRows(container,xpath,session,coverage) {
 		        		console.log("!json");
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
 		        	} else if(json.err) {
-		        		console.log("json.err!");
-				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+		        		console.log("json.err!" + json.err);
+		        		showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+		        		handleDisconnect("while loading",json);
 				    } else if(!json.section) {
 		        		console.log("!json.section");
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+		        		handleDisconnect("while loading- no section",json);
 				    } else if(!json.section.rows) {
 		        		console.log("!json.section.rows");
 				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
+		        		handleDisconnect("while loading- no rows",json);
 		        	} else {
 		        		stdebug("json.section.rows OK..");
 		        		showLoader(theDiv.loader, "loading..");

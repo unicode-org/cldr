@@ -83,21 +83,21 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                     
                     pageXpathBase =  "//ldml/dates/calendars/calendar[@type=\"" + key + "\"]";
                     pageXpath =  pageXpathBase+"/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]";
-                } else if(displayName.equals("Timezones")) {
-                    pageXpathBase = "//ldml/" + "dates/timeZoneNames/metazone";
-                    xpathMatcher = new XPathMatcher() {
-
-                        @Override
-                        public String getName() {
-                            return "Continent: " + key;
-                        }
-
-                        @Override
-                        public boolean matches(String xpath, int xpid) {
-                            return(CookieSession.sm.getMetazoneContinent(xpath).contentEquals(key));
-                        }
-                        
-                    };
+//                } else if(displayName.equals("Timezones")) {
+//                    pageXpathBase = "//ldml/" + "dates/timeZoneNames/metazone";
+//                    xpathMatcher = new XPathMatcher() {
+//
+//                        @Override
+//                        public String getName() {
+//                            return "Continent: " + key;
+//                        }
+//
+//                        @Override
+//                        public boolean matches(String xpath, int xpid) {
+//                            return(CookieSession.sm.getMetazoneContinent(xpath).contentEquals(key));
+//                        }
+//                        
+//                    };
                 }
                 if(pageXpath==null && (pageXpathBase!=null)) {
                     Set<String> paths = new HashSet<String>();

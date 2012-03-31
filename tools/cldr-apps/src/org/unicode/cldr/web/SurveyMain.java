@@ -1851,16 +1851,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
         Set<CLDRLocale> badSet = new TreeSet<CLDRLocale>();
 		PreparedStatement psMySubmit = null;
-		PreparedStatement psMyVet = null;
 		PreparedStatement psnSubmit = null;
-		PreparedStatement psnVet = null;
 
         try {
             conn = dbUtils.getDBConnection();
-			 psMySubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			psMyVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			psnSubmit = conn.prepareStatement("select COUNT(id) from cldr_data where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
-			psnVet = conn.prepareStatement("select COUNT(id) from cldr_vet where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			 psMySubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+			psnSubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and locale=?",ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
 
 			synchronized(reg) {
             java.sql.ResultSet rs = reg.list(org,conn);
@@ -1887,15 +1883,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 				
                 if(participation && (conn!=null)) {
 					psMySubmit.setInt(1,theirId);
-					psMyVet.setInt(1,theirId);
 					psnSubmit.setInt(1,theirId);
-					psnVet.setInt(1,theirId);
 					
                    int mySubmit=DBUtils.sqlCount(ctx,conn,psMySubmit);
-                    int myVet=DBUtils.sqlCount(ctx,conn,psMyVet);
                 
-                    String userInfo = "<tr><td>"+nameLink + "</td><td>" +"submits: "+ mySubmit+"</td><td>votes: "+myVet+"</td></tr>";
-					if((mySubmit+myVet)==0) {
+                    String userInfo = "<tr><td>"+nameLink + "</td><td>" +"submits/votes: "+ mySubmit+"</td></tr>";
+					if((mySubmit)==0) {
 						nullMap.put(theirName, userInfo);
 //						userInfo = "<span class='disabledbox' style='color:#888; border: 1px dashed red;'>" + userInfo + "</span>";
 					} else {
@@ -1903,7 +1896,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 					}
                 
                     totalSubmit+= mySubmit;
-                    totalVet+= myVet;
                 }
 //                String theirIntLocs = rs.getString(7);
 //timestamp(8)
@@ -1945,20 +1937,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
                        String userInfo = nameLink+" ";
 					   if(participation && conn != null) {
 							psnSubmit.setString(2,theLocale.getBaseName());
-							psnVet.setString(2,theLocale.getBaseName());
 							
 							int nSubmit=DBUtils.sqlCount(ctx,conn,psnSubmit);
-							int nVet=DBUtils.sqlCount(ctx,conn,psnVet);
 							
-							if((nSubmit+nVet)==0) {
+							if((nSubmit)==0) {
 								theHash = nullStatus; // vetter w/ no work done
 							}
                         
 							if(nSubmit>0) {
 								userInfo = userInfo + " submits: "+ nSubmit+" ";
-							}
-							if(nVet > 0) {
-								userInfo = userInfo + " votes: "+nVet;
 							}
 							
 //							if((nSubmit+nVet)==0) {
@@ -1994,7 +1981,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
             SurveyLog.logger.log(java.util.logging.Level.WARNING,"Query for org " + org + " failed: " + DBUtils.unchainSqlException(se),se);
             ctx.println("<i>Failure: " + DBUtils.unchainSqlException(se) + "</i><br>");
         } finally {
-    		DBUtils.close(psMySubmit,psMyVet,psnSubmit,psnVet,conn);
+    		DBUtils.close(psMySubmit,psnSubmit,conn);
         }
 
 //        Map<String, CLDRLocale> lm = getLocaleListMap();

@@ -33,6 +33,8 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class PathHeader implements Comparable<PathHeader> {
+    static boolean UNIFORM_CONTINENTS = false;
+
     public enum SurveyToolStatus {
         DEPRECATED,
         HIDE,
@@ -214,7 +216,6 @@ public class PathHeader implements Comparable<PathHeader> {
         static final Relation<SectionPage, String>         sectionPageToPaths         = Relation
         .of(new TreeMap<SectionPage, Set<String>>(),
                 HashSet.class);
-
         private static CLDRFile                            englishFile;
 
         /**
@@ -724,19 +725,22 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("metazone", new Transform<String, String>() {
                 Map<String, Map<String, String>> metazoneToRegionToZone = supplementalDataInfo.getMetazoneToRegionToZone();
-                
+
                 public String transform(String source) {
-                    Map<String, String> regionToZone = metazoneToRegionToZone.get(source);
-                    String worldZone = regionToZone.get("001");
-                    String territory = Containment.getRegionFromZone(worldZone);
-                    if (territory == null) {
-                        territory = "ZZ";
+                    if (PathHeader.UNIFORM_CONTINENTS) {
+                        Map<String, String> regionToZone = metazoneToRegionToZone.get(source);
+                        String worldZone = regionToZone.get("001");
+                        String territory = Containment.getRegionFromZone(worldZone);
+                        if (territory == null) {
+                            territory = "ZZ";
+                        }
+                        String container = Containment.getContinent(territory);
+                        order = Containment.getOrder(source);
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
+                    } else {
+                        String continent = metazoneToContinent.get(source);
+                        return continent;
                     }
-                    String container = Containment.getContinent(territory);
-                    order = Containment.getOrder(source);
-                    return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
-                    //                    String continent = metazoneToContinent.get(source);
-                    //                    return continent;
                 }
             });
             functionMap.put("categoryFromCurrency", new Transform<String, String>() {

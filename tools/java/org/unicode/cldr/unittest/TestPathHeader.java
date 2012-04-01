@@ -89,6 +89,32 @@ public class TestPathHeader extends TestFmwk {
             }
         }
     }
+    public void TestMetazones() {
+        
+        CLDRFile nativeFile = factory.make("en", true);
+        PathStarrer starrer = new PathStarrer();
+        Set<PathHeader> pathHeaders = new TreeSet<PathHeader>();
+        for (String path : nativeFile.fullIterable()) {
+            PathHeader p = pathHeaderFactory.fromPath(path);
+            if (p.getSection().startsWith("Time")) {
+                pathHeaders.add(p);
+            }
+        }
+        String oldPage = "";
+        String oldHeader = "";
+        for (PathHeader entry : pathHeaders) {
+            final String page = entry.getPage();
+//            if (!oldPage.equals(page)) {
+//                logln(page);
+//                oldPage = page;
+//            }
+            String header = entry.getHeader();
+            if (!oldHeader.equals(header)) {
+                logln(page + "\t" + header);
+                oldHeader = header;
+            }
+        }
+    }
 
     public void TestStatus() {
         CLDRFile nativeFile = factory.make("en", true);
@@ -281,7 +307,7 @@ public class TestPathHeader extends TestFmwk {
             System.out.println("\t" + item);
         }
         Counter<PathHeader.Factory.CounterData> counterData = pathHeaderFactory
-                .getInternalCounter();
+        .getInternalCounter();
         System.out.println("\nInternal Counter:\t" + counterData.size());
         for (PathHeader.Factory.CounterData item : counterData.keySet()) {
             System.out.println("\t" + counterData.getCount(item)
@@ -289,7 +315,7 @@ public class TestPathHeader extends TestFmwk {
                     + "\t" + item.get3()
                     + "\t" + item.get0() // internals
                     + "\t" + item.get1()
-                    );
+            );
         }
         System.out.println("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {

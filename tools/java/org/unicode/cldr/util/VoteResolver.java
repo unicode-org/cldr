@@ -261,9 +261,8 @@ public class VoteResolver<T> {
     }
     
     /**
-     * Return the overall vote for each organization. It is the max, except when
-     * the organization is conflicted (the top two values have the same vote).
-     * In that case, it is zero and the organization is added to disputed
+     * Return the overall vote for each organization. It is the max for each value.
+     * When the organization is conflicted (the top two values have the same vote), the organization is also added to disputed
      */
     public Counter<T> getTotals(EnumSet<Organization> conflictedOrganizations) {
       if (conflictedOrganizations != null) {
@@ -287,13 +286,17 @@ public class VoteResolver<T> {
             if (conflictedOrganizations != null) {
               conflictedOrganizations.add(org);
             }
-            continue;
           }
         }
+        // This is deprecated, but preserve it until the method is removed.
         orgToAdd.put(org, value);
-        // we don't actually add the total votes; instead we add the max found
-        // for the organization
-        totals.add(value, weight);
+        
+        // We add the max vote for each of the organizations choices
+        
+        for (T item : items.keySet()) {
+            long count = items.getCount(item);
+            totals.add(item, count);
+        }
       }
       return totals;
     }
@@ -333,6 +336,11 @@ public class VoteResolver<T> {
       return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: " + conflicted + "}";
     }
     
+    /**
+     * This is now deprecated, since the organization may have multiple votes.
+     * @param org
+     * @return
+     */
     public T getOrgVote(Organization org) {
         return orgToAdd.get(org);
     }
@@ -361,6 +369,8 @@ public class VoteResolver<T> {
   private T                                                oValue; // optimal value; winning if better approval status than old
   private T                                                nValue; // next to optimal value
   private List<T>                                          valuesWithSameVotes = new ArrayList<T>();
+  private Counter<T>                                        totals = null;
+
   private Status                                           winningStatus;
   private EnumSet<Organization>                            conflictedOrganizations    = EnumSet
                                                                                               .noneOf(Organization.class);
@@ -460,7 +470,7 @@ public class VoteResolver<T> {
     resolved = true;
     // get the votes for each organization
     valuesWithSameVotes.clear();
-    Counter<T> totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
+    totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
     final Set<T> sortedValues = totals.getKeysetSortedByCount(false, ucaCollator);
     Iterator<T> iterator = sortedValues.iterator();
     // if there are no (unconflicted) votes, return lastRelease
@@ -637,6 +647,7 @@ public class VoteResolver<T> {
       + ", sameVotes: " + valuesWithSameVotes
       + ", O: " + getOValue() 
       + ", N: " + getNValue() 
+      + ", totals: " + totals 
       + ", winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
       + "}";
   }

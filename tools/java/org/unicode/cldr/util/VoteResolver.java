@@ -101,11 +101,13 @@ public class VoteResolver<T> {
    * weight.
    */
   public enum Level {
-    locked(0), street(1), vetter(4), expert(8), tc(8), admin(100);
+    locked(0,999), street(1,10), vetter(4,5), expert(8,3), tc(8,1), admin(100,0);
     private int votes;
+    private int stlevel;
 
-    private Level(int votes) {
+    private Level(int votes, int stlevel) {
       this.votes = votes;
+      this.stlevel = stlevel;
     }
 
     /**
@@ -113,6 +115,26 @@ public class VoteResolver<T> {
      */
     public int getVotes() {
       return votes;
+    }
+    /**
+     * Get the Survey Tool userlevel for each level. (0=admin, 999=locked)
+     */
+    public int getSTLevel() {
+      return stlevel;
+    }
+    
+    /**
+     * Find the Level, given ST Level
+     * @param stlevel
+     * @return
+     */
+    public static Level fromSTLevel(int stlevel) {
+        for(Level l: Level.values()) {
+            if(l.getSTLevel()==stlevel) {
+                return l;
+            }
+        }
+        return null;
     }
   };
 

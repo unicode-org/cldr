@@ -1,10 +1,12 @@
 package org.unicode.cldr.unittest.web;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
@@ -14,6 +16,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Status;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
@@ -247,6 +253,101 @@ public class TestSTFactory extends TestFmwk {
 		}
 	}
 	
+	public void TestDataDriven() throws SQLException, IOException {
+	    final STFactory fac = getFactory();
+
+        XMLFileReader myReader = new XMLFileReader();
+        final XPathParts xpp = new XPathParts(null,null);
+        final Map<String,String> attrs = new TreeMap<String,String>();
+        final Map<String,UserRegistry.User> users = new TreeMap<String,UserRegistry.User>();
+        myReader.setHandler(new XMLFileReader.SimpleHandler(){
+            public void handlePathValue(String path, String value) {
+               xpp.clear();
+               xpp.initialize(path);
+               attrs.clear();
+               for(String k : xpp.getAttributeKeys(-1)) {
+                   attrs.put(k,xpp.getAttributeValue(-1, k));
+               }
+               String elem = xpp.getElement(-1);
+               logln("* <"+elem+" " + attrs.toString() + ">"+value+"</"+elem+">");
+               String xpath = attrs.get("xpath");
+               if(xpath!=null) {
+                   xpath = xpath.trim().replace("'", "\"");
+               }
+               if(elem.equals("user")) {
+                   String name = attrs.get("name");
+                   String org = attrs.get("org");
+                   VoteResolver.Level level = VoteResolver.Level.valueOf(attrs.get("level").toLowerCase());
+                   
+                   String email = name+"@"+org+".example.com";
+                   UserRegistry.User u = fac.sm.reg.get(email);
+                   if(u==null) {
+                       UserRegistry.User proto = fac.sm.reg.getEmptyUser();
+                       proto.email = email;
+                       proto.name = name;
+                       proto.org = org;
+                       proto.password = fac.sm.reg.makePassword(proto.email);
+                       proto.userlevel = level.getSTLevel();
+                       
+                       u = fac.sm.reg.newUser(null, proto);
+                   }
+                   if(u==null) {
+                       throw new InternalError("Couldn't find/register user " + name);
+                   } else {
+                       logln(name + " = " + u);
+                       users.put(name, u);
+                   }
+               } else if(elem.equals("vote") || elem.equals("unvote")) {
+                   UserRegistry.User u = users.get(attrs.get("name"));
+                   if(u==null) {
+                       throw new IllegalArgumentException("Unknown user " + attrs.get("name") + " - need a <user> element.");
+                   }
+                   
+                   CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                   BallotBox<User> box = fac.ballotBoxForLocale(locale);
+                   value = value.trim();
+                   if(elem.equals("unvote")) {
+                       value=null;
+                   }
+                   box.voteForValue(u, xpath, value);
+                   logln(u + " "+elem+"d for " + xpath + " = " + value);
+               } else if(elem.equals("verify")) {
+                   value = value.trim();
+                   if(value.isEmpty()) value=null;
+                   CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                   BallotBox<User> box = fac.ballotBoxForLocale(locale);
+                   CLDRFile cf = fac.make(locale, true);
+                   String stringValue = cf.getStringValue(xpath);
+                   String fullXpath = cf.getFullXPath(xpath);
+                   //logln("V"+ xpath + " = " + stringValue + ", " + fullXpath);
+                   //logln("Resolver=" + box.getResolver(xpath));
+                   if(value==null && stringValue!=null) {
+                       errln("Expected null value at " + locale+":"+xpath + " got " + stringValue);
+                   } else if(value!=null && !value.equals(stringValue)) {
+                       errln("Expected "+value+" at " + locale+":"+xpath + " got " + stringValue);
+                   } else {
+                       logln("OK: " + locale+":"+xpath + " = " + value);
+                   }
+                   VoteResolver<String> r = box.getResolver(xpath);
+                   Status winStatus = r.getWinningStatus();
+                   Status expStatus = Status.fromString(attrs.get("status"));
+                   if(winStatus==expStatus) {
+                       logln("OK: Status="+winStatus+" "+locale+":"+xpath+" Resolver=" + box.getResolver(xpath));
+                   } else {
+                       errln("Expected: Status="+expStatus+" got "+winStatus+" "+locale+":"+xpath+" Resolver=" + box.getResolver(xpath));
+                   }
+               } else {
+                   throw new IllegalArgumentException("Unknown test element type " + elem);
+               }
+            };
+//            public void handleComment(String path, String comment) {};
+//            public void handleElementDecl(String name, String model) {};
+//            public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {};
+        });
+        String fileName = TestSTFactory.class.getSimpleName()+".xml";
+        myReader.read(TestSTFactory.class.getResource("data/"+fileName).toString(),TestAll.getUTF8Data(fileName),-1,true);
+	}
+	
 	private void verifyReadOnly(CLDRFile f) {
 		String loc = f.getLocaleID();
 		try {
@@ -316,6 +417,8 @@ public class TestSTFactory extends TestFmwk {
 		}
 		return gFac;
 	}
+	
+	
 	
 	private STFactory resetFactory() throws SQLException {
 		logln("--- resetting STFactory() ----- [simulate reload] ------------");

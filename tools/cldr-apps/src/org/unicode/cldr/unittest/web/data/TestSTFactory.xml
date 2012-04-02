@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TestSTFactory SYSTEM "TestSTFactory.dtd">
+<TestSTFactory>
+	<!--  these items are read sequentially.  -->
+	
+	<!--  the 'name' is the real name of the user, and is also used as a handle later. 
+		 level can be any member of VoteResolver.Level and org is any of VoteResolver.Organization  -->
+	<user name="A" org="afrigen" level="vetter"/>
+	<user name="B" org="breton" level="vetter"/>
+	<user name="C" org="cherokee" level="vetter"/>
+	
+	<!--  Vote for an item. We choose und to avoid other conflicting data.  --> 
+	<vote name="A" locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</vote>  
+	<vote name="B" locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">b</vote>  
+	<vote name="C" locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">b</vote>
+	
+	<!--  Confirms a value with the specified status. -->
+	<verify status="approved"  locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">b</verify> <!--  two votes for b, one for a -->
+	
+	<!--  Removes a vote ('abstain').  -->
+	<unvote name="B" locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']"/>  
+	
+	<!--  Another verify -->
+	<verify status="provisional"  locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</verify> <!--  a is a lower codepoint, so wins, but only provisionally -->
+</TestSTFactory>

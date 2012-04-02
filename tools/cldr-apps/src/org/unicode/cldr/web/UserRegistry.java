@@ -64,12 +64,12 @@ public class UserRegistry {
     }
 	private static java.util.logging.Logger logger;
     // user levels
-    public static final int ADMIN   = 0;  /** Administrator **/
-    public static final int TC      = 1;  /** Technical Committee **/
-    public static final int EXPERT  = 3;  /** Expert Vetter **/
-    public static final int VETTER  = 5;  /** regular Vetter **/
-    public static final int STREET  = 10; /** Guest Vetter **/
-    public static final int LOCKED  = 999;/** Locked user - can't login **/
+    public static final int ADMIN   = VoteResolver.Level.admin.getSTLevel();  /** Administrator **/
+    public static final int TC      = VoteResolver.Level.tc.getSTLevel();  /** Technical Committee **/
+    public static final int EXPERT  = VoteResolver.Level.expert.getSTLevel();  /** Expert Vetter **/
+    public static final int VETTER  = VoteResolver.Level.vetter.getSTLevel();  /** regular Vetter **/
+    public static final int STREET  = VoteResolver.Level.street.getSTLevel(); /** Guest Vetter **/
+    public static final int LOCKED  = VoteResolver.Level.locked.getSTLevel();/** Locked user - can't login **/
 	
 	public static final int LIMIT_LEVEL = 10000;  /** max level **/
 	public static final int NO_LEVEL  = -1;  /** min level **/
@@ -94,23 +94,12 @@ public class UserRegistry {
      * get just the raw level as a string
      */
     public static String levelAsStr(int level) {
-        String thestr = null;
-        if(level <= ADMIN) { 
-            thestr = "ADMIN";
-        } else if(level <= TC) {
-            thestr = "TC";
-        } else if (level <= EXPERT) {
-            thestr = "EXPERT";
-        } else if (level <= VETTER) {
-            thestr = "VETTER";
-        } else if (level <= STREET) {
-            thestr = "STREET";
-        } else if (level == LOCKED) {
-            thestr = "LOCKED";
+        VoteResolver.Level l = VoteResolver.Level.fromSTLevel(level);
+        if(l==null) {
+            return "??";
         } else {
-            thestr = "??";
+            return l.name().toUpperCase();
         }
-        return thestr;
     }
     
 	/**
@@ -274,16 +263,7 @@ public class UserRegistry {
          * @return VoteResolver.Level format
          */
         public VoteResolver.Level computeVRLevel() {
-            switch (this.userlevel) {
-            case ADMIN: return VoteResolver.Level.admin;
-            case TC: return VoteResolver.Level.tc;
-            case EXPERT: return VoteResolver.Level.expert;
-            case VETTER: return VoteResolver.Level.vetter;
-            case STREET: return VoteResolver.Level.street;
-            case LOCKED: return VoteResolver.Level.locked;
-            default:
-                throw new IllegalArgumentException("Illegal VoteLevel on " + this.toString() +" - "+this.userlevel);
-            }
+            return VoteResolver.Level.fromSTLevel(this.userlevel);
        }
         
         /**
@@ -1140,7 +1120,7 @@ public class UserRegistry {
 			if (!insertStmt.execute()) {
 				logger.info("Added.");
 				conn.commit();
-				ctx.println("<p>Added user.<p>");
+				if(ctx!=null) ctx.println("<p>Added user.<p>");
 				User newu = get(u.password, u.email, FOR_ADDING); // throw away
 																	// old user
 				updateIntLocs(newu.id, conn);
@@ -1148,7 +1128,7 @@ public class UserRegistry {
 				notify(newu);
 				return newu;
 			} else {
-				ctx.println("Couldn't add user.");
+			    if(ctx!=null) ctx.println("Couldn't add user.");
 				conn.commit();
 				return null;
 			}

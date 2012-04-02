@@ -5108,11 +5108,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
 
     SupplementalDataInfo supplementalDataInfo = null;
 
-    public final SupplementalDataInfo getSupplementalDataInfo() { 
-	//if(supplementalDataInfo==null ) {
-	//	    supplementalDataInfo = SupplementalDataInfo.getInstance(getFactory().getSupplementalDirectory());
-	//	}
-	return supplementalDataInfo;
+    public synchronized final SupplementalDataInfo getSupplementalDataInfo() { 
+        if(supplementalDataInfo==null ) {
+            supplementalDataDir = getDiskFactory().getSupplementalDirectory();
+            supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDir);
+            supplementalDataInfo.setAsDefaultInstance();
+            supplemental = new SupplementalData(supplementalDataDir.getAbsolutePath());
+            //CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY = supplementalDataDir.getCanonicalPath();
+        }
+        return supplementalDataInfo;
     }
 
     public void showMetazones(WebContext ctx, String continent) {
@@ -5786,11 +5790,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             CachingEntityResolver.createAndEmptyCacheDir();
 
             progress.update("Setup supplemental..");
-            supplementalDataDir = new File(fileBase,"../supplemental/");
-            supplemental = new SupplementalData(supplementalDataDir.getCanonicalPath());
-            supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDir);
-            supplementalDataInfo.setAsDefaultInstance();
-            //CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY = supplementalDataDir.getCanonicalPath();
+            getSupplementalDataInfo();
 
             try {
                 // spin up the gears

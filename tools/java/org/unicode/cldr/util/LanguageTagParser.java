@@ -115,6 +115,7 @@ public class LanguageTagParser {
 	private static final UnicodeSet ALPHA = new UnicodeSet("[a-zA-Z]");
 	private static final UnicodeSet DIGIT = new UnicodeSet("[0-9]");
 	private static final UnicodeSet ALPHANUM = new UnicodeSet("[0-9a-zA-Z]");
+    private static final UnicodeSet EXTENSION_VALUE = new UnicodeSet("[0-9a-zA-Z/_]");
 	private static final UnicodeSet X = new UnicodeSet("[xX]");
 	private static final UnicodeSet ALPHA_MINUS_X = new UnicodeSet(ALPHA).removeAll(X);
 	private static StandardCodes standardCodes = StandardCodes.make();
@@ -146,7 +147,7 @@ public class LanguageTagParser {
 			  final String[] keyValuePair = keyValue.split("\\=");
         final String key = keyValuePair[0];
         final String value = keyValuePair[1];
-        if (keyValuePair.length != 2 || !ALPHANUM.containsAll(key) || !ALPHANUM.containsAll(value)) {
+        if (keyValuePair.length != 2 || !ALPHANUM.containsAll(key) || !EXTENSION_VALUE.containsAll(value)) {
           throwError(keyValue, "Invalid key/value pair");
         }
 			  localeExtensions.put(key, value);

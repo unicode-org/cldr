@@ -723,7 +723,7 @@ public class ExampleGenerator {
                                     : type.equals("territory") ? "057" : "CODE"));
             result = finalizeBackground(result, false);
         } else if (parts.contains("localeDisplayPattern")) {
-            result = cldrFile.getName("uz_Arab_AF");
+            result = cldrFile.getName("uz-Arab-AF@timezone=Africa/Addis_Ababa");
         } else if (parts.contains("languages") ) {
             String type = parts.getAttributeValue(-1, "type");
             if (type.contains("_")) {

@@ -26,6 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -49,6 +50,8 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.MessageFormat;
@@ -1133,6 +1136,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       || elementName.equals("territoryCodes") && 
             (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
       || elementName.equals("group") && attribute.equals("status")
+      || elementName.equals("plurals") && attribute.equals("type")
       ;
     }
     //  if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
@@ -1851,9 +1855,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
   transient LanguageTagParser lparser = new LanguageTagParser();
 
+  /**
+   * Returns the name of the given bcp47 identifier. Note that extensions must
+   * be specified using the old "\@key=type" syntax.
+   * @param localeOrTZID
+   * @return
+   */
   public synchronized String getName(String localeOrTZID) {
     return getName(localeOrTZID, false);
   }
+
 
   public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {
     boolean isCompound = localeOrTZID.contains("_");
@@ -1916,6 +1927,23 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       if (extras.length() != 0) extras += nameSeparator;
       sname = getName(VARIANT_NAME, original = (String)variants.get(i));
       extras += (sname == null ? original : sname);
+    }
+    // Look for key-type pairs.
+    for (Entry<String, String> extension : lparser.getLocaleExtensions().entrySet()) {
+        String key = extension.getKey();
+        String type = extension.getValue();
+        // Check if key/type pairs exist in the CLDRFile first.
+        String value = getStringValue("//ldml/localeDisplayNames/types/type[@type=\"" + type + "\"][@key=\"" + key + "\"]");
+        if (value == null) {
+            // Get name of key instead and pair it with the type as-is.
+            // To add support for currency and timezone names, look for the
+            // relevant xpaths here.
+            String keyTypePattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern");
+            sname = getStringValue("//ldml/localeDisplayNames/keys/key[@type=\"" + key + "\"]");
+            if (sname == null) sname = key;
+            value = MessageFormat.format(keyTypePattern, new Object[] {sname, type});
+        }
+        extras += ", " + value;
     }
     // fix this -- shouldn't be hardcoded!
     if (extras.length() == 0) {

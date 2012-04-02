@@ -11,28 +11,43 @@ import org.unicode.cldr.util.RegexLookup.Merger;
 import com.ibm.icu.text.Transform;
 
 public class PatternPlaceholders {
-    private static final class MyMerger implements Merger<Map<String, String>> {
+    
+    public enum PlaceholderStatus {DISALLOWED, OPTIONAL, REQUIRED}
+    
+    private static class PlaceholderData {
+        PlaceholderStatus status = PlaceholderStatus.REQUIRED;
+        Map<String, String> data = new LinkedHashMap<String, String>();
+    }
+    
+    private static final class MyMerger implements Merger<PlaceholderData> {
         @Override
-        public Map<String, String> merge(Map<String, String> a, Map<String, String> into) {
+        public PlaceholderData merge(PlaceholderData a, PlaceholderData into) {
             // check unique
-            for (String key : a.keySet()) {
-                if (into.containsKey(key)) {
+            for (String key : a.data.keySet()) {
+                if (into.data.containsKey(key)) {
                     throw new IllegalArgumentException("Duplicate placeholder: " + key);
                 }
             }
-            into.putAll(a);
+            into.data.putAll(a.data);
+            if (into.status != a.status) {
+                throw new IllegalArgumentException("Different optional status");
+            }
             return into;
         }
     }
 
-    private static final class MapTransform implements Transform<String, Map<String,String>> {
+    private static final class MapTransform implements Transform<String, PlaceholderData> {
 
         @Override
-        public Map<String, String> transform(String source) {
-            Map<String, String> result = new LinkedHashMap<String, String>();
+        public PlaceholderData transform(String source) {
+            PlaceholderData result = new PlaceholderData();
             try {
-                String[] parts = source.split(";\\s+");
+                String[] parts = source.split("\\s*;\\s+");
                 for (String part : parts) {
+                    if (part.equals("optional")) {
+                        result.status = PlaceholderStatus.OPTIONAL;
+                        continue;
+                    }
                     int equalsPos = part.indexOf('=');
                     String id = part.substring(0, equalsPos).trim();
                     String name = part.substring(equalsPos+1).trim();
@@ -45,17 +60,17 @@ public class PatternPlaceholders {
                         example = "";
                     }
 
-                    String old = result.get(id);
+                    String old = result.data.get(id);
                     if (old != null) {
                         throw new IllegalArgumentException("Key occurs twice: " + id + "=" + old + "!=" + name);
                     }
                     // <ph name='x'><ex>xxx</ex>yyy</ph>
-                    result.put(id, "<ph name='" + name + "'><ex>" + example+ "</ex>" + id +  "</ph>");
+                    result.data.put(id, "<ph name='" + name + "'><ex>" + example+ "</ex>" + id +  "</ph>");
                 }
             } catch (Exception e) {
                 throw new IllegalArgumentException("Failed to parse " + source, e);
             }
-            for (Entry<String, String> entry : result.entrySet()) {
+            for (Entry<String, String> entry : result.data.entrySet()) {
                 if (GenerateXMB.DEBUG) System.out.println(entry);
             }
             return result;
@@ -63,7 +78,7 @@ public class PatternPlaceholders {
 
     }
 
-    private RegexLookup<Map<String, String>> patternPlaceholders 
+    private RegexLookup<PlaceholderData> patternPlaceholders 
     = RegexLookup.of(new MapTransform())
     .setValueMerger(new MyMerger())
     .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
@@ -77,7 +92,13 @@ public class PatternPlaceholders {
 
     public Map<String, String> get(String path) {
         // TODO change the original map to be unmodifiable, to avoid this step. Need to add a "finalize" to the lookup.
-        final Map<String, String> map = patternPlaceholders.get(path);
-        return map == null ? null : Collections.unmodifiableMap(map);
+        final PlaceholderData map = patternPlaceholders.get(path);
+        return map == null ? null : Collections.unmodifiableMap(map.data);
+    }
+    
+    public PlaceholderStatus getStatus(String path) {
+        // TODO change the original map to be unmodifiable, to avoid this step. Need to add a "finalize" to the lookup.
+        final PlaceholderData map = patternPlaceholders.get(path);
+        return map == null ? PlaceholderStatus.DISALLOWED : map.status;
     }
 }

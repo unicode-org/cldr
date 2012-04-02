@@ -41,6 +41,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -205,7 +206,7 @@ public class ConsoleCheckCLDR {
         boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur; 
         boolean noaliases = options[NO_ALIASES].doesOccur; 
 
-        Level coverageLevel = null;
+        Level coverageLevel = Level.MODERN;
         String coverageLevelInput = options[COVERAGE].value;
         if (coverageLevelInput != null) {
             coverageLevel = Level.get(coverageLevelInput);
@@ -303,7 +304,7 @@ public class ConsoleCheckCLDR {
         locales.addAll(cldrFactory.getAvailable());
 
         List<CheckStatus> result = new ArrayList<CheckStatus>();
-        Set<String> paths = new TreeSet<String>(); // CLDRFile.ldmlComparator);
+        Set<PathHeader> paths = new TreeSet<PathHeader>(); // CLDRFile.ldmlComparator);
         Map m = new TreeMap();
         //double testNumber = 0;
         Map<String,String> options = new HashMap<String,String>();
@@ -319,6 +320,7 @@ public class ConsoleCheckCLDR {
 
         LocaleIDParser localeIDParser = new LocaleIDParser();
         String lastBaseLanguage = "";
+        PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
         for (Iterator it = locales.iterator(); it.hasNext();) {
             String localeID = (String) it.next();
@@ -347,7 +349,7 @@ public class ConsoleCheckCLDR {
                 options.put("CheckCoverage.skip","true");
             }
 
-            if (coverageLevel != null) options.put("CoverageLevel.requiredLevel", coverageLevel.toString());
+            //if (coverageLevel != null) options.put("CoverageLevel.requiredLevel", coverageLevel.toString());
             if (organization != null) options.put("CoverageLevel.localeType", organization);
             options.put("phase", phase.toString());
             //options.put("SHOW_TIMES", "true");
@@ -377,6 +379,8 @@ public class ConsoleCheckCLDR {
                 e.printStackTrace(System.out);
                 continue;
             }
+
+            CoverageLevel2 coverageLevelGetter = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
 
             // generate HTML if asked for
             if (ErrorFile.generated_html_directory != null) {
@@ -415,8 +419,20 @@ public class ConsoleCheckCLDR {
             }
             paths.clear();
             //CollectionUtilities.addAll(file.iterator(pathFilter), paths);
-            addPrettyPaths(file, pathFilter, prettyPathMaker, noaliases, false, paths);
-            addPrettyPaths(file, file.getExtraPaths(), pathFilter, prettyPathMaker, noaliases, false, paths);
+            for (String path : file.fullIterable()) {
+                if (pathFilter != null && pathFilter.reset(path).matches()) {
+                    continue;
+                }
+                if (coverageLevel != null) {
+                    Level currentLevel = coverageLevelGetter.getLevel(path);
+                    if (currentLevel.compareTo(coverageLevel) > 0) {
+                        continue;
+                    }
+                }
+                paths.add(pathHeaderFactory.fromPath(path));
+            }
+//            addPrettyPaths(file, pathFilter, prettyPathMaker, noaliases, false, paths);
+//            addPrettyPaths(file, file.getExtraPaths(), pathFilter, prettyPathMaker, noaliases, false, paths);
 
             // also add the English paths
             //CollectionUtilities.addAll(checkCldr.getDisplayInformation().iterator(pathFilter), paths);
@@ -445,13 +461,15 @@ public class ConsoleCheckCLDR {
             int pathCount = 0;
             Status otherPath = new Status();
 
-            for (Iterator<String> it2 = paths.iterator(); it2.hasNext();) {
+            for (PathHeader pathHeader : paths) {
                 pathCount++;
-                String prettyPath = it2.next();
-                String path = prettyPathMaker.getOriginal(prettyPath);
-                if (path == null) {
-                    prettyPathMaker.getOriginal(prettyPath);
-                }
+                String path = pathHeader.getOriginalPath();
+                String prettyPath = pathHeader.toString().replace('\t','|').replace(' ', '_');
+                //String prettyPath = it2.next();
+//                String path = prettyPathMaker.getOriginal(prettyPath);
+//                if (path == null) {
+//                    prettyPathMaker.getOriginal(prettyPath);
+//                }
 
                 if (!showAll && !file.isWinningPath(path)) {
                     continue;

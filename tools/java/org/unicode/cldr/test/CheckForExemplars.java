@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.XMLSource;
 
@@ -97,13 +98,12 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     static final Pattern IS_COUNT_ZERO_ONE_TWO = Pattern.compile("/units.*\\[@count=\"(zero|one|two)\"");
     private Matcher isCountZeroOneTwo = IS_COUNT_ZERO_ONE_TWO.matcher("");
     private boolean hasSpecialPlurals;
-    private RegexLookup<Set<String>> patternPlaceholders;
+    private PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
 
     public CheckForExemplars(Factory factory) {
         super(factory);
-        patternPlaceholders = RegexLookup.of(new PlaceholderTransform())
-            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
-        // TODO Move this into PatternPlaceholders
+//        patternPlaceholders = RegexLookup.of(new PlaceholderTransform())
+//            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
     }
     
     /**
@@ -228,13 +228,18 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 placeholderBuffer.append(", ").append(matcher.group());
             }
         }
-        Set<String> placeholders = patternPlaceholders.get(path);
+        Set<String> placeholders = null;
+        PlaceholderStatus placeholderStatus = patternPlaceholders.getStatus(path);
+        if (placeholderStatus != PlaceholderStatus.DISALLOWED) {
+            placeholders = patternPlaceholders.get(path).keySet();
+        }
         
         boolean supposedToHaveMessageFormatFields = 
             // supposedToBeMessageFormat.reset(path).find()
             placeholders != null
             && !(hasSpecialPlurals 
                     && isCountZeroOneTwo.reset(path).find());
+
         if (supposedToHaveMessageFormatFields) {
             if (placeholderBuffer.length() > 0) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
@@ -250,7 +255,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     placeholderBuffer.append(", ").append(placeholder);
                 }
             }
-            if (placeholderBuffer.length() > 0) {
+            if (placeholderBuffer.length() > 0 && placeholderStatus == PlaceholderStatus.REQUIRED) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.missingPlaceholders)
                     .setMessage("This message pattern is missing placeholder(s){0}. See the English for an example.",
@@ -268,7 +273,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             // check the other characters in the message format patterns
             value = patternMatcher.replaceAll("#");
-        } else if (matchList.size() > 0){ // non-message field has placeholder values
+        } else if (matchList.size() > 0 && placeholderStatus == PlaceholderStatus.DISALLOWED){ // non-message field has placeholder values
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.shouldntHavePlaceholders)
                 .setMessage("This field is not a message pattern, and should not have '{0}, {1},' etc. See the English for an example.",

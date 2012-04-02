@@ -82,7 +82,7 @@ abstract public class CheckCLDR {
     .setFilter(Pattern.compile(nameMatcher,Pattern.CASE_INSENSITIVE).matcher(""))
     .add(new CheckAttributeValues(factory))
     .add(new CheckChildren(factory))
-    .add(new CheckCoverage(factory))
+    //.add(new CheckCoverage(factory)) // outmoded
     .add(new CheckDates(factory))
     .add(new CheckForCopy(factory))
     .add(new CheckDisplayCollisions(factory))

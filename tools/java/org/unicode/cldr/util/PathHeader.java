@@ -249,10 +249,11 @@ public class PathHeader implements Comparable<PathHeader> {
 
     @Override
     public String toString() {
-        return sectionId + "\t" 
-        + pageId + "\t"
-        + header + "\t" + headerOrder + "\t"
-        + code + "\t" + codeOrder + "";
+        return sectionId 
+        + "\t" + pageId
+        + "\t" + header // + "\t" + headerOrder
+        + "\t" + code // + "\t" + codeOrder
+        ;
     }
 
     @Override

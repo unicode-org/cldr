@@ -23,6 +23,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.StringId;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -75,7 +76,7 @@ public class TestCheckCLDR extends TestFmwk {
     static final TestInfo info = TestInfo.getInstance();
     static final Factory factory = info.getCldrFactory();
     static final CLDRFile english = info.getEnglish();
-    
+
     private static final boolean DEBUG = true;
 
     public void TestPlaceholders() {
@@ -94,29 +95,43 @@ public class TestCheckCLDR extends TestFmwk {
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
         Set<PathHeader> sorted = new TreeSet<PathHeader>();
         for (String path : english.fullIterable()) {
-            final PathHeader pathHeader = pathHeaderFactory.fromPath(path);
-            sorted.add(pathHeader);
+            sorted.add(pathHeaderFactory.fromPath(path));
         }
+        final String testPath = "//ldml/units/unit[@type=\"day-future\"]/unitPattern[@count=\"0\"]";
+        sorted.add(pathHeaderFactory.fromPath(testPath));
+      
 
         for (PathHeader pathHeader : sorted) {
             String path = pathHeader.getOriginalPath();
+            if (path.equals(testPath)) {
+                int x = 0;
+            }
             String value = english.getStringValue(path);
+            if (value == null) {
+                value = "?";
+            }
             boolean containsMessagePattern = messagePlaceholder.reset(value).find();
-            Map<String, String> placeholderInfo = patternPlaceholders.get(path);
-            if (containsMessagePattern != (placeholderInfo != null)) {
-                errln("Value (" + value + ") looks like placeholder = " + containsMessagePattern + ", but placeholder info = " + placeholderInfo + "\t" + path);
+            final Map<String, String> placeholderInfo = patternPlaceholders.get(path);
+            final PlaceholderStatus placeholderStatus = patternPlaceholders.getStatus(path);
+            if (containsMessagePattern && placeholderStatus == PlaceholderStatus.DISALLOWED || !containsMessagePattern && placeholderStatus == PlaceholderStatus.REQUIRED) {
+                errln("Value (" + value + ") looks like placeholder = " + containsMessagePattern + ", but placeholder info = " + placeholderStatus + "\t" + path);
                 continue;
-            } else if (containsMessagePattern) {
-                Set<String> found = new HashSet<String>();
-                do {
-                    found.add(messagePlaceholder.group());
-                } while (messagePlaceholder.find());
-                if (!found.equals(placeholderInfo.keySet())) {
-                    errln("Value (" + value + ") has different placeholders than placeholder info (" + placeholderInfo.keySet() + ")\t" + path);
-                    continue;
-                } else {
-                    logln("placeholder info = " + placeholderInfo + "\t" + path);
+            } else if (placeholderStatus != PlaceholderStatus.DISALLOWED) {
+                if (containsMessagePattern) {
+                    Set<String> found = new HashSet<String>();
+                    do {
+                        found.add(messagePlaceholder.group());
+                    } while (messagePlaceholder.find());
+                    if (!found.equals(placeholderInfo.keySet())) {
+                        errln("Value (" + value + ") has different placeholders than placeholder info (" + placeholderInfo.keySet() + ")\t" + path);
+                        continue;
+                    } else {
+                        logln("placeholder info = " + placeholderInfo + "\t" + path);
+                    }
                 }
+
+                // check that the error messages are right
+
                 test.handleCheck(path, english.getFullXPath(path), "?", options, result);
                 CheckStatus gotIt = null;
                 for (CheckStatus i : result) {
@@ -124,8 +139,13 @@ public class TestCheckCLDR extends TestFmwk {
                         gotIt = i;
                     }
                 }
-                if (gotIt == null) {
-                    errln("CheckForExemplars should have detected " + Subtype.missingPlaceholders + " in " + path);
+                if (placeholderStatus == PlaceholderStatus.REQUIRED && gotIt == null) {
+                    errln("CheckForExemplars SHOULD have detected " + Subtype.missingPlaceholders + " for " + placeholderStatus + " in " + path);
+                    if (DEBUG) {
+                        test.handleCheck(path, english.getFullXPath(path), "?", options, result);
+                    }
+                } else if (placeholderStatus == PlaceholderStatus.OPTIONAL && gotIt != null) {
+                    errln("CheckForExemplars should NOT have detected " + Subtype.missingPlaceholders + " for " + placeholderStatus  + " in " + path);
                     if (DEBUG) {
                         test.handleCheck(path, english.getFullXPath(path), "?", options, result);
                     }

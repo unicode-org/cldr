@@ -21,6 +21,8 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PrettyPath;
@@ -50,11 +52,11 @@ public class TestPathHeader extends TestFmwk {
         Set<String> alreadySeen = new HashSet();
         check(localeId, true, uniqueness, alreadySeen);
         // check paths
-        for (Entry<String, Set<String>> sectionAndPages : PathHeader.Factory
-                .getCachedSectionToPages().keyValuesSet()) {
-            final String section = sectionAndPages.getKey();
-            logln(section);
-            for (String page : sectionAndPages.getValue()) {
+        for (Entry<SectionId, Set<PageId>> sectionAndPages : PathHeader.Factory
+                .getSectionIdsToPageIds().keyValuesSet()) {
+            final SectionId section = sectionAndPages.getKey();
+            logln(section.toString());
+            for (PageId page : sectionAndPages.getValue()) {
                 final Set<String> cachedPaths = PathHeader.Factory.getCachedPaths(section, page);
                 if (cachedPaths == null) {
                     errln("Null pages for: " + section + "\t" + page);
@@ -81,7 +83,7 @@ public class TestPathHeader extends TestFmwk {
                             }
                         }
                         logln("\t" + page + "\t" + countString);
-                        if (page.startsWith("Unknown")) {
+                        if (page.toString().startsWith("Unknown")) {
                             logln("\t\t" + cachedPaths);
                         }
                     }
@@ -240,6 +242,10 @@ public class TestPathHeader extends TestFmwk {
         logln(localeID + "\t" + count);
     }
 
+    public void TestZ() {
+        check();
+    }
+    
     public void check() {
         PathStarrer pathStarrer = new PathStarrer();
         pathStarrer.setSubstitutionPattern("%A");

@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.XMLSource;
 
@@ -35,7 +36,9 @@ import com.ibm.icu.util.ULocale;
 public class CheckForExemplars extends FactoryCheckCLDR {
     //private final UnicodeSet commonAndInherited = new UnicodeSet(CheckExemplars.Allowed).complement(); 
     // "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
-    static String[] EXEMPLAR_SKIPS = {"/currencySpacing", "/hourFormat", "/exemplarCharacters", "/pattern",
+    static String[] EXEMPLAR_SKIPS = {
+        "/currencySpacing", "/hourFormat", "/exemplarCharacters",
+        // "/pattern",
         "/localizedPatternChars", "/segmentations", "/dateFormatItem", "/references",
         "/intervalFormatItem",
         "/localeDisplayNames/variants/",
@@ -99,8 +102,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     public CheckForExemplars(Factory factory) {
         super(factory);
         patternPlaceholders = RegexLookup.of(new PlaceholderTransform())
-            .loadFromFile(GenerateXMB.class, "xmbPlaceholders.txt");
-
+            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+        // TODO Move this into PatternPlaceholders
     }
     
     /**
@@ -196,21 +199,23 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         String sourceLocale = getResolvedCldrFileToCheck().getSourceLocaleID(path, otherPathStatus);
 
         // if we are an alias to another path, then skip
-        if (!path.equals(otherPathStatus.pathWhereFound)) {
-            return this;
-        }
+//        if (!path.equals(otherPathStatus.pathWhereFound)) {
+//            return this;
+//        }
 
         // now check locale source
         if (XMLSource.CODE_FALLBACK_ID.equals(sourceLocale)) {
             return this;
-        } else if ("root".equals(sourceLocale)) {
-            // skip eras for non-gregorian
-            if (true) return this;
-            if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
+//        } else if ("root".equals(sourceLocale)) {
+//            // skip eras for non-gregorian
+//            if (true) return this;
+//            if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
         }
         
         for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
-            if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) return this; // skip some items.
+            if (path.indexOf(EXEMPLAR_SKIPS[i]) > 0 ) {
+                return this; // skip some items.
+            }
         }
 
         // add checks for patterns. Make sure that all and only the message format patterns have {n}
@@ -223,8 +228,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 placeholderBuffer.append(", ").append(matcher.group());
             }
         }
+        Set<String> placeholders = patternPlaceholders.get(path);
+        
         boolean supposedToHaveMessageFormatFields = 
-            supposedToBeMessageFormat.reset(path).find()
+            // supposedToBeMessageFormat.reset(path).find()
+            placeholders != null
             && !(hasSpecialPlurals 
                     && isCountZeroOneTwo.reset(path).find());
         if (supposedToHaveMessageFormatFields) {
@@ -236,7 +244,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             placeholderBuffer.setLength(0);
             // Check that the needed placeholders are there.
-            Set<String> placeholders = patternPlaceholders.get(path);
             if (placeholders == null) placeholders = new HashSet<String>();
             for (String placeholder : placeholders) {
                 if (!matchList.contains(placeholder)) {

@@ -90,7 +90,7 @@
 //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="%A"]/displayName               ; Misc ; Labels ; Date Fields ; $1
 
 # Hide others
-//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Special ; Labels ; Date Fields-$1 ; $2 ; DEPRECATED
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Special ; Labels2 ; Date Fields-$1 ; $2 ; DEPRECATED
 
 # These should be deprecated
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Labels ; Append-Fallback-$1 ; $2 ; DEPRECATED
@@ -105,11 +105,11 @@
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Special ; Deprecated ; $1 ; $2-$3 ; HIDE
 
 # Suppress the numbers without numbering system.
-//ldml/numbers/currencyFormats/unitPattern[@count="%A"]                     ; Special ; Patterns for Numbers ; latn ; currencies-count=$1 ; HIDE
-//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Patterns for Numbers ; Numbers ; currencySpacing-$1-$2 ; HIDE
-//ldml/numbers/symbols/%E                                                                               ; Special ; Patterns for Numbers ; Numbers ; symbols-$1 ; DEPRECATED
-//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Patterns for Numbers ; $1 ; pattern-$5-$4 ; DEPRECATED
-//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Patterns for Numbers ; $1 ; pattern-$3-$6 ; DEPRECATED
+//ldml/numbers/currencyFormats/unitPattern[@count="%A"]                     ; Special ; Patterns_for_Numbers2 ; latn ; currencies-count=$1 ; HIDE
+//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Patterns_for_Numbers2 ; Numbers ; currencySpacing-$1-$2 ; HIDE
+//ldml/numbers/symbols/%E                                                                               ; Special ; Patterns_for_Numbers2 ; Numbers ; symbols-$1 ; DEPRECATED
+//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Patterns_for_Numbers2 ; $1 ; pattern-$5-$4 ; DEPRECATED
+//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Patterns_for_Numbers2 ; $1 ; pattern-$3-$6 ; DEPRECATED
 
 
 # Ultimate fallback (Error)

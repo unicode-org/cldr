@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -32,26 +33,128 @@ import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
+/**
+ * Provides a mechanism for dividing up LDML paths into understandable categories, eg for the Survey tool.
+ */
 public class PathHeader implements Comparable<PathHeader> {
     static boolean UNIFORM_CONTINENTS = false;
 
+    /**
+     * What status the survey tool should use.
+     */
     public enum SurveyToolStatus {
         DEPRECATED,
         HIDE,
         READ_ONLY,
         READ_WRITE
     }
+    
+    private static EnumNames<SectionId> SectionIdNames = new EnumNames<SectionId>();
+   
+    /**
+     * The Section for a path. Don't change these without committee buy-in.
+     */
+    public enum SectionId {
+        Code_Lists("Code Lists"), 
+        Calendars, 
+        Timezones, 
+        Misc, 
+        Special;
+        
+        private SectionId(String... alternateNames) {
+            SectionIdNames.add(this, alternateNames);
+        }
+        public static SectionId forString(String name) {
+            return SectionIdNames.forString(name);
+        }
+        public String toString() {
+            return SectionIdNames.toString(this);
+        }
+    }
+    
+    private static EnumNames<PageId> PageIdNames = new EnumNames<PageId>();
+    private static Relation<SectionId,PageId> SectionIdToPageIds = Relation.of(new EnumMap<SectionId,Set<PageId>>(SectionId.class), TreeSet.class);
 
-    private final String              section;
-    private final String              page;
+    /**
+     * The Page for a path (within a Section). Don't change these without committee buy-in.
+     */
+    public enum PageId {
+        Languages(SectionId.Code_Lists),
+        Scripts(SectionId.Code_Lists),
+        Territories(SectionId.Code_Lists),
+        Timezone_Cities(SectionId.Code_Lists, "Timezone Cities"),
+        Locale_Variants(SectionId.Code_Lists,"Locale Variants"),
+        Keys(SectionId.Code_Lists),
+        Measurement_Systems(SectionId.Code_Lists,"Measurement Systems"),
+        Transforms(SectionId.Code_Lists),
+        Currencies(SectionId.Code_Lists),
+        Gregorian(SectionId.Calendars),
+        Buddhist(SectionId.Calendars),
+        Chinese(SectionId.Calendars),
+        Coptic(SectionId.Calendars),
+        Ethiopic(SectionId.Calendars),
+        Ethiopic_Amete_Alem(SectionId.Calendars,"Ethiopic-Amete-Alem"),
+        Hebrew(SectionId.Calendars),
+        Indian(SectionId.Calendars),
+        Islamic(SectionId.Calendars),
+        Islamic_Civil(SectionId.Calendars,"Islamic-Civil"),
+        Japanese(SectionId.Calendars),
+        Persian(SectionId.Calendars),
+        ROC(SectionId.Calendars),
+        Africa(SectionId.Timezones),
+        America(SectionId.Timezones),
+        Antarctica(SectionId.Timezones),
+        Asia(SectionId.Timezones),
+        Atlantic(SectionId.Timezones),
+        Australia(SectionId.Timezones),
+        Europe(SectionId.Timezones),
+        IndianT(SectionId.Timezones),
+        Pacific(SectionId.Timezones),
+        Overrides(SectionId.Timezones),
+        Patterns_for_Locale_Names(SectionId.Misc, "Patterns for Locale Names"),
+        Patterns_for_Displaying_Lists(SectionId.Misc, "Patterns for Displaying Lists"),
+        Patterns_for_Timezones(SectionId.Misc, "Patterns for Timezones"),
+        Patterns_for_Numbers(SectionId.Misc, "Patterns for Numbers"),
+        Patterns_for_Units(SectionId.Misc, "Patterns for Units"),
+        Characters(SectionId.Misc),
+        Labels(SectionId.Misc),
+        Posix(SectionId.Misc),
+        Identity(SectionId.Special),
+        Version(SectionId.Special),
+        Suppress(SectionId.Special),
+        Zone(SectionId.Special),
+        Patterns_for_Numbers2(SectionId.Special),
+        Labels2(SectionId.Special),
+        Deprecated(SectionId.Special),
+        Unknown(SectionId.Special),
+        ;
+        
+        private final SectionId sectionId;
+        
+        private PageId(SectionId sectionId, String... alternateNames) {
+            this.sectionId = sectionId;
+            SectionIdToPageIds.put(sectionId, this);
+            PageIdNames.add(this, alternateNames);
+        }
+        public static PageId forString(String name) {
+            return PageIdNames.forString(name);
+        }
+        public String toString() {
+            return PageIdNames.toString(this);
+        }
+        public SectionId getSectionId() {
+            return sectionId;
+        }
+    }
+
+    private final SectionId           sectionId;
+    private final PageId              pageId;
     private final String              header;
     private final String              code;
     private final String              originalPath;
     private final SurveyToolStatus    status;
 
     // Used for ordering
-    private final int                 sectionOrder;
-    private final int                 pageOrder;
     private final int                 headerOrder;
     private final int                 codeOrder;
 
@@ -81,12 +184,10 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param codeOrder
      * @param status 
      */
-    private PathHeader(String section, int sectionOrder, String page, int pageOrder, String header,
+    private PathHeader(SectionId sectionId, PageId pageId, String header,
             int headerOrder, String code, int codeOrder, SurveyToolStatus status, String originalPath) {
-        this.section = section;
-        this.sectionOrder = sectionOrder;
-        this.page = page;
-        this.pageOrder = pageOrder;
+        this.sectionId = sectionId;
+        this.pageId = pageId;
         this.header = header;
         this.headerOrder = headerOrder;
         this.code = code;
@@ -108,12 +209,26 @@ public class PathHeader implements Comparable<PathHeader> {
         return new Factory(englishFile);
     }
 
+    /**
+     * @deprecated
+     */
     public String getSection() {
-        return section;
+        return sectionId.toString();
     }
 
+    public SectionId getSectionId() {
+        return sectionId;
+    }
+
+    /**
+     * @deprecated
+     */
     public String getPage() {
-        return page;
+        return pageId.toString();
+    }
+
+    public PageId getPageId() {
+        return pageId;
     }
 
     public String getHeader() {
@@ -134,8 +249,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
     @Override
     public String toString() {
-        return section + "\t" + sectionOrder + "\t"
-        + page + "\t" + pageOrder + "\t"
+        return sectionId + "\t" 
+        + pageId + "\t"
         + header + "\t" + headerOrder + "\t"
         + code + "\t" + codeOrder + "";
     }
@@ -145,16 +260,10 @@ public class PathHeader implements Comparable<PathHeader> {
         // Within each section, order alphabetically if the integer orders are
         // not different.
         int result;
-        if (0 != (result = sectionOrder - other.sectionOrder)) {
+        if (0 != (result = sectionId.compareTo(other.sectionId))) {
             return result;
         }
-        if (0 != (result = alphabetic.compare(section, other.section))) {
-            return result;
-        }
-        if (0 != (result = pageOrder - other.pageOrder)) {
-            return result;
-        }
-        if (0 != (result = alphabetic.compare(page, other.page))) {
+        if (0 != (result = pageId.compareTo(other.pageId))) {
             return result;
         }
         if (0 != (result = headerOrder - other.headerOrder)) {
@@ -183,7 +292,7 @@ public class PathHeader implements Comparable<PathHeader> {
         } catch (Exception e) {
             return false;
         }
-        return section.equals(other.section) && page.equals(other.page)
+        return sectionId == other.sectionId && pageId == other.pageId
         && header.equals(other.header) && code.equals(other.code)
         && originalPath.equals(other.originalPath);
     }
@@ -200,7 +309,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 RegexLookup.RegexFinderTransformPath)
                 .loadFromFile(
                         PathHeader.class,
-                "data/PathHeader.txt");
+                        "data/PathHeader.txt");
         // synchronized with lookup
         static final Output<String[]>                      args                       = new Output<String[]>();
         // synchronized with lookup
@@ -212,7 +321,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         static final Map<String, PathHeader>               cache                      = new HashMap<String, PathHeader>();
         // synchronized with cache
-        static final Map<String, Map<String, SectionPage>> sectionToPageToSectionPage = new HashMap<String, Map<String, SectionPage>>();
+        static final Map<SectionId, Map<PageId, SectionPage>> sectionToPageToSectionPage = new EnumMap<SectionId, Map<PageId, SectionPage>>(SectionId.class);
         static final Relation<SectionPage, String>         sectionPageToPaths         = Relation
         .of(new TreeMap<SectionPage, Set<String>>(),
                 HashSet.class);
@@ -285,8 +394,8 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
                 try {
                     PathHeader result = new PathHeader(
-                            fix(data.section, data.sectionOrder), order,
-                            fix(data.page, data.pageOrder), order,
+                            SectionId.forString(fix(data.section, 0)),
+                            PageId.forString(fix(data.page, 0)),
                             fix(data.header, data.headerOrder), order,
                             fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), order,
                             data.status,
@@ -298,17 +407,17 @@ public class PathHeader implements Comparable<PathHeader> {
                         } else {
                             result = old;
                         }
-                        Map<String, SectionPage> pageToPathHeaders = sectionToPageToSectionPage
-                        .get(result.section);
+                        Map<PageId, SectionPage> pageToPathHeaders = sectionToPageToSectionPage
+                        .get(result.sectionId);
                         if (pageToPathHeaders == null) {
-                            sectionToPageToSectionPage.put(result.section, pageToPathHeaders
-                                    = new HashMap<String, SectionPage>());
+                            sectionToPageToSectionPage.put(result.sectionId, pageToPathHeaders
+                                    = new EnumMap<PageId, SectionPage>(PageId.class));
                         }
-                        SectionPage sectionPage = pageToPathHeaders.get(result.page);
+                        SectionPage sectionPage = pageToPathHeaders.get(result.pageId);
                         if (sectionPage == null) {
-                            pageToPathHeaders.put(result.page, sectionPage
-                                    = new SectionPage(result.section, result.sectionOrder,
-                                            result.page, result.pageOrder));
+                            pageToPathHeaders.put(result.pageId, sectionPage
+                                    = new SectionPage(result.sectionId,
+                                            result.pageId));
                         }
                         sectionPageToPaths.put(sectionPage, distinguishingPath);
                     }
@@ -322,17 +431,12 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         private static class SectionPage implements Comparable<SectionPage> {
-            private final String section;
-            private final String page;
-            // Used for ordering
-            private final int    sectionOrder;
-            private final int    pageOrder;
+            private final SectionId sectionId;
+            private final PageId pageId;
 
-            public SectionPage(String section, int sectionOrder, String page, int pageOrder) {
-                this.section = section;
-                this.sectionOrder = sectionOrder;
-                this.page = page;
-                this.pageOrder = pageOrder;
+            public SectionPage(SectionId sectionId, PageId pageId) {
+                this.sectionId = sectionId;
+                this.pageId = pageId;
             }
 
             @Override
@@ -341,16 +445,10 @@ public class PathHeader implements Comparable<PathHeader> {
                 // orders are
                 // not different.
                 int result;
-                if (0 != (result = sectionOrder - other.sectionOrder)) {
+                if (0 != (result = sectionId.compareTo(other.sectionId))) {
                     return result;
                 }
-                if (0 != (result = alphabetic.compare(section, other.section))) {
-                    return result;
-                }
-                if (0 != (result = pageOrder - other.pageOrder)) {
-                    return result;
-                }
-                if (0 != (result = alphabetic.compare(page, other.page))) {
+                if (0 != (result = pageId.compareTo(other.pageId))) {
                     return result;
                 }
                 return 0;
@@ -364,12 +462,12 @@ public class PathHeader implements Comparable<PathHeader> {
                 } catch (Exception e) {
                     return false;
                 }
-                return section.equals(other.section) && page.equals(other.page);
+                return sectionId == other.sectionId && pageId == other.pageId;
             }
 
             @Override
             public int hashCode() {
-                return section.hashCode() ^ page.hashCode();
+                return sectionId.hashCode() ^ pageId.hashCode();
             }
         }
 
@@ -390,11 +488,11 @@ public class PathHeader implements Comparable<PathHeader> {
          * 
          * @target a collection where the paths are to be returned.
          */
-        public static Set<String> getCachedPaths(String section, String page) {
+        public static Set<String> getCachedPaths(SectionId sectionId, PageId page) {
             Set<String> target = new HashSet<String>();
             synchronized (cache) {
-                Map<String, SectionPage> pageToSectionPage = sectionToPageToSectionPage
-                .get(section);
+                Map<PageId, SectionPage> pageToSectionPage = sectionToPageToSectionPage
+                .get(sectionId);
                 if (pageToSectionPage == null) {
                     return null;
                 }
@@ -409,82 +507,62 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         /**
-         * Returns a set of section/pages currently cached.
-         * <p>
-         * <b>Warning:</b>
-         * <ol>
-         * <li>The set may not be complete for a cldrFile unless all of paths in
-         * the file have had fromPath called. And this includes getExtraPaths().
-         * </li>
-         * </ol>
-         * Thread-safe.
-         * 
-         * @target a collection where the paths are to be returned.
+         * Return the Sections and Pages that are in defined, for display in menus.
+         * Both are ordered.
          */
-        public static Relation<String, String> getCachedSectionToPages() {
-            Relation<String, String> target = Relation.of(new LinkedHashMap<String, Set<String>>(),
-                    LinkedHashSet.class);
-            synchronized (cache) {
-                for (SectionPage sectionPage : sectionPageToPaths.keySet()) {
-                    target.put(sectionPage.section, sectionPage.page);
-                }
-            }
-            return target;
+        public static Relation<SectionId, PageId> getSectionIdsToPageIds() {
+            SectionIdToPageIds.freeze(); // just in case
+            return SectionIdToPageIds;
+        }
+        
+        /**
+         * Return paths that have the designated section and page.
+         * @param sectionId
+         * @param pageId
+         * @param file
+         */
+        public Iterable<String> filterCldr(SectionId sectionId, PageId pageId, CLDRFile file) {
+            return new FilteredIterable(sectionId, pageId, file);
         }
 
         /**
-         * Return the Sections and Pages that are in use, for display in menus.
+         * Return the names for Sections and Pages that are defined, for display in menus.
          * Both are ordered.
-         * 
-         * @deprecated Use getCachedSectionToPages instead. Make sure that you
-         *             process the paths first.
+         * @deprecated Use getSectionIdsToPageIds
          */
         public static LinkedHashMap<String, Set<String>> getSectionsToPages() {
             LinkedHashMap<String, Set<String>> sectionsToPages = new LinkedHashMap<String, Set<String>>();
-            synchronized (lookup) {
-                for (R2<Finder, RawData> foo : lookup) {
-                    RawData data = foo.get1();
-                    Set<String> pages = sectionsToPages.get(data.section);
-                    if (pages == null) {
-                        sectionsToPages.put(data.section, pages = new LinkedHashSet<String>());
-                    }
-                    // Special Hack for Metazones and Calendar
-                    // We could make this more general by having a
-                    // TransformWithRange.getValues() for each function. Not
-                    // worth
-                    // doing right now.
-                    if (!data.page.contains("&")) {
-                        pages.add(data.page);
-                    } else if (data.page.contains("metazone")) {
-                        pages.addAll(new TreeSet<String>(metazoneToContinent.values()));
-                    } else if (data.page.contains("calendar")) {
-                        Set<String> calendars = supplementalDataInfo.getBcp47Keys().get("ca");
-                        Transform<String, String> calendarFunction = functionMap.get("calendar");
-                        for (String calendar : calendars) {
-                            pages.add(calendarFunction.transform(calendar));
-                        }
-                    }
+            for (PageId pageId : PageId.values()) {
+                String sectionId2 = pageId.getSectionId().toString();
+                Set<String> pages = sectionsToPages.get(sectionId2);
+                if (pages == null) {
+                    sectionsToPages.put(sectionId2, pages = new LinkedHashSet<String>());
                 }
+                pages.add(pageId.toString());
             }
             return sectionsToPages;
         }
 
+        /**
+         * @deprecated, use the filterCldr with the section/page ids.
+         */
         public Iterable<String> filterCldr(String section, String page, CLDRFile file) {
             return new FilteredIterable(section, page, file);
         }
 
         private class FilteredIterable implements Iterable<String>, SimpleIterator<String> {
-            private final String           section;
-            private final String           page;
-            private final CLDRFile         file;
+            private final SectionId        sectionId;
+            private final PageId           pageId;
             private final Iterator<String> fileIterator;
-            private Iterator<String>       extraPaths;
 
-            FilteredIterable(String section, String page, CLDRFile file) {
-                this.section = section;
-                this.page = page;
-                this.file = file;
-                this.fileIterator = file.iterator();
+            FilteredIterable(SectionId sectionId, PageId pageId, CLDRFile file) {
+                this.sectionId = sectionId;
+                this.pageId = pageId;
+                this.fileIterator = file.fullIterable().iterator();
+            }
+
+            public FilteredIterable(String section, String page, CLDRFile file) {
+               this(SectionId.forString(section), PageId.forString(page), file);
             }
 
             @Override
@@ -497,17 +575,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 while (fileIterator.hasNext()) {
                     String path = fileIterator.next();
                     PathHeader pathHeader = fromPath(path);
-                    if (section.equals(pathHeader.section) && page.equals(pathHeader.page)) {
-                        return path;
-                    }
-                }
-                if (extraPaths == null) {
-                    extraPaths = file.getExtraPaths().iterator();
-                }
-                while (extraPaths.hasNext()) {
-                    String path = extraPaths.next();
-                    PathHeader pathHeader = fromPath(path);
-                    if (section.equals(pathHeader.section) && page.equals(pathHeader.page)) {
+                    if (sectionId == pathHeader.sectionId && pageId == pathHeader.pageId) {
                         return path;
                     }
                 }
@@ -558,16 +626,16 @@ public class PathHeader implements Comparable<PathHeader> {
         static class RawData {
             static ChronologicalOrder codeOrdering    = new ChronologicalOrder(null);
             static ChronologicalOrder headerOrdering  = new ChronologicalOrder(codeOrdering);
-            static ChronologicalOrder pageOrdering    = new ChronologicalOrder(headerOrdering);
-            static ChronologicalOrder sectionOrdering = new ChronologicalOrder(pageOrdering);
 
             public RawData(String source) {
                 String[] split = SEMI.split(source);
-                section = sectionOrdering.set(split[0]);
-                sectionOrder = sectionOrdering.getOrder();
-
-                page = pageOrdering.set(split[1]);
-                pageOrder = pageOrdering.getOrder();
+                section = split[0];
+                // HACK
+                if (section.equals("Timezones") && split[1].equals("Indian")) {
+                    page = "Indian2";
+                } else {
+                    page = split[1];
+                }
 
                 header = headerOrdering.set(split[2]);
                 headerOrder = headerOrdering.getOrder();
@@ -579,9 +647,7 @@ public class PathHeader implements Comparable<PathHeader> {
             }
 
             public final String section;
-            public final int    sectionOrder;
             public final String page;
-            public final int    pageOrder;
             public final String header;
             public final int    headerOrder;
             public final String code;
@@ -590,8 +656,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
             @Override
             public String toString() {
-                return section + "\t" + sectionOrder + "\t"
-                + page + "\t" + pageOrder + "\t"
+                return section + "\t"
+                + page + "\t"
                 + header + "\t" + headerOrder + "\t"
                 + code + "\t" + codeOrder + "\t"
                 + status;
@@ -607,6 +673,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         /**
          * Internal data, for testing and debugging.
+         * @deprecated
          */
         public class CounterData extends Row.R4<String, RawData, String, String> {
             public CounterData(String a, RawData b, String c) {
@@ -617,6 +684,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         /**
          * Get the internal data, for testing and debugging.
+         * @deprecated
          */
         public Counter<CounterData> getInternalCounter() {
             synchronized (lookup) {

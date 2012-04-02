@@ -1933,11 +1933,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         String key = extension.getKey();
         String type = extension.getValue();
         // Check if key/type pairs exist in the CLDRFile first.
-        String value = getStringValue("//ldml/localeDisplayNames/types/type[@type=\"" + type + "\"][@key=\"" + key + "\"]");
+        String valuePath = "//ldml/localeDisplayNames/types/type[@type=\"" + type + "\"][@key=\"" + key + "\"]";
+        String value = null;
+        // Ignore any values from code-fallback.
+        if (!getSourceLocaleID(valuePath, null).equals(XMLSource.CODE_FALLBACK_ID)) {
+            value = getStringValue(valuePath);
+        }
         if (value == null) {
             // Get name of key instead and pair it with the type as-is.
-            // To add support for currency and timezone names, look for the
-            // relevant xpaths here.
             String keyTypePattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern");
             sname = getStringValue("//ldml/localeDisplayNames/keys/key[@type=\"" + key + "\"]");
             if (sname == null) sname = key;

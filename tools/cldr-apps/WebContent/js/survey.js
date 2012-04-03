@@ -960,7 +960,16 @@ function hidePopHandler(e){
 	window.hidePop(null);
 	stStopPropagation(e); return false; 
 }
-
+function removeClass(obj, className) {
+	if(obj.className.indexOf(className)>-1) {
+		obj.className = obj.className.substring(className.length+1);
+	}
+}
+function addClass(obj, className) {
+	if(obj.className.indexOf(className)==-1) {
+		obj.className = className+" "+obj.className;
+	}
+}
 dojo.ready(function() {
 	var unShow = null;
 //	var lastShown = null;
@@ -977,6 +986,20 @@ dojo.ready(function() {
 //	var pupeak_height = pupeak.offsetHeight;
 	if(!pubody) return;
 	var hideInterval=null;
+	
+	function setLastShown(obj) {
+		if(gPopStatus.lastShown && obj!=gPopStatus.lastShown) {
+			removeClass(gPopStatus.lastShown,"pu-select");
+		}
+		if(obj) {
+			addClass(obj,"pu-select");
+		}
+		gPopStatus.lastShown = obj;
+	}
+	
+	function clearLastShown() {
+		setLastShown(null);
+	}
 	
 	listenFor(pubody, "mouseover", function() {
 		clearTimeout(hideInterval);
@@ -1015,11 +1038,14 @@ dojo.ready(function() {
 //			
 //			return;
 //		}
-		lastShown = hideIfLast;
+		setLastShown(hideIfLast);
 
 		var td = document.createDocumentFragment();
 
-		var theHelp = tr.helpDiv;
+		var theHelp = null;
+		if(tr&& tr.helpDiv) {
+			theHelp =  tr.helpDiv;
+		}
 		if(theHelp) {
 			td.appendChild(theHelp.cloneNode(true));
 		}
@@ -1071,12 +1097,14 @@ dojo.ready(function() {
 //				pupeak.style.left = "0px";
 //			}
 //			puouter.style.left = (newLeft+nudgehpost)+"px";
+			pupeak.style.display="none";
 		} else {
-			pupeak.style.left = "0px";
-			pupeak.style.top = "0px";
-			stdebug("Note: showPop with no td");
+			pupeak.style.display="none";
+//			pupeak.style.left = "0px";
+//			pupeak.style.top = "0px";
+//			stdebug("Note: showPop with no td");
 		}
-		puouter.style.display="block";
+		puouter.style.display="block"; // show
 	};
 	if(false) {
 		window.showInPop = window.showInPop2;
@@ -1101,14 +1129,20 @@ dojo.ready(function() {
 			clearTimeout(hideInterval);
 		}
 		hideInterval=setTimeout(function() {
-			puouter.style.display="none";
-			lastShown = null;
+			if(false) {
+				puouter.style.display="none";
+			} else {
+				removeAllChildNodes(pucontent);
+				pupeak.style.display="none";
+			}
+			clearLastShown();
 			incrPopToken('newHide');
 		}, 2000);
 	};
 	window.resetPop = function() {
 		lastShown = null;
 	};
+	showInPop2("", null, null, null, true);
 });
 
 function appendItem(div,value, pClass) {
@@ -1229,7 +1263,7 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 			} else {
 				retFn = null;
 			}
-			if(value == tr.myProposal.value) { // make sure it wasn't submitted twice
+			if(tr.myProposal && (value == tr.myProposal.value)) { // make sure it wasn't submitted twice
 				showDiv.appendChild(div3);
 			}
 			return retFn;

@@ -151,7 +151,17 @@ public class CheckDates extends FactoryCheckCLDR {
             String path = (String) it.next();
             String value = resolved.getWinningValue(path);
             String fullPath = resolved.getFullXPath(path);
-            flexInfo.checkFlexibles(path, value, fullPath);
+            try {
+                flexInfo.checkFlexibles(path, value, fullPath);
+            } catch (Exception e) {
+                final String message = e.getMessage();
+                CheckStatus item = new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(message.contains("Conflicting fields") ? Subtype.dateSymbolCollision : Subtype.internalError)
+                .setMessage(message);      
+                possibleErrors.add(item);
+            }
             //possibleErrors.add(flexInfo.getFailurePath(path));
         }
         redundants.clear();
@@ -266,6 +276,8 @@ public class CheckDates extends FactoryCheckCLDR {
                     if (myType == null) {
                         break main;
                     }
+                    String myMainType = getMainType(path);
+
                     String calendarPrefix = path.substring(0,pos);
                     boolean endsWithDisplayName = path.endsWith("displayName"); // special hack, these shouldn't be in calendar.
 
@@ -286,6 +298,10 @@ public class CheckDates extends FactoryCheckCLDR {
                         }
                         String otherType = getLastType(item);
                         if (myType.equals(otherType)) { // we don't care about items with the same type value
+                            continue;
+                        }
+                        String mainType = getMainType(item);
+                        if (!myMainType.equals(mainType)) { // we *only* care about items with the same type value
                             continue;
                         }
                         filteredPaths.add(item);
@@ -407,11 +423,26 @@ public class CheckDates extends FactoryCheckCLDR {
         if (secondType < 0) {
             return null;
         }
+        secondType += 8;
         int secondEnd = path.indexOf("\"]", secondType);
         if (secondEnd < 0) {
             return null;
         }
-        return path.substring(secondType+8,secondEnd);
+        return path.substring(secondType,secondEnd);
+    }
+
+
+    public String getMainType(String path) {
+        int secondType = path.indexOf("\"]/");
+        if (secondType < 0) {
+            return null;
+        }
+        secondType += 3;
+        int secondEnd = path.indexOf("/", secondType);
+        if (secondEnd < 0) {
+            return null;
+        }
+        return path.substring(secondType,secondEnd);
     }
 
     private String getValues(CLDRFile resolvedCldrFileToCheck, Collection<String> values) {

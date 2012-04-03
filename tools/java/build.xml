@@ -18,6 +18,11 @@
             <pathelement path="${build.dir}"/>
             <pathelement path="${libs.dir}"/>
         </path>
+
+        <property name="CLDR_DIR" value="../../"/>
+        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=true"/>
+        <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
+
         
         <condition property="is.icu4j.classes.set" >
             <or>
@@ -198,4 +203,22 @@
   <target name="icu4c" depends="init, ant-plugin, icu">
     <ant dir="${env.ICU4C_DIR}/source/data" antfile="build.xml" target="all" />
   </target>   
+
+
+    <target name="check" description="Run the standard ICU4J test suite" depends="init">
+        <antcall target="_runCheck">
+            <param name="runcheck.arg" value="-n"/>
+            <param name="runcheck.jvmarg" value="${jvm_options}"/>
+        </antcall>
+    </target>
+
+   <target name="_runCheck" depends="init,test">
+        <echo message="JVM argument:   ${runcheck.jvmarg} -Djava.awt.headless=true"/>
+        <echo message="Test argument:   ${runcheck.arg}"/>
+        <java classname="org.unicode.cldr.unittest.TestAll" fork="yes" failonerror="true" classpathref="project.class.path">
+            <arg line="${runcheck.arg}"/>
+            <jvmarg line="${runcheck.jvmarg} -Djava.awt.headless=true"/>
+        </java>
+   </target>
+
 </project>

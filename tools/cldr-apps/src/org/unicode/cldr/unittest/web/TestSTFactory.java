@@ -45,8 +45,14 @@ public class TestSTFactory extends TestFmwk {
 	public static void main(String[] args) {
 		new TestSTFactory().run(TestAll.doResetDb(args));
 	}
-	public void TestFactory() throws SQLException {
+	public void TestBasicFactory() throws SQLException {
+	    CLDRLocale locale = CLDRLocale.getInstance("aa");
 		STFactory fac = getFactory();
+        CLDRFile mt = fac.make(locale, false);
+        BallotBox<User> box = fac.ballotBoxForLocale(locale);
+        mt.iterator();
+        final String somePath =  "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+        box.getValues(somePath);
 	}
 		
 	public void TestReadonlyLocales() throws SQLException {
@@ -141,8 +147,7 @@ public class TestSTFactory extends TestFmwk {
 			BallotBox<User> box = fac.ballotBoxForLocale(locale);
 
 
-			expect(somePath,originalValue,true,
-					mt,box);
+			expect(somePath,originalValue,false,mt,box);
 
 			// vote for ____2
 			changedTo = changedTo+"2";
@@ -217,7 +222,7 @@ public class TestSTFactory extends TestFmwk {
 			// unvote
 			box.voteForValue(getMyUser(), somePath2, null);
 
-			expect(somePath2,null,true, mt_MT,box); // Expect null - no one has voted.
+			expect(somePath2,null,false, mt_MT,box); // Expect null - no one has voted.
 		}
 		fac = resetFactory();
 		{
@@ -225,7 +230,7 @@ public class TestSTFactory extends TestFmwk {
 			BallotBox<User> box = fac.ballotBoxForLocale(locale2);
 
 
-			expect(somePath2,null,true,mt_MT,box);
+			expect(somePath2,null,false,mt_MT,box);
 
 			// vote for ____2
 			changedTo2 = changedTo2+"2";

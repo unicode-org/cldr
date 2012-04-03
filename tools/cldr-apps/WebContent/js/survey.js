@@ -170,17 +170,42 @@ function updateIf(id, txt) {
 }
 
 // work around IE8 fail
+
 function listenFor(what, event, fn, ievent) {
+	if(!(what._stlisteners)) {
+		what._stlisteners={};
+	}
+	
 	if(what.addEventListener) {
+		if(what._stlisteners[event]) {
+			if(what.removeEventListener) {
+				what.removeEventListener(event,what._stlisteners[event],false);
+			} else {
+				console.log("Err: no removeEventListener on " + what);
+			}
+		}
 		what.addEventListener(event,fn,false);
 	} else {
 		if(!ievent) {
 			ievent = "on"+event;
 		}
+		if(what._stlisteners[event]) {
+			what.detachEvent(ievent,what._stlisteners[event]);
+		}
 		what.attachEvent(ievent,fn);
 	}
+	what._stlisteners[event]=fn;
 }
-
+//function unListen(what, event, ievent) {
+//	if(what.removeEventListener) {
+//		what.removeEventListener(event,false);
+//	} else {
+//		if(!ievent) {
+//			ievent = "on"+event;
+//		}
+//		what.attachEvent(ievent,fn);
+//	}
+//}
 // ?!!!!
 if(!Object.keys) {
 	Object.keys = function(x) {
@@ -326,6 +351,9 @@ var ajaxWord = null;
 function showWord() {
 	var p = dojo.byId("progress");	
 	var oneword = dojo.byId("progress_oneword");
+	if(oneword==null) {
+		return;
+	}
 	if(progressWord&&progressWord=="disconnected") { // top priority
 		oneword.innerHTML = stopIcon +  stui_str('disconnected');
 		p.className = "progress-disconnected";
@@ -541,6 +569,22 @@ function resetTimerSpeed(speed) {
 
 listenFor(window,'load',setTimerOn);
 
+
+function getTestKind(testResults) {
+	if(!testResults) {
+		return null;
+	}
+	var theKind =  null;
+    for(var i=0;i<testResults.length;i++) {
+        var tr = testResults[i];
+        if(tr.type == 'Warning') {
+        	theKind = tr.type;
+        } else if(tr.type == 'Error') {
+        	return tr.type;
+        }
+    }
+    return theKind;
+}
 
 function updateTestResults(fieldhash, testResults, what) {
     var e_div = document.getElementById('e_'+fieldhash);
@@ -881,6 +925,26 @@ var gPopStatus = {
 		popToken: 0
 };
 
+function showInPop(str,tr, theObj, fn, immediate) {
+	alert("Internal error (showInPop not able to load)");
+}
+
+function listenToPop(str, tr, theObj, fn) {
+	listenFor(theObj, "mouseover",
+			function(e) {
+				showInPop(str, tr, theObj, fn, false);
+				stStopPropagation(e);
+				return false;
+			});
+	listenFor(theObj, "click",
+			function(e) {
+				showInPop(str, tr, theObj, fn, true);
+				stStopPropagation(e);
+				return false;
+			});
+}
+
+
 function getPopToken() {
 	return gPopStatus.popToken;
 }
@@ -895,22 +959,23 @@ function incrPopToken(x) {
 function hidePopHandler(e){ 		
 	window.hidePop(null);
 	stStopPropagation(e); return false; 
-}// new pop stuff
+}
+
 dojo.ready(function() {
 	var unShow = null;
-	var lastShown = null;
+//	var lastShown = null;
 	var pucontent = dojo.byId("pu-content");
 	var puouter = dojo.byId("pu-outer");
 	var pupeak = dojo.byId("pu-peak");
 	var pubody = dojo.byId("pu-body");
 	var nudgeh=0;
-	var nudgev=0;
-	var nudgehpost=0;
-	var nudgevpost=0;
-	var hardleft = 10;
-	var hardtop = 10;
-	var pupeak_height = pupeak.offsetHeight;
-	
+//	var nudgev=0;
+//	var nudgehpost=0;
+//	var nudgevpost=0;
+//	var hardleft = 10;
+//	var hardtop = 10;
+//	var pupeak_height = pupeak.offsetHeight;
+	if(!pubody) return;
 	var hideInterval=null;
 	
 	listenFor(pubody, "mouseover", function() {
@@ -930,9 +995,7 @@ dojo.ready(function() {
 		
 	}
 	
-	if(true) {
-	
-	window.showInPop2 = function(tr,theRow, str, hideIfLast, fn) {
+	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
 //			return; // keep up
 //		}
@@ -956,7 +1019,10 @@ dojo.ready(function() {
 
 		var td = document.createDocumentFragment();
 
-		appendHelp(td,theRow);
+		var theHelp = tr.helpDiv;
+		if(theHelp) {
+			td.appendChild(theHelp.cloneNode(true));
+		}
 
 		if(str) {
 			var div2 = document.createElement("div");
@@ -970,6 +1036,11 @@ dojo.ready(function() {
 		removeAllChildNodes(pucontent);
 		pucontent.appendChild(td);
 		td=null;
+		
+//		var popParent = tr;
+//		if(hideIfLast.popParent) {
+//			popParent = hideIfLast.popParent;
+//		}
 		
 		if(hideIfLast) { // context
 			var loc = getAbsolutePosition(hideIfLast);
@@ -1011,16 +1082,16 @@ dojo.ready(function() {
 		window.showInPop = window.showInPop2;
 	} else {
 		// delay before show
-		window.showInPop = function(tr,theRow,str,hideIfLast,fn,immediate) {
+		window.showInPop = function(str,tr,hideIfLast,fn,immediate) {
 			if(hideInterval) {
 				clearTimeout(hideInterval);
 				hideInterval=null;
 			}
 			if(immediate) {
-				return window.showInPop2(tr,theRow,str,hideIfLast,fn);
+				return window.showInPop2(str,tr,hideIfLast,fn);
 			} else {
 				hideInterval=setTimeout(function() {
-					window.showInPop2(tr,theRow,str,hideIfLast,fn);
+					window.showInPop2(str,tr,hideIfLast,fn);
 				}, 2500);
 			}
 		};
@@ -1038,13 +1109,20 @@ dojo.ready(function() {
 	window.resetPop = function() {
 		lastShown = null;
 	};
-	} else {
-		alert('old pop handlers are gone.');
-	}
-	/* old system */
 });
 
-
+function appendItem(div,value, pClass) {
+	var text = document.createTextNode(value);
+	var span = document.createElement("span");
+	span.appendChild(text);
+	if(pClass) {
+		span.className = pClass;
+	} else {
+		span.className = "value";
+	}
+	div.appendChild(span);
+	return span;
+}
 
 function testsToHtml(tests) {
 	var newHtml = "";
@@ -1065,70 +1143,122 @@ function testsToHtml(tests) {
 	}
 	return newHtml;
 }
-function appendHelp(td,theRow) {
-	if(theRow && theRow.displayHelp) {
-		var helpDiv = cloneAnon(dojo.byId("proto-help"));
-		helpDiv.innerHTML += theRow.displayHelp;
-		td.appendChild(helpDiv);
+function setDivClass(div,testKind) {
+	if(!testKind) {
+		div.className = "d-item";
+	} else if(testKind=="Warning") {
+		div.className = "d-item-warn";
+	} else if(testKind=="Error") {
+		div.className = "d-item-err";
+	} else {
+		div.className = "d-item";
+		//(createChunk("(unknown testKind "+testKind+")" ,"i"));
 	}
+}
+function findItemByValue(items, value) {
+	if(!items) return null;
+	for(var i in items) {
+		if(value==items[i].value) {
+			return items[i];
+		}
+	}
+	return null;
 }
 
 function showProposedItem(inTd,tr,theRow,value,tests) {
-	theRow.proposedResults = null;
-	if(!tests || tests.length==0) return false;
-	var div3 = document.createElement("div");
-	var newHtml = "";
-	newHtml += testsToHtml(tests);
-
-	var h3 = document.createElement("h3");
-	var span = document.createElement("span");
-	span.className="value";
-	span.dir = tr.theTable.json.dir;
-	span.appendChild(document.createTextNode(value));
-	h3.appendChild(span);
-	h3.className="span";
-	div3.appendChild(h3);
-	var newDiv = document.createElement("div");
-	div3.appendChild(newDiv);
-	newDiv.innerHTML = newHtml;
-	theRow.proposedResults = div3;
+	var children = getTagChildren(tr);
+	var config = tr.theTable.config;
 	
-	tr._showProposedResults();  // trigger
+//	stdebug("Searching for our value " + value );
+	// Find where our value went.
+	var ourItem = findItemByValue(theRow.items,value);
+	
+	var testKind = getTestKind(tests);
+	var ourDiv = null;
+	if(!ourItem) {
+		ourDiv = document.createElement("div");
+		var newButton = cloneAnon(dojo.byId('proto-button'));
+		if(newButton) {
+			newButton.value=value;
+			wireUpButton(newButton,tr,theRow,"[retry]", {"value":value});
+			ourDiv.appendChild(newButton);
+		}
+		var h3 = document.createElement("span");
+		var span=appendItem(h3, value, "value");
+		span.dir = tr.theTable.json.dir;
+		ourDiv.appendChild(h3);
+		
+		if(tr.myProposal) {
+			children[config.othercell].removeChild(tr.myProposal);
+		}
+		tr.myProposal = ourDiv;
+		tr.myProposal.value = value;
+		children[config.othercell].appendChild(tr.myProposal);
+	} else {
+		ourDiv = ourItem.div;
+	}
+	setDivClass(ourDiv,testKind);
+	
+//	theRow.proposedResults = null;
 
-	var hadWarn = false;
-	var hadErr = false;
-	for(var i=0;i<tests.length;i++) {
-		var testItem = tests[i];
-		if(testItem.type == 'Warning') hadWarn = true;
-		if(testItem.type == 'Error') hadErr = true;
+	if(testKind || !ourItem) {
+		var div3 = document.createElement("div");
+		var newHtml = "";
+		newHtml += testsToHtml(tests);
+
+		if(!ourItem) {
+			var h3 = document.createElement("h3");
+			var span=appendItem(h3, value, "value");
+			span.dir = tr.theTable.json.dir;
+			h3.className="span";
+			div3.appendChild(h3);
+		}
+		var newDiv = document.createElement("div");
+		div3.appendChild(newDiv);
+		newDiv.innerHTML = newHtml;
+//		theRow.proposedResults = div3;
+//		theRow.proposedResults.value = value;
+
+		div3.popParent = tr;
+		
+		// will replace any existing function
+		var ourShowFn = function(showDiv) {
+			var retFn;
+			if(ourItem && ourItem.showFn) {
+				retFn =  ourItem.showFn(showDiv);
+			} else {
+				retFn = null;
+			}
+			if(value == tr.myProposal.value) { // make sure it wasn't submitted twice
+				showDiv.appendChild(div3);
+			}
+			return retFn;
+		};
+		listenToPop(null, tr, ourDiv, ourShowFn);
+		showInPop(null, tr, ourDiv, ourShowFn, true);
 	}
-	if(hadErr) {
-		tr.inputTd.className="d-change-err"; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
-		return true;
-	} else if(hadWarn) {
-		tr.inputTd.className="d-change-warn";// TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
-		return false;
-	}
+
 	return false;
 }
 
-function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
-	showInPop(tr, theRow, "", div, function(td) {
+// returns a popinto function
+function showItemInfoFn(theRow, item, vHash, newButton, div) {
+	return function(td) {
 		//div.className = 'd-item-selected';
 
 		var h3 = document.createElement("h3");
-		h3.appendChild(cloneAnon(div.getElementsByTagName("span")[0]));
+		var span = appendItem(h3, item.value, item.pClass);
 		h3.className="span";
-		h3.onclick = function() {
-			if(tr.inputBox) {
-				tr.inputBox.value  = item.value;
-			}
-			return false;
-		};
-		h3.title = stui.clickToCopy;
+		if(false) { // click to copy
+			h3.onclick = function() {
+				if(tr.inputBox) {
+					tr.inputBox.value  = item.value;
+				}
+				return false;
+			};
+			h3.title = stui.clickToCopy;
+		}
 		td.appendChild(h3);
-		
-		
 		
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
@@ -1149,17 +1279,15 @@ function showItemInfo(td, tr, theRow, item, vHash, newButton, div) {
 		}
 		
 		//return function(){ var d2 = div; return function(){ 	d2.className="d-item";  };}();
-	}); // end fn
+	}; // end fn
 }
 
-
-
-function popInfoInto(tr, theRow, theChild) {
+function popInfoInto(tr, theRow, theChild, immediate) {
 	if(theRow.voteInfoText) {
-		showInPop(tr, theRow, theRow.voteInfoText, theChild);
+		showInPop(theRow.voteInfoText, tr, theChild, null, immediate);
 		return;
 	}
-	showInPop(tr, theRow, "<i>" + stui.str("loading") + "</i>", theChild);
+	showInPop("<i>" + stui.str("loading") + "</i>", tr, theChild);
 	var popShowingToken = getPopToken();
 	stdebug('Got token ' + popShowingToken);
 //	var what = WHAT_GETROW;
@@ -1171,11 +1299,9 @@ function popInfoInto(tr, theRow, theChild) {
 		console.log('Error in refreshRow: ' + err + ' response '
 				+ ioArgs.xhr.responseText);
 		showInPop(
-				tr,
-				theRow,
 				stopIcon
 						+ " Couldn't reload this row- please refresh the page. <br>Error: "
-						+ err + "</td>");
+						+ err + "</td>", tr, theChild);
 		return true;
 	};
 	var loadHandler = function(text) {
@@ -1186,8 +1312,7 @@ function popInfoInto(tr, theRow, theChild) {
 				theRow.voteInfoText = stopIcon + stui.noVotingInfo;
 			}
 			if(getPopToken()==popShowingToken) {
-				resetPop(); // Force display.
-				showInPop(tr, theRow, theRow.voteInfoText, theChild);
+				showInPop(theRow.voteInfoText, tr, theChild, null, true);
 //				stdebug("success with token " + popShowingToken);
 			} else { // else, something else happened meanwhile.
 //				stdebug("our token was " + popShowingToken + " but now at " + getPopToken() );
@@ -1195,7 +1320,7 @@ function popInfoInto(tr, theRow, theChild) {
 		} catch (e) {
 			console.log("Error in ajax get ", e.message);
 			console.log(" response: " + text);
-			showInPop(tr, theRow, stopIcon + " exception: " + e.message, theChild);
+			showInPop(stopIcon + " exception: " + e.message, tr, theChild, true);
 		}
 	};
 	var xhrArgs = {
@@ -1218,47 +1343,57 @@ function appendExample(parent, text) {
 	return div;
 }
 
+
+
 function addVitem(td, tr,theRow,item,vHash,newButton) {
 //	var canModify = tr.theTable.json.canModify;
 	var div = document.createElement("div");
 	var isWinner = (td==tr.proposedcell);
-	div.className = "d-item";
+	var testKind = getTestKind(item.tests);
+	setDivClass(div,testKind);
+	item.div = div;
 	
 	if(item==null)  {
 //		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
 		return;
 	}
-	var text = document.createTextNode(item.value);
-	var span = document.createElement("span");
-	span.className = item.pClass;
-	span.dir = tr.theTable.json.dir;
-	span.appendChild(text);
+	
 	if(newButton) {
 		newButton.value=item.value;
 		wireUpButton(newButton,tr,theRow,vHash);
 		div.appendChild(newButton);
 	}
-	div.appendChild(span);
+	var span = appendItem(div,item.value,item.pClass);
+	
+	span.dir = tr.theTable.json.dir;
 	if(item.isOldValue==true && !isWinner) {
 		addIcon(div,"i-star");
 	}
 	if(item.votes && !isWinner) {
 		addIcon(div,"i-vote");
 	}
+
+	td.showFn = item.showFn = showItemInfoFn(theRow,item,vHash,newButton,div);
 	div.popParent = tr;
-	var onmove = function(){ showItemInfo(td,tr,theRow,item,vHash,newButton,div); return false;};
-	listenFor(div,"mouseover", onmove);
-	td._onmove = onmove;
+	listenToPop(null, tr, div, td.showFn);
 	td.appendChild(div);
 	
 	if(item.inExample) {
-		addIcon(div,"i-example-zoom").onclick = div.onclick;
+		//addIcon(div,"i-example-zoom").onclick = div.onclick;
 	} else if(item.example) {
-		listenFor(appendExample(td,item.example),"mouseover", onmove);
+		var example = appendExample(div,item.example);
+//		example.popParent = tr;
+//		listenToPop(null,tr,example,td.showFn);
 	}
 }
 
 function updateRow(tr, theRow) {
+	if(!tr.helpDiv) {
+		// this also marks this row as a 'help parent'
+		tr.helpDiv = cloneAnon(dojo.byId("proto-help"));
+		tr.helpDiv.innerHTML += theRow.displayHelp;
+	}
+	
 	var canModify = tr.theTable.json.canModify;
 	if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
@@ -1273,53 +1408,58 @@ function updateRow(tr, theRow) {
 	}
 	
 	var doPopInfo = function(e) {
-		popInfoInto(tr,theRow,children[config.statuscell]);
+		popInfoInto(tr,theRow,children[config.statuscell],false);
 		stStopPropagation(e); return false; 
 	};
+	var doPopInfoNow = function(e) {
+		popInfoInto(tr,theRow,children[config.statuscell],true);
+		stStopPropagation(e); return false; 
+	};
+		
+//	if(theRow.hasErrors) {
+////		children[config.errcell].className = "d-st-stop";
+////		children[config.errcell].title = stui.testError;
+//		children[config.proposedcell].className = 'd-win-err';
+//	} else if(theRow.hasWarnings) {
+////		children[config.errcell].className = "d-st-warn";
+////		children[config.errcell].title = stui.testWarn;
+//		children[config.proposedcell].className = 'd-win-warn';
+//	} else {
+////		children[config.errcell].className = "d-st-okay";
+////		children[config.errcell].title = stui.testOkay;
+//		children[config.proposedcell].className = 'd-win';
+//	}
 	
-	if(!tr._onmove) {
-		tr._onmove = function(e) {showInPop(tr,theRow,"",children[config.codecell]); stStopPropagation(e); return false;};
-	}
 	
-	if(theRow.hasErrors) {
-		children[config.errcell].className = "d-st-stop";
-		children[config.errcell].title = stui.testError;
-		children[config.proposedcell].className = 'd-win-err';
-	} else if(theRow.hasWarnings) {
-		children[config.errcell].className = "d-st-warn";
-		children[config.errcell].title = stui.testWarn;
-		children[config.proposedcell].className = 'd-win-warn';
-	} else {
-		children[config.errcell].className = "d-st-okay";
-		children[config.errcell].title = stui.testOkay;
-		children[config.proposedcell].className = 'd-win';
-	}
-	listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus;
 	if(!children[config.statuscell].isSetup) {
 		listenFor(children[config.statuscell],"mouseover",
 				doPopInfo);
+		listenFor(children[config.statuscell],"click",
+				doPopInfoNow);
 		children[config.statuscell].isSetup=true;
 	}
 	children[config.statuscell].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
 
 	if(theRow.hasVoted) {
-		children[config.votedcell].className = "d-vo-true";
-		children[config.votedcell].title=stui.voTrue;
+//		children[config.votedcell].className = "d-vo-true";
+//		children[config.votedcell].title=stui.voTrue;
 		children[config.nocell].title=stui.voTrue;
 		children[config.nocell].className= "d-no-vo-true";
 	} else {
-		children[config.votedcell].className = "d-vo-false";
-		children[config.votedcell].title=stui.voFalse;
+//		children[config.votedcell].className = "d-vo-false";
+//		children[config.votedcell].title=stui.voFalse;
 		children[config.nocell].title=stui.voFalse;
 		children[config.nocell].className= "d-no-vo-false";
 	}
-	if(!children[config.votedcell].isSetup) {
-		listenFor(children[config.votedcell],"mouseover",
-				doPopInfo);
-		children[config.votedcell].isSetup=true;
-	}
+//	if(!children[config.votedcell].isSetup) {
+//		listenFor(children[config.votedcell],"mouseover",
+//				doPopInfo);
+//		listenFor(children[config.votedcell],"click",
+//				doPopInfoNow);
+//		children[config.votedcell].isSetup=true;
+//	}
 
 	if(!tr.anch || stdebug_enabled) {
 		if(tr.anch) { // clear out old (only for debug)
@@ -1343,23 +1483,20 @@ function updateRow(tr, theRow) {
 			var js = document.createElement("a");
 			js.className="anch-go";
 			js.appendChild(document.createTextNode("{}"));
-			js.onclick=function() { showInPop(tr,theRow,JSON.stringify(theRow),children[config.codecell],null,true);return false;};
+			js.popParent=tr;
+			listenToPop(JSON.stringify(theRow),tr,js);
 			children[config.codecell].appendChild(js);
 		}
 //		listenFor(children[config.codecell],"click",
 //				function(e){ 		
-//					showInPop(tr, theRow, "XPath: " + theRow.xpath, children[config.codecell]);
+//					showInPop("XPath: " + theRow.xpath, children[config.codecell]);
 //					stStopPropagation(e); return false; 
 //				});
 		var xpathStr = "";
 		if(stdebug_enabled) {
 			xpathStr = "XPath: " + theRow.xpath;
 		}
-		listenFor(children[config.codecell],"mouseover",
-				function(e){
-					showInPop(tr, theRow, xpathStr, children[config.codecell]);
-					stStopPropagation(e); return false; 
-				});
+		listenToPop(xpathStr, tr, children[config.codecell]);
 		tr.anch = anch;
 	}
 	
@@ -1367,45 +1504,67 @@ function updateRow(tr, theRow) {
 	if(!children[config.comparisoncell].isSetup) {
 		children[config.comparisoncell].appendChild(document.createTextNode(theRow.displayName));
 		if(theRow.displayExample) {
-			appendExample(children[config.comparisoncell], theRow.displayExample);
+			var theExample = appendExample(children[config.comparisoncell], theRow.displayExample);
+			listenToPop(null,tr,theExample);
 		}
-		listenFor(children[config.comparisoncell],"mouseover",tr._onmove);
+		listenToPop(null,tr,children[config.comparisoncell]);
 		children[config.comparisoncell].isSetup=true;
 	}
 	removeAllChildNodes(children[config.proposedcell]); // win
 	tr.proposedcell = children[config.proposedcell];
 	if(theRow.items&&theRow.winningVhash) {
-		children[config.proposedcell]._onmove=null;
 		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
-		children[config.errcell]._onmove = children[config.proposedcell]._onmove;
 	} else {
-		children[config.errcell]._onmove = tr._onmove;
+		children[config.proposedcell].showFn = null;  // nothing else to show
 	}
+	listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
+	//listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
 	removeAllChildNodes(children[config.othercell]); // other
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
-			continue;
+			continue; // skip the winner
 		}
 		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton));
+	}
+	if(tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
+		// add back my proposal
+		children[config.othercell].appendChild(tr.myProposal);
+	} else {
+		tr.myProposal=null; // not needed
 	}
 
 	if(!children[config.changecell].isSetup) {
 		removeAllChildNodes(children[config.changecell]);
 		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		
+		// TODO: show proposed results
 		tr._showProposedResults = function(e) {
+			if(e) {
+				stStopPropagation(e);
+			}
 			if(theRow.proposedResults) {
-				showInPop(tr, theRow, null, children[config.changecell], function(td) {
+				showInPop( null, tr, children[config.changecell], function(td) {
 					td.appendChild(theRow.proposedResults);
 					return null;
 				},false);
-				if(e) {
-					stStopPropagation(e);
-				}
 				return false; 
 			} else {
-				return tr._onmove(e); // show row generically
+				return false; // return tr._onmove(e); // show row generically
+			}
+		};
+		tr._showProposedResults2 = function(e) {
+			if(e) {
+				stStopPropagation(e);
+			}
+			if(theRow.proposedResults) {
+				showInPop( null, tr, children[config.changecell], function(td) {
+					td.appendChild(theRow.proposedResults);
+					return null;
+				},true);
+				return false; 
+			} else {
+				return false; // return tr._onmove(e); // show row generically
 			}
 		};
 		if(!canModify) {
@@ -1441,7 +1600,8 @@ function updateRow(tr, theRow) {
 			children[config.changecell].isSetup=true;
 			children[config.changecell].theButton = changeButton;
 		}
-		listenFor(children[config.changecell],"mouseover",tr._showProposedResults);
+//		listenFor(children[config.changecell],"mouseover",tr._showProposedResults);
+//		listenFor(children[config.changecell],"click",tr._showProposedResults2);
 		
 	} else {
 		if(children[config.changecell].theButton) {
@@ -1814,7 +1974,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         			tr.theTable.json.section.rows[tr.rowHash] = theRow;
         			updateRow(tr, theRow);
         			hideLoader(tr.theTable.theDiv.loader);
-        			onSuccess();
+        			onSuccess(theRow);
         		} else {
         	        tr.className = "ferrbox";
         	        tr.innerHTML="No content found "+tr.rowHash+ "  while  loading";
@@ -1855,8 +2015,10 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		valToShow=box.value;
 		value = box.value;
 		if(value.length ==0 ) {
-			box.focus();
-			myUnDefer();
+			if(box.focus) {
+				box.focus();
+				myUnDefer();
+			}
 			return; // nothing entered.
 		}
 		tr.inputTd.className="d-change"; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
@@ -1873,6 +2035,15 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		showLoader(tr.theTable.theDiv.loader, stui.checking);
 	}
 
+	if(tr.myProposal) {
+		// move these 2 up if needed
+		var children = getTagChildren(tr);
+		var config = tr.theTable.config;
+		
+		children[config.othercell].removeChild(tr.myProposal);
+		tr.myProposal = null; // mark any pending proposal as invalid.
+	}
+	
 	var myUnDefer = function() {
 		tr.wait=false;
 		setDefer(false);
@@ -1900,7 +2071,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			} else {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
-					refreshRow2(tr,theRow,vHash,function(){
+					refreshRow2(tr,theRow,vHash,function(theRow){
 						tr.inputTd.className="d-change"; // TODO: use  inputTd=(getTagChildren(tr)[tr.theTable.config.changecell])
 
 						// submit went through. Now show the pop.
@@ -1909,15 +2080,11 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						if(json.testResults && (json.testWarnings || json.testErrors)) {
 							// tried to submit, have errs or warnings.
 							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
-							if(json.testErrors && box) {
-								setTimeout(function(){box.focus();},100); // make sure the box gets focus
-								box.focus();
-							}
 						} else {
-							if(box) {
-								box.value=""; // submitted - dont show.
-							}
 							hidePop(tr);
+						}
+						if(box) {
+							box.value=""; // submitted - dont show.
 						}
 						//tr.className = 'vother';
 						myUnDefer();
@@ -1929,6 +2096,9 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 					} else {
 						hidePop(tr);
+					}
+					if(box) {
+						box.value=""; // submitted - dont show.
 					}
 					//tr.className='vother';
 					button.className='ichoice-o';

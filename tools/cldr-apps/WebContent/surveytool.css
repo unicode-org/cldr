@@ -1021,7 +1021,7 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 }
 
 a.dcLocale {
-	color:  #888;
+	color:  #555;
 	text-decoration: none;	
 }
 
@@ -1809,15 +1809,15 @@ body.disconnected div#progress.progress-ok  button#progress-refresh {
 	float: right;
 }*/
 
-.d-item-selected .i-example-zoom,
-.i-example-zoom:hover,
+/*.d-item-selected .i-example-zoom,
 .d-item:hover .i-example-zoom {
 	padding: 2px;
 	width: 16px;
 	height: 16px;
-	background: none;
+	background-color: purple;
 	float: right;
-}
+	margin:  1px solid red;
+}*/
 
 .i-vote {
 	padding: 2px;
@@ -1841,15 +1841,14 @@ button.d-inforow-hider {
 	width: 75%;
 }
 
-/* anything that COULD have an icon */
-.d-win, .d-win-err, .d-win-warn,
+.d-item,.d-item-warn,.d-item-err,
 td.d-change,td.d-change-err,td.d-change-warn {
 	vertical-align: top;
 	/*padding-left:  18px;*/
 	padding-bottom: 16px !important;
 }
 
-td.d-change-err, td.d-win-err {
+td.d-change-err, td.d-win-err, .d-item-err {
 	background: #fa9092 url(stop.png) no-repeat left bottom !important;
 	border: 2px solid red !important;
 }
@@ -1858,7 +1857,7 @@ td.d-change-confirmonly {
 	background: #ddfafa ;
 }
 
-td.d-change-warn, td.d-win-warn {
+td.d-change-warn, td.d-win-warn, .d-item-warn {
 	border: 2px solid yellow !important;
 	background: #fbfea1 url(warn.png) no-repeat left bottom !important;
 }

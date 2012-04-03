@@ -206,7 +206,7 @@ public class ConsoleCheckCLDR {
         boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur; 
         boolean noaliases = options[NO_ALIASES].doesOccur; 
 
-        Level coverageLevel = Level.MODERN;
+        Level coverageLevel = null;
         String coverageLevelInput = options[COVERAGE].value;
         if (coverageLevelInput != null) {
             coverageLevel = Level.get(coverageLevelInput);

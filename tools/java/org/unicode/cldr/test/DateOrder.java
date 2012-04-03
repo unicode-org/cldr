@@ -62,6 +62,9 @@ class DateOrder implements Comparable<DateOrder> {
             DateOrder order = new DateOrder();
             for (String path : resolved) {
                 if (DisplayAndInputProcessor.hasDatetimePattern(path)) {
+                    if (path.contains("[@id=\"Ed\"]")) {
+                        continue;
+                    }
                     String locale = resolved.getSourceLocaleID(path, status);
                     if (!path.equals(status.pathWhereFound)) {
                         continue;

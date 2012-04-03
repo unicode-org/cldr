@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.With.SimpleIterator;
@@ -821,7 +820,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     return catFromTerritory.transform(territory)
                     + ": "
-                    + TestInfo.getInstance().getEnglish()
+                    + englishFile
                     .getName(CLDRFile.TERRITORY_NAME, territory);
                 }
             });

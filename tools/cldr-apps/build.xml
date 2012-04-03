@@ -284,6 +284,12 @@
             target="1.6"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
+        <mkdir dir="${build.dir}/org/unicode/cldr/unittest/web/data"/>
+        <copy todir="${build.dir}/org/unicode/cldr/unittest/web/data">
+            <fileset dir="${src.dir}/org/unicode/cldr/unittest/web/data"
+                excludes="**/CVS/**/*"/>
+        </copy>
+
     </target>
 
     <target name="check" description="Run the standard ICU4J test suite" depends="init">

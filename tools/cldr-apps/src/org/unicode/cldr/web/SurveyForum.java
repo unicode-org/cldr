@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -611,7 +612,7 @@ public class SurveyForum {
 							}
 						}
 					}
-					System.err.println("Got: " + o + " for fn " + forumNumber + " and " + base_xpath);
+//					System.err.println("Got: " + Arrays.toString(o) + " for fn " + forumNumber + " and " + base_xpath);
 				} finally {
 					DBUtils.close(conn);
 				}

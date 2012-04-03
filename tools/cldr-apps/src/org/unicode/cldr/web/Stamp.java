@@ -38,6 +38,10 @@ public class Stamp implements Comparable<Stamp>{
         return (this==other || (other instanceof Stamp && this.stamp==((Stamp)other).stamp));
     }
     
+    @Override
+    public int hashCode() {
+        return (int) stamp;
+    }
     /**
      * Get the stamp's current value
      * @return

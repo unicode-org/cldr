@@ -7,11 +7,14 @@
 package org.unicode.cldr.web;
 
 import java.io.BufferedReader;
+import java.io.Externalizable;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -103,7 +106,7 @@ import com.ibm.icu.util.ULocale;
 /**
  * The main servlet class of Survey Tool
  */
-public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
+public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
 
     public static Stamp surveyRunningStamp = Stamp.getInstance();
     
@@ -5022,11 +5025,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * Maintain a master list of metazones, culled from root.
      */
     public final Set<String> getMetazones() {
-	return supplementalDataInfo.getAllMetazones();
+        return getSupplementalDataInfo().getAllMetazones();
     }
 
     public Set<String> getMetazones(String subclass) {
 	Set<String> subSet = new TreeSet<String>();
+	SupplementalDataInfo supplementalDataInfo = getSupplementalDataInfo();
 	for(String zone : supplementalDataInfo.getAllMetazones()) {
 	    if(subclass.equals(supplementalDataInfo.getMetazoneToContinentMap().get(zone))) {
 		    subSet.add(zone);
@@ -5472,7 +5476,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @param section
      */
     void printSectionTableClose(WebContext ctx, DataSection section, boolean canModify) {
-        int table_width = section.hasExamples?13:10;
+        int table_width = (section!=null&&section.hasExamples)?13:10;
         if (!canModify) {
         	table_width -= 4; // No vote, change, or no opinion columns
         }
@@ -6173,7 +6177,9 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     }
     
     protected static void busted(String what, Throwable t, String stack) {
-        SurveyLog.logException(t,what,stack);
+        if(t!=null) {
+            SurveyLog.logException(t,what,stack);
+        }
         SurveyLog.logger.warning("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served,  " + getGuestsAndUsers()  + ")");
         try {
             throw new InternalError("broke here");
@@ -6935,4 +6941,12 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 	public static void setFileBaseOld(String fileBaseOld) {
 		SurveyMain.fileBaseOld = fileBaseOld;
 	}
+    @Override
+    public void readExternal(ObjectInput arg0) throws IOException, ClassNotFoundException {
+        STFactory.unimp(); // do not call 
+    }
+    @Override
+    public void writeExternal(ObjectOutput arg0) throws IOException {
+        STFactory.unimp(); // do not call
+    }
 }

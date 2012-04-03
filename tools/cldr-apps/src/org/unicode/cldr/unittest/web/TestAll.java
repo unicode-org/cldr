@@ -340,11 +340,10 @@ public TestAll() {
 
 	   */
 	  ConnectionFactory connectionFactory = new DriverManagerConnectionFactory(connectURI,props);
-	  PoolableConnectionFactory poolableConnectionFactory = new PoolableConnectionFactory(connectionFactory,connectionPool,new KeyedObjectPoolFactory(){
+	  new PoolableConnectionFactory(connectionFactory,connectionPool,new KeyedObjectPoolFactory(){
 
 		@Override
 		public KeyedObjectPool createPool() throws IllegalStateException {
-			// TODO Auto-generated method stub
 			return new GenericKeyedObjectPool();
 		}}
 	  		,null,false,true);
@@ -359,7 +358,6 @@ public TestAll() {
 
 			@Override
 			public CLDRProgressTask openProgress(String what) {
-				// TODO Auto-generated method stub
 				return openProgress(what,0);
 			}
 

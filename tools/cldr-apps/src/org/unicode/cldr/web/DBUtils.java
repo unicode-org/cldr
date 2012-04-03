@@ -11,7 +11,6 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -20,7 +19,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.MissingResourceException;
 import java.util.Properties;
 
 import javax.naming.Context;
@@ -29,7 +27,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StackTracker;
 
 import com.ibm.icu.text.UnicodeSet;
@@ -230,7 +227,7 @@ public class DBUtils {
 		return instance;
 	}
 
-	public static void makeInstanceFrom(DataSource dataSource2) {
+	public synchronized static void makeInstanceFrom(DataSource dataSource2) {
 		if(instance==null) {
 			instance = new DBUtils(dataSource2);
 		} else {

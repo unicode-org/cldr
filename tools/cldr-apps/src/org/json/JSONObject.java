@@ -1405,7 +1405,7 @@ public class JSONObject {
      * @throws JSONException If the value is or contains an invalid number.
      */
     static String valueToString(Object value) throws JSONException {
-        if (value == null || value.equals(null)) {
+        if (value == null /*|| value.equals(null)*/) {
             return "null";
         }
         if (value instanceof JSONString) {
@@ -1456,7 +1456,7 @@ public class JSONObject {
      */
      static String valueToString(Object value, int indentFactor, int indent)
             throws JSONException {
-        if (value == null || value.equals(null)) {
+        if (value == null /*|| value.equals(null)*/) {
             return "null";
         }
         try {

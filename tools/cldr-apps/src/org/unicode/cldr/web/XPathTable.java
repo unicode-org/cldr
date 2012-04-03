@@ -33,7 +33,6 @@ import com.ibm.icu.dev.test.util.ElapsedTimer;
  * It keeps an in-memory cache which is populated as ids are requested.
  */
 public class XPathTable {
-    private static java.util.logging.Logger logger;
     public static final String CLDR_XPATHS = "cldr_xpaths";
     private PrettyPath ppath = new PrettyPath();
     
@@ -185,7 +184,7 @@ public class XPathTable {
     				//                    logger.info("xpt: added " + xpath);
     				rs = queryStmt.executeQuery();
     				if(!rs.next()) {
-    					logger.severe("Couldn't retrieve newly added xpath " + xpath);
+    					SurveyLog.errln("Couldn't retrieve newly added xpath " + xpath);
     				} else {
     					stat_dbAdd++;
     				}
@@ -203,7 +202,7 @@ public class XPathTable {
     		return nid;
     	} catch(SQLException sqe) {
     		SurveyLog.logger.warning("xpath ["+xpath+"] len " + xpath.length());
-    		logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
+    		SurveyLog.logger.severe("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
     		sm.busted("XPathTable: Failed in addXPath("+xpath+"): " + DBUtils.unchainSqlException(sqe));
     	} finally {
 			if(inConn!=null) {
@@ -250,7 +249,7 @@ public class XPathTable {
     		ResultSet rs = queryIdStmt.executeQuery();                
     		if(!rs.next()) {
     			rs.close();
-    			logger.severe("XPath: no xpath for ID " + id);
+    			SurveyLog.logger.severe("XPath: no xpath for ID " + id);
     			if(id == 0) {
     				try {
     					throw new RuntimeException("no xpath for id " + id);
@@ -269,7 +268,7 @@ public class XPathTable {
     		stringToId.put(idToString_put(id,xpath),nid);
     		return xpath;
     	} catch(SQLException sqe) {
-    		logger.severe("XPathTable: Failed ingetByID (ID: "+ id+"): " + DBUtils.unchainSqlException(sqe) );
+    	    SurveyLog.logException(sqe,"XPathTable: Failed ingetByID (ID: "+ id+"): "  );
     		//            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
     		return null;
     	} finally {

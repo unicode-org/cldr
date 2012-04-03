@@ -10,6 +10,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.Partition.Membership;
 import org.unicode.cldr.util.VoteResolver.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import com.ibm.icu.text.Collator;
 
 /**
@@ -159,8 +160,8 @@ public class InterestSort extends SortMode {
               public boolean isMember(DataRow p) {
                 //return "root".equals(p.aliasFromLocale) || XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
                 return p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)
-                ( "root".equals(p.inheritedValue.inheritFrom) 
-                        || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom) );
+                ( CLDRLocale.ROOT==p.inheritedValue.inheritFrom 
+                        || XMLSource.CODE_FALLBACK_ID.equals(p.inheritedValue.inheritFrom.getBaseName()) );
                 /*
      p.winningXpathId==-1 &&    // no winning item
      p.inheritedValue!=null && // found inherited item (extrapaths and some special paths may not have an inherited item)

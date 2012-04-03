@@ -67,7 +67,7 @@ public class TestSTFactory extends TestFmwk {
 		CLDRLocale locale = CLDRLocale.getInstance(file.getLocaleID());
 		String currentWinner = file.getStringValue(path);
 		boolean didVote = box.userDidVote(getMyUser(),path);
-		StackTraceElement them =  Thread.currentThread().getStackTrace()[3];
+		StackTraceElement them =  Thread.currentThread().getStackTrace()[2];
 		String where = them.getFileName()+":"+them.getLineNumber()+": ";
 				
 		if(expectString==null) expectString = NULL;
@@ -91,7 +91,7 @@ public class TestSTFactory extends TestFmwk {
 		return didVote?"(I VOTED)":"( did NOT VOTE) ";
 	}
 	
-	public void TestVoteBasic() throws SQLException, IOException {
+	public void TestBasicVote() throws SQLException, IOException {
 		STFactory fac = getFactory();
 		
 		final String somePath =  "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
@@ -103,8 +103,7 @@ public class TestSTFactory extends TestFmwk {
 			CLDRFile mt = fac.make(locale, false);
 			BallotBox<User> box = fac.ballotBoxForLocale(locale);
 			
-			originalValue  = expect(somePath,ANY,false,
-					mt,box);
+			originalValue  = expect(somePath,ANY,false,mt,box);
 			
 			changedTo = "The main pump fixing screws with the correct strength class"; // as per ticket:2260
 			
@@ -112,10 +111,15 @@ public class TestSTFactory extends TestFmwk {
 				errln("for " + locale + " value " + somePath + " winner is already= " + originalValue);
 			}
 
-			box.voteForValue(getMyUser(), somePath, changedTo);
-			
-			expect(somePath,changedTo,true,
-					mt,box);
+			box.voteForValue(getMyUser(), somePath, changedTo); // vote
+			expect(somePath,changedTo,true, mt,box);
+
+			box.voteForValue(getMyUser(), somePath, null);  // unvote
+            expect(somePath,originalValue,false, mt,box);
+
+            box.voteForValue(getMyUser(), somePath, changedTo); //vote again
+            expect(somePath,changedTo,true, mt,box);
+
 		}
 		
 		// Restart STFactory.
@@ -124,14 +128,12 @@ public class TestSTFactory extends TestFmwk {
 			CLDRFile mt = fac.make(locale, false);
 			BallotBox<User> box = fac.ballotBoxForLocale(locale);
 
-			expect(somePath,changedTo,true,
-					mt,box);
+			expect(somePath,changedTo,true,mt,box);
 			
 			// unvote
 			box.voteForValue(getMyUser(), somePath, null);
 
-			expect(somePath,originalValue,true,
-					mt,box);
+			expect(somePath,originalValue,false,mt,box);
 		}
 		fac = resetFactory();
 		{
@@ -177,7 +179,7 @@ public class TestSTFactory extends TestFmwk {
 	}
 	
 	
-	public void TestVoteSparse() throws SQLException, IOException {
+	public void TestSparseVote() throws SQLException, IOException {
 		STFactory fac = getFactory();
 
 		final String somePath2 =  "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
@@ -253,7 +255,7 @@ public class TestSTFactory extends TestFmwk {
 		}
 	}
 	
-	public void TestDataDriven() throws SQLException, IOException {
+	public void TestVettingDataDriven() throws SQLException, IOException {
 	    final STFactory fac = getFactory();
 
         XMLFileReader myReader = new XMLFileReader();

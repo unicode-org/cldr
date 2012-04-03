@@ -13,10 +13,8 @@ import java.util.TimerTask;
 import java.util.TreeSet;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.plaf.ProgressBarUI;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -811,7 +809,7 @@ public class OutputFileManager {
                         }
     
                         if(loc==null) {
-                            progress.update(3, "None to update.");
+//                            progress.update(3, "None to update.");
 //                            SurveyLog.logger.warning("All " + locs.length + " up to date.");
                             return; // nothing to do.
                         }

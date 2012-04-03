@@ -116,9 +116,10 @@ public class VettingViewerQueue {
     
     public static QueueEntry summaryEntry = null;
     
+    private static final Object OnlyOneVetter=new Object(){}; // TODO: remove.
+    
 	public class Task extends SurveyThread.SurveyTask {
 		
-		private static final String OnlyOneVetter="1";
 		
 		public CLDRLocale locale;
 		private QueueEntry entry;

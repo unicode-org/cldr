@@ -378,7 +378,7 @@ public class DataSection implements JSONString {
 						pClass = "class='fallback' title='Previous Version'";
 					} else if (inheritFrom!=null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
 						pClass = "class='fallback_code' title='Untranslated Code'";
-					} else if ("root".equals(inheritFrom)) {
+					} else if (inheritFrom==CLDRLocale.ROOT) {
 						pClass = "class='fallback_root' title='Fallback from Root'";
 					} else {
 						pClass = "class='fallback' title='Translated in "
@@ -412,7 +412,7 @@ public class DataSection implements JSONString {
 				} else if (isFallback || (inheritFrom != null)) {
 					if (inheritFrom!=null && XMLSource.CODE_FALLBACK_ID.equals(inheritFrom.getBaseName())) {
 						pClass = "fallback_code"; //class='fallback_code' title='Untranslated Code'";
-					} else if ("root".equals(inheritFrom)) {
+					} else if (inheritFrom == CLDRLocale.ROOT) {
 						pClass = "fallback_root"; // class='fallback_root' title='Fallback from Root'";
 					} else {
 						pClass = "fallback"; // class='fallback' title='Translated in "
@@ -1628,7 +1628,7 @@ public class DataSection implements JSONString {
 		                ctx.println("Note: Before making changes here, first verify:<br> ");
 		                ctx.print("<a class='alias' href='" + theURL + "'>");
 		                ctx.print(thePath);
-		                if (!aliasFromLocale.equals(locale)) {
+		                if (!aliasFromLocale.equals(locale.getBaseName())) {
 		                    ctx.print(" in " + new ULocale(theLocale).getDisplayName(ctx.displayLocale));
 		                }
 		                ctx.print("</a>");
@@ -3178,7 +3178,7 @@ public class DataSection implements JSONString {
 			/* ** iterate over all xpaths */
 			for (String xpath : allXpaths) {
 				boolean confirmOnly = false;
-				if (xpath.equals(null)) {
+				if (xpath==null) {
 					throw new InternalError("null xpath in allXpaths");
 				}
 				if (!xpath.startsWith(workPrefix)) {
@@ -3355,7 +3355,9 @@ public class DataSection implements JSONString {
 				superP.coverageValue = coverageValue;
 
 				if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
-					p.zoomOnly = superP.zoomOnly = true;
+				    if(superP!=p) {
+				        p.zoomOnly = superP.zoomOnly = true;
+				    }
 				}
 				p.confirmOnly = superP.confirmOnly = confirmOnly;
 
@@ -3397,14 +3399,18 @@ public class DataSection implements JSONString {
 				// Some special cases.. a popup menu of values
 				if (p.prettyPath.startsWith("layout/inText")) {
 					p.valuesList = LAYOUT_INTEXT_VALUES;
-					superP.valuesList = p.valuesList;
+					if(superP!=p) {
+					    superP.valuesList = p.valuesList;
+					}
 				} else if (p.prettyPath.contains("numberingSystems") || 
 						   p.prettyPath.contains("exemplarCharacters") ||
 						   p.prettyPath.contains("indexCharacters")) {
 					p.confirmOnly = true;
 				} else if (p.prettyPath.startsWith("layout/inList")) {
 					p.valuesList = LAYOUT_INLIST_VALUES;
-					superP.valuesList = p.valuesList;
+					if(superP!=p) {
+					    superP.valuesList = p.valuesList;
+					}
 				}
 
 				if (TRACE_TIME)

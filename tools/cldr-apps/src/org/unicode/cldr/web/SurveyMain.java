@@ -3796,12 +3796,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
         String localeUrl = ctx.urlForLocale(locale);
         if(isDefaultContent) {
             classstr = "class='dcLocale'";
-             localeUrl = ctx.urlForLocale(defaultContentToParent(locale));
+             localeUrl = null; //ctx.urlForLocale(defaultContentToParent(locale));
+             title = "Default Content: Please view and/or propose changes in " + defaultContentToParent(locale).getDisplayName() + ".";
         }
         String rv = 
             ("<a " +classstr
-           +" title='" + title + "' href=\"" + localeUrl+ "\">");
-        rv = rv + decoratedLocaleName(locale, n, locale.toString());
+           +" title='" + title + "' "+ 
+                        (localeUrl!=null?("href=\"" + localeUrl+ "\""):"") + " >");
+        rv = rv + decoratedLocaleName(locale, n, title);
         boolean canModify = !isDefaultContent && UserRegistry.userCanModifyLocale(ctx.session.user,locale);
         if(canModify) {
             rv = rv + (modifyThing(ctx));

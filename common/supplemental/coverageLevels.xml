@@ -144,7 +144,13 @@
 		<coverageLevel inLanguage="ar" value="40" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel inLanguage="(fa|pa|ps|uz)" value="40" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='(ar|bn|hi|id|ko|nl(_BE)?|pl|th|tr)']([@alt='(short|variant)'])?"/>
+		<coverageLevel inTerritory="CF" value="60" match="localeDisplayNames/languages/language[@type='sg']([@alt='(short|variant)'])?"/>
+		<coverageLevel inTerritory="CG" value="60" match="localeDisplayNames/languages/language[@type='(kg|ln)']([@alt='(short|variant)'])?"/>
+		<coverageLevel inTerritory="CM" value="60" match="localeDisplayNames/languages/language[@type='(bss|bfd|bax|bas|bum|ewo|ff|bbj|kkj|bkm|maf|byv|nnh|ybb)']([@alt='(short|variant)'])?"/>
 		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/languages/language[@type='(cs|da|el|et|fi|hu|lv|mt|sk|sl|sv)']([@alt='(short|variant)'])?"/>
+		<coverageLevel inTerritory="GA" value="60" match="localeDisplayNames/languages/language[@type='(fan|mye)']([@alt='(short|variant)'])?"/>
+		<coverageLevel inTerritory="NG" value="60" match="localeDisplayNames/languages/language[@type='(ff|ha|ibb|ig|kr|yo)']([@alt='(short|variant)'])?"/>
+		<coverageLevel inTerritory="TD" value="60" match="localeDisplayNames/languages/language[@type='(shu|dzg|kbl|mde|mua|sba)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="60" match="localeDisplayNames/scripts/script[@type='(Jpan|Kore)']"/>
 	    <coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='(AT|AU|BE|CA|CH|DK|ES|FI|GR|HK|ID|IE|KR|MX|NL|NO|PL|PT|SA|SE|TH|TR|TW|ZA)']"/>
 	    <coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='(0|1|2|3|4|5|6|7|8|9){3}']"/>

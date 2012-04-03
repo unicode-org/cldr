@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005-2008, International Business Machines Corporation and        *
+ * Copyright (C) 2005-2012, International Business Machines Corporation and        *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -16,17 +16,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
-import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.XMLSource;
 
-import com.ibm.icu.dev.test.format.DateTimeGeneratorTest;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;

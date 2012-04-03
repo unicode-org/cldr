@@ -69,9 +69,12 @@ import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Factory.DirectoryType;
+import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
@@ -4457,7 +4460,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator {
      * @return
      */
     public File getBaseFile(CLDRLocale loc) {
-    	return new File(fileBase,loc.getBaseName()+".xml");
+        File base =  getDiskFactory().getSourceDirectoryForLocale(loc.getBaseName());
+        if(base==null) return null;
+    	return new File(base,loc.getBaseName()+".xml");
     }
 
     public synchronized Factory getOldFactory() {
@@ -5601,45 +5606,11 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     	return surveyTimer;
     }
 
-//	public interface PeriodicTask {
-//		public String name();
-//		public void run() throws Throwable;
-//	}
 
     public void addPeriodicTask(TimerTask task) {
 		int firstTime=isUnofficial?10000:99000;		
-		int eachTime= isUnofficial?10000:76000;
+		int eachTime=isUnofficial?10000:76000;
 		getTimer().schedule(task, firstTime,eachTime);
-//    	if(periodicTasks==null) {
-//    		
-//    		periodicTasks = new LinkedList<PeriodicTask>();
-//    		
-//    		// spin up the periodic thread
-//    		getTimer().schedule(new TimerTask(){
-//
-//				@Override
-//				public void run() {
-//			    	synchronized(periodicTasks) {
-//			    		Set<PeriodicTask> bads = new HashSet<PeriodicTask>();
-//				    	for(PeriodicTask st : periodicTasks) {
-//				    		try {
-//								st.run();
-//							} catch (Throwable e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//								SurveyLog.logger.warning("Removing periodic task due to crash: " + st.name());
-//								bads.add(st);
-//							}
-//				    	}
-//				    	for(PeriodicTask st : bads ) {
-//				    		periodicTasks.remove(st);
-//				    	}
-//			    	}
-//			}}, firstTime, eachTime);
-//    	}
-//    	synchronized(periodicTasks) {
-//    		periodicTasks.add(task);
-//    	}
     }
     
     /**
@@ -5866,18 +5837,36 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
         isSetup = true;
     }
     
-    private File getDataDir(String kind) throws IOException {
+    private File getDataDir(String kind, CLDRLocale loc) throws IOException {
     	File dataDir = new File(vetdir, kind);
     	if(!dataDir.exists()) {
     		if(!dataDir.mkdirs()) {
     			throw new IOException("Couldn't create " + dataDir.getAbsolutePath() );
     		}
     	}
-    	return dataDir;
+    	Factory f = getDiskFactory();
+    	String l = loc.getBaseName();
+    	File sourceDir = f.getSourceDirectoryForLocale(loc.getBaseName());
+    	
+        SourceTreeType sourceType = f.getSourceTreeType(sourceDir);
+        DirectoryType dirType = f.getDirectoryType(sourceDir);
+        File subDir = new File(dataDir, sourceType.name());
+        if(!subDir.exists()) {
+            if(!subDir.mkdirs()) {
+                throw new IOException("Couldn't create " + subDir.getAbsolutePath() );
+            }
+        }
+        File subSubDir = new File(subDir, dirType.name());
+        if(!subSubDir.exists()) {
+            if(!subSubDir.mkdirs()) {
+                throw new IOException("Couldn't create " + subSubDir.getAbsolutePath() );
+            }
+        }
+    	return subSubDir;
     }
     
     File getDataFile(String kind, CLDRLocale loc) throws IOException {
-    	return new File(getDataDir(kind),loc.toString()+".xml");
+        return new File(getDataDir(kind, loc),loc.toString()+".xml");
     }
     
     

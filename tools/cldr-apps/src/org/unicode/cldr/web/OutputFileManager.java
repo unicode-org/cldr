@@ -1,7 +1,16 @@
 package org.unicode.cldr.web;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Set;
+import java.util.TimerTask;
+import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -9,8 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.plaf.ProgressBarUI;
 
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
+
+import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 
 public class OutputFileManager {
@@ -182,77 +195,76 @@ public class OutputFileManager {
     //    		return nrOutFiles;
     //    	}
     //
-    //    /**
-    //     * Write out the specified file. 
-    //     * @param loc
-    //     * @param kind
-    //     * @return
-    //     */
-    //    private File writeOutputFile(CLDRLocale loc, String  kind) {
-    //    	long st = System.currentTimeMillis();
-    //    	//ElapsedTimer et = new ElapsedTimer("Output "+loc);
-    //    	XMLSource dbSource;
-    //        CLDRFile file;
-    //        boolean isFlat = false;
-    //    	if(kind.equals("vxml")) {
-    //    		dbSource = makeDBSource(loc, true);
-    //    	    file = makeCLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);;
-    //    	} else if(kind.equals("fxml")) {
-    //    			dbSource = makeDBSource(loc, true);
-    //    		    file = makeCLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);;
-    //    		    isFlat=true;
-    //    	} else if(kind.equals("rxml")) {
-    //    		dbSource = makeDBSource(loc, true, true);
-    //        	file = new CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
-    //        } else if(kind.equals("xml")) {
-    //    		dbSource = makeDBSource(loc, false);
-    //        	file = new CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
-    //        } else {
-    //        	if(!isCacheableKind(kind)) {
-    //        		throw new InternalError("Can't (yet) cache kind " + kind + " for loc " + loc);
-    //        	} else {
-    //        		throw new InternalError("Don't know how to make kind " + kind + " for loc " + loc + " - isCacheableKind() out of sync with writeOutputFile()");
-    //        	}
-    //        }
-    //    	try {
-    //    		File outFile = getDataFile(kind, loc);
-    //    		PrintWriter u8out = new PrintWriter(
-    //    				new OutputStreamWriter(
-    //    						new FileOutputStream(outFile), "UTF8"));
-    //    		if(!isFlat) {
-    //    			file.write(u8out);
-    //    		} else {
-    //    			Set<String> keys = new TreeSet<String>();
-    //    			for(String k : file) {
-    //    				keys.add(k);
-    //    			}
-    //    			u8out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-    //    			u8out.println("<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">"); 
-    //    			u8out.println("<comment>"+loc+"</comment>");
-    //    			u8out.println("<properties>");
-    //    			for(String k:keys) {
-    //    				u8out.println(" <entry key=\""+k.replaceAll("\"", "\\\"")+"\">"+file.getStringValue(k)+"</entry>");
-    //    			}
-    //    			u8out.println("</properties>");
-    //    		}
-    //    		u8out.close();
-    //    		SurveyLog.logger.warning("Updater: Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
-    //    		return outFile;
-    //    	} catch (IOException e) {
-    //        	e.printStackTrace();
-    //        	throw new RuntimeException("IO Exception "+e.toString(),e);
-    //        } finally {
-    //        	if(dbEntry!=null) {
-    //    			try {
-    //    				dbEntry.close();
-    //    			} catch (SQLException e) {
-    //    				SurveyLog.logger.warning("Error in " + kind + "/" + loc + " _ " + e.toString());
-    //    				e.printStackTrace();
-    //    			}
-    //        	}
-    //        }
-    //    }
-    //
+        /**
+         * Write out the specified file. 
+         * @param loc
+         * @param kind
+         * @return
+         */
+        private File writeOutputFile(CLDRLocale loc, String  kind) {
+        	long st = System.currentTimeMillis();
+        	//ElapsedTimer et = new ElapsedTimer("Output "+loc);
+        	XMLSource dbSource;
+            CLDRFile file;
+            boolean isFlat = false;
+        	if(kind.equals("vxml")) {
+        	    file = sm.getSTFactory().make(loc, false);
+//        	} else if(kind.equals("fxml")) {
+//        			dbSource = makeDBSource(loc, true);
+//        		    file = makeCLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);;
+//        		    isFlat=true;
+//        	} else if(kind.equals("rxml")) {
+//        		dbSource = makeDBSource(loc, true, true);
+//            	file = new CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
+//            } else if(kind.equals("xml")) {
+//        		dbSource = makeDBSource(loc, false);
+//            	file = new CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
+            } else {
+            	if(!isCacheableKind(kind)) {
+            		throw new InternalError("Can't (yet) cache kind " + kind + " for loc " + loc);
+            	} else {
+            		throw new InternalError("Don't know how to make kind " + kind + " for loc " + loc + " - isCacheableKind() out of sync with writeOutputFile()");
+            	}
+            }
+        	try {
+        		File outFile = sm.getDataFile(kind, loc);
+        		PrintWriter u8out = new PrintWriter(
+        				new OutputStreamWriter(
+        						new FileOutputStream(outFile), "UTF8"));
+        		if(!isFlat) {
+        			file.write(u8out);
+        		} else {
+        			Set<String> keys = new TreeSet<String>();
+        			for(String k : file) {
+        				keys.add(k);
+        			}
+        			u8out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+        			u8out.println("<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">"); 
+        			u8out.println("<comment>"+loc+"</comment>");
+        			u8out.println("<properties>");
+        			for(String k:keys) {
+        				u8out.println(" <entry key=\""+k.replaceAll("\"", "\\\"")+"\">"+file.getStringValue(k)+"</entry>");
+        			}
+        			u8out.println("</properties>");
+        		}
+        		u8out.close();
+        		SurveyLog.debug("Updater: Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
+        		return outFile;
+        	} catch (IOException e) {
+            	e.printStackTrace();
+            	throw new RuntimeException("IO Exception "+e.toString(),e);
+//            } finally {
+//            	if(dbEntry!=null) {
+//        			try {
+//        				dbEntry.close();
+//        			} catch (SQLException e) {
+//        				SurveyLog.logger.warning("Error in " + kind + "/" + loc + " _ " + e.toString());
+//        				e.printStackTrace();
+//        			}
+//            	}
+            }
+        }
+    
         public void doRaw(WebContext ctx) {
             ctx.println("raw not supported currently. ");
         /*
@@ -658,162 +670,173 @@ public class OutputFileManager {
             if(p!=null) p.close();
         }
     }
+    
+        /**
+         * Get the output file, creating if needed. Uses a temp Connection
+         * @param surveyMain TODO
+         * @param loc
+         * @param kind
+         * @return
+         * @throws IOException
+         * @throws SQLException
+         */
+        File getOutputFile(SurveyMain surveyMain, CLDRLocale loc, String kind) throws IOException, SQLException {
+        	Connection conn = null;
+        	try {
+        		conn = surveyMain.dbUtils.getDBConnection();
+        		return getOutputFile(conn,loc,kind);
+        	} finally {
+        		DBUtils.close(conn);
+        	}
+        }
+    
+        public File getOutputFile(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
+            if(fileNeedsUpdate(conn,loc,kind)) {
+                return writeOutputFile(loc,kind);
+            } else {
+                return sm.getDataFile(kind,loc);
+            }
+        }
+    
+        public Timestamp getLocaleTime(CLDRLocale loc) throws SQLException {
+        	Connection conn = null;
+        	try {
+        		conn = DBUtils.getInstance().getDBConnection();
+        		return getLocaleTime(conn,loc);
+        	} finally {
+        		DBUtils.close(conn);
+        	}
+        }
     //
-    //    /**
-    //     * Get the output file, creating if needed. Uses a temp Connection
-    //     * @param surveyMain TODO
-    //     * @param loc
-    //     * @param kind
-    //     * @return
-    //     * @throws IOException
-    //     * @throws SQLException
-    //     */
-    //    File getOutputFile(SurveyMain surveyMain, CLDRLocale loc, String kind) throws IOException, SQLException {
-    //    	Connection conn = null;
-    //    	try {
-    //    		conn = surveyMain.dbUtils.getDBConnection();
-    //    		return surveyMain.getOutputFile(conn,loc,kind);
-    //    	} finally {
-    //    		DBUtils.close(conn);
-    //    	}
-    //    }
-    //
-    //    public File getOutputFile(Connection conn, CLDRLocale loc, String kind) {
-    //        if(fileNeedsUpdate(conn,loc,kind)) {
-    //            return writeOutputFile(loc,kind);
-    //        } else {
-    //            return getDataFile(kind,loc);
-    //        }
-    //    }
-    //
-    //    public Timestamp getLocaleTime(CLDRLocale loc) throws SQLException {
-    //    	Connection conn = null;
-    //    	try {
-    //    		conn = dbUtils.getDBConnection();
-    //    		return getLocaleTime(conn,loc);
-    //    	} finally {
-    //    		DBUtils.close(conn);
-    //    	}
-    //    }
-    //
-    //    public Timestamp getLocaleTime(Connection conn, CLDRLocale loc) throws SQLException {
-    //    	Timestamp theDate = null;
-    //    	Object[][] o = dbUtils.sqlQueryArrayArrayObj(conn, "select max(modtime) from cldr_result where locale=?", loc);
-    //    	if(o!=null&&o.length>0&&o[0]!=null&&o[0].length>0) {
-    //    		theDate = (Timestamp)o[0][0];
-    //    	}
-    //    	File svnFile = getBaseFile(loc);
-    //    	if(svnFile.exists()) {
-    //    		Timestamp fileTimestamp = new Timestamp(svnFile.lastModified());
-    //    		if(theDate==null || fileTimestamp.after(theDate)) {
-    //    			theDate = fileTimestamp;
-    //    		}
-    //    	}
-    //    	
-    //    	CLDRLocale parLoc = loc.getParent();
-    //    	if(parLoc!=null) {
-    //    		Timestamp parTimestamp = getLocaleTime(conn,parLoc);
-    //    		if(theDate==null || parTimestamp.after(theDate)) {
-    //    			theDate = parTimestamp;
-    //    		}
-    //    	}
-    //    	
-    //    	return theDate;
-    //    }
-    //
-    //    /**
-    //     * 
-    //     * @param loc
-    //     * @param kind
-    //     * @return
-    //     * @throws IOException
-    //     * @throws SQLException
-    //     */
-    //    boolean fileNeedsUpdate(CLDRLocale loc, String kind) throws IOException, SQLException {
-    //    	Connection conn = null;
-    //    	try {
-    //    		conn = dbUtils.getDBConnection();
-    //    		return fileNeedsUpdate(conn,loc,kind);
-    //    	} finally {
-    //    		DBUtils.close(conn);
-    //    	}
-    //    }
-    //
-    //    public boolean fileNeedsUpdate(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
-    //    	return fileNeedsUpdate(getLocaleTime(conn,loc),loc,kind);
-    //    }
-    //
-    //    public boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
-    //    	File outFile = getDataFile(kind, loc);
-    //    	if(!outFile.exists()) return true;
-    //    	Timestamp theFile = null;
-    //    
-    //    	long lastMod = outFile.lastModified();
-    //    	if(outFile.exists()) {
-    //    		theFile = new Timestamp(lastMod);
-    //    	}
-    //    	if(theDate==null) {
-    //    		return false; // no data (?)
-    //    	}
-    //    	//SurveyLog.logger.warning(loc+" .. exists " + theFile + " vs " + theDate);
-    //    	if(theFile!=null && !theFile.before(theDate)) {
-    //    		//SurveyLog.logger.warning(" .. OK, up to date.");
-    //    		return false;
-    //    	}
-    //    	if(false) SurveyLog.logger.warning("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
-    //    	return true;
-    //    }
+        public Timestamp getLocaleTime(Connection conn, CLDRLocale loc) throws SQLException {
+        	Timestamp theDate = null;
+        	Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from cldr_votevalue where locale=?", loc);
+        	if(o!=null&&o.length>0&&o[0]!=null&&o[0].length>0) {
+        		theDate = (Timestamp)o[0][0];
+//        		System.err.println("for " + loc + " = " + theDate + " - len="+o.length + ":"+o[0].length);
+        	}
+        	File svnFile = sm.getBaseFile(loc);
+        	if(svnFile.exists()) {
+        		Timestamp fileTimestamp = new Timestamp(svnFile.lastModified());
+        		if(theDate==null || fileTimestamp.after(theDate)) {
+        			theDate = fileTimestamp;
+        		}
+        	}
+        	
+        	CLDRLocale parLoc = loc.getParent();
+        	if(parLoc!=null) {
+        		Timestamp parTimestamp = getLocaleTime(conn,parLoc);
+        		if(theDate==null || parTimestamp.after(theDate)) {
+        			theDate = parTimestamp;
+        		}
+        	}
+        	
+        	return theDate;
+        }
+    
+        /**
+         * 
+         * @param loc
+         * @param kind
+         * @return
+         * @throws IOException
+         * @throws SQLException
+         */
+        boolean fileNeedsUpdate(CLDRLocale loc, String kind) throws IOException, SQLException {
+        	Connection conn = null;
+        	try {
+        		conn = DBUtils.getInstance().getDBConnection();
+        		return fileNeedsUpdate(conn,loc,kind);
+        	} finally {
+        		DBUtils.close(conn);
+        	}
+        }
+    
+        public boolean fileNeedsUpdate(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
+        	return fileNeedsUpdate(getLocaleTime(conn,loc),loc,kind);
+        }
+
+        public boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
+        	File outFile = sm.getDataFile(kind, loc);
+        	if(!outFile.exists()) return true;
+        	Timestamp theFile = null;
+        
+        	long lastMod = outFile.lastModified();
+        	if(outFile.exists()) {
+        		theFile = new Timestamp(lastMod);
+        	}
+        	if(theDate==null) {
+                SurveyLog.logger.warning(" .. no data.");
+        		return false; // no data (?)
+        	}
+//        	SurveyLog.logger.warning(loc+" .. exists " + theFile + " vs " + theDate);
+        	if(theFile!=null && !theFile.before(theDate)) {
+//        		SurveyLog.logger.warning(" .. OK, up to date.");
+        		return false;
+        	}
+//        	if(true) SurveyLog.logger.warning("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
+        	return true;
+        }
         void addUpdateTasks() {
-    //        sm.addPeriodicTask(new TimerTask()
-    //        {
-    //            int spinner = (int)Math.round(Math.random()*(double)sm.getLocales().length); // Start on a different locale each time.
-    //            @Override
-    //            public void run()  {
-    //                
-    //                if(SurveyThread.activeCount()>1) {
-    //                    return;
-    //                }
-    //                
-    //                Connection conn = null;
-    //                CLDRProgressTask progress = null;
-    //                try {
-    //                    CLDRLocale locs[] = sm.getLocales();
-    //                    File outFile = null;
-    //                    CLDRLocale loc = null;
-    //                    
-    //                    for(int j=0;j< Math.min(16,locs.length);j++) { // Try 16 locales looking for one that doesn't exist. No more, due to load.
-    //                        loc = locs[(spinner++)%locs.length]; // A new one each time.
-    //                        //SurveyLog.logger.warning("Updater: Considering: "  +loc);
-    //                        Timestamp localeTime = getLocaleTime(conn,loc);
-    //                        if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
-    //                            loc=null;
-    ////                          progress.update(0, "Still looking.");
-    //                        }
-    //                    }
-    //
-    //                    if(loc==null) {
-    //                        //progress.update(3, "None to update.");
-    //                        //                  SurveyLog.logger.warning("All " + locs.length + " up to date.");
-    //                        return; // nothing to do.
-    //                    }
-    //                    progress = sm.openProgress("Updater", 3);
-    //                    progress.update(1, "Update vxml:"  +loc);
-    //                    getOutputFile(sm, loc, "vxml");
-    //                    /*
-    //                    progress.update(2, "Writing xml:"  +loc);
-    //                    getOutputFile(loc, "xml");
-    //                    */
-    //                    progress.update(3, "Done:"  +loc);
-    //                } catch (SQLException e) {
-    //                    SurveyLog.logger.warning("While running Updater: " + DBUtils.unchainSqlException(e));
-    //                } catch (IOException e) {
-    //                    e.printStackTrace();
-    //                } finally {
-    //                    if(progress!=null) progress.close();
-    //                    DBUtils.close(conn);
-    //                }
-    //            }
-    //        });
+            System.err.println("addUpdateTask...");
+            sm.addPeriodicTask(new TimerTask()
+            {
+                int spinner = (int)Math.round(Math.random()*(double)sm.getLocales().length); // Start on a different locale each time.
+                @Override
+                public void run()  {
+                    
+//                    System.err.println("spinner hot...ac="+SurveyThread.activeCount());
+//                    if(SurveyThread.activeCount()>1) {
+//                        return;
+//                    }
+                    
+                    Connection conn = null;
+                    CLDRProgressTask progress = null;
+                    try {
+                        conn = DBUtils.getInstance().getDBConnection();
+                        CLDRLocale locs[] = sm.getLocales();
+                        File outFile = null;
+                        CLDRLocale loc = null;
+//                        SurveyLog.logger.warning("Updater: locs to do: "  +locs.length );
+                        for(int j=0;j< Math.min(16,locs.length);j++) { // Try 16 locales looking for one that doesn't exist. No more, due to load.
+                            loc = locs[(spinner++)%locs.length]; // A new one each time.
+//                            SurveyLog.logger.warning("Updater: Considering: "  +loc );
+                            
+                            Timestamp localeTime = getLocaleTime(conn,loc);
+//                            SurveyLog.logger.warning("Updater: Considering: "  +loc + " - " + localeTime);
+                            if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
+                                loc=null;
+    //                          progress.update(0, "Still looking.");
+                            }
+                        }
+    
+                        if(loc==null) {
+                            progress.update(3, "None to update.");
+//                            SurveyLog.logger.warning("All " + locs.length + " up to date.");
+                            return; // nothing to do.
+                        }
+                        progress = sm.openProgress("Updater", 3);
+                        progress.update(1, "Update vxml:"  +loc);
+                        getOutputFile(sm, loc, "vxml");
+                        /*
+                        progress.update(2, "Writing xml:"  +loc);
+                        getOutputFile(loc, "xml");
+                        */
+                        progress.update(3, "Done:"  +loc);
+//                        SurveyLog.logger.warning("Finished writing " + loc);
+                    } catch (SQLException e) {
+                        SurveyLog.logException(e);
+                        SurveyLog.logger.warning("While running Updater: " + DBUtils.unchainSqlException(e));
+                    } catch (IOException e) {
+                        SurveyLog.logException(e);
+                        e.printStackTrace();
+                    } finally {
+//                        SurveyLog.logger.warning("(exitting updater");
+                        if(progress!=null) progress.close();
+                        DBUtils.close(conn);
+                    }
+                }
+            });
         }
  
 }

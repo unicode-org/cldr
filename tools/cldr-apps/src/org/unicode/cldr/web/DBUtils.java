@@ -740,7 +740,7 @@ public class DBUtils {
 				} else if(o instanceof Integer) {
 					ps.setInt(i+1, (Integer)o);
 				} else if(o instanceof CLDRLocale) { /* toString compatible things */
-					ps.setString(i+1, o.toString());
+					ps.setString(i+1, ((CLDRLocale) o).getBaseName());
 				} else {
 					System.err.println("DBUtils: Warning: using toString for unknown object " + o.getClass().getName());
 					ps.setString(i+1, o.toString());
@@ -781,21 +781,36 @@ public class DBUtils {
 		Map<String,Object> m = new HashMap<String,Object>(rsm.getColumnCount());
 		
 		for(int i=1;i<=rsm.getColumnCount();i++) {
-			Object obj = null;
-			
-			if(rsm.getColumnType(i)==java.sql.Types.BLOB) {
-				obj=DBUtils.getStringUTF8(rs, i);
-			} else {
-				obj=rs.getObject(i);
-				if(obj!=null && obj.getClass().isArray()) {
-					obj=DBUtils.getStringUTF8(rs, i);
-				}
-			}
+			Object obj = extractObject(rs, rsm, i);
 			m.put(rsm.getColumnName(i), obj);
 		}
 		
 		return m;
 	}
+    /**
+     * @param rs
+     * @param rsm
+     * @param i
+     * @return
+     * @throws SQLException
+     */
+    private static Object extractObject(ResultSet rs, ResultSetMetaData rsm, int i) throws SQLException {
+        Object obj = null;
+        int colType = rsm.getColumnType(i);
+        if(colType==java.sql.Types.BLOB) {
+        	obj=DBUtils.getStringUTF8(rs, i);
+        } else if(colType == java.sql.Types.TIMESTAMP) {
+            obj=rs.getTimestamp(i);
+        } else if(colType == java.sql.Types.DATE) {
+            obj=rs.getDate(i);
+        } else { // generic
+        	obj=rs.getObject(i);
+        	if(obj!=null && obj.getClass().isArray()) {
+        		obj=DBUtils.getStringUTF8(rs, i);
+        	}
+        }
+        return obj;
+    }
 
 	public static String sqlQuery(Connection conn, String sql, Object... args) throws SQLException {
 		return sqlQueryArray(conn,sql,args)[0];
@@ -863,14 +878,8 @@ public class DBUtils {
 	private static Object[] arrayOfResultObj(ResultSet rs, int colCount, ResultSetMetaData rsm) throws SQLException {
 		Object ret[] = new Object[colCount];
 		for(int i=0;i<ret.length;i++) {
-			if(rsm.getColumnType(i+1)==java.sql.Types.BLOB) {
-				ret[i]=DBUtils.getStringUTF8(rs, i+1);
-			} else if(ret[i]!=null) {
-				ret[i]=rs.getObject(i+1);
-				if(ret[i].getClass().isArray()) {
-					ret[i]=DBUtils.getStringUTF8(rs, i+1);
-				}
-			}
+		    Object obj = extractObject(rs,rsm,i+1);
+		    ret[i]=obj;
 		}
 		return ret;
 	}

@@ -27,7 +27,8 @@ if(sm==null || !sm.isSetup) {
 int totals[] = new int[OutputFileManager.Kind.values().length];
 %>
 
-<table class='sqlbox' style='float: left; font-size: 140%;'>
+<div style='display: table-row;'>
+<table class='sqlbox' style='display: table-cell; font-size: 140%;'>
 <%
 for(int i=0;i<totals.length;i++) {totals[i]=0;}
 int count=0;
@@ -42,10 +43,11 @@ boolean flip=false;
 			k++;
 			if(k>(sortSet.size()/2)&&flip==false) {
 				flip=true;
-				%></table><table class='sqlbox' style='float: right; font-size: 140%;'>
+				%></table><p style='display:table-cell;padding: 1em;'>&nbsp;</p><table class='sqlbox' style='display: table-cell; font-size: 140%;'>
 				<%
 			}
-	         STFactory.unimp(); Timestamp locTime=null;// = sm.outputFileManager.getLocaleTime(conn, loc);
+			
+	          Timestamp locTime=sm.outputFileManager.getLocaleTime(conn, loc);
 			%>
 			<tr>
 			<th>
@@ -55,7 +57,8 @@ boolean flip=false;
 			<%
 			    int j=0;
 							for(OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
-							boolean nu=false; STFactory.unimp(); // = sm.outputFileManager.fileNeedsUpdate(locTime,loc,kind.name());
+								if(kind!=OutputFileManager.Kind.vxml) continue;
+							boolean nu= sm.outputFileManager.fileNeedsUpdate(locTime,loc,kind.name());
 							if(nu) totals[j]++;
 							j++;
 			%>
@@ -81,6 +84,7 @@ boolean flip=false;
 	<% } %>
 </tr>
 </table>
+</div>
 
 </body>
 </html>

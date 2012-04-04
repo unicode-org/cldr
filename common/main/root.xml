@@ -353,7 +353,17 @@
 						</cyclicNameContext>
 					</cyclicNameSet>
 					<cyclicNameSet type="zodiacs">
-						<alias source="locale" path="../cyclicNameSet[@type='dayParts']"/>
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<alias source="locale" path="../../../cyclicNameSet[@type='dayParts']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+						</cyclicNameContext>
 					</cyclicNameSet>
 				</cyclicNameSets>
 				<dateFormats>

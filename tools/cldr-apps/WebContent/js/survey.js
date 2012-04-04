@@ -974,9 +974,8 @@ dojo.ready(function() {
 	var unShow = null;
 //	var lastShown = null;
 	var pucontent = dojo.byId("pu-content");
-	var puouter = dojo.byId("pu-outer");
-	var pupeak = dojo.byId("pu-peak");
-	var pubody = dojo.byId("pu-body");
+	var puouter=pucontent;
+	var pubody=pucontent;
 	var nudgeh=0;
 //	var nudgev=0;
 //	var nudgehpost=0;
@@ -1009,16 +1008,7 @@ dojo.ready(function() {
 	});
 	listenFor(pubody, "mouseout", hidePopHandler);
 	
-	if(stdebug_enabled) {
-		listenFor(pubody, "click", function(e) {
-			window.hidePop = function() {
-				
-			};
-			pupeak.innerHTML=">";
-			stStopPropagation(e); return false; 
-		});
-		
-	}
+	var pupin =  createChunk("Pin", "button", "pu-pin");
 	
 	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
@@ -1063,6 +1053,20 @@ dojo.ready(function() {
 
 		removeAllChildNodes(pucontent);
 		pucontent.appendChild(td);
+		if(stdebug_enabled) {
+			if(pupin) {
+				pucontent.appendChild(pupin);
+			}
+			listenFor(pupin, "click", function(e) {
+				window.hidePop = function() {
+
+				};
+				pucontent.removeChild(pupin);
+				pupin = null;
+				stStopPropagation(e); return false; 
+			});
+
+		}
 		td=null;
 		
 //		var popParent = tr;
@@ -1070,42 +1074,42 @@ dojo.ready(function() {
 //			popParent = hideIfLast.popParent;
 //		}
 		
-		if(hideIfLast) { // context
-			var loc = getAbsolutePosition(hideIfLast);
-			var newTopPeak = (loc.top+((hideIfLast.offsetHeight)/2)-8);
-			//if(newTop<hardtop) newTop=hardtop;
-			//puouter.style.top = (newTop+nudgevpost)+"px";
-			newLeftPeak = (loc.left);
-			
-			pupeak.style.left = (newLeftPeak-pupeak.offsetWidth) + "px";
-			pupeak.style.top = newTopPeak + "px";
-			
-			if(false) {
-				// now, body style
-				var bodyTop;
-				if(hideIfLast.popParent) {
-					loc = getAbsolutePosition(hideIfLast.popParent); // specifies:  move the v part here
-					bodyTop = (loc.top+hideIfLast.popParent.offsetHeight+nudgeh);
-				} else {
-					bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
-				}
-				pubody.style.top = bodyTop+"px";
-				pupeak.style.height = (bodyTop-newTopPeak) + "px";
-			}			
-//			if(newLeft<hardleft) {
-//				pupeak.style.left = (newLeft - hardleft)+"px";
-//				newLeft = hardleft;
-//			} else {
-//				pupeak.style.left = "0px";
-//			}
-//			puouter.style.left = (newLeft+nudgehpost)+"px";
-			pupeak.style.display="none";
-		} else {
-			pupeak.style.display="none";
-//			pupeak.style.left = "0px";
-//			pupeak.style.top = "0px";
-//			stdebug("Note: showPop with no td");
-		}
+//		if(hideIfLast) { // context
+////			var loc = getAbsolutePosition(hideIfLast);
+////			var newTopPeak = (loc.top+((hideIfLast.offsetHeight)/2)-8);
+////			//if(newTop<hardtop) newTop=hardtop;
+////			//puouter.style.top = (newTop+nudgevpost)+"px";
+////			newLeftPeak = (loc.left);
+////			
+////			pupeak.style.left = (newLeftPeak-pupeak.offsetWidth) + "px";
+////			pupeak.style.top = newTopPeak + "px";
+//			
+////			if(false) {
+////				// now, body style
+////				var bodyTop;
+////				if(hideIfLast.popParent) {
+////					loc = getAbsolutePosition(hideIfLast.popParent); // specifies:  move the v part here
+////					bodyTop = (loc.top+hideIfLast.popParent.offsetHeight+nudgeh);
+////				} else {
+////					bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
+////				}
+////				pubody.style.top = bodyTop+"px";
+////				pupeak.style.height = (bodyTop-newTopPeak) + "px";
+////			}			
+////			if(newLeft<hardleft) {
+////				pupeak.style.left = (newLeft - hardleft)+"px";
+////				newLeft = hardleft;
+////			} else {
+////				pupeak.style.left = "0px";
+////			}
+////			puouter.style.left = (newLeft+nudgehpost)+"px";
+//			pupeak.style.display="none";
+//		} else {
+//			pupeak.style.display="none";
+////			pupeak.style.left = "0px";
+////			pupeak.style.top = "0px";
+////			stdebug("Note: showPop with no td");
+//		}
 		puouter.style.display="block"; // show
 	};
 	if(false) {
@@ -1135,7 +1139,7 @@ dojo.ready(function() {
 				puouter.style.display="none";
 			} else {
 				removeAllChildNodes(pucontent);
-				pupeak.style.display="none";
+//				pupeak.style.display="none";
 			}
 			clearLastShown();
 			incrPopToken('newHide');

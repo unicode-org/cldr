@@ -1869,7 +1869,6 @@ div#pu-outer {
 	position: absolute;
 	top: 500px;
 	left: 100px;*/
-	display: none;
 }
 
 div#pu-peak {
@@ -1888,28 +1887,25 @@ div#pu-peak {
 }
 
 body {
-	margin-bottom: 100px;
-}
-
-div#pu-body {
-	position: fixed;
-	bottom: 10px;
-	width:  97%;
-	height: 10em;
-	padding: 0.2em;
-	padding-bottom: 0;
-	background: #f8c871 none;
-	box-shadow: 8px 8px 5px gray;
-	z-index: 6;
+	margin-bottom: 180px;
 }
 
 div#pu-content {
+	display: none;
+	height: 180px;
+	padding: 0.2em;
+	padding-bottom: 0;
+	box-shadow: 3px 3px 5px gray;
+	border:  2px solid #f8c871;
 	padding:  .5em;
 	background-color: white;
 	font-size:  small;
-	height:  90%;
 	overflow: scroll;
 	z-index: 6;
+	position: fixed;
+	bottom: 12px;
+	left: 2em;
+	right:  2em;
 }
 
 #pu-content h3.span {

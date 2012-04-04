@@ -85,4 +85,4 @@
 ^//ldml/posix/messages/(no|yes)str   ;   The word for "{1}", lowercased, plus any abbreviations separated by a colon. For more information, see http://cldr.org/translation/misc.
 
 ^//ldml/characters/stopwords/stopwordList\[@type="([^"]*)"] ;   The words that should be ignored in sorting in your language.  For more information, see http://cldr.org/translation/misc.
-
+^//ldml/dates/timeZoneNames/zone\[@type="([^"]*)"]/([^/]*)/(.*)  ;   Override for the $3-$2 timezone name for $1.  For more information, see http://cldr.org/translation/timezones.

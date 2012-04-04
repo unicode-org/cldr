@@ -29,7 +29,7 @@ public class PathDescription {
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static Map<String, String> ZONE2COUNTRY = STANDARD_CODES.getZoneToCounty();
-    private static RegexLookup<String> pathHandling = new RegexLookup<String>().loadFromFile(GenerateXMB.class, "xmbHandling.txt");
+    private static RegexLookup<String> pathHandling = new RegexLookup<String>().loadFromFile(PathDescription.class, "data/PathDescription.txt");
 
     // set in construction
 
@@ -47,7 +47,7 @@ public class PathDescription {
     private Output<String[]> pathArguments = new Output<String[]>();
     private EnumSet<Status> status = EnumSet.noneOf(Status.class);
 
-    public static final String MISSING_DESCRIPTION = "Before translating, please see cldr.org/translation.";
+    public static final String MISSING_DESCRIPTION = "Before translating, please see http://cldr.org/translation.";
 
     public PathDescription(SupplementalDataInfo supplementalDataInfo, 
             CLDRFile english, 

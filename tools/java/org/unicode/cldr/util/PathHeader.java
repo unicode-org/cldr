@@ -424,7 +424,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
-                            "Probably too few capturing groups in regex for " + distinguishingPath,
+                            "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + distinguishingPath,
                             e);
                 }
             }

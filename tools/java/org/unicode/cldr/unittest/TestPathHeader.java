@@ -16,11 +16,14 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -92,9 +95,27 @@ public class TestPathHeader extends TestFmwk {
         }
     }
     public void TestMetazones() {
-        
+
         CLDRFile nativeFile = factory.make("en", true);
         PathStarrer starrer = new PathStarrer();
+        Set<PathHeader> pathHeaders = getPathHeaders(nativeFile);
+        String oldPage = "";
+        String oldHeader = "";
+        for (PathHeader entry : pathHeaders) {
+            final String page = entry.getPage();
+            //            if (!oldPage.equals(page)) {
+            //                logln(page);
+            //                oldPage = page;
+            //            }
+            String header = entry.getHeader();
+            if (!oldHeader.equals(header)) {
+                logln(page + "\t" + header);
+                oldHeader = header;
+            }
+        }
+    }
+    
+    public Set<PathHeader> getPathHeaders(CLDRFile nativeFile) {
         Set<PathHeader> pathHeaders = new TreeSet<PathHeader>();
         for (String path : nativeFile.fullIterable()) {
             PathHeader p = pathHeaderFactory.fromPath(path);
@@ -102,20 +123,7 @@ public class TestPathHeader extends TestFmwk {
                 pathHeaders.add(p);
             }
         }
-        String oldPage = "";
-        String oldHeader = "";
-        for (PathHeader entry : pathHeaders) {
-            final String page = entry.getPage();
-//            if (!oldPage.equals(page)) {
-//                logln(page);
-//                oldPage = page;
-//            }
-            String header = entry.getHeader();
-            if (!oldHeader.equals(header)) {
-                logln(page + "\t" + header);
-                oldHeader = header;
-            }
-        }
+        return pathHeaders;
     }
 
     public void TestStatus() {
@@ -190,6 +198,22 @@ public class TestPathHeader extends TestFmwk {
             }
         }
     }
+    
+    public void TestPathDescriptionCompleteness() {
+        PathDescription pathDescription = new PathDescription(supplemental, english, null, null, PathDescription.ErrorHandling.CONTINUE);
+        for (PathHeader pathHeader : getPathHeaders(english)) {
+            String path = pathHeader.getOriginalPath();
+            String value = english.getStringValue(path);
+            String description = pathDescription.getDescription(path, value, null, null);
+            if (description == null) {
+                errln("Path has no description:\t" + value + "\t" + path);
+            } else if (!description.contains("http://")) {
+                errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
+            } else if (description == PathDescription.MISSING_DESCRIPTION) {
+                logln("Fallback Description:\t" + value + "\t" + path);
+            }
+        }
+    }
 
     public void TestZCompleteness() {
         Map<String, PathHeader> uniqueness = new HashMap();
@@ -243,10 +267,6 @@ public class TestPathHeader extends TestFmwk {
     }
 
     public void TestZ() {
-        check();
-    }
-    
-    public void check() {
         PathStarrer pathStarrer = new PathStarrer();
         pathStarrer.setSubstitutionPattern("%A");
 
@@ -255,7 +275,7 @@ public class TestPathHeader extends TestFmwk {
         Map<String, String> skipped = new TreeMap<String, String>();
         Map<String, String> collide = new TreeMap<String, String>();
 
-        System.out.println("Traversing Paths");
+        logln("Traversing Paths");
         for (String path : english) {
             PathHeader pathHeader = pathHeaderFactory.fromPath(path);
             String value = english.getStringValue(path);
@@ -271,14 +291,22 @@ public class TestPathHeader extends TestFmwk {
             }
             sorted.add(pathHeader);
         }
-        System.out.println("\nConverted:\t" + sorted.size());
+        logln("\nConverted:\t" + sorted.size());
         String lastHeader = "";
         String lastPage = "";
         String lastSection = "";
         List<String> threeLevel = new ArrayList<String>();
+        Status status = new Status();
+        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance("en");
+
         for (PathHeader pathHeader : sorted) {
+            String original = pathHeader.getOriginalPath();
+            String sourceLocale = english.getSourceLocaleID(original, status);
+            if (!original.equals(status.pathWhereFound)) {
+                continue;
+            }
             if (!lastSection.equals(pathHeader.getSection())) {
-                System.out.println();
+                logln("");
                 threeLevel.add(pathHeader.getSection());
                 threeLevel.add("\t" + pathHeader.getPage());
                 threeLevel.add("\t\t" + pathHeader.getHeader());
@@ -286,58 +314,65 @@ public class TestPathHeader extends TestFmwk {
                 lastPage = pathHeader.getPage();
                 lastHeader = pathHeader.getHeader();
             } else if (!lastPage.equals(pathHeader.getPage())) {
-                System.out.println();
+                logln("");
                 threeLevel.add("\t" + pathHeader.getPage());
                 threeLevel.add("\t\t" + pathHeader.getHeader());
                 lastPage = pathHeader.getPage();
                 lastHeader = pathHeader.getHeader();
             } else if (!lastHeader.equals(pathHeader.getHeader())) {
-                System.out.println();
+                logln("");
                 threeLevel.add("\t\t" + pathHeader.getHeader());
                 lastHeader = pathHeader.getHeader();
             }
-            System.out.println(pathHeader + ";\t"
-                    + english.getStringValue(pathHeader.getOriginalPath()) + "\t"
-                    + pathHeader.getOriginalPath());
+            logln(pathHeader
+                    + "\t" + coverageLevel2.getLevel(original)
+                    + "\t" + english.getStringValue(pathHeader.getOriginalPath())
+                    + "\t" + pathHeader.getOriginalPath());
         }
-        System.out.println("\nCollide:\t" + collide.size());
-        for (Entry<String, String> item : collide.entrySet()) {
-            System.out.println("\t" + item);
+        if (collide.size() != 0) {
+            errln("\nCollide:\t" + collide.size());
+            for (Entry<String, String> item : collide.entrySet()) {
+                errln("\t" + item);
+            }
         }
-        System.out.println("\nMissing:\t" + missing.size());
-        for (Entry<String, String> item : missing.entrySet()) {
-            System.out.println("\t" + item.getKey() + "\tvalue:\t" + item.getValue());
+        if (missing.size() != 0) {
+            errln("\nMissing:\t" + missing.size());
+            for (Entry<String, String> item : missing.entrySet()) {
+                errln("\t" + item.getKey() + "\tvalue:\t" + item.getValue());
+            }
         }
-        System.out.println("\nSkipped:\t" + skipped.size());
-        for (Entry<String, String> item : skipped.entrySet()) {
-            System.out.println("\t" + item);
+        if (skipped.size() != 0) {
+            errln("\nSkipped:\t" + skipped.size());
+            for (Entry<String, String> item : skipped.entrySet()) {
+                errln("\t" + item);
+            }
         }
         Counter<PathHeader.Factory.CounterData> counterData = pathHeaderFactory
         .getInternalCounter();
-        System.out.println("\nInternal Counter:\t" + counterData.size());
+        logln("\nInternal Counter:\t" + counterData.size());
         for (PathHeader.Factory.CounterData item : counterData.keySet()) {
-            System.out.println("\t" + counterData.getCount(item)
+            logln("\t" + counterData.getCount(item)
                     + "\t" + item.get2() // externals
                     + "\t" + item.get3()
                     + "\t" + item.get0() // internals
                     + "\t" + item.get1()
             );
         }
-        System.out.println("\nMenus/Headers:\t" + threeLevel.size());
+        logln("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {
-            System.out.println(item);
+            logln(item);
         }
         LinkedHashMap<String, Set<String>> sectionsToPages = pathHeaderFactory.getSectionsToPages();
-        System.out.println("\nMenus:\t" + sectionsToPages.size());
+        logln("\nMenus:\t" + sectionsToPages.size());
         for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {
             final String section = item.getKey();
             for (String page : item.getValue()) {
-                System.out.print("\t" + section + "\t" + page);
+                logln("\t" + section + "\t" + page);
                 int count = 0;
                 for (String path : pathHeaderFactory.filterCldr(section, page, english)) {
                     count += 1; // just count them.
                 }
-                System.out.println("\t" + count);
+                logln("\t" + count);
             }
         }
     }

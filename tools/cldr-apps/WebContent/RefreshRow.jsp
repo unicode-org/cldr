@@ -12,7 +12,7 @@
 			String vhash = request.getParameter("vhash");
 			String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
 			String covlev = request.getParameter("p_covlev");
-			Level coverage = Level.COMPREHENSIVE;
+			Level coverage = Level.OPTIONAL;
 			if(covlev!=null && covlev.length()>0) {
 				coverage = Level.get(covlev);
 			}

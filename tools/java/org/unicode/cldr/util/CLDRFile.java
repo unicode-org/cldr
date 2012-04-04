@@ -2744,12 +2744,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         //toAddTo.add(anyPatternPath);
         for (String unit : new String[]{"year", "month", "week", "day", "hour", "minute", "second"}) {
           for (String when : new String[]{"", "-past", "-future"}) {
-            final String unitPattern = "//ldml/units/unit[@type=\"" + unit + when+ "\"]/unitPattern[@count=\"" + count + "\"]";
-            String value = getWinningValue(unitPattern);
-            if (value != null && value.length() == 0) {
-              continue;
-            }
-            toAddTo.add(unitPattern);
+            addUnlessValueEmpty("//ldml/units/unit[@type=\"" + unit + when+ "\"]/unitPattern[@count=\"" + count + "\"]", toAddTo);
             //toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
           }
         }
@@ -2764,6 +2759,20 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         toAddTo.add(currencyPattern);
         for (String unit : codes) {
           toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\"" + count + "\"]");
+        }
+        
+        for (String numberSystem: XMLSource.getNumberSystems()) {
+            for (String type : new String[]{
+                    "1000", "10000", "100000", "1000000", "10000000", "100000000", "1000000000", 
+                    "10000000000", "100000000000", "1000000000000", "10000000000000", "100000000000000"}) {
+                for (String width : new String[]{"short", "long"}) {
+                    addUnlessValueEmpty("//ldml/numbers/decimalFormats[@numberSystem=\"" +
+                            numberSystem + "\"]/decimalFormatLength[@type=\"" +
+                            width + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" +
+                            type + "\"][@count=\"" +
+                            count + "\"]", toAddTo);
+                }
+            }
         }
       }
     }
@@ -2786,6 +2795,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       }
     }
     return toAddTo;
+  }
+
+  private boolean addUnlessValueEmpty(final String path, Collection<String> toAddTo) {
+      String value = getWinningValue(path);
+      if (value != null && value.length() == 0) {
+          return false;
+      } else {
+          toAddTo.add(path);
+          return true;
+      }
   }
 
   public Collection<String> getExtraPaths(String prefix, Collection<String> toAddTo) {

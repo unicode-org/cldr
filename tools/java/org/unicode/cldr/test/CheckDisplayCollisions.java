@@ -93,7 +93,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
             }
         } else {
-
+            if (value.equals("∅∅∅")) {
+                return this;
+            }
             if (exclusions.reset(path).find()) {
                 return this;
             }

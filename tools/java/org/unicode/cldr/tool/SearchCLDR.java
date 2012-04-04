@@ -16,6 +16,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PrettyPath;
 
 public class SearchCLDR {
@@ -105,15 +106,13 @@ public class SearchCLDR {
         Factory cldrFactory = Factory.make(sourceDirectory, fileMatcher);
         Set<String> locales = new TreeSet(cldrFactory.getAvailable());
 
-        CLDRFile english = null;
-        if (showEnglish) {
-            english = cldrFactory.make("en", true);
-        }
+        CLDRFile english = cldrFactory.make("en", true);
+        PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
         System.out.println("Searching...");
         System.out.println();
         System.out.flush();
-        PrettyPath pretty = new PrettyPath();
+        //PrettyPath pretty = new PrettyPath();
 
         if (countOnly) {
             System.out.print("file");
@@ -136,9 +135,12 @@ public class SearchCLDR {
 
             level = CoverageLevel2.getInstance(locale);
             Status status = new Status();
-
-            for (Iterator<String> it = file.iterator("",CLDRFile.ldmlComparator); it.hasNext();) {
-                String path = it.next();
+            Set<PathHeader> sorted = new TreeSet<PathHeader>();
+            for (String path : file.fullIterable()) {
+                sorted.add(pathHeaderFactory.fromPath(path));
+            }
+            for (PathHeader pathHeader : sorted) {
+                String path = pathHeader.getOriginalPath();
                 String fullPath = file.getFullXPath(path);
                 String value = file.getStringValue(path);
 
@@ -172,8 +174,9 @@ public class SearchCLDR {
                     String parentLocale = LocaleIDParser.getParent(locale);
                     parent = cldrFactory.make(parentLocale, true);
                 }
-                String shortPath = pretty.getPrettyPath(path);
-                String cleanShort = pretty.getOutputForm(shortPath);
+                //String shortPath = pretty.getPrettyPath(path);
+                //String cleanShort = pretty.getOutputForm(shortPath);
+                String cleanShort = pathHeader.toString().replace('\t', '|');
                 final String resolvedSource = !resolved ? null 
                         : file.getSourceLocaleID(path, status) 
                         + (path.equals(status.pathWhereFound) ? "" : "\t" + status);

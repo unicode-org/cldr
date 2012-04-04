@@ -34,7 +34,7 @@
 
 //ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; $1-symbol
 //ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; *$1-name
-//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; *$1-count=$2
+//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; &count(*$1-$2)
 
 //ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; Calendars ; &calendar($1) ; Eras: abbr ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]                                                       ; Calendars ; &calendar($1) ; Eras: name ; $2
@@ -67,12 +67,13 @@
 //ldml/numbers/otherNumberingSystems/(%E)                   ; Misc ; Patterns for Numbers ; Numbering System ; $1 ; READ_ONLY
 
 //ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Misc ; Patterns for Numbers ; $1 ; $2
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Misc ; Patterns for Numbers ; $2 ; &count($7-$8-$4)
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"] ; Misc ; Patterns for Numbers ; $2 ; $7-$4
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Misc ; Patterns for Numbers ; $2 ; $5-$1
 
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"] ; Misc ; Patterns for Numbers ; $1 ; currencies-count=$2
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"] ; Misc ; Patterns for Numbers ; $1 ; &count(currencies-$2)
 
-//ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Patterns for Units ; $1 ; $1-count=$2  
+//ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Patterns for Units ; $1 ; &count($1-$2) 
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Patterns for Units ; *$2-relative ; $3
 
 //ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Characters ; Patterns for Ellipsis ; $1

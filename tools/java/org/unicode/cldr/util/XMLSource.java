@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1150,9 +1151,19 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             { "traditional", "collation" },
             { "unihan", "collation" },
             { "vaii", "numbers" }};
+        static Set<String> numberSystems = new LinkedHashSet<String>();
+        static {
+            for (String[] i : ResolvingSource.typeDisplayNames) {
+                if ("numbers".equals(i[1])) {
+                    numberSystems.add(i[0]);
+                }
+            }
+        }
+
         private static final boolean SKIP_SINGLEZONES = false;
         private static XMLSource constructedItems = new SimpleXMLSource(CODE_FALLBACK_ID);
 
+        
         static {
             StandardCodes sc = StandardCodes.make();
             Map countries_zoneSet = sc.getCountryToZoneSet();
@@ -1409,5 +1420,9 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                 }
             }
         }
+    }
+    
+    static Set<String> getNumberSystems() {
+        return ResolvingSource.numberSystems;
     }
 }

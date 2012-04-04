@@ -8,7 +8,6 @@
 	WebContext subCtx = ctx;
 	int n;
 	String which = (String) subCtx.get("which");
-	String forum = ctx.getLocale().getLanguage();
 	subCtx.addQuery(SurveyMain.QUERY_LOCALE, ctx.getLocale().toString());
 %>
 <%!
@@ -203,12 +202,6 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 			// commenting out easy steps until we have time to work on it more
 			
 			/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
-			%><%
-			if (canModify) {
-			%><p class='hang'><%=SurveyForum.forumLink(subCtx,forum)%>
-			| <%=SurveyForum.forumFeedIcon(subCtx, forum)%>
-			</p>
-			<%
-			}
+			
 %>
 <!--  menu_top.jspf end -->

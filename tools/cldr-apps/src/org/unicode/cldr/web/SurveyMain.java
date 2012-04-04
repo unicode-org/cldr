@@ -96,6 +96,7 @@ import org.w3c.dom.NodeList;
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
@@ -129,7 +130,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     static UnicodeSet supportedNameSet = new UnicodeSet("[a-zA-Z]").freeze();
     static final int TWELVE_WEEKS=3600*24*7*12;
     
-    private static final String DEFAULT_CONTENT_LINK = "<i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i>";
+    public static final String DEFAULT_CONTENT_LINK = "<i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i>";
 
     /**
      * 
@@ -195,7 +196,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String URL_CLDR = URL_HOST+"cldr/";
     public static final String BUG_URL_BASE = URL_CLDR+"trac";
     public static final String GENERAL_HELP_URL = URL_CLDR+"survey_tool.html";
-    public static final String GENERAL_HELP_NAME = "General&nbsp;Instructions";
+    public static final String GENERAL_HELP_NAME = "Instructions";
     
     // ===== url prefix for help
 //    public static final String CLDR_WIKI_BASE = URL_CLDR+"wiki";
@@ -1184,6 +1185,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">");
         ctx.println("<html>");
         ctx.println("<head>");
+        title = UCharacter.toTitleCase(SurveyMain.BASELINE_LOCALE.toLocale(), title, null);
 /*
         if(showedComplaint == false) {
             showedComplaint = true;
@@ -3368,15 +3370,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     void doOptions(WebContext ctx) {
         WebContext subCtx = new WebContext(ctx);
         subCtx.removeQuery(QUERY_DO);
-        printHeader(ctx, "My Options");
+        printHeader(ctx, "Manage");
         printUserTableWithHelp(ctx, "/MyOptions");
         
-        ctx.println("<a href='"+ctx.url()+"'>Return to SurveyTool</a><hr>");
+        ctx.println("<a href='"+ctx.url()+"'>Locales</a><hr>");
         printRecentLocales(subCtx, ctx);
         ctx.addQuery(QUERY_DO,"options");
-        ctx.println("<h2>My Options</h2>");
+        ctx.println("<h2>Manage</h2>");
   
   
+        ctx.includeFragment("manage.jsp");
+        
         ctx.println("<h4>Coverage</h4>");
         ctx.print("<blockquote>");
         ctx.println("<p class='hang'>For more information on coverage, see "+
@@ -3609,34 +3613,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             (!shortHeader(ctx)) ) { // don't show these warnings for example/easy steps pages.
             CLDRLocale dcParent = CLDRLocale.getInstance(supplemental.defaultContentToParent(ctx.getLocale().toString()));
             String dcChild = supplemental.defaultContentToChild(ctx.getLocale().toString());
-            if(dcParent != null) {
-                ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
-                ctx.println("<h1 title='"+ctx.getLocale().getBaseName()+"'>"+ctx.getLocale().getDisplayName()+"</h1>");
-                ctx.println("<div class='ferrbox'>This locale is the " +
-                		DEFAULT_CONTENT_LINK +
-                		" for <b>"+
-                    getLocaleLink(ctx,dcParent,null)+
-                    "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
-                    getLocaleLink(ctx,dcParent,null)+
-                    "</b> instead.");
-//                ctx.printHelpLink("/DefaultContent","Help with Default Content");
-                ctx.print("</div>");
-                
-                //printLocaleTreeMenu(ctx, which);
-                printFooter(ctx);
-                return; // Disable viewing of default content
-                
-            } else if (dcChild != null) {
+            if (dcChild != null) {
                 String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
-                ctx.println("<div class='fnotebox'>This locale supplies the " +
+                ctx.println("<div class='fnotebox'>" +
                         DEFAULT_CONTENT_LINK +
                 		" for <b>"+
-                    dcChildDisplay+
-                    "</b>. Please make sure that all the changes that you make here are appropriate for <b>"+
-                    dcChildDisplay+
-                    "</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values. ");
-                //ctx.printHelpLink("/DefaultContent","Help with Default Content");
-                ctx.print("</div>");
+                    dcChildDisplay + "</div>");
             }
             CLDRLocale aliasTarget = isLocaleAliased(ctx.getLocale());
             if(aliasTarget != null) {
@@ -3790,7 +3772,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     String getLocaleLink(WebContext ctx, String locale, String n) {
         return getLocaleLink(ctx,CLDRLocale.getInstance(locale),n);
     }
-    String getLocaleLink(WebContext ctx, CLDRLocale locale, String n) {
+    public String getLocaleLink(WebContext ctx, CLDRLocale locale, String n) {
         if(n == null) {
             n = locale.getDisplayName() ;
         }
@@ -4147,41 +4129,33 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     
     
     void printLocaleTreeMenu(WebContext ctx, String which) {
-        int n = ctx.docLocale.length;
+        int n = ctx.docLocale.length; // how many levels deep
         int i,j;
         WebContext subCtx = (WebContext)ctx.clone();
         subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
 
-        ctx.println("<table summary='locale info' width='95%' border=0><tr><td >"); // width='25%'
-        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+        ctx.println("<table id='localetree' summary='locale info' width='95%' border=0><tr><td >"); // width='25%'
+        ctx.println("<a class='locales' href=\"" + ctx.url() + "\">" + "Locales" + "</a> &nbsp;");
         for(i=(n-1);i>0;i--) {
-            for(j=0;j<(n-i);j++) {
-                ctx.print("&nbsp;&nbsp;");
-            }
             boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-            ctx.print("&raquo;&nbsp;<a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
+            ctx.print("&raquo;&nbsp; <a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
                 "\">");
             ctx.print(decoratedLocaleName(ctx.docLocale[i],ctx.docLocale[i].getDisplayName(),""));
-            if(canModify) {
+            if(false&&canModify) {
                 ctx.print(modifyThing(ctx));
             }
             ctx.print("</a> ");
-            ctx.print("<br/>");
         }
-        for(j=0;j<n;j++) {
-            ctx.print("&nbsp;&nbsp;");
-        }
-        boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale());
+        boolean canModifyL = false&&UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale());
         ctx.print("&raquo;&nbsp;");
         ctx.print("<span title='"+ctx.getLocale()+"' style='font-size: 120%'>");
         printMenu(subCtx, which, xMAIN, 
             decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName()+(canModifyL?modifyThing(ctx):""), "") );
         ctx.print("</span>");
-        ctx.println("<br/>");
-        ctx.println("</td>");
+        ctx.println("</td></tr>");
         
         
-        ctx.println("<td style='padding-left: 1em;'>");
+        ctx.println("<tr><td>");
         
         boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.getLocale());
         subCtx.put("which", which);

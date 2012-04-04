@@ -3,6 +3,40 @@
 
 <!--  this is generalinfo.jsp  -->
 
+<%
+            CLDRLocale dcParent = CLDRLocale.getInstance(ctx.sm.supplemental.defaultContentToParent(ctx.getLocale().toString()));
+            String dcChild = ctx.sm.supplemental.defaultContentToChild(ctx.getLocale().toString());
+            if(dcParent != null) {
+                ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales" + "</a></b><br/>");
+                ctx.println("<h1 title='"+ctx.getLocale().getBaseName()+"'>"+ctx.getLocale().getDisplayName()+"</h1>");
+                ctx.println("<div class='ferrbox'>This locale is the " +
+                        SurveyMain.DEFAULT_CONTENT_LINK +
+                        " for <b>"+
+                        ctx.sm.getLocaleLink(ctx,dcParent,null)+
+                    "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"+
+                    ctx.sm.getLocaleLink(ctx,dcParent,null)+
+                    "</b> instead.");
+//                ctx.printHelpLink("/DefaultContent","Help with Default Content");
+                ctx.print("</div>");
+                
+                //printLocaleTreeMenu(ctx, which);
+                ctx.sm.printFooter(ctx);
+                return; // Disable viewing of default content
+                
+            } else if (dcChild != null) {
+                String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
+                ctx.println("<div class='fnotebox'>This locale supplies the " +
+                        SurveyMain.DEFAULT_CONTENT_LINK +
+                        " for <b>"+
+                    dcChildDisplay+
+                    "</b>. Please make sure that all the changes that you make here are appropriate for <b>"+
+                    dcChildDisplay+
+                    "</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values. ");
+                //ctx.printHelpLink("/DefaultContent","Help with Default Content");
+                ctx.print("</div>");
+            }
+%>
+
 <div style="margin:3em">Please select one of the above pages to start entering data.
 If you have not yet done so, please read <a href='<%= SurveyMain.GENERAL_HELP_URL %>'><%= SurveyMain.GENERAL_HELP_NAME %></a>
 especially the Guide and Walkthrough.

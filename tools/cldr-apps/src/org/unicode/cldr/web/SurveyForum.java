@@ -848,7 +848,7 @@ public class SurveyForum {
 		int count = 0;
 
 		// print header
-		sm.printHeader(ctx, "Forum | " + forum);
+		sm.printHeader(ctx, "Forum  " + forum);
 		printForumMenu(ctx, forum);
 
 		ctx.print(forumFeedIcon(ctx, forum));
@@ -1707,7 +1707,7 @@ public class SurveyForum {
 		String feedUrl = ctx.schemeHostPort()+  ctx.base()+("/feed?_="+ctx.getLocale().getLanguage()+"&amp;email="+ctx.session.user.email+"&amp;pw="+
 				ctx.session.user.password+"&amp;");
 
-		return  " <a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"Forum&nbsp;rss</a>"; /* | " +
+		return  " <a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 2.0")+"<!-- Forum&nbsp;rss --></a>"; /* | " +
                 "<a href='"+feedUrl+"&feed=rss_2.0"+"'>"+ctx.iconHtml("feed","RSS 1.0")+"RSS 1.0</a>"; */
 
 	}

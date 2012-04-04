@@ -1888,14 +1888,19 @@ div#pu-peak {
 }
 
 body {
-	margin-bottom: 100px;
+	margin-bottom: 180px;
 }
 
 div#pu-body {
 	position: fixed;
 	bottom: 10px;
-	width:  97%;
-	height: 10em;
+	left:  auto;
+	right: auto;
+	margin-left:  2em;
+	margin-right:  2em;
+	
+	width:  90%;
+	height: 180px;
 	padding: 0.2em;
 	padding-bottom: 0;
 	background: #f8c871 none;

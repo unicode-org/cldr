@@ -1274,7 +1274,7 @@ public class WebContext implements Cloneable, Appendable {
 	}
 
 	public static final String COVLEV_RECOMMENDED = "(default*)";
-	public static final String PREF_COVLEV_LIST[] = { COVLEV_RECOMMENDED, Level.COMPREHENSIVE.toString(),
+	public static final String PREF_COVLEV_LIST[] = { COVLEV_RECOMMENDED, Level.OPTIONAL.toString(), Level.COMPREHENSIVE.toString(),
 			Level.MODERN.toString(), Level.MODERATE.toString(), Level.BASIC.toString(), Level.MINIMAL.toString() };
 
 	/**

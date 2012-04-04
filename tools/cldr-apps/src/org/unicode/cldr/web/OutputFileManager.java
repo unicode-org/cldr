@@ -775,6 +775,9 @@ public class OutputFileManager {
 //        	if(true) SurveyLog.logger.warning("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
         	return true;
         }
+        
+        public boolean doUpdate = false;
+        
         void addUpdateTasks() {
             System.err.println("addUpdateTask...");
             sm.addPeriodicTask(new TimerTask()
@@ -782,7 +785,7 @@ public class OutputFileManager {
                 int spinner = (int)Math.round(Math.random()*(double)sm.getLocales().length); // Start on a different locale each time.
                 @Override
                 public void run()  {
-                    
+                    if(!doUpdate) return;
 //                    System.err.println("spinner hot...ac="+SurveyThread.activeCount());
 //                    if(SurveyThread.activeCount()>1) {
 //                        return;

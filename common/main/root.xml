@@ -795,6 +795,9 @@
 						<dayWidth type="narrow">
 							<alias source="locale" path="../../dayContext[@type='stand-alone']/dayWidth[@type='narrow']"/>
 						</dayWidth>
+						<dayWidth type="short">
+							<alias source="locale" path="../dayWidth[@type='abbreviated']"/>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">1</day>
 							<day type="mon">2</day>
@@ -817,6 +820,9 @@
 							<day type="thu">5</day>
 							<day type="fri">6</day>
 							<day type="sat">7</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='short']"/>
 						</dayWidth>
 						<dayWidth type="wide">
 							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='wide']"/>

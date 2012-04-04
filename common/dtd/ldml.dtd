@@ -19,7 +19,7 @@ $Date$
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #REQUIRED >
-<!ATTLIST version cldrVersion CDATA #FIXED "21.0" >
+<!ATTLIST version cldrVersion CDATA #FIXED "22.0" >
 
 <!ELEMENT generation EMPTY >
 <!ATTLIST generation date CDATA #REQUIRED >
@@ -508,7 +508,7 @@ $Date$
 
 <!ELEMENT dayWidth ( alias | (day*, special*)) >
 <!ATTLIST dayWidth draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST dayWidth type ( abbreviated| narrow | wide ) #REQUIRED >
+<!ATTLIST dayWidth type ( abbreviated| narrow | short | wide ) #REQUIRED >
 <!ATTLIST dayWidth standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST dayWidth references CDATA #IMPLIED >
 <!ATTLIST dayWidth alt NMTOKENS #IMPLIED >

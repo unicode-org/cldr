@@ -69,6 +69,7 @@ public class CheckDates extends FactoryCheckCLDR {
         "/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month",
         "/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month",
         "/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day",
+        "/days/dayContext[@type=\"format\"]/dayWidth[@type=\"short\"]/day",
         "/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day",
         "/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"abbreviated\"]/quarter",
         "/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter",

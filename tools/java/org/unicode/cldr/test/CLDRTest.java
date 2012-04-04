@@ -71,7 +71,7 @@ public class CLDRTest extends TestFmwk {
     private final UnicodeSet commonAndInherited = new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
     private static int[][] DIGIT_COUNT = {{1,2,2}, {1,0,3}, {1,0,0}, {0,0,0}};
     private static int[][] POSIX_DIGIT_COUNT = {{1,2,2}, {1,0,6}, {1,0,0}, {1,6,6}};
-    private static final String[] WIDTHS = {"narrow", "wide", "abbreviated"};
+    private static final String[] WIDTHS = {"narrow", "wide", "abbreviated", "short"};
     private static final String[] MONTHORDAYS = {"day", "month"};
     private Map localeNameCache = new HashMap();
     private CLDRFile english = null;
@@ -828,8 +828,8 @@ public class CLDRTest extends TestFmwk {
             Set months = new TreeSet();
             for (int i = 1; i <= 12; ++i) months.add(i+"");
             Set days = new TreeSet(Arrays.asList(new String[] {"sun", "mon", "tue", "wed", "thu", "fri", "sat"}));
-            for (int i = -6; i < 0; ++i) {
-                checkForItems(item, (i < -3 ? months : days), i, missing, failureCount, null);
+            for (int i = -7; i < 0; ++i) {
+                checkForItems(item, (i < -4 ? months : days), i, missing, failureCount, null);
             }
 
             String filename = "missing_" + locale + ".xml";
@@ -862,7 +862,13 @@ public class CLDRTest extends TestFmwk {
      * Internal
      */
     private String getDateKey(int type, String code) {
-        return getDateKey(MONTHORDAYS[type / 3], WIDTHS[type % 3], code);
+        // type is 6..4 for months abbrev..narrow, 3..0 for days short..narrow
+        int monthOrDayType = 0, widthType = type;
+        if (type >= 4) {
+            monthOrDayType = 1;
+            widthType -= 4;
+        }
+        return getDateKey(MONTHORDAYS[monthOrDayType], WIDTHS[widthType], code);
     }
 
     /**

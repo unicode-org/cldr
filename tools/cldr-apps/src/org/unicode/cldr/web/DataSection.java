@@ -7,7 +7,7 @@
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
 //  Probably, it should be concentrated in one side or another- perhaps SurveyMain should call this
-//  class to get a list of displayable items?
+//  class to get a list of displayable items?  A: no, use PathHeader.
 
 package org.unicode.cldr.web;
 
@@ -43,6 +43,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -637,6 +638,7 @@ public class DataSection implements JSONString {
 		int xpathId = -1;
 		public boolean zoomOnly = false; // if true - don't show any editing in
 		public String oldValue;
+        private PathHeader pathHeader;
 
 		// the zoomout view, they must zoom
 		// in.
@@ -645,6 +647,12 @@ public class DataSection implements JSONString {
 			this.xpath = xpath;
 			this.xpathId = sm.xpt.getByXpath(xpath);
 			this.prettyPath = sm.xpt.getPrettyPath(xpathId);
+            try {
+                pathHeader =  sm.getSTFactory().getPathHeader(xpath);
+            }catch(Throwable t) {
+                SurveyLog.logException(t,t.toString() + "while fetching ph for " + xpath);
+                pathHeader =  null;
+            }
 			// this.setDisplayName(prettyPath);
 
 			if (ballotBox == null) {
@@ -864,12 +872,7 @@ public class DataSection implements JSONString {
             return pp;
         }
         public PathHeader getPathHeader() {
-            try {
-                return sm.getSTFactory().getPathHeader(xpath);
-            }catch(Throwable t) {
-                SurveyLog.logException(t,t.toString() + "while fetching ph for " + xpath);
-                return null;
-            }
+            return pathHeader;
         }
 
 		/**
@@ -1340,6 +1343,8 @@ public class DataSection implements JSONString {
 		    ExampleContext exampleContext = new ExampleContext();
 
 
+		    if(true) { STFactory.unimp(); return; } // -------------------------------------------------
+		    
 		    CandidateItem topCurrent = getWinningItem();
 		    String baseExample = getBaseExample(uf, zoomedIn, exampleContext, topCurrent);
 
@@ -1919,7 +1924,7 @@ public class DataSection implements JSONString {
 					.put("displayExample", displayExample)
 					.put("displayHelp", displayHelp)
 					.put("displayInExample", displayInExample)
-					.put("confirmOnly", confirmOnly)
+					.put("showstatus", (ph!=null)?ph.getSurveyToolStatus():null)
 					.put("prettyPath", getPrettyPath())
 					.put("code", pathCode)
 					.put("hasErrors", hasErrors)
@@ -3067,7 +3072,8 @@ public class DataSection implements JSONString {
 			// System.out.println("[] initting from pod " + locale +
 			// " with prefix " + xpathPrefix);
 			CLDRFile aFile = ourSrc;
-			CLDRFile oldFile = sm.getSTFactory().getOldFile(locale);
+			STFactory stf = sm.getSTFactory();
+			CLDRFile oldFile = stf.getOldFile(locale);
 			List<?> examplesResult = new ArrayList<Object>();
 			SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 			long lastTime = -1;
@@ -3260,8 +3266,17 @@ public class DataSection implements JSONString {
 				// else if(false && continent != null) {
 				// System.err.println("Got " + continent +" for " + xpath);
 				// }
+				
+				SurveyToolStatus ststats = stf.getPathHeader(xpath).getSurveyToolStatus();
 
-				if (CheckCLDR.skipShowingInSurvey.matcher(xpath).matches()) {
+//                boolean cc_skip = CheckCLDR.skipShowingInSurvey.matcher(xpath).matches();
+//				if (cc_skip != (ststats==SurveyToolStatus.HIDE || ststats==SurveyToolStatus.DEPRECATED)) {
+//				    System.err.println(xpath + " - skipShowingInSurvey="+cc_skip+", ph="+ststats);
+//				}
+//				
+//				if(cc_skip) continue;
+				
+				if((ststats==SurveyToolStatus.HIDE || ststats==SurveyToolStatus.DEPRECATED)) {
 					// if(TRACE_TIME)
 					// System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime)
 					// + " " + xpath);
@@ -3336,7 +3351,7 @@ public class DataSection implements JSONString {
                 Set<String> v = ballotBox.getValues(xpath);
                 if (v != null) {
                     for (String avalue : v) {
-                        if(DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
+                        if(false && DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
                         if (!avalue.equals(value)) {
                             CandidateItem item2 = p.addItem(avalue);
                         }

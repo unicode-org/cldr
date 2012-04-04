@@ -1602,18 +1602,20 @@ function updateRow(tr, theRow) {
 		};
 		if(!canModify) {
 			children[config.changecell].style.display="none";
-		} else if(theRow.confirmOnly) {
-			children[config.changecell].className="d-change-confirmonly";
-			var link = createChunk(stui.str("file_a_ticket"),"a");
-			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath;
-			if(window.surveyOfficial) {
-				link.href = newUrl;
-				theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
-				theRow.proposedResults.href = newUrl;
-			} else {
-				theRow.proposedResults = createChunk(stui.str("file_ticket_unofficial") + "  <" + newUrl + ">","div","fnotebox");
+		} else if(theRow.showstatus) {
+			if(theRow.showstatus == "READ_ONLY") {
+				children[config.changecell].className="d-change-confirmonly";
+				var link = createChunk(stui.str("file_a_ticket"),"a");
+				var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath;
+				if(window.surveyOfficial) {
+					link.href = newUrl;
+					theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
+					theRow.proposedResults.href = newUrl;
+				} else {
+					theRow.proposedResults = createChunk(stui.str("file_ticket_unofficial") + "  <" + newUrl + ">","div","fnotebox");
+				}
+				children[config.changecell].appendChild(link);
 			}
-			children[config.changecell].appendChild(link);
 		} else {
 			var changeButton = cloneAnon(protoButton);
 			children[config.changecell].appendChild(changeButton);

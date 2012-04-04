@@ -2348,7 +2348,7 @@ public class DataSection implements JSONString {
 
 	private static final boolean NOINHERIT = true;
 
-	private static Pattern noisePattern;
+//	private static Pattern noisePattern;
 
 	// public boolean exemplarCityOnly = false;
 
@@ -2513,20 +2513,20 @@ public class DataSection implements JSONString {
 		if (!isInitted) {
 			typeReplacementPattern = Pattern.compile("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
 			keyTypeSwapPattern = Pattern.compile("([^/]*)/(.*)");
-			noisePattern = Pattern.compile( // 'noise' to be removed
-					"^/|" + "Formats/currencyFormatLength/currencyFormat|" + "Formats/currencySpacing|"
-							+ "Formats/percentFormatLength/percentFormat|" + "Formats/decimalFormatLength/decimalFormat|"
-							+ "Formats/scientificFormatLength/scientificFormat|" + "dateTimes/dateTimeLength/|"
-							+ "Formats/timeFormatLength|" + "/timeFormats/timeFormatLength|" + "/timeFormat|"
-							+ "s/quarterContext|" + "/dateFormats/dateFormatLength|" + "/pattern|" + "/monthContext|"
-							+ "/monthWidth|" + "/timeLength|" + "/quarterWidth|" + "/dayContext|" + "/dayWidth|"
-							+ "/dayPeriodContext|" + "/dayPeriodWidth|" + "/dayPeriod|" +
-							// "day/|"+
-							// "date/|"+
-							"Format|" + "s/field|" + "\\[@draft=\"true\"\\]|" + // ???
-							"\\[@alt=\"[^\"]*\"\\]|" + // ???
-							"/displayName$|" + // for currency
-							"/standard/standard$");
+//			noisePattern = Pattern.compile( // 'noise' to be removed
+//					"^/|" + "Formats/currencyFormatLength/currencyFormat|" + "Formats/currencySpacing|"
+//							+ "Formats/percentFormatLength/percentFormat|" + "Formats/decimalFormatLength/decimalFormat|"
+//							+ "Formats/scientificFormatLength/scientificFormat|" + "dateTimes/dateTimeLength/|"
+//							+ "Formats/timeFormatLength|" + "/timeFormats/timeFormatLength|" + "/timeFormat|"
+//							+ "s/quarterContext|" + "/dateFormats/dateFormatLength|" + "/pattern|" + "/monthContext|"
+//							+ "/monthWidth|" + "/timeLength|" + "/quarterWidth|" + "/dayContext|" + "/dayWidth|"
+//							+ "/dayPeriodContext|" + "/dayPeriodWidth|" + "/dayPeriod|" +
+//							// "day/|"+
+//							// "date/|"+
+//							"Format|" + "s/field|" + "\\[@draft=\"true\"\\]|" + // ???
+//							"\\[@alt=\"[^\"]*\"\\]|" + // ???
+//							"/displayName$|" + // for currency
+//							"/standard/standard$");
 			mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"
 					+ // these are excluded when 'misc' is chosen.
 					"^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
@@ -3067,7 +3067,7 @@ public class DataSection implements JSONString {
 			// System.out.println("[] initting from pod " + locale +
 			// " with prefix " + xpathPrefix);
 			CLDRFile aFile = ourSrc;
-			CLDRFile oldFile = sm.getOldFactory().make(locale.getBaseName(), true);
+			CLDRFile oldFile = sm.getSTFactory().getOldFile(locale);
 			List<?> examplesResult = new ArrayList<Object>();
 			SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 			long lastTime = -1;
@@ -3342,8 +3342,12 @@ public class DataSection implements JSONString {
                         }
                     }
                 }
-				p.oldValue = oldFile.getStringValue(xpath);
-				if (p.oldValue!=null && !p.oldValue.equals(value) && (v==null ||  !v.contains(p.oldValue))) {
+                if(oldFile!=null) {
+                    p.oldValue = oldFile.getStringValue(xpath);
+                } else {
+                    p.oldValue = null;
+                }
+                if (p.oldValue!=null && !p.oldValue.equals(value) && (v==null ||  !v.contains(p.oldValue))) {
 					CandidateItem oldItem = p.addItem(p.oldValue);
 					oldItem.isOldValue = true;
 				}

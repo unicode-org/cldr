@@ -1040,4 +1040,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public final SurveyMenus getSurveyMenus() {
         return surveyMenus;
     }
+
+    /**
+     * Resolving old file, or null if none.
+     * @param locale
+     * @return
+     */
+    public CLDRFile getOldFile(CLDRLocale locale) {
+        return get(locale).getOldFile();
+    }
 }

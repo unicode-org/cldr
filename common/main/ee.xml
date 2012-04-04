@@ -2310,15 +2310,24 @@
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="100000">00K</pattern>
-					<pattern type="10000000">0M</pattern>
-					<pattern type="100000000">00M</pattern>
-					<pattern type="1000000000">0.000M</pattern>
-					<pattern type="10000000000">00000M</pattern>
-					<pattern type="100000000000">0000M</pattern>
-					<pattern type="1000000000000">0.0B</pattern>
-					<pattern type="10000000000000">0B</pattern>
-					<pattern type="100000000000000">00B</pattern>
+					<pattern type="100000" count="one">00K</pattern>
+					<pattern type="100000" count="other">00K</pattern>
+					<pattern type="10000000" count="one">0M</pattern>
+					<pattern type="10000000" count="other">0M</pattern>
+					<pattern type="100000000" count="one">00M</pattern>
+					<pattern type="100000000" count="other">00M</pattern>
+					<pattern type="1000000000" count="one">0.000M</pattern>
+					<pattern type="1000000000" count="other">0.000M</pattern>
+					<pattern type="10000000000" count="one">00000M</pattern>
+					<pattern type="10000000000" count="other">00000M</pattern>
+					<pattern type="100000000000" count="one">0000M</pattern>
+					<pattern type="100000000000" count="other">0000M</pattern>
+					<pattern type="1000000000000" count="one">0.0B</pattern>
+					<pattern type="1000000000000" count="other">0.0B</pattern>
+					<pattern type="10000000000000" count="one">0B</pattern>
+					<pattern type="10000000000000" count="other">0B</pattern>
+					<pattern type="100000000000000" count="one">00B</pattern>
+					<pattern type="100000000000000" count="other">00B</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

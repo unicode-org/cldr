@@ -1229,9 +1229,12 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000000000">0.0B</pattern>
-					<pattern type="10000000000">000B</pattern>
-					<pattern type="100000000000">000B</pattern>
+					<pattern type="1000000000" count="one">0.0B</pattern>
+					<pattern type="1000000000" count="other">0.0B</pattern>
+					<pattern type="10000000000" count="one">000B</pattern>
+					<pattern type="10000000000" count="other">000B</pattern>
+					<pattern type="100000000000" count="one">000B</pattern>
+					<pattern type="100000000000" count="other">000B</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

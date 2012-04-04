@@ -1084,6 +1084,7 @@ $Date$
 <!ATTLIST pattern type NMTOKEN "standard" >
 <!ATTLIST pattern draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST pattern numbers CDATA #IMPLIED >
+<!ATTLIST pattern count (0 | 1 | zero | one | two | few | many | other) #IMPLIED > <!-- Only used for decimalFormats type="1000..." -->
 <!ATTLIST pattern references CDATA #IMPLIED >
 <!ATTLIST pattern alt NMTOKENS #IMPLIED >
 

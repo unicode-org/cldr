@@ -2007,18 +2007,30 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" draft="contributed">0.0 þ'.'</pattern>
-					<pattern type="10000" draft="contributed">00 þ'.'</pattern>
-					<pattern type="100000" draft="contributed">000 þ'.'</pattern>
-					<pattern type="1000000" draft="contributed">0.0 m'.'</pattern>
-					<pattern type="10000000" draft="contributed">00 m'.'</pattern>
-					<pattern type="100000000" draft="contributed">000 m'.'</pattern>
-					<pattern type="1000000000" draft="contributed">0.0 ma'.'</pattern>
-					<pattern type="10000000000" draft="contributed">00 ma'.'</pattern>
-					<pattern type="100000000000" draft="contributed">000 ma'.'</pattern>
-					<pattern type="1000000000000" draft="contributed">0.0 tr'.'</pattern>
-					<pattern type="10000000000000" draft="contributed">00 tr'.'</pattern>
-					<pattern type="100000000000000" draft="contributed">000 tr'.'</pattern>
+					<pattern type="1000" count="one" draft="contributed">0.0 þ'.'</pattern>
+					<pattern type="1000" count="other" draft="contributed">0.0 þ'.'</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 þ'.'</pattern>
+					<pattern type="10000" count="other" draft="contributed">00 þ'.'</pattern>
+					<pattern type="100000" count="one" draft="contributed">000 þ'.'</pattern>
+					<pattern type="100000" count="other" draft="contributed">000 þ'.'</pattern>
+					<pattern type="1000000" count="one" draft="contributed">0.0 m'.'</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0 m'.'</pattern>
+					<pattern type="10000000" count="one" draft="contributed">00 m'.'</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00 m'.'</pattern>
+					<pattern type="100000000" count="one" draft="contributed">000 m'.'</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000 m'.'</pattern>
+					<pattern type="1000000000" count="one" draft="contributed">0.0 ma'.'</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0 ma'.'</pattern>
+					<pattern type="10000000000" count="one" draft="contributed">00 ma'.'</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00 ma'.'</pattern>
+					<pattern type="100000000000" count="one" draft="contributed">000 ma'.'</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000 ma'.'</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0.0 tr'.'</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0 tr'.'</pattern>
+					<pattern type="10000000000000" count="one" draft="contributed">00 tr'.'</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00 tr'.'</pattern>
+					<pattern type="100000000000000" count="one" draft="contributed">000 tr'.'</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000 tr'.'</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

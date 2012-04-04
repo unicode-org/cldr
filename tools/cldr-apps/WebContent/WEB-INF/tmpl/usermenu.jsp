@@ -90,7 +90,7 @@ String helpName = ctx.getString("helpName");
                     ctx.println("</span>");
                 }
                 String forum = ctx.getLocale().getLanguage();
-    			%><%=SurveyForum.forumLink(subCtx,forum)%><%=SurveyForum.forumFeedIcon(subCtx, forum)%> | <%
+    			%><%=SurveyForum.forumLink(subCtx,forum)%><%=SurveyForum.forumFeedIcon(subCtx, forum)%><%
     		} else {
     			ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
     		}

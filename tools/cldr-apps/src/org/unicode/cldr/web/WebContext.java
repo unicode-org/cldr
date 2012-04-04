@@ -622,7 +622,7 @@ public class WebContext implements Cloneable, Appendable {
 	 * @param k
 	 *            key
 	 */
-	void removeQuery(String k) {
+	public void removeQuery(String k) {
 		if (outQueryMap.get(k) != null) { // if it was there..
 			// rebuild query string:
 			outQuery = null;

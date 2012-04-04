@@ -3705,7 +3705,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     protected synchronized LocaleTree getLocaleTree() {
         if(localeTree == null) {
-            CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(getBaselineFile(),FormatBehavior.extendHtml);
+            CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(getBaselineFile(),FormatBehavior.replace);
             CLDRLocale.setDefaultFormatter(defaultFormatter);
             LocaleTree newLocaleTree = new LocaleTree(defaultFormatter);
             File inFiles[] = getInFiles();
@@ -4505,7 +4505,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 
                 // propagate it.
                 CheckCLDR.setDisplayInformation(gBaselineFile);
-                CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(gBaselineFile,FormatBehavior.extendHtml);
+                CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(gBaselineFile,FormatBehavior.replace);
                 CLDRLocale.setDefaultFormatter(defaultFormatter);
             } catch (Throwable t) {
                 busted("Could not load baseline locale " + BASELINE_LOCALE, t);

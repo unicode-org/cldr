@@ -1142,7 +1142,6 @@ dojo.ready(function() {
 	window.resetPop = function() {
 		lastShown = null;
 	};
-	showInPop2("", null, null, null, true);
 });
 
 function appendItem(div,value, pClass) {
@@ -1963,6 +1962,7 @@ function showRows(container,xpath,session,coverage) {
 		        		if(json.dataLoadTime) {
 		        			updateIf("dynload", json.dataLoadTime);
 		        		}
+		        		showInPop2("", null, null, null, true); /* show the box the first time */
 		        		doUpdate(theDiv.id, function() {
 		        				showLoader(theDiv.loader,stui.loading3);
 		        				insertRows(theDiv,xpath,session,json);

@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
@@ -2873,7 +2874,7 @@ public class DataSection implements JSONString {
 		// }
 
 		SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
-		int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
+		int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
 		if (xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames")) {
 			// work on zones
 			boolean isMetazones = xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames/metazone");
@@ -3085,7 +3086,7 @@ public class DataSection implements JSONString {
 				lastTime = countStart = System.currentTimeMillis();
 			}
 
-			int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(workingCoverageLevel);
+			int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
 			// what to exclude under 'misc'
 
 			CLDRFile vettedParent = null;
@@ -3292,7 +3293,7 @@ public class DataSection implements JSONString {
 				// level
 				int coverageValue = sdi.getCoverageValue(baseXpath, locale.toULocale());
 				if (coverageValue > workingCoverageValue) {
-					if (coverageValue <= 100) {
+					if (coverageValue <= Level.OPTIONAL.getValue()) {					    
 						skippedDueToCoverage++;
 					} // else: would never be shown, don't care
 					continue;

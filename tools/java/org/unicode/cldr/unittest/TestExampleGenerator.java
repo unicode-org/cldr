@@ -1,5 +1,8 @@
 package org.unicode.cldr.unittest;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.Zoomed;
@@ -36,12 +39,21 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     private void checkPathValue(ExampleGenerator exampleGenerator, String xpath, String value) {
+        Set<String> alreadySeen = new HashSet<String>();
         for (ExampleType type : ExampleType.values()) {
             for (Zoomed zoomed : Zoomed.values()) {
                 try {
                     String text = exampleGenerator.getExampleHtml(xpath, value, zoomed, null, type);
-                    if (text != null && text.contains("Exception")) {
+                    if (text == null) continue;
+                    if (text.contains("Exception")) {
                         errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text);
+                    } else if (!alreadySeen.contains(text)){
+                        if (text.contains("&lt;")) {
+                            int x = 0; // for debugging
+                        }
+                        text = exampleGenerator.getExampleHtml(xpath, value, zoomed, null, type);
+                        logln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text + "\t" + xpath);
+                        alreadySeen.add(text);
                     }
                 } catch (Exception e) {
                     errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + e.getMessage());
@@ -50,8 +62,11 @@ public class TestExampleGenerator extends TestFmwk {
         }
         try {
             String text = exampleGenerator.getHelpHtml(xpath, value);
-            if (text != null && text.contains("Exception")) {
+            if (text == null) {
+            } if (text.contains("Exception")) {
                 errln("getHelpHtml\t" + text);
+            } else {
+                logln("getExampleHtml\t" + "\t" + text + "\t" + xpath);
             }
         } catch (Exception e) {
             errln("getHelpHtml\t" + e.getMessage());

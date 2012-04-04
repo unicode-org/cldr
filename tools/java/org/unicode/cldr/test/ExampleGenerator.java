@@ -86,9 +86,15 @@ public class ExampleGenerator {
 
     //private final static String EXEMPLAR_CITY = "Europe/Rome";
 
-    private String backgroundStart = "<span class='substituted'>";
-
+    private String backgroundStart = "<span class='cldr_substituted'>";
     private String backgroundEnd = "</span>";
+    private String exampleStart = "<div class='cldr_example'>";
+    private String exampleEnd = "</div>";
+    
+    private static final String backgroundStartSymbol = "\uE234";
+    private static final String backgroundEndSymbol = "\uE235";
+    private static final String backgroundTempSymbol = "\uE236";
+    private static final String exampleSeparatorSymbol = "\uE237";
 
     private boolean verboseErrors = false;
 
@@ -113,9 +119,6 @@ public class ExampleGenerator {
 
     private static final String NONE = "\uFFFF";
 
-    private static final String backgroundStartSymbol = "\uE234";
-
-    private static final String backgroundEndSymbol = "\uE235";
 
 
     // Matcher skipMatcher = Pattern.compile(
@@ -247,75 +250,88 @@ public class ExampleGenerator {
     public String getExampleHtml(String xpath, String value, Zoomed zoomed, ExampleContext context, ExampleType type) {
         String cacheKey;
         String result = null;
-        try {
-            if (CACHING) {
-                cacheKey = xpath + "," + value + "," + zoomed;
-                result = cache.get(cacheKey);
-                if (result != null) {
-                    if (result == NONE) {
-                        return null;
+        main:
+            try {
+                if (CACHING) {
+                    cacheKey = xpath + "," + value + "," + zoomed;
+                    result = cache.get(cacheKey);
+                    if (result != null) {
+                        if (result == NONE) {
+                            return null;
+                        }
+                        return result;
                     }
-                    return result;
                 }
-            }
-            // result is null at this point. Get the real value if we can.
-            parts.set(xpath);
-            if (parts.contains("dateRangePattern")) { // {0} - {1}
-                return result = handleDateRangePattern(value, xpath, zoomed);
-            }
-            if (parts.contains("timeZoneNames")) {
-                return result = handleTimeZoneName(xpath, value);
-            }
-            if (parts.contains("exemplarCharacters")) {
-                return result = handleExemplarCharacters(value, zoomed);
-            }
-            if (parts.contains("localeDisplayNames")) {
-                return result = handleDisplayNames(xpath, parts, value);
-            }
-            if (parts.contains("currency")) {
-                return result = handleCurrency(xpath, value, context, type);
-            }
-            if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
-                return result = handleDateFormatItem(value);
-            }
-            if (parts.contains("symbol")) {
-                return result = handleNumberSymbol();
-            }
-            if (parts.contains("defaultNumberingSystem") || parts.contains("otherNumberingSystems")) {
-                return result = handleNumberingSystem(value);
-            }
-            if (parts.contains("units")) {
-                return result = handleUnits(parts, xpath, value, context, type);
-            }
-            if (parts.contains("currencyFormats") && parts.contains("unitPattern")) {
-                return result = formatCountValue(xpath, parts, value, context, type);
-            } 
-            if (parts.contains("intervalFormats")) {
-                return result = handleIntervalFormats(parts, xpath, value, context, type);
-            }
+                // result is null at this point. Get the real value if we can.
+                parts.set(xpath);
+                if (parts.contains("dateRangePattern")) { // {0} - {1}
+                    result = handleDateRangePattern(value, xpath, zoomed);
+                    break main;
+                }
+                if (parts.contains("timeZoneNames")) {
+                    result = handleTimeZoneName(xpath, value);
+                    break main;                
+                }
+                if (parts.contains("exemplarCharacters")) {
+                    result = handleExemplarCharacters(value, zoomed);
+                    break main;
+                }
+                if (parts.contains("localeDisplayNames")) {
+                    result = handleDisplayNames(xpath, parts, value);
+                    break main;
+                }
+                if (parts.contains("currency")) {
+                    result = handleCurrency(xpath, value, context, type);
+                    break main;
+                }
+                if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
+                    result = handleDateFormatItem(value);
+                    break main;
+                }
+                if (parts.contains("symbol")) {
+                    result = handleNumberSymbol();
+                    break main;
+                }
+                if (parts.contains("defaultNumberingSystem") || parts.contains("otherNumberingSystems")) {
+                    result = handleNumberingSystem(value);
+                    break main;
+                }
+                if (parts.contains("units")) {
+                    result = handleUnits(parts, xpath, value, context, type);
+                    break main;
+                }
+                if (parts.contains("currencyFormats") && parts.contains("unitPattern")) {
+                    result = formatCountValue(xpath, parts, value, context, type);
+                    break main;
+                } 
+                if (parts.contains("intervalFormats")) {
+                    result = handleIntervalFormats(parts, xpath, value, context, type);
+                    break main;
+                }
 
-            // didn't detect anything, return empty-handed
-            return null;
+                // didn't detect anything, return empty-handed
+                return null;
 
-        } catch (NullPointerException e) {
-            if (SHOW_ERROR) {
-                e.printStackTrace();
+            } catch (NullPointerException e) {
+                if (SHOW_ERROR) {
+                    e.printStackTrace();
+                }
+                return null;
+            } catch (RuntimeException e) {
+                String unchained = verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";
+                return "<i>Parsing error. " + finalizeBackground(e.getMessage()) + "</i>" + unchained;
             }
-            return null;
-        } catch (RuntimeException e) {
-            String unchained = verboseErrors?("<br>"+unchainException(e)):"";
-            return "<i>Parsing error. " + e.getMessage() + "</i>"+unchained;
-        } finally {
+            result = finalizeBackground(result);
+
             if (CACHING) {
                 if (result == null) {
                     cache.put(cacheKey, NONE);
                 } else {
                     // fix HTML, cache
-                    result = TransliteratorUtilities.toHTML.transliterate(result);
                     cache.put(cacheKey, result);
                 }
-            }      
-        }
+            } 
+            return result;
     }
 
     IntervalFormat intervalFormat = new IntervalFormat();
@@ -507,7 +523,9 @@ public class ExampleGenerator {
             //arguments.put("unit", value);
             String resultItem = unitPatternFormat.format(new Object[]{example, unitName});
             //resultItem = setBackground(resultItem).replace(unitName, backgroundEndSymbol + unitName + backgroundStartSymbol);
-            resultItem = finalizeBackground(resultItem, isPattern);
+            if (isPattern) {
+                resultItem = invertBackground(resultItem);
+            }
 
             // now add to list
             if (result.length() != 0) {
@@ -651,7 +669,6 @@ public class ExampleGenerator {
                 }
             }
         }
-        result = finalizeBackground(result, false);
         return result;
     }
 
@@ -676,7 +693,6 @@ public class ExampleGenerator {
             }
             dateFormat.setTimeZone(ZONE_SAMPLE);
             result = dateFormat.format(DATE_SAMPLE);
-            result = finalizeBackground(result, false);
         } else if (parts.contains("numbers")) {
             DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
             result = numberFormat.format(NUMBER_SAMPLE);
@@ -697,7 +713,6 @@ public class ExampleGenerator {
             DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
             result = x.format(NUMBER_SAMPLE);
             result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);
-            result = finalizeBackground(result, false);
             return result;
         } else if (parts.contains("displayName")) {
             return formatCountValue(xpath, parts, value, context, type);
@@ -709,7 +724,6 @@ public class ExampleGenerator {
         String result;
         SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
         result = format(value, setBackground(dateFormat.format(DATE_SAMPLE)), setBackground(dateFormat.format(DATE_SAMPLE2)));
-        result = finalizeBackground(result, false);
         return result;
     }
 
@@ -721,7 +735,6 @@ public class ExampleGenerator {
                     type.equals("language") ? "ace"
                             : type.equals("script") ? "Avst"
                                     : type.equals("territory") ? "057" : "CODE"));
-            result = finalizeBackground(result, false);
         } else if (parts.contains("localeDisplayPattern")) {
             result = cldrFile.getName("uz-Arab-AF@timezone=Africa/Addis_Ababa;numbers=arab");
         } else if (parts.contains("languages") ) {
@@ -790,18 +803,36 @@ public class ExampleGenerator {
      * @param invert TODO
      * @return string with HTML for the background.
      */
-    private String finalizeBackground(String input, boolean invert) {
-        if (invert) input = backgroundEndSymbol + input + backgroundStartSymbol;
-        return input == null ? input : input
-                .replace(backgroundStartSymbol + backgroundEndSymbol, "") // remove null runs
-                // null
-                // runs
-                .replace(backgroundEndSymbol + backgroundStartSymbol, "") // remove null runs
-                // runs
-                .replace(backgroundStartSymbol, invert ? backgroundEnd : backgroundStart)
-                .replace(backgroundEndSymbol, invert ? backgroundStart : backgroundEnd);
+    private String finalizeBackground(String input) {
+        return input == null 
+        ? input 
+                : exampleStart + 
+                TransliteratorUtilities.toHTML.transliterate(input)
+                .replace(backgroundStartSymbol + backgroundEndSymbol, "") 
+                // remove null runs
+                .replace(backgroundEndSymbol + backgroundStartSymbol, "")
+                // remove null runs
+                .replace(backgroundStartSymbol, backgroundStart)
+                .replace(backgroundEndSymbol, backgroundEnd)
+                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+                .replace(exampleStart, exampleEnd + exampleStart)
+                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+                + exampleEnd
+                ;
     }
 
+    private String invertBackground(String input) {
+        if (input == null) {
+            return null;
+        }
+        input = input.replace(backgroundStartSymbol, backgroundTempSymbol)
+        .replace(backgroundEndSymbol, backgroundStartSymbol)
+        .replace(backgroundTempSymbol, backgroundEndSymbol)
+        ;
+
+        return backgroundStartSymbol + input + backgroundEndSymbol;
+    }
+    
     public static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
 
     /**
@@ -894,7 +925,7 @@ public class ExampleGenerator {
         StringBuilder buffer = new StringBuilder();
         while (URLMatcher.reset(description).find(start)) {
             final String url = URLMatcher.group();
-            buffer.append(TransliteratorUtilities.toHTML.transform(description.substring(start, URLMatcher.start())))
+            buffer.append(finalizeBackground(description.substring(start, URLMatcher.start())))
             .append("<a target='CLDR-ST-DOCS' href='")
             .append(url)
             .append("'>")
@@ -902,7 +933,7 @@ public class ExampleGenerator {
             .append("</a>");
             start = URLMatcher.end();
         }
-        buffer.append(TransliteratorUtilities.toHTML.transform(description.substring(start)));
+        buffer.append(finalizeBackground(description.substring(start)));
 
         return buffer.toString();
         //return helpMessages.find(xpath);

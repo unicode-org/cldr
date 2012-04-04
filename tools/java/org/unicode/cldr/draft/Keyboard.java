@@ -17,8 +17,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
@@ -45,7 +49,7 @@ public class Keyboard {
         D00, D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, 
         C00, C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13,
         B00, B01, B02, B03, B04, B05, B06, B07, B08, B09, B10, B11, B12, B13,
-        A02, A03, A04;
+        A00, A01, A02, A03, A04, A05, A06, A07, A08, A09, A10, A11, A12, A13;
     }
     // add whatever is needed
 
@@ -470,7 +474,12 @@ public class Keyboard {
                 } else {
                     LinkedHashSet<String> list = new LinkedHashSet<String>();
                     for (String item : attributeValue.trim().split(" ")) {
-                        list.add(fixValue(item));
+                        final String fixedValue = fixValue(item);
+                        if (fixedValue.isEmpty()) {
+                            //throw new IllegalArgumentException("Null string in list. " + parts);
+                            continue;
+                        }
+                        list.add(fixedValue);
                     }
                     gestures.put(Gesture.fromString(attribute), Collections.unmodifiableList(new ArrayList<String>(list)));
                     if (DEBUG) {
@@ -494,7 +503,7 @@ public class Keyboard {
         Relation<String, Id> locale2ids = Relation.of(new TreeMap<String,Set<Id>>(), TreeSet.class);
         for (String platformId : Keyboard.getPlatformIDs()) {
             Platform p = getPlatform(platformId);
-//            System.out.println(platformId + "\t" + p.getHardwareMap());
+            //            System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
                 Keyboard keyboard = Keyboard.getKeyboard(platformId, keyboardId, errors);
                 totalErrors.addAll(errors);
@@ -514,12 +523,21 @@ public class Keyboard {
         if (errors.size() != 0) {
             System.out.println("\t" + CollectionUtilities.join(errors, "\n\t"));
         }
+        TestInfo testInfo = TestInfo.getInstance();
+        Factory factory = testInfo.getCldrFactory();
         for (Entry<String, Set<Id>> localeAndIds : locale2ids.keyValuesSet()) {
             final String key = localeAndIds.getKey();
             final Set<Id> keyboardIds = localeAndIds.getValue();
 
             System.out.println();
             final ULocale uLocale = ULocale.forLanguageTag(key);
+            String script = uLocale.getScript();
+            String writtenLanguage = uLocale.getLanguage() + (script.isEmpty() ? "" : "_" + script);
+            CLDRFile cldrFile  = null;
+            try {
+                cldrFile = factory.make(writtenLanguage, false);
+            } catch (Exception e) {}
+
             final String heading = uLocale.getDisplayName(ULocale.ENGLISH)
             + "\t" + ULocale.addLikelySubtags(uLocale).getScript() 
             + "\t";
@@ -538,21 +556,22 @@ public class Keyboard {
                 common.freeze();
                 System.out.println(
                         locale + "\tCOMMON\t\t-"
-                        + "\t" + heading + getScripts(common)
+                        + "\t" + heading + getInfo(common, cldrFile)
                         + "\t" + common.toPattern(false));
             }
             for (Id keyboardId : keyboardIds) {
-                final UnicodeSet remainder = new UnicodeSet(id2unicodeset.get(keyboardId)).removeAll(common);
-                
+                final UnicodeSet current = id2unicodeset.get(keyboardId);
+                final UnicodeSet remainder = new UnicodeSet(current).removeAll(common);
+
                 System.out.println(
                         keyboardId.toString().replace('/','\t')
                         + "\t" + keyboardId.platformVersion
-                        + "\t" + heading + getScripts(remainder)
+                        + "\t" + heading + getInfo(current, cldrFile)
                         + "\t" + remainder.toPattern(false));
             }
         }
     }
-    private static Counter<String> getScripts(UnicodeSet common) {
+    private static String getInfo(UnicodeSet common, CLDRFile cldrFile) {
         Counter<String> results = new Counter<String>();
         for (String s : common) {
             int first = s.codePointAt(0); // first char is good enough
@@ -562,7 +581,27 @@ public class Keyboard {
         results.remove("Zinh");
         results.remove("Zzzz");
 
-        return results;
+        if (cldrFile != null) {
+            UnicodeSet mainExemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet auxExemplars = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
+            if (auxExemplars.size() != 0) {
+                addComparison("aux", common, new UnicodeSet(auxExemplars).addAll(mainExemplars), results);
+            } else {
+                addComparison("main", common, mainExemplars, results);
+            }
+        }
+
+        return results.toString();
+    }
+
+    private static void addComparison(String title, UnicodeSet keyboard, UnicodeSet exemplars,
+            Counter<String> results) {
+        UnicodeSet common = new UnicodeSet(keyboard).retainAll(exemplars);
+        if (common.size() != 0) results.add("=" + title, common.size());
+        common = new UnicodeSet(keyboard).removeAll(exemplars);
+        if (common.size() != 0) results.add("-" + title, common.size());
+        common = new UnicodeSet(exemplars).removeAll(keyboard);
+        if (common.size() != 0) results.add(title + "-", common.size());
     }
 
     static class Id implements Comparable<Id> {

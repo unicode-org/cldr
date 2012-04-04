@@ -925,7 +925,7 @@ public class ExampleGenerator {
         StringBuilder buffer = new StringBuilder();
         while (URLMatcher.reset(description).find(start)) {
             final String url = URLMatcher.group();
-            buffer.append(finalizeBackground(description.substring(start, URLMatcher.start())))
+            buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start, URLMatcher.start())))
             .append("<a target='CLDR-ST-DOCS' href='")
             .append(url)
             .append("'>")
@@ -933,7 +933,7 @@ public class ExampleGenerator {
             .append("</a>");
             start = URLMatcher.end();
         }
-        buffer.append(finalizeBackground(description.substring(start)));
+        buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
 
         return buffer.toString();
         //return helpMessages.find(xpath);

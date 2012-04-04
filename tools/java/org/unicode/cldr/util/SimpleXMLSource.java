@@ -2,18 +2,27 @@ package org.unicode.cldr.util;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.XPathParts.Comments;
+
+import com.ibm.icu.dev.test.util.Relation;
 
 public class SimpleXMLSource extends XMLSource {
     private HashMap<String,String> xpath_value = new HashMap<String,String>(); // TODO change to HashMap, once comparator is gone
     private HashMap<String,String> xpath_fullXPath = new HashMap<String,String>();
     private Comments xpath_comments = new Comments(); // map from paths to comments.
+    private Relation<String, String> VALUE_TO_PATH = null;
+    private Object VALUE_TO_PATH_MUTEX = new Object();
 
     public SimpleXMLSource(String localeID) {
       this.setLocaleID(localeID);
     }
+
     /** 
      * Create a shallow, locked copy of another XMLSource. 
      * @param copyAsLockedFrom
@@ -52,8 +61,10 @@ public class SimpleXMLSource extends XMLSource {
     //  }
     //  }
     public void removeValueAtDPath(String distinguishingXPath) {
+      String oldValue = xpath_value.get(distinguishingXPath);
       xpath_value.remove(distinguishingXPath);
       xpath_fullXPath.remove(distinguishingXPath);
+      updateValuePathMapping(distinguishingXPath, oldValue, null);
     }
     public Iterator<String> iterator() { // must be unmodifiable or locked
       return Collections.unmodifiableSet(xpath_value.keySet()).iterator();
@@ -73,6 +84,48 @@ public class SimpleXMLSource extends XMLSource {
       xpath_fullXPath.put(distinguishingXPath, fullxpath);
     }
     public void putValueAtDPath(String distinguishingXPath, String value) {
+      String oldValue = xpath_value.get(distinguishingXPath);
       xpath_value.put(distinguishingXPath, value);
+      updateValuePathMapping(distinguishingXPath, oldValue, value);
+    }
+
+    private void updateValuePathMapping(String distinguishingXPath, String oldValue, String newValue) {
+        synchronized(VALUE_TO_PATH_MUTEX) {
+            if (VALUE_TO_PATH != null) {
+                VALUE_TO_PATH.remove(oldValue, distinguishingXPath);
+                if (newValue != null) {
+                    VALUE_TO_PATH.put(newValue, distinguishingXPath);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+        // build a Relation mapping value to paths, if needed
+        synchronized (VALUE_TO_PATH_MUTEX) {
+            if (VALUE_TO_PATH == null) {
+                VALUE_TO_PATH = new Relation(new HashMap(), HashSet.class);
+                for (Iterator<String> it = iterator(); it.hasNext();) {
+                    String path = it.next();
+                    String value = getValueAtDPath(path);
+                    VALUE_TO_PATH.put(value, path);
+                }
+            }
+            Set<String> paths = VALUE_TO_PATH.getAll(valueToMatch);
+            if (paths == null) {
+                return;
+            }
+            if (pathPrefix == null || pathPrefix.length() == 0) {
+                result.addAll(paths);
+                return;
+            }
+            for (String path : paths) {
+               if (path.contains(pathPrefix)) {
+               // if (altPath.originalPath.startsWith(altPrefix.originalPath)) {
+                    result.add(path);
+                }
+            }
+        }
     }
 }

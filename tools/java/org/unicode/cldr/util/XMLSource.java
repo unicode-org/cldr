@@ -434,14 +434,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
      */
     private void clearCache() {
         aliases = null;
-        synchronized (VALUE_TO_PATH_MUTEX) {
-            VALUE_TO_PATH = null;
-        }
     }
-
-    private Object VALUE_TO_PATH_MUTEX = new Object();
-    private Relation<String, AltPath> VALUE_TO_PATH = null;
-
 
     /**
      * Return the localeID of the XMLSource where the path was found
@@ -959,7 +952,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             // Keep track of the current path index: since it's sorted, we
             // never have to backtrack.
             int pathIndex = 0;
-            LinkedHashMap<String, List<String>> reverseAliases = sources.get("root").getReverseAliases();
+            LinkedHashMap<String, List<String>> reverseAliases = getReverseAliases();
             for (String subpath : reverseAliases.keySet()) {
                 // Find the first path that matches the current alias.
                 while(pathIndex < paths.length &&
@@ -983,6 +976,10 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
                 if (endIndex == paths.length) break;
             }
             return newPaths;
+        }
+
+        private LinkedHashMap<String, List<String>> getReverseAliases() {
+            return sources.get("root").getReverseAliases();
         }
 
         private transient Set<String> cachedKeySet = null;
@@ -1275,6 +1272,56 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         public boolean isHere(String path) {
             return currentSource.isHere(path); // only test one level
         }
+
+        @Override
+        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+            // NOTE: No caching is currently performed here because the unresolved
+            // locales already cache their value-path mappings, and it's not
+            // clear yet how much further caching would speed this up.
+
+            // Add all non-aliased paths with the specified value.
+            List<XMLSource> children = new ArrayList<XMLSource>();
+            Set<String> filteredPaths = new HashSet<String>();
+            for (XMLSource source : sources.values()) {
+                Set<String> pathsWithValue = new HashSet<String>();
+                source.getPathsWithValue(valueToMatch, pathPrefix, pathsWithValue);
+                // Don't add a path with the value if it is overridden by a child locale.
+                for (String pathWithValue : pathsWithValue) {
+                    if (!sourcesHavePath(pathWithValue, children)) {
+                        filteredPaths.add(pathWithValue);
+                    }
+                }
+                children.add(source);
+            }
+            
+            // Find all paths that alias to the specified value, then filter by
+            // path prefix.
+            Set<String> aliases = new HashSet<String>();
+            Set<String> oldAliases = new HashSet<String>(filteredPaths);
+            Set<String> newAliases;
+            do {
+                String[] sortedPaths = new String[oldAliases.size()];
+                oldAliases.toArray(sortedPaths);
+                Arrays.sort(sortedPaths);
+                newAliases = getDirectAliases(sortedPaths);
+                oldAliases = newAliases;
+                aliases.addAll(newAliases);
+            } while(newAliases.size() > 0);
+            for (String alias : aliases) {
+                if (alias.startsWith(pathPrefix)) {
+                    filteredPaths.add(alias);
+                }
+            }
+
+            result.addAll(filteredPaths);
+        }
+        
+        private boolean sourcesHavePath(String xpath, List<XMLSource> sources) {
+            for (XMLSource source : sources) {
+                if (source.hasValueAtDPath(xpath)) return true;
+            }
+            return false;
+        }
     }
     /**
      * See CLDRFile isWinningPath for documentation
@@ -1339,88 +1386,13 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
         return getValueAtPath(path) != null;
     }
     
-    private static Pattern altPattern = Pattern.compile("\\[@alt=\"([\\w-]+)\"\\]");
-    
-    /**
-     * A helper class for comparing paths with different alt tags.
-     */
-    private class AltPath {
-        String originalPath;
-        String baseName; // base alt name without "proposed", "" if no name
-        String pathWithoutAlt; // xpath with any alt tag removed
-
-        public AltPath(String path) {
-            originalPath = path;
-            Matcher matcher = altPattern.matcher(path);
-            if (matcher.find()) {
-                pathWithoutAlt = path.substring(0, matcher.start()) + path.substring(matcher.end());
-                // Remove any "proposed" prefixes from the alt path since they're not relevant to matching.
-                String fullName = matcher.group(1);
-                int proposedPos = fullName.indexOf("proposed");
-                if (proposedPos == -1) {
-                    baseName = fullName;
-                } else if (proposedPos == 0) {
-                    baseName = "";
-                } else {
-                    baseName = fullName.substring(0, proposedPos - 1);
-                }
-            } else {
-                pathWithoutAlt = originalPath;
-                baseName = "";
-            }
-        }
-
-        /**
-         * @param altPath
-         * @return true if the given path can be considered as starting with this path.
-         */
-        public boolean contains(AltPath altPath) {
-            return pathWithoutAlt.startsWith(altPath.pathWithoutAlt) &&
-                    baseName.equals(altPath.baseName);
-        }
-        
-        @Override
-        public int hashCode() {
-            return originalPath.hashCode();
-        }
-    }
-
     /**
      * Find all the distinguished paths having values matching valueToMatch, and add them to result.
      * @param valueToMatch
      * @param pathPrefix
      * @param result
      */
-    public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
-        // build a Relation mapping value to paths, if needed
-        synchronized (VALUE_TO_PATH_MUTEX) {
-            if (VALUE_TO_PATH == null) {
-                VALUE_TO_PATH = new Relation(new HashMap(), HashSet.class);
-                for (Iterator<String> it = iterator(); it.hasNext();) {
-                    String path = it.next();
-                    String value = getValueAtDPath(path);
-                    VALUE_TO_PATH.put(value, new AltPath(path));
-                }
-            }
-            Set<AltPath> paths = VALUE_TO_PATH.getAll(valueToMatch);
-            if (paths == null) {
-                return;
-            }
-            if (pathPrefix == null || pathPrefix.length() == 0) {
-                for (AltPath altPath : paths) {
-                    result.add(altPath.originalPath);
-                }
-                return;
-            }
-            AltPath altPrefix = new AltPath(pathPrefix);
-            for (AltPath altPath : paths) {
-               if (altPath.contains(altPrefix)) {
-               // if (altPath.originalPath.startsWith(altPrefix.originalPath)) {
-                    result.add(altPath.originalPath);
-                }
-            }
-        }
-    }
+    public abstract void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result);
     
     static Set<String> getNumberSystems() {
         return ResolvingSource.numberSystems;

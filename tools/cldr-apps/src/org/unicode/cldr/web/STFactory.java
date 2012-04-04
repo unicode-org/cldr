@@ -707,6 +707,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public void setXpathComments(Comments comments) {
             readonly();
         }
+        @Override
+        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+            delegate.getPathsWithValue(valueToMatch, pathPrefix, result);
+            
+        }
 
         //		/* (non-Javadoc)
         //		 * @see org.unicode.cldr.util.XMLSource#make(java.lang.String)

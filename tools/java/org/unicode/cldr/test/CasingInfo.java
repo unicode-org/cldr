@@ -303,5 +303,10 @@ public class CasingInfo {
         public Iterator<String> iterator() {
             return pathMap.keySet().iterator();
         }
+
+        @Override
+        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+            // do nothing
+        }
     }
 }

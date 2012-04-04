@@ -53,6 +53,10 @@ public class TestXMLSource extends TestFmwk {
         public Iterator<String> iterator() {
             return valueMap.keySet().iterator();
         }
+
+        @Override
+        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+        }
     }
 
     public static void main(String[] args) {

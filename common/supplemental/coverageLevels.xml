@@ -198,6 +198,7 @@
 		<coverageLevel value="80" match="localeDisplayNames/keys/key[@type='(calendar|collation|currency|numbers)']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='(ducet|search)'][@key='collation']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='(arab(ext)?|armn(low)?|beng|deva|ethi|fullwide|geor|grek(low)?|gujr|guru|hanidec|han[st](fin)?|hebr|jpan(fin)?|khmr|knda|laoo|mlym|mymr|orya|roman(low)?|taml(dec)?|telu|thai|tibt)'][@key='numbers']"/>
+		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='(format|stand-alone)']/dayWidth[@type='short']/day[@type='(sun|mon|tue|wed|thu|fri|sat)']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='day']/relative[@type='\-?(2|3)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='(Afghanistan|Alaska|Amazon|Argentina(_Western)?|Armenia|Azerbaijan|Azores)']/long/(generic|standard|daylight)"/>

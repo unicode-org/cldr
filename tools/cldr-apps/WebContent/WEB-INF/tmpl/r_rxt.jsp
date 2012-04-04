@@ -2,6 +2,10 @@
 <%@ include file="/WEB-INF/jspf/report.jspf"  %>
 <%@ page import="org.unicode.cldr.util.*" %>
 
+<div class='ferrbox'>
+Debugging only.
+</div>
+
 <%
 if(!SurveyMain.isUnofficial) {
 	return;
@@ -15,9 +19,9 @@ if(xpid!=-1) {
 	xp = ctx.sm.xpt.getById(xpid);
 }
 %>
-hi, session=<%= ctx.session.id %>
+session=<%= ctx.session.id %>
 <hr>
-<a href='<%= request.getContextPath() %>/RefreshRow.jsp?_=<%= ctx.getLocale() %>&s=<%= ctx.session.id %>&xpath=<%= xp %>&json=t'>Clicky.</a>
+<a href='<%= request.getContextPath() %>/RefreshRow.jsp?_=<%= ctx.getLocale() %>&s=<%= ctx.session.id %>&xpath=<%= xp %>&json=t'>{JSON}</a>
 
 
 <hr>
@@ -35,3 +39,7 @@ hi, session=<%= ctx.session.id %>
 <script type='text/javascript'>
 showRows('DataSection', '<%= xp %>', '<%= ctx.session.id %>');
 </script>
+
+<div class='ferrbox'>
+Debugging only.
+</div>

@@ -1509,14 +1509,15 @@ function updateRow(tr, theRow) {
 
 			var go = document.createElement("a");
 			go.className="anch-go";
-			go.appendChild(document.createTextNode(">"));
+			go.appendChild(document.createTextNode("zoom"));
 			go.href=window.location.pathname + "?_="+surveyCurrentLocale+"&x=r_rxt&xp="+theRow.xpid;
 			children[config.codecell].appendChild(go);
 			
 			var js = document.createElement("a");
 			js.className="anch-go";
-			js.appendChild(document.createTextNode("{}"));
+			js.appendChild(document.createTextNode("{JSON}"));
 			js.popParent=tr;
+			js.href="#";
 			listenToPop(JSON.stringify(theRow),tr,js);
 			children[config.codecell].appendChild(js);
 		}
@@ -1526,7 +1527,7 @@ function updateRow(tr, theRow) {
 //					stStopPropagation(e); return false; 
 //				});
 		var xpathStr = "";
-		if(stdebug_enabled) {
+		if((!window.surveyOfficial) || stdebug_enabled) {
 			xpathStr = "XPath: " + theRow.xpath;
 		}
 		listenToPop(xpathStr, tr, children[config.codecell]);

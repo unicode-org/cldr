@@ -990,8 +990,10 @@ dojo.ready(function() {
 	function setLastShown(obj) {
 		if(gPopStatus.lastShown && obj!=gPopStatus.lastShown) {
 			removeClass(gPopStatus.lastShown,"pu-select");
+			//addClass(gPopStatus.lastShown,"pu-deselect");
 		}
 		if(obj) {
+			//removeClass(obj,"pu-deselect");
 			addClass(obj,"pu-select");
 		}
 		gPopStatus.lastShown = obj;
@@ -1551,6 +1553,7 @@ function updateRow(tr, theRow) {
 	} else {
 		children[config.proposedcell].showFn = null;  // nothing else to show
 	}
+	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
 	listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
 	//listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
@@ -1561,6 +1564,7 @@ function updateRow(tr, theRow) {
 		}
 		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton));
 	}
+	listenToPop(null, tr, children[config.othercell]);
 	if(tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
 		// add back my proposal
 		children[config.othercell].appendChild(tr.myProposal);
@@ -1572,51 +1576,20 @@ function updateRow(tr, theRow) {
 		removeAllChildNodes(children[config.changecell]);
 		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		
-		// TODO: show proposed results
-		tr._showProposedResults = function(e) {
-			if(e) {
-				stStopPropagation(e);
-			}
-			if(theRow.proposedResults) {
-				showInPop( null, tr, children[config.changecell], function(td) {
-					td.appendChild(theRow.proposedResults);
-					return null;
-				},false);
-				return false; 
-			} else {
-				return false; // return tr._onmove(e); // show row generically
-			}
-		};
-		tr._showProposedResults2 = function(e) {
-			if(e) {
-				stStopPropagation(e);
-			}
-			if(theRow.proposedResults) {
-				showInPop( null, tr, children[config.changecell], function(td) {
-					td.appendChild(theRow.proposedResults);
-					return null;
-				},true);
-				return false; 
-			} else {
-				return false; // return tr._onmove(e); // show row generically
-			}
-		};
 		if(!canModify) {
 			children[config.changecell].style.display="none";
-		} else if(theRow.showstatus) {
-			if(theRow.showstatus == "READ_ONLY") {
-				children[config.changecell].className="d-change-confirmonly";
-				var link = createChunk(stui.str("file_a_ticket"),"a");
-				var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath;
-				if(window.surveyOfficial) {
-					link.href = newUrl;
-					theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
-					theRow.proposedResults.href = newUrl;
-				} else {
-					theRow.proposedResults = createChunk(stui.str("file_ticket_unofficial") + "  <" + newUrl + ">","div","fnotebox");
-				}
-				children[config.changecell].appendChild(link);
+		} else if(theRow.showstatus && theRow.showstatus == "READ_ONLY") {
+			children[config.changecell].className="d-change-confirmonly";
+			var link = createChunk(stui.str("file_a_ticket"),"a");
+			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath;
+			if(window.surveyOfficial) {
+				link.href = newUrl;
+				theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
+				theRow.proposedResults.href = newUrl;
+			} else {
+				theRow.proposedResults = createChunk(stui.str("file_ticket_unofficial") + "  <" + newUrl + ">","div","fnotebox");
 			}
+			children[config.changecell].appendChild(link);
 		} else {
 			var changeButton = cloneAnon(protoButton);
 			children[config.changecell].appendChild(changeButton);
@@ -1635,9 +1608,8 @@ function updateRow(tr, theRow) {
 			children[config.changecell].appendChild(changeBox);
 			children[config.changecell].isSetup=true;
 			children[config.changecell].theButton = changeButton;
+			listenToPop(null, tr, children[config.changecell]);
 		}
-//		listenFor(children[config.changecell],"mouseover",tr._showProposedResults);
-//		listenFor(children[config.changecell],"click",tr._showProposedResults2);
 		
 	} else {
 		if(children[config.changecell].theButton) {
@@ -1652,6 +1624,7 @@ function updateRow(tr, theRow) {
 		wireUpButton(noOpinion,tr, theRow, null);
 		noOpinion.value=null;
 		children[config.nocell].appendChild(noOpinion);
+		listenToPop(null, tr, children[config.nocell]);
 	} else {
 		children[config.nocell].style.display="none";
 	}

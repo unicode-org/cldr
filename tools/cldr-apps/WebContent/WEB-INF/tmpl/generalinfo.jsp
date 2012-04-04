@@ -3,13 +3,10 @@
 
 <!--  this is generalinfo.jsp  -->
 
-
- <li><i><font size='4'>Be sure to read </font>
-<font size='4'><a href='<%= SurveyMain.GENERAL_HELP_URL %>'><%= SurveyMain.GENERAL_HELP_NAME %></a>
-</font><font size='4'>     once before going further.</font></i></li> 
-<!-- <li> <font size='4'><i>Consult the Page Instructions if you have questions on any page.</i></font> 
-</li> --> </ul>
-
+<div style="margin:3em">Please select one of the above pages to start entering data.
+If you have not yet done so, please read <a href='<%= SurveyMain.GENERAL_HELP_URL %>'><%= SurveyMain.GENERAL_HELP_NAME %></a>
+especially the Guide and Walkthrough.
+</div>
 
 <%-- 
 // what should users be notified about?

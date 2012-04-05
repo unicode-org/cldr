@@ -3,6 +3,10 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -42,6 +46,11 @@ import org.unicode.cldr.util.CLDRLocale;
  * 
  */
 public class SurveyAjax extends HttpServlet {
+    /**
+     * Consolidate my JSONify functions here.
+     * @author srl
+     *
+     */
     public static final class JSONWriter {
         private final JSONObject j = new JSONObject();
 
@@ -96,6 +105,10 @@ public class SurveyAjax extends HttpServlet {
                 }
             };
         }
+        
+        public static JSONObject wrap(ResultSet rs) throws SQLException, IOException, JSONException {
+            return DBUtils.getJSON(rs);
+        }
 
         public static List<Object> wrap(List<CheckStatus> list) throws JSONException {
         	if(list==null || list.isEmpty()) return null;
@@ -118,6 +131,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_GETROW= "getrow";
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
+    private static final Object WHAT_STATS_BYDAY = "stats_byday";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list of prefs OK to get/set
 
@@ -164,7 +178,7 @@ public class SurveyAjax extends HttpServlet {
         response.setContentType("application/json");
     }
 
-    private void processRequest(HttpServletRequest request, HttpServletResponse response, String val)  throws ServletException, IOException  {
+    private void processRequest(HttpServletRequest request, HttpServletResponse response, String val)  throws ServletException, IOException {
         //		if(val != null) {
         //			System.err.println("val="+val);
         //		}
@@ -182,6 +196,11 @@ public class SurveyAjax extends HttpServlet {
                 sendNoSurveyMain(out);
             } else if(what==null) {
                 sendError(out, "Missing parameter: " + REQ_WHAT);
+            } else if(what.equals(WHAT_STATS_BYDAY)) {
+                JSONWriter r = newJSONStatus(sm);
+                JSONObject query = DBUtils.queryToJSON("select count(*) as count ,last_mod from cldr_votevalue group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
+                r.put("byday",query);
+                send(r,out);
             } else if(what.equals(WHAT_STATUS)) {
                 sendStatus(sm,out,loc);
             } else if(sess!=null && !sess.isEmpty()) { // this and following: session needed
@@ -358,8 +377,11 @@ public class SurveyAjax extends HttpServlet {
                 sendError(out,"Unknown Request: " + what);
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "JSONException: " + e);
+        } catch (SQLException e) {
+            SurveyLog.logException(e, "Processing: " + what);
+            sendError(out, "SQLException: " + e);
         }
     }
 

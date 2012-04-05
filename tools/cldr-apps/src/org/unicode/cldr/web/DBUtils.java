@@ -26,6 +26,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.StackTracker;
 
@@ -729,7 +732,16 @@ public class DBUtils {
 //		while (args!=null&&args.length==1&&args[0] instanceof Object[]) {
 //			System.err.println("Unwrapping " + args + " to " + args[0]);
 //		}
-		if(args!=null&&args.length>0) {
+		setArgs(ps, args);
+		return ps;
+	}
+    /**
+     * @param ps
+     * @param args
+     * @throws SQLException
+     */
+    private static void setArgs(PreparedStatement ps, Object... args) throws SQLException {
+        if(args!=null) {
 			for(int i=0;i<args.length;i++) {
 				Object o = args[i];
 				if(o instanceof String) {
@@ -744,8 +756,7 @@ public class DBUtils {
 				}
 			}
 		}
-		return ps;
-	}
+    }
     
 	public static String[][] resultToArrayArray(ResultSet rs) throws SQLException {
 		ArrayList<String[]> al = new ArrayList<String[]>();
@@ -944,4 +955,60 @@ public class DBUtils {
     		out.write('\n');
         }
 	}
+    public static JSONObject getJSON(ResultSet rs) throws SQLException, IOException, JSONException {
+        ResultSetMetaData rsm = rs.getMetaData();
+        int cc = rsm.getColumnCount();
+        JSONObject ret = new JSONObject();
+        JSONObject header = new JSONObject();
+        JSONArray data  = new JSONArray();
+        
+        for(int i=1;i<=cc;i++) {
+            header.put(rsm.getColumnName(i).toUpperCase(), i-1);
+        }
+        
+        ret.put("header", header);
+        
+        while(rs.next()) {
+            JSONArray item = new JSONArray();
+            for(int i=1;i<=cc;i++) {
+                String v;
+                try {
+                    v = rs.getString(i);
+                } catch(SQLException se) {
+                    if(se.getSQLState().equals("S1009")) {
+                        v="0000-00-00 00:00:00";
+                    } else {
+                        throw se;
+                    }
+                }
+                if(v != null) {
+                    if(rsm.getColumnType(i)==java.sql.Types.LONGVARBINARY) {
+                        String uni = DBUtils.getStringUTF8(rs, i);
+                        item.put(uni);
+                    } else {
+                        item.put(v);
+                    }
+                } else {
+                    item.put(false);
+                }
+            }
+            data.put(item);
+        }
+        ret.put("data",data);
+        return ret;
+    }
+    public static JSONObject queryToJSON(String string, Object... args) throws SQLException, IOException, JSONException {
+        Connection conn = null;
+        PreparedStatement s = null;
+        ResultSet rs = null;
+        try {
+            conn = getInstance().getDBConnection();
+            s = DBUtils.prepareForwardReadOnly(conn, string);
+            setArgs(s, args);
+            rs = s.executeQuery();
+            return getJSON(rs);
+        } finally {
+            close(rs,s,conn);
+        }
+    }
 }

@@ -2340,6 +2340,73 @@ function loadAdminPanel() {
 	adminStuff.appendChild(content);
 }
 
+//////////////////
+/// stats
+function showstats(hname) {
+	dojo.ready(function() {
+		var ourUrl = contextPath + "/SurveyAjax?what=stats_byday";
+		var errorHandler = function(err, ioArgs) {
+			handleDisconnect('Error in showstats: ' + err + ' response '
+			+ ioArgs.xhr.responseText);
+		};
+		showLoader(null, "Loading statistics");
+		var loadHandler = function(json) {
+			try {
+				if (json) {
+					var r = Raphael(hname);
+					
+					var header=json.byday.header;
+					var data=json.byday.data;
+					var labels = [];
+					var count = [];
+					for(var i in data) {
+						labels.push(data[i][header.LAST_MOD]);
+						count.push(data[i][header.COUNT]);
+					}
+					var gdata = [];
+					gdata.push(count);
+					showLoader(null, "Drawing");
+					// this: 0,id,node,paper,attrs,transformations,_,prev,next,type,bar,value,events
+					// this.bar ["0", "id", "node", "paper", "attrs", "transformations", "_", "prev", "next", "type", "x", "y", "w", "h", "value"]
+                    var fin = function () {
+                    	this.flag = r.g.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
+                    },
+                    fout = function () {
+                    	this.flag.animate({opacity: 0}, 300, function () {this.remove();});
+                    };
+					var labels2 = [];
+					labels2.push(labels);
+					var hei = 500;
+					var offh = 10;
+					var toffh = 30;
+					var toffv=10+(hei/(2*labels.length));
+					console.log("Drawing in : " + hname + " - "  + count.toString());
+					r.g.hbarchart(100,offh,600,hei, gdata )
+						.hover(fin,fout);
+						//.label(labels2);
+					for(var i in labels) {
+						r.text(toffh,toffv+(i*(hei/labels.length)), (labels[i].split(" ")[0])+"\n"+count[i]  );
+					}
+					hideLoader(null);
+				} else {
+					handleDisconnect("Failed to load JSON stats",json);
+				}
+			} catch (e) {
+			console.log("Error in ajax get ", e.message);
+			console.log(" response: " + text);
+			handleDisconnect(" exception in getstats: " + e.message,null);
+			}
+		};
+	var xhrArgs = {
+		url : ourUrl,
+		handleAs : "json",
+		load : loadHandler,
+		error : errorHandler
+	};
+	queueXhr(xhrArgs);
+	});
+}
+
 
 ///////////////////
 // for vetting

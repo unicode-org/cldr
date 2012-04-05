@@ -25,8 +25,18 @@
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SurveyTool Statistics | <%=title%></title>
+<link rel='stylesheet' type='text/css' href='./surveytool.css' />
+<script type='text/javascript' src='js/raphael.js' ></script>
+<script type='text/javascript' src='js/g.raphael.js' ></script>
+<script type='text/javascript' src='js/g.line.js' ></script>
+<script type='text/javascript' src='js/g.bar.js' ></script>
 </head>
 <body>
+<%@ include file="/WEB-INF/tmpl/stnotices.jspf" %>
+<span id="visitors"></span>
+<hr>
+
+<%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->
@@ -116,13 +126,12 @@ Switch to:
  					
         		%>
 
-<script type='text/javascript' src='js/raphael.js' ></script>
-<script type='text/javascript' src='js/g.raphael.js' ></script>
-<script type='text/javascript' src='js/g.line.js' ></script>
-<script type='text/javascript' src='js/g.bar.js' ></script>
+<hr>
 	<script type="text/javascript">
+	var wid = <%= wid %>;
+	var hei = <%= hei %>;
 		var r = Raphael("holder");
-		var barchart = r.g.barchart(<%=offh%>, <%=offv%>, <%=wid%>, <%=hei%>, 
+		var barchart = r.g.barchart(<%=offh%>, <%=offv%>, wid,hei, 
 				[ [ <%for (String[] r : submits) {%><%=r[1]%>, <%}%> ], [ <%for (String[] r : submits) {%><%=r[2]%>, <%}%> ]]);
 		<%int ii = 0;
 					int ea = wid / submits.length;
@@ -147,11 +156,26 @@ Switch to:
 	}
 %>
 
-<hr/>
 <p>
  Note: Sort is by D, the total number of new proposed data items submitted.
  there can be more submissions than votes (if multiple proposals are made for a single item), and there may be more votes than submissions (if multiple people voted for a single proposal).
 </p>
+<hr>
+
+<%-- OLD CRUFT ABOVE. 
+  NEW STUFF...  ----------------------------------------------------- --%>
+	<h3>Submits by day</h3>
+	<div id="dholder-holder">
+	        <div id="dholder" style="width: 600px; height: 800px;"></div>
+	</div>        
+	
+<script>
+showstats("dholder");
+</script>
+
+
+<hr>
+
 
 <i>Graphs by <a href='http://g.raphaeljs.com/'>gRaphaël</a></i>
 

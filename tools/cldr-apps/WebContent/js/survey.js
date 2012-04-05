@@ -9,6 +9,9 @@ dojo.requireLocalization("surveyTool", "stui");
 
 var stui = {online: "Online", 			disconnected: "Disconnected", startup: "Starting up..."};
 
+var onIE =  (navigator && navigator.appName && navigator.appName == 'Microsoft Internet Explorer');
+
+
 stui_str = function(x) {
     if(stui && stui[x]) {
     	return stui[x];
@@ -95,14 +98,6 @@ function stdebug(x) {
 }
 
 stdebug('stdebug is enabled.');
-
-function dismissChangeNotice() {
-	surveyCurrentLocaleStamp = surveyNextLocaleStamp;
-    var locDiv = document.getElementById('stchanged');
-    if(locDiv) {
-        locDiv.style.display='none';
-    }
-}
 
 function removeAllChildNodes(td) {
 	while(td.firstChild) {
@@ -233,7 +228,6 @@ var wasBusted = false;
 var wasOk = false;
 var loadOnOk = null;
 var clickContinue = null;
- var surveyCurrentLocaleStamp = 0;
  var surveyNextLocaleStamp = 0;
  
  function busted() {
@@ -404,6 +398,17 @@ function handleDisconnect(why, json) {
 
 var updateParts = null;
 
+var cacheKillStamp = surveyRunningStamp;
+
+function cacheKill() {
+	if(!cacheKillStamp || cacheKillStamp<surveyRunningStamp) {
+		cacheKillStamp=surveyRunningStamp;
+	}
+	cacheKillStamp++;
+	
+	return "&cacheKill="+cacheKillStamp;
+}
+
 function updateStatusBox(json) {
 	if(json.disconnected) {
 		handleDisconnect("Misc Disconnect", json);
@@ -483,9 +488,9 @@ var timerSpeed = 15000;
 
 function updateStatus() {
 	if(disconnected) return;
-	stdebug("UpdateStatus...");
+//	stdebug("UpdateStatus...");
     dojo.xhrGet({
-        url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl,
+        url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl+cacheKill(),
         handleAs:"json",
         timeout: 15000,
         load: function(json){
@@ -528,14 +533,15 @@ function updateStatus() {
             updateStatusBox(json);
             
             if(json.localeStamp) {
-                if(surveyCurrentLocaleStamp==0) {
-                	surveyCurrentLocaleStamp = json.localeStamp;
-                    //console.log("STATUS0: " + json.localeStampName + "="+json.localeStamp);
+                if(surveyNextLocaleStamp==0) {
+                	surveyNextLocaleStamp = json.localeStamp;
+                    stdebug("STATUS0: " + json.localeStampName + "="+json.localeStamp);
                 } else {
-                	if(json.localeStamp > surveyCurrentLocaleStamp) {
+                	if(json.localeStamp > surveyNextLocaleStamp) {
+                        stdebug("STATUS=: " + json.localeStampName + "="+json.localeStamp + " > " + surveyNextLocaleStamp);
                 		handleChangedLocaleStamp(json.localeStamp, json.localeStampName);
                 	} else {
-                        //console.log("STATUS=: " + json.localeStampName + "="+json.localeStamp);
+                        stdebug("STATUS=: " + json.localeStampName + "="+json.localeStamp + " <= " + surveyNextLocaleStamp);
                 	}
                 }
             }
@@ -664,7 +670,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
            }
     };
     var xhrArgs = {
-            url: ourUrl,
+            url: ourUrl+cacheKill(),
             handleAs:"text",
             load: loadHandler,
             error: errorHandler
@@ -693,7 +699,7 @@ function refreshRow(fieldhash, xpid, locale, session) {
 	           }
 	    };
         var xhrArgsVI = {
-                url: ourUrlVI,
+                url: ourUrlVI + cacheKill(),
                 handleAs:"text",
                 load: loadHandlerVI,
                 error: errorHandler
@@ -785,7 +791,7 @@ function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
            }
     };
     var xhrArgs = {
-            url: ourUrl,
+            url: ourUrl+cacheKill(),
             postData: value,
             handleAs:"json",
             load: loadHandler,
@@ -1564,14 +1570,18 @@ function updateRow(tr, theRow) {
 	listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
 	//listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
+	var hadOtherItems  = false;
 	removeAllChildNodes(children[config.othercell]); // other
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
 			continue; // skip the winner
 		}
+		hadOtherItems=true;
 		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton));
 	}
-	listenToPop(null, tr, children[config.othercell]);
+	if(!hadOtherItems /*!onIE*/) {
+		listenToPop(null, tr, children[config.othercell]);
+	}
 	if(tr.myProposal && tr.myProposal.value && !findItemByValue(theRow.items, tr.myProposal.value)) {
 		// add back my proposal
 		children[config.othercell].appendChild(tr.myProposal);
@@ -1960,7 +1970,7 @@ function showRows(container,xpath,session,coverage) {
 		           }
 		    };
 		    var xhrArgs = {
-		            url: contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+session+"&xpath="+xpath+"&p_covlev="+coverage,
+		            url: contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+session+"&xpath="+xpath+"&p_covlev="+coverage+cacheKill(),
 		            handleAs:"json",
 		            load: loadHandler,
 		            error: errorHandler
@@ -2010,7 +2020,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         onFailure("err",err,ioArgs);
     };
     var xhrArgs = {
-            url: ourUrl,
+            url: ourUrl+cacheKill(),
             //postData: value,
             handleAs:"json",
             load: loadHandler,
@@ -2143,7 +2153,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		myUnDefer();
 	};
 	var xhrArgs = {
-			url: ourUrl,
+			url: ourUrl+cacheKill(),
 			handleAs:"json",
 			timeout: 15000,
 			load: loadHandler,
@@ -2182,7 +2192,7 @@ function loadAdminPanel() {
 			theDiv.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
 		};
 		var xhrArgs = {
-				url: ourUrl,
+				url: ourUrl+cacheKill(),
 				handleAs:"json",
 				load: loadHandler,
 				error: errorHandler

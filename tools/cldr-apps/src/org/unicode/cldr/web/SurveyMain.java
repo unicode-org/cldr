@@ -3130,7 +3130,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 						subsubCtx.addQuery("do", "list");
 						subsubCtx.println("<hr><form method='POST' action='"+subsubCtx.context("DataExport.jsp")+"'>");
 						subsubCtx.printUrlAsHiddenFields();
-						subsubCtx.print("<input type='submit' class='csvDownload' value='Download .csv'>");
+						subsubCtx.print("<input type='submit' class='csvDownload' value='Download .csv (including LOCKED)'>");
 						subsubCtx.println("</form>");
 					}
 				}

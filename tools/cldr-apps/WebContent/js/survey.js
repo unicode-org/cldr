@@ -926,7 +926,6 @@ var gPopStatus = {
 };
 
 function showInPop(str,tr, theObj, fn, immediate) {
-	alert("Internal error (showInPop not able to load)");
 }
 
 function listenToPop(str, tr, theObj, fn) {
@@ -1884,7 +1883,7 @@ function createChunk(text, tag, className) {
 ////////
 /// showRows() ..
 function showRows(container,xpath,session,coverage) {
- dojo.addOnLoad(function(){
+ dojo.ready(function(){
 	if(!coverage) coverage="";
 	var theDiv = dojo.byId(container);
 

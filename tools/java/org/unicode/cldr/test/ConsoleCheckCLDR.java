@@ -1319,7 +1319,7 @@ public class ConsoleCheckCLDR {
                     : (status.pathWhereFound.equals(path) ? "" 
                             : "\t" + status.pathWhereFound);
 
-            String idViewString = idView ? getIdString(cldrFile, path, value) : "";
+            String idViewString = idView ? (path == null ? "\tNO_ID" : getIdString(cldrFile, path, value)) : "";
             System.out.println(
                     getLocaleAndName(localeID)
                     + (idViewString.isEmpty() ? 

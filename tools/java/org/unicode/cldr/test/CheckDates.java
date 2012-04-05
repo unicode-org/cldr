@@ -384,9 +384,18 @@ public class CheckDates extends FactoryCheckCLDR {
                     formatParser.set(value);
                     patternBasicallyOk = true;
                 } catch (RuntimeException e) {
-                    CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
-                    .setMessage("Illegal date format pattern {0}", new Object[]{e});      
-                    result.add(item);
+                    String message = e.getMessage();
+                    if (message.contains("Illegal datetime field:")) {
+                        CheckStatus item = new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.illegalDatePattern)
+                        .setMessage(message);      
+                        result.add(item);
+                    } else {
+                        CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
+                        .setMessage("Illegal date format pattern {0}", new Object[]{e});      
+                        result.add(item);
+                    }
                 }
                 if (patternBasicallyOk) {
                     checkPattern(path, fullPath, value, result);

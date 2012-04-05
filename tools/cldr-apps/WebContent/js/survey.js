@@ -29,6 +29,7 @@ function stStopPropagation(e) {
 	}
 }
 
+var disconnected = false;
 
 var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
 
@@ -40,6 +41,7 @@ var myLoad0= null;
 var myErr0 = null;
 
 var processXhrQueue = function() {
+	if(disconnected) return;
 	if(!queueOfXhr || queueOfXhr.length==0) {
 		queueOfXhr=[];
 		stdebug("PXQ: 0");
@@ -227,7 +229,6 @@ function getAbsolutePosition (x) {
     return {left:hh, top: vv};
 }
 
-
 var wasBusted = false;
 var wasOk = false;
 var loadOnOk = null;
@@ -236,6 +237,7 @@ var clickContinue = null;
  var surveyNextLocaleStamp = 0;
  
  function busted() {
+	 disconnected = true;
 	 //console.log("disconnected.");
 	 document.getElementsByTagName("body")[0].className="disconnected"; // hide buttons when disconnected.
  }
@@ -296,6 +298,7 @@ function doUpdate(what,fn) {
 }
 
 function handleChangedLocaleStamp(stamp,name) {
+	if(disconnected) return;
 	if(stamp <= surveyNextLocaleStamp) {
 		return;
 	}
@@ -351,10 +354,10 @@ var ajaxWord = null;
 function showWord() {
 	var p = dojo.byId("progress");	
 	var oneword = dojo.byId("progress_oneword");
-	if(oneword==null) {
+	if(oneword==null) { // nowhere to show
 		return;
 	}
-	if(progressWord&&progressWord=="disconnected") { // top priority
+	if(disconnected || (progressWord&&progressWord=="disconnected")) { // top priority
 		oneword.innerHTML = stopIcon +  stui_str('disconnected');
 		p.className = "progress-disconnected";
 		busted();
@@ -479,6 +482,7 @@ function updateStatusBox(json) {
 var timerSpeed = 15000;
 
 function updateStatus() {
+	if(disconnected) return;
 	stdebug("UpdateStatus...");
     dojo.xhrGet({
         url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl,
@@ -2077,10 +2081,12 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 				tr.className='tr_err';
 				// v_tr.className="tr_err";
 				// v_tr2.className="tr_err";
-				showLoader(tr.theTable.theDiv.loader,"Error!");
+//				showLoader(tr.theTable.theDiv.loader,"Error!");
+				handleDisconnect('Error while voting', json);
 				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
 				// e_div.innerHTML = newHtml;
 				myUnDefer();
+				handleDisconnect('Error while voting', json);
 			} else {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
@@ -2131,6 +2137,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	};
 	var errorHandler = function(err, ioArgs){
 		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+		handleDisconnect('Error: ' + err + ' response ' + ioArgs.xhr.responseText, null);
 		theRow.className = "ferrbox";
 		theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
 		myUnDefer();

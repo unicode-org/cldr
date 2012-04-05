@@ -73,7 +73,7 @@ public class SurveyAjax extends HttpServlet {
                     if(cs.getSubtype()!=null) {
                         put("subType", cs.getSubtype().name());
                     }
-                    put("parameters",new JSONArray(cs.getParameters()).toString());
+ //                   put("parameters",new JSONArray(cs.getParameters()).toString());    // NPE.
                 }
             };
         }
@@ -280,8 +280,7 @@ public class SurveyAjax extends HttpServlet {
                                             .setParameters(exceptionList));
                                     SurveyLog.logException(exceptionList[0],"DAIP, Processing "+loc+":"+xp+"="+val);
                                 }
-                                
-                                
+
                                 r.put("testErrors", hasErrors(result));
                                 r.put("testWarnings", hasWarnings(result));
                                 r.put("testResults", JSONWriter.wrap(result));

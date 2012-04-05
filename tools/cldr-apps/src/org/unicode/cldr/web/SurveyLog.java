@@ -72,7 +72,7 @@ public class SurveyLog {
 	public static synchronized void logException(Throwable t, String what, WebContext ctx) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n')
-		  .append(FIELD_SEP).append(LogField.DATE).append(' ').append(new Date()).append('\n')
+		  .append(FIELD_SEP).append(LogField.DATE).append(' ').append(System.currentTimeMillis()).append(' ').append(new Date()).append('\n')
 		  .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
 		if(ctx!=null) {
 		  sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');

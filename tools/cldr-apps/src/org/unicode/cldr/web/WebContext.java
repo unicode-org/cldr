@@ -1273,7 +1273,7 @@ public class WebContext implements Cloneable, Appendable {
 		return sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
 	}
 
-	public static final String COVLEV_RECOMMENDED = "(default*)";
+	public static final String COVLEV_RECOMMENDED = "default";
 	public static final String PREF_COVLEV_LIST[] = { COVLEV_RECOMMENDED, Level.OPTIONAL.toString(), Level.COMPREHENSIVE.toString(),
 			Level.MODERN.toString(), Level.MODERATE.toString(), Level.BASIC.toString(), Level.MINIMAL.toString() };
 

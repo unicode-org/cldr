@@ -139,7 +139,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                 Integer ret = levs.get(loc);
                 if(ret==null) {
                     if(pageXpath==null && pageXpathBase==null) {
-                        ret = Level.COMPREHENSIVE.getValue(); // unknown
+                        ret = Level.OPTIONAL.getValue(); // unknown
                     } else {
                         if(pageXpathBase!=null) {
                             int min = 108;

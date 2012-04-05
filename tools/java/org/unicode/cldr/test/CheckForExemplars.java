@@ -347,13 +347,19 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     }
 
     /**
-     * Extracts just the text from a date field, replacing all the variable fields by variableReplacement.
+     * Extracts just the text from a date field, replacing all the variable fields by variableReplacement. Return null if
+     * there is an error (a different test will find that error).
      */
     public boolean extractDatePatternText(String value, String variableReplacement, StringBuilder justText) {
         boolean haveText = false;
+        try {
+            formatParser.set(value);
+        } catch (Exception e) {
+            return false; // give up, it is illegal
+        }
         boolean doReplacement = variableReplacement != null && variableReplacement.length() > 0;
         justText.setLength(0);
-        for (Object item : formatParser.set(value).getItems()) {
+        for (Object item : formatParser.getItems()) {
             if (item instanceof String) {
                 justText.append(item);
                 haveText = true;

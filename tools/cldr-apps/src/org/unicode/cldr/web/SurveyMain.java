@@ -6152,7 +6152,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     
     protected static void busted(String what, Throwable t, String stack) {
         if(t!=null) {
-            SurveyLog.logException(t,what,stack);
+            SurveyLog.logException(t,what /*, ignore stack */);
         }
         SurveyLog.logger.warning("SurveyTool busted: " + what + " ( after " +pages +"html+"+xpages+"xml pages served,  " + getGuestsAndUsers()  + ")");
         try {

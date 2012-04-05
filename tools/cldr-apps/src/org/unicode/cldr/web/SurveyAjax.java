@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
@@ -72,6 +73,7 @@ public class SurveyAjax extends HttpServlet {
                     if(cs.getSubtype()!=null) {
                         put("subType", cs.getSubtype().name());
                     }
+                    put("parameters",new JSONArray(cs.getParameters()).toString());
                 }
             };
         }
@@ -276,6 +278,7 @@ public class SurveyAjax extends HttpServlet {
                                     result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
                                             .setMessage("Input Processor Exception")
                                             .setParameters(exceptionList));
+                                    SurveyLog.logException(exceptionList[0],"DAIP, Processing "+loc+":"+xp+"="+val);
                                 }
                                 
                                 

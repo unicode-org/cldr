@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
@@ -48,30 +49,48 @@ public class SurveyLog {
 	}
 
 	public static void logException(Throwable t) {
-		logException(t,"");
+		logException(t,"", null);
 	}
+    public static void logException(Throwable t, String what) {
+        logException(t,what,null);
+    }
 
-	public static void logException(Throwable t, String what) {
-		logException(t,"(exception " + what + ")",StackTracker.stackToString(t.getStackTrace(), 0), null);
-	}
-
-	public static void logException(Throwable t, String what, String stack) {
-		logException(t,what,stack,null);
-	}
-
-	public static synchronized void logException(Throwable t, String what, String stack, WebContext ctx) {
+	public static final String RECORD_SEP = "!!!***!!! ";
+	public static final String FIELD_SEP = "*** ";
+	
+	enum LogField {
+	    SURVEY_EXCEPTION,
+	    DATE,
+	    UPTIME,
+	    CTX,
+	    LOGSITE,
+	    MESSAGE,
+	    STACK,
+	    SQL
+	};
+	
+	public static synchronized void logException(Throwable t, String what, WebContext ctx) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("** ST Exception:"+new Date()+", uptime " + SurveyMain.uptime+"\n");
-		sb.append("EXCEPTION: " + t+"\n");
-		sb.append("STACK:\n" + stack);
-		sb.append("LOG SITE:\n" + StackTracker.currentStack()+"\n");
-		sb.append("CTX:" + ctx +"\n");
-		Throwable c = t.getCause();
-		while(c!=null) {
-	        sb.append(" CAUSE: " + c+"\n");
-	        sb.append(" STACK:\n" + StackTracker.stackToString(c.getStackTrace(), 0) );
-	        c = c.getCause();
+		sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n')
+		  .append(FIELD_SEP).append(LogField.DATE).append(' ').append(new Date()).append('\n')
+		  .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
+		if(ctx!=null) {
+		  sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');
 		}
+        sb.append(FIELD_SEP).append(LogField.LOGSITE).append(' ').append(StackTracker.currentStack()).append('\n');
+		while(t!=null) {
+            sb.append(FIELD_SEP).append(LogField.MESSAGE).append(' ').append(t.getMessage()).append('\n');
+            sb.append(FIELD_SEP).append(LogField.STACK).append(' ').append(StackTracker.stackToString(t.getStackTrace(),0)).append('\n');
+            if(t instanceof SQLException) {
+                SQLException se = ((SQLException)t);
+                sb.append(FIELD_SEP).append(LogField.SQL).append(' ').append('#').append(se.getErrorCode()).append(' ')
+                    .append(se.getSQLState()).append('\n');
+                t = se.getNextException();
+            } else {
+                t = t.getCause();
+            }
+		}
+		
 		// First, log to file
 		if(SurveyMain.homeFile!=null) try {
 			File logFile = new File(SurveyMain.homeFile, "exception.log");
@@ -90,7 +109,7 @@ public class SurveyLog {
 	}
 
 	static void logException(Throwable t, WebContext ctx) {
-		logException(t,"(exception)",StackTracker.stackToString(t.getStackTrace(), 0), ctx);
+		logException(t,"(exception)", ctx);
 	}
 
 	public static final void debug(Object string) {

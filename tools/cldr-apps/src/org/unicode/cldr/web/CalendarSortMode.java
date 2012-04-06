@@ -83,12 +83,18 @@ public class CalendarSortMode extends SortMode {
 					return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-wide"));
 				}
 			},
-			new Partition.Membership("Abbreviated Day Names") { 
-				public boolean isMember(DataRow p) {
-					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-abbreviated"));
-				}
-			},
+            new Partition.Membership("Abbreviated Day Names") { 
+                public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-abbreviated"));
+                }
+            },
+            new Partition.Membership("Short Day Names") { 
+                public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:format-short"));
+                }
+            },
 			new Partition.Membership("Narrow Day Names") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
@@ -101,12 +107,18 @@ public class CalendarSortMode extends SortMode {
 					return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-wide"));
 				}
 			},
-			new Partition.Membership("Abbreviated Day Names (Stand Alone Context)") { 
-				public boolean isMember(DataRow p) {
-					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-abbreviated"));
-				}
-			},
+            new Partition.Membership("Abbreviated Day Names (Stand Alone Context)") { 
+                public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-abbreviated"));
+                }
+            },
+            new Partition.Membership("Short Day Names (Stand Alone Context)") { 
+                public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|day\\|.*:stand-alone-short"));
+                }
+            },
 			new Partition.Membership("Narrow Day Names (Format Context)") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();
@@ -155,6 +167,12 @@ public class CalendarSortMode extends SortMode {
 					return (pp != null && pp.matches("calendar-.*\\|dayPeriod.*"));
 				}
 			},
+            new Partition.Membership("Wide Eras") { 
+                public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|era\\|.*-Names"));
+                }
+            },
             new Partition.Membership("Eras") { 
                 public boolean isMember(DataRow p) {
                     String pp = p.getPrettyPath();

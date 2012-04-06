@@ -127,7 +127,7 @@
 		<coverageLevel inTerritory="(AE|AF|BH|DJ|DZ|EG|EH|ER|IL|IQ|IR|JO|KM|KW|LB|LY|MA|MR|OM|PS|QA|SA|SD|SY|TN|YE)" value="40" match="dates/calendars/calendar[@type='islamic']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel inTerritory="(AE|AF|BH|DJ|DZ|EG|EH|ER|IL|IQ|IR|JO|KM|KW|LB|LY|MA|MR|OM|PS|QA|SA|SD|SY|TN|YE)" value="40" match="dates/calendars/calendar[@type='islamic']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat[@type='standard']/pattern[@type='standard']"/>
 		<coverageLevel inTerritory="(AE|AF|BH|DJ|DZ|EG|EH|ER|IL|IQ|IR|JO|KM|KW|LB|LY|MA|MR|OM|PS|QA|SA|SD|SY|TN|YE)" value="40" match="dates/calendars/calendar[@type='islamic']/dateTimeFormats/availableFormats/dateFormatItem[@id='(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)']"/>
-		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='[^']++']"/>
+		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/eras/era(Abbr|Narrow)/era[@type='[0-9]++']"/>
 		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat[@type='standard']/pattern[@type='standard']"/>
 		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat[@type='standard']/pattern[@type='standard']"/>
 		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/availableFormats/dateFormatItem[@id='(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)']"/>

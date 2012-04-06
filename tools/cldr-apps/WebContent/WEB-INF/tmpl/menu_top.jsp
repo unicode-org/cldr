@@ -1,9 +1,6 @@
 <%@ include file="/WEB-INF/jspf/stcontext.jspf" %><!--  menu_top.jspf begin -->
 
-<%!
-
-
-    static String CALENDARS_ITEMS[] = SurveyMain.CALENDARS_ITEMS;
+<%!static String CALENDARS_ITEMS[] = SurveyMain.CALENDARS_ITEMS;
 	static String METAZONES_ITEMS[] = SurveyMain.METAZONES_ITEMS;%><%
 	WebContext subCtx = ctx;
 	int n;
@@ -11,65 +8,69 @@
 	subCtx.addQuery(SurveyMain.QUERY_LOCALE, ctx.getLocale().toString());
 %>
 <%!
-static void writeMenu(JspWriter jout, WebContext wCtx, SurveyMenus.Section sec, int covlev)  throws java.io.IOException {
-    String which = (String) wCtx.get("which");
-    
-    List<SurveyMenus.Section.Page> pages = new ArrayList<SurveyMenus.Section.Page>();
-  //  jout.println("covlev="+covlev+"<br>");
-    for(SurveyMenus.Section.Page p : sec) {
-        // if coverage..
-        if(true || p.getCoverageLevel(wCtx.getLocale())<=covlev) {
-                    pages.add(p);
-                   // jout.println(p.getKey() + " = " + p.getCoverageLevel(wCtx.getLocale()) + "<br>");
-        }
-    }
-    
-    boolean any = false;
-    for (int i = 0; !any && (i < pages.size()); i++) {
-        if (pages.get(i).getKey().equals(which))
-            any = true;
-    }
+	static final boolean DEBUG = false;
+	static void writeMenu(JspWriter jout, WebContext wCtx,
+			SurveyMenus.Section sec, int covlev) throws java.io.IOException {
+		String which = (String) wCtx.get("which");
 
-    jout.println("<label class='"
-            + (any ? "menutop-active" : "menutop-other") + "' >");
-    
-    if(!any) {
-        WebContext ssc = new WebContext(wCtx);
-        ssc.setQuery(SurveyMain.QUERY_SECTION, pages.get(0).getKey());
-        jout.println("<a href='"+ssc.url()+"' style='text-decoration: none;'>");
-    }
-    jout.println(sec.getDisplayName());
-    if(!any) {
-        jout.println("</a>");
-    }
+		List<SurveyMenus.Section.Page> pages = new ArrayList<SurveyMenus.Section.Page>();
+		if(DEBUG) jout.println("covlev=" + covlev + "<br>");
+		for (SurveyMenus.Section.Page p : sec) {
+			// if coverage..
+			if (true || p.getCoverageLevel(wCtx.getLocale()) <= covlev) {
+				pages.add(p);
+				// jout.println(p.getKey() + " = " + p.getCoverageLevel(wCtx.getLocale()) + "<br>");
+			}
+		}
 
-    jout.println("<select class='"
-            + (any ? "menutop-active" : "menutop-other")
-            + "' onchange='window.location=this.value'>");
-    if (!any) {
-        jout.println("<option selected value=\"\">Jump to...</option>");
-    }
-    for (int i = 0; i < pages.size(); i++) {
-        String key = pages.get(i).getKey();
-        WebContext ssc = new WebContext(wCtx);
-        ssc.setQuery(SurveyMain.QUERY_SECTION, key);
-        jout.print("<option ");
-        if(pages.get(i).getCoverageLevel(wCtx.getLocale())>covlev) {
-            jout.print(" disabled ");
-        }
-        if (key.equals(which)) {
-            jout.print(" selected ");
-        } else {
-            jout.print("value=\"" + ssc.url() + "\" ");
-        }
-        jout.print(">" + pages.get(i).getDisplayName());
-//        jout.print( " c="+pages.get(i).getCoverageLevel(wCtx.getLocale()));
-        jout.println("</option>");
-    }
-    jout.println("</select>");
-    jout.println("</label>");
-}
-static void writeMenu(JspWriter jout, WebContext wCtx, String title,
+		boolean any = false;
+		for (int i = 0; !any && (i < pages.size()); i++) {
+			if (pages.get(i).getKey().equals(which))
+				any = true;
+		}
+
+		jout.println("<label class='"
+				+ (any ? "menutop-active" : "menutop-other") + "' >");
+
+		if (!any) {
+			WebContext ssc = new WebContext(wCtx);
+			ssc.setQuery(SurveyMain.QUERY_SECTION, pages.get(0).getKey());
+			jout.println("<a href='" + ssc.url()
+					+ "' style='text-decoration: none;'>");
+		}
+		jout.println(sec.getDisplayName());
+		if (!any) {
+			jout.println("</a>");
+		}
+
+		jout.println("<select class='"
+				+ (any ? "menutop-active" : "menutop-other")
+				+ "' onchange='window.location=this.value'>");
+		if (!any) {
+			jout.println("<option selected value=\"\">Jump to...</option>");
+		}
+		for (int i = 0; i < pages.size(); i++) {
+			String key = pages.get(i).getKey();
+			WebContext ssc = new WebContext(wCtx);
+			ssc.setQuery(SurveyMain.QUERY_SECTION, key);
+			jout.print("<option ");
+			if (pages.get(i).getCoverageLevel(wCtx.getLocale()) > covlev) {
+				jout.print(" disabled ");
+			}
+			if (key.equals(which)) {
+				jout.print(" selected ");
+			} else {
+				jout.print("value=\"" + ssc.url() + "\" ");
+			}
+			jout.print(">" + pages.get(i).getDisplayName());
+			if(DEBUG) jout.print(" c=" + pages.get(i).getCoverageLevel(wCtx.getLocale()));
+			jout.println("</option>");
+		}
+		jout.println("</select>");
+		jout.println("</label>");
+	}
+
+	static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 			String items[]) throws java.io.IOException {
 		String which = (String) wCtx.get("which");
 		boolean any = false;
@@ -80,14 +81,15 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 
 		jout.println("<label class='"
 				+ (any ? "menutop-active" : "menutop-other") + "' >");
-		
-		if(!any) {
+
+		if (!any) {
 			WebContext ssc = new WebContext(wCtx);
 			ssc.setQuery(SurveyMain.QUERY_SECTION, items[0]);
-			jout.println("<a href='"+ssc.url()+"' style='text-decoration: none;'>");
+			jout.println("<a href='" + ssc.url()
+					+ "' style='text-decoration: none;'>");
 		}
 		jout.println(title);
-		if(!any) {
+		if (!any) {
 			jout.println("</a>");
 		}
 
@@ -111,40 +113,41 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 		}
 		jout.println("</select>");
 		jout.println("</label>");
-	}
-	%>
+	}%>
 	
 	<%
-			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
-	        if(false && ctx.session.user!=null) {
-	%><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Vetting Viewer</a>
-    <%   } %>
+			String xclass = SurveyMain.R_VETTING.equals(ctx
+					.field(SurveyMain.QUERY_SECTION)) ? "selected"
+					: "notselected";
+			if (false && ctx.session.user != null) {
+		%><a href="<%=ctx.base()%>?_=<%=ctx.getLocale()%>&amp;<%=SurveyMain.QUERY_SECTION%>=<%=SurveyMain.R_VETTING%>" class="<%=xclass%>">Vetting Viewer</a>
+    <%
+    	}
+    %>
     
 <%
-	if (!ctx.prefBool(SurveyMain.PREF_NOJAVASCRIPT)) {
-	    if(false) {
-			writeMenu(out, ctx, "Code Lists",
-					PathUtilities.LOCALEDISPLAYNAMES_ITEMS);
-			writeMenu(out, ctx, "Calendars", CALENDARS_ITEMS);
-			writeMenu(out, ctx, "Time Zones", METAZONES_ITEMS);
-			writeMenu(out, ctx, "Other Items", SurveyMain.OTHERROOTS_ITEMS);
-	    } else {
-            String covlev = ctx.getCoverageSetting();
-            Level coverage = Level.COMPREHENSIVE;
-            if(covlev!=null && covlev.length()>0) {
-                coverage = Level.get(covlev);
-            }
-             int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+    	if (!ctx.prefBool(SurveyMain.PREF_NOJAVASCRIPT)) {
+    		String covlev = ctx.getCoverageSetting();
+    		Level coverage = Level.COMPREHENSIVE;
+    		if (covlev != null && covlev.length() > 0) {
+    			coverage = Level.get(covlev);
+    		}
+    		//            int workingCoverageValue = SupplementalDataInfo.CoverageLevelInfo.strToCoverageValue
+    		//            			(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()))
+    		String effectiveCoverageLevel = ctx
+    				.getEffectiveCoverageLevel(ctx.getLocale().toString());
+    		int workingCoverageValue = Level.get(effectiveCoverageLevel)
+    				.getLevel();
 
-             for(SurveyMenus.Section sec : ctx.sm.getSTFactory().getSurveyMenus()) {
-	            writeMenu(out,ctx, sec, workingCoverageValue);
-	        }
-	    }
-		out.flush();
-		ctx.flush();
-		// commenting out easy steps until we have time to work on it more
-		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
-%>
+    		for (SurveyMenus.Section sec : ctx.sm.getSTFactory()
+    				.getSurveyMenus()) {
+    			writeMenu(out, ctx, sec, workingCoverageValue);
+    		}
+    		out.flush();
+    		ctx.flush();
+    		// commenting out easy steps until we have time to work on it more
+    		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
+    %>
    <%
    	} else {
    		/* NON JAVASCRIPT VERSION */
@@ -190,18 +193,16 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
  	}
  		}
  %>| <a <%=ctx.atarget("st:supplemental")%> class='notselected' 
-            href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#<%=
-            ctx.getLocale().getLanguage() %>'>supplemental</a>
+            href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#<%=ctx.getLocale().getLanguage()%>'>supplemental</a>
 
         </p>
         <%
         	/* END NON JAVASCRIPT */
         	}
-			out.flush();
-			ctx.flush();
-			// commenting out easy steps until we have time to work on it more
-			
-			/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
-			
-%>
+        	out.flush();
+        	ctx.flush();
+        	// commenting out easy steps until we have time to work on it more
+
+        	/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
+        %>
 <!--  menu_top.jspf end -->

@@ -3620,7 +3620,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             (!shortHeader(ctx)) ) { // don't show these warnings for example/easy steps pages.
             CLDRLocale dcParent = CLDRLocale.getInstance(supplemental.defaultContentToParent(ctx.getLocale().toString()));
             String dcChild = supplemental.defaultContentToChild(ctx.getLocale().toString());
-            if (dcChild != null && (which.equals(xMAIN))) {
+            if (dcChild != null && (!which.equals(xMAIN))) {
                 String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
                 ctx.println("<div class='fnotebox'>" +
                         DEFAULT_CONTENT_LINK +

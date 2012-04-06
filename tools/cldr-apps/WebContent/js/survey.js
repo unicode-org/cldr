@@ -1532,6 +1532,7 @@ function updateRow(tr, theRow) {
 			js.href="#";
 			listenToPop(JSON.stringify(theRow),tr,js);
 			children[config.codecell].appendChild(js);
+			children[config.codecell].appendChild(createChunk(" c="+theRow.coverageValue));
 		}
 //		listenFor(children[config.codecell],"click",
 //				function(e){ 		

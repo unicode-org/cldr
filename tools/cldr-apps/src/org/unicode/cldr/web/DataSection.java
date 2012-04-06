@@ -1927,7 +1927,8 @@ public class DataSection implements JSONString {
 					.put("displayInExample", displayInExample)
 					.put("showstatus", (ph!=null)?ph.getSurveyToolStatus():null)
 					.put("prettyPath", getPrettyPath())
-					.put("code", pathCode)
+                    .put("code", pathCode)
+                    .put("coverageValue", coverageValue)
 					.put("hasErrors", hasErrors)
 					.put("hasWarnings", hasWarnings)
 					.put("confirmStatus", confirmStatus)
@@ -3293,7 +3294,7 @@ public class DataSection implements JSONString {
 				// level
 				int coverageValue = sdi.getCoverageValue(baseXpath, locale.toULocale());
 				if (coverageValue > workingCoverageValue) {
-					if (coverageValue <= Level.OPTIONAL.getValue()) {					    
+					if (coverageValue <= Level.COMPREHENSIVE.getValue()) {					    
 						skippedDueToCoverage++;
 					} // else: would never be shown, don't care
 					continue;
@@ -3348,6 +3349,7 @@ public class DataSection implements JSONString {
 				// options
 				// (may be nested in the case of alt types)
 				DataRow p = getDataRow(xpath);
+				
 
                 Set<String> v = ballotBox.getValues(xpath);
                 if (v != null) {

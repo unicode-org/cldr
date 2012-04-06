@@ -2348,6 +2348,117 @@ function loadAdminPanel() {
 			}
 		});
 	});
+
+	addAdminPanel("admin_exceptions", function(div) {
+		var frag = document.createDocumentFragment();
+		
+		div.className="adminThreads";
+		var u = createChunk("Loading...","div","adminExceptionList");
+		var stack = createChunk(null,"div","adminThreadStack");
+		frag.appendChild(u);
+		frag.appendChild(stack);
+		
+		removeAllChildNodes(div);
+		var clicked = null;
+		
+		var last = -1;
+		
+		var exceptions = [];
+	
+		div.appendChild(frag);
+		
+		var loadNext  =function(from) {
+			var append = "do=exceptions";
+			if(from) {
+				append = append + "&before="+from;
+			}
+			console.log("Loading: " + append);
+			loadOrFail(append, u, function(json) {
+				if(!json || !json.exceptions || !json.exceptions.entry) {
+					if(!from) {
+						removeAllChildNodes(u);
+						u.appendChild(document.createTextNode(stui.str("no_exceptions")));
+					} else {
+						u.appendChild(document.createTextNode(stui.str("last_exception")));
+						// just the last one.
+					}
+				} else {
+					if(json.exceptions.entry.time == from) {
+						console.log("Asked for <"+from + " but got ="+from);
+						return; // 
+					}
+					var frag2 = document.createDocumentFragment();
+					if(!from) {
+						removeAllChildNodes(stack);
+						stack.innerHTML = stui.str("adminClickToViewExceptions");
+					}
+	//				if(json.threads.dead) {
+	//					frag2.appendChunk(json.threads.dead.toString(),"span","adminDeadThreads");
+	//					// TODO
+	//				}
+					last = json.exceptions.lastTime;
+					if(json.exceptions.entry) {
+						var e = json.exceptions.entry;
+						if(exceptions.length==0) {
+							removeAllChildNodes(u);
+						}
+						exceptions.push(json.exceptions.entry);
+						var exception = createChunk(null,"div","adminException");
+						exception.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
+						exception.appendChild(createChunk(e.DATE,"span","adminExceptionDate"));
+
+						exception.onclick=(function (e){return (function() {
+							var frag3 = document.createDocumentFragment();
+							frag3.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
+							frag3.appendChild(createChunk(e.DATE,"span","adminExceptionDate"));
+
+							if(e.UPTIME) {
+								frag3.appendChild(createChunk(e.UPTIME,"span","adminExceptionUptime"));
+							}
+							if(e.CTX) {
+								frag3.appendChild(createChunk(e.CTX,"span","adminExceptionUptime"));
+							}
+							if(e.LOGSITE) {
+								frag3.appendChild(createChunk(e.LOGSITE,"pre","adminExceptionLogsite"));
+							}
+
+							for(var q in e.fields) {
+								var f = e.fields[q];
+								var k = Object.keys(f);
+								frag3.appendChild(createChunk(f[k[0]],"pre","adminException"+k[0]));
+							}
+							
+							removeAllChildNodes(stack);
+							stack.appendChild(frag3);
+						});})(e);
+						
+						frag2.appendChild(exception);
+					}
+					
+					
+	//				removeAllChildNodes(u);
+					u.appendChild(frag2);
+					
+					if(json.exceptions.entry && json.exceptions.entry.time) {
+						if(exceptions.length>0 && (exceptions.length % 8 == 0)) {
+							var more = createChunk("[more]");
+							u.appendChild(more);
+							more.onclick = more.onmouseover = function() {
+								u.removeChild(more);
+								loadNext(json.exceptions.entry.time);
+								return false;
+							};
+						} else {
+							setTimeout(function(){loadNext(json.exceptions.entry.time);},500);
+						}
+					}
+				}
+			});
+		};
+		loadNext(); // load the first
+	});
+
+	
 	// last panel loaded.
 		
 	adminStuff.appendChild(content);

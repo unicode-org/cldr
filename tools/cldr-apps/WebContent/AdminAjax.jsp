@@ -66,6 +66,23 @@
 		threads.put("all",threadList);
 		new JSONWriter(out).object().key("threads").value(threads)
 				.endObject();
+	} else if(action.equals("exceptions")) {
+		JSONObject exceptions = new JSONObject();
+		ChunkyReader cr = SurveyLog.getChunkyReader();
+		exceptions.put("lastTime",cr.getLastTime());
+		ChunkyReader.Entry e = null;
+		if(request.getParameter("before")!=null) {
+			Long before = Long.parseLong(request.getParameter("before"));
+			e = cr.getEntryBelow(before);
+		} else {
+			e = cr.getLastEntry();
+		}
+		if(e!=null) {
+			exceptions.put("entry",e);
+		}
+			
+		new JSONWriter(out).object().key("exceptions").value(exceptions)
+		.endObject();
 	} else {
 		response.sendError(500, "Unknown action.");
 	}

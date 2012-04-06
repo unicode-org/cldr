@@ -4,10 +4,16 @@
 package org.unicode.cldr.web;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.ConsoleHandler;
@@ -18,6 +24,8 @@ import java.util.logging.Logger;
 
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StackTracker;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
 
 /**
  * @author srl
@@ -70,9 +78,10 @@ public class SurveyLog {
 	};
 	
 	public static synchronized void logException(Throwable t, String what, WebContext ctx) {
+	    long nextTimePost = System.currentTimeMillis();
 		StringBuilder sb = new StringBuilder();
 		sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n')
-		  .append(FIELD_SEP).append(LogField.DATE).append(' ').append(System.currentTimeMillis()).append(' ').append(new Date()).append('\n')
+		  .append(FIELD_SEP).append(LogField.DATE).append(' ').append(nextTimePost).append(' ').append(new Date()).append('\n')
 		  .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
 		if(ctx!=null) {
 		  sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');
@@ -90,12 +99,13 @@ public class SurveyLog {
                 t = t.getCause();
             }
 		}
-		
-		// First, log to file
+
+        // First, log to file
+		// TODO move into chunkyreader
 		if(SurveyMain.homeFile!=null) try {
 			File logFile = new File(SurveyMain.homeFile, "exception.log");
 			OutputStream file = new FileOutputStream(logFile, true); // Append
-			PrintWriter pw = new PrintWriter(file);
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(file, "UTF-8"));
 			pw.append(sb);
 			pw.close();
 			file.close();
@@ -104,11 +114,43 @@ public class SurveyLog {
 			ioe.printStackTrace();
 		}
 
+		getChunkyReader().nudge();
+		
 		// then, to screen
 		logger.severe(sb.toString());
 	}
+	
+	private static ChunkyReader cr = null;
+	
+	public static synchronized ChunkyReader getChunkyReader() {
+	    if(cr==null) {
+	        cr = new ChunkyReader(new File(SurveyMain.homeFile, "exception.log"), RECORD_SEP+LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
+	    }
+	    return cr;
+	}
+	
+//	private static long lastTimePost = -1;
+//
+//	/**
+//	 * Note when the latest exception was recorded
+//	 * @param nextTimePost
+//	 */
+//	private static synchronized void notifyLatestException(long nextTimePost) {
+//        if(lastTimePost < nextTimePost) {
+//            lastTimePost = nextTimePost;
+//        }
+//    }
+//	
+//	
+//	
+//	public static synchronized long getLatestException() {
+//	    if(lastTimePost<0) {
+//            File logFile = new File(SurveyMain.homeFile, "exception.log");
+//	    }
+//        return lastTimePost;
+//	}
 
-	static void logException(Throwable t, WebContext ctx) {
+    static void logException(Throwable t, WebContext ctx) {
 		logException(t,"(exception)", ctx);
 	}
 

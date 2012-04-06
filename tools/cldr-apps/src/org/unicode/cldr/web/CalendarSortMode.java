@@ -155,12 +155,18 @@ public class CalendarSortMode extends SortMode {
 					return (pp != null && pp.matches("calendar-.*\\|dayPeriod.*"));
 				}
 			},
-			new Partition.Membership("Eras") { 
-				public boolean isMember(DataRow p) {
-					String pp = p.getPrettyPath();
-					return (pp != null && pp.matches("calendar-.*\\|era\\|.*"));
-				}
-			},
+            new Partition.Membership("Eras") { 
+                public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|era\\|.*-Abbr"));
+                }
+            },
+            new Partition.Membership("Narrow Eras") { 
+                public boolean isMember(DataRow p) {
+                    String pp = p.getPrettyPath();
+                    return (pp != null && pp.matches("calendar-.*\\|era\\|.*-Narrow"));
+                }
+            },
 			new Partition.Membership("Relative Field Names") { 
 				public boolean isMember(DataRow p) {
 					String pp = p.getPrettyPath();

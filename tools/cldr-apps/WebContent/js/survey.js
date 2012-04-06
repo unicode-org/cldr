@@ -264,11 +264,8 @@ function setDefer(defer) {
 	} else {
 		deferUpdates--;
 	}
-	if(deferUpdates==0) {
+	if(deferUpdates<=0) {
 		doDeferredUpdates();
-	} else if(deferUpdates<0) {
-		stdebug("deferUpdates=" + deferUpdates);
-		deferUpdates=0;
 	}
 	stdebug("deferUpdates="+deferUpdates);
 }
@@ -1620,6 +1617,7 @@ function updateRow(tr, theRow) {
 			};
 			changeBox.onblur = function() {
 				setDefer(false);
+				return true;
 			};
 			
 			children[config.changecell].appendChild(changeBox);

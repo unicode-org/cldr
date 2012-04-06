@@ -741,7 +741,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     // Database stuff here.
-    private static final String CLDR_VBV = "cldr_votevalue";
+    static final String CLDR_VBV = "cldr_votevalue";
 
     /**
      * These locales can not be modified.

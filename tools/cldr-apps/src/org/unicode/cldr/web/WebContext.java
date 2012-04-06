@@ -1249,12 +1249,16 @@ public class WebContext implements Cloneable, Appendable {
 		return level;
 	}
 
-	String getRecommendedCoverageLevel() {
+	public String getRecommendedCoverageLevel() {
 		String myOrg = session.getUserOrg();
 		if ((myOrg == null) || !isCoverageOrganization(myOrg)) {
 			return COVLEV_DEFAULT_RECOMMENDED_STRING;
 		} else {
-			return StandardCodes.make().getLocaleCoverageLevel(myOrg, getLocale().toString()).toString();
+			Level lev = StandardCodes.make().getLocaleCoverageLevel(myOrg, getLocale().toString());
+			if(lev==Level.UNDETERMINED) {
+			    lev = COVLEVEL_DEFAULT_RECOMMENDED;
+			}
+			return lev.toString();
 		}
 	}
 

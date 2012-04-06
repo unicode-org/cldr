@@ -705,14 +705,21 @@ public class OutputFileManager {
         		DBUtils.close(conn);
         	}
         }
-    //
+        
+        boolean haveVbv = false;
         public Timestamp getLocaleTime(Connection conn, CLDRLocale loc) throws SQLException {
         	Timestamp theDate = null;
-        	Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from cldr_votevalue where locale=?", loc);
-        	if(o!=null&&o.length>0&&o[0]!=null&&o[0].length>0) {
-        		theDate = (Timestamp)o[0][0];
-//        		System.err.println("for " + loc + " = " + theDate + " - len="+o.length + ":"+o[0].length);
-        	}
+            if(haveVbv||DBUtils.hasTable(conn,STFactory.CLDR_VBV)) {
+                if(haveVbv==false) {
+                    SurveyLog.debug("OutputFileManager: have "+STFactory.CLDR_VBV+", commencing  output file updates ( use -DCLDR_NOOUTPUT=true to suppress )");
+                }
+                haveVbv=true;
+            	Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from cldr_votevalue where locale=?", loc);
+            	if(o!=null&&o.length>0&&o[0]!=null&&o[0].length>0) {
+            		theDate = (Timestamp)o[0][0];
+    //        		System.err.println("for " + loc + " = " + theDate + " - len="+o.length + ":"+o[0].length);
+            	}
+            }
         	File svnFile = sm.getBaseFile(loc);
         	if(svnFile.exists()) {
         		Timestamp fileTimestamp = new Timestamp(svnFile.lastModified());

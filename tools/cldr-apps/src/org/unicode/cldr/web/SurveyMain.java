@@ -75,6 +75,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -3291,6 +3292,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 			jout.println("<option selected value=\"\">Change...</option>");
 		}
 		for (int i = 0; i < items.length; i++) {
+            boolean isOptional = (items[i].equals(Level.OPTIONAL.toString()));
+            
+            if(isOptional&&!SurveyMain.isUnofficial) continue;
 			WebContext ssc = new WebContext(jout);
 			ssc.setQuery(field, items[i]);
 			String sty = "";
@@ -3308,6 +3312,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 			jout.print(">" + items[i]);
             if(rec!=null&&rec.equals(items[i])) {
                 jout.print("*");
+            }
+            if(isOptional) {
+                jout.println(" [only available in SmokeTest]");
             }
 			jout.println("</option>");
 
@@ -5575,10 +5582,10 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
         }
     }
     
-    Timer surveyTimer = null;
+    private static Timer surveyTimer = null;
 //    private List<PeriodicTask> periodicTasks = null;
     
-    private synchronized Timer getTimer() {
+    private static synchronized Timer getTimer() {
     	if(surveyTimer==null) {
     		surveyTimer=new Timer("SurveyTool Periodic Tasks",true);
     	}
@@ -5586,7 +5593,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     }
 
 
-    public void addPeriodicTask(TimerTask task) {
+    public static void addPeriodicTask(TimerTask task) {
 		int firstTime=isUnofficial?10000:99000;		
 		int eachTime=isUnofficial?10000:76000;
 		getTimer().schedule(task, firstTime,eachTime);

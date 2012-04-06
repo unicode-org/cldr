@@ -1510,7 +1510,11 @@ function updateRow(tr, theRow) {
 		if(tr.anch) { // clear out old (only for debug)
 			removeAllChildNodes(children[config.codecell]);
 		}
-		children[config.codecell].appendChild(createChunk(theRow.code));
+		var codeStr = theRow.code;
+		if(theRow.coverageValue==101 && !stdebug_enabled) {
+			codeStr = codeStr + " (optional)";
+		}
+		children[config.codecell].appendChild(createChunk(codeStr));
 		var anch = document.createElement("a");
 		anch.className="anch";
 		anch.id=theRow.xpid;

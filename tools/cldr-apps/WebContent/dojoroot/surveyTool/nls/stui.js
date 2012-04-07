@@ -66,6 +66,18 @@ define({
 			admin_threads_desc: "All Threads",
 			adminClickToViewThreads: "Click a thread to view its call stack",
 
+			admin_exceptions: "Exception Log",
+			admin_exceptions_desc: "Contents of the exceptions.log",
+			adminClickToViewExceptions: "Click an exception to view its call stack",
+			
+			adminExceptionSQL_desc: "SQL state and code",
+			adminExceptionSTACK_desc: "Exception call stack",
+			adminExceptionMESSAGE_desc: "Exception message",
+			adminExceptionUptime_desc: "ST uptime at stack time",
+			adminExceptionHeader_desc: "Overall error message and cause",
+			adminExceptionLogsite_desc: "Location of logException call",
+			last_exception: "(last exception)",
+
 			testOkay: "has no errors or warnings",
 			testWarn: "has warnings",
 			testError: "has errors",

@@ -188,17 +188,17 @@ public class ChunkyReader extends TimerTask {
             cache.clear();
         }
         
-        System.err.println("Looking for entry below " + value);
+//        System.err.println("Looking for entry below " + value);
         
         for(Entry e : cache.values()) {
-            System.err.println("CR: Considering: " + e.getTime());
+//            System.err.println("CR: Considering: " + e.getTime());
             if(e.getTime()<value) {
                 return e;
             }
         }
         
         if(!stale) {
-            System.err.println("CR: Nothing found before " + value);
+//            System.err.println("CR: Nothing found before " + value);
             return null; // sorry
         }
 
@@ -260,7 +260,7 @@ public class ChunkyReader extends TimerTask {
                             }
                             e.setTime(theTime); // time
                             cache.put(e.getTime(), e);
-                            System.err.println("** CR: Got " + e);
+//                            System.err.println("** CR: Got " + e);
                         }
                     }
                 } else if(lastField==null) {

@@ -26,11 +26,27 @@ ul.adminList  {
 
 ul.adminList li {
 	display:  table-cell;
-	padding:  1em;
+	padding:  0.5em;
+}
+
+ul.adminList li.selected {
+	border-left:  1px solid gray;
+	border-right:  3px solid gray;
+	border-top:  1px solid gray;
+	background-color: whitesmoke;
+	box-shadow: 3px 0px 5px gray;
+}
+
+ul.adminList li.notselected {
+	background-color: #eee;
+	border-left:  1px solid #ddd;
+	border-right:  1px solid #ddd;
 }
 
 div.adminPanel {
 	border:  1px solid gray;
+	box-shadow: 3px 3px 5px gray;
+	padding:  2px;
 }
 
 h3.adminTitle {
@@ -299,7 +315,8 @@ div.adminThreads {
 	display:  table;
 }
 
-div.adminThreadList {
+div.adminThreadList,
+div.adminExceptionList {
 	width:  43%;	
 	clear:  right;
 	padding-right:  1em;
@@ -308,6 +325,70 @@ div.adminThreadList {
 
 div.adminThreadList span {
 	display:  table-cell;
+}
+
+span.adminExceptionHeader {
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	display:  block;
+}
+
+span.adminExceptionUptime {
+	display: block;
+	color: darkgreen;
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#adminStuff div.adminPanel div.adminThreads div.adminThreadStack pre.adminExceptionSTACK {
+	padding-left:  2em;
+	padding-top: 0;
+	margin-top: 0;
+}
+
+pre.adminExceptionLogsite {
+	padding-left:  20px;
+	background: url(conf2.png) no-repeat 0 top;
+}
+
+pre.adminExceptionSQL {
+	padding-left:  20px;
+	background: url(squo.png) no-repeat 0 top;
+	font: italic bold large "Courier New", Courier, mono;
+}
+
+pre.adminExceptionMESSAGE {
+	white-space: normal;
+	border-top: 2px solid gray;
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	background: url(stop.png) no-repeat 0 top;
+	padding-left:   20px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+div.adminException {
+	display: block;
+	padding-top:  0.25em;
+	padding-bottom:  1.5em;
+	border-bottom:  1px solid whitesmoke;
+}
+
+div.adminException span {
+	display:  block;
+}
+
+div.adminException span.adminExceptionHeader {
+	display:  block;
+	padding-left:  20px;
+	background: url(stop.png) no-repeat 0 top;
+}
+
+ span.adminExceptionDate {
+	white-space: nowrap;
+	font: small "Lucida Grande", Lucida, Verdana, sans-serif;
+	float: right;
+	display: block
 }
 
 span.adminThreadState_RUNNABLE {

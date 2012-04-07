@@ -2418,15 +2418,16 @@ function loadAdminPanel() {
 							if(e.CTX) {
 								frag3.appendChild(createChunk(e.CTX,"span","adminExceptionUptime"));
 							}
-							if(e.LOGSITE) {
-								frag3.appendChild(createChunk(e.LOGSITE,"pre","adminExceptionLogsite"));
-							}
-
 							for(var q in e.fields) {
 								var f = e.fields[q];
 								var k = Object.keys(f);
 								frag3.appendChild(createChunk(f[k[0]],"pre","adminException"+k[0]));
 							}
+
+							if(e.LOGSITE) {
+								frag3.appendChild(createChunk(e.LOGSITE,"pre","adminExceptionLogsite"));
+							}
+
 							
 							removeAllChildNodes(stack);
 							stack.appendChild(frag3);

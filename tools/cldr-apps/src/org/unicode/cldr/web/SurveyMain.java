@@ -5871,6 +5871,10 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                 progress.update("Attempting clean shutdown...");
             	startupThread.attemptCleanShutdown();
             }
+            if ( surveyTimer!= null) {
+                progress.update("Shutting down timer...");
+                surveyTimer.cancel();
+            }
             progress.update("Shutting down database...");
             doShutdownDB();
             progress.update("Destroying timer...");

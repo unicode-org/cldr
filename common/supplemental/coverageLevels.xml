@@ -253,5 +253,19 @@
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='(Macau|Malaya|North_Mariana|Qyzylorda|Samarkand|Shevchenko|Sverdlovsk)']/long/(generic|standard|daylight)"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='(Tashkent|Tbilisi|Turkey|Uralsk|Urumqi|Yerevan|Yukon)']/long/(generic|standard|daylight)"/>
 		<coverageLevel value="100" match="layout/(inList|inText[@type='[^']++'])"/>
+
+                <!-- add some formerly-optional items into comprehensive -->
+                <!-- Example: //ldml/numbers/currencyFormats[@numberSystem="arab"]/unitPattern[@count="other"] -->
+                   <!-- <coverageLevel value="100" match="numbers/currencyFormats[@numberSystem='[^']++']unitPattern=[@count='[^']++']"/>  -->
+                
+                   <!--
+                      XPath: //ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="other"]
+                      -->
+                   <!-- latin in modern coverage for compact decimal formats.   Everything else comprehensive -->
+		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='[^']++']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='[^']++']"/>
+		<coverageLevel value="100" match="numbers/decimalFormats[@numberSystem='[^']++']/decimalFormatLength[@type='[^']++']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='[^']++']"/>
+
+                   <!-- other numbering systems in comprehensive -->
+		<!-- <coverageLevel value="100" match="numbers/symbols[@numberSystem='[^']++']/((plus|minus|percent)Sign|list|exponential|perMille|infinity|nan)"/> -->
 	</coverageLevels>
 </supplementalData>

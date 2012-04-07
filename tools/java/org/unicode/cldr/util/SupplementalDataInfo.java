@@ -704,10 +704,6 @@ public class SupplementalDataInfo {
             }
         }
 
-        public static int strToCoverageValue(String str) {
-            return Level.valueOf(str.toUpperCase()).getValue();
-        }
-
         static void fixEU(Collection<CoverageLevelInfo> targets, SupplementalDataInfo info) {
             Set<String> euCountries = info.getContained("EU");
             for (CoverageLevelInfo item : targets) {

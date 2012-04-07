@@ -797,33 +797,39 @@ public class SurveyForum {
 	public void showXpath(WebContext baseCtx, String xpath, int base_xpath, CLDRLocale locale) {
 		WebContext ctx = new WebContext(baseCtx);
 		ctx.setLocale(locale);
+        ctx.println("       <div id='DynamicDataSection'><noscript>"+
+                ctx.iconHtml("stop", "sorry")+ "JavaScript is required.</noscript></div>      "+
+                " <script type='text/javascript'>   "+
+                "surveyCurrentLocale='"+locale+"';\n" 
+                + "showRows('DynamicDataSection', '"+xpath+"', '"
+                    +ctx.session.id+"','"+ "optional" /*ctx.getEffectiveCoverageLevel(ctx.getLocale())*/ +"');       </script>");
 		// Show the Pod in question:
 		//        ctx.println("<hr> \n This post Concerns:<p>");
-		boolean canModify =ctx.canModify();
-		
-		//String podBase = DataSection.xpathToSectionBase(xpath);
-		String podBase = XPathTable.xpathToBaseXpath(xpath); // each zoom-in in its own spot.
-		
-		sm.printPathListOpen(ctx);
-
-		if(canModify) {
-			/* hidden fields for that */
-			ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.getLocale().getLanguage()+"'>");
-			ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
-			ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
-
-//			if(false) ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
-//			sm.processChanges(ctx, null, null, podBase, canModify, new DefaultDataSubmissionResultHandler(ctx));
-		} else {
-			            ctx.println("<!-- <br>cant modify " + locale + "<br> -->");
-		}
-
-		DataSection section = ctx.getSection(podBase,Level.COMPREHENSIVE.toString(),LoadingShow.showLoading); // always use comprehensive - so no cov filtering
-
-		section.showSection(ctx, canModify, BaseAndPrefixMatcher.getInstance(base_xpath,null), true);
-		sm.printPathListClose(ctx);
-
-		ctx.printHelpHtml(xpath);
+//		boolean canModify =ctx.canModify();
+//		
+//		//String podBase = DataSection.xpathToSectionBase(xpath);
+//		String podBase = XPathTable.xpathToBaseXpath(xpath); // each zoom-in in its own spot.
+//		
+//		sm.printPathListOpen(ctx);
+//
+//		if(canModify) {
+//			/* hidden fields for that */
+//			ctx.println("<input type='hidden' name='"+F_FORUM+"' value='"+ctx.getLocale().getLanguage()+"'>");
+//			ctx.println("<input type='hidden' name='"+F_XPATH+"' value='"+base_xpath+"'>");
+//			ctx.println("<input type='hidden' name='_' value='"+locale+"'>");
+//
+////			if(false) ctx.println("<input type='submit' value='" + sm.getSaveButtonText() + "'><br>"); //style='float:right' 
+////			sm.processChanges(ctx, null, null, podBase, canModify, new DefaultDataSubmissionResultHandler(ctx));
+//		} else {
+//			            ctx.println("<!-- <br>cant modify " + locale + "<br> -->");
+//		}
+//
+//		DataSection section = ctx.getSection(podBase,Level.COMPREHENSIVE.toString(),LoadingShow.showLoading); // always use comprehensive - so no cov filtering
+//
+//		section.showSection(ctx, canModify, BaseAndPrefixMatcher.getInstance(base_xpath,null), true);
+//		sm.printPathListClose(ctx);
+//
+//		ctx.printHelpHtml(xpath);
 	}
 
 	void printForumMenu(WebContext ctx, String forum) {

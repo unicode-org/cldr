@@ -88,7 +88,7 @@ public class SurveyLog {
 		}
         sb.append(FIELD_SEP).append(LogField.LOGSITE).append(' ').append(StackTracker.currentStack()).append('\n');
 		while(t!=null) {
-            sb.append(FIELD_SEP).append(LogField.MESSAGE).append(' ').append(t.getMessage()).append('\n');
+            sb.append(FIELD_SEP).append(LogField.MESSAGE).append(' ').append(t.toString()).append(' ').append(t.getMessage()).append('\n');
             sb.append(FIELD_SEP).append(LogField.STACK).append(' ').append(StackTracker.stackToString(t.getStackTrace(),0)).append('\n');
             if(t instanceof SQLException) {
                 SQLException se = ((SQLException)t);

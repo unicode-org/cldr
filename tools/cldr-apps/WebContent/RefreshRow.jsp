@@ -24,6 +24,16 @@
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("application/json");
 			}
+			
+			if (l == null) {
+				if(!isJson) {
+					response.sendError(500, "Bad locale.");
+				} else {
+					JSONWriter r = new JSONWriter(out).object().
+							key("err").value("Bad locale.").endObject();
+				}
+				return;
+			}
 
 			if (mySession == null) {
 				if(!isJson) {
@@ -45,6 +55,7 @@
 			ctx.sm = ctx.session.sm;
 			ctx.setServletPath(ctx.sm.defaultServletPath);
 			CLDRLocale locale = CLDRLocale.getInstance(loc);
+			
 			ctx.setLocale(locale);
 
 			boolean dataEmpty = false;
@@ -60,7 +71,7 @@
 							coverage.toString(),
 							WebContext.LoadingShow.dontShowLoading);
 				} catch (Throwable t) {
-					SurveyLog.logException(t);
+					SurveyLog.logException(t,"on loading " + locale+":"+ XPathTable.xpathToBaseXpath(xp));
 					if(!isJson) {
 						response.sendError(500, "Exception on getSection:"+t.toString());
 					} else {

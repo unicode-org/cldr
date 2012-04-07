@@ -1590,7 +1590,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 idFromSession = false;
             }
             if((mySession == null)&&(!myNum.equals(SURVEYTOOL_COOKIE_NONE))) {
-                message = "<i id='sessionMessage'>(Sorry, This session has expired. ";
+                //message = "<i id='sessionMessage'>(Sorry, This session has expired. ";
                 if(user == null) {
                     message = message + "You may have to log in again. ";
                 }

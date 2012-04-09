@@ -482,6 +482,7 @@ function updateStatusBox(json) {
 }
 
 var timerSpeed = 15000;
+var ajaxTimeout = 120000; // 2 minutes
 
 function updateStatus() {
 	if(disconnected) return;
@@ -489,7 +490,7 @@ function updateStatus() {
     dojo.xhrGet({
         url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl+cacheKill(),
         handleAs:"json",
-        timeout: 15000,
+        timeout: ajaxTimeout,
         load: function(json){
             if(json.status&&json.status.isBusted) {
                 wasBusted = true;
@@ -2028,7 +2029,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
             handleAs:"json",
             load: loadHandler,
             error: errorHandler,
-            timeout: 15000
+            timeout: ajaxTimeout
         };
     //window.xhrArgs = xhrArgs;
     //console.log('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
@@ -2158,7 +2159,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	var xhrArgs = {
 			url: ourUrl+cacheKill(),
 			handleAs:"json",
-			timeout: 15000,
+			timeout: ajaxTimeout,
 			load: loadHandler,
 			error: errorHandler
 	};

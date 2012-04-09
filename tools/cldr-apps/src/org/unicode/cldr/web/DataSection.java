@@ -2567,14 +2567,14 @@ public class DataSection implements JSONString {
 	 *            if true, means that data is simply xpath+type. If false, all
 	 *            xpaths under prefix.
 	 */
-	public static DataSection make(WebContext ctx, CookieSession session, CLDRLocale locale, String prefix, boolean showLoading, String ptype) {
+	public static DataSection make(WebContext ctx, CookieSession session, CLDRLocale locale, String prefix, XPathMatcher matcher, boolean showLoading, String ptype) {
 		SurveyMain.UserLocaleStuff uf;
 		if(ctx!=null) {
 		    uf = ctx.getUserFile();
 		} else {
 		    uf = session.sm.getUserFile(session, locale);
 		}
-        DataSection section = new DataSection(session.sm, locale, prefix, ptype);
+        DataSection section = new DataSection(session.sm, locale, prefix, matcher, ptype);
 
         section.hasExamples =  true;
 		if (SurveyMain.supplementalDataDir == null) {
@@ -2783,11 +2783,13 @@ public class DataSection implements JSONString {
 
     private CLDRLocale locale;
 	private ExampleBuilder examplebuilder;
+    private XPathMatcher matcher;
 
-	DataSection(SurveyMain sm, CLDRLocale loc, String prefix, String ptype) {
+	DataSection(SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
 	    this.locale = loc;
 		this.sm = sm;
 		this.ptype = ptype;
+		this.matcher = matcher;
 		xpathPrefix = prefix;
 		sectionHash = CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
 		intgroup = loc.getLanguage(); // calculate interest group
@@ -3184,6 +3186,10 @@ public class DataSection implements JSONString {
 				if (xpath==null) {
 					throw new InternalError("null xpath in allXpaths");
 				}
+				int xpid = sm.xpt.getByXpath(xpath);
+                if(matcher!=null && !matcher.matches(xpath, xpid)) {
+                    continue;
+                }
 				if (!xpath.startsWith(workPrefix)) {
 					if (false && SurveyMain.isUnofficial)
 						System.err.println("@@ BAD XPATH " + xpath);

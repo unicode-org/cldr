@@ -1398,7 +1398,7 @@ public class WebContext implements Cloneable, Appendable {
 	 * @param prefix
 	 */
 	DataSection getSection(String prefix) {
-		return getSection(prefix, getEffectiveCoverageLevel(getLocale().toString()), LoadingShow.showLoading);
+		return getSection(prefix, null, getEffectiveCoverageLevel(getLocale().toString()), LoadingShow.showLoading);
 	}
 
 	public enum LoadingShow {
@@ -1406,12 +1406,24 @@ public class WebContext implements Cloneable, Appendable {
 	};
 
 	/**
+     * Get a currently valid DataSection for the specified ptype.. creating it
+     * if need be. prints informative notes to the ctx in case of a long delay.
+     * 
+     * @param prefix
+     * @deprecated Use {@link #getSection(String,XPathMatcher,String,LoadingShow)} instead
+     */
+    public DataSection getSection(String prefix, String ptype, LoadingShow options) {
+        return getSection(prefix, null, ptype, options);
+    }
+
+    /**
 	 * Get a currently valid DataSection for the specified ptype.. creating it
 	 * if need be. prints informative notes to the ctx in case of a long delay.
 	 * 
 	 * @param prefix
+	 * @param matcher TODO
 	 */
-	public DataSection getSection(String prefix, String ptype, LoadingShow options) {
+	public DataSection getSection(String prefix, XPathMatcher matcher, String ptype, LoadingShow options) {
 		// if(hasField("srl_veryslow")&&sm.isUnofficial) {
 		// // TODO: parameterize
 		// // test case: make the data section 50x
@@ -1457,7 +1469,7 @@ public class WebContext implements Cloneable, Appendable {
 							println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading data...';</script>");
 							flush();
 						}
-						section = DataSection.make(this, this.session, locale, prefix, options == LoadingShow.showLoading, ptype);
+						section = DataSection.make(this, this.session, locale, prefix, matcher, options == LoadingShow.showLoading, ptype);
 						if (options == LoadingShow.showLoading) {
 							println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>");
 							flush();

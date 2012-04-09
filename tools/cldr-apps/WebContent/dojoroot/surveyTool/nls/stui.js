@@ -81,6 +81,7 @@ define({
 			more_exceptions: "(more exceptions...)",
 			no_exceptions: "(no exceptions.)",
 			adminExceptionDupList: "List of other instances:",
+			clickToSelect: "select",
 
 			testOkay: "has no errors or warnings",
 			testWarn: "has warnings",

@@ -2325,9 +2325,11 @@ function loadAdminPanel() {
 		var stack = createChunk(null,"div","adminThreadStack");
 		frag.appendChild(u);
 		frag.appendChild(stack);
-		clickToSelect(stack);
+		var c2s = createChunk(stui.str("clickToSelect"),"button","clickToSelect");
+		clickToSelect(c2s,stack);
 		
 		removeAllChildNodes(div);
+		div.appendChild(c2s);
 		var clicked = null;
 	
 		div.appendChild(frag);
@@ -2372,13 +2374,16 @@ function loadAdminPanel() {
 		div.className="adminThreads";
 		var v = createChunk(null,"div","adminExceptionList");
 		var stack = createChunk(null,"div","adminThreadStack");
-		clickToSelect(stack,stack);
 		frag.appendChild(v);
 		var u = createChunk(null,"div");
 		v.appendChild(u);
 		frag.appendChild(stack);
 		
+		var c2s = createChunk(stui.str("clickToSelect"),"button","clickToSelect");
+		clickToSelect(c2s,stack);
+		
 		removeAllChildNodes(div);
+		div.appendChild(c2s);
 		var clicked = null;
 		
 		var last = -1;

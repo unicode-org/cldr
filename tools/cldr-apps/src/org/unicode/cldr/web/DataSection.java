@@ -2974,7 +2974,10 @@ public class DataSection implements JSONString {
 					if(matcher!=null && !matcher.matches(base_xpath_string, xpid)) {
 					    continue; 
 					}
-
+					if(excludeAlways.matcher(base_xpath_string).matches()) {
+					    continue;
+					}
+					
 //					System.out.println("@@@ Considering: " + base_xpath_string + "  - matcher="+matcher);
 
 					
@@ -3387,11 +3390,12 @@ public class DataSection implements JSONString {
 				// (may be nested in the case of alt types)
 				DataRow p = getDataRow(xpath);
 				
+				
 
                 Set<String> v = ballotBox.getValues(xpath);
                 if (v != null) {
                     for (String avalue : v) {
-                        if(false && DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
+                        if(true && DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
                         if (!avalue.equals(value)) {
                             CandidateItem item2 = p.addItem(avalue);
                         }

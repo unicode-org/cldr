@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
+import org.unicode.cldr.test.CompactDecimalFormat;
 import org.unicode.cldr.util.Pair;
 
 /**
@@ -180,6 +181,8 @@ public class ChunkyReader extends TimerTask {
     public synchronized Entry getLastEntry() throws IOException {
         return getEntryBelow(Long.MAX_VALUE); // get highest numbered item
     }
+    
+    private static final long tooBig = 32768000;
 
     public synchronized Entry getEntryBelow(long value) throws IOException {
         nudge();
@@ -207,9 +210,18 @@ public class ChunkyReader extends TimerTask {
             cache.clear();
             file = new FileInputStream(fileName);
             InputStreamReader reader = new InputStreamReader(file, "UTF-8");
-            BufferedReader br = new BufferedReader(reader, 2048);
-            String line = null;
             Map<String,String> entry = new TreeMap<String,String>();
+            if(fileName.length() > tooBig) {
+                long skipThis = fileName.length()-tooBig;
+                file.skip(skipThis);
+                
+                Entry fakeEntry = new Entry();
+                fakeEntry.setTime(System.currentTimeMillis()+1000);
+                fakeEntry.addHeader("Logfile too big - skipping the first " + bigNum(skipThis) + " bytes");
+                cache.put(fakeEntry.getTime(), fakeEntry);
+            }
+            BufferedReader br = new BufferedReader(reader, 65536);
+            String line = null;
             Entry e = null;
             String lastField = null;
             StringBuilder lastFieldValue = new StringBuilder();
@@ -285,5 +297,15 @@ public class ChunkyReader extends TimerTask {
         }
         
         return null;
+    }
+
+    private static String bigNum(long skipThis) {
+        try {
+            return CompactDecimalFormat.getInstance().format(skipThis);
+        } catch(Throwable t) {
+            System.err.println("err using CDF " + t);
+            t.printStackTrace();
+            return Long.toString(skipThis);
+        }
     }    
 }

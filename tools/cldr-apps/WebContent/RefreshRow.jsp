@@ -24,7 +24,12 @@
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("application/json");
 			}
-			
+			Thread curThread = Thread.currentThread();
+	    	String threadName = curThread.getName();
+
+	    	try {
+			curThread.setName(request.getServletPath()+":"+loc+":"+xpath);
+	    	
 			if (l == null) {
 				if(!isJson) {
 					response.sendError(500, "Bad locale.");
@@ -45,6 +50,7 @@
 				return;
 			}
 			String xp = xpath;
+			XPathMatcher matcher = XPathMatcher.getMatcherForString(xp);
 			try {
 				int id = Integer.parseInt(xpath);
 				xp = mySession.sm.xpt.getById(id);
@@ -67,7 +73,7 @@
 				 */
 				DataSection section = null;
 				try {
-					section = ctx.getSection(XPathTable.xpathToBaseXpath(xp),
+					section = ctx.getSection(XPathTable.xpathToBaseXpath(xp),matcher,
 							coverage.toString(),
 							WebContext.LoadingShow.dontShowLoading);
 				} catch (Throwable t) {
@@ -87,7 +93,6 @@
 					response.setContentType("application/json");
 					JSONObject dsets = new JSONObject();
 					{
-						XPathMatcher matcher = XPathMatcher.getMatcherForString(xp);
 						for (String n : SortMode.getSortModesFor(xp)) {
 							dsets.put(
 									n,
@@ -146,4 +151,9 @@
     					return;
             		}
             	}
+			
+	    	} finally {
+	    		// put the name back.
+				curThread.setName(threadName);
+			}
             %>

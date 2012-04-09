@@ -2568,12 +2568,6 @@ public class DataSection implements JSONString {
 	 *            xpaths under prefix.
 	 */
 	public static DataSection make(WebContext ctx, CookieSession session, CLDRLocale locale, String prefix, XPathMatcher matcher, boolean showLoading, String ptype) {
-		SurveyMain.UserLocaleStuff uf;
-		if(ctx!=null) {
-		    uf = ctx.getUserFile();
-		} else {
-		    uf = session.sm.getUserFile(session, locale);
-		}
         DataSection section = new DataSection(session.sm, locale, prefix, matcher, ptype);
 
         section.hasExamples =  true;
@@ -2871,6 +2865,8 @@ public class DataSection implements JSONString {
 		// System.err.println("Completing: " + xpathPrefix);
 		// }
 
+	    STFactory stf = sm.getSTFactory();
+	    
 		SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 		int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
 		if (xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames")) {
@@ -2881,6 +2877,7 @@ public class DataSection implements JSONString {
 			// regular zone
 
 			Set<String> zoneIterator;
+            String podBase = xpathPrefix;
 
 			if (isMetazones) {
 				if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
@@ -2900,15 +2897,22 @@ public class DataSection implements JSONString {
 
 					isSingleXPath = true;
 				}
+              podBase = "//ldml/dates/timeZoneNames/metazone";
 			} else {
 				if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
 					throw new InternalError("Error: CONTINENT_DIVIDER found on non-metazone xpath " + xpathPrefix);
 				}
 				zoneIterator = StandardCodes.make().getGoodAvailableCodes("tzid");
+				podBase = "//ldml/dates/timeZoneNames/zone";
+			}
+			if(!isSingleXPath && xpathPrefix.contains("@type")) {
+			    isSingleXPath=true;
 			}
 
-			final String tzsuffs[] = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
-					"/short/standard", "/exemplarCity" };
+			final String tzsuffs[] = { 
+			        //"/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
+					//"/short/standard", 
+					"/exemplarCity" };
 			final String mzsuffs[] = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
 					"/short/standard" };
 
@@ -2919,7 +2923,6 @@ public class DataSection implements JSONString {
 				suffs = tzsuffs;
 			}
 
-			String podBase = xpathPrefix;
 			CLDRFile resolvedFile = ourSrc;
 			// XPathParts parts = new XPathParts(null,null);
 			// TimezoneFormatter timezoneFormatter = new
@@ -2940,12 +2943,41 @@ public class DataSection implements JSONString {
 
 					if (isSingleXPath && !xpathPrefix.contains(suff)) {
 						continue; // Try not to add paths that won't be shown.
-					} else {
-						podBase = "//ldml/dates/timeZoneNames/metazone";
+//					} else {
+//						podBase = "//ldml/dates/timeZoneNames/metazone";
 					}
 					// synthesize a new row..
 					String rowXpath = zone + suff;
 					String base_xpath_string = podBase + ourSuffix + suff;
+
+					SurveyToolStatus ststats = SurveyToolStatus.READ_WRITE;
+					PathHeader ph = stf.getPathHeader(base_xpath_string);
+					if(ph != null) {
+					    ststats = stf.getPathHeader(base_xpath_string).getSurveyToolStatus();
+					}
+
+					//		                boolean cc_skip = CheckCLDR.skipShowingInSurvey.matcher(xpath).matches();
+					//		              if (cc_skip != (ststats==SurveyToolStatus.HIDE || ststats==SurveyToolStatus.DEPRECATED)) {
+					//		                  System.err.println(xpath + " - skipShowingInSurvey="+cc_skip+", ph="+ststats);
+					//		              }
+					//		              
+					//		              if(cc_skip) continue;
+
+					if((ststats==SurveyToolStatus.HIDE || ststats==SurveyToolStatus.DEPRECATED)) {
+					    // if(TRACE_TIME)
+					    // System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime)
+					    // + " " + xpath);
+					    continue;
+					}
+					
+					int xpid = sm.xpt.getByXpath(base_xpath_string);
+					if(matcher!=null && !matcher.matches(base_xpath_string, xpid)) {
+					    continue; 
+					}
+
+//					System.out.println("@@@ Considering: " + base_xpath_string + "  - matcher="+matcher);
+
+					
 					if (resolvedFile.isPathExcludedForSurvey(base_xpath_string)) {
 						// if(SurveyMain.isUnofficial)
 						// System.err.println("@@ synthesized+excluded:" +

@@ -50,10 +50,13 @@
 				return;
 			}
 			String xp = xpath;
-			XPathMatcher matcher = XPathMatcher.getMatcherForString(xp);
+			XPathMatcher matcher = null;
 			try {
 				int id = Integer.parseInt(xpath);
 				xp = mySession.sm.xpt.getById(id);
+				if(xp!=null) {
+					matcher = XPathMatcher.getMatcherForString(xp);
+				}
 			} catch (NumberFormatException nfe) {
 
 			}

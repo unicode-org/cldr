@@ -24,7 +24,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
-import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -57,7 +56,6 @@ public class ExampleGenerator {
     private final static boolean DEBUG_SHOW_HELP = false;
 
     private static SupplementalDataInfo supplementalDataInfo;
-    private SupplementalData supplementalData;
     private PathDescription pathDescription;
 
     /**
@@ -196,7 +194,6 @@ public class ExampleGenerator {
             if (supplementalDataInfo == null) {
                 supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDirectory);
             }
-            supplementalData = new SupplementalData(supplementalDataDirectory);
         }
         icuServiceBuilder.setCldrFile(cldrFile);
         col = Collator.getInstance(new ULocale(cldrFile.getLocaleID()));
@@ -704,7 +701,7 @@ public class ExampleGenerator {
                 // TODO check for value
                 if (parts.contains("generic")) {
                     String metazone_name = parts.getAttributeValue(3, "type");
-                    String timezone = supplementalData.resolveParsedMetazone(metazone_name,"001");
+                    String timezone = supplementalDataInfo.getZoneForMetazoneByRegion(metazone_name,"001");
                     String countryCode = supplementalDataInfo.getZone_territory(timezone);
                     String regionFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat");
                     String fallbackFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat");
@@ -728,7 +725,8 @@ public class ExampleGenerator {
                     String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
                     String hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
                     String metazone_name = parts.getAttributeValue(3, "type");
-                    String tz_string = supplementalData.resolveParsedMetazone(metazone_name,"001");
+//                    String tz_string = supplementalData.resolveParsedMetazone(metazone_name,"001");
+                    String tz_string = supplementalDataInfo.getZoneForMetazoneByRegion(metazone_name,"001");                    
                     TimeZone currentZone = TimeZone.getTimeZone(tz_string);
                     int tzOffset = currentZone.getRawOffset();
                     if (parts.contains("daylight")) {

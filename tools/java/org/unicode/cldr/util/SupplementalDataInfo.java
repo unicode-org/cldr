@@ -2150,6 +2150,23 @@ public class SupplementalDataInfo {
         return typeToZoneToRegionToZone.get("metazones");
     }
 
+    public String getZoneForMetazoneByRegion(String metazone, String region) {
+        String result = null;
+        if ( getMetazoneToRegionToZone().containsKey(metazone)) {
+            Map<String,String> myMap = getMetazoneToRegionToZone().get(metazone);
+            if (myMap.containsKey(region)) {
+                result = myMap.get(region);
+            } else {
+                result = myMap.get("001");
+            }
+        }
+        
+        if ( result == null ) {
+            result = "Etc/GMT";
+        }
+
+        return result;
+    }
     public Map<String,Map<String,Map<String,String>>> getTypeToZoneToRegionToZone() {
         return typeToZoneToRegionToZone;
     }

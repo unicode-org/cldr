@@ -308,9 +308,18 @@ public class ExampleGenerator {
                     result = handleIntervalFormats(parts, xpath, value, context, type);
                     break main;
                 }
+            if (parts.getElement(1).equals("delimiters")) {
+                return handleDelimiters(xpath, value);
+            }
+            if (parts.getElement(1).equals("listPatterns")) {
+                return handleListPatterns(parts, value);
+            }
+            if (parts.getElement(2).equals("ellipsis")) {
+                return handleEllipsis(value);
+            }
 
-                // didn't detect anything, return empty-handed
-                return null;
+            // didn't detect anything, return empty-handed
+            return null;
 
             } catch (NullPointerException e) {
                 if (SHOW_ERROR) {
@@ -372,6 +381,67 @@ public class ExampleGenerator {
         // find where to split the value
         intervalFormat.setPattern(value);
         return intervalFormat.format(FIRST_INTERVAL, SECOND_INTERVAL.get(greatestDifference));
+    }
+
+    private String handleDelimiters(String xpath, String value) {
+        boolean isStart = xpath.endsWith("Start");
+        String startQuote, endQuote;
+        if (isStart) {
+            startQuote = backgroundStartSymbol + value + backgroundEndSymbol;
+            endQuote = cldrFile.getWinningValue(xpath.substring(0, xpath.length() - 5) + "End");
+        } else {
+            startQuote = cldrFile.getWinningValue(xpath.substring(0, xpath.length() - 3) + "Start");
+            endQuote = backgroundStartSymbol + value + backgroundEndSymbol;
+        }
+        String example = cldrFile.getStringValue("//ldml/localeDisplayNames/types/type[@type=\"gregorian\"][@key=\"calendar\"]");
+        return finalizeBackground(invertBackground(startQuote + example + endQuote));
+    }
+    
+
+    private String handleListPatterns(XPathParts parts, String value) {
+        String patternType = parts.getAttributeValue(-1, "type");
+        String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
+        String territory1 = getValueFromFormat(pathFormat, "CH");
+        String territory2 = getValueFromFormat(pathFormat, "JP");
+        if (patternType.equals("2")) {
+            return finalizeBackground(invertBackground(format(setBackground(value), territory1, territory2)));
+        }
+        String territory3 = getValueFromFormat(pathFormat, "EG");
+        String territory4 = getValueFromFormat(pathFormat, "CA");
+        String listPathFormat = "//ldml/listPatterns/listPattern/listPatternPart[@type=\"{0}\"]";
+        String startPattern = getPattern(listPathFormat, "start", patternType, value);
+        String middlePattern = getPattern(listPathFormat, "middle", patternType, value);
+        String endPattern = getPattern(listPathFormat, "end", patternType, value);
+        
+        String example = format(startPattern, territory1, format(middlePattern, territory2, format(endPattern, territory3, territory4)));
+        return finalizeBackground(invertBackground(example));
+    }
+    
+    /**
+     * Helper method for handleListPatterns. Returns the pattern to be used for
+     * a specified pattern type.
+     * @param pathFormat
+     * @param pathPatternType
+     * @param valuePatternType
+     * @param value
+     * @return
+     */
+    private String getPattern(String pathFormat, String pathPatternType,
+            String valuePatternType, String value) {
+        return valuePatternType.equals(pathPatternType) ?
+                setBackground(value) :
+                getValueFromFormat(pathFormat, pathPatternType);
+    }
+
+    private String getValueFromFormat(String format, Object... arguments) {
+        return cldrFile.getWinningValue(format(format, arguments));
+    }
+
+    private String handleEllipsis(String value) {
+        String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
+        String territory1 = getValueFromFormat(pathFormat, "CH");
+        String territory2 = getValueFromFormat(pathFormat, "JP");
+        return finalizeBackground(invertBackground(format(setBackground(value), territory1, territory2)));
     }
 
     class IntervalFormat {
@@ -615,10 +685,13 @@ public class ExampleGenerator {
             String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
             String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US"));
             // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-
             String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
             result = format(value, LosAngeles, us);
             result = format(timeFormat, result);
+        } else if (parts.contains("fallbackRegionFormat")) {
+            String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US"));
+            String LosAngeles = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity"));
+            result = format(value, LosAngeles, us);
         } else if (parts.contains("gmtFormat")) { // GMT{0}
             result = getGMTFormat(null, value, -8);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm

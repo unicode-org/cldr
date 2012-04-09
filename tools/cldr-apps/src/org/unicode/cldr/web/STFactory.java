@@ -1021,23 +1021,18 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         VoteResolver.setVoterToInfo(sm.reg.getVoterToInfo());	
 	}
 	
-    public final PathHeader getPathHeader(String xpath) {
-        return phf.fromPath(xpath);
-    }
-    
-    public final String getSectionName(String xpath) {
-        return getPathHeader(xpath).getSection();
-    }
-    public final String getPageName(String xpath) {
-        return getPathHeader(xpath).getPage();
-    }
-    public final String getHeaderName(String xpath) {
-        PathHeader ph = getPathHeader(xpath);
-        if(ph!=null) {
-            return ph.getHeader();
-        } else {
-            return "[null]";
+	private Set<String> badPaths = new HashSet<String>();
+	
+    public final synchronized PathHeader getPathHeader(String xpath) {
+        if(!badPaths.contains(xpath)) {
+            try {
+                return phf.fromPath(xpath);
+            } catch (Throwable t) {
+                SurveyLog.logException(t,"PH for path " + xpath + " (will show this once)");
+                badPaths.add(xpath);
+            }
         }
+        return null;
     }
     
     private SurveyMenus surveyMenus;

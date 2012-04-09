@@ -648,12 +648,7 @@ public class DataSection implements JSONString {
 			this.xpath = xpath;
 			this.xpathId = sm.xpt.getByXpath(xpath);
 			this.prettyPath = sm.xpt.getPrettyPath(xpathId);
-            try {
-                pathHeader =  sm.getSTFactory().getPathHeader(xpath);
-            }catch(Throwable t) {
-                SurveyLog.logException(t,t.toString() + "while fetching ph for " + xpath);
-                pathHeader =  null;
-            }
+            pathHeader =  sm.getSTFactory().getPathHeader(xpath); // may be null
 			// this.setDisplayName(prettyPath);
 
 			if (ballotBox == null) {
@@ -3269,7 +3264,11 @@ public class DataSection implements JSONString {
 				// System.err.println("Got " + continent +" for " + xpath);
 				// }
 				
-				SurveyToolStatus ststats = stf.getPathHeader(xpath).getSurveyToolStatus();
+				SurveyToolStatus ststats = SurveyToolStatus.READ_WRITE;
+				PathHeader ph = stf.getPathHeader(xpath);
+				if(ph != null) {
+				    ststats = stf.getPathHeader(xpath).getSurveyToolStatus();
+				}
 
 //                boolean cc_skip = CheckCLDR.skipShowingInSurvey.matcher(xpath).matches();
 //				if (cc_skip != (ststats==SurveyToolStatus.HIDE || ststats==SurveyToolStatus.DEPRECATED)) {

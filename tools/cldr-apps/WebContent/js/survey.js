@@ -224,6 +224,17 @@ function getAbsolutePosition (x) {
     return {left:hh, top: vv};
 }
 
+function clickToSelect(obj, targ) {
+	if(!targ) targ=obj;
+	listenFor(obj, "click", function(e) {
+		if(window.getSelection) {
+			window.getSelection().selectAllChildren(targ);
+		}
+		stStopPropagation(e);
+		return false;
+	});
+}
+
 var wasBusted = false;
 var wasOk = false;
 var loadOnOk = null;
@@ -2314,6 +2325,7 @@ function loadAdminPanel() {
 		var stack = createChunk(null,"div","adminThreadStack");
 		frag.appendChild(u);
 		frag.appendChild(stack);
+		clickToSelect(stack);
 		
 		removeAllChildNodes(div);
 		var clicked = null;
@@ -2339,9 +2351,11 @@ function loadAdminPanel() {
 					thread.appendChild(createChunk(stui.str(t.state),"span","adminThreadState_"+t.state));
 					thread.onclick=(function (t,id){return (function() {
 						stack.innerHTML = "<b>"+id+":"+t.name+"</b>\n";
+						stack.appendChild(createChunk("\n\n{{{\n","span","textForTrac"));
 						for(var q in t.stack) {
 							stack.innerHTML = stack.innerHTML + t.stack[q] + "\n";
 						}
+						stack.appendChild(createChunk("}}}\n\n","span","textForTrac"));
 					});})(t,id);
 					frag2.appendChild(thread);
 				}
@@ -2358,13 +2372,7 @@ function loadAdminPanel() {
 		div.className="adminThreads";
 		var v = createChunk(null,"div","adminExceptionList");
 		var stack = createChunk(null,"div","adminThreadStack");
-		listenFor(stack, "click", function(e) {
-			if(window.getSelection) {
-				window.getSelection().selectAllChildren(stack);
-			}
-			stStopPropagation(e);
-			return false;
-		})
+		clickToSelect(stack,stack);
 		frag.appendChild(v);
 		var u = createChunk(null,"div");
 		v.appendChild(u);

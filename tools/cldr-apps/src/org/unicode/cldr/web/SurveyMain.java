@@ -6485,7 +6485,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 	                    for(CLDRLocale locale : sm.getLocales()) {
 	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
 	                        xctx.setLocale(locale);
-	                    	DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, false, "modern");
+	                    	DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH,null, false, "modern");
 	                    	SurveyLog.logger.warning("Made: " + qt.toString() + " -- " + freeMem());
 	                    }
                     }
@@ -6500,7 +6500,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 //	                    for(CLDRLocale locale : sm.getLocales()) {
 	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
 	                        xctx.setLocale(locale);
-	                    	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, false,"modern");
+	                    	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, null,false,"modern");
 	                        DataSection.DisplaySet set = ds.createDisplaySet(SortMode.getInstance(SurveyMain.PREF_SORTMODE_CODE_CALENDAR), null);
 	                    	SurveyLog.logger.warning("Made: " + qt.toString() + " -- " + freeMem());
 //	                    }
@@ -6512,7 +6512,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 	                xctx.session=cs;
 	                CLDRLocale locale = CLDRLocale.getInstance("az_Arab");
                     xctx.setLocale(locale);
-                	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, false,"modern");
+                	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, null,false,"modern");
                 	long startTime = System.currentTimeMillis();
                     com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName());
 	                for(int jj=0;jj<10000;jj++) {

@@ -76,7 +76,11 @@ define({
 			adminExceptionUptime_desc: "ST uptime at stack time",
 			adminExceptionHeader_desc: "Overall error message and cause",
 			adminExceptionLogsite_desc: "Location of logException call",
+			adminExceptionDup: "(${0} other time(s))",
 			last_exception: "(last exception)",
+			more_exceptions: "(more exceptions...)",
+			no_exceptions: "(no exceptions.)",
+			adminExceptionDupList: "List of other instances:",
 
 			testOkay: "has no errors or warnings",
 			testWarn: "has warnings",

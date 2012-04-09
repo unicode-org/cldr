@@ -323,6 +323,15 @@ div.adminExceptionList {
 	display:  table;
 }
 
+.adminExceptionFooter {
+	padding: 0.25em;
+	font-style: oblique;
+	display: block;
+	clear: both;
+	padding-bottom: 0.5em;
+	float: right;
+}
+
 div.adminThreadList span {
 	display:  table-cell;
 }
@@ -405,6 +414,21 @@ span.adminThreadState_TIMED_WAITING {
 	background-color: silver;
 }
 
+.adminExceptionCount {
+	padding-left:  20px;
+	background: url(zoom.png) no-repeat 0 top;
+	text-decoration: underline;
+}
+
+.adminExceptionMore {
+	color: maroon;
+}
+
+.adminExceptionCount:hover,
+div.adminException span.adminExceptionHeader:hover {
+	color: blue;
+}
+
 div.adminThread {
 	border-bottom:  1px dotted gray;
 	display:  table-row;
@@ -438,6 +462,12 @@ div.adminThreadStack {
 	font: small "Courier New", Courier, mono;
 	background-color: wheat;
 	padding:  3px;
+}
+
+.textForTrac {
+	background-color: wheat;
+	color: wheat;
+	font-size: 1px;
 }
 
 div.adminThreadStack b, span.adminThreadName {

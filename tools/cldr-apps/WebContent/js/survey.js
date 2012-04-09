@@ -2211,6 +2211,7 @@ function loadAdminPanel() {
 	}
 	var panelLast = null;
 	var panels={};
+	var panelFirst = null;
 
 	function panelSwitch(name) {
 		if(panelLast) {
@@ -2222,7 +2223,8 @@ function loadAdminPanel() {
 			panelLast=panels[name];
 			panelLast.listItem.className='selected';
 			panelLast.fn(panelLast.udiv);
-			panelLast.div.style.display='block';			
+			panelLast.div.style.display='block';	
+			window.location.hash="#!"+name;
 		}
 	}
 
@@ -2249,8 +2251,8 @@ function loadAdminPanel() {
 		
 		content.appendChild(panel.div);
 		
-		if(!panelLast) {
-			panelSwitch(panel.type);
+		if(!panelFirst) {
+			panelFirst = panel;
 		}
 	}
 	
@@ -2353,9 +2355,18 @@ function loadAdminPanel() {
 		var frag = document.createDocumentFragment();
 		
 		div.className="adminThreads";
-		var u = createChunk("Loading...","div","adminExceptionList");
+		var v = createChunk(null,"div","adminExceptionList");
 		var stack = createChunk(null,"div","adminThreadStack");
-		frag.appendChild(u);
+		listenFor(stack, "click", function(e) {
+			if(window.getSelection) {
+				window.getSelection().selectAllChildren(stack);
+			}
+			stStopPropagation(e);
+			return false;
+		})
+		frag.appendChild(v);
+		var u = createChunk(null,"div");
+		v.appendChild(u);
 		frag.appendChild(stack);
 		
 		removeAllChildNodes(div);
@@ -2364,9 +2375,14 @@ function loadAdminPanel() {
 		var last = -1;
 		
 		var exceptions = [];
+		
+		var exceptionNames = {};
 	
 		div.appendChild(frag);
+		var more = createChunk(stui_str("more_exceptions"),"p","adminExceptionMore adminExceptionFooter");
+		var loading = createChunk(stui_str("loading"),"p","adminExceptionFooter");
 		
+		v.appendChild(loading);
 		var loadNext  =function(from) {
 			var append = "do=exceptions";
 			if(from) {
@@ -2376,15 +2392,16 @@ function loadAdminPanel() {
 			loadOrFail(append, u, function(json) {
 				if(!json || !json.exceptions || !json.exceptions.entry) {
 					if(!from) {
-						removeAllChildNodes(u);
-						u.appendChild(document.createTextNode(stui.str("no_exceptions")));
+						v.appendChild(createChunk(stui_str("no_exceptions"),"p","adminExceptionFooter"));
 					} else {
-						u.appendChild(document.createTextNode(stui.str("last_exception")));
+						v.removeChild(loading);
+						v.appendChild(createChunk(stui_str("last_exception"),"p","adminExceptionFooter"));
 						// just the last one.
 					}
 				} else {
 					if(json.exceptions.entry.time == from) {
 						console.log("Asked for <"+from + " but got ="+from);
+						v.removeChild(loading);
 						return; // 
 					}
 					var frag2 = document.createDocumentFragment();
@@ -2399,17 +2416,22 @@ function loadAdminPanel() {
 					last = json.exceptions.lastTime;
 					if(json.exceptions.entry) {
 						var e = json.exceptions.entry;
-						if(exceptions.length==0) {
-							removeAllChildNodes(u);
-						}
 						exceptions.push(json.exceptions.entry);
 						var exception = createChunk(null,"div","adminException");
-						exception.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
+						//exception.e = e;
+						if(e.header&&e.header.length < 80) {
+							exception.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
+						} else {
+							var t;
+							exception.appendChild(t=createChunk(e.header.substring(0,80)+"...","span","adminExceptionHeader"));
+							t.title=e.header;
+						}
 						exception.appendChild(createChunk(e.DATE,"span","adminExceptionDate"));
-
-						exception.onclick=(function (e){return (function() {
+						var clicky=(function (e){return (function(ee) {
 							var frag3 = document.createDocumentFragment();
+							frag3.appendChild(createChunk("{{{\n","span","textForTrac"));
 							frag3.appendChild(createChunk(e.header,"span","adminExceptionHeader"));
+							frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
 							frag3.appendChild(createChunk(e.DATE,"span","adminExceptionDate"));
 
 							if(e.UPTIME) {
@@ -2421,19 +2443,55 @@ function loadAdminPanel() {
 							for(var q in e.fields) {
 								var f = e.fields[q];
 								var k = Object.keys(f);
+								frag3.appendChild(createChunk("\n'''"+k[0]+"'''\n"+"{{{\n","span","textForTrac"));
 								frag3.appendChild(createChunk(f[k[0]],"pre","adminException"+k[0]));
+								frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
 							}
 
 							if(e.LOGSITE) {
+								frag3.appendChild(createChunk("'''LOGSITE'''\n{{{\n","span","textForTrac"));
 								frag3.appendChild(createChunk(e.LOGSITE,"pre","adminExceptionLogsite"));
+								frag3.appendChild(createChunk("}}}\n","span","textForTrac"));
 							}
 
 							
 							removeAllChildNodes(stack);
 							stack.appendChild(frag3);
+							stStopPropagation(ee);
+							return false;
 						});})(e);
-						
-						frag2.appendChild(exception);
+						listenFor(exception, "click", clicky);
+						var head = exceptionNames[e.header];
+						if(head) {
+							if(!head.others) {
+								head.others=[];
+								head.count = document.createTextNode("");
+								var countSpan = document.createElement("span");
+								countSpan.appendChild(head.count);
+								countSpan.className = "adminExceptionCount";
+								listenFor(countSpan, "click", function(e) {
+									// prepare div
+									if(!head.otherdiv) {
+										head.otherdiv = createChunk(null,"div","adminExceptionOtherList");
+										head.otherdiv.appendChild(createChunk(stui.str("adminExceptionDupList"),"h4"));
+										for(k in head.others) {
+											head.otherdiv.appendChild(head.others[k]);
+										}
+									}
+									removeAllChildNodes(stack);
+									stack.appendChild(head.otherdiv);
+									stStopPropagation(e);
+									return false;
+								});
+								head.appendChild(countSpan);
+							}
+							head.others.push(exception);
+							head.count.nodeValue = stui.sub("adminExceptionDup", [ head.others.length ]);
+							head.otherdiv=null; // reset
+						} else {
+							frag2.appendChild(exception);
+							exceptionNames[e.header] = exception;
+						}
 					}
 					
 					
@@ -2442,26 +2500,34 @@ function loadAdminPanel() {
 					
 					if(json.exceptions.entry && json.exceptions.entry.time) {
 						if(exceptions.length>0 && (exceptions.length % 8 == 0)) {
-							var more = createChunk("[more]");
-							u.appendChild(more);
+							v.removeChild(loading);
+							v.appendChild(more);
 							more.onclick = more.onmouseover = function() {
-								u.removeChild(more);
+								v.removeChild(more);
+								v.appendChild(loading);
 								loadNext(json.exceptions.entry.time);
 								return false;
 							};
 						} else {
 							setTimeout(function(){loadNext(json.exceptions.entry.time);},500);
 						}
+					} else {
 					}
 				}
 			});
 		};
-		loadNext(); // load the first
+		loadNext(); // load the first exception
 	});
 
 	
 	// last panel loaded.
-		
+	// If it's in the hashtag, use it, otherwise first.
+	if(window.location.hash && window.location.hash.indexOf("#!")==0) {
+		panelSwitch(window.location.hash.substring(2));
+	}
+	if(!panelLast) { // not able to load anything.
+		panelSwitch(panelFirst.type);
+	}
 	adminStuff.appendChild(content);
 }
 

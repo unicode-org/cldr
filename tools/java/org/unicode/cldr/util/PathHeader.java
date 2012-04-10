@@ -109,6 +109,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Europe(SectionId.Timezones),
         IndianT(SectionId.Timezones),
         Pacific(SectionId.Timezones),
+        UnknownT(SectionId.Timezones, "Unknown"),
         Overrides(SectionId.Timezones),
         Patterns_for_Locale_Names(SectionId.Misc, "Patterns for Locale Names"),
         Patterns_for_Displaying_Lists(SectionId.Misc, "Patterns for Displaying Lists"),
@@ -816,6 +817,9 @@ public class PathHeader implements Comparable<PathHeader> {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
                     } else {
                         String continent = metazoneToContinent.get(source);
+                        if (continent == null) {
+                            continent = "UnknownT";
+                        }
                         return continent;
                     }
                 }

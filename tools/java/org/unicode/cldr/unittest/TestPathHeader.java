@@ -47,6 +47,16 @@ public class TestPathHeader extends TestFmwk {
     static final SupplementalDataInfo supplemental      = info.getSupplementalDataInfo();
     static PathHeader.Factory         pathHeaderFactory = PathHeader.getFactory(english);
 
+    public void Test4587() {
+        String test = "//ldml/dates/timeZoneNames/metazone[@type=\"Pacific/Wallis\"]/short/standard";
+        PathHeader ph = pathHeaderFactory.fromPath(test);
+        if (ph == null) {
+            errln("Failure with " + test);
+        } else {
+            logln(ph + "\t" + test);
+        }
+    }
+
     public void TestAFile() {
         final String localeId = "en";
         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(localeId);
@@ -62,7 +72,7 @@ public class TestPathHeader extends TestFmwk {
             for (PageId page : sectionAndPages.getValue()) {
                 final Set<String> cachedPaths = PathHeader.Factory.getCachedPaths(section, page);
                 if (cachedPaths == null) {
-                    errln("Null pages for: " + section + "\t" + page);
+                    warnln("Null pages for: " + section + "\t" + page);
                 } else {
                     int count2 = cachedPaths.size();
                     if (count2 == 0) {
@@ -114,7 +124,7 @@ public class TestPathHeader extends TestFmwk {
             }
         }
     }
-    
+
     public Set<PathHeader> getPathHeaders(CLDRFile nativeFile) {
         Set<PathHeader> pathHeaders = new TreeSet<PathHeader>();
         for (String path : nativeFile.fullIterable()) {
@@ -164,7 +174,7 @@ public class TestPathHeader extends TestFmwk {
 
             if (tempSTS != oldStatus && oldStatus != SurveyToolStatus.READ_WRITE) {
                 if (!differentStar.contains(starred)) {
-                    errln("Different from old:\t" + oldStatus + "\t" + surveyToolStatus + "\t"
+                    warnln("Different from old:\t" + oldStatus + "\t" + surveyToolStatus + "\t"
                             + path);
                     differentStar.add(starred);
                 }
@@ -198,7 +208,7 @@ public class TestPathHeader extends TestFmwk {
             }
         }
     }
-    
+
     public void TestPathDescriptionCompleteness() {
         PathDescription pathDescription = new PathDescription(supplemental, english, null, null, PathDescription.ErrorHandling.CONTINUE);
         for (PathHeader pathHeader : getPathHeaders(english)) {
@@ -258,8 +268,13 @@ public class TestPathHeader extends TestFmwk {
                     }
                     uniqueness.put(visible, pathHeader);
                 } else if (!old.equals(pathHeader)) {
-                    errln("PathHeader not unique: " + visible + "\t" + pathHeader.getOriginalPath()
-                            + "\t" + old.getOriginalPath());
+                    if (pathHeader.getSectionId() == SectionId.Special) {
+                        logln("Special PathHeader not unique: " + visible + "\t" + pathHeader.getOriginalPath()
+                                + "\t" + old.getOriginalPath());
+                    } else {
+                        errln("PathHeader not unique: " + visible + "\t" + pathHeader.getOriginalPath()
+                                + "\t" + old.getOriginalPath());
+                    }
                 }
             }
         }

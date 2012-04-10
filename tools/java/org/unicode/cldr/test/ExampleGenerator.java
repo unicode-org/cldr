@@ -293,7 +293,7 @@ public class ExampleGenerator {
                     result = handleNumberingSystem(value);
                     break main;
                 }
-                if (parts.contains("units")) {
+                if (parts.getElement(1).equals("units")) {
                     result = handleUnits(parts, xpath, value, context, type);
                     break main;
                 }
@@ -305,18 +305,18 @@ public class ExampleGenerator {
                     result = handleIntervalFormats(parts, xpath, value, context, type);
                     break main;
                 }
-            if (parts.getElement(1).equals("delimiters")) {
-                return handleDelimiters(xpath, value);
-            }
-            if (parts.getElement(1).equals("listPatterns")) {
-                return handleListPatterns(parts, value);
-            }
-            if (parts.getElement(2).equals("ellipsis")) {
-                return handleEllipsis(value);
-            }
-
-            // didn't detect anything, return empty-handed
-            return null;
+                if (parts.getElement(1).equals("delimiters")) {
+                    return handleDelimiters(xpath, value);
+                }
+                if (parts.getElement(1).equals("listPatterns")) {
+                    return handleListPatterns(parts, value);
+                }
+                if (parts.getElement(2).equals("ellipsis")) {
+                    return handleEllipsis(value);
+                }
+    
+                // didn't detect anything, return empty-handed
+                return null;
 
             } catch (NullPointerException e) {
                 if (SHOW_ERROR) {
@@ -362,17 +362,19 @@ public class ExampleGenerator {
             {"m", getDate(2008,1,13,5,8,10, GMT_ZONE_SAMPLE)}
     });
 
-
-    private String handleIntervalFormats(XPathParts parts2, String xpath, String value,
+    private String handleIntervalFormats(XPathParts parts, String xpath, String value,
             ExampleContext context, ExampleType type) {
-        if (!parts2.getAttributeValue(3, "type").equals("gregorian")) {
+        if (!parts.getAttributeValue(3, "type").equals("gregorian")) {
             return null;
         }
-        if (parts2.getElement(6).equals("intervalFormatFallback")) {
-            return null; // TODO test this too
+        if (parts.getElement(6).equals("intervalFormatFallback")) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat();
+            String fallbackFormat = invertBackground(setBackground(value));
+            return format(fallbackFormat, dateFormat.format(FIRST_INTERVAL),
+                    dateFormat.format(SECOND_INTERVAL.get("y")));
         }
-        String greatestDifference = parts2.getAttributeValue(-1, "id");
-
+        String greatestDifference = parts.getAttributeValue(-1, "id");
+        if (greatestDifference.equals("H")) greatestDifference = "h";
         // intervalFormatFallback
         // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]
         // find where to split the value
@@ -492,7 +494,7 @@ public class ExampleGenerator {
     }
 
     private String handleUnits(XPathParts parts, String xpath, String value, ExampleContext context, ExampleType type) {
-        if (parts.contains("unitPattern")) {
+        if (parts.getElement(-1).equals("unitPattern")) {
             return formatCountValue(xpath, parts, value, context, type);
         }
         return null;
@@ -617,7 +619,7 @@ public class ExampleGenerator {
         String unitName;
         String unitNamePath = cldrFile.getCountPathWithFallback(isCurrency 
                 ? "//ldml/numbers/currencies/currency[@type=\"USD\"]/displayName"
-                        : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitName",
+                        : "//ldml/units/unit[@type=\""+ unitType + "\"]/unitPattern",
                         count, true);
         unitName = cldrFile.getWinningValue(unitNamePath);
         return unitName;

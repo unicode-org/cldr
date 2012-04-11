@@ -9,6 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -29,7 +30,6 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -47,9 +47,9 @@ public class PathHeader implements Comparable<PathHeader> {
         READ_ONLY,
         READ_WRITE
     }
-    
+
     private static EnumNames<SectionId> SectionIdNames = new EnumNames<SectionId>();
-   
+
     /**
      * The Section for a path. Don't change these without committee buy-in.
      */
@@ -59,7 +59,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Timezones, 
         Misc, 
         Special;
-        
+
         private SectionId(String... alternateNames) {
             SectionIdNames.add(this, alternateNames);
         }
@@ -70,7 +70,7 @@ public class PathHeader implements Comparable<PathHeader> {
             return SectionIdNames.toString(this);
         }
     }
-    
+
     private static EnumNames<PageId> PageIdNames = new EnumNames<PageId>();
     private static Relation<SectionId,PageId> SectionIdToPageIds = Relation.of(new EnumMap<SectionId,Set<PageId>>(SectionId.class), TreeSet.class);
 
@@ -128,9 +128,9 @@ public class PathHeader implements Comparable<PathHeader> {
         Deprecated(SectionId.Special),
         Unknown(SectionId.Special),
         ;
-        
+
         private final SectionId sectionId;
-        
+
         private PageId(SectionId sectionId, String... alternateNames) {
             this.sectionId = sectionId;
             SectionIdToPageIds.put(sectionId, this);
@@ -172,6 +172,37 @@ public class PathHeader implements Comparable<PathHeader> {
     static final Map<String, String>  metazoneToContinent  = supplementalDataInfo
     .getMetazoneToContinentMap();
     static final StandardCodes        standardCode         = StandardCodes.make();
+    static final Map<String, String>  metazoneToPageTerritory = new HashMap<String,String>();
+    static {
+        Map<String, Map<String, String>> metazoneToRegionToZone = supplementalDataInfo.getMetazoneToRegionToZone();
+        for (Entry<String, Map<String, String>> metazoneEntry : metazoneToRegionToZone.entrySet()) {
+            String metazone = metazoneEntry.getKey();
+            String worldZone = metazoneEntry.getValue().get("001");
+            String territory = Containment.getRegionFromZone(worldZone);
+            if (territory == null) {
+                territory = "ZZ";
+            }
+            //Russia, Antarctica => territory
+            //in Australasia, Asia, S. America => subcontinent
+            //in N. America => N. America (grouping of 3 subcontinents)
+            //in everything else => continent
+            if (territory.equals("RU") || territory.equals("AQ")) {
+                metazoneToPageTerritory.put(metazone, territory);
+            } else {
+                String continent = Containment.getContinent(territory);
+                String subcontinent = Containment.getSubcontinent(territory);
+                if (continent.equals("142")) { // Asia
+                    metazoneToPageTerritory.put(metazone, subcontinent);
+                } else if (continent.equals("019")) { // Americas
+                    metazoneToPageTerritory.put(metazone, subcontinent.equals("005") ? subcontinent : "003");
+                } else if (subcontinent.equals("053")) { // Australasia
+                    metazoneToPageTerritory.put(metazone, subcontinent);
+                } else {
+                    metazoneToPageTerritory.put(metazone, continent);
+                }
+            }
+        }
+    }
 
     /**
      * @param section
@@ -310,7 +341,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 RegexLookup.RegexFinderTransformPath)
                 .loadFromFile(
                         PathHeader.class,
-                        "data/PathHeader.txt");
+                "data/PathHeader.txt");
         // synchronized with lookup
         static final Output<String[]>                      args                       = new Output<String[]>();
         // synchronized with lookup
@@ -515,7 +546,7 @@ public class PathHeader implements Comparable<PathHeader> {
             SectionIdToPageIds.freeze(); // just in case
             return SectionIdToPageIds;
         }
-        
+
         /**
          * Return paths that have the designated section and page.
          * @param sectionId
@@ -563,7 +594,7 @@ public class PathHeader implements Comparable<PathHeader> {
             }
 
             public FilteredIterable(String section, String page, CLDRFile file) {
-               this(SectionId.forString(section), PageId.forString(page), file);
+                this(SectionId.forString(section), PageId.forString(page), file);
             }
 
             @Override
@@ -726,9 +757,9 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("count", new Transform<String, String>() {
                 public String transform(String source) {
-//                    int pos = source.lastIndexOf('-') + 1;
-//                    int m = counts.indexOf(source.substring(pos));
-//                    order = m;
+                    //                    int pos = source.lastIndexOf('-') + 1;
+                    //                    int m = counts.indexOf(source.substring(pos));
+                    //                    order = m;
                     return source;
                 }
             });
@@ -802,18 +833,11 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("metazone", new Transform<String, String>() {
-                Map<String, Map<String, String>> metazoneToRegionToZone = supplementalDataInfo.getMetazoneToRegionToZone();
 
                 public String transform(String source) {
                     if (PathHeader.UNIFORM_CONTINENTS) {
-                        Map<String, String> regionToZone = metazoneToRegionToZone.get(source);
-                        String worldZone = regionToZone.get("001");
-                        String territory = Containment.getRegionFromZone(worldZone);
-                        if (territory == null) {
-                            territory = "ZZ";
-                        }
-                        String container = Containment.getContinent(territory);
-                        order = Containment.getOrder(source);
+                        String container = getMetazonePageTerritory(source);
+                        order = Containment.getOrder(container);
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
                     } else {
                         String continent = metazoneToContinent.get(source);
@@ -879,80 +903,13 @@ public class PathHeader implements Comparable<PathHeader> {
         }
     }
 
-    static class Containment {
-        static Relation<String, String> containmentCore          = supplementalDataInfo
-        .getContainmentCore();
-        static Set<String>              continents               = containmentCore.get("001");
-        static Relation<String, String> containmentFull          = supplementalDataInfo
-        .getTerritoryToContained();
-        static Relation<String, String> containedToContainer     = Relation
-        .of(new HashMap<String, Set<String>>(),
-                HashSet.class)
-                .addAllInverted(
-                        containmentFull);
-        static Relation<String, String> containedToContainerCore = Relation
-        .of(new HashMap<String, Set<String>>(),
-                HashSet.class)
-                .addAllInverted(
-                        containmentCore);
-        static Map<String, Integer>     toOrder                  = new LinkedHashMap<String, Integer>();
-        static int                      level                    = 0;
-        static int                      order;
-        static {
-            initOrder("001");
-        }
-
-        //static Map<String, String> zone2country = StandardCodes.make().getZoneToCounty();
-
-        public static String getRegionFromZone(String tzid) {
-            if ("Etc/Unknown".equals(tzid)) {
-                return "001";
-            }
-            try {
-                return TimeZone.getRegion(tzid);
-            } catch (IllegalArgumentException e) {
-                return "ZZ";
-            }
-            //return zone2country.get(source0);
-        }
-
-        public static String getContainer(String territory) {
-            Set<String> containers = containedToContainerCore.get(territory);
-            if (containers == null) {
-                containers = containedToContainer.get(territory);
-            }
-            String container = containers != null
-            ? containers.iterator().next()
-                    : territory.equals("001") ? "001" : "ZZ";
-            return container;
-        }
-
-        public static String getContinent(String territory) {
-            while (true) {
-                if (territory.equals("001") || territory.equals("ZZ") || continents.contains(territory)) {
-                    return territory;
-                }
-                territory = getContainer(territory);
-            }
-        }
-
-        public static int getOrder(String territory) {
-            Integer temp = toOrder.get(territory);
-            return temp != null ? temp.intValue() : level;
-        }
-
-        private static void initOrder(String territory) {
-            if (toOrder.containsKey(territory)) {
-                return;
-            }
-            toOrder.put(territory, ++level);
-            Set<String> contained = containmentCore.get(territory);
-            if (contained == null) {
-                return;
-            }
-            for (String subitem : contained) {
-                getOrder(subitem);
-            }
-        }
+    /**
+     * Return the territory used for the title of the Metazone page in the Survey Tool.
+     * @param source
+     * @return
+     */
+    public static String getMetazonePageTerritory(String source) {
+        String result = metazoneToPageTerritory.get(source);
+        return result == null ? "ZZ" : result;
     }
 }

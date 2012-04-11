@@ -17,6 +17,7 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -279,6 +280,47 @@ public class TestPathHeader extends TestFmwk {
             }
         }
         logln(localeID + "\t" + count);
+    }
+
+    public void TestContainment() {
+        Map<String, Map<String, String>> metazoneToRegionToZone = supplemental.getMetazoneToRegionToZone();
+        Map<String, String>  metazoneToContinent  = supplemental.getMetazoneToContinentMap();
+        for (String metazone : metazoneToRegionToZone.keySet()) {
+            Map<String, String> regionToZone = metazoneToRegionToZone.get(metazone);
+            String worldZone = regionToZone.get("001");
+            String territory = Containment.getRegionFromZone(worldZone);
+            if (territory == null) {
+                territory = "ZZ";
+            }
+            String cont = Containment.getContinent(territory);
+            int order = Containment.getOrder(territory);
+            String sub = Containment.getSubcontinent(territory);
+            String revision = PathHeader.getMetazonePageTerritory(metazone);
+            String continent = metazoneToContinent.get(metazone);
+            if (continent == null) {
+                continent = "UnknownT";
+            }
+            //Russia, Antarctica => territory
+            //in Australasia, Asia, S. America => subcontinent
+            //in N. America => N. America (grouping of 3 subcontinents)
+            //in everything else => continent
+
+            if (territory.equals("RU")) {
+                assertEquals("Russia special case", "RU", revision);
+            } else if (territory.equals("US")) {
+                assertEquals("N. America special case", "003", revision);
+            } else if (territory.equals("BR")) {
+                assertEquals("S. America special case", "005", revision);
+            }
+            if (isVerbose()) {
+                String name = english.getName(CLDRFile.TERRITORY_NAME, cont);
+                String name2 = english.getName(CLDRFile.TERRITORY_NAME, sub);
+                String name3 = english.getName(CLDRFile.TERRITORY_NAME, territory);
+                String name4 = english.getName(CLDRFile.TERRITORY_NAME, revision);
+
+                logln(metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3 + "\t" + order + "\t" + name4);
+            }
+        }
     }
 
     public void TestZ() {

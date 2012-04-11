@@ -2171,6 +2171,9 @@ public class SupplementalDataInfo {
         return typeToZoneToRegionToZone;
     }
 
+    /**
+     * @deprecated, use PathHeader.getMetazonePageTerritory
+     */
     public Map<String,String> getMetazoneToContinentMap() {
         return metazoneContinentMap;
     }

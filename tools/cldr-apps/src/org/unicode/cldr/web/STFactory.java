@@ -249,6 +249,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             this.locale = locale;
             readonly = isReadOnlyLocale(locale);
             diskData=(XMLSource)sm.getDiskFactory().makeSource(locale.getBaseName()).freeze();
+            sm.xpt.loadXPaths(diskData);
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
         }
 

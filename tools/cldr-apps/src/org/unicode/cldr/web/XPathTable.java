@@ -15,7 +15,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -24,6 +27,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -119,12 +123,11 @@ public class XPathTable {
     
     public String statistics() {
         return "xstringHash has " + xstringHash.size() + " items.  DB: " + stat_dbAdd +"add/" + stat_dbFetch +
-                "fetch/" + stat_allAdds +"total." + "-"+idStats() /* + " "+strStats()*/;
+                "fetch/" + (stat_dbAdd + stat_dbFetch) +"total." + "-"+idStats() /* + " "+strStats()*/;
     }
     
     private static int stat_dbAdd = 0;
     private static int stat_dbFetch = 0;
-    private static int stat_allAdds = 0;
 
     public XPathTable() {
     }
@@ -144,9 +147,87 @@ public class XPathTable {
     }
     
     /** END specialtable implementation */
-    
+
     /**
-     * Bottleneck for adding xpaths
+     * Loads all xpath-id mappings from the database. If there are any xpaths in
+     * the specified XMLSource which are not already in the database, they will
+     * be created here.
+     */
+    public synchronized void loadXPaths(XMLSource source) {
+        // Get list of xpaths that aren't already loaded.
+        Set<String> unloadedXpaths = new HashSet<String>();
+        for (String xpath : source) {
+            unloadedXpaths.add(xpath);
+        }
+        unloadedXpaths.removeAll(stringToId.keySet());
+
+        Connection conn = null;
+        PreparedStatement queryStmt = null;
+        try {
+            conn = sm.dbUtils.getDBConnection();
+            if (stringToId.size() == 0) { // Only load the entire stringToId map once.
+                queryStmt = conn.prepareStatement("SELECT id,xpath FROM " + CLDR_XPATHS);
+                // First, try to query it back from the DB.
+                ResultSet rs = queryStmt.executeQuery();
+                while (rs.next()) {
+                    int id = rs.getInt(1);
+                    String xpath = rs.getString(2);
+                    setById(id, xpath);
+                    unloadedXpaths.remove(xpath);
+                    stat_dbFetch++;
+                }
+                queryStmt.close();
+            }
+            
+            addXpaths(unloadedXpaths, conn);
+        } catch(SQLException sqe) {
+            System.err.println(DBUtils.unchainSqlException(sqe));
+        } finally {
+            DBUtils.close(queryStmt,conn);
+        }
+    }
+
+    /**
+     * Add a set of xpaths to the database.
+     * @param xpaths
+     * @param conn
+     * @throws SQLException
+     */
+    private synchronized void addXpaths(Set<String> xpaths, Connection conn) throws SQLException {
+        if (xpaths.size() == 0) return;
+
+        PreparedStatement queryStmt = null;
+        PreparedStatement insertStmt = null;
+        // Insert new xpaths.
+        insertStmt = conn.prepareStatement(
+                "INSERT INTO " + CLDR_XPATHS +" (xpath) " + 
+                " values ("+DBUtils.DB_SQL_BINTRODUCER+" ?)");
+        for (String xpath : xpaths) {
+            insertStmt.setString(1, xpath);
+            insertStmt.addBatch();
+            stat_dbAdd++;
+        }
+        insertStmt.executeBatch();
+        conn.commit();
+        insertStmt.close();
+
+        // PreparedStatement.getGeneratedKeys() only returns the ID of the
+        // last INSERT statement, so we have to improvise here by performing
+        // another SELECT to get the newly-inserted IDs.
+        queryStmt = conn.prepareStatement(
+                "SELECT id,xpath FROM " + CLDR_XPATHS + " ORDER BY id DESC");
+        queryStmt.setMaxRows(xpaths.size());
+        queryStmt.setFetchSize(xpaths.size());
+        ResultSet rs = queryStmt.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String xpath = rs.getString(2);
+            setById(id, xpath);
+        }
+        queryStmt.close();
+    }
+
+    /**
      * @return the xpath's id (as an Integer)
      */
     private synchronized Integer addXpath(String xpath, boolean addIfNotFound, Connection inConn)   {
@@ -175,14 +256,13 @@ public class XPathTable {
     			} else {
     				// add it
     	            insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS +" (xpath ) " + 
-    	                                            " values ("+DBUtils.DB_SQL_BINTRODUCER+" ?)");
+    	                                            " values ("+DBUtils.DB_SQL_BINTRODUCER+" ?)",
+    	                                            Statement.RETURN_GENERATED_KEYS);
 
     				insertStmt.setString(1, xpath);
     				insertStmt.execute();
     				conn.commit();
-    				// TODO: Shouldn't there be a way to get the new row's id back??
-    				//                    logger.info("xpt: added " + xpath);
-    				rs = queryStmt.executeQuery();
+    				rs = insertStmt.getGeneratedKeys();
     				if(!rs.next()) {
     					SurveyLog.errln("Couldn't retrieve newly added xpath " + xpath);
     				} else {
@@ -195,10 +275,9 @@ public class XPathTable {
 
     		int id = rs.getInt(1);
     		nid = Integer.valueOf(id);
-    		stringToId.put(idToString_put(id,xpath),nid);
+    		setById(id, xpath);
     		//                logger.info("Mapped " + id + " back to " + xpath);
     		rs.close();
-    		stat_allAdds++;
     		return nid;
     	} catch(SQLException sqe) {
     		SurveyLog.logger.warning("xpath ["+xpath+"] len " + xpath.length());
@@ -233,52 +312,6 @@ public class XPathTable {
         }
     }
     
-    private String fetchByID(int id, Connection inConn) {
-    	Connection conn=null;
-    	PreparedStatement queryIdStmt = null;
-    	try {
-    		if(inConn==null) {
-    			conn = sm.dbUtils.getDBConnection();
-    		} else {
-    			conn = inConn;
-    		}
-            queryIdStmt = conn.prepareStatement("SELECT XPATH FROM " + CLDR_XPATHS + "   " + 
-                                        " where ID=?");
-    		queryIdStmt.setInt(1,id);
-    		// First, try to query it back from the DB.
-    		ResultSet rs = queryIdStmt.executeQuery();                
-    		if(!rs.next()) {
-    			rs.close();
-    			SurveyLog.logger.severe("XPath: no xpath for ID " + id);
-    			if(id == 0) {
-    				try {
-    					throw new RuntimeException("no xpath for id " + id);
-    				} catch (Throwable t) {
-    					t.printStackTrace();
-    				}
-    			}
-    			return null;
-    		}
-
-    		String str = rs.getString(1);
-    		rs.close();
-    		String xpath = poolx(str);
-    		Integer nid = Integer.valueOf(id);
-    		nid = Integer.valueOf(id);
-    		stringToId.put(idToString_put(id,xpath),nid);
-    		return xpath;
-    	} catch(SQLException sqe) {
-    	    SurveyLog.logException(sqe,"XPathTable: Failed ingetByID (ID: "+ id+"): "  );
-    		//            sm.busted("XPathTable: Failed in addXPath: " + SurveyMain.unchainSqlException(sqe));
-    		return null;
-    	} finally {
-			if(inConn!=null) {
-				conn = null; // already closed
-			}
-			DBUtils.close(queryIdStmt,conn);
-    	}
-    }
-    
     /**
      * API for get by ID 
      */
@@ -290,18 +323,7 @@ public class XPathTable {
         if(s!=null) {
             return s;
         }
-        return fetchByID(id, null);
-    }
-    
-    public final String getById(int id, Connection conn) {
-        if(id==-1) {
-            return null;
-        }
-        String s = idToString_get(id);
-        if(s!=null) {
-            return s;
-        }
-        return fetchByID(id, conn);
+        throw new RuntimeException(id + " not found. Make sure loadXpaths() was called first!");
     }
     
     /**

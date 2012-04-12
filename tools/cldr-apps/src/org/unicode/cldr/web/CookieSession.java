@@ -23,7 +23,9 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.Level;
 
 /**
  * Instances of this class represent the session-persistent data kept on a per-user basis.
@@ -691,7 +693,11 @@ public class CookieSession {
         if((myOrg == null) || !WebContext.isCoverageOrganization(myOrg)) {
         	level = WebContext.COVLEV_DEFAULT_RECOMMENDED_STRING;
         } else {
-        	level = StandardCodes.make().getLocaleCoverageLevel(myOrg, locale).toString() ;
+        	org.unicode.cldr.util.Level l = StandardCodes.make().getLocaleCoverageLevel(myOrg, locale);
+        	if(l==Level.UNDETERMINED) {
+        	    l = WebContext.COVLEVEL_DEFAULT_RECOMMENDED;
+        	}
+        	level = l.toString();
         }
         return level;
     }

@@ -36,7 +36,7 @@ import com.ibm.icu.util.ULocale;
  * Provides a mechanism for dividing up LDML paths into understandable categories, eg for the Survey tool.
  */
 public class PathHeader implements Comparable<PathHeader> {
-    static boolean UNIFORM_CONTINENTS = false;
+    static boolean UNIFORM_CONTINENTS = true;
 
     /**
      * What status the survey tool should use.
@@ -100,16 +100,32 @@ public class PathHeader implements Comparable<PathHeader> {
         Japanese(SectionId.Calendars),
         Persian(SectionId.Calendars),
         ROC(SectionId.Calendars),
+        NAmerica(SectionId.Timezones, "North America"),
+        SAmerica(SectionId.Timezones, "South America"),
         Africa(SectionId.Timezones),
-        America(SectionId.Timezones),
-        Antarctica(SectionId.Timezones),
-        Asia(SectionId.Timezones),
-        Atlantic(SectionId.Timezones),
-        Australia(SectionId.Timezones),
         Europe(SectionId.Timezones),
+        Russia(SectionId.Timezones),
+        WAsia(SectionId.Timezones, "Western Asia"),
+        CAsia(SectionId.Timezones, "Central Asia"),
+        SAsia(SectionId.Timezones, "Southern Asia"),
+        EAsia(SectionId.Timezones, "Eastern Asia"),
+        SEAsia(SectionId.Timezones, "South-Eastern Asia"),
+        Australasia(SectionId.Timezones),
+        Antarctica(SectionId.Timezones),
+        Oceania(SectionId.Timezones),
+        /** @deprecated */
+        America(SectionId.Timezones),
+        /** @deprecated */
+        Asia(SectionId.Timezones),
+        /** @deprecated */
+        Atlantic(SectionId.Timezones),
+        /** @deprecated */
+        Australia(SectionId.Timezones),
+        /** @deprecated */
         IndianT(SectionId.Timezones),
+        /** @deprecated */
         Pacific(SectionId.Timezones),
-        UnknownT(SectionId.Timezones, "Unknown"),
+        UnknownT(SectionId.Timezones, "Unknown Region"),
         Overrides(SectionId.Timezones),
         Patterns_for_Locale_Names(SectionId.Misc, "Patterns for Locale Names"),
         Patterns_for_Displaying_Lists(SectionId.Misc, "Patterns for Displaying Lists"),

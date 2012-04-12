@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -47,6 +48,10 @@ public class TestPathHeader extends TestFmwk {
     static final CLDRFile             english           = info.getEnglish();
     static final SupplementalDataInfo supplemental      = info.getSupplementalDataInfo();
     static PathHeader.Factory         pathHeaderFactory = PathHeader.getFactory(english);
+    private EnumSet<PageId> badZonePages =EnumSet.of(
+            PageId.America, PageId.Asia, PageId.Atlantic, PageId.Australia, PageId.IndianT, PageId.Pacific, 
+            PageId.UnknownT);
+
 
     public void Test4587() {
         String test = "//ldml/dates/timeZoneNames/metazone[@type=\"Pacific/Wallis\"]/short/standard";
@@ -73,7 +78,9 @@ public class TestPathHeader extends TestFmwk {
             for (PageId page : sectionAndPages.getValue()) {
                 final Set<String> cachedPaths = PathHeader.Factory.getCachedPaths(section, page);
                 if (cachedPaths == null) {
-                    warnln("Null pages for: " + section + "\t" + page);
+                    if (!badZonePages.contains(page) && page != PageId.Unknown) {
+                        warnln("Null pages for: " + section + "\t" + page);
+                    }
                 } else {
                     int count2 = cachedPaths.size();
                     if (count2 == 0) {
@@ -185,7 +192,7 @@ public class TestPathHeader extends TestFmwk {
             boolean isDeprecated = supplemental.hasDeprecatedItem("ldml", parts.set(path));
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
-                    errln("Different from supplementalMetadata deprecated:\t" + isDeprecated + "\t"
+                    warnln("Different from supplementalMetadata deprecated:\t" + isDeprecated + "\t"
                             + surveyToolStatus + "\t" + path);
                     deprecatedStar.add(starred);
                 }
@@ -257,6 +264,12 @@ public class TestPathHeader extends TestFmwk {
             } else {
                 String visible = pathHeader.toString();
                 PathHeader old = uniqueness.get(visible);
+                if (pathHeader.getSectionId() == SectionId.Timezones) {
+                    final PageId pageId = pathHeader.getPageId();
+                    if (badZonePages.contains(pageId)) {
+                        errln("Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path);
+                    }
+                }
                 if (old == null) {
                     if (pathHeader.getSection().equals("Special")) {
                         if (pathHeader.getSection().equals("Unknown")) {

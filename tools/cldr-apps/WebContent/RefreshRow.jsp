@@ -51,14 +51,18 @@
 			}
 			String xp = xpath;
 			XPathMatcher matcher = null;
-			try {
-				int id = Integer.parseInt(xpath);
-				xp = mySession.sm.xpt.getById(id);
-				if(xp!=null) {
-					matcher = XPathMatcher.getMatcherForString(xp);
+			PathHeader.PageId pageId = WebContext.getPageId(xp);
+			
+			if(pageId == null ) {
+				try {
+					int id = Integer.parseInt(xpath);
+					xp = mySession.sm.xpt.getById(id);
+					if(xp!=null) {
+						matcher = XPathMatcher.getMatcherForString(xp);
+					}
+				} catch (NumberFormatException nfe) {
+	
 				}
-			} catch (NumberFormatException nfe) {
-
 			}
 			ctx.session = mySession;
 			ctx.sm = ctx.session.sm;
@@ -75,12 +79,20 @@
 				 mySession, locale);
 				 */
 				DataSection section = null;
+				 String baseXp = null;
 				try {
-					section = ctx.getSection(XPathTable.xpathToBaseXpath(xp),matcher,
-							coverage.toString(),
-							WebContext.LoadingShow.dontShowLoading);
+                    if(pageId!=null) {
+                        section = ctx.getSection(pageId,
+                                coverage.toString(),
+                                WebContext.LoadingShow.dontShowLoading);
+                    } else {
+					    baseXp = XPathTable.xpathToBaseXpath(xp);
+						section = ctx.getSection(baseXp,matcher,
+								coverage.toString(),
+								WebContext.LoadingShow.dontShowLoading);
+                    }
 				} catch (Throwable t) {
-					SurveyLog.logException(t,"on loading " + locale+":"+ XPathTable.xpathToBaseXpath(xp));
+					SurveyLog.logException(t,"on loading " + locale+":"+ baseXp);
 					if(!isJson) {
 						response.sendError(500, "Exception on getSection:"+t.toString());
 					} else {
@@ -95,7 +107,7 @@
 					response.setCharacterEncoding("UTF-8");
 					response.setContentType("application/json");
 					JSONObject dsets = new JSONObject();
-					{
+					if(pageId==null) {
 						for (String n : SortMode.getSortModesFor(xp)) {
 							dsets.put(
 									n,
@@ -104,6 +116,9 @@
 						}
 						//DataSection.DisplaySet ds = section.getDisplaySet(ctx, matcher);
 						dsets.put("default", SortMode.getSortMode(ctx, section));
+					} else {
+					    dsets.put("default",PathHeaderSort.name);
+					    dsets.put(PathHeaderSort.name,section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name),null));
 					}
 					JSONWriter r = new JSONWriter(out).object()
 							.key("stro").value(STFactory.isReadOnlyLocale(ctx.getLocale()))

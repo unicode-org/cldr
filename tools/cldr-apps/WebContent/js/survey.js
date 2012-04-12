@@ -1359,6 +1359,7 @@ function popInfoInto(tr, theRow, theChild, immediate) {
 				stopIcon
 						+ " Couldn't reload this row- please refresh the page. <br>Error: "
 						+ err + "</td>", tr, theChild);
+		handleDisconnect("Could not refresh row:"+err, null)
 		return true;
 	};
 	var loadHandler = function(text) {
@@ -1673,11 +1674,9 @@ function findPartition(partitions,partitionList,curPartition,i) {
 		return curPartition;
 	}
 	for(var j in partitionList) {
-		var name = partitionList[j];
-		var p = partitions[name];
+		var p = partitions[j];
 		if(i>=p.start &&
 			i<p.limit) {
-				p.name = name;
 				return p;
 			}
 	}

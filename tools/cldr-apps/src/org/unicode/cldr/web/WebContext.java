@@ -37,6 +37,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
@@ -1417,13 +1420,27 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     /**
+     * Recommended entrypoint for pageid
+     * @param pageId
+     * @param ptype
+     * @param options
+     * @return
+     */
+    public DataSection getSection(PageId pageId, String ptype, LoadingShow options) {
+        return getSection(null, null, ptype, options, pageId);
+    }
+    /**
 	 * Get a currently valid DataSection for the specified ptype.. creating it
 	 * if need be. prints informative notes to the ctx in case of a long delay.
 	 * 
 	 * @param prefix
 	 * @param matcher TODO
 	 */
-	public DataSection getSection(String prefix, XPathMatcher matcher, String ptype, LoadingShow options) {
+    public DataSection getSection(String prefix, XPathMatcher matcher, String ptype, LoadingShow options) {
+        return getSection(prefix,matcher,ptype,options,null);
+    }
+    
+    public DataSection getSection(String prefix, XPathMatcher matcher, String ptype, LoadingShow options, PageId pageId) {
 		// if(hasField("srl_veryslow")&&sm.isUnofficial) {
 		// // TODO: parameterize
 		// // test case: make the data section 50x
@@ -1469,7 +1486,7 @@ public class WebContext implements Cloneable, Appendable {
 							println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading data...';</script>");
 							flush();
 						}
-						section = DataSection.make(this, this.session, locale, prefix, matcher, options == LoadingShow.showLoading, ptype);
+						section = DataSection.make(pageId, this, this.session, locale, prefix, matcher, options == LoadingShow.showLoading, ptype);
 						if (options == LoadingShow.showLoading) {
 							println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>");
 							flush();
@@ -2072,5 +2089,26 @@ public class WebContext implements Cloneable, Appendable {
 		} else {
 			out.write(str);
 		}
+	}
+	
+	private boolean checkedPage = false;
+	private PageId pageId = null;
+	public PageId getPageId() {
+	    if(!checkedPage) {
+	        String pageField = field(SurveyMain.QUERY_SECTION);
+	        pageId = getPageId(pageField);
+	        checkedPage = true;
+	    }
+	    return pageId;
+	}
+	public static PageId getPageId(String pageField) {
+        if(pageField!=null && !pageField.isEmpty()) {
+            try {
+                return PathHeader.PageId.forString(pageField);
+            } catch (java.lang.IllegalArgumentException iae) {
+                // ignore. 
+            }
+        }
+        return null;
 	}
 }

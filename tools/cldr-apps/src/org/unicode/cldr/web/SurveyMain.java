@@ -76,6 +76,7 @@ import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -3520,20 +3521,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             return;
         }
         
-        // Redirect references to language locale
-        if(ctx.field("x").equals("references")) {
-            if(ctx.getLocale() != null) {
-                String langLocale = ctx.getLocale().getLanguage();
-                if(!langLocale.equals(ctx.getLocale().toString())) {
-                    ctx.redirect(ctx.base()+"?_="+langLocale+"&x=references");
-                    return;
-                }
-            } else {
-                ctx.redirect(ctx.base());
-                return;
-            }
-        }
-        
         // TODO: untangle this
         // admin things
         if((ctx.field(QUERY_DO).length()>0)) {
@@ -3601,11 +3588,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         
         WebContext baseContext = (WebContext)ctx.clone();
         
-
+        if(ctx.getLocale()!=null) {
+            getSTFactory().make(ctx.getLocale(), false); // spin up STFactory
+        }
+        PageId pageId = ctx.getPageId();
         // print 'shopping cart'
         if(!shortHeader(ctx))  {
             
-            if((which.length()==0) && (ctx.getLocale()!=null)) {
+            if((which.length()==0) && (ctx.getLocale()!=null) 
+                    || (pageId==null && !which.startsWith(REPORT_PREFIX)) /* unrecognized page id */) {
                 which = xMAIN;
             }
          //   if(false&&(which.length()>0)) {
@@ -4188,6 +4179,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public void showLocale(WebContext ctx, String which)
     {
+        PageId pageId = ctx.getPageId();
     	if(HAVE_REMOVE&&which.equals(xREMOVE)) {
     		ctx.println("<b><a href=\"" + ctx.url() + "\">" + "List of Locales" + "</a></b><br/>");
     		ctx.session.getLocales().remove(ctx.field(QUERY_LOCALE));
@@ -4209,13 +4201,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     		}
     		// Set up checks
     		CheckCLDR checkCldr = (CheckCLDR)uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap(basicOptionsMap())); //make it happen
-
-    		// Locale menu
-    		if((which == null) ||
-    				which.equals("")) {
-    			which = xMAIN;
-    		}
-
 
 
     		if(ctx.hasField(QUERY_EXAMPLE)) {
@@ -4267,63 +4252,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     		WebContext subCtx = (WebContext)ctx.clone();
     		subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
     		subCtx.addQuery(QUERY_SECTION,which);
-    		for(int n =0 ; n < PathUtilities.LOCALEDISPLAYNAMES_ITEMS.length; n++) {        
-    			if(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n].equals(which)) {
-    				if(which.equals(PathUtilities.CURRENCIES)) {
-    					showPathList(subCtx, "//ldml/"+PathUtilities.NUMBERSCURRENCIES, null);
-    				} else if(which.equals(PathUtilities.TIMEZONES)) {
-    					try {
-    						showTimeZones(subCtx);
-    					} catch(Throwable t) {
-    						t.printStackTrace();
-    						SurveyLog.logger.warning("Err showing timezones: " + t);                    		
-    						ctx.println("Error: " + t.toString());
-    					}
-    				} else {
-    					showLocaleCodeList(subCtx, which);
-    				}
-    				return;
-    			}
-    		}
-
-    		for(int j=0;j<CALENDARS_ITEMS.length;j++) {
-    			if(CALENDARS_ITEMS[j].equals(which)) {
-    				String CAL_XPATH = "//ldml/dates/calendars/calendar[@type=\""+which+"\"]";
-    				showPathList(subCtx, CAL_XPATH, null, true);
-    				return;
-    			}
-    		}
-
-    		for(int j=0;j<METAZONES_ITEMS.length;j++) {
-    			if(METAZONES_ITEMS[j].equals(which)) {
-    				showMetazones(subCtx,which);
-    				return;
-    			}
-    		}
-
-    		for(int j=0;j<OTHERROOTS_ITEMS.length;j++) {
-    			if(OTHERROOTS_ITEMS[j].equals(which)) {
-    				if(which.equals(LDMLConstants.LOCALEDISPLAYPATTERN)) {
-    					showPathList(subCtx, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, null);
-    				} else if(which.equals("units")) {
-    					showPathList(subCtx, "//ldml/units", null);
-    				} else if(PathUtilities.xOTHER.equals(which)) {
-    					showPathList(subCtx, "//ldml", null);
-    				} else if(which.equals(LDMLConstants.CHARACTERS)) {
-    					showPathList(subCtx, "//ldml/"+LDMLConstants.CHARACTERS, LDMLConstants.EXEMPLAR_CHARACTERS);
-    				} else {
-    					showPathList(subCtx, "//ldml/"+OTHERROOTS_ITEMS[j], null);
-    				}
-    				return;
-    			}
-    		}
-
-
-    		// fall through if wasn't one of the other roots
-    		if(RAW_MENU_ITEM.equals(which)) {
+    		
+    		if(which.startsWith(REPORT_PREFIX)) {
+    		    doReport(subCtx, which);
+    		} else if(pageId!=null) {
+    		    showPathList(subCtx,which,pageId);
+    		} else if(RAW_MENU_ITEM.equals(which)) {
     			outputFileManager.doRaw(subCtx);
-    		} else if(which.startsWith(REPORT_PREFIX)) {
-    			doReport(subCtx, which);
     		} else {
     		    which = xMAIN;
     			doMain(subCtx);
@@ -5039,12 +4974,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private void showPathList(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
-//		if(ctx.canModify()) {
-	        ctx.println("   	<div id='DynamicDataSection'><noscript>"+ctx.iconHtml("stop", "sorry")+ "JavaScript is required.</noscript></div>    	<script type='text/javascript'>    	showRows('DynamicDataSection', '"+xpath+"', '"+ctx.session.id+"','"+ ctx.getEffectiveCoverageLevel(ctx.getLocale()) +"');    	</script>");
-//		} else {
-//			showPathListOld(ctx,xpath,typeToSubtype,b);
-//		}
-	}
+//      if(ctx.canModify()) {
+            ctx.println("       <div id='DynamicDataSection'><noscript>"+ctx.iconHtml("stop", "sorry")+ "JavaScript is required.</noscript></div>       <script type='text/javascript'>     showRows('DynamicDataSection', '"+xpath+"', '"+ctx.session.id+"','"+ ctx.getEffectiveCoverageLevel(ctx.getLocale()) +"');       </script>");
+//      } else {
+//          showPathListOld(ctx,xpath,typeToSubtype,b);
+//      }
+    }
+    private void showPathList(WebContext ctx, String xpath, PageId pageId) {
+        // use the pageid as the xpath
+        showPathList(ctx,pageId.name(),null,false);
+    }
+    
 	public void showPathListExample(WebContext ctx, String xpath, String lastElement,
             String e, String fullThing, CLDRFile cf) {
         DataSection oldSection =  ctx.getExistingSection(fullThing);
@@ -5113,7 +5053,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public void showMetazones(WebContext ctx, String continent) {
-        showPathList(ctx, "//ldml/dates/timeZoneNames/metazone"+DataSection.CONTINENT_DIVIDER+continent,null);
+        showPathList(ctx, "//ldml/dates/timeZoneNames/metazone"+DataSection.CONTINENT_DIVIDER+continent,(String)null);
     }
 
     /**
@@ -6449,217 +6389,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     	}
 	}
     
-	public static void main(String args[]) {
-        SurveyLog.logger.info("Starting some test of SurveyTool locally....");
-        try{
-            cldrHome=getHome()+"/cldr";
-            vap="testingvap";
-            SurveyMain sm=new SurveyMain();
-            SurveyLog.logger.info("sm created.");
-            sm.doStartup();
-            SurveyLog.logger.info("sm started.");
-            sm.doStartupDB();
-            SurveyLog.logger.info("DB started.");
-            if(isBusted != null)  {
-                SurveyLog.logger.warning("Survey Tool is down: " + isBusted);
-                return;
-            }
-            
-            SurveyLog.logger.warning("--- Starting processing of requests ---");
-            SurveyLog.logger.warning("Mem: "+freeMem());
-            CookieSession cs = new CookieSession(true, "0.0.0.0");
-            for ( String arg : args ) {
-                com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
-                SurveyLog.logger.warning("***********\n* "+arg);
-                if(arg.equals("-wait")) {
-                    try {
-                        SurveyLog.logger.warning("*** WAITING ***");
-                        System.in.read();
-                    } catch(Throwable t) {}
-                    continue;
-                } else if(arg.equals("-makeall")) {
-                    WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + "?");
-                    xctx.sm = sm;
-                    xctx.session=cs;
-                    for(int jj=0;jj<5;jj++) {
-	                    for(CLDRLocale locale : sm.getLocales()) {
-	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
-	                        xctx.setLocale(locale);
-	                    	DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH,null, false, "modern");
-	                    	SurveyLog.logger.warning("Made: " + qt.toString() + " -- " + freeMem());
-	                    }
-                    }
-                    continue;
-                } else if(arg.equals("-makelots")) {
-                    WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + "?");
-                    xctx.sm = sm;
-                    xctx.session=cs;
-	                CLDRLocale locale = CLDRLocale.getInstance("az_Arab");
-                    xctx.setLocale(locale);
-                    for(int jj=0;jj<50000;jj++) {
-//	                    for(CLDRLocale locale : sm.getLocales()) {
-	                        com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName()+"#"+Integer.toString(jj));
-	                        xctx.setLocale(locale);
-	                    	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, null,false,"modern");
-	                        DataSection.DisplaySet set = ds.createDisplaySet(SortMode.getInstance(SurveyMain.PREF_SORTMODE_CODE_CALENDAR), null);
-	                    	SurveyLog.logger.warning("Made: " + qt.toString() + " -- " + freeMem());
-//	                    }
-                    }
-                    continue;
-                } else if(arg.equals("-displots")) {
-	                WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + "?");
-	                xctx.sm = sm;
-	                xctx.session=cs;
-	                CLDRLocale locale = CLDRLocale.getInstance("az_Arab");
-                    xctx.setLocale(locale);
-                	DataSection ds = DataSection.make(xctx, xctx.session, locale, SurveyMain.GREGO_XPATH, null,false,"modern");
-                	long startTime = System.currentTimeMillis();
-                    com.ibm.icu.dev.test.util.ElapsedTimer qt = new com.ibm.icu.dev.test.util.ElapsedTimer(locale.getBaseName());
-	                for(int jj=0;jj<10000;jj++) {
-                        DataSection.DisplaySet set = ds.createDisplaySet(SortMode.getInstance(SurveyMain.PREF_SORTMODE_CODE_CALENDAR), null);
-                    	if((jj%1000)==1) {
-                    		long nowTime = System.currentTimeMillis();
-                    		long et = nowTime-startTime;
-                    		double dps=  (((double)jj)/((double)et))*1000.0;
-                    		SurveyLog.logger.warning("Made: " + qt.toString() + " -- " + freeMem() + " - " + set.rows.length + " - #"+jj + ":  "+dps+"/sec");
-                    	}
-	                }
-	                continue;
-                } else if (arg.equals("-regextst")) {
-                	long startTime = System.currentTimeMillis();
-	                for(int jj=0;jj<5000000;jj++) {
-	                	SurveyMain.GREGO_XPATH.matches("calendar-.*\\|pattern\\|date-.*");
-                    	if((jj%1000000)==1) {
-                    		long nowTime = System.currentTimeMillis();
-                    		long et = nowTime-startTime;
-                    		double dps=  (((double)jj)/((double)et))*1000.0;
-                    		SurveyLog.logger.warning("ONE: - - #"+jj + ":  "+dps+"/sec");
-                    	}
-	                }
-	                startTime = System.currentTimeMillis();
-	                Pattern pat = Pattern.compile("calendar-.*\\|pattern\\|date-.*");
-	                for(int jj=0;jj<5000000;jj++) {
-	                	pat.matcher(SurveyMain.GREGO_XPATH).matches();
-                    	if((jj%1000000)==1) {
-                    		long nowTime = System.currentTimeMillis();
-                    		long et = nowTime-startTime;
-                    		double dps=  (((double)jj)/((double)et))*1000.0;
-                    		SurveyLog.logger.warning("TWO: - - #"+jj + ":  "+dps+"/sec");
-                    	}
-	                }
-	                continue;
-                }
-                SurveyLog.logger.warning("Mem: "+freeMem());
-                WebContext xctx = new URLWebContext("http://127.0.0.1:8080/cldr-apps/survey" + arg);
-                xctx.sm = sm;
-                xctx.session=cs;
-
-                xctx.reqTimer = reqTimer;
-                            
-                if(xctx.hasAdminPassword()) {
-                    sm.doAdminPanel(xctx);
-                } else if(xctx.field("sql").equals(vap)) {
-                    sm.doSql(xctx);
-                } else {
-                	try {
-                		sm.doSession(xctx); // Session-based Survey main
-                	} finally {
-                		xctx.closeUserFile();
-                	}
-                }
-                //xctx.close();
-                SurveyLog.logger.warning("\n\n"+reqTimer+" for " + arg);
-            }
-            SurveyLog.logger.warning("--- Ending processing of requests ---");
-
-            /*
-            String ourXpath = "//ldml/numbers";
-            
-            SurveyLog.logger.info("xpath xpt.getByXpath("+ourXpath+") = " + sm.xpt.getByXpath(ourXpath));
-            */
-/*            
-            
-            if(arg.length>0) {
-                WebContext xctx = new WebContext(false);
-                xctx.sm = sm;
-                xctx.session=new CookieSession(true);
-                for(int i=0;i<arg.length;i++) {
-                    SurveyLog.logger.info("loading stuff for " + arg[i]);
-                    xctx.setLocale(new ULocale(arg[i]));
-                    
-                    WebContext ctx = xctx;
-                    SurveyLog.logger.info("  - loading CLDRFile and stuff");
-                    UserLocaleStuff uf = sm.getUserFile(...
-                    CLDRFile cf = sm.getUserFile(ctx, (ctx.session.user==null)?null:ctx.session.user, ctx.getLocale());
-                    if(cf == null) {
-                        throw new InternalError("CLDRFile is null!");
-                    }
-                    CLDRDBSource ourSrc = (CLDRDBSource)ctx.getByLocale(USER_FILE + CLDRDBSRC); // TODO: remove. debuggin'
-                    if(ourSrc == null) {
-                        throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale() );
-                    }
-                    CheckCLDR checkCldr =  (CheckCLDR)ctx.getByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype());
-                    if (checkCldr == null)  {
-                        List checkCldrResult = new ArrayList();
-                        SurveyLog.logger.warning("Initting tests . . .");
-                        long t0 = System.currentTimeMillis();
-        */
-                      //  checkCldr = CheckCLDR.getCheckAll(/* "(?!.*Collision.*).*" */  ".*");
-        /*                
-                        checkCldr.setDisplayInformation(sm.getBaselineFile());
-                        if(cf==null) {
-                            throw new InternalError("cf was null.");
-                        }
-                        checkCldr.setCldrFileToCheck(cf, ctx.getOptionsMap(basicOptionsMap()), checkCldrResult);
-                        SurveyLog.logger.warning("fileToCheck set . . . on "+ checkCldr.toString());
-                        ctx.putByLocale(USER_FILE + CHECKCLDR+":"+ctx.defaultPtype(), checkCldr);
-                        {
-                            // sanity check: can we get it back out
-                            CheckCLDR subCheckCldr = (CheckCLDR)ctx.getByLocale(SurveyMain.USER_FILE + SurveyMain.CHECKCLDR+":"+ctx.defaultPtype());
-                            if(subCheckCldr == null) {
-                                throw new InternalError("subCheckCldr == null");
-                            }
-                        }
-                        if(!checkCldrResult.isEmpty()) {
-                            ctx.putByLocale(USER_FILE + CHECKCLDR_RES+":"+ctx.defaultPtype(), checkCldrResult); // don't bother if empty . . .
-                        }
-                        long t2 = System.currentTimeMillis();
-                        SurveyLog.logger.warning("Time to init tests " + arg[i]+": " + (t2-t0));
-                    }
-                    SurveyLog.logger.warning("getPod:");
-                    xctx.getPod("//ldml/numbers");
-*/
-                
-                /*
-                    SurveyLog.logger.info("loading dbsource for " + arg[i]);
-                    CLDRDBSource dbSource = CLDRDBSource.createInstance(sm.fileBase, sm.xpt, new ULocale(arg[i]),
-                                                                        sm.getDBConnection(), null);            
-                    SurveyLog.logger.info("dbSource created for " + arg[i]);
-                    CLDRFile my = new CLDRFile(dbSource,false);
-                    SurveyLog.logger.info("file created ");
-                    CheckCLDR check = CheckCLDR.getCheckAll("(?!.*Collision.*).*");
-                    SurveyLog.logger.info("check created");
-                    List result = new ArrayList();
-                    Map options = null;
-                    check.setCldrFileToCheck(my, options, result); 
-                    SurveyLog.logger.info("file set .. done with " + arg[i]);
-                */
-    /*
-                }
-            } else {
-                SurveyLog.logger.info("No locales listed");
-            }
-    */
-            
-            SurveyLog.logger.info("done...");
-            sm.doShutdownDB();
-            SurveyLog.logger.info("DB shutdown.");
-        } catch(Throwable t) {
-            SurveyLog.logger.info("Something bad happened.");
-            SurveyLog.logger.info(t.toString());
-            t.printStackTrace();
-        }
-    }
+//	public static void main(String args[]) {}
     // ====== Utility Functions
     public static final String timeDiff(long a) {
         return timeDiff(a,System.currentTimeMillis());

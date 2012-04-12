@@ -44,6 +44,8 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
@@ -107,7 +109,7 @@ public class DataSection implements JSONString {
 			boolean itemErrors = false;
 			String pathWhereFound = null;
 			// public List examplesList = null;
-			String references = null;
+//			String references = null;
 //			public int submitter = -1; // if this was submitted via ST, record
 			// user id. ( NOT from XML - in other
 			// words, we won't be parsing
@@ -1944,7 +1946,7 @@ public class DataSection implements JSONString {
 	/**
 	 * A class representing a list of rows, in sorted and divided order.
 	 */
-	public class DisplaySet implements JSONString {
+	public static  class DisplaySet implements JSONString {
 		public boolean canName = true; // can use the 'name' view?
 		public boolean isCalendar = false;
 		public boolean isMetazones = false;
@@ -1971,27 +1973,10 @@ public class DataSection implements JSONString {
 		 * @param sortMode
 		 *            the sort mode to use
 		 */
-		public DisplaySet(DataRow[] myRows, SortMode sortMode) {
+		public DisplaySet(DataRow[] myRows, SortMode sortMode, Partition partitions[]) {
 			this.sortMode = sortMode;
-
+			this.partitions = partitions;
 			rows = myRows;
-
-			/*
-			 * if(matcher != null) { List rows = new ArrayList(); List
-			 * displayPeas = new ArrayList(); peas.addAll(myPeas);
-			 * displayPeas.addAll(displayPeas);
-			 * 
-			 * for(Object o : myPeas) { Pea p = (Pea)o;
-			 * if(!matcher.matcher(p.type).matches()) { peas.remove(o); } }
-			 * for(Object o : myDisplayPeas) { Pea p = (Pea)o;
-			 * if(!matcher.matcher(p.type).matches()) { displayPeas.remove(o); }
-			 * } System.err.println("now "
-			 * +peas.size()+"/"+displayPeas.size()+" versus " +
-			 * myPeas.size()+"/"+myDisplayPeas.size()); }
-			 */
-
-			// fetch partitions..
-			partitions = Partition.createPartitions(sortMode.memberships(), rows);
 		}
 
 		public int showSkipBox(WebContext ctx, int skip) {
@@ -2259,9 +2244,9 @@ public class DataSection implements JSONString {
 			for(DataRow row : rows) {
 				r.put(row.fieldHash());
 			}
-			JSONObject p= new JSONObject();
+			JSONArray p= new JSONArray();
 			for(Partition partition : partitions) {
-				p.put(partition.name!=null?partition.name:"", new JSONObject().put("start",partition.start).put("limit",partition.limit).put("helptext", partition.helptext));
+				p.put(new JSONObject().put("name",partition.name).put("start",partition.start).put("limit",partition.limit).put("helptext", partition.helptext));
 			}
 			return new JSONObject()
 			  .put("canName",canName)
@@ -2385,127 +2370,6 @@ public class DataSection implements JSONString {
 		}
 	}
 
-	/**
-	 * 'shim'
-	 * 
-	 * @param ourSrc
-	 * @param cf
-	 * @param locale
-	 * @param fullPathMinusAlt
-	 * @param altType
-	 * @param altPrefix
-	 * @param id
-	 * @deprecated SHIM- please rewrite caller to use CLDRFile api
-	 * @return the altProposed string for the new slot, or null on failure
-	 */
-	@Deprecated
-	public static String addDataToNextSlot(XMLSource ourSrc, CLDRFile cf, CLDRLocale locale, String fullPathMinusAlt,
-			String altType, String altPrefix, int id, String value, String refs) {
-
-		XPathParts xpp = new XPathParts(null, null);
-		// prepare for slot check
-		for (int slot = 1; slot < 100; slot++) {
-			String altProposed = null;
-			String alt = null;
-			String altTag = null;
-			if (altPrefix != null) {
-				altProposed = altPrefix + slot; // proposed-u123-4
-				alt = LDMLUtilities.formatAlt(altType, altProposed);
-				altTag = "[@alt=\"" + alt + "\"]";
-			} else {
-				// no alt
-				altTag = "";
-			}
-			// String rawXpath = fullXpathMinusAlt + "[@alt='" + alt + "']";
-			String refStr = "";
-			if (refs.length() != 0) {
-				refStr = "[@references=\"" + refs + "\"]";
-			}
-			String rawXpath = fullPathMinusAlt + altTag + refStr; // refstr will
-			// get
-			// removed
-			System.err.println("addDataToNextSlot:  rawXpath = " + rawXpath);
-			// String xpath = CLDRFile.getDistinguishingXPath(rawXpath, null,
-			// false); // removes @used= etc
-			// if(!xpath.equals(rawXpath)) {
-			// logger.info("NORMALIZED:  was " + rawXpath + " now " + xpath);
-			// }
-			String xpath = fullPathMinusAlt + altTag;
-			String oxpath = xpath + refStr + "[@draft=\"unconfirmed\"]";
-			// int xpid = xpt.getByXpath(xpath);
-			boolean has = ourSrc.hasValueAtDPath(xpath);
-			System.err.println("Add: survey says " + has + " for " + xpath);
-			if (has) {
-				continue;
-			}
-			// // Check to see if this slot is in use.
-			// //synchronized(conn) {
-			// try {
-			// stmts.queryValue.setString(1,locale.toString());
-			// stmts.queryValue.setInt(2,xpid);
-			// ResultSet rs = stmts.queryValue.executeQuery();
-			// if(rs.next()) {
-			// // already taken..
-			// //logger.info("Taken: " + altProposed);
-			// rs.close();
-			// continue;
-			// }
-			// rs.close();
-			// } catch(SQLException se) {
-			// String complaint =
-			// "CLDRDBSource: Couldn't search for empty slot " + locale + ":" +
-			// xpid + "(" + xpath + ")='" + value + "' -- " +
-			// SurveyMain.unchainSqlException(se);
-			// logger.severe(complaint);
-			// throw new InternalError(complaint);
-			// }
-			// //}
-
-			// int oxpid = xpt.getByXpath(oxpath);
-			xpp.clear();
-			xpp.initialize(oxpath);
-			String lelement = xpp.getElement(-1);
-			xpp.findAttributeValue(lelement, LDMLConstants.ALT);
-			xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
-
-			xpp.toString();
-
-			// int txpid = xpt.getByXpath(tinyXpath);
-
-			/* SRL */
-			// System.out.println(xpath + " l: " + locale);
-			// System.out.println(" <- " + oxpath);
-			// System.out.println(" t=" + eType + ", a=" + eAlt + ", d=" +
-			// eDraft);
-			// System.out.println(" => "+txpid+"#" + tinyXpath);
-			ourSrc.putValueAtPath(oxpath, value);
-			return altProposed;
-		} // end for
-		return null; // couldn't find a slot..
-
-	}
-
-	/**
-	 * 'shim'
-	 * 
-	 * @param ourSrc
-	 * @param cf
-	 * @param string
-	 * @param id
-	 * @param newRef
-	 * @param uri
-	 * @return the altProposed string for the new slot, or null on failure
-	 * @deprecated SHIM- please rewrite caller
-	 */
-	@Deprecated
-	public static String addReferenceToNextSlot(XMLSource ourSrc, CLDRFile cf, String string, int id, String newRef, String uri) {
-		System.err.println("@@unimp: addReferenceToNextSlot");
-		return UserRegistry.makePassword(uri.toString()); // throw it a bone
-		// TODO Auto-generated method stub
-		// SurveyMain.busted("unimplemented: addReferenceToNextSlot");
-		// throw new InternalError("unimplemented: addReferenceToNextSlot");
-		// return null;
-	}
 
 	protected static synchronized int getN() {
 		return ++n;
@@ -2567,94 +2431,96 @@ public class DataSection implements JSONString {
 	 *            if true, means that data is simply xpath+type. If false, all
 	 *            xpaths under prefix.
 	 */
-	public static DataSection make(WebContext ctx, CookieSession session, CLDRLocale locale, String prefix, XPathMatcher matcher, boolean showLoading, String ptype) {
-        DataSection section = new DataSection(session.sm, locale, prefix, matcher, ptype);
+	public static DataSection make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix, XPathMatcher matcher, boolean showLoading, String ptype) {
+	    DataSection section = new DataSection(pageId, session.sm, locale, prefix, matcher, ptype);
 
-        section.hasExamples =  true;
-		if (SurveyMain.supplementalDataDir == null) {
-			throw new InternalError("??!! session.sm.supplementalDataDir = null");
-		}
+	    section.hasExamples =  true;
+	    if (SurveyMain.supplementalDataDir == null) {
+	        throw new InternalError("??!! session.sm.supplementalDataDir = null");
+	    }
 
-		// XMLSource ourSrc = uf.resolvedSource;
-		CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true);
-		
-				ourSrc.setSupplementalDirectory(SurveyMain.supplementalDataDir);
-		if(ctx!=null) {
-			section.setUserAndFileForVotelist(ctx.session!=null?ctx.session.user:null,ourSrc);
-		}
-		if (ourSrc.getSupplementalDirectory() == null) {
-			throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-		}
-		synchronized (session) {
-			TestResultBundle checkCldr = session.sm.getSTFactory().getTestResult(locale, getOptions(ctx,session,locale));
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-			}
-			if (checkCldr == null) {
-				throw new InternalError("checkCldr == null");
-			}
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-			}
-			String workingCoverageLevel = section.getPtype();
-			com.ibm.icu.dev.test.util.ElapsedTimer cet = null;
-			if (showLoading&&SHOW_TIME) {
-				cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
-				System.err.println("Begin populate of " + locale + " // " + prefix + ":" + workingCoverageLevel + " - is:"
-						+ ourSrc.getClass().getName());
-			}
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-			}
-			section.baselineFile = session.sm.getBaselineFile();
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-			}
-			section.skippedDueToCoverage = 0;
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-			}
-			if(showLoading&&ctx!=null) {
-    			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading...';</script>");
-    			ctx.flush();
-			}
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-			}
-			if (ourSrc.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! ourSrc hsa no supplemental dir!");
-			}
-			section.populateFrom(ourSrc, checkCldr, null, workingCoverageLevel);
-			int popCount = section.getAll().size();
-			if(false)System.err.println("PopCount: " + popCount );
-			if(false&&popCount>0) {
-                System.err.println("Item[0] : " + section.getAll().iterator().next());
-                System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
-			}
-			/*
-			 * if(SHOW_TIME) { System.err.println("DP: Time taken to populate "
-			 * + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et +
-			 * " - Count: " + pod.getAll().size()); }
-			 */
-			if(showLoading&&ctx!=null) {
-    			ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."
-    					+ popCount + " items';</script>");
-    			ctx.flush();
-            }
-			section.ensureComplete(ourSrc, checkCldr, null, workingCoverageLevel);
-			popCount = section.getAll().size();
-            if(false)System.err.println("New PopCount: " + popCount );
-            if(false&&popCount>0) {
-                System.err.println("Item[0] : " + section.getAll().iterator().next());
-                System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
-            }
-			if (showLoading&&ctx!=null&&SHOW_TIME) {
-				int allCount = section.getAll().size();
-				System.err.println("Populate+complete " + locale + " // " + prefix + ":" + section.getPtype() + " = " + cet
-						+ " - Count: " + popCount + "+" + (allCount - popCount) + "=" + allCount);
-			}
-		}
-		return section;
+	    // XMLSource ourSrc = uf.resolvedSource;
+	    CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true);
+
+	    ourSrc.setSupplementalDirectory(SurveyMain.supplementalDataDir);
+	    if(ctx!=null) {
+	        section.setUserAndFileForVotelist(ctx.session!=null?ctx.session.user:null,ourSrc);
+	    }
+	    if (ourSrc.getSupplementalDirectory() == null) {
+	        throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	    }
+	    synchronized (session) {
+	        TestResultBundle checkCldr = session.sm.getSTFactory().getTestResult(locale, getOptions(ctx,session,locale));
+	        if (ourSrc.getSupplementalDirectory() == null) {
+	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	        }
+	        if (checkCldr == null) {
+	            throw new InternalError("checkCldr == null");
+	        }
+	        if (ourSrc.getSupplementalDirectory() == null) {
+	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	        }
+	        String workingCoverageLevel = section.getPtype();
+	        com.ibm.icu.dev.test.util.ElapsedTimer cet = null;
+	        if (showLoading&&SHOW_TIME) {
+	            cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
+	            System.err.println("Begin populate of " + locale + " // " + prefix + ":" + workingCoverageLevel + " - is:"
+	                    + ourSrc.getClass().getName());
+	        }
+	        if (ourSrc.getSupplementalDirectory() == null) {
+	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	        }
+	        section.baselineFile = session.sm.getBaselineFile();
+	        if (ourSrc.getSupplementalDirectory() == null) {
+	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	        }
+	        section.skippedDueToCoverage = 0;
+	        if (ourSrc.getSupplementalDirectory() == null) {
+	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	        }
+	        if(showLoading&&ctx!=null) {
+	            ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Loading...';</script>");
+	            ctx.flush();
+	        }
+	        if (ourSrc.getSupplementalDirectory() == null) {
+	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	        }
+	        if (ourSrc.getSupplementalDirectory() == null) {
+	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+	        }
+	        section.populateFrom(ourSrc, checkCldr, null, workingCoverageLevel);
+	        int popCount = section.getAll().size();
+	        if(false)System.err.println("PopCount: " + popCount );
+	        if(false&&popCount>0) {
+	            System.err.println("Item[0] : " + section.getAll().iterator().next());
+	            System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
+	        }
+	        /*
+	         * if(SHOW_TIME) { System.err.println("DP: Time taken to populate "
+	         * + locale + " // " + prefix +":"+ctx.defaultPtype()+ " = " + et +
+	         * " - Count: " + pod.getAll().size()); }
+	         */
+	        if(showLoading&&ctx!=null) {
+	            ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."
+	                    + popCount + " items';</script>");
+	            ctx.flush();
+	        }
+	        if(pageId==null) {
+	            section.ensureComplete(ourSrc, checkCldr, null, workingCoverageLevel);
+	            popCount = section.getAll().size();
+	            if(false)System.err.println("New PopCount: " + popCount );
+	        }
+	        if(false&&popCount>0) {
+	            System.err.println("Item[0] : " + section.getAll().iterator().next());
+	            System.err.println("Item[0] Items: " + section.getAll().iterator().next().items.size());
+	        }
+	        if (showLoading&&ctx!=null&&SHOW_TIME) {
+	            int allCount = section.getAll().size();
+	            System.err.println("Populate+complete " + locale + " // " + prefix + ":" + section.getPtype() + " = " + cet
+	                    + " - Count: " + popCount + "+" + (allCount - popCount) + "=" + allCount);
+	        }
+	    }
+	    return section;
 	}
 
     /**
@@ -2778,19 +2644,23 @@ public class DataSection implements JSONString {
     private CLDRLocale locale;
 	private ExampleBuilder examplebuilder;
     private XPathMatcher matcher;
+    private PageId pageId;
 
-	DataSection(SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
+	DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
 	    this.locale = loc;
 		this.sm = sm;
 		this.ptype = ptype;
 		this.matcher = matcher;
 		xpathPrefix = prefix;
-		sectionHash = CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
+		if(prefix!=null) {
+		    sectionHash = CookieSession.cheapEncode(sm.xpt.getByXpath(prefix));
+		}
 		intgroup = loc.getLanguage(); // calculate interest group
 		ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
+		this.pageId = pageId;
 	}
 
-	void addDataRow(DataRow p) {
+    void addDataRow(DataRow p) {
 		rowsHash.put(p.xpath, p);
 	}
 
@@ -2803,53 +2673,24 @@ public class DataSection implements JSONString {
 		}
 		return e; // for the hash.
 	}
+	
+	public PageId getPageId() {
+	    return pageId;
+	}
+	
 
 	public long age() {
 		return System.currentTimeMillis() - touchTime;
 	}
 
 	public DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
-		DisplaySet aDisplaySet = new DisplaySet(createSortedList(sortMode, matcher), sortMode);
+	    DisplaySet aDisplaySet = sortMode.createDisplaySet(matcher,rowsHash.values());
 		aDisplaySet.canName = canName;
 		aDisplaySet.isCalendar = isCalendar;
 		aDisplaySet.isMetazones = isMetazones;
 		return aDisplaySet;
 	}
 
-	private DataRow[] createSortedList(SortMode sortMode, XPathMatcher matcher) {
-		Set<DataRow> newSet;
-
-		newSet = new TreeSet<DataRow>(sortMode.createComparator());
-
-		if (matcher == null) {
-			newSet.addAll(rowsHash.values()); // sort it
-		} else {
-			for (Object o : rowsHash.values()) {
-				DataRow p = (DataRow) o;
-
-				// /*srl*/ /*if(p.type.indexOf("Australia")!=-1)*/ {
-				// System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches()));
-				// }
-
-				if (!matcher.matches(p.getXpath(), p.getXpathId())) {
-					if (DEBUG)
-						System.err.println("not match: " + p.xpathId + " / " + p.getXpath());
-					continue;
-
-				} else {
-					newSet.add(p);
-				}
-			}
-		}
-		String matchName = "(*)";
-		if (matcher != null) {
-			matchName = matcher.getName();
-		}
-		if (SurveyMain.isUnofficial)
-			System.err.println("Loaded " + newSet.size() + " from " + matchName + " - base xpath (" + rowsHash.size() + ")  = "
-					+ this.xpathPrefix);
-		return newSet.toArray(new DataRow[newSet.size()]);
-	}
 
 	/**
 	 * Makes sure this pod contains the rows we'd like to see.
@@ -2866,12 +2707,15 @@ public class DataSection implements JSONString {
 		// }
 
 	    STFactory stf = sm.getSTFactory();
+	    SectionId sectionId = (pageId!=null)?pageId.getSectionId():null;
 	    
 		SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 		int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
-		if (xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames")) {
+		if (sectionId==SectionId.Timezones || pageId==PageId.Timezone_Cities || pageId==PageId.Patterns_for_Timezones ||
+		        (pageId==null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames"))) {
 			// work on zones
-			boolean isMetazones = xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames/metazone");
+			boolean isMetazones = (sectionId==SectionId.Timezones) ||
+			            (pageId==null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames/metazone"));
 			boolean isSingleXPath = false;
 			// Make sure the pod contains the rows we'd like to see.
 			// regular zone
@@ -3101,7 +2945,6 @@ public class DataSection implements JSONString {
 		// if (!ourSrc.isResolving()) throw new
 		// IllegalArgumentException("CLDRFile must be resolved");
 		try {
-			init();
 			XPathParts xpp = new XPathParts(null, null);
 			// System.out.println("[] initting from pod " + locale +
 			// " with prefix " + xpathPrefix);
@@ -3119,6 +2962,7 @@ public class DataSection implements JSONString {
 				lastTime = countStart = System.currentTimeMillis();
 			}
 
+			//TODO: if(pageId==null) return; // assertion
 			int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
 			// what to exclude under 'misc'
 
@@ -3128,93 +2972,106 @@ public class DataSection implements JSONString {
 				XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
 				vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
 			}
+            Set<String> allXpaths;
+            
+            // TODO: get rid of these
+            boolean excludeCurrencies = false;
+            boolean excludeCalendars = false;
+            boolean excludeGrego = false;
+            boolean excludeTimeZones = false;
+            boolean excludeMetaZones = false;
+            boolean excludeMost = false;
+            boolean doExcludeAlways = true;
+            boolean isReferences = false;
+            String continent = null;
+            Set<String> extraXpaths = null;
+            List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
 
-			boolean excludeCurrencies = false;
-			boolean excludeCalendars = false;
-			boolean excludeGrego = false;
-			boolean excludeTimeZones = false;
-			boolean excludeMetaZones = false;
-			boolean excludeMost = false;
-			boolean doExcludeAlways = true;
-			boolean isReferences = false;
-			String continent = null;
+            if(pageId != null ) {
+                allXpaths = PathHeader.Factory.getCachedPaths(pageId.getSectionId(), pageId);
+            } else {
+                init(); // pay for the patterns
+                allXpaths = new HashSet<String>();
+                extraXpaths = new HashSet<String>();
 
-			/* ** Determine which xpaths to show */
-			if (xpathPrefix.equals("//ldml")) {
-				excludeMost = true;
-			} else if (xpathPrefix.startsWith("//ldml/units")) {
-				canName = false;
-				excludeMost = false;
-				doExcludeAlways = false;
-			} else if (xpathPrefix.startsWith("//ldml/numbers")) {
-				if (-1 == xpathPrefix.indexOf("currencies")) {
-					doExcludeAlways = false;
-					excludeCurrencies = true; // = "//ldml/numbers/currencies";
-					canName = false; // sort numbers by code
-				} else {
-					canName = false; // because symbols are included
-					// hackCurrencyDisplay = true;
-				}
-			} else if (xpathPrefix.startsWith("//ldml/dates")) {
-				if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
-					// System.err.println("ZZ0");
-					excludeTimeZones = false;
-				} else if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
-					excludeMetaZones = false;
-					int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
-					if (continentStart > 0) {
-						continent = xpathPrefix.substring(xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER) + 1);
-					}
-					if (false)
-						System.err.println(xpathPrefix + ": -> continent " + continent);
-					if (!xpathPrefix.contains("@type")) { // if it's not a
-						// zoom-in..
-						workPrefix = "//ldml/dates/timeZoneNames/metazone";
-					}
-					// System.err.println("ZZ1");
-				} else {
-					excludeTimeZones = true;
-					excludeMetaZones = true;
-					if (xpathPrefix.indexOf("gregorian") == -1) {
-						excludeGrego = true;
-						// nongreg
-					} else {
-					}
-				}
-			} else if (xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
-			} else if (xpathPrefix.equals("//ldml/references")) {
-				isReferences = true;
-				canName = false; // disable 'view by name' for references
-			}
+                /* ** Determine which xpaths to show */
+                if(pageId != null) {
+                    //use pageid, ignore the rest
+                } else if (xpathPrefix.equals("//ldml")) {
+                    excludeMost = true;
+                } else if (xpathPrefix.startsWith("//ldml/units")) {
+                    canName = false;
+                    excludeMost = false;
+                    doExcludeAlways = false;
+                } else if (xpathPrefix.startsWith("//ldml/numbers")) {
+                    if (-1 == xpathPrefix.indexOf("currencies")) {
+                        doExcludeAlways = false;
+                        excludeCurrencies = true; // = "//ldml/numbers/currencies";
+                        canName = false; // sort numbers by code
+                    } else {
+                        canName = false; // because symbols are included
+                        // hackCurrencyDisplay = true;
+                    }
+                } else if (xpathPrefix.startsWith("//ldml/dates")) {
+                    if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
+                        // System.err.println("ZZ0");
+                        excludeTimeZones = false;
+                    } else if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+                        excludeMetaZones = false;
+                        int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
+                        if (continentStart > 0) {
+                            continent = xpathPrefix.substring(xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER) + 1);
+                        }
+                        if (false)
+                            System.err.println(xpathPrefix + ": -> continent " + continent);
+                        if (!xpathPrefix.contains("@type")) { // if it's not a
+                            // zoom-in..
+                            workPrefix = "//ldml/dates/timeZoneNames/metazone";
+                        }
+                        // System.err.println("ZZ1");
+                    } else {
+                        excludeTimeZones = true;
+                        excludeMetaZones = true;
+                        if (xpathPrefix.indexOf("gregorian") == -1) {
+                            excludeGrego = true;
+                            // nongreg
+                        } else {
+                        }
+                    }
+                } else if (xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
+                } else if (xpathPrefix.equals("//ldml/references")) {
+                    isReferences = true;
+                    canName = false; // disable 'view by name' for references
+                }
 
-			isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
-			isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
+                isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
+                isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
 
-			List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
 
-			/* ** Build the set of xpaths */
-			// iterate over everything in this prefix ..
-			Set<String> baseXpaths = new HashSet<String>();
-			for (Iterator<String> it = aFile.iterator(workPrefix); it.hasNext();) {
-				String xpath = it.next();
+                /* ** Build the set of xpaths */
+                // iterate over everything in this prefix ..
+                Set<String> baseXpaths = new HashSet<String>();
+                for (Iterator<String> it = aFile.iterator(workPrefix); it.hasNext();) {
+                    String xpath = it.next();
 
-				baseXpaths.add(xpath);
-			}
-			Set<String> allXpaths = new HashSet<String>();
-			Set<String> extraXpaths = new HashSet<String>();
+                    baseXpaths.add(xpath);
+                }
 
-			allXpaths.addAll(baseXpaths);
-			if (aFile.getSupplementalDirectory() == null) {
-				throw new InternalError("?!! aFile hsa no supplemental dir!");
-			}
-			aFile.getExtraPaths(workPrefix, extraXpaths);
-			extraXpaths.removeAll(baseXpaths);
-			allXpaths.addAll(extraXpaths);
+                allXpaths.addAll(baseXpaths);
+                if (aFile.getSupplementalDirectory() == null) {
+                    throw new InternalError("?!! aFile hsa no supplemental dir!");
+                }
+                aFile.getExtraPaths(workPrefix, extraXpaths);
+                extraXpaths.removeAll(baseXpaths);
+                allXpaths.addAll(extraXpaths);
 
-			// // Process extra paths.
-			if (DEBUG)
-				System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
+                // // Process extra paths.
+                if (DEBUG)
+                    System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
 
+            }
+            
+            if(allXpaths==null) return;
 			/* ** iterate over all xpaths */
 			for (String xpath : allXpaths) {
 				boolean confirmOnly = false;
@@ -3222,22 +3079,23 @@ public class DataSection implements JSONString {
 					throw new InternalError("null xpath in allXpaths");
 				}
 				int xpid = sm.xpt.getByXpath(xpath);
-                if(matcher!=null && !matcher.matches(xpath, xpid)) {
-                    continue;
-                }
-				if (!xpath.startsWith(workPrefix)) {
-					if (false && SurveyMain.isUnofficial)
-						System.err.println("@@ BAD XPATH " + xpath);
-					continue;
-				} else if (aFile.isPathExcludedForSurvey(xpath)) {
-					if (false && SurveyMain.isUnofficial)
-						System.err.println("@@ excluded:" + xpath);
-					continue;
-				} else if (false) {
-					System.err.println("allPath: " + xpath);
+				if(pageId==null) {
+                    if(matcher!=null && !matcher.matches(xpath, xpid)) {
+                        continue;
+                    }
+    				if (!xpath.startsWith(workPrefix)) {
+    					if (false && SurveyMain.isUnofficial)
+    						System.err.println("@@ BAD XPATH " + xpath);
+    					continue;
+    				} else if (aFile.isPathExcludedForSurvey(xpath)) {
+    					if (false && SurveyMain.isUnofficial)
+    						System.err.println("@@ excluded:" + xpath);
+    					continue;
+    				} else if (false) {
+    					System.err.println("allPath: " + xpath);
+    				}
 				}
-
-				boolean isExtraPath = extraXpaths.contains(xpath); // 'extra'
+				boolean isExtraPath = extraXpaths!=null && extraXpaths.contains(xpath); // 'extra'
 				// paths get
 				// shim
 				// treatment
@@ -3255,51 +3113,53 @@ public class DataSection implements JSONString {
 					}
 				}
 
-				/* ** Skip unmatched things */
-				if (doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
-					// if(ndebug && (xpath.indexOf("Adak")!=-1))
-					// System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime)
-					// + " " + xpath);
-					continue;
-				} else if (excludeMost && mostPattern.matcher(xpath).matches()) {
-					// if(ndebug)
-					// System.err.println("ns1 2 "+(System.currentTimeMillis()-nextTime)
-					// + " " + xpath);
-					continue;
-				} else if (excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
-					// if(ndebug)
-					// System.err.println("ns1 3 "+(System.currentTimeMillis()-nextTime)
-					// + " " + xpath);
-					continue;
-				} else if (excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
-					// if(ndebug)
-					// System.err.println("ns1 4 "+(System.currentTimeMillis()-nextTime)
-					// + " " + xpath);
-					continue;
-				} else if (excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
-					// if(ndebug && (xpath.indexOf("Adak")!=-1))
-					// System.err.println("ns1 5 "+(System.currentTimeMillis()-nextTime)
-					// + " " + xpath);
-					continue;
-					/*
-					 * } else if(exemplarCityOnly &&
-					 * (xpath.indexOf("exemplarCity")==-1)) { continue;
-					 */
-				} else if (excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
-					// if(ndebug&& (xpath.indexOf("Adak")!=-1))
-					// System.err.println("ns1 6 "+(System.currentTimeMillis()-nextTime)
-					// + " " + xpath);
-					continue;
-				} else if (!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
-					// if(ndebug)
-					// System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime)
-					// + " " + xpath);
-					continue;
-				} else if (continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
-					// if(false) System.err.println("Wanted " + continent
-					// +" but got " + sm.getMetazoneContinent(xpath) +" for " +
-					// xpath);
-					continue;
+				if(pageId==null) {
+				    /* ** Skip unmatched things */
+				    if (doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
+				        // if(ndebug && (xpath.indexOf("Adak")!=-1))
+				        // System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime)
+				        // + " " + xpath);
+				        continue;
+				    } else if (excludeMost && mostPattern.matcher(xpath).matches()) {
+				        // if(ndebug)
+				        // System.err.println("ns1 2 "+(System.currentTimeMillis()-nextTime)
+				        // + " " + xpath);
+				        continue;
+				    } else if (excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
+				        // if(ndebug)
+				        // System.err.println("ns1 3 "+(System.currentTimeMillis()-nextTime)
+				        // + " " + xpath);
+				        continue;
+				    } else if (excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
+				        // if(ndebug)
+				        // System.err.println("ns1 4 "+(System.currentTimeMillis()-nextTime)
+				        // + " " + xpath);
+				        continue;
+				    } else if (excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
+				        // if(ndebug && (xpath.indexOf("Adak")!=-1))
+				        // System.err.println("ns1 5 "+(System.currentTimeMillis()-nextTime)
+				        // + " " + xpath);
+				        continue;
+				        /*
+				         * } else if(exemplarCityOnly &&
+				         * (xpath.indexOf("exemplarCity")==-1)) { continue;
+				         */
+				    } else if (excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
+				        // if(ndebug&& (xpath.indexOf("Adak")!=-1))
+				        // System.err.println("ns1 6 "+(System.currentTimeMillis()-nextTime)
+				        // + " " + xpath);
+				        continue;
+				    } else if (!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
+				        // if(ndebug)
+				        // System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime)
+				        // + " " + xpath);
+				        continue;
+				    } else if (continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
+				        // if(false) System.err.println("Wanted " + continent
+				        // +" but got " + sm.getMetazoneContinent(xpath) +" for " +
+				        // xpath);
+				        continue;
+				    }
 				}
 				// else if(false && continent != null) {
 				// System.err.println("Got " + continent +" for " + xpath);
@@ -3340,7 +3200,7 @@ public class DataSection implements JSONString {
 					continue;
 				}
 
-				sm.xpt.getPrettyPath(base_xpath);
+				//sm.xpt.getPrettyPath(base_xpath);
 
 				if (fullPath == null) {
 					if (isExtraPath) {
@@ -3355,8 +3215,8 @@ public class DataSection implements JSONString {
 					}
 				}
 
-				if (needFullPathPattern.matcher(xpath).matches()) {
-				}
+//				if (needFullPathPattern.matcher(xpath).matches()) {
+//				}
 
 				if (TRACE_TIME)
 					System.err.println("ns0  " + (System.currentTimeMillis() - nextTime));
@@ -3375,7 +3235,7 @@ public class DataSection implements JSONString {
 				xpp.initialize(fullPath);
 				String lelement = xpp.getElement(-1);
 				xpp.findAttributeValue(lelement, LDMLConstants.ALT);
-				String eRefs = xpp.findAttributeValue(lelement, LDMLConstants.REFERENCES);
+//				String eRefs = xpp.findAttributeValue(lelement, LDMLConstants.REFERENCES);
 				String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
 				if (TRACE_TIME)
 					System.err.println("n04  " + (System.currentTimeMillis() - nextTime));
@@ -3395,7 +3255,7 @@ public class DataSection implements JSONString {
                 Set<String> v = ballotBox.getValues(xpath);
                 if (v != null) {
                     for (String avalue : v) {
-                        if(true && DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
+                        if(false && DEBUG) System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath );
                         if (!avalue.equals(value)) {
                             CandidateItem item2 = p.addItem(avalue);
                         }
@@ -3636,9 +3496,9 @@ public class DataSection implements JSONString {
 					// clear it.
 				}
 
-				if ((eRefs != null) && (!isInherited)) {
-					myItem.references = eRefs;
-				}
+//				if ((eRefs != null) && (!isInherited)) {
+//					myItem.references = eRefs;
+//				}
 
 
 			}
@@ -3975,10 +3835,10 @@ public class DataSection implements JSONString {
             }
             ctx.println("</tr>");
     
-        if(zoomedIn) {
-            List<String> refsList = new ArrayList<String>();
-            ctx.temporaryStuff.put("references", refsList);
-        }
+//        if(zoomedIn) {
+//            List<String> refsList = new ArrayList<String>();
+//            ctx.temporaryStuff.put("references", refsList);
+//        }
     }
 
     public static String getValueHash(String str) {

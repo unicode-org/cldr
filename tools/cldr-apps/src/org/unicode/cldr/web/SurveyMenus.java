@@ -6,32 +6,55 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
+
+import com.ibm.icu.dev.test.util.Relation;
 
 public class SurveyMenus implements Iterable<SurveyMenus.Section> {
     PathHeader.Factory phf;
     STFactory fac;
-    List<Section> sections;
+    List<Section> sections = new ArrayList<Section>();
     SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
     public SurveyMenus(STFactory stFactory, PathHeader.Factory phf) {
         fac = stFactory;
         this.phf = phf;
         
-        sections = new ArrayList<Section>();
-        addSection("//ldml/localeDisplayNames/scripts/script[@type=\"Arab\"]", PathUtilities.LOCALEDISPLAYNAMES_ITEMS, PathHeader.SectionId.Code_Lists);
-        addSection("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]",
-                SurveyMain.CALENDARS_ITEMS, PathHeader.SectionId.Calendars);
-        addSection("//ldml/dates/timeZoneNames/metazone[@type=\"Africa_Central\"]/long/standard", // "Time Zones",
-                SurveyMain.METAZONES_ITEMS, PathHeader.SectionId.Timezones);
-        addSection("//ldml/posix/messages/nostr",                SurveyMain.OTHERROOTS_ITEMS, PathHeader.SectionId.Misc);
+        CLDRFile b = stFactory.sm.getBaselineFile();
+        phf = PathHeader.getFactory(b);
+        for(String xp : b) {
+            phf.fromPath(xp);
+        }
+        for(String xp : b.getExtraPaths()) {
+            phf.fromPath(xp);
+        }
+
+        Relation<SectionId, PageId> s2p = Factory.getSectionIdsToPageIds();
+   
+        fac = stFactory;
+        this.phf = phf;
+        
+        for(Entry<SectionId, Set<PageId>> q : s2p.keyValuesSet()) {
+            if(q.getKey()==SectionId.Special) {
+                continue; // skip special
+            }
+            Section newSection = new Section(q);
+            if(!newSection.isEmpty()) { // empty sections have no read/write component
+                sections.add(newSection);
+            }
+        }
     }
 
     
@@ -40,130 +63,93 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
         return sections.iterator();
     }
     
-    private void addSection(String xpath, String[] items, SectionId misc) {
-        sections.add(new Section(xpath, items, misc));
-    }
-
     public class Section implements Iterable<Section.Page> {
-        private String xpath;
-        private String displayName;
-        private List<Page> subitems;
-        
-        private Section(String xpath, String[] items, SectionId misc) {
-            this.xpath = xpath;
-            this.displayName = misc.toString();
-            this.subitems = new ArrayList<Page>();
-            for(String item : items) {
-                subitems.add(new Page(item));
+        private SectionId sectionKey;
+        private List<Page> subitems = new ArrayList<Page>();
+        SurveyToolStatus status = SurveyToolStatus.HIDE;
+        public SurveyToolStatus getStatus() {
+            return status;
+        }
+
+        public Section(Entry<SectionId, Set<PageId>> q) {
+            sectionKey = q.getKey();
+            for(PageId p : q.getValue()) {
+                Page pg = new Page(p);
+                if(pg.getPageStatus() == SurveyToolStatus.READ_WRITE) { 
+                    subitems.add(pg);
+                    status = pg.getPageStatus();
+                }
             }
         }
-
-        public String getXpath() {
-            return xpath;
+        
+        public boolean isEmpty() {
+            return subitems.isEmpty();
         }
-        public String getDisplayName() {
-            return displayName;
+
+        public String toString() {
+            return sectionKey.toString();
+        }
+        
+        public SectionId getSection() {
+            return sectionKey;
         }
         
         public class Page {
-            private String pageXpath;
-            private String pageXpathBase = null;
-            private String pageDisplayName;
-            private String pageKey;
-            private Matcher regexMatcher = null;
-            private XPathMatcher  xpathMatcher = null;
+            private PageId pageKey;
+            private SurveyToolStatus pageStatus = SurveyToolStatus.READ_WRITE;
             
-            private Page(final String key) {
-                pageKey = key;
-                
-                pageDisplayName = key;
-                pageXpath = null;
+            public SurveyToolStatus getPageStatus() {
+                return pageStatus;
+            }
+            private Page(final PageId p) {
+                pageKey = p;
                 
                 PathHeader ph = null;
-                if(displayName.equals("Calendars")) {
-                    
-                    pageXpathBase =  "//ldml/dates/calendars/calendar[@type=\"" + key + "\"]";
-                    pageXpath =  pageXpathBase+"/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"12\"]";
-//                } else if(displayName.equals("Timezones")) {
-//                    pageXpathBase = "//ldml/" + "dates/timeZoneNames/metazone";
-//                    xpathMatcher = new XPathMatcher() {
-//
-//                        @Override
-//                        public String getName() {
-//                            return "Continent: " + key;
-//                        }
-//
-//                        @Override
-//                        public boolean matches(String xpath, int xpid) {
-//                            return(CookieSession.sm.getMetazoneContinent(xpath).contentEquals(key));
-//                        }
-//                        
-//                    };
-                }
-                if(pageXpath==null && (pageXpathBase!=null)) {
-                    Set<String> paths = new HashSet<String>();
-                    // get the first.
-                    fac.make(SurveyMain.BASELINE_ID,true).getPaths(pageXpathBase, regexMatcher, paths );
-                    if(!paths.isEmpty()) {
-                        for(String xp : paths) {
-                            if(xpathMatcher!=null && !xpathMatcher.matches(xp, XPathTable.NO_XPATH)) {
-                                continue;
-                            }
-                            pageXpath = xp; // first match
-                            break;
-                        }
+                // check visibility
+                Iterable<String> iter = getPagePaths();
+                if(iter!=null) for(String xp : iter) {
+                    ph = phf.fromPath(xp);
+                    SurveyToolStatus xStatus = ph.getSurveyToolStatus();
+                    if(xStatus == SurveyToolStatus.HIDE || 
+                       xStatus == SurveyToolStatus.DEPRECATED) {
+                        pageStatus  = SurveyToolStatus.HIDE;
                     }
+                    break;
                 }
-                if(pageXpath!=null) {
-                    if(ph==null) {
-                        ph = phf.fromPath(pageXpath);
-                    }
-                    if(ph!=null) {
-                        pageDisplayName = ph.getPage();
-                    }
-                }
-                
             }
             
-            public String getXpath() {
-                return pageXpath;
-            }
-            public String getDisplayName() {
-                return pageDisplayName; //  + getCoverageLevel(CLDRLocale.getInstance("en"));
-            }
-            public String getKey() {
+            public PageId getKey() {
                 return pageKey;
+            }
+            public String toString() {
+                return pageKey.toString();
             }
             
             public synchronized int getCoverageLevel(CLDRLocale loc) {
                 Integer ret = levs.get(loc);
                 if(ret==null) {
-                    if(pageXpath==null && pageXpathBase==null) {
-                        ret = Level.OPTIONAL.getValue(); // unknown
-                    } else {
-                        if(pageXpathBase!=null) {
-                            int min = 108;
-                            Set<String> paths = new HashSet<String>();
-                            fac.make(loc,true).getPaths(pageXpathBase, regexMatcher, paths );
-                            for(String xp : paths) {
-                                if(xpathMatcher!=null && !xpathMatcher.matches(xp, XPathTable.NO_XPATH)) {
-                                    continue;
-                                }
-                                int l = sdi.getCoverageValue(xp, loc.toULocale());
-                                if(l<min) {
-                                    min=l;
-                                }
+                    //ElapsedTimer et = new ElapsedTimer("Cov for " + loc + " "+displayName + ":"+pageDisplayName);
+                    int min = Level.OPTIONAL.getLevel();
+                    Iterable<String> iter = getPagePaths();
+                    if(iter!=null) {
+                        for(String xp : iter) {
+                            int l = sdi.getCoverageValue(xp, loc.toULocale());
+                            if(l<min) {
+                                min=l;
                             }
-                            ret = min;
-                        } else {
-                            ret = sdi.getCoverageValue(getXpath(), loc.toULocale());
                         }
                     }
+                    ret = min;
                     levs.put(loc,ret);
+                    //System.err.println("Calc " + et);
                 }
                 return ret;
             }
             
+            public Iterable<String> getPagePaths() {
+                return PathHeader.Factory.getCachedPaths(sectionKey, pageKey);
+            }
+
             Map<CLDRLocale,Integer> levs = new HashMap<CLDRLocale,Integer>();
         }
 

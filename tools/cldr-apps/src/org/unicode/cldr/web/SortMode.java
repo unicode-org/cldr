@@ -2,9 +2,13 @@
 
 package org.unicode.cldr.web;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Vector;
 
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.Partition.Membership;
@@ -40,6 +44,8 @@ public abstract class SortMode {
 			return new InterestSort();
 		} else if(mode.equals(NameSort.name)) {
 			return new NameSort();
+		} else if(mode.equals(PathHeaderSort.name)) {
+		    return new PathHeaderSort();
 		} else {
 			return new CodeSortMode();
 		}
@@ -135,4 +141,120 @@ public abstract class SortMode {
 		}
 	}
 
+    public Partition[] createPartitions(DataRow[] rows) {
+        return createPartitions(memberships(), rows);
+    }
+
+    /**
+     * Create partitions based on the membership in the rows
+     * @param memberships
+     * @param rows
+     * @return
+     */
+    protected Partition[] createPartitions(Membership[] memberships, DataRow[] rows) {
+        Vector<Partition> v = new Vector<Partition>();
+        if(memberships != null) { // something with partitions
+            Partition testPartitions[] = createPartitions(memberships);
+            
+            // find the starts
+            int lastGood = 0;
+            for(int i=0;i<rows.length;i++) {
+                DataRow p = rows[i];
+                                    
+                for(int j=lastGood;j<testPartitions.length;j++) {
+                    if(testPartitions[j].pm.isMember(p)) {
+                        if(j>lastGood) {
+                            lastGood = j;
+                        }
+                        if(testPartitions[j].start == -1) {
+                            testPartitions[j].start = i;
+                        }
+                        break; // sit here until we fail membership
+                    }
+                    
+                    if(testPartitions[j].start != -1) {
+                        testPartitions[j].limit = i;
+                    }
+                }
+            }
+            // catch the last item
+            if((testPartitions[lastGood].start != -1) &&
+                (testPartitions[lastGood].limit == -1)) {
+                testPartitions[lastGood].limit = rows.length; // limit = off the end.
+            }
+                
+            for(int j=0;j<testPartitions.length;j++) {
+                if(testPartitions[j].start != -1) {
+                    if(testPartitions[j].start!=0 && v.isEmpty()) {
+//                      v.add(new Partition("Other",0,testPartitions[j].start));
+                    }
+                    v.add(testPartitions[j]);
+                }
+            }
+        } else {
+            // default partition - e'erthing.
+            v.add(new Partition(null, 0, rows.length));
+        }
+        return (Partition[])v.toArray(new Partition[0]); // fold it up
+    }
+
+    /**
+     * Create empty partitions
+     * @param memberships
+     * @return
+     */
+    public static Partition[] createPartitions(Membership[] memberships) {
+        if(memberships == null) {
+            Partition empty[] = new Partition[1];
+            empty[0] = new Partition(null, 0, 0);
+            return empty;
+        }
+        Partition testPartitions[] = new Partition[memberships.length];
+        for(int i=0;i<memberships.length;i++) {
+            testPartitions[i] = new Partition(memberships[i]);
+        }
+        return testPartitions;
+    }
+
+    public DataSection.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
+        DataRow rows[] = createSortedList(createComparator(), matcher,values);
+        return new DataSection.DisplaySet(rows,this,createPartitions(rows));
+    }
+    
+    protected DataRow[] createSortedList(Comparator<DataRow> comparator, XPathMatcher matcher, Collection<DataRow> rows) {
+        //         partitions = sortMode.createPartitions(rows);
+//      DisplaySet aDisplaySet = new DisplaySet(createSortedList(sortMode, matcher,rowsHash.values()), sortMode);
+        Set<DataRow> newSet;
+
+        newSet = new TreeSet<DataRow>(comparator);
+
+        if (matcher == null) {
+            newSet.addAll(rows); // sort it
+        } else {
+            for (Object o : rows) {
+                DataRow p = (DataRow) o;
+
+                // /*srl*/ /*if(p.type.indexOf("Australia")!=-1)*/ {
+                // System.err.println("xp: "+p.xpathSuffix+":"+p.type+"- match: "+(matcher.matcher(p.type).matches()));
+                // }
+
+                if (!matcher.matches(p.getXpath(), p.getXpathId())) {
+                    if (false)
+                        System.err.println("not match: " + p.xpathId + " / " + p.getXpath());
+                    continue;
+
+                } else {
+                    newSet.add(p);
+                }
+            }
+        }
+        String matchName = "(*)";
+        if (matcher != null) {
+            matchName = matcher.getName();
+        }
+        if (SurveyMain.isUnofficial)
+            System.err.println("Loaded " + newSet.size() + " from " + matchName + " - base xpath (" + rows.size() + ")  = "
+                    + getName());
+        return newSet.toArray(new DataRow[newSet.size()]);
+    }
 }

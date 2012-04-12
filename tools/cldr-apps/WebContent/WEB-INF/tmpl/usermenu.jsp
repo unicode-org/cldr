@@ -33,7 +33,7 @@ String helpName = ctx.getString("helpName");
     		//            }
 
     		String curSetting = ctx.getCoverageSetting();
-    		if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
+    		if(curSetting!=null && !curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
     			ctx.println("<span style='border: 2px solid blue'>");
     		}
     		if(!(ctx.hasField("xpath")||ctx.hasField("forum")) && ( ctx.hasField(SurveyMain.QUERY_LOCALE) || ctx.field(SurveyMain.QUERY_DO).equals("disputed"))) {
@@ -43,7 +43,7 @@ String helpName = ctx.getString("helpName");
     					subCtx.addQuery(field, ctx.field(field));
     				}
     			}
-    			if(ctx.hasField(SurveyMain.QUERY_LOCALE)) {
+    			if(ctx.getLocale()!=null) {
     				subCtx.showCoverageSettingForLocale();	
     			} else {
     				subCtx.showCoverageSetting();
@@ -51,7 +51,7 @@ String helpName = ctx.getString("helpName");
     		} else {
     			ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
     		}
-    		if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
+    		if(curSetting!=null && !curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
     			ctx.println("</span>");
     		}
 
@@ -89,8 +89,10 @@ String helpName = ctx.getString("helpName");
                 if(!curSetting.equals(WebContext.COVLEV_RECOMMENDED)) {
                     ctx.println("</span>");
                 }
-                String forum = ctx.getLocale().getLanguage();
-    			%><%=SurveyForum.forumLink(subCtx,forum)%><%=SurveyForum.forumFeedIcon(subCtx, forum)%><%
+                if(ctx.getLocale()!=null) {
+                                    String forum = ctx.getLocale().getLanguage();
+                                    %><%=SurveyForum.forumLink(subCtx,forum)%><%=SurveyForum.forumFeedIcon(subCtx, forum)%><%
+                }
     		} else {
     			ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
     		}

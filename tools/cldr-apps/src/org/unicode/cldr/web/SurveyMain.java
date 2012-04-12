@@ -21,7 +21,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
-import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.sql.Connection;
@@ -48,7 +47,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import javax.security.auth.callback.NameCallback;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -79,7 +77,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
@@ -1486,32 +1483,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
         }
         // knock out nonexistent cases.
-        if(locale != null) {
-            File inFiles[] = getInFiles();
-            int nrInFiles = inFiles.length;
-            boolean found = false;
-            
-            for(int i=0;(!found) && (i<nrInFiles);i++) {
-                String localeName = inFiles[i].getName();
-                int dot = localeName.indexOf('.');
-                if(dot !=  -1) {
-                    localeName = localeName.substring(0,dot);
-                }
-                if(localeName.equals(locale)) {
-                    found = true;
-                }
-            }
-            if(!found) {
-                locale = null;
-            }
-        }
         if(locale != null && (locale.length()>0)) {
             CLDRLocale l = CLDRLocale.getInstance(locale);
-            CLDRLocale theDefaultContent = defaultContentToParent(l);
-            if(theDefaultContent != null) {
-                l = theDefaultContent;
+            if(getLocalesSet().contains(l)) {
+                CLDRLocale theDefaultContent = defaultContentToParent(l);
+                if(theDefaultContent != null) {
+                    l = theDefaultContent;
+                }
+                ctx.setLocale(l);
             }
-            ctx.setLocale(l);
         }
     }
     

@@ -938,6 +938,10 @@ public class WebContext implements Cloneable, Appendable {
 	 *            locale to set
 	 */
 	public void setLocale(CLDRLocale l) {
+	    if(!sm.getLocalesSet().contains(l)) { // bogus
+	        locale = null;
+	        return;
+	    }
 		locale = l;
 		// localeString = locale.getBaseName();
 		processor = new DisplayAndInputProcessor(l.toULocale());
@@ -1257,11 +1261,16 @@ public class WebContext implements Cloneable, Appendable {
 		if ((myOrg == null) || !isCoverageOrganization(myOrg)) {
 			return COVLEV_DEFAULT_RECOMMENDED_STRING;
 		} else {
-			Level lev = StandardCodes.make().getLocaleCoverageLevel(myOrg, getLocale().toString());
-			if(lev==Level.UNDETERMINED) {
-			    lev = COVLEVEL_DEFAULT_RECOMMENDED;
-			}
-			return lev.toString();
+		    CLDRLocale loc = getLocale();
+		    if(loc!=null) {
+    			Level lev = StandardCodes.make().getLocaleCoverageLevel(myOrg, loc.toString());
+    			if(lev==Level.UNDETERMINED) {
+    			    lev = COVLEVEL_DEFAULT_RECOMMENDED;
+    			}
+    			return lev.toString();
+		    } else {
+		        return COVLEVEL_DEFAULT_RECOMMENDED.toString();
+		    }
 		}
 	}
 

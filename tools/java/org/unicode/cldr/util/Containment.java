@@ -38,6 +38,8 @@ public class Containment {
     static int                      order;
     static {
         initOrder("001");
+        addOrder("003", "021");
+        addOrder("419", "005");
     }
 
     //static Map<String, String> zone2country = StandardCodes.make().getZoneToCounty();
@@ -112,6 +114,18 @@ public class Containment {
         }
     }
     
+    private static void addOrder(String newTerritory, String oldTerritory) {
+        final Integer newOrder = toOrder.get(newTerritory);
+        if (newOrder != null) {
+            throw new IllegalArgumentException(newTerritory + " already defined as " + newOrder);
+        }
+        final Integer oldOrder = toOrder.get(oldTerritory);
+        if (oldOrder == null) {
+            throw new IllegalArgumentException(oldTerritory + " not yet defined");
+        }
+        toOrder.put(newTerritory, oldOrder);
+    }
+
     public Set<String> getContinents() {
         return continents;
     }

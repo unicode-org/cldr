@@ -107,24 +107,12 @@ public class PathHeader implements Comparable<PathHeader> {
         Russia(SectionId.Timezones),
         WAsia(SectionId.Timezones, "Western Asia"),
         CAsia(SectionId.Timezones, "Central Asia"),
-        SAsia(SectionId.Timezones, "Southern Asia"),
         EAsia(SectionId.Timezones, "Eastern Asia"),
+        SAsia(SectionId.Timezones, "Southern Asia"),
         SEAsia(SectionId.Timezones, "South-Eastern Asia"),
         Australasia(SectionId.Timezones),
         Antarctica(SectionId.Timezones),
         Oceania(SectionId.Timezones),
-        /** @deprecated */
-        America(SectionId.Timezones),
-        /** @deprecated */
-        Asia(SectionId.Timezones),
-        /** @deprecated */
-        Atlantic(SectionId.Timezones),
-        /** @deprecated */
-        Australia(SectionId.Timezones),
-        /** @deprecated */
-        IndianT(SectionId.Timezones),
-        /** @deprecated */
-        Pacific(SectionId.Timezones),
         UnknownT(SectionId.Timezones, "Unknown Region"),
         Overrides(SectionId.Timezones),
         Patterns_for_Locale_Names(SectionId.Misc, "Patterns for Locale Names"),
@@ -834,7 +822,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 public String transform(String source) {
                     String territory = hyphenSplitter.split(source);
                     String container = Containment.getContainer(territory);
-                    order = Containment.getOrder(source);
+                    order = Containment.getOrder(territory);
                     return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
                 }
             });

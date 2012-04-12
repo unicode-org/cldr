@@ -48,9 +48,7 @@ public class TestPathHeader extends TestFmwk {
     static final CLDRFile             english           = info.getEnglish();
     static final SupplementalDataInfo supplemental      = info.getSupplementalDataInfo();
     static PathHeader.Factory         pathHeaderFactory = PathHeader.getFactory(english);
-    private EnumSet<PageId> badZonePages =EnumSet.of(
-            PageId.America, PageId.Asia, PageId.Atlantic, PageId.Australia, PageId.IndianT, PageId.Pacific, 
-            PageId.UnknownT);
+    private EnumSet<PageId> badZonePages =EnumSet.of(PageId.UnknownT);
 
 
     public void Test4587() {
@@ -231,6 +229,43 @@ public class TestPathHeader extends TestFmwk {
                 logln("Fallback Description:\t" + value + "\t" + path);
             }
         }
+    }
+    
+    public void TestTerritoryOrder() {
+        final Set<String> goodAvailableCodes = TestInfo.getInstance().getStandardCodes().getGoodAvailableCodes("territory");
+        Set<String> results = showContained("001", 0, new HashSet(goodAvailableCodes));
+        results.remove("ZZ");
+        for (String territory : results) {
+            String sub = Containment.getSubcontinent(territory);
+            String cont = Containment.getContinent(territory);
+            warnln("Missing\t" + getNameAndOrder(territory) + "\t" +
+                    getNameAndOrder(sub) + "\t" +
+                    getNameAndOrder(cont));
+        }
+    }
+
+    private Set<String> showContained(String territory, int level, Set<String> soFar) {
+        if (!soFar.contains(territory)) {
+            return soFar;
+        }
+        soFar.remove(territory);
+        Set<String> contained = supplemental.getContained(territory);
+        if (contained == null) {
+            return soFar;
+        }
+        for (String containedItem : contained) {
+            logln(level + "\t" + getNameAndOrder(territory) + "\t" + getNameAndOrder(containedItem));
+        }
+        for (String containedItem : contained) {
+            showContained(containedItem, level+1, soFar);
+        }
+        return soFar;
+    }
+
+    private String getNameAndOrder(String territory) {
+        return territory 
+        + "\t" + english.getName(CLDRFile.TERRITORY_NAME, territory)
+        + "\t" + Containment.getOrder(territory);
     }
 
     public void TestZCompleteness() {

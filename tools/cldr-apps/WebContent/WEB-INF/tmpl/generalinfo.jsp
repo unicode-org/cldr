@@ -190,3 +190,11 @@ especially the Guide and Walkthrough.
          }
          
          --%>
+<script>
+  // If there's a hash tag # passed to the geninfo page, process it.
+  dojo.ready(function(){
+	  if(window.processHash) {
+		  window.processHash();
+	  }
+  });
+</script>

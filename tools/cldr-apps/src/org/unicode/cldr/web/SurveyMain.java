@@ -62,6 +62,8 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.tool.ShowData;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
@@ -162,7 +164,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }; 
     
     // ===== Configuration state
-	private static final boolean DEBUG=CldrUtility.getProperty("TEST", false);
     private static Phase currentPhase = null; /** set by CLDR_PHASE property. **/
     private static String oldVersion = "OLDVERSION";
     private static String newVersion = "NEWVERSION";
@@ -244,9 +245,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String lockOut = System.getProperty("CLDR_LOCKOUT"); //  static - may change later
     static long specialTimer = 0; // 0 means off.  Nonzero:  expiry time of countdown.
     
-    public static java.util.Properties survprops = null;
-    public static String cldrHome = null;
-    public static File homeFile = null;
 
     
             
@@ -337,11 +335,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                 "{document.getElementById(what).style.display=\"none\";\ndocument.getElementById(\"h_\"+what).style.display=\"block\";}\n" +
                                                 "--></script>";
     
-    static final HelpMessages surveyToolSystemMessages = new HelpMessages("st_sysmsg.html");
+    static HelpMessages surveyToolSystemMessages = null;
 
     
     static String sysmsg(String msg) {
         try {
+            if(surveyToolSystemMessages==null) {
+                surveyToolSystemMessages = new HelpMessages("st_sysmsg.html");
+            }
             return surveyToolSystemMessages.find(msg);
         } catch(Throwable t) {
             SurveyLog.logger.warning("Err " + t.toString() + " while trying to load sysmsg " + msg);
@@ -363,28 +364,28 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     
     public final void init(final ServletConfig config)
     throws ServletException {
-        new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is available before we get any farther.
+        new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is available before we get any farther
         super.init(config);
-        cldrHome = config.getInitParameter("cldr.home");
+        CLDRConfigImpl.setCldrHome(config.getInitParameter("cldr.home"));
         this.config = config;
-        
+        PathHeader.PageId.forString(PathHeader.PageId.Africa.name()); // Make sure cldr-tools is functioning.
         startupThread.addTask(new SurveyThread.SurveyTask("startup") {
             public void run() throws Throwable{
                 doStartup();
             }
         });
         
+        try {
+            dbUtils  = DBUtils.getInstance();
+        } catch(Throwable t) {
+            this.busted("Error starting up database - see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>", t);
+        }
         startupThread.start();
         SurveyLog.logger.warning("Startup thread launched");
     }
 
     public SurveyMain() {
     	CookieSession.sm = this;
-    	try {
-    		dbUtils  = DBUtils.getInstance();
-    	} catch(Throwable t) {
-    		this.busted("Error starting up database - see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>", t);
-    	}
     }
 
     /**
@@ -702,33 +703,40 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
     
-    private static String getHome() {
-    	if(cldrHome == null) {
-	    	String props[] = { 
-	    			"catalina.home",
-	    			"websphere.home",
-	    			"user.dir"
-	    	};
-	    	for(String prop : props) {
-	    		if(cldrHome == null) {
-	    			cldrHome = System.getProperty(prop);
-	    			if(cldrHome!=null) {
-	    				SurveyLog.logger.warning(" Using " + prop + " = " + cldrHome);
-	    			} else {
-	    				SurveyLog.logger.warning(" Unset: " + prop);
-	    			}
-	    		}
-	    	}
-	        if(cldrHome == null) {  
-	            busted("Could not find cldrHome. please set catalina.home, user.dir, etc, or set a servlet parameter cldr.home");
-//	            for(Object qq : System.getProperties().keySet()) {
-//	            	SurveyLog.logger.warning("  >> "+qq+"="+System.getProperties().get(qq));
-//	            }
-	        } 
-    	}
-    	return cldrHome;
-    }
 
+    /**
+     * @return the fileBase
+     */
+    public static String getFileBase() {
+        if(fileBase==null) {
+            String cldrHome = getSurveyHome();
+            CLDRConfig survprops = CLDRConfig.getInstance();
+            fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
+            fileBaseSeed = survprops.getProperty("CLDR_SEED",cldrHome+"/seed") + "/main"; // not static - may change lager
+        }
+        if(fileBase==null) throw new NullPointerException("fileBase==NULL");
+        return fileBase;
+    }
+    /**
+     * @return
+     */
+    public static String getSurveyHome() {
+        String cldrHome;
+            CLDRConfig survprops = CLDRConfig.getInstance();
+            cldrHome = survprops.getProperty("CLDRHOME");
+            if(cldrHome==null) throw new NullPointerException("CLDRHOME==null");
+        return cldrHome;
+    }
+    /**
+     * @return the fileBaseSeed
+     */
+    public static String getFileBaseSeed() {
+        if(fileBaseSeed==null) {
+            getFileBase();
+        }
+        if(fileBaseSeed==null) throw new NullPointerException("fileBaseSeed==NULL");
+        return fileBaseSeed;
+    }
     /** SQL Console
     */
     private void doSql(WebContext ctx)
@@ -741,26 +749,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<h1>SQL Console</h1>");
         
         if((dbUtils.dbDir == null) || (isBusted != null)) { // This may or may not work. Survey Tool is busted, can we attempt to get in via SQL?
-            ctx.println("<h4>ST busted, attempting to make SQL available via " + cldrHome + "</h4>");
+            ctx.println("<h4>ST busted, attempting to make SQL available</h4>");
             ctx.println("<pre>");
             specialMessage = "<b>SurveyTool is in an administrative mode- please log off.</b>";
             try {
-                if(cldrHome == null) {
-                	getHome();
-                    File homeFile = new File(cldrHome, "cldr");
-                    
-                    if(!homeFile.exists()) {
-                        throw new InternalError("CLDR basic does not exist- delete parent and start over.");
-//                        createBasicCldr(homeFile); // attempt to create
-                    }
-                    
-                    if(!homeFile.exists()) {
-                        busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
-                        return;
-                    }
-                    cldrHome = homeFile.getAbsolutePath();
-                }
-                ctx.println("home: " + cldrHome);
                 doStartupDB();
             } catch(Throwable t) {
             	SurveyLog.logException(t, ctx);
@@ -3550,8 +3542,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             sessionMessage = ("<i id='sessionMessage'>Could not do the action '"+doWhat+"'. You may need to be logged in first.</i>");
         }
         
-        String title = " " + which;
-        if(ctx.hasField(QUERY_EXAMPLE))  {
+        String title = " ";
+        PageId pageId = ctx.getPageId();
+        if(pageId!=null) {
+            title = pageId.getSectionId().toString() + " | " + pageId.toString();
+        } else if(ctx.hasField(QUERY_EXAMPLE))  {
             title = title + " Example"; 
         } else if(which==null || which.isEmpty()){
             if(ctx.getLocale() == null) {
@@ -3572,7 +3567,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if(ctx.getLocale()!=null) {
             getSTFactory().make(ctx.getLocale(), false); // spin up STFactory
         }
-        PageId pageId = ctx.getPageId();
         
         try {
             // looking for a stringid?
@@ -4050,11 +4044,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     void mailUser(WebContext ctx, String theirEmail, String subject, String message) {
+        CLDRConfig survprops = CLDRConfig.getInstance();
         String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
         mailUser(ctx, getRequesterEmail(ctx), getRequesterName(ctx), theirEmail, subject, message);
     }
     
     void mailUser(WebContext ctx, String mailFromAddress, String mailFromName, String theirEmail, String subject, String message) {
+        CLDRConfig survprops = CLDRConfig.getInstance();
         String requester = getRequester(ctx);
         String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
         String smtp = survprops.getProperty("CLDR_SMTP",null);
@@ -4358,7 +4354,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public synchronized Factory getDiskFactory() {
         if(gFactory == null) {
-        	final File list[] = { new File(fileBase), new File(fileBaseSeed) };
+        	final File list[] = { new File(getFileBase()), new File(getFileBaseSeed()) };
             gFactory = SimpleFactory.make(list,".*");
         }
         return gFactory;
@@ -4631,11 +4627,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private CLDRLocale locale;
         
         public void close() {
-        	if(use<=0) {
+            final boolean DEBUG=CldrUtility.getProperty("TEST", false);
+            if(use<=0) {
         		throw new InternalError("Already closed! use="+use+", closeStack:"+closeStack);
         	}
 			use--;
-			closeStack = DEBUG?StackTracker.currentStack():null;
+			closeStack =    DEBUG?StackTracker.currentStack():null;
 			SurveyLog.logger.warning("uls: close="+use);
         	if(use>0) {
         		return;
@@ -4832,8 +4829,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 is.close();
             } catch(java.io.IOException ioe) {
                 /*throw new UnavailableException*/
-                SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't load XML Cache file from '" + cldrHome + "/" + XML_CACHE_PROPERTIES + ": ",ioe);
-                busted("Couldn't load XML Cache file from '" + cldrHome + "/" + XML_CACHE_PROPERTIES + ": ", ioe);
+                SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't load XML Cache file from '" + "(home)" + "/" + XML_CACHE_PROPERTIES + ": ",ioe);
+                busted("Couldn't load XML Cache file from '" + "(home)" + "/" + XML_CACHE_PROPERTIES + ": ", ioe);
                 return;
             }
 
@@ -5470,68 +5467,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
      */
     static public boolean isSetup = false;
 
-    private void createBasicCldr(File homeFile) {
-        SurveyLog.logger.warning("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
 
-        try {
-            homeFile.mkdir();
-            File propsFile = new File(homeFile, "cldr.properties");
-            OutputStream file = new FileOutputStream(propsFile, false); // Append
-            PrintWriter pw = new PrintWriter(file);
-
-            pw.println("## autogenerated cldr.properties config file");
-            pw.println("## generated on " + localhost() + " at "+new Date());
-            pw.println("## see the readme at \n## "+URL_CLDR+"data/tools/java/org/unicode/cldr/web/data/readme.txt ");
-            pw.println("## make sure these settings are OK,\n## and comment out CLDR_MESSAGE for normal operation");
-            pw.println("##");
-            pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
-            pw.println();
-            pw.println("## your password. Login as user 'admin@' and this password for admin access.");
-            pw.println("CLDR_VAP="+UserRegistry.makePassword("admin@"));
-            pw.println();
-            pw.println("## Special Test Enablement.");
-            pw.println("#CLDR_TESTPW="+UserRegistry.makePassword("admin@"));
-            pw.println();
-            pw.println("## Special message shown to users as to why survey tool is down.");
-            pw.println("## Comment out for normal start-up.");
-            pw.println("CLDR_MESSAGE=Welcome to SurveyTool@"+localhost()+". Please edit "+propsFile.getAbsolutePath()+". Comment out CLDR_MESSAGE to continue normal startup.");
-            pw.println();
-            pw.println("## Special message shown to users.");
-            pw.println("CLDR_HEADER=Welcome to SurveyTool@"+localhost()+". Please edit "+propsFile.getAbsolutePath()+" to change CLDR_HEADER (to change this message), or comment it out entirely.");
-            pw.println();
-            pw.println("## Current SurveyTool phase ");
-            pw.println("CLDR_PHASE="+Phase.BETA.name());
-            pw.println();
-            pw.println("## 'old' (previous) version");
-            pw.println("CLDR_OLDVERSION=CLDR_OLDVERSION");
-            pw.println();
-            pw.println("## 'new'  version");
-            pw.println("CLDR_NEWVERSION=CLDR_NEWVERSION");
-            pw.println();
-            pw.println("## Current SurveyTool phase ");
-            pw.println("CLDR_PHASE="+Phase.BETA.name());
-            pw.println();
-            pw.println("## CLDR common data. Default value shown, uncomment to override");
-            pw.println("CLDR_COMMON="+homeFile.getAbsolutePath()+"/common");
-            pw.println();
-            pw.println("## CLDR seed data. Default value shown, uncomment to override");
-            pw.println("CLDR_SEED="+homeFile.getAbsolutePath()+"/seed");
-            pw.println();
-            pw.println("## SMTP server. Mail is disabled by default.");
-            pw.println("#CLDR_SMTP=127.0.0.1");
-            pw.println();
-            pw.println("## FROM address for mail. Don't be a bad administrator, change this.");
-            pw.println("#CLDR_FROM=bad_administrator@"+localhost());
-            pw.println();
-            pw.println("# That's all!");
-            pw.close();
-            file.close();
-        }
-        catch(IOException exception){
-          SurveyLog.logger.warning("While writing "+homeFile.getAbsolutePath()+" props: "+exception);
-          exception.printStackTrace();
-        }
-    }
     
     private static Timer surveyTimer = null;
 //    private List<PeriodicTask> periodicTasks = null;
@@ -5560,6 +5496,8 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
      */
     SurveyProgressManager progressManager = new SurveyProgressManager();
 
+    private String cldrHome;
+
     static File supplementalDataDir;
 
 
@@ -5579,42 +5517,9 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     
             progress.update("Initializing Properties");
             
-            survprops = new java.util.Properties(); 
-    
-            if(cldrHome == null) {
-            	getHome();
-                if(cldrHome == null) {  
-                    return;
-                } 
-                homeFile = new File(cldrHome, "cldr");
-                File propFile = new java.io.File(homeFile, "cldr.properties");
-    
-                if(!propFile.exists()) {
-                    SurveyLog.logger.warning("Does not exist: "+propFile.getAbsolutePath());
-                    createBasicCldr(homeFile); // attempt to create
-                }
-    
-                if(!homeFile.exists()) {
-                    busted("$(catalina.home)/cldr isn't working as a CLDR home. Not a directory: " + homeFile.getAbsolutePath());
-                    return;
-                }
-                cldrHome = homeFile.getAbsolutePath();
-            }
-    
-            SurveyLog.logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath() + " time="+setupTime);
-            progress.update("Loading configurations");
-    
-            try {
-                java.io.FileInputStream is = new java.io.FileInputStream(new java.io.File(cldrHome, "cldr.properties"));
-                survprops.load(is);
-                progress.update("Loading configuration..");
-                is.close();
-            } catch(java.io.IOException ioe) {
-                /*throw new UnavailableException*/
-                SurveyLog.logger.log(java.util.logging.Level.SEVERE, "Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ",ioe);
-                busted("Couldn't load cldr.properties file from '" + cldrHome + "/cldr.properties': ", ioe);
-                return;
-            }
+            CLDRConfig survprops = CLDRConfig.getInstance();
+            
+            cldrHome = survprops.getProperty("CLDRHOME");
             
             progress.update("Setup DB config");
             // set up DB properties
@@ -5643,7 +5548,6 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             progress.update("Setup props..");
             newVersion=survprops.getProperty("CLDR_NEWVERSION","CLDR_NEWVERSION");
             oldVersion=survprops.getProperty("CLDR_OLDVERSION","CLDR_OLDVERSION");
-    
             vetdata = survprops.getProperty("CLDR_VET_DATA", cldrHome+"/vetdata"); // dir for vetted data
             progress.update("Setup dirs.."); 
             vetdir = new File(vetdata);
@@ -5670,8 +5574,8 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
             cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
             // System.getProperty("CLDR_COMMON") + "/main" is ignored.
-            fileBase = survprops.getProperty("CLDR_COMMON",cldrHome+"/common") + "/main"; // not static - may change lager
-            fileBaseSeed = survprops.getProperty("CLDR_SEED",cldrHome+"/seed") + "/main"; // not static - may change lager
+            getFileBase();
+            getFileBaseSeed();
             setFileBaseOld(survprops.getProperty(getOldVersionParam(),cldrHome+"/"+oldVersion)); // not static - may change lager
             specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
             specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager

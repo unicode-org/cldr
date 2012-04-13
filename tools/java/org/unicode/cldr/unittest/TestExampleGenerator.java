@@ -23,6 +23,7 @@ public class TestExampleGenerator extends TestFmwk {
         showCldrFile(info.getEnglish());
         showCldrFile(info.getCldrFactory().make("fr", true));
     }
+   
 
     public void Test4528() {
         String[][] testPairs = {
@@ -40,9 +41,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "<div class='cldr_example'>BMD<span class='cldr_substituted'> 12.345,68</span></div>"
                 },
         };
-        // 
-        // //ldml/numbers/currencies/currency[@type="BMD"]/symbol
-        // //ldml/numbers/currencyFormats[@numberSystem="latn"]/unitPattern[@count="other"]
+        
         final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String[] testPair : testPairs) {
@@ -53,6 +52,27 @@ public class TestExampleGenerator extends TestFmwk {
             assertEquals("specifics", expected, actual);
         }
     }
+    
+    public void Test4607() {
+        String[][] testPairs = {
+                {"//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
+                    "<div class='cldr_example'><span class='cldr_substituted'>12</span> thousand</div>"
+                },
+                {"//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    "<div class='cldr_example'><span class='cldr_substituted'>12</span>%</div>"
+                }
+        };
+        final CLDRFile nativeCldrFile = info.getEnglish();
+        ExampleGenerator exampleGenerator = new ExampleGenerator(info.getEnglish(), info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        for (String[] testPair : testPairs) {
+            String xpath = testPair[0];
+            String expected = testPair[1];
+            String value = nativeCldrFile.getStringValue(xpath);
+            String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
+            assertEquals("specifics", expected, actual);
+        }
+    }
+
 
     private void showCldrFile(final CLDRFile cldrFile) {
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);

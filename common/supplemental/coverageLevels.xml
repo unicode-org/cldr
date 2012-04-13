@@ -152,10 +152,9 @@
 		<coverageLevel inTerritory="NG" value="60" match="localeDisplayNames/languages/language[@type='(ff|ha|ibb|ig|kr|yo)']([@alt='(short|variant)'])?"/>
 		<coverageLevel inTerritory="TD" value="60" match="localeDisplayNames/languages/language[@type='(shu|dzg|kbl|mde|mua|sba)']([@alt='(short|variant)'])?"/>
 		<coverageLevel value="60" match="localeDisplayNames/scripts/script[@type='(Jpan|Kore)']"/>
-	    <coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='(AT|AU|BE|CA|CH|DK|ES|FI|GR|HK|ID|IE|KR|MX|NL|NO|PL|PT|SA|SE|TH|TR|TW|ZA)']"/>
-	    <coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='(0|1|2|3|4|5|6|7|8|9){3}']"/>
+		<coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='(AT|AU|BE|CA|CH|DK|ES|FI|GR|HK|ID|IE|KR|MX|NL|NO|PL|PT|SA|SE|TH|TR|TW|ZA)']"/>
 		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/territories/territory[@type='(CZ|EE|HU|LT|LU|LV|MT|SI|SK)']"/>
-	    <coverageLevel value="60" match="localeDisplayNames/transformNames/transformName[@type='[^']++']"/>
+		<coverageLevel value="60" match="localeDisplayNames/transformNames/transformName[@type='[^']++']"/>
 		<coverageLevel value="60" match="numbers/currencies/currency[@type='(AUD|CAD|CHF|DKK|HKD|IDR|KRW|MXN|NOK|PLN|SAR|SEK|THB|TRY|TWD|ZAR)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='(CZK|HUF|LTL|LVL)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='Africa_(Central|(East|South|West)ern)']/long/(generic|standard|daylight)"/>

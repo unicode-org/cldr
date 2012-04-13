@@ -90,8 +90,6 @@ public class CldrUtility {
     }
   }
 
-private static CLDRConfig cldrConfig = CLDRConfig.getInstance();
-
   static String getPath(String path, String filename) {
     if (path == null) {
       return null;
@@ -1055,13 +1053,12 @@ public static final class Output<T> {
    * @return
    */
   public static String getProperty(String key, String valueIfNull, String valueIfEmpty) {
-    String result = cldrConfig.getProperty(key);
+    String result = CLDRConfig.getInstance().getProperty(key);
     if (result == null) {
       result = valueIfNull;
     } else if (result.length() == 0) {
       result = valueIfEmpty;
     }
-    System.out.println("-D" + key + "=" + result);
     return result;
   }
 

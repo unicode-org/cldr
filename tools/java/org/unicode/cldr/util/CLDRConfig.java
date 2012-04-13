@@ -14,17 +14,17 @@ public class CLDRConfig {
       synchronized (CLDRConfig.class) {
         if (INSTANCE == null) {
             try {
-                System.err.println("Attempting to new up a " + SUBCLASS);
+                //System.err.println("Attempting to new up a " + SUBCLASS);
                 INSTANCE = (CLDRConfig)(Class.forName(SUBCLASS).newInstance());
                 System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - " + INSTANCE.getClass().getName());
             } catch(Throwable t) {
-                t.printStackTrace();
-                System.err.println("Could not use "+SUBCLASS + " - " + t.toString());
+                //t.printStackTrace();
+                //System.err.println("Could not use "+SUBCLASS + " - " + t.toString() + " - falling back to parent");
             }
         }
         if(INSTANCE == null) {
-          CldrUtility.checkValidDirectory(CldrUtility.BASE_DIRECTORY, "You have to set -Dcheckdata=<validdirectory>");
           INSTANCE = new CLDRConfig();
+          CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"), "You have to set -DCLDR_DIR=<validdirectory>");
         }
       }
       return INSTANCE;
@@ -106,6 +106,8 @@ public class CLDRConfig {
         if (result == null) {
           result = System.getenv(key);
         }
+        System.out.println("-D" + key + "=" + result);
+        System.out.flush();
         return result;
     }
 }

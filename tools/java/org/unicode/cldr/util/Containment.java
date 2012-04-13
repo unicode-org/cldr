@@ -38,8 +38,10 @@ public class Containment {
     static int                      order;
     static {
         initOrder("001");
-        addOrder("003", "021");
-        addOrder("419", "005");
+        // Special cases. Cyprus is because it is in the wrong location because it gets picked up in the EU.
+        resetOrder("003", "021");
+        resetOrder("419", "005");
+        resetOrder("CY", "BH");
     }
 
     //static Map<String, String> zone2country = StandardCodes.make().getZoneToCounty();
@@ -101,24 +103,28 @@ public class Containment {
     }
 
     private static void initOrder(String territory) {
-        if (toOrder.containsKey(territory)) {
-            return;
+        if (!toOrder.containsKey(territory)) {
+            toOrder.put(territory, ++level);
         }
-        toOrder.put(territory, ++level);
-        Set<String> contained = containmentCore.get(territory);
+        Set<String> contained = containmentFull.get(territory);
         if (contained == null) {
             return;
+        }
+        for (String subitem : contained) {
+            if (!toOrder.containsKey(subitem)) {
+                toOrder.put(subitem, ++level);
+            }
         }
         for (String subitem : contained) {
             initOrder(subitem);
         }
     }
     
-    private static void addOrder(String newTerritory, String oldTerritory) {
-        final Integer newOrder = toOrder.get(newTerritory);
-        if (newOrder != null) {
-            throw new IllegalArgumentException(newTerritory + " already defined as " + newOrder);
-        }
+    private static void resetOrder(String newTerritory, String oldTerritory) {
+//        final Integer newOrder = toOrder.get(newTerritory);
+//        if (newOrder != null) {
+//            throw new IllegalArgumentException(newTerritory + " already defined as " + newOrder);
+//        }
         final Integer oldOrder = toOrder.get(oldTerritory);
         if (oldOrder == null) {
             throw new IllegalArgumentException(oldTerritory + " not yet defined");

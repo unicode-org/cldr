@@ -23,9 +23,8 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.StandardCodes;
 
 /**
  * Instances of this class represent the session-persistent data kept on a per-user basis.
@@ -38,6 +37,9 @@ public class CookieSession {
     public Hashtable stuff = new Hashtable();  // user data
     public Hashtable prefs = new Hashtable(); // user prefs
     public UserRegistry.User user = null;
+    /**
+     * @deprecated need to refactor anything that uses this.
+     */
     public static SurveyMain sm = null;
     
     private Connection conn = null;
@@ -48,7 +50,7 @@ public class CookieSession {
     
     public Connection db(SurveyMain sm) {
         if(conn == null) {
-            conn = sm.dbUtils.getDBConnection();
+            conn = DBUtils.getInstance().getDBConnection();
         }
         return conn;
     }

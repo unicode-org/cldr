@@ -821,7 +821,8 @@ public class SupplementalDataInfo {
      */
     public static SupplementalDataInfo getInstance() {
         if(defaultInstance!=null) return defaultInstance;
-        return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        return CLDRConfig.getInstance().getSupplementalDataInfo();
+//        return getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
     }
     
     /**

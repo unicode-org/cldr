@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StackTracker;
 
@@ -102,8 +103,21 @@ public class SurveyLog {
 
         // First, log to file
 		// TODO move into chunkyreader
-		if(SurveyMain.homeFile!=null) try {
-			File logFile = new File(SurveyMain.homeFile, "exception.log");
+		File baseDir =null;
+		try {
+		    String dir = CLDRConfig.getInstance().getProperty("CLDRHOME");
+		    if(dir!=null) {
+		        baseDir = new File(dir);
+		    }
+		} catch(Throwable tt) {
+		    //
+		}
+		if(baseDir==null||!baseDir.isDirectory()) {
+		    System.err.println(">> Storing exception.log in .");
+		    baseDir = new File(".");
+		}
+		 try {
+			File logFile = new File(baseDir, "exception.log");
 			OutputStream file = new FileOutputStream(logFile, true); // Append
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(file, "UTF-8"));
 			pw.append(sb);
@@ -124,7 +138,7 @@ public class SurveyLog {
 	
 	public static synchronized ChunkyReader getChunkyReader() {
 	    if(cr==null) {
-	        cr = new ChunkyReader(new File(SurveyMain.homeFile, "exception.log"), RECORD_SEP+LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
+	        cr = new ChunkyReader(new File(CLDRConfig.getInstance().getProperty("CLDRHOME"), "exception.log"), RECORD_SEP+LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
 	    }
 	    return cr;
 	}

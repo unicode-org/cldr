@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
@@ -469,8 +470,9 @@ public class SurveyForum {
 
 				emailCount = gatherInterestedUsers(forum, cc_emails, bcc_emails);
 
-				String from = sm.survprops.getProperty("CLDR_FROM","nobody@example.com");
-				String smtp = sm.survprops.getProperty("CLDR_SMTP",null);
+				CLDRConfig survprops = CLDRConfig.getInstance();
+				String from = survprops.getProperty("CLDR_FROM","nobody@example.com");
+				String smtp = survprops.getProperty("CLDR_SMTP",null);
 
 				String subject = "New CLDR forum post for: " + forum;
 
@@ -1174,7 +1176,7 @@ public class SurveyForum {
 	 */
 	private void setupDB(Connection conn) throws SQLException
 	{
-		String onOrBefore = sm.survprops.getProperty("CLDR_OLD_POSTS_BEFORE", "12/31/69");
+		String onOrBefore = CLDRConfig.getInstance().getProperty("CLDR_OLD_POSTS_BEFORE", "12/31/69");
 		DateFormat sdf = DateFormat.getDateInstance(DateFormat.SHORT, ULocale.US);
 		try {
 			oldOnOrBefore = sdf.parse(onOrBefore);

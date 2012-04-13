@@ -72,7 +72,7 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     private static EnumNames<PageId> PageIdNames = new EnumNames<PageId>();
-    private static Relation<SectionId,PageId> SectionIdToPageIds = Relation.of(new EnumMap<SectionId,Set<PageId>>(SectionId.class), TreeSet.class);
+    private static Relation<SectionId,PageId> SectionIdToPageIds = Relation.of(new TreeMap<SectionId,Set<PageId>>(), TreeSet.class);
 
     /**
      * The Page for a path (within a Section). Don't change these without committee buy-in.

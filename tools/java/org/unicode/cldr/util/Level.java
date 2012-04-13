@@ -23,6 +23,10 @@ import java.util.Locale;
     private final String altName;
     private final int value;
     
+    /**
+     * returns value ranging from 100 (core) to 1 (optional). Most clients want getLevel instead.
+     * @return
+     */
     public int getValue() {
       return value;
     }
@@ -65,6 +69,10 @@ import java.util.Locale;
       return 1;
     }
 
+    /**
+     * This is the numeric value used in the coverage level XML. 
+     * @return range from 10 (core) to 100 (comprehensive).
+     */
     public byte getLevel() {
         return level;
     }

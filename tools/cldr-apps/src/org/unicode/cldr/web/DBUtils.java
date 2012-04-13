@@ -29,6 +29,7 @@ import javax.sql.DataSource;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.StackTracker;
 
@@ -57,7 +58,7 @@ public class DBUtils {
 	public static String CLDR_DB_P = null;
 	public static String cldrdb_u = null;
 	public static String CLDR_DB;
-	public static String cldrdb = null;
+//	public static String cldrdb = null;
 	public static String CLDR_DB_CREATESUFFIX = null;
 	public static String CLDR_DB_SHUTDOWNSUFFIX = null;
 	public static boolean db_Derby = false;
@@ -593,19 +594,19 @@ public class DBUtils {
 		}
 	}
 
-	void setupDBProperties(SurveyMain surveyMain, Properties cldrprops) {
+	void setupDBProperties(SurveyMain surveyMain, CLDRConfig survprops) {
 //		db_driver = cldrprops.getProperty("CLDR_DB_DRIVER",
 //				"org.apache.derby.jdbc.EmbeddedDriver");
 //		db_protocol = cldrprops.getProperty("CLDR_DB_PROTOCOL", "jdbc:derby:");
 //		CLDR_DB_U = cldrprops.getProperty("CLDR_DB_U", null);
 //		CLDR_DB_P = cldrprops.getProperty("CLDR_DB_P", null);
-		CLDR_DB = cldrprops.getProperty("CLDR_DB", "cldrdb");
-		dbDir = new File(SurveyMain.cldrHome, CLDR_DB);
-		cldrdb = cldrprops.getProperty("CLDR_DB_LOCATION",
-				dbDir.getAbsolutePath());
-		CLDR_DB_CREATESUFFIX = cldrprops.getProperty("CLDR_DB_CREATESUFFIX",
+//		CLDR_DB = survprops.getProperty("CLDR_DB", "cldrdb");
+//		dbDir = new File(SurveyMain.cldrHome, CLDR_DB);
+//		cldrdb = survprops.getProperty("CLDR_DB_LOCATION",
+//				dbDir.getAbsolutePath());
+		CLDR_DB_CREATESUFFIX = survprops.getProperty("CLDR_DB_CREATESUFFIX",
 				";create=true");
-		CLDR_DB_SHUTDOWNSUFFIX = cldrprops.getProperty(
+		CLDR_DB_SHUTDOWNSUFFIX = survprops.getProperty(
 				"CLDR_DB_SHUTDOWNSUFFIX", "jdbc:derby:;shutdown=true");
 	}
 

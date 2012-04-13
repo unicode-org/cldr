@@ -90,6 +90,8 @@ public class CldrUtility {
     }
   }
 
+private static CLDRConfig cldrConfig = CLDRConfig.getInstance();
+
   static String getPath(String path, String filename) {
     if (path == null) {
       return null;
@@ -1053,16 +1055,7 @@ public static final class Output<T> {
    * @return
    */
   public static String getProperty(String key, String valueIfNull, String valueIfEmpty) {
-    String result = System.getProperty(key);
-    if (result == null) {
-      result = System.getProperty(key.toUpperCase(Locale.ENGLISH));
-    }
-    if (result == null) {
-      result = System.getProperty(key.toLowerCase(Locale.ENGLISH));
-    }
-    if (result == null) {
-      result = System.getenv(key);
-    }
+    String result = cldrConfig.getProperty(key);
     if (result == null) {
       result = valueIfNull;
     } else if (result.length() == 0) {

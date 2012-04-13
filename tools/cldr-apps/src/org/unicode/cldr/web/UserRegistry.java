@@ -1400,7 +1400,7 @@ public class UserRegistry {
     }
     
     private synchronized boolean doReadSpecialUsers() {
-        String externalErrorName = sm.cldrHome + "/" + "specialusers.txt";
+        String externalErrorName = SurveyMain.getSurveyHome() + "/" + "specialusers.txt";
 
 //        long now = System.currentTimeMillis();
 //        

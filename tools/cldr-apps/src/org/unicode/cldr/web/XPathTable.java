@@ -119,6 +119,7 @@ public class XPathTable {
     SurveyMain sm = null;
     public Hashtable<String,String> xstringHash = new Hashtable<String,String>();  // public for statistics only
     public Hashtable<String,Integer> stringToId = new Hashtable<String,Integer>();  // public for statistics only
+    public Hashtable<Long,String> sidToString = new Hashtable<Long,String>();  // public for statistics only
 
     
     public String statistics() {
@@ -334,6 +335,7 @@ public class XPathTable {
      */
     public final void setById(int id, String xpath) {
         stringToId.put(idToString_put(id,xpath), id);
+        sidToString.put(getStringID(xpath), xpath);
     }
 
     /**
@@ -615,7 +617,7 @@ public class XPathTable {
 		return getStringID(getById(baseXpath));
 	}
 
-	public long getStringID(String byId) {
+	public static final long getStringID(String byId) {
 		return StringId.getId(byId);
 	}
 	
@@ -623,8 +625,24 @@ public class XPathTable {
 		return getStringIDString(getById(baseXpath));
 	}
 
-	public String getStringIDString(String byId) {
+	public static final String getStringIDString(String byId) {
 		return Long.toHexString(getStringID(byId));
+	}
+	
+	public String getByStringID(String id) {
+	    Long l = Long.parseLong(id, 16);
+	    String s = sidToString.get(l);
+	    if(s!=null) return s;
+	    // slow way
+	    for(String x : stringToId.keySet()) {
+	        if(getStringID(x)==l) {
+	            sidToString.put(l, x);
+	            return x;
+	        }
+	    }
+	    if(SurveyMain.isUnofficial) System.err.println("xpt: Couldn't find stringid " + id + " - sid has " + sidToString.size());
+	    // it may be 
+	    return null;
 	}
 
 	public void writeXpathFragment(PrintWriter out, boolean xpathSet[]) {

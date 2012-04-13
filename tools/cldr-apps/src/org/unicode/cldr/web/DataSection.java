@@ -1646,7 +1646,7 @@ public class DataSection implements JSONString {
 				return new JSONObject()
 					.put("xpath", xpath)
 					.put("xpid", xpathId)
-					.put("xpstrid", StringId.getId(xpath))
+					.put("xpstrid", sm.xpt.getStringIDString(xpath))
 					.put("winningValue", winningValue)
 					.put("displayName", displayName)
 					.put("displayExample", displayExample)

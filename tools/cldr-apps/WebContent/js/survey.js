@@ -125,6 +125,7 @@ function hideSubmit(fieldhash) {
 //    ch_input.disabled=null;
 }
 
+// @deprecated
 function isubmit(fieldhash,xpid,locale,session) {
     var ch_input = document.getElementById('ch_'+fieldhash);
 //    var submit_btn = document.getElementById('submit_'+fieldhash);
@@ -647,6 +648,7 @@ function updateTestResults(fieldhash, testResults, what) {
 }
 
 
+//@deprecated
 function refreshRow(fieldhash, xpid, locale, session) {
     var v_tr = document.getElementById('r_'+fieldhash);
     var e_div = document.getElementById('e_'+fieldhash);
@@ -1065,6 +1067,9 @@ dojo.ready(function() {
 //			
 //			return;
 //		}
+		if(tr && tr.sethash) {
+			window.location.hash=tr.sethash;
+		}
 		setLastShown(hideIfLast);
 
 		var td = document.createDocumentFragment();
@@ -1478,7 +1483,14 @@ function updateRow(tr, theRow) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
 	}
-	tr.xpid = theRow.xpid;
+	if(!tr.xpstrid) {
+		tr.xpid = theRow.xpid;
+		tr.xpstrid = theRow.xpstrid;
+		if(tr.xpstrid) {
+			tr.id = "r@"+tr.xpstrid;
+			tr.sethash = "x@"+tr.xpstrid;
+		}
+	}
 	var children = getTagChildren(tr);
 	var config = tr.theTable.config;
 	var protoButton = dojo.byId('proto-button');
@@ -1603,6 +1615,11 @@ function updateRow(tr, theRow) {
 		children[config.proposedcell].showFn = null;  // nothing else to show
 	}
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
+	tr.selectThisRow = function(e) {
+		showInPop(null, tr, tr.proposedcell, tr.proposedcell.showFn, true);
+		stStopPropagation(e); return false; 
+	};
+
 	listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
 	//listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
@@ -1740,7 +1757,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 			tr = cloneAnon(toAdd);
 			theTable.myTRs[k]=tr; // save for later use
 		}
-		tr.id="r_"+k;
+//		tr.id="r_"+k;
 		tr.rowHash = k;
 		tr.theTable = theTable;
 		if(!theRow) {
@@ -1929,6 +1946,33 @@ function createChunk(text, tag, className) {
 	}
 	return chunk;
 }
+
+function scrollToItem(tr) {
+//	window.location.hash=tr.id; // scroll!
+	window.scrollTo(0,getAbsolutePosition(tr).top-50);
+}
+
+// interpret the #hash to see if we need to do something...
+function processHash() {
+	var hash = window.location.hash;
+	if(hash&&hash.toString().indexOf("#x@")==0) {
+		// see if there's such an item
+		var strid = "r"+hash.substring(2);
+		var tr = dojo.byId(strid);
+		if(tr) {
+			scrollToItem(tr);
+			if(tr.selectThisRow) {
+				tr.selectThisRow(null);
+			}
+		} else {
+			if(window.location.search.indexOf("&strid=")<0) {
+				window.location.search=window.location.search+"&strid="+hash.substring(3);
+			} else {
+				showInPop("Sorry, could not locate that item.", null, null, null, true);
+			}
+		}
+	}
+}
 ////////
 /// showRows() ..
 function showRows(container,xpath,session,coverage) {
@@ -1994,12 +2038,13 @@ function showRows(container,xpath,session,coverage) {
 		        		doUpdate(theDiv.id, function() {
 		        				showLoader(theDiv.loader,stui.loading3);
 		        				insertRows(theDiv,xpath,session,json);
+		        				processHash(theDiv);
 		        		});
 		        	}
 		        	
 		           }catch(e) {
 		               console.log("Error in ajax post [showRows]  " + e.message + " / " + e.name );
-				        showLoader(theDiv.loader,"Exception while  loading: " + e.message + ", n="+e.name); // in case the 2nd line doesn't work
+				        handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
 //				        showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
 //			               console.log("Error in ajax post [showRows]  " + e.message);
 		           }

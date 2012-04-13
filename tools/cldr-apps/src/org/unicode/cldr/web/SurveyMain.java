@@ -74,6 +74,7 @@ import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
@@ -3572,6 +3573,36 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             getSTFactory().make(ctx.getLocale(), false); // spin up STFactory
         }
         PageId pageId = ctx.getPageId();
+        
+        try {
+            // looking for a stringid?
+            String strid = ctx.field("strid");
+            if(!strid.isEmpty()) {
+                String xpath = xpt.getByStringID(strid);
+                if(xpath!=null) {
+                    // got one.
+                    PathHeader ph = getSTFactory().getPathHeader(xpath);
+                    if(ph!=null) {
+                        StringBuilder redirTo = new StringBuilder(ctx.base());
+                        redirTo.append("?_="+ctx.getLocale().getBaseName());
+                        PageId newPage = ph.getPageId();
+                        redirTo.append("&x="+newPage.name());
+                        //  if(ph.getPageId()!=pageId)  .. don't care
+                        String ecl = ctx.getEffectiveCoverageLevel(ctx.getLocale().toString());
+                        Level l = Level.valueOf(ecl.toUpperCase());
+                        Level need = Level.fromLevel(getSupplementalDataInfo().getCoverageValue(xpath, ctx.getLocale().toULocale()));
+                        if(need.getLevel()>l.getLevel()) {
+                            redirTo.append("&p_covlev="+need.name().toLowerCase());
+                        }
+                        redirTo.append("#x@"+strid);
+                        ctx.response.sendRedirect(redirTo.toString());
+                        return; // exit
+                    }
+                }
+            }
+        } catch (Throwable t) {
+            SurveyLog.logException(t, ctx);
+        }
         // print 'shopping cart'
         if(!shortHeader(ctx))  {
             

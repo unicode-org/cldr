@@ -57,7 +57,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Code_Lists("Code Lists"), 
         Calendars, 
         Timezones, 
-        Misc, 
+        Misc("Patterns"), 
         Special;
 
         private SectionId(String... alternateNames) {
@@ -115,11 +115,11 @@ public class PathHeader implements Comparable<PathHeader> {
         Oceania(SectionId.Timezones),
         UnknownT(SectionId.Timezones, "Unknown Region"),
         Overrides(SectionId.Timezones),
-        Patterns_for_Locale_Names(SectionId.Misc, "Patterns for Locale Names"),
-        Patterns_for_Displaying_Lists(SectionId.Misc, "Patterns for Displaying Lists"),
-        Patterns_for_Timezones(SectionId.Misc, "Patterns for Timezones"),
-        Patterns_for_Numbers(SectionId.Misc, "Patterns for Numbers"),
-        Patterns_for_Units(SectionId.Misc, "Patterns for Units"),
+        Patterns_for_Locale_Names(SectionId.Misc, "Locale Names"),
+        Patterns_for_Displaying_Lists(SectionId.Misc, "Displaying Lists"),
+        Patterns_for_Timezones(SectionId.Misc, "Timezones"),
+        Patterns_for_Numbers(SectionId.Misc, "Numbers"),
+        Patterns_for_Units(SectionId.Misc, "Units"),
         Characters(SectionId.Misc),
         Labels(SectionId.Misc),
         Posix(SectionId.Misc),
@@ -865,6 +865,14 @@ public class PathHeader implements Comparable<PathHeader> {
                     .getName(CLDRFile.TERRITORY_NAME, territory);
                 }
             });
+            functionMap.put("numberingSystem", new Transform<String, String>() {
+                public String transform(String source0) {
+                    String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@type=\"" + source0 +
+                    		"\"][@key=\"numbers\"]");
+                    return displayName == null ? source0 : displayName + " (" + source0 + ")";
+                }
+            });
+            // //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]
         }
 
         static class HyphenSplitter {

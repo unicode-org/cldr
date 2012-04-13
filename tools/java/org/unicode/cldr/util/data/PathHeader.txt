@@ -58,26 +58,26 @@
 //ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; $3-$2
 //ldml/dates/timeZoneNames/(singleCountries)                ; Special ; Zone ; null ;$1 ; HIDE
 
-//ldml/localeDisplayNames/localeDisplayPattern/%E           ; Misc ; Patterns for Locale Names ; null ; $1
+//ldml/localeDisplayNames/localeDisplayPattern/%E           ; Misc ; Locale Names ; null ; $1
 
-//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Patterns for Displaying Lists ; null ; list-$1
+//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; null ; list-$1
 
-//ldml/dates/timeZoneNames/%E                               ; Misc ; Patterns for Timezones ; null ; timezone-$1
+//ldml/dates/timeZoneNames/%E                               ; Misc ; Timezones ; null ; timezone-$1
 
-//ldml/numbers/(default)NumberingSystem                     ; Misc ; Patterns for Numbers ; Numbering System ; $1 ; READ_ONLY
-//ldml/numbers/otherNumberingSystems/(%E)                   ; Misc ; Patterns for Numbers ; Numbering System ; $1 ; READ_ONLY
+//ldml/numbers/(default)NumberingSystem                     ; Misc ; Numbers ; Numbering System ; $1 ; READ_ONLY
+//ldml/numbers/otherNumberingSystems/(%E)                   ; Misc ; Numbers ; Numbering System ; $1 ; READ_ONLY
 
-//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Misc ; Patterns for Numbers ; $1 ; $2
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Misc ; Patterns for Numbers ; $2 ; &count($7-$8-$4)
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"] ; Misc ; Patterns for Numbers ; $2 ; $7-$4
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Misc ; Patterns for Numbers ; $2 ; $5-$1
+//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Misc ; Numbers ; &numberingSystem($1) ; $2
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Misc ; Numbers ; &numberingSystem($2) ; $5-$1
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Misc ; Numbers ; &numberingSystem($2) ; &count($7-$8-$4)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"] ; Misc ; Numbers ; &numberingSystem($2) ; $7-$4
 
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"] ; Misc ; Patterns for Numbers ; $1 ; &count(currencies-$2)
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"] ; Misc ; Numbers ; &numberingSystem($1) ; &count(currencies-$2)
 
-//ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Patterns for Units ; $1 ; &count($1-$2) 
-//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Patterns for Units ; *$2-relative ; $3
+//ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Units ; $1 ; &count($1-$2) 
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Units ; *$2-relative ; $3
 
-//ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Characters ; Patterns for Ellipsis ; $1
+//ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Characters ; Ellipsis ; $1
 //ldml/delimiters/quotation%E                               ; Misc ; Characters ; Quotation Marks ; quotation-$1
 //ldml/delimiters/alternateQuotation%E                      ; Misc ; Characters ; Quotation Marks ; quotation-embedded-$1
 //ldml/characters/moreInformation                           ; Misc ; Characters ; Symbols ; More Information

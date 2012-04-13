@@ -546,7 +546,11 @@ public class ExampleGenerator {
                 unitName = type != ExampleType.ENGLISH ? value : getUnitName(unitType, isCurrency, count);
             }
 
-            unitPattern = setBackground(unitPattern);
+            if (isPattern) {
+                unitPattern = setBackground(unitPattern);
+            } else {
+                unitPattern = setBackgroundSkip0(unitPattern);
+            }
 
             MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
 
@@ -584,7 +588,7 @@ public class ExampleGenerator {
 
             // now add to list
             if (result.length() != 0) {
-                result += ", ";
+                result += exampleSeparatorSymbol;
             }
             result += resultItem;
         }
@@ -857,6 +861,18 @@ public class ExampleGenerator {
     }
 
     /**
+     * Put a background on an item, skipping enclosed patterns, except for {0}
+     * 
+     * @param sampleTerritory
+     * @return
+     */
+    private String setBackgroundSkip0(String inputPattern) {
+        Matcher m = PARAMETER_SKIP0.matcher(inputPattern);
+        return backgroundStartSymbol + m.replaceAll(backgroundEndSymbol + "$1" + backgroundStartSymbol) + backgroundEndSymbol;
+    }
+
+
+    /**
      * This is called just before we return a result. It fixes the special characters that were added by setBackground.
      * @param input string with special characters from setBackground.
      * @param invert TODO
@@ -873,8 +889,6 @@ public class ExampleGenerator {
                 // remove null runs
                 .replace(backgroundStartSymbol, backgroundStart)
                 .replace(backgroundEndSymbol, backgroundEnd)
-                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
-                .replace(exampleStart, exampleEnd + exampleStart)
                 .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
                 .replace(startItalicSymbol, startItalic)
                 .replace(endItalicSymbol, endItalic)
@@ -895,6 +909,7 @@ public class ExampleGenerator {
     }
     
     public static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
+    public static final Pattern PARAMETER_SKIP0 = Pattern.compile("(\\{[1-9]\\})");
 
     /**
      * Utility to format using a gmtHourString, gmtFormat, and an integer hours. We only need the hours because that's all

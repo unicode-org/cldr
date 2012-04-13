@@ -20,14 +20,44 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestPaths() {
-        showCldrFile(info.getEnglish(), info.getEnglish());
-        showCldrFile(info.getCldrFactory().make("fr", true), info.getEnglish());
+        showCldrFile(info.getEnglish());
+        showCldrFile(info.getCldrFactory().make("fr", true));
     }
 
-    private void showCldrFile(final CLDRFile cldrFile, final CLDRFile englishFile) {
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, englishFile, CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+    public void Test4528() {
+        String[][] testPairs = {
+                {"//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]", 
+                    "<div class='cldr_example'><span class='cldr_substituted'>2,00 </span>dollari delle Bermuda</div>" +
+                    "<div class='cldr_example'><span class='cldr_substituted'>1,20 </span>dollari delle Bermuda</div>" +
+                    "<div class='cldr_example'><span class='cldr_substituted'>2,07 </span>dollari delle Bermuda</div>"
+                },
+                {"//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]", 
+                    "<div class='cldr_example'><span class='cldr_substituted'>2,00</span> <span class='cldr_substituted'>dollari statunitensi</span></div>" +
+                    "<div class='cldr_example'><span class='cldr_substituted'>1,20</span> <span class='cldr_substituted'>dollari statunitensi</span></div>" +
+                    "<div class='cldr_example'><span class='cldr_substituted'>2,07</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
+                },
+                {"//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol", 
+                    "<div class='cldr_example'>BMD<span class='cldr_substituted'> 12.345,68</span></div>"
+                },
+        };
+        // 
+        // //ldml/numbers/currencies/currency[@type="BMD"]/symbol
+        // //ldml/numbers/currencyFormats[@numberSystem="latn"]/unitPattern[@count="other"]
+        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        for (String[] testPair : testPairs) {
+            String xpath = testPair[0];
+            String expected = testPair[1];
+            String value = nativeCldrFile.getStringValue(xpath);
+            String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
+            assertEquals("specifics", expected, actual);
+        }
+    }
+
+    private void showCldrFile(final CLDRFile cldrFile) {
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         checkPathValue(exampleGenerator, "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]", "EEEE d MMMMl y'x'G");
-        
+
         for (String xpath : cldrFile.fullIterable()) {
             String value = cldrFile.getStringValue(xpath);
             checkPathValue(exampleGenerator, xpath, value);

@@ -358,7 +358,7 @@ public class UserRegistry {
         userSettings = UserSettingsData.getInstance(sm);
         
         String sql = null;
-        Connection conn = sm.dbUtils.getDBConnection();
+        Connection conn = DBUtils.getInstance().getDBConnection();
         try{
             synchronized(conn) {
     //            logger.info("UserRegistry DB: initializing...");
@@ -505,7 +505,7 @@ public class UserRegistry {
 //          queryIdStmt = conn.prepareStatement("SELECT name,org,email from " + CLDR_USERS +" where id=?");
                 ResultSet rs = null;
                 PreparedStatement pstmt = null;
-                Connection conn = sm.dbUtils.getDBConnection();
+                Connection conn = DBUtils.getInstance().getDBConnection();
                 try{ 
                     pstmt = DBUtils.prepareForwardReadOnly(conn, this.SQL_queryIdStmt_FRO);
                     pstmt.setInt(1,id);
@@ -570,7 +570,7 @@ public class UserRegistry {
     	PreparedStatement pstmt = null;
 //        synchronized(conn) {
             try {
-            	conn = sm.dbUtils.getDBConnection();
+            	conn = DBUtils.getInstance().getDBConnection();
             	pstmt = conn.prepareStatement(SQL_touchStmt);
             	pstmt .setInt(1, id);
             	pstmt .executeUpdate();
@@ -608,7 +608,7 @@ public class UserRegistry {
         Connection conn  = null;
         PreparedStatement pstmt = null;
             try{ 
-            	conn = sm.dbUtils.getDBConnection();
+            	conn = DBUtils.getInstance().getDBConnection();
                 if((pass != null) && !letmein) {
 //                    logger.info("Looking up " + email + " : " + pass);
                     pstmt = DBUtils.prepareForwardReadOnly(conn, SQL_queryStmt_FRO);
@@ -730,7 +730,7 @@ public class UserRegistry {
     }
     
     void setupIntLocs() throws SQLException {
-    	Connection conn = sm.dbUtils.getDBConnection();
+    	Connection conn = DBUtils.getInstance().getDBConnection();
         PreparedStatement removeIntLoc=null;
 		PreparedStatement updateIntLoc=null;
     	try {
@@ -844,7 +844,7 @@ public class UserRegistry {
         }
         Connection conn = null;
             try {
-            	conn = sm.dbUtils.getDBConnection();
+            	conn = DBUtils.getInstance().getDBConnection();
                 Statement s = conn.createStatement();
                 String theSql = "UPDATE " + CLDR_USERS + " SET userlevel=" + newLevel + 
                     " WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
@@ -868,7 +868,7 @@ public class UserRegistry {
             } catch (Throwable t) {
                 msg = msg + " exception: " + t.toString();
             } finally  {
-            	sm.dbUtils.closeDBConnection(conn);
+                DBUtils.getInstance().closeDBConnection(conn);
               //  s.close();
 //            }
         }
@@ -897,7 +897,7 @@ public class UserRegistry {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-        	conn = sm.dbUtils.getDBConnection();
+        	conn = DBUtils.getInstance().getDBConnection();
                 String theSql = "UPDATE " + CLDR_USERS + " SET "+
                     (intLocs?"intlocs":"locales") + "=? WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
                 ps = conn.prepareStatement(theSql);
@@ -953,7 +953,7 @@ public class UserRegistry {
         Connection conn = null;
         Statement s = null;
         try {
-        		conn = sm.dbUtils.getDBConnection();
+        		conn = DBUtils.getInstance().getDBConnection();
                 s = conn.createStatement();
                 String theSql = "DELETE FROM " + CLDR_USERS + 
                     " WHERE id=" + theirId + " AND email='" + theirEmail + "' "  + orgConstraint;
@@ -1020,7 +1020,7 @@ public class UserRegistry {
         Connection conn = null;
         PreparedStatement updateInfoStmt = null;
         try {
-        		conn = sm.dbUtils.getDBConnection();
+        		conn = DBUtils.getInstance().getDBConnection();
                 
                 updateInfoStmt = conn.prepareStatement("UPDATE "+CLDR_USERS+" set "+type.field()+"=? WHERE id=? AND email=?");
                 if(type==UserRegistry.InfoType.INFO_NAME) { // unicode treatment
@@ -1065,7 +1065,7 @@ public class UserRegistry {
     	//        try {
     	logger.info("UR: Attempt getPassword by " + ctx.session.user.email + ": of #" + theirId);
     	try {
-    		conn = sm.dbUtils.getDBConnection();
+    		conn = DBUtils.getInstance().getDBConnection();
     		s = conn.createStatement();
     		rs = s.executeQuery("SELECT password FROM " + CLDR_USERS + " WHERE id=" + theirId);
     		if(!rs.next()) {
@@ -1108,7 +1108,7 @@ public class UserRegistry {
 		Connection conn = null;
 		PreparedStatement insertStmt = null;
 		try {
-			conn = sm.dbUtils.getDBConnection();
+			conn = DBUtils.getInstance().getDBConnection();
 			insertStmt = conn.prepareStatement(SQL_insertStmt);
 			insertStmt.setInt(1, u.userlevel);
 			DBUtils.setStringUTF8(insertStmt, 2, u.name); // insertStmt.setString(2,
@@ -1514,7 +1514,7 @@ public class UserRegistry {
             ResultSet rs = null;
             Connection conn = null;
             try {
-            	conn = sm.dbUtils.getDBConnection();
+            	conn = DBUtils.getInstance().getDBConnection();
                 rs = list(null,conn);
                 // id,userlevel,name,email,org,locales,intlocs,lastlogin    
                 while(rs.next()){
@@ -1577,7 +1577,7 @@ public class UserRegistry {
 		Connection conn = null;
 		Statement s = null;
 		try {
-			conn=sm.dbUtils.getDBConnection();
+			conn=DBUtils.getInstance().getDBConnection();
 			s = conn.createStatement();
 			ResultSet rs = s.executeQuery("SELECT distinct org FROM "
 					+ CLDR_USERS + " order by org");
@@ -1682,7 +1682,7 @@ public class UserRegistry {
 		String org = null;
 		Connection conn = null;
 		try {
-			conn = sm.dbUtils.getDBConnection();
+			conn = DBUtils.getInstance().getDBConnection();
 			synchronized(this) {
 		    java.sql.ResultSet rs = list(org, conn);
 		    if(rs == null) {

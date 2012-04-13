@@ -33,7 +33,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
  *
  */
 public class SurveyLog {
-	final static boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
+	final static boolean DEBUG = false;
 	
 	// Logging
 	public static Logger logger;
@@ -78,6 +78,15 @@ public class SurveyLog {
 	    SQL
 	};
 	
+	private static File gBaseDir = null;
+	/**
+	 * Set the logging to happen inside the ST dir
+	 * @param homeFile
+	 */
+	public static void setDir(File homeFile) {
+	    gBaseDir = homeFile;
+	}
+	
 	public static synchronized void logException(Throwable t, String what, WebContext ctx) {
 	    long nextTimePost = System.currentTimeMillis();
 		StringBuilder sb = new StringBuilder();
@@ -103,15 +112,7 @@ public class SurveyLog {
 
         // First, log to file
 		// TODO move into chunkyreader
-		File baseDir =null;
-		try {
-		    String dir = CLDRConfig.getInstance().getProperty("CLDRHOME");
-		    if(dir!=null) {
-		        baseDir = new File(dir);
-		    }
-		} catch(Throwable tt) {
-		    //
-		}
+		File baseDir = gBaseDir;
 		if(baseDir==null||!baseDir.isDirectory()) {
 		    System.err.println(">> Storing exception.log in .");
 		    baseDir = new File(".");

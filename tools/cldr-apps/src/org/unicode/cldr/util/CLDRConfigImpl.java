@@ -26,6 +26,9 @@ public class CLDRConfigImpl extends CLDRConfig {
     private Object supplementalDataInfo;
 
     CLDRConfigImpl() {
+        if(System.getProperty("CLDR_WEB_TESTS")!=null) {
+            throw new InternalError("CLDR_WEB_TESTS set - exitting.");
+        }
         System.err.println(getClass().getName()+".cldrHome="+cldrHome);
         if(cldrHomeSet==false) {
             System.err.println("[cldrHome not set] stack=\n"+StackTracker.currentStack()+"\n CLDRHOMESET = " + cldrHomeSet);
@@ -85,6 +88,7 @@ public class CLDRConfigImpl extends CLDRConfig {
             propFile = new File(homeFile, "cldr.properties");
         }
 
+        SurveyLog.setDir(homeFile);
         
 //        SurveyLog.logger.info("SurveyTool starting up. root=" + new File(cldrHome).getAbsolutePath() + " time="+setupTime);
 

@@ -84,7 +84,7 @@ public class XPathTable {
     	String sql = null;
     	Connection conn = null;
     	try {
-    		conn = sm.dbUtils.getDBConnection();
+    		conn = DBUtils.getInstance().getDBConnection();
     		SurveyLog.debug("XPathTable DB: initializing... conn: "+conn+", db:"+CLDR_XPATHS+", id:"+DBUtils.DB_SQL_IDENTITY);
     		Statement s = conn.createStatement();
     		if(s==null) {
@@ -165,7 +165,7 @@ public class XPathTable {
         Connection conn = null;
         PreparedStatement queryStmt = null;
         try {
-            conn = sm.dbUtils.getDBConnection();
+            conn = DBUtils.getInstance().getDBConnection();
             if (stringToId.size() == 0) { // Only load the entire stringToId map once.
                 queryStmt = conn.prepareStatement("SELECT id,xpath FROM " + CLDR_XPATHS);
                 // First, try to query it back from the DB.
@@ -244,7 +244,7 @@ public class XPathTable {
     		if(inConn!=null) {
     			conn = inConn;
     		} else {
-    			conn = sm.dbUtils.getDBConnection();
+    			conn = DBUtils.getInstance().getDBConnection();
     		}
     		queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + 
                     " where XPATH="+DBUtils.DB_SQL_BINTRODUCER+" ? "+DBUtils.DB_SQL_BINCOLLATE);

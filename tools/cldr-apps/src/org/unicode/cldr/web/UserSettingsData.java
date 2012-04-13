@@ -111,7 +111,7 @@ public class UserSettingsData {
     private void setupDB() throws SQLException {
 
         String sql = null;
-        Connection conn = sm.dbUtils.getDBConnection();
+        Connection conn = DBUtils.getInstance().getDBConnection();
         CLDRProgressTask progress = sm.openProgress("Setup " + UserSettingsData.class.getName()+ " database");
         try{
 

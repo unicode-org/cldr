@@ -1190,9 +1190,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<meta name=\"gigabot\" content=\"noarchive\">");
         ctx.println("<meta name=\"gigabot\" content=\"nofollow\">");
         ctx.println("<link rel='stylesheet' type='text/css' href='"+ ctx.context("surveytool.css") + "'>");
-
         ctx.includeAjaxScript(AjaxType.STATUS);
-        ctx.println("<title>Survey Tool | ");
+        ctx.println("<title>CLDR " + getNewVersion() + " Survey Tool: ");
         if(ctx.getLocale() != null) {
             ctx.print(ctx.getLocale().getDisplayName() + " | ");
         }

@@ -6,7 +6,7 @@
 <body>
 	<div id="toparea">
     <img id="stlogo" width="44" height="48" src='<%= WebContext.context(request, "STLogo"+".png") %>' title="[ST Logo]" alt="[ST Logo]" />
-    <h4 id="toptitle">Survey Tool <%= ctx.sm.phase().toString() %> for CLDR <%= ctx.sm.getNewVersion() %>: <b><%
+    <h4 id="toptitle" title='Phase: <%= ctx.sm.phase().toString() %>'>CLDR <%= ctx.sm.getNewVersion() %> Survey Tool: <b><%
 	    if(ctx!=null && ctx.getLocale() != null) {
 	        %><%= ctx.getLocale().getDisplayName(ctx.displayLocale) + " | " %><%
 	    }

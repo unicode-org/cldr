@@ -32,6 +32,9 @@ function stStopPropagation(e) {
 	}
 }
 
+function replaceHash(hash) {
+	window.location.replace("#"+hash);
+}
 var disconnected = false;
 
 var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
@@ -1068,7 +1071,7 @@ dojo.ready(function() {
 //			return;
 //		}
 		if(tr && tr.sethash) {
-			window.location.hash=tr.sethash;
+			replaceHash(tr.sethash);
 		}
 		setLastShown(hideIfLast);
 

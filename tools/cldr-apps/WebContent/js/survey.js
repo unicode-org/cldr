@@ -397,6 +397,14 @@ function handleDisconnect(why, json) {
 		var oneword = dojo.byId("progress_oneword");
 		if(oneword) {
 			oneword.title = "Disconnected: " + why;
+			oneword.onclick = function() {
+				var p = dojo.byId("progress");	
+				var chunk = document.createElement("pre");
+				chunk.appendChild(document.createTextNode(why));
+				p.appendChild(chunk);
+				oneword.onclick=null;
+				return false;
+			};
 		}
 		if(json) {
 			stdebug("JSON: " + json.toString());
@@ -922,8 +930,17 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	listenFor(button,"click",
 			function(e){ handleWiredClick(tr,theRow,vHash,box,button); stStopPropagation(e); return false; });
 	
-	if(theRow.voteVhash==vHash && !box) {
+	// proposal issues
+	if(tr.myProposal) {
+		if(button == tr.myProposal.button) {
+			button.className = "ichoice-x";
+			tr.lastOn = button;
+		} else {
+			button.className = "ichoice-o";
+		}
+	} else if((theRow.voteVhash==vHash) && !box) {
 		button.className = "ichoice-x";
+		tr.lastOn = button;
 	} else {
 		button.className = "ichoice-o";
 	}
@@ -1235,8 +1252,17 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 	if(!ourItem) {
 		ourDiv = document.createElement("div");
 		var newButton = cloneAnon(dojo.byId('proto-button'));
+		if(tr.myProposal) {
+			children[config.othercell].removeChild(tr.myProposal);
+		}
+		tr.myProposal = ourDiv;
+		tr.myProposal.value = value;
+		tr.myProposal.button = newButton;
 		if(newButton) {
 			newButton.value=value;
+			if(tr.lastOn) {
+				tr.lastOn.className = "ichoice-o";
+			}
 			wireUpButton(newButton,tr,theRow,"[retry]", {"value":value});
 			ourDiv.appendChild(newButton);
 		}
@@ -1245,11 +1271,6 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 		span.dir = tr.theTable.json.dir;
 		ourDiv.appendChild(h3);
 		
-		if(tr.myProposal) {
-			children[config.othercell].removeChild(tr.myProposal);
-		}
-		tr.myProposal = ourDiv;
-		tr.myProposal.value = value;
 		children[config.othercell].appendChild(tr.myProposal);
 	} else {
 		ourDiv = ourItem.div;
@@ -2157,6 +2178,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			console.log("Error in ajax post [handleWiredClick] ",e.message);
 			//              e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
 			myUnDefer();
+			handleDisconnect("handleWiredClick:"+e.message, json);
 		}
 	};
 	var errorHandler = function(err, ioArgs){

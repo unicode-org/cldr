@@ -86,13 +86,18 @@ public class ExampleGenerator {
 
     private String backgroundStart = "<span class='cldr_substituted'>";
     private String backgroundEnd = "</span>";
-    private String exampleStart = "<div class='cldr_example'>";
-    private String exampleEnd = "</div>";
     
+    private static final String exampleStart = "<div class='cldr_example'>";
+    private static final String exampleEnd = "</div>";
+    private static final String startItalic = "<i>";
+    private static final String endItalic = "</i>";
+
     private static final String backgroundStartSymbol = "\uE234";
     private static final String backgroundEndSymbol = "\uE235";
     private static final String backgroundTempSymbol = "\uE236";
     private static final String exampleSeparatorSymbol = "\uE237";
+    private static final String startItalicSymbol = "\uE238";
+    private static final String endItalicSymbol = "\uE239";
 
     private boolean verboseErrors = false;
 
@@ -739,7 +744,7 @@ public class ExampleGenerator {
             } else {
                 String id = parts.findAttributeValue("dateFormatItem", "id");
                 if ("NEW".equals(id) || value == null) {
-                    result = "<i>n/a</i>";
+                    result = startItalicSymbol + "n/a" + endItalicSymbol;
                     return result;
                 } else {
                     dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
@@ -871,6 +876,8 @@ public class ExampleGenerator {
                 .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
                 .replace(exampleStart, exampleEnd + exampleStart)
                 .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+                .replace(startItalicSymbol, startItalic)
+                .replace(endItalicSymbol, endItalic)
                 + exampleEnd
                 ;
     }

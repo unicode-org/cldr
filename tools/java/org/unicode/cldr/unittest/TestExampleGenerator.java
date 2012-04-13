@@ -28,7 +28,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, englishFile, CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         checkPathValue(exampleGenerator, "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]", "EEEE d MMMMl y'x'G");
         
-        for (String xpath : cldrFile) {
+        for (String xpath : cldrFile.fullIterable()) {
             String value = cldrFile.getStringValue(xpath);
             checkPathValue(exampleGenerator, xpath, value);
             if (xpath.contains("count=\"one\"")) {
@@ -48,6 +48,11 @@ public class TestExampleGenerator extends TestFmwk {
                     if (text.contains("Exception")) {
                         errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text);
                     } else if (!alreadySeen.contains(text)){
+                        if (text.contains("n/a")) {
+                            if (text.contains("&lt;")) {
+                                errln("Text not quoted correctly:" + "\t" + zoomed + "\t" + text + "\t" + xpath);
+                            }
+                        }
                         if (text.contains("&lt;")) {
                             int x = 0; // for debugging
                         }
@@ -63,12 +68,16 @@ public class TestExampleGenerator extends TestFmwk {
         try {
             String text = exampleGenerator.getHelpHtml(xpath, value);
             if (text == null) {
-            } if (text.contains("Exception")) {
+                // skip
+            } else if (text.contains("Exception")) {
                 errln("getHelpHtml\t" + text);
             } else {
                 logln("getExampleHtml\t" + "\t" + text + "\t" + xpath);
             }
         } catch (Exception e) {
+            if (false) {
+                e.printStackTrace();
+            }
             errln("getHelpHtml\t" + e.getMessage());
         }
     }

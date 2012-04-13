@@ -26,7 +26,10 @@ public class CLDRConfigImpl extends CLDRConfig {
     private Object supplementalDataInfo;
 
     CLDRConfigImpl() {
-        System.err.println(getClass().getName()+".cldrHome="+cldrHome+", stack=\n"+StackTracker.currentStack()+"\n CLDRHOMESET = " + cldrHomeSet);
+        System.err.println(getClass().getName()+".cldrHome="+cldrHome);
+        if(cldrHomeSet==false) {
+            System.err.println("[cldrHome not set] stack=\n"+StackTracker.currentStack()+"\n CLDRHOMESET = " + cldrHomeSet);
+        }
     }
 
     public static void setCldrHome(String initParameter) {

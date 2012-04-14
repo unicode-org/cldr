@@ -82,6 +82,12 @@ define({
 			no_exceptions: "(no exceptions.)",
 			adminExceptionDupList: "List of other instances:",
 			clickToSelect: "select",
+			
+			recentLoc: "Locale",
+			recentXpath: "XPath",
+			recentValue: "Value",
+			recentWhen: "When",
+			recentOrg: "Organization",
 
 			testOkay: "has no errors or warnings",
 			testWarn: "has warnings",

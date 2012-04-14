@@ -67,7 +67,7 @@ Switch to:
 %>
 	<h1>SurveyTool Statistics: <%=title%></h1>
 
-	Total Data Submitted: <%=dbUtils
+	Total Items Submitted: <%=dbUtils
 						.sqlQuery(conn,
 								"select count(*) from cldr_votevalue where submitter is not null")%> <br/>
 
@@ -89,15 +89,14 @@ Switch to:
 
 	<h2><%=title%></h2>
 	<table style='border: 1px solid black; cell-padding: 3px;'> 
-		<tr><th>Locale</th><th>Data</th><th>Votes</th>
+		<tr><th>Locale</th><th>Data</th>
 		<%
 			for (String[] r : submits) {
 		%>
 			
 	<tr>
-		<th style='background-color: #ddd; text-align: left;'><%=r[0] + ": " + new ULocale(r[0]).getDisplayName()%></th>
+		<th style='background-color: #ddd; text-align: left;'><a href='survey?_=<%=r[0]%>'><%=r[0] + ": " + new ULocale(r[0]).getDisplayName()%></a></th>
 		<td><%=r[1]%></td>
-		<td><%=r[2]%></td>
 	</tr>
 	<%
 		}
@@ -132,7 +131,7 @@ Switch to:
 	var hei = <%= hei %>;
 		var r = Raphael("holder");
 		var barchart = r.g.barchart(<%=offh%>, <%=offv%>, wid,hei, 
-				[ [ <%for (String[] r : submits) {%><%=r[1]%>, <%}%> ], [ <%for (String[] r : submits) {%><%=r[2]%>, <%}%> ]]);
+				[ [ <%for (String[] r : submits) {%><%=r[1]%>, <%}%> ]]);
 		<%int ii = 0;
 					int ea = wid / submits.length;
 					for (String[] r : submits) {
@@ -140,9 +139,9 @@ Switch to:
 						int h = ((ea) * (ii - 1)) + offh + (ea / 2);
 						int v = hei + offv;%>
 			var t<%=ii%> = r.text(<%=h%>,<%=v%>, "<%=r[0]%>");
-			var n<%=ii%> = r.text(<%=h%>,<%=v + 20%>, "<%=r[1]%>\n<%=r[2]%>");
+			var n<%=ii%> = r.text(<%=h%>,<%=v + 20%>, "<%=r[1]%>");
 		<%}%>
-		var nxx = r.text(<%=offh-4%>,<%=hei+offv + 20%>, "d\nv");
+		var nxx = r.text(<%=offh-4%>,<%=hei+offv + 20%>, "v");
 	</script>
 <%
 	}
@@ -174,10 +173,18 @@ showstats("dholder");
 </script>
 
 
-<hr>
-
 
 <i>Graphs by <a href='http://g.raphaeljs.com/'>gRaphaël</a></i>
+<hr>
+<h3>Recently submitted items</h3>
+
+<div id='submitItems'>
+</div>
+...
+
+<script>
+showRecent('submitItems')
+</script>
 
 <hr>
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool</a>

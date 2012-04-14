@@ -132,6 +132,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
     private static final Object WHAT_STATS_BYDAY = "stats_byday";
+    private static final Object WHAT_RECENT_ITEMS = "recent_items";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list of prefs OK to get/set
 
@@ -200,6 +201,11 @@ public class SurveyAjax extends HttpServlet {
                 JSONWriter r = newJSONStatus(sm);
                 JSONObject query = DBUtils.queryToJSON("select count(*) as count ,last_mod from cldr_votevalue group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
                 r.put("byday",query);
+                send(r,out);
+            } else if(what.equals(WHAT_RECENT_ITEMS)) {
+                JSONWriter r = newJSONStatus(sm);
+                JSONObject query = DBUtils.queryToJSON("select cldr_votevalue.locale,cldr_xpaths.xpath,cldr_users.org, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter  order by cldr_votevalue.last_mod desc limit 15");
+                r.put("recent",query);
                 send(r,out);
             } else if(what.equals(WHAT_STATUS)) {
                 sendStatus(sm,out,loc);

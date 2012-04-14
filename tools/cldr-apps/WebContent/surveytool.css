@@ -2036,4 +2036,22 @@ div#pu-content {
 	font: small Georgia, "Times New Roman", Times, serif;
 }
 
+.recentList {
+	display: table;
+}
 
+.recentList div {
+	display: table-row;
+}
+
+.recentList div a,
+.recentList div b,
+.recentList div span {
+	display: table-cell;
+	padding: 2px;
+	border-bottom: 1px solid gray;
+}
+
+.recentList div b {
+	background-color: #ddd;
+}

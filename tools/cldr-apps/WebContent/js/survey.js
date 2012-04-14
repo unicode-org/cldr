@@ -1928,11 +1928,13 @@ function insertRows(theDiv,xpath,session,json) {
 // move this into showRows to handle multiple containers.
 
 function loadStui(loc) {
-	stui  = dojo.i18n.getLocalization("surveyTool", "stui", "en" /* TODO: lame */);
-	stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
-	stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
-	stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
-	
+	if(!stui.ready) {
+		stui  = dojo.i18n.getLocalization("surveyTool", "stui");
+		stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
+		stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
+		stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
+		stui.ready=true;
+	}
 	return stui;
 }
 function createChunk(text, tag, className) {
@@ -1983,7 +1985,7 @@ function showRows(container,xpath,session,coverage) {
 	if(!coverage) coverage="";
 	var theDiv = dojo.byId(container);
 
-	theDiv.stui = loadStui("en");
+	theDiv.stui = loadStui();
 	theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
 	theDiv.appendChild(theDiv.theLoadingMessage);
 	
@@ -2257,7 +2259,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 // admin
 function loadAdminPanel() {
 	if(!vap) return;
-	loadStui("en");
+	loadStui();
 	var adminStuff=dojo.byId("adminStuff");
 	if(!adminStuff) return;
 	
@@ -2618,6 +2620,7 @@ function loadAdminPanel() {
 /// stats
 function showstats(hname) {
 	dojo.ready(function() {
+		loadStui();
 		var ourUrl = contextPath + "/SurveyAjax?what=stats_byday";
 		var errorHandler = function(err, ioArgs) {
 			handleDisconnect('Error in showstats: ' + err + ' response '
@@ -2722,4 +2725,84 @@ function setStyles() {
     }
     var hideRegex = new RegExp(hideRegexString);
     changeStyle(hideRegex);
+}
+
+function showRecent(divName, locale, user) {
+	dojo.ready(function() {
+		loadStui();
+		var div = dojo.byId(divName);
+		div.className = "recentList";
+		div.update = function() {
+		var ourUrl = contextPath + "/SurveyAjax?what=recent_items";
+		var errorHandler = function(err, ioArgs) {
+			handleDisconnect('Error in showrecent: ' + err + ' response '
+			+ ioArgs.xhr.responseText);
+		};
+		showLoader(null, "Loading recent items");
+		var loadHandler = function(json) {
+			try {
+				if (json&&json.recent) {
+					
+					var frag = document.createDocumentFragment();
+
+					var header = json.recent.header;
+					var data = json.recent.data;
+
+					{
+						var rowDiv = document.createElement("div");
+						frag.appendChild(rowDiv);
+						
+						rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
+						rowDiv.appendChild(createChunk(stui_str("recentXpath"),"b"));
+						rowDiv.appendChild(createChunk(stui_str("recentValue"),"b"));
+						rowDiv.appendChild(createChunk(stui_str("recentWhen"),"b"));
+					}
+					
+					for(var q in data) {
+						var row = data[q];
+						
+						var loc = row[header.LOCALE];
+						var org = row[header.ORG];
+						var last_mod = row[header.LAST_MOD];
+						var xpath = row[header.XPATH];
+						var xpath_hash = row[header.XPATH_STRHASH];
+						var value = row[header.VALUE];
+						
+						var rowDiv = document.createElement("div");
+						frag.appendChild(rowDiv);
+						
+						rowDiv.appendChild(createChunk(loc,"span","recentLoc"));
+						var xpathItem;
+						rowDiv.appendChild(xpathItem = createChunk(xpath,"a","recentXpath"));
+						xpathItem.href = "survey?_="+loc+"&strid="+xpath_hash;
+						rowDiv.appendChild(createChunk(value,"span","value recentValue"));
+						rowDiv.appendChild(createChunk(last_mod,"span","recentWhen"));
+					}
+					
+					
+					removeAllChildNodes(div);
+					div.appendChild(frag);
+					
+					
+					hideLoader(null);
+				} else {
+					handleDisconnect("Failed to load JSON recent items",json);
+				}
+			} catch (e) {
+			console.log("Error in ajax get ", e.message);
+			console.log(" response: " + text);
+			handleDisconnect(" exception in getrecent: " + e.message,null);
+			}
+		};
+	var xhrArgs = {
+		url : ourUrl,
+		handleAs : "json",
+		load : loadHandler,
+		error : errorHandler
+	};
+	queueXhr(xhrArgs);
+		};
+		
+	div.update();
+	});
 }

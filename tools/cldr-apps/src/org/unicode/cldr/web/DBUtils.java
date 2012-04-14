@@ -963,18 +963,29 @@ public class DBUtils {
         JSONObject header = new JSONObject();
         JSONArray data  = new JSONArray();
         
+        int hasxpath = -1;
+        
         for(int i=1;i<=cc;i++) {
-            header.put(rsm.getColumnName(i).toUpperCase(), i-1);
+            String colname = rsm.getColumnName(i).toUpperCase();
+            if(colname.equals("XPATH")) hasxpath=i;
+            header.put(colname, i-1);
+        }
+        if(hasxpath>=0) {
+            header.put("XPATH_STRHASH",cc);
         }
         
         ret.put("header", header);
         
         while(rs.next()) {
             JSONArray item = new JSONArray();
+            String xpath = null;
             for(int i=1;i<=cc;i++) {
                 String v;
                 try {
                     v = rs.getString(i);
+                    if(i==hasxpath) {
+                        xpath = v;
+                    }
                 } catch(SQLException se) {
                     if(se.getSQLState().equals("S1009")) {
                         v="0000-00-00 00:00:00";
@@ -992,6 +1003,9 @@ public class DBUtils {
                 } else {
                     item.put(false);
                 }
+            }
+            if(hasxpath>=0 && xpath!=null) {
+                item.put(XPathTable.getStringIDString(xpath)); // add XPATH_STRHASH column
             }
             data.put(item);
         }

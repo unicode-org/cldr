@@ -1977,6 +1977,7 @@ function processHash() {
 			}
 		}
 	}
+	window.processHash = function(){};
 }
 ////////
 /// showRows() ..

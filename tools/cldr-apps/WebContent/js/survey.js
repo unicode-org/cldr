@@ -1475,7 +1475,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 }
 
 function updateRow(tr, theRow) {
-	if(!tr.helpDiv) {
+	if(!tr.helpDiv && theRow.displayHelp) {
 		// this also marks this row as a 'help parent'
 		tr.helpDiv = cloneAnon(dojo.byId("proto-help"));
 		tr.helpDiv.innerHTML += theRow.displayHelp;
@@ -1602,10 +1602,14 @@ function updateRow(tr, theRow) {
 	
 	
 	if(!children[config.comparisoncell].isSetup) {
-		children[config.comparisoncell].appendChild(document.createTextNode(theRow.displayName));
-		if(theRow.displayExample) {
-			var theExample = appendExample(children[config.comparisoncell], theRow.displayExample);
-			listenToPop(null,tr,theExample);
+		if(theRow.displayName) {
+			children[config.comparisoncell].appendChild(document.createTextNode(theRow.displayName));
+			if(theRow.displayExample) {
+				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample);
+				listenToPop(null,tr,theExample);
+			}
+		} else {
+			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}
 		listenToPop(null,tr,children[config.comparisoncell]);
 		children[config.comparisoncell].isSetup=true;

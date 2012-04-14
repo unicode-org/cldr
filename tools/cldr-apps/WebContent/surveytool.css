@@ -1702,36 +1702,42 @@ span.d-sort-size {
 }
 
 .d-dr-approved {
+    vertical-align: top;
 	width: 16px;
 	height: 16px;
 	background: url(okay.png) no-repeat center center;
 }
 
 .d-dr-contributed {
+    vertical-align: top;
 	width: 16px;
 	height: 16px;
 	background: url(conf.png) no-repeat center center;
 }
 
 .d-dr-provisional {
+    vertical-align: top;
 	width: 16px;
 	height: 16px;
 	background: url(conf2.png) no-repeat center center;
 }
 
 .d-dr-unconfirmed {
+    vertical-align: top;
 	width: 16px;
 	height: 16px;
 	background: url(ques.png) no-repeat center center;
 }
 
 .d-dr-missing {
+    vertical-align: top;
 	width: 16px;
 	height: 16px;
 	background: url(bar1.png) no-repeat center center;
 }
 
 .d-code {
+    vertical-align: top;
 	font: bold small "Courier New", Courier, mono;
 	vertical-align: middle;
 }
@@ -1743,19 +1749,22 @@ span.d-sort-size {
 }
 
 .d-vo-false {
-	width: 16px;
+    text-align: center;
+    width: 16px;
 	height: 16px;
 	background: url(bar0.png) no-repeat center center;
 }
 
 .d-vo-true {
+	text-align: center;
 	width: 16px;
 	height: 16px;
 	background: url(vote.png) no-repeat center center;
 }
 
 .d-no-vo-false {
-	background: #9999d0;
+    text-align: center;
+    background: #9999d0;
 }
 
 /*.d-vo-false:hover, .d-vo-true:hover,

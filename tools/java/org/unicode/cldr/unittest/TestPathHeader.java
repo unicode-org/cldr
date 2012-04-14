@@ -9,6 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -50,7 +52,14 @@ public class TestPathHeader extends TestFmwk {
     static PathHeader.Factory         pathHeaderFactory = PathHeader.getFactory(english);
     private EnumSet<PageId> badZonePages =EnumSet.of(PageId.UnknownT);
 
-
+    public void TestVariant() {
+        PathHeader p1 = pathHeaderFactory.fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]");
+        PathHeader p2 = pathHeaderFactory.fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"]");
+        assertNotEquals("variants", p1, p2);
+        assertNotEquals("variants", p1.toString(), p2.toString());
+            //Code Lists  Languages   Arabic Script   ug-variant
+    }
+    
     public void Test4587() {
         String test = "//ldml/dates/timeZoneNames/metazone[@type=\"Pacific/Wallis\"]/short/standard";
         PathHeader ph = pathHeaderFactory.fromPath(test);
@@ -135,9 +144,7 @@ public class TestPathHeader extends TestFmwk {
         Set<PathHeader> pathHeaders = new TreeSet<PathHeader>();
         for (String path : nativeFile.fullIterable()) {
             PathHeader p = pathHeaderFactory.fromPath(path);
-            if (p.getSection().startsWith("Time")) {
-                pathHeaders.add(p);
-            }
+            pathHeaders.add(p);
         }
         return pathHeaders;
     }
@@ -217,20 +224,43 @@ public class TestPathHeader extends TestFmwk {
 
     public void TestPathDescriptionCompleteness() {
         PathDescription pathDescription = new PathDescription(supplemental, english, null, null, PathDescription.ErrorHandling.CONTINUE);
+        Matcher normal = Pattern.compile("http://cldr.org/translation/[a-zA-Z0-9]").matcher("");
+        Set<String> alreadySeen = new HashSet<String>();
+        PathStarrer starrer = new PathStarrer();
+        
+        checkPathDescriptionCompleteness(pathDescription, normal, "//ldml/numbers/defaultNumberingSystem", alreadySeen, starrer);
         for (PathHeader pathHeader : getPathHeaders(english)) {
-            String path = pathHeader.getOriginalPath();
-            String value = english.getStringValue(path);
-            String description = pathDescription.getDescription(path, value, null, null);
-            if (description == null) {
-                errln("Path has no description:\t" + value + "\t" + path);
-            } else if (!description.contains("http://")) {
-                errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
-            } else if (description == PathDescription.MISSING_DESCRIPTION) {
-                logln("Fallback Description:\t" + value + "\t" + path);
+            final SurveyToolStatus surveyToolStatus = pathHeader.getSurveyToolStatus();
+            if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
+                continue;
             }
+            String path = pathHeader.getOriginalPath();
+            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen, starrer);
         }
     }
-    
+
+    public void checkPathDescriptionCompleteness(PathDescription pathDescription, Matcher normal,
+            String path, Set<String> alreadySeen, PathStarrer starrer) {
+        String value = english.getStringValue(path);
+        String description = pathDescription.getDescription(path, value, null, null);
+        String starred = starrer.set(path);
+        if (alreadySeen.contains(starred)) {
+            return;
+        } else if (description == null) {
+            errln("Path has no description:\t" + value + "\t" + path);
+        } else if (!description.contains("http://")) {
+            errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
+        } else if (!normal.reset(description).find()) {
+            warnln("Description has generic URL, fix to be specific:\t" + description + "\t" + value + "\t" + path);
+        } else if (description == PathDescription.MISSING_DESCRIPTION) {
+            warnln("Fallback Description:\t" + value + "\t" + path);
+        } else {
+            return;
+        }
+        // Add if we had a problem, keeping us from being overwhelmed with errors.
+        alreadySeen.add(starred);
+    }
+
     public void TestTerritoryOrder() {
         final Set<String> goodAvailableCodes = TestInfo.getInstance().getStandardCodes().getGoodAvailableCodes("territory");
         Set<String> results = showContained("001", 0, new HashSet(goodAvailableCodes));

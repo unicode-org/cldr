@@ -391,24 +391,25 @@ public class PathHeader implements Comparable<PathHeader> {
         /**
          * Return the PathHeader for a given path. Thread-safe.
          */
-        public PathHeader fromPath(String distinguishingPath) {
-            if (distinguishingPath == null) {
+        public PathHeader fromPath(String path) {
+            if (path == null) {
                 throw new NullPointerException("Path cannot be null");
             }
             synchronized (cache) {
-                PathHeader old = cache.get(distinguishingPath);
+                PathHeader old = cache.get(path);
                 if (old != null) {
                     return old;
                 }
             }
             synchronized (lookup) {
+                String cleanPath = path;
                 // special handling for alt
                 String alt = null;
-                int altPos = distinguishingPath.indexOf("[@alt=");
+                int altPos = cleanPath.indexOf("[@alt=");
                 if (altPos >= 0) {
-                    if (ALT_MATCHER.reset(distinguishingPath).find()) {
-                        distinguishingPath = distinguishingPath.substring(0, ALT_MATCHER.start())
-                        + distinguishingPath.substring(ALT_MATCHER.end());
+                    if (ALT_MATCHER.reset(cleanPath).find()) {
+                        cleanPath = cleanPath.substring(0, ALT_MATCHER.start())
+                        + cleanPath.substring(ALT_MATCHER.end());
                         alt = ALT_MATCHER.group(1);
                         int pos = alt.indexOf("proposed");
                         if (pos >= 0) {
@@ -420,13 +421,13 @@ public class PathHeader implements Comparable<PathHeader> {
                         throw new IllegalArgumentException();
                     }
                 }
-                RawData data = lookup.get(distinguishingPath, null, args);
+                RawData data = lookup.get(cleanPath, null, args);
                 if (data == null) {
                     return null;
                 }
                 counter.add(data, 1);
                 if (!samples.containsKey(data)) {
-                    samples.put(data, distinguishingPath);
+                    samples.put(data, cleanPath);
                 }
                 try {
                     PathHeader result = new PathHeader(
@@ -435,11 +436,11 @@ public class PathHeader implements Comparable<PathHeader> {
                             fix(data.header, data.headerOrder), order,
                             fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), order,
                             data.status,
-                            distinguishingPath);
+                            path);
                     synchronized (cache) {
-                        PathHeader old = cache.get(distinguishingPath);
+                        PathHeader old = cache.get(path);
                         if (old == null) {
-                            cache.put(distinguishingPath, result);
+                            cache.put(path, result);
                         } else {
                             result = old;
                         }
@@ -455,12 +456,12 @@ public class PathHeader implements Comparable<PathHeader> {
                                     = new SectionPage(result.sectionId,
                                             result.pageId));
                         }
-                        sectionPageToPaths.put(sectionPage, distinguishingPath);
+                        sectionPageToPaths.put(sectionPage, path);
                     }
                     return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
-                            "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + distinguishingPath,
+                            "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + cleanPath,
                             e);
                 }
             }

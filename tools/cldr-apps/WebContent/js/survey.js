@@ -2729,6 +2729,12 @@ function setStyles() {
 }
 
 function showRecent(divName, locale, user) {
+	if(!locale) {
+		locale='';
+	}
+	if(!user) {
+		user='';
+	}
 	dojo.ready(function() {
 		loadStui();
 		var div = dojo.byId(divName);

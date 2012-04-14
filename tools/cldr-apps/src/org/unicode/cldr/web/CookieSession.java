@@ -614,6 +614,7 @@ public class CookieSession {
 
     public static synchronized CookieSession checkForAbuseFrom(String userIP,
             Hashtable<String, Object> BAD_IPS, String userAgent) {
+        if(userAgent==null) userAgent="X-None";
         if(BAD_IPS.containsKey(userIP)) {
             BadUserRecord bur = (BadUserRecord)BAD_IPS.get(userIP);
             bur.hit(userAgent);

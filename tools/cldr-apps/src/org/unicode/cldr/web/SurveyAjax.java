@@ -188,6 +188,10 @@ public class SurveyAjax extends HttpServlet {
         String what = request.getParameter(REQ_WHAT);
         String sess = request.getParameter(SurveyMain.QUERY_SESSION);
         String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
+        CLDRLocale l = null;
+        if(loc!=null&&!loc.isEmpty()) {
+            l  = CLDRLocale.getInstance(loc);
+        }
         String xpath = request.getParameter(SurveyForum.F_XPATH);
         String vhash = request.getParameter("vhash");
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
@@ -204,7 +208,14 @@ public class SurveyAjax extends HttpServlet {
                 send(r,out);
             } else if(what.equals(WHAT_RECENT_ITEMS)) {
                 JSONWriter r = newJSONStatus(sm);
-                JSONObject query = DBUtils.queryToJSON("select cldr_votevalue.locale,cldr_xpaths.xpath,cldr_users.org, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter  order by cldr_votevalue.last_mod desc limit 15");
+                String q1 = "select cldr_votevalue.locale,cldr_xpaths.xpath,cldr_users.org, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where ";
+                String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter  order by cldr_votevalue.last_mod desc limit 15";
+                JSONObject query;
+                if(l==null) {
+                    query = DBUtils.queryToJSON(q1+q2 );
+                } else {
+                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.locale=? AND " + q2, l );
+                }
                 r.put("recent",query);
                 send(r,out);
             } else if(what.equals(WHAT_STATUS)) {

@@ -88,6 +88,7 @@ define({
 			recentValue: "Value",
 			recentWhen: "When",
 			recentOrg: "Organization",
+			recentNone: "No items to show.",
 
 			testOkay: "has no errors or warnings",
 			testWarn: "has warnings",

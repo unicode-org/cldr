@@ -2733,7 +2733,7 @@ function showRecent(divName, locale, user) {
 		var div = dojo.byId(divName);
 		div.className = "recentList";
 		div.update = function() {
-		var ourUrl = contextPath + "/SurveyAjax?what=recent_items";
+		var ourUrl = contextPath + "/SurveyAjax?what=recent_items&_="+locale+"&user="+user;
 		var errorHandler = function(err, ioArgs) {
 			handleDisconnect('Error in showrecent: ' + err + ' response '
 			+ ioArgs.xhr.responseText);
@@ -2748,37 +2748,41 @@ function showRecent(divName, locale, user) {
 					var header = json.recent.header;
 					var data = json.recent.data;
 
-					{
-						var rowDiv = document.createElement("div");
-						frag.appendChild(rowDiv);
-						
-						rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
-						rowDiv.appendChild(createChunk(stui_str("recentXpath"),"b"));
-						rowDiv.appendChild(createChunk(stui_str("recentValue"),"b"));
-						rowDiv.appendChild(createChunk(stui_str("recentWhen"),"b"));
-					}
 					
-					for(var q in data) {
-						var row = data[q];
+					if(data.length==0) {
+						frag.appendChild(createChunk(stui_str("recentNone"),"i"));
+					} else {
+						{
+							var rowDiv = document.createElement("div");
+							frag.appendChild(rowDiv);
+							
+							rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
+							rowDiv.appendChild(createChunk(stui_str("recentXpath"),"b"));
+							rowDiv.appendChild(createChunk(stui_str("recentValue"),"b"));
+							rowDiv.appendChild(createChunk(stui_str("recentWhen"),"b"));
+						}
 						
-						var loc = row[header.LOCALE];
-						var org = row[header.ORG];
-						var last_mod = row[header.LAST_MOD];
-						var xpath = row[header.XPATH];
-						var xpath_hash = row[header.XPATH_STRHASH];
-						var value = row[header.VALUE];
-						
-						var rowDiv = document.createElement("div");
-						frag.appendChild(rowDiv);
-						
-						rowDiv.appendChild(createChunk(loc,"span","recentLoc"));
-						var xpathItem;
-						rowDiv.appendChild(xpathItem = createChunk(xpath,"a","recentXpath"));
-						xpathItem.href = "survey?_="+loc+"&strid="+xpath_hash;
-						rowDiv.appendChild(createChunk(value,"span","value recentValue"));
-						rowDiv.appendChild(createChunk(last_mod,"span","recentWhen"));
+						for(var q in data) {
+							var row = data[q];
+							
+							var loc = row[header.LOCALE];
+							var org = row[header.ORG];
+							var last_mod = row[header.LAST_MOD];
+							var xpath = row[header.XPATH];
+							var xpath_hash = row[header.XPATH_STRHASH];
+							var value = row[header.VALUE];
+							
+							var rowDiv = document.createElement("div");
+							frag.appendChild(rowDiv);
+							
+							rowDiv.appendChild(createChunk(loc,"span","recentLoc"));
+							var xpathItem;
+							rowDiv.appendChild(xpathItem = createChunk(xpath,"a","recentXpath"));
+							xpathItem.href = "survey?_="+loc+"&strid="+xpath_hash;
+							rowDiv.appendChild(createChunk(value,"span","value recentValue"));
+							rowDiv.appendChild(createChunk(last_mod,"span","recentWhen"));
+						}
 					}
-					
 					
 					removeAllChildNodes(div);
 					div.appendChild(frag);

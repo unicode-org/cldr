@@ -3011,16 +3011,16 @@ public class DataSection implements JSONString {
 
                 p.coverageValue = coverageValue;
 
-				DataRow superP = p; // getDataRow(type); // the 'parent' row
+				//DataRow superP = p; // getDataRow(type); // the 'parent' row
 				// (sans alt) - may be the same object
-				superP.coverageValue = coverageValue;
+				//superP.coverageValue = coverageValue;
 
-				if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
-				    if(superP!=p) {
-				        p.zoomOnly = superP.zoomOnly = true;
-				    }
-				}
-				p.confirmOnly = superP.confirmOnly = confirmOnly;
+//				if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
+//				    if(superP!=p) {
+//				        p.zoomOnly = superP.zoomOnly = true;
+//				    }
+//				}
+				p.confirmOnly =  confirmOnly;
 
 				if (isExtraPath) {
 					// Set up 'shim' tests, to display coverage
@@ -3029,9 +3029,6 @@ public class DataSection implements JSONString {
 				} else if (!isReferences) {
 					if (p.inheritedValue == null) {
 						p.updateInheritedValue(vettedParent);
-					}
-					if (superP.inheritedValue == null) {
-						superP.updateInheritedValue(vettedParent);
 					}
 				}
 
@@ -3060,24 +3057,18 @@ public class DataSection implements JSONString {
 				// Some special cases.. a popup menu of values
 				if (p.prettyPath.startsWith("layout/inText")) {
 					p.valuesList = LAYOUT_INTEXT_VALUES;
-					if(superP!=p) {
-					    superP.valuesList = p.valuesList;
-					}
 				} else if (p.prettyPath.contains("numberingSystems") || 
 						   p.prettyPath.contains("exemplarCharacters") ||
 						   p.prettyPath.contains("indexCharacters")) {
 					p.confirmOnly = true;
 				} else if (p.prettyPath.startsWith("layout/inList")) {
 					p.valuesList = LAYOUT_INLIST_VALUES;
-					if(superP!=p) {
-					    superP.valuesList = p.valuesList;
-					}
 				}
 
 				if (TRACE_TIME)
 					System.err.println("n05  " + (System.currentTimeMillis() - nextTime));
 
-				if ((superP.getDisplayName() == null) || (p.getDisplayName() == null)) {
+				if ((p.getDisplayName() == null)) {
 					canName = false; // disable 'view by name' if not all have
 					// names.
 				}
@@ -3139,7 +3130,6 @@ public class DataSection implements JSONString {
 						// p.hasInherited=false;
 					} else {
 						p.hasInherited = true;
-						superP.hasInherited = true;
 					}
 				} else {
 					if (!isInherited) {
@@ -3147,13 +3137,11 @@ public class DataSection implements JSONString {
 						if (altProposed != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
 							p.hasMultipleProposals = true;
 						}
-						superP.hasProps = true;
 					} else {
 						// inherited, proposed
 						// p.hasProps = true; // Don't mark as a proposal.
 						// superP.hasProps = true;
 						p.hasInherited = true;
-						superP.hasInherited = true;
 					}
 				}
 

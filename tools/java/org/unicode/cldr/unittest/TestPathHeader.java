@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -9,11 +10,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel2;
@@ -27,7 +28,6 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -57,9 +57,9 @@ public class TestPathHeader extends TestFmwk {
         PathHeader p2 = pathHeaderFactory.fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"]");
         assertNotEquals("variants", p1, p2);
         assertNotEquals("variants", p1.toString(), p2.toString());
-            //Code Lists  Languages   Arabic Script   ug-variant
+        //Code Lists  Languages   Arabic Script   ug-variant
     }
-    
+
     public void Test4587() {
         String test = "//ldml/dates/timeZoneNames/metazone[@type=\"Pacific/Wallis\"]/short/standard";
         PathHeader ph = pathHeaderFactory.fromPath(test);
@@ -149,6 +149,72 @@ public class TestPathHeader extends TestFmwk {
         return pathHeaders;
     }
 
+    public void TestPluralPaths() {
+        // do the following line once, when the file is opened
+        Set<String> filePaths = pathHeaderFactory.pathsForFile(english);
+
+        // check that English doesn't contain few or many
+        verifyContains(PageId.Currencies, filePaths, "many", false);
+        verifyContains(PageId.Patterns_for_Units, filePaths, "few", false);
+
+        // check that Arabic does contain few and many
+        filePaths = pathHeaderFactory.pathsForFile(info.getCldrFactory().make("ar", true));
+
+        verifyContains(PageId.Currencies, filePaths, "many", true);
+        verifyContains(PageId.Patterns_for_Units, filePaths, "few", true);
+    }
+
+    public void verifyContains(PageId pageId, Set<String> filePaths, String substring, boolean contains) {
+        String path;
+        path = findOneContaining(allPaths(pageId, filePaths), substring);
+        if (contains) {
+            if (path == null) {
+                errln("No path contains <" + substring + ">");
+            }
+        } else {
+            if (path != null) {
+                errln("Path contains <" + substring + ">\t" + path);
+            }
+        }
+    }
+
+    private String findOneContaining(Collection<String> allPaths, String substring) {
+        for (String path : allPaths) {
+            if (path.contains(substring)) {
+                return path;
+            }
+        }
+        return null;
+    }
+
+    public Set<String> allPaths(PageId pageId, Set<String> filePaths) {
+        Set<String> result = PathHeader.Factory.getCachedPaths(pageId.getSectionId(), pageId);
+        result.retainAll(filePaths);
+        return result;
+    }
+
+    public void TestUniqueness() {
+        CLDRFile nativeFile = factory.make("en", true);
+        Map<PathHeader, String> headerToPath = new HashMap();
+        Map<String, String> headerVisibleToPath = new HashMap();
+        for (String path : nativeFile.fullIterable()) {
+            PathHeader p = pathHeaderFactory.fromPath(path);
+            String old = headerToPath.get(p);
+            if (old == null) {
+                headerToPath.put(p, path);
+            } else if (!old.equals(path)){
+                errln("Collision with path " + p + "\t" + old + "\t" + path);
+            }
+            final String visible = p.toString();
+            old = headerVisibleToPath.get(visible);
+            if (old == null) {
+                headerVisibleToPath.put(visible, path);
+            } else if (!old.equals(path)){
+                errln("Collision with path " + visible + "\t" + old + "\t" + path);
+            }
+        }
+    }
+
     public void TestStatus() {
         CLDRFile nativeFile = factory.make("en", true);
         PathStarrer starrer = new PathStarrer();
@@ -227,7 +293,7 @@ public class TestPathHeader extends TestFmwk {
         Matcher normal = Pattern.compile("http://cldr.org/translation/[a-zA-Z0-9]").matcher("");
         Set<String> alreadySeen = new HashSet<String>();
         PathStarrer starrer = new PathStarrer();
-        
+
         checkPathDescriptionCompleteness(pathDescription, normal, "//ldml/numbers/defaultNumberingSystem", alreadySeen, starrer);
         for (PathHeader pathHeader : getPathHeaders(english)) {
             final SurveyToolStatus surveyToolStatus = pathHeader.getSurveyToolStatus();

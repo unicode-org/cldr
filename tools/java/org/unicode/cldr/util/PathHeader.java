@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.With.SimpleIterator;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -913,6 +915,20 @@ public class PathHeader implements Comparable<PathHeader> {
                 input = input.substring(0, functionStart) + temp + input.substring(argEnd + 1);
             }
             return input;
+        }
+        
+        /**
+         * Collect all the paths for a CLDRFile, and make sure that they have cached PathHeaders
+         * @param file
+         * @return immutable set of paths in the file
+         */
+        public Set<String> pathsForFile(CLDRFile file) {
+            // make sure we cache all the path headers
+            Set<String> filePaths = CollectionUtilities.addAll(file.fullIterable().iterator(), new HashSet<String>());
+            for (String path : filePaths) {
+                fromPath(path); // call to make sure cached
+            }
+            return Collections.unmodifiableSet(filePaths);
         }
     }
 

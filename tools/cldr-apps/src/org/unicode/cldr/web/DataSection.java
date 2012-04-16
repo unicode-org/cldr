@@ -2719,6 +2719,7 @@ public class DataSection implements JSONString {
 
             if(pageId != null ) {
                 allXpaths = PathHeader.Factory.getCachedPaths(pageId.getSectionId(), pageId);
+                allXpaths.retainAll(stf.getPathsForFile(locale));
             } else {
                 init(); // pay for the patterns
                 allXpaths = new HashSet<String>();

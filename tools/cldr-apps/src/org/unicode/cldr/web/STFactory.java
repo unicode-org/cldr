@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -251,10 +252,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             diskData=(XMLSource)sm.getDiskFactory().makeSource(locale.getBaseName()).freeze();
             sm.xpt.loadXPaths(diskData);
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
-            
-            for(String s : diskFile.fullIterable()) {
-                getPathHeader(s);
-            }
+            pathsForFile = phf.pathsForFile(diskFile); 
         }
 
         public final Stamp getStamp() {
@@ -617,6 +615,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public TestResultBundle getTestResultData(Map<String,String> options) {
             return gTestCache.getBundle(locale, options);
         }
+
+        public Set<String> getPathsForFile() {
+            return pathsForFile;
+        }
+        
+        private Set<String> pathsForFile = null;
     }
 
     /**
@@ -1053,5 +1057,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public CLDRFile getOldFile(CLDRLocale locale) {
         return get(locale).getOldFile();
+    }
+
+    public Set<String> getPathsForFile(CLDRLocale locale) {
+        return get(locale).getPathsForFile();
     }
 }

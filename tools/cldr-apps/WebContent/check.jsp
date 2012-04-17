@@ -126,9 +126,9 @@ cs.stuff.remove("SubmitLocale");
  <tt class='codebox'><%= loc + "</tt> <br/>Name:  " + loc.getDisplayName(SurveyMain.BASELINE_LOCALE)  %><br/>
 <%
 if(!cs.sm.getLocalesSet().contains(loc)) {
-	%><h1>Error: Locale doesn't exist in the Survey Tool.</h1><%
+	%><h1 class='ferrbox'>Error: Locale doesn't exist in the Survey Tool.</h1><%
 } else if(!UserRegistry.userCanModifyLocale(cs.user,loc)) {
-	%><h1>Error: <%= cs.user.name %> not authorized to submit data for this locale</h1><%
+	%><h1 class='ferrbox'>Error: <%= cs.user.name %> not authorized to submit data for this locale</h1><%
 } else {
 	cs.stuff.put("SubmitLocale",cf);
 %>

@@ -428,6 +428,16 @@ public class XPathTable {
         lastAtts.remove(LDMLConstants.ALT);
         return xpp.toString();
     }
+    public static String removeDraft(String path) {
+        return removeDraft(path, new XPathParts(null,null));
+    }
+    public static String removeDraft(String path, XPathParts xpp) {
+        xpp.clear();
+        xpp.initialize(path);
+        Map<String,String> lastAtts = xpp.getAttributes(-1);
+        lastAtts.remove(LDMLConstants.DRAFT);
+        return xpp.toString();
+    }
     public static String getAlt(String path) {
         return getAlt(path, new XPathParts(null,null));
     }

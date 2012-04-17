@@ -802,7 +802,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     int pos = source.lastIndexOf('-') + 1;
                     int ordering = counts.indexOf(source.substring(pos));
                     // account for digits, and "some" future proofing.
-                    ordering = ordering == 0 ? source.charAt(pos) : 0x10000 + ordering;
+                    ordering = ordering < 0 ? source.charAt(pos) : 0x10000 + ordering;
                     suborder = new SubstringOrder(pos, source.length(), ordering);
                     return source;
                 }

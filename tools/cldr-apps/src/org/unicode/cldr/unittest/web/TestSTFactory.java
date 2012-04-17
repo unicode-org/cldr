@@ -407,6 +407,7 @@ public class TestSTFactory extends TestFmwk {
 			
 			et0=new ElapsedTimer("setup XPT");
 			sm.xpt = XPathTable.createTable(conn, sm);
+			sm.xpt.getByXpath("//foo/bar[@type='baz']");
 			logln(et0.toString());
 			DBUtils.closeDBConnection(conn);
 			//			sm.vet = Vetting.createTable(sm.logger, sm);

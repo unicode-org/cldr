@@ -63,13 +63,35 @@ public class XPathTable {
 	            SurveyLog.logger.warning(et+" ("+n+" xpaths from "+sm.BASELINE_ID+") " + reg.statistics());
             }
             
+            reg.loadXPaths(ourConn);
+            
             return reg;
         } finally {
             DBUtils.closeDBConnection(ourConn);
         }
     }
     
-	/**
+    private void loadXPaths(Connection conn) throws SQLException {
+        if (stringToId.size() != 0) { // Only load the entire stringToId map once.
+            return;
+        }
+        ElapsedTimer et = new ElapsedTimer("XPathTable: load all xpaths");
+        int ixpaths=0;
+        PreparedStatement queryStmt = conn.prepareStatement("SELECT id,xpath FROM " + CLDR_XPATHS);
+        // First, try to query it back from the DB.
+        ResultSet rs = queryStmt.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt(1);
+            String xpath = rs.getString(2);
+            setById(id, xpath);
+            stat_dbFetch++;
+            ixpaths++;
+        }
+        queryStmt.close();
+        System.err.println(et+": "+ixpaths + " loaded");
+    }
+
+    /**
      * Called by SM to shutdown
      * @deprecated unneeded
      */
@@ -165,24 +187,11 @@ public class XPathTable {
         Connection conn = null;
         PreparedStatement queryStmt = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
-            if (stringToId.size() == 0) { // Only load the entire stringToId map once.
-                queryStmt = conn.prepareStatement("SELECT id,xpath FROM " + CLDR_XPATHS);
-                // First, try to query it back from the DB.
-                ResultSet rs = queryStmt.executeQuery();
-                while (rs.next()) {
-                    int id = rs.getInt(1);
-                    String xpath = rs.getString(2);
-                    setById(id, xpath);
-                    unloadedXpaths.remove(xpath);
-                    stat_dbFetch++;
-                }
-                queryStmt.close();
-            }
-            
+            conn = DBUtils.getInstance().getDBConnection();            
             addXpaths(unloadedXpaths, conn);
         } catch(SQLException sqe) {
-            System.err.println(DBUtils.unchainSqlException(sqe));
+            SurveyLog.logException(sqe,"loadXPaths(" +source.getLocaleID()+")");
+            SurveyMain.busted("loadXPaths(" +source.getLocaleID()+")",sqe);
         } finally {
             DBUtils.close(queryStmt,conn);
         }

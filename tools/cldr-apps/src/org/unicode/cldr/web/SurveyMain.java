@@ -378,6 +378,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         try {
             dbUtils  = DBUtils.getInstance();
         } catch(Throwable t) {
+            SurveyLog.logException(t,"Starting up database");
             this.busted("Error starting up database - see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>", t);
         }
         startupThread.start();
@@ -5661,6 +5662,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             }
         } catch(Throwable t) {
 	        t.printStackTrace();
+            SurveyLog.logException(t,"StartupThread");
 	        busted("Error on startup: ", t);
         } finally {
             progress.close();
@@ -6234,6 +6236,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             
             progress.update("Load XPT");
             System.err.println("XPT ready with " + xpt.statistics());
+            xpt.getByXpath("//foo/bar/baz");
             xpt.loadXPaths(getDiskFactory().makeSource(BASELINE_ID)); // grind over baseline
             System.err.println("XPT spun up with " + xpt.statistics());
             progress.update("Create fora"); // restore

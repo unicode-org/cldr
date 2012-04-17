@@ -30,6 +30,7 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
@@ -799,7 +800,9 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("count", new Transform<String, String>() {
                 public String transform(String source) {
                     int pos = source.lastIndexOf('-') + 1;
-                    int ordering = counts.indexOf(source.substring(pos)) + 1;
+                    int ordering = counts.indexOf(source.substring(pos));
+                    // account for digits, and "some" future proofing.
+                    ordering = ordering == 0 ? source.charAt(pos) : 0x10000 + ordering;
                     suborder = new SubstringOrder(pos, source.length(), ordering);
                     return source;
                 }

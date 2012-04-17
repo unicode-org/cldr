@@ -6231,6 +6231,11 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                 busted("On XPathTable startup", e);
                 return;
             }
+            
+            progress.update("Load XPT");
+            System.err.println("XPT ready with " + xpt.statistics());
+            xpt.loadXPaths(getDiskFactory().makeSource(BASELINE_ID)); // grind over baseline
+            System.err.println("XPT spun up with " + xpt.statistics());
             progress.update("Create fora"); // restore
             try {
                 fora = SurveyForum.createTable(SurveyLog.logger, dbUtils.getDBConnection(), this);

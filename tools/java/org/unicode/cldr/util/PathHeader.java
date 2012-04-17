@@ -327,17 +327,23 @@ public class PathHeader implements Comparable<PathHeader> {
         if (0 != (result = codeOrder - other.codeOrder)) {
             return result;
         }
-        if (codeSuborder != null && other.codeSuborder != null) {
-            // hack for counts
-            if (0 != (result = alphabetic.compare(code.substring(0,codeSuborder.startPosition), other.code.substring(0,other.codeSuborder.startPosition)))) {
-                return result;
+        if (codeSuborder != null) { // do all three cases, for transitivity
+            if (other.codeSuborder != null) {
+                // hack for counts
+                if (0 != (result = alphabetic.compare(code.substring(0,codeSuborder.startPosition), other.code.substring(0,other.codeSuborder.startPosition)))) {
+                    return result;
+                }
+                if (0 != (result = alphabetic.compare(code.substring(codeSuborder.endPosition), other.code.substring(other.codeSuborder.endPosition)))) {
+                    return result;
+                }
+                if (0 != (result = codeSuborder.order - other.codeSuborder.order)) {
+                    return result;
+                }
+            } else {
+                return 1; // if codeSuborder != null (and other.codeSuborder == null), it is greater
             }
-            if (0 != (result = alphabetic.compare(code.substring(codeSuborder.endPosition), other.code.substring(other.codeSuborder.endPosition)))) {
-                return result;
-            }
-            if (0 != (result = codeSuborder.order - other.codeSuborder.order)) {
-                return result;
-            }
+        } else if (other.codeSuborder != null) {
+            return -1; // if codeSuborder == null (and other.codeSuborder != null), it is greater
         } else {
             if (0 != (result = alphabetic.compare(code, other.code))) {
                 return result;

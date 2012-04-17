@@ -84,6 +84,9 @@ public class SurveyLog {
 	 * @param homeFile
 	 */
 	public static void setDir(File homeFile) {
+	    if(gBaseDir!=null) {
+	        throw new InternalError("Error: setDir() was already called once.");
+	    }
 	    gBaseDir = homeFile;
 	}
 	
@@ -114,8 +117,8 @@ public class SurveyLog {
 		// TODO move into chunkyreader
 		File baseDir = gBaseDir;
 		if(baseDir==null||!baseDir.isDirectory()) {
-		    System.err.println(">> Storing exception.log in .");
-		    baseDir = new File(".");
+            setDir(new File("."));
+		    System.err.println(SurveyLog.class.getName() + " Warning: Storing exception.log in " + gBaseDir.getAbsolutePath()+"/exception.log");
 		}
 		 try {
 			File logFile = new File(baseDir, "exception.log");

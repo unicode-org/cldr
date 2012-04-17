@@ -23,8 +23,6 @@ public class CLDRConfigImpl extends CLDRConfig {
 
     boolean isInitted = false;
     private Properties survprops;
-    private Object supplementalDataInfo;
-
     CLDRConfigImpl() {
         if(System.getProperty("CLDR_WEB_TESTS")!=null) {
             throw new InternalError("CLDR_WEB_TESTS set - exitting.");
@@ -42,8 +40,8 @@ public class CLDRConfigImpl extends CLDRConfig {
     private synchronized void init() {
         if(isInitted) return;
         if(!cldrHomeSet) {
-            RuntimeException t = new RuntimeException("CLDRConfigImpl used before SurveyMain.init() called! (check static ordering)");
-            SurveyLog.logException(t);
+            RuntimeException t = new RuntimeException("CLDRConfigImpl used before SurveyMain.init() called! (check static ordering).  Set -DCLDR_WEB_TESTS=true if you are in the test cases.");
+            //SurveyLog.logException(t);
             throw t;
         }
         

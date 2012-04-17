@@ -39,6 +39,8 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 
 public class TestPathHeader extends TestFmwk {
     public static void main(String[] args) {
@@ -69,7 +71,62 @@ public class TestPathHeader extends TestFmwk {
             logln(ph + "\t" + test);
         }
     }
+    
+    public void TestPluralOrder() {
+        Set<PathHeader> sorted = new TreeSet<PathHeader>();
+        String locale = "ru";
+        CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+        for (String path : cldrFile.fullIterable()) {
+            if (!path.contains("@count")) {
+                continue;
+            }
+            Level level = coverageLevel.getLevel(path);
+            if (Level.MODERN.compareTo(level) < 0) {
+                continue;
+            }
+            PathHeader p = pathHeaderFactory.fromPath(path);
+            sorted.add(p);
+        }
+        for (PathHeader p : sorted) {
+            logln(p + "\t" + p.getOriginalPath());
+        }
+    }
 
+    public void TestCoverage() {
+        Map<Row.R2<SectionId,PageId>,Counter<Level>> data = new TreeMap();
+        String locale = "af";
+        CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+        System.out.println(" Coverage Levels for:\t" + locale);
+        for (String path : cldrFile.fullIterable()) {
+            PathHeader p = pathHeaderFactory.fromPath(path);
+            Level level = coverageLevel.getLevel(path);
+            final R2<SectionId, PageId> key = Row.of(p.getSectionId(), p.getPageId());
+            Counter<Level> counter = data.get(key);
+            if (counter == null) {
+                data.put(key, counter = new Counter<Level>());
+            }
+            counter.add(level, 1);
+        }
+        StringBuffer b = new StringBuffer("\t");
+        for (Level level : Level.values()) {
+            b.append("\t" + level);
+        }
+        errln(b.toString());
+        for (Entry<R2<SectionId, PageId>, Counter<Level>> entry : data.entrySet()) {
+            b.setLength(0);
+            b.append(entry.getKey().get0() + "\t" + entry.getKey().get1());
+            Counter<Level> counter = entry.getValue();
+            long total = 0;
+            for (Level level : Level.values()) {
+                total += counter.getCount(level);
+                b.append("\t" + total);
+            }
+            errln(b.toString());
+        }
+    }
+    
     public void TestAFile() {
         final String localeId = "en";
         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(localeId);

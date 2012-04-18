@@ -2798,6 +2798,30 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
       }
     }
+    
+    // metazones
+    Set<String> zones = supplementalData.getAllMetazones();
+
+    for (String zone : zones ) {
+      for (String width : new String[] {"long", "short"}) {
+          for (String type : new String[] {"generic", "standard", "daylight"}) {
+            toAddTo.add("//ldml/dates/timeZoneNames/metazone[@type=\"" + zone + "\"]/" + width + "/" + type);
+          }
+        }
+      }
+
+    // Individual zone overrides
+          final String[] overrides = {
+              "Pacific/Honolulu\"]/short/generic",
+              "Pacific/Honolulu\"]/short/standard",
+              "Pacific/Honolulu\"]/short/daylight",
+              "Europe/Dublin\"]/long/daylight",
+              "Europe/London\"]/long/daylight"
+          };
+          for (String override : overrides) {
+            toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
+      }
+    
     return toAddTo;
   }
 

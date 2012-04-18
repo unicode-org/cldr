@@ -31,6 +31,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -71,26 +72,58 @@ public class TestPathHeader extends TestFmwk {
             logln(ph + "\t" + test);
         }
     }
-    
+
     public void TestPluralOrder() {
         Set<PathHeader> sorted = new TreeSet<PathHeader>();
-        String locale = "ru";
-        CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
-        for (String path : cldrFile.fullIterable()) {
-            if (!path.contains("@count")) {
+        for (String locale : new String[]{"ru", "ar", "ja"}) {
+            sorted.clear();
+            CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+            for (String path : cldrFile.fullIterable()) {
+                if (!path.contains("@count")) {
+                    continue;
+                }
+                Level level = coverageLevel.getLevel(path);
+                if (Level.MODERN.compareTo(level) < 0) {
+                    continue;
+                }
+                PathHeader p = pathHeaderFactory.fromPath(path);
+                sorted.add(p);
+            }
+            for (PathHeader p : sorted) {
+                logln(locale + "\t" + p + "\t" + p.getOriginalPath());
+            }
+        }
+    }
+    
+    public void TestPluralCanonicals() {
+        Relation<String, String> data = Relation.of(new LinkedHashMap<String,Set<String>>(), TreeSet.class);
+        for (String locale : factory.getAvailable()) {
+            if (locale.contains("_")) {
                 continue;
             }
-            Level level = coverageLevel.getLevel(path);
-            if (Level.MODERN.compareTo(level) < 0) {
-                continue;
-            }
-            PathHeader p = pathHeaderFactory.fromPath(path);
-            sorted.add(p);
+            PluralInfo info = supplemental.getPlurals(locale);
+            Set<String> keywords = info.getCanonicalKeywords();
+            data.put(keywords.toString(), locale);
         }
-        for (PathHeader p : sorted) {
-            logln(p + "\t" + p.getOriginalPath());
+        for (Entry<String, Set<String>> entry : data.keyValuesSet()) {
+            logln(entry.getKey() + "\t" + entry.getValue());
         }
+    }
+    
+    public void TestPluralPaths() {
+        // do the following line once, when the file is opened
+        Set<String> filePaths = pathHeaderFactory.pathsForFile(english);
+
+        // check that English doesn't contain few or many
+        verifyContains(PageId.Currencies, filePaths, "many", false);
+        verifyContains(PageId.Patterns_for_Units, filePaths, "few", false);
+
+        // check that Arabic does contain few and many
+        filePaths = pathHeaderFactory.pathsForFile(info.getCldrFactory().make("ar", true));
+
+        verifyContains(PageId.Currencies, filePaths, "many", true);
+        verifyContains(PageId.Patterns_for_Units, filePaths, "few", true);
     }
 
     public void TestCoverage() {
@@ -126,7 +159,7 @@ public class TestPathHeader extends TestFmwk {
             errln(b.toString());
         }
     }
-    
+
     public void TestAFile() {
         final String localeId = "en";
         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(localeId);
@@ -204,21 +237,6 @@ public class TestPathHeader extends TestFmwk {
             pathHeaders.add(p);
         }
         return pathHeaders;
-    }
-
-    public void TestPluralPaths() {
-        // do the following line once, when the file is opened
-        Set<String> filePaths = pathHeaderFactory.pathsForFile(english);
-
-        // check that English doesn't contain few or many
-        verifyContains(PageId.Currencies, filePaths, "many", false);
-        verifyContains(PageId.Patterns_for_Units, filePaths, "few", false);
-
-        // check that Arabic does contain few and many
-        filePaths = pathHeaderFactory.pathsForFile(info.getCldrFactory().make("ar", true));
-
-        verifyContains(PageId.Currencies, filePaths, "many", true);
-        verifyContains(PageId.Patterns_for_Units, filePaths, "few", true);
     }
 
     public void verifyContains(PageId pageId, Set<String> filePaths, String substring, boolean contains) {
@@ -341,6 +359,34 @@ public class TestPathHeader extends TestFmwk {
                     continue;
                 }
                 logln(status + "\t" + starred + "\t" + item.getValue());
+            }
+        }
+    }
+
+    public void TestPathsNotInEnglish() {
+        Set<String> englishPaths = new HashSet();
+        for (String path : english.fullIterable()) {
+            englishPaths.add(path);
+        }
+        Set<String> alreadySeen = new HashSet(englishPaths);
+
+
+        for (String locale : factory.getAvailable()) {
+            CLDRFile nativeFile = factory.make(locale, false);
+            CoverageLevel2 coverageLevel2 = null;
+            for (String path : nativeFile.fullIterable()) {
+                if (alreadySeen.contains(path) || path.contains("@count")) {
+                    continue;
+                }
+                if (coverageLevel2 == null) {
+                    coverageLevel2 = CoverageLevel2.getInstance(locale);
+                }
+                Level level = coverageLevel2.getLevel(path);
+                if (Level.COMPREHENSIVE.compareTo(level) < 0) {
+                    continue;
+                }
+                warnln("Path not in English\t" + locale + "\t" + path);
+                alreadySeen.add(path);
             }
         }
     }

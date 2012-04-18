@@ -2736,6 +2736,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
     Set<String> codes = StandardCodes.make().getAvailableCodes("currency");
     // units
+    //final Set<String> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCanonicalKeywords();
     final Set<Count> pluralCounts = supplementalData.getPlurals(getLocaleID()).getCountToExamplesMap().keySet();
     if (pluralCounts.size() != 1) {
       for (Count count : pluralCounts) {
@@ -2746,6 +2747,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
           for (String when : new String[]{"", "-past", "-future"}) {
             addUnlessValueEmpty("//ldml/units/unit[@type=\"" + unit + when+ "\"]/unitPattern[@count=\"" + count + "\"]", toAddTo);
             //toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitName[@count=\"" + count + "\"]");
+          }
+          for (String alt : new String[]{"", "[@alt=\"short\"]"}) {
+              addUnlessValueEmpty("//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + count + "\"]" + alt, toAddTo);
           }
         }
 

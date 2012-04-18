@@ -40,6 +40,7 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.PluralRulesUtil.KeywordStatus;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -2292,6 +2293,11 @@ public class SupplementalDataInfo {
      * @author markdavis
      */
     public static class PluralInfo {
+        static final Set<Double> explicits = new HashSet<Double>();
+        static {
+            explicits.add(0.0d);
+            explicits.add(1.0d);
+        }
         public enum Count {
             zero, one, two, few, many, other;
         }
@@ -2304,6 +2310,7 @@ public class SupplementalDataInfo {
         private final Map<Integer,Count> exampleToCount;
         private final PluralRules pluralRules;
         private final String pluralRulesString;
+        private final Set<String> canonicalKeywords;
 
         private PluralInfo(Map<Count,String> countToRule) {
             // now build rules
@@ -2434,6 +2441,37 @@ public class SupplementalDataInfo {
             countToExampleList = Collections.unmodifiableMap(countToExampleListRaw);
             countToStringExample = Collections.unmodifiableMap(countToStringExampleRaw);
             exampleToCount = Collections.unmodifiableMap(exampleToCountRaw);
+            Set<String> temp = new LinkedHashSet<String>();
+            String keyword = pluralRules.select(0.0d);
+            double value = pluralRules.getUniqueKeywordValue(keyword);
+            if (value == pluralRules.NO_UNIQUE_VALUE) {
+                temp.add("0");
+            }
+            keyword = pluralRules.select(1.0d);
+            value = pluralRules.getUniqueKeywordValue(keyword);
+            if (value == pluralRules.NO_UNIQUE_VALUE) {
+                temp.add("1");
+            }
+            Set<String> keywords = pluralRules.getKeywords();
+            for (Count count : Count.values()) {
+                keyword = count.toString();
+                if (keywords.contains(keyword)) {
+                    temp.add(keyword);
+                }
+            }
+            if (false) {
+                // change to this after rationalizing 0/1
+                temp.add("0");
+                temp.add("1");
+                for (Count count : Count.values()) {
+                    temp.add(count.toString());
+                    KeywordStatus status = com.ibm.icu.text.PluralRulesUtil.getKeywordStatus(pluralRules, count.toString(), 0, explicits, true);
+                    if (status != KeywordStatus.SUPPRESSED && status != KeywordStatus.INVALID) {
+                        temp.add(count.toString());
+                    }
+                }
+            }
+            canonicalKeywords = Collections.unmodifiableSet(temp);
         }
 
         public String toString() {
@@ -2451,13 +2489,20 @@ public class SupplementalDataInfo {
             return Count.valueOf(pluralRules.select(exampleCount));
         }
 
+        public PluralRules getPluralRules() {
+            return pluralRules;
+        }
+
         public String getRules() {
-            // TODO Auto-generated method stub
             return pluralRulesString;
         }
 
         public Count getDefault() {
             return null;
+        }
+        
+        public Set<String> getCanonicalKeywords() {
+            return canonicalKeywords;
         }
     }
 

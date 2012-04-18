@@ -98,6 +98,12 @@
 <hr/>
 <h3>SurveyTool File Check | <%=title%>  | <%= cs.user.name %> </h3>
 
+	<div class='helpHtml'>
+		Your file is being tested.
+		<br>
+		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
+	</div>
+
 <i>Checking upload...</i>
 
 <%

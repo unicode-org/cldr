@@ -13,6 +13,7 @@ import="org.unicode.cldr.web.*"
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <hr/>
 
+
 <%
 String sid = request.getParameter("s");
 CookieSession cs;
@@ -22,7 +23,14 @@ if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null) {
 }
 
 
+
 %>
+
+<div class='helpHtml'>
+	Upload an XML file.
+	<br>
+	For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
+</div>
 
 <h3>Upload files... |  <%= cs.user.name %> </h3>
 <% if(request.getParameter("s")==null) { %>

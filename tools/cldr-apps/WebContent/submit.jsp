@@ -46,6 +46,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SurveyTool File Submission | <%=title%></title>
 <link rel='stylesheet' type='text/css' href='./surveytool.css' />
+
+			<script>
+			// TODO: from survey.js
+				function testsToHtml(tests) {
+					var newHtml = "";
+					for ( var i = 0; i < tests.length; i++) {
+						var testItem = tests[i];
+						newHtml += "<p class='tr_" + testItem.type + "' title='" + testItem.type
+								+ "'>";
+						if (testItem.type == 'Warning') {
+							newHtml += warnIcon;
+							// what='warn';
+						} else if (testItem.type == 'Error') {
+							//td.className = "tr_err";
+							newHtml += stopIcon;
+				//			what = 'error';
+						}
+						newHtml += tests[i].message;
+						newHtml += "</p>";
+					}
+					return newHtml;
+				}
+			
+			// TODO: from ajax_status.jsp
+			var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
+			var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";
+			</script>
+
+
 </head>
 <body>
 
@@ -93,35 +122,31 @@
 		entries.
 	</h4>
 
+<% if(!doFinal) { %>
+	<div class='helpHtml'>
+		Please review these items carefully.
+		<br>
+		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
+	</div>
 	<form action='<%=request.getContextPath() + request.getServletPath()%>'
 		method='POST'>
 		<input type='hidden' name='s' value='<%=sid%>' /> <input
 			type='submit' name='dosubmit' value='Really Submit As My Vote' />
 	</form>
-
+<% } else { %>
 	<div class='helpHtml'>
-		<ul>
-			<li><b>Path not Present</b> - you are trying to vote for
-				something that's not already entered, and cannot be entered at this
-				point.</li>
-			<li><b><i>base</i></b> - You are voting for the base (existing)
-				item.</li>
-			<li><b>proposed-xxx</b> - You are voting for a proposal.</li>
-			<li><b><i>(Current Vote)</i></b> - This item is already your
-				current vote. No change.</li>
-			<li><b><i>(same)</i></b> - You are already voting for the
-				winner.</li>
-			<li><b><i>(none)</i></b> - There is no item at base, you are
-				attempting to add an item.</li>
-		</ul>
+		Your items have been submitted.
+		<br>
+		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
 	</div>
+<% } %>
 
 	<table class='data'>
 
 		<thead>
 			<tr>
 				<th>xpath</th>
-				<th>Current Winner</th>
+<!-- 				<th>Current Winner</th> -->
 				<th>My Value</th>
 				<th>Comment</th>
 			</tr>
@@ -138,6 +163,9 @@
 	int r = 0;
 	XPathParts xppMine = new XPathParts(null, null);
 	XPathParts xppBase = new XPathParts(null, null);
+    List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
+    Map<String,String> options = DataSection.getOptions(null, cs, loc);
+    TestCache.TestResultBundle cc = stf.getTestResult(loc, options);
 	UserRegistry.User u = cs.user;
 	CLDRProgressTask progress = cs.sm.openProgress("Bulk:" + loc,
 			all.size());
@@ -168,7 +196,7 @@
 			} else if (!val0.equals(valb)) {
 				style = "font-weight: bold; background-color: #bfb;";
 			} else {
-				valm = "(<i>same</i>)";
+				//valm = WebContext.iconHtml(request, "squo", "same as winner") + "<br>"+ val0;
 				style = "opacity: 0.9;";
 			}
 
@@ -191,20 +219,41 @@
 			String resultIcon = "okay";
 			
 			PathHeader ph = stf.getPathHeader(base);
+			
+			checkResult.clear();
+            cc.check(base,checkResult, val0);
+            boolean hadErr = false;
+            
+            if(!checkResult.isEmpty()) {
+            	for(CheckCLDR.CheckStatus s : checkResult) {
+            		if(s.getType().equals(CheckCLDR.CheckStatus.errorType)) {
+            			hadErr=true;
+            			break;
+            		}
+            	}
+            }
+            
 			if(ph==null) {
-				result="ERR: no pathheader";
+				result="Item is not a SurveyTool-visible LDML entity.";
 				resultIcon="stop";
 			} else if(ph.getSurveyToolStatus() != SurveyToolStatus.READ_WRITE) {
-				result="ERR: disallowed by PathHeader";
+				result="Item is not writable in the Survey Tool. Please file a ticket.";
 				resultIcon="stop";
 			} else if(coverageValue > Level.COMPREHENSIVE.getLevel()) {
-				result="ERR: disallowed by coverage";
+				result="Item is not visible for write via the Survey Tool. Please file a ticket.";
+				resultIcon="stop";
+			} else if(hadErr) {
+				result="Correct the test errors before submitting.";
 				resultIcon="stop";
 			} else {
-	
 				if(doFinal) {
 					ballotBox.voteForValue(cs.user, base, val0);
+					result="Vote accepted";
+					resultIcon="vote";
+				} else {
+					result = "Ready to submit.";
 				}
+				updCnt++;
 			}
 %>
 		<tr class='r<%=(r) % 2%>'>
@@ -215,9 +264,15 @@
 							+ "/survey?_="+ loc + "&strid=" + cs.sm.xpt.getStringIDString(base_xpath_id)  %>'>
 					<%=ph.toString()%></a>
 			</a><br><tt><%= base %></tt></tt></th>
-			<td style='<%=stylea%>'><%=valb%></td>
+		<!--  	<td style='<%=stylea%>'><%=valb%></td> -->
 			<td style='<%=style%>'><%=valm%></td>
-			<td title='vote:' style='<%=resultStyle%>'><%=WebContext.iconHtml(request, resultIcon, result)%><%=result%>
+			<td title='vote:' style='<%=resultStyle%>'>
+			<% if(!checkResult.isEmpty()){  %>
+			<script>
+				document.write(testsToHtml(<%= SurveyAjax.JSONWriter.wrap(checkResult) %>));				
+			</script>
+			<% }  %>
+				<%=WebContext.iconHtml(request, resultIcon, result)%><%=result%>
 		</tr>
 		<%
 			}
@@ -229,22 +284,23 @@
 	</table>
 
 	<hr />
-	Recast
+	<%	if(doFinal) { %>
+	Voted on
+	<%  } else { %>
+	Ready to submit
+	<%  } %>
 	<%=updCnt%>
 	votes.
 	<%
-		/* 	if(doFinal && updCnt>0) {
-		 cs.sm.startupThread.addTask(new SurveyThread.SurveyTask("UpdateAfterBulk:"+loc){
-		 public void run() throws Throwable {
-		 cs.sm.updateLocale(loc);
-		 cs.sm.dbsrcfac.needUpdate(loc);
-		 cs.sm.dbsrcfac.update(this,null);
+		if(!doFinal && updCnt>0) {
+	%>
+		<form action='<%=request.getContextPath() + request.getServletPath()%>'
+			method='POST'>
+			<input type='hidden' name='s' value='<%=sid%>' /> <input
+				type='submit' name='dosubmit' value='Submit these items as my vote' />
+		</form>
+	<%
 		 }
-
-		
-		 });		
-		 }
-		 */
 	%>
 
 </body>

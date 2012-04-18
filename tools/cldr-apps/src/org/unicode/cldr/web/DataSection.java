@@ -2259,7 +2259,7 @@ public class DataSection implements JSONString {
      * @param locale
      * @return
      */
-    static Map<String,String> getOptions(WebContext ctx, CookieSession session,
+    public static Map<String,String> getOptions(WebContext ctx, CookieSession session,
             CLDRLocale locale) {
         Map<String,String> options;
         if(ctx!=null) {

@@ -93,22 +93,22 @@ public class PathDescription {
             String xpath = extras.get(path);
             if (xpath != null) {
                 value = english.getStringValue(xpath);
-            } else {
-                if (path.contains("/metazone")) {
-                    if (metazoneMatcher.reset(path).matches()) {
-                        String name = metazoneMatcher.group(1);
-                        String type = metazoneMatcher.group(3);
-                        value = name.replace('_', ' ') + (type.equals("generic") ? "" : type.equals("daylight") ? " Summer" : " Winter") + " Time";
-                        // System.out.println("Missing:    " + path + " :    " + value);
-                    }
+            } else if (path.contains("/metazone")) {
+                if (metazoneMatcher.reset(path).matches()) {
+                    String name = metazoneMatcher.group(1);
+                    String type = metazoneMatcher.group(3);
+                    value = name.replace('_', ' ') + (type.equals("generic") ? "" : type.equals("daylight") ? " Summer" : " Winter") + " Time";
+                    // System.out.println("Missing:    " + path + " :    " + value);
                 }
             }
             if (value == null) {
                 status.add(Status.NULL_VALUE);
-                return null;
+                if (errorHandling == ErrorHandling.SKIP) {
+                    return null;
+                }
             }
         }
-        if (value.length() == 0) {
+        if (value != null && value.length() == 0) {
             status.add(Status.EMPTY_CONTENT);
             if (errorHandling == ErrorHandling.SKIP) {
                 return null;

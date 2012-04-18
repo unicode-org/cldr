@@ -3568,35 +3568,43 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             getSTFactory().make(ctx.getLocale(), false); // spin up STFactory
         }
         
-        try {
             // looking for a stringid?
             String strid = ctx.field("strid");
             if(!strid.isEmpty()) {
-                String xpath = xpt.getByStringID(strid);
-                if(xpath!=null) {
-                    // got one.
-                    PathHeader ph = getSTFactory().getPathHeader(xpath);
-                    if(ph!=null) {
-                        StringBuilder redirTo = new StringBuilder(ctx.base());
-                        redirTo.append("?_="+ctx.getLocale().getBaseName());
-                        PageId newPage = ph.getPageId();
-                        redirTo.append("&x="+newPage.name());
-                        //  if(ph.getPageId()!=pageId)  .. don't care
-                        String ecl = ctx.getEffectiveCoverageLevel(ctx.getLocale().toString());
-                        Level l = Level.valueOf(ecl.toUpperCase());
-                        Level need = Level.fromLevel(getSupplementalDataInfo().getCoverageValue(xpath, ctx.getLocale().toULocale()));
-                        if(need.getLevel()>l.getLevel()) {
-                            redirTo.append("&p_covlev="+need.name().toLowerCase());
+                String xpath = "(unknown StringID)";
+                try {
+                    xpath = xpt.getByStringID(strid);
+                    if(xpath!=null) {
+                        // got one.
+                        PathHeader ph = getSTFactory().getPathHeader(xpath);
+                        if(ph!=null) {
+                            StringBuilder redirTo = new StringBuilder(ctx.base());
+                            redirTo.append("?_="+ctx.getLocale().getBaseName());
+                            PageId newPage = ph.getPageId();
+                            redirTo.append("&x="+newPage.name());
+                            //  if(ph.getPageId()!=pageId)  .. don't care
+                            String ecl = ctx.getEffectiveCoverageLevel(ctx.getLocale().toString());
+                            Level l = Level.valueOf(ecl.toUpperCase());
+                            Level need = Level.fromLevel(getSupplementalDataInfo().getCoverageValue(xpath, ctx.getLocale().toULocale()));
+
+                            if(need!=l || newPage!=ctx.getPageId()) {
+                                if(need.getLevel()>l.getLevel()) {
+                                    redirTo.append("&p_covlev="+need.name().toLowerCase());
+                                }
+                                redirTo.append("#x@"+strid);
+                                ctx.response.sendRedirect(redirTo.toString());
+                                return; // exit
+                            }
                         }
-                        redirTo.append("#x@"+strid);
-                        ctx.response.sendRedirect(redirTo.toString());
-                        return; // exit
+                    } else {
+                        xpath="(not a valid StringID)";
                     }
+                } catch (Throwable t) {
+                    SurveyLog.logException(t, ctx);
                 }
+                ctx.println("<div class='fnotebox'>Invalid String ID in URL: <span class='loser' title='"+xpath+"'>" + strid + "</span>.</div>");
+                which = xMAIN;
             }
-        } catch (Throwable t) {
-            SurveyLog.logException(t, ctx);
-        }
         // print 'shopping cart'
         if(!shortHeader(ctx))  {
             
@@ -4262,7 +4270,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     		
     		if(which.startsWith(REPORT_PREFIX)) {
     		    doReport(subCtx, which);
-    		} else if(pageId!=null) {
+    		} else if(pageId!=null && !which.equals(xMAIN)) {
     		    showPathList(subCtx,which,pageId);
     		} else if(RAW_MENU_ITEM.equals(which)) {
     			outputFileManager.doRaw(subCtx);

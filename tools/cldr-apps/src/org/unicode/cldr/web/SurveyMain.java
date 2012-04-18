@@ -3590,17 +3590,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                             
                             
-                            if( (need!=l || newPage!=ctx.getPageId())  &&  
-                                        (ph.getSurveyToolStatus()==SurveyToolStatus.READ_WRITE ||
-                                         ph.getSurveyToolStatus()==SurveyToolStatus.READ_ONLY) &&
-                                   need.getLevel()<101) {
+//                            if( (need.getLevel()!=l.getLevel() || newPage!=ctx.getPageId())  &&  
+//                                        (ph.getSurveyToolStatus()==SurveyToolStatus.READ_WRITE ||
+//                                         ph.getSurveyToolStatus()==SurveyToolStatus.READ_ONLY) &&
+//                                   need.getLevel()<101) {
                                 if(need.getLevel()>l.getLevel()) {
                                     redirTo.append("&p_covlev="+need.name().toLowerCase());
                                 }
-                                redirTo.append("#x@"+strid);
+                                redirTo.append("#x@"+strid+"@redir");
                                 ctx.response.sendRedirect(redirTo.toString());
                                 return; // exit
-                            }
+//                            }
                         }
                     } else {
                         xpath="(not a valid StringID)";

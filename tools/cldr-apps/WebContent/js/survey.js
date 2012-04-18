@@ -1966,18 +1966,20 @@ function processHash() {
 	var hash = window.location.hash;
 	if(hash&&hash.toString().indexOf("#x@")==0) {
 		// see if there's such an item
-		var strid = "r"+hash.substring(2);
-		var tr = dojo.byId(strid);
+		var strid = (hash.split('@')[1]);
+		var tr = dojo.byId('r@'+strid);
 		if(tr) {
 			scrollToItem(tr);
 			if(tr.selectThisRow) {
 				tr.selectThisRow(null);
 			}
+			window.location.hash = "#x@"+strid;
 		} else {
-			if(window.location.search.indexOf("&strid=")<0) {
-				window.location.search=window.location.search+"&strid="+hash.substring(3);
+			if(window.location.search.indexOf("&strid=")<0 && (hash.toString().indexOf('@redir')<0)) {
+				window.location.search=window.location.search+"&strid="+strid;
 			} else {
-				showInPop("Sorry, could not locate that item.", null, null, null, true);
+				showInPop(stopIcon+" Could not locate the requested data item. There may be an error in your URL, or else the data item may no longer be available.", null, null, null, true);
+				window.location.hash = "#x@"+strid;
 			}
 		}
 	}

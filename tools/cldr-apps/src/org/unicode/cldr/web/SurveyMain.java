@@ -78,6 +78,7 @@ import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StackTracker;
@@ -3587,7 +3588,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             Level l = Level.valueOf(ecl.toUpperCase());
                             Level need = Level.fromLevel(getSupplementalDataInfo().getCoverageValue(xpath, ctx.getLocale().toULocale()));
 
-                            if(need!=l || newPage!=ctx.getPageId()) {
+                            
+                            
+                            if( (need!=l || newPage!=ctx.getPageId())  &&  
+                                        (ph.getSurveyToolStatus()==SurveyToolStatus.READ_WRITE ||
+                                         ph.getSurveyToolStatus()==SurveyToolStatus.READ_ONLY) &&
+                                   need.getLevel()<101) {
                                 if(need.getLevel()>l.getLevel()) {
                                     redirTo.append("&p_covlev="+need.name().toLowerCase());
                                 }
@@ -3602,7 +3608,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 } catch (Throwable t) {
                     SurveyLog.logException(t, ctx);
                 }
-                ctx.println("<div class='fnotebox'>Invalid String ID in URL: <span class='loser' title='"+xpath+"'>" + strid + "</span>.</div>");
+                ctx.println("<div class='fnotebox'>Invalid/unusable String ID in URL: <span class='loser' title='"+xpath+"'>" + strid + "</span>.</div>");
                 which = xMAIN;
             }
         // print 'shopping cart'

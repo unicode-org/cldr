@@ -242,7 +242,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String fileBaseSeed = null; // not static - may change later. Seed dir
     private static String fileBaseOld = null; // fileBase + oldVersion
     static String specialMessage = System.getProperty("CLDR_MESSAGE"); //  static - may change later
-    static String specialHeader = System.getProperty("CLDR_HEADER"); //  static - may change later
     public static String lockOut = System.getProperty("CLDR_LOCKOUT"); //  static - may change later
     static long specialTimer = 0; // 0 means off.  Nonzero:  expiry time of countdown.
     
@@ -1239,6 +1238,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     
     public String getSpecialHeader(WebContext ctx) {
         StringBuffer out = new StringBuffer();
+        String specialHeader = CLDRConfig.getInstance().getProperty("CLDR_HEADER");
         if((specialHeader != null) && (specialHeader.length()>0)) {
             out.append("<div class='specialHeader'>");
             out.append(specialHeader);
@@ -1287,7 +1287,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     		.put("lockOut", lockOut!=null)
     		.put("isSetup",isSetup)
     		.put("isUnofficial",isUnofficial)
-    		.put("specialHeader",specialHeader)
+    		.put("specialHeader",CLDRConfig.getInstance().getProperty("CLDR_HEADER"))
     		.put("specialTimerRemaining",specialTimer!=0?timeDiff(System.currentTimeMillis(),specialTimer):null)
     		.put("processing", startupThread.htmlStatus())
     		.put("guests", CookieSession.nGuests)
@@ -5592,7 +5592,6 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             getFileBaseSeed();
             setFileBaseOld(survprops.getProperty(getOldVersionParam(),cldrHome+"/"+oldVersion)); // not static - may change lager
             specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not static - may change lager
-            specialHeader = survprops.getProperty("CLDR_HEADER"); // not static - may change lager
             
             lockOut = survprops.getProperty("CLDR_LOCKOUT");
             

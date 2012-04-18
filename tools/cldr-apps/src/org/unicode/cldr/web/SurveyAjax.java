@@ -448,8 +448,10 @@ public class SurveyAjax extends HttpServlet {
                 sm.isBusted==null&&
                 sm.isSetup) {
             CLDRLocale loc = CLDRLocale.getInstance(locale);
-            r.put("localeStampName", loc.getDisplayName());
-            r.put("localeStamp", sm.getSTFactory().stampForLocale(loc).current());
+            if(loc!=null && SurveyMain.getLocalesSet().contains(loc)) {
+                r.put("localeStampName", loc.getDisplayName());
+                r.put("localeStamp", sm.getSTFactory().stampForLocale(loc).current());
+            }
         }
     }
 

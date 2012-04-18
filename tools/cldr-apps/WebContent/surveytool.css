@@ -65,6 +65,50 @@ div.adminUserUser i {
 	padding:  3px;
 }
 
+.adminSettingsList {
+	display: table;
+	width: 100%;
+}
+
+.adminSetting {
+    display: table-row;
+    background-color: wheat;
+}
+
+.adminSetting input {
+	width: 90%;
+	display: block;
+}
+
+.adminSetting label {
+	font-size: small;
+}
+
+#specialHeader {
+	display: block;
+	font-size: large;
+    padding-left: 22px;
+    background: yellow url(warn.png) no-repeat 0.25em center;
+    opacity: .99;
+}
+
+.adminSettingId, .adminSettingValue {
+    display: table-cell;
+    padding:  2px;
+    border-bottom:  1px dashed gray;
+}
+
+.adminSettingId {
+	font-weight: bold;
+	padding-right: 1em;
+}
+
+.adminSettingValue {
+	padding-bottom:  1px;
+	font-family: "Courier New", Courier, mono;
+	font-size:  small;
+}
+
 i.userlevel_street {
 	background-color: navy !important;
 	color:  white !important;
@@ -189,6 +233,7 @@ body {
 	background-color: white;
 	padding-bottom: 3em;
 	padding-right: 0.5em;
+	padding-top: 1em;
 }
 
 

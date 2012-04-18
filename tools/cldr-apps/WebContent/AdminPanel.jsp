@@ -29,7 +29,11 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 <%@ include file="/WEB-INF/tmpl/stnotices.jspf" %>
 <span id="visitors"></span>
 <hr>
-
+<div class='fnotebox'>
+    For instructions, see <a href='http://cldr.unicode.org/index/survey-tool/admin'>Admin Docs</a>. <br>
+    Tabs do not (currently) auto update. Click a tab again to update. <br>
+    Be careful!
+</div>
 <%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 <script>
 var vap='<%= vap %>';

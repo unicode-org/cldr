@@ -48,6 +48,10 @@ define({
 			provisional: "Provisional",
 			
 			
+			admin_settings: "Settings",
+			admin_settings_desc: "Survey tool settings",
+			adminSettingsChangeTemp: "Temporary Change:",
+			
 			userlevel_admin: "Admin",
 			userlevel_tc: "TC",
 			userlevel_expert: "Expert",

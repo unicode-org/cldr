@@ -22,12 +22,18 @@
     <button id='stchanged_btn' type='button' onclick='window.location.reload(true)'>Refresh</button>
     <button id='stchanged_btn' type='button' onclick='dismissChangeNotice()'>Close</button>
 </div>
-       <% if(SurveyMain.isPhaseBeta()) { %>
-                <div class='beta' title='Survey Tool is in Beta' >
-                    <%= WebContext.iconHtml(request,"warn","beta") %>
-                    SurveyTool is in Beta -  Any data added here will NOT go into CLDR.
-                </div>
-       <% } %>
+     <% String betanotice = null; 
+         if(SurveyMain.isPhaseBeta() ) {
+             betanotice = "SurveyTool is in Beta -  Any data added here will NOT go into CLDR.";
+             }%>
+             
+      <div id='betadiv' class='beta'  style='<%= (betanotice!=null)?"":"display: none"%>'>
+            <% if(betanotice!=null) { %><span id='betanotice' title='Survey Tool is in Beta' >
+                    <%= WebContext.iconHtml(request,"warn","beta") %>  <%= betanotice %>
+                    </span> <% } %>
+                    
+                    <span style='display:none' id='specialHeader'>(Your message here)</span>
+      </div>
 </div>
 <div id='st_err'><!-- for ajax errs --></div>
 

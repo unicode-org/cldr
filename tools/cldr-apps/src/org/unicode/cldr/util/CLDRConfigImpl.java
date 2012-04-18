@@ -6,15 +6,19 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.Map.Entry;
 import java.util.Properties;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.SurveyMain.Phase;
 
-public class CLDRConfigImpl extends CLDRConfig {
+public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
     static String cldrHome = null;
     static boolean cldrHomeSet = false;
@@ -177,6 +181,31 @@ public class CLDRConfigImpl extends CLDRConfig {
     public String getProperty(String key) {
         init();
         return survprops.getProperty(key);
+    }
+    
+    public void setProperty(String key, String value) {
+        if(key.equals("CLDR_HEADER")) {
+            System.err.println(">> CLDRConfig set " + key + " = " + value);
+            if(value==null||value.isEmpty()) {
+                survprops.setProperty(key, "");
+                survprops.remove(key);
+            } else {
+                survprops.setProperty(key, value);
+            }
+        }
+    }
+
+    @Override
+    public String toJSONString() throws JSONException {
+        JSONObject ret = new JSONObject();
+        
+        ret.put("CLDR_HEADER",""); // always show these
+        for(Entry<Object, Object>e  : survprops.entrySet()) {
+            ret.put(e.getKey().toString(), e.getValue().toString());
+        }
+        
+        
+        return ret.toString();
     }
 
 }

@@ -501,6 +501,24 @@ function updateStatusBox(json) {
 		fragment.appendChild(updateParts.db);
 		removeAllChildNodes(updateParts.visitors);
 		updateParts.visitors.appendChild(fragment);
+		
+		var betanotice = dojo.byId("betanotice");
+		var specialHeader = dojo.byId("specialHeader");
+		var betadiv = dojo.byId("betadiv");
+		
+		if(json.status.specialHeader && json.status.specialHeader.length>0) {
+			removeAllChildNodes(specialHeader);
+			specialHeader.appendChild(document.createTextNode(json.status.specialHeader));
+			betadiv.style.display="";
+			specialHeader.style.display="";
+		} else {
+			specialHeader.style.display="none";
+			if(betanotice) {
+				betadiv.style.display="";
+			} else {
+				betadiv.style.display="none";
+			}
+		}
 	}
 }
 
@@ -1956,6 +1974,16 @@ function createChunk(text, tag, className) {
 	return chunk;
 }
 
+function appendInputBox(parent, which) {
+	var label = createChunk(stui.str(which), "label", which);
+	var input = document.createElement("input");
+	input.className = "appendInputBox";
+	label.appendChild(input);
+	parent.appendChild(label);
+	input.label = label;
+	return input;
+}
+
 function scrollToItem(tr) {
 //	window.location.hash=tr.id; // scroll!
 	window.scrollTo(0,getAbsolutePosition(tr).top-50);
@@ -2277,7 +2305,7 @@ function loadAdminPanel() {
 	content.appendChild(list);
 	
 	
-	function loadOrFail(urlAppend,theDiv, loadHandler) {
+	function loadOrFail(urlAppend,theDiv, loadHandler, postData) {
 		var ourUrl = contextPath + "/AdminAjax.jsp?vap="+vap+"&"+urlAppend;
 		var errorHandler = function(err, ioArgs){
 			console.log('adminload ' + urlAppend + ' Error: ' + err + ' response ' + ioArgs.xhr.responseText);
@@ -2288,7 +2316,8 @@ function loadAdminPanel() {
 				url: ourUrl+cacheKill(),
 				handleAs:"json",
 				load: loadHandler,
-				error: errorHandler
+				error: errorHandler,
+				postData: postData
 		};
 		if(!loadHandler) {
 			xhrArgs.handleAs = "text";
@@ -2296,8 +2325,14 @@ function loadAdminPanel() {
 				theDiv.innerHTML = text;
 			};
 		}
-		dojo.xhrGet(xhrArgs);
-		console.log("ourUrl: " + ourUrl);
+		if(xhrArgs.postData) {
+			console.log("admin post: ourUrl: " + ourUrl + " data:" + postData);
+            xhrArgs.headers = { "Content-Type": "text/plain"};
+			dojo.xhrPost(xhrArgs);
+		} else {
+			console.log("admin get: ourUrl: " + ourUrl );
+			dojo.xhrGet(xhrArgs);
+		}
 	}
 	var panelLast = null;
 	var panels={};
@@ -2609,6 +2644,76 @@ function loadAdminPanel() {
 			});
 		};
 		loadNext(); // load the first exception
+	});
+
+	addAdminPanel("admin_settings", function(div) {
+		var frag = document.createDocumentFragment();
+		
+		div.className="adminSettings";
+		var u = createChunk("Loading...","div","adminSettingsList");
+		frag.appendChild(u);
+
+		
+		loadOrFail("do=settings", u, function(json) {
+			if(!json || !json.settings || Object.keys(json.settings.all)==0) {
+				removeAllChildNodes(u);
+				u.appendChild(document.createTextNode(stui.str("nosettings")));
+			} else {
+				var frag2 = document.createDocumentFragment();
+				for(id in json.settings.all) {
+					var t = json.settings.all[id];
+					
+					var thread = createChunk(null,"div","adminSetting");
+
+					thread.appendChild(createChunk(id,"span","adminSettingId"));
+					if(id == "CLDR_HEADER" || id=="CLDR_TESTPW") 	{
+						(function(theHeader,theValue) {
+						var setHeader = null;
+						setHeader = appendInputBox(thread, "adminSettingsChangeTemp");
+						setHeader.value = theValue;
+						var lab = setHeader.label;
+						var updating = createChunk(stui_str("updating"),"i");
+						listenFor(setHeader, "change", function(e) {
+							lab.appendChild(updating);
+							stStopPropagation(e);
+							loadOrFail("do=settings_set&setting="+theHeader, u, function(json) {
+								if(!json || !json.settings_set || !json.settings_set.ok) {
+									lab.removeChild(updating);
+									lab.appendChild(createChunk(stui_str("failed") + " " + json.settings_set.err,"div","ferrbox"));
+								} else {
+									lab.removeChild(updating);
+									if(json.settings_set[theHeader]) {
+										setHeader.value = json.settings_set[theHeader];
+									} else {
+										setHeader.value = "";
+									}
+								}
+							}, setHeader.value);
+							return false;
+						 });
+						})(id,t); // call it
+					} else {
+						thread.appendChild(createChunk(t,"span","adminSettingValue"));
+					}
+					frag2.appendChild(thread);
+			}
+//				if(!setHeader) {
+//					// not setup yet, too bad.
+//				} if(json.settings.all.CLDR_HEADER) {
+//					setHeader.value = json.settings.all.CLDR_HEADER;
+//				} else {
+//					setHeader.value = "";
+//				}
+//				
+				removeAllChildNodes(u);
+				u.appendChild(frag2);
+			}
+		});
+		
+		
+		
+		removeAllChildNodes(div);	
+		div.appendChild(frag);
 	});
 
 	

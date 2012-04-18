@@ -83,6 +83,39 @@
 			
 		new JSONWriter(out).object().key("exceptions").value(exceptions)
 		.endObject();
+    } else if(action.equals("settings")) {
+        JSONObject settings = new JSONObject();
+        
+        JSONObject all = new JSONObject();
+        
+        settings.put("all",CLDRConfig.getInstance());
+        new JSONWriter(out).object().key("settings").value(settings)
+        .endObject();
+    } else if(action.equals("settings_set")) {
+        JSONObject settings = new JSONObject();
+        
+        try {
+        String setting=request.getParameter("setting");
+        StringBuilder sb = new StringBuilder();
+        java.io.Reader r = request.getReader();
+        int ch;
+        while((ch = r.read())>-1) {
+                      System.err.println("[post read] >> " + Integer.toHexString(ch));
+            sb.append((char)ch);
+        }
+        System.err.println(request.getMethod() + " len " + request.getContentLength() + "type"+ request.getContentType() + "[ chars="+sb+"]");
+          CLDRConfigImpl cci = (CLDRConfigImpl)(CLDRConfig.getInstance());
+          cci.setProperty(setting,sb.toString());
+          settings.put("ok", true);
+          settings.put(setting, cci.getProperty(setting));
+        } catch(Throwable t) {
+            SurveyLog.logException(t,"Tring to set setting ");
+            settings.put("err",t.toString());
+        }
+        
+        
+        new JSONWriter(out).object().key("settings_set").value(settings)
+        .endObject();
 	} else {
 		response.sendError(500, "Unknown action.");
 	}

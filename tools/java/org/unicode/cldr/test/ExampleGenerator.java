@@ -277,8 +277,8 @@ public class ExampleGenerator {
                 result = handleCurrency(xpath, value, context, type);
             } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
                 result = handleDateFormatItem(value);
-            } else if (parts.contains("symbol")) {
-                result = handleNumberSymbol();
+            } else if (parts.getElement(2).contains("symbols")) {
+                result = handleNumberSymbol(parts, value);
             } else if (parts.contains("defaultNumberingSystem") || parts.contains("otherNumberingSystems")) {
                 result = handleNumberingSystem(value);
             } else if (parts.getElement(1).equals("units")) {
@@ -293,6 +293,10 @@ public class ExampleGenerator {
                 result = handleListPatterns(parts, value);
             } else if (parts.getElement(2).equals("ellipsis")) {
                 result = handleEllipsis(value);
+            } else if (parts.getElement(-1).equals("monthPattern")) {
+                result = handleMonthPatterns(parts, value);
+            } else if (parts.getElement(-1).equals("appendItem")) {
+                result = handleAppendItems(parts, value);
             } else {
                 // didn't detect anything, return empty-handed
                 return null;
@@ -427,6 +431,29 @@ public class ExampleGenerator {
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
         return invertBackground(format(setBackground(value), territory1, territory2));
+    }
+
+    /**
+     * Handle miscellaneous calendar patterns.
+     * @param parts
+     * @param value
+     * @return
+     */
+    private String handleMonthPatterns(XPathParts parts, String value) {
+        String calendar = parts.getAttributeValue(3, "type");
+        String context = parts.getAttributeValue(5, "type");
+        String month ="8";
+        if (!context.equals("numeric")) {
+            String width = parts.getAttributeValue(6, "type");
+            String xpath = "//ldml/dates/calendars/calendar[@type=\"{0}\"]/months/monthContext[@type=\"{1}\"]/monthWidth[@type=\"{2}\"]/month[@type=\"8\"]";
+            month = getValueFromFormat(xpath, calendar, context, width);
+        }
+        return invertBackground(format(setBackground(value), month));
+    }
+
+    private String handleAppendItems(XPathParts parts, String value) {
+        
+        return null;
     }
 
     class IntervalFormat {
@@ -615,9 +642,37 @@ public class ExampleGenerator {
         return unitName;
     }
 
-    private String handleNumberSymbol() {
-        DecimalFormat x = icuServiceBuilder.getNumberFormat(2);
-        return x.format(NUMBER_SAMPLE);
+    private String handleNumberSymbol(XPathParts parts, String value) {
+        String symbolType = parts.getElement(-1);
+        int index = 1;//dec/percent/sci
+        double numberSample = NUMBER_SAMPLE;
+        String originalValue = cldrFile.getWinningValue(parts.toString());
+        if (symbolType.equals("decimal") || symbolType.equals("group")) {
+            index = 1;
+        } else if (symbolType.equals("minusSign")) {
+            index = 1;
+            numberSample = -numberSample;
+        } else if (symbolType.equals("percentSign")) {
+            // For the perMille symbol, we reuse the percent example.
+            index = 2;
+            numberSample = 0.23;
+        } else if (symbolType.equals("perMille")) {
+            // For the perMille symbol, we reuse the percent example.
+            index = 2;
+            numberSample = 0.023;
+            originalValue = cldrFile.getWinningValue(parts.addRelative("../percentSign").toString());
+        } else if (symbolType.equals("exponential") || symbolType.equals("plusSign")) {
+            index = 3;
+        } else {
+            // We don't need examples for standalone symbols, i.e. infinity and nan.
+            // We don't have an example for the list symbol either.
+            return null;
+        }
+        DecimalFormat x = icuServiceBuilder.getNumberFormat(index);
+        x.setExponentSignAlwaysShown(true);
+        String example = x.format(numberSample);
+        example = example.replace(originalValue, backgroundEndSymbol + value + backgroundStartSymbol);
+        return backgroundStartSymbol + example + backgroundEndSymbol;
     }
 
     private String handleNumberingSystem(String value) {

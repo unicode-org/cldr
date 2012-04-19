@@ -56,7 +56,7 @@ String helpName = ctx.getString("helpName");
     		}
 
             ctx.print(" | ");
-            ctx.sm.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);
+            SurveyMain.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);
     	} else {
     		boolean haveCookies = (ctx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&ctx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
     		ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") ");

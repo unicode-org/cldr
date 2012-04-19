@@ -227,7 +227,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String STFORM = "stform";
     //public static final String MODIFY_THING = "<span title='You are allowed to modify this locale.'>\u270D</span>";             // was: F802
     //public static final String MODIFY_THING = "<img src='' title='You are allowed to modify this locale.'>";             // was: F802
-    static String modifyThing(WebContext ctx) {
+    public static String modifyThing(WebContext ctx) {
         return "&nbsp;"+ctx.modifyThing("You are allowed to modify this locale.");
     }
     
@@ -694,6 +694,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             
             out.println("<noscript><h1>JavaScript is required for logging into the SurveyTool.</h1></noscript>");
             out.print(sysmsg("startup_footer"));
+            out.println("<span id='visitors'></span>");
             if(!SurveyMain.isUnofficial) {
             	out.println(ShowData.ANALYTICS);
             }
@@ -1567,9 +1568,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if((mySession == null)&&(!myNum.equals(SURVEYTOOL_COOKIE_NONE))) {
                 //message = "<i id='sessionMessage'>(Sorry, This session has expired. ";
                 if(user == null) {
-                    message = message + "You may have to log in again. ";
+                    message =  "You may have to log in again. ";
                 }
-                    message = message + ")</i><br>";
+                //    message = message + ")</i><br>";
             }
         }
         if((idFromSession==false) && (httpSession!=null) && (mySession!=null)) { // can we elide the 's'?
@@ -1627,7 +1628,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx.session.setUser(user); // this will replace any existing session by this user.
             ctx.session.user.ip = ctx.userIP();
         } else {
-            if( (email !=null) && (email.length()>0)) {
+            if( (email !=null) && (email.length()>0) && (ctx.session.user==null)) {
                 message = "<strong id='sessionMessage'>"+(ctx.iconHtml("stop", "failed login")+"login failed.</strong><br>");
             }
         }
@@ -3546,7 +3547,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String title = " ";
         PageId pageId = ctx.getPageId();
         if(pageId!=null) {
-            title = pageId.getSectionId().toString() + " | " + pageId.toString();
+            title = ""; // pageId.getSectionId().toString() + " | " + pageId.toString();
         } else if(ctx.hasField(QUERY_EXAMPLE))  {
             title = title + " Example"; 
         } else if(which==null || which.isEmpty()){
@@ -3630,13 +3631,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             (!shortHeader(ctx)) ) { // don't show these warnings for example/easy steps pages.
             CLDRLocale dcParent = CLDRLocale.getInstance(supplemental.defaultContentToParent(ctx.getLocale().toString()));
             String dcChild = supplemental.defaultContentToChild(ctx.getLocale().toString());
-            if (dcChild != null && (!which.equals(xMAIN))) {
-                String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
-                ctx.println("<div class='fnotebox'>" +
-                        DEFAULT_CONTENT_LINK +
-                		" for <b>"+
-                    dcChildDisplay + "</b></div>");
-            }
+//            if (dcChild != null && (!which.equals(xMAIN))) {
+//                String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
+//                ctx.println("<div class='fnotebox'>" +
+//                        DEFAULT_CONTENT_LINK +
+//                		" for <b>"+
+//                    dcChildDisplay + "</b></div>");
+//            }
             CLDRLocale aliasTarget = isLocaleAliased(ctx.getLocale());
             if(aliasTarget != null) {
                 // the alias might be a default content locale. Save some clicks here. 
@@ -3737,7 +3738,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return locale.getDisplayName();
     }
 
-    String decoratedLocaleName(CLDRLocale localeName, String str, String explanation) {
+    public static String decoratedLocaleName(CLDRLocale localeName, String str, String explanation) {
         String rv = "";
 //        int s = vet.status(localeName);
 //        if(s==-1) {
@@ -3880,7 +3881,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             WebContext nuCtx = (WebContext)ctx.clone();
             nuCtx.addQuery(PREF_SHOWCODES, !showCodes);
             nuCtx.println("<div class='pager' style='float: right;'>");
-            nuCtx.println("<a href='" + nuCtx.url() + "'>" + ((!showCodes)?"Show":"Hide") + " locale codes</a>");
+            nuCtx.println("<input type='checkbox' "+(showCodes?"CHECKED":"")+" onclick=\"window.location='"+nuCtx.url()+"';\" />");
+            nuCtx.println("<a href='" + nuCtx.url() + "'>" +"Show locale codes</a>");
             nuCtx.println("</div>");
         }
         ctx.println("<h1>Locales</h1>");
@@ -3958,7 +3960,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param which the ID of "this" item
      * @param menu the ID of the current item
      */
-    public void printMenu(WebContext ctx, String which, String menu) {
+    public static void printMenu(WebContext ctx, String which, String menu) {
         printMenu(ctx,which,menu,menu, QUERY_SECTION);
     }
     /**
@@ -3968,7 +3970,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param menu the ID of the current item
      * @param anchor the #anchor to link to
      */
-    protected void printMenuWithAnchor(WebContext ctx, String which, String menu, String anchor) {
+    public static void printMenuWithAnchor(WebContext ctx, String which, String menu, String anchor) {
         printMenu(ctx,which,menu,menu, QUERY_SECTION, anchor);
     }
     /**
@@ -3978,7 +3980,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param menu the ID of the current item
      * @param title the Title of this menu
      */
-    public void printMenu(WebContext ctx, String which, String menu, String title) {
+    public static void printMenu(WebContext ctx, String which, String menu, String title) {
         printMenu(ctx,which,menu,title,QUERY_SECTION);
     }
     /**
@@ -3989,7 +3991,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param title the Title of this menu
      * @param key the URL field to use (such as 'x')
      */
-    public void printMenu(WebContext ctx, String which, String menu, String title, String key) {
+    public static void printMenu(WebContext ctx, String which, String menu, String title, String key) {
 		printMenu(ctx,which,menu,title,key,null);
 	}
     /**
@@ -4001,7 +4003,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param key the URL field to use (such as 'x')
      * @param anchor the #anchor to link to
      */
-    public void printMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
+    public static void printMenu(WebContext ctx, String which, String menu, String title, String key, String anchor) {
         ctx.print(getMenu(ctx,which, menu, title, key, anchor));
     }
     
@@ -4013,7 +4015,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param title
      * @param key
      */
-    private void printMenuButton(WebContext ctx, String which,
+    private static void printMenuButton(WebContext ctx, String which,
             String menu, String title, String key, String buttonName) {
         ctx.print("<form action='"+ctx.url()+"#"+key+"="+menu+"' method='POST'>");
         ctx.printUrlAsHiddenFields();
@@ -4025,12 +4027,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     
-    public String getMenu(WebContext ctx, String which, String menu, String title) {
+    public static String getMenu(WebContext ctx, String which, String menu, String title) {
         return getMenu(ctx,which,menu,title,QUERY_SECTION);
     }
 
     
-    public String getMenu(WebContext ctx, String which, String menu, String title, String key) {
+    public static String getMenu(WebContext ctx, String which, String menu, String title, String key) {
         return getMenu(ctx,which,menu,title,key,null);
     }
 
@@ -4148,33 +4150,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     
     
     void printLocaleTreeMenu(WebContext ctx, String which) {
-        int n = ctx.docLocale.length; // how many levels deep
-        int i,j;
+        
         WebContext subCtx = (WebContext)ctx.clone();
         subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
 
-        ctx.println("<table id='localetree' summary='locale info' width='95%' border=0><tr><td >"); // width='25%'
-        ctx.println("<a class='locales' href=\"" + ctx.url() + "\">" + "Locales" + "</a> &nbsp;");
-        for(i=(n-1);i>0;i--) {
-            boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-            ctx.print("&raquo;&nbsp; <a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +QUERY_LOCALE+"=" + ctx.docLocale[i] + 
-                "\">");
-            ctx.print(decoratedLocaleName(ctx.docLocale[i],ctx.docLocale[i].getDisplayName(),""));
-            if(false&&canModify) {
-                ctx.print(modifyThing(ctx));
-            }
-            ctx.print("</a> ");
-        }
-        boolean canModifyL = false&&UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale());
-        ctx.print("&raquo;&nbsp;");
-        ctx.print("<span title='"+ctx.getLocale()+"' style='font-size: 120%'>");
-        printMenu(subCtx, which, xMAIN, 
-            decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName()+(canModifyL?modifyThing(ctx):""), "") );
-        ctx.print("</span>");
-        ctx.println("</td></tr>");
-        
-        
-        ctx.println("<tr><td>");
+        ctx.println("<div id='sectionmenu'>");
         
         boolean canModify = UserRegistry.userCanModifyLocale(subCtx.session.user, subCtx.getLocale());
         subCtx.put("which", which);
@@ -4190,7 +4170,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
         
 
-        subCtx.println("</td></tr></table>");
+        subCtx.println("</div>");
     }
     
     /**

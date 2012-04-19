@@ -94,7 +94,6 @@ div.adminUserUser i {
 	margin-top:  2px;
 	box-shadow: 1px 1px 1px gray;
 }
-
 .adminSettingId, .adminSettingValue {
     display: table-cell;
     padding:  2px;
@@ -236,7 +235,8 @@ body {
 	background-color: white;
 	padding-bottom: 3em;
 	padding-right: 0.5em;
-	padding-top: 1em;
+	margin-bottom: 180px;
+	margin-top: px;
 }
 
 
@@ -1112,10 +1112,10 @@ table.sqlbox form {
 }
 
 div#toparea {
-	margin-top: 1em;
 	border-bottom: 3px solid #e9f6e9;
 	background-color: whitesmoke;
 	font: normal 1.2em Georgia, "Times New Roman", Times, serif;
+padding: 0;
 }
 
 div#toparea img#stlogo {
@@ -1127,16 +1127,35 @@ div#toparea img#stlogo {
 	display: none;
 }
 
-h4#toptitle {
-	margin-top: 1.5em;
+#toptitle {
+	padding-top: 0;
+	margin-top: 0;
 	margin-bottom: 0;
 	line-height: 2.5em;
 	font-weight: normal;
+	padding-bottom:  0;
+	font-size: medium;
 }
 
-h4#toptitle b {
-	font-weight: bold;	
+#toptitle span.title-cldr {
+	font-weight: bold;
 }
+
+.normal-title {
+	font-weight:  bold;
+}
+
+.dcbox {
+	margin-left:  0.3em;
+	background-color: #ddd;
+	padding:  0.1em;	
+}
+
+.dcbox .dchelp {
+	padding-left:  0.25em;
+	font-style: italic;
+}
+
 
 .sterrmsg {
 	background-color: #ddd;
@@ -1513,12 +1532,12 @@ div#progress {
 	position: fixed;
 	top: 0;
 	right: 0;
-	margin-left: 0.5em;
-	margin-bottom: 0.5em;
+	margin-left: 0.2em;
+	margin-bottom: 0.2em;
 	background-color: #e0f4ea;
 	padding-top: 2px;
-	padding-left:  0.5em;
-	padding-bottom: 0.5em;
+	padding-left:  0.2em;
+	padding-bottom: 0.2em;
 	z-index: 6;
 	overflow: auto;
 	font-style: italic;
@@ -1539,7 +1558,7 @@ div#progress.progress-disconnected span.oneword {
 }
 
 div#progress span.oneword {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font: italic small Georgia, "Times New Roman", Times, serif;
 }
 
 table.progress-list {
@@ -1573,7 +1592,7 @@ table.progress-list tbody tr td {
 	opacity: .9;
 	border-left: 3px dashed gray;
 	padding-left: 1em;
-	display: none;
+	/*display: none;*/
 }
 
 table.progress-list #busy0 {
@@ -1581,7 +1600,7 @@ table.progress-list #busy0 {
 }
 
 table.progress-list #busy1 {
-	display: none;
+	/*display: none;*/
 }
 
 /* Overrides */
@@ -1635,11 +1654,22 @@ label.menutop-active {
 }
 
 select.menutop-active {
-	
+	margin: 0;
 }
 
 select.menutop-other {
 	
+}
+
+#sectionmenu {
+	
+	padding-top:  0.5em;
+}
+
+#sectionmenu label {
+	padding-left: 0.5em;
+	padding-right: 0;
+	white-space: nowrap;
 }
 
 /* classes for ajax form responses */
@@ -1977,6 +2007,21 @@ body.disconnected div#progress.progress-ok  button#progress-refresh {
 	display: none !important;
 }
 
+div#progress.progress-special,
+div#progress.progress-special span.oneword{
+	background-color: wheat !important;
+	font-style: italic;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div#progress, div#progress span {
+transition: background-color 0.5s;
+-moz-transition: background-color 0.5s;
+-webkit-transition: background-color 0.5s;
+-o-transition: background-color 0.2s;
+}
+
 .i-star {
 	padding: 2px;
 	width: 16px;
@@ -2071,9 +2116,7 @@ div#pu-peak {
 	z-index: 6;
 }
 
-body {
-	margin-bottom: 180px;
-}
+
 
 div#pu-content {
 	display: none;

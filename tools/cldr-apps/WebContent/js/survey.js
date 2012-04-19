@@ -103,6 +103,7 @@ function stdebug(x) {
 stdebug('stdebug is enabled.');
 
 function removeAllChildNodes(td) {
+	if(td==null) return;
 	while(td.firstChild) {
 		td.removeChild(td.firstChild);
 	}
@@ -356,6 +357,7 @@ function handleChangedLocaleStamp(stamp,name) {
 
 var progressWord = null;
 var ajaxWord = null;
+var specialHeader = null;
 
 function showWord() {
 	var p = dojo.byId("progress");	
@@ -371,8 +373,13 @@ function showWord() {
 		p.className = "progress-ok";
 		oneword.innerHTML = ajaxWord;
 	} else if(!progressWord || progressWord == "ok") {
-		p.className = "progress-ok";
-		oneword.innerHTML = stui_str('online');
+		if(specialHeader) {
+			p.className = "progress-special";
+			oneword.innerHTML = specialHeader; // only show if set
+		} else {
+			p.className = "progress-ok";
+			oneword.innerHTML = stui_str('online');
+		}
 	} else if(progressWord=="startup") {
 		p.className = "progress-ok";
 		oneword.innerHTML = stui_str('startup');
@@ -429,24 +436,14 @@ function cacheKill() {
 	return "&cacheKill="+cacheKillStamp;
 }
 
+
 function updateSpecialHeader(newSpecialHeader) {
-	var betanotice = dojo.byId("betanotice");
-	var specialHeader = dojo.byId("specialHeader");
-	var betadiv = dojo.byId("betadiv");
-	
 	if(newSpecialHeader && newSpecialHeader.length>0) {
-		removeAllChildNodes(specialHeader);
-		specialHeader.appendChild(document.createTextNode(newSpecialHeader));
-		betadiv.style.display="";
-		specialHeader.style.display="";
+		specialHeader = newSpecialHeader;
 	} else {
-		specialHeader.style.display="none";
-		if(betanotice) {
-			betadiv.style.display="";
-		} else {
-			betadiv.style.display="none";
-		}
+		specialHeader=null;
 	}
+	showWord();
 }
 function updateStatusBox(json) {
 	if(json.disconnected) {

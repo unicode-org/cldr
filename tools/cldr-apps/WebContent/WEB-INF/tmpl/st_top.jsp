@@ -29,7 +29,7 @@
         }
         boolean canModifyL = false&&UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale());
         ctx.print("&raquo;&nbsp;");
-        ctx.print("<span title='"+ctx.getLocale()+"' style='font-size: 120%'>");
+        ctx.print("<span title='"+ctx.getLocale()+"' class='curLocale'>");
         SurveyMain.printMenu(subCtx2, ctx.field(SurveyMain.QUERY_DO), SurveyMain.xMAIN, 
             SurveyMain.decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName()+(canModifyL?SurveyMain.modifyThing(ctx):""), "") );
         ctx.print("</span>");
@@ -45,9 +45,9 @@
         }
 
         
-        %>
+        if(title!=null&&!title.trim().isEmpty()) {%>
         |
-    <%  } %>
+    <% } } %>
 
         <span class='normal-title'><%= title %></span>
     </div>

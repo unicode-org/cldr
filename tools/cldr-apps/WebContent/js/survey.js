@@ -2666,7 +2666,7 @@ function loadAdminPanel() {
 					var thread = createChunk(null,"div","adminSetting");
 
 					thread.appendChild(createChunk(id,"span","adminSettingId"));
-					if(id == "CLDR_HEADER" || id=="CLDR_TESTPW") 	{
+					if(id == "CLDR_HEADER" ) 	{
 						(function(theHeader,theValue) {
 						var setHeader = null;
 						setHeader = appendInputBox(thread, "adminSettingsChangeTemp");

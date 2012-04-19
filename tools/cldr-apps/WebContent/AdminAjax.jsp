@@ -100,10 +100,10 @@
         java.io.Reader r = request.getReader();
         int ch;
         while((ch = r.read())>-1) {
-                      System.err.println("[post read] >> " + Integer.toHexString(ch));
-            sb.append((char)ch);
+//                       System.err.println("[post read] >> " + Integer.toHexString(ch));
+             sb.append((char)ch);
         }
-        System.err.println(request.getMethod() + " len " + request.getContentLength() + "type"+ request.getContentType() + "[ chars="+sb+"]");
+   //     System.err.println(request.getMethod() + " len " + request.getContentLength() + "type"+ request.getContentType() + "[ chars="+sb+"]");
           CLDRConfigImpl cci = (CLDRConfigImpl)(CLDRConfig.getInstance());
           cci.setProperty(setting,sb.toString());
           settings.put("ok", true);

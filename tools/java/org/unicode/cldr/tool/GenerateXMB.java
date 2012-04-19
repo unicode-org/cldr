@@ -103,6 +103,7 @@ public class GenerateXMB {
     .add("zone", null, "Show metazoneinfo and exit")
     .add("wsb", ".*", "Show metazoneinfo and exit")
     .add("kompare", ".*", CldrUtility.BASE_DIRECTORY + "../DATA/cldr/common/google-bulk-imports", "Compare data with directory; generate files in -target.")
+    .add("project_name", 'n', ".*", "CLDR", "The ID of the project.")
     ;
 
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
@@ -122,6 +123,8 @@ public class GenerateXMB {
     private static final HashSet<String> SKIP_LOCALES = new HashSet<String>(Arrays.asList(new String[]{"en", "root"}));
 
     public static String DTD_VERSION;
+    
+    private static String projectId;
 
     public static void main(String[] args) throws Exception {
         myOptions.parse(args, true);
@@ -162,6 +165,9 @@ public class GenerateXMB {
             displayWsb(myOptions.get("wsb").getValue(), englishInfo);
             return;
         }
+        
+        projectId = myOptions.get("project_name").getValue();
+
         writeFile(targetDir, "en", englishInfo, english, true, false);
         writeFile(targetDir + "/filtered/", "en", englishInfo, english, true, true);
 
@@ -421,6 +427,7 @@ public class GenerateXMB {
         Matcher countMatcher = COUNT_OR_ALT_ATTRIBUTE.matcher("");
         int lineCount = 0;
         int wordCount = 0;
+        int messageCount = 0;
 
         StringWriter buffer = new StringWriter();
         PrintWriter out1 = new PrintWriter(buffer);
@@ -503,6 +510,7 @@ public class GenerateXMB {
                 reasonsToPaths.put("changed-english", path);
             } else {
                 writePathInfo(out1, pathInfo, value, isEnglish);
+                messageCount++;
             }
             if (isEnglish) {
                 writeJavaInfo(out3, pathInfo, value);
@@ -511,6 +519,7 @@ public class GenerateXMB {
             ++lineCount;
         }
         R2<Integer, Integer> lineWordCount = writeCountPathInfo(out1, cldrFile.getLocaleID(), countItems, isEnglish, filter);
+        messageCount += lineWordCount.get0();
         lineCount += lineWordCount.get0();
         wordCount += lineWordCount.get1();
         if (!filter && countItems.size() != lineWordCount.get0().intValue()) {
@@ -526,7 +535,7 @@ public class GenerateXMB {
         if (isEnglish) {
             FileUtilities.appendFile(GenerateXMB.class, "xmb-dtd.xml", out);
             out.println("<!-- " + localeName + " -->");
-            out.println("<messagebundle class='CLDR'> <!-- version: " + DTD_VERSION + ", date: " + DATE + " -->");
+            out.println("<messagebundle class='" + projectId + "'> <!-- version: " + DTD_VERSION + ", date: " + DATE + " -->");
             out.println(buffer.toString());
             out.println("</messagebundle>");
 
@@ -552,7 +561,7 @@ public class GenerateXMB {
             FileUtilities.appendFile(GenerateXMB.class, "wsb-dtd.xml", out);
             out.println("<!-- " + localeName + " -->");
             out.println("<worldserverbundles lazarus_id='dummy' date='" + DATE + "'> <!-- version: " + DTD_VERSION + " -->");
-            out.println("  <worldserverbundle project_id='CLDR' message_count='" + lineCount + "'>");
+            out.println("  <worldserverbundle project_id='" + projectId + "' message_count='" + messageCount + "'>");
             out.println(buffer.toString());
             out.println("  </worldserverbundle>");
             out.println("</worldserverbundles>");

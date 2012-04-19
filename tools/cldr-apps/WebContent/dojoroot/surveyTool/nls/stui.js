@@ -50,7 +50,9 @@ define({
 			
 			admin_settings: "Settings",
 			admin_settings_desc: "Survey tool settings",
-			adminSettingsChangeTemp: "Temporary Change:",
+			adminSettingsChangeTemp: "Temporary change:",
+			appendInputBoxChange: "Change",
+			appendInputBoxCancel: "Clear",
 			
 			userlevel_admin: "Admin",
 			userlevel_tc: "TC",

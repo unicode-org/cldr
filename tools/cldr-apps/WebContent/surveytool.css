@@ -1177,6 +1177,23 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 	background: #e4dcd4 url(warn.png) no-repeat 0.25em center;
 }
 
+.okayText {
+    padding-left: 2em;
+    background: #DDFFDD url(okay.png) no-repeat 0.25em center;
+}
+.stopText {
+    padding-left: 2em;
+    background: #FFDDDD url(stop.png) no-repeat 0.25em center;
+}
+.warnText {
+    padding-left: 2em;
+    background: #e4dcd4 url(warn.png) no-repeat 0.25em center;
+}
+
+.appendInputBoxChange, .appendInputBoxCancel {
+}
+
+
 a.dcLocale {
 	color:  #555;
 	text-decoration: none;	

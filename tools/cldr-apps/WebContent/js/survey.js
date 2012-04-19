@@ -429,6 +429,25 @@ function cacheKill() {
 	return "&cacheKill="+cacheKillStamp;
 }
 
+function updateSpecialHeader(newSpecialHeader) {
+	var betanotice = dojo.byId("betanotice");
+	var specialHeader = dojo.byId("specialHeader");
+	var betadiv = dojo.byId("betadiv");
+	
+	if(newSpecialHeader) {
+		removeAllChildNodes(specialHeader);
+		specialHeader.appendChild(document.createTextNode(newSpecialHeader));
+		betadiv.style.display="";
+		specialHeader.style.display="";
+	} else {
+		specialHeader.style.display="none";
+		if(betanotice) {
+			betadiv.style.display="";
+		} else {
+			betadiv.style.display="none";
+		}
+	}
+}
 function updateStatusBox(json) {
 	if(json.disconnected) {
 		handleDisconnect("Misc Disconnect", json);
@@ -502,22 +521,10 @@ function updateStatusBox(json) {
 		removeAllChildNodes(updateParts.visitors);
 		updateParts.visitors.appendChild(fragment);
 		
-		var betanotice = dojo.byId("betanotice");
-		var specialHeader = dojo.byId("specialHeader");
-		var betadiv = dojo.byId("betadiv");
-		
 		if(json.status.specialHeader && json.status.specialHeader.length>0) {
-			removeAllChildNodes(specialHeader);
-			specialHeader.appendChild(document.createTextNode(json.status.specialHeader));
-			betadiv.style.display="";
-			specialHeader.style.display="";
+			updateSpecialHeader(json.status.specialHeader);
 		} else {
-			specialHeader.style.display="none";
-			if(betanotice) {
-				betadiv.style.display="";
-			} else {
-				betadiv.style.display="none";
-			}
+			updateSpecialHeader(null);
 		}
 	}
 }
@@ -1974,13 +1981,80 @@ function createChunk(text, tag, className) {
 	return chunk;
 }
 
+function hideAfter(whom, when) {
+	if(!when) {
+		when=10000;
+	}
+	setTimeout(function() {
+		whom.style.opacity="0.8";
+	}, when/3);
+	setTimeout(function() {
+		whom.style.opacity="0.5";
+	}, when/2);
+	setTimeout(function() {
+		whom.style.display="none";
+	}, when);
+	return whom;
+}
+
 function appendInputBox(parent, which) {
-	var label = createChunk(stui.str(which), "label", which);
+	var label = createChunk(stui.str(which), "div", which);
 	var input = document.createElement("input");
+	input.stChange = function(onOk,onErr){};
+	var change = createChunk(stui.str("appendInputBoxChange"), "button", "appendInputBoxChange");
+	var cancel = createChunk(stui.str("appendInputBoxCancel"), "button", "appendInputBoxCancel");
+	var notify = document.createElement("div");
+	notify.className="appendInputBoxNotify";
 	input.className = "appendInputBox";
+	label.appendChild(change);
+	label.appendChild(cancel);
+	label.appendChild(notify);
 	label.appendChild(input);
 	parent.appendChild(label);
 	input.label = label;
+	
+	var doChange = function() {
+		addClass(label, "d-item-selected");
+		removeAllChildNodes(notify);
+		notify.appendChild(createChunk(stui.str("loading"),'i'));
+		var onOk = function(msg) {
+			removeClass(label, "d-item-selected");
+			removeAllChildNodes(notify);
+			notify.appendChild(hideAfter(createChunk(msg,"span","okayText")));
+		};
+		var onErr = function(msg) {
+			removeClass(label, "d-item-selected");
+			removeAllChildNodes(notify);
+			notify.appendChild(createChunk(msg,"span","stopText"));
+		};
+		
+		input.stChange(onOk,onErr);
+	};
+	
+	var changeFn = function(e) {
+		doChange();
+		stStopPropagation(e);
+		return false;
+	};
+	var cancelFn = function(e) {
+		input.value="";
+		doChange();
+		stStopPropagation(e);
+		return false;
+	};
+	var keypressFn = function(e) {
+		if(!e || !e.keyCode)  {
+			return true; // not getting the point here.
+		} else if(e.keyCode == 13) {
+			doChange();
+			return false;	
+		} else {
+			return true;
+		}
+	};
+	listenFor(change, "click", changeFn);
+	listenFor(cancel, "click", cancelFn);
+	listenFor(input, "keypress", keypressFn);
 	return input;
 }
 
@@ -2671,26 +2745,28 @@ function loadAdminPanel() {
 						var setHeader = null;
 						setHeader = appendInputBox(thread, "adminSettingsChangeTemp");
 						setHeader.value = theValue;
-						var lab = setHeader.label;
-						var updating = createChunk(stui_str("updating"),"i");
-						listenFor(setHeader, "change", function(e) {
-							lab.appendChild(updating);
-							stStopPropagation(e);
+						setHeader.stChange=function(onOk,onErr) {
 							loadOrFail("do=settings_set&setting="+theHeader, u, function(json) {
 								if(!json || !json.settings_set || !json.settings_set.ok) {
-									lab.removeChild(updating);
-									lab.appendChild(createChunk(stui_str("failed") + " " + json.settings_set.err,"div","ferrbox"));
+									onErr(stui_str("failed"));
+									onErr(json.settings_set.err);
 								} else {
-									lab.removeChild(updating);
 									if(json.settings_set[theHeader]) {
 										setHeader.value = json.settings_set[theHeader];
+										if(theHeader=="CLDR_HEADER") {
+											updateSpecialHeader(setHeader.value);
+										}
 									} else {
 										setHeader.value = "";
+										if(theHeader=="CLDR_HEADER") {
+											updateSpecialHeader(null);
+										}
 									}
+									onOk(stui_str("changed"));
 								}
 							}, setHeader.value);
 							return false;
-						 });
+						 };
 						})(id,t); // call it
 					} else {
 						thread.appendChild(createChunk(t,"span","adminSettingValue"));

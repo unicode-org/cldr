@@ -1516,7 +1516,6 @@ div#progress {
 	margin-left: 0.5em;
 	margin-bottom: 0.5em;
 	background-color: #e0f4ea;
-	padding-right: 2px;
 	padding-top: 2px;
 	padding-left:  0.5em;
 	padding-bottom: 0.5em;
@@ -1532,6 +1531,7 @@ div#progress.progress-connecting {
 div#progress.progress-disconnected {
 	opacity: 1;
 	background-color: #fba2a4;
+	padding-right: 4em;
 }
 
 div#progress.progress-disconnected span.oneword {
@@ -1967,7 +1967,6 @@ button#progress-refresh {
 	position: absolute;
 	right: 0.25em;
 	font-size: x-small;
-	display: block;
 }
 
 body.disconnected div#progress button#progress-refresh {

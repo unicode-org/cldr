@@ -434,7 +434,7 @@ function updateSpecialHeader(newSpecialHeader) {
 	var specialHeader = dojo.byId("specialHeader");
 	var betadiv = dojo.byId("betadiv");
 	
-	if(newSpecialHeader) {
+	if(newSpecialHeader && newSpecialHeader.length>0) {
 		removeAllChildNodes(specialHeader);
 		specialHeader.appendChild(document.createTextNode(newSpecialHeader));
 		betadiv.style.display="";
@@ -2768,6 +2768,10 @@ function loadAdminPanel() {
 							return false;
 						 };
 						})(id,t); // call it
+						
+						if(id=="CLDR_HEADER") {
+							updateSpecialHeader(t);
+						}
 					} else {
 						thread.appendChild(createChunk(t,"span","adminSettingValue"));
 					}

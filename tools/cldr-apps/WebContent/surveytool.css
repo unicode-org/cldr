@@ -86,10 +86,13 @@ div.adminUserUser i {
 
 #specialHeader {
 	display: block;
-	font-size: large;
-    padding-left: 22px;
-    background: yellow url(warn.png) no-repeat 0.25em center;
-    opacity: .99;
+    padding: 0.25em;
+    color:  black;
+    background-color: wheat;
+    opacity: 1;
+	font: italic  small Georgia, "Times New Roman", Times, serif;
+	margin-top:  2px;
+	box-shadow: 1px 1px 1px gray;
 }
 
 .adminSettingId, .adminSettingValue {
@@ -1121,6 +1124,7 @@ div#toparea img#stlogo {
 	height: 2.5em;
 	margin-right: 5.5em;
 	padding-top:  8px;
+	display: none;
 }
 
 h4#toptitle {
@@ -1391,11 +1395,14 @@ div.topnotices div.unofficial {
 	right: 0;
 	opacity: 0.9;
 	text-align: center;
-	
+	display: none;
 }
 
-div.topnotices p.beta {
-	background-color: yellow;
+div.topnotices #betanotice {
+    background-color: yellow;
+    padding:  2px;
+    padding-top:  3px;
+	box-shadow: 1px 1px 1px gray;
 }
 
 div.topnotices div.beta {
@@ -1410,17 +1417,16 @@ div.topnotices div.beta {
 -khtml-transform-origin: right bottom;
 */
 /* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
-
-    background-color: yellow;
-	padding: 3px;
 	float: right;
 	font-size: smaller;
 	clear: right;
 	position: fixed;
 	left: 0;
 	top: 0;
-	opacity: 0.8;
+	opacity: 0.9;
 	z-index: 0;
+	margin-top:  2px;
+	margin-left:  2px;
 }
 
 div.debugJsp {
@@ -1509,16 +1515,14 @@ div#progress {
 	right: 0;
 	margin-left: 0.5em;
 	margin-bottom: 0.5em;
-	border-bottom: 4px groove gray;
-	border-left: 4px groove gray;
 	background-color: #e0f4ea;
 	padding-right: 2px;
 	padding-top: 2px;
-	padding-left:  2px;
+	padding-left:  0.5em;
 	padding-bottom: 0.5em;
-	width: 20em;
 	z-index: 6;
 	overflow: auto;
+	font-style: italic;
 }
 
 div#progress.progress-connecting {
@@ -1963,6 +1967,7 @@ button#progress-refresh {
 	position: absolute;
 	right: 0.25em;
 	font-size: x-small;
+	display: block;
 }
 
 body.disconnected div#progress button#progress-refresh {

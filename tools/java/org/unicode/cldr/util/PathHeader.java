@@ -964,7 +964,11 @@ public class PathHeader implements Comparable<PathHeader> {
             // make sure we cache all the path headers
             Set<String> filePaths = CollectionUtilities.addAll(file.fullIterable().iterator(), new HashSet<String>());
             for (String path : filePaths) {
-                fromPath(path); // call to make sure cached
+                try {
+                    fromPath(path); // call to make sure cached
+                } catch(Throwable t) {
+                    // ... some other exception
+                }
             }
             return Collections.unmodifiableSet(filePaths);
         }

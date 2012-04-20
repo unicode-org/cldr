@@ -392,6 +392,7 @@ public class GenerateXMB {
 
 
     static final Pattern COUNT_OR_ALT_ATTRIBUTE = Pattern.compile("\\[@(count)=\"([^\"]*)\"]");
+    static final Pattern PLURAL_XPATH = Pattern.compile("//ldml/(units/unit|numbers/(decimal|currency)Formats).*\\[@count=\"\\w+\"].*");
     static final Pattern SKIP_EXEMPLAR_TEST = Pattern.compile(
             "/(currencySpacing"
             +"|hourFormat"
@@ -458,8 +459,8 @@ public class GenerateXMB {
                     continue;
                 }
             }
-            boolean isUnits = path.startsWith("//ldml/units/unit");
-            if (filter && !isUnits) {
+            boolean hasPlurals = PLURAL_XPATH.matcher(path).matches();
+            if (filter && !hasPlurals) {
                 String starred = pathInfo.getStarredPath();
                 if (seenStarred.contains(starred)) {
                     continue;
@@ -500,7 +501,7 @@ public class GenerateXMB {
             }
             //String fullPath = cldrFile.getStringValue(path);
             // //ldml/units/unit[@type="day"]/unitPattern[@count="one"]
-            if (isUnits) {
+            if (hasPlurals) {
                 countMatcher.reset(path).find();
                 String countLessPath = countMatcher.replaceAll("");
                 countItems.put(countLessPath, Row.of(pathInfo, value));
@@ -597,7 +598,8 @@ public class GenerateXMB {
     }
 
     static final Pattern COUNT_ATTRIBUTE = Pattern.compile("\\[@count=\"([^\"]*)\"]");
-
+    static final Pattern PLURAL_NUMBER = Pattern.compile("(decimal|number)Format");
+    
     private static Row.R2<Integer, Integer> writeCountPathInfo(PrintWriter out, String locale, Relation<String, R2<PathInfo, String>> countItems, boolean isEnglish, boolean filter) {
         Matcher m = COUNT_ATTRIBUTE.matcher("");
         int wordCount = 0;
@@ -626,7 +628,14 @@ public class GenerateXMB {
                 System.out.println(locale + "\tMust have 2 count values: " + entry.getKey());
                 continue;
             }
-            String var = pathInfo.getFirstVariable();
+            Matcher matcher = PLURAL_NUMBER.matcher(pathInfo.getPath());
+            String var = null;
+            if (matcher.find()) {
+                // Plural doesn't use placeholders so create a label.
+                var = matcher.group(1).toUpperCase() + "_NUMBER";
+            } else {
+                var = pathInfo.getFirstVariable();
+            }
             String fullPlurals = showPlurals(var, fullValues, locale, pluralInfo, isEnglish, errorSet);
             if (fullPlurals == null) {
                 System.out.println(locale + "\tCan't format plurals for: " + entry.getKey() + "\t" + errorSet);

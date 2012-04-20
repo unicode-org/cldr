@@ -1666,6 +1666,7 @@ select.menutop-other {
 	padding-top:  0.5em;
 }
 
+label.menutop-active, label.menutop-other,
 #sectionmenu label {
 	padding-left: 0.5em;
 	padding-right: 0;
@@ -1673,6 +1674,19 @@ select.menutop-other {
 }
 
 /* classes for ajax form responses */
+
+.user_email {
+ font-size: small;
+	font-style: italic;
+}
+
+.user_name {
+	color: navy;
+}
+
+.user_org {
+	color:  navy;
+}
 
 tr.tr_checking {
 	background-color: silver;

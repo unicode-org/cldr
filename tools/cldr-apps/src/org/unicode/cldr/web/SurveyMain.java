@@ -3554,7 +3554,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if(ctx.getLocale() == null) {
                 title = "Locales";
             } else {
-                title = " general";
+                title = ""; //  general";
             }
         } else if(which.equals(R_STEPS)) {
             title = " Basic Locale Information";

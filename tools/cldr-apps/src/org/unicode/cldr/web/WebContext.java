@@ -1275,12 +1275,12 @@ public class WebContext implements Cloneable, Appendable {
 	}
 
 	public String showCoverageSetting() {
-		String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level", WebContext.PREF_COVLEV_LIST);
+		String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage", WebContext.PREF_COVLEV_LIST);
 		return rv;
 	}
 
 	public String showCoverageSettingForLocale() {
-		String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage Level", WebContext.PREF_COVLEV_LIST,
+		String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage", WebContext.PREF_COVLEV_LIST,
 				getRecommendedCoverageLevel());
 		return rv;
 	}

@@ -59,7 +59,8 @@ String helpName = ctx.getString("helpName");
             SurveyMain.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);
     	} else {
     		boolean haveCookies = (ctx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&ctx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
-    		ctx.println(ctx.session.user.name + " (" + ctx.session.user.org + ") ");
+    		ctx.println("<span class='user_email'>&lt;"+ctx.session.user.email + "&gt;</span> <span class='user_name'>"+ctx.session.user.name +
+    		        "</span> <span class='user_org'>(" + ctx.session.user.org + ")</span> ");
     		if(!haveCookies && !ctx.hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
     			ctx.println(" <a class='notselected' href='"+ctx.url()+ctx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Remember Me!</b></a>");
     		}
@@ -94,7 +95,7 @@ String helpName = ctx.getString("helpName");
                                     %><%=SurveyForum.forumLink(subCtx,forum)%><%=SurveyForum.forumFeedIcon(subCtx, forum)%><%
                 }
     		} else {
-    			ctx.print(" <smaller>Coverage Level: "+curSetting+"</smaller>");
+    			ctx.print(" <smaller>Coverage: "+curSetting+"</smaller>");
     		}
     		ctx.print(" | ");
             ctx.sm.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);

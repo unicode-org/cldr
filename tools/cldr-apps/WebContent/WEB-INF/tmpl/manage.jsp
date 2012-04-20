@@ -20,21 +20,21 @@ String helpName = subCtx.getString("helpName");
                 subCtx.println(" <a class='notselected' href='"+subCtx.url()+subCtx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Remember Me!</b></a>");
             }
             subCtx.print(" | ");
-            subCtx.sm.printMenu(subCtx, doWhat, "listu", "My Account", SurveyMain.QUERY_DO);
+            SurveyMain.printMenu(subCtx, doWhat, "listu", "My Account", SurveyMain.QUERY_DO);
             if(UserRegistry.userIsTC(subCtx.session.user)) {
                 subCtx.print(" | ");
-                subCtx.sm.printMenu(subCtx, doWhat, "list", "Manage " + subCtx.session.user.org + " Users", SurveyMain.QUERY_DO);
+                SurveyMain.printMenu(subCtx, doWhat, "list", "Manage " + subCtx.session.user.org + " Users", SurveyMain.QUERY_DO);
                 subCtx.print(" | ");
                 //              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
             } else {
                 if(UserRegistry.userIsVetter(subCtx.session.user)) {
                     subCtx.print(" | ");
-                    subCtx.sm.printMenu(subCtx, doWhat, "list", "List " + subCtx.session.user.org + " Users", subCtx.sm.QUERY_DO);
+                    SurveyMain.printMenu(subCtx, doWhat, "list", "List " + subCtx.session.user.org + " Users", subCtx.sm.QUERY_DO);
                 } else if(UserRegistry.userIsLocked(subCtx.session.user)) {
                     subCtx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + subCtx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
             }
-            subCtx.sm.printMenu(subCtx, doWhat, "disputed", "Dispute Resolution", SurveyMain.QUERY_DO); 
+            SurveyMain.printMenu(subCtx, doWhat, "disputed", "Dispute Resolution", SurveyMain.QUERY_DO); 
             if(SurveyMain.isPhaseReadonly()) {
                 subCtx.println("<br>(The SurveyTool is in a read-only state, no changes may be made.)");
             } else if(SurveyMain.isPhaseVetting() 

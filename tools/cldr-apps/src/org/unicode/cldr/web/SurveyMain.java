@@ -50,6 +50,7 @@ import java.util.regex.Pattern;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -1514,9 +1515,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             String myPassword = ctx.getCookieValue(QUERY_PASSWORD);
             if(myEmail!=null && (email==null||email.isEmpty())) {
                 email=myEmail;
-            }
-            if(myPassword!=null && (password == null||password.isEmpty())) {
-                password = myPassword;
+                if(myPassword!=null && (password == null||password.isEmpty())) {
+                    password = myPassword;
+                }
             }
         }
         UserRegistry.User user;
@@ -3489,6 +3490,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if(ctx.hasField(QUERY_SAVE_COOKIE)) {
                 ctx.addCookie(QUERY_EMAIL, ctx.session.user.email, TWELVE_WEEKS);
                 ctx.addCookie(QUERY_PASSWORD, ctx.session.user.password, TWELVE_WEEKS);
+            } else if(ctx.hasField(QUERY_PASSWORD)) {
+                //ctx.addCookie(QUERY_PASSWORD, "", 0);
+                ctx.addCookie(QUERY_EMAIL, "", 0);
             }
         }
         if(ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {

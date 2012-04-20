@@ -2012,10 +2012,11 @@ public class WebContext implements Cloneable, Appendable {
 	 * @param value
 	 * @param expiry
 	 */
-	void addCookie(String id, String value, int expiry) {
+	Cookie addCookie(String id, String value, int expiry) {
 		Cookie c = new Cookie(id, value);
 		c.setMaxAge(expiry);
 		response.addCookie(c);
+		return c;
 	}
 
 	@Override

@@ -23,6 +23,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.StringId;
 
@@ -111,7 +112,7 @@ public class TestCheckCLDR extends TestFmwk {
                 value = "?";
             }
             boolean containsMessagePattern = messagePlaceholder.reset(value).find();
-            final Map<String, String> placeholderInfo = patternPlaceholders.get(path);
+            final Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders.get(path);
             final PlaceholderStatus placeholderStatus = patternPlaceholders.getStatus(path);
             if (containsMessagePattern && placeholderStatus == PlaceholderStatus.DISALLOWED || !containsMessagePattern && placeholderStatus == PlaceholderStatus.REQUIRED) {
                 errln("Value (" + value + ") looks like placeholder = " + containsMessagePattern + ", but placeholder info = " + placeholderStatus + "\t" + path);

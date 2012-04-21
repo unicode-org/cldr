@@ -40,6 +40,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
@@ -1087,8 +1088,7 @@ public class GenerateXMB {
                     description = null;
                 }
 
-                Map<String, String> placeholders = patternPlaceholders.get(path);
-
+                Map<String, String> placeholders = getPlaceholderOutput(patternPlaceholders, path);
                 String oldValue = oldPathValueMap.get(path);
                 boolean changedEnglish = !value.equals(oldValue);
                 PathInfo row = new PathInfo(path, value, changedEnglish, placeholders, description, pathDescription.getStarredPathOutput());
@@ -1123,6 +1123,19 @@ public class GenerateXMB {
             }
             out.close();
             writeReasons(reasonsToPaths, targetDir, "en");
+        }
+
+        private Map<String, String> getPlaceholderOutput(PatternPlaceholders patternPlaceholders, String path) {
+            Map<String, PlaceholderInfo> placeholders = patternPlaceholders.get(path);
+            if (placeholders == null) return null;
+            Map<String, String> placeholderOutput = new LinkedHashMap<String, String>();
+            for (Map.Entry<String, PlaceholderInfo> entry : placeholders.entrySet()) {
+                String id = entry.getKey();
+                PlaceholderInfo info = entry.getValue();
+                // <ph name='x'><ex>xxx</ex>yyy</ph>
+                placeholderOutput.put(id, "<ph name='" + info.name + "'><ex>" + info.example + "</ex>" + id + "</ph>");
+            }
+            return placeholderOutput;
         }
 
         private String toRegexPath(String starredPath) {

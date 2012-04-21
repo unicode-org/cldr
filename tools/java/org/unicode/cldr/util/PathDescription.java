@@ -6,6 +6,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -13,7 +14,9 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.CldrUtility.Output;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.MessageFormat;
 
 public class PathDescription {
@@ -175,7 +178,48 @@ public class PathDescription {
         } else if (description != MISSING_DESCRIPTION){
             description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), pathArguments.value);
         }
+
         return description;
+    }
+
+    /**
+     * Creates an escaped HTML string of placeholder information.
+     * @param path the xpath to specify placeholder information for
+     * @return a HTML string, or null if there was no placeholder information
+     */
+    public String getPlaceholderDescription(String path) {
+        Map<String, PlaceholderInfo> placeholders = PatternPlaceholders.getInstance().get(path);
+        if (placeholders != null && placeholders.size() > 0) {
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("<table>");
+            buffer.append("<tr><th>Placeholder</th><th>Meaning</th><th>Example</th></tr>");
+            for (Entry<String, PlaceholderInfo> entry : placeholders.entrySet()) {
+                PlaceholderInfo info = entry.getValue();
+                buffer.append("<tr>");
+                buffer.append("<td>").append(entry.getKey()).append("</td>");
+                buffer.append("<td>").append(info.name).append("</td>");
+                buffer.append("<td>").append(info.example).append("</td>");
+                buffer.append("</tr>");
+            }
+            buffer.append("</table>");
+            // Escape <>.
+            StringBuffer escapeBuffer = new StringBuffer();
+            for (int i = 0, len = buffer.length(); i < len; i++) {
+                char c = buffer.charAt(i);
+                switch(c) {
+                case '<':
+                    escapeBuffer.append("&lt;");
+                    break;
+                case '>':
+                    escapeBuffer.append("&gt;");
+                    break;
+                default:
+                    escapeBuffer.append(c);
+                }
+            }
+            return escapeBuffer.toString();
+        }
+        return null;
     }
 
     private static boolean isRootCode(String code, Set<String> allMetazones, String type, boolean isMetazone) {

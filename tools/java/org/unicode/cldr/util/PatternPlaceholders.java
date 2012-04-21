@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.RegexLookup.Merger;
 
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.Transform;
 
 public class PatternPlaceholders {
@@ -16,9 +17,29 @@ public class PatternPlaceholders {
     
     private static class PlaceholderData {
         PlaceholderStatus status = PlaceholderStatus.REQUIRED;
-        Map<String, String> data = new LinkedHashMap<String, String>();
+        Map<String, PlaceholderInfo> data = new LinkedHashMap<String, PlaceholderInfo>();
+
+        public void add(String id, String name, String example) {
+            PlaceholderInfo row = new PlaceholderInfo(name, example);
+            data.put(id,row);
+        }
     }
     
+    public static class PlaceholderInfo {
+        public String name;
+        public String example;
+
+        private PlaceholderInfo(String name, String example) {
+            this.name = name;
+            this.example = example;
+        }
+        
+        @Override
+        public String toString() {
+            return name + " (" + example + ")";
+        }
+    }
+
     private static final class MyMerger implements Merger<PlaceholderData> {
         @Override
         public PlaceholderData merge(PlaceholderData a, PlaceholderData into) {
@@ -60,17 +81,16 @@ public class PatternPlaceholders {
                         example = "";
                     }
 
-                    String old = result.data.get(id);
+                    PlaceholderInfo old = result.data.get(id);
                     if (old != null) {
                         throw new IllegalArgumentException("Key occurs twice: " + id + "=" + old + "!=" + name);
                     }
-                    // <ph name='x'><ex>xxx</ex>yyy</ph>
-                    result.data.put(id, "<ph name='" + name + "'><ex>" + example+ "</ex>" + id +  "</ph>");
+                    result.add(id, name, example);
                 }
             } catch (Exception e) {
                 throw new IllegalArgumentException("Failed to parse " + source, e);
             }
-            for (Entry<String, String> entry : result.data.entrySet()) {
+            for (Entry<String, PlaceholderInfo> entry : result.data.entrySet()) {
                 if (GenerateXMB.DEBUG) System.out.println(entry);
             }
             return result;
@@ -78,19 +98,22 @@ public class PatternPlaceholders {
 
     }
 
-    private RegexLookup<PlaceholderData> patternPlaceholders 
-    = RegexLookup.of(new MapTransform())
-    .setValueMerger(new MyMerger())
-    .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+    private RegexLookup<PlaceholderData> patternPlaceholders;
     
-    private static PatternPlaceholders SINGLETON = new PatternPlaceholders();
+    private static PatternPlaceholders SINGLETON;
     private PatternPlaceholders() {}
     
     public static PatternPlaceholders getInstance() {
+        if (SINGLETON == null) {
+            SINGLETON = new PatternPlaceholders();
+            SINGLETON.patternPlaceholders = RegexLookup.of(new MapTransform())
+            .setValueMerger(new MyMerger())
+            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+        }
         return SINGLETON;
     }
 
-    public Map<String, String> get(String path) {
+    public Map<String, PlaceholderInfo> get(String path) {
         // TODO change the original map to be unmodifiable, to avoid this step. Need to add a "finalize" to the lookup.
         final PlaceholderData map = patternPlaceholders.get(path);
         return map == null ? null : Collections.unmodifiableMap(map.data);

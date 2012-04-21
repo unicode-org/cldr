@@ -645,13 +645,11 @@ public class GenerateXMB {
             }
 
             out.println();
-            if (isEnglish) {
-                out.println("\t<!--\t" 
-                        //+ prettyPath.getPrettyPath(pathInfo.getPath(), false) + " ;\t" 
-                        + countLessPath + "\t-->");
-            } 
-            out.println("\t<msg id='" + pathInfo.getStringId() + "' desc='" + pathInfo.description + "'");
-            out.println("\t >" + fullPlurals + "</msg>");
+            out.println("    <!--    " 
+                    //+ prettyPath.getPrettyPath(pathInfo.getPath(), false) + " ;    " 
+                    + countLessPath + "    -->");
+            out.println("    <msg id='" + pathInfo.getStringId() + "' desc='" + pathInfo.description + "'");
+            out.println("     >" + fullPlurals + "</msg>");
             //            if (!isEnglish || pathInfo.placeholderReplacements != null) {
             //                out.println("\t<!-- English original:\t" + pathInfo.getEnglishValue() + "\t-->");
             //            }
@@ -967,7 +965,7 @@ public class GenerateXMB {
         EnglishInfo(String targetDir, CLDRFile english, CLDRFile root) throws Exception {
 
             Map<String,String> oldPathValueMap = ReadXMB.load(CldrUtility.BASE_DIRECTORY + 
-                    "/tools/java/org/unicode/cldr/unittest/data/xmb/", 
+                    "/cldr-tools/org/unicode/cldr/unittest/data/xmb/", 
             "en.xml");
 
             PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();

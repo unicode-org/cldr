@@ -14,24 +14,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 
 /**
  * A first, very rough cut at reading the keyboard data.
@@ -219,11 +208,14 @@ public class Keyboard {
     }
 
     public static class KeyMap {
-        final Set<ModifierSet> modifiers;
+        private final Set<ModifierSet> modifiers;
         final Map<Iso,Output> iso2output;
         public KeyMap(Set<ModifierSet> modifiers, Map<Iso, Output> data) {
             this.modifiers = Collections.unmodifiableSet(modifiers);
             this.iso2output = Collections.unmodifiableMap(data);
+        }
+        public Set<ModifierSet> getModifiers() {
+            return modifiers;
         }
     }
 
@@ -490,183 +482,4 @@ public class Keyboard {
             return new Output(chars, gestures, transformStatus);
         };
     }
-    // *********************************************
-    // Temporary, for some simple testing
-    // *********************************************
-    public static void main(String[] args) {
-        Set<String> totalErrors = new LinkedHashSet<String>();
-        Set<String> errors = new LinkedHashSet<String>();
-        UnicodeSet controls = new UnicodeSet("[:Cc:]").freeze();
-        // check what the characters are, excluding controls.
-        Map<Id,UnicodeSet> id2unicodeset = new TreeMap<Id,UnicodeSet>();
-        Set<String> totalModifiers = new LinkedHashSet<String>();
-        Relation<String, Id> locale2ids = Relation.of(new TreeMap<String,Set<Id>>(), TreeSet.class);
-        for (String platformId : Keyboard.getPlatformIDs()) {
-            Platform p = getPlatform(platformId);
-            //            System.out.println(platformId + "\t" + p.getHardwareMap());
-            for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
-                Keyboard keyboard = Keyboard.getKeyboard(platformId, keyboardId, errors);
-                totalErrors.addAll(errors);
-                UnicodeSet unicodeSet = keyboard.getPossibleResults().removeAll(controls);
-                final Id id = new Id(keyboardId, keyboard.platformVersion);
-                id2unicodeset.put(id, unicodeSet);
-                locale2ids.put(id.locale, id);
-                System.out.println(id.toString().replace('/','\t') + "\t" + keyboard.getNames());
-                for (KeyMap keymap : keyboard.getKeyMaps()) {
-                    totalModifiers.add(keymap.modifiers.toString());
-                }
-            }
-        }
-        for (String item : totalModifiers) {
-            System.out.println(item);
-        }
-        if (errors.size() != 0) {
-            System.out.println("\t" + CollectionUtilities.join(errors, "\n\t"));
-        }
-        TestInfo testInfo = TestInfo.getInstance();
-        Factory factory = testInfo.getCldrFactory();
-        for (Entry<String, Set<Id>> localeAndIds : locale2ids.keyValuesSet()) {
-            final String key = localeAndIds.getKey();
-            final Set<Id> keyboardIds = localeAndIds.getValue();
-
-            System.out.println();
-            final ULocale uLocale = ULocale.forLanguageTag(key);
-            String script = uLocale.getScript();
-            String writtenLanguage = uLocale.getLanguage() + (script.isEmpty() ? "" : "_" + script);
-            CLDRFile cldrFile  = null;
-            try {
-                cldrFile = factory.make(writtenLanguage, false);
-            } catch (Exception e) {}
-
-            final String heading = uLocale.getDisplayName(ULocale.ENGLISH)
-            + "\t" + ULocale.addLikelySubtags(uLocale).getScript() 
-            + "\t";
-            UnicodeSet common = UnicodeSet.EMPTY;
-            if (keyboardIds.size() > 1) {
-                common = UnicodeSet.EMPTY;
-                String locale = null;
-                for (Id keyboardId : keyboardIds) {
-                    locale = keyboardId.locale;
-                    if (common == UnicodeSet.EMPTY) {
-                        common = id2unicodeset.get(keyboardId);
-                    } else {
-                        common.retainAll(id2unicodeset.get(keyboardId));
-                    }
-                }
-                common.freeze();
-                System.out.println(
-                        locale + "\tCOMMON\t\t-"
-                        + "\t" + heading + getInfo(common, cldrFile)
-                        + "\t" + common.toPattern(false));
-            }
-            for (Id keyboardId : keyboardIds) {
-                final UnicodeSet current = id2unicodeset.get(keyboardId);
-                final UnicodeSet remainder = new UnicodeSet(current).removeAll(common);
-
-                System.out.println(
-                        keyboardId.toString().replace('/','\t')
-                        + "\t" + keyboardId.platformVersion
-                        + "\t" + heading + getInfo(current, cldrFile)
-                        + "\t" + remainder.toPattern(false));
-            }
-        }
-    }
-    private static String getInfo(UnicodeSet common, CLDRFile cldrFile) {
-        Counter<String> results = new Counter<String>();
-        for (String s : common) {
-            int first = s.codePointAt(0); // first char is good enough
-            results.add(UScript.getShortName(UScript.getScript(first)), 1);
-        }
-        results.remove("Zyyy");
-        results.remove("Zinh");
-        results.remove("Zzzz");
-
-        if (cldrFile != null) {
-            UnicodeSet mainExemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
-            UnicodeSet auxExemplars = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
-            if (auxExemplars.size() != 0) {
-                addComparison("aux", common, new UnicodeSet(auxExemplars).addAll(mainExemplars), results);
-            } else {
-                addComparison("main", common, mainExemplars, results);
-            }
-        }
-
-        return results.toString();
-    }
-
-    private static void addComparison(String title, UnicodeSet keyboard, UnicodeSet exemplars,
-            Counter<String> results) {
-        UnicodeSet common = new UnicodeSet(keyboard).retainAll(exemplars);
-        if (common.size() != 0) results.add("=" + title, common.size());
-        common = new UnicodeSet(keyboard).removeAll(exemplars);
-        if (common.size() != 0) results.add("-" + title, common.size());
-        common = new UnicodeSet(exemplars).removeAll(keyboard);
-        if (common.size() != 0) results.add(title + "-", common.size());
-    }
-
-    static class Id implements Comparable<Id> {
-        final String locale;
-        final String platform;
-        final String variant;
-        final String platformVersion;
-        Id(String input, String platformVersion) {
-            int pos = input.indexOf("-t-k0-");
-            String localeTemp = input.substring(0, pos);
-            locale = ULocale.minimizeSubtags(ULocale.forLanguageTag(localeTemp)).toLanguageTag();
-            pos += 6;
-            int pos2 = input.indexOf('-',pos);
-            if (pos2 > 0) {
-                platform = input.substring(pos, pos2);
-                variant = input.substring(pos2+1);
-            } else {
-                platform = input.substring(pos);
-                variant = "";
-            }
-            this.platformVersion = platformVersion;
-        }
-        @Override
-        public int compareTo(Id other) {
-            int result;
-            if (0 != (result = locale.compareTo(other.locale))) {
-                return result;
-            }
-            if (0 != (result = platform.compareTo(other.platform))) {
-                return result;
-            }
-            if (0 != (result = variant.compareTo(other.variant))) {
-                return result;
-            }
-            return 0;
-        }
-        @Override
-        public String toString() {
-            return locale + "/" + platform + "/" + variant;
-        }
-    }
-
-    //    public static class Key {
-    //        Iso iso;
-    //        ModifierSet modifierSet;
-    //    }
-    //    /**
-    //     * Return all possible results. Could be external utility. WARNING: doesn't account for transform='no' or failure='omit'.
-    //     */
-    //    public Map<String,List<Key>> getPossibleSource()  {
-    //        Map<String,List<Key>> results = new HashMap<String,List<Key>>();
-    //        UnicodeSet results = new UnicodeSet();
-    //        addOutput(getBaseMap().iso2output.values(), results);
-    //        for (KeyMap keymap : getKeyMaps()) {
-    //            addOutput(keymap.string2output.values(), results);
-    //        }
-    //        for (Transforms transforms : getTransforms().values()) {
-    //            // loop, to catch empty case
-    //            for (String result : transforms.string2string.values()) {
-    //                if (!result.isEmpty()) {
-    //                    results.add(result);
-    //                }
-    //            }
-    //        }
-    //        return results;
-    //    }
-
 }

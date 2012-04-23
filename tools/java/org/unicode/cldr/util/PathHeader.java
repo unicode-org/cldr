@@ -141,7 +141,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Version(SectionId.Special),
         Suppress(SectionId.Special),
         Zone(SectionId.Special),
-        Patterns_for_Numbers2(SectionId.Special),
+        Patterns_for_Numbers2(SectionId.Special, "No Numbering System"),
         Labels2(SectionId.Special),
         Deprecated(SectionId.Special),
         Unknown(SectionId.Special),

@@ -7,6 +7,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -93,6 +94,57 @@ public class TestPathHeader extends TestFmwk {
             for (PathHeader p : sorted) {
                 logln(locale + "\t" + p + "\t" + p.getOriginalPath());
             }
+        }
+    }
+    
+    public void TestOptional() {
+        Map<PathHeader, String> sorted = new TreeMap<PathHeader,String>();
+        XPathParts parts = new XPathParts();
+        for (String locale : new String[]{"af"}) {
+            sorted.clear();
+            CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+            for (String path : cldrFile.fullIterable()) {
+//                if (!path.contains("@count")) {
+//                    continue;
+//                }
+                Level level = coverageLevel.getLevel(path);
+                boolean isDeprecated = supplemental.hasDeprecatedItem("ldml", parts.set(path));
+                if (isDeprecated) {
+                    continue;
+                }
+
+                if (Level.OPTIONAL.compareTo(level) != 0) {
+                    continue;
+                }
+                
+                PathHeader p = pathHeaderFactory.fromPath(path);
+                final SurveyToolStatus status = p.getSurveyToolStatus();
+                if (status == status.DEPRECATED) {
+                    continue;
+                }
+                sorted.put(p, locale + "\t" + status + "\t" + p + "\t" + p.getOriginalPath());
+            }
+            Set<String> codes = new LinkedHashSet<String>();
+            PathHeader old = null;
+            String line = null;
+            for (Entry<PathHeader, String> s : sorted.entrySet()) {
+                PathHeader p = s.getKey();
+                String v = s.getValue();
+                if (old == null) {
+                    line = v;
+                    codes.add(p.getCode());
+                } else if (p.getSectionId() == old.getSectionId() && p.getPageId() == old.getPageId() && p.getHeader().equals(old.getHeader())) {
+                    codes.add(p.getCode());
+                } else {
+                    logln(line + "\t" + codes.toString());
+                    codes.clear();
+                    line = v;
+                    codes.add(p.getCode());
+                }
+                old = p;
+            }
+            logln(line + "\t" + codes.toString());
         }
     }
     

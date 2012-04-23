@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.BreakIterator;
@@ -13,6 +14,20 @@ public class TestLocale extends TestFmwk {
 
   public static void main(String[] args) {
     new TestLocale().run(args);
+  }
+  
+  public void TestCanonicalizer() {
+      LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
+      String[][] tests = {
+              {"iw", "he"},
+              {"no-YU", "nb_RS"},
+              {"no", "nb"},
+              {"eng-833", "en_IM"},
+      };
+      for (String[] pair : tests) {
+          String actual = canonicalizer.transform(pair[0]);
+          assertEquals("Canonical", pair[1], actual);
+      }
   }
 
   public void TestLocaleNamePattern() {

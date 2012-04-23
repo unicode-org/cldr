@@ -24,6 +24,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
@@ -35,7 +36,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class ShowKeyboards {
-    
+
     static final TestInfo testInfo = TestInfo.getInstance();
     static final Factory factory = testInfo.getCldrFactory();
 
@@ -82,7 +83,7 @@ public class ShowKeyboards {
             System.out.println(item);
         }
         try {
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "cldr/keyboards/", "keyboards.html");
+            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "../beta-charts/", "keyboards.html");
             out.println(
                     "<html>\n" +
                     "<head>\n" +
@@ -135,9 +136,9 @@ public class ShowKeyboards {
                 cldrFile = factory.make(writtenLanguage, false);
             } catch (Exception e) {}
 
-//            final String heading = uLocale.getDisplayName(ULocale.ENGLISH)
-//            + "\t" + ULocale.addLikelySubtags(uLocale).getScript() 
-//            + "\t";
+            //            final String heading = uLocale.getDisplayName(ULocale.ENGLISH)
+            //            + "\t" + ULocale.addLikelySubtags(uLocale).getScript() 
+            //            + "\t";
             UnicodeSet common = UnicodeSet.EMPTY;
             if (keyboardIds.size() > 1) {
                 common = UnicodeSet.EMPTY;
@@ -155,16 +156,16 @@ public class ShowKeyboards {
                 .addCell(localeName) // name
                 .addCell(key) // locale
                 .addCell("COMMON") // platform
-                .addCell("-") // variant
+                .addCell("") // variant
                 .addCell(ULocale.addLikelySubtags(uLocale).getScript()) // script
                 .addCell(getInfo(common, cldrFile)) // stats
-                .addCell(TransliteratorUtilities.toHTML.transform(common.toPattern(false))) // characters
+                .addCell(safeUnicodeSet(common)) // characters
                 .finishRow();
-                
-//                System.out.println(
-//                        locale + "\tCOMMON\t\t-"
-//                        + "\t" + heading + getInfo(common, cldrFile)
-//                        + "\t" + common.toPattern(false));
+
+                //                System.out.println(
+                //                        locale + "\tCOMMON\t\t-"
+                //                        + "\t" + heading + getInfo(common, cldrFile)
+                //                        + "\t" + common.toPattern(false));
             }
             for (Id keyboardId : keyboardIds) {
                 final UnicodeSet current2 = id2unicodeset.get(keyboardId);
@@ -177,17 +178,26 @@ public class ShowKeyboards {
                 .addCell(keyboardId.variant) // variant
                 .addCell(ULocale.addLikelySubtags(uLocale).getScript()) // script
                 .addCell(getInfo(current2, cldrFile)) // stats
-                .addCell(TransliteratorUtilities.toHTML.transform(remainder.toPattern(false))) // characters
+                .addCell(safeUnicodeSet(remainder)) // characters
                 .finishRow();
-//                System.out.println(
-//                        keyboardId.toString().replace('/','\t')
-//                        + "\t" + keyboardId.platformVersion
-//                        + "\t" + heading + getInfo(current2, cldrFile)
-//                        + "\t" + remainder.toPattern(false));
+                //                System.out.println(
+                //                        keyboardId.toString().replace('/','\t')
+                //                        + "\t" + keyboardId.platformVersion
+                //                        + "\t" + heading + getInfo(current2, cldrFile)
+                //                        + "\t" + remainder.toPattern(false));
             }
         }
         out.println("<h2>Locale Keyboards</h2>");
         out.println(t.toTable());
+    }
+
+    static PrettyPrinter prettyPrinter = new PrettyPrinter()
+    .setOrdering(Collator.getInstance(ULocale.ROOT))
+    .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY)
+    );
+
+    public static String safeUnicodeSet(UnicodeSet unicodeSet) {
+        return TransliteratorUtilities.toHTML.transform(prettyPrinter.format(unicodeSet));
     }
 
     static class IdInfo {
@@ -206,7 +216,7 @@ public class ShowKeyboards {
         public void add(Id id, UnicodeSet unicodeSet) {
             allIds.add(id);
             for (String s : unicodeSet) {
-                int script = getScripts(s);
+                int script = getScriptExtensions(s, bitset);
                 if (script >= 0) {
                     addToScript(script, id, s);
                 } else {
@@ -216,9 +226,9 @@ public class ShowKeyboards {
                 }
             }            
         }
-        public int getScripts(String s) {
+        public int getScriptExtensions(String s, BitSet outputBitset) {
             final int firstCodePoint = s.codePointAt(0);
-            int result = UScript.getScriptExtensions(firstCodePoint, bitset);
+            int result = UScript.getScriptExtensions(firstCodePoint, outputBitset);
             final int firstCodePointCount = Character.charCount(firstCodePoint);
             if (s.length() == firstCodePointCount) {
                 return result;
@@ -226,25 +236,25 @@ public class ShowKeyboards {
             for (int i = firstCodePointCount; i < s.length();) {
                 int ch = s.codePointAt(i);
                 UScript.getScriptExtensions(ch, bitset2);
-                bitset.or(bitset2);
+                outputBitset.or(bitset2);
                 i += Character.charCount(ch);
             }
             // remove inherited, if there is anything else; then remove common if there is anything else
-            int cardinality = bitset.cardinality();
+            int cardinality = outputBitset.cardinality();
             if (cardinality > 1) {
-                if (bitset.get(UScript.INHERITED)) {
-                    bitset.clear(UScript.INHERITED);
+                if (outputBitset.get(UScript.INHERITED)) {
+                    outputBitset.clear(UScript.INHERITED);
                     --cardinality;
                 }
                 if (cardinality > 1) {
-                    if (bitset.get(UScript.COMMON)) {
-                        bitset.clear(UScript.COMMON);
+                    if (outputBitset.get(UScript.COMMON)) {
+                        outputBitset.clear(UScript.COMMON);
                         --cardinality;
                     }
                 }
             }
             if (cardinality == 1) {
-                return bitset.nextSetBit(0);
+                return outputBitset.nextSetBit(0);
             } else {
                 return -cardinality;
             }
@@ -259,7 +269,7 @@ public class ShowKeyboards {
             idSet.add(id);
         }
         public void print(PrintWriter pw) {
-            
+
             TablePrinter t = new TablePrinter()
             .addColumn("Script").setSpanRows(true).setCellAttributes("class='s'")
             .addColumn("Char").setCellAttributes("class='ch'")
@@ -267,11 +277,14 @@ public class ShowKeyboards {
             .addColumn("Name").setCellAttributes("class='n'")
             .addColumn("Keyboards").setSpanRows(true).setCellAttributes("class='k'");
             Set<String> missingScripts = new TreeSet<String>();
-            
+            UnicodeSet notNFKC = new UnicodeSet("[:nfkcqc=n:]");
+            UnicodeSet COMMONINHERITED = new UnicodeSet("[[:sc=common:][:sc=inherited:]]");
+
             for (int script = 0; script < charToKeyboards.length; ++script) {
-                UnicodeSet inScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT, script);
-                UnicodeSet fullScript = new UnicodeSet(inScript);
-                int fullScriptSize = inScript.size();
+                UnicodeSet inScript = new UnicodeSet().applyIntPropertyValue(UProperty.SCRIPT, script).removeAll(notNFKC);
+
+                //                UnicodeSet fullScript = new UnicodeSet(inScript);
+                //                int fullScriptSize = inScript.size();
                 if (inScript.size() == 0) {
                     continue;
                 }
@@ -281,6 +294,19 @@ public class ShowKeyboards {
                     missingScripts.add(scriptName);
                     continue;
                 }
+
+                // also check to see that at least one item is not all common
+                check:
+                if (script != UScript.COMMON && script != UScript.INHERITED) {
+                    for (String s : charToKeyboard.keySet()) {
+                        if (!COMMONINHERITED.containsAll(s)) {
+                            break check;
+                        }
+                    }
+                    missingScripts.add(scriptName);
+                    continue;
+                }
+
                 String last = "";
                 for (Entry<String, IdSet> entry : charToKeyboard.entrySet()) {
                     String s = entry.getKey();
@@ -306,19 +332,18 @@ public class ShowKeyboards {
                     last = s;
                 }
                 if (inScript.size() != 0 && script != UScript.UNKNOWN) {
-                    String pattern;
-                    if (inScript.size() < 255 || inScript.size()*4 < fullScriptSize) {
-                        pattern = inScript.toPattern(false);
-                    } else {
-                        fullScript.removeAll(inScript);
-                        pattern = "[[:sc=" + UScript.getShortName(script) + ":]-" + fullScript.toPattern(false) + "]";
-                    }
+                    //String pattern;
+                    //                    if (inScript.size() < 255 || inScript.size()*4 < fullScriptSize) {
+                    //                    } else {
+                    //                        fullScript.removeAll(inScript);
+                    //                        inScript = new UnicodeSet("[[:sc=" + UScript.getShortName(script) + ":]-" + fullScript.toPattern(false) + "]");
+                    //                    }
                     t.addRow()
                     .addCell(scriptName)
                     .addCell("")
                     .addCell(String.valueOf(inScript.size()))
-                    .addCell("missing chars!")
-                    .addCell(TransliteratorUtilities.toHTML.transform(pattern))
+                    .addCell("missing (NFKC)!")
+                    .addCell(safeUnicodeSet(inScript))
                     .finishRow();
                 }
             }
@@ -364,11 +389,11 @@ public class ShowKeyboards {
     private static void addComparison(String title, UnicodeSet keyboard, UnicodeSet exemplars,
             Counter<String> results) {
         UnicodeSet common = new UnicodeSet(keyboard).retainAll(exemplars);
-        if (common.size() != 0) results.add("=" + title, common.size());
+        if (common.size() != 0) results.add("k=" + title, common.size());
         common = new UnicodeSet(keyboard).removeAll(exemplars);
-        if (common.size() != 0) results.add("−" + title, common.size());
+        if (common.size() != 0) results.add("k−" + title, common.size());
         common = new UnicodeSet(exemplars).removeAll(keyboard);
-        if (common.size() != 0) results.add(title + "−", common.size());
+        if (common.size() != 0) results.add(title + "−k", common.size());
     }
 
     static class Id implements Comparable<Id> {

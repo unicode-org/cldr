@@ -119,7 +119,7 @@ public class DisplayAndInputProcessor {
         try {
             // fix grouping separator if space
             if (path.startsWith("//ldml/numbers/symbols/group")) {
-                if (value.equals(" ")) {
+                if (value.equals(" ") || value.isEmpty()) {
                     value = "\u00A0";
                 }
             }

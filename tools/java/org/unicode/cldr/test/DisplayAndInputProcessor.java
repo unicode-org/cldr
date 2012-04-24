@@ -98,6 +98,8 @@ public class DisplayAndInputProcessor {
         }
         return value;
     }
+    
+    static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
 
     /**
      * Process the value for input. The result is a cleaned-up value. For example,
@@ -117,17 +119,19 @@ public class DisplayAndInputProcessor {
             internalException[0] = null;
         }
         try {
-            // fix grouping separator if space
-            if (path.startsWith("//ldml/numbers/symbols/group")) {
-                if (value.equals(" ") || value.isEmpty()) {
-                    value = "\u00A0";
-                }
-            }
             // all of our values should not have leading or trailing spaces, except insertBetween
             if (!path.contains("/insertBetween") && !path.contains("/localeSeparator")) {
                 value = value.trim();
             }
 
+            // fix grouping separator if space
+            if (path.startsWith("//ldml/numbers/symbols")) {
+                if (value.isEmpty()) {
+                    value = "\u00A0";
+                }
+                value = value.replace(' ', '\u00A0');
+            }
+            
             // fix date patterns
             if (hasDatetimePattern(path)) {
                 formatDateParser.set(value);

@@ -532,7 +532,7 @@ public class POSIXUtilities {
       for ( int i = 0 ; i < YesNoElements.length ; i++ )      
       {
          String cur = YesNoElements[i];
-         if ( cur.length() > 1 && cur.toLowerCase().equals(cur) )
+         if ( cur.length() >= 1 && cur.toLowerCase().equals(cur) )
          {   
             if ( result.length() > 0 )
                result.append(")|(");

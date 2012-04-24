@@ -21,6 +21,16 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
         showCldrFile(info.getCldrFactory().make("wae", true));
     }
 
+    public void TestMalayalam() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCldrFactory().make("ml", false));
+        String value = daip.processInput(
+            "//ldml/localeDisplayNames/languages/language[@type=\"alg\"]",
+            "അല്‍ഗോണ്‍ക്യന്‍ ഭാഷ", null);
+        if (!value.equals("\u0D05\u0D7D\u0D17\u0D4B\u0D7A\u0D15\u0D4D\u0D2F\u0D7B \u0D2D\u0D3E\u0D37")) {
+            errln("Malayalam incorrectly normalized with output: " + value);
+        }
+    }
+
     private void showCldrFile(final CLDRFile cldrFile) {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile);
         Exception[] internalException = new Exception[1];

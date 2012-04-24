@@ -3,9 +3,13 @@
 
 package org.unicode.cldr.test;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.With;
@@ -45,13 +49,15 @@ public class DisplayAndInputProcessor {
 
     private PrettyPrinter pp;
 
+    private String locale;
+
     /**
      * Constructor, taking cldrFile.
      * @param cldrFileToCheck
      */
     public DisplayAndInputProcessor(CLDRFile cldrFileToCheck) {
-        String locale = cldrFileToCheck.getLocaleID();
-	init(locale);
+        this.locale = cldrFileToCheck.getLocaleID();
+        init(locale);
     }
      void init(String locale) {
         col = Collator.getInstance(new ULocale(locale));
@@ -119,6 +125,18 @@ public class DisplayAndInputProcessor {
             internalException[0] = null;
         }
         try {
+            // Normalise Malayalam characters.
+            if (locale.startsWith("ml")) {
+                value = normalizeMalayalam(value);
+            }
+
+            // fix grouping separator if space
+            if (path.startsWith("//ldml/numbers/symbols/group")) {
+                if (value.equals(" ")) {
+                    value = "\u00A0";
+                }
+            }
+
             // all of our values should not have leading or trailing spaces, except insertBetween
             if (!path.contains("/insertBetween") && !path.contains("/localeSeparator")) {
                 value = value.trim();
@@ -191,7 +209,39 @@ public class DisplayAndInputProcessor {
         }
         return value2;
     }
-    
+
+    private static Pattern UNNORMALIZED_MALAYALAM = Pattern.compile(
+            "(\u0D23|\u0D28|\u0D30|\u0D32|\u0D33|\u0D15)\u0D4D\u200D");
+
+    private static Map<Character, Character> NORMALIZING_MAP =
+            Builder.with(new HashMap<Character, Character>())
+                    .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
+                    .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
+                    .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
+
+    /**
+     * Normalizes the Malayalam characters in the specified input.
+     * @param value the input to be normalized
+     * @return
+     */
+    private String normalizeMalayalam(String value) {
+        // Normalize Malayalam characters.
+        Matcher matcher = UNNORMALIZED_MALAYALAM.matcher(value);
+        if (matcher.find()) {
+            StringBuffer buffer = new StringBuffer();
+            int start = 0;
+            do {
+                buffer.append(value.substring(start, matcher.start(0)));
+                char codePoint = matcher.group(1).charAt(0);
+                buffer.append(NORMALIZING_MAP.get(codePoint));
+                start = matcher.end(0);
+            } while (matcher.find());
+            buffer.append(value.substring(start));
+            value = buffer.toString();
+        }
+        return value;
+    }
+
     static Pattern REMOVE_QUOTE1 = Pattern.compile("(\\s)(\\\\[-\\}\\]\\&])()");
     static Pattern REMOVE_QUOTE2 = Pattern.compile("(\\\\[\\-\\{\\[\\&])(\\s)"); //([^\\])([\\-\\{\\[])(\\s)
 

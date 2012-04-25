@@ -153,8 +153,7 @@
 		</thead>
 
 <%
-	DisplayAndInputProcessor processor = new DisplayAndInputProcessor(
-			loc.toULocale());
+	DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc);
 	STFactory stf = CookieSession.sm.getSTFactory();
     BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(loc);
     SupplementalDataInfo sdi = cs.sm.getSupplementalDataInfo();

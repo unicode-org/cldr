@@ -33,8 +33,8 @@ import com.ibm.icu.dev.test.util.BagFormatter;
  *
  */
 public class SurveyLog {
-	final static boolean DEBUG = false;
-	
+	static boolean DEBUG = false;
+	private static boolean checkDebug = false;
 	// Logging
 	public static Logger logger;
 
@@ -63,7 +63,9 @@ public class SurveyLog {
     public static void logException(Throwable t, String what) {
         logException(t,what,null);
     }
-
+    public static void logException(String what) {
+        logException(null, what, null);
+    }
 	public static final String RECORD_SEP = "!!!***!!! ";
 	public static final String FIELD_SEP = "*** ";
 	
@@ -173,13 +175,13 @@ public class SurveyLog {
 	}
 
 	public static final void debug(Object string) {
-		if(DEBUG) {
+		if(isDebug()) {
 			_doDebug(string!=null?string.toString():null,Level.INFO);
 		}
 	}
 
 	public static final void debug(String string) {
-		if(DEBUG) {
+		if(isDebug()) {
 			_doDebug(string,Level.INFO);
 		}
 	}
@@ -191,5 +193,21 @@ public class SurveyLog {
 		lr.setSourceMethodName(st[4].getMethodName());
 		logger.log(lr);
 	}
+
+	private static void checkDebug() {
+        if(CLDRConfig.getInstance().getProperty("DEBUG")!=null) {
+            DEBUG=true;
+        }
+        checkDebug=true;
+	}
+	
+    public static final boolean isDebug() {
+        if(!checkDebug) {
+            checkDebug();
+        }
+        return DEBUG;
+    }
+    
+    
 
 }

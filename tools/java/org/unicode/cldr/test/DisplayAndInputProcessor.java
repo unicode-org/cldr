@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
@@ -49,19 +50,19 @@ public class DisplayAndInputProcessor {
 
     private PrettyPrinter pp;
 
-    private String locale;
+    final private CLDRLocale locale;
+    private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
 
     /**
      * Constructor, taking cldrFile.
      * @param cldrFileToCheck
      */
     public DisplayAndInputProcessor(CLDRFile cldrFileToCheck) {
-        this.locale = cldrFileToCheck.getLocaleID();
-        init(locale);
+        init(this.locale=CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()));
     }
-     void init(String locale) {
-        col = Collator.getInstance(new ULocale(locale));
-        spaceCol = Collator.getInstance(new ULocale(locale));
+     void init(CLDRLocale locale) {
+        col = Collator.getInstance(locale.toULocale());
+        spaceCol = Collator.getInstance(locale.toULocale());
 
         pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT)).setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
         .setCompressRanges(true)
@@ -75,7 +76,14 @@ public class DisplayAndInputProcessor {
      * @param locale
      */
     public DisplayAndInputProcessor(ULocale locale) {
-	init(locale.toString());
+        init(this.locale=CLDRLocale.getInstance(locale));
+    }
+    /**
+     * Constructor, taking locale.
+     * @param locale
+     */
+    public DisplayAndInputProcessor(CLDRLocale locale) {
+        init(this.locale=locale);
     }
 
     /**
@@ -126,8 +134,10 @@ public class DisplayAndInputProcessor {
         }
         try {
             // Normalise Malayalam characters.
-            if (locale.startsWith("ml")) {
-                value = normalizeMalayalam(value);
+            if (locale.childOf(MALAYALAM)) {
+                String newvalue = normalizeMalayalam(value);
+                if(DEBUG_DAIP) System.out.println("DAIP: Normalized Malayalam '"+value+"' to '"+newvalue+"'");
+                value = newvalue;
             }
 
             // fix grouping separator if space

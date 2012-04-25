@@ -4593,7 +4593,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
 		public void open() {
 			use++;
-			SurveyLog.logger.warning("uls: open="+use);
+			if(SurveyLog.isDebug()) SurveyLog.logger.warning("uls: open="+use);
 		}
         
         public ExampleGenerator getExampleGenerator() {
@@ -4631,7 +4631,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         	}
 			use--;
 			closeStack =    DEBUG?StackTracker.currentStack():null;
-			SurveyLog.logger.warning("uls: close="+use);
+			if(SurveyLog.isDebug()) SurveyLog.logger.warning("uls: close="+use);
         	if(use>0) {
         		return;
         	}

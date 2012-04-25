@@ -2,16 +2,11 @@
 
 package org.unicode.cldr.util;
 
-import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.GenerateEnums.LengthFirstComparator;
-import org.unicode.cldr.util.CLDRLocale.NameFormatter;
-
-import com.ibm.icu.impl.LocaleDisplayNamesImpl;
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.util.ULocale;
 
@@ -322,6 +317,16 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     /**
+     * Returns true if other is equal to or is an ancestor of this, false otherwise
+     */
+    public boolean childOf(CLDRLocale other) {
+        if(other==null) return false;
+        if(other==this) return true;
+        if(parent==null) return false; // end
+        return parent.childOf(other);
+    }
+
+    /**
      * Return an iterator that will iterate over locale, parent, parent etc, finally reaching root.
      * @return
      */
@@ -393,20 +398,6 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      */
     public static final CLDRLocale ROOT = getInstance(ULocale.ROOT);
     
-    /**
-     * Testing.
-     * @param args
-     */
-    public static void main(String args[]) {
-        System.out.println("Tests for CLDRLocale:");
-        CLDRLocale.setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
-        String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON", "__UND", "en","en_GB","en_Shav","en_Shav_GB","en_Latn_GB_POLYTON","nnh"};
-        for(String s:tests_str) {
-            CLDRLocale loc = CLDRLocale.getInstance(s);
-            System.out.println(s+":  tostring:"+loc.toString()+", uloc:"+loc.toULocale().toString()+", fromloc:"+new ULocale(s).toString() + ", format: " + loc.getDisplayName());
-        }
-    }
-
     public String getDisplayName() {
         return getDisplayName(getDefaultFormatter());
     }

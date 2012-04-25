@@ -158,8 +158,9 @@ public class SurveyAjax extends HttpServlet {
         StringBuilder sb = new StringBuilder();
         Reader r = request.getReader();
         int ch;
+        final boolean DEBUG = SurveyLog.isDebug();
         while((ch = r.read())>-1) {
-            //			System.err.println(" >> " + Integer.toHexString(ch));
+            if (DEBUG) System.err.println(" POST >> " + Integer.toHexString(ch));
             sb.append((char)ch);
         }		
         processRequest(request, response, sb.toString());
@@ -273,6 +274,8 @@ public class SurveyAjax extends HttpServlet {
                                 BallotBox<UserRegistry.User> ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
                                 boolean foundVhash = false;
                                 Exception[] exceptionList = new Exception[1];
+                                String otherErr = null;
+                                String origValue = val;
                                 if(vhash!=null && vhash.length()>0) {
                                     if(vhash.equals("null")) {
                                         val = null;
@@ -296,8 +299,13 @@ public class SurveyAjax extends HttpServlet {
                                     }
                                 } else {
                                     if(val!=null) {
-                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale.toULocale());
+                                        if(SurveyLog.isDebug()) System.err.println("val WAS "+escapeString(val));
+                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale);
                                         val = daip.processInput(xp, val, exceptionList);
+                                        if(SurveyLog.isDebug()) System.err.println("val IS "+escapeString(val));
+                                        if(val.isEmpty()) {
+                                            otherErr = ("DAIP returned a 0 length string");
+                                        }
                                     }
                                 }
                                 
@@ -312,9 +320,17 @@ public class SurveyAjax extends HttpServlet {
         
                                 if(exceptionList[0]!=null) {
                                     result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
-                                            .setMessage("Input Processor Exception")
+                                            .setMessage("Input Processor Exception: {0}")
                                             .setParameters(exceptionList));
-                                    SurveyLog.logException(exceptionList[0],"DAIP, Processing "+loc+":"+xp+"="+val);
+                                    SurveyLog.logException(exceptionList[0],"DAIP, Processing "+loc+":"+xp+"='"+val+"' (was '"+origValue+"')");
+                                }
+                                
+                                if(otherErr!=null) {
+                                    String list[] = { otherErr };
+                                    result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
+                                            .setMessage("Input Processor Error: {0}")
+                                            .setParameters(list));
+                                    SurveyLog.logException(null,"DAIP, Processing "+loc+":"+xp+"='"+val+"' (was '"+origValue+"'): "+otherErr);
                                 }
 
                                 r.put("testErrors", hasErrors(result));
@@ -337,7 +353,7 @@ public class SurveyAjax extends HttpServlet {
                                             hasError = true;
                                         }
                                     }
-                                    if(!hasError) {
+                                    if(!hasError && otherErr==null) {
                                         ballotBox.voteForValue(mySession.user, xp, val);
                                         
                                         
@@ -401,6 +417,15 @@ public class SurveyAjax extends HttpServlet {
             sendError(out, "SQLException: " + e);
         }
     }
+
+    private String escapeString(String val) {
+        StringBuilder ret =  new StringBuilder(val.replaceAll("\u00a0", "U+00A0"));
+        ret.insert(0,'\u201c');
+        ret.append("\u201d,len=")
+           .append(""+val.length());
+        return ret.toString();
+    }
+
 
     public static  boolean has(List<CheckStatus>result, String type) {
     	if(result!=null) {

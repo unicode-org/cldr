@@ -56,9 +56,9 @@
 	</keyMap>
 	<keyMap modifiers='shift'>
 		<map iso="E00" to="ஒ"/> <!-- `  base=ொ -->
-		<map iso="E06" to="\u{bcd}ர"/> <!-- 6  to= ்ர  -->
-		<map iso="E07" to="\u{bcd}ஷ"/> <!-- 7  to= ்ஷ  -->
-		<map iso="E08" to="\u{bcd}ர"/> <!-- 8  to= ்ர  -->
+		<map iso="E06" to="த\u{bcd}ர"/> <!-- 6  to= த்ர  -->
+		<map iso="E07" to="க\u{bcd}ஷ"/> <!-- 7  to= க்ஷ  -->
+		<map iso="E08" to="ஷ\u{bcd}ர"/> <!-- 8  to= ஷ்ர  -->
 		<map iso="E11" to="ஃ"/> <!-- - -->
 		<map iso="D01" to="ஔ"/> <!-- Q  base=ௌ -->
 		<map iso="D02" to="ஐ"/> <!-- W  base=ை -->
@@ -90,7 +90,7 @@
 		<map iso="B06" to="ள"/> <!-- N  base=ல -->
 		<map iso="B07" to="ஷ"/> <!-- M  base=ஸ -->
 		<map iso="B08" to="ஷ"/> <!-- , -->
-		<map iso="B09" to="\u{bcd}ர\u{bc0}"/> <!-- .  to= ்ரீ  -->
+		<map iso="B09" to="ஸ\u{bcd}ர\u{bc0}"/> <!-- .  to= ஸ்ரீ  -->
 		<map iso="B10" to="ய"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>

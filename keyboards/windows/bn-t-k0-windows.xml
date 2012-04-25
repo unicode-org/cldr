@@ -4,20 +4,21 @@
 	<version platform='6.1' number='$Revision$'/>
 	<generation date='$Date$'/>
 	<names>
-		<name value='Bengali'/>
+		<name value='Bengali - INSCRIPT'/>
 	</names>
 	<settings fallback='omit'/>
 	<keyMap>
-		<map iso="E01" to="1"/>
-		<map iso="E02" to="2"/>
-		<map iso="E03" to="3"/>
-		<map iso="E04" to="4"/>
-		<map iso="E05" to="5"/>
-		<map iso="E06" to="6"/>
-		<map iso="E07" to="7"/>
-		<map iso="E08" to="8"/>
-		<map iso="E09" to="9"/>
-		<map iso="E10" to="0"/>
+		<map iso="E00" to="॥"/> <!-- ` -->
+		<map iso="E01" to="১"/> <!-- 1 -->
+		<map iso="E02" to="২"/> <!-- 2 -->
+		<map iso="E03" to="৩"/> <!-- 3 -->
+		<map iso="E04" to="৪"/> <!-- 4 -->
+		<map iso="E05" to="৫"/> <!-- 5 -->
+		<map iso="E06" to="৬"/> <!-- 6 -->
+		<map iso="E07" to="৭"/> <!-- 7 -->
+		<map iso="E08" to="৮"/> <!-- 8 -->
+		<map iso="E09" to="৯"/> <!-- 9 -->
+		<map iso="E10" to="০"/> <!-- 0 -->
 		<map iso="E11" to="-"/>
 		<map iso="E12" to="\u{9c3}"/> <!-- =  to= ৃ  -->
 		<map iso="D01" to="\u{9cc}"/> <!-- Q  to= ৌ  -->
@@ -51,18 +52,20 @@
 		<map iso="B07" to="স"/> <!-- M -->
 		<map iso="B08" to=","/>
 		<map iso="B09" to="."/>
-		<map iso="B10" to="য"/> <!-- / -->
+		<map iso="B10" to="য়"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='shift'>
-		<map iso="E03" to="র"/> <!-- 3 -->
-		<map iso="E04" to="\u{9cd}"/> <!-- 4  to= ্  -->
-		<map iso="E05" to="\u{9cd}র"/> <!-- 5  to= ্র  -->
-		<map iso="E06" to="\u{9cd}ষ"/> <!-- 6  to= ্ষ  -->
-		<map iso="E07" to="\u{9cd}র"/> <!-- 7  to= ্র  -->
-		<map iso="E08" to="\u{9cd}র"/> <!-- 8  to= ্র  -->
-		<map iso="E09" to="("/> <!-- 9 -->
-		<map iso="E10" to=")"/> <!-- 0 -->
+		<map iso="E01" to="!"/> <!-- 1  base=১ -->
+		<map iso="E02" to="@"/> <!-- 2  base=২ -->
+		<map iso="E03" to="\u{9cd}র"/> <!-- 3  base=৩  to= ্র  -->
+		<map iso="E04" to="র\u{9cd}"/> <!-- 4  base=৪  to= র্  -->
+		<map iso="E05" to="জ\u{9cd}ঞ"/> <!-- 5  base=৫  to= জ্ঞ  -->
+		<map iso="E06" to="ত\u{9cd}র"/> <!-- 6  base=৬  to= ত্র  -->
+		<map iso="E07" to="ক\u{9cd}ষ"/> <!-- 7  base=৭  to= ক্ষ  -->
+		<map iso="E08" to="শ\u{9cd}র"/> <!-- 8  base=৮  to= শ্র  -->
+		<map iso="E09" to="("/> <!-- 9  base=৯ -->
+		<map iso="E10" to=")"/> <!-- 0  base=০ -->
 		<map iso="E11" to="\u{983}"/> <!-- -  to= ঃ  -->
 		<map iso="E12" to="ঋ"/> <!-- =  base=ৃ -->
 		<map iso="D01" to="ঔ"/> <!-- Q  base=ৌ -->
@@ -91,13 +94,15 @@
 		<map iso="B03" to="ণ"/> <!-- C  base=ম -->
 		<map iso="B07" to="শ"/> <!-- M  base=স -->
 		<map iso="B08" to="ষ"/> <!-- , -->
-		<map iso="B09" to="{"/> <!-- . -->
-		<map iso="B10" to="য়"/> <!-- /  base=য -->
+		<map iso="B09" to="।"/> <!-- . -->
+		<map iso="B10" to="য"/> <!-- /  base=য় -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='caps+shift'>
-		<map iso="E09" to="("/> <!-- 9 -->
-		<map iso="E10" to=")"/> <!-- 0 -->
+		<map iso="E01" to="!"/> <!-- 1  base=১ -->
+		<map iso="E02" to="@"/> <!-- 2  base=২ -->
+		<map iso="E09" to="("/> <!-- 9  base=৯ -->
+		<map iso="E10" to=")"/> <!-- 0  base=০ -->
 		<map iso="E11" to="\u{983}"/> <!-- -  to= ঃ  -->
 		<map iso="E12" to="ঋ"/> <!-- =  base=ৃ -->
 		<map iso="D01" to="ঔ"/> <!-- Q  base=ৌ -->
@@ -126,44 +131,8 @@
 		<map iso="B03" to="ণ"/> <!-- C  base=ম -->
 		<map iso="B07" to="শ"/> <!-- M  base=স -->
 		<map iso="B08" to="ষ"/> <!-- , -->
-		<map iso="B09" to="{"/> <!-- . -->
-		<map iso="B10" to="য়"/> <!-- /  base=য -->
+		<map iso="B09" to="।"/> <!-- . -->
+		<map iso="B10" to="য"/> <!-- /  base=য় -->
 		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
-		<map iso="E01" to="১"/> <!-- 1 -->
-		<map iso="E02" to="২"/> <!-- 2 -->
-		<map iso="E03" to="৩"/> <!-- 3 -->
-		<map iso="E04" to="৪"/> <!-- 4 -->
-		<map iso="E05" to="৫"/> <!-- 5 -->
-		<map iso="E06" to="৬"/> <!-- 6 -->
-		<map iso="E07" to="৭"/> <!-- 7 -->
-		<map iso="E08" to="৮"/> <!-- 8 -->
-		<map iso="E09" to="৯"/> <!-- 9 -->
-		<map iso="E10" to="০"/> <!-- 0 -->
-		<map iso="E12" to="\u{9e2}"/> <!-- =  base=ৃ  to= ৢ  -->
-		<map iso="D01" to="\u{9d7}"/> <!-- Q  base=ৌ  to= ৗ  -->
-		<map iso="D04" to="\u{9e3}"/> <!-- R  base=ী  to= ৣ  -->
-		<map iso="D11" to="ড়"/> <!-- [  base=ড -->
-		<map iso="C01" to="৴"/> <!-- A  base=ো -->
-		<map iso="C02" to="৶"/> <!-- S  base=ে -->
-		<map iso="C03" to="৸"/> <!-- D  base=্ -->
-		<map iso="C04" to="\u{9e2}"/> <!-- F  base=ি  to= ৢ  -->
-		<map iso="C07" to="ৰ"/> <!-- J  base=র -->
-		<map iso="B02" to="৺"/> <!-- X  base=ং -->
-	</keyMap>
-	<keyMap modifiers='altR+shift+caps? ctrl+alt+shift+caps?'>
-		<map iso="E12" to="ৠ"/> <!-- =  base=ৃ -->
-		<map iso="D04" to="ৡ"/> <!-- R  base=ী -->
-		<map iso="D11" to="ঢ়"/> <!-- [  base=ড -->
-		<map iso="C01" to="৵"/> <!-- A  base=ো -->
-		<map iso="C02" to="৷"/> <!-- S  base=ে -->
-		<map iso="C03" to="৹"/> <!-- D  base=্ -->
-		<map iso="C04" to="ঌ"/> <!-- F  base=ি -->
-		<map iso="C07" to="ৱ"/> <!-- J  base=র -->
-	</keyMap>
-	<keyMap modifiers='ctrl+shift+caps?'>
-		<map iso="E01" to="\u{200d}"/> <!-- 1 -->
-		<map iso="E02" to="\u{200c}"/> <!-- 2 -->
 	</keyMap>
 </keyboard>

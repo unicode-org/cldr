@@ -56,12 +56,12 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='shift'>
-		<map iso="E03" to="ର"/> <!-- 3 -->
-		<map iso="E04" to="\u{b4d}"/> <!-- 4  to= ୍  -->
-		<map iso="E05" to="\u{b4d}ଞ"/> <!-- 5  to= ୍ଞ  -->
-		<map iso="E06" to="\u{b4d}ର"/> <!-- 6  to= ୍ର  -->
-		<map iso="E07" to="\u{b4d}ଷ"/> <!-- 7  to= ୍ଷ  -->
-		<map iso="E08" to="\u{b4d}ର"/> <!-- 8  to= ୍ର  -->
+		<map iso="E03" to="\u{b4d}ର"/> <!-- 3  to= ୍ର  -->
+		<map iso="E04" to="ର\u{b4d}"/> <!-- 4  to= ର୍  -->
+		<map iso="E05" to="ଜ\u{b4d}ଞ"/> <!-- 5  to= ଜ୍ଞ  -->
+		<map iso="E06" to="ତ\u{b4d}ର"/> <!-- 6  to= ତ୍ର  -->
+		<map iso="E07" to="କ\u{b4d}ଷ"/> <!-- 7  to= କ୍ଷ  -->
+		<map iso="E08" to="ଶ\u{b4d}ର"/> <!-- 8  to= ଶ୍ର  -->
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
 		<map iso="E11" to="\u{b03}"/> <!-- -  base=0  to= ଃ  -->
@@ -94,7 +94,7 @@
 		<map iso="B06" to="ଳ"/> <!-- N  base=ଲ -->
 		<map iso="B07" to="ଶ"/> <!-- M  base=ସ -->
 		<map iso="B08" to="ଷ"/> <!-- , -->
-		<map iso="B10" to="\u{b3c}"/> <!-- /  base=ଯ  to= ଼  -->
+		<map iso="B10" to="ଯ\u{b3c}"/> <!-- /  base=ଯ  to= ଯ଼  -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='caps+shift'>

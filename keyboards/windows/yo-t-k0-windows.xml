@@ -215,17 +215,17 @@
 		<map iso="E05" to="€"/> <!-- 5 -->
 		<map iso="E09" to="‘"/> <!-- 9 -->
 		<map iso="E10" to="’"/> <!-- 0 -->
-		<map iso="C01" to="\u{301}"/> <!-- A  to= ́  -->
-		<map iso="C02" to="\u{300}"/> <!-- S  to= ̀  -->
-		<map iso="C08" to="\u{301}"/> <!-- K  to= ́  -->
-		<map iso="C09" to="\u{300}"/> <!-- L  to= ̀  -->
+		<map iso="C01" to="ọ\u{301}"/> <!-- A  to= ọ́  -->
+		<map iso="C02" to="ọ\u{300}"/> <!-- S  to= ọ̀  -->
+		<map iso="C08" to="ẹ\u{301}"/> <!-- K  to= ẹ́  -->
+		<map iso="C09" to="ẹ\u{300}"/> <!-- L  to= ẹ̀  -->
 		<map iso="C10" to="¶"/> <!-- ; -->
 	</keyMap>
 	<keyMap modifiers='altR+shift+caps? ctrl+alt+shift+caps?'>
-		<map iso="C01" to="\u{301}"/> <!-- A  to= ́  -->
-		<map iso="C02" to="\u{300}"/> <!-- S  to= ̀  -->
-		<map iso="C08" to="\u{301}"/> <!-- K  to= ́  -->
-		<map iso="C09" to="\u{300}"/> <!-- L  to= ̀  -->
+		<map iso="C01" to="Ọ\u{301}"/> <!-- A  to= Ọ́  -->
+		<map iso="C02" to="Ọ\u{300}"/> <!-- S  to= Ọ̀  -->
+		<map iso="C08" to="Ẹ\u{301}"/> <!-- K  to= Ẹ́  -->
+		<map iso="C09" to="Ẹ\u{300}"/> <!-- L  to= Ẹ̀  -->
 		<map iso="C11" to="¨"/> <!-- ' -->
 		<map iso="C12" to="¦"/> <!-- (1 key to right of ')  base=\ -->
 	</keyMap>

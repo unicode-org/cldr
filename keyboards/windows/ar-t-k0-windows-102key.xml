@@ -50,7 +50,7 @@
 		<map iso="B02" to="ء"/> <!-- X -->
 		<map iso="B03" to="ؤ"/> <!-- C -->
 		<map iso="B04" to="ر"/> <!-- V -->
-		<map iso="B05" to="ا"/> <!-- B -->
+		<map iso="B05" to="لا"/> <!-- B -->
 		<map iso="B06" to="ى"/> <!-- N -->
 		<map iso="B07" to="ة"/> <!-- M -->
 		<map iso="B08" to="و"/> <!-- , -->
@@ -76,7 +76,7 @@
 		<map iso="D02" to="\u{64b}"/> <!-- W  base=ص  to= ً  -->
 		<map iso="D03" to="\u{64f}"/> <!-- E  base=ث  to= ُ  -->
 		<map iso="D04" to="\u{64c}"/> <!-- R  base=ق  to= ٌ  -->
-		<map iso="D05" to="إ"/> <!-- T  base=ف -->
+		<map iso="D05" to="لإ"/> <!-- T  base=ف -->
 		<map iso="D06" to="إ"/> <!-- Y  base=غ -->
 		<map iso="D07" to="‘"/> <!-- U  base=ع -->
 		<map iso="D08" to="÷"/> <!-- I  base=ه -->
@@ -87,7 +87,7 @@
 		<map iso="C01" to="\"/> <!-- A  base=ش -->
 		<map iso="C03" to="]"/> <!-- D  base=ي -->
 		<map iso="C04" to="["/> <!-- F  base=ب -->
-		<map iso="C05" to="أ"/> <!-- G  base=ل -->
+		<map iso="C05" to="لأ"/> <!-- G  base=ل -->
 		<map iso="C06" to="أ"/> <!-- H  base=ا -->
 		<map iso="C07" to="ـ"/> <!-- J  base=ت -->
 		<map iso="C08" to="،"/> <!-- K  base=ن -->
@@ -100,7 +100,7 @@
 		<map iso="B02" to="\u{652}"/> <!-- X  base=ء  to= ْ  -->
 		<map iso="B03" to="\u{650}"/> <!-- C  base=ؤ  to= ِ  -->
 		<map iso="B04" to="\u{64d}"/> <!-- V  base=ر  to= ٍ  -->
-		<map iso="B05" to="آ"/> <!-- B  base=ا -->
+		<map iso="B05" to="لآ"/> <!-- B  base=لا -->
 		<map iso="B06" to="آ"/> <!-- N  base=ى -->
 		<map iso="B07" to="’"/> <!-- M  base=ة -->
 		<map iso="B08" to=","/> <!--   base=و -->
@@ -157,12 +157,12 @@
 	</keyMap>
 	<keyMap modifiers='altR+caps?+shift? ctrl+alt+caps?+shift?'>
 		<map iso="E04" to="¤"/> <!-- 4 -->
-		<map iso="D01" to="\u{64e}"/> <!-- Q  base=ض  to= َ  -->
-		<map iso="D02" to="\u{64b}"/> <!-- W  base=ص  to= ً  -->
-		<map iso="D03" to="\u{64f}"/> <!-- E  base=ث  to= ُ  -->
-		<map iso="D04" to="\u{64c}"/> <!-- R  base=ق  to= ٌ  -->
-		<map iso="B03" to="\u{650}"/> <!-- C  base=ؤ  to= ِ  -->
-		<map iso="B04" to="\u{64d}"/> <!-- V  base=ر  to= ٍ  -->
+		<map iso="D01" to="\u{651}\u{64e}"/> <!-- Q  base=ض  to= َّ  -->
+		<map iso="D02" to="\u{651}\u{64b}"/> <!-- W  base=ص  to= ًّ  -->
+		<map iso="D03" to="\u{651}\u{64f}"/> <!-- E  base=ث  to= ُّ  -->
+		<map iso="D04" to="\u{651}\u{64c}"/> <!-- R  base=ق  to= ٌّ  -->
+		<map iso="B03" to="\u{651}\u{650}"/> <!-- C  base=ؤ  to= ِّ  -->
+		<map iso="B04" to="\u{651}\u{64d}"/> <!-- V  base=ر  to= ٍّ  -->
 	</keyMap>
 	<keyMap modifiers='ctrl+caps?'>
 		<map iso="D11" to="\u{1b}"/> <!-- [  base=ج -->

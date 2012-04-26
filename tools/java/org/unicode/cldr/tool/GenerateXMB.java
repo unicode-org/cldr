@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckExemplars;
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
@@ -448,6 +449,15 @@ public class GenerateXMB {
             } else {
                 value = cldrFile.getStringValue(path);
             }
+            // Remove quotes from number formats (we'll put them back in during
+            // post-processing).
+            // TODO: we should actually call daip.processForDisplay() here, but
+            // it does more stuff than we need it to do, e.g. stripping the
+            // brackets from exemplarCharacters.
+            if (DisplayAndInputProcessor.NUMBER_FORMAT_XPATH.matcher(path).matches()) {
+                value = value.replace("'", "");
+            }
+            
             // skip root if not English
             if (!isEnglish && value != null && !keepFromRoot.reset(path).find()) { // note that mismatched script will be checked later
                 String locale = cldrFile.getSourceLocaleID(path, null);
@@ -629,15 +639,7 @@ public class GenerateXMB {
                 System.out.println(locale + "\tMust have 2 count values: " + entry.getKey());
                 continue;
             }
-            Matcher matcher = PLURAL_NUMBER.matcher(pathInfo.getPath());
-            String var = null;
-            if (matcher.find()) {
-                // Plural doesn't use placeholders so create a label.
-                var = matcher.group(1).toUpperCase() + "_NUMBER";
-            } else {
-                var = pathInfo.getFirstVariable();
-            }
-            String fullPlurals = showPlurals(var, fullValues, locale, pluralInfo, isEnglish, errorSet);
+            String fullPlurals = showPlurals(fullValues, locale, pathInfo, pluralInfo, isEnglish, errorSet);
             if (fullPlurals == null) {
                 System.out.println(locale + "\tCan't format plurals for: " + entry.getKey() + "\t" + errorSet);
                 errors++;
@@ -666,7 +668,9 @@ public class GenerateXMB {
     static final String[] PLURAL_KEYS = {"=0", "=1", "zero", "one", "two", "few", "many", "other"};
     static final String[] EXTRA_PLURAL_KEYS = {"0", "1", "zero", "one", "two", "few", "many"};
 
-    private static String showPlurals(String var, Map<String,String> values, String locale, PluralInfo pluralInfo, boolean isEnglish, Set<String> errorSet) {
+    private static String showPlurals(Map<String,String> values,
+        String locale, PathInfo pathInfo, PluralInfo pluralInfo,
+        boolean isEnglish, Set<String> errorSet) {
         errorSet.clear();
         /*
          * Desired output for English XMB
@@ -710,6 +714,15 @@ public class GenerateXMB {
 <ph name='[END_PLURAL]'/>
 </msg>
          */
+        Matcher matcher = PLURAL_NUMBER.matcher(pathInfo.getPath());
+        String var = null;
+        if (matcher.find()) {
+            // Plural doesn't use placeholders so create a label.
+            var = matcher.group(1).toUpperCase() + "_NUMBER";
+        } else {
+            var = pathInfo.getFirstVariable();
+        }
+
         StringBuilder result = new StringBuilder();
         if (isEnglish) {
             result.append('{')
@@ -743,6 +756,7 @@ public class GenerateXMB {
                 }
             }
             String newValue = MessageFormat.format(MessageFormat.autoQuoteApostrophe(value), new Object[] {key.startsWith("=") ? key.substring(1,2) : "#"});
+            newValue = reformatPlaceholders(newValue, isEnglish);
             if (isEnglish) {
                 result.append("\n            ").append(key).append(" {").append(newValue).append('}');
             } else {
@@ -756,6 +770,13 @@ public class GenerateXMB {
             result.append("<!--\n        --><ph name='[END_PLURAL]'/>");
         }
         return result.toString();
+    }
+
+    private static Pattern PLACEHOLDER = Pattern.compile("\\{(\\d)}");
+    private static String reformatPlaceholders(String value, boolean isEnglish) {
+        if (isEnglish) return value;
+        Matcher matcher = PLACEHOLDER.matcher(value);
+        return matcher.replaceAll("<ph name='[$1]' />");
     }
 
     private static void writePathInfo(PrintWriter out, PathInfo pathInfo, String value, boolean isEnglish) {
@@ -902,9 +923,9 @@ public class GenerateXMB {
             String result = TransliteratorUtilities.toHTML.transform(value);
             if (placeholderReplacements == null) {
                 // skip
-            } else if (result.contains("{0}")) {
+            } else {
                 // TODO: fix for quoting
-                result = replacePlaceholders(result, placeholderReplacements, isEnglish);
+                result = replacePlaceholders(result, isEnglish);
                 //            } else {
                 //                formatParser.set(value);
                 //                StringBuilder buffer = new StringBuilder();
@@ -925,10 +946,10 @@ public class GenerateXMB {
             return result;
         }
 
-        private String replacePlaceholders(String result, Map<String, String> argumentsFromPath, boolean isEnglish) {
-            for (Entry<String, String> entry : argumentsFromPath.entrySet()) {
+        private String replacePlaceholders(String result, boolean isEnglish) {
+            for (Entry<String, String> entry : placeholderReplacements.entrySet()) {
                 String replacement = entry.getValue();
-                String value = (isEnglish ? replacement : replacement.replaceAll("<ex>.*</ph>", "</ph>"));
+                String value = (isEnglish ? replacement : replacement.replaceAll("><ex>.*</ph>", " />"));
                 result = result.replace(entry.getKey(), value);
             }
             return result;

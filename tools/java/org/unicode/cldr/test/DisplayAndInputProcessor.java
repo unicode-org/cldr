@@ -42,6 +42,9 @@ public class DisplayAndInputProcessor {
             "[:Me:][:Mn:]]" // add non-spacing marks
     ).freeze();
 
+    public static final Pattern NUMBER_FORMAT_XPATH = Pattern.compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
+    private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?![0#'])\\.(?![0#'])");
+
     private Collator col;
 
     private Collator spaceCol;
@@ -60,6 +63,7 @@ public class DisplayAndInputProcessor {
     public DisplayAndInputProcessor(CLDRFile cldrFileToCheck) {
         init(this.locale=CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()));
     }
+
      void init(CLDRLocale locale) {
         col = Collator.getInstance(locale.toULocale());
         spaceCol = Collator.getInstance(locale.toULocale());
@@ -109,6 +113,8 @@ public class DisplayAndInputProcessor {
 //            }
         } else if (path.contains("stopword")) {
             return value.trim().isEmpty() ? "NONE" : value;
+        } else if (NUMBER_FORMAT_XPATH.matcher(path).matches()) {
+            value = value.replace("'", "");
         }
         return value;
     }
@@ -169,12 +175,10 @@ public class DisplayAndInputProcessor {
                 }
             }
 
-            if (path.startsWith("//ldml/numbers") && path.indexOf("Format[")>=0&& path.indexOf("/pattern")>=0) {
-                String newValue = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
-                .replaceAll(" ([%\u00A4])", "\u00A0$1");
-                if (!value.equals(newValue)) {
-                    value = newValue;
-                }
+            if (NUMBER_FORMAT_XPATH.matcher(path).matches()) {
+                value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
+                        .replaceAll(" ([%\u00A4])", "\u00A0$1");
+                value = replace(NON_DECIMAL_PERIOD, value, "'.'");
             }
 
             // check specific cases

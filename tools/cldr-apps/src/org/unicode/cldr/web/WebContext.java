@@ -1296,7 +1296,7 @@ public class WebContext implements Cloneable, Appendable {
 	/**
 	 * The default level, if no organization is available.
 	 */
-	public static final Level COVLEVEL_DEFAULT_RECOMMENDED = org.unicode.cldr.util.Level.BASIC;
+	public static final Level COVLEVEL_DEFAULT_RECOMMENDED = org.unicode.cldr.util.Level.MODERN;
 	public static final String COVLEV_DEFAULT_RECOMMENDED_STRING = COVLEVEL_DEFAULT_RECOMMENDED.name().toLowerCase();
 
 	/**

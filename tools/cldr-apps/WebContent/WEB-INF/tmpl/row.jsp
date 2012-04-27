@@ -54,7 +54,7 @@
 	<%= p.getDisplayName()  
 	      // + " " + p.fullFieldHash()
 	%>
-<% if(false&&SurveyMain.isUnofficial) { %>	       <br/>
+<% if(false&&SurveyMain.isUnofficial()) { %>	       <br/>
 	X=<%= p.getXpath() %>
 	       <br/>
 	W=<%= ballotBox.getResolver(p.getXpath()).getWinningValue()  %>

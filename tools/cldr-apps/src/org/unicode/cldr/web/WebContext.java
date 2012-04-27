@@ -39,7 +39,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
@@ -1235,7 +1234,7 @@ public class WebContext implements Cloneable, Appendable {
 		print("<ul><li>To change your default coverage level, see ");
 		sm.printMenu(this, "", "options", "My Options", SurveyMain.QUERY_DO);
 		println("</li></ul>");
-		if (false&&SurveyMain.isUnofficial) {
+		if (false&&SurveyMain.isUnofficial()) {
 			println("<smaller><i> // User Org:" + session.getUserOrg() + "isCoverageOrg:"
 					+ isCoverageOrganization(session.getUserOrg()) + " // Effective: "
 					+ getEffectiveCoverageLevel(getLocale().toString()) + " // Recommended: " + getRecommendedCoverageLevel()

@@ -252,7 +252,7 @@ public abstract class SortMode {
         if (matcher != null) {
             matchName = matcher.getName();
         }
-        if (SurveyMain.isUnofficial)
+        if (SurveyMain.isUnofficial())
             System.err.println("Loaded " + newSet.size() + " from " + matchName + " - base xpath (" + rows.size() + ")  = "
                     + getName());
         return newSet.toArray(new DataRow[newSet.size()]);

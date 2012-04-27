@@ -10,7 +10,7 @@
 //            ctx.println("</span>");
 //        }%>
 <%
-        if(SurveyMain.isUnofficial) { %>
+        if(SurveyMain.isUnofficial()) { %>
 		    <div class='unofficial' title='Not an official SurveyTool' >
 		        <%= WebContext.iconHtml(request,"warn","Unofficial Site") %>Unofficial
 		    </div>

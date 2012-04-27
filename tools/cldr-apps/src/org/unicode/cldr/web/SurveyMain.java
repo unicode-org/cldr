@@ -64,6 +64,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -169,7 +170,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static Phase currentPhase = null; /** set by CLDR_PHASE property. **/
     private static String oldVersion = "OLDVERSION";
     private static String newVersion = "NEWVERSION";
-    public static       boolean isUnofficial = true;  /** set to true for all but the official installation of ST. **/
+    
+    /**
+     * @return the isUnofficial. 
+     * @see CLDRConfig#getEnvironment()
+     */
+    public static final boolean isUnofficial() {
+        if(!isSetup) {
+            return true; // 
+        }
+        return !(CLDRConfig.getInstance().getEnvironment()==CLDRConfig.Environment.PRODUCTION);
+    }
+
+    /** set to true for all but the official installation of ST. **/
 
     // ==== caches and general state
     
@@ -387,6 +400,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public SurveyMain() {
+        super();
     	CookieSession.sm = this;
     }
 
@@ -537,7 +551,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 	
                 // process any global redirects here.
             
-            if(isUnofficial) {
+            if(isUnofficial()) {
                 boolean waitASec = twidBool("SurveyMain.twoSecondPageDelay");
                 if(waitASec) {
                     ctx.println("<h1>twoSecondPageDelay</h1>");
@@ -545,7 +559,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
             }
 
-            if(isUnofficial && (ctx.hasTestPassword() || ctx.hasAdminPassword()) && ctx.field("action").equals("new_and_login")) {
+            if(isUnofficial() && (ctx.hasTestPassword() || ctx.hasAdminPassword()) && ctx.field("action").equals("new_and_login")) {
                 	ctx.println("<hr>");
                     String real = ctx.field("real").trim();
                     if(real.isEmpty() || real.equals("REALNAME")) {
@@ -634,14 +648,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<title>"+sysmsg("startup_title")+"</title>");
             out.println("<link rel='stylesheet' type='text/css' href='"+base+"/../surveytool.css'>");
             SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
-            if(isUnofficial) {
+            if(isUnofficial()) {
                 out.println("<script type=\"text/javascript\">timerSpeed = 2500;</script>");
             } else {
                 out.println("<script type=\"text/javascript\">timerSpeed = 10000;</script>");
             }
             // todo: include st_top.jsp instead
             out.println("</head><body>");
-            if(isUnofficial) {
+            if(isUnofficial()) {
                 out.print("<div class='topnotices'><p class='unofficial' title='Not an official SurveyTool' >");
                 out.print("Unofficial");
                 out.println("</p></div>");
@@ -697,7 +711,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<noscript><h1>JavaScript is required for logging into the SurveyTool.</h1></noscript>");
             out.print(sysmsg("startup_footer"));
             out.println("<span id='visitors'></span>");
-            if(!SurveyMain.isUnofficial) {
+            if(!SurveyMain.isUnofficial()) {
             	out.println(ShowData.ANALYTICS);
             }
             out.print("</body></html>");
@@ -1202,7 +1216,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println(title + "</title>");
         ctx.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
         
-        if(true || isUnofficial || 
+        if(true || isUnofficial() || 
                 ctx.prefBool(PREF_GROTTY)) {  // no RSS on the official site- for now
             if(ctx.getLocale() != null) {
                 ctx.println(fora.forumFeedStuff(ctx));
@@ -1284,13 +1298,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         int guests = CookieSession.nGuests;
         int users = CookieSession.nUsers;
         double load = osmxbean.getSystemLoadAverage();
-
+        CLDRConfig config = CLDRConfig.getInstance();
         return new JSONObject()
     		.put("isBusted", isBusted)
     		.put("lockOut", lockOut!=null)
     		.put("isSetup",isSetup)
-    		.put("isUnofficial",isUnofficial)
-    		.put("specialHeader",CLDRConfig.getInstance().getProperty("CLDR_HEADER"))
+            .put("isUnofficial",isUnofficial())
+            .put("environment",config.getEnvironment().name())
+    		.put("specialHeader",config.getProperty("CLDR_HEADER"))
     		.put("specialTimerRemaining",specialTimer!=0?timeDiff(System.currentTimeMillis(),specialTimer):null)
     		.put("processing", startupThread.htmlStatus())
     		.put("guests", CookieSession.nGuests)
@@ -1406,13 +1421,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
                 u=u+"|"+k+"="+v;
             }
-            ctx.println("| <a " + (isUnofficial?"title":"href") + "='" + bugFeedbackUrl("Feedback on URL ?" + u)+"'>Report Problem in Tool</a>");
+            ctx.println("| <a " + (isUnofficial()?"title":"href") + "='" + bugFeedbackUrl("Feedback on URL ?" + u)+"'>Report Problem in Tool</a>");
         } catch (Throwable t) {
         	SurveyLog.logException(t, ctx);
             SurveyLog.logger.warning(t.toString());
             t.printStackTrace();
         }
-        if(!SurveyMain.isUnofficial) {
+        if(!SurveyMain.isUnofficial()) {
         	ctx.println(ShowData.ANALYTICS);
         }
         ctx.println("</body>");
@@ -1998,7 +2013,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx.println("<br>");
             if(n>0) {
             	ctx.println("Note: "+n+" locale(s) were specified that were sublocales. This is no longer supported, specify the top level locale (en, not en_US or en_Shaw): <br><font size=-1>");
-            	if(isUnofficial) for(CLDRLocale li:subSet) {
+            	if(isUnofficial()) for(CLDRLocale li:subSet) {
                     ctx.print(" <tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'><font size=-1>"+li.toString()+"</font></tt>" );
             	}
             	ctx.println("</font><br>");
@@ -3272,7 +3287,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 		for (int i = 0; i < items.length; i++) {
             boolean isOptional = (items[i].equals(Level.OPTIONAL.toString()));
             
-            if(isOptional&&!SurveyMain.isUnofficial) continue;
+            if(isOptional&&!SurveyMain.isUnofficial()) continue;
 			WebContext ssc = new WebContext(jout);
 			ssc.setQuery(field, items[i]);
 			String sty = "";
@@ -4829,7 +4844,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private synchronized void checkAllLocales() {
         if(aliasMap!=null) return;
 
-        boolean useCache = isUnofficial; // NB: do NOT use the cache if we are in unofficial mode.  Parsing here doesn't take very long (about 16s), but 
+        boolean useCache = isUnofficial(); // NB: do NOT use the cache if we are in unofficial mode.  Parsing here doesn't take very long (about 16s), but 
         // we want to save some time during development iterations.
 
         Hashtable<CLDRLocale,CLDRLocale> aliasMapNew = new Hashtable<CLDRLocale,CLDRLocale>();
@@ -5500,8 +5515,8 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 
 
     public static void addPeriodicTask(TimerTask task) {
-		int firstTime=isUnofficial?10000:99000;		
-		int eachTime=isUnofficial?10000:76000;
+		int firstTime=isUnofficial()?10000:99000;		
+		int eachTime=isUnofficial()?10000:76000;
 		getTimer().schedule(task, firstTime,eachTime);
     }
     
@@ -5588,7 +5603,9 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                 return;
             }
             if("yes".equals(survprops.getProperty("CLDR_OFFICIAL"))) {
-                isUnofficial = false;
+                survprops.setEnvironment(CLDRConfig.Environment.PRODUCTION);
+            } else {
+                survprops.getEnvironment();
             }
             vetweb = survprops.getProperty("CLDR_VET_WEB",cldrHome+"/vetdata"); // dir for web data
             cldrLoad = survprops.getProperty("CLDR_LOAD_ALL"); // preload all locales?
@@ -6309,7 +6326,9 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                 SurveyLog.logger.warning("While shutting down xpt ");
             }
             
-            dbUtils.doShutdown();
+            if(dbUtils!=null) {
+                dbUtils.doShutdown();
+            }
             dbUtils = null;
         }
         catch (SQLException se)

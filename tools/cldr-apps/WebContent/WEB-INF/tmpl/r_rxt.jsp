@@ -7,7 +7,7 @@ Debugging only.
 </div>
 
 <%
-if(!SurveyMain.isUnofficial) {
+if(!SurveyMain.isUnofficial()) {
 	return;
 }
 String xp = ctx.field("xp", "//ldml");

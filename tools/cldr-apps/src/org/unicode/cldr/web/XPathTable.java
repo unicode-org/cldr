@@ -53,7 +53,7 @@ public class XPathTable {
                 reg.setupDB();
             }
             
-            if(false&&!sm.isUnofficial) { // precache
+            if(false&&!sm.isUnofficial()) { // precache
 	            int n =0;
 	            ElapsedTimer et = new ElapsedTimer("Load all xpaths..");
 	            for(String xpath : sm.getBaselineFile()) {
@@ -659,7 +659,7 @@ public class XPathTable {
 	            return x;
 	        }
 	    }
-	    if(SurveyMain.isUnofficial) System.err.println("xpt: Couldn't find stringid " + id + " - sid has " + sidToString.size());
+	    if(SurveyMain.isUnofficial()) System.err.println("xpt: Couldn't find stringid " + id + " - sid has " + sidToString.size());
 	    // it may be 
 	    return null;
 	}

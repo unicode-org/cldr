@@ -200,7 +200,7 @@ especially the Guide and Walkthrough.
 </script>
 
 <%
-if(false && SurveyMain.isUnofficial) {
+if(false && SurveyMain.isUnofficial()) {
 %>
 <h3>Recent Items in This Locale</h3>
 <div id='submitItems'>

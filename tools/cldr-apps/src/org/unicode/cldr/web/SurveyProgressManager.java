@@ -131,7 +131,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
     public CLDRProgressTask openProgress(String what, int max) {
         SurveyProgressTask t = new SurveyProgressTask(what,max);
         tasks.addLast(t);
-        if(SurveyMain.isUnofficial && DEBUG_PROGRESS)  System.err.println("Progress (" + what + ") BEGIN");
+        if(SurveyMain.isUnofficial() && DEBUG_PROGRESS)  System.err.println("Progress (" + what + ") BEGIN");
         return t;
     }
 

@@ -621,7 +621,7 @@ public class CookieSession {
             return getSpecialGuest();
         }
         
-        if(SurveyMain.isUnofficial) {
+        if(SurveyMain.isUnofficial()) {
             return null; // OK.
         }
         

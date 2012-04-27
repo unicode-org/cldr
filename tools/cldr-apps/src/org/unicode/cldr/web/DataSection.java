@@ -283,7 +283,7 @@ public class DataSection implements JSONString {
 				        if (this==previousItem) { // its xpath is the base
 				            // xpath.
 				            ctx.print(ctx.iconHtml("star", "CLDR " + SurveyMain.getOldVersion() + " item"));
-				        } else if (SurveyMain.isUnofficial && isParentFallback) {
+				        } else if (SurveyMain.isUnofficial() && isParentFallback) {
 				            // ctx.print(ctx.iconHtml("okay","parent fallback"));
 				        }
 
@@ -1339,7 +1339,7 @@ public class DataSection implements JSONString {
 
 		    if(options.contains(EShowDataRowSet.doShowVettingRows)) {
 
-		        if (zoomedIn && ((!SurveyMain.isPhaseSubmit() && !SurveyMain.isPhaseBeta()) || SurveyMain.isUnofficial || true)) {
+		        if (zoomedIn && ((!SurveyMain.isPhaseSubmit() && !SurveyMain.isPhaseBeta()) || SurveyMain.isUnofficial() || true)) {
 
 		            ctx.print("<tr>");
 		            ctx.print("<th colspan=2>Votes</th>");
@@ -2815,11 +2815,11 @@ public class DataSection implements JSONString {
                         continue;
                     }
     				if (!xpath.startsWith(workPrefix)) {
-    					if (false && SurveyMain.isUnofficial)
+    					if (false && SurveyMain.isUnofficial())
     						System.err.println("@@ BAD XPATH " + xpath);
     					continue;
     				} else if (aFile.isPathExcludedForSurvey(xpath)) {
-    					if (false && SurveyMain.isUnofficial)
+    					if (false && SurveyMain.isUnofficial())
     						System.err.println("@@ excluded:" + xpath);
     					continue;
     				} else if (false) {

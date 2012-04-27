@@ -93,7 +93,7 @@ public class DBUtils {
 	
 	public static void closeDBConnection(Connection conn) {
 		if (conn != null) {
-		    if(SurveyMain.isUnofficial && tracker!=null) {
+		    if(SurveyMain.isUnofficial() && tracker!=null) {
 		        tracker.remove(conn);
 		    }
 			try {
@@ -585,7 +585,7 @@ public class DBUtils {
 			if(db_Derby) {
 				c.setAutoCommit(false);
 			}
-			if(SurveyMain.isUnofficial&&tracker!=null) tracker.add(c);
+			if(SurveyMain.isUnofficial()&&tracker!=null) tracker.add(c);
 			return c;
 		} catch (SQLException se) {
 			se.printStackTrace();

@@ -1680,14 +1680,15 @@ function updateRow(tr, theRow) {
 		} else if(theRow.showstatus && theRow.showstatus == "READ_ONLY") {
 			children[config.changecell].className="d-change-confirmonly";
 			var link = createChunk(stui.str("file_a_ticket"),"a");
-			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath;
-			if(window.surveyOfficial) {
+			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
 				link.href = newUrl;
+				link.target = TARGET_DOCS;
 				theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
 				theRow.proposedResults.href = newUrl;
-			} else {
-				theRow.proposedResults = createChunk(stui.str("file_ticket_unofficial") + "  <" + newUrl + ">","div","fnotebox");
-			}
+				if(!window.surveyOfficial) {
+					children[config.changecell].appendChild(createChunk(" (Note: this is not the production SurveyTool!) ","p"));
+					link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
+				}
 			children[config.changecell].appendChild(link);
 		} else {
 			var changeButton = cloneAnon(protoButton);

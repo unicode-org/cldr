@@ -3,12 +3,19 @@ package org.unicode.cldr.util;
 
 import java.util.Locale;
 
+import org.unicode.cldr.util.CLDRConfig.Environment;
+
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 
 public class CLDRConfig {
     private static CLDRConfig INSTANCE = null;
     public static final String SUBCLASS = CLDRConfig.class.getName()+"Impl";
+    public enum Environment { 
+            LOCAL,  //< == unknown.
+            SMOKETEST,  // staging area
+             PRODUCTION // production server!
+    };
 
     public static CLDRConfig getInstance() {
       synchronized (CLDRConfig.class) {
@@ -109,5 +116,24 @@ public class CLDRConfig {
         System.out.println("-D" + key + "=" + result);
         System.out.flush();
         return result;
+    }
+
+    private Environment curEnvironment = null;
+    
+    public Environment getEnvironment() {
+        if(curEnvironment==null) {
+            String envString = getProperty("CLDR_ENVIRONMENT");
+            if(envString!=null) {
+                curEnvironment = Environment.valueOf(envString.trim());
+            }
+            if(curEnvironment==null) {
+                curEnvironment = Environment.LOCAL;
+            }
+        }
+        return curEnvironment;
+    }
+
+    public void setEnvironment(Environment environment) {
+        curEnvironment = environment;
     }
 }

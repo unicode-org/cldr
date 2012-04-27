@@ -831,9 +831,15 @@ public class OutputFileManager {
                     } catch (SQLException e) {
                         SurveyLog.logException(e);
                         SurveyLog.logger.warning("While running Updater: " + DBUtils.unchainSqlException(e));
+                        SurveyMain.busted("while running updater", e);
                     } catch (IOException e) {
                         SurveyLog.logException(e);
                         e.printStackTrace();
+                        SurveyMain.busted("while running updater", e);
+                    } catch (Throwable e) {
+                        SurveyLog.logException(e);
+                        e.printStackTrace();
+                        SurveyMain.busted("while running updater", e);
                     } finally {
 //                        SurveyLog.logger.warning("(exitting updater");
                         if(progress!=null) progress.close();

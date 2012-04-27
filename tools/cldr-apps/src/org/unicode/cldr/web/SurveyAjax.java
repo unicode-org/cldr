@@ -211,11 +211,23 @@ public class SurveyAjax extends HttpServlet {
                 JSONWriter r = newJSONStatus(sm);
                 String q1 = "select cldr_votevalue.locale,cldr_xpaths.xpath,cldr_users.org, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where ";
                 String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter  order by cldr_votevalue.last_mod desc limit 15";
+                String user = request.getParameter("user");
+                UserRegistry.User u = null;
+                if(user!=null&&!user.isEmpty()) try {
+                    u = sm.reg.getInfo(Integer.parseInt(user));
+                } catch(Throwable t) {
+                    SurveyLog.logException(t, "Parsing user " + user);
+                }
+                
                 JSONObject query;
-                if(l==null) {
+                if(l==null && u==null ) {
                     query = DBUtils.queryToJSON(q1+q2 );
-                } else {
+                } else if(u==null && l!=null) {
                     query = DBUtils.queryToJSON(q1+" cldr_votevalue.locale=? AND " + q2, l );
+                } else if(u!=null && l==null) {
+                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.submitter=? AND " + q2, u.id );
+                } else {
+                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.locale=? AND cldr_votevalue.submitter=? " + q2, l, u.id );
                 }
                 r.put("recent",query);
                 send(r,out);

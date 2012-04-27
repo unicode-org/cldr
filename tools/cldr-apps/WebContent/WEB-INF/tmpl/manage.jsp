@@ -21,6 +21,8 @@ String helpName = subCtx.getString("helpName");
             }
             subCtx.print(" | ");
             SurveyMain.printMenu(subCtx, doWhat, "listu", "My Account", SurveyMain.QUERY_DO);
+            subCtx.print(" | ");
+            subCtx.print("<a href='"+ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id+"'>My Recent Activity</a>");
             if(UserRegistry.userIsTC(subCtx.session.user)) {
                 subCtx.print(" | ");
                 SurveyMain.printMenu(subCtx, doWhat, "list", "Manage " + subCtx.session.user.org + " Users", SurveyMain.QUERY_DO);
@@ -31,7 +33,7 @@ String helpName = subCtx.getString("helpName");
                     subCtx.print(" | ");
                     SurveyMain.printMenu(subCtx, doWhat, "list", "List " + subCtx.session.user.org + " Users", subCtx.sm.QUERY_DO);
                 } else if(UserRegistry.userIsLocked(subCtx.session.user)) {
-                    subCtx.println("<b>LOCKED: Note: your account is currently locked. Please contact " + subCtx.session.user.org + "'s CLDR Technical Committee member.</b> ");
+                    subCtx.println("| <b>LOCKED: Note: your account is currently locked. Please contact " + subCtx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
             }
             SurveyMain.printMenu(subCtx, doWhat, "disputed", "Dispute Resolution", SurveyMain.QUERY_DO); 

@@ -535,6 +535,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         
         try {
 	
+                // process any global redirects here.
             
             if(isUnofficial) {
                 boolean waitASec = twidBool("SurveyMain.twoSecondPageDelay");
@@ -3500,6 +3501,54 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             return;
         }
         
+            // locale REDIRECTS ------------------------------
+            // looking for a stringid?
+            String strid = ctx.field("strid");
+            String whyBad = "(unknown problem)";
+            if(!strid.isEmpty()&&ctx.hasField("_")) {
+                try {
+                    final String xpath = xpt.getByStringID(strid);
+                    if(xpath!=null) {
+                        // got one.
+                        PathHeader ph = getSTFactory().getPathHeader(xpath);
+                        if(ph==null) {
+                            whyBad="NULL from PathHeader";
+                        } else if(ph.getSurveyToolStatus()==SurveyToolStatus.HIDE ||
+                                    ph.getSurveyToolStatus()==SurveyToolStatus.DEPRECATED) {
+                            whyBad="PathHeader status: " + ph.getSurveyToolStatus().name();
+                        } else {
+                            StringBuilder redirTo = new StringBuilder(ctx.base());
+                            redirTo.append("?_="+ctx.field("_"));
+                            PageId newPage = ph.getPageId();
+                            redirTo.append("&x="+newPage.name());
+                            //  if(ph.getPageId()!=pageId)  .. don't care
+                            String ecl = ctx.getEffectiveCoverageLevel(ctx.getLocale().toString());
+                            Level l = Level.valueOf(ecl.toUpperCase());
+                            Level need = Level.fromLevel(getSupplementalDataInfo().getCoverageValue(xpath, ctx.getLocale().toULocale()));
+                            //                                if( (need.getLevel()!=l.getLevel() || newPage!=ctx.getPageId())  &&  
+                            //                                            (ph.getSurveyToolStatus()==SurveyToolStatus.READ_WRITE ||
+                            //                                             ph.getSurveyToolStatus()==SurveyToolStatus.READ_ONLY) &&
+                            //                                       need.getLevel()<101) {
+                            if(need.getLevel()>l.getLevel()) {
+                                redirTo.append("&p_covlev="+need.name().toLowerCase());
+                            }
+                            redirTo.append("#x@"+strid+"@redir");
+                            ctx.response.sendRedirect(redirTo.toString());
+                            return; // exit
+                            //                                }
+                        }
+                    } else {
+                        whyBad="not a valid StringID";
+                    }
+                    SurveyLog.logException(null,"Bad StringID"+strid+" "+whyBad,ctx);
+                } catch (Throwable t) {
+                    SurveyLog.logException(t, "Exception processing StringID " + strid + " - " + whyBad, ctx);
+                }
+            }                
+            
+            // END REDIRECTS -------------------------
+            
+            
         // TODO: untangle this
         // admin things
         if((ctx.field(QUERY_DO).length()>0)) {
@@ -3575,45 +3624,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
         
             // looking for a stringid?
-            String strid = ctx.field("strid");
             if(!strid.isEmpty()) {
                 String xpath = "(unknown StringID)";
                 try {
                     xpath = xpt.getByStringID(strid);
-                    if(xpath!=null) {
-                        // got one.
-                        PathHeader ph = getSTFactory().getPathHeader(xpath);
-                        if(ph!=null) {
-                            StringBuilder redirTo = new StringBuilder(ctx.base());
-                            redirTo.append("?_="+ctx.getLocale().getBaseName());
-                            PageId newPage = ph.getPageId();
-                            redirTo.append("&x="+newPage.name());
-                            //  if(ph.getPageId()!=pageId)  .. don't care
-                            String ecl = ctx.getEffectiveCoverageLevel(ctx.getLocale().toString());
-                            Level l = Level.valueOf(ecl.toUpperCase());
-                            Level need = Level.fromLevel(getSupplementalDataInfo().getCoverageValue(xpath, ctx.getLocale().toULocale()));
-
-                            
-                            
-//                            if( (need.getLevel()!=l.getLevel() || newPage!=ctx.getPageId())  &&  
-//                                        (ph.getSurveyToolStatus()==SurveyToolStatus.READ_WRITE ||
-//                                         ph.getSurveyToolStatus()==SurveyToolStatus.READ_ONLY) &&
-//                                   need.getLevel()<101) {
-                                if(need.getLevel()>l.getLevel()) {
-                                    redirTo.append("&p_covlev="+need.name().toLowerCase());
-                                }
-                                redirTo.append("#x@"+strid+"@redir");
-                                ctx.response.sendRedirect(redirTo.toString());
-                                return; // exit
-//                            }
-                        }
-                    } else {
+                    if(xpath==null) {
                         xpath="(not a valid StringID)";
                     }
                 } catch (Throwable t) {
-                    SurveyLog.logException(t, ctx);
+                    //SurveyLog.logException(t, ctx);
                 }
-                ctx.println("<div class='fnotebox'>Invalid/unusable String ID in URL: <span class='loser' title='"+xpath+"'>" + strid + "</span>.</div>");
+                ctx.println("<div class='fnotebox'>Invalid/unusable String ID in URL: <span class='loser' title='"+xpath+ " " + whyBad+"'>" + strid + "</span>.</div>");
                 which = xMAIN;
             }
         // print 'shopping cart'

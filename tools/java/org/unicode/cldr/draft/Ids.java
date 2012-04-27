@@ -653,7 +653,7 @@ U+2FFB ( ⿻ ) IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID
         continue;
       }
       Integer radical = RadicalStroke.SINGLETON.charToRadical.get(containingChar);
-      if (radical == null) radical = '?';
+      if (radical == null) radical = (int)'?';
       Integer strokes = RadicalStroke.SINGLETON.charToTotalStrokes.get(containingChar);
       if (strokes == null) strokes = 0;
       if (radical != oldRadical || strokes != oldStrokes) {
@@ -686,7 +686,7 @@ U+2FFB ( ⿻ ) IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID
       if (radical == containingChar.codePointAt(0)) {
         continue; // skip radicals
       }
-      if (radical == null) radical = '?';
+      if (radical == null) radical = (int)'?';
       Integer strokes = RadicalStroke.SINGLETON.charToTotalStrokes.get(containingChar);
       if (strokes == null) strokes = 0;
       if (radical != oldRadical || strokes != oldStrokes) {

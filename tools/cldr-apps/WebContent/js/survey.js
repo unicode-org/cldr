@@ -1504,7 +1504,12 @@ function updateRow(tr, theRow) {
 	}
 	
 	var canModify = tr.theTable.json.canModify;
-	if(!theRow || !theRow.xpid) {
+        var ticketOnly = false;
+        if(canModify && theRow.showstatus && theRow.showstatus == "READ_ONLY") {
+            ticketOnly = true;
+            canModify = false;
+        }
+        if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
 	}
@@ -1675,9 +1680,7 @@ function updateRow(tr, theRow) {
 		removeAllChildNodes(children[config.changecell]);
 		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		
-		if(!canModify) {
-			children[config.changecell].style.display="none";
-		} else if(theRow.showstatus && theRow.showstatus == "READ_ONLY") {
+		if(ticketOnly) {
 			children[config.changecell].className="d-change-confirmonly";
 			var link = createChunk(stui.str("file_a_ticket"),"a");
 			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
@@ -1690,6 +1693,8 @@ function updateRow(tr, theRow) {
 					link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
 				}
 			children[config.changecell].appendChild(link);
+                } else if(!canModify) {
+			children[config.changecell].style.display="none";
 		} else {
 			var changeButton = cloneAnon(protoButton);
 			children[config.changecell].appendChild(changeButton);
@@ -1726,7 +1731,7 @@ function updateRow(tr, theRow) {
 		noOpinion.value=null;
 		children[config.nocell].appendChild(noOpinion);
 		listenToPop(null, tr, children[config.nocell]);
-	} else {
+	} else if (!ticketOnly) {
 		children[config.nocell].style.display="none";
 	}
 	

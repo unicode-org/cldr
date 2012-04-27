@@ -214,7 +214,7 @@ public class TestCheckCLDR extends TestFmwk {
             }
         }
 
-        System.out.println(localeID);
+        logln("Checking: " + localeID);
         UnicodeSet missingCurrencyExemplars = new UnicodeSet();
         UnicodeSet missingExemplars = new UnicodeSet();
 

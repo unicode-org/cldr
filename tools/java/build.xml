@@ -20,7 +20,7 @@
         </path>
 
         <property name="CLDR_DIR" value="../../"/>
-        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=true"/>
+        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
 
         

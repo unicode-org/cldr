@@ -66,7 +66,7 @@ public class OutdatedPaths {
                     break;
                 }
                 if (DEBUG) {
-                    System.out.println("Locale: " + locale);
+                    System.out.println("OutdatedPaths: Locale: " + locale);
                 }
                 final HashSet<Long> data = new HashSet<Long>();
                 int size = dataIn.readInt();
@@ -74,7 +74,7 @@ public class OutdatedPaths {
                     long item = dataIn.readLong();
                     data.add(item);
                     if (DEBUG) {
-                        System.out.println(item);
+                        System.out.println("OutdatedPaths: " + item);
                     }
                 }
                 localeToData.put(locale, data);

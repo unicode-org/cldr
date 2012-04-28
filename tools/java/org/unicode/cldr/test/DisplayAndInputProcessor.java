@@ -43,7 +43,7 @@ public class DisplayAndInputProcessor {
     ).freeze();
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern.compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
-    private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?![0#'])\\.(?![0#'])");
+    private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
 
     private Collator col;
 

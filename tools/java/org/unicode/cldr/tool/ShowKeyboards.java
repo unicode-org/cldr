@@ -83,38 +83,56 @@ public class ShowKeyboards {
             System.out.println(item);
         }
         try {
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "../beta-charts/", "keyboards.html");
-            out.println(
-                    "<html>\n" +
-                    "<head>\n" +
-                    "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>\n" +
-                    "<style>\n" +
-                    "table {border-collapse:collapse}\n" +
-                    "td,th {border:1px solid blue; vertical-align:top}\n" +
-                    ".s {background-color:#DDD}\n" +
-                    ".ch {text-align:center; font-size:150%}\n" +
-                    ".c {text-align:center; font-family:monospace}\n" +
-                    ".n {font-size:75%}\n" +
-                    ".k {width:30%;font-size:75%}\n" +
-                    "</style>\n" +
-                    "</head>\n" +
-                    "<body>\n" +
-                    "<h1>DRAFT Keyboard Info</h1>\n"
-            );
+            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/", "chars2keyboards.html");
+            printTop("Characters → Keyboards", out);
             idInfo.print(out);
-
+            printBottom(out);
+            out.close();
+            
+            out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/", "keyboards2chars.html");
+            printTop("Keyboards → Characters", out);
             showLocaleToCharacters(out, id2unicodeset, locale2ids);
+            printBottom(out);
             out.close();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
     }
 
+    public static void printTop(String title, PrintWriter out) {
+        out.println(
+                "<html>\n" +
+                "<head>\n" +
+                "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>\n" +
+                "<style>\n" +
+                "table {border-collapse:collapse}\n" +
+                "td,th {border:1px solid blue; vertical-align:top}\n" +
+                ".s {background-color:#DDD}\n" +
+                ".ch {text-align:center; font-size:150%}\n" +
+                ".c {text-align:center; font-family:monospace}\n" +
+                ".n {font-size:75%}\n" +
+                ".k {width:30%;font-size:75%}\n" +
+                "</style>\n" +
+                "<title>" + title + "</title>\n" + 
+                "</head>\n" +
+                "<body>\n" +
+                "<h1>DRAFT " +
+                title +
+                "</h1>\n"
+        );
+    }
+    public static void printBottom(PrintWriter pw) {
+        pw.println(
+                "</body>\n" +
+                "</html>"
+        );
+    }
+
     public static void showLocaleToCharacters(PrintWriter out, Map<Id, UnicodeSet> id2unicodeset,
             Relation<String, Id> locale2ids) {
 
         TablePrinter t = new TablePrinter()
-        .addColumn("Name").setSpanRows(true)
+        .addColumn("Name").setSpanRows(true).setBreakSpans(true)
         .addColumn("Locale").setSpanRows(true).setBreakSpans(true)
         .addColumn("Platform").setSpanRows(true)
         .addColumn("Variant")
@@ -187,7 +205,6 @@ public class ShowKeyboards {
                 //                        + "\t" + remainder.toPattern(false));
             }
         }
-        out.println("<h2>Locale Keyboards</h2>");
         out.println(t.toTable());
     }
 
@@ -354,12 +371,7 @@ public class ShowKeyboards {
             .addCell("missing scripts!")
             .addCell(missingScripts.toString())
             .finishRow();
-            pw.println("<h2>Characters → Keyboards</h2>");
             pw.println(t.toTable());
-            pw.println(
-                    "</body>\n" +
-                    "</html>"
-            );
         }
     }
 

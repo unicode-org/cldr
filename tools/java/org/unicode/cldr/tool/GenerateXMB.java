@@ -439,7 +439,7 @@ public class GenerateXMB {
         UnicodeSet exemplars = getExemplars(cldrFile);
 
         for (PathInfo pathInfo : englishInfo) {
-            if (false && pathInfo.id == 46139888945574604L) {
+            if (false && pathInfo.id == 46139888945574604L) { // for debugging
                 System.out.println("?");
             }
             String path = pathInfo.getPath();

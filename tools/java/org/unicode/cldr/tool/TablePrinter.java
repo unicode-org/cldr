@@ -7,8 +7,6 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
-import org.unicode.cldr.util.CldrUtility;
-
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.ULocale;
@@ -295,7 +293,7 @@ public class TablePrinter {
     if (tableAttributes != null) {
       result.append(' ').append(tableAttributes);
     }
-    result.append(">" + CldrUtility.LINE_SEPARATOR);
+    result.append(">\n");
     
     if (caption != null) {
       result.append("<caption>").append(caption).append("</caption>");
@@ -361,7 +359,7 @@ public class TablePrinter {
         }
         result.append(columnsFlat[j].isHeader ? "</th>" : "</td>");
       }
-      result.append("</tr>" + CldrUtility.LINE_SEPARATOR);
+      result.append("</tr>\n");
     }
     result.append("</table>");
     return result.toString();
@@ -380,7 +378,7 @@ public class TablePrinter {
       result.append('>').append(columnsFlat[j].header).append("</th>");
       
     }
-    result.append("</tr>" + CldrUtility.LINE_SEPARATOR);
+    result.append("</tr>\n");
   }
   
   /**

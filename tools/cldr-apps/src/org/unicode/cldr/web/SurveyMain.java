@@ -3638,20 +3638,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             getSTFactory().make(ctx.getLocale(), false); // spin up STFactory
         }
         
-            // looking for a stringid?
-            if(!strid.isEmpty()) {
-                String xpath = "(unknown StringID)";
-                try {
-                    xpath = xpt.getByStringID(strid);
-                    if(xpath==null) {
-                        xpath="(not a valid StringID)";
-                    }
-                } catch (Throwable t) {
-                    //SurveyLog.logException(t, ctx);
-                }
-                ctx.println("<div class='fnotebox'>Invalid/unusable String ID in URL: <span class='loser' title='"+xpath+ " " + whyBad+"'>" + strid + "</span>.</div>");
-                which = xMAIN;
-            }
         // print 'shopping cart'
         if(!shortHeader(ctx))  {
             
@@ -3702,8 +3688,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 
             }
         }
-        
-        doLocale(ctx, baseContext, which);
+        doLocale(ctx, baseContext, which, whyBad);
     }
     
     private void printRecentLocales(WebContext baseContext, WebContext ctx) {
@@ -3974,7 +3959,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 // TODO: reenable this        
     }
     
-    void doLocale(WebContext ctx, WebContext baseContext, String which) {
+    void doLocale(WebContext ctx, WebContext baseContext, String which, String whyBad) {
         String locale = null;
         if(ctx.getLocale() != null) {
             locale = ctx.getLocale().toString();
@@ -3986,7 +3971,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             doLocaleList(ctx, baseContext);            
             ctx.println("<br/>");
         } else {
-            showLocale(ctx, which);
+            showLocale(ctx, which, whyBad);
         }
         if(!shortHeader(ctx))  {
             printPathListClose(ctx);
@@ -4218,7 +4203,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param ctx context
      * @param which value of 'x' parameter.
      */
-    public void showLocale(WebContext ctx, String which)
+    public void showLocale(WebContext ctx, String which, String whyBad)
     {
         PageId pageId = ctx.getPageId();
     	if(HAVE_REMOVE&&which.equals(xREMOVE)) {
@@ -4293,7 +4278,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     		WebContext subCtx = (WebContext)ctx.clone();
     		subCtx.addQuery(QUERY_LOCALE,ctx.getLocale().toString());
     		subCtx.addQuery(QUERY_SECTION,which);
-    		
+                // looking for a stringid? Should have redirected by now.
+                if(ctx.hasField("strid")) {
+                    String xpath = "(unknown StringID)";
+                    String strid = ctx.field("strid");
+                    try {
+                        xpath = xpt.getByStringID(strid);
+                        if(xpath==null) {
+                            xpath="(not a valid StringID)";
+                        }
+                    } catch (Throwable t) {
+                        //SurveyLog.logException(t, ctx);
+                    }
+                    ctx.println("<div class='ferrbox'> " + ctx.iconHtml("stop","bad xpath")+" Invalid/unusable String ID in URL: <span class='loser' title='"+xpath+ " " + whyBad+"'>" + strid + "</span>.</div>");
+                    which = xMAIN;
+                    return;
+                }
+            
     		if(which.startsWith(REPORT_PREFIX)) {
     		    doReport(subCtx, which);
     		} else if(pageId!=null && !which.equals(xMAIN)) {

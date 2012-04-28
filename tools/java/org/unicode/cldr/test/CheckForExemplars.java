@@ -64,11 +64,12 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final UnicodeSet START_PAREN = new UnicodeSet("[(\\[（［]").freeze();
     static final UnicodeSet END_PAREN = new UnicodeSet("[)\\]］）]").freeze();
+    static final UnicodeSet ALL_CURRENCY_SYMBOLS = new UnicodeSet("[[:Sc:]]").freeze();
     private UnicodeSet exemplars;
     private UnicodeSet exemplarsPlusAscii;
     private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplars = new UnicodeSet("[()（）;,；，]").freeze();
     private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplarsWithParens = new UnicodeSet("[;,；，]").freeze();
-    private UnicodeSet currencySymbolExemplars;
+//    private UnicodeSet currencySymbolExemplars;
     private boolean skip;
     private Collator col;
     private Collator spaceCol;
@@ -173,12 +174,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
-        currencySymbolExemplars = safeGetExemplars("currencySymbol", possibleErrors, resolvedFile, ok); // resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
-        if (currencySymbolExemplars == null) {
-            currencySymbolExemplars = new UnicodeSet(exemplars);
-        } else {
-            currencySymbolExemplars.addAll(exemplars);
-        }
         skip = false;
         prettyPrint = new PrettyPrinter()
         .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
@@ -303,12 +298,15 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
 
         if (path.startsWith("//ldml/posix/messages")) return this;
+        
         UnicodeSet disallowed;
         
         if (path.contains("/currency") && path.endsWith("/symbol")) {
-            if (null != (disallowed = containsAllCountingParens(currencySymbolExemplars, exemplarsPlusAscii, value))) {
-                UnicodeSet missing = new UnicodeSet().addAll(value).removeAll(currencySymbolExemplars);
-                addMissingMessage(missing, CheckStatus.warningType, Subtype.charactersNotInCurrencyExemplars, Subtype.asciiCharactersNotInCurrencyExemplars, "are not in the currency exemplar characters", result);
+            if (null != (disallowed = containsAllCountingParens(exemplarsPlusAscii, exemplarsPlusAscii, value))) {
+                disallowed.removeAll(ALL_CURRENCY_SYMBOLS);
+                if ( disallowed.size() > 0 ) {
+                    addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
+                }
             }
         } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
             // test first for outside of the set.

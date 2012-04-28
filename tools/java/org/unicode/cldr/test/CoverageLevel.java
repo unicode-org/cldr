@@ -150,8 +150,6 @@ public class CoverageLevel {
   private static StandardCodes sc = StandardCodes.make();
   
   boolean exemplarsContainA_Z = false;
-
-  private boolean currencyExemplarsContainA_Z;
   
   private static boolean euroCountriesMissing = false; // Set to TRUE if eurocountries weren't produced by init.
   
@@ -200,11 +198,7 @@ public class CoverageLevel {
     if (auxexemplars != null) exemplars.addAll(auxexemplars);
     exemplarsContainA_Z = exemplars.contains('A','Z');
     
-    boolean currencyExemplarsContainA_Z = false;
-    auxexemplars = resolvedFile.getExemplarSet("currencySymbol", CLDRFile.WinningChoice.WINNING);
-    if (auxexemplars != null) currencyExemplarsContainA_Z = auxexemplars.contains('A','Z');
-
-    setFile(file.getLocaleID(), exemplarsContainA_Z, currencyExemplarsContainA_Z, options, cause, possibleErrors);
+    setFile(file.getLocaleID(), exemplarsContainA_Z, options, cause, possibleErrors);
     return this;
   }
   
@@ -233,14 +227,12 @@ public class CoverageLevel {
    * before calling this.
    * @param localeID the localeID for the file
    * @param exemplarsContainA_Z true if the union of the exemplar sets contains A-Z
-   * @param currencyExemplarsContainA_Z TODO
    * @param options optional parameters
    * @param cause TODO
    * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
    */
-  public void setFile(String localeID, boolean exemplarsContainA_Z, boolean currencyExemplarsContainA_Z, Map options, CheckCLDR cause, List possibleErrors) {
+  public void setFile(String localeID, boolean exemplarsContainA_Z, Map options, CheckCLDR cause, List possibleErrors) {
     this.exemplarsContainA_Z = exemplarsContainA_Z;
-    this.currencyExemplarsContainA_Z = currencyExemplarsContainA_Z;
     
     parser.set(localeID);
     String language = parser.getLanguage();
@@ -479,7 +471,7 @@ public class CoverageLevel {
       /*
        * <numbers> ? <currencies> ? <currency type="BRL"> <displayName draft="true">Brazilian Real</displayName>
        */
-      if (currencyExemplarsContainA_Z && lastElement.equals("symbol")) {
+      if (lastElement.equals("symbol")) {
         result = Level.OPTIONAL;
       } else if (lastElement.equals("displayName") || lastElement.equals("symbol")) {
           String currency = parts.getAttributeValue(-2, "type");

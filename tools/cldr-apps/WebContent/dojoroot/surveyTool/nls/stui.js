@@ -8,8 +8,8 @@ define({
 			voting: "Voting",
 			checking: "Checking",
 			
-			itemCount: "Items: ${0}",
-			itemCountHidden: "Items: ${0}, Hidden due to coverage: ${1}",
+			itemCount: "Items: ${itemCount}",
+			itemCountHidden: "Items shown: ${itemCount}; Items hidden at ${coverage} coverage level: ${skippedDueToCoverage}",
 			itemCountAllHidden: "No items visible due to coverage level.",
 			itemCountNone: "No items!",
 			noVotingInfo: " (no voting info received)",

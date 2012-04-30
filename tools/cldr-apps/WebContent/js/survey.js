@@ -1861,22 +1861,24 @@ function setupSortmode(theTable) {
 		}
 		theSortmode.appendChild(ul);
 	}
+        
+        theTable.json.section.itemCount = itemCount;
 	
 	if(itemCount==0 && theTable.json.section.skippedDueToCoverage) {
 		size.appendChild(document.createTextNode(
-				stui.sub("itemCountAllHidden", [itemCount,theTable.json.section.skippedDueToCoverage])
+				stui.sub("itemCountAllHidden", theTable.json.section)
 				
 				));
 		size.className = "d-sort-size0";
 	} else if(itemCount==0) {
 		size.appendChild(document.createTextNode(
-				stui.sub("itemCountNone", [])
+				stui.sub("itemCountNone", theTable.json.section)
 				
 				));
 		size.className = "d-sort-size0";
 	} else if(theTable.json.section.skippedDueToCoverage) {
 		size.appendChild(document.createTextNode(
-				stui.sub("itemCountHidden", [itemCount,theTable.json.section.skippedDueToCoverage])
+				stui.sub("itemCountHidden",theTable.json.section)
 				
 				));
 //		var minfo = dojo.byId("info_menu_p_covlev");
@@ -1885,7 +1887,7 @@ function setupSortmode(theTable) {
 //		}
 	} else {
 		size.appendChild(document.createTextNode(
-				stui.sub("itemCount", [Object.keys(theTable.json.section.rows).length])));
+				stui.sub("itemCount", theTable.json.section)));
 	}
 }
 

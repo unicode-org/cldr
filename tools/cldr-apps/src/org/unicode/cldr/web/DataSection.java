@@ -2424,6 +2424,7 @@ public class DataSection implements JSONString {
 
 	/**
 	 * Makes sure this pod contains the rows we'd like to see.
+         * @obsolete not called anymore
 	 */
 	private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options, String workingCoverageLevel) {
 		// if (!ourSrc.isResolving()) throw new
@@ -2925,7 +2926,7 @@ public class DataSection implements JSONString {
 				// level
 				int coverageValue = sdi.getCoverageValue(baseXpath, locale.toULocale());
 				if (coverageValue > workingCoverageValue) {
-					if (coverageValue <= Level.COMPREHENSIVE.getValue()) {					    
+					if (coverageValue <= Level.COMPREHENSIVE.getLevel()) {		
 						skippedDueToCoverage++;
 					} // else: would never be shown, don't care
 					continue;

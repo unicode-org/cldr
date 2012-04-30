@@ -54,12 +54,12 @@ String helpName = subCtx.getString("helpName");
         if(subCtx.sm.dbUtils.hasDataSource()) {
             subCtx.println(" | <a class='notselected' href='"+subCtx.jspUrl("statistics.jsp")+"'>Statistics</a>");
         }
-        if(subCtx.sm.isUnofficial && (subCtx.session!=null&&subCtx.session.user!=null)) {
-            subCtx.println(" | <i class='scary'>Experimental:</i>&nbsp;");
+        if((subCtx.session!=null&&subCtx.session.user!=null)) {
+            subCtx.println(" | ");
             subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id+"'>Upload XML</a>");
-            if(subCtx.session.user.userlevel<=UserRegistry.TC) {
-                subCtx.println("| <a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Vetting Summary</a>");
-            }
+        }
+        if(subCtx.session!=null&&subCtx.session.user!=null&&subCtx.sm.isUnofficial() && subCtx.session.user.userlevel<=UserRegistry.TC) {
+            subCtx.println("| <a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Vetting Summary</a>");
         }
         subCtx.flush();
  %>

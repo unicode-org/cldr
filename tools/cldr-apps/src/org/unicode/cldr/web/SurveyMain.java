@@ -3902,17 +3902,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     void doLocaleList(WebContext ctx, WebContext baseContext) {
         boolean showCodes = ctx.prefBool(PREF_SHOWCODES);
         
+        ctx.println(fora.mainFeedIcon(ctx)+"<br>");
+        ctx.println("<h1>Locales</h1>");
         {
             WebContext nuCtx = (WebContext)ctx.clone();
             nuCtx.addQuery(PREF_SHOWCODES, !showCodes);
-            nuCtx.println("<div class='pager' style='float: right;'>");
+            nuCtx.println("<div style='text-align: right; '>");
             nuCtx.println("<input type='checkbox' "+(showCodes?"CHECKED":"")+" onclick=\"window.location='"+nuCtx.url()+"';\" />");
             nuCtx.println("<a href='" + nuCtx.url() + "'>" +"Show locale codes</a>");
             nuCtx.println("</div>");
         }
-        ctx.println("<h1>Locales</h1>");
 
-        ctx.print(fora.mainFeedIcon(ctx)+"<br>");
 				
         LocaleTree lm = getLocaleTree();
 //        if(lm == null) {

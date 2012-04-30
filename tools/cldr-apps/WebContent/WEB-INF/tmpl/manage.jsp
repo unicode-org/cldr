@@ -63,4 +63,6 @@ String helpName = subCtx.getString("helpName");
         }
         subCtx.flush();
  %>
+ 
+| <%= ctx.sm.fora.mainFeedIcon(ctx) %>
 <!--  manage.jsp ends -->

@@ -109,6 +109,14 @@ define({
 			
 			admin_users: "Users",
 			admin_users_desc: "Currently logged-in users",
+                        
+                        // pClass ( see DataSection.java)
+                        pClass_winner: "This item is currently winning.",
+                        pClass_alias: "This item is aliased from another location.",
+                        pClass_fallback_code: "This item is an untranslated code.",
+                        pClass_fallback_root: "This item is inherited from the root locale.",
+                        pClass_loser: "This is a proposed item which is not currently winning.",
+                        pClass_fallback: "This item is inherited from ${inheritFromDisplay}.",
 			
 			"": ""})
 //		"mt-MT": false

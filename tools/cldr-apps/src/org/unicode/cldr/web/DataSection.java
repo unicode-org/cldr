@@ -529,6 +529,7 @@ public class DataSection implements JSONString {
 						.put("inExample", getInExample())
 						.put("isOldValue", isOldValue)
 						.put("inheritFrom", inheritFrom)
+						.put("inheritFromDisplay", ((inheritFrom!=null)?inheritFrom.getDisplayName():null))
 						.put("isFallback", isFallback)
 						.put("pClass", getPClass())
 						.put("tests", SurveyAjax.JSONWriter.wrap(this.tests));

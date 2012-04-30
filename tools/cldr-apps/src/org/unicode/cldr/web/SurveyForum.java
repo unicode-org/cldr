@@ -1738,7 +1738,7 @@ public class SurveyForum {
 	}
 
 
-	String mainFeedIcon(WebContext ctx) {
+	public String mainFeedIcon(WebContext ctx) {
 		if(ctx.session == null ||
 				ctx.session.user == null ||
 				!UserRegistry.userIsStreet(ctx.session.user)) {

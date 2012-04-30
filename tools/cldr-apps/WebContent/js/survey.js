@@ -1368,6 +1368,10 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		}
 		td.appendChild(h3);
 		
+                // we've got some 'splaining to do.
+                
+                td.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
+                
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
 		var newHtml = "";

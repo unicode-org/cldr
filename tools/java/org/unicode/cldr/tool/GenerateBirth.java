@@ -34,7 +34,7 @@ import com.ibm.icu.lang.CharSequences;
 public class GenerateBirth {
     private static boolean DEBUG = false;
     enum Versions {
-        trunk, v1_9_0, v1_8_1, v1_7_2, v1_6_1, v1_5_1, v1_4_1, v1_3_0, v1_2_0, v1_1_1;
+        trunk, v21_0, v2_0_1, v1_9_1, v1_8_1, v1_7_2, v1_6_1, v1_5_1, v1_4_1, v1_3_0, v1_2_0, v1_1_1;
         public String toString() {
             return this == Versions.trunk ? name() : name().substring(1).replace('_', '.');
         };
@@ -43,7 +43,7 @@ public class GenerateBirth {
     static final Factory[] factories = new Factory[VERSIONS.length];
 
     final static Options myOptions = new Options()
-    .add("target", ".*", CldrUtility.UTIL_CODE_DIR + "test/", "The target directory for building the text files that show the results.")
+    .add("target", ".*", OutdatedPaths.OUTDATED_DIR.replace("/bin/", "/tools/java/"), "The target directory for building the text files that show the results.")
     .add("log", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/births/", "The target directory for building the text files that show the results.")
     .add("file", ".*", ".*", "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
     .add("previous", "Stop after writing the English previous data.")
@@ -62,7 +62,7 @@ public class GenerateBirth {
         ArrayList<Factory> list = new ArrayList<Factory>();
         for (Versions version : VERSIONS) {
             Factory aFactory = Factory.make(CldrUtility.BASE_DIRECTORY 
-                    + (version == Versions.trunk ? "" : "../cldr-" + version) 
+                    + (version == Versions.trunk ? "" : "../cldr-archive/cldr-" + version) 
                     + "/common/main/", filePattern);
             list.add(aFactory);
         }
@@ -79,11 +79,11 @@ public class GenerateBirth {
         english.writeBirth(outputDirectory, "en", null);
         english.writeBirthValues(dataDirectory + "/" + OutdatedPaths.OUTDATED_ENGLISH_DATA);
 
-        if (!myOptions.get("file").doesOccur()) {
-            OutdatedPaths outdatedPaths = new OutdatedPaths(dataDirectory);
-
-            return;
-        }
+//        if (!myOptions.get("file").doesOccur()) {
+//            OutdatedPaths outdatedPaths = new OutdatedPaths(dataDirectory);
+//
+//            return;
+//        }
         // Set up the binary data file
 
         File file = new File(dataDirectory + "/" + OutdatedPaths.OUTDATED_DATA);

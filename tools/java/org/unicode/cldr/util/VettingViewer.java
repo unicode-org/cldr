@@ -26,6 +26,10 @@ import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
+import org.unicode.cldr.util.PathHeader.Factory.PathHeaderTransform;
+import org.unicode.cldr.util.PathHeader.Factory.RawData;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
@@ -49,9 +53,10 @@ import com.ibm.icu.util.ULocale;
  */
 public class VettingViewer<T> {
 
+    private static final String TEST_PATH = "//ldml/localeDisplayNames/territories/territory[@type=\"SX\"]";
     private static final double NANOSECS = 1000000000.0;
     private static final boolean TESTING  = CldrUtility.getProperty("TEST", false);
-    private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", false);
+    private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
     private static final String  LOCALE   = CldrUtility.getProperty("LOCALE", "de");
 
     private static final Pattern ALT_PROPOSED = Pattern.compile("\\[@alt=\"[^\"]*proposed");
@@ -64,35 +69,34 @@ public class VettingViewer<T> {
         /**
          * My choice is not the winning item
          */
-        weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. "
-                + "This might be due to a dispute between members of your organization."),
-                /**
-                 * There is a dispute.
-                 */
-                hasDispute('D', "Disputed", "There is a dispute between other organizations that needs your help in resolving to the best value."),
-                /**
-                 * There is a console-check warning
-                 */
-                warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
-                /**
-                 * The English value for the path changed AFTER the current value for
-                 * the locale.
-                 */
-                englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
-                /**
-                 * The value changed from the last version of CLDR
-                 */
-                changedOldValue('N', "New", "The winning value was altered from the CLDR 1.9 value."),
-                /**
-                 * Given the users coverage, some items are missing.
-                 */
-                missingCoverage('M', "Missing",
-                "Your current coverage level requires the item to be present, but it is missing. During the vetting phase, this is informational: you can’t add new values."),
-                /**
-                 * There is a console-check error
-                 */
-                other('O', "Other", "Everything else."),
-                ;
+        weLost('L', "Losing", "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. " + "This might be due to a dispute between members of your organization."),
+        /**
+         * There is a dispute.
+         */
+        hasDispute('D', "Disputed", "There is a dispute between other organizations that needs your help in resolving to the best value."),
+        /**
+         * There is a console-check warning
+         */
+        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
+        /**
+         * The English value for the path changed AFTER the current value for
+         * the locale.
+         */
+        englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
+        /**
+         * The value changed from the last version of CLDR
+         */
+        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value."),
+        /**
+         * Given the users coverage, some items are missing.
+         */
+        missingCoverage('M', "Missing",
+        "Your current coverage level requires the item to be present, but it is missing. During the vetting phase, this is informational: you can’t add new values."),
+//        /**
+//         * There is a console-check error
+//         */
+//        other('O', "Other", "Everything else."),
+        ;
 
         public final char   abbreviation;
         public final String buttonLabel;
@@ -167,7 +171,7 @@ public class VettingViewer<T> {
         }
     }
 
-    static private PrettyPath                      pathTransform         = new PrettyPath();
+    static private PathHeader.Factory              pathTransform;
     static final Pattern                           breaks                = Pattern.compile("\\|");
     static final OutdatedPaths                     outdatedPaths         = new OutdatedPaths();
 
@@ -313,7 +317,7 @@ public class VettingViewer<T> {
         private ArrayList<CheckStatus>  result  = new ArrayList<CheckStatus>();
         private CLDRFile                cldrFile;
         private Factory                 factory;
-        
+
         public DefaultErrorStatus(Factory cldrFactory) {
             this.factory = cldrFactory;
         }
@@ -391,6 +395,9 @@ public class VettingViewer<T> {
         this.cldrFactory = cldrFactory;
         this.cldrFactoryOld = cldrFactoryOld;
         englishFile = cldrFactory.make("en", true);
+        if (pathTransform == null) {
+            pathTransform = PathHeader.getFactory(englishFile);
+        }
         oldEnglishFile = cldrFactoryOld.make("en", true);
         this.userVoteStatus = userVoteStatus;
         this.supplementalDataInfo = supplementalDataInfo;
@@ -404,31 +411,30 @@ public class VettingViewer<T> {
     }
 
     class WritingInfo implements Comparable<WritingInfo> {
-        final String          codeOutput;
-        final String          path;
+        final PathHeader          codeOutput;
         final EnumSet<Choice> problems;
         final String          htmlMessage;
 
-        public WritingInfo(String codeOutput, String path, EnumSet<Choice> problems, CharSequence htmlMessage) {
+        public WritingInfo(PathHeader pretty, EnumSet<Choice> problems, CharSequence htmlMessage) {
             super();
-            this.codeOutput = codeOutput;
-            this.path = path;
+            this.codeOutput = pretty;
             this.problems = problems.clone();
             this.htmlMessage = htmlMessage.toString();
         }
 
         @Override
         public int compareTo(WritingInfo other) {
-            int diff = codeOutput.compareTo(other.codeOutput);
-            if (diff == 0)
-                return diff;
-            return path.compareTo(other.path);
+            return codeOutput.compareTo(other.codeOutput);
         }
 
         public String getUrl(String locale) {
-            String menu = PathUtilities.xpathToMenu(path);
-            String url = baseUrl + "?_=" + locale + "&amp;=" + menu;
-            return url;
+            return baseUrl + "?_="
+            		+ locale
+            		+ "&strid=" 
+            		+ Long.toHexString(StringId.getId(codeOutput.getOriginalPath()));
+//            String menu = PathUtilities.xpathToMenu(path);
+//            String url = baseUrl + "?_=" + locale + "&amp;=" + menu;
+//            return url;
         }
     }
 
@@ -485,7 +491,7 @@ public class VettingViewer<T> {
                 break;
             case weLost:
             case hasDispute:
-            case other:
+            //case other:
                 break;
             default:
                 System.out.println(choice + " not implemented yet");
@@ -494,7 +500,7 @@ public class VettingViewer<T> {
 
         // now look through the paths
 
-        Relation<R2<String, String>, WritingInfo> sorted = Relation.of(new TreeMap<R2<String, String>, Set<WritingInfo>>(), TreeSet.class);
+        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
 
         Counter<Choice> problemCounter = new Counter<Choice>();
         StringBuilder htmlMessage = new StringBuilder();
@@ -614,11 +620,11 @@ public class VettingViewer<T> {
                     break;
                 }
             }
-            if (showAll || !problems.isEmpty()) {
-                if (showAll && problems.isEmpty()) {
-                    problems.add(Choice.other);
-                    problemCounter.increment(Choice.other);
-                }
+            if (!problems.isEmpty()) { // showAll || 
+//                if (showAll && problems.isEmpty()) {
+//                    problems.add(Choice.other);
+//                    problemCounter.increment(Choice.other);
+//                }
                 reasonsToPaths.clear();
                 // appendToMessage("level:" + level.toString(), testMessage);
                 // final String description =
@@ -632,7 +638,7 @@ public class VettingViewer<T> {
                 // appendToMessage(TransliteratorUtilities.toHTML.transform(description),
                 // testMessage);
                 // }
-                final String prettyPath = pathTransform.getPrettyPath(path);
+                //final String prettyPath = pathTransform.getPrettyPath(path);
                 // String[] pathParts = breaks.split(prettyPath);
                 // String section = pathParts.length == 3 ? pathParts[0] :
                 // "Unknown";
@@ -640,15 +646,15 @@ public class VettingViewer<T> {
                 // "Unknown";
                 // String code = pathParts.length == 3 ? pathParts[2] : pretty;
 
-                String pretty = pathTransform.getOutputForm(prettyPath);
-                String[] pathParts = breaks.split(pretty);
-                String sectionOutput = pathParts.length == 3 ? pathParts[0] : "Unknown";
-                String subsectionOutput = pathParts.length == 3 ? pathParts[1] : "Unknown";
-                String codeOutput = pathParts.length == 3 ? pathParts[2] : pretty;
+                PathHeader pretty = pathTransform.fromPath(path);
+                //String[] pathParts = breaks.split(pretty);
+//                String sectionOutput = pathParts.length == 3 ? pathParts[0] : "Unknown";
+//                String subsectionOutput = pathParts.length == 3 ? pathParts[1] : "Unknown";
+//                String codeOutput = pathParts.length == 3 ? pathParts[2] : pretty;
 
-                R2<String, String> group = Row.of(sectionOutput, subsectionOutput);
+                R2<SectionId, PageId> group = Row.of(pretty.getSectionId(), pretty.getPageId());
 
-                sorted.put(group, new WritingInfo(codeOutput, path, problems, htmlMessage));
+                sorted.put(group, new WritingInfo(pretty, problems, htmlMessage));
             }
         }
 
@@ -664,11 +670,12 @@ public class VettingViewer<T> {
         generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, showAll);
     }
 
-    private void generateHtmlErrorTablesNew(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean showAll) {
+    private void generateHtmlErrorTablesNew(Appendable output, EnumSet<Choice> choices, String localeID, T user, 
+            Level usersLevel, boolean showAll) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
-        Relation<R2<String, String>, WritingInfo> sorted = Relation.of(new TreeMap<R2<String, String>, Set<WritingInfo>>(), TreeSet.class);
+        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
         Counter<Choice> problemCounter = new Counter<Choice>();
 
         CLDRFile sourceFile = cldrFactory.make(localeID, true);
@@ -686,7 +693,7 @@ public class VettingViewer<T> {
         writeTables(output, sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID, showAll);
     }
 
-    private void getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile, Relation<R2<String, String>, 
+    private void getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile, Relation<R2<SectionId, PageId>, 
             WritingInfo> sorted, Counter<Choice> problemCounter,
             EnumSet<Choice> choices, String localeID, boolean showAll, 
             T user, Level usersLevel) {
@@ -701,7 +708,7 @@ public class VettingViewer<T> {
         StringBuilder htmlMessage = new StringBuilder();
         StringBuilder statusMessage = new StringBuilder();
 
-        for (String path : sourceFile) {
+        for (String path : sourceFile.fullIterable()) {
             progressCallback.nudge(); // Let the user know we're moving along.
 
             // note that the value might be missing!
@@ -784,24 +791,24 @@ public class VettingViewer<T> {
                 break;
             }
 
-            if (showAll || !problems.isEmpty()) {
-                if (showAll && problems.isEmpty()) {
-                    problems.add(Choice.other);
-                    problemCounter.increment(Choice.other);
-                }
+            if (!problems.isEmpty()) { // showAll || 
+//                if (showAll && problems.isEmpty()) {
+//                    problems.add(Choice.other);
+//                    problemCounter.increment(Choice.other);
+//                }
                 if (sorted != null) {
                     reasonsToPaths.clear();
-                    final String prettyPath = pathTransform.getPrettyPath(path);
+                    //final String prettyPath = pathTransform.getPrettyPath(path);
 
-                    String pretty = pathTransform.getOutputForm(prettyPath);
-                    String[] pathParts = breaks.split(pretty);
-                    String sectionOutput = pathParts.length == 3 ? pathParts[0] : "Unknown";
-                    String subsectionOutput = pathParts.length == 3 ? pathParts[1] : "Unknown";
-                    String codeOutput = pathParts.length == 3 ? pathParts[2] : pretty;
+                    PathHeader pretty = pathTransform.fromPath(path);
+//                    String[] pathParts = breaks.split(pretty);
+//                    String sectionOutput = pathParts.length == 3 ? pathParts[0] : "Unknown";
+//                    String subsectionOutput = pathParts.length == 3 ? pathParts[1] : "Unknown";
+//                    String codeOutput = pathParts.length == 3 ? pathParts[2] : pretty;
 
-                    R2<String, String> group = Row.of(sectionOutput, subsectionOutput);
+                    R2<SectionId, PageId> group = Row.of(pretty.getSectionId(), pretty.getPageId());
 
-                    sorted.put(group, new WritingInfo(codeOutput, path, problems, htmlMessage));
+                    sorted.put(group, new WritingInfo(pretty, problems, htmlMessage));
                 }
             }
 
@@ -811,7 +818,7 @@ public class VettingViewer<T> {
     public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
         Set<String> hackHasVotes = new HashSet(Arrays.asList(
                 "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
-             // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
+                // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
                 .split("\\s")));
         @Override
         public boolean is(String localeId) {
@@ -944,17 +951,34 @@ public class VettingViewer<T> {
         return name;
     }
 
+    static final RegexLookup<String>                  missingOk                     = new RegexLookup<String>()
+    .setPatternTransform(
+            RegexLookup.RegexFinderTransformPath)
+            .loadFromFile(
+                    VettingViewer.class,
+            "data/paths/missingOk.txt");
+
     private boolean isMissing(CLDRFile sourceFile, String path, Status status) {
         if (sourceFile == null) {
             return true;
+        }
+        if (path.equals(TEST_PATH)) {
+            int x = 1; // for debugging
         }
         String localeFound = sourceFile.getSourceLocaleID(path, status);
         // only count it as missing IF the (localeFound is root or codeFallback)
         // AND the aliasing didn't change the path
         boolean missing = false;
-        if (!path.equals(status.pathWhereFound)) {
-            if (localeFound.equals("root")
-                    || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
+        if (localeFound.equals("root")
+                || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
+            // certain paths are ok to be missing.
+            if (missingOk.get(path) == null) {
+                missing = true;
+            }
+        } else if (!path.equals(status.pathWhereFound)) {
+            // special case compact numbers
+            if (path.contains("decimalFormatLength[@type=\"long\"]") && path.contains("pattern[@type=\"1")) {
+                //ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"]
                 missing = true;
             }
         }
@@ -973,7 +997,7 @@ public class VettingViewer<T> {
 
     static final NumberFormat        nf      = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
     private Relation<String, String> reasonsToPaths;
-    private String                   baseUrl = "http://unicode.org/cldr/apps/survey";
+    private String                   baseUrl = "http://st.unicode.org/cldr-apps/survey";
     static {
         nf.setGroupingUsed(true);
     }
@@ -1061,7 +1085,7 @@ public class VettingViewer<T> {
     }
 
     private void writeTables(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
-            Relation<R2<String, String>, WritingInfo> sorted,
+            Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             Counter<Choice> problemCounter,
             EnumSet<Choice> choices,
             String localeID,
@@ -1083,7 +1107,9 @@ public class VettingViewer<T> {
             "</tr>\n");
             boolean countShown = false;
             for (Choice choice : choices) {
-                if (!showAll && (choice == Choice.other || choice == Choice.missingCoverage)) {
+                if (!showAll && (
+                        // choice == Choice.other || 
+                        choice == Choice.missingCoverage)) {
                     continue;
                 }
                 long count = problemCounter.get(choice);
@@ -1111,9 +1137,9 @@ public class VettingViewer<T> {
                     + "</script>");
 
             int count = 0;
-            for (Entry<R2<String, String>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
-                String section = entry0.getKey().get0();
-                String subsection = entry0.getKey().get1();
+            for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
+                SectionId section = entry0.getKey().get0();
+                PageId subsection = entry0.getKey().get1();
                 final Set<WritingInfo> rows = entry0.getValue();
 
                 String url = rows.iterator().next().getUrl(sourceFile.getLocaleID());
@@ -1121,19 +1147,31 @@ public class VettingViewer<T> {
                 // http://unicode.org/cldr-apps/survey?_=ur&x=scripts
 
                 output.append("\n<h2 class='tv-s'>Section: ")
-                .append(section)
+                .append(section.toString())
                 .append(" — <i><a target='CLDR_ST-SECTION' href='")
                 .append(url)
-                .append("'>Subsection: ")
-                .append(subsection)
+                .append("'>Page: ")
+                .append(subsection.toString())
                 .append("</a></i> (" + rows.size() + ")</h2>\n");
                 startTable(output);
 
+                String oldHeader = "";
                 for (WritingInfo pathInfo : rows) {
-                    String code = pathInfo.codeOutput;
-                    String path = pathInfo.path;
+                    String header = pathInfo.codeOutput.getHeader();
+                    String code = pathInfo.codeOutput.getCode();
+                    String path = pathInfo.codeOutput.getOriginalPath();
                     EnumSet<Choice> choicesForPath = pathInfo.problems;
 
+                    if (!header.equals(oldHeader)) {
+                        output.append("<tr class='");
+                        Choice.appendRowStyles(choicesForPath, output);
+                        output.append("'>\n");
+                        output.append("<td class='vvh' colSpan='6'>");
+                        output.append(header);
+                        output.append("</td></tr>\n");
+                        oldHeader = header;
+                    }
+                    
                     output.append("<tr class='");
                     Choice.appendRowStyles(choicesForPath, output);
                     output.append("'>\n");
@@ -1146,7 +1184,7 @@ public class VettingViewer<T> {
                         String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML.transform(winning);
                         String previous = outdatedPaths.getPreviousEnglish(path);
                         if (previous != null) {
-                            cellValue += "<span style='color:#900'><br>" + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
+                            cellValue += "<br><span style='color:#900'><b>OLD: </b>" + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
                         } else {
                             cellValue += "<br><b><i>missing</i></b>";
                         }
@@ -1167,17 +1205,19 @@ public class VettingViewer<T> {
                     addCell(output, newWinningValue, null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                     // Fix?
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                    output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='" + baseUrl + "?_=")
-                    .append(localeID)
-                    .append("&amp;xpath=")
-                    .append(percentEscape.transform(path))
+                    output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='").append(url) // .append(c)baseUrl + "?_=")
+//                    .append(localeID)
+//                    .append("&amp;xpath=")
+//                    .append(percentEscape.transform(path))
                     .append("'>");
                     Choice.appendDisplay(choicesForPath, "", output);
-                    String otherUrl = pathInfo.getUrl(sourceFile.getLocaleID());
+//                    String otherUrl = pathInfo.getUrl(sourceFile.getLocaleID());
                     output.append("</a></td>");
-                    if (!otherUrl.equals(url)) {
-                        output.append("<td class='tv-test'><a target='CLDR_ST-SECTION' href='").append(otherUrl).append("'><i>Section*</i></a></td>");
-                    }
+//                    if (!otherUrl.equals(url)) {
+//                        output.append("<td class='tv-test'><a target='CLDR_ST-SECTION' href='")
+//                        .append(otherUrl)
+//                        .append("'><i>Section*</i></a></td>");
+//                    }
                     if (!pathInfo.htmlMessage.isEmpty()) {
                         addCell(output, pathInfo.htmlMessage, null, "tv-test", HTMLType.markup);
                     }
@@ -1234,7 +1274,10 @@ public class VettingViewer<T> {
         Timer timer = new Timer();
         timer.start();
         final String currentMain = "/Users/markdavis/Documents/workspace/cldr/common/main";
-        final String lastMain = "/Users/markdavis/Documents/workspace/cldr-archive/cldr-1.9.1/common/main";
+        final String version = "2.0.1";
+        final String lastMain = "/Users/markdavis/Documents/workspace/cldr-archive/cldr-" +
+        		version +
+        		"/common/main";
 
         Factory cldrFactory = Factory.make(currentMain, ".*");
         Factory cldrFactoryOld = Factory.make(lastMain, ".*");
@@ -1274,8 +1317,8 @@ public class VettingViewer<T> {
         // The Options should come from a GUI; from each you can get a long
         // description and a button label.
         // Assuming user can be identified by an int
-        VettingViewer<Integer> tableView = new VettingViewer<Integer>(supplementalDataInfo, cldrFactory, cldrFactoryOld, usersChoice, "CLDR 1.7.2",
-        "Winning 1.9");
+        VettingViewer<Integer> tableView = new VettingViewer<Integer>(supplementalDataInfo, cldrFactory, cldrFactoryOld, usersChoice, "CLDR " + version,
+        "Winning Proposed");
 
         // here are per-view parameters
 
@@ -1283,7 +1326,7 @@ public class VettingViewer<T> {
         String localeStringID = LOCALE;
         int userNumericID = 666;
         Level usersLevel = Level.MODERN;
-        tableView.setBaseUrl("http://kwanyin.unicode.org/cldr-apps/survey");
+        tableView.setBaseUrl("http://st.unicode.org/smoketest/survey");
         //http: // unicode.org/cldr-apps/survey?_=ur
 
         FileUtilities.copyFile(VettingViewer.class, "vettingView.css", myOutputDir);

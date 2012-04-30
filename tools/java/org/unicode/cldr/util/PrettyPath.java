@@ -17,6 +17,9 @@ import org.unicode.cldr.test.CheckCLDR;
 
 import com.ibm.icu.text.Transliterator;
 
+/**
+ * @deprecated
+ */
 public class PrettyPath {
   private Transliterator prettyPathZoneTransform;
   {

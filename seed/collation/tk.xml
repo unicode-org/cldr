@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 7062 $"/>
+		<generation date="$Date: 2012-05-01 9:20:00 -0700 (Tue, 1 May 2012) $"/>
+		<language type="tk"/> 
+	</identity>
+	<collations  validSubLocales="tk_Latn tk_Latn_TM">
+		<collation type="standard">
+			<rules>
+				<reset>C</reset>
+				<p>ç</p>
+				<t>Ç</t>
+				<reset>E</reset>
+				<p>ä</p>
+				<t>Ä</t>
+				<reset>J</reset>
+				<p>ž</p>
+				<t>Ž</t>
+				<reset>N</reset>
+				<p>ň</p>
+				<t>Ň</t>
+				<reset>O</reset>
+				<p>ö</p>
+				<t>Ö</t>
+				<reset>S</reset>
+				<p>ş</p>
+				<t>Ş</t>
+				<reset>U</reset>
+				<p>ü</p>
+				<t>Ü</t>
+				<reset>Y</reset>
+				<p>ý</p>
+				<t>Ý</t>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

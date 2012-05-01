@@ -1273,7 +1273,7 @@ public class VettingViewer<T> {
      * @param args
      * @throws IOException
      */
-    static final String myOutputDir = CldrUtility.GEN_DIRECTORY + "temp/";
+    static final String myOutputDir = CldrUtility.TMP_DIRECTORY + "dropbox/mark/vetting/";
 
     public static void main(String[] args) throws IOException {
         Timer timer = new Timer();

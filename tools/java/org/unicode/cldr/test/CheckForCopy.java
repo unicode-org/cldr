@@ -189,12 +189,12 @@ public class CheckForCopy extends FactoryCheckCLDR {
         case same_as_english:
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
                     .setCheckOnSubmit(false)
-                    .setMessage("The value is the same as in English. For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.", new Object[]{}));
+                    .setMessage("The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.", new Object[]{}));
             break;
         case same_as_code:
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
                     .setCheckOnSubmit(false)
-                    .setMessage("The value is the same as the 'code'. For what to do, see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.", new Object[]{}));
+                    .setMessage("The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.", new Object[]{}));
             break;
         }
         return this;

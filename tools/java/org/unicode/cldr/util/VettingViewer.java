@@ -1136,20 +1136,21 @@ public class VettingViewer<T> {
                     "-->\n"
                     + "</script>");
 
+            final String localeId = sourceFile.getLocaleID();
             int count = 0;
             for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
                 SectionId section = entry0.getKey().get0();
                 PageId subsection = entry0.getKey().get1();
                 final Set<WritingInfo> rows = entry0.getValue();
 
-                String url = rows.iterator().next().getUrl(sourceFile.getLocaleID());
+                String url = rows.iterator().next().getUrl(localeId);
                 // http://kwanyin.unicode.org/cldr-apps/survey?_=ur&x=scripts
                 // http://unicode.org/cldr-apps/survey?_=ur&x=scripts
 
                 output.append("\n<h2 class='tv-s'>Section: ")
                 .append(section.toString())
                 .append(" — <i><a target='CLDR_ST-SECTION' href='")
-                .append(url)
+                .append(getPageUrl(localeId, subsection))
                 .append("'>Page: ")
                 .append(subsection.toString())
                 .append("</a></i> (" + rows.size() + ")</h2>\n");
@@ -1205,7 +1206,7 @@ public class VettingViewer<T> {
                     addCell(output, newWinningValue, null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                     // Fix?
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                    output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='").append(url) // .append(c)baseUrl + "?_=")
+                    output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='").append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
 //                    .append(localeID)
 //                    .append("&amp;xpath=")
 //                    .append(percentEscape.transform(path))
@@ -1228,6 +1229,10 @@ public class VettingViewer<T> {
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // damn'ed checked exceptions
         }
+    }
+
+    private String getPageUrl(String localeId, PageId subsection) {
+        return baseUrl + "?_=" + localeId + "&x=" + subsection;
     }
 
     private void startTable(Appendable output) throws IOException {

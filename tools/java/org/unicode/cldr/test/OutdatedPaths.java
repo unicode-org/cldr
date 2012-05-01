@@ -35,7 +35,7 @@ import org.unicode.cldr.util.StringId;
  * To update the data file, use GenerateBirth.java.
  */
 public class OutdatedPaths {
-    public static final String OUTDATED_DIR = CldrUtility.UTIL_DATA_DIR + "births/";
+    public static final String OUTDATED_DIR =  "births/";
     public static final String OUTDATED_ENGLISH_DATA = "outdatedEnglish.data";
     public static final String OUTDATED_DATA = "outdated.data";
     
@@ -60,9 +60,6 @@ public class OutdatedPaths {
      */
     public OutdatedPaths(String directory) {
         try {
-            if (directory == null) {
-                directory = OUTDATED_DIR;
-            }
             DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
             while (true) {
                 String locale = dataIn.readUTF();
@@ -114,7 +111,7 @@ public class OutdatedPaths {
     private DataInputStream openDataInput(String directory, String filename) throws FileNotFoundException {
         String dataFileName = filename;
         InputStream fileInputStream = directory == null 
-        ? OutdatedPaths.class.getResourceAsStream(dataFileName) 
+        ? CldrUtility.getInputStream(OUTDATED_DIR+dataFileName) 
                 : new FileInputStream(new File(directory, dataFileName));
 
         DataInputStream dataIn = new DataInputStream(fileInputStream);

@@ -46,6 +46,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.TimeZone;
+import java.io.*;
 
 public class CldrUtility {
 
@@ -112,7 +113,14 @@ public class CldrUtility {
   // set the base directory with -Dcldrdata=<value>
   // if the main is different, use -Dcldrmain=<value>
   
+  /**
+   * Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
+   */
   public static final String UTIL_CODE_DIR = FileUtilities.getRelativeFileName(CldrUtility.class, ""); // getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/");
+
+  /**
+   * Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
+   */
   public static final String UTIL_DATA_DIR = getPath(UTIL_CODE_DIR , "data/"); // getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/");
 
   public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new File(Utility.getProperty("CLDR_DIR", null)).getPath(); // get up to <CLDR>
@@ -846,6 +854,10 @@ public static final class Output<T> {
    */
   static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
       return FileUtilities.openFile(CldrUtility.class, "data/" + name);
+  }
+  
+  static public InputStream getInputStream(String name) {
+      return CldrUtility.class.getResourceAsStream("data/" + name);
   }
 
   /**

@@ -747,8 +747,7 @@ public class CLDRModify {
             }
 
             if(changed[0]) {
-                String v = cldrFileToFilter.getStringValue(xpath);
-                replace(fullPath, xpp.toString(), v, "Removed deprecated attribute");
+                remove(fullPath, "Removed deprecated attribute");
             }
             //             replace(fullPath,newFullPath,value);         
             // remove(xpath, "Message", reason);

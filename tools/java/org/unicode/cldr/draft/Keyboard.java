@@ -46,61 +46,61 @@ public class Keyboard {
         cmd, ctrlL, ctrlR, caps, altL, altR, optL, optR, shiftL, shiftR;
     }
 
-    public static class ModifierSet {
-        private String temp; // later on expand into something we can use.
-        @Override
-        public String toString() {
-            return temp;
-        }
-        @Override
-        public boolean equals(Object obj) {
-            final ModifierSet other = (ModifierSet)obj;
-            return temp.equals(other.temp);
-        }
-        @Override
-        public int hashCode() {
-            return temp.hashCode();
-        };
-
-        /**
-         * Parses string like "AltCapsCommand? RShiftCtrl" and returns a set of modifier sets, like:
-         * {{RAlt, LAlt, Caps}, {RAlt, LAlt, Caps, Command}, {RShift, LCtrl, RCtrl}}
-         */
-        public static Set<ModifierSet> parseSet(String input) {
-            //ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL? ...
-            Set<ModifierSet> results = new HashSet<ModifierSet>(); // later, Treeset
-            if (input != null) {
-                for (String ms : input.trim().split(" ")) {
-                    ModifierSet temp = new ModifierSet();
-                    temp.temp = ms;
-                    results.add(temp);
-                }
-            }
-            return results;
-            //                Set<ModifierSet> current = new LinkedHashSet();EnumSet.noneOf(Modifier.class);
-            //                for (String mod : input.trim().split("\\+")) {
-            //                    boolean optional = mod.endsWith("?");
-            //                    if (optional) {
-            //                        mod = mod.substring(0,mod.length()-1);
-            //                    }
-            //                    Modifier m = Modifier.valueOf(mod);
-            //                    if (optional) {
-            //                        temp = EnumSet.copyOf(current);
-            //                    } else {
-            //                        for (Modifier m2 : current) {
-            //                            m2.a
-            //                        }
-            //                    }
-            //                }
-        }
-        /**
-         * Format a set of modifier sets like {{RAlt, LAlt, Caps}, {RAlt, LAlt, Caps, Command}, {RShift, LCtrl, RCtrl}}
-         * and return a string like "AltCapsCommand? RShiftCtrl". The exact compaction may vary.
-         */
-        public static String formatSet(Set<ModifierSet> input) {
-            return input.toString();
-        }
-    }
+//    public static class ModifierSet {
+//        private String temp; // later on expand into something we can use.
+//        @Override
+//        public String toString() {
+//            return temp;
+//        }
+//        @Override
+//        public boolean equals(Object obj) {
+//            final ModifierSet other = (ModifierSet)obj;
+//            return temp.equals(other.temp);
+//        }
+//        @Override
+//        public int hashCode() {
+//            return temp.hashCode();
+//        };
+//
+//        /**
+//         * Parses string like "AltCapsCommand? RShiftCtrl" and returns a set of modifier sets, like:
+//         * {{RAlt, LAlt, Caps}, {RAlt, LAlt, Caps, Command}, {RShift, LCtrl, RCtrl}}
+//         */
+//        public static Set<ModifierSet> parseSet(String input) {
+//            //ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL? ...
+//            Set<ModifierSet> results = new HashSet<ModifierSet>(); // later, Treeset
+//            if (input != null) {
+//                for (String ms : input.trim().split(" ")) {
+//                    ModifierSet temp = new ModifierSet();
+//                    temp.temp = ms;
+//                    results.add(temp);
+//                }
+//            }
+//            return results;
+//            //                Set<ModifierSet> current = new LinkedHashSet();EnumSet.noneOf(Modifier.class);
+//            //                for (String mod : input.trim().split("\\+")) {
+//            //                    boolean optional = mod.endsWith("?");
+//            //                    if (optional) {
+//            //                        mod = mod.substring(0,mod.length()-1);
+//            //                    }
+//            //                    Modifier m = Modifier.valueOf(mod);
+//            //                    if (optional) {
+//            //                        temp = EnumSet.copyOf(current);
+//            //                    } else {
+//            //                        for (Modifier m2 : current) {
+//            //                            m2.a
+//            //                        }
+//            //                    }
+//            //                }
+//        }
+//        /**
+//         * Format a set of modifier sets like {{RAlt, LAlt, Caps}, {RAlt, LAlt, Caps, Command}, {RShift, LCtrl, RCtrl}}
+//         * and return a string like "AltCapsCommand? RShiftCtrl". The exact compaction may vary.
+//         */
+//        public static String formatSet(Set<ModifierSet> input) {
+//            return input.toString();
+//        }
+//    }
 
     public static Set<String> getPlatformIDs() {
         Set<String> results = new LinkedHashSet<String>();
@@ -208,13 +208,13 @@ public class Keyboard {
     }
 
     public static class KeyMap {
-        private final Set<ModifierSet> modifiers;
+        private final KeyboardModifierSet modifiers;
         final Map<Iso,Output> iso2output;
-        public KeyMap(Set<ModifierSet> modifiers, Map<Iso, Output> data) {
-            this.modifiers = Collections.unmodifiableSet(modifiers);
+        public KeyMap(KeyboardModifierSet keyMapModifiers, Map<Iso, Output> data) {
+            this.modifiers = keyMapModifiers;
             this.iso2output = Collections.unmodifiableMap(data);
         }
-        public Set<ModifierSet> getModifiers() {
+        public KeyboardModifierSet getModifiers() {
             return modifiers;
         }
     }
@@ -330,7 +330,7 @@ public class Keyboard {
         Set<String> names = new LinkedHashSet<String>();
         Fallback fallback = Fallback.BASE;
 
-        Set<ModifierSet> keyMapModifiers = null;
+        KeyboardModifierSet keyMapModifiers = null;
         Map<Iso,Output> iso2output = new EnumMap<Iso,Output>(Iso.class);
         Set<KeyMap> keyMaps = new LinkedHashSet<KeyMap>();
 
@@ -341,8 +341,7 @@ public class Keyboard {
         XPathParts parts = new XPathParts();
 
         public Keyboard getKeyboard(Set<String> errors) {
-            // clean up
-            keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
+            addToKeyMaps();
             if (currentType != null) {
                 transformMap.put(currentType, new Transforms(currentTransforms));
             }
@@ -369,12 +368,12 @@ public class Keyboard {
                     iso2output.put(iso, getOutput());
                 } else if (element1.equals("keyMap")) {
                     // <keyMap modifiers='shift+caps?'><map base="١" chars="!"/> <!-- 1 -->
-                    Set<ModifierSet> newMods = ModifierSet.parseSet(parts.getAttributeValue(1, "modifiers"));
+                    final String modifiers = parts.getAttributeValue(1, "modifiers");
+                    KeyboardModifierSet newMods = KeyboardModifierSet.parseSet(modifiers == null ? "" : modifiers);
                     if (!newMods.equals(keyMapModifiers)) {
                         if (keyMapModifiers != null) {
-                            keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
+                            addToKeyMaps();
                         }
-                        keyMapModifiers = new LinkedHashSet<ModifierSet>();
                         iso2output = new LinkedHashMap<Iso,Output>();
                         keyMapModifiers = newMods;
                     }
@@ -422,6 +421,15 @@ public class Keyboard {
             } catch (Exception e) {
                 throw new IllegalArgumentException("Unexpected error in: " + path, e);
             }
+        }
+
+        public void addToKeyMaps() {
+            for (KeyMap item : keyMaps) {
+                if (item.modifiers.containsSome(keyMapModifiers)) {
+                    errors.add("Modifier overlap: " + item.modifiers + " already contains " + keyMapModifiers);
+                }
+            }
+            keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
         }
 
         private String fixValue(String value) {

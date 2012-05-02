@@ -60,7 +60,9 @@ public class ShowKeyboards {
             //            System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
                 Keyboard keyboard = Keyboard.getKeyboard(platformId, keyboardId, errors);
-                totalErrors.addAll(errors);
+                for (String error : errors) {
+                    totalErrors.add(keyboardId + " " + error);                    
+                }
                 UnicodeSet unicodeSet = keyboard.getPossibleResults().removeAll(controls);
                 final Id id = new Id(keyboardId, keyboard.getPlatformVersion());
                 idInfo.add(id, unicodeSet);

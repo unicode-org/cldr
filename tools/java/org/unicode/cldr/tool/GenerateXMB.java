@@ -92,7 +92,7 @@ public class GenerateXMB {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         DATE = dateFormat.format(new Date());
     }
-    static final String stock = "en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|nb|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_HK";
+    static final String stock = "en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|nb|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_Hant_HK";
     private static final HashSet<String> REGION_LOCALES = new HashSet<String>(Arrays.asList(stock.split("\\|")));
 
     final static Options myOptions = new Options("In normal usage, you set the -t option for the target.")
@@ -127,6 +127,12 @@ public class GenerateXMB {
     public static String DTD_VERSION;
     
     private static String projectId;
+
+    enum PlaceholderType {
+        BRACES,         // e.g. {NAME}
+        XML,            // e.g. <ph name='NAME' />
+        XML_EXAMPLE     // e.g. <ph name='NAME' /><ex>EXAMPLE</ex>{0}</ph>
+    };
 
     public static void main(String[] args) throws Exception {
         myOptions.parse(args, true);
@@ -525,12 +531,12 @@ public class GenerateXMB {
                 messageCount++;
             }
             if (isEnglish) {
-                writeJavaInfo(out3, pathInfo, value);
+                writeJavaInfo(out3, pathInfo.getStringId(), pathInfo.getPath(), value);
             }
             wordCount += pathInfo.wordCount;
             ++lineCount;
         }
-        R2<Integer, Integer> lineWordCount = writeCountPathInfo(out1, cldrFile.getLocaleID(), countItems, isEnglish, filter);
+        R2<Integer, Integer> lineWordCount = writeCountPathInfo(out1, out3, cldrFile.getLocaleID(), countItems, isEnglish, filter);
         messageCount += lineWordCount.get0();
         lineCount += lineWordCount.get0();
         wordCount += lineWordCount.get1();
@@ -588,8 +594,8 @@ public class GenerateXMB {
         }
     }
 
-    private static void writeJavaInfo(PrintWriter out3, PathInfo pathInfo, String value) {
-        out3.println("              {\"" + pathInfo.getId() + "\",\"" + pathInfo.path.replace("\"","\\\"") + "\",\"" + value.replace("\\","\\\\").replace("\"","\\\"") + "\"},");
+    private static void writeJavaInfo(PrintWriter out3, String id, String path, String value) {
+        out3.println("              {\"" + id + "\",\"" + path.replace("\"","\\\"") + "\",\"" + value.replace("\\","\\\\").replace("\"","\\\"") + "\"},");
     }
 
 
@@ -611,7 +617,7 @@ public class GenerateXMB {
     static final Pattern COUNT_ATTRIBUTE = Pattern.compile("\\[@count=\"([^\"]*)\"]");
     static final Pattern PLURAL_NUMBER = Pattern.compile("(decimal|number)Format");
     
-    private static Row.R2<Integer, Integer> writeCountPathInfo(PrintWriter out, String locale, Relation<String, R2<PathInfo, String>> countItems, boolean isEnglish, boolean filter) {
+    private static Row.R2<Integer, Integer> writeCountPathInfo(PrintWriter out, PrintWriter out3, String locale, Relation<String, R2<PathInfo, String>> countItems, boolean isEnglish, boolean filter) {
         Matcher m = COUNT_ATTRIBUTE.matcher("");
         int wordCount = 0;
         PluralInfo pluralInfo = supplementalDataInfo.getPlurals(locale);
@@ -621,6 +627,7 @@ public class GenerateXMB {
             String countLessPath = entry.getKey();
             Map<String,String> fullValues = new TreeMap<String,String>();
             PathInfo pathInfo = null;
+            String value = null;
             for (R2<PathInfo, String> entry2 : entry.getValue()) {
                 PathInfo pathInfoN = entry2.get0();
                 m.reset(pathInfoN.getPath()).find();
@@ -628,7 +635,7 @@ public class GenerateXMB {
                 if (count.equals("other")) {
                     pathInfo = pathInfoN;
                 }
-                String value = entry2.get1();
+                value = entry2.get1();
                 fullValues.put(count, value);
             }
             if (pathInfo == null) {
@@ -652,6 +659,8 @@ public class GenerateXMB {
                     + countLessPath + "    -->");
             out.println("    <msg id='" + pathInfo.getStringId() + "' desc='" + pathInfo.description + "'");
             out.println("     >" + fullPlurals + "</msg>");
+            // Use the last plural value in the loop because we only need it for example purposes.
+            writeJavaInfo(out3, pathInfo.getStringId(), countLessPath, value);
             //            if (!isEnglish || pathInfo.placeholderReplacements != null) {
             //                out.println("\t<!-- English original:\t" + pathInfo.getEnglishValue() + "\t-->");
             //            }
@@ -756,7 +765,8 @@ public class GenerateXMB {
                 }
             }
             String newValue = MessageFormat.format(MessageFormat.autoQuoteApostrophe(value), new Object[] {key.startsWith("=") ? key.substring(1,2) : "#"});
-            newValue = reformatPlaceholders(newValue, isEnglish);
+            PlaceholderType type = isEnglish ? PlaceholderType.BRACES : PlaceholderType.XML;
+            newValue = pathInfo.transformValue(newValue, type);
             if (isEnglish) {
                 result.append("\n            ").append(key).append(" {").append(newValue).append('}');
             } else {
@@ -772,22 +782,15 @@ public class GenerateXMB {
         return result.toString();
     }
 
-    private static Pattern PLACEHOLDER = Pattern.compile("\\{(\\d)}");
-    private static String reformatPlaceholders(String value, boolean isEnglish) {
-        if (isEnglish) return value;
-        Matcher matcher = PLACEHOLDER.matcher(value);
-        return matcher.replaceAll("<ph name='[$1]' />");
-    }
-
     private static void writePathInfo(PrintWriter out, PathInfo pathInfo, String value, boolean isEnglish) {
-        String path = pathInfo.getPath();
         out.println();
         out.println("    <!--    " + pathInfo.getPath() + "    -->");
         out.println("    <msg id='" + pathInfo.getStringId() + "' desc='" + pathInfo.description + "'");
-        String transformValue = pathInfo.transformValue(path, value, isEnglish);
+        PlaceholderType type = isEnglish ? PlaceholderType.XML_EXAMPLE : PlaceholderType.XML;
+        String transformValue = pathInfo.transformValue(value, type);
         out.println("     >" + transformValue + "</msg>");
         value = TransliteratorUtilities.toHTML.transform(value);
-        if (!value.equals(transformValue) && (!isEnglish || pathInfo.placeholderReplacements != null)) {
+        if (!value.equals(transformValue) && (!isEnglish || pathInfo.placeholders != null)) {
             out.println("    <!-- English original:    " + value + "    -->");
         }
         out.flush();
@@ -808,22 +811,22 @@ public class GenerateXMB {
 
 
     static class PathInfo implements Comparable<PathInfo>{
+        private static final Pattern PLACEHOLDER = Pattern.compile("\\{(\\d)}");
+
         private final String path;
         private final Long id;
         private final String stringId;
         private final String englishValue;
         private final boolean changedEnglish;
-        private final Map<String, String> placeholderReplacements;
-        private final Map<String, String> placeholderReplacementsToOriginal;
+        private final Map<String, PlaceholderInfo> placeholders;
         private final String description;
         private final String starredPath;
         private final int wordCount;
 
-        static final BreakIterator bi = BreakIterator.getWordInstance(ULocale.ENGLISH);
-        static final UnicodeSet ALPHABETIC = new UnicodeSet("[:Alphabetic:]");
-        static final Matcher phMatcher = Pattern.compile("<ph name='([^']*)'>").matcher("");
+        private static final BreakIterator bi = BreakIterator.getWordInstance(ULocale.ENGLISH);
+        private static final UnicodeSet ALPHABETIC = new UnicodeSet("[:Alphabetic:]");
 
-        public PathInfo(String path, String englishValue, boolean changedEnglish, Map<String, String> placeholderReplacements, 
+        public PathInfo(String path, String englishValue, boolean changedEnglish, Map<String, PlaceholderInfo> placeholders, 
                 String description, String starredPath) {
             if (DEBUG_PATH != null && path.contains(DEBUG_PATH)) {
                 int x = 0;
@@ -837,21 +840,7 @@ public class GenerateXMB {
             stringId = String.valueOf(id);
             this.englishValue = englishValue;
             this.changedEnglish = changedEnglish;
-            this.placeholderReplacements = placeholderReplacements == null ? null 
-                    : Collections.unmodifiableMap(placeholderReplacements);
-            Map<String, String> temp = new HashMap();
-            if (placeholderReplacements != null) {
-                for (Entry<String, String> entry : placeholderReplacements.entrySet()) {
-                    String value = entry.getValue();
-                    if (!phMatcher.reset(value).find()) {
-                        // throw new IllegalAnnotationException("Replacement must contain ph: " + value);
-                        System.out.println("Replacement must contain ph: " + value);
-                    } else {
-                        temp.put(phMatcher.group(1), entry.getKey());
-                    }
-                }
-            }
-            placeholderReplacementsToOriginal = Collections.unmodifiableMap(temp);
+            this.placeholders = placeholders;
             this.description = description == null ? null : description.intern();
             this.starredPath = starredPath;
             // count words
@@ -869,20 +858,13 @@ public class GenerateXMB {
             wordCount = tempCount == 0 ? 1 : tempCount;
         }
 
-        static final Pattern VARIABLE_NAME = Pattern.compile("name='([^']*)'");
         public String getFirstVariable() {
             //... name='FIRST_PART_OF_TEXT' ...
-            String placeHolder;
-            try {
-                placeHolder = placeholderReplacements.get("{0}");
-            } catch (Exception e) {
+            PlaceholderInfo info = placeholders.get("{0}");
+            if (info == null) {
                 throw new IllegalArgumentException("Missing {0} for " + this);
             }
-            Matcher m = VARIABLE_NAME.matcher(placeHolder);
-            if (!m.find()) {
-                throw new IllegalArgumentException("Missing name in " + placeHolder);
-            }
-            return m.group(1);
+            return info.name;
         }
 
         public String getPath() {
@@ -909,50 +891,65 @@ public class GenerateXMB {
             return starredPath;
         }
 
-        public Map<String, String> getPlaceholderReplacements() {
-            return placeholderReplacements;
+        public Map<String, String> getPlaceholderReplacementsToOriginal() {
+            if (placeholders == null) return null;
+            Map<String, String> placeholderOutput = new LinkedHashMap<String, String>();
+            for (String id : placeholders.keySet()) {
+                placeholderOutput.put(id, getPlaceholderWithExample(id));
+            }
+            return placeholderOutput;
         }
 
-        public Map<String, String> getPlaceholderReplacementsToOriginal() {
-            return placeholderReplacementsToOriginal;
+        private String getPlaceholderWithExample(String placeholder) {
+            PlaceholderInfo info = placeholders.get(placeholder);
+            // <ph name='x'><ex>xxx</ex>yyy</ph>
+            return "<ph name='" + info.name + "'><ex>" + info.example + "</ex>" + placeholder + "</ph>";
         }
+
 
         //static DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
 
-        private String transformValue(String path, String value, boolean isEnglish) {
-            String result = TransliteratorUtilities.toHTML.transform(value);
-            if (placeholderReplacements == null) {
-                // skip
-            } else {
-                // TODO: fix for quoting
-                result = replacePlaceholders(result, isEnglish);
-                //            } else {
-                //                formatParser.set(value);
-                //                StringBuilder buffer = new StringBuilder();
-                //                for (Object item : formatParser.getItems()) {
-                //                    if (item instanceof DateTimePatternGenerator.VariableField) {
-                //                        String variable = item.toString();
-                //                        String replacement = placeholderReplacements.get(variable);
-                //                        if (replacement == null) {
-                //                            throw new IllegalArgumentException("Missing placeholder for " + variable);
-                //                        }
-                //                        buffer.append(replacement);
-                //                    } else {
-                //                        buffer.append(item);
-                //                    }
-                //                }
-                //                result = buffer.toString();
+        private String transformValue(String value, PlaceholderType type) {
+            value = TransliteratorUtilities.toHTML.transform(value);
+            if (placeholders == null) return value;
+
+            String placeholderFormat = "";
+            switch (type) {
+            case BRACES:
+                placeholderFormat = "'{'{0}'}'";
+                break;
+            case XML:
+                placeholderFormat = "<ph name=''[{0}]'' />";
+                break;
+            case XML_EXAMPLE:
+                placeholderFormat = "<ph name=''{0}''><ex>{1}</ex>'{'{2}'}'</ph>";
+                break;
             }
-            return result;
+            Matcher matcher = PLACEHOLDER.matcher(value);
+            StringBuffer buffer = new StringBuffer();
+            int start = 0;
+            while (matcher.find()) {
+                buffer.append(value.substring(start, matcher.start()));
+                PlaceholderInfo info = placeholders.get(matcher.group());
+                buffer.append(MessageFormat.format(placeholderFormat, new Object[]{ info.name, info.example, matcher.group(1)}));
+                start = matcher.end();
+            }
+            buffer.append(value.substring(start));
+            return buffer.toString();
         }
 
-        private String replacePlaceholders(String result, boolean isEnglish) {
-            for (Entry<String, String> entry : placeholderReplacements.entrySet()) {
-                String replacement = entry.getValue();
-                String value = (isEnglish ? replacement : replacement.replaceAll("><ex>.*</ph>", " />"));
-                result = result.replace(entry.getKey(), value);
+        private String replacePlaceholders(String value, String placeholderStart, String placeholderEnd) {
+            Matcher matcher = PLACEHOLDER.matcher(value);
+            StringBuffer buffer = new StringBuffer();
+            int start = 0;
+            while (matcher.find()) {
+                buffer.append(value.substring(start, matcher.start()));
+                String name = placeholders.get(matcher.group()).name;
+                buffer.append(placeholderStart).append(name).append(placeholderEnd);
+                start = matcher.end();
             }
-            return result;
+            buffer.append(value.substring(start));
+            return buffer.toString();
         }
 
         @Override
@@ -1105,12 +1102,13 @@ public class GenerateXMB {
                 if (!descriptionStatus.isEmpty()) {
                     addSkipReasons(reasonsToPaths, descriptionStatus.toString(), level, path, value);
                     description = null;
+                } else {
+                    description = "[ICU CLDR] " + description;
                 }
 
-                Map<String, String> placeholders = getPlaceholderOutput(patternPlaceholders, path);
                 String oldValue = oldPathValueMap.get(path);
                 boolean changedEnglish = !value.equals(oldValue);
-                PathInfo row = new PathInfo(path, value, changedEnglish, placeholders, description, pathDescription.getStarredPathOutput());
+                PathInfo row = new PathInfo(path, value, changedEnglish, patternPlaceholders.get(path), description, pathDescription.getStarredPathOutput());
 
                 if (description == PathDescription.MISSING_DESCRIPTION) {
                     missingDescriptions.add(pathDescription.getStarredPathOutput());
@@ -1142,19 +1140,6 @@ public class GenerateXMB {
             }
             out.close();
             writeReasons(reasonsToPaths, targetDir, "en");
-        }
-
-        private Map<String, String> getPlaceholderOutput(PatternPlaceholders patternPlaceholders, String path) {
-            Map<String, PlaceholderInfo> placeholders = patternPlaceholders.get(path);
-            if (placeholders == null) return null;
-            Map<String, String> placeholderOutput = new LinkedHashMap<String, String>();
-            for (Map.Entry<String, PlaceholderInfo> entry : placeholders.entrySet()) {
-                String id = entry.getKey();
-                PlaceholderInfo info = entry.getValue();
-                // <ph name='x'><ex>xxx</ex>yyy</ph>
-                placeholderOutput.put(id, "<ph name='" + info.name + "'><ex>" + info.example + "</ex>" + id + "</ph>");
-            }
-            return placeholderOutput;
         }
 
         private String toRegexPath(String starredPath) {

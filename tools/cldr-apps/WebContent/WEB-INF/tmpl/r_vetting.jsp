@@ -107,7 +107,7 @@ if(!ctx.hasField("vloaded")) {
 </script>
 
 <hr/> 
-<% if(ctx.sm.isUnofficial) { %>
+<% if(ctx.sm.isUnofficial()) { %>
 <a href='<%= theUrl %>'><%= theUrl %></a>
 <% }%>
 <div id='vverr'></div>

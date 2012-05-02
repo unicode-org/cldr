@@ -119,9 +119,10 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 	
 	<%
 			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
-	        if(false && ctx.session.user!=null) {
-	%><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Vetting Viewer</a>
-    <%   } %>
+	        if(true && ctx.session.user!=null) {
+	%><a style='font-size: small;' href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Vetting Viewer</a>
+        
+        <%   } %>
     
 <%
             String covlev = ctx.getCoverageSetting();

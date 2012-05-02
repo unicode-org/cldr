@@ -60,9 +60,7 @@ public class CasingInfo {
             loadFromXml(localeID);
             if (!casing.containsKey(localeID)) {
                 String parentID = LocaleIDParser.getSimpleParent(localeID);
-                if (parentID.equals("root")) {
-                    System.err.println("Casing file not found for " + localeID);
-                } else {
+                if (!parentID.equals("root")) {
                     casing.put(localeID, getLocaleCasing(parentID));
                 }
             }

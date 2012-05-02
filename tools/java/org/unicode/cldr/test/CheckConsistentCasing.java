@@ -51,9 +51,9 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         Map<String, CasingType> casing = casingInfo.getLocaleCasing(locale);
         if(casing == null) {
             possibleErrors.add(new CheckStatus().setCause(this)
-                .setMainType(CheckStatus.alertType)
+                .setMainType(CheckStatus.warningType)
                 .setSubtype(Subtype.incorrectCasing)
-                .setMessage("Cannot load casing info for {0}", locale));
+                .setMessage("Could not load casing info for {0}", locale));
             hasCasingInfo = false;
         } else {
             for (int i = 0; i < typeNames.length; i++) {

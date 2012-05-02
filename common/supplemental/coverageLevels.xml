@@ -229,8 +229,8 @@
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(SBD|SCR|SDG|SGD|SHP|SLL|SOS|SRD|STD|SYP|SZL|TJS|TMT|TND|TOP|TTD|TZS)']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='(UAH|UGX|UYU|UZS|VEF|VND|VUV|WST|XCD|XAF|XOF|XPF|YER|ZMK)']/(symbol|displayName([@count='[^']++'])?)"/>
 	        <coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
-		<coverageLevel value="100" match="characters/ellipsis[@type='[^']++']"/>
-		<coverageLevel value="100" match="characters/moreInformation"/>
+		<coverageLevel value="80" match="characters/ellipsis[@type='[^']++']"/>
+		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="100" match="characters/stopwords/stopwordList[@type='[^']++']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
         	<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>

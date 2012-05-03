@@ -4105,7 +4105,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                 message);
             ctx.println("<br>"+ctx.iconHtml("okay","mail sent")+"Mail sent to " + theirEmail + " from " + from + " via " + smtp + "<br/>\n");
         }
-        SurveyLog.logger.info( "Mail sent to " + theirEmail + "  from " + from + " via " + smtp + " - "+subject);
+        SurveyLog.logger.info( "Mail queued to " + theirEmail + "  from " + from + " via " + smtp + " - "+subject);
         /* some debugging. */
     }
     
@@ -5763,6 +5763,8 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                 progress.update("Attempting clean shutdown...");
             	startupThread.attemptCleanShutdown();
             }
+                progress.update("shutting down mail...");
+                MailSender.shutdown();
             if ( surveyTimer!= null) {
                 progress.update("Shutting down timer...");
                 surveyTimer.cancel();

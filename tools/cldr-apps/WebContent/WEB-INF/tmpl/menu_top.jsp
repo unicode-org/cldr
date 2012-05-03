@@ -120,7 +120,7 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 	<%
 			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
 	        if(true && ctx.session.user!=null) {
-	%><a style='font-size: small;' href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Priority Items</a> |
+	%><label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Priority Items</a></label> |
         
         <%   } %>
     

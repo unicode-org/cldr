@@ -828,7 +828,7 @@ public class VettingViewer<T> {
 
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
         try {
-            output.append("<p>The following summarizes the issues across locales. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Vetting Summary</a>.</p>\n");
+            output.append("<p>The following summarizes the issues across locales. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
             // Gather the relevant paths
             // each one will be marked with the choice that it triggered.
             Counter<Choice> problemCounter = new Counter<Choice>();
@@ -1097,7 +1097,7 @@ public class VettingViewer<T> {
             output.append("<h2>Summary</h2>\n")
             .append("<p><i>It is important that you read " +
                     "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
-            "Vetting View Instructions</a> before starting!</i></p>")
+            "Priority Items</a> before starting!</i></p>")
             .append("<form name='checkboxes' action='#'>\n")
             .append("<table class='tvs-table'>\n")
             .append("<tr class='tvs-tr'>" +

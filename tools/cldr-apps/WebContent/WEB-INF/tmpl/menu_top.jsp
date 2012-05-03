@@ -120,7 +120,7 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 	<%
 			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
 	        if(true && ctx.session.user!=null) {
-	%><a style='font-size: small;' href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Vetting Viewer</a>
+	%><a style='font-size: small;' href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Priority Items</a> |
         
         <%   } %>
     
@@ -144,9 +144,9 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 		// commenting out easy steps until we have time to work on it more
 		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
 %>
-   | <a <%=ctx.atarget("st:supplemental")%> class='notselected' 
+   |&nbsp;<a <%=ctx.atarget("st:supplemental")%> class='notselected' 
             href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#<%=
-            ctx.getLocale().getLanguage() %>'>supplemental</a>
+            ctx.getLocale().getLanguage() %>'>Supplemental</a>
 
         </p>
         <%

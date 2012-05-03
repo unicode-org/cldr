@@ -37,7 +37,7 @@ if(subCtx.userId() == UserRegistry.NO_USER) {
 	%>
 		<form action="<%= topCtx.url() %>" method="POST">
 			<input type='hidden' value='t' name='VVFORCERESTART'/>
-			<label>To regenerate this page, click <input type='submit' value='Refresh Values'/></label>
+			<label>To regenerate this page, click <input type='submit' value='Refresh Values'/> <i>You must do this to reflect changes to your coverage level.</i></label>
 		</form>
 	<%
 	

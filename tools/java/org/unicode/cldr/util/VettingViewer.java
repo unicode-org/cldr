@@ -892,7 +892,8 @@ public class VettingViewer<T> {
                 output.append("<tr>");
                 output.append("<th class='tv-th' style='text-align:left'>" +
                         "<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
-                        .append(localeID).append("'>")
+                        .append(localeID)
+                        .append("&x=r_vetting'>")
                         .append(TransliteratorUtilities.toHTML.transform(name.replace('\uFFFE', ' ')))
                         .append("</a></th>\n");
                 for (Choice choice : choices) {
@@ -997,7 +998,7 @@ public class VettingViewer<T> {
 
     static final NumberFormat        nf      = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
     private Relation<String, String> reasonsToPaths;
-    private String                   baseUrl = "http://st.unicode.org/cldr-apps/survey";
+    private String                   baseUrl = null;
     static {
         nf.setGroupingUsed(true);
     }

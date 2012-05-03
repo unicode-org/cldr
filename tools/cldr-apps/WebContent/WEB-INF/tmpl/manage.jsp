@@ -20,13 +20,13 @@ String helpName = subCtx.getString("helpName");
                 subCtx.println(" <a class='notselected' href='"+subCtx.url()+subCtx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Remember Me!</b></a>");
             }
             subCtx.print(" | ");
-            SurveyMain.printMenu(subCtx, doWhat, "listu", "My Account", SurveyMain.QUERY_DO);
+            SurveyMain.printMenu(subCtx, doWhat, "listu", "My&nbsp;Account", SurveyMain.QUERY_DO);
             subCtx.print(" | ");
-            subCtx.print("<a href='"+ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id+"'>My Recent Activity</a>");
+            subCtx.print("<a href='"+ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id+"'>My&nbsp;Recent&nbsp;Activity</a>");
             if(UserRegistry.userIsTC(subCtx.session.user)) {
                 subCtx.print(" | ");
-                SurveyMain.printMenu(subCtx, doWhat, "list", "Manage " + subCtx.session.user.org + " Users", SurveyMain.QUERY_DO);
-                subCtx.print(" | ");
+                SurveyMain.printMenu(subCtx, doWhat, "list", "Manage&nbsp;" + subCtx.session.user.org + "&nbsp;Users", SurveyMain.QUERY_DO);
+                // subCtx.print(" | ");
                 //              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
             } else {
                 if(UserRegistry.userIsVetter(subCtx.session.user)) {
@@ -55,10 +55,10 @@ String helpName = subCtx.getString("helpName");
         }
         if((subCtx.session!=null&&subCtx.session.user!=null)) {
             subCtx.println(" | ");
-            subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id+"'>Upload XML</a>");
+            subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id+"'>Upload&nbsp;XML</a>");
         }
         if(subCtx.session!=null&&subCtx.session.user!=null && subCtx.session.user.userlevel<=UserRegistry.TC) {
-            subCtx.println("| <a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Priority Items Summary</a>");
+            subCtx.println(" | <a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Priority&nbsp;Items&nbsp;Summary</a>");
         }
         subCtx.flush();
  %>

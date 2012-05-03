@@ -25,7 +25,7 @@ cs.put("BASE_URL",BASE_URL);
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CLDR SurveyTool | Vetting Summary</title>
+<title>CLDR SurveyTool | Priority Items Summary</title>
 
 <% if(!isVloaded) { %>
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
@@ -44,14 +44,14 @@ cs.put("BASE_URL",BASE_URL);
 <% } %>
 
 <a href="<%=(isVloaded?(BASE_URL):(request.getContextPath()+"/survey"))%>">Return to the SurveyTool <img alt='(Survey Tool Logo)' src='http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/STLogo.png' style='float:right;'></a>
-<h2>Vetting Summary | <%= new java.util.Date() %></h2>
+<h2>Priority Items | <%= new java.util.Date() %></h2>
 
 
 <%
 	VettingViewerQueue vvq = VettingViewerQueue.getInstance();
 %>
 <% if(!isVloaded) { %>
-	<div  style='width: 20%;' class='pager'>
+	<div  class='pager'>
 		<form action="<%= request.getContextPath()+request.getServletPath() %>" method="POST">
 			<input type='hidden' value='t' name='VVFORCERESTART'/>
 			<input type='hidden' name='s' value='<%= sid %>'/>
@@ -99,7 +99,7 @@ function updateVv() {
             }
             
             if(json.status == "READY" ) {
-                //updateIf('vvupd',"<a href='<%= (request.getServletPath()+request.getContextPath()) %>&amp;vloaded=t'><i>Redirecting to your Vetting View...</i></a>");
+                //updateIf('vvupd',"<a href='<%= (request.getServletPath()+request.getContextPath()) %>&amp;vloaded=t'><i>Redirecting to your Priority Items View...</i></a>");
                 window.status= ('Done loading VV');
                 clearInterval(vvId);
                 vvId=-1;

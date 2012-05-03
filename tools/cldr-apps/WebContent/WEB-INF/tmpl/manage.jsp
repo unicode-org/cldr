@@ -36,7 +36,7 @@ String helpName = subCtx.getString("helpName");
                     subCtx.println("| <b>LOCKED: Note: your account is currently locked. Please contact " + subCtx.session.user.org + "'s CLDR Technical Committee member.</b> ");
                 }
             }
-            SurveyMain.printMenu(subCtx, doWhat, "disputed", "Dispute Resolution", SurveyMain.QUERY_DO); 
+            // SurveyMain.printMenu(subCtx, doWhat, "disputed", "Dispute Resolution", SurveyMain.QUERY_DO); 
             if(SurveyMain.isPhaseReadonly()) {
                 subCtx.println("<br>(The SurveyTool is in a read-only state, no changes may be made.)");
             } else if(SurveyMain.isPhaseVetting() 
@@ -46,9 +46,8 @@ String helpName = subCtx.getString("helpName");
             } else if(SurveyMain.isPhaseClosed() && !UserRegistry.userIsTC(subCtx.session.user)) {
                 subCtx.println("<br>(SurveyTool is closed to vetting and data submissions.)");
             }
-            subCtx.println("<br/>");
             if((subCtx.session != null) && (subCtx.session.user != null) && (SurveyMain.isPhaseVettingClosed() && subCtx.session.user.userIsSpecialForCLDR15(null))) {
-                subCtx.println("<b class='selected'> you have been granted extended privileges for the CLDR "+subCtx.sm.getNewVersion()+" vetting period.</b><br>");
+                subCtx.println("<br/><b class='selected'> you have been granted extended privileges for the CLDR "+subCtx.sm.getNewVersion()+" vetting period.</b><br>");
             }
         }
         if(subCtx.sm.dbUtils.hasDataSource()) {

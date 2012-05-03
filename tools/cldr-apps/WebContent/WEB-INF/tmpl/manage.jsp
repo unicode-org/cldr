@@ -58,7 +58,7 @@ String helpName = subCtx.getString("helpName");
             subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id+"'>Upload XML</a>");
         }
         if(subCtx.session!=null&&subCtx.session.user!=null && subCtx.session.user.userlevel<=UserRegistry.TC) {
-            subCtx.println("| <a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Vetting Summary</a>");
+            subCtx.println("| <a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Priority Items Summary</a>");
         }
         subCtx.flush();
  %>

@@ -515,9 +515,11 @@ function updateStatusBox(json) {
 		fragment.appendChild(updateParts.load);
 		fragment.appendChild(document.createTextNode(" "));
 		fragment.appendChild(updateParts.db);
-		removeAllChildNodes(updateParts.visitors);
-		updateParts.visitors.appendChild(fragment);
-		
+                
+		if(updateParts.visitors) {
+			removeAllChildNodes(updateParts.visitors);
+			updateParts.visitors.appendChild(fragment);
+		}
 		if(json.status.specialHeader && json.status.specialHeader.length>0) {
 			updateSpecialHeader(json.status.specialHeader);
 		} else {

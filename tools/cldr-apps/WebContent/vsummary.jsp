@@ -18,7 +18,7 @@ String doneurl = (request.getContextPath()+request.getServletPath())+"?s="+sid;
 String vloaded = doneurl+"&vloaded=t";
 boolean isVloaded = request.getParameter("vloaded")!=null;
 boolean needLoad = !isVloaded;
-String BASE_URL="http://unicode.org/cldr/apps/survey";
+String BASE_URL= request.getContextPath() + "/survey";
 cs.put("BASE_URL",BASE_URL);
 
 %><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

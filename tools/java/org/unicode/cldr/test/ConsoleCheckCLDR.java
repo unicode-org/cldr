@@ -1271,9 +1271,9 @@ public class ConsoleCheckCLDR {
             String idViewString = "";
             if (idView) {
                 idViewString = "\tID\tDesc.";
-                System.out.println("Locale\tID\tDesc.\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t【Loc.Ex】\t❮Error/Warning Msg❯");
+                System.out.println("Locale\tID\tDesc.\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t【Loc.Ex】\t⁅error/warning type⁆\t❮Error/Warning Msg❯");
             } else {
-                System.out.println("Locale\tStatus\t▸PPath◂\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\t❮Error/Warning Msg❯\tFull Path\tAliasedSource/Path?");
+                System.out.println("Locale\tStatus\t▸PPath◂\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t«fill-in»\t【Loc.Ex】\t⁅error/warning type⁆\t❮Error/Warning Msg❯\tFull Path\tAliasedSource/Path?");
             }
         }
     }
@@ -1331,16 +1331,18 @@ public class ConsoleCheckCLDR {
                             + "\t〈" + value + "〉"
                             + "\t«" + fillinValue + "»"
                             + "\t【" + example + "】"
-                            + "\t ❮" + statusString + "❯"
+                            + "\t⁅" + subType + "⁆"
+                            + "\t❮" + statusString + "❯"
                             + "\t" + fullPath
                             + otherSource
                             + otherPath :
                                 idViewString
                                 + "\t〈" + englishPathValue + "〉"
                                 + "\t【" + englishExample + "】"
-                                + "\t〈" + value + "〉"
+                                + "\t" + value + "〉"
                                 + "\t【" + example + "】"
-                                + "\t ❮" + statusString + "❯"
+                                + "\t⁅" + subType + "⁆"
+                                + "\t❮" + statusString + "❯"
                     )
             );
         } else if (ErrorFile.errorFileWriter != null) {

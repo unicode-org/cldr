@@ -434,7 +434,8 @@ public class DBUtils {
 		// Initialize DB context
 		try {
 			Context initialContext = new InitialContext();
-			datasource = (DataSource) initialContext.lookup("java:comp/env/" + JDBC_SURVEYTOOL);
+                        Context eCtx = (Context) initialContext.lookup("java:comp/env");
+			datasource = (DataSource) eCtx.lookup(JDBC_SURVEYTOOL);
 			//datasource = (DataSource) envContext.lookup("ASDSDASDASDASD");
 			
 			if(datasource!=null) {

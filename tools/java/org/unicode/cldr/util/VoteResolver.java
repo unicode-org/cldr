@@ -1026,7 +1026,11 @@ public class VoteResolver<T> {
          */
         if (orgOfUser == null) {
             if (!provisionalOrWorse) {
-                return VoteStatus.ok;
+                if (organizationToValueAndVote.hasVotes) {
+                    return VoteStatus.ok;
+                } else {
+                    return VoteStatus.ok_novotes;
+                }
             } else if (organizationToValueAndVote.hasVotes) {
                 return VoteStatus.disputed;
             } else {
@@ -1060,7 +1064,7 @@ public class VoteResolver<T> {
               return VoteStatus.disputed;
           } else {
               //         - otherwise => *ok*
-              return VoteStatus.ok;
+              return VoteStatus.ok_novotes;
           }
       }
   }

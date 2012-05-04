@@ -223,8 +223,14 @@ public class VettingViewer<T> {
      */
     public enum VoteStatus {
         /**
-         * The value for the path is either contributed or approved, and either
-         * the user's organization chose the winning value or didn't vote. (see class def for null user)
+         * The value for the path is either contributed or approved, and
+         * the user's organization didn't vote. (see class def for null user)
+         */
+        ok_novotes,
+
+        /**
+         * The value for the path is either contributed or approved, and 
+         * the user's organization chose the winning value. (see class def for null user)
          */
         ok,
 
@@ -448,11 +454,15 @@ public class VettingViewer<T> {
      * @param localeId
      * @param user
      * @param usersLevel
+     * @deprecated
      */
     public void generateHtmlErrorTablesOld(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
         generateHtmlErrorTablesOld(output, choices, localeID, user, usersLevel, false);
     }
 
+    /**
+     * @deprecated
+     */
     private void generateHtmlErrorTablesOld(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean showAll) {
 
         // first gather the relevant paths
@@ -1311,9 +1321,10 @@ public class VettingViewer<T> {
                 String fullPath = cldrFile.getFullXPath(path);
                 if (fullPath.contains("AMD") || fullPath.contains("unconfirmed") || fullPath.contains("provisional")) {
                     return VoteStatus.provisionalOrWorse;
-                }
-                if (fullPath.contains("AED")) {
+                } else if (fullPath.contains("AED")) {
                     return VoteStatus.disputed;
+                } else if (fullPath.contains("AED")) {
+                    return VoteStatus.ok_novotes;
                 }
                 return VoteStatus.ok;
             }
@@ -1359,7 +1370,13 @@ public class VettingViewer<T> {
         //        }
     }
 
-    enum CodeChoice {newCode, oldCode, summary}
+    enum CodeChoice {
+        /** For the normal (locale) view of data **/
+        newCode, 
+        /** @deprecated **/
+        oldCode, 
+        /** For a summary view of data **/
+        summary}
 
     private static void writeFile(VettingViewer<Integer> tableView, final EnumSet<Choice> choiceSet, String name, String localeStringID, int userNumericID,
             Level usersLevel,

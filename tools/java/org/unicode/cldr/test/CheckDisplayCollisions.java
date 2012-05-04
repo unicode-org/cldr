@@ -15,6 +15,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -63,9 +64,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private XPathParts parts2 = new XPathParts(null, null);
     private transient Relation<String,String> hasCollisions = Relation.of(new TreeMap<String,Set<String>>(), HashSet.class);
     private boolean finalTesting;
+    
+    private PathHeader.Factory pathHeaderFactory;
 
     public CheckDisplayCollisions(Factory factory) {
         super(factory);
+        pathHeaderFactory = PathHeader.getFactory(factory.make("en", true));
     }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
@@ -156,7 +160,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 int prefix = typesICareAbout[myType].length();
                 for (String pathName : paths) {
                     attributesToIgnore.reset(pathName);
-                    collidingTypes.add(pathName.substring(prefix)); // later make this more readable.
+                    PathHeader pathHeader = pathHeaderFactory.fromPath(pathName);
+                    collidingTypes.add(pathHeader.getHeader() + ": " + pathHeader.getCode()); // later make this more readable.
                 }
             } else {
                 for (String dpath : paths) {

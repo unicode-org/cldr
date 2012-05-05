@@ -196,6 +196,7 @@ public class VettingViewer<T> {
             return buffer.toString();
         }
     };
+    private static final boolean SUPPRESS = false;
 
     /**
      * The status should be computed in the following way:
@@ -819,7 +820,7 @@ public class VettingViewer<T> {
                 //String lastValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
                 if (CharSequences.equals(value, oldValue)) {
                     // check to see if we voted
-                    if (voteStatus != VoteStatus.ok_novotes) {
+                    if (!SUPPRESS || voteStatus != VoteStatus.ok_novotes) {
                         problems.add(Choice.englishChanged);
                         problemCounter.increment(Choice.englishChanged);
                     }
@@ -839,7 +840,7 @@ public class VettingViewer<T> {
                 if (choice == Choice.warning) {
                     if (OK_IF_VOTED.containsAll(subtypes)) {
                         // check to see if we voted
-                        if (voteStatus == VoteStatus.ok_novotes) {
+                        if (SUPPRESS && voteStatus == VoteStatus.ok_novotes) {
                             continue;
                         }
                     }
@@ -1468,7 +1469,7 @@ public class VettingViewer<T> {
                 + "</li><li>usersLevel: "
                 + usersLevel
                 + "</ol>"
-                + "<p>Notes: This is a static version, using old values (1.7.2) and faked values (L) just for testing."
+                + "<p>Notes: This is a static version, using old values and faked values (L) just for testing."
                 + (TESTING ? "Also, the white cell after the Fix column is just for testing." : "")
                 + "</p><hr>\n");
 

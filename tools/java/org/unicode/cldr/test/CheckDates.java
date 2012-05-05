@@ -313,7 +313,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     Set<String> others = new TreeSet<String>();
                     for (String path2 : filteredPaths) {
                         PathHeader pathHeader = pathHeaderFactory.fromPath(path2);
-                        others.add(pathHeader.getCode());
+                        others.add(pathHeader.getHeaderCode());
                     }
                     String statusType = CheckStatus.errorType;
                     result.add(new CheckStatus()

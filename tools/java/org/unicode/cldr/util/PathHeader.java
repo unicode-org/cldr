@@ -290,6 +290,10 @@ public class PathHeader implements Comparable<PathHeader> {
     public String getCode() {
         return code;
     }
+    
+    public String getHeaderCode() {
+        return getHeader() + ": " + getCode();
+    }
 
     public String getOriginalPath() {
         return originalPath;

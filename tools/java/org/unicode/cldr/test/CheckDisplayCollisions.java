@@ -161,7 +161,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 for (String pathName : paths) {
                     attributesToIgnore.reset(pathName);
                     PathHeader pathHeader = pathHeaderFactory.fromPath(pathName);
-                    collidingTypes.add(pathHeader.getHeader() + ": " + pathHeader.getCode()); // later make this more readable.
+                    collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
                 }
             } else {
                 for (String dpath : paths) {

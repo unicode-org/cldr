@@ -3,30 +3,39 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.BitSet;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.Keyboard;
 import org.unicode.cldr.draft.Keyboard.KeyMap;
 import org.unicode.cldr.draft.Keyboard.Platform;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
+import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CLDRFile.WinningChoice;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -40,11 +49,36 @@ public class ShowKeyboards {
     static final TestInfo testInfo = TestInfo.getInstance();
     static final Factory factory = testInfo.getCldrFactory();
 
+    final static Options myOptions = new Options();
+    enum MyOptions {
+        idFilter(".+", ".*", "Filter the information based on id, using a regex argument."),
+        log(".+", CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/log.txt", "Log difference information");
+        // boilerplate
+        final Option option;
+        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
+        }
+    }
+    
+    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
+
     // *********************************************
     // Temporary, for some simple testing
     // *********************************************
     public static void main(String[] args) {
-        SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
+        myOptions.parse(MyOptions.idFilter, args, true);
+        String idPattern = MyOptions.idFilter.option.getValue();
+        Matcher idMatcher = Pattern.compile(idPattern).matcher("");
+        if (MyOptions.log.option.doesOccur()) {
+            try {
+                Log.setLog(MyOptions.log.option.getValue());
+            } catch (IOException e) {
+                throw new IllegalArgumentException(e);
+            }
+        }
+
+        // set up the CLDR Factories
+
         Set<String> totalErrors = new LinkedHashSet<String>();
         Set<String> errors = new LinkedHashSet<String>();
         UnicodeSet controls = new UnicodeSet("[:Cc:]").freeze();
@@ -59,6 +93,9 @@ public class ShowKeyboards {
             Platform p = Keyboard.getPlatform(platformId);
             //            System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
+                if (!idMatcher.reset(keyboardId).matches()) {
+                    continue;
+                }
                 Keyboard keyboard = Keyboard.getKeyboard(platformId, keyboardId, errors);
                 for (String error : errors) {
                     totalErrors.add(keyboardId + " " + error);                    
@@ -70,7 +107,7 @@ public class ShowKeyboards {
                 if (!id.locale.equals(canonicalLocale)) {
                     totalErrors.add("Non-canonical id: " + id.locale + "\t=>\t" + canonicalLocale);
                 }
-                id2unicodeset.put(id, unicodeSet);
+                id2unicodeset.put(id, unicodeSet.freeze());
                 locale2ids.put(id.locale, id);
                 System.out.println(id.toString().replace('/','\t') + "\t" + keyboard.getNames());
                 for (KeyMap keymap : keyboard.getKeyMaps()) {
@@ -84,13 +121,14 @@ public class ShowKeyboards {
         for (String item : totalModifiers) {
             System.out.println(item);
         }
+        //logInfo.put(Row.of("k-cldr",common), keyboardId);
         try {
             PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/", "chars2keyboards.html");
             printTop("Characters → Keyboards", out);
             idInfo.print(out);
             printBottom(out);
             out.close();
-            
+
             out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/", "keyboards2chars.html");
             printTop("Keyboards → Characters", out);
             showLocaleToCharacters(out, id2unicodeset, locale2ids);
@@ -99,6 +137,12 @@ public class ShowKeyboards {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+        for (Entry<R2<String, UnicodeSet>, Set<Id>> entry : logInfo.keyValuesSet()) {
+            IdSet idSet = new IdSet();
+            idSet.addAll(entry.getValue());
+            Log.logln(entry.getKey().get0() + "\t" + entry.getKey().get1().toPattern(false) + "\t" + idSet.toString(idInfo.allIds));
+        }
+        Log.close();
     }
 
     public static void printTop(String title, PrintWriter out) {
@@ -120,7 +164,8 @@ public class ShowKeyboards {
                 "<body>\n" +
                 "<h1>DRAFT " +
                 title +
-                "</h1>\n"
+                "</h1>\n" +
+                "<p>For more information, see <a href='http://cldr.unicode.org/index/charts/keyboards'>Keyboard Charts</a>.</p>"
         );
     }
     public static void printBottom(PrintWriter pw) {
@@ -134,7 +179,7 @@ public class ShowKeyboards {
             Relation<String, Id> locale2ids) {
 
         TablePrinter t = new TablePrinter()
-        .addColumn("Name").setSpanRows(true).setBreakSpans(true)
+        .addColumn("Name").setSpanRows(true).setBreakSpans(true).setSortPriority(0)
         .addColumn("Locale").setSpanRows(true).setBreakSpans(true)
         .addColumn("Platform").setSpanRows(true)
         .addColumn("Variant")
@@ -142,43 +187,59 @@ public class ShowKeyboards {
         .addColumn("Statistics")
         .addColumn("Characters").setSpanRows(true);
 
+        Map<String,UnicodeSet> commonSets = new HashMap<String, UnicodeSet>();
+        Counter<String> commonCount = new Counter<String>();
+        Set<String> commonDone = new HashSet<String>();
+
         for (Entry<String, Set<Id>> localeAndIds : locale2ids.keyValuesSet()) {
             final String key = localeAndIds.getKey();
             final Set<Id> keyboardIds = localeAndIds.getValue();
 
             //System.out.println();
-            final String localeName = testInfo.getEnglish().getName(key);
+            final String localeName = testInfo.getEnglish().getName(key, true);
+            final String linkedLocaleName = getLinkedName(key, localeName);
             final ULocale uLocale = ULocale.forLanguageTag(key);
             String script = uLocale.getScript();
             String writtenLanguage = uLocale.getLanguage() + (script.isEmpty() ? "" : "_" + script);
             CLDRFile cldrFile  = null;
             try {
-                cldrFile = factory.make(writtenLanguage, false);
+                cldrFile = factory.make(writtenLanguage, true);
             } catch (Exception e) {}
 
             //            final String heading = uLocale.getDisplayName(ULocale.ENGLISH)
             //            + "\t" + ULocale.addLikelySubtags(uLocale).getScript() 
             //            + "\t";
             UnicodeSet common = UnicodeSet.EMPTY;
+            final String likelyScript = ULocale.addLikelySubtags(uLocale).getScript();
+            commonCount.clear();
+            for (String platform : Keyboard.getPlatformIDs()) {
+                commonSets.put(platform, UnicodeSet.EMPTY);
+            }
             if (keyboardIds.size() > 1) {
                 common = UnicodeSet.EMPTY;
-                String locale = null;
                 for (Id keyboardId : keyboardIds) {
-                    locale = keyboardId.locale;
+                    final UnicodeSet keyboardSet = id2unicodeset.get(keyboardId);
                     if (common == UnicodeSet.EMPTY) {
-                        common = id2unicodeset.get(keyboardId);
+                        common = new UnicodeSet(keyboardSet);
                     } else {
-                        common.retainAll(id2unicodeset.get(keyboardId));
+                        common.retainAll(keyboardSet);
+                    }
+                    UnicodeSet platformCommon = commonSets.get(keyboardId.platform);
+                    commonCount.add(keyboardId.platform, 1);
+                    if (platformCommon == UnicodeSet.EMPTY) {
+                        commonSets.put(keyboardId.platform, new UnicodeSet(keyboardSet));
+                    } else {
+                        platformCommon.retainAll(keyboardSet);
                     }
                 }
                 common.freeze();
                 t.addRow()
-                .addCell(localeName) // name
+                .addCell(linkedLocaleName) // name
                 .addCell(key) // locale
-                .addCell("COMMON") // platform
-                .addCell("") // variant
-                .addCell(ULocale.addLikelySubtags(uLocale).getScript()) // script
-                .addCell(getInfo(common, cldrFile)) // stats
+                .addCell("ALL") // platform
+                .addCell("COMMON") // variant
+                .addCell(likelyScript) // script
+                .addCell(getInfo(null, common, cldrFile)) // stats
                 .addCell(safeUnicodeSet(common)) // characters
                 .finishRow();
 
@@ -187,17 +248,42 @@ public class ShowKeyboards {
                 //                        + "\t" + heading + getInfo(common, cldrFile)
                 //                        + "\t" + common.toPattern(false));
             }
+            commonDone.clear();
             for (Id keyboardId : keyboardIds) {
+                UnicodeSet platformCommon = commonSets.get(keyboardId.platform);
+                if (!commonDone.contains(keyboardId.platform)) {
+                    commonDone.add(keyboardId.platform);
+                    if (commonCount.get(keyboardId.platform) <= 1) {
+                        platformCommon = UnicodeSet.EMPTY;
+                        commonSets.put(keyboardId.platform, platformCommon);
+                    } else if (platformCommon.size() > 0) {
+                        // get stats for all, but otherwise remove common.
+                        final String stats = getInfo(null, platformCommon, cldrFile);
+                        platformCommon.removeAll(common).freeze();
+                        commonSets.put(keyboardId.platform, platformCommon);
+                        t.addRow()
+                        .addCell(linkedLocaleName) // name
+                        .addCell(key) // locale
+                        .addCell(keyboardId.platform) // platform
+                        .addCell("COMMON") // variant
+                        .addCell(likelyScript) // script
+                        .addCell(stats) // stats
+                        .addCell(safeUnicodeSet(platformCommon)) // characters
+                        .finishRow();
+                    }
+                }
                 final UnicodeSet current2 = id2unicodeset.get(keyboardId);
-                final UnicodeSet remainder = new UnicodeSet(current2).removeAll(common);
+                final UnicodeSet remainder = new UnicodeSet(current2)
+                .removeAll(common)
+                .removeAll(platformCommon);
 
                 t.addRow()
-                .addCell(localeName) // name
+                .addCell(linkedLocaleName) // name
                 .addCell(key) // locale
                 .addCell(keyboardId.platform) // platform
                 .addCell(keyboardId.variant) // variant
-                .addCell(ULocale.addLikelySubtags(uLocale).getScript()) // script
-                .addCell(getInfo(current2, cldrFile)) // stats
+                .addCell(likelyScript) // script
+                .addCell(getInfo(keyboardId, current2, cldrFile)) // stats
                 .addCell(safeUnicodeSet(remainder)) // characters
                 .finishRow();
                 //                System.out.println(
@@ -208,6 +294,10 @@ public class ShowKeyboards {
             }
         }
         out.println(t.toTable());
+    }
+
+    public static String getLinkedName(String anchor, String anchorText) {
+        return "<a name='" + anchor + "' href='#" + anchor + "'>" + anchorText + "</a>";
     }
 
     static PrettyPrinter prettyPrinter = new PrettyPrinter()
@@ -309,6 +399,7 @@ public class ShowKeyboards {
                 }
                 final TreeMap<String, IdSet> charToKeyboard = charToKeyboards[script];
                 final String scriptName = UScript.getName(script);
+                final String linkedScriptName = getLinkedName(UScript.getShortName(script), scriptName);
                 if (charToKeyboard.size() == 0) {
                     missingScripts.add(scriptName);
                     continue;
@@ -316,15 +407,15 @@ public class ShowKeyboards {
 
                 // also check to see that at least one item is not all common
                 check:
-                if (script != UScript.COMMON && script != UScript.INHERITED) {
-                    for (String s : charToKeyboard.keySet()) {
-                        if (!COMMONINHERITED.containsAll(s)) {
-                            break check;
+                    if (script != UScript.COMMON && script != UScript.INHERITED) {
+                        for (String s : charToKeyboard.keySet()) {
+                            if (!COMMONINHERITED.containsAll(s)) {
+                                break check;
+                            }
                         }
+                        missingScripts.add(scriptName);
+                        continue;
                     }
-                    missingScripts.add(scriptName);
-                    continue;
-                }
 
                 String last = "";
                 for (Entry<String, IdSet> entry : charToKeyboard.entrySet()) {
@@ -340,7 +431,7 @@ public class ShowKeyboards {
                             name = "[no name]";
                         }
                         t.addRow()
-                        .addCell(scriptName)
+                        .addCell(linkedScriptName)
                         .addCell(TransliteratorUtilities.toHTML.transform(s))
                         .addCell(Utility.hex(s, 4, " + "))
                         .addCell(name)
@@ -358,7 +449,7 @@ public class ShowKeyboards {
                     //                        inScript = new UnicodeSet("[[:sc=" + UScript.getShortName(script) + ":]-" + fullScript.toPattern(false) + "]");
                     //                    }
                     t.addRow()
-                    .addCell(scriptName)
+                    .addCell(linkedScriptName)
                     .addCell("")
                     .addCell(String.valueOf(inScript.size()))
                     .addCell("missing (NFKC)!")
@@ -377,7 +468,7 @@ public class ShowKeyboards {
         }
     }
 
-    private static String getInfo(UnicodeSet common, CLDRFile cldrFile) {
+    private static String getInfo(Id keyboardId, UnicodeSet common, CLDRFile cldrFile) {
         Counter<String> results = new Counter<String>();
         for (String s : common) {
             int first = s.codePointAt(0); // first char is good enough
@@ -388,27 +479,56 @@ public class ShowKeyboards {
         results.remove("Zzzz");
 
         if (cldrFile != null) {
-            UnicodeSet mainExemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars = new UnicodeSet(cldrFile.getExemplarSet("", WinningChoice.WINNING));
             UnicodeSet auxExemplars = cldrFile.getExemplarSet("auxiliary", WinningChoice.WINNING);
-            if (auxExemplars != null && auxExemplars.size() != 0) {
-                addComparison("aux", common, new UnicodeSet(auxExemplars).addAll(mainExemplars), results);
-            } else {
-                addComparison("main", common, mainExemplars, results);
+            if (auxExemplars != null) {
+                exemplars.addAll(auxExemplars);
             }
+            UnicodeSet punctuationExemplars = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
+            if (punctuationExemplars != null) {
+                exemplars.addAll(punctuationExemplars);
+            }
+            exemplars.addAll(getNumericExemplars(cldrFile));
+            exemplars.add(" ");
+            addComparison(keyboardId, common, exemplars, results);
         }
-
-        return results.toString();
+        StringBuilder b = new StringBuilder();
+        for (String entry : results.keySet()) {
+            if (b.length() != 0) {
+                b.append(", ");
+            }
+            b.append(entry).append(":").append(results.get(entry));
+        }
+        return b.toString();
     }
 
-    private static void addComparison(String title, UnicodeSet keyboard, UnicodeSet exemplars,
+    private static void addComparison(Id keyboardId, UnicodeSet keyboard, UnicodeSet exemplars,
             Counter<String> results) {
         UnicodeSet common = new UnicodeSet(keyboard).retainAll(exemplars);
-        if (common.size() != 0) results.add("k=" + title, common.size());
+        if (common.size() != 0) {
+            results.add("k∩cldr", common.size());
+        }
         common = new UnicodeSet(keyboard).removeAll(exemplars);
-        if (common.size() != 0) results.add("k−" + title, common.size());
-        common = new UnicodeSet(exemplars).removeAll(keyboard);
-        if (common.size() != 0) results.add(title + "−k", common.size());
+        if (common.size() != 0) {
+            results.add("k‑cldr", common.size());
+            if (keyboardId != null) {
+                common.remove(0,0x7F); // don't care much about ASCII.
+                logInfo.put(Row.of("k-cldr\t" + keyboardId.getBaseLanguage(), common), keyboardId);
+                // Log.logln(keyboardId + "\tk-cldr\t" + common.toPattern(false));
+            }
+        }
+        common = new UnicodeSet(exemplars).removeAll(keyboard).remove("ss");
+        if (common.size() != 0) {
+            results.add("cldr‑k", common.size());
+            if (keyboardId != null && SKIP_LOG.containsNone(common)) {
+                logInfo.put(Row.of("cldr‑k\t" + keyboardId.getBaseLanguage(), common), keyboardId);
+                //Log.logln(keyboardId + "\tcldr‑k\t" + common.toPattern(false));
+            }
+        }
     }
+    
+    static final UnicodeSet SKIP_LOG = new UnicodeSet("[가一]").freeze();
+    static Relation<Row.R2<String,UnicodeSet>, Id> logInfo = Relation.of(new TreeMap(), TreeSet.class);
 
     static class Id implements Comparable<Id> {
         final String locale;
@@ -448,6 +568,10 @@ public class ShowKeyboards {
         public String toString() {
             return locale + "/" + platform + "/" + variant;
         }
+        public String getBaseLanguage() {
+            int pos = locale.indexOf('-');
+            return pos < 0 ? locale : locale.substring(0,pos);
+        }
     }
 
     static class IdSet {
@@ -458,6 +582,11 @@ public class ShowKeyboards {
                 data.put(id.platform, platform2variant = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class));
             }
             platform2variant.put(id.locale, id.variant);
+        }
+        public void addAll(Collection<Id> idSet) {
+            for (Id id : idSet) {
+                add(id);
+            }
         }
         public String toString(IdSet allIds) {
             if (this.equals(allIds)) {
@@ -565,4 +694,34 @@ public class ShowKeyboards {
     //        }
     //        return results;
     //    }
+    static UnicodeSet getNumericExemplars(CLDRFile file) {
+        UnicodeSet results = new UnicodeSet();
+        String defaultNumberingSystem = file.getStringValue("//ldml/numbers/defaultNumberingSystem");
+        String nativeNumberingSystem = file.getStringValue("//ldml/numbers/otherNumberingSystems/native");
+        // "//ldml/numbers/otherNumberingSystems/native"
+        addNumberingSystem(file, results, "latn");
+        if (!defaultNumberingSystem.equals("latn")) {
+            addNumberingSystem(file, results, defaultNumberingSystem);
+        }
+        if (!nativeNumberingSystem.equals("latn") && !nativeNumberingSystem.equals(defaultNumberingSystem)) {
+            addNumberingSystem(file, results, nativeNumberingSystem);
+        }
+        return results;
+    }
+
+    public static void addNumberingSystem(CLDRFile file, UnicodeSet results, String numberingSystem) {
+        String digits = supplementalDataInfo.getDigits(numberingSystem);
+        results.addAll(digits);
+        addSymbol(file, numberingSystem, "decimal", results);
+        addSymbol(file, numberingSystem, "group", results);
+        addSymbol(file, numberingSystem, "minusSign", results);
+        addSymbol(file, numberingSystem, "percentSign", results);
+        addSymbol(file, numberingSystem, "plusSign", results);
+    }
+
+    public static void addSymbol(CLDRFile file, String numberingSystem, String key, UnicodeSet results) {
+        String symbol = file.getStringValue("//ldml/numbers/symbols[@numberSystem=\"" + numberingSystem + "\"]/" +
+        		key);
+        results.add(symbol);
+    }
 }

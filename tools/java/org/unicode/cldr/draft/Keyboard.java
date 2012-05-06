@@ -205,6 +205,9 @@ public class Keyboard {
             this.transformStatus = transformStatus;
             this.gestures = Collections.unmodifiableMap(gestures); // TODO make lists unmodifiable
         }
+        public String toString() {
+            return "{" + output + "," + transformStatus + ", " + gestures + "}";
+        }
     }
 
     public static class KeyMap {
@@ -216,6 +219,9 @@ public class Keyboard {
         }
         public KeyboardModifierSet getModifiers() {
             return modifiers;
+        }
+        public String toString() {
+            return "{" + modifiers + "," + iso2output + "}";
         }
     }
 

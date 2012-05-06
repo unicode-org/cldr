@@ -1,11 +1,14 @@
 package org.unicode.cldr.tool;
 
+import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.tool.ShowKeyboards.MyOptions;
 
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
@@ -17,6 +20,7 @@ public class Option {
     private final Pattern match;
     private final String defaultArgument;
     private final String helpString;
+    private final Enum<?> optionEnumValue;
     private boolean doesOccur;
     private String value;
     //private boolean implicitValue;
@@ -51,7 +55,7 @@ public class Option {
         return doesOccur;
     }
 
-    public Option(String tag, Character flag, Pattern argumentPattern, String defaultArgument, String helpString) {
+    private Option(Enum<?> enumOption, String tag, Character flag, Pattern argumentPattern, String defaultArgument, String helpString) {
         if (defaultArgument != null && argumentPattern != null) {
             if (!argumentPattern.matcher(defaultArgument).matches()) {
                 throw new IllegalArgumentException("Default argument doesn't match pattern: " + defaultArgument + ", " + argumentPattern);
@@ -62,6 +66,7 @@ public class Option {
         this.tag = tag;
         this.flag = flag;
         this.defaultArgument = defaultArgument;
+        optionEnumValue = null;
     }
 
     public String toString() {
@@ -96,6 +101,7 @@ public class Option {
 
         private String mainMessage;
         final Map<String, Option> stringToValues = new LinkedHashMap<String, Option>();
+        final Map<Enum<?>, Option> enumToValues = new LinkedHashMap<Enum<?>, Option>();
         final Map<Character, Option> charToValues = new LinkedHashMap<Character, Option>();
         final Set<String> results = new LinkedHashSet<String>();
         {
@@ -123,19 +129,34 @@ public class Option {
             return add(string, string.charAt(0), argumentPattern, defaultArgument, helpText);
         }
 
+        public Option add(Enum<?> optionEnumValue, String argumentPattern,String defaultArgument, String helpText) {
+            add(optionEnumValue, optionEnumValue.name(), optionEnumValue.name().charAt(0), argumentPattern, defaultArgument, helpText);
+            return get(optionEnumValue.name());
+            // TODO cleanup
+        }
+        
         public Options add(String string, Character flag, String argumentPattern, String defaultArgument, String helpText) {
+            return add(null, string, flag, argumentPattern, defaultArgument, helpText);
+        }
+
+        public Options add(Enum<?> optionEnumValue, String string, Character flag, String argumentPattern, String defaultArgument, String helpText) {
             if (stringToValues.containsKey(string)) {
                 throw new IllegalArgumentException("Duplicate tag <" + string + "> with " + stringToValues.get(string));
             }
             if (charToValues.containsKey(flag)) {
                 throw new IllegalArgumentException("Duplicate tag <" + string + ", " + flag + "> with " + charToValues.get(flag));
             }
-            Option option = new Option(string, flag, 
-                    argumentPattern == null ? null : Pattern.compile(argumentPattern, Pattern.COMMENTS), 
-                            defaultArgument, helpText);
+            Option option = new Option(optionEnumValue, string, flag, 
+                            argumentPattern == null ? null : Pattern.compile(argumentPattern, Pattern.COMMENTS), 
+                                    defaultArgument, helpText);
             stringToValues.put(string, option);
+            enumToValues.put(optionEnumValue, option);
             charToValues.put(flag, option);
             return this;
+        }
+        
+        public Set<String> parse(Enum<?> enumOption, String[] args, boolean showArguments) {
+            return parse(args, showArguments);
         }
 
         public Set<String> parse(String[] args, boolean showArguments) {
@@ -240,6 +261,14 @@ public class Option {
             Option result = stringToValues.get(string);
             if (result == null) {
                 throw new IllegalArgumentException("Unknown option: " + string);
+            }
+            return result;
+        }
+
+        public Option get(Enum<?> enumOption) {
+            Option result = enumToValues.get(enumOption);
+            if (result == null) {
+                throw new IllegalArgumentException("Unknown option: " + enumOption);
             }
             return result;
         }

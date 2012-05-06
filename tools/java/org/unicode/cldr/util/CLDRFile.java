@@ -1880,7 +1880,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     boolean haveScript = false;
     boolean haveRegion = false;
     // try lang+script
-    if ((isCompound && onlyConstructCompound)) {
+    if (onlyConstructCompound) {
       name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
       if (name == null) name = original;
     } else {
@@ -2331,6 +2331,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     return getExemplarSet(type, winningChoice, UnicodeSet.CASE);
   }
   
+  static final UnicodeSet HACK_CASE_CLOSURE_SET = new UnicodeSet("[ſẛ\u1F71\u1F73\u1F75\u1F77\u1F79\u1F7B\u1F7D\u1FBB\u1FBE\u1FC9\u1FCB\u1FD3\u1FDB\u1FE3\u1FEB\u1FF9\u1FFB\u2126\u212A\u212B]").freeze();
+  
   public UnicodeSet getExemplarSet(String type, WinningChoice winningChoice, int option) {
     if (type.length() != 0) type = "[@type=\"" + type + "\"]";
     String path = "//ldml/characters/exemplarCharacters" + type;
@@ -2339,7 +2341,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
     String v = getStringValue(path);
     if (v == null) return null;
-    UnicodeSet result = new UnicodeSet(v, option);
+    UnicodeSet result = new UnicodeSet(v);
+    UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
+    result.closeOver(UnicodeSet.CASE);
+    result.removeAll(toNuke);
     result.remove(0x20);
     return result;
   }

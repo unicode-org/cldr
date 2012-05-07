@@ -489,6 +489,7 @@ public class ShowKeyboards {
                 exemplars.addAll(punctuationExemplars);
             }
             exemplars.addAll(getNumericExemplars(cldrFile));
+            exemplars.addAll(getQuotationMarks(cldrFile));
             exemplars.add(" ");
             addComparison(keyboardId, common, exemplars, results);
         }
@@ -694,6 +695,19 @@ public class ShowKeyboards {
     //        }
     //        return results;
     //    }
+    
+  
+    static UnicodeSet getQuotationMarks(CLDRFile file) {
+        UnicodeSet results = new UnicodeSet();
+        // TODO should have a test to make sure these are in exemplars.
+        results.add(file.getStringValue("//ldml/delimiters/quotationEnd"));
+        results.add(file.getStringValue("//ldml/delimiters/quotationStart"));
+        results.add(file.getStringValue("//ldml/delimiters/alternateQuotationEnd"));
+        results.add(file.getStringValue("//ldml/delimiters/alternateQuotationStart"));
+        return results;
+    }
+    
+    // TODO Add as utility to CLDRFile
     static UnicodeSet getNumericExemplars(CLDRFile file) {
         UnicodeSet results = new UnicodeSet();
         String defaultNumberingSystem = file.getStringValue("//ldml/numbers/defaultNumberingSystem");

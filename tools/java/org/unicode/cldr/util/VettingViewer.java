@@ -32,6 +32,7 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.Factory.PathHeaderTransform;
 import org.unicode.cldr.util.PathHeader.Factory.RawData;
+import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
@@ -904,6 +905,10 @@ public class VettingViewer<T> {
     };
 
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
+        generateSummaryHtmlErrorTables(output, choices, includeLocale, null);
+    }
+    
+    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale, Organization organization) {
         try {
             output.append("<p>The following summarizes the issues across locales. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
             // Gather the relevant paths

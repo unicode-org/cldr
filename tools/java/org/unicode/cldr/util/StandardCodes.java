@@ -281,6 +281,7 @@ public class StandardCodes {
 
     /**
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
+     * A locale of "*" in the data means "everything else".
      */
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
         synchronized (StandardCodes.class) {
@@ -298,6 +299,13 @@ public class StandardCodes {
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
         return Level.UNDETERMINED;
+    }
+
+    /**
+     * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
+     */
+    public Level getDefaultLocaleCoverageLevel(String organization) {
+        return getLocaleCoverageLevel(organization, "*");
     }
 
     public Set<String> getLocaleCoverageOrganizations() {
@@ -321,6 +329,8 @@ public class StandardCodes {
     private void loadPlatformLocaleStatus() {
         LocaleIDParser parser = new LocaleIDParser();
         platform_locale_level = new TreeMap(caseless);
+        SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
+        Set<String> defaultContentLocales = sd.getDefaultContentLocales();
         String line;
         try {
             BufferedReader lstreg = CldrUtility.getUTF8Data("Locales.txt");
@@ -335,7 +345,26 @@ public class StandardCodes {
                     continue;
                 List stuff = CldrUtility.splitList(line, ';', true);
                 String organization = (String) stuff.get(0);
+                
+                // verify that the organization is valid
+                VoteResolver.Organization.valueOf(organization.toLowerCase(Locale.ENGLISH));
+                
+                // verify that the locale is valid BCP47
                 String locale = (String) stuff.get(1);
+                if (!locale.equals("*")) {
+                    parser.set(locale);
+                    String valid = validate(parser);
+                    if (valid.length() != 0) {
+                        throw new IllegalArgumentException("Cannot invalid locale in Locales.txt: " + line);
+                    }
+                    locale = parser.toString(); // normalize
+
+                    // verify that the locale is not a default content locale
+                    if (defaultContentLocales.contains(locale)) {
+                        throw new IllegalArgumentException("Cannot have default content locale in Locales.txt: " + line);
+                    }
+                }
+
                 Level status = Level.get((String) stuff.get(2));
                 if (status == Level.UNDETERMINED) {
                     System.out.println("Warning: Level unknown on: " + line);
@@ -344,12 +373,6 @@ public class StandardCodes {
                 if (locale_status == null) {
                     platform_locale_level.put(organization, locale_status = new TreeMap());
                 }
-                parser.set(locale);
-                String valid = validate(parser);
-                if (valid.length() != 0) {
-                    System.out.println("Warning: " + valid + "; " + line);
-                }
-                locale = parser.toString(); // normalize
                 locale_status.put(locale, status);
                 String scriptLoc = parser.getLanguageScript();
                 if (locale_status.get(scriptLoc) == null)

@@ -904,13 +904,17 @@ public class VettingViewer<T> {
         }
     };
 
+    /**
+     * @deprecated
+     */
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
         generateSummaryHtmlErrorTables(output, choices, includeLocale, null);
     }
     
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale, Organization organization) {
         try {
-            output.append("<p>The following summarizes the issues across locales. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
+            
+            output.append("<p>The following summarizes the Priority Items across locales, using the default coverage level for your organization for each locale. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
             // Gather the relevant paths
             // each one will be marked with the choice that it triggered.
             Counter<Choice> problemCounter = new Counter<Choice>();
@@ -939,7 +943,6 @@ public class VettingViewer<T> {
 
             for (String localeID : cldrFactory.getAvailable()) {
                 if (defaultContentLocales.contains(localeID) 
-                        || localeID.equals("en") 
                         || !includeLocale.is(localeID)) {
                     continue;
                 }
@@ -949,6 +952,7 @@ public class VettingViewer<T> {
 
             char lastChar = ' ';
             for (Entry<String, String> entry : sortedNames.entrySet()) {
+                System.out.println(entry);
                 String name = entry.getKey();
                 String localeID = entry.getValue();
                 // Initialize
@@ -962,7 +966,11 @@ public class VettingViewer<T> {
                 }
 
                 problemCounter.clear();
-                getFileInfo(sourceFile, lastSourceFile, null, problemCounter, choices, localeID, true, null, Level.MODERN);
+                Level level = Level.MODERN;
+                if (organization != null) {
+                    level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
+                }
+                getFileInfo(sourceFile, lastSourceFile, null, problemCounter, choices, localeID, true, null, level);
 
                 char nextChar = name.charAt(0);
                 if (lastChar != nextChar) {
@@ -1427,11 +1435,15 @@ public class VettingViewer<T> {
         //        System.out.println(timer.getDuration() / NANOSECS + " secs");
 
         timer.start();
-        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.newCode);
+        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.newCode, null);
         System.out.println(timer.getDuration() / NANOSECS + " secs");
 
         timer.start();
-        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary);
+        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary, Organization.google);
+        System.out.println(timer.getDuration() / NANOSECS + " secs");
+
+        timer.start();
+        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary, Organization.ibm);
         System.out.println(timer.getDuration() / NANOSECS + " secs");
 
         //        // check that the choices work.
@@ -1450,15 +1462,19 @@ public class VettingViewer<T> {
         /** For a summary view of data **/
         summary}
 
-    private static void writeFile(VettingViewer<Integer> tableView, final EnumSet<Choice> choiceSet, String name, String localeStringID, int userNumericID,
+    private static void writeFile(VettingViewer<Integer> tableView, final EnumSet<Choice> choiceSet, 
+            String name, String localeStringID, int userNumericID,
             Level usersLevel,
-            CodeChoice newCode)
+            CodeChoice newCode, Organization organization)
     throws IOException {
         // open up a file, and output some of the styles to control the table
         // appearance
 
-        PrintWriter out = BagFormatter.openUTF8Writer(myOutputDir, "vettingView" + name + 
-                (newCode == CodeChoice.newCode ? "" : newCode == CodeChoice.summary ? "Summary" : "") + ".html");
+        PrintWriter out = BagFormatter.openUTF8Writer(myOutputDir, "vettingView" 
+                + name
+                + (newCode == CodeChoice.newCode ? "" : newCode == CodeChoice.summary ? "-summary" : "")
+                + (organization == null ? "" : "-" + organization.toString())
+                + ".html");
         FileUtilities.appendFile(VettingViewer.class, "vettingViewerHead.txt", out);
         out.append(getHeaderStyles());
         out.append("</head><body>\n");
@@ -1491,7 +1507,7 @@ public class VettingViewer<T> {
             //            tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
             //            break;
         case summary:
-            tableView.generateSummaryHtmlErrorTables(out, choiceSet, HackIncludeLocalesWithVotes);
+            tableView.generateSummaryHtmlErrorTables(out, choiceSet, HackIncludeLocalesWithVotes, organization);
             break;
         }
         out.println("</body>\n</html>\n");

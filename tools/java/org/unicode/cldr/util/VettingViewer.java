@@ -983,7 +983,7 @@ public class VettingViewer<T> {
                 output.append("<th class='tv-th' style='text-align:left'>" +
                         "<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
                         .append(localeID)
-                        .append("&x=r_vetting'>")
+                        .append("&x=r_vetting&p_covlev=default'>")
                         .append(TransliteratorUtilities.toHTML.transform(name.replace('\uFFFE', ' ')))
                         .append("</a></th>\n");
                 for (Choice choice : choices) {

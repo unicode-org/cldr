@@ -292,6 +292,47 @@ public class VettingViewerQueue {
 	        output.append(str);
 	    }
 	}
+        
+        public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess) {
+		String baseUrl = "http://example.com";
+		Level usersLevel;
+		Organization usersOrg;
+		if(ctx!=null) {
+			baseUrl = ctx.base();
+			usersLevel =  Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+		} else {
+			baseUrl = (String)sess.get("BASE_URL");
+			String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);;
+			usersLevel = Level.get(levelString);
+		}
+		usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
+                
+                writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel);
+        }
+        
+        public void writeVettingViewerOutput(CLDRLocale locale, String baseUrl, StringBuffer aBuffer, VoteResolver.Organization usersOrg, Level usersLevel) {
+            SurveyMain sm = CookieSession.sm;
+	    VettingViewer            vv = new VettingViewer<VoteResolver.Organization>(
+		                    sm.getSupplementalDataInfo(), sm.getSTFactory(), sm.getOldFactory(),
+		                    getUsersChoice(sm), "CLDR "+sm.getOldVersion(), "Winning "+sm.getNewVersion());
+		            vv.setBaseUrl(baseUrl);
+					//progress.update("Got VettingViewer");
+					//statusCode = Status.PROCESSING;
+					final long start = System.currentTimeMillis();
+					
+					EnumSet <VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
+
+					if(locale != SUMMARY_LOCALE) {
+						vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true);
+					} else {
+						if(DEBUG) System.err.println("Starting summary gen..");
+						vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, VettingViewer.HackIncludeLocalesWithVotes);
+					}
+					/*if(running()) {
+						aBuffer.append("<hr/>"+PRE+"Processing time: "+ElapsedTimer.elapsedTime(start)+POST );
+						entry.output.put(locale, aBuffer);
+					}*/
+        }
 	
 	/**
 	 * Return the status of the vetting viewer output request. 
@@ -430,9 +471,16 @@ public class VettingViewerQueue {
         }
         return box;
     }
-    private UsersChoice<VoteResolver.Organization> getUsersChoice(final SurveyMain sm) { 
+    private UsersChoice<VoteResolver.Organization> getUsersChoice(final SurveyMain sm) {
+        return new STUsersChoice(sm);
+    }
+    
+    private class STUsersChoice implements UsersChoice<VoteResolver.Organization> {
+        private final SurveyMain sm;
+        STUsersChoice(final SurveyMain msm) {
+            this.sm = msm;
+        }
     	final Map<CLDRLocale,DataTester> testMap = new HashMap<CLDRLocale,DataTester>();
-        return new UsersChoice<VoteResolver.Organization>() {
             private DataTester getTester(CLDRLocale loc) {
             	DataTester tester = testMap.get(loc);
             	if(tester==null) {
@@ -451,16 +499,15 @@ public class VettingViewerQueue {
                 return ballotBox.getResolver(path).getOrgVote(user);
             }
             
-            //@Override
+            @Override
             public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, VoteResolver.Organization orgOfUser) {
                 CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
                 BallotBox<User> ballotBox = getBox(sm,loc);
                 return ballotBox.getResolver(path).getStatusForOrganization(orgOfUser);
             }
-        };
     }
     
     private static int totalUsersWaiting(SurveyThread st) {
     	return (st.tasksRemaining(Task.class));
     }
-}
+} 

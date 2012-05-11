@@ -34,21 +34,33 @@ if(subCtx.userId() == UserRegistry.NO_USER) {
     out.println("<i>You must be logged in to use this function.</i>");
 } else 
 {
+    
+    if(false) { // HIDE THE REFRESH BUTTON
 	%>
 		<form action="<%= topCtx.url() %>" method="POST">
 			<input type='hidden' value='t' name='VVFORCERESTART'/>
 			<label>To regenerate this page, click <input type='submit' value='Refresh Values'/> <i>You must do this to reflect changes to your coverage level.</i></label>
 		</form>
 	<%
-	
+           } // END THE REFRESH BUTTON
+    
 	VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
 	boolean forceRestart = subCtx.hasField("VVFORCERESTART");
 	
 	
 	subCtx.println("<div id='vvupd'>");
-    VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx,null,subCtx.getLocale(),status, 
-				forceRestart?VettingViewerQueue.LoadingPolicy.FORCERESTART:VettingViewerQueue.LoadingPolicy.START,subCtx);
-	subCtx.println("<br/> Status: " + status[0]);
+        
+       if(false) {    
+        VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx,null,subCtx.getLocale(),status, 
+                                    forceRestart?VettingViewerQueue.LoadingPolicy.FORCERESTART:VettingViewerQueue.LoadingPolicy.START,subCtx);
+
+
+        subCtx.println("<br/> Status: " + status[0]);
+       } else {
+            StringBuffer sb = new StringBuffer();
+            VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx.getLocale(), sb, subCtx, subCtx.session);
+            subCtx.println(sb.toString());
+       }
 	subCtx.println("</div>");
 	if(status[0]==VettingViewerQueue.Status.PROCESSING || status[0]==VettingViewerQueue.Status.WAITING ) {
 	//	out.println("<meta http-equiv=\"refresh\" content=\"5\">");

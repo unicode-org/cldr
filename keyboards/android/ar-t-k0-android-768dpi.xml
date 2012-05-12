@@ -4,7 +4,7 @@
 	<version platform='4.0' number='$Revision$'/>
 	<generation date='$Date$'/>
 	<names>
-		<name value='ar'/>
+		<name value='ar (768dpi)'/>
 	</names>
 	<settings fallback='omit'/>
 	<keyMap>
@@ -15,7 +15,7 @@
 		<map iso="D05" to="ف" longPress="ڤ ڢ ڥ"/> <!-- T -->
 		<map iso="D06" to="غ"/> <!-- Y -->
 		<map iso="D07" to="ع"/> <!-- U -->
-		<map iso="D08" to="ه" longPress="ه\u{200d}"/> <!-- I -->
+		<map iso="D08" to="ه" longPress="ه\u{200D}"/> <!-- I -->
 		<map iso="D09" to="خ"/> <!-- O -->
 		<map iso="D10" to="ح"/> <!-- P -->
 		<map iso="D11" to="ج" longPress="چ"/> <!-- [ -->
@@ -45,7 +45,7 @@
 		<map iso="A02" to="/" longPress="@"/> <!-- (1 key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="،" longPress="؟ ؛ ! : - / &apos; \u{22}"/> <!-- (1 key to right of space)  long=؟ ؛ ! : - / ' "  -->
-		<map iso="A05" to="." longPress="\u{651} \u{652} \u{64c} \u{653} \u{64f} \u{650} \u{64e} \u{64b} ـ \u{64d} \u{654} \u{656} \u{655} \u{670}"/> <!-- (2 keys to right of space)  long=ّ ْ ٌ ٓ ُ ِ َ ً ـ ٍ ٔ ٖ ٕ ٰ  -->
+		<map iso="A05" to="." longPress="\u{651} \u{652} \u{64C} \u{653} \u{64F} \u{650} \u{64E} \u{64B} ـ \u{64D} \u{654} \u{656} \u{655} \u{670}"/> <!-- (2 keys to right of space)  long=ّ ْ ٌ ٓ ُ ِ َ ً ـ ٍ ٔ ٖ ٕ ٰ  -->
 	</keyMap>
 	<keyMap modifiers='opt'>
 		<map iso="D01" to="١" longPress="1"/> <!-- Q  base=ض -->

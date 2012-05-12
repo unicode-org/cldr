@@ -8,7 +8,7 @@
 	</names>
 	<settings fallback='omit'/>
 	<keyMap>
-		<map iso="E00" to="\u{dca}\u{200d}ර"/> <!-- ` -->
+		<map iso="E00" to="\u{DCA}\u{200D}ර"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
 		<map iso="E03" to="3"/>
@@ -21,9 +21,9 @@
 		<map iso="E10" to="0"/>
 		<map iso="E11" to="-"/>
 		<map iso="E12" to="="/>
-		<map iso="D01" to="\u{dd4}"/> <!-- Q  to= ු  -->
+		<map iso="D01" to="\u{DD4}"/> <!-- Q  to= ු  -->
 		<map iso="D02" to="අ"/> <!-- W -->
-		<map iso="D03" to="\u{dd0}"/> <!-- E  to= ැ  -->
+		<map iso="D03" to="\u{DD0}"/> <!-- E  to= ැ  -->
 		<map iso="D04" to="ර"/> <!-- R -->
 		<map iso="D05" to="ඒ"/> <!-- T -->
 		<map iso="D06" to="හ"/> <!-- Y -->
@@ -33,10 +33,10 @@
 		<map iso="D10" to="ච"/> <!-- P -->
 		<map iso="D11" to="ඤ"/> <!-- [ -->
 		<map iso="D12" to=";"/> <!-- ] -->
-		<map iso="C01" to="\u{dca}"/> <!-- A  to= ්  -->
-		<map iso="C02" to="\u{dd2}"/> <!-- S  to= ි  -->
-		<map iso="C03" to="\u{dcf}"/> <!-- D  to= ා  -->
-		<map iso="C04" to="\u{dd9}"/> <!-- F  to= ෙ  -->
+		<map iso="C01" to="\u{DCA}"/> <!-- A  to= ්  -->
+		<map iso="C02" to="\u{DD2}"/> <!-- S  to= ි  -->
+		<map iso="C03" to="\u{DCF}"/> <!-- D  to= ා  -->
+		<map iso="C04" to="\u{DD9}"/> <!-- F  to= ෙ  -->
 		<map iso="C05" to="ට"/> <!-- G -->
 		<map iso="C06" to="ය"/> <!-- H -->
 		<map iso="C07" to="ව"/> <!-- J -->
@@ -44,10 +44,10 @@
 		<map iso="C09" to="ක"/> <!-- L -->
 		<map iso="C10" to="ත"/> <!-- ; -->
 		<map iso="C11" to="."/> <!-- ' -->
-		<map iso="C12" to="\u{200d}"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="\u{200d}"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="\u{200D}"/> <!-- (1 key to right of ') -->
+		<map iso="B00" to="\u{200D}"/> <!-- (1 key to left of Z) -->
 		<map iso="B01" to="&apos;"/> <!-- Z -->
-		<map iso="B02" to="\u{d82}"/> <!-- X  to= ං  -->
+		<map iso="B02" to="\u{D82}"/> <!-- X  to= ං  -->
 		<map iso="B03" to="ජ"/> <!-- C -->
 		<map iso="B04" to="ඩ"/> <!-- V -->
 		<map iso="B05" to="ඉ"/> <!-- B -->
@@ -59,7 +59,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='shift'>
-		<map iso="E00" to="ර\u{dca}\u{200d}"/> <!-- ` -->
+		<map iso="E00" to="ර\u{DCA}\u{200D}"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
 		<map iso="E03" to="$"/> <!-- 3 -->
@@ -72,9 +72,9 @@
 		<map iso="E10" to=")"/> <!-- 0 -->
 		<map iso="E11" to="_"/> <!-- - -->
 		<map iso="E12" to="+"/> <!-- = -->
-		<map iso="D01" to="\u{dd6}"/> <!-- Q  base=ු  to= ූ  -->
+		<map iso="D01" to="\u{DD6}"/> <!-- Q  base=ු  to= ූ  -->
 		<map iso="D02" to="උ"/> <!-- W  base=අ -->
-		<map iso="D03" to="\u{dd1}"/> <!-- E  base=ැ  to= ෑ  -->
+		<map iso="D03" to="\u{DD1}"/> <!-- E  base=ැ  to= ෑ  -->
 		<map iso="D04" to="ඍ"/> <!-- R  base=ර -->
 		<map iso="D05" to="ඔ"/> <!-- T  base=ඒ -->
 		<map iso="D06" to="ශ"/> <!-- Y  base=හ -->
@@ -84,21 +84,21 @@
 		<map iso="D10" to="ඡ"/> <!-- P  base=ච -->
 		<map iso="D11" to="ඥ"/> <!-- [  base=ඤ -->
 		<map iso="D12" to=":"/> <!-- ]  base=; -->
-		<map iso="C01" to="\u{ddf}"/> <!-- A  base=්  to= ෟ  -->
-		<map iso="C02" to="\u{dd3}"/> <!-- S  base=ි  to= ී  -->
-		<map iso="C03" to="\u{dd8}"/> <!-- D  base=ා  to= ෘ  -->
+		<map iso="C01" to="\u{DDF}"/> <!-- A  base=්  to= ෟ  -->
+		<map iso="C02" to="\u{DD3}"/> <!-- S  base=ි  to= ී  -->
+		<map iso="C03" to="\u{DD8}"/> <!-- D  base=ා  to= ෘ  -->
 		<map iso="C04" to="ෆ"/> <!-- F  base=ෙ -->
 		<map iso="C05" to="ඨ"/> <!-- G  base=ට -->
-		<map iso="C06" to="\u{dca}\u{200d}ය"/> <!-- H  base=ය -->
-		<map iso="C07" to="ළ\u{dd4}"/> <!-- J  base=ව  to= ළු  -->
+		<map iso="C06" to="\u{DCA}\u{200D}ය"/> <!-- H  base=ය -->
+		<map iso="C07" to="ළ\u{DD4}"/> <!-- J  base=ව  to= ළු  -->
 		<map iso="C08" to="ණ"/> <!-- K  base=න -->
 		<map iso="C09" to="ඛ"/> <!-- L  base=ක -->
 		<map iso="C10" to="ථ"/> <!-- ;  base=ත -->
 		<map iso="C11" to=","/> <!-- '  base=. -->
-		<map iso="C12" to="\u{a0}"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="\u{a0}"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="\u{A0}"/> <!-- (1 key to right of ') -->
+		<map iso="B00" to="\u{A0}"/> <!-- (1 key to left of Z) -->
 		<map iso="B01" to="\u{22}"/> <!-- Z  base='  to= "  -->
-		<map iso="B02" to="\u{d83}"/> <!-- X  base=ං  to= ඃ  -->
+		<map iso="B02" to="\u{D83}"/> <!-- X  base=ං  to= ඃ  -->
 		<map iso="B03" to="ඣ"/> <!-- C  base=ජ -->
 		<map iso="B04" to="ඪ"/> <!-- V  base=ඩ -->
 		<map iso="B05" to="ඊ"/> <!-- B  base=ඉ -->
@@ -107,7 +107,7 @@
 		<map iso="B08" to="ළ"/> <!-- ,  base=ල -->
 		<map iso="B09" to="ඝ"/> <!-- .  base=ග -->
 		<map iso="B10" to="?"/> <!-- / -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='caps+shift'>
 		<map iso="E01" to="!"/> <!-- 1 -->
@@ -122,9 +122,9 @@
 		<map iso="E10" to=")"/> <!-- 0 -->
 		<map iso="E11" to="_"/> <!-- - -->
 		<map iso="E12" to="+"/> <!-- = -->
-		<map iso="D01" to="\u{dd6}"/> <!-- Q  base=ු  to= ූ  -->
+		<map iso="D01" to="\u{DD6}"/> <!-- Q  base=ු  to= ූ  -->
 		<map iso="D02" to="උ"/> <!-- W  base=අ -->
-		<map iso="D03" to="\u{dd1}"/> <!-- E  base=ැ  to= ෑ  -->
+		<map iso="D03" to="\u{DD1}"/> <!-- E  base=ැ  to= ෑ  -->
 		<map iso="D04" to="ඍ"/> <!-- R  base=ර -->
 		<map iso="D05" to="ඔ"/> <!-- T  base=ඒ -->
 		<map iso="D06" to="ශ"/> <!-- Y  base=හ -->
@@ -134,19 +134,19 @@
 		<map iso="D10" to="ඡ"/> <!-- P  base=ච -->
 		<map iso="D11" to="ඥ"/> <!-- [  base=ඤ -->
 		<map iso="D12" to=":"/> <!-- ]  base=; -->
-		<map iso="C01" to="\u{ddf}"/> <!-- A  base=්  to= ෟ  -->
-		<map iso="C02" to="\u{dd3}"/> <!-- S  base=ි  to= ී  -->
-		<map iso="C03" to="\u{dd8}"/> <!-- D  base=ා  to= ෘ  -->
+		<map iso="C01" to="\u{DDF}"/> <!-- A  base=්  to= ෟ  -->
+		<map iso="C02" to="\u{DD3}"/> <!-- S  base=ි  to= ී  -->
+		<map iso="C03" to="\u{DD8}"/> <!-- D  base=ා  to= ෘ  -->
 		<map iso="C04" to="ෆ"/> <!-- F  base=ෙ -->
 		<map iso="C05" to="ඨ"/> <!-- G  base=ට -->
 		<map iso="C08" to="ණ"/> <!-- K  base=න -->
 		<map iso="C09" to="ඛ"/> <!-- L  base=ක -->
 		<map iso="C10" to="ථ"/> <!-- ;  base=ත -->
 		<map iso="C11" to=","/> <!-- '  base=. -->
-		<map iso="C12" to="\u{a0}"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="\u{a0}"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="\u{A0}"/> <!-- (1 key to right of ') -->
+		<map iso="B00" to="\u{A0}"/> <!-- (1 key to left of Z) -->
 		<map iso="B01" to="\u{22}"/> <!-- Z  base='  to= "  -->
-		<map iso="B02" to="\u{d83}"/> <!-- X  base=ං  to= ඃ  -->
+		<map iso="B02" to="\u{D83}"/> <!-- X  base=ං  to= ඃ  -->
 		<map iso="B03" to="ඣ"/> <!-- C  base=ජ -->
 		<map iso="B04" to="ඪ"/> <!-- V  base=ඩ -->
 		<map iso="B05" to="ඊ"/> <!-- B  base=ඉ -->
@@ -155,10 +155,10 @@
 		<map iso="B08" to="ළ"/> <!-- ,  base=ල -->
 		<map iso="B09" to="ඝ"/> <!-- .  base=ග -->
 		<map iso="B10" to="?"/> <!-- / -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
-		<map iso="C01" to="\u{df3}"/> <!-- A  base=්  to= ෳ  -->
+		<map iso="C01" to="\u{DF3}"/> <!-- A  base=්  to= ෳ  -->
 		<map iso="C11" to="෴"/> <!-- '  base=. -->
 		<map iso="B02" to="ඞ"/> <!-- X  base=ං -->
 		<map iso="B03" to="ඦ"/> <!-- C  base=ජ -->

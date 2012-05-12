@@ -8,7 +8,7 @@
 	</names>
 	<settings fallback='omit' transformPartial='hide'/>
 	<keyMap>
-		<map iso="E00" to="\u{ad}"/> <!-- ` -->
+		<map iso="E00" to="\u{AD}"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
 		<map iso="E03" to="3"/>
@@ -110,7 +110,7 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='caps'>
-		<map iso="E00" to="\u{ad}"/> <!-- ` -->
+		<map iso="E00" to="\u{AD}"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
 		<map iso="E03" to="3"/>
@@ -258,10 +258,10 @@
 		<map iso="B06" to="Õ"/> <!-- N  base=o -->
 	</keyMap>
 	<keyMap modifiers='ctrl+caps?'>
-		<map iso="C12" to="\u{1c}"/> <!-- (1 key to right of ')  base=ķ -->
-		<map iso="B00" to="\u{1c}"/> <!-- (1 key to left of Z)  base=ģ -->
-		<map iso="B01" to="\u{1b}"/> <!-- Z  base=ņ -->
-		<map iso="B03" to="\u{1d}"/> <!-- C  base=ī -->
+		<map iso="C12" to="\u{1C}"/> <!-- (1 key to right of ')  base=ķ -->
+		<map iso="B00" to="\u{1C}"/> <!-- (1 key to left of Z)  base=ģ -->
+		<map iso="B01" to="\u{1B}"/> <!-- Z  base=ņ -->
+		<map iso="B03" to="\u{1D}"/> <!-- C  base=ī -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<transforms type='simple'>

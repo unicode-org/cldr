@@ -93,6 +93,10 @@ public class KeyboardModifierSet {
         return variants.contains(combination);
     }
 
+    public String getInput() {
+        return input;
+    }
+
     @Override
     public String toString() {
         return input + " => " + variants;
@@ -286,5 +290,11 @@ public class KeyboardModifierSet {
             }
         }
         return false;
+    }
+
+    public String getShortInput() {
+        int pos = input.indexOf(' ');
+        if (pos < 0) return input;
+        return input.substring(0,pos)+'…';
     }
 }

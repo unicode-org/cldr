@@ -208,7 +208,7 @@
 		<map iso="B08" to="р"/> <!-- , -->
 		<map iso="B09" to="л"/> <!-- . -->
 		<map iso="B10" to="б"/> <!-- / -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='opt'>
 		<map iso="E00" to="`"/>
@@ -259,7 +259,7 @@
 		<map iso="B08" to=","/> <!--   base=р -->
 		<map iso="B09" to="."/> <!--   base=л -->
 		<map iso="B10" to="/"/> <!--   base=б -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='opt+shift+caps? optL+caps cmd+opt+shiftR+caps?+shiftL? cmd+optR+shift+optL?+caps?'>
 		<map iso="E00" to="~"/> <!-- ` -->
@@ -310,7 +310,7 @@
 		<map iso="B08" to="&lt;"/> <!-- ,  base=р -->
 		<map iso="B09" to="&gt;"/> <!-- .  base=л -->
 		<map iso="B10" to="?"/> <!-- /  base=б -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL? cmd+ctrl+caps+shift+optR? cmd+ctrl+opt+caps+shiftL? cmd+ctrl+opt+caps+shiftR? cmd+ctrlL+opt+caps+shift cmd+ctrlR+opt+caps+shift'>
 		<map iso="E00" to="`" transform="no"/>
@@ -324,7 +324,7 @@
 		<map iso="E08" to="8"/>
 		<map iso="E09" to="9"/>
 		<map iso="E10" to="0"/>
-		<map iso="E11" to="\u{1f}"/> <!-- - -->
+		<map iso="E11" to="\u{1F}"/> <!-- - -->
 		<map iso="E12" to="="/> <!--   base=. -->
 		<map iso="D01" to="\u{11}"/> <!-- Q  base=, -->
 		<map iso="D02" to="\u{17}"/> <!-- W  base=у -->
@@ -334,30 +334,30 @@
 		<map iso="D06" to="\u{19}"/> <!-- Y  base=щ -->
 		<map iso="D07" to="\u{15}"/> <!-- U  base=к -->
 		<map iso="D08" to="\u{9}"/> <!-- I  base=с -->
-		<map iso="D09" to="\u{f}"/> <!-- O  base=д -->
+		<map iso="D09" to="\u{F}"/> <!-- O  base=д -->
 		<map iso="D10" to="\u{10}"/> <!-- P  base=з -->
-		<map iso="D11" to="\u{1b}"/> <!-- [  base=ц -->
-		<map iso="D12" to="\u{1d}"/> <!-- ]  base=; -->
-		<map iso="D13" to="\u{1c}"/> <!-- \  base=( -->
+		<map iso="D11" to="\u{1B}"/> <!-- [  base=ц -->
+		<map iso="D12" to="\u{1D}"/> <!-- ]  base=; -->
+		<map iso="D13" to="\u{1C}"/> <!-- \  base=( -->
 		<map iso="C01" to="\u{1}"/> <!-- A  base=ь -->
 		<map iso="C02" to="\u{13}"/> <!-- S  base=я -->
 		<map iso="C03" to="\u{4}"/> <!-- D  base=а -->
 		<map iso="C04" to="\u{6}"/> <!-- F  base=о -->
 		<map iso="C05" to="\u{7}"/> <!-- G  base=ж -->
 		<map iso="C06" to="\u{8}"/> <!-- H  base=г -->
-		<map iso="C07" to="\u{a}"/> <!-- J  base=т -->
-		<map iso="C08" to="\u{b}"/> <!-- K  base=н -->
-		<map iso="C09" to="\u{c}"/> <!-- L  base=в -->
+		<map iso="C07" to="\u{A}"/> <!-- J  base=т -->
+		<map iso="C08" to="\u{B}"/> <!-- K  base=н -->
+		<map iso="C09" to="\u{C}"/> <!-- L  base=в -->
 		<map iso="C10" to=";"/> <!--   base=м -->
 		<map iso="C11" to="&apos;"/> <!--   base=ч -->
 		<map iso="B00" to="0"/> <!-- (1 key to left of Z)  base=§ -->
-		<map iso="B01" to="\u{1a}"/> <!-- Z  base=ю -->
+		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ю -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=й -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=ъ -->
 		<map iso="B04" to="\u{16}"/> <!-- V  base=э -->
 		<map iso="B05" to="\u{2}"/> <!-- B  base=ф -->
-		<map iso="B06" to="\u{e}"/> <!-- N  base=х -->
-		<map iso="B07" to="\u{d}"/> <!-- M  base=п -->
+		<map iso="B06" to="\u{E}"/> <!-- N  base=х -->
+		<map iso="B07" to="\u{D}"/> <!-- M  base=п -->
 		<map iso="B08" to=","/> <!--   base=р -->
 		<map iso="B09" to="."/> <!--   base=л -->
 		<map iso="B10" to="/"/> <!--   base=б -->
@@ -463,7 +463,7 @@
 		<map iso="B08" to="≤"/> <!-- ,  base=р -->
 		<map iso="B09" to="≥"/> <!-- .  base=л -->
 		<map iso="B10" to="÷"/> <!-- /  base=б -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='cmd+optL+shiftL+caps?'>
 		<map iso="E00" to="`" transform="no"/>
@@ -514,7 +514,7 @@
 		<map iso="B08" to="ш"/> <!-- ,  base=р -->
 		<map iso="B09" to="щ"/> <!-- .  base=л -->
 		<map iso="B10" to="ј"/> <!-- /  base=б -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<transforms type='simple'>
 		<transform from="` " to="`"/>

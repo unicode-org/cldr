@@ -276,10 +276,10 @@
 		<map iso="B08" to="Ç"/> <!-- , -->
 	</keyMap>
 	<keyMap modifiers='ctrl+caps?'>
-		<map iso="D11" to="\u{1b}"/> <!-- [ -->
-		<map iso="D12" to="\u{1d}"/> <!-- ] -->
-		<map iso="C12" to="\u{1c}"/> <!-- (1 key to right of ')  base=\ -->
-		<map iso="B00" to="\u{1c}"/> <!-- (1 key to left of Z)  base=\ -->
+		<map iso="D11" to="\u{1B}"/> <!-- [ -->
+		<map iso="D12" to="\u{1D}"/> <!-- ] -->
+		<map iso="C12" to="\u{1C}"/> <!-- (1 key to right of ')  base=\ -->
+		<map iso="B00" to="\u{1C}"/> <!-- (1 key to left of Z)  base=\ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 	<transforms type='simple'>
@@ -332,7 +332,7 @@
 		<transform from="¨u" to="ü"/>
 		<transform from="¨U" to="Ü"/>
 		<transform from="¨y" to="ÿ"/>
-		<transform from="¨Y" to="\u{9f}"/>
+		<transform from="¨Y" to="\u{9F}"/>
 		<transform from="~ " to="~"/>
 		<transform from="~a" to="ã"/>
 		<transform from="~A" to="Ã"/>

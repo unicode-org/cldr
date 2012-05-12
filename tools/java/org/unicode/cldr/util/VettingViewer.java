@@ -893,9 +893,10 @@ public class VettingViewer<T> {
         }
     }
 
-    public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
+    private static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
         Set<String> hackHasVotes = new HashSet(Arrays.asList(
-                "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
+                "da de el en en_GB es es_419 ja kn kovi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK"
+                //"af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
                 // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
                 .split("\\s")));
         @Override
@@ -1255,12 +1256,12 @@ public class VettingViewer<T> {
                     EnumSet<Choice> choicesForPath = pathInfo.problems;
 
                     if (!header.equals(oldHeader)) {
-                        output.append("<tr class='");
+                        output.append("<tr class='partsection ");
                         Choice.appendRowStyles(choicesForPath, output);
                         output.append("'>\n");
-                        output.append("<td class='vvh' colSpan='6'>");
+                        output.append(" <td class='vvh' colSpan='6'>");
                         output.append(header);
-                        output.append("</td></tr>\n");
+                        output.append("</td>\n</tr>\n");
                         oldHeader = header;
                     }
 
@@ -1297,7 +1298,7 @@ public class VettingViewer<T> {
                     addCell(output, newWinningValue, null, choicesForPath.contains(Choice.missingCoverage) ? "tv-miss" : "tv-win", HTMLType.plain);
                     // Fix?
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                    output.append("<td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='").append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
+                    output.append(" <td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='").append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
                     //                    .append(localeID)
                     //                    .append("&amp;xpath=")
                     //                    .append(percentEscape.transform(path))
@@ -1343,7 +1344,7 @@ public class VettingViewer<T> {
     }
 
     private void addCell(Appendable output, String value, String title, String classValue, HTMLType htmlType) throws IOException {
-        output.append("<td class='")
+        output.append(" <td class='")
         .append(classValue);
         if (value == null) {
             output.append(" tv-null'><i>missing</i></td>");

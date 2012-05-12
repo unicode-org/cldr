@@ -71,7 +71,7 @@
 		<map iso="C10" to="Ø"/> <!-- ;  base=ö -->
 		<map iso="C11" to="Æ"/> <!-- '  base=ä -->
 		<map iso="B00" to="¦"/> <!-- (1 key to left of Z)  base=< -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<keyMap modifiers='altR+caps'>
 		<map iso="E00" to="§"/> <!-- ` -->
@@ -93,15 +93,15 @@
 		<map iso="C10" to="ø"/> <!-- ;  base=ö -->
 		<map iso="C11" to="æ"/> <!-- '  base=ä -->
 		<map iso="B00" to="&lt;"/> <!-- (1 key to left of Z) -->
-		<map iso="A03" to="\u{a0}"/> <!-- space -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 	<transforms type='simple'>
 		<transform from="\u{301}\u{301}" to="´"/> <!--  ́́ → ´ -->
 		<transform from="\u{300}\u{300}" to="`"/> <!--  ̀̀ → ` -->
 		<transform from="\u{301} " to="&apos;"/> <!--  ́  → ' -->
-		<transform from="\u{301}\u{a0}" to="\u{301}"/> <!--  ́  → ́ -->
+		<transform from="\u{301}\u{A0}" to="\u{301}"/> <!--  ́  → ́ -->
 		<transform from="\u{300} " to="`"/> <!--  ̀  → ` -->
-		<transform from="\u{300}\u{a0}" to="\u{300}"/> <!--  ̀  → ̀ -->
+		<transform from="\u{300}\u{A0}" to="\u{300}"/> <!--  ̀  → ̀ -->
 		<transform from="\u{301}æ" to="ǽ"/> <!--  ́æ → ǽ -->
 		<transform from="\u{301}Æ" to="Ǽ"/> <!--  ́Æ → Ǽ -->
 		<transform from="\u{301}ø" to="ǿ"/> <!--  ́ø → ǿ -->

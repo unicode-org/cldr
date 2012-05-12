@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -15,11 +16,14 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.unicode.cldr.draft.Keyboard.Iso;
+import org.unicode.cldr.draft.Keyboard.IsoRow;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
@@ -33,12 +37,20 @@ public class Keyboard {
 
     private static final String BASE = CldrUtility.BASE_DIRECTORY + "keyboards/";
 
+    public enum IsoRow {
+        E, D, C, B, A;
+    }
+    
     public enum Iso {
         E00, E01, E02, E03, E04, E05, E06, E07, E08, E09, E10, E11, E12, E13,
         D00, D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, 
         C00, C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13,
         B00, B01, B02, B03, B04, B05, B06, B07, B08, B09, B10, B11, B12, B13,
         A00, A01, A02, A03, A04, A05, A06, A07, A08, A09, A10, A11, A12, A13;
+        public final IsoRow isoRow;
+        Iso() {
+            isoRow = IsoRow.valueOf(name().substring(0,1));
+        }
     }
     // add whatever is needed
 
@@ -145,8 +157,17 @@ public class Keyboard {
         this.keyMaps = Collections.unmodifiableSet(keyMaps);
         this.transforms = Collections.unmodifiableMap(transforms);
     }
+    
+    public static Keyboard getKeyboard(String keyboardId, Set<String> errors) {
+        int pos = keyboardId.indexOf("-t-k0-") + 6;
+        int pos2 = keyboardId.indexOf('-', pos);
+        if (pos2 < 0) {
+            pos2 = keyboardId.length();
+        }
+        return getKeyboard(keyboardId.substring(pos,pos2), keyboardId, errors);      
+    }
 
-    public static Keyboard getKeyboard(String platformId, String keyboardId, Set<String> errors) {
+    private static Keyboard getKeyboard(String platformId, String keyboardId, Set<String> errors) {
         final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
         try {
             final KeyboardHandler keyboardHandler = new KeyboardHandler();
@@ -205,6 +226,15 @@ public class Keyboard {
             this.transformStatus = transformStatus;
             this.gestures = Collections.unmodifiableMap(gestures); // TODO make lists unmodifiable
         }
+        public String getOutput() {
+            return output;
+        }
+        public TransformStatus getTransformStatus() {
+            return transformStatus;
+        }
+        public Map<Gesture, List<String>> getGestures() {
+            return gestures;
+        }
         public String toString() {
             return "{" + output + "," + transformStatus + ", " + gestures + "}";
         }
@@ -220,6 +250,9 @@ public class Keyboard {
         public KeyboardModifierSet getModifiers() {
             return modifiers;
         }
+        public Map<Iso, Output> getIso2Output() {
+            return iso2output;
+        }
         public String toString() {
             return "{" + modifiers + "," + iso2output + "}";
         }
@@ -229,6 +262,16 @@ public class Keyboard {
         final Map<String,String> string2string;
         public Transforms(Map<String, String> data) {
             this.string2string = data;
+        }
+        public Map<String, String> getMatch(String prefix) {
+            Map<String, String> results = new LinkedHashMap<String, String>();
+            for (Entry<String, String> entry : string2string.entrySet()) {
+                String key = entry.getKey();
+                if (key.startsWith(prefix)) {
+                    results.put(key.substring(prefix.length()), entry.getValue());
+                }
+            }
+            return results;
         }
     }
 
@@ -347,6 +390,7 @@ public class Keyboard {
         XPathParts parts = new XPathParts();
 
         public Keyboard getKeyboard(Set<String> errors) {
+            // finish everything off
             addToKeyMaps();
             if (currentType != null) {
                 transformMap.put(currentType, new Transforms(currentTransforms));
@@ -434,6 +478,9 @@ public class Keyboard {
                 if (item.modifiers.containsSome(keyMapModifiers)) {
                     errors.add("Modifier overlap: " + item.modifiers + " already contains " + keyMapModifiers);
                 }
+                if (item.iso2output.equals(iso2output)) {
+                    errors.add("duplicate keyboard: " + item.modifiers + " has same layout as " + keyMapModifiers);
+                }
             }
             keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
         }
@@ -496,4 +543,5 @@ public class Keyboard {
             return new Output(chars, gestures, transformStatus);
         };
     }
+
 }

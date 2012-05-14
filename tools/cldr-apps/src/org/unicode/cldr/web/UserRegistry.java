@@ -294,6 +294,15 @@ public class UserRegistry {
                         ( UserRegistry.userIsTC(this) && (other!=null) && this.org.equals(other.org)); 
             return adminOrRelevantTc;
         }
+        /**
+         * Is this user an administrator 'over' this user?  Always true if admin, orif TC in same org. 
+         * @param other
+         */
+        public boolean isAdminForOrg(String org) {
+            boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) || 
+                        ( UserRegistry.userIsTC(this) && (org!=null) && this.org.equals(org)); 
+            return adminOrRelevantTc;
+        }
         @Override
         public int compareTo(User other) {
             if(other==this || other.equals(this)) return 0;
@@ -302,6 +311,10 @@ public class UserRegistry {
             } else {
                 return 1;
             }
+        }
+
+        VoteResolver.Organization vrOrg() {
+            return VoteResolver.Organization.fromString(voterOrg());
         }
     }
         
@@ -1063,13 +1076,15 @@ public class UserRegistry {
     	String result = null;
     	Connection conn = null;
     	//        try {
-    	logger.info("UR: Attempt getPassword by " + ctx.session.user.email + ": of #" + theirId);
-    	try {
+        if(ctx!=null) {
+        	logger.info("UR: Attempt getPassword by " + ctx.session.user.email + ": of #" + theirId);
+        }
+        try {
     		conn = DBUtils.getInstance().getDBConnection();
     		s = conn.createStatement();
     		rs = s.executeQuery("SELECT password FROM " + CLDR_USERS + " WHERE id=" + theirId);
     		if(!rs.next()) {
-    			ctx.println("Couldn't find user.");
+    			if(ctx!=null) ctx.println("Couldn't find user.");
     			return null;
     		}
     		result = rs.getString(1);
@@ -1079,10 +1094,10 @@ public class UserRegistry {
     		}                
     	} catch (SQLException se) {
     		logger.severe("UR:  exception: " + DBUtils.unchainSqlException(se));
-    		ctx.println(" An error occured: " + DBUtils.unchainSqlException(se));
+    		if(ctx!=null) ctx.println(" An error occured: " + DBUtils.unchainSqlException(se));
     	} catch (Throwable t) {
     		logger.severe("UR:  exception: " + t.toString());
-    		ctx.println(" An error occured: " + t.toString());
+    		if(ctx!=null) ctx.println(" An error occured: " + t.toString());
         } finally  {
         	DBUtils.close(s,conn);
         }

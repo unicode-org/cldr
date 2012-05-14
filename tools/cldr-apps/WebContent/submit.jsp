@@ -23,17 +23,27 @@
 	CLDRFile cf = null;
 
 	String sid = request.getParameter("s");
+        String email = request.getParameter("email");
 	final CookieSession cs = CookieSession.retrieve(sid);
-	if (cs == null) {
+	if (cs == null||cs.user==null) {
 		response.sendRedirect(request.getContextPath() + "/survey");
 		return;
 	}
+        UserRegistry.User theirU = cs.sm.reg.get(email.trim());
+        if(theirU==null || (!theirU.equals(cs.user) && !cs.user.isAdminFor(theirU))) {
+		response.sendRedirect(request.getContextPath()+"/upload.jsp?s="+sid+"&email="+email.trim()+"&emailbad=t");
+		return;
+        }
 	boolean isSubmit = true;
+        
+        String ident = "";
+        if(theirU.id!=cs.user.id) {
+            ident="&email="+theirU.email+"&pw="+cs.sm.reg.getPassword(null, theirU.id);
+        }
 
 	boolean doFinal = (request.getParameter("dosubmit") != null);
 
-	String title = isSubmit ? "Submitted As You"
-			: "Submitted As Your Org";
+	String title = "Submitted as " + theirU.email;
 
 	if (!doFinal) {
 		title = title + " <i>(Trial)</i>";
@@ -78,7 +88,7 @@
 </head>
 <body>
 
-	<a href="upload.jsp?s=<%=sid%>">Re-Upload File/Try Another</a> |
+	<a href="upload.jsp?s=<%=sid%>&email=<%= theirU.email %>">Re-Upload File/Try Another</a> |
 	<a href="<%=request.getContextPath()%>/survey">Return to the
 		SurveyTool <img src='STLogo.png' style='float: right;' />
 	</a>
@@ -87,13 +97,21 @@
 		SurveyTool File Submission |
 		<%=title%>
 		|
-		<%=cs.user.name%></h3>
+		<%=theirU.name%></h3>
 
 	<i>Checking upload...</i>
 
 	<%
 		final CLDRLocale loc = CLDRLocale.getInstance(cf.getLocaleID());
+                
+                if(!ident.isEmpty()) {
 	%>
+        <div class='fnotebox'>
+                Note: Clicking the following links will switch to the user <%= theirU.email %>
+        </div>
+        <%
+                        }
+        %>
 
 	<h3>
 		Locale:
@@ -130,8 +148,9 @@
 	</div>
 	<form action='<%=request.getContextPath() + request.getServletPath()%>'
 		method='POST'>
-		<input type='hidden' name='s' value='<%=sid%>' /> <input
-			type='submit' name='dosubmit' value='Really Submit As My Vote' />
+		<input type='hidden' name='s' value='<%=sid%>' />
+                <input type='hidden' name='email' value='<%=theirU.email%>' /><input
+			type='submit' name='dosubmit' value='Really Submit As <%= theirU.name %> Vote' />
 	</form>
 <% } else { %>
 	<div class='helpHtml'>
@@ -165,7 +184,7 @@
     List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
     Map<String,String> options = DataSection.getOptions(null, cs, loc);
     TestCache.TestResultBundle cc = stf.getTestResult(loc, options);
-	UserRegistry.User u = cs.user;
+	UserRegistry.User u = theirU;
 	CLDRProgressTask progress = cs.sm.openProgress("Bulk:" + loc,
 			all.size());
 	try {
@@ -246,7 +265,7 @@
 				resultIcon="stop";
 			} else {
 				if(doFinal) {
-					ballotBox.voteForValue(cs.user, base, val0);
+					ballotBox.voteForValue(u, base, val0);
 					result="Vote accepted";
 					resultIcon="vote";
 				} else {
@@ -260,7 +279,7 @@
 				style='text-align: left; font-size: smaller;'><a
 				target='<%=WebContext.TARGET_ZOOMED%>'
 				href='<%=request.getContextPath()
-							+ "/survey?_="+ loc + "&strid=" + cs.sm.xpt.getStringIDString(base_xpath_id)  %>'>
+							+ "/survey?_="+ loc + "&strid=" + cs.sm.xpt.getStringIDString(base_xpath_id) + ident %>'>
 					<%=ph.toString()%></a>
 			</a><br><tt><%= base %></tt></tt></th>
 		<!--  	<td style='<%=stylea%>'><%=valb%></td> -->
@@ -295,7 +314,8 @@
 	%>
 		<form action='<%=request.getContextPath() + request.getServletPath()%>'
 			method='POST'>
-			<input type='hidden' name='s' value='<%=sid%>' /> <input
+			<input type='hidden' name='s' value='<%=sid%>' />
+                        <input type='hidden' name='email' value='<%=email%>' /><input
 				type='submit' name='dosubmit' value='Submit these items as my vote' />
 		</form>
 	<%

@@ -17,7 +17,7 @@ import="org.unicode.cldr.web.*"
 <%
 String sid = request.getParameter("s");
 CookieSession cs;
-if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null) {
+if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null||cs.user==null) {
 	response.sendRedirect(request.getContextPath()+"/survey");
 	return;
 }
@@ -33,11 +33,27 @@ if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null) {
 </div>
 
 <h3>Upload files... |  <%= cs.user.name %> </h3>
-<% if(request.getParameter("s")==null) { %>
-<h3>Error, not logged in.</h3>
+<% 
+
+String email = request.getParameter("email");
+if(email==null) email="";
+
+if(request.getParameter("emailbad")!=null) { %>
+<div class='ferrbox'><%= WebContext.iconHtml(request, "stop", "error") %> Invalid address or access denied: <address><%= email %></address></div>
+<% } 
+
+if(request.getParameter("s")==null) { %>
+<div class='ferrbox'><%= WebContext.iconHtml(request, "stop", "error") %> Error, not logged in.</div>
 <% } else { %>
 <form method="POST" action="./check.jsp" enctype="multipart/form-data">
 <input type="hidden" name="s" value="<%= request.getParameter("s") %>" />
+<label>
+    Enter the account name (a valid email address) which will be voting. 
+     
+         Use your own address, <address><%= cs.user.email %></address> to vote as yourself.
+    <input  name="email" value="<%= email %>" />
+    
+</label>
 <label>Upload a single XML file
 <!-- or a ZIP file containing multiple XML files -->
 :<input name="file" type="file" size="40"/></label><br/>

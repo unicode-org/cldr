@@ -2795,6 +2795,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 					if (just == null) {
 						printUserZoomLink(ctx, theirEmail, "");
 					}
+                                        
+                                        if(ctx.session.user.isAdminForOrg(theirOrg)) {
+                                            ctx.println("<br><a href='"+ctx.context("upload.jsp?s="+ctx.session.id+"&email="+theirEmail)+"'>Upload XML...</a>");
+                                        }
+                                        
 					ctx.println("</td>");
 
 					// org, level

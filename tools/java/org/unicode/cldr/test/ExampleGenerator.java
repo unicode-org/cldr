@@ -1046,13 +1046,14 @@ public class ExampleGenerator {
      * &lt;br&gt;For more information, see <a
      * href='http://unicode.org/cldr/wiki?SurveyToolHelp/characters'>help</a>.
      * <br>
-     * The result is valid HTML. <br>
+     * The result is valid HTML. Set listPlaceholders to true to include a
+     * HTML-formatted table of all placeholders required in the value.<br>
      * TODO: add more help, and modify to get from property or xml file for easy
      * modification.
      * 
      * @return null if none available.
      */
-    public synchronized String getHelpHtml(String xpath, String value) {
+    public synchronized String getHelpHtml(String xpath, String value, boolean listPlaceholders) {
 
         // lazy initialization
 
@@ -1090,6 +1091,10 @@ public class ExampleGenerator {
         }
         buffer.append(TransliteratorUtilities.toHTML.transliterate(description.substring(start)));
 
+        if (listPlaceholders) {
+            buffer.append(pathDescription.getPlaceholderDescription(xpath));
+        }
+
         return buffer.toString();
         //return helpMessages.find(xpath);
         //  if (xpath.contains("/exemplarCharacters")) {
@@ -1098,6 +1103,10 @@ public class ExampleGenerator {
         //  + "currency auxilliary characters are those used in currency symbols, like 'US$ 1,234'. ";
         //  }
         //  return result == null ? null : TransliteratorUtilities.toHTML.transliterate(result);
+    }
+
+    public synchronized String getHelpHtml(String xpath, String value) {
+        return getHelpHtml(xpath, value, false);
     }
 
     HelpMessages helpMessages;

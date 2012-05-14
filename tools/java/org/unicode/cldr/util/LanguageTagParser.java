@@ -24,7 +24,6 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.ooo.supplementalData;
 import org.unicode.cldr.tool.LikelySubtags;
 
 import com.ibm.icu.impl.Row.R2;

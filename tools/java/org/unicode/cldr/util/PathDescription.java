@@ -185,7 +185,7 @@ public class PathDescription {
     /**
      * Creates an escaped HTML string of placeholder information.
      * @param path the xpath to specify placeholder information for
-     * @return a HTML string, or null if there was no placeholder information
+     * @return a HTML string, or an empty string if there was no placeholder information
      */
     public String getPlaceholderDescription(String path) {
         Map<String, PlaceholderInfo> placeholders = PatternPlaceholders.getInstance().get(path);
@@ -202,24 +202,9 @@ public class PathDescription {
                 buffer.append("</tr>");
             }
             buffer.append("</table>");
-            // Escape <>.
-            StringBuffer escapeBuffer = new StringBuffer();
-            for (int i = 0, len = buffer.length(); i < len; i++) {
-                char c = buffer.charAt(i);
-                switch(c) {
-                case '<':
-                    escapeBuffer.append("&lt;");
-                    break;
-                case '>':
-                    escapeBuffer.append("&gt;");
-                    break;
-                default:
-                    escapeBuffer.append(c);
-                }
-            }
-            return escapeBuffer.toString();
+            return buffer.toString();
         }
-        return null;
+        return "";
     }
 
     private static boolean isRootCode(String code, Set<String> allMetazones, String type, boolean isMetazone) {

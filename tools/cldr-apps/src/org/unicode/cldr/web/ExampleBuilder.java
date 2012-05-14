@@ -28,6 +28,6 @@ public class ExampleBuilder {
 	}
 
 	public String getHelpHtml(String xpath, String value) {
-		return eg_e.getHelpHtml(xpath, value);
+		return eg_e.getHelpHtml(xpath, value, true);
 	}
 }

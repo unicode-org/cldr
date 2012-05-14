@@ -1730,6 +1730,16 @@ div.helpHtml {
 	background: #eed;
 }
 
+div.helpHtml table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+div.helpHtml td,th {
+    border: 1px solid black;
+    padding: 3px;
+}
+
 .graybox {
 	border: 1px solid gray;
 	margin: 3px;

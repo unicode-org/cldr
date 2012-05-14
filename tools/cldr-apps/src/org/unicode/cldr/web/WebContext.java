@@ -1589,7 +1589,7 @@ public class WebContext implements Cloneable, Appendable {
 	 * @see HelpMessages
 	 */
 	public void printHelpHtml(String xpath) {
-		String helpHtml = sm.getBaselineExample().getHelpHtml(xpath, "");
+		String helpHtml = sm.getBaselineExample().getHelpHtml(xpath, "", true);
 		if (helpHtml != null) {
 			println("<br/> <div class='helpHtml'><br/><h3 style='display: none;' class='theHelp'>Help with "
 					+ sm.xpt.getPrettyPath(xpath) + "</h3><!-- " + xpath + " -->\n" + helpHtml + "</div>");

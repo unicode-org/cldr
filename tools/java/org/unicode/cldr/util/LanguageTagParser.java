@@ -24,6 +24,10 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.ooo.supplementalData;
+import org.unicode.cldr.tool.LikelySubtags;
+
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
 
 public class LanguageTagParser {
@@ -239,6 +243,37 @@ public class LanguageTagParser {
 			if (!validates(it.next(), "variant")) return false;
 		}
 		return true; // passed the gauntlet
+	}
+	
+	public enum Status {WELL_FORMED, VALID, CANONICAL, MINIMAL}
+	
+	public Status getStatus(Set<String> errors) {
+	    errors.clear();
+	    if (!isValid()) {
+	        return Status.WELL_FORMED;
+	        // TODO, check the bcp47 extension codes also
+	    }
+	    SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+	    Map<String, Map<String, R2<List<String>, String>>> aliasInfo = sdi.getLocaleAliasInfo();
+	    if (aliasInfo.get("language").containsKey(language)) {
+	        errors.add("Non-canonical language: " + language);
+	    }
+        if (aliasInfo.get("script").containsKey(script)) {
+            errors.add("Non-canonical script: " + script);
+        }
+        if (aliasInfo.get("territory").containsKey(region)) {
+            errors.add("Non-canonical region: " + region);
+        }
+        if (!errors.isEmpty()) {
+            return Status.VALID;
+        }
+        String tag = language + (script.isEmpty() ? "" : "_" + script) + (region.isEmpty() ? "" : "_" + region);
+        String minimized = LikelySubtags.minimize(tag, sdi.getLikelySubtags(), false);
+        if (!tag.equals(minimized)) {
+            errors.add("Not minimal:" + tag + "-->" + minimized);
+            return Status.CANONICAL;
+        }
+        return Status.MINIMAL;
 	}
 	
 	/**

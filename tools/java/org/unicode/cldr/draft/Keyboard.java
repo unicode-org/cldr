@@ -19,6 +19,8 @@ import java.util.Set;
 import org.unicode.cldr.draft.Keyboard.Iso;
 import org.unicode.cldr.draft.Keyboard.IsoRow;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LanguageTagParser.Status;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
@@ -370,6 +372,7 @@ public class Keyboard {
 
     private static class KeyboardHandler extends SimpleHandler {
         Set<String> errors = new LinkedHashSet<String>();
+        Set<String> errors2 = new LinkedHashSet<String>();
         // doesn't do any error checking for collisions, etc. yet.
         String locale; // TODO
         String version; // TODO
@@ -388,6 +391,7 @@ public class Keyboard {
         Map<TransformType,Transforms> transformMap = new EnumMap<TransformType,Transforms>(TransformType.class);
 
         XPathParts parts = new XPathParts();
+        LanguageTagParser ltp = new LanguageTagParser();
 
         public Keyboard getKeyboard(Set<String> errors) {
             // finish everything off
@@ -407,6 +411,11 @@ public class Keyboard {
                 if (locale == null) {
                     // <keyboard locale='bg-t-k0-chromeos-phonetic'>
                     locale = parts.getAttributeValue(0, "locale");
+                    ltp.set(locale);
+                    LanguageTagParser.Status status = ltp.getStatus(errors2);
+                    if (status != Status.MINIMAL) {
+                        errors.add("Bad locale tag: " + locale + ", " + errors2.toString());
+                    }
                 }
                 String element1 = parts.getElement(1);
                 if (element1.equals("baseMap")) {
@@ -444,6 +453,9 @@ public class Keyboard {
                     }
                     final String from = fixValue(parts.getAttributeValue(2, "from"));
                     final String to = fixValue(parts.getAttributeValue(2, "to"));
+                    if (from.equals(to)) {
+                        errors.add("Illegal transform from:" + from + " to:" + to);
+                    }
                     if (DEBUG) {
                         System.out.println("transform: from=" + from + ";\tto=" + to + ";");
                     }

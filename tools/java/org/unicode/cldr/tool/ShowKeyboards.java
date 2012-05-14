@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -222,7 +221,7 @@ public class ShowKeyboards {
                 //            System.out.println(platformId + "\t" + p.getHardwareMap());
                 Keyboard keyboard = Keyboard.getKeyboard(keyboardId, errors);
                 if (errors.size() != 0) {
-                    System.out.println("*Errors: " + errors);
+                    System.out.println("*Errors:\t" + CollectionUtilities.join(errors, "\n\t\t"));
                 }
                 Set<String> names = keyboard.getNames();
                 out.println("<h2>" + getLinkedName(keyboardId, keyboardId) + (names.size() == 0 ? "" : " " + names) + "</h2>");

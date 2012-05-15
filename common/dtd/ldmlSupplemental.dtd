@@ -468,7 +468,11 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST zoneItem references CDATA #IMPLIED >
 
 <!-- Coverage levels -->
-<!ELEMENT coverageLevels ( coverageLevel* ) >
+<!ELEMENT coverageLevels ( coverageVariable*, coverageLevel* ) >
+
+<!ELEMENT coverageVariable EMPTY >
+<!ATTLIST coverageVariable key CDATA #REQUIRED >
+<!ATTLIST coverageVariable value CDATA #REQUIRED >
 
 <!ELEMENT coverageLevel EMPTY >
 <!ATTLIST coverageLevel inLanguage CDATA #IMPLIED >

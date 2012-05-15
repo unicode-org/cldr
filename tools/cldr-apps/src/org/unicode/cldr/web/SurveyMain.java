@@ -378,25 +378,40 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     
     public final void init(final ServletConfig config)
     throws ServletException {
-        new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is available before we get any farther
-        super.init(config);
-        CLDRConfigImpl.setCldrHome(config.getInitParameter("cldr.home"));
-        this.config = config;
-        PathHeader.PageId.forString(PathHeader.PageId.Africa.name()); // Make sure cldr-tools is functioning.
-        startupThread.addTask(new SurveyThread.SurveyTask("startup") {
-            public void run() throws Throwable{
-                doStartup();
-            }
-        });
+        try {
+            new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is available before we get any farther
+            super.init(config);
+            CLDRConfigImpl.setCldrHome(config.getInitParameter("cldr.home"));
+            this.config = config;
+            PathHeader.PageId.forString(PathHeader.PageId.Africa.name()); // Make sure cldr-tools is functioning.
+            startupThread.addTask(new SurveyThread.SurveyTask("startup") {
+                public void run() throws Throwable{
+                    doStartup();
+                }
+            });
+        } catch(Throwable t) {
+            SurveyLog.logException(t,"Initializing SurveyTool");
+            this.busted("Error initializing SurveyTool.", t);
+            return;
+        }
+        
         
         try {
             dbUtils  = DBUtils.getInstance();
         } catch(Throwable t) {
             SurveyLog.logException(t,"Starting up database");
             this.busted("Error starting up database - see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>", t);
+            return;
         }
-        startupThread.start();
-        SurveyLog.logger.warning("Startup thread launched");
+
+        try {
+            startupThread.start();
+            SurveyLog.logger.warning("Startup thread launched");
+        } catch(Throwable t) {
+            SurveyLog.logException(t,"Starting up startupThread");
+            this.busted("Error starting up startupThread", t);
+            return;
+        }
     }
 
     public SurveyMain() {
@@ -1727,10 +1742,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             u.locales = new_locales;
             u.password = UserRegistry.makePassword(u.email+u.org+ctx.session.user.email);
             
-    		if (ctx.session.user.userlevel > UserRegistry.TC) {
-    			return;
-    		}
-    		SurveyLog.debug("UR: Attempt newuser by " + ctx.session.user.email
+    	    SurveyLog.debug("UR: Attempt newuser by " + ctx.session.user.email
     				+ ": of " + u.email + " @ " + ctx.userIP());
             UserRegistry.User registeredUser = reg.newUser(ctx, u);
             

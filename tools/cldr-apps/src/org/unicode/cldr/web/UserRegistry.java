@@ -21,10 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -111,11 +108,12 @@ public class UserRegistry {
     // user levels
     public static final int ADMIN   = VoteResolver.Level.admin.getSTLevel();  /** Administrator **/
     public static final int TC      = VoteResolver.Level.tc.getSTLevel();  /** Technical Committee **/
+    public static final int MANAGER = VoteResolver.Level.manager.getSTLevel(); /** manager **/
     public static final int EXPERT  = VoteResolver.Level.expert.getSTLevel();  /** Expert Vetter **/
     public static final int VETTER  = VoteResolver.Level.vetter.getSTLevel();  /** regular Vetter **/
     public static final int STREET  = VoteResolver.Level.street.getSTLevel(); /** Guest Vetter **/
     public static final int LOCKED  = VoteResolver.Level.locked.getSTLevel();/** Locked user - can't login **/
-	
+    
 	public static final int LIMIT_LEVEL = 10000;  /** max level **/
 	public static final int NO_LEVEL  = -1;  /** min level **/
     
@@ -127,7 +125,7 @@ public class UserRegistry {
      * List of all user levels - for UI presentation
      **/
     public static final int ALL_LEVELS[] = {
-        ADMIN, TC, EXPERT, VETTER, STREET, LOCKED };
+        ADMIN, TC, MANAGER, EXPERT, VETTER, STREET, LOCKED };
     
     /**
      * get a level as a string - presentation form
@@ -336,7 +334,7 @@ public class UserRegistry {
          */
         public boolean isAdminFor(User other) {
             boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) || 
-                        ( UserRegistry.userIsTC(this) && (other!=null) && this.org.equals(other.org)); 
+                        isAdminForOrg(other.org); 
             return adminOrRelevantTc;
         }
         /**
@@ -344,8 +342,9 @@ public class UserRegistry {
          * @param other
          */
         public boolean isAdminForOrg(String org) {
-            boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) || 
-                        ( UserRegistry.userIsTC(this) && (org!=null) && this.org.equals(org)); 
+            boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) ||
+                            
+                        ( (UserRegistry.userIsTC(this)||this.userlevel==MANAGER) && (org!=null) && this.org.equals(org)); 
             return adminOrRelevantTc;
         }
         @Override
@@ -1216,6 +1215,9 @@ public class UserRegistry {
     public static final boolean userIsTC(User u) {
         return (u!=null)&&(u.userlevel <= UserRegistry.TC);
     }
+    public static final boolean userIsExactlyManager(User u) {
+        return (u!=null)&&(u.userlevel == UserRegistry.MANAGER);
+    }
     public static final boolean userIsExpert(User u) {
         return (u!=null)&&(u.userlevel <= UserRegistry.EXPERT);
     }
@@ -1234,21 +1236,35 @@ public class UserRegistry {
         return userIsAdmin(u);
     }
     /** What level can the new user be, given requested? */
-    static final int userCanCreateUserOfLevel(User u, int requestedLevel) {
+    public static final int userCanCreateUserOfLevel(User u, int requestedLevel) {
         if(requestedLevel < 0) {
             requestedLevel = 0;
         }
         if(requestedLevel < u.userlevel) { // pin to creator
             requestedLevel = u.userlevel;
         }
+        if(requestedLevel == EXPERT && u.userlevel != ADMIN) {
+            return VETTER; // only admin can create EXPERT
+        }
+        if(u.userlevel == MANAGER) {
+            if(requestedLevel==MANAGER) {
+                return MANAGER;
+            } else {
+                if(requestedLevel < VETTER ) {
+                    return VETTER;
+                } else {
+                    return requestedLevel;
+                }
+            }
+        }
         return requestedLevel;
     }
     /** Can the user modify anyone's level? */
     static final boolean userCanModifyUsers(User u) {
-        return userIsTC(u);
+        return userIsTC(u) || userIsExactlyManager(u);
     }
     static final boolean userCanEmailUsers(User u) {
-        return userIsTC(u);
+        return userIsTC(u) || userIsExactlyManager(u);
     }
     /** can the user modify this particular user? */
     static final boolean userCanModifyUser(User u, int theirId, int theirLevel) {
@@ -1271,7 +1287,7 @@ public class UserRegistry {
         return (userIsVetter(u));
     }
     static final boolean userCanCreateUsers(User u) {
-        return (userIsTC(u));
+        return (userIsTC(u) || userIsExactlyManager(u));
     }
     static final boolean userCanSubmit(User u) {
 		if(SurveyMain.isPhaseReadonly()) return false;
@@ -1342,15 +1358,17 @@ public class UserRegistry {
         if(userIsTC(u)) return true; // TC can modify all
         if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
         }
-        if(userIsTC(u)) return true; // TC can modify all
+        if(userIsTC(u) ) return true; // TC (or manager) can modify all
         if(SurveyMain.isPhaseClosed()) return false;
         if(SurveyMain.isPhaseSubmit() && !userIsStreet(u)) return false;
         if(SurveyMain.isPhaseVetting() && !userIsStreet (u)) return false;
         if(locale.getLanguage().equals("und")) {  // all user accounts can write to und.
             return true;
         }
+        
 //        if(SurveyMain.phaseVetting && !userIsStreet(u)) return false;
         if((u.locales == null) && userIsExpert(u)) return true; // empty = ALL
+        if(false|| userIsExactlyManager(u)) return true; // manager can edit all
         String localeArray[] = tokenizeLocale(u.locales);
         return userCanModifyLocale(localeArray,locale);
     }

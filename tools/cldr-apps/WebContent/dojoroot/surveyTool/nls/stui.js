@@ -60,12 +60,14 @@ define({
 			userlevel_vetter: "Vetter",
 			userlevel_street: "Guest",
 			userlevel_locked: "Locked",
+			userlevel_manager: "Manager",
 
 			userlevel_admin_desc: "Administrator",
 			userlevel_tc_desc: "CLDR-Technical Committee member",
 			userlevel_expert_desc: "Language Expert",
 			userlevel_vetter_desc: "Regular Vetter",
 			userlevel_street_desc: "Guest User",
+			userlevel_manager_desc: "Project Manager",
 			userlevel_locked_desc: "Locked User, no login",
 			
 			admin_threads: "Threads",

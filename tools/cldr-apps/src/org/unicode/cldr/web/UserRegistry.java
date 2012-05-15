@@ -49,6 +49,51 @@ import com.ibm.icu.util.ULocale;
  * @see OldUserRegistry
  **/
 public class UserRegistry {
+
+    static Set<String> getCovGroupsForOrg(String st_org) {
+        Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement s = null;
+        Set<String> res = new HashSet<String>();
+        
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            s = DBUtils.prepareStatementWithArgs(conn, "select distinct cldr_interest.forum from cldr_interest where exists (select * from cldr_users  where cldr_users.id=cldr_interest.uid 	and cldr_users.org=?);", st_org);
+            rs = s.executeQuery();
+            while(rs.next()) {
+                res.add(rs.getString(1));
+            }
+            return res;
+        } catch(SQLException se) {
+            SurveyLog.logException(se,"Querying cov groups for org " + st_org,null);
+            throw new InternalError("error: " + se.toString());
+        } finally {
+            DBUtils.close(rs,s,conn);
+        }
+    }
+
+    static Set<CLDRLocale> anyVotesForOrg(String st_org) {
+        // 
+        Connection conn = null;
+        ResultSet rs = null;
+        PreparedStatement s = null;
+        Set<CLDRLocale> res = new HashSet<CLDRLocale>();
+        
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            s = DBUtils.prepareStatementWithArgs(conn, "select distinct cldr_votevalue.locale from cldr_votevalue where exists (select * from cldr_users	where cldr_votevalue.submitter=cldr_users.id and cldr_users.org=?);", st_org);
+            rs = s.executeQuery();
+            while(rs.next()) {
+                res.add(CLDRLocale.getInstance(rs.getString(1)));
+            }
+            return res;
+        } catch(SQLException se) {
+            SurveyLog.logException(se,"Querying voter locs for org " + st_org,null);
+            throw new InternalError("error: " + se.toString());
+        } finally {
+            DBUtils.close(rs,s,conn);
+        }
+    }
     public interface UserChangedListener {
     	public void handleUserChanged(User u);
 	}

@@ -28,6 +28,7 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.IterableComparator;
@@ -1204,16 +1205,25 @@ public class SupplementalDataInfo {
         }
 
         private void handleCoverageLevels() {
-            String match = parts.getAttributeValue(-1,"match");
-            String valueStr = parts.getAttributeValue(-1,"value");
-            String inLanguage = parts.getAttributeValue(-1,"inLanguage");
-            String inScript = parts.getAttributeValue(-1,"inScript");
-            String inTerritory = parts.getAttributeValue(-1,"inTerritory");
-            Integer value =  ( valueStr != null ) ? Integer.valueOf(valueStr) : Integer.valueOf("101");
-            CoverageLevelInfo ci = new CoverageLevelInfo(match,value,inLanguage,inScript,inTerritory);
-            coverageLevels.add(ci);
+            if ( parts.containsElement("coverageLevel")) {
+                String match = parts.containsAttribute("match") ? coverageVariables.replace(parts.getAttributeValue(-1,"match")) : null;
+                String valueStr = parts.getAttributeValue(-1,"value");
+                String inLanguage = parts.containsAttribute("inLanguage") ? coverageVariables.replace(parts.getAttributeValue(-1,"inLanguage")) : null;
+                String inScript = parts.containsAttribute("inScript") ? coverageVariables.replace(parts.getAttributeValue(-1,"inScript")) : null;
+                String inTerritory = parts.containsAttribute("inTerritory") ? coverageVariables.replace(parts.getAttributeValue(-1,"inTerritory")) : null;
+                Integer value =  ( valueStr != null ) ? Integer.valueOf(valueStr) : Integer.valueOf("101");
+                CoverageLevelInfo ci = new CoverageLevelInfo(match,value,inLanguage,inScript,inTerritory);
+                coverageLevels.add(ci);
+            } else if ( parts.containsElement("coverageVariable")) {
+                String key = parts.getAttributeValue(-1, "key");
+                String value = parts.getAttributeValue(-1, "value");
+                coverageVariables.add(key, value);
+            }
         }
 
+        private String resolveCoverageVariables(String str) {
+            return str;
+        }
         private void handleParentLocales() {
             String parent = parts.getAttributeValue(-1,"parent");
             String locales = parts.getAttributeValue(-1,"locales");
@@ -1643,7 +1653,7 @@ public class SupplementalDataInfo {
                     .parseDouble(literacyString);
         }
     }
-
+    
     public class CoverageVariableInfo {
         public Set<String> targetScripts;
         public Set<String> targetTerritories;
@@ -1676,7 +1686,8 @@ public class SupplementalDataInfo {
     private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
     private Map<String, String> parentLocales = new HashMap<String,String>();
     private Map<String, List<String>> calendarPreferences= new HashMap();
-    private Map<String, CoverageVariableInfo> coverageVariables = new TreeMap();    
+    private Map<String, CoverageVariableInfo> localeSpecificVariables = new TreeMap();
+    private VariableReplacer coverageVariables = new VariableReplacer();
     private Map<String,String> numberingSystems = new HashMap<String,String>();
     private Set<String> defaultContentLocales;
     private Set<String> CLDRLanguageCodes;
@@ -1971,8 +1982,8 @@ public class SupplementalDataInfo {
 
     public CoverageVariableInfo getCoverageVariableInfo(String targetLanguage) {
         CoverageVariableInfo cvi;
-        if ( coverageVariables.containsKey(targetLanguage)) {
-            cvi = coverageVariables.get(targetLanguage);
+        if ( localeSpecificVariables.containsKey(targetLanguage)) {
+            cvi = localeSpecificVariables.get(targetLanguage);
         } else {
             cvi = new CoverageVariableInfo();
             cvi.targetScripts = getTargetScripts(targetLanguage);
@@ -1980,7 +1991,7 @@ public class SupplementalDataInfo {
             cvi.calendars = getCalendars(cvi.targetTerritories);
             cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
             cvi.targetTimeZones = getCurrentTimeZones(cvi.targetTerritories);
-            coverageVariables.put(targetLanguage, cvi);
+            localeSpecificVariables.put(targetLanguage, cvi);
         }
         return cvi;
     }

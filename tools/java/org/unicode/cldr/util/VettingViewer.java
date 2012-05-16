@@ -1270,12 +1270,12 @@ public class VettingViewer<T> {
                     Set<Choice> choicesForPath = pathInfo.problems;
 
                     if (!header.equals(oldHeader)) {
-                        output.append("<tr class='partsection");
+                        output.append("<tr");
                         // Choice.appendRowStyles(choicesForPath, output);
                         output.append("'>\n");
-                        output.append(" <td class='partsection' colSpan='6'>");
+                        output.append(" <th class='partsection' colSpan='6'>");
                         output.append(header);
-                        output.append("</td>\n</tr>\n");
+                        output.append("</th>\n</tr>\n");
                         oldHeader = header;
                     }
 

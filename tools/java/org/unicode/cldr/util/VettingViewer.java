@@ -114,7 +114,7 @@ public class VettingViewer<T> {
             this.description = TransliteratorUtilities.toHTML.transform(description);
         }
 
-        public static <T extends Appendable> T appendDisplay(EnumSet<Choice> choices, String htmlMessage, T target) {
+        public static <T extends Appendable> T appendDisplay(Set<Choice> choices, String htmlMessage, T target) {
             try {
                 boolean first = true;
                 for (Choice item : choices) {
@@ -163,8 +163,11 @@ public class VettingViewer<T> {
             }
         }
 
-        public static Appendable appendRowStyles(EnumSet<Choice> choices, Appendable target) {
+        public static Appendable appendRowStyles(Set<Choice> choices, Appendable target) {
             try {
+                if (choices.contains(Choice.changedOldValue)) {
+                    int x = 0;
+                }
                 target.append("hide");
                 for (Choice item : choices) {
                     target.append(' ').append("vv").append(Character.toLowerCase(item.abbreviation));
@@ -471,13 +474,13 @@ public class VettingViewer<T> {
 
     class WritingInfo implements Comparable<WritingInfo> {
         final PathHeader          codeOutput;
-        final EnumSet<Choice> problems;
+        final Set<Choice> problems;
         final String          htmlMessage;
 
         public WritingInfo(PathHeader pretty, EnumSet<Choice> problems, CharSequence htmlMessage) {
             super();
             this.codeOutput = pretty;
-            this.problems = problems.clone();
+            this.problems = Collections.unmodifiableSet(problems.clone());
             this.htmlMessage = htmlMessage.toString();
         }
 
@@ -771,8 +774,13 @@ public class VettingViewer<T> {
         StringBuilder htmlMessage = new StringBuilder();
         StringBuilder statusMessage = new StringBuilder();
         EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
+        Set<String> seenSoFar = new HashSet<String>();
 
         for (String path : sourceFile.fullIterable()) {
+            if (seenSoFar.contains(path)) {
+                continue;
+            }
+            seenSoFar.add(path);
             progressCallback.nudge(); // Let the user know we're moving along.
 
             // note that the value might be missing!
@@ -792,6 +800,7 @@ public class VettingViewer<T> {
             if (level.compareTo(usersLevel) > 0) {
                 continue;
             }
+            
 
             String value = sourceFile.getWinningValue(path);
 
@@ -831,18 +840,19 @@ public class VettingViewer<T> {
             statusMessage.setLength(0);
             subtypes.clear();
             ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage, subtypes);
+            part:
             {
                 Choice choice = errorStatus == ErrorChecker.Status.error ? Choice.error
                         : errorStatus == ErrorChecker.Status.warning ? Choice.warning
                                 : null;
                 if (choice == null) {
-                    continue;
+                    break part;
                 }
                 if (choice == Choice.warning) {
                     if (OK_IF_VOTED.containsAll(subtypes)) {
                         // check to see if we voted
                         if (SUPPRESS && voteStatus == VoteStatus.ok_novotes) {
-                            continue;
+                            break part;
                         }
                     }
                 }
@@ -869,7 +879,11 @@ public class VettingViewer<T> {
                 break;
             }
 
-            if (!problems.isEmpty()) { // showAll || 
+            if (!problems.isEmpty()) {
+                if (problems.size() > 1) {
+                    int x = 1;
+                }
+                // showAll || 
                 //                if (showAll && problems.isEmpty()) {
                 //                    problems.add(Choice.other);
                 //                    problemCounter.increment(Choice.other);
@@ -1253,13 +1267,13 @@ public class VettingViewer<T> {
                     String header = pathInfo.codeOutput.getHeader();
                     String code = pathInfo.codeOutput.getCode();
                     String path = pathInfo.codeOutput.getOriginalPath();
-                    EnumSet<Choice> choicesForPath = pathInfo.problems;
+                    Set<Choice> choicesForPath = pathInfo.problems;
 
                     if (!header.equals(oldHeader)) {
-                        output.append("<tr class='partsection ");
-                        Choice.appendRowStyles(choicesForPath, output);
+                        output.append("<tr class='partsection");
+                        // Choice.appendRowStyles(choicesForPath, output);
                         output.append("'>\n");
-                        output.append(" <td class='vvh' colSpan='6'>");
+                        output.append(" <td class='partsection' colSpan='6'>");
                         output.append(header);
                         output.append("</td>\n</tr>\n");
                         oldHeader = header;
@@ -1336,6 +1350,7 @@ public class VettingViewer<T> {
                 "<th class='tv-th'>" + lastVersionTitle + "</th>" +
                 "<th class='tv-th'>" + currentWinningTitle + "</th>" +
                 "<th class='tv-th'>Fix?</th>" +
+                "<th class='tv-th'>Comment</th>" +
         "</tr>\n");
     }
 

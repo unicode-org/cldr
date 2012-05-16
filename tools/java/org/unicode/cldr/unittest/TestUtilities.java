@@ -459,14 +459,45 @@ public class TestUtilities extends TestFmwk {
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
     }
+    
+    public void TestTotalVotesStatus() {
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+
+        Status oldStatus = Status.unconfirmed;
+        
+        resolver.setEstablishedFromLocale("de");
+        resolver.setLastRelease("foo", oldStatus);
+        resolver.add("zebra", toVoterId("googleV"));
+        resolver.add("apple", toVoterId("appleV"));
+        
+        // check that alphabetical wins when votes are equal
+        String winner = resolver.getWinningValue();
+        Status winningStatus = resolver.getWinningStatus();
+        assertEquals("", "apple", winner);
+        assertEquals("", Status.provisional, winningStatus);
+
+        resolver.clear();
+        resolver.setEstablishedFromLocale("de");
+        resolver.setLastRelease("foo", oldStatus);
+        resolver.add("zebra", toVoterId("googleV"));
+        resolver.add("zebra", toVoterId("googleS"));
+        resolver.add("apple", toVoterId("appleV"));
+        
+        // check that total votes over alphabetical
+        winner = resolver.getWinningValue();
+        winningStatus = resolver.getWinningStatus();
+        assertEquals("", "zebra", winner);
+        assertEquals("", Status.provisional, winningStatus);
+    }
 
     public void TestVoteResolver() {
         // to make it easier to debug failures, the first digit is an org, second is the individual in that org, and third is the voting weight.
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
         String[] tests = {
+                "comment=regression case from John Emmons",
                 "locale=wae",
-                // regression case from John Emmons
                 "oldValue=2802",
                 "oldStatus=approved",
                 "304=208027", // Apple vetter
@@ -479,13 +510,13 @@ public class TestUtilities extends TestFmwk {
                 // first test
                 "oldValue=old-value",
                 "oldStatus=provisional",
-                "comment=Check that identical values get the alphabetically lowest, and that org is maxed (eg vetter + street = vetter)",
+                "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + street = vetter)",
                 "404=next",
                 "411=next",
                 "304=best",
                 // expected values
-                "value=best",
-                "sameVotes=best,next",
+                "value=next",
+                "sameVotes=next,best",
                 "conflicts=[]",
                 "status=provisional",
                 "check",

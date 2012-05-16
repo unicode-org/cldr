@@ -236,7 +236,8 @@ public class VoteResolver<T> {
    * Internal class for getting from an organization to its vote.
    */
   private static class OrganizationToValueAndVote<T> {
-    private Map<Organization, MaxCounter<T>> orgToVotes = new HashMap<Organization, MaxCounter<T>>();
+      private Map<Organization, MaxCounter<T>> orgToVotes = new HashMap<Organization, MaxCounter<T>>();
+      private Counter<T> totalVotes = new Counter<T>();
     private Map<Organization, Integer>    orgToMax   = new HashMap<Organization, Integer>();
     private Counter<T>                    totals     = new Counter<T>(true);
     // map an organization to what it voted for.
@@ -258,6 +259,7 @@ public class VoteResolver<T> {
       }
       orgToAdd.clear();
       orgToMax.clear();
+      totalVotes.clear();
       hasVotes = false;
     }
 
@@ -273,6 +275,7 @@ public class VoteResolver<T> {
         throw new UnknownVoterException(voter);
       }
       final int votes = info.getLevel().getVotes();
+      totalVotes.add(value, votes);
       orgToVotes.get(info.getOrganization()).add(value, votes);
       hasVotes = true;
       // add the new votes to orgToMax, if they are greater that what was there
@@ -362,6 +365,7 @@ public class VoteResolver<T> {
      * This is now deprecated, since the organization may have multiple votes.
      * @param org
      * @return
+     * @deprecated
      */
     public T getOrgVote(Organization org) {
         return orgToAdd.get(org);
@@ -487,13 +491,26 @@ public class VoteResolver<T> {
   }
 
   private Set<T> values = new TreeSet<T>(ucaCollator);
+  
+  private final Comparator<T> votesThenUcaCollator = new Comparator<T>() {
+      Collator col = Collator.getInstance(ULocale.ENGLISH);
+      public int compare(T o1, T o2) {
+          long v1 = organizationToValueAndVote.totalVotes.get(o1);
+          long v2 = organizationToValueAndVote.totalVotes.get(o2);
+          if (v1 != v2) {
+              return v1 < v2 ? 1 : -1; // use reverse order, biggest first!
+          }
+        return col.compare(String.valueOf(o1), String.valueOf(o2));
+      }   
+    };
+
 
   private void resolveVotes() {
     resolved = true;
     // get the votes for each organization
     valuesWithSameVotes.clear();
     totals = organizationToValueAndVote.getTotals(conflictedOrganizations);
-    final Set<T> sortedValues = totals.getKeysetSortedByCount(false, ucaCollator);
+    final Set<T> sortedValues = totals.getKeysetSortedByCount(false, votesThenUcaCollator);
     Iterator<T> iterator = sortedValues.iterator();
     // if there are no (unconflicted) votes, return lastRelease
     if (sortedValues.size() == 0) {

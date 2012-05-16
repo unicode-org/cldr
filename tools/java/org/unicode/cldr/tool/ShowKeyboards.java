@@ -59,16 +59,17 @@ public class ShowKeyboards {
     // TODO - fix ' > xxx
     // TODO - check for bad locale ids
 
-    private static final String keyboardChartDir = CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/";
-    private static final String keyboardChartLayoutsDir = keyboardChartDir + "/layouts/";
+    private static String keyboardChartDir;
+    private static String keyboardChartLayoutsDir;
     static final TestInfo testInfo = TestInfo.getInstance();
     static final Factory factory = testInfo.getCldrFactory();
 
     final static Options myOptions = new Options();
     enum MyOptions {
         idFilter(".+", ".*", "Filter the information based on id, using a regex argument."),
-        log(".+", CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/log.txt", "Log difference information"),
-        keys(null, null, "Create html file"),
+        targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "../beta-charts/keyboards/", "The target directory."),
+        layouts(null, null, "Only create html files for keyboard layouts"),
+        repertoire(null, null, "Only create html files for repertoire"),
         ;
         // boilerplate
         final Option option;
@@ -85,25 +86,24 @@ public class ShowKeyboards {
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.idFilter, args, true);
         String idPattern = MyOptions.idFilter.option.getValue();
+        keyboardChartDir = MyOptions.targetDirectory.option.getValue();
+        keyboardChartLayoutsDir = keyboardChartDir + "/layouts/";
+
         Matcher idMatcher = Pattern.compile(idPattern).matcher("");
-        if (MyOptions.log.option.doesOccur()) {
-            try {
-                Log.setLog(MyOptions.log.option.getValue());
-            } catch (IOException e) {
-                throw new IllegalArgumentException(e);
-            }
+        try {
+            Log.setLog(keyboardChartDir + "log.txt");
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
         }
-        boolean doHtml = MyOptions.keys.option.doesOccur();
+        boolean layoutsOnly = MyOptions.layouts.option.doesOccur();
+        boolean repertoireOnly = MyOptions.repertoire.option.doesOccur();
 
-
-        // set up the CLDR Factories
-
-
-        if (doHtml) {
+        if (!repertoireOnly) {
             showHtml(idMatcher);
-            return;
         }
-        showRepertoire(idMatcher);
+        if (!layoutsOnly) {
+            showRepertoire(idMatcher);
+        }
     }
 
     public static void showRepertoire(Matcher idMatcher) {
@@ -193,7 +193,7 @@ public class ShowKeyboards {
                 localeIndex.put(localeName, baseLocale);
             }
         }
-        
+
         PrintWriter index = BagFormatter.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
         printTop("Keyboard Layout Index", index);
         index.println("<ol>");
@@ -201,7 +201,7 @@ public class ShowKeyboards {
             index.println("<li><a href='" + entry.getValue() + ".html'>"
                     + entry.getKey() + "</a>"
                     + " [" + entry.getValue() + "]" +
-            		"</li>");
+            "</li>");
         }
         index.println("</ol>");
         printBottom(index);
@@ -286,7 +286,7 @@ public class ShowKeyboards {
             addRule(String.valueOf(i), "^"+String.valueOf((char)(i+0x40)), rules);
         }
         String[][] map = {
-//                {"\u0020","sp"},
+                //                {"\u0020","sp"},
                 {"\u007F","del"},
                 {"\u00A0","nbsp"},
                 {"\u00AD","shy"},
@@ -301,8 +301,8 @@ public class ShowKeyboards {
                 {"\u180C","mvs2"},
                 {"\u180D","mvs3"},
                 {"\u180E","mvs"},
-//                {"\uF8FF","appl"},
-                };
+                //                {"\uF8FF","appl"},
+        };
         for (String[] items : map) {
             final String fromItem = items[0];
             final String toItem = items[1];
@@ -320,10 +320,10 @@ public class ShowKeyboards {
                 + "</span>'"
                 + ";\n");
     }
-    
+
     static UnicodeSet INVISIBLE = new UnicodeSet("[[:C:][:Z:][:whitespace:][:Default_Ignorable_Code_Point:]]").freeze();
     static UnicodeSet FAILING_INVISIBLE = new UnicodeSet();
-    
+
     public static String toSafeHtml(Object hover) {
         String result = TO_SAFE_HTML.transform(hover.toString());
         if (INVISIBLE.containsSome(result)) {

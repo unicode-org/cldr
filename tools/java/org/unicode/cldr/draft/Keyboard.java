@@ -413,7 +413,7 @@ public class Keyboard {
                     locale = parts.getAttributeValue(0, "locale");
                     ltp.set(locale);
                     LanguageTagParser.Status status = ltp.getStatus(errors2);
-                    if (status != Status.MINIMAL) {
+                    if (status != Status.MINIMAL || errors2.size() != 0) {
                         errors.add("Bad locale tag: " + locale + ", " + errors2.toString());
                     }
                 }
@@ -424,7 +424,10 @@ public class Keyboard {
                     if (DEBUG) {
                         System.out.println("baseMap: iso=" + iso + ";");
                     }
-                    iso2output.put(iso, getOutput());
+                    final Output output = getOutput();
+                    if (output != null) {
+                        iso2output.put(iso, output);
+                    }
                 } else if (element1.equals("keyMap")) {
                     // <keyMap modifiers='shift+caps?'><map base="١" chars="!"/> <!-- 1 -->
                     final String modifiers = parts.getAttributeValue(1, "modifiers");
@@ -440,7 +443,10 @@ public class Keyboard {
                     if (DEBUG) {
                         System.out.println("keyMap: base=" + isoString + ";");
                     }
-                    iso2output.put(Iso.valueOf(isoString), getOutput());
+                    final Output output = getOutput();
+                    if (output != null) {
+                        iso2output.put(Iso.valueOf(isoString), output);
+                    }
                 } else if (element1.equals("transforms")) {
                     // <transforms type='simple'> <transform from="` " to="`"/>
                     TransformType type = TransformType.forString(parts.getAttributeValue(1, "type"));
@@ -530,7 +536,7 @@ public class Keyboard {
                         System.out.println("\tchars=" + chars + ";");
                     }
                     if (chars.isEmpty()) {
-                        System.out.println("**Empty result at " + parts.toString());
+                        errors.add("**Empty result at " + parts.toString());
                     }
                 } else if (attribute.equals("transform")) {
                     transformStatus = TransformStatus.fromString(attributeValue);

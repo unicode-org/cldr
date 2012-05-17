@@ -258,6 +258,25 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public final Stamp getStamp() {
             return stamp;
         }
+
+        private Status getStatus(CLDRFile anOldFile, String path, final String lastValue) {
+            Status lastStatus;
+            {
+                XPathParts xpp = new XPathParts(null,null);
+                String fullXPath = anOldFile.getFullXPath(path);
+                if(fullXPath==null) fullXPath = path; // throw new InternalError("null full xpath for " + path);
+                xpp.set(fullXPath);
+                String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
+                lastStatus = draft==null?Status.approved:
+                    VoteResolver.Status.fromString(draft);
+                final String srcid = anOldFile.getSourceLocaleID(path, null);
+                if ( !srcid.equals(diskFile.getLocaleID())) {
+                    lastStatus = Status.missing;
+                }
+                if(false) System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus + " ('"+lastValue+"')");
+            }
+            return lastStatus;
+        }
         /**
          * Load internal data , push into source.
          * @param dataBackedSource 
@@ -369,48 +388,44 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         //		}
 
         
-        private VoteResolver<String> getResolverInternal(Map<User,String> m, String path, VoteResolver<String> r) {
-            //			if(m==null) throw new InternalError("no Map for " + path);
+        /**
+         * Create or update a VoteResolver for this item
+         * @param userToVoteMap map of users to vote values
+         * @param path xpath voted on 
+         * @param r if non-null, resolver to re-use.
+         * @return the new or updated resolver
+         */
+        private VoteResolver<String> getResolverInternal(Map<User,String> userToVoteMap, String path, VoteResolver<String> r) {
             if(path==null) throw new IllegalArgumentException("path must not be null");
+
             if(r==null) {
-                r = new VoteResolver<String>();
+                r = new VoteResolver<String>(); // create
             } else {
-                r.clear();
+                r.clear(); // reuse
             }
             // Set established locale
             r.setEstablishedFromLocale(diskFile.getLocaleID());
-            XPathParts xpp = new XPathParts(null,null);
+
             CLDRFile anOldFile = getOldFile();
-            if(anOldFile==null) anOldFile = diskFile;
-            String fullXPath = anOldFile.getFullXPath(path);
-            if(fullXPath==null) fullXPath = path; // throw new InternalError("null full xpath for " + path);
-            xpp.set(fullXPath);
+            if(anOldFile==null) anOldFile = diskFile; // use 'current' for 'previous' if previous is missing.
+
+            // set prior release (if present)
             final String lastValue = anOldFile.getStringValue(path);
-            final String srcid = anOldFile.getSourceLocaleID(path, null);
-            String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
-            
-            Status lastStatus = draft==null?Status.approved:
-                VoteResolver.Status.fromString(draft);
-            if ( !srcid.equals(diskFile.getLocaleID())) {
-            	lastStatus = Status.missing;
-            }
-            
+            final Status lastStatus = getStatus(anOldFile, path, lastValue);
+            r.setLastRelease(lastValue, lastValue==null?Status.missing:lastStatus); /* add the last release value */
 
-            if(false) System.err.println(fullXPath + " : " + xpp.getAttributeValue(-1, LDMLConstants.DRAFT) + " == " + lastStatus + " ('"+lastValue+"')");
-
-            r.setLastRelease(lastValue, lastValue==null?Status.missing:lastStatus);
-            String currentValue = diskData.getValueAtDPath(path);
-            r.add(currentValue); /* add the current value. */
-            //			SurveyLog.logger.warning(path + ": LR '"+lastValue+"', " + lastStatus);
-            if(m!=null) {
-                for(Map.Entry<User, String>e : m.entrySet()) {
-                    r.add(e.getValue(), e.getKey().id);
-                    //if(true)			SurveyLog.logger.warning(path + ": added  '"+e.getValue()+"', for  " + e.getKey().toString());
+            // set current Trunk value (if present)
+            final String currentValue = diskData.getValueAtDPath(path);
+            final Status currentStatus = getStatus(diskFile, path, currentValue);
+            r.setTrunk(currentValue, currentValue==null?Status.missing:currentStatus); /* add the current value. */
+            
+            // add each vote
+            if(userToVoteMap!=null) {
+                for(Map.Entry<User, String>e : userToVoteMap.entrySet()) {
+                    r.add(e.getValue(),    // user's vote
+                          e.getKey().id);  // user's id
                 }
-            } else {
-                //				SurveyLog.logger.warning("m is null for " + path + " , but last release value is " + getOldFile().getStringValue(path));
             }
-            //			SurveyLog.logger.warning("RESOLVER for " + path + " --> " + r.toString());
             return r;
         }
         

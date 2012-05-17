@@ -30,17 +30,17 @@ $Date$
 <!ATTLIST key description CDATA #IMPLIED>
 <!ATTLIST key since CDATA #IMPLIED>
 <!ATTLIST key status CDATA #IMPLIED>
-<!ATTLIST key deprecated ( true | false ) "true">
+<!ATTLIST key deprecated ( true | false ) "false">
 
 <!ELEMENT type EMPTY>
 <!ATTLIST type name NMTOKEN #REQUIRED>
 <!ATTLIST type alias CDATA #IMPLIED>
 <!ATTLIST type description CDATA #IMPLIED>
 <!ATTLIST type since CDATA #IMPLIED>
-<!ATTLIST type deprecated ( true | false ) "true">
+<!ATTLIST type deprecated ( true | false ) "false">
 
 <!ELEMENT attribute EMPTY>
 <!ATTLIST attribute name NMTOKEN #REQUIRED>
 <!ATTLIST attribute description CDATA #IMPLIED>
 <!ATTLIST attribute since CDATA #IMPLIED>
-<!ATTLIST attribute deprecated ( true | false ) "true">
+<!ATTLIST attribute deprecated ( true | false ) "false">

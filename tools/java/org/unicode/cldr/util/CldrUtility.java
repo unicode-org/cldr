@@ -114,12 +114,12 @@ public class CldrUtility {
   // if the main is different, use -Dcldrmain=<value>
   
   /**
-   * Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
+   * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
    */
   public static final String UTIL_CODE_DIR = FileUtilities.getRelativeFileName(CldrUtility.class, ""); // getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/");
 
   /**
-   * Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
+   * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
    */
   public static final String UTIL_DATA_DIR = getPath(UTIL_CODE_DIR , "data/"); // getPath(BASE_DIRECTORY, "tools/java/org/unicode/cldr/util/data/");
 
@@ -848,15 +848,25 @@ public static final class Output<T> {
 //        }
 //    }
 
-/**
+  /**
    * Fetch data from jar
-   * @param name name of thing to load (org.unicode.cldr.util.name)
+   * @param name a name residing in the org/unicode/cldr/util/data/  directory, or loading from a jar will break.
    */
   static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
+      /*if(name.startsWith(".")||name.startsWith("/")) {
+          throw new IllegalArgumentException("Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"+name+"'.");
+      }*/
       return FileUtilities.openFile(CldrUtility.class, "data/" + name);
   }
   
+    /**
+     * Fetch data from jar
+     * @param name a name residing in the org/unicode/cldr/util/data/  directory, or loading from a jar will break.
+     */
   static public InputStream getInputStream(String name) {
+      /*if(name.startsWith(".")||name.startsWith("/")) {
+          throw new IllegalArgumentException("Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"+name+"'.");
+      }*/
       return CldrUtility.class.getResourceAsStream("data/" + name);
   }
 

@@ -44,6 +44,24 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
         }
     }
 
+    public void TestNumberFormatQuotes() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        String xpath = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"] ";
+        String value = daip.processInput(xpath, "0.00K.", null);
+        assertEquals("Period not correctly quoted", "0.00K'.'", value);
+        value = daip.processInput(xpath, "0.00K'.'", null);
+        assertEquals("Quotes should not be double-quoted", "0.00K'.'", value);
+        value = daip.processForDisplay(xpath, "0.0 K'.'");
+        assertEquals("There should be no quotes left", "0.0 K.", value);
+    }
+
+    public void TestPatternCanonicalization() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        String xpath = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        String value = daip.processInput(xpath, "#,###,##0.###", null);
+        assertEquals("Format not correctly canonicalized", "#,##0.###", value);
+    }
+
     private void showCldrFile(final CLDRFile cldrFile) {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile);
         Exception[] internalException = new Exception[1];

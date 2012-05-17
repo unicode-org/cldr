@@ -72,7 +72,7 @@ public class ExampleGenerator {
 
     private final static boolean CACHING = false;
 
-    public final static double NUMBER_SAMPLE = 12345.6789;
+    public final static double NUMBER_SAMPLE = 123456.789;
     public final static double NUMBER_SAMPLE_WHOLE = 2345;
 
     public final static TimeZone ZONE_SAMPLE = TimeZone.getTimeZone("America/Indianapolis");
@@ -814,14 +814,10 @@ public class ExampleGenerator {
         } else if (parts.contains("numbers")) {
             DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
             double numberSample = NUMBER_SAMPLE;
-            if (parts.contains("percentFormat")) {
-                numberSample = 0.12345678;
-            } else {
-                String compactType = parts.getAttributeValue(-1, "type");
-                if (compactType != null) {
-                    int digits = numberFormat.getMinimumIntegerDigits();
-                    numberSample = 1.2345678 * Math.pow(10,digits-1);
-                }
+            String compactType = parts.getAttributeValue(-1, "type");
+            if (compactType != null && !compactType.equals("standard")) {
+                int digits = numberFormat.getMinimumIntegerDigits();
+                numberSample = 1.2345678 * Math.pow(10,digits-1);
             }
             result = numberFormat.format(numberSample);
             result = setBackgroundOnMatch(result, ALL_DIGITS);

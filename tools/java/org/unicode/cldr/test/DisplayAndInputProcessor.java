@@ -20,6 +20,7 @@ import com.ibm.icu.dev.test.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
@@ -55,6 +56,7 @@ public class DisplayAndInputProcessor {
 
     final private CLDRLocale locale;
     private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
+    private boolean isPosix;
 
     /**
      * Constructor, taking cldrFile.
@@ -65,6 +67,7 @@ public class DisplayAndInputProcessor {
     }
 
      void init(CLDRLocale locale) {
+        isPosix = locale.toString().indexOf("POSIX") >= 0;
         col = Collator.getInstance(locale.toULocale());
         spaceCol = Collator.getInstance(locale.toULocale());
 
@@ -113,8 +116,16 @@ public class DisplayAndInputProcessor {
 //            }
         } else if (path.contains("stopword")) {
             return value.trim().isEmpty() ? "NONE" : value;
-        } else if (NUMBER_FORMAT_XPATH.matcher(path).matches()) {
-            value = value.replace("'", "");
+        } else {
+            NumericType numericType = NumericType.getNumericType(path);
+            if (numericType != NumericType.NOT_NUMERIC) {
+                // Canonicalize existing values that aren't canonicalized yet.
+                // New values will be canonicalized on input using processInput().
+                value = getCanonicalPattern(value, numericType, isPosix);
+                if (numericType != NumericType.CURRENCY) {
+                    value = value.replace("'", "");
+                }
+            }
         }
         return value;
     }
@@ -175,10 +186,14 @@ public class DisplayAndInputProcessor {
                 }
             }
 
-            if (NUMBER_FORMAT_XPATH.matcher(path).matches()) {
-                value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
-                        .replaceAll(" ([%\u00A4])", "\u00A0$1");
-                value = replace(NON_DECIMAL_PERIOD, value, "'.'");
+            NumericType numericType = NumericType.getNumericType(path);
+            if (numericType != NumericType.NOT_NUMERIC) {
+                if (numericType != NumericType.CURRENCY) {
+                    value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
+                            .replaceAll(" ([%\u00A4])", "\u00A0$1");
+                    value = replace(NON_DECIMAL_PERIOD, value, "'.'");
+                }
+                value = getCanonicalPattern(value, numericType, isPosix);
             }
 
             // check specific cases
@@ -319,5 +334,72 @@ public class DisplayAndInputProcessor {
         }
         return value;
     }
-    
+
+
+    /**
+     * @return a canonical numeric pattern, based on the type, and the isPOSIX flag. The latter is set for en_US_POSIX.
+     */
+    public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
+        // TODO fix later to properly handle quoted ;
+        DecimalFormat df = new DecimalFormat(inpattern);
+        if (type == NumericType.DECIMAL_ABBREVIATED) {
+            return inpattern; // TODO fix when  ICU bug is fixed
+            //df.setMaximumFractionDigits(df.getMinimumFractionDigits());
+            //df.setMaximumIntegerDigits(Math.max(1, df.getMinimumIntegerDigits()));
+        } else {
+            //int decimals = type == CURRENCY_TYPE ? 2 : 1;
+            int[] digits = isPOSIX ? type.posixDigitCount : type.digitCount;
+            df.setMinimumIntegerDigits(digits[0]);
+            df.setMinimumFractionDigits(digits[1]);
+            df.setMaximumFractionDigits(digits[2]);
+        }
+        String pattern = df.toPattern();
+
+        //int pos = pattern.indexOf(';');
+        //if (pos < 0) return pattern + ";-" + pattern;
+        return pattern;
+    }
+
+    /*
+     * This tests what type a numeric pattern is.
+     */
+    public enum NumericType {
+        CURRENCY(new int[]{1,2,2}, new int[]{1,2,2}),
+        DECIMAL(new int[]{1,0,3}, new int[]{1,0,6}),
+        DECIMAL_ABBREVIATED(),
+        PERCENT(new int[]{1,0,0}, new int[]{1,0,0}),
+        SCIENTIFIC(new int[]{0,0,0}, new int[]{1,6,6}),
+        NOT_NUMERIC;
+
+        private static final Pattern NUMBER_PATH = Pattern.compile("//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
+        private int[] digitCount;
+        private int[] posixDigitCount;
+
+        private NumericType() {};
+        private NumericType(int[] digitCount, int[] posixDigitCount) {
+            this.digitCount = digitCount;
+            this.posixDigitCount = posixDigitCount;
+        }
+        /**
+         * @return the numeric type of the xpath
+         */
+        public static NumericType getNumericType(String xpath) {
+            Matcher matcher = NUMBER_PATH.matcher(xpath);
+            if (xpath.indexOf("/pattern") < 0) {
+                return NOT_NUMERIC;
+            } else if (matcher.matches()) {
+                if (matcher.group(1).equals("currencies/currency")) {
+                    return CURRENCY;
+                } else {
+                    NumericType type = NumericType.valueOf(matcher.group(2).toUpperCase());
+                    if (type == DECIMAL && xpath.contains("=\"1000")) {
+                        type = DECIMAL_ABBREVIATED;
+                    }
+                    return type;
+                }
+            } else {
+                return NOT_NUMERIC;
+            }
+        }
+    };
 }

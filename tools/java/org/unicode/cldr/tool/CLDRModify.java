@@ -1055,20 +1055,6 @@ public class CLDRModify {
       }
     });
 
-    fixList.add('n', "fix numbers", new CLDRFilter() {
-      public void handlePath(String xpath) {
-        byte type = CLDRTest.getNumericType(xpath);
-        if (type == CLDRTest.NOT_NUMERIC_TYPE) return;
-        String value = cldrFileToFilter.getStringValue(xpath);
-        // at this point, we only have currency formats
-        boolean isPOSIX = cldrFileToFilter.getLocaleID().indexOf("POSIX") >= 0;
-        String pattern = CLDRTest.getCanonicalPattern(value, type, isPOSIX);
-        if (pattern.equals(value)) return;
-        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-        replace(fullXPath, fullXPath, pattern);
-      }
-    });
-
     fixList.add('p', "input-processor", new CLDRFilter() {
       private DisplayAndInputProcessor inputProcessor;
       public void handleStart() {

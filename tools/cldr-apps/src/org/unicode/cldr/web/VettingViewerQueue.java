@@ -314,18 +314,26 @@ public class VettingViewerQueue {
             final Set<CLDRLocale> anyVotesFromOrg = UserRegistry.anyVotesForOrg(st_org);
             
             System.err.println("CovGroupsFor " + st_org + "="+covGroupsForOrg.size() + ", anyVotes="+anyVotesFromOrg.size());
-
-            DBUtils.getInstance().getDBConnection();
             
             Predicate<String> localesWithVotes = new Predicate<String>() {
                 @Override
                 public boolean is(String item) {
                     CLDRLocale loc = CLDRLocale.getInstance(item);
                     return (aLocs.contains(item) ||                         // a
-                            covGroupsForOrg.contains(loc.getLanguage()) ||  // b
+                            covGroupsForOrg.contains(loc.getBaseName()) ||  // b
                             anyVotesFromOrg.contains(loc));                 // c
                 }
             };
+            
+            int lcount = 0;
+            for(CLDRLocale l : allLocs) {
+                if(localesWithVotes.is(l.getBaseName())) {
+                    lcount++;
+                }
+            }
+            System.err.println("CovGroupsFor " + st_org + "= union = " + lcount);
+
+            
             return localesWithVotes;
         }
 

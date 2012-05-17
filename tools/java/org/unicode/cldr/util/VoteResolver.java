@@ -136,6 +136,42 @@ public class VoteResolver<T> {
         }
         return null;
     }
+
+    /**
+     * Policy: can this user manage the "other" user's settings?
+     * @param myOrg the current organization
+     * @param otherLevel the other user's level
+     * @param otherOrg the other user's organization
+     * @return 
+     */
+    public boolean isManagerFor(Organization myOrg, Level otherLevel, Organization otherOrg) {
+        return(this==admin ||
+                    (
+                    canManageSomeUsers() &&
+                    (myOrg==otherOrg) &&
+                    this.getSTLevel()<=otherLevel.getSTLevel()
+                    ));
+    }
+
+    /**
+     * Policy: Can this user manage any users?
+     * @return 
+     */
+    public boolean canManageSomeUsers() {
+        return this.getSTLevel()<=manager.getSTLevel();
+    }
+    
+    /**
+     * Policy: can this user create or set a user to the specified level?
+     */
+    public boolean canCreateOrSetLevelTo(Level otherLevel) {
+        return (this==admin) || // admin can set any level
+          (otherLevel!=expert &&  // expert can't be set by any users but admin
+           canManageSomeUsers()&& // must be some sort of manager
+           otherLevel.getSTLevel()>=getSTLevel()); // can't gain higher privs
+    }
+        
+        
   };
 
   /**

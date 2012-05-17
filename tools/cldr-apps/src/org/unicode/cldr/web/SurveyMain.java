@@ -1780,7 +1780,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         	defaultorg = URLEncoder.encode(ctx.session.user.org);
         }
 
-        ctx.println("<a href='" + ctx.jspLink("adduser.jsp") 
+        ctx.println("<br><a href='" + ctx.jspLink("adduser.jsp") 
                 + "&amp;defaultorg="+defaultorg
                 +"'>Add User</a> |");
     }
@@ -2575,9 +2575,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 					String theirLocales = rs.getString(6);
 					String theirIntlocs = rs.getString(7);
 					java.sql.Timestamp theirLast = rs.getTimestamp(8);
-					boolean havePermToChange = UserRegistry.userCanModifyUser(
-							ctx.session.user, theirId, theirLevel);
-					String theirTag = theirId + "_" + theirEmail; // ID+email -
+					boolean havePermToChange = ctx.session.user.isAdminFor(reg.getInfo(theirId));
+
+                                        String theirTag = theirId + "_" + theirEmail; // ID+email -
 																	// prevents
 																	// stale
 																	// data.
@@ -2613,7 +2613,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 						ctx.println("</td>");
 					}
 					// first: DO.
-
+                                        
 					if (havePermToChange) { // do stuff
 
 						String msg = null;
@@ -2675,6 +2675,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 								if (pass != null) {
 									UserRegistry.printPasswordLink(ctx,
 											theirEmail, pass);
+                                                                        ctx.println(" <tt class='winner'>"+pass+"</tt>");
 								}
 							} else if (action.equals(LIST_ACTION_SEND_PASSWORD)) {
 								String pass = reg.getPassword(ctx, theirId);
@@ -2808,7 +2809,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 						printUserZoomLink(ctx, theirEmail, "");
 					}
                                         
-                                        if(ctx.session.user.isAdminForOrg(theirOrg)) {
+                                        if(ctx.session.user.isAdminFor(reg.getInfo(theirId))) {
                                             ctx.println("<br><a href='"+ctx.context("upload.jsp?s="+ctx.session.id+"&email="+theirEmail)+"'>Upload XML...</a>");
                                         }
                                         
@@ -2836,24 +2837,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
 							// set user to VETTER
 							ctx.println("   <option value=''>"
-									+ LIST_ACTION_NONE + "</option>");
+									+ LIST_ACTION_NONE + 
+                                                                
+                                                                "</option>");
 							if (just != null) {
 								for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
 									int lev = UserRegistry.ALL_LEVELS[i];
-									if ((just == null)
-											&& (lev <= UserRegistry.TC)) {
-										continue; // no promotion to TC from
-													// zoom out
-									}
 									doChangeUserOption(
 											ctx,
 											lev,
 											theirLevel,
 											false
-													&& (preset_fromint == theirLevel)
-													&& preset_do
-															.equals(LIST_ACTION_SETLEVEL
-																	+ lev));
+                                                                                        && (preset_fromint == theirLevel)
+                                                                                        && preset_do
+                                                                                                    .equals(LIST_ACTION_SETLEVEL
+                                                                                                                + lev));
 								}
 								ctx.println("   <option disabled>"
 										+ LIST_ACTION_NONE + "</option>");
@@ -2876,7 +2874,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 									+ "'>Send password...</option>");
 
 							if (just != null) {
-								if (theirLevel > UserRegistry.TC) {
+								if (havePermToChange) {
 									ctx.println("   <option ");
 									if ((preset_fromint == theirLevel)
 											&& preset_do
@@ -2916,6 +2914,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
 									InfoType current = InfoType.fromAction(action);
 									for(InfoType info : InfoType.values()) {
+                                                                            if(info==InfoType.INFO_ORG && !(ctx.session.user.userlevel==UserRegistry.ADMIN)) {
+                                                                                continue;
+                                                                            }
 										ctx.print(" <option ");
 										if (info==current) {
 											ctx.print(" SELECTED ");
@@ -2931,7 +2932,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 					}
 					ctx.println("</td>");
 
-					if (theirLevel <= UserRegistry.TC) {
+					if (theirLevel <= UserRegistry.MANAGER) {
 						ctx.println(" <td>"
 								+ UserRegistry.prettyPrintLocale(null)
 								+ "</td> ");
@@ -2982,7 +2983,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 						}
 					}
 					
-					if (UserRegistry.userIsTC(ctx.session.user) && locked > 0) {
+					if ((UserRegistry.userIsExactlyManager(ctx.session.user)||
+                                            UserRegistry.userIsTC(ctx.session.user)) && locked > 0) {
 						showTogglePref(subCtx, PREF_SHOWLOCKED, "Show "
 								+ locked + " locked users:");
 					}
@@ -3179,8 +3181,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     
     private void doChangeUserOption(WebContext ctx, int newLevel, int theirLevel, boolean selected)
     {
-        if(UserRegistry.userCanChangeLevel(ctx.session.user, theirLevel, newLevel)) {
+        if(ctx.session.user.getLevel().canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(newLevel))) {
             ctx.println("    <option " + /* (selected?" SELECTED ":"") + */ "value='" + LIST_ACTION_SETLEVEL + newLevel + "'>Make " +
+                        UserRegistry.levelToStr(ctx,newLevel) + "</option>");
+        } else {
+            ctx.println("    <option disabled " + /* (selected?" SELECTED ":"") + */ ">Make " +
                         UserRegistry.levelToStr(ctx,newLevel) + "</option>");
         }
     }

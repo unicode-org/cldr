@@ -304,18 +304,37 @@ public class UserRegistry {
         /**
          * Convert the level to a VoteResolver.Level
          * @return VoteResolver.Level format
+         * @deprecated use @getLevel instead
          */
         public VoteResolver.Level computeVRLevel() {
-            return VoteResolver.Level.fromSTLevel(this.userlevel);
-       }
+            return getLevel();
+        }
+        
+        public synchronized VoteResolver.Level getLevel() {
+            if(vr_level==null) {
+                vr_level = VoteResolver.Level.fromSTLevel(this.userlevel);
+            }
+            return vr_level;
+        }
+        
+        private VoteResolver.Level vr_level = null;
         
         /**
          * Convert the Organization into a VoteResolver.Organization
          * @return VoteResolver.Organization format
+         * @deprecated use @getOrganization instead
          */
         private VoteResolver.Organization computeVROrganization() {
-        	return UserRegistry.computeVROrganization(this.org);
+            return getOrganization();
         }
+        public synchronized VoteResolver.Organization getOrganization() {
+            if(vr_org == null) {
+            	vr_org = UserRegistry.computeVROrganization(this.org);
+            }
+            return vr_org;
+        }
+        
+        private VoteResolver.Organization vr_org = null;
         
         private String voterOrg = null;
         
@@ -329,13 +348,16 @@ public class UserRegistry {
             return voterOrg;
         }
         /**
-         * Is this user an administrator 'over' this user?  Always true if admin, orif TC in same org. 
+         * Is this user an administrator 'over' this user?
          * @param other
+         * @see VoteResolver.Level.isAdminFor()
          */
         public boolean isAdminFor(User other) {
-            boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) || 
-                        isAdminForOrg(other.org); 
-            return adminOrRelevantTc;
+            return  getLevel().isManagerFor(getOrganization(), other.getLevel(), other.getOrganization());
+        }
+        
+        public boolean isSameOrg(User other) {
+            return getOrganization()==other.getOrganization();
         }
         /**
          * Is this user an administrator 'over' this user?  Always true if admin, orif TC in same org. 
@@ -888,7 +910,7 @@ public class UserRegistry {
     }
 
     String setUserLevel(WebContext ctx, int theirId, String theirEmail, int newLevel) {
-        if((newLevel < ctx.session.user.userlevel) || (ctx.session.user.userlevel > TC)) {
+        if(!ctx.session.user.getLevel().canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(newLevel))) {
             return ("[Permission Denied]");
         }
 
@@ -1069,9 +1091,14 @@ public class UserRegistry {
     };
     
     String updateInfo(WebContext ctx, int theirId, String theirEmail, InfoType type, String value) {
-        if(ctx.session.user.userlevel > TC) {
+        if(type == InfoType.INFO_ORG && ctx.session.user.userlevel > ADMIN) {
             return ("[Permission Denied]");
         }
+        
+        if(!ctx.session.user.isAdminFor(getInfo(theirId))) {
+            return ("[Permission Denied]");
+        }
+        
 
         String msg = "";
         Connection conn = null;
@@ -1268,6 +1295,10 @@ public class UserRegistry {
     }
     /** can the user modify this particular user? */
     static final boolean userCanModifyUser(User u, int theirId, int theirLevel) {
+        if(userIsAdmin(u)) return true;
+        if(!u.org.equals(CookieSession.sm.reg.getInfo(theirId).org)) {
+            return false;
+        }
         return (  userCanModifyUsers(u) &&
                  (theirId != ADMIN_ID) &&
                  (theirId != u.id) &&
@@ -1276,12 +1307,6 @@ public class UserRegistry {
     static final boolean userCanDeleteUser(User u, int theirId, int theirLevel) {
         return (userCanModifyUser(u,theirId,theirLevel) &&
                 theirLevel > u.userlevel); // must be at a lower level
-    }
-    static final boolean userCanChangeLevel(User u, int theirLevel, int newLevel) {
-        int ourLevel = u.userlevel;
-        return (userCanModifyUser(u, ALL_ID, theirLevel) &&
-            (newLevel >= ourLevel) && // new level is equal to or greater than our level
-           (newLevel != theirLevel) ); // not existing level 
     }
     static final boolean userCanDoList(User u) {
         return (userIsVetter(u));

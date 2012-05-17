@@ -459,6 +459,20 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", "old-item", resolver.getWinningValue());
     }
     
+    public void TestVoteResolverNgombaTrunkStatus() {
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+        resolver.setEstablishedFromLocale("jgo");
+	final String jgo21 = "\uA78B"; // "[ɑ ɑ́ ɑ̂ ɑ̌ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p pf s sh t ts u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z Ꞌ]";
+	final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
+        Status oldStatus = Status.approved;
+        resolver.setLastRelease(jgo21, oldStatus); // seed/jgo.xml from 21
+        logln("Last release: " + jgo21 + ", "+oldStatus);
+        resolver.setTrunk(jgo22trunk, Status.approved); // seed/jgo.xml from 22 trunk
+        logln("SVN: " + jgo22trunk);
+        logln(resolver.toString());
+        assertEquals("Winning Value", jgo22trunk, resolver.getWinningValue());
+    }
 
     public void TestVoteStatus() {
         VoteResolver.setVoterToInfo(testdata);
@@ -475,7 +489,7 @@ public class TestUtilities extends TestFmwk {
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
     }
-    
+
     public void TestTotalVotesStatus() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();

@@ -417,7 +417,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // set current Trunk value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
-            r.setTrunk(currentValue, currentValue==null?Status.missing:currentStatus); /* add the current value. */
+            if(currentValue!=null) {
+                r.setTrunk(currentValue, currentValue==null?Status.missing:currentStatus); /* add the current value. */
+            }
             
             // add each vote
             if(userToVoteMap!=null) {

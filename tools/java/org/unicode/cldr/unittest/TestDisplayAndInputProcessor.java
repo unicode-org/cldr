@@ -21,6 +21,19 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
         showCldrFile(info.getCldrFactory().make("wae", true));
     }
 
+    public void TestTasawaq() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCldrFactory().make("twq", false));
+        // time for data driven test
+        final String input = "[Z \u017E ]";
+        final String expect = "[z \u017E]"; // lower case
+        String value = daip.processInput(
+            "//ldml/characters/exemplarCharacters",
+            input, null);
+        if (!value.equals(expect)) {
+            errln("Tasawaq incorrectly normalized with output: '" + value+"', expected '"+expect+"'");
+        }
+    }
+
     public void TestMalayalam() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCldrFactory().make("ml", false));
         String value = daip.processInput(

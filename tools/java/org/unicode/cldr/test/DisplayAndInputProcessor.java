@@ -183,20 +183,25 @@ public class DisplayAndInputProcessor {
 
             // check specific cases
             if (path.contains("/exemplarCharacters")) {
+                final String iValue = value;
                 // clean up the user's input.
                 // first, fix up the '['
+                value = value.trim();
+                
+                // remove brackets and trim again before regex
+                if(value.startsWith("[")) {
+                    value = value.substring(1);
+                }
+                if(value.endsWith("]")) {
+                    value = value.substring(0,value.length()-1);
+                }
                 value = value.trim();
 
                 value = replace(NEEDS_QUOTE1, value, "$1\\\\$2$3");
                 value = replace(NEEDS_QUOTE2, value, "$1\\\\$2$3");
 
-                if (!value.startsWith("[")) {
-                    value = "[" + value;
-                }
-
-                if (!value.endsWith("]")) {
-                    value = value + "]";
-                }
+                // re-add brackets.
+                value = "[" + value + "]";
 
                 UnicodeSet exemplar = new UnicodeSet(value);
                 XPathParts parts = new XPathParts().set(path);

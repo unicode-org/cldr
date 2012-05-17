@@ -26,10 +26,12 @@ public class TestAll extends TestGroup {
     super(
             new String[] {
                     "org.unicode.cldr.unittest.TestCanonicalIds",
+                    "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
                     "org.unicode.cldr.unittest.TestLocale",
                     "org.unicode.cldr.unittest.TestBasic",
                     "org.unicode.cldr.unittest.TestSupplementalInfo",
                     "org.unicode.cldr.unittest.TestPaths",
+                    "org.unicode.cldr.unittest.TestPathHeader",
                     "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                     "org.unicode.cldr.unittest.TestMetadata",
                     "org.unicode.cldr.unittest.TestUtilities",

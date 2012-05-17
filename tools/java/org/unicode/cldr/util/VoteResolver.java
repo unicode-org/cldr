@@ -439,6 +439,9 @@ public class VoteResolver<T> {
   private OrganizationToValueAndVote<T>                    organizationToValueAndVote = new OrganizationToValueAndVote<T>();
   private T                                                lastReleaseValue;
   private Status                                           lastReleaseStatus;
+  private T                                                trunkValue;
+  private Status                                           trunkStatus;
+
   private boolean                                          resolved;
   private boolean                                          isEstablished;
   
@@ -464,6 +467,10 @@ public class VoteResolver<T> {
     this.lastReleaseStatus = lastReleaseStatus == null ? Status.missing : lastReleaseStatus;
   }
 
+  public void setTrunk(T trunkValue, Status trunkStatus) {
+      this.trunkValue = trunkValue;
+      this.trunkStatus = trunkStatus;
+    }
 
   public T getLastReleaseValue() {
     return lastReleaseValue;
@@ -474,6 +481,14 @@ public class VoteResolver<T> {
     return lastReleaseStatus;
   }
   
+  public T getTrunkValue() {
+      return trunkValue;
+  }
+
+  public Status getTrunkStatus() {
+      return trunkStatus;
+  }   
+
   /**
    * You must call this locale whenever you are using a VoteResolver with a new locale.
    * @param locale
@@ -494,11 +509,13 @@ public class VoteResolver<T> {
    */
 
   public void clear() {
-    this.lastReleaseValue = null;
-    this.lastReleaseStatus = Status.missing;
-    organizationToValueAndVote.clear();
-    resolved = false;
-    values.clear();
+      this.lastReleaseValue = null;
+      this.lastReleaseStatus = Status.missing;
+      this.trunkValue = null;
+      this.trunkStatus = Status.missing;
+      organizationToValueAndVote.clear();
+      resolved = false;
+      values.clear();
   }
 
   /**
@@ -550,9 +567,14 @@ public class VoteResolver<T> {
     Iterator<T> iterator = sortedValues.iterator();
     // if there are no (unconflicted) votes, return lastRelease
     if (sortedValues.size() == 0) {
-        winningStatus = lastReleaseStatus;
-        winningValue = lastReleaseValue;
-        valuesWithSameVotes.add(winningValue);
+        if (trunkStatus != null && (lastReleaseStatus == null || trunkStatus.compareTo(lastReleaseStatus) >= 0)) {
+            winningStatus = trunkStatus;
+            winningValue = trunkValue;
+        } else {
+            winningStatus = lastReleaseStatus;
+            winningValue = lastReleaseValue;
+        }
+        valuesWithSameVotes.add(winningValue); // may be null
         return;
     }
     // otherwise pick the smallest value.
@@ -716,8 +738,9 @@ public class VoteResolver<T> {
   }
 
   public String toString() {
-    return "{"
+      return "{"
       + "lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
+      + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
       + organizationToValueAndVote
       + ", sameVotes: " + valuesWithSameVotes
       + ", O: " + getOValue() 

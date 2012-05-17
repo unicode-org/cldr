@@ -444,6 +444,22 @@ public class TestUtilities extends TestFmwk {
         return Integer.MIN_VALUE;
     }
     
+    public void TestTrunkStatus() {
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+        resolver.setEstablishedFromLocale("de");
+        
+        resolver.setLastRelease("old-item", Status.approved);
+        resolver.setTrunk("new-item", Status.approved);
+        assertEquals("", "new-item", resolver.getWinningValue());
+        
+        resolver.clear();
+        resolver.setLastRelease("old-item", Status.approved);
+        resolver.setTrunk("new-item", Status.provisional);
+        assertEquals("", "old-item", resolver.getWinningValue());
+    }
+    
+
     public void TestVoteStatus() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();

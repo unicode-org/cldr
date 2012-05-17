@@ -20,7 +20,7 @@
         </path>
 
         <property name="CLDR_DIR" value="../../"/>
-        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false"/>
+        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
 
         
@@ -205,9 +205,9 @@
   </target>   
 
 
-    <target name="check" description="Run the standard ICU4J test suite" depends="init">
+    <target name="check" description="Run the standard CLDR test suite" depends="init">
         <antcall target="_runCheck">
-            <param name="runcheck.arg" value="-n"/>
+            <param name="runcheck.arg" value="-n -w"/>
             <param name="runcheck.jvmarg" value="${jvm_options}"/>
         </antcall>
     </target>

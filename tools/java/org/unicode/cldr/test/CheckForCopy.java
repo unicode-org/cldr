@@ -10,6 +10,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.RegexLookup;
@@ -22,6 +23,8 @@ import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 
 public class CheckForCopy extends FactoryCheckCLDR {
+
+    private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 
     XPathParts parts = new XPathParts();
     //CLDRFile.Status status = new CLDRFile.Status();
@@ -209,7 +212,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
         UnicodeSet exemplars = cldrFileToCheck.getExemplarSet("main", CLDRFile.WinningChoice.WINNING);
         if (lang.equals("en") || lang.equals("root") || exemplars != null && ASCII_LETTER.containsNone(exemplars)) { // skip non-Latin, because the exemplar set will check
             setSkipTest(true);
-            System.out.println("Skipping: " + localeID);
+            if(DEBUG) System.out.println("CheckForCopy: Skipping: " + localeID);
             return this;
         }
         

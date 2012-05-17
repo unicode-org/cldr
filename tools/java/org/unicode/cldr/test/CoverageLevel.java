@@ -1138,7 +1138,7 @@ public class CoverageLevel {
               modernScripts.add(script);
               language_scripts.put(type, script);
             } else {
-              System.out.println("SKIPPING " + script);
+              if(CheckCoverage.DEBUG) System.out.println("SKIPPING " + script);
               continue;
             }
           }

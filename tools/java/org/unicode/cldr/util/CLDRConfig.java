@@ -1,12 +1,17 @@
 package org.unicode.cldr.util;
 
 
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import org.unicode.cldr.util.CLDRConfig.Environment;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
+
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.TestLog;
 
 public class CLDRConfig {
     private static CLDRConfig INSTANCE = null;
@@ -45,6 +50,29 @@ public class CLDRConfig {
     private CLDRFile english;
     private CLDRFile root;
     private RuleBasedCollator col;
+    
+    private TestLog testLog = null;
+
+    // base level
+    public TestLog setTestLog(TestLog log) {
+        testLog = log;
+        return log;
+    }
+
+    // for calling "run"
+    public TestFmwk setTestLog(TestFmwk log) {
+        testLog = log;
+        return log;
+    }
+
+    protected void logln(String msg) {
+        if(testLog!=null) {
+            testLog.logln(msg);
+        } else {
+            System.out.println(msg);
+            System.out.flush();
+        }
+    }
 
     public SupplementalDataInfo getSupplementalDataInfo() {
         synchronized(this) {
@@ -102,6 +130,9 @@ public class CLDRConfig {
         return result;
     }
     
+    
+    private Set<String> shown = new HashSet<String>();
+
     public String getProperty(String key) {
         String result = System.getProperty(key);
         if (result == null) {
@@ -113,8 +144,10 @@ public class CLDRConfig {
         if (result == null) {
           result = System.getenv(key);
         }
-        System.out.println("-D" + key + "=" + result);
-        System.out.flush();
+        if(!shown.contains(key)) {
+            logln("-D" + key + "=" + result);
+            shown.add(key);
+        }
         return result;
     }
 

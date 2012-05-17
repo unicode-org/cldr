@@ -332,7 +332,7 @@ public class GenerateEnums {
       if (line.length() == 0)
         continue;
       if (line.charAt(0) < '0' || line.charAt(0) > '9') {
-        System.out.println("Skipping: " + line);
+        System.out.println("GenerateEnums: Skipping: " + line);
         continue;
       }
       String[] sourceValues = line.split("\\s+");

@@ -19,7 +19,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 public class TestAll extends TestGroup {
 
   public static void main(String[] args) {
-    new TestAll().run(args);
+      CLDRConfig.getInstance().setTestLog(new TestAll()).run(args);
   }
 
   public TestAll() {
@@ -32,7 +32,7 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestPaths",
                     "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                     "org.unicode.cldr.unittest.TestMetadata",
-                    //"org.unicode.cldr.unittest.TestUtilities",
+                    "org.unicode.cldr.unittest.TestUtilities",
                     "org.unicode.cldr.unittest.NumeringSystemsTest",
                     "org.unicode.cldr.unittest.TestCheckCLDR",
             },

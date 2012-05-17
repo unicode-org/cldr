@@ -1607,7 +1607,7 @@ public class CLDRModify {
         } else if (fullparts.getAttributeValue(-1,"references") != null) {
           fixType(value, "references", fullpath);   
         } else {
-          System.out.println("Skipping: " + xpath);
+          System.out.println("CLDRModify: Skipping: " + xpath);
         }
       }
 

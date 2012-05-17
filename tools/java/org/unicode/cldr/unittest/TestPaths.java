@@ -49,6 +49,11 @@ public class TestPaths extends TestFmwk {
   }
 
   public void TestPretty() {
+    if(params.inclusion == 0) {
+        warnln("TestPretty skipped, use -e to include");
+        return;
+    }
+
     PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
     Set<String> pathsSeen = new HashSet<String>();
     

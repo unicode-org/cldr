@@ -4,16 +4,13 @@
 package org.unicode.cldr.test;
 
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.TreeMap;
-
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.XMLSource;
 
-import com.ibm.icu.dev.test.util.ElapsedTimer;
 
 /**
  * @author srl
@@ -64,7 +61,7 @@ public class SimpleTestCache extends TestCache {
         }
         String k = optionsToHash(options);
         TestResultBundle b = r.get(k);
-        System.err.println("Bundle " + b + " for " + k);
+        //System.err.println("Bundle " + b + " for " + k);
         if(b==null) {
             //ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
             b = new TestResultBundle(locale, options);

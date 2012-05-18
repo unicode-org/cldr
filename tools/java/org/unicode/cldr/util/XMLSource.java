@@ -29,6 +29,7 @@ import org.unicode.cldr.util.XPathParts.Comments;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
+import java.util.*;
 
 /** 
  * Overall process is described in 
@@ -835,7 +836,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             }
         }
 
-        private transient Map<String,AliasLocation> getSourceLocaleIDCache =  new HashMap();
+        private transient Map<String,AliasLocation> getSourceLocaleIDCache =  new WeakHashMap();
   
         public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
             AliasLocation fullStatus = getCachedFullStatus(distinguishedXPath);
@@ -1013,7 +1014,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");        
         }
         public void removeValueAtDPath(String xpath) {
-            throw new UnsupportedOperationException("Resolved CLDRFiles are read-only");
+            throw new UnsupportedOperationException("Resolved CLDRFiles are  read-only");
         }
         public Object freeze() {
             return this; // No-op. ResolvingSource is already read-only. 

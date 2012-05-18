@@ -313,11 +313,13 @@ public class VettingViewerQueue {
             // c. any locale with at least 1 vote by a user in that org
             final Set<CLDRLocale> anyVotesFromOrg = UserRegistry.anyVotesForOrg(st_org);
             
-            System.err.println("CovGroupsFor " + st_org + "="+covGroupsForOrg.size() + ", anyVotes="+anyVotesFromOrg.size());
+            System.err.println("CovGroupsFor " + st_org + "="+covGroupsForOrg.size() + ", anyVotes="+anyVotesFromOrg.size() + "  - " + SurveyMain.freeMem());
             
             Predicate<String> localesWithVotes = new Predicate<String>() {
+                final boolean THRASH_ALL_LOCALES = CldrUtility.getProperty("THRASH_ALL_LOCALES", false);
                 @Override
                 public boolean is(String item) {
+                    if(THRASH_ALL_LOCALES) return true;
                     CLDRLocale loc = CLDRLocale.getInstance(item);
                     return (aLocs.contains(item) ||                         // a
                             covGroupsForOrg.contains(loc.getBaseName()) ||  // b
@@ -326,12 +328,14 @@ public class VettingViewerQueue {
             };
             
             int lcount = 0;
+            StringBuilder sb = new StringBuilder();
             for(CLDRLocale l : allLocs) {
                 if(localesWithVotes.is(l.getBaseName())) {
                     lcount++;
+                    sb.append(l+" ");
                 }
             }
-            System.err.println("CovGroupsFor " + st_org + "= union = " + lcount);
+            System.err.println("CovGroupsFor " + st_org + "= union = " + lcount +  " - " + sb);
 
             
             return localesWithVotes;

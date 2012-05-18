@@ -498,6 +498,15 @@ public class VoteResolver<T> {
     isEstablished = ESTABLISHED_LOCALES.contains(new LanguageTagParser().set(locale).getLanguage());
     return this;
   }
+  /**
+   * You must call this locale whenever you are using a VoteResolver with a new locale.
+   * @param locale
+   * @return
+   */
+  public VoteResolver<T> setEstablishedFromLocale(CLDRLocale locale) {
+    isEstablished = ESTABLISHED_LOCALES.contains(locale.getLanguage());
+    return this;
+  }
   
   public boolean isEstablished() {
     return isEstablished;

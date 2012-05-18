@@ -11,6 +11,8 @@ import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.XMLSource;
 
+import java.lang.ref.Reference;
+import java.lang.ref.SoftReference;
 
 /**
  * @author srl
@@ -31,7 +33,7 @@ public class SimpleTestCache extends TestCache {
         return sb.toString();
     }
     
-    LruMap<CLDRLocale,Map<String,TestResultBundle>> map = new LruMap<CLDRLocale, Map<String, TestResultBundle>>(4);
+    LruMap<CLDRLocale,Map<String,Reference<TestResultBundle>>> map = new LruMap<CLDRLocale, Map<String, Reference<TestResultBundle>>>(4);
     
     /* (non-Javadoc)
      * @see org.unicode.cldr.test.TestCache#notifyChange(org.unicode.cldr.util.CLDRLocale, java.lang.String)
@@ -54,19 +56,20 @@ public class SimpleTestCache extends TestCache {
      */
     @Override
     public TestResultBundle getBundle(CLDRLocale locale, Map<String, String> options) {
-        Map<String, TestResultBundle> r = map.get(locale);
+        Map<String, Reference<TestResultBundle>> r = map.get(locale);
         if(r==null) {
-            r = new TreeMap<String, TestResultBundle>();
+            r = new TreeMap<String, Reference<TestResultBundle>>();
             map.put(locale, r);
         }
         String k = optionsToHash(options);
-        TestResultBundle b = r.get(k);
-        //System.err.println("Bundle " + b + " for " + k);
+        Reference<TestResultBundle> ref = r.get(k);
+        TestResultBundle b = (ref!=null?ref.get():null);
+        if(false) System.err.println("Bundle " + b + " for " + k);
         if(b==null) {
             //ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
             b = new TestResultBundle(locale, options);
             //System.err.println(et.toString());
-            r.put(k, b);
+            r.put(k, new SoftReference<TestResultBundle>(b));
         }
         return b;
     }

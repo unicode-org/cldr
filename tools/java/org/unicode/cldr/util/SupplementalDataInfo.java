@@ -2325,7 +2325,7 @@ public class SupplementalDataInfo {
 
         private PluralInfo(Map<Count,String> countToRule) {
             // now build rules
-            NumberFormat nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
+            NumberFormat nf = NumberFormat.getNumberInstance(ULocale.ENGLISH);
             nf.setMaximumFractionDigits(2);
             StringBuilder pluralRuleBuilder = new StringBuilder();
             XPathParts parts = new XPathParts();

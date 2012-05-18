@@ -9,20 +9,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.SimpleTestCache;
 import org.unicode.cldr.test.TestCache;
@@ -41,8 +36,10 @@ import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.STFactory.DataBackedSource;
 import org.unicode.cldr.web.UserRegistry.User;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.ElapsedTimer;
+import java.lang.ref.Reference;
+import java.lang.ref.SoftReference;
+import org.unicode.cldr.util.LruMap;
 
 /**
  * @author srl
@@ -404,7 +401,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.clear(); // reuse
             }
             // Set established locale
-            r.setEstablishedFromLocale(diskFile.getLocaleID());
+            r.setEstablishedFromLocale(locale);
 
             CLDRFile anOldFile = getOldFile();
             if(anOldFile==null) anOldFile = diskFile; // use 'current' for 'previous' if previous is missing.
@@ -817,11 +814,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     boolean dbIsSetup = false;
 
     /**
-     * Per locale map
-     */
-    private Map<CLDRLocale,PerLocaleData> locales = new HashMap<CLDRLocale,PerLocaleData>();
-    
-    /**
      * Test cache
      */
     TestCache gTestCache = new SimpleTestCache();
@@ -858,15 +850,37 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
     
     /**
+     * Per locale map
+     */
+    private Map<CLDRLocale,Reference<PerLocaleData>> locales = new HashMap<CLDRLocale,Reference<PerLocaleData>>();
+    
+    
+    private LruMap<CLDRLocale,PerLocaleData> rLocales = new LruMap<CLDRLocale,PerLocaleData>(5);
+    
+    /**
      * Fetch a locale from the per locale data, create if not there. 
      * @param locale
      * @return
      */
-    private final PerLocaleData get(CLDRLocale locale) { 
-        PerLocaleData pld = locales.get(locale);
+    private synchronized final PerLocaleData get(CLDRLocale locale) {
+        PerLocaleData pld = rLocales.get(locale);
         if(pld==null) {
-            pld = new PerLocaleData(locale);
-            locales.put(locale, pld);
+            Reference<PerLocaleData> ref = locales.get(locale);
+            if(ref!=null) {
+                SurveyLog.debug("STFactory: " + locale + " was not in LRUMap.");
+                pld = ref.get();
+                if(pld==null && true) {
+                    System.out.println("STFactory: " + locale + " was GC'ed." + SurveyMain.freeMem());
+                    ref.clear();
+                }
+            }
+            if(pld==null) {
+                pld = new PerLocaleData(locale);
+                rLocales.put(locale,pld);
+                locales.put(locale, (new SoftReference<PerLocaleData>(pld)));
+            } else {
+                rLocales.put(locale,pld); // keep it in the lru
+            }
         }
         return pld;
     }

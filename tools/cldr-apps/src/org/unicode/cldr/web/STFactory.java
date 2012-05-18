@@ -420,6 +420,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if(currentValue!=null) {
                 r.setTrunk(currentValue, currentValue==null?Status.missing:currentStatus); /* add the current value. */
             }
+            r.add(currentValue);
             
             // add each vote
             if(userToVoteMap!=null) {

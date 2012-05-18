@@ -647,25 +647,20 @@ public class DataSection implements JSONString {
 		// in.
 
 		public DataRow(String xpath) {
-			this.xpath = xpath;
-			this.xpathId = sm.xpt.getByXpath(xpath);
-			this.prettyPath = sm.xpt.getPrettyPath(xpathId);
-            pathHeader =  sm.getSTFactory().getPathHeader(xpath); // may be null
-			// this.setDisplayName(prettyPath);
+                    this.xpath = xpath;
+                    this.xpathId = sm.xpt.getByXpath(xpath);
+                    this.prettyPath = sm.xpt.getPrettyPath(xpathId);
+                    pathHeader = sm.getSTFactory().getPathHeader(xpath); // may be null
+                    // this.setDisplayName(prettyPath);
 
-			if (ballotBox == null) {
-				throw new InternalError("ballotBox is null;");
-			}
-			if (ballotBox.getResolver(xpath) == null) {
-				throw new InternalError(ballotBox.getClass().getName() + " [ballotBox].getResolver(" + xpath + ") is null");
-			}
-			VoteResolver<String> resolver = ballotBox.getResolver(xpath);
-			winningValue = resolver.getWinningValue();
-            confirmStatus = resolver.getWinningStatus();
-			
-            this.displayName = baselineFile.getStringValue(xpath);
-
-		}
+                    if (ballotBox == null) {
+                        throw new InternalError("ballotBox is null;");
+                    }
+                    VoteResolver<String> resolver = ballotBox.getResolver(xpath);
+                    winningValue = resolver.getWinningValue();
+                    confirmStatus = resolver.getWinningStatus();
+                    this.displayName = baselineFile.getStringValue(xpath);
+                }
 
 		public CandidateItem addItem(String value) {
 			CandidateItem pi = items.get(value);
@@ -1606,10 +1601,10 @@ public class DataSection implements JSONString {
 		@Override
 		public String toJSONString() throws JSONException  {
 			String winningVhash = "";
-        	CandidateItem winningItem = getWinningItem();
-        	if(winningItem!=null) {
-        		winningVhash = winningItem.getValueHash();
-        	}
+                        CandidateItem winningItem = getWinningItem();
+                        if(winningItem!=null) {
+                                winningVhash = winningItem.getValueHash();
+                        }
 			String voteVhash = "";
 			String ourVote = null;
 			if(userForVotelist!=null) {

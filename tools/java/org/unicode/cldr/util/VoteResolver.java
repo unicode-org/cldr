@@ -1129,7 +1129,7 @@ public class VoteResolver<T> {
           if(conflictedOrganizations.contains(orgOfUser)) {
               //         - if we conflicted internally => *disputed*
               return VoteStatus.disputed;
-          } else if(win!=orgVote) {
+          } else if(!win.equals(orgVote)) {
               //         - if our choice lost => losing
               return VoteStatus.losing;
           } else if(provisionalOrWorse) {

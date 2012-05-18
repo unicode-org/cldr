@@ -479,13 +479,24 @@ public class TestUtilities extends TestFmwk {
         VoteResolver<String> resolver = new VoteResolver<String>();
 
         resolver.setEstablishedFromLocale("de");
-        Status oldStatus = Status.approved;
-        resolver.setLastRelease("foo", oldStatus);
+        resolver.setLastRelease("foo", Status.approved);
         resolver.add("fii", toVoterId("adobeE"));
         resolver.add("fii", toVoterId("appleV"));
         VoteStatus voteStatus;
         voteStatus = resolver.getStatusForOrganization(Organization.google);
         assertEquals("", VoteStatus.ok_novotes, voteStatus);
+        voteStatus = resolver.getStatusForOrganization(Organization.apple);
+        assertEquals("", VoteStatus.ok, voteStatus);
+        
+        // make non-equal foo
+        String s1 = "foo";
+        String s2 = new StringBuilder("fo").append("o").toString();
+        if (s1 == s2) {
+            errln("Test problem");
+        }
+        resolver.clear();
+        resolver.setLastRelease(s1, Status.approved);
+        resolver.add(s2, toVoterId("appleV"));
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
     }

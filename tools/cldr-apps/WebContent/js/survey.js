@@ -1191,9 +1191,9 @@ dojo.ready(function() {
 			if(immediate) {
 				return window.showInPop2(str,tr,hideIfLast,fn);
 			} else {
-				hideInterval=setTimeout(function() {
-					window.showInPop2(str,tr,hideIfLast,fn);
-				}, 2500);
+//				hideInterval=setTimeout(function() {/
+//					window.showInPop2(str,tr,hideIfLast,fn);
+//				}, 2500);
 			}
 		};
 	}
@@ -1561,8 +1561,8 @@ function updateRow(tr, theRow) {
 	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus;
 	if(!children[config.statuscell].isSetup) {
-		listenFor(children[config.statuscell],"mouseover",
-				doPopInfo);
+//		listenFor(children[config.statuscell],"mouseover",
+//				doPopInfo);
 		listenFor(children[config.statuscell],"click",
 				doPopInfoNow);
 		children[config.statuscell].isSetup=true;

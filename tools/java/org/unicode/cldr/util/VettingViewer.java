@@ -79,7 +79,7 @@ public class VettingViewer<T> {
         /**
          * There is a dispute.
          */
-        hasDispute('D', "Disputed", "There is a dispute between other organizations that needs your help in resolving to the best value."),
+        hasDispute('D', "Disputed", "Different organizations are choosing different values. Please review to try to reach consensus."),
         /**
          * There is a console-check warning
          */
@@ -383,7 +383,7 @@ public class VettingViewer<T> {
         public Status getErrorStatus(String path, String value, StringBuilder statusMessage) {
             return getErrorStatus(path, value, statusMessage, null);
         }
-        
+
         @Override
         public Status getErrorStatus(String path, String value, StringBuilder statusMessage, EnumSet<Subtype> outputSubtypes) {
             Status result0 = Status.ok;
@@ -800,7 +800,7 @@ public class VettingViewer<T> {
             if (level.compareTo(usersLevel) > 0) {
                 continue;
             }
-            
+
 
             String value = sourceFile.getWinningValue(path);
 
@@ -925,10 +925,10 @@ public class VettingViewer<T> {
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
         generateSummaryHtmlErrorTables(output, choices, includeLocale, null);
     }
-    
+
     public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale, Organization organization) {
         try {
-            
+
             output.append("<p>The following summarizes the Priority Items across locales, using the default coverage level for your organization for each locale. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
             // Gather the relevant paths
             // each one will be marked with the choice that it triggered.
@@ -949,7 +949,7 @@ public class VettingViewer<T> {
 
             Map<String, String> sortedNames = new TreeMap(Collator.getInstance());
             Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
-
+            
             Relation<String, String> localeToDefaultContents = Relation.of(new HashMap<String, Set<String>>(), LinkedHashSet.class);
 
             for (String defaultContentLocale : defaultContentLocales) {
@@ -958,6 +958,7 @@ public class VettingViewer<T> {
 
             for (String localeID : cldrFactory.getAvailable()) {
                 if (defaultContentLocales.contains(localeID) 
+                        || localeID.equals("en")
                         || !includeLocale.is(localeID)) {
                     continue;
                 }
@@ -1004,11 +1005,11 @@ public class VettingViewer<T> {
                 for (Choice choice : choices) {
                     long count = problemCounter.get(choice);
                     output.append("<td class='tvs-count'>");
-                    if (choice == Choice.weLost) {
-                        output.append("<i>n/a</i>");
-                    } else {
-                        output.append(nf.format(count));
-                    }
+                    // if (choice == Choice.weLost) {
+                    //    output.append("<i>n/a</i>");
+                    // } else {
+                    output.append(nf.format(count));
+                    // }
                     output.append("</td>\n");
                 }
                 output.append("</tr>\n");

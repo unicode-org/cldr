@@ -302,6 +302,14 @@ public class VoteResolver<T> {
         }
 
         /**
+         * Returns value of voted item, in case there is exactly 1.
+         * @return
+         */
+        public T getSingleVotedItem() {
+            return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
+        }
+        
+        /**
          * Call this to add votes
          * 
          * @param value
@@ -1103,21 +1111,25 @@ public class VoteResolver<T> {
         T win = getWinningValue();
         Status winStatus = getWinningStatus();
         boolean provisionalOrWorse = Status.provisional.compareTo(winStatus)>=0;
-
+                
         T orgVote = orgOfUser == null ? null : getOrgVote(orgOfUser);
         // get the number of other values with votes.
-        int otherItemsWithVotes = organizationToValueAndVote.countValuesWithVotes() - (orgVote == null ? 0 : 1);
+        int itemsWithVotes = organizationToValueAndVote.countValuesWithVotes();
+        T singleVotedItem = organizationToValueAndVote.getSingleVotedItem();
 
-        if (orgVote!=null && !win.equals(orgVote)) {
+        if (orgVote != null && !win.equals(orgVote)) {
             // We voted and lost
             return VoteStatus.losing;
+        } else if (itemsWithVotes > 1) {
+            //  If there are votes for two items, we should look at them.
+            return VoteStatus.disputed;
         } else if (provisionalOrWorse) {
             //  If the value is provisional, it needs more votes.
             return VoteStatus.provisionalOrWorse;          
-        } else if (otherItemsWithVotes > 0) {
-            //  If there are votes for any other items, we should look at them.
+        } else if (!win.equals(singleVotedItem)) {
+            //  If someone voted but didn't win
             return VoteStatus.disputed;
-        } else if (orgVote == null) {
+        } else if (itemsWithVotes == 0) {
             //  The value is ok, but we capture that there are no votes, for revealing items like unsync'ed
             return VoteStatus.ok_novotes;
         } else {

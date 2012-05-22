@@ -484,7 +484,7 @@ public class TestUtilities extends TestFmwk {
         resolver.add("fii", toVoterId("appleV"));
         VoteStatus voteStatus;
         voteStatus = resolver.getStatusForOrganization(Organization.google);
-        assertEquals("", VoteStatus.ok_novotes, voteStatus);
+        assertEquals("", VoteStatus.ok, voteStatus);
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
         
@@ -499,6 +499,27 @@ public class TestUtilities extends TestFmwk {
         resolver.add(s2, toVoterId("appleV"));
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
+    }
+    
+    public void TestLosingStatus() {
+        // af
+        // losing? {lastRelease: {BQ, missing}, trunk: {null, null}, {orgToVotes: , totals: {}, conflicted: []}, sameVotes: [BQ], O: null, N: null, totals: {}, winning: {BQ, missing}}
+        // XPath: //ldml/localeDisplayNames/territories/territory[@type="BQ"]
+        // gcvs.openoffice_org.example.com
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+        
+        resolver.setEstablishedFromLocale("af");
+        resolver.setLastRelease("BQ", Status.missing);
+        VoteStatus status = resolver.getStatusForOrganization(Organization.openoffice_org);
+        assertEquals("", VoteStatus.provisionalOrWorse, status);
+        
+        // {lastRelease: {{0}: {1}, missing}, trunk: {null, null}, {orgToVotes: pakistan={{0}: {1}=8}, totals: {{0}: {1}=8}, conflicted: []}, sameVotes: [{0}: {1}], O: {0}: {1}, N: null, totals: {{0}: {1}=8}, winning: {{0}: {1}, approved}}
+        resolver.clear();
+        resolver.setLastRelease("{0}: {1}", Status.missing);
+        resolver.add("{0}: {1}", toVoterId("adobeE"));
+        status = resolver.getStatusForOrganization(Organization.openoffice_org);
+        assertEquals("", VoteStatus.ok, status);
     }
 
     public void TestTotalVotesStatus() {

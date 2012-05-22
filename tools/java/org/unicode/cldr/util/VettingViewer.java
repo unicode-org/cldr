@@ -32,6 +32,7 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.Factory.PathHeaderTransform;
 import org.unicode.cldr.util.PathHeader.Factory.RawData;
+import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -94,10 +95,10 @@ public class VettingViewer<T> {
          */
         changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value."),
         /**
-         * Given the users coverage, some items are missing.
+         * Given the users' coverage, some items are missing.
          */
         missingCoverage('M', "Missing",
-        "Your current coverage level requires the item to be present, but it is missing. During the vetting phase, this is informational: you can’t add new values."),
+        "Your current coverage level requires the item to be present and approved. During the vetting phase, this is informational: you can’t add new values."),
         //        /**
         //         * There is a console-check error
         //         */
@@ -500,25 +501,10 @@ public class VettingViewer<T> {
         }
     }
 
-    /**
-     * Show a table of values, filtering according to the choices here and in
-     * the constructor.
-     * 
-     * @param output
-     * @param choices
-     *            See the class description for more information.
-     * @param localeId
-     * @param user
-     * @param usersLevel
-     * @deprecated
-     */
     //    public void generateHtmlErrorTablesOld(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
     //        generateHtmlErrorTablesOld(output, choices, localeID, user, usersLevel, false);
     //    }
 
-    /**
-     * @deprecated
-     */
     //    private void generateHtmlErrorTablesOld(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean showAll) {
     //
     //        // first gather the relevant paths
@@ -728,16 +714,32 @@ public class VettingViewer<T> {
     //        writeTables(output, sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID, showAll);
     //    }
 
+    /**
+     * @deprecated
+     */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
         generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, false);
     }
 
-    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean showAll) {
-        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, showAll);
+    /**
+     * Show a table of values, filtering according to the choices here and in
+     * the constructor.
+     * 
+     * @param output
+     * @param choices
+     *            See the class description for more information.
+     * @param localeId
+     * @param user
+     * @param usersLevel
+     * @param nonVettingPhase
+     */
+    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, 
+            boolean showAll) {
+        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, true);
     }
 
     private void generateHtmlErrorTablesNew(Appendable output, EnumSet<Choice> choices, String localeID, T user, 
-            Level usersLevel, boolean showAll) {
+            Level usersLevel, boolean nonVettingPhase) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -753,15 +755,15 @@ public class VettingViewer<T> {
         } catch (Exception e) {
         }
 
-        getFileInfo(sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID, showAll, user, usersLevel);
-
+        getFileInfo(sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID, nonVettingPhase, user, usersLevel);
+        
         // now write the results out
-        writeTables(output, sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID, showAll);
+        writeTables(output, sourceFile, lastSourceFile, sorted, problemCounter, choices, localeID, nonVettingPhase);
     }
 
     private void getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile, Relation<R2<SectionId, PageId>, 
             WritingInfo> sorted, Counter<Choice> problemCounter,
-            EnumSet<Choice> choices, String localeID, boolean showAll, 
+            EnumSet<Choice> choices, String localeID, boolean nonVettingPhase, 
             T user, Level usersLevel) {
         CoverageLevel2 coverage = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
         Status status = new Status();
@@ -814,14 +816,15 @@ public class VettingViewer<T> {
                 problemCounter.increment(Choice.changedOldValue);
             }
 
-            if (showAll && !localeID.equals("root")) {
+            VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
+
+            if (!localeID.equals("root") || voteStatus == VoteStatus.provisionalOrWorse) {
                 if (isMissing(sourceFile, path, status)) {
                     problems.add(Choice.missingCoverage);
                     problemCounter.increment(Choice.missingCoverage);
                 }
             }
 
-            VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
 
             if (outdatedPaths.isOutdated(localeID, path)) {
                 // the outdated paths compares the base value, before
@@ -867,7 +870,6 @@ public class VettingViewer<T> {
             }
             switch (voteStatus) {
             case losing:
-            case provisionalOrWorse:
                 problems.add(Choice.weLost);
                 problemCounter.increment(Choice.weLost);
                 //String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
@@ -1196,7 +1198,7 @@ public class VettingViewer<T> {
             Counter<Choice> problemCounter,
             EnumSet<Choice> choices,
             String localeID,
-            boolean showAll) {
+            boolean nonVettingPhase) {
         try {
 
             Status status = new Status();
@@ -1212,13 +1214,15 @@ public class VettingViewer<T> {
                     "<th class='tv-th'>Issue</th>" +
                     "<th class='tv-th'>Description</th>" +
             "</tr>\n");
-            boolean countShown = false;
+
+            // find the choice to check
+            // if !vetting and missing != 0, use missing. Otherwise pick first.
+            Choice checkedItem = null;
+            if (nonVettingPhase && problemCounter.get(Choice.missingCoverage) != 0) {
+                checkedItem = Choice.missingCoverage;
+            }
+            
             for (Choice choice : choices) {
-                if (!showAll && (
-                        // choice == Choice.other || 
-                        choice == Choice.missingCoverage)) {
-                    continue;
-                }
                 long count = problemCounter.get(choice);
                 output.append("<tr><td class='tvs-count'>")
                 .append(nf.format(count))
@@ -1226,9 +1230,9 @@ public class VettingViewer<T> {
                 .append("<input type='checkbox' name='")
                 .append(Character.toLowerCase(choice.abbreviation))
                 .append("' onclick='setStyles()'");
-                if (!countShown && count != 0) {
+                if (checkedItem == choice || checkedItem == null && count != 0) {
                     output.append(" checked");
-                    countShown = true;
+                    checkedItem = choice;
                 }
                 output.append(">");
                 choice.appendDisplay("", output);

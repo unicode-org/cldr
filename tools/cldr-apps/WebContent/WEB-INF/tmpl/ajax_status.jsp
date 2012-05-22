@@ -25,6 +25,14 @@ var surveyCurrentLocaleStamp = 0;
 var surveyCurrentLocale = null;
 var surveyCurrentLocaleStamp = 0;
 var surveyLocaleUrl='';
+<% } 
+
+String sessid = request.getParameter("s");
+if(sessid!=null) {
+%>
+var surveySessionId='<%= sessid %>';
+<% } else { %>
+var surveySessionId=null;
 <% } %>
 var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
 var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";

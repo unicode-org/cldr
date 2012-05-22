@@ -29,6 +29,7 @@ function stStopPropagation(e) {
 		return e.cancelBubble();
 	} else {
 		// hope for the best
+                return false;
 	}
 }
 
@@ -2928,6 +2929,99 @@ function setStyles() {
     }
     var hideRegex = new RegExp(hideRegexString);
     changeStyle(hideRegex);
+    
+    
+}
+
+function createLocLink(loc, locName, className) {
+    var cl = createChunk(locName, "a", "localeChunk "+className);
+    cl.title=loc;
+    cl.href = "survey?_="+loc;
+    
+    return cl;
+}
+
+function showAllItems(divName, user) {
+	dojo.ready(function() {
+		loadStui();
+		var div = dojo.byId(divName);
+		div.className = "recentList";
+		div.update = function() {
+		var ourUrl = contextPath + "/SurveyAjax?what=mylocales&user="+user;
+		var errorHandler = function(err, ioArgs) {
+			handleDisconnect('Error in showrecent: ' + err + ' response '
+			+ ioArgs.xhr.responseText);
+		};
+		showLoader(null, "Loading recent items");
+		var loadHandler = function(json) {
+			try {
+				if (json&&json.mine) {
+					
+					var frag = document.createDocumentFragment();
+
+					var header = json.mine.header;
+					var data = json.mine.data;
+
+					
+					if(data.length==0) {
+						frag.appendChild(createChunk(stui_str("recentNone"),"i"));
+					} else {
+						{
+							var rowDiv = document.createElement("div");
+							frag.appendChild(rowDiv);
+							
+							rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
+							rowDiv.appendChild(createChunk(stui_str("recentCount"),"b"));
+							//rowDiv.appendChild(createChunk(stui_str("downloadXml"),"b"));
+						}
+						
+						for(var q in data) {
+							var row = data[q];
+							
+							var count = row[header.COUNT];
+							
+							var rowDiv = document.createElement("div");
+							frag.appendChild(rowDiv);
+
+							var loc = row[header.LOCALE];
+							var locname = row[header.LOCALE_NAME];
+                                                        rowDiv.appendChild(createLocLink(loc, locname, "recentLoc"));
+							rowDiv.appendChild(createChunk(count,"span","value recentCount"));
+                                                        
+                                                        if(surveySessionId!=null) {
+                                                            var dlLink = createChunk(stui_str("downloadXmlLink"),"a","notselected");
+                                                            dlLink.href = "DataExport.jsp?do=myxml&_="+loc+"&user="+user+"&s="+surveySessionId;
+                                                            dlLink.target="STDownload";
+                                                            rowDiv.appendChild(dlLink);
+                                                        }
+						}
+					}
+					
+					removeAllChildNodes(div);
+					div.appendChild(frag);
+					
+					
+					hideLoader(null);
+				} else {
+					handleDisconnect("Failed to load JSON recent items",json);
+				}
+			} catch (e) {
+			console.log("Error in ajax get ", e.message);
+			console.log(" response: " + text);
+			handleDisconnect(" exception in getrecent: " + e.message,null);
+			}
+		};
+	var xhrArgs = {
+		url : ourUrl,
+		handleAs : "json",
+		load : loadHandler,
+		error : errorHandler
+	};
+	queueXhr(xhrArgs);
+		};
+		
+	div.update();
+	});
 }
 
 function showRecent(divName, locale, user) {
@@ -2942,7 +3036,7 @@ function showRecent(divName, locale, user) {
 		var div = dojo.byId(divName);
 		div.className = "recentList";
 		div.update = function() {
-		var ourUrl = contextPath + "/SurveyAjax?what=recent_items&_="+locale+"&user="+user;
+		var ourUrl = contextPath + "/SurveyAjax?what=recent_items&_="+locale+"&user="+user+"&limit="+15;
 		var errorHandler = function(err, ioArgs) {
 			handleDisconnect('Error in showrecent: ' + err + ' response '
 			+ ioArgs.xhr.responseText);
@@ -2975,6 +3069,7 @@ function showRecent(divName, locale, user) {
 							var row = data[q];
 							
 							var loc = row[header.LOCALE];
+                                                        var locname = row[header.LOCALE_NAME];
 							var org = row[header.ORG];
 							var last_mod = row[header.LAST_MOD];
 							var xpath = row[header.XPATH];
@@ -2984,7 +3079,7 @@ function showRecent(divName, locale, user) {
 							var rowDiv = document.createElement("div");
 							frag.appendChild(rowDiv);
 							
-							rowDiv.appendChild(createChunk(loc,"span","recentLoc"));
+                                                        rowDiv.appendChild(createLocLink(loc,locname, "recentLoc"));
 							var xpathItem;
 							rowDiv.appendChild(xpathItem = createChunk(xpath,"a","recentXpath"));
 							xpathItem.href = "survey?_="+loc+"&strid="+xpath_hash;

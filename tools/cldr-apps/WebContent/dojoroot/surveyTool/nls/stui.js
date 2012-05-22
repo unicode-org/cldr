@@ -97,6 +97,8 @@ define({
 			recentWhen: "When",
 			recentOrg: "Organization",
 			recentNone: "No items to show.",
+                        recentCount: "Count",
+                        downloadXmlLink: "Download XML...",
 
 			testOkay: "has no errors or warnings",
 			testWarn: "has warnings",

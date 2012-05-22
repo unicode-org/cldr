@@ -44,6 +44,17 @@
 showRecent('submitItems',null,'<%= user %>');
 </script>
 
+<hr>
+<h3>All active locales for user <%= user %></h3>
+
+<div id='allMyItems'>
+</div>
+...
+
+<script>
+showAllItems('allMyItems','<%= user %>');
+</script>
+
 <%
 if(s!=null) { %>
 	<hr>

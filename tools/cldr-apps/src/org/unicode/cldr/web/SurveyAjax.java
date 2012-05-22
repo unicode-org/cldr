@@ -3,10 +3,8 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -18,7 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
@@ -46,6 +43,7 @@ import org.unicode.cldr.util.CLDRLocale;
  * 
  */
 public class SurveyAjax extends HttpServlet {
+    public final static String WHAT_MY_LOCALES ="mylocales";
     /**
      * Consolidate my JSONify functions here.
      * @author srl
@@ -207,10 +205,31 @@ public class SurveyAjax extends HttpServlet {
                 JSONObject query = DBUtils.queryToJSON("select count(*) as count ,last_mod from cldr_votevalue group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
                 r.put("byday",query);
                 send(r,out);
+            } else if(what.equals(WHAT_MY_LOCALES)) {
+                JSONWriter r = newJSONStatus(sm);
+                String q1 = "select count(*) as count, cldr_votevalue.locale as locale from cldr_votevalue WHERE cldr_votevalue.submitter=? AND cldr_votevalue.value is not NULL group by cldr_votevalue.locale order by cldr_votevalue.locale desc";
+                String user = request.getParameter("user");
+                UserRegistry.User u = null;
+                if(user!=null&&!user.isEmpty()) try {
+                    u = sm.reg.getInfo(Integer.parseInt(user));
+                } catch(Throwable t) {
+                    SurveyLog.logException(t, "Parsing user " + user);
+                }
+                
+                JSONObject query;
+                query = DBUtils.queryToJSON(q1, u.id );
+                r.put("mine",query);
+                send(r,out);
             } else if(what.equals(WHAT_RECENT_ITEMS)) {
                 JSONWriter r = newJSONStatus(sm);
+                int limit = 15;
+                try {
+                    limit = Integer.parseInt(request.getParameter("limit"));
+                } catch (Throwable t) {
+                    limit = 15;
+                }
                 String q1 = "select cldr_votevalue.locale,cldr_xpaths.xpath,cldr_users.org, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where ";
-                String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter  order by cldr_votevalue.last_mod desc limit 15";
+                String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter  order by cldr_votevalue.last_mod desc limit ?";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if(user!=null&&!user.isEmpty()) try {
@@ -221,13 +240,13 @@ public class SurveyAjax extends HttpServlet {
                 
                 JSONObject query;
                 if(l==null && u==null ) {
-                    query = DBUtils.queryToJSON(q1+q2 );
+                    query = DBUtils.queryToJSON(q1+q2, limit );
                 } else if(u==null && l!=null) {
-                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.locale=? AND " + q2, l );
+                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.locale=? AND " + q2, l,limit );
                 } else if(u!=null && l==null) {
-                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.submitter=? AND " + q2, u.id );
+                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.submitter=? AND " + q2, u.id ,limit);
                 } else {
-                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.locale=? AND cldr_votevalue.submitter=? " + q2, l, u.id );
+                    query = DBUtils.queryToJSON(q1+" cldr_votevalue.locale=? AND cldr_votevalue.submitter=? " + q2, l, u.id,limit );
                 }
                 r.put("recent",query);
                 send(r,out);

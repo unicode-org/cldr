@@ -965,14 +965,21 @@ public class DBUtils {
         JSONArray data  = new JSONArray();
         
         int hasxpath = -1;
+        int haslocale = -1;
         
         for(int i=1;i<=cc;i++) {
             String colname = rsm.getColumnName(i).toUpperCase();
             if(colname.equals("XPATH")) hasxpath=i;
+            if(colname.equals("LOCALE")) haslocale=i;
             header.put(colname, i-1);
         }
+        int cn=cc;
         if(hasxpath>=0) {
-            header.put("XPATH_STRHASH",cc);
+            header.put("XPATH_STRHASH",cn++);
+            header.put("XPATH_CODE",cn++);
+        }
+        if(haslocale>=0) {
+            header.put("LOCALE_NAME",cn++);
         }
         
         ret.put("header", header);
@@ -980,12 +987,16 @@ public class DBUtils {
         while(rs.next()) {
             JSONArray item = new JSONArray();
             String xpath = null;
+            String locale_name = null;
             for(int i=1;i<=cc;i++) {
                 String v;
                 try {
                     v = rs.getString(i);
                     if(i==hasxpath) {
                         xpath = v;
+                    }
+                    if(i==haslocale) {
+                        locale_name = CLDRLocale.getInstance(v).getDisplayName();
                     }
                 } catch(SQLException se) {
                     if(se.getSQLState().equals("S1009")) {
@@ -1007,6 +1018,10 @@ public class DBUtils {
             }
             if(hasxpath>=0 && xpath!=null) {
                 item.put(XPathTable.getStringIDString(xpath)); // add XPATH_STRHASH column
+                item.put(CookieSession.sm.getSTFactory().getPathHeader(xpath).toString()); // add XPATH_CODE
+            }
+            if(haslocale>=0 && locale_name!=null) {
+                item.put(locale_name); // add XPATH_STRHASH column
             }
             data.put(item);
         }

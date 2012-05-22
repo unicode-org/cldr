@@ -994,12 +994,12 @@ function showInPop(str,tr, theObj, fn, immediate) {
 }
 
 function listenToPop(str, tr, theObj, fn) {
-	listenFor(theObj, "mouseover",
-			function(e) {
-				showInPop(str, tr, theObj, fn, false);
-				stStopPropagation(e);
-				return false;
-			});
+//	listenFor(theObj, "mouseover",
+//			function(e) {
+//				showInPop(str, tr, theObj, fn, false);
+//				stStopPropagation(e);
+//				return false;
+//			});
 	listenFor(theObj, "click",
 			function(e) {
 				showInPop(str, tr, theObj, fn, true);
@@ -1066,11 +1066,11 @@ dojo.ready(function() {
 		setLastShown(null);
 	}
 	
-	listenFor(pubody, "mouseover", function() {
-		clearTimeout(hideInterval);
-		hideInterval=null;
-	});
-	listenFor(pubody, "mouseout", hidePopHandler);
+//	listenFor(pubody, "mouseover", function() {
+//		clearTimeout(hideInterval);
+//		hideInterval=null;
+//	});
+//	listenFor(pubody, "mouseout", hidePopHandler);
 	
 	var pupin =  createChunk("Pin", "button", "pu-pin");
 	
@@ -1124,14 +1124,14 @@ dojo.ready(function() {
 			if(pupin) {
 				pucontent.appendChild(pupin);
 			}
-			listenFor(pupin, "click", function(e) {
-				window.hidePop = function() {
-
-				};
-				pucontent.removeChild(pupin);
-				pupin = null;
-				stStopPropagation(e); return false; 
-			});
+//			listenFor(pupin, "click", function(e) {
+//				window.hidePop = function() {
+//
+//				};
+//				pucontent.removeChild(pupin);
+//				pupin = null;
+//				stStopPropagation(e); return false; 
+//			});
 
 		}
 		td=null;
@@ -1933,8 +1933,8 @@ function insertRows(theDiv,xpath,session,json) {
 		theDiv.theTable = theTable;
 		theTable.theDiv = theDiv;
 		doInsertTable=theTable;
-		listenFor(theTable,"mouseout",
-				hidePopHandler);
+//		listenFor(theTable,"mouseout",
+//				hidePopHandler);
 	}
 	// append header row
 	

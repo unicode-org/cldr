@@ -18,7 +18,7 @@ class DateOrder implements Comparable<DateOrder> {
     private int etype1;
     private int etype2;
 
-    public void set(int a, int b) {
+    public DateOrder(int a, int b) {
         etype1 = a;
         etype2 = b;
     }
@@ -59,7 +59,6 @@ class DateOrder implements Comparable<DateOrder> {
             Matcher typeMatcher = Pattern.compile("\\[@type=\"([^\"]*)\"]").matcher("");
             int[] soFar = new int[50];
             int lenSoFar = 0;
-            DateOrder order = new DateOrder();
             for (String path : resolved) {
                 if (DisplayAndInputProcessor.hasDatetimePattern(path)) {
                     if (path.contains("[@id=\"Ed\"]")) {
@@ -78,8 +77,6 @@ class DateOrder implements Comparable<DateOrder> {
                     boolean isInterval = path.contains("intervalFormatItem");
                     lenSoFar = 0;
                     String value = resolved.getStringValue(path);
-                    boolean test = value.equals("EEE d.") || value.equals("E, dd.MM. - E, dd.MM.");
-                    test = test;
                     // register a comparison for all of the items so far
                     for (Object item : flexInfo.fp.set(value).getItems()) {
                         if (item instanceof VariableField) {
@@ -91,11 +88,10 @@ class DateOrder implements Comparable<DateOrder> {
                                 continue;
                             }
                             for (int i = 0; i < lenSoFar; ++i) {
-                                order.set(soFar[i], eType);
+                                DateOrder order = new DateOrder(soFar[i], eType);
                                 Set<String> paths = pairCount.get(order);
                                 if (paths == null) {
                                     pairCount.put(order, paths = new HashSet<String>());
-                                    order = new DateOrder();
                                 }
                                 paths.add(path);
                             }
@@ -105,33 +101,38 @@ class DateOrder implements Comparable<DateOrder> {
                 }
             }
             // determine conflicts, and mark
-            HashSet<Set<String>> alreadySeen = new HashSet<Set<String>>();
-            DateOrder reverseOrder = new DateOrder();
             for (Entry<String, Map<DateOrder, Set<String>>> typeAndOrder2set : type2order2set.entrySet()) {
                 Map<DateOrder, Set<String>> pairCount = typeAndOrder2set.getValue();
+                HashSet<DateOrder> alreadySeen = new HashSet<DateOrder>();
                 for (Entry<DateOrder, Set<String>> entry : pairCount.entrySet()) {
-                    Set<String> thisPaths = entry.getValue();
-                    if (alreadySeen.contains(thisPaths)) {
+                    DateOrder thisOrder = entry.getKey();
+                    if (alreadySeen.contains(thisOrder)) {
                         continue;
                     }
-                    DateOrder thisOrder = entry.getKey();
-                    reverseOrder.etype1 = thisOrder.etype2;
-                    reverseOrder.etype2 = thisOrder.etype1;
+                    DateOrder reverseOrder = new DateOrder(thisOrder.etype2, thisOrder.etype1);
                     Set<String> reverseSet = pairCount.get(reverseOrder);
                     DateOrder sample = thisOrder.compareTo(reverseOrder) < 0 ? thisOrder : reverseOrder;
 
+                    Set<String> thisPaths = entry.getValue();
                     if (reverseSet != null) {
                         String otherPath = reverseSet.iterator().next();
+                        FormatType otherType = FormatType.getType(otherPath);
                         //String otherValue = resolved.getStringValue(otherPath);
+                        
                         for (String first : thisPaths) {
+                            FormatType firstType = FormatType.getType(first);
+                            if (otherType.isLessImportantThan(firstType)) continue;
                             addItem(plain, first, sample, otherPath, pathsWithConflictingOrder2sample);
                         }
                         otherPath = thisPaths.iterator().next();
+                        otherType = FormatType.getType(otherPath);
                         // otherValue = resolved.getStringValue(otherPath);
                         for (String first : reverseSet) {
+                            FormatType firstType = FormatType.getType(first);
+                            if (otherType.isLessImportantThan(firstType)) continue;
                             addItem(plain, first, sample, otherPath, pathsWithConflictingOrder2sample);
                         }
-                        alreadySeen.add(reverseSet);
+                        alreadySeen.add(reverseOrder);
                     }
                 }
             }
@@ -178,4 +179,37 @@ class DateOrder implements Comparable<DateOrder> {
         order2path.put(sample, conflictingPath);
     }
 
+    /**
+     * Enum for deciding the priority of paths for checking date order
+     * consistency.
+     */
+    private enum FormatType {
+        DATE(3), AVAILABLE(2), INTERVAL(1);
+        private static final Pattern DATETIME_PATTERN = Pattern.compile("/(date|available|interval)Formats");
+        // Types with a higher value have higher importance.
+        private int importance;
+
+        private FormatType(int importance) {
+            this.importance = importance;
+        }
+        
+        /**
+         * @param path
+         * @return the format type of the specified path
+         */
+        public static FormatType getType(String path) {
+            Matcher matcher = DATETIME_PATTERN.matcher(path);
+            if (matcher.find()) {
+                return FormatType.valueOf(matcher.group(1).toUpperCase());
+            }
+            throw new IllegalArgumentException("Path is not a datetime format type: " + path);
+        }
+
+        /**
+         * @return true if this FormatType is of lower importance than otherType
+         */
+        public boolean isLessImportantThan(FormatType otherType) {
+            return otherType.importance - importance > 0;
+        }
+    }
 }

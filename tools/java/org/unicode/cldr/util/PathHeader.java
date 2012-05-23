@@ -76,7 +76,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
     private static EnumNames<PageId> PageIdNames = new EnumNames<PageId>();
     private static Relation<SectionId,PageId> SectionIdToPageIds = Relation.of(new TreeMap<SectionId,Set<PageId>>(), TreeSet.class);
-    
+
     private static class SubstringOrder {
         public SubstringOrder(int startPosition, int endPosition, int order) {
             this.startPosition = startPosition;
@@ -290,7 +290,7 @@ public class PathHeader implements Comparable<PathHeader> {
     public String getCode() {
         return code;
     }
-    
+
     public String getHeaderCode() {
         return getHeader() + ": " + getCode();
     }
@@ -316,48 +316,52 @@ public class PathHeader implements Comparable<PathHeader> {
     public int compareTo(PathHeader other) {
         // Within each section, order alphabetically if the integer orders are
         // not different.
-        int result;
-        if (0 != (result = sectionId.compareTo(other.sectionId))) {
-            return result;
-        }
-        if (0 != (result = pageId.compareTo(other.pageId))) {
-            return result;
-        }
-        if (0 != (result = headerOrder - other.headerOrder)) {
-            return result;
-        }
-        if (0 != (result = alphabetic.compare(header, other.header))) {
-            return result;
-        }
-        if (0 != (result = codeOrder - other.codeOrder)) {
-            return result;
-        }
-        if (codeSuborder != null) { // do all three cases, for transitivity
-            if (other.codeSuborder != null) {
-                // hack for counts
-                if (0 != (result = alphabetic.compare(code.substring(0,codeSuborder.startPosition), other.code.substring(0,other.codeSuborder.startPosition)))) {
-                    return result;
-                }
-                if (0 != (result = alphabetic.compare(code.substring(codeSuborder.endPosition), other.code.substring(other.codeSuborder.endPosition)))) {
-                    return result;
-                }
-                if (0 != (result = codeSuborder.order - other.codeSuborder.order)) {
-                    return result;
-                }
-            } else {
-                return 1; // if codeSuborder != null (and other.codeSuborder == null), it is greater
-            }
-        } else if (other.codeSuborder != null) {
-            return -1; // if codeSuborder == null (and other.codeSuborder != null), it is greater
-        } else {
-            if (0 != (result = alphabetic.compare(code, other.code))) {
+        try {
+            int result;
+            if (0 != (result = sectionId.compareTo(other.sectionId))) {
                 return result;
             }
+            if (0 != (result = pageId.compareTo(other.pageId))) {
+                return result;
+            }
+            if (0 != (result = headerOrder - other.headerOrder)) {
+                return result;
+            }
+            if (0 != (result = alphabetic.compare(header, other.header))) {
+                return result;
+            }
+            if (0 != (result = codeOrder - other.codeOrder)) {
+                return result;
+            }
+            if (codeSuborder != null) { // do all three cases, for transitivity
+                if (other.codeSuborder != null) {
+                    // hack for counts
+                    if (0 != (result = alphabetic.compare(code.substring(0,codeSuborder.startPosition), other.code.substring(0,other.codeSuborder.startPosition)))) {
+                        return result;
+                    }
+                    if (0 != (result = alphabetic.compare(code.substring(codeSuborder.endPosition), other.code.substring(other.codeSuborder.endPosition)))) {
+                        return result;
+                    }
+                    if (0 != (result = codeSuborder.order - other.codeSuborder.order)) {
+                        return result;
+                    }
+                } else {
+                    return 1; // if codeSuborder != null (and other.codeSuborder == null), it is greater
+                }
+            } else if (other.codeSuborder != null) {
+                return -1; // if codeSuborder == null (and other.codeSuborder != null), it is greater
+            } else {
+                if (0 != (result = alphabetic.compare(code, other.code))) {
+                    return result;
+                }
+            }
+            if (0 != (result = alphabetic.compare(originalPath, other.originalPath))) {
+                return result;
+            }
+            return 0;
+        } catch (RuntimeException e) {
+            throw new IllegalArgumentException("Internal problem comparing " + this + " and " + other, e);
         }
-        if (0 != (result = alphabetic.compare(originalPath, other.originalPath))) {
-            return result;
-        }
-        return 0;
     }
 
     @Override

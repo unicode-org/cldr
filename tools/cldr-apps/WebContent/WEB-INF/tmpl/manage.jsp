@@ -57,7 +57,7 @@ String helpName = subCtx.getString("helpName");
             subCtx.println(" | ");
             subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id+"'>Upload&nbsp;XML</a>");
         }
-        if(subCtx.session!=null&&subCtx.session.user!=null && subCtx.session.user.userlevel<=UserRegistry.TC) {
+        if(subCtx.session!=null&&subCtx.session.user!=null /*&& subCtx.session.user.userlevel<UserRegistry.LOCKED*/) {
             subCtx.println(" | <a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Priority&nbsp;Items&nbsp;Summary</a>");
         }
         subCtx.flush();

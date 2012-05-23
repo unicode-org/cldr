@@ -9,7 +9,7 @@ if(!SurveyMain.isSetup ||
 		sid==null ||
 		(cs=CookieSession.retrieve(sid))==null || 
 		cs.user==null || 
-		(cs.user.userlevel>UserRegistry.TC) ) {
+		(cs.user.userlevel>=UserRegistry.LOCKED) ) {
 	response.sendRedirect(request.getContextPath()+"/survey?msg=login_first");
 	return;
 }

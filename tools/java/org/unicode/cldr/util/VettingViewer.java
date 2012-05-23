@@ -718,7 +718,7 @@ public class VettingViewer<T> {
      * @deprecated
      */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
-        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, false);
+        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, true);
     }
 
     /**
@@ -734,8 +734,8 @@ public class VettingViewer<T> {
      * @param nonVettingPhase
      */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, 
-            boolean showAll) {
-        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, true);
+            boolean nonVettingPhase) {
+        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, nonVettingPhase);
     }
 
     private void generateHtmlErrorTablesNew(Appendable output, EnumSet<Choice> choices, String localeID, T user, 
@@ -818,11 +818,9 @@ public class VettingViewer<T> {
 
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
 
-            if (!localeID.equals("root") || voteStatus == VoteStatus.provisionalOrWorse) {
-                if (isMissing(sourceFile, path, status)) {
-                    problems.add(Choice.missingCoverage);
-                    problemCounter.increment(Choice.missingCoverage);
-                }
+            if (isMissing(sourceFile, path, status, voteStatus)) {
+                problems.add(Choice.missingCoverage);
+                problemCounter.increment(Choice.missingCoverage);
             }
 
 
@@ -1067,9 +1065,12 @@ public class VettingViewer<T> {
                     VettingViewer.class,
             "data/paths/missingOk.txt");
 
-    private boolean isMissing(CLDRFile sourceFile, String path, Status status) {
+    private boolean isMissing(CLDRFile sourceFile, String path, Status status, VoteStatus voteStatus) {
         if (sourceFile == null) {
             return true;
+        }
+        if ("root".equals(sourceFile.getLocaleID())) {
+            return false;
         }
         if (path.equals(TEST_PATH)) {
             int x = 1; // for debugging
@@ -1078,8 +1079,9 @@ public class VettingViewer<T> {
         // only count it as missing IF the (localeFound is root or codeFallback)
         // AND the aliasing didn't change the path
         boolean missing = false;
-        if (localeFound.equals("root")
-                || localeFound.equals(XMLSource.CODE_FALLBACK_ID)) {
+        if (localeFound.equals("root") 
+                || localeFound.equals(XMLSource.CODE_FALLBACK_ID) 
+                || voteStatus == VoteStatus.provisionalOrWorse) {
             // certain paths are ok to be missing.
             if (missingOk.get(path) == null) {
                 missing = true;
@@ -1306,7 +1308,7 @@ public class VettingViewer<T> {
                     }
                     // value for last version
                     final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-                    boolean oldValueMissing = isMissing(lastSourceFile, path, status);
+                    boolean oldValueMissing = isMissing(lastSourceFile, path, status, null);
 
                     addCell(output, oldStringValue, null, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
                     // value for last version

@@ -1126,7 +1126,7 @@ public class VoteResolver<T> {
         } else if (provisionalOrWorse) {
             //  If the value is provisional, it needs more votes.
             return VoteStatus.provisionalOrWorse;          
-        } else if (!win.equals(singleVotedItem)) {
+        } else if (singleVotedItem != null && !win.equals(singleVotedItem)) {
             //  If someone voted but didn't win
             return VoteStatus.disputed;
         } else if (itemsWithVotes == 0) {

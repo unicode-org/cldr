@@ -520,6 +520,13 @@ public class TestUtilities extends TestFmwk {
         resolver.add("{0}: {1}", toVoterId("adobeE"));
         status = resolver.getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.ok, status);
+        
+        // {lastRelease: {Arabisch, approved}, trunk: {Arabisch, approved}, {orgToVotes: , totals: {}, conflicted: []}, sameVotes: [Arabisch], O: null, N: null, totals: {}, winning: {Arabisch, approved}}
+        resolver.clear();
+        resolver.setLastRelease("Arabisch", Status.approved);
+        resolver.setTrunk("Arabisch", Status.approved);
+        status = resolver.getStatusForOrganization(Organization.openoffice_org);
+        assertEquals("", VoteStatus.ok_novotes, status);
     }
 
     public void TestTotalVotesStatus() {

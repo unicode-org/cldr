@@ -12,9 +12,15 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 
+import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 
-class DateOrder implements Comparable<DateOrder> {
+/**
+ * Class for computing the date order of date formats.
+ * This class is was originally package-visible, but has been modified to public
+ * for the sake of the unit test.
+ */
+public class DateOrder implements Comparable<DateOrder> {
     private int etype1;
     private int etype2;
 
@@ -51,7 +57,7 @@ class DateOrder implements Comparable<DateOrder> {
         return etype2 - that.etype2;
     }
 
-    public static Map<String, Map<DateOrder, String>> getOrderingInfo(CLDRFile plain, CLDRFile resolved, FlexibleDateFromCLDR flexInfo) {
+    public static Map<String, Map<DateOrder, String>> getOrderingInfo(CLDRFile plain, CLDRFile resolved, DateTimePatternGenerator.FormatParser fp) {
         Map<String, Map<DateOrder,String>> pathsWithConflictingOrder2sample = new HashMap<String, Map<DateOrder,String>>();
         Status status = new Status();
         try {
@@ -78,7 +84,7 @@ class DateOrder implements Comparable<DateOrder> {
                     lenSoFar = 0;
                     String value = resolved.getStringValue(path);
                     // register a comparison for all of the items so far
-                    for (Object item : flexInfo.fp.set(value).getItems()) {
+                    for (Object item : fp.set(value).getItems()) {
                         if (item instanceof VariableField) {
                             VariableField variable = (VariableField) item;
                             int eType = variable.getType()*2 + (variable.isNumeric() ? 1 : 0);

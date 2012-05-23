@@ -180,7 +180,7 @@ public class CheckDates extends FactoryCheckCLDR {
         //          .setCheckOnSubmit(false)
         //          .setMessage("Missing availableFormats: {0}", new Object[]{notCovered.toString()}));     
         //    }
-        pathsWithConflictingOrder2sample = DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo);
+        pathsWithConflictingOrder2sample = DateOrder.getOrderingInfo(cldrFileToCheck, resolved, flexInfo.fp);
         if (pathsWithConflictingOrder2sample == null) {
             CheckStatus item = new CheckStatus()
             .setCause(this)

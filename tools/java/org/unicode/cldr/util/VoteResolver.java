@@ -79,8 +79,8 @@ public class VoteResolver<T> {
      * so that we know when new ones show up.
      */
     public enum Organization {
-    // adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
-    adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
+    // adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
+    adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
 
         public static Organization fromString(String name) {
             name = name.toLowerCase().replace('-', '_').replace('.', '_');

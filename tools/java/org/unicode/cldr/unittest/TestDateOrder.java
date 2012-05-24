@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 
 import org.unicode.cldr.test.DateOrder;
@@ -26,17 +28,33 @@ public class TestDateOrder extends TestFmwk {
         source.putValueAtPath(mediumDate, "dd-MMM-y");
         String shortDate = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat/pattern";
         source.putValueAtPath(shortDate, "dd/MM/yy");
-        String availableFormat =  "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Md\"]";
+        String availableFormat =  "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]";
         source.putValueAtPath(availableFormat, "M/d/y");
+        String intervalFormat =  "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMd\"]/greatestDifference[@id=\"y\"]";
+        source.putValueAtPath(intervalFormat, "d/M/y – d/M/y");
         CLDRFile cldrFile = new CLDRFile(source);
         DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
         Map<String, Map<DateOrder, String>> order = DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
         assertNull("There should be no conflicts", order.get(fullDate));
-        assertEquals("There should be conflicts for available formats ", 1, order.get(availableFormat).size());
+        Collection<String> values = order.get(availableFormat).values();
+        assertEquals("There should only one conflict", 1, values.size());
+        
+        values = order.get(intervalFormat).values();
+        assertTrue("There should be a conflict between the interval format and available format", values.contains(availableFormat));
 
         source.putValueAtPath(fullDate, "EEEE, y MMMM dd");
         order = DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
-        assertEquals("There should be conflicts with this date format", 3, order.get(fullDate).values().size());
-        assertEquals("There should be conflicts with this available format", 2, order.get(availableFormat).values().size());
+        values = new HashSet<String>(order.get(fullDate).values()); // filter duplicates
+        assertEquals("There should be a conflict with other date values", 1, values.size());
+        assertTrue("No conflict with long date", values.contains(longDate));
+
+        values = order.get(availableFormat).values();
+        assertEquals("There should be conflicts with this available format and date formats", 2, values.size());
+        assertTrue("No conflict with full date", values.contains(fullDate));
+        assertTrue("No conflict with short date", values.contains(shortDate));
+
+        values = order.get(intervalFormat).values();
+        assertTrue("Available format conflict not found", values.contains(availableFormat));
+        assertTrue("Date format conflict not found", values.contains(fullDate));
     }
 }

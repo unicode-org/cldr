@@ -2937,7 +2937,7 @@ public class DataSection implements JSONString {
 						// System.err.println("Extrapath: " +isExtraPath +
 						// ", base:"+baseXpath);
 
-						System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
+						// System.err.println("DP:P Error: fullPath of " + xpath + " for locale " + locale + " returned null.");
 						// continue;
 						fullPath = xpath;
 					}
@@ -2950,7 +2950,8 @@ public class DataSection implements JSONString {
 					System.err.println("ns0  " + (System.currentTimeMillis() - nextTime));
 				String value = isExtraPath ? null : aFile.getStringValue(xpath);
 				if (value == null) {
-					value = "(NOTHING)"; /* This is set to prevent crashes.. */
+					//value = "(NOTHING)"; /* This is set to prevent crashes.. */
+					isExtraPath = true;
 				}
 
 				// determine 'alt' param
@@ -3099,7 +3100,7 @@ public class DataSection implements JSONString {
 				 * isInherited = false; sourceLocale = locale; } }
 				 */
 				// ** IF it is inherited, do NOT add any Items.
-				if (isInherited) {
+				if (isInherited && !isExtraPath) {
 					if (TRACE_TIME)
 						System.err.println("n06da  [src:" + sourceLocale + " vs " + locale + ", sttus:" + sourceLocaleStatus
 								+ "] " + (System.currentTimeMillis() - nextTime));
@@ -3145,10 +3146,10 @@ public class DataSection implements JSONString {
 
 				CLDRLocale setInheritFrom = (isInherited) ? CLDRLocale.getInstance(sourceLocale) : null;
 
-				if (isExtraPath) { // No real data items if it's an extra path.
+				//if (isExtraPath) { // No real data items if it's an extra path.
 					// System.err.println("ExtraPath: "+xpath);
-					continue;
-				}
+				//	continue;
+				//}
 
 				// ***** Set up Candidate Items *****
 				// These are the items users may choose between

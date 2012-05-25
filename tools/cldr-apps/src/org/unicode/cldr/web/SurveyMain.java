@@ -726,6 +726,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<noscript><h1>JavaScript is required for logging into the SurveyTool.</h1></noscript>");
             out.print(sysmsg("startup_footer"));
             out.println("<span id='visitors'></span>");
+            out.print(getCurrev());
             if(!SurveyMain.isUnofficial()) {
             	out.println(ShowData.ANALYTICS);
             }
@@ -1404,11 +1405,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return progressManager.getProgress();
     }
     
+    public static String getCurrev() {
+        String currev = CldrUtility.getProperty("CLDR_CURREV", null);
+        if(currev != null) {
+            return("<a class='notselected' href='http://unicode.org/cldr/trac/changeset/"+currev+"'>r"+currev+"</a> \u00b7");
+        } else {
+            return "<span style='color: #ddd'>rUNKNOWN</span> \u00b7";
+        }
+    }
+    
     public void printFooter(WebContext ctx)
     {
         ctx.println("<hr>");
         ctx.print("<div style='float: right; font-size: 60%;'>");
-        ctx.print("<span style='color: #ddd'> "+SURVEYMAIN_REVISION+" \u00b7 </span>");
+        ctx.print("<span style='color: #ddd'> SurveyMain.java "+SURVEYMAIN_REVISION+" \u00b7 </span>");
+        ctx.print(getCurrev());
         ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
             "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
         ctx.print(" \u00b7 <span id='visitors'>");

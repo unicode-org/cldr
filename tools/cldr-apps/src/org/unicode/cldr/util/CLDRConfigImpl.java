@@ -107,6 +107,22 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             throw ie;
         }
         
+        File currev = new File(homeFile,"currev.properties");
+        if(currev.canRead()) {
+            try {
+                java.io.FileInputStream is = new java.io.FileInputStream(currev);
+                survprops.load(is);
+    //            progress.update("Loading configuration..");
+                is.close();
+            } catch(java.io.IOException ioe) {
+                /*throw new UnavailableException*/
+                InternalError ie = new InternalError("Warning: Couldn't load currev.properties file from '" + currev.getAbsolutePath()+"' :" + ioe.toString());
+                System.err.println(ie.toString() + ioe.toString());
+                //ioe.printStackTrace();
+                //throw ie;
+            }
+        }
+        
         survprops.put("CLDRHOME", cldrHome);
         
         isInitted = true;

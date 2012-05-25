@@ -1218,11 +1218,24 @@ dojo.ready(function() {
 	};
 });
 
+//function appendItem(div,value, pClass) {
+//	var text = document.createTextNode(value);
+//	var span = document.createElement("span");
+//	span.appendChild(text);
+//	if(pClass) {
+//		span.className = pClass;
+//	} else {
+//		span.className = "value";
+//	}
+//	div.appendChild(span);
+//	return span;
+//}
+
 function appendItem(div,value, pClass) {
-	var text = document.createTextNode(value);
+	var text = document.createTextNode(value?value:stui.str("no value"));
 	var span = document.createElement("span");
 	span.appendChild(text);
-	if(pClass) {
+	if(!value) { span.className = "selected"; } else if(pClass) {
 		span.className = pClass;
 	} else {
 		span.className = "value";
@@ -1372,8 +1385,10 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		td.appendChild(h3);
 		
                 // we've got some 'splaining to do.
-                
-                td.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
+		if ( item.value) {
+               td.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
+		 }
+           
                 
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);

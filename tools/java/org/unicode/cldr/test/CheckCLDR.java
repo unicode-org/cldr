@@ -91,6 +91,7 @@ abstract public class CheckCLDR {
     .add(new CheckNumbers(factory))
     // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
     .add(new CheckMetazones())
+    .add(new CheckLogicalGroupings())
     .add(new CheckAlt())
     .add(new CheckCurrencies())
     .add(new CheckCasing())
@@ -212,7 +213,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
       illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
       illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
       percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
-      sameAsEnglishOrCode, dateSymbolCollision, missingMetazoneString, extraMetazoneString, inconsistentDraftStatus;
+      sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus;
     public String toString() {
       return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
     }

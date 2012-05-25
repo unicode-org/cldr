@@ -125,7 +125,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String R_STEPS = REPORT_PREFIX+ "steps";
     public static final String R_VETTING = REPORT_PREFIX+ "vetting";
 
-    public static final String SURVEYMAIN_REVISION = "$Revision$";
+    public static final String SURVEYMAIN_REVISION = "SurveyMain.java $Revision$";
 
     private static final String CLDR_BULK_DIR = "CLDR_BULK_DIR";
 	private static String bulkStr = null;
@@ -1410,7 +1410,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if(currev != null) {
             return("<a class='notselected' href='http://unicode.org/cldr/trac/changeset/"+currev+"'>r"+currev+"</a> \u00b7");
         } else {
-            return "<span style='color: #ddd'>rUNKNOWN</span> \u00b7";
+            return "<span style='color: #ddd'>"+SURVEYMAIN_REVISION+"</span> \u00b7";
         }
     }
     
@@ -1418,7 +1418,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     {
         ctx.println("<hr>");
         ctx.print("<div style='float: right; font-size: 60%;'>");
-        ctx.print("<span style='color: #ddd'> SurveyMain.java "+SURVEYMAIN_REVISION+" \u00b7 </span>");
         ctx.print(getCurrev());
         ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "+
             "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");

@@ -22,6 +22,8 @@ import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.text.DurationFormat;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 import java.util.*;
 import org.unicode.cldr.util.*;
@@ -116,9 +118,12 @@ public class VettingViewerQueue {
             output = s;
         }
         private StringBuffer output = new StringBuffer();
-        private ElapsedTimer age = new ElapsedTimer("<span class='age'>Last generated {0} ago.</span>");
+        long start = System.currentTimeMillis();
         public String getAge() {
-            return age.toString();
+            long now = System.currentTimeMillis();
+            return "<span class='age'>Last generated " +
+                    DurationFormat.getInstance(SurveyMain.BASELINE_LOCALE).formatDurationFromNow(start - now)
+                    +"</span>";
         }
     }
     

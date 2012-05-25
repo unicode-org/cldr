@@ -111,9 +111,20 @@ public class VettingViewerQueue {
     	FORCERESTART,
     };
     
+    private static class VVOutput {
+        public VVOutput(StringBuffer s) {
+            output = s;
+        }
+        private StringBuffer output = new StringBuffer();
+        private ElapsedTimer age = new ElapsedTimer("<span class='age'>Last generated {0} ago.</span>");
+        public String getAge() {
+            return age.toString();
+        }
+    }
+    
     private static class QueueEntry {
     	public Task currentTask=null;
-    	public Map<Pair<CLDRLocale,Organization>,StringBuffer> output = new TreeMap<Pair<CLDRLocale,Organization>,StringBuffer>();
+    	public Map<Pair<CLDRLocale,Organization>,VVOutput> output = new TreeMap<Pair<CLDRLocale,Organization>,VVOutput>();
     }
     
     public static QueueEntry summaryEntry = null;
@@ -259,7 +270,7 @@ public class VettingViewerQueue {
 					}
 					if(running()) {
 						aBuffer.append("<hr/>"+PRE+"Processing time: "+ElapsedTimer.elapsedTime(start)+POST );
-						entry.output.put(new Pair<CLDRLocale,Organization>(locale,usersOrg), aBuffer);
+						entry.output.put(new Pair<CLDRLocale,Organization>(locale,usersOrg), new VVOutput(aBuffer));
 					}
 				}
 			} catch (RuntimeException re) {
@@ -427,11 +438,13 @@ public class VettingViewerQueue {
 		}
 		if(status==null) status = new Status[1];
 		if(forceRestart!=LoadingPolicy.FORCERESTART) {
-			StringBuffer res = entry.output.get(key);
+		    VVOutput res = entry.output.get(key);
 			if(res != null) {
 				status[0]=Status.READY;
 				if(output!=null) {
-				    output.append(res);
+				          output.append(res.getAge())
+				          .append("<br>")
+				          .append(res.output);
 				}
 				return null;
 			}

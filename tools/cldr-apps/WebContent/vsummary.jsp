@@ -136,7 +136,7 @@ function updateVv() {
 	} /* end 'still waiting' */
 	else  if(!isVloaded) {
 %>
-	<!--  <h1><a href='<%= vloaded.replaceAll("&","&amp;") %>'>LGTM, clean it up.</a></h1> -->
+	<%--  <h1><a href='<%= vloaded.replaceAll("&","&amp;") %>'>LGTM, clean it up.</a></h1> --%>
     <span id='visitors'></span>
 <%
 	}

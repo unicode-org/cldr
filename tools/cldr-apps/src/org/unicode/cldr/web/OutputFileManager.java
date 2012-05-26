@@ -16,6 +16,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.tmatesoft.svn.core.SVNException;
+import org.tmatesoft.svn.core.SVNURL;
+import org.tmatesoft.svn.core.wc.SVNClientManager;
+import org.tmatesoft.svn.core.wc.SVNRevision;
+import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.XMLSource;
@@ -847,6 +852,15 @@ public class OutputFileManager {
                     }
                 }
             });
+        }
+
+        private static SVNClientManager ourClientManager = SVNClientManager.newInstance();
+        public static void svnExport(File dir, String url) throws SVNException {
+                SVNUpdateClient updateClient = ourClientManager.getUpdateClient( );
+                updateClient.setIgnoreExternals( true );
+                System.err.println("Exporting " + url + " into " + dir.getAbsolutePath());
+                long rv = updateClient.doExport( SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native", false, true );
+                System.err.println(".. Checked out  r" + rv);
         }
  
 }

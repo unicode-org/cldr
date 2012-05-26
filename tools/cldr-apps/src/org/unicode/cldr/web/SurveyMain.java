@@ -58,6 +58,7 @@ import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.tmatesoft.svn.core.SVNException;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
@@ -4463,22 +4464,44 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if(gOldFactory == null) {
             File oldBase = new File(getFileBaseOld());
             File oldCommon = new File(oldBase,"common/main");
+            String verAsMilestone = "release-"+oldVersion.replaceAll("\\.", "-");
             if(!oldCommon.isDirectory()) {
-                String verAsMilestone = "release-"+oldVersion.replaceAll("\\.", "-");
-                String msg = ("Could not read old data - " + oldCommon.getAbsolutePath() + ": you might do 'svn export http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/common "+ oldBase.getAbsolutePath() + "/common' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
-                //svn export http://unicode.org/repos/cldr/tags/release-1-8 1.8
-                
-                busted(msg);
-                throw new InternalError(msg);
+                final String url = "http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/common";
+                try {
+                    OutputFileManager.svnExport(oldCommon, url);
+                } catch (SVNException e) {
+                    final String msg = "Exporting" + url + " into " + oldCommon.getAbsolutePath();
+                    SurveyLog.logException(e,msg);
+                    busted(msg,e);
+                    throw new InternalError(msg);
+                }
+                if(!oldCommon.isDirectory()) {
+                    String msg = ("Could not read old data - " + oldCommon.getAbsolutePath() + ": you might do 'svn export  "+ oldBase.getAbsolutePath() + "/common' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
+                    //svn export http://unicode.org/repos/cldr/tags/release-1-8 1.8
+                    
+                    busted(msg);
+                    throw new InternalError(msg);
+                }
             }
             File oldSeed = new File(oldBase,"seed/main");
             if(!oldSeed.isDirectory()) {
-                String verAsMilestone = "release-"+oldVersion.replaceAll("\\.", "-");
-                String msg = ("Could not read old seed data - " + oldSeed.getAbsolutePath() + ": you might do 'svn export http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/seed "+ oldBase.getAbsolutePath() + "/seed' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
-                //svn export http://unicode.org/repos/cldr/tags/release-1-8 1.8
+                final String url = "http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/seed";
+                try {
+                    OutputFileManager.svnExport(oldSeed, url);
+                } catch (SVNException e) {
+                    final String msg = "Exporting" + url + " into " + oldSeed.getAbsolutePath();
+                    SurveyLog.logException(e,msg);
+                    busted(msg,e);
+                    throw new InternalError(msg);
+                }
                 
-                busted(msg);
-                throw new InternalError(msg);
+                if(!oldSeed.isDirectory()) {
+                    String msg = ("Could not read old seed data - " + oldSeed.getAbsolutePath() + ": you might do 'svn export http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/seed "+ oldBase.getAbsolutePath() + "/seed' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
+                    //svn export http://unicode.org/repos/cldr/tags/release-1-8 1.8
+                    
+                    busted(msg);
+                    throw new InternalError(msg);
+                }
             }
             File roots[] = { oldCommon, oldSeed };
             gOldFactory = SimpleFactory.make(roots,".*");
@@ -5659,6 +5682,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                 return;
             }
             
+            progress.update("Get CLDR "+oldVersion+" data (svn export if necessary)");
             getOldFactory(); // check old version
             if(!new File(vetweb).isDirectory()) {
                 busted("CLDR_VET_WEB isn't a directory: " + vetweb);

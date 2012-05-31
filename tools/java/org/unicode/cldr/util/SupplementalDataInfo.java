@@ -1140,29 +1140,35 @@ public class SupplementalDataInfo {
             if (extension == null) {
                 extension = "u";
             }
-            String subtype = parts.getAttributeValue(3, "name");
-            String subtypeAlias = parts.getAttributeValue(3, "alias");
-            String subtypeDescription = parts.getAttributeValue(3, "description");
-            String subtypeSince = parts.getAttributeValue(3, "since");
 
             bcp47Extension2Keys.put(extension, key);
 
-            bcp47Key2Subtypes.put(key, subtype);
             if (keyAlias != null) {
                 bcp47Aliases.putAll((R2<String, String>) Row.of(key,"").freeze(), Arrays.asList(keyAlias.trim().split("\\s+")));
             }
-            if (subtypeAlias != null) {
-                bcp47Aliases.putAll((R2<String, String>) Row.of(key,subtype).freeze(), Arrays.asList(subtypeAlias.trim().split("\\s+")));
-            }
-            
+
             if (keyDescription != null) {
                 bcp47Descriptions.put((R2<String, String>) Row.of(key,"").freeze(), keyDescription);
             }
-            if (subtypeDescription != null) {
-                bcp47Descriptions.put((R2<String, String>) Row.of(key,subtype).freeze(), subtypeDescription);
-            }
-            if (subtypeDescription != null) {
-                bcp47Since.put((R2<String, String>) Row.of(key,subtype).freeze(), subtypeSince);
+
+            if(parts.size()>3) { // for parts with no subtype:    //ldmlBCP47/keyword/key[@extension="t"][@name="x0"]
+                
+                // have subtype
+                String subtype = parts.getAttributeValue(3, "name");
+                String subtypeAlias = parts.getAttributeValue(3, "alias");
+                String subtypeDescription = parts.getAttributeValue(3, "description");
+                String subtypeSince = parts.getAttributeValue(3, "since");
+                bcp47Key2Subtypes.put(key, subtype);
+                if (subtypeAlias != null) {
+                    bcp47Aliases.putAll((R2<String, String>) Row.of(key,subtype).freeze(), Arrays.asList(subtypeAlias.trim().split("\\s+")));
+                }
+                
+                if (subtypeDescription != null) {
+                    bcp47Descriptions.put((R2<String, String>) Row.of(key,subtype).freeze(), subtypeDescription);
+                }
+                if (subtypeDescription != null) {
+                    bcp47Since.put((R2<String, String>) Row.of(key,subtype).freeze(), subtypeSince);
+                }
             }
 
             return true;

@@ -5,13 +5,12 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-import org.unicode.cldr.util.CLDRConfig.Environment;
-
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.TestLog;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 
 public class CLDRConfig {
     private static CLDRConfig INSTANCE = null;
@@ -50,6 +49,7 @@ public class CLDRConfig {
     private CLDRFile english;
     private CLDRFile root;
     private RuleBasedCollator col;
+    private Phase phase = Phase.SUBMISSION; // default
     
     private TestLog testLog = null;
 
@@ -124,12 +124,15 @@ public class CLDRConfig {
         return col;
     }
 
+    public Phase getPhase() {
+        return phase;
+    }
+    
     public String getProperty(String key, String d) {
         String result = getProperty(key);
         if(result==null) return d;
         return result;
     }
-    
     
     private Set<String> shown = new HashSet<String>();
 

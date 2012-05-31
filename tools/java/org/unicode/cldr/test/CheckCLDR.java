@@ -25,6 +25,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Level;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
@@ -54,11 +56,44 @@ abstract public class CheckCLDR {
   private boolean skipTest = false;
   private Phase phase;
 
-  enum Phase {
+  public enum InputMethod {DIRECT, BULK}
+  
+  public enum StatusAction {
+      /**
+       * Allow everything, even suppress items.
+       */
+      ALLOW_ALL, 
+      /**
+       * Allow all but suppress items
+       */
+      FORBID_SUPPRESS, 
+      /**
+       * Disallow always
+       */
+      FORBID_ALL
+      }
+
+  public enum Phase {
     SUBMISSION, VETTING, FINAL_TESTING;
 
-    static Phase forString(String value) {
+    public static Phase forString(String value) {
       return value == null ? null : Phase.valueOf(value.toUpperCase(Locale.ENGLISH));
+    }
+    
+    public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.Level voterLevel,  InputMethod inputMethod) {
+        // if TC+, allow anything, even suppress items
+        if (voterLevel.compareTo(Level.tc) >= 0) {
+            return StatusAction.ALLOW_ALL;
+        }
+        // don't distinguish by phase or inputMethod yet.
+        for (CheckStatus item : statusList) {
+            if (item.getType().equals(CheckStatus.errorType)) {
+                if (item.getSubtype() != Subtype.dateSymbolCollision && item.getSubtype() != Subtype.displayCollision) {
+                    return StatusAction.FORBID_ALL;
+                }
+            }
+        }
+        return StatusAction.FORBID_SUPPRESS;
     }
   }
 

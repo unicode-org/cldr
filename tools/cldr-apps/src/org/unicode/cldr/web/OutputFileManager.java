@@ -16,11 +16,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.wc.SVNClientManager;
 import org.tmatesoft.svn.core.wc.SVNRevision;
+import org.tmatesoft.svn.core.wc.SVNStatus;
+import org.tmatesoft.svn.core.wc.SVNStatusClient;
 import org.tmatesoft.svn.core.wc.SVNUpdateClient;
+import org.tmatesoft.svn.core.wc.SVNWCClient;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.XMLSource;
@@ -871,12 +875,27 @@ public class OutputFileManager {
             return ourClientManager;
         }
         
+
+        public static long svnCheckout(File dir, String url) throws SVNException {
+            SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
+            updateClient.setIgnoreExternals( true );
+            System.err.println("Checking out " + url + " into " + dir.getAbsolutePath());
+            long rv = updateClient.doCheckout(SVNURL.parseURIEncoded(url), dir,SVNRevision.UNDEFINED,SVNRevision.HEAD,SVNDepth.INFINITY,true);
+            System.err.println(".. Checked out  r" + rv);
+            return rv;
+        }
+
         public static void svnExport(File dir, String url) throws SVNException {
                 SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
                 updateClient.setIgnoreExternals( true );
                 System.err.println("Exporting " + url + " into " + dir.getAbsolutePath());
-                long rv = updateClient.doExport( SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native", false, true );
-                System.err.println(".. Checked out  r" + rv);
+                long rv = updateClient.doExport( SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native", false, SVNDepth.INFINITY );
+                System.err.println(".. Exported " + rv);
+        }
+        
+        public static SVNStatus svnStatus(File item) throws SVNException {
+            SVNStatusClient updateClient = getClientManager().getStatusClient();
+            return updateClient.doStatus(item, false);
         }
         
         public static void svnShutdown() {

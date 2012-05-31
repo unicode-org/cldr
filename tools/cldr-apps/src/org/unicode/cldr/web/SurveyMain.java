@@ -384,6 +384,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             super.init(config);
             CLDRConfigImpl.setCldrHome(config.getInitParameter("cldr.home"));
             this.config = config;
+            
+            // verify config sanity
+            CLDRConfigImpl.getInstance().getSupplementalDataInfo();
+            
             PathHeader.PageId.forString(PathHeader.PageId.Africa.name()); // Make sure cldr-tools is functioning.
             startupThread.addTask(new SurveyThread.SurveyTask("startup") {
                 public void run() throws Throwable{
@@ -608,9 +612,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         ctx.addCookie(QUERY_PASSWORD, u.password, TWELVE_WEEKS);
         	            ctx.println("<script>document.location = '"+ctx.base()+"/survey?email="+u.email+"&pw="+u.password+"';</script>");
                     }
-//            } else if(ctx.hasAdminPassword()) {
-//	        	Thread.currentThread().setName(baseThreadName+" ST admin");
-//	            doAdminPanel(ctx); // admin interface
+            } else if(ctx.hasAdminPassword()) {
+                ctx.response.sendRedirect(ctx.context("AdminPanel.jsp")+ "?vap="+vap);
+                return;
 	        } else if(ctx.field("sql").equals(vap)) {
 	        	Thread.currentThread().setName(baseThreadName+" ST sql");
 	            doSql(ctx); // SQL interface
@@ -4425,10 +4429,43 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public synchronized Factory getDiskFactory() {
         if(gFactory == null) {
+            ensureOrCheckout("CLDR_COMMON",getFileBase(), "http://unicode.org/repos/cldr/trunk/common");
+            ensureOrCheckout("CLDR_SEED",getFileBaseSeed(), "http://unicode.org/repos/cldr/trunk/seed");
+            
         	final File list[] = { new File(getFileBase()), new File(getFileBaseSeed()) };
             gFactory = SimpleFactory.make(list,".*");
         }
         return gFactory;
+    }
+
+    private void ensureOrCheckout(final String param, final String base, final String url) {
+        File dir = new File(base).getParentFile(); // these dirs come in as '/main' 
+        if(!dir.isDirectory()) {
+            try {
+                SurveyLog.logException(param+" directory " + dir.getAbsolutePath()  + " did not exist - checking out " + url + " - if this is not desired, modify " + param + " in cldr.properties");
+                long res = OutputFileManager.svnCheckout(dir, url);
+                System.err.println("Checked out " + url + " to " + dir.getAbsolutePath() + " - see the value of " + param + " if you want to have a different location.");
+            } catch (SVNException e) {
+                final String msg = "Checking out " + url + " into " + dir.getAbsolutePath();
+                SurveyLog.logException(e,msg);
+                busted(msg,e);
+                throw new InternalError(msg);
+            }
+            
+            if(!dir.isDirectory()) {
+                String msg = ("Could not read disk data  " + dir.getAbsolutePath() + ":  check " + param + "  cldr.properties  parameters. ");
+                //svn export http://unicode.org/repos/cldr/tags/release-1-8 1.8
+                
+                busted(msg);
+                throw new InternalError(msg);
+            }
+        }
+        
+        // verify readable
+        File root = new File(dir,"main");
+        if(!root.isDirectory()) {
+            throw new InternalError("Not a dir:  " + root.getAbsolutePath() + " - check the value of " + param + " in cldr.properties.");
+        }
     }
 
     private STFactory gSTFactory = null;

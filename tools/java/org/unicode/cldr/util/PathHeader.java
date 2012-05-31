@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
@@ -30,7 +31,6 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
@@ -301,6 +301,12 @@ public class PathHeader implements Comparable<PathHeader> {
 
     public SurveyToolStatus getSurveyToolStatus() {
         return status;
+    }
+
+    public SurveyToolStatus getSurveyToolStatus(StatusAction statusAction) {
+        // if the statusAction is ALLOW_ALL, we override the resulting status to allow entry.
+        return statusAction == StatusAction.ALLOW_ALL && status != SurveyToolStatus.DEPRECATED ? SurveyToolStatus.READ_WRITE 
+                : status;
     }
 
     @Override

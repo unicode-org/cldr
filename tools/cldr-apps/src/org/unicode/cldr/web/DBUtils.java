@@ -11,6 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,7 +39,6 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.StackTracker;
 
 import com.ibm.icu.text.UnicodeSet;
-import com.mysql.jdbc.Driver;
 
 //import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 

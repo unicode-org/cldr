@@ -11,6 +11,8 @@ package org.unicode.cldr.posix;
 import java.text.StringCharacterIterator;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
@@ -24,7 +26,79 @@ public class POSIXUtilities {
 
    private static UnicodeSet repertoire = new UnicodeSet(0x0000,0x10FFFF);
    private static CLDRFile char_fallbk;
+   private static Map<Integer,String> controlCodeNames = new HashMap<Integer,String>();   
 
+   // Since UCharacter.getExtendedName() in ICU doesn't provide the names for control characters
+   // we have to force the issue here.  Required elements for the POSIX portable character set will be
+   // used when necessary (in lower case).  Otherwise, the name from the Unicode data file is used.
+   private static void initControlCodeNames() {
+       controlCodeNames.put(0x0000,"NULL");
+       controlCodeNames.put(0x0001,"START_OF_HEADING");
+       controlCodeNames.put(0x0002,"START_OF_TEXT");
+       controlCodeNames.put(0x0003,"END_OF_TEXT");
+       controlCodeNames.put(0x0004,"END_OF_TRANSMISSION");
+       controlCodeNames.put(0x0005,"ENQUIRY");
+       controlCodeNames.put(0x0006,"ACKNOWLEDGE");
+       controlCodeNames.put(0x0007,"BELL");
+       controlCodeNames.put(0x0008,"BACKSPACE");
+       controlCodeNames.put(0x0009,"tab");             // Required element for POSIX portable character set
+       controlCodeNames.put(0x000A,"newline");         // Required element for POSIX portable character set
+       controlCodeNames.put(0x000B,"vertical-tab");    // Required element for POSIX portable character set
+       controlCodeNames.put(0x000C,"form-feed");       // Required element for POSIX portable character set
+       controlCodeNames.put(0x000D,"carriage-return"); // Required element for POSIX portable character set
+       controlCodeNames.put(0x000E,"SHIFT_OUT");
+       controlCodeNames.put(0x000F,"SHIFT_IN");
+       controlCodeNames.put(0x0010,"DATA_LINK_ESCAPE");
+       controlCodeNames.put(0x0011,"DEVICE_CONTROL_ONE");
+       controlCodeNames.put(0x0012,"DEVICE_CONTROL_TWO");
+       controlCodeNames.put(0x0013,"DEVICE_CONTROL_THREE");
+       controlCodeNames.put(0x0014,"DEVICE_CONTROL_FOUR");
+       controlCodeNames.put(0x0015,"NEGATIVE_ACKNOWLEDGE");
+       controlCodeNames.put(0x0016,"SYNCHRONOUS_IDLE");
+       controlCodeNames.put(0x0017,"END_OF_TRANSMISSION_BLOCK");
+       controlCodeNames.put(0x0018,"CANCEL");
+       controlCodeNames.put(0x0019,"END_OF_MEDIUM");
+       controlCodeNames.put(0x001A,"SUBSTITUTE");
+       controlCodeNames.put(0x001B,"ESCAPE");
+       controlCodeNames.put(0x001C,"INFORMATION_SEPARATOR_FOUR");
+       controlCodeNames.put(0x001D,"INFORMATION_SEPARATOR_THREE");
+       controlCodeNames.put(0x001E,"INFORMATION_SEPARATOR_TWO");
+       controlCodeNames.put(0x001F,"INFORMATION_SEPARATOR_ONE");
+       controlCodeNames.put(0x007F,"DELETE");
+       controlCodeNames.put(0x0080,"CONTROL-0080");
+       controlCodeNames.put(0x0081,"CONTROL-0081");
+       controlCodeNames.put(0x0082,"BREAK_PERMITTED_HERE");
+       controlCodeNames.put(0x0083,"NO_BREAK_HERE");
+       controlCodeNames.put(0x0084,"CONTROL-0084");
+       controlCodeNames.put(0x0085,"NEXT_LINE");
+       controlCodeNames.put(0x0086,"START_OF_SELECTED_AREA");
+       controlCodeNames.put(0x0087,"END_OF_SELECTED_AREA");
+       controlCodeNames.put(0x0088,"CHARACTER_TABULATION_SET");
+       controlCodeNames.put(0x0089,"CHARACTER_TABULATION_WITH_JUSTIFICATION");
+       controlCodeNames.put(0x008A,"LINE_TABULATION_SET");
+       controlCodeNames.put(0x008B,"PARTIAL_LINE_FORWARD");
+       controlCodeNames.put(0x008C,"PARTIAL_LINE_BACKWARD");
+       controlCodeNames.put(0x008D,"REVERSE_LINE_FEED");
+       controlCodeNames.put(0x008E,"SINGLE_SHIFT_TWO");
+       controlCodeNames.put(0x008F,"SINGLE_SHIFT_THREE");
+       controlCodeNames.put(0x0090,"DEVICE_CONTROL_STRING");
+       controlCodeNames.put(0x0091,"PRIVATE_USE_ONE");
+       controlCodeNames.put(0x0092,"PRIVATE_USE_TWO");
+       controlCodeNames.put(0x0093,"SET_TRANSMIT_STATE");
+       controlCodeNames.put(0x0094,"CANCEL_CHARACTER");
+       controlCodeNames.put(0x0095,"MESSAGE_WAITING");
+       controlCodeNames.put(0x0096,"START_OF_GUARDED_AREA");
+       controlCodeNames.put(0x0097,"END_OF_GUARDED_AREA");
+       controlCodeNames.put(0x0098,"START_OF_STRING");
+       controlCodeNames.put(0x0099,"CONTROL-0099");
+       controlCodeNames.put(0x009A,"SINGLE_CHARACTER_INTRODUCER");
+       controlCodeNames.put(0x009B,"CONTROL_SEQUENCE_INTRODUCER");
+       controlCodeNames.put(0x009C,"STRING_TERMINATOR");
+       controlCodeNames.put(0x009D,"OPERATING_SYSTEM_COMMAND");
+       controlCodeNames.put(0x009E,"PRIVACY_MESSAGE");
+       controlCodeNames.put(0x009F,"APPLICATION_PROGRAM_COMMAND");
+   }
+   
    public static void setRepertoire ( UnicodeSet rep )
    {
       repertoire = rep;
@@ -60,6 +134,7 @@ public class POSIXUtilities {
 
    public static String POSIXCharName ( int cp )
    {
+        
         StringBuffer result = new StringBuffer();
         result.append("<");
         if (( cp >= 0x0041 && cp <= 0x005A ) ||
@@ -70,11 +145,12 @@ public class POSIXUtilities {
            String n = UCharacter.getExtendedName(cp);
            result.append(n.replaceAll(" ","_").replaceAll("DIGIT_","").toLowerCase());
         }
-        else if ( cp == 0x0009 ) result.append("tab"); // Required elements for POSIX portable character set
-        else if ( cp == 0x000A ) result.append("newline"); // Required elements for POSIX portable character set
-        else if ( cp == 0x000B ) result.append("vertical-tab"); // Required elements for POSIX portable character set
-        else if ( cp == 0x000C ) result.append("form-feed"); // Required elements for POSIX portable character set
-        else if ( cp == 0x000D ) result.append("carriage-return"); // Required elements for POSIX portable character set
+        else if (( cp >= 0x0000 && cp <= 0x001F ) || ( cp >= 0x007F && cp <= 0x009F )) { // Controls
+            if (controlCodeNames.isEmpty()) {
+                initControlCodeNames();
+            }
+            result.append(controlCodeNames.get(cp));
+        }
         else if ( cp == 0x0020 ) result.append("space"); // Required elements for POSIX portable character set
         else // everything else
         {

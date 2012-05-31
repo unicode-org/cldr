@@ -25,8 +25,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoteResolver.Level;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
@@ -62,15 +64,15 @@ abstract public class CheckCLDR {
       /**
        * Allow everything, even suppress items.
        */
-      ALLOW_ALL, 
-      /**
-       * Allow all but suppress items
-       */
-      FORBID_SUPPRESS, 
+      ALLOW, 
       /**
        * Disallow always
        */
-      FORBID_ALL
+      FORBID;
+      /**
+       * @deprecated
+       */
+      public static final StatusAction ALLOW_ALL = ALLOW, FORBID_ALL = FORBID, FORBID_SUPPRESS = ALLOW;
       }
 
   public enum Phase {
@@ -80,20 +82,46 @@ abstract public class CheckCLDR {
       return value == null ? null : Phase.valueOf(value.toUpperCase(Locale.ENGLISH));
     }
     
-    public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.Level voterLevel,  InputMethod inputMethod) {
-        // if TC+, allow anything, even suppress items
-        if (voterLevel.compareTo(Level.tc) >= 0) {
-            return StatusAction.ALLOW_ALL;
+    /**
+     * @deprecated
+     */
+    public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo, 
+            InputMethod inputMethod) {
+        return StatusAction.ALLOW;
+    }
+    
+    public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo, 
+            InputMethod inputMethod, PathHeader.SurveyToolStatus status, Level coverageLevel) {
+        // don't need phase or inputMethod yet, but might in the future.
+        
+        // always forbid deprecated items.
+        if (status == SurveyToolStatus.DEPRECATED) {
+            return StatusAction.FORBID;
         }
-        // don't distinguish by phase or inputMethod yet.
+        
+        // if TC+, allow anything else, even suppress items
+        if (voterInfo.getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
+            return StatusAction.ALLOW;
+        }
+        
+        // if the coverage level is optional, disallow
+        if (coverageLevel.compareTo(Level.COMPREHENSIVE) >= 0) {
+            return StatusAction.FORBID;
+        }
+        
+        // check for errors (allowing collisions
         for (CheckStatus item : statusList) {
             if (item.getType().equals(CheckStatus.errorType)) {
                 if (item.getSubtype() != Subtype.dateSymbolCollision && item.getSubtype() != Subtype.displayCollision) {
-                    return StatusAction.FORBID_ALL;
+                    return StatusAction.FORBID;
                 }
             }
         }
-        return StatusAction.FORBID_SUPPRESS;
+        // finally, allow if read-write, otherwise forbid
+        if (status == SurveyToolStatus.READ_WRITE) {
+            return StatusAction.ALLOW;
+        }
+        return StatusAction.FORBID;
     }
   }
 

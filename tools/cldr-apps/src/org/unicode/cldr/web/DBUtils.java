@@ -11,6 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -26,6 +27,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.apache.derby.impl.sql.compile.GetCurrentConnectionNode;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -1041,5 +1043,40 @@ public class DBUtils {
         } finally {
             close(rs,s,conn);
         }
+    }
+    public static String getDbBrokenMessage(File homeFile) {
+        StringBuilder sb = new StringBuilder("see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>");
+        
+        if(homeFile==null) {
+            sb.insert(0, "(can't find our home directory, either)");
+        } else {
+                final File cldrDb = new File(homeFile,"cldrdb");
+                try {
+                    String connectURI = "jdbc:derby:" + ( cldrDb.getCanonicalPath().replace(System.getProperty("file.separator").charAt(0), '/'));
+                    
+                    if(!cldrDb.exists()) {
+                        // Easier to create it for them than to explain it.
+                        String createURI = connectURI+";create=true";
+                        System.err.println("Attempting to create a DB at " + createURI);
+                        Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+                        Connection conn = DriverManager.getConnection(createURI); 
+                        conn.close();
+                    }
+                    
+                    // Try to print something helpful
+                    sb.insert(0, "</pre>You may be able to add the following to your <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>" +
+                            "&lt;Resource name=\"jdbc/SurveyTool\" type=\"javax.sql.DataSource\" auth=\"Container\" \n" +
+                            "description=\"database for ST\" maxActive=\"100\" maxIdle=\"30\" maxWait=\"10000\" \n" + 
+                            " username=\"\" password=\"\" driverClassName=\"org.apache.derby.jdbc.EmbeddedDriver\" \n" +
+                            " url=\"<u>"  + connectURI + "</u>\" /&gt;\n</pre>\n" +
+                            " <i>Note: if you are on a Windows system, you may have to adjust the path somewhat.</i><br><pre>");
+                    
+                } catch (Throwable e) {
+                    SurveyLog.logException(e, "Trying to help the user out with SQL stuff in " + cldrDb.getAbsolutePath());
+                    sb.insert(0, "(sorry, "+e.toString() +" trying to get you some better help text. )  ");
+                }
+        }
+        
+        return sb.toString();
     }
 }

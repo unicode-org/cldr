@@ -401,7 +401,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             dbUtils  = DBUtils.getInstance();
         } catch(Throwable t) {
             SurveyLog.logException(t,"Starting up database");
-            this.busted("Error starting up database - see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>", t);
+            
+            String dbBroken = DBUtils.getDbBrokenMessage(CLDRConfigImpl.homeFile);
+            
+            this.busted("Error starting up database - " + dbBroken, t);
             return;
         }
 

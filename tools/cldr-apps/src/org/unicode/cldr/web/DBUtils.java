@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004-2012 IBM Corporation and Others. All Rights Reserved.
+* Copyright (C) 2004-2012 IBM Corporation and Others. All Rights Reserved.
  */
 package org.unicode.cldr.web;
 
@@ -32,6 +32,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.StackTracker;
 
@@ -424,7 +425,6 @@ public class DBUtils {
 	}
 
 	File dbDir = null;
-
 	// File dbDir_u = null;
 	static String dbInfo = null;
 	
@@ -617,7 +617,7 @@ public class DBUtils {
 			CLDRProgressIndicator.CLDRProgressTask progress) {
 	    System.err.println("StartupDB: datasource="+ datasource);
 	    if(datasource == null) {
-	        throw new RuntimeException("JNDI required: http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db");
+	        throw new RuntimeException(" - JNDI required:  " + getDbBrokenMessage() );
 	    }
 
 		progress.update("Using datasource..."+dbInfo); // restore
@@ -1044,11 +1044,12 @@ public class DBUtils {
             close(rs,s,conn);
         }
     }
-    public static String getDbBrokenMessage(File homeFile) {
+    public static String getDbBrokenMessage() {
+        final File homeFile = CLDRConfigImpl.homeFile;
         StringBuilder sb = new StringBuilder("see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>");
         
         if(homeFile==null) {
-            sb.insert(0, "(can't find our home directory, either)");
+            sb.insert(0, "(can't find our home directory, either) ");
         } else {
                 final File cldrDb = new File(homeFile,"cldrdb");
                 try {
@@ -1064,7 +1065,7 @@ public class DBUtils {
                     }
                     
                     // Try to print something helpful
-                    sb.insert(0, "</pre>You may be able to add the following to your <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>" +
+                    sb.insert(0, "</pre>Read the rest of this exception - but, you may be able to add the following to your <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>" +
                             "&lt;Resource name=\"jdbc/SurveyTool\" type=\"javax.sql.DataSource\" auth=\"Container\" \n" +
                             "description=\"database for ST\" maxActive=\"100\" maxIdle=\"30\" maxWait=\"10000\" \n" + 
                             " username=\"\" password=\"\" driverClassName=\"org.apache.derby.jdbc.EmbeddedDriver\" \n" +

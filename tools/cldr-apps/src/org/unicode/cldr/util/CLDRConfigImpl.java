@@ -12,6 +12,7 @@ import java.util.Properties;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
@@ -224,4 +225,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         return ret.toString();
     }
 
+    @Override
+    public CheckCLDR.Phase getPhase() {
+        return SurveyMain.phase().getCPhase();
+    }
 }

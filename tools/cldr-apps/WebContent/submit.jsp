@@ -185,6 +185,7 @@
     Map<String,String> options = DataSection.getOptions(null, cs, loc);
     TestCache.TestResultBundle cc = stf.getTestResult(loc, options);
 	UserRegistry.User u = theirU;
+	CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
 	CLDRProgressTask progress = cs.sm.openProgress("Bulk:" + loc,
 			all.size());
 	try {
@@ -240,28 +241,22 @@
 			
 			checkResult.clear();
             cc.check(base,checkResult, val0);
+            
             boolean hadErr = false;
             
-            if(!checkResult.isEmpty()) {
-            	for(CheckCLDR.CheckStatus s : checkResult) {
-            		if(s.getType().equals(CheckCLDR.CheckStatus.errorType)) {
-            			hadErr=true;
-            			break;
-            		}
-            	}
-            }
+            CheckCLDR.StatusAction status = cPhase.getAction(checkResult, cs.user.voterInfo().getLevel(), CheckCLDR.InputMethod.BULK);
             
 			if(ph==null) {
 				result="Item is not a SurveyTool-visible LDML entity.";
 				resultIcon="stop";
-			} else if(ph.getSurveyToolStatus() != SurveyToolStatus.READ_WRITE) {
+            } else if(status == CheckCLDR.StatusAction.FORBID_ALL) {
+                result="Forbidden by test results.";
+                resultIcon="stop";
+			} else if(ph.getSurveyToolStatus(status) != SurveyToolStatus.READ_WRITE) {
 				result="Item is not writable in the Survey Tool. Please file a ticket.";
 				resultIcon="stop";
-			} else if(coverageValue > Level.COMPREHENSIVE.getLevel()) {
+			} else if(status!=CheckCLDR.StatusAction.ALLOW_ALL && ( coverageValue > Level.COMPREHENSIVE.getLevel())) {
 				result="Item is not visible for write via the Survey Tool. Please file a ticket.";
-				resultIcon="stop";
-			} else if(hadErr) {
-				result="Correct the test errors before submitting.";
 				resultIcon="stop";
 			} else {
 				if(doFinal) {

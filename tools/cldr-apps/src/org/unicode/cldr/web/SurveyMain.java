@@ -61,6 +61,7 @@ import org.json.JSONObject;
 import org.tmatesoft.svn.core.SVNException;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.tool.ShowData;
@@ -149,21 +150,38 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      */
 	public enum Phase { 
-        SUBMIT("Data Submission"),           // SUBMISSION
-        VETTING("Vetting"),
-        VETTING_CLOSED("Vetting Closed"),   // closed after vetting - open for admin
-        CLOSED("Closed"),           // closed
-        DISPUTED("Dispute Resolution"),
-        FINAL_TESTING("Final Testing"),    //FINAL_TESTING
-        READONLY("Read-Only"),
-        BETA("Beta");
+        SUBMIT("Data Submission",
+                CheckCLDR.Phase.SUBMISSION),           // SUBMISSION
+        VETTING("Vetting",   
+                CheckCLDR.Phase.VETTING),
+        VETTING_CLOSED("Vetting Closed",
+                CheckCLDR.Phase.VETTING),   // closed after vetting - open for admin
+        CLOSED("Closed",
+                CheckCLDR.Phase.FINAL_TESTING),           // closed
+        DISPUTED("Dispute Resolution",
+                CheckCLDR.Phase.VETTING),
+        FINAL_TESTING("Final Testing",
+                CheckCLDR.Phase.FINAL_TESTING),    //FINAL_TESTING
+        READONLY("Read-Only",
+                CheckCLDR.Phase.FINAL_TESTING),
+        BETA("Beta",
+                CheckCLDR.Phase.SUBMISSION);
         
         private String what;
-        private Phase(String s) {
+        private CheckCLDR.Phase cphase;
+        private Phase(String s, CheckCLDR.Phase ph) {
             what = s;
+            this.cphase = ph;
         }
         public String toString() {
             return what;
+        }
+        /**
+         * Get the CheckCLDR.Phase equivalent
+         * @return
+         */
+        public CheckCLDR.Phase getCPhase() {
+            return cphase;
         }
     }; 
     
@@ -4653,13 +4671,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // options.put("CheckCoverage.requiredLevel", "minimal");
         
         // pass in the current ST phase
-        if(isPhaseVetting() || isPhaseVettingClosed()) {
-            options.put("phase", "vetting");
-        } else if(isPhaseSubmit()) {
-            options.put("phase", "submission");
-        } else if(isPhaseFinalTesting()) {
-            options.put("phase", "final_testing");
-        }
+        options.put("phase", phase().getCPhase().name().toLowerCase());
         
         return options;
     }
@@ -5675,6 +5687,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                     busted("Could not parse CLDR_PHASE - should be one of ( "+allValues+") but instead got "+phaseString);
                 }
             }
+            System.out.println("Phase: " + phase() + ", cPhase: " + phase().getCPhase());
             progress.update("Setup props..");
             newVersion=survprops.getProperty("CLDR_NEWVERSION","CLDR_NEWVERSION");
             oldVersion=survprops.getProperty("CLDR_OLDVERSION","CLDR_OLDVERSION");

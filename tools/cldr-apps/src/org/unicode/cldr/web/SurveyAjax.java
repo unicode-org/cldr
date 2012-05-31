@@ -23,8 +23,10 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.PathHeader;
 
 
 /**
@@ -291,7 +293,8 @@ public class SurveyAjax extends HttpServlet {
                    if(what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT)) {
                        CLDRLocale locale = CLDRLocale.getInstance(loc);
                         Map<String,String> options = DataSection.getOptions(null, mySession, locale);
-                        TestResultBundle cc = sm.getSTFactory().getTestResult(locale, options);
+                        STFactory stf = sm.getSTFactory();
+                        TestResultBundle cc = stf.getTestResult(locale, options);
                         int id = Integer.parseInt(xpath);
                         String xp = sm.xpt.getById(id);
                         List<CheckStatus> result = new ArrayList<CheckStatus>();
@@ -378,25 +381,14 @@ public class SurveyAjax extends HttpServlet {
                                     if(!UserRegistry.userCanModifyLocale(mySession.user,locale)) {
                                         throw new InternalError("User cannot modify locale.");
                                     }
-                                    boolean hasError = false;
-                                    for(CheckStatus s : result) {
-                                        if(s.getType().equals(CheckStatus.errorType)) {
-                                            hasError = true;
-                                        }
-                                    }
-                                    if(!hasError && otherErr==null) {
+                                    
+                                    CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
+                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(result, mySession.user.getLevel(), CheckCLDR.InputMethod.DIRECT);
+                                    PathHeader ph = stf.getPathHeader(xp);
+                                    if(statusAction!=CheckCLDR.StatusAction.FORBID_ALL 
+                                            && ph.getSurveyToolStatus(statusAction)==PathHeader.SurveyToolStatus.READ_WRITE  
+                                            && otherErr==null) {
                                         ballotBox.voteForValue(mySession.user, xp, val);
-                                        
-                                        
-//                                        if(SurveyMain.isUnofficial  ) {
-//                                            try {
-//                                                Thread.sleep(5000);
-//                                            } catch (InterruptedException e) {
-//                                                // TODO Auto-generated catch block
-//                                                e.printStackTrace();
-//                                            }
-//                                        }
-                                        
                                         r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
                                     }
                                 }

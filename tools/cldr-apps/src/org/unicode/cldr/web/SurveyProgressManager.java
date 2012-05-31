@@ -123,6 +123,38 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
     public CLDRProgressTask openProgress(String what) {
         return openProgress(what,-100);
     }
+    
+    public static CLDRProgressTask openConsoleProgress(final String what0) {
+        return new CLDRProgressTask() {
+            ElapsedTimer et = new ElapsedTimer("Progress "+what0);
+            long startTime = System.currentTimeMillis();
+            @Override
+            public void close() {
+                System.out.println(et + ":  close");
+            }
+
+            @Override
+            public void update(int count) {
+                System.out.println(et + ":  Update #"+count);
+            }
+
+            @Override
+            public void update(int count, String what) {
+                System.out.println(et + ":  Update "+what+" #"+count);
+            }
+
+            @Override
+            public void update(String what) {
+                System.out.println(et + ":  Update "+what);
+            }
+
+            @Override
+            public long startTime() {
+                return startTime;
+            }
+            
+        };
+    }
 
 	/* (non-Javadoc)
      * @see org.unicode.cldr.web.CLDRProgressIndicator#openProgress(java.lang.String, int)

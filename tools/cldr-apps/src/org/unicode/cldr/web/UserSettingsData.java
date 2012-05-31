@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import java.util.Map;
@@ -23,15 +25,17 @@ public class UserSettingsData {
     public static final String SET_KINDS = "set_kinds";
     public static final String SET_VALUES = "set_values";
 
-    SurveyMain sm = null;
+    CLDRProgressIndicator sm = null;
     
-    private static final boolean debug = false;
+    private static final boolean debug = CldrUtility.getProperty("DEBUG", false);
     
     // End caller API
     
+    // One of these per user.  Caches the values.
     public class DBUserSettings extends UserSettings {
         private int id;
         
+        HashMap<String, String> values = new HashMap<String,String>();
 
         /**
          * @return true - this type does persist
@@ -64,10 +68,15 @@ public class UserSettingsData {
          */
         public String get(String name, String defaultValue) {
             try {
-                String value = internalGet(id, name);
+                String value = values.get(name);
+                if(value==null) {
+                    value= internalGet(id, name);
+                }
                 if(value == null) {
+                    values.remove(name);
                     return defaultValue;
                 } else {
+                    values.put(name, value);
                     return value;
                 }
             } catch(SQLException se) {
@@ -83,13 +92,21 @@ public class UserSettingsData {
          * @param value may be any Unicode string
          */
         public void set(String name, String value) {
+            String ivalue = values.get(name);
+            if(value==null&&ivalue==null) {
+                return; // both null - OK.
+            } else if(value.equals(ivalue)) {
+                return; // already set.
+            }
+            
             try {
                 Connection conn = null;
                 try {
-                    conn = sm.dbUtils.getDBConnection();
+                    conn = DBUtils.getInstance().getDBConnection();
                     internalSet(id,name,value,conn);
                 } finally {
                     DBUtils.closeDBConnection(conn);
+                    values.put(name, value); // store for next time.
                 }
             } catch(SQLException se) {
                 se.printStackTrace();
@@ -100,7 +117,7 @@ public class UserSettingsData {
         
     }
 
-    public UserSettingsData(SurveyMain sm) throws SQLException {
+    public UserSettingsData(CLDRProgressIndicator sm) throws SQLException {
         this.sm = sm;
         
         setupDB();
@@ -112,18 +129,18 @@ public class UserSettingsData {
 
         String sql = null;
         Connection conn = DBUtils.getInstance().getDBConnection();
-        CLDRProgressTask progress = sm.openProgress("Setup " + UserSettingsData.class.getName()+ " database");
+        CLDRProgressTask progress = (sm!=null)? sm.openProgress("Setup " + UserSettingsData.class.getName()+ " database") : null;
         try{
 
             if(!DBUtils.hasTable(conn,SET_KINDS)) {
                 Statement s = conn.createStatement();
-                progress.update("Creating table " + SET_KINDS);
+                if(progress!=null) progress.update("Creating table " + SET_KINDS);
                 sql = ("create table " + SET_KINDS +   "(set_id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
                                                         "set_name varchar(128) not null UNIQUE " +
                                                         (!DBUtils.db_Mysql?",primary key(set_id)":"") + ")");
                 s.execute(sql);
                 if(DBUtils.hasTable(conn,SET_VALUES)) {
-                    progress.update("Clearing old values");
+                    if(progress!=null) progress.update("Clearing old values");
                     sql = "drop table " + SET_VALUES;
                     s.execute(sql);
                 }
@@ -133,7 +150,7 @@ public class UserSettingsData {
             
             if(!DBUtils.hasTable(conn, SET_VALUES)) {
                 Statement s = conn.createStatement();
-                progress.update("Creating table " + SET_VALUES);
+                if(progress!=null) progress.update("Creating table " + SET_VALUES);
                 sql = ("create table " + SET_VALUES +   "(usr_id INT NOT NULL, " +
                         "set_id INT NOT NULL, " +
                         "set_value "+DBUtils.DB_SQL_UNICODE+" not null " +
@@ -144,7 +161,7 @@ public class UserSettingsData {
             }
             DBUtils.closeDBConnection(conn);
             conn = null;
-            progress.update("done");
+            if(progress!=null) progress.update("done");
         } catch(SQLException se) {
             se.printStackTrace();
             System.err.println("SQL err: " + DBUtils.unchainSqlException(se));
@@ -156,7 +173,7 @@ public class UserSettingsData {
     }
     
     private String internalGet(int id, String name) throws SQLException {
-        Connection conn = sm.dbUtils.getDBConnection();
+        Connection conn = DBUtils.getInstance().getDBConnection();
         
         String sql = "select "+SET_VALUES+".set_value from " + SET_VALUES + "," + SET_KINDS + " where " + SET_VALUES+".usr_id=? AND "+
             SET_KINDS+".set_id="+SET_VALUES+".set_id AND "+SET_KINDS+".set_name=?";
@@ -203,9 +220,13 @@ public class UserSettingsData {
             DBUtils.setStringUTF8(i1,3,value);
             d0.executeUpdate();
             i1.executeUpdate();
-        }        
+        }
         
         conn.commit();
+        
+        if(debug) {
+            System.out.println("SET: " + name + " = " + value + " - " + StackTracker.currentStack());
+        }
     }
     
     private int getSetId(String name, Connection conn) throws SQLException{
@@ -242,7 +263,13 @@ public class UserSettingsData {
         }
     }
 
-    public static UserSettingsData getInstance(SurveyMain sm) throws SQLException {
+    /**
+     * New up a UserSettingsData object. 
+     * @param sm  progress indicator (such as SurveyMain ) - can be null for no progress indication.
+     * @return
+     * @throws SQLException
+     */
+    public static UserSettingsData getInstance(CLDRProgressIndicator sm) throws SQLException {
         return new UserSettingsData(sm);
     }
     

@@ -98,6 +98,11 @@ public class TestAll extends TestGroup {
 	}
 
   public static String[] doResetDb(String[] args) {
+      final String cwt = System.getProperty("CLDR_WEB_TESTS");
+      if(cwt==null || !cwt.equals("true")) {
+          throw new InternalError("Error: must set -DCLDR_WEB_TESTS=true"); 
+      }
+      
 	  if(CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
 		  if(DEBUG) SurveyLog.logger.warning("Keeping database..");
 	  } else {
@@ -116,7 +121,8 @@ public TestAll() {
             	TestIntHash.class.getName(),
             	TestXPathTable.class.getName(),
             	//TestCacheAndDataSource.class.getName()
-                TestSTFactory.class.getName()
+                TestSTFactory.class.getName(),
+                TestUserSettingsData.class.getName()
             },
     "All tests in CLDR Web");
   }

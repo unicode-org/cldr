@@ -479,7 +479,7 @@ public class OutputFileManager {
     //        return 1;
     //        
     //    }
-    public synchronized boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
+    public  boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         String s = request.getPathInfo();
 
@@ -492,7 +492,12 @@ public class OutputFileManager {
         if(s.startsWith(FEED_PREFIX)) {
             return sm.fora.doFeed(request, response);
         }
+        return _doRawXml(request, response);
+    }
 
+     public synchronized boolean _doRawXml(HttpServletRequest request, HttpServletResponse response)
+                throws IOException, ServletException {
+            String s = request.getPathInfo();
         CLDRProgressTask p = sm.openProgress("Raw XML");
         try {
 
@@ -789,7 +794,7 @@ public class OutputFileManager {
         }
         void addUpdateTasks() {
             System.err.println("addUpdateTask...");
-            sm.addPeriodicTask(new TimerTask()
+            SurveyMain.addPeriodicTask(new TimerTask()
             {
                 int spinner = (int)Math.round(Math.random()*(double)sm.getLocales().length); // Start on a different locale each time.
                 @Override
@@ -854,13 +859,33 @@ public class OutputFileManager {
             });
         }
 
-        private static SVNClientManager ourClientManager = SVNClientManager.newInstance();
+        /**
+         * Client access to SVN.
+         */
+        private static SVNClientManager ourClientManager = null;
+        
+        private static synchronized SVNClientManager getClientManager() {
+            if(ourClientManager==null) {
+                ourClientManager = SVNClientManager.newInstance();
+            }
+            return ourClientManager;
+        }
+        
         public static void svnExport(File dir, String url) throws SVNException {
-                SVNUpdateClient updateClient = ourClientManager.getUpdateClient( );
+                SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
                 updateClient.setIgnoreExternals( true );
                 System.err.println("Exporting " + url + " into " + dir.getAbsolutePath());
                 long rv = updateClient.doExport( SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native", false, true );
                 System.err.println(".. Checked out  r" + rv);
+        }
+        
+        public static void svnShutdown() {
+            if(ourClientManager!=null) {
+                ourClientManager.dispose();
+                ourClientManager=null;
+                Thread.yield();
+                System.err.println("Shutdown SVN client.");
+            }
         }
  
 }

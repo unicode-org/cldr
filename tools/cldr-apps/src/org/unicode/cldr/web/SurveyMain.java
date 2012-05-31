@@ -5830,6 +5830,8 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             }
             progress.update("Shutting down database...");
             doShutdownDB();
+            progress.update("Shutting down SVN...");
+            OutputFileManager.svnShutdown();
             progress.update("Destroying timer...");
             if(surveyTimer!=null) {
             	surveyTimer.cancel();

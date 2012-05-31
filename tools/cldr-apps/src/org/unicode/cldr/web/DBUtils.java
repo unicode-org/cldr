@@ -28,6 +28,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.apache.derby.impl.sql.compile.GetCurrentConnectionNode;
+import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +38,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.StackTracker;
 
 import com.ibm.icu.text.UnicodeSet;
+import com.mysql.jdbc.Driver;
 
 //import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 
@@ -541,7 +543,17 @@ public class DBUtils {
         }
     }
     public void doShutdown() throws SQLException {
+        if(datasource!=null && datasource instanceof BasicDataSource) {
+            ((BasicDataSource)datasource).close();
+        }
 		datasource = null;
+		if(db_Derby) {
+		    try {
+		        DriverManager.getConnection("jdbc:derby:;shutdown=true");
+		    } catch(Throwable t) {
+		        //ignore
+		    }
+		}
 		if(this.db_number_open>0) {
 		    System.err.println("DBUtils: removing my instance. " + this.db_number_open + " still open?\n"+tracker);
 		}
@@ -620,6 +632,7 @@ public class DBUtils {
 	        throw new RuntimeException(" - JNDI required:  " + getDbBrokenMessage() );
 	    }
 
+	    
 		progress.update("Using datasource..."+dbInfo); // restore
 
 	}
@@ -1059,7 +1072,8 @@ public class DBUtils {
                         // Easier to create it for them than to explain it.
                         String createURI = connectURI+";create=true";
                         System.err.println("Attempting to create a DB at " + createURI);
-                        Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+                       Driver drv = (Driver)Class.forName("org.apache.derby.jdbc.EmbeddedDriver").newInstance();
+                        DriverManager.registerDriver(drv);
                         Connection conn = DriverManager.getConnection(createURI); 
                         conn.close();
                     }

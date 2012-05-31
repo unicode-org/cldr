@@ -85,7 +85,7 @@ abstract public class CheckCLDR {
     /**
      * @deprecated
      */
-    public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo, 
+    public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.Level voterLevel, 
             InputMethod inputMethod) {
         return StatusAction.ALLOW;
     }

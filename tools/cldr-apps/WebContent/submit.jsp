@@ -239,25 +239,20 @@
 			
 			PathHeader ph = stf.getPathHeader(base);
 			
-			checkResult.clear();
-            cc.check(base,checkResult, val0);
-            
-            boolean hadErr = false;
-            
-            CheckCLDR.StatusAction status = cPhase.getAction(checkResult, cs.user.voterInfo().getLevel(), CheckCLDR.InputMethod.BULK);
-            
+			
 			if(ph==null) {
-				result="Item is not a SurveyTool-visible LDML entity.";
-				resultIcon="stop";
-            } else if(status == CheckCLDR.StatusAction.FORBID_ALL) {
-                result="Forbidden by test results.";
+                result="Item is not a SurveyTool-visible LDML entity.";
                 resultIcon="stop";
-			} else if(ph.getSurveyToolStatus(status) != SurveyToolStatus.READ_WRITE) {
-				result="Item is not writable in the Survey Tool. Please file a ticket.";
-				resultIcon="stop";
-			} else if(status!=CheckCLDR.StatusAction.ALLOW_ALL && ( coverageValue > Level.COMPREHENSIVE.getLevel())) {
-				result="Item is not visible for write via the Survey Tool. Please file a ticket.";
-				resultIcon="stop";
+			} else {
+				checkResult.clear();
+	            cc.check(base,checkResult, val0);
+	            
+	            SurveyToolStatus phStatus = ph.getSurveyToolStatus();
+	            CheckCLDR.StatusAction status = cPhase.getAction(checkResult, cs.user.voterInfo(), CheckCLDR.InputMethod.BULK,phStatus,org.unicode.cldr.util.Level.fromLevel(coverageValue));
+            
+	        if(status == CheckCLDR.StatusAction.FORBID) {
+                result="Item will be skipped.";
+                resultIcon="stop";
 			} else {
 				if(doFinal) {
 					ballotBox.voteForValue(u, base, val0);
@@ -267,6 +262,7 @@
 					result = "Ready to submit.";
 				}
 				updCnt++;
+			}
 			}
 %>
 		<tr class='r<%=(r) % 2%>'>

@@ -27,6 +27,8 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 
 /**
@@ -382,11 +384,15 @@ public class SurveyAjax extends HttpServlet {
                                         throw new InternalError("User cannot modify locale.");
                                     }
                                     
-                                    CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
-                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(result, mySession.user.getLevel(), CheckCLDR.InputMethod.DIRECT);
+                                    SupplementalDataInfo sdi = mySession.sm.getSupplementalDataInfo();
+                                    int coverageValue = sdi.getCoverageValue(xp, locale.toULocale());
                                     PathHeader ph = stf.getPathHeader(xp);
-                                    if(statusAction!=CheckCLDR.StatusAction.FORBID_ALL 
-                                            && ph.getSurveyToolStatus(statusAction)==PathHeader.SurveyToolStatus.READ_WRITE  
+                                    CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
+                                    SurveyToolStatus phStatus = ph.getSurveyToolStatus();
+                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(result, mySession.user.voterInfo(), CheckCLDR.InputMethod.DIRECT,
+                                                phStatus,org.unicode.cldr.util.Level.fromLevel(coverageValue));
+
+                                    if(statusAction!=CheckCLDR.StatusAction.FORBID 
                                             && otherErr==null) {
                                         ballotBox.voteForValue(mySession.user, xp, val);
                                         r.put("submitResultRaw", ballotBox.getResolver(xp).toString());

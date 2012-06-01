@@ -69,10 +69,6 @@ abstract public class CheckCLDR {
        * Disallow always
        */
       FORBID;
-      /**
-       * @deprecated
-       */
-      public static final StatusAction ALLOW_ALL = ALLOW, FORBID_ALL = FORBID, FORBID_SUPPRESS = ALLOW;
       }
 
   public enum Phase {
@@ -80,14 +76,6 @@ abstract public class CheckCLDR {
 
     public static Phase forString(String value) {
       return value == null ? null : Phase.valueOf(value.toUpperCase(Locale.ENGLISH));
-    }
-    
-    /**
-     * @deprecated
-     */
-    public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.Level voterLevel, 
-            InputMethod inputMethod) {
-        return StatusAction.ALLOW;
     }
     
     public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo, 

@@ -250,8 +250,8 @@
 	            SurveyToolStatus phStatus = ph.getSurveyToolStatus();
 	            CheckCLDR.StatusAction status = cPhase.getAction(checkResult, cs.user.voterInfo(), CheckCLDR.InputMethod.BULK,phStatus,org.unicode.cldr.util.Level.fromLevel(coverageValue));
             
-	        if(status == CheckCLDR.StatusAction.FORBID) {
-                result="Item will be skipped.";
+	        if(status != CheckCLDR.StatusAction.ALLOW) {
+                result="Item will be skipped. ("+status+")";
                 resultIcon="stop";
 			} else {
 				if(doFinal) {

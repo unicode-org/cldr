@@ -1246,6 +1246,7 @@ function appendItem(div,value, pClass) {
 
 function testsToHtml(tests) {
 	var newHtml = "";
+	if(!tests) return newHtml;
 	for ( var i = 0; i < tests.length; i++) {
 		var testItem = tests[i];
 		newHtml += "<p class='tr_" + testItem.type + "' title='" + testItem.type
@@ -1285,7 +1286,7 @@ function findItemByValue(items, value) {
 	return null;
 }
 
-function showProposedItem(inTd,tr,theRow,value,tests) {
+function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	var children = getTagChildren(tr);
 	var config = tr.theTable.config;
 	
@@ -1321,8 +1322,11 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 	} else {
 		ourDiv = ourItem.div;
 	}
-	setDivClass(ourDiv,testKind);
-	
+	if(json&&json.statusAction&&json.statusAction!='ALLOW') {
+		ourDiv.className = "d-item-err";
+	} else {
+		setDivClass(ourDiv,testKind);
+	}
 //	theRow.proposedResults = null;
 
 	if(testKind || !ourItem) {
@@ -1342,6 +1346,11 @@ function showProposedItem(inTd,tr,theRow,value,tests) {
 		newDiv.innerHTML = newHtml;
 //		theRow.proposedResults = div3;
 //		theRow.proposedResults.value = value;
+		if(json&&json.statusAction&&json.statusAction!='ALLOW') {
+			div3.appendChild(createChunk(
+					stui.sub("StatusAction_msg",
+						[ stui_str("StatusAction_"+json.statusAction) ],"p", "")));
+		}
 
 		div3.popParent = tr;
 		
@@ -2342,8 +2351,10 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 					// end: async
 				} else {
 					// Did not submit. Show errors, etc
-					if(json.testResults && (json.testWarnings || json.testErrors)) {
-						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
+					if(
+							(json.statusAction&&json.statusAction!='ALLOW')
+						|| (json.testResults && (json.testWarnings || json.testErrors ))) {
+						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 					} else {
 						hidePop(tr);
 					}

@@ -122,6 +122,14 @@ define({
                         pClass_loser: "This is a proposed item which is not currently winning.",
                         pClass_fallback: "This item is inherited from ${inheritFromDisplay}.",
 			
+           // CheckCLDR.StatusAction 
+           StatusAction_msg:              "Item was not submitted: ${0}",
+           StatusAction_ALLOW:            "(Actually, it was allowed.)", // shouldn't happen
+           StatusAction_FORBID:           "Forbidden.",
+           StatusAction_FORBID_ERRORS:    "Item had errors.",
+           StatusAction_FORBID_READONLY:  "Read-only.",
+           StatusAction_FORBID_COVERAGE:  "Outside of coverage.",
+                        
 			"": ""})
 //		"mt-MT": false
 	

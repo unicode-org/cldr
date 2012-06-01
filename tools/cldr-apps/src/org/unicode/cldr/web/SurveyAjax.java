@@ -26,6 +26,7 @@ import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -389,10 +390,15 @@ public class SurveyAjax extends HttpServlet {
                                     PathHeader ph = stf.getPathHeader(xp);
                                     CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
                                     SurveyToolStatus phStatus = ph.getSurveyToolStatus();
+                                    Level covLev = org.unicode.cldr.util.Level.fromLevel(coverageValue);
                                     CheckCLDR.StatusAction statusAction = cPhase.getAction(result, mySession.user.voterInfo(), CheckCLDR.InputMethod.DIRECT,
-                                                phStatus,org.unicode.cldr.util.Level.fromLevel(coverageValue));
+                                                phStatus,covLev);
 
-                                    if(statusAction!=CheckCLDR.StatusAction.FORBID 
+                                    r.put("cPhase",cPhase);
+                                    r.put("phStatus",phStatus);
+                                    r.put("statusAction",statusAction);
+                                    r.put("covLev", covLev);
+                                    if(statusAction==CheckCLDR.StatusAction.ALLOW 
                                             && otherErr==null) {
                                         ballotBox.voteForValue(mySession.user, xp, val);
                                         r.put("submitResultRaw", ballotBox.getResolver(xp).toString());

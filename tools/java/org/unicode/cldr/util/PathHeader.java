@@ -303,15 +303,6 @@ public class PathHeader implements Comparable<PathHeader> {
         return status;
     }
 
-    /**
-     * @deprecated
-     */
-    public SurveyToolStatus getSurveyToolStatus(StatusAction statusAction) {
-        // if the statusAction is ALLOW_ALL, we override the resulting status to allow entry.
-        return statusAction == StatusAction.ALLOW_ALL && status != SurveyToolStatus.DEPRECATED ? SurveyToolStatus.READ_WRITE 
-                : status;
-    }
-
     @Override
     public String toString() {
         return sectionId 

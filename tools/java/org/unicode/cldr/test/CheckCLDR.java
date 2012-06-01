@@ -66,9 +66,16 @@ abstract public class CheckCLDR {
        */
       ALLOW, 
       /**
-       * Disallow always
+       * Disallow (for various reasons)
        */
-      FORBID;
+      FORBID_ERRORS, 
+      FORBID_READONLY, 
+      FORBID_COVERAGE
+      ;
+      /**
+       * @deprecated
+       */
+      public static final StatusAction FORBID = FORBID_READONLY;
       }
 
   public enum Phase {
@@ -84,7 +91,7 @@ abstract public class CheckCLDR {
         
         // always forbid deprecated items.
         if (status == SurveyToolStatus.DEPRECATED) {
-            return StatusAction.FORBID;
+            return StatusAction.FORBID_READONLY;
         }
         
         // if TC+, allow anything else, even suppress items
@@ -93,15 +100,15 @@ abstract public class CheckCLDR {
         }
         
         // if the coverage level is optional, disallow
-        if (coverageLevel.compareTo(Level.COMPREHENSIVE) >= 0) {
-            return StatusAction.FORBID;
+        if (coverageLevel.compareTo(Level.COMPREHENSIVE) > 0) {
+            return StatusAction.FORBID_COVERAGE;
         }
         
         // check for errors (allowing collisions
         for (CheckStatus item : statusList) {
             if (item.getType().equals(CheckStatus.errorType)) {
                 if (item.getSubtype() != Subtype.dateSymbolCollision && item.getSubtype() != Subtype.displayCollision) {
-                    return StatusAction.FORBID;
+                    return StatusAction.FORBID_ERRORS;
                 }
             }
         }
@@ -109,7 +116,7 @@ abstract public class CheckCLDR {
         if (status == SurveyToolStatus.READ_WRITE) {
             return StatusAction.ALLOW;
         }
-        return StatusAction.FORBID;
+        return StatusAction.FORBID_READONLY;
     }
   }
 

@@ -1,3 +1,9 @@
+/*
+ ******************************************************************************
+ * Copyright (C) 2004-2012, International Business Machines Corporation and   *
+ * others. All Rights Reserved.                                               *
+ ******************************************************************************
+ */
 package org.unicode.cldr.web;
 
 import java.io.BufferedReader;
@@ -13,8 +19,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TimerTask;
 import java.util.TreeMap;
 
 import org.json.JSONArray;
@@ -40,7 +44,7 @@ import org.unicode.cldr.util.Pair;
  * @author srl
  *
  */
-public class ChunkyReader extends TimerTask {
+public class ChunkyReader implements Runnable {
     private String recordSep;
     private File fileName;
     private String fieldSep;

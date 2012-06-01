@@ -1,10 +1,19 @@
+/*
+ ******************************************************************************
+ * Copyright (C) 2004-2012, International Business Machines Corporation and   *
+ * others. All Rights Reserved.                                               *
+ ******************************************************************************
+ */
+
 package org.unicode.cldr.web;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -16,10 +25,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.tmatesoft.svn.core.SVNCommitInfo;
 import org.tmatesoft.svn.core.SVNDepth;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.wc.SVNClientManager;
+import org.tmatesoft.svn.core.wc.SVNCommitClient;
 import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNStatus;
 import org.tmatesoft.svn.core.wc.SVNStatusClient;
@@ -27,6 +38,7 @@ import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.tmatesoft.svn.core.wc.SVNWCClient;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
@@ -202,6 +214,8 @@ public class OutputFileManager {
     //    		return nrOutFiles;
     //    	}
     //
+    
+    public static boolean tryCommit = true;
         /**
          * Write out the specified file. 
          * @param loc
@@ -235,27 +249,54 @@ public class OutputFileManager {
             }
         	try {
         		File outFile = sm.getDataFile(kind, loc);
-        		PrintWriter u8out = new PrintWriter(
-        				new OutputStreamWriter(
-        						new FileOutputStream(outFile), "UTF8"));
-        		if(!isFlat) {
-        			file.write(u8out);
-        		} else {
-        			Set<String> keys = new TreeSet<String>();
-        			for(String k : file) {
-        				keys.add(k);
-        			}
-        			u8out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-        			u8out.println("<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">"); 
-        			u8out.println("<comment>"+loc+"</comment>");
-        			u8out.println("<properties>");
-        			for(String k:keys) {
-        				u8out.println(" <entry key=\""+k.replaceAll("\"", "\\\"")+"\">"+file.getStringValue(k)+"</entry>");
-        			}
-        			u8out.println("</properties>");
-        		}
-        		u8out.close();
+        		
+        		doWriteFile(loc, file, isFlat, outFile);
         		SurveyLog.debug("Updater: Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
+        		
+        		if(tryCommit && kind.equals("vxml")){
+                    try {
+                        ElapsedTimer et = new ElapsedTimer();
+                        svnAdd(outFile);
+                        if(true) System.err.println("SVN: added " + outFile.getAbsolutePath() + " t="+et);
+                    } catch (SVNException e ) {
+                        if(e.getMessage().contains("E155007")) {
+                            SurveyLog.logException(e, "Trying to add [and giving up on SVN commits!]" + outFile.getAbsolutePath());
+                            tryCommit=false;
+                        } else if(e.getMessage().contains("E155015")) {
+                            svnRemoveAndResolved(outFile);
+                            doWriteFile(loc, file, isFlat, outFile);
+                            SurveyLog.debug("Updater: Resolved, Re-Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
+                        } else if(!e.getMessage().contains("E150002")) {
+                            SurveyLog.logException(e, "Trying to add " + outFile.getAbsolutePath());
+                        }
+                    }
+                    if(false && /* for now- just add, don't commit */ 
+                                tryCommit && outFile.exists()) try {
+                        File dirs[] = { outFile };
+                        ElapsedTimer et = new ElapsedTimer();
+                        SVNCommitInfo i = svnCommit(dirs);
+                        if(true) System.err.println("SVN: committed " + outFile.getAbsolutePath() + " - " + i.toString() + " t="+et);
+                    } catch (SVNException e ) {
+                        if(e.getMessage().contains("E155007")) {
+                            SurveyLog.logException(e, "Trying to commit [and giving up on SVN commits!]" + outFile.getAbsolutePath());
+                            tryCommit=false;
+                        } else if(e.getMessage().contains("E155011")) {
+                            SurveyLog.logException(e, "Out of date in commit - will update and REMOVE (to be regenerated) " + outFile.getAbsolutePath());
+                            try {
+                                long l = svnUpdate(outFile);
+                                System.err.println("Updated " + outFile.getAbsolutePath()+ " to r"+l+" - will now delete/rewrite it so that it up to date");
+                            } catch (SVNException e1) {
+                                SurveyLog.logException(e1, "While trying to update " + outFile.getAbsolutePath());
+                            } finally {
+                                outFile.delete(); // 
+                                doWriteFile(loc, file, isFlat, outFile);
+                                SurveyLog.debug("Updater: Updated, Re-Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
+                            }
+                        } else {
+                            SurveyLog.logException(e, "Trying to commit " + outFile.getAbsolutePath());
+                        }
+                    }
+        		}
         		return outFile;
         	} catch (IOException e) {
             	e.printStackTrace();
@@ -271,7 +312,41 @@ public class OutputFileManager {
 //            	}
             }
         }
+
+
+        /**
+         * @param loc
+         * @param file
+         * @param isFlat
+         * @param outFile
+         * @throws UnsupportedEncodingException
+         * @throws FileNotFoundException
+         */
+        private void doWriteFile(CLDRLocale loc, CLDRFile file, boolean isFlat, File outFile)
+                throws UnsupportedEncodingException, FileNotFoundException {
+            PrintWriter u8out = new PrintWriter(
+            		new OutputStreamWriter(
+            				new FileOutputStream(outFile), "UTF8"));
+            if(!isFlat) {
+            	file.write(u8out);
+            } else {
+            	Set<String> keys = new TreeSet<String>();
+            	for(String k : file) {
+            		keys.add(k);
+            	}
+            	u8out.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+            	u8out.println("<!DOCTYPE properties SYSTEM \"http://java.sun.com/dtd/properties.dtd\">"); 
+            	u8out.println("<comment>"+loc+"</comment>");
+            	u8out.println("<properties>");
+            	for(String k:keys) {
+            		u8out.println(" <entry key=\""+k.replaceAll("\"", "\\\"")+"\">"+file.getStringValue(k)+"</entry>");
+            	}
+            	u8out.println("</properties>");
+            }
+            u8out.close();
+        }
     
+
         public void doRaw(WebContext ctx) {
             ctx.println("raw not supported currently. ");
         /*
@@ -725,7 +800,7 @@ public class OutputFileManager {
         	Timestamp theDate = null;
             if(haveVbv||DBUtils.hasTable(conn,STFactory.CLDR_VBV)) {
                 if(haveVbv==false) {
-                    SurveyLog.debug("OutputFileManager: have "+STFactory.CLDR_VBV+", commencing  output file updates ( use -DCLDR_NOOUTPUT=true to suppress )");
+                    SurveyLog.debug("OutputFileManager: have "+STFactory.CLDR_VBV+", commencing  output file updates ( use CLDR_NOOUTPUT=true in cldr.properties to suppress )");
                 }
                 haveVbv=true;
             	Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from cldr_votevalue where locale=?", loc);
@@ -797,8 +872,8 @@ public class OutputFileManager {
         	return true;
         }
         void addUpdateTasks() {
-            System.err.println("addUpdateTask...");
-            SurveyMain.addPeriodicTask(new TimerTask()
+            System.err.println("addPeriodicTask...");
+            SurveyMain.addPeriodicTask(new Runnable()
             {
                 int spinner = (int)Math.round(Math.random()*(double)sm.getLocales().length); // Start on a different locale each time.
                 @Override
@@ -808,16 +883,24 @@ public class OutputFileManager {
 //                        return;
 //                    }
                     
+                    final String CLDR_OUTPUT_ONLY = CldrUtility.getProperty("CLDR_OUTPUT_ONLY",null);
+                    
+                    if(CLDR_OUTPUT_ONLY!=null) {
+                        System.err.println("Only outputting -DCLDR_OUTPUT_ONLY="+CLDR_OUTPUT_ONLY);
+                    }
+                    
                     Connection conn = null;
                     CLDRProgressTask progress = null;
                     try {
                         conn = DBUtils.getInstance().getDBConnection();
                         CLDRLocale locs[] = sm.getLocales();
                         File outFile = null;
-                        CLDRLocale loc = null;
 //                        SurveyLog.logger.warning("Updater: locs to do: "  +locs.length );
+                        CLDRLocale loc = null;
                         for(int j=0;j< Math.min(16,locs.length);j++) { // Try 16 locales looking for one that doesn't exist. No more, due to load.
-                            loc = locs[(spinner++)%locs.length]; // A new one each time.
+                            loc = CLDR_OUTPUT_ONLY!=null?
+                                    CLDRLocale.getInstance(CLDR_OUTPUT_ONLY) // DEBUGGING
+                                    :locs[(spinner++)%locs.length]; // A new one each time. (normal case
 //                            SurveyLog.logger.warning("Updater: Considering: "  +loc );
                             
                             Timestamp localeTime = getLocaleTime(conn,loc);
@@ -892,7 +975,28 @@ public class OutputFileManager {
                 long rv = updateClient.doExport( SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native", false, SVNDepth.INFINITY );
                 System.err.println(".. Exported " + rv);
         }
-        
+        public static SVNCommitInfo svnCommit(File[] f) throws SVNException {
+            SVNCommitClient commitClient = getClientManager().getCommitClient( );         
+            return commitClient.doCommit( f, false , "Automated update" , false , true );
+        }
+        public static long svnUpdate(File f) throws SVNException {
+            SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
+            return updateClient.doUpdate(f, SVNRevision.HEAD, true);
+        }
+        private static void svnRemoveAndResolved(File outFile) {
+            try {
+                getClientManager().getWCClient( ).doResolve(outFile, true);
+            } catch (SVNException e) {
+                SurveyLog.logException(e, "While marking " + outFile.getAbsolutePath() + " resolved.");
+            } finally {
+                outFile.delete();
+            }
+        }
+
+        public static void svnAdd(File f)  throws SVNException {
+            getClientManager().getWCClient( ).doAdd( f , false , false , false , true );
+        }
+
         public static SVNStatus svnStatus(File item) throws SVNException {
             SVNStatusClient updateClient = getClientManager().getStatusClient();
             return updateClient.doStatus(item, false);
@@ -906,5 +1010,4 @@ public class OutputFileManager {
                 System.err.println("Shutdown SVN client.");
             }
         }
- 
 }

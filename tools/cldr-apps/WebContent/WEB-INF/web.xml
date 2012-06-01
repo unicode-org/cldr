@@ -95,4 +95,9 @@
 		<url-pattern>/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
+	
+	<context-param>
+	   <param-name>clearReferencesStopTimerThreads</param-name>
+	   <param-value>true</param-value>
+	</context-param>
 </web-app>

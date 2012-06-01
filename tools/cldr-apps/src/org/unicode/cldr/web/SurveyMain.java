@@ -10,12 +10,10 @@ import java.io.BufferedReader;
 import java.io.Externalizable;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -41,16 +39,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -66,7 +64,6 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -5608,24 +5605,23 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     * Main setup
      */
     static public boolean isSetup = false;
-
-
     
-    private static Timer surveyTimer = null;
+    
+    private static ScheduledExecutorService surveyTimer = null;
 //    private List<PeriodicTask> periodicTasks = null;
     
-    private static synchronized Timer getTimer() {
+    private static synchronized ScheduledExecutorService getTimer() {
     	if(surveyTimer==null) {
-    		surveyTimer=new Timer("SurveyTool Periodic Tasks",true);
+    		surveyTimer=Executors.newSingleThreadScheduledExecutor();
     	}
     	return surveyTimer;
     }
 
 
-    public static void addPeriodicTask(TimerTask task) {
+    public static void addPeriodicTask(Runnable task) {
 		int firstTime=isUnofficial()?10000:99000;		
 		int eachTime=isUnofficial()?10000:76000;
-		getTimer().schedule(task, firstTime,eachTime);
+		getTimer().scheduleAtFixedRate(task, firstTime, eachTime, TimeUnit.MILLISECONDS);
     }
     
     /**
@@ -5876,17 +5872,30 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
                 MailSender.shutdown();
             if ( surveyTimer!= null) {
                 progress.update("Shutting down timer...");
-                surveyTimer.cancel();
+                while(surveyTimer!=null && !surveyTimer.isTerminated()) {
+                    try {
+                        System.err.println("Still Shutting down timer.. " + surveyTimer.toString());
+                        if(surveyTimer.awaitTermination(2, TimeUnit.SECONDS)) {
+                            System.err.println("Timer thread is down.");
+                            surveyTimer=null;
+                        } else {
+                            System.err.println("Timer thread is still running. Attempting TerminateNow.");
+                            surveyTimer.shutdownNow();
+                        }
+                        Thread.yield();
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+                surveyTimer=null;
+                System.err.println("Timer thread cancelled.");
+                Thread.yield();
             }
             progress.update("Shutting down database...");
             doShutdownDB();
             progress.update("Shutting down SVN...");
             OutputFileManager.svnShutdown();
-            progress.update("Destroying timer...");
-            if(surveyTimer!=null) {
-            	surveyTimer.cancel();
-            	surveyTimer=null;
-            }
             progress.update("Destroying servlet...");
             if(isBusted!=null) isBusted="servlet destroyed";
             super.destroy();

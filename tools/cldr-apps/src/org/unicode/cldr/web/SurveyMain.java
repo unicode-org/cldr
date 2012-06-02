@@ -2718,7 +2718,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 									notifyUser(ctx, theirEmail, pass);
 								}
 							} else if (action.equals(LIST_ACTION_DELETE0)) {
-								ctx.println("Ensure that 'confirm delete' is chosen at right and click Change again to delete..");
+								ctx.println("Ensure that 'confirm delete' is chosen at right and click Do Action to delete..");
 							} else if ((UserRegistry.userCanDeleteUser(
 									ctx.session.user, theirId, theirLevel))
 									&& (action.equals(LIST_ACTION_DELETE1))) {
@@ -2866,7 +2866,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 						// Was something requested?
 
 						{ // PRINT MENU
-							ctx.print("<select name='" + theirTag + "'>");
+							ctx.print("<select name='" + theirTag + "'  ");
+							if(just!=null) {
+							    ctx.print(" onchange=\"this.form.submit()\" ");
+							}
+							ctx.print(">");
 
 							// set user to VETTER
 							ctx.println("   <option value=''>"

@@ -960,7 +960,7 @@ public class UserRegistry {
     }
     
     String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales, boolean intLocs) {
-        if(!intLocs && ctx.session.user.userlevel > TC) { // Note- we dont' check that a TC isn't modifying an Admin's locale. 
+        if(!intLocs && !ctx.session.user.isAdminFor(getInfo(theirId))) { // Note- we dont' check that a TC isn't modifying an Admin's locale. 
             return ("[Permission Denied]");
         }
         
@@ -1018,7 +1018,7 @@ public class UserRegistry {
 
 
     String delete(WebContext ctx, int theirId, String theirEmail) {
-        if(ctx.session.user.userlevel > TC) {
+        if(!ctx.session.user.isAdminFor(getInfo(theirId))) {
             return ("[Permission Denied]");
         }
 

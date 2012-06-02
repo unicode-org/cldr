@@ -1788,12 +1788,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("<div class='sterrmsg'>"+ctx.iconHtml("stop","Could not add user")+"Couldn't add user <tt>" + new_email + "</tt> - an unknown error occured.</div>");
                 }
             } else {
-                ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added.</i>");
+                ctx.println("<i>"+ctx.iconHtml("okay","added")+"user added.</i> Here is their login link: ");
                 registeredUser.printPasswordLink(ctx);
                 WebContext nuCtx = (WebContext)ctx.clone();
                 nuCtx.addQuery(QUERY_DO,"list");
                 nuCtx.addQuery(LIST_JUST, changeAtTo40(new_email));
-                ctx.println("<p>"+ctx.iconHtml("warn","Note..")+"The password is not sent to the user automatically. You can do so in the '<b><a href='"+nuCtx.url()+"#u_"+u.email+"'>"+ctx.iconHtml("zoom","Zoom in on user")+"manage "+new_name+"</a></b>' page.</p>");
+                ctx.println("" +
+                            "<form action='"+ctx.base()+"' method='POST'>");
+                ctx.print("<input name='s' type='hidden' value='"+ctx.session.id+"'/>" +
+                        "<input name='justu' type='hidden' value='"+new_email+"'/>" +
+                        "<input name='do' type='hidden' value='list'/>" +
+                             "<input name='"+new_email+"' type='hidden' value='sendpassword_'/>" +
+                            "<label>"+ctx.iconHtml("warn","Note..")+"The password is not sent to the user automatically. <b>Click here to do so: <input type='submit' value='Send Password Email to "+new_email+"'/></b></label>" + "</form>" +
+                             
+                            "<br>Click here to manage this user: '<b><a href='"+nuCtx.url()+"#u_"+u.email+"'>"+ctx.iconHtml("zoom","Zoom in on user")+"manage "+new_name+"</a></b>' page.</p>");
             }
         }
         

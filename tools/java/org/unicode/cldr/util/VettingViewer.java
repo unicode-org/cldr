@@ -167,7 +167,7 @@ public class VettingViewer<T> {
         public static Appendable appendRowStyles(Set<Choice> choices, Appendable target) {
             try {
                 if (choices.contains(Choice.changedOldValue)) {
-                    int x = 0;
+                    int x = 0; // debugging
                 }
                 target.append("hide");
                 for (Choice item : choices) {
@@ -1249,6 +1249,26 @@ public class VettingViewer<T> {
                     "-->\n"
                     + "</script>");
 
+            // gather information on choices on each page
+            
+            Relation<Row.R3<SectionId, PageId, String>, Choice> choicesForHeader 
+            = Relation.of(new HashMap<Row.R3<SectionId, PageId, String>, Set<Choice>>(), HashSet.class);
+            
+            Relation<Row.R2<SectionId, PageId>, Choice> choicesForSection 
+            = Relation.of(new HashMap<R2<SectionId, PageId>, Set<Choice>>(), HashSet.class);
+
+            for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
+                SectionId section = entry0.getKey().get0();
+                PageId subsection = entry0.getKey().get1();
+                final Set<WritingInfo> rows = entry0.getValue();
+                for (WritingInfo pathInfo : rows) {
+                    String header = pathInfo.codeOutput.getHeader();
+                    Set<Choice> choicesForPath = pathInfo.problems;
+                    choicesForSection.putAll(Row.of(section, subsection), choicesForPath);
+                    choicesForHeader.putAll(Row.of(section, subsection, header), choicesForPath);
+                }
+            }
+            
             final String localeId = sourceFile.getLocaleID();
             int count = 0;
             for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
@@ -1267,8 +1287,8 @@ public class VettingViewer<T> {
                 .append("'>Page: ")
                 .append(subsection.toString())
                 .append("</a></i> (" + rows.size() + ")</h2>\n");
-                startTable(output);
-
+                startTable(choicesForSection.get(Row.of(section, subsection)), output);
+                
                 String oldHeader = "";
                 for (WritingInfo pathInfo : rows) {
                     String header = pathInfo.codeOutput.getHeader();
@@ -1276,9 +1296,10 @@ public class VettingViewer<T> {
                     String path = pathInfo.codeOutput.getOriginalPath();
                     Set<Choice> choicesForPath = pathInfo.problems;
 
-                    if (!header.equals(oldHeader)) {
-                        output.append("<tr");
-                        // Choice.appendRowStyles(choicesForPath, output);
+                    if (!header.equals(oldHeader)) { 
+                        Set<Choice> headerChoices = choicesForHeader.get(Row.of(section, subsection, header));
+                        output.append("<tr class='");
+                        Choice.appendRowStyles(headerChoices, output);
                         output.append("'>\n");
                         output.append(" <th class='partsection' colSpan='6'>");
                         output.append(header);
@@ -1348,9 +1369,11 @@ public class VettingViewer<T> {
         return baseUrl + "?_=" + localeId + "&x=" + subsection;
     }
 
-    private void startTable(Appendable output) throws IOException {
+    private void startTable(Set<Choice> choices, Appendable output) throws IOException {
         output.append("<table class='tv-table'>\n");
-        output.append("<tr>" +
+        output.append("<tr class='");
+        Choice.appendRowStyles(choices, output);
+        output.append("'>" +
                 "<th class='tv-th'>No.</th>" +
                 "<th class='tv-th'>Code</th>" +
                 "<th class='tv-th'>English</th>" +

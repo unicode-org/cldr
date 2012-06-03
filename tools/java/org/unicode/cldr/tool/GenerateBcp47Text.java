@@ -36,7 +36,7 @@ public class GenerateBcp47Text {
             
             String extension = extensionAndKeys.getKey();
             PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "/supplemental/", "bcp47-" + extension + ".txt");
-            showField(out, "Version", ShowLanguages.CHART_DISPLAY_VERSION);
+            showField(out, "Version", "21.0.2β"); // β
             showField(out, "Extension", extension);
 
             Set<String> keys = extensionAndKeys.getValue();

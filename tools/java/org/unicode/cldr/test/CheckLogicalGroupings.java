@@ -36,7 +36,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
               showError = CheckStatus.errorType;
           }
           result.add(new CheckStatus().setCause(this).setMainType(showError).setSubtype(Subtype.incompleteLogicalGroup) 
-                        .setMessage("Incomplete logical group - must enter a value for generic, standard, and daylight")); 
+                        .setMessage("Incomplete logical group - must enter a value for all fields in the group")); 
       }
       
       if (this.getPhase() != null && this.getPhase().equals(Phase.FINAL_TESTING)) {

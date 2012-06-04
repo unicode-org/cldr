@@ -20,8 +20,10 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
 public class CheckExemplars extends FactoryCheckCLDR {
-    
     private static final boolean SUPPRESS_AUX_EMPTY_CHECK = true;
+    private static final String[] QUOTE_ELEMENTS = {
+            "quotationStart", "quotationEnd",
+            "alternateQuotationStart", "alternateQuotationEnd"};
 
     Collator col;
     Collator spaceCol;
@@ -99,6 +101,19 @@ public class CheckExemplars extends FactoryCheckCLDR {
         .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
                 .setStrength2(Collator.PRIMARY))
                 .setCompressRanges(true);
+
+        // check for auxiliary anyway
+        if (!SUPPRESS_AUX_EMPTY_CHECK) {
+            UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
+
+            if (auxiliarySet == null) {
+                possibleErrors.add(
+                        new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.missingAuxiliaryExemplars)
+                        .setMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));              
+            }
+        }
         return this;
     }
 
@@ -113,20 +128,9 @@ public class CheckExemplars extends FactoryCheckCLDR {
         checkExemplar(value, result, type);
 
         // check relation to auxiliary set
-        try {       	
+        try {
             UnicodeSet mainSet = getResolvedCldrFileToCheck().getExemplarSet("", CLDRFile.WinningChoice.WINNING);
-            if (path.indexOf("auxiliary") < 0) {
-                // check for auxiliary anyway
-
-                if (!SUPPRESS_AUX_EMPTY_CHECK) {
-                    UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
-
-                    if (auxiliarySet == null) {
-                        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.missingAuxiliaryExemplars)
-                                .setMessage("Most languages allow <i>some<i> auxiliary characters, so review this."));   			
-                    }
-                }
-            } else { // auxiliary
+            if (type == ExemplarType.auxiliary) {
                 UnicodeSet auxiliarySet = new UnicodeSet(value);
                 
                 UnicodeSet combined = new UnicodeSet(mainSet).addAll(auxiliarySet);
@@ -142,8 +146,22 @@ public class CheckExemplars extends FactoryCheckCLDR {
                                 .setCompressRanges(true)
                                 .format(overlap);
                         result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.auxiliaryExemplarsOverlap)
-                                .setMessage("Auxiliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));   			
+                                .setMessage("Auxiliary overlaps with main \u200E{0}\u200E", new Object[]{fixedExemplar1}));             
                     }
+                }
+            } else if (type == ExemplarType.punctuation) {
+                // Check that the punctuation exemplar characters include quotation marks.
+                UnicodeSet punctuationSet = new UnicodeSet(value);
+                UnicodeSet quoteSet = new UnicodeSet();
+                for (String element : QUOTE_ELEMENTS) {
+                    quoteSet.add(getResolvedCldrFileToCheck().getWinningValue("//ldml/delimiters/" + element));
+                }
+                if (!punctuationSet.containsAll(quoteSet)) {
+                    CheckStatus message = new CheckStatus().setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.missingPunctuationCharacters)
+                            .setMessage("Puncutation exemplar characters should contain all quotation marks for this locale: " + quoteSet);
+                    result.add(message);
                 }
             }
 

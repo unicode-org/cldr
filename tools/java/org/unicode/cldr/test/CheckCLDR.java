@@ -266,6 +266,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
 
       charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars,
       charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
+      missingPunctuationCharacters,
 
       narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
       illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,

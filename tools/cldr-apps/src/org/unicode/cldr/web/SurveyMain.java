@@ -77,6 +77,7 @@ import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -482,7 +483,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             
             // handle raw xml
             try {
-	            if(outputFileManager.doRawXml(request,response)) {
+	            if(getOutputFileManager().doRawXml(request,response)) {
 	                // not counted.
 	                xpages++;
 	                return; 
@@ -4370,7 +4371,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     		} else if(pageId!=null && !which.equals(xMAIN)) {
     		    showPathList(subCtx,which,pageId);
     		} else if(RAW_MENU_ITEM.equals(which)) {
-    			outputFileManager.doRaw(subCtx);
+    			getOutputFileManager().doRaw(subCtx);
     		} else {
     		    which = xMAIN;
     			doMain(subCtx);
@@ -4473,7 +4474,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if(!dir.isDirectory()) {
             try {
                 SurveyLog.logException(param+" directory " + dir.getAbsolutePath()  + " did not exist - checking out " + url + " - if this is not desired, modify " + param + " in cldr.properties");
-                long res = OutputFileManager.svnCheckout(dir, url);
+                long res = getOutputFileManager().svnCheckout(dir, url);
                 System.err.println("Checked out " + url + " to " + dir.getAbsolutePath() + " - see the value of " + param + " if you want to have a different location.");
             } catch (SVNException e) {
                 final String msg = "Checking out " + url + " into " + dir.getAbsolutePath();
@@ -4538,7 +4539,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if(!oldCommon.isDirectory()) {
                 final String url = "http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/common";
                 try {
-                    OutputFileManager.svnExport(oldCommon, url);
+                    getOutputFileManager().svnExport(oldCommon, url);
                 } catch (SVNException e) {
                     final String msg = "Exporting" + url + " into " + oldCommon.getAbsolutePath();
                     SurveyLog.logException(e,msg);
@@ -4557,7 +4558,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if(!oldSeed.isDirectory()) {
                 final String url = "http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/seed";
                 try {
-                    OutputFileManager.svnExport(oldSeed, url);
+                    getOutputFileManager().svnExport(oldSeed, url);
                 } catch (SVNException e) {
                     final String msg = "Exporting" + url + " into " + oldSeed.getAbsolutePath();
                     SurveyLog.logException(e,msg);
@@ -5634,9 +5635,34 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 
 
     public static void addPeriodicTask(Runnable task) {
-		int firstTime=isUnofficial()?10000:99000;		
-		int eachTime=isUnofficial()?10000:76000;
-		getTimer().scheduleAtFixedRate(task, firstTime, eachTime, TimeUnit.MILLISECONDS);
+        int firstTime=isUnofficial()?15:30;       
+        int eachTime=isUnofficial()?15:15;
+        getTimer().scheduleAtFixedRate(task, firstTime, eachTime, TimeUnit.MINUTES);
+    }
+    public static void addDailyTask(Runnable task) {
+        long now = System.currentTimeMillis();
+        long next = now;
+        long period = 24*60*60*1000; // 1 day
+        Calendar c = com.ibm.icu.util.Calendar.getInstance(TimeZone.getTimeZone(CldrUtility.getProperty("CLDR_TZ","America/Los_Angeles")));
+
+        if(false&&isUnofficial()) {
+            //c.add(Calendar.HOUR_OF_DAY, 1);
+            //c.add(Calendar.MINUTE, 1);
+            //c.set(Calendar.SECOND, 0);
+            c.add(Calendar.SECOND, 15);
+            period = 15*60*1000;
+        } else {
+            c.add(Calendar.DATE, 1);
+            c.set(Calendar.HOUR_OF_DAY, 2);
+            c.set(Calendar.MINUTE, 0);
+            c.set(Calendar.SECOND, 0);
+        }
+        next = c.getTimeInMillis();
+        System.err.println("DailyTask- next time is " + ElapsedTimer.elapsedTime(now,next) + " and period is " + ElapsedTimer.elapsedTime(now,now+period));
+        
+        getTimer().schedule(task, 5, TimeUnit.MINUTES); // run one soon after startup
+        getTimer().scheduleAtFixedRate(task, next-now, period, TimeUnit.MILLISECONDS);
+        
     }
     
     /**
@@ -5814,7 +5840,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             progress.update("Making your Survey Tool happy..");
             
             if(!CldrUtility.getProperty("CLDR_NOUPDATE", false)) {
-                outputFileManager.addUpdateTasks();
+                getOutputFileManager().addUpdateTasks();
             }
         } catch(Throwable t) {
 	        t.printStackTrace();
@@ -5835,17 +5861,29 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
         isSetup = true;
     }
     
-    private File getDataDir(String kind, CLDRLocale loc) throws IOException {
-    	File dataDir = new File(vetdir, kind);
-    	if(!dataDir.exists()) {
-    		if(!dataDir.mkdirs()) {
-    			throw new IOException("Couldn't create " + dataDir.getAbsolutePath() );
-    		}
-    	}
-    	Factory f = getDiskFactory();
-    	String l = loc.getBaseName();
-    	File sourceDir = f.getSourceDirectoryForLocale(loc.getBaseName());
-    	
+    public File makeDataDir(String kind) throws IOException {
+        if(vetdir == null) {
+            throw new InternalError("vetdir is null.");
+        }
+        File dataDir = new File(vetdir, kind);
+        if(!dataDir.exists()) {
+            if(!dataDir.mkdirs()) {
+                throw new IOException("Couldn't create " + dataDir.getAbsolutePath() );
+            }
+            getOutputFileManager().svnAddOrWarn(dataDir);
+        }
+        return dataDir;
+    }
+        
+    private File makeDataDir(String kind, CLDRLocale loc) throws IOException {
+        File dataDir = makeDataDir(kind); // get the parent dir.
+        
+        // rest of this function is just to determine which subdir (common or seed)
+        
+        Factory f = getDiskFactory();
+        String l = loc.getBaseName();
+        File sourceDir = f.getSourceDirectoryForLocale(loc.getBaseName());
+        
         SourceTreeType sourceType = f.getSourceTreeType(sourceDir);
         DirectoryType dirType = f.getDirectoryType(sourceDir);
         File subDir = new File(dataDir, sourceType.name());
@@ -5853,22 +5891,47 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             if(!subDir.mkdirs()) {
                 throw new IOException("Couldn't create " + subDir.getAbsolutePath() );
             }
+            getOutputFileManager().svnAddOrWarn(subDir);
         }
         File subSubDir = new File(subDir, dirType.name());
         if(!subSubDir.exists()) {
             if(!subSubDir.mkdirs()) {
                 throw new IOException("Couldn't create " + subSubDir.getAbsolutePath() );
             }
+            getOutputFileManager().svnAddOrWarn(subSubDir);
         }
-    	return subSubDir;
+        return subSubDir;
     }
     
-    File getDataFile(String kind, CLDRLocale loc) throws IOException {
-        return new File(getDataDir(kind, loc),loc.toString()+".xml");
+    public File getDataDir(String kind, CLDRLocale loc) throws IOException {
+        return getDataFile(kind,loc).getParentFile();
+    }
+    Map<Pair<String,CLDRLocale>,File> dirToFile = new HashMap<Pair<String,CLDRLocale>,File>();
+    public synchronized File getDataFile(String kind, CLDRLocale loc) throws IOException {
+        Pair<String,CLDRLocale> k = new Pair<String,CLDRLocale>(kind,loc);
+        File f = dirToFile.get(k);
+        if(f==null) {
+            f = makeDataFile(kind,loc);
+            if(f!=null) {
+                dirToFile.put(k, f);
+            }
+        }
+        return f;
     }
     
     
-    public final OutputFileManager outputFileManager = new OutputFileManager(this);
+    private File makeDataFile(String kind, CLDRLocale loc) throws IOException {
+        return new File(makeDataDir(kind, loc),loc.toString()+".xml");
+    }
+    
+    public OutputFileManager outputFileManager = null;
+    
+    public synchronized OutputFileManager getOutputFileManager() {
+        if(outputFileManager==null) {
+                outputFileManager = new OutputFileManager(this);
+        }
+        return outputFileManager;
+    }
 	private String getOldVersionParam() {
         return "CLDR_COMMON"+oldVersion;
     }
@@ -5910,7 +5973,8 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             progress.update("Shutting down database...");
             doShutdownDB();
             progress.update("Shutting down SVN...");
-            OutputFileManager.svnShutdown();
+            getOutputFileManager().svnShutdown();
+            outputFileManager=null;
             progress.update("Destroying servlet...");
             if(isBusted!=null) isBusted="servlet destroyed";
             super.destroy();

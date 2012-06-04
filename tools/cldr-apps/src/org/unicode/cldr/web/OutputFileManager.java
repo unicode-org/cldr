@@ -17,6 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 import java.util.TimerTask;
 import java.util.TreeSet;
@@ -27,13 +28,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.tmatesoft.svn.core.SVNCommitInfo;
 import org.tmatesoft.svn.core.SVNDepth;
+import org.tmatesoft.svn.core.SVNErrorCode;
+import org.tmatesoft.svn.core.SVNErrorMessage;
 import org.tmatesoft.svn.core.SVNException;
+import org.tmatesoft.svn.core.SVNNodeKind;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.wc.SVNClientManager;
 import org.tmatesoft.svn.core.wc.SVNCommitClient;
+import org.tmatesoft.svn.core.wc.SVNInfo;
 import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNStatus;
 import org.tmatesoft.svn.core.wc.SVNStatusClient;
+import org.tmatesoft.svn.core.wc.SVNStatusType;
 import org.tmatesoft.svn.core.wc.SVNUpdateClient;
 import org.tmatesoft.svn.core.wc.SVNWCClient;
 import org.unicode.cldr.util.CLDRFile;
@@ -52,12 +58,44 @@ public class OutputFileManager {
 
     public OutputFileManager(SurveyMain surveyMain) {
         this.sm = surveyMain;
+        
+        File vxmlDir = null;
+        SVNInfo i = null;
+        try {
+            vxmlDir = sm.makeDataDir(Kind.vxml.name());
+            i = svnInfo(vxmlDir);
+            if(i.getKind()!=SVNNodeKind.DIR) {
+                throw new IllegalArgumentException("Unknown node kind :  " + i.getKind());
+            }
+        } catch (Throwable t) {
+            tryCommit=false;
+            String whyNot =  tryCommitWhyNot = "SVN disabled - because: " + t.toString() + " on "  + ( (vxmlDir==null)?"(null vxml directory)":vxmlDir.getAbsolutePath() );
+
+            System.err.println(whyNot);
+            
+            svnShutdown();
+        }
+        if(tryCommit) {
+            System.err.println("SVN commits active in " + vxmlDir.getAbsolutePath() + " - r" + i.getCommittedRevision().getNumber() + " " + i.getCommittedDate());
+        }
     }
 
     public enum Kind {
         vxml, xml, rxml, fxml
     };
     
+    
+    /**
+     * Are SVN commits active? If not, why not.
+     * @return null if active, otherwise reason.
+     */
+    public String getTryCommitWhyNot() {
+        if(tryCommit) {
+            return null;
+        } else{
+            return tryCommitWhyNot;
+        }
+    }
     /**
      * @param kind
      * @return true if this kind is cacheable
@@ -215,7 +253,8 @@ public class OutputFileManager {
     //    	}
     //
     
-    public static boolean tryCommit = true;
+    public boolean tryCommit = true;
+    public String tryCommitWhyNot = null;
         /**
          * Write out the specified file. 
          * @param loc
@@ -261,6 +300,7 @@ public class OutputFileManager {
                     } catch (SVNException e ) {
                         if(e.getMessage().contains("E155007")) {
                             SurveyLog.logException(e, "Trying to add [and giving up on SVN commits!]" + outFile.getAbsolutePath());
+                            tryCommitWhyNot = "Trying to add [and giving up on SVN commits!]" + outFile.getAbsolutePath() + " - " + e.toString();
                             tryCommit=false;
                         } else if(e.getMessage().contains("E155015")) {
                             svnRemoveAndResolved(outFile);
@@ -872,48 +912,48 @@ public class OutputFileManager {
         	return true;
         }
         void addUpdateTasks() {
-            System.err.println("addPeriodicTask...");
+            System.err.println("addPeriodicTask... updater");
             SurveyMain.addPeriodicTask(new Runnable()
             {
                 int spinner = (int)Math.round(Math.random()*(double)sm.getLocales().length); // Start on a different locale each time.
                 @Override
                 public void run()  {
-//                    System.err.println("spinner hot...ac="+SurveyThread.activeCount());
-//                    if(SurveyThread.activeCount()>1) {
-//                        return;
-//                    }
-                    
+                    //                    System.err.println("spinner hot...ac="+SurveyThread.activeCount());
+                    //                    if(SurveyThread.activeCount()>1) {
+                    //                        return;
+                    //                    }
+
                     final String CLDR_OUTPUT_ONLY = CldrUtility.getProperty("CLDR_OUTPUT_ONLY",null);
-                    
+
                     if(CLDR_OUTPUT_ONLY!=null) {
                         System.err.println("Only outputting -DCLDR_OUTPUT_ONLY="+CLDR_OUTPUT_ONLY);
                     }
-                    
+
                     Connection conn = null;
                     CLDRProgressTask progress = null;
                     try {
                         conn = DBUtils.getInstance().getDBConnection();
                         CLDRLocale locs[] = sm.getLocales();
                         File outFile = null;
-//                        SurveyLog.logger.warning("Updater: locs to do: "  +locs.length );
+                        //                        SurveyLog.logger.warning("Updater: locs to do: "  +locs.length );
                         CLDRLocale loc = null;
                         for(int j=0;j< Math.min(16,locs.length);j++) { // Try 16 locales looking for one that doesn't exist. No more, due to load.
                             loc = CLDR_OUTPUT_ONLY!=null?
                                     CLDRLocale.getInstance(CLDR_OUTPUT_ONLY) // DEBUGGING
                                     :locs[(spinner++)%locs.length]; // A new one each time. (normal case
-//                            SurveyLog.logger.warning("Updater: Considering: "  +loc );
-                            
-                            Timestamp localeTime = getLocaleTime(conn,loc);
-//                            SurveyLog.logger.warning("Updater: Considering: "  +loc + " - " + localeTime);
-                            if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
-                                loc=null;
-    //                          progress.update(0, "Still looking.");
-                            }
+                                    //                            SurveyLog.logger.warning("Updater: Considering: "  +loc );
+
+                                    Timestamp localeTime = getLocaleTime(conn,loc);
+                                    //                            SurveyLog.logger.warning("Updater: Considering: "  +loc + " - " + localeTime);
+                                    if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
+                                        loc=null;
+                                        //                          progress.update(0, "Still looking.");
+                                    }
                         }
-    
+
                         if(loc==null) {
-//                            progress.update(3, "None to update.");
-//                            SurveyLog.logger.warning("All " + locs.length + " up to date.");
+                            //                            progress.update(3, "None to update.");
+                            //                            SurveyLog.logger.warning("All " + locs.length + " up to date.");
                             return; // nothing to do.
                         }
                         progress = sm.openProgress("Updater", 3);
@@ -922,9 +962,9 @@ public class OutputFileManager {
                         /*
                         progress.update(2, "Writing xml:"  +loc);
                         getOutputFile(loc, "xml");
-                        */
+                         */
                         progress.update(3, "Done:"  +loc);
-//                        SurveyLog.logger.warning("Finished writing " + loc);
+                        //                        SurveyLog.logger.warning("Finished writing " + loc);
                     } catch (SQLException e) {
                         SurveyLog.logException(e);
                         SurveyLog.logger.warning("While running Updater: " + DBUtils.unchainSqlException(e));
@@ -938,9 +978,70 @@ public class OutputFileManager {
                         e.printStackTrace();
                         SurveyMain.busted("while running updater", e);
                     } finally {
-//                        SurveyLog.logger.warning("(exitting updater");
+                        //                        SurveyLog.logger.warning("(exitting updater");
                         if(progress!=null) progress.close();
                         DBUtils.close(conn);
+                    }
+                }
+            });
+
+            SurveyMain.addDailyTask(new Runnable(){
+
+                @Override
+                public void run() {
+                    if(!tryCommit) return;
+                    ElapsedTimer daily = new ElapsedTimer();
+                    try {
+                        boolean svnOk = true;
+                        System.err.println("Beginning daily (or once at boot) update of SVN data: " + new Date());
+                        // quickAddAll
+                        int added=0;
+                        File some = null;
+                        int toupdate = 0;
+                        CLDRLocale locs[] = SurveyMain.getLocales();
+                        //System.err.println("Traversing..!!");
+                        for(CLDRLocale l : locs) {
+                            try {
+                                File f = CookieSession.sm.getDataFile("vxml",l);
+                                if(some==null) {
+                                    some = f.getParentFile().getParentFile().getParentFile();
+
+                                    svnCleanup(some);
+
+                                }
+                                //SVNInfo i = svnInfo(f);
+                                SVNStatus s = svnStatus(f);
+                                //System.err.println(f.getAbsolutePath() + " - " + i.getKind() + " - " + s.getNodeStatus());
+                                if(s.getNodeStatus()==SVNStatusType.STATUS_UNVERSIONED) {
+                                    svnAdd(f);
+                                    added++;
+                                } else if(s.getNodeStatus()!=SVNStatusType.STATUS_NORMAL) {
+                                    //System.err.println(f.getAbsolutePath() + "  - " + s.getNodeStatus());
+                                    toupdate++;
+                                }
+                            } catch (Throwable e) {
+                                SurveyLog.logException(e, "trying to get data file for " + l);
+                                return;
+                            }
+                        }
+                        if(added>0) {
+                            System.err.println("Added " + added + " unversioned files.");
+                            toupdate+= added;
+                        }
+                        if(toupdate>0) {
+                            System.err.println("Detected " + toupdate + "  files out of date. Committing:");
+                            File f[] = {some};
+                            try {
+                                System.out.println("committed  " + some.getAbsolutePath() + " -> " + svnCommit(f));
+                            } catch (SVNException e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                        } else {
+                            System.err.println("Nothing out of date.");
+                        }
+                    } finally {
+                        System.err.println("Exitting Daily " + daily.toString());
                     }
                 }
             });
@@ -949,43 +1050,57 @@ public class OutputFileManager {
         /**
          * Client access to SVN.
          */
-        private static SVNClientManager ourClientManager = null;
+        private SVNClientManager ourClientManager = null;
         
-        private static synchronized SVNClientManager getClientManager() {
+        private synchronized SVNClientManager getClientManager() throws SVNException {
             if(ourClientManager==null) {
+                if(tryCommit==false) {
+                    throw new SVNException(SVNErrorMessage.create(SVNErrorCode.ASSERTION_FAIL, "commits were disabled: " + tryCommitWhyNot));
+                }
+                
                 ourClientManager = SVNClientManager.newInstance();
             }
             return ourClientManager;
         }
         
 
-        public static long svnCheckout(File dir, String url) throws SVNException {
-            SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
+        public long svnCheckout(File dir, String url) throws SVNException {
+            synchronized(OutputFileManager.class) {
+                SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
             updateClient.setIgnoreExternals( true );
             System.err.println("Checking out " + url + " into " + dir.getAbsolutePath());
             long rv = updateClient.doCheckout(SVNURL.parseURIEncoded(url), dir,SVNRevision.UNDEFINED,SVNRevision.HEAD,SVNDepth.INFINITY,true);
             System.err.println(".. Checked out  r" + rv);
             return rv;
+            }
         }
 
-        public static void svnExport(File dir, String url) throws SVNException {
+        public void svnExport(File dir, String url) throws SVNException {
+            synchronized(OutputFileManager.class) {
                 SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
                 updateClient.setIgnoreExternals( true );
                 System.err.println("Exporting " + url + " into " + dir.getAbsolutePath());
                 long rv = updateClient.doExport( SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native", false, SVNDepth.INFINITY );
                 System.err.println(".. Exported " + rv);
+            }
         }
-        public static SVNCommitInfo svnCommit(File[] f) throws SVNException {
-            SVNCommitClient commitClient = getClientManager().getCommitClient( );         
-            return commitClient.doCommit( f, false , "Automated update" , false , true );
+        public SVNCommitInfo svnCommit(File[] f) throws SVNException {
+            synchronized(OutputFileManager.class) {
+                SVNCommitClient commitClient = getClientManager().getCommitClient( );         
+                return commitClient.doCommit( f, false , "Automated update" , false , true );
+            }
         }
-        public static long svnUpdate(File f) throws SVNException {
-            SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
-            return updateClient.doUpdate(f, SVNRevision.HEAD, true);
+        public long svnUpdate(File f) throws SVNException {
+            synchronized(OutputFileManager.class) {
+                SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
+                return updateClient.doUpdate(f, SVNRevision.HEAD, true);
+            }
         }
-        private static void svnRemoveAndResolved(File outFile) {
+        private void svnRemoveAndResolved(File outFile) {
             try {
-                getClientManager().getWCClient( ).doResolve(outFile, true);
+                synchronized(OutputFileManager.class) {
+                    getClientManager().getWCClient( ).doResolve(outFile, true);
+                }
             } catch (SVNException e) {
                 SurveyLog.logException(e, "While marking " + outFile.getAbsolutePath() + " resolved.");
             } finally {
@@ -993,21 +1108,50 @@ public class OutputFileManager {
             }
         }
 
-        public static void svnAdd(File f)  throws SVNException {
-            getClientManager().getWCClient( ).doAdd( f , false , false , false , true );
+        public void svnAdd(File f)  throws SVNException {
+            synchronized(OutputFileManager.class) {
+                getClientManager().getWCClient( ).doAdd( f , false , false , false , true );
+            }
         }
 
-        public static SVNStatus svnStatus(File item) throws SVNException {
-            SVNStatusClient updateClient = getClientManager().getStatusClient();
-            return updateClient.doStatus(item, false);
+        public SVNStatus svnStatus(File item) throws SVNException {
+            synchronized(OutputFileManager.class) {
+                SVNStatusClient updateClient = getClientManager().getStatusClient();
+                return updateClient.doStatus(item, false);
+            }
+        }
+        public SVNInfo svnInfo(File item) throws SVNException {
+            synchronized(OutputFileManager.class) {
+                SVNWCClient updateClient = getClientManager().getWCClient();
+                return updateClient.doInfo(item, SVNRevision.WORKING);
+            }
+        }
+        public void svnCleanup(File item) throws SVNException {
+            synchronized(OutputFileManager.class) {
+                SVNWCClient updateClient = getClientManager().getWCClient();
+                updateClient.doCleanup(item);
+                System.err.println("-- cleanup " + item.getAbsolutePath());
+            }
         }
         
-        public static void svnShutdown() {
+        public void svnShutdown() {
             if(ourClientManager!=null) {
                 ourClientManager.dispose();
                 ourClientManager=null;
                 Thread.yield();
                 System.err.println("Shutdown SVN client.");
+            }
+        }
+
+        public void svnAddOrWarn(File subDir) {
+            if(tryCommit) {
+                synchronized(OutputFileManager.class) {
+                    try {
+                        getClientManager().getWCClient( ).doAdd( subDir , false , false , false , false );
+                    } catch (SVNException e) {
+                        System.err.println("warning: could not add " + subDir.getAbsolutePath() + " - " + e.getMessage());
+                    }
+                }
             }
         }
 }

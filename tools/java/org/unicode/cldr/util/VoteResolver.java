@@ -71,16 +71,16 @@ public class VoteResolver<T> {
     }
 
     private final static Set<String> ESTABLISHED_LOCALES = Collections.unmodifiableSet(new HashSet(Arrays.asList(
-            "ar bg bn ca cs da de el es fi fr he hi hr hu it ja ko ml nb nl pl pt pt_PT ro ru sk sl sr sv th tu uk vi zh zh_Hant"
-            .split(" "))));
+        "ar bg bn ca cs da de el es fi fr he hi hr hu it ja ko ml nb nl pl pt pt_PT ro ru sk sl sr sv th tu uk vi zh zh_Hant"
+        .split(" "))));
 
     /**
      * This list needs updating as a new organizations are added; that's by design
      * so that we know when new ones show up.
      */
     public enum Organization {
-    // adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
-    adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
+        // adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
+        adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
 
         public static Organization fromString(String name) {
             name = name.toLowerCase().replace('-', '_').replace('.', '_');
@@ -146,10 +146,10 @@ public class VoteResolver<T> {
          */
         public boolean isManagerFor(Organization myOrg, Level otherLevel, Organization otherOrg) {
             return(this==admin ||
-                    (
-                            canManageSomeUsers() &&
-                            (myOrg==otherOrg) &&
-                            this.getSTLevel()<=otherLevel.getSTLevel()
+                (
+                    canManageSomeUsers() &&
+                    (myOrg==otherOrg) &&
+                    this.getSTLevel()<=otherLevel.getSTLevel()
                     ));
         }
 
@@ -166,9 +166,9 @@ public class VoteResolver<T> {
          */
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
             return (this==admin) || // admin can set any level
-            (otherLevel!=expert &&  // expert can't be set by any users but admin
-                    canManageSomeUsers()&& // must be some sort of manager
-                    otherLevel.getSTLevel()>=getSTLevel()); // can't gain higher privs
+                (otherLevel!=expert &&  // expert can't be set by any users but admin
+                canManageSomeUsers()&& // must be some sort of manager
+                otherLevel.getSTLevel()>=getSTLevel()); // can't gain higher privs
         }
 
 
@@ -308,7 +308,7 @@ public class VoteResolver<T> {
         public T getSingleVotedItem() {
             return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
         }
-        
+
         /**
          * Call this to add votes
          * 
@@ -444,7 +444,7 @@ public class VoteResolver<T> {
 
     private Status                                           winningStatus;
     private EnumSet<Organization>                            conflictedOrganizations    = EnumSet
-    .noneOf(Organization.class);
+        .noneOf(Organization.class);
     private OrganizationToValueAndVote<T>                    organizationToValueAndVote = new OrganizationToValueAndVote<T>();
     private T                                                lastReleaseValue;
     private Status                                           lastReleaseStatus;
@@ -642,13 +642,13 @@ public class VoteResolver<T> {
     private Status computeStatus(long weight1, long weight2, Status oldStatus) {
         int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
         return weight1 > weight2 && 
-        (weight1 >= 8 
-                || (weight1 >= 4 && !isEstablished)) ? Status.approved
-                        : weight1 > weight2 && 
-                        (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
-                                || weight1 >= 2 && orgCount >= 2) ? Status.contributed
-                                        : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-                                                : Status.unconfirmed;
+            (weight1 >= 8 
+            || (weight1 >= 4 && !isEstablished)) ? Status.approved
+                : weight1 > weight2 && 
+                (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
+                || weight1 >= 2 && orgCount >= 2) ? Status.contributed
+                    : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
+                        : Status.unconfirmed;
     }
 
     public Status getPossibleWinningStatus() {
@@ -757,15 +757,15 @@ public class VoteResolver<T> {
 
     public String toString() {
         return "{"
-        + "lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
-        + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
-        + organizationToValueAndVote
-        + ", sameVotes: " + valuesWithSameVotes
-        + ", O: " + getOValue() 
-        + ", N: " + getNValue() 
-        + ", totals: " + totals 
-        + ", winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
-        + "}";
+            + "lastRelease: {" + lastReleaseValue + ", " + lastReleaseStatus + "}, "
+            + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
+            + organizationToValueAndVote
+            + ", sameVotes: " + valuesWithSameVotes
+            + ", O: " + getOValue() 
+            + ", N: " + getNValue() 
+            + ", totals: " + totals 
+            + ", winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
+            + "}";
     }
 
     public static Map<String, Map<Organization, Relation<Level, Integer>>> getLocaleToVetters() {
@@ -874,16 +874,16 @@ public class VoteResolver<T> {
 
     static class MyHandler extends XMLFileReader.SimpleHandler {
         private static final Pattern userPathMatcher = Pattern
-        .compile(
+            .compile(
                 "//users(?:[^/]*)"
-                + "/user\\[@id=\"([^\"]*)\"](?:[^/]*)"
-                + "/("
-                + "org" +
-                "|name" +
-                "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" + 
-                "|locales\\[@type=\"([^\"]*)\"]" +
-                "(?:/locale\\[@id=\"([^\"]*)\"])?"
-                + ")",Pattern.COMMENTS);
+                    + "/user\\[@id=\"([^\"]*)\"](?:[^/]*)"
+                    + "/("
+                    + "org" +
+                    "|name" +
+                    "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" + 
+                    "|locales\\[@type=\"([^\"]*)\"]" +
+                    "(?:/locale\\[@id=\"([^\"]*)\"])?"
+                    + ")",Pattern.COMMENTS);
         enum Group {all, userId, mainType, n, levelType, localeType, localeId;
         String get(Matcher matcher) {
             return matcher.group(this.ordinal());
@@ -987,11 +987,11 @@ public class VoteResolver<T> {
             }
             voterString.append("}");
             return 
-            "{oldStatus: " + oldStatus
-            + ", surveyType: " + surveyType
-            + ", surveyStatus: " + surveyStatus
-            + ", voters: " + voterString
-            + "};";
+                "{oldStatus: " + oldStatus
+                + ", surveyType: " + surveyType
+                + ", surveyStatus: " + surveyStatus
+                + ", voters: " + voterString
+                + "};";
         }
     }
 
@@ -1111,7 +1111,7 @@ public class VoteResolver<T> {
         T win = getWinningValue();
         Status winStatus = getWinningStatus();
         boolean provisionalOrWorse = Status.provisional.compareTo(winStatus)>=0;
-                
+
         T orgVote = orgOfUser == null ? null : getOrgVote(orgOfUser);
         // get the number of other values with votes.
         int itemsWithVotes = organizationToValueAndVote.countValuesWithVotes();
@@ -1123,17 +1123,17 @@ public class VoteResolver<T> {
         } else if (itemsWithVotes > 1) {
             //  If there are votes for two items, we should look at them.
             return VoteStatus.disputed;
-        } else if (provisionalOrWorse) {
-            //  If the value is provisional, it needs more votes.
-            return VoteStatus.provisionalOrWorse;          
         } else if (singleVotedItem != null && !win.equals(singleVotedItem)) {
             //  If someone voted but didn't win
             return VoteStatus.disputed;
+        } else if (provisionalOrWorse) {
+            //  If the value is provisional, it needs more votes.
+            return VoteStatus.provisionalOrWorse;          
         } else if (itemsWithVotes == 0) {
             //  The value is ok, but we capture that there are no votes, for revealing items like unsync'ed
             return VoteStatus.ok_novotes;
         } else {
-            //  We voted, we won, value is approved, no disputes
+            //  We voted, we won, value is approved, no disputes, have votes
             return VoteStatus.ok;
         }
     }

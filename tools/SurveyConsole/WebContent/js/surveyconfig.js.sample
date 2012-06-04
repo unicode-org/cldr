@@ -1,0 +1,14 @@
+/* to use: edit, and rename to surveyconfig.js */
+var surveyconfig = {
+	refreshRate: 5, /* seconds */
+	instances: {
+		"Instance1":   {
+			"url":	"/cldr-apps",
+			"vap":	"The_Password"
+		},
+		"Instance2":   {
+			"url":	"/other",
+			"vap":	"The_Other_Password"
+		},
+	}
+};

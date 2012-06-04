@@ -3,10 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Survey Console</title>
-<link rel="stylesheet" href="css/surveytool.css" type="text/css" media="all" />
-<script src="js/dojo/dojo.js"></script>
+<link rel="stylesheet" href="http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/surveytool.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/surveyconsole.css" type="text/css" media="all" />
+<script src="js/dojo/dojo/dojo.js"></script>
 <script src="js/surveyconfig.js"></script>
 <script src="js/surveyconsole.js"></script>
+<script src="http://unicode.org/repos/cldr/trunk/tools/cldr-apps/WebContent/js/survey.js"></script>
 </head>
 <body>
 
@@ -16,5 +18,16 @@
 surveyConsoles();
 </script>
 
+
+<hr>
+<i>instructions</i>
+<p>
+    Shows the various surveytool instances you are configured to watch. 
+    The Details button will show a <i>snapshot</i> of the Admin Panel. Note that details are normally paused (to save server load!) and can be manually refreshed
+    with the Refresh Details button. If you know you want
+    to capture each detail, uncheck the Pause Details button. 
+    <p>
+    For example, unchecking Pause Details would allow inspection of the last known stack traces at the point the server stopped responding.
+</p>
 </body>
 </html>

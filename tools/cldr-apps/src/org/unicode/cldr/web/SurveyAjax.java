@@ -547,7 +547,7 @@ public class SurveyAjax extends HttpServlet {
     private void sendNoSurveyMain(PrintWriter out) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK","0");
-        r.put("err","The Survey Tool is not running.");
+        r.put("err","The Survey Tool is awaiting the first visitor.");
         send(r,out);
     }
 

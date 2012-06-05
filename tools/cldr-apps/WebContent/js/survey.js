@@ -1536,7 +1536,7 @@ function updateRow(tr, theRow) {
 	
 	var canModify = tr.theTable.json.canModify;
         var ticketOnly = false;
-        if(canModify && theRow.showstatus && theRow.showstatus == "READ_ONLY") {
+        if(canModify && theRow.statusAction != "ALLOW") {
             ticketOnly = true;
             canModify = false;
         }

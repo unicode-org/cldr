@@ -32,6 +32,8 @@ import org.json.JSONString;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.InputMethod;
+import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
@@ -1678,7 +1680,8 @@ public class DataSection implements JSONString {
 					.put("displayExample", displayExample)
 					.put("displayHelp", displayHelp)
 					.put("displayInExample", displayInExample)
-					.put("showstatus", (ph!=null)?ph.getSurveyToolStatus():null)
+				//	.put("showstatus", (ph!=null)?ph.getSurveyToolStatus():null)
+					.put("statusAction", getStatusAction())
 					.put("prettyPath", getPrettyPath())
                     .put("code", pathCode)
                     .put("coverageValue", coverageValue)
@@ -1691,6 +1694,11 @@ public class DataSection implements JSONString {
 					.put("voteVhash", voteVhash)
 					.put("items",itemsJson).toString();
 		}
+
+        private StatusAction getStatusAction() {
+            return sm.phase().getCPhase()
+                    .getAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
+        }
 
         @Override
         public String getLastReleaseValue() {

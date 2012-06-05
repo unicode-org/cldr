@@ -20,6 +20,7 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.IdToPath;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -239,6 +240,17 @@ public class ConvertXTB {
                 case '}':
                     numOpen--;
                     if (numOpen == 0) {
+                        // Special handling for decimal format lengths.
+                        if (lastXpath.contains("decimalFormatLength")) {
+                            if (countType.length() == 1) {
+                                countType = countType.charAt(0) == '1' ? "one" : "zero";
+                            } else if (countType.equals("one")) {
+                                // skip, contains rubbish
+                                buffer.setLength(0);
+                                countType = null;
+                                break;
+                            }
+                        }
                         // Add the count attribute back to the xpath.
                         String pluralXPath = xpath + "[@count=\"" + countType + "\"]";
                         // Add any remaining missing placeholders.
@@ -252,7 +264,6 @@ public class ConvertXTB {
                                 pluralValue = pluralValue.replace("{1}", "{0}");
                             }
                         }
-                        System.out.println(pluralValue);
                         addValueToOutput(pluralXPath, pluralValue);
                         buffer.setLength(0);
                         countType = null;
@@ -263,7 +274,7 @@ public class ConvertXTB {
                     }
                     break;
                 case '#':
-                    buffer.append("{0}");
+                    buffer.append(lastXpath.contains("decimalFormatLength") ? '#' : "{0}");
                     break;
                 default:
                     // Don't append placeholder names.
@@ -468,7 +479,6 @@ public class ConvertXTB {
             String fullPath = cldrFile.getFullXPath(xpath);
             String value = info.value;
             checkCldr.check(xpath, fullPath, value, options, possibleErrors);
-            //checkCldr.getExamples(xpath, fullPath, value, options, possibleErrors);
             numErrors += displayErrors(locale, info.messageId, xpath, value, possibleErrors);
         }
         if (numErrors == 0) System.out.println("No errors found for " + locale);

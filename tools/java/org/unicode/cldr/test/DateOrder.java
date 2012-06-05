@@ -200,8 +200,8 @@ public class DateOrder implements Comparable<DateOrder> {
      * consistency.
      */
     private enum FormatType {
-        DATE(3), AVAILABLE(2), INTERVAL(1);
-        private static final Pattern DATETIME_PATTERN = Pattern.compile("/(date|available|interval)Formats");
+        DATE(3), TIME(3), AVAILABLE(2), INTERVAL(1);
+        private static final Pattern DATETIME_PATTERN = Pattern.compile("/(date|time|available|interval)Formats");
         // Types with a higher value have higher importance.
         private int importance;
 

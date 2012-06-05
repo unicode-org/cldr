@@ -548,6 +548,8 @@ function doUpdates(survey, config, div) {
 	var uptime = appendStatusItem("Uptime",div);
 	var load = appendStatusItem("Load",div);
 	var pages = appendStatusItem("Pages",div);
+	var newVersion = appendStatusItem("Version",div);
+	var phase = appendStatusItem("Phase",div);
 	var environment = appendStatusItem("Environment",div);
 
 	var div3 = document.createElement("div");
@@ -589,13 +591,23 @@ function doUpdates(survey, config, div) {
 		}, refreshRate*1000);
 	}
 	function loadHandler(json) {
-		replaceText(ping,""+((new Date).getTime()-xhrArgs.loadStart)+"ms","winner");
+		var pingTime = (new Date).getTime()-xhrArgs.loadStart;
+		var pingClass="";
+		if(pingTime<250) {
+			pingClass="winner";
+		} else if(pingTime>1500) {
+			pingClass="fallback_code";
+		} 
+		replaceText(ping,""+(pingTime)+"ms",pingClass);
 		replaceText(checkstatus,"Loaded","winner");
 		try {
 			if(!json) {
 				replaceText(running,"!json - unknown status.","fallback_code");
 			} else {
 				if(json.SurveyOK==0) {
+					if(json.err=="The Survey Tool is not running.") {
+						json.err = json.err + " (It may not have been accessed yet.)";
+					}
 					replaceText(running, "No: " + json.err,"fallback_code");
 				} else {
 					replaceText(running, "Yes","winner");
@@ -607,7 +619,10 @@ function doUpdates(survey, config, div) {
 					replaceText(specialHeader, json.status.specialHeader);
 					replaceText(uptime, json.status.uptime);
 					replaceText(pages, json.status.pages);
-					replaceText(load, json.status.sysload + " ("+json.status.sysprocs + " processors)");
+					replaceText(newVersion, json.status.newVersion);
+					replaceText(phase, json.status.phase);
+					replaceText(load, json.status.sysload + " ("+json.status.sysprocs + " processors)",
+							(json.status.sysload>=1?"fallback_code":""));
 					replaceText(environment, json.status.environment + " " + (json.status.isUnofficial?"(Unofficial)":"(Official)"));
 					
 					replaceText(mem,Math.round(json.status.memfree) + "M free/"+Math.round(json.status.memtotal)+"M total");

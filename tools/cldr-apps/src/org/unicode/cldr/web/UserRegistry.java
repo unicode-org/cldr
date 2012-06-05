@@ -29,6 +29,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
@@ -171,7 +172,7 @@ public class UserRegistry {
      * This nested class is the representation of an individual user. 
      * It may not have all fields filled out, if it is simply from the cache.
      */
-    public class User implements Comparable<User> {
+    public class User implements Comparable<User>, UserInfo {
         public int    id;  // id number
         public int    userlevel=LOCKED;    // user level
         public String password;       // password
@@ -296,11 +297,17 @@ public class UserRegistry {
         
         /**
          * Return the value of this voter info, out of the cache
+         * @deprecated use getVoterInfo
+         * @see #getVoterInfo
          */
         public VoterInfo voterInfo() {
+            return getVoterInfo();
+        }
+
+        @Override
+        public VoterInfo getVoterInfo() {
             return getVoterToInfo(id);
         }
-        
         /**
          * Convert the level to a VoteResolver.Level
          * @return VoteResolver.Level format
@@ -343,7 +350,7 @@ public class UserRegistry {
          */
         public String voterOrg() {
             if(voterOrg==null) {
-                voterOrg=voterInfo().getOrganization().name();
+                voterOrg=getVoterInfo().getOrganization().name();
             }
             return voterOrg;
         }

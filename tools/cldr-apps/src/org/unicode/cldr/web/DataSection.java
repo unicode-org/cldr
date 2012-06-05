@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
@@ -38,11 +39,14 @@ import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
+import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -81,7 +85,7 @@ public class DataSection implements JSONString {
 	 * @author srl
 	 * 
 	 */
-	public class DataRow implements JSONString {
+	public class DataRow implements JSONString, PathValueInfo {
 
 
 		// String inheritFrom = null;
@@ -90,7 +94,7 @@ public class DataSection implements JSONString {
 		 * The Item is a particular alternate which could be chosen It was
 		 * previously named "Item"
 		 */
-		public class CandidateItem implements Comparable<CandidateItem>, JSONString {
+		public class CandidateItem implements Comparable<CandidateItem>, JSONString, CandidateInfo {
 			public static final String altProposed = "n/a"; // proposed part of
 			// the name (or NULL
 			// for nondraft)
@@ -145,6 +149,13 @@ public class DataSection implements JSONString {
 				return rv;
 			}
 
+			@Override
+			public Collection<UserInfo> getUsersVotingOn() {
+                Set<UserRegistry.User> uvotes = getVotes();
+                TreeSet<UserInfo> ts = new TreeSet(uvotes);
+                return ts;
+			}
+			
 			public Set<UserRegistry.User> getVotes() {
 				if (!checkedVotes) {
 					if (!isFallback) {
@@ -558,6 +569,16 @@ public class DataSection implements JSONString {
 					return getExampleBuilder().getExampleHtml(xpath, value, Zoomed.IN, ExampleType.NATIVE);
 				}
 			}
+
+            @Override
+            public String getValue() {
+                return value;
+            }
+
+            @Override
+            public List<CheckStatus> getCheckStatusList() {
+                return tests;
+            }
 		}
 
 		// Do some items alias to a different base xpath or locale?
@@ -870,9 +891,18 @@ public class DataSection implements JSONString {
 
 		/**
 		 * Get a list of proposed items, if any.
+		 * @deprecated use getValues() instead
+		 * @see #getValues()
 		 */
-		public Collection<CandidateItem> getItems() {
-			return items.values();
+		@SuppressWarnings("unchecked")
+        public Collection<CandidateItem> getItems() {
+		    return ((Collection<CandidateItem>)getValues());
+		}
+		
+		@Override
+		public Collection<? extends CandidateInfo> getValues() {
+            return items.values();
+		    //return  new ArrayList<CandidateInfo>(getItems());
 		}
 
 		public String getSpecialURL(WebContext ctx) {
@@ -1661,6 +1691,17 @@ public class DataSection implements JSONString {
 					.put("voteVhash", voteVhash)
 					.put("items",itemsJson).toString();
 		}
+
+        @Override
+        public String getLastReleaseValue() {
+           return  oldValue;
+        }
+
+        @Override
+        public Level getCoverageLevel() {
+            int coverageValue = SupplementalDataInfo.getInstance().getCoverageValue(getXpath(), locale.toULocale());
+            return Level.fromLevel(coverageValue);
+        }
 	}
 	
 	private User userForVotelist = null;

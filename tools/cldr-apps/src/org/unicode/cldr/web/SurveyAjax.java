@@ -391,7 +391,7 @@ public class SurveyAjax extends HttpServlet {
                                     CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
                                     SurveyToolStatus phStatus = ph.getSurveyToolStatus();
                                     Level covLev = org.unicode.cldr.util.Level.fromLevel(coverageValue);
-                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(result, mySession.user.voterInfo(), CheckCLDR.InputMethod.DIRECT,
+                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(result, mySession.user.getVoterInfo(), CheckCLDR.InputMethod.DIRECT,
                                                 phStatus,covLev);
 
                                     r.put("cPhase",cPhase);

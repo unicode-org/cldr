@@ -5637,8 +5637,14 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
 
 
     public static void addPeriodicTask(Runnable task) {
+        final boolean CLDR_QUICK_DAY = CldrUtility.getProperty("CLDR_QUICK_DAY",false);
         int firstTime=isUnofficial()?15:30;       
         int eachTime=isUnofficial()?15:15;
+        
+        if(CLDR_QUICK_DAY && isUnofficial()) {
+            firstTime = 1;
+            eachTime = 3;
+        }
         getTimer().scheduleAtFixedRate(task, firstTime, eachTime, TimeUnit.MINUTES);
     }
     public static void addDailyTask(Runnable task) {
@@ -5647,12 +5653,15 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
         long period = 24*60*60*1000; // 1 day
         Calendar c = com.ibm.icu.util.Calendar.getInstance(TimeZone.getTimeZone(CldrUtility.getProperty("CLDR_TZ","America/Los_Angeles")));
 
-        if(false&&isUnofficial()) {
+        final boolean CLDR_QUICK_DAY = CldrUtility.getProperty("CLDR_QUICK_DAY",false);
+
+        
+        if(CLDR_QUICK_DAY&&isUnofficial()) {
             //c.add(Calendar.HOUR_OF_DAY, 1);
             //c.add(Calendar.MINUTE, 1);
             //c.set(Calendar.SECOND, 0);
-            c.add(Calendar.SECOND, 15);
-            period = 15*60*1000;
+            c.add(Calendar.SECOND, 85); // right away!!
+            period = 15*60*1000; // 15 min
         } else {
             c.add(Calendar.DATE, 1);
             c.set(Calendar.HOUR_OF_DAY, 2);

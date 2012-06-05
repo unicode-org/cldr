@@ -1009,10 +1009,13 @@ public class OutputFileManager {
                                     svnCleanup(some);
 
                                 }
+                                if(!f.exists()) continue; 
                                 //SVNInfo i = svnInfo(f);
                                 SVNStatus s = svnStatus(f);
                                 //System.err.println(f.getAbsolutePath() + " - " + i.getKind() + " - " + s.getNodeStatus());
-                                if(s.getNodeStatus()==SVNStatusType.STATUS_UNVERSIONED) {
+                                if(s==null) {
+                                    System.err.println("SVN: empty node status:  - " + f.getAbsolutePath());
+                                } else if(s.getNodeStatus()==SVNStatusType.STATUS_UNVERSIONED) {
                                     svnAdd(f);
                                     added++;
                                 } else if(s.getNodeStatus()!=SVNStatusType.STATUS_NORMAL) {
@@ -1034,8 +1037,8 @@ public class OutputFileManager {
                             try {
                                 System.out.println("committed  " + some.getAbsolutePath() + " -> " + svnCommit(f));
                             } catch (SVNException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
+                                SurveyLog.logException(e,"Trying to commit [and giving up on commits] " + some.getAbsolutePath());
+                                tryCommit=false;
                             }
                         } else {
                             System.err.println("Nothing out of date.");

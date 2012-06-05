@@ -277,7 +277,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow, 
             cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo,
             deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, 
-            auxiliaryExemplarsOverlap,
+            auxiliaryExemplarsOverlap,missingPunctuationCharacters,
 
             charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars,
             charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,

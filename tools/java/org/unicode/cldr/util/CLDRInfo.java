@@ -17,6 +17,7 @@ public class CLDRInfo {
         Collection<? extends CandidateInfo> getValues();
         String getLastReleaseValue();
         Level getCoverageLevel(); // OK
+        boolean hadVotesSometimeThisRelease();
     }
 
     public interface CandidateInfo { // DataSection.DataRow.CandidateItem  will implement

@@ -42,12 +42,24 @@ public class PathHeader implements Comparable<PathHeader> {
     static boolean UNIFORM_CONTINENTS = true;
 
     /**
-     * What status the survey tool should use.
+     * What status the survey tool should use.  Can be overriden in Phase.getAction()
      */
     public enum SurveyToolStatus {
+        /**
+         * Never show.
+         */
         DEPRECATED,
+        /**
+         * Hide.  Can be overriden in Phase.getAction()
+         */
         HIDE,
+        /**
+         * Don't allow Change box (except TC), instead show ticket. But allow votes.  Can be overriden in Phase.getAction()
+         */
         READ_ONLY,
+        /**
+         * Allow change box and votes. Can be overriden in Phase.getAction()
+         */
         READ_WRITE
     }
 

@@ -182,14 +182,24 @@ abstract public class CheckCLDR {
                 return StatusAction.FORBID_READONLY;
             }
             
+            // at this point the status is either 
+            // * READ_WRITE = (can vote or add in Change box)
+            // * READ-ONLY = (can vote, but ticket instead of change box)
+            
             if (this != Phase.VETTING) {
-                return status == SurveyToolStatus.READ_WRITE ? StatusAction.ALLOW : StatusAction.ALLOW_VOTING_AND_TICKET;
+                return status == SurveyToolStatus.READ_WRITE 
+                    ? StatusAction.ALLOW 
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
             
-            // in Vetting phase, only allow voting unless there are errors, warnings, or votes
-            if (valueStatus != ValueStatus.NONE || hasVotes(pathValueInfo)) {
-                return status == SurveyToolStatus.READ_WRITE ? StatusAction.ALLOW_VOTING_BUT_NO_ADD : StatusAction.ALLOW_VOTING_AND_TICKET;
+            // at this point we are in Vetting phase
+            // only allow actions if there are errors, warnings, or votes
+            if (valueStatus != ValueStatus.NONE || pathValueInfo.hadVotesSometimeThisRelease()) {
+                return status == SurveyToolStatus.READ_WRITE 
+                    ? StatusAction.ALLOW_VOTING_BUT_NO_ADD 
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
+            
             return StatusAction.FORBID_READONLY;
         }
 

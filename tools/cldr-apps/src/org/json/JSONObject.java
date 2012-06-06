@@ -35,6 +35,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.web.SurveyLog;
+
 /**
  * A JSONObject is an unordered collection of name/value pairs. Its
  * external form is a string wrapped in curly braces with colons between the
@@ -1304,6 +1308,7 @@ public class JSONObject {
             sb.append('}');
             return sb.toString();
         } catch (Exception e) {
+            SurveyLog.logException(e,"JSONObject toString exception");
             return null;
         }
     }

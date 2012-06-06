@@ -13,6 +13,7 @@ package org.unicode.cldr.web;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -154,7 +155,8 @@ public class DataSection implements JSONString {
 			@Override
 			public Collection<UserInfo> getUsersVotingOn() {
                 Set<UserRegistry.User> uvotes = getVotes();
-                TreeSet<UserInfo> ts = new TreeSet(uvotes); // TODO: change return type for perf?
+                if(uvotes==null) return Collections.emptySet();
+                TreeSet<UserInfo> ts = new TreeSet<UserInfo>(uvotes); // TODO: change return type for perf?
                 return ts;
 			}
 			
@@ -579,7 +581,11 @@ public class DataSection implements JSONString {
 
             @Override
             public List<CheckStatus> getCheckStatusList() {
-                return tests;
+                if(tests==null) {
+                    return Collections.emptyList();
+                } else {
+                    return tests;
+                }
             }
 		}
 
@@ -1636,6 +1642,8 @@ public class DataSection implements JSONString {
 
 		@Override
 		public String toJSONString() throws JSONException  {
+		    
+		    try {
 			String winningVhash = "";
                         CandidateItem winningItem = getWinningItem();
                         if(winningItem!=null) {
@@ -1697,6 +1705,10 @@ public class DataSection implements JSONString {
 					.put("ourVote", ourVote)
 					.put("voteVhash", voteVhash)
 					.put("items",itemsJson).toString();
+		    } catch(Throwable t) {
+		        SurveyLog.logException(t,"Exception in toJSONString of " + this);
+		        throw new JSONException(t);
+		    }
 		}
 
         private StatusAction getStatusAction() {
@@ -3655,8 +3667,14 @@ public class DataSection implements JSONString {
 	@Override
 	public String toJSONString() throws JSONException {
 		JSONObject itemList = new JSONObject();
-		for(Map.Entry<String, DataRow>e : rowsHash.entrySet()) {
-			itemList.put(e.getValue().fieldHash(), e.getValue());
+		try {
+    		for(Map.Entry<String, DataRow>e : rowsHash.entrySet()) {
+    			itemList.put(e.getValue().fieldHash(), e.getValue());
+    		}
+//    		String x = itemList.toString();
+//    		System.out.println("rows: " + x);
+		} catch(Throwable t) {
+		    SurveyLog.logException(t, "Trying to load rows for " + this.toString());
 		}
 		return new JSONObject().put("rows",itemList)
 				.put("hasExamples", hasExamples)

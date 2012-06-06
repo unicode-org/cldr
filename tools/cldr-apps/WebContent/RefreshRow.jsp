@@ -85,6 +85,7 @@
                         section = ctx.getSection(pageId,
                                 coverage.toString(),
                                 WebContext.LoadingShow.dontShowLoading);
+                        section.setUserAndFileForVotelist(mySession.user,null);
                     } else {
 					    baseXp = XPathTable.xpathToBaseXpath(xp);
 						section = ctx.getSection(baseXp,matcher,
@@ -120,15 +121,22 @@
 					    dsets.put("default",PathHeaderSort.name);
 					    dsets.put(PathHeaderSort.name,section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name),null));
 					}
-					JSONWriter r = new JSONWriter(out).object()
-							.key("stro").value(STFactory.isReadOnlyLocale(ctx.getLocale()))
-							.key("section").value(section)
-							.key("displaySets").value(dsets)
-							.key("dir").value(ctx.getDirectionForLocale())
-							.key("canModify").value(ctx.canModify())
-							.key("locale").value(ctx.getLocale())
-							.key("dataLoadTime").value(et.toString())
-							.endObject();
+					
+					try {
+						JSONWriter r = new JSONWriter(out).object()
+								.key("stro").value(STFactory.isReadOnlyLocale(ctx.getLocale()))
+								.key("section").value(section)
+								.key("displaySets").value(dsets)
+								.key("dir").value(ctx.getDirectionForLocale())
+								.key("canModify").value(ctx.canModify())
+								.key("locale").value(ctx.getLocale())
+								.key("dataLoadTime").value(et.toString())
+								.endObject();
+					} catch(Throwable t) {
+						SurveyLog.logException(t, "RefreshRow.jsp write");
+                        JSONWriter r = new JSONWriter(out).object().
+                                key("err").value("Exception on writeSection:"+t.toString()).endObject();
+					}
 					return;
 				}
 

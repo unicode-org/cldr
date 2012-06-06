@@ -629,7 +629,7 @@ listenFor(window,'load',setTimerOn);
 
 var statusActionTable = {
     ALLOW: 									   { vote: true, ticket: false, change: true  }, 
-    ALLOW_VOTING_AND_TICKET:   { vote: true, ticket: true,   change: false },
+    ALLOW_VOTING_AND_TICKET:   { vote: true, ticket: true, change: false },
     ALLOW_VOTING_BUT_NO_ADD: { vote: true, ticket: false, change: false },
     //FORBID_ERRORS: {}, 
     //FORBID_READONLY:{}, 

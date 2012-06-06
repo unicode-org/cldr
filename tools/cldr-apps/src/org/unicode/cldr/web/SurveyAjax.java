@@ -419,7 +419,7 @@ public class SurveyAjax extends HttpServlet {
                                     };
                                     DataRow pvi = section.getDataRow(xp);
                                     CheckCLDR.StatusAction statusAction = cPhase.getAction(ci, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
-                                    boolean areAdding = (pvi.getItem(candVal)==null);
+                                    boolean areAdding =  (candVal==null)?false:((pvi.getItem(candVal)==null)); // null = abstention
                                     // don't allow adding items if ALLOW_VOTING_BUT_NO_ADD
                                         
                                     r.put("cPhase",cPhase);
@@ -434,6 +434,9 @@ public class SurveyAjax extends HttpServlet {
                                         r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
                                     }
                                 }
+                            } catch(Throwable t) {
+                                SurveyLog.logException(t,"Processing submission " + locale + ":" + xp);
+                                r.put("err","Exception: " + t.toString());
                             } finally {
                                 if(uf!=null) uf.close();
                             }

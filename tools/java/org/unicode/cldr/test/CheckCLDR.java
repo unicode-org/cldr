@@ -203,15 +203,6 @@ abstract public class CheckCLDR {
             return StatusAction.FORBID_READONLY;
         }
 
-        private boolean hasVotes(PathValueInfo pathValueInfo) {
-            for (CandidateInfo candidateInfo : pathValueInfo.getValues()) {
-                if (candidateInfo.getUsersVotingOn().size() != 0) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         enum ValueStatus {ERROR, WARNING, NONE}
 
         private ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous) {

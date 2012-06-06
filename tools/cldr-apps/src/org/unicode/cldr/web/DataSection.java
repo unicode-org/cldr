@@ -1711,6 +1711,20 @@ public class DataSection implements JSONString {
             int coverageValue = SupplementalDataInfo.getInstance().getCoverageValue(getXpath(), locale.toULocale());
             return Level.fromLevel(coverageValue);
         }
+        
+        /**
+         * There was at least one vote at the end of DataSubmission, or there is a vote now.
+         * TODO: add check for whether there was a vote in data submission.
+         */
+        @Override
+        public boolean hadVotesSometimeThisRelease() {
+            for (CandidateInfo candidateInfo : getValues()) {
+                if (candidateInfo.getUsersVotingOn().size() != 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
 	}
 	
 	private User userForVotelist = null;

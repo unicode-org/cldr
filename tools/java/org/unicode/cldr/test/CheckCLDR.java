@@ -81,6 +81,7 @@ abstract public class CheckCLDR {
          */
         FORBID_ERRORS, 
         FORBID_READONLY, 
+        FORBID_UNLESS_DATA_SUBMISSION, 
         FORBID_COVERAGE
         ;
         /**
@@ -96,6 +97,9 @@ abstract public class CheckCLDR {
             return value == null ? null : Phase.valueOf(value.toUpperCase(Locale.ENGLISH));
         }
 
+        /**
+         * @deprecated
+         */
         public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo, 
             InputMethod inputMethod, PathHeader.SurveyToolStatus status, Level coverageLevel) {
             // don't need phase or inputMethod yet, but might in the future.
@@ -133,8 +137,11 @@ abstract public class CheckCLDR {
         /**
          * New Improved Version
          * TODO Consider moving Phase, StatusAction, etc into CLDRInfo.
-         * @param enteredValue If you are assessing whether a particular value can be entered, pass it here. Otherwise, if
-         * you are just finding out whether to allow voting or changing an item, pass null.
+         * @param enteredValue WARNING, this has a special meaning.
+         * <ol>
+         * <li>If <b>null</b>, means you are asking for the status of a whole row.</li>
+         * <li>If </b>non-null</b>, means you are assessing whether a particular value can be in the Change box or as a Bulk item</li>
+         * </ol>
          * @param pathValueInfo
          * @param inputMethod
          * @param status
@@ -148,14 +155,18 @@ abstract public class CheckCLDR {
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
             ) {
-            // don't need phase or inputMethod yet, but might in the future.
 
             // always forbid deprecated items.
             if (status == SurveyToolStatus.DEPRECATED) {
                 return StatusAction.FORBID_READONLY;
             }
 
-            // if TC+, allow anything else, even suppress items ane errors
+            // always forbid bulk except in data submission.
+            if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
+                return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
+            }
+
+            // if TC+, allow anything else, even suppress items and errors
             if (userInfo != null && userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
                 return StatusAction.ALLOW;
             }
@@ -200,7 +211,7 @@ abstract public class CheckCLDR {
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
             
-            return StatusAction.FORBID_READONLY;
+            return StatusAction.ALLOW_VOTING_BUT_NO_ADD;
         }
 
         enum ValueStatus {ERROR, WARNING, NONE}

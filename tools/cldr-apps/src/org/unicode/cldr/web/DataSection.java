@@ -1696,8 +1696,9 @@ public class DataSection implements JSONString {
 		}
 
         private StatusAction getStatusAction() {
+            // need to fix this, the null is temporary
             return sm.phase().getCPhase()
-                    .getAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
+                    .getAction(null, this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
         }
 
         @Override

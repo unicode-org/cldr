@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CldrUtility;
@@ -64,9 +65,17 @@ abstract public class CheckCLDR {
 
     public enum StatusAction {
         /**
-         * Allow everything, even suppress items.
+         * Allow voting and add new values (in Change column).
          */
         ALLOW, 
+        /**
+         * Allow voting and ticket (in Change column).
+         */
+        ALLOW_VOTING_AND_TICKET, 
+        /**
+         * Allow voting but no add new values (in Change column).
+         */
+        ALLOW_VOTING_BUT_NO_ADD, 
         /**
          * Disallow (for various reasons)
          */
@@ -124,14 +133,93 @@ abstract public class CheckCLDR {
         /**
          * New Improved Version
          * TODO Consider moving Phase, StatusAction, etc into CLDRInfo.
+         * @param enteredValue If you are assessing whether a particular value can be entered, pass it here. Otherwise, if
+         * you are just finding out whether to allow voting or changing an item, pass null.
+         * @param pathValueInfo
+         * @param inputMethod
+         * @param status
+         * @param userInfo
+         * @return
          */
         public StatusAction getAction(
+            CandidateInfo enteredValue,
             PathValueInfo pathValueInfo,
             InputMethod inputMethod, 
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
             ) {
-            return StatusAction.ALLOW;
+            // don't need phase or inputMethod yet, but might in the future.
+
+            // always forbid deprecated items.
+            if (status == SurveyToolStatus.DEPRECATED) {
+                return StatusAction.FORBID_READONLY;
+            }
+
+            // if TC+, allow anything else, even suppress items ane errors
+            if (userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
+                return StatusAction.ALLOW;
+            }
+
+            // if the coverage level is optional, disallow
+            if (pathValueInfo.getCoverageLevel().compareTo(Level.COMPREHENSIVE) > 0) {
+                return StatusAction.FORBID_COVERAGE;
+            }
+
+            // check for errors (allowing collisions
+            ValueStatus valueStatus = ValueStatus.NONE;
+            if (enteredValue != null) {
+                valueStatus = getValueStatus(enteredValue, valueStatus);
+                if (valueStatus == ValueStatus.ERROR) {
+                    return StatusAction.FORBID_ERRORS;
+                }
+            } else {
+                for (CandidateInfo value : pathValueInfo.getValues()) {
+                    valueStatus = getValueStatus(value, valueStatus);
+                }
+            }
+
+            if (status == SurveyToolStatus.HIDE) {
+                return StatusAction.FORBID_READONLY;
+            }
+            
+            if (this != Phase.VETTING) {
+                return status == SurveyToolStatus.READ_WRITE ? StatusAction.ALLOW : StatusAction.ALLOW_VOTING_AND_TICKET;
+            }
+            
+            // in Vetting phase, only allow voting unless there are errors, warnings, or votes
+            if (valueStatus != ValueStatus.NONE || hasVotes(pathValueInfo)) {
+                return status == SurveyToolStatus.READ_WRITE ? StatusAction.ALLOW_VOTING_BUT_NO_ADD : StatusAction.ALLOW_VOTING_AND_TICKET;
+            }
+            return StatusAction.FORBID_READONLY;
+        }
+
+        private boolean hasVotes(PathValueInfo pathValueInfo) {
+            for (CandidateInfo candidateInfo : pathValueInfo.getValues()) {
+                if (candidateInfo.getUsersVotingOn().size() != 0) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        enum ValueStatus {ERROR, WARNING, NONE}
+
+        private ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous) {
+            if (previous == ValueStatus.ERROR) {
+                return previous;
+            }
+            for (CheckStatus item : value.getCheckStatusList()) {
+                String type = item.getType();
+                if (type.equals(CheckStatus.errorType)) {
+                    if (item.getSubtype() != Subtype.dateSymbolCollision 
+                        && item.getSubtype() != Subtype.displayCollision) {
+                        return ValueStatus.ERROR;
+                    }
+                } else if (type.equals(CheckStatus.warningType)) {
+                    previous = ValueStatus.WARNING;
+                }
+            }
+            return previous;
         }
     }
 

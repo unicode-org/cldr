@@ -419,8 +419,8 @@ public class SurveyAjax extends HttpServlet {
                                         }
                                     };
                                     DataRow pvi = section.getDataRow(xp);
-                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(ci, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
                                     boolean areAdding =  (candVal==null)?false:((pvi.getItem(candVal)==null)); // null = abstention
+                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(areAdding?ci:null, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
                                     // don't allow adding items if ALLOW_VOTING_BUT_NO_ADD
                                         
                                     r.put("cPhase",cPhase);

@@ -207,7 +207,7 @@ abstract public class CheckCLDR {
             // only allow actions if there are errors, warnings, or votes
             if (valueStatus != ValueStatus.NONE || pathValueInfo.hadVotesSometimeThisRelease()) {
                 return status == SurveyToolStatus.READ_WRITE 
-                    ? StatusAction.ALLOW_VOTING_BUT_NO_ADD 
+                    ? StatusAction.ALLOW 
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
             

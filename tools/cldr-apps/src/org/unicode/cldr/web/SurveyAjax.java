@@ -6,6 +6,7 @@ import java.io.Reader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -21,15 +22,20 @@ import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
+import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
+import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.web.DataSection.DataRow;
 
 
 /**
@@ -300,7 +306,7 @@ public class SurveyAjax extends HttpServlet {
                         TestResultBundle cc = stf.getTestResult(locale, options);
                         int id = Integer.parseInt(xpath);
                         String xp = sm.xpt.getById(id);
-                        List<CheckStatus> result = new ArrayList<CheckStatus>();
+                        final List<CheckStatus> result = new ArrayList<CheckStatus>();
                         //CLDRFile file = CLDRFile.make(loc);
                         //CLDRFile file = mySession.
                         SurveyMain.UserLocaleStuff uf = null;
@@ -391,14 +397,38 @@ public class SurveyAjax extends HttpServlet {
                                     CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
                                     SurveyToolStatus phStatus = ph.getSurveyToolStatus();
                                     Level covLev = org.unicode.cldr.util.Level.fromLevel(coverageValue);
-                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(result, mySession.user.getVoterInfo(), CheckCLDR.InputMethod.DIRECT,
-                                                phStatus,covLev);
-
+                                    
+                                    final String candVal = val;
+                                    
+                                  DataSection section = DataSection.make(null,null,mySession, locale, xp, null, false,Level.COMPREHENSIVE.toString());
+                                    CandidateInfo ci = new CandidateInfo() {
+                                        @Override
+                                        public String getValue() {
+                                            return candVal;
+                                        }
+                                        
+                                        @Override
+                                        public Collection<UserInfo> getUsersVotingOn() {
+                                            return null; // No users voting - yet.
+                                        }
+                                        
+                                        @Override
+                                        public List<CheckStatus> getCheckStatusList() {
+                                            return result;
+                                        }
+                                    };
+                                    DataRow pvi = section.getDataRow(xp);
+                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(ci, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
+                                    boolean areAdding = (pvi.getItem(candVal)==null);
+                                    // don't allow adding items if ALLOW_VOTING_BUT_NO_ADD
+                                        
                                     r.put("cPhase",cPhase);
                                     r.put("phStatus",phStatus);
                                     r.put("statusAction",statusAction);
                                     r.put("covLev", covLev);
-                                    if(statusAction==CheckCLDR.StatusAction.ALLOW 
+                                    if(   (statusAction==CheckCLDR.StatusAction.ALLOW   // all OK.
+                                       ||  (statusAction==StatusAction.ALLOW_VOTING_AND_TICKET && !areAdding)     // don't allow adding
+                                       ||  (statusAction == StatusAction.ALLOW_VOTING_BUT_NO_ADD && !areAdding) ) // don't allow adding
                                             && otherErr==null) {
                                         ballotBox.voteForValue(mySession.user, xp, val);
                                         r.put("submitResultRaw", ballotBox.getResolver(xp).toString());

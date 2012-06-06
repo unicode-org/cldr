@@ -154,7 +154,7 @@ public class DataSection implements JSONString {
 			@Override
 			public Collection<UserInfo> getUsersVotingOn() {
                 Set<UserRegistry.User> uvotes = getVotes();
-                TreeSet<UserInfo> ts = new TreeSet(uvotes);
+                TreeSet<UserInfo> ts = new TreeSet(uvotes); // TODO: change return type for perf?
                 return ts;
 			}
 			
@@ -899,6 +899,10 @@ public class DataSection implements JSONString {
 		@SuppressWarnings("unchecked")
         public Collection<CandidateItem> getItems() {
 		    return ((Collection<CandidateItem>)getValues());
+		}
+		
+		public CandidateItem getItem(String value) {
+		    return items.get(value);
 		}
 		
 		@Override
@@ -1708,7 +1712,7 @@ public class DataSection implements JSONString {
 
         @Override
         public Level getCoverageLevel() {
-            int coverageValue = SupplementalDataInfo.getInstance().getCoverageValue(getXpath(), locale.toULocale());
+            int coverageValue = SupplementalDataInfo.getInstance().getCoverageValue(getXpath(), locale.toULocale()); // TODO: inefficient
             return Level.fromLevel(coverageValue);
         }
         
@@ -1723,6 +1727,7 @@ public class DataSection implements JSONString {
                     return true;
                 }
             }
+            // TODO: add check for whether there was a vote in data submission.  ( table cldr_v22submission ) 
             return false;
         }
 	}
@@ -2235,6 +2240,8 @@ public class DataSection implements JSONString {
 	    ourSrc.setSupplementalDirectory(SurveyMain.supplementalDataDir);
 	    if(ctx!=null) {
 	        section.setUserAndFileForVotelist(ctx.session!=null?ctx.session.user:null,ourSrc);
+	    }else if(session!=null&&session.user!=null) {
+	        section.setUserAndFileForVotelist(session.user,ourSrc);
 	    }
 	    if (ourSrc.getSupplementalDirectory() == null) {
 	        throw new InternalError("?!! ourSrc hsa no supplemental dir!");

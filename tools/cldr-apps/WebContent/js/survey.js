@@ -623,8 +623,26 @@ function resetTimerSpeed(speed) {
 //	timerID = setInterval(updateStatus, timerSpeed);
 }
 
+// set up window
+// TODO: make optional
 listenFor(window,'load',setTimerOn);
 
+var statusActionTable = {
+    ALLOW: 									   { vote: true, ticket: false, change: true  }, 
+    ALLOW_VOTING_AND_TICKET:   { vote: true, ticket: true,   change: false },
+    ALLOW_VOTING_BUT_NO_ADD: { vote: true, ticket: false, change: false },
+    //FORBID_ERRORS: {}, 
+    //FORBID_READONLY:{}, 
+    //FORBID_COVERAGE:{}
+    DEFAULT: { vote: false, ticket: false, change: false}
+};
+
+function parseStatusAction(action) {
+	if(!action) return statusActionTable.DEFAULT;
+	var result = statusActionTable[action];
+	if(!result) result = statusActionTable.DEFAULT;
+	return result;
+}
 
 function getTestKind(testResults) {
 	if(!testResults) {
@@ -1322,7 +1340,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	} else {
 		ourDiv = ourItem.div;
 	}
-	if(json&&json.statusAction&&json.statusAction!='ALLOW') {
+	if(json&&!parseStatusAction(theRow.statusAction).vote) {
 		ourDiv.className = "d-item-err";
 	} else {
 		setDivClass(ourDiv,testKind);
@@ -1346,7 +1364,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		newDiv.innerHTML = newHtml;
 //		theRow.proposedResults = div3;
 //		theRow.proposedResults.value = value;
-		if(json&&json.statusAction&&json.statusAction!='ALLOW') {
+		if(json&&(!parseStatusAction(json.statusAction).vote)) {
 			div3.appendChild(createChunk(
 					stui.sub("StatusAction_msg",
 						[ stui_str("StatusAction_"+json.statusAction) ],"p", "")));
@@ -1534,13 +1552,11 @@ function updateRow(tr, theRow) {
 		tr.helpDiv.innerHTML += theRow.displayHelp;
 	}
 	
-	var canModify = tr.theTable.json.canModify;
-        var ticketOnly = false;
-        if(canModify && theRow.statusAction != "ALLOW") {
-            ticketOnly = true;
-            canModify = false;
-        }
-        if(!theRow || !theRow.xpid) {
+	var statusAction = parseStatusAction(theRow.statusAction);
+	var canModify = tr.theTable.json.canModify && statusAction.vote;
+    var ticketOnly = canModify && statusAction.ticket;
+    var canChange = canModify && statusAction.change;
+    if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
 	}
@@ -1556,7 +1572,7 @@ function updateRow(tr, theRow) {
 	var config = tr.theTable.config;
 	var protoButton = dojo.byId('proto-button');
 	if(!canModify) {
-		protoButton = null;
+		protoButton = null; // no voting at all.
 	}
 	
 	var doPopInfo = function(e) {
@@ -1711,7 +1727,7 @@ function updateRow(tr, theRow) {
 		removeAllChildNodes(children[config.changecell]);
 		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
 		
-		if(ticketOnly) {
+		if(ticketOnly) { // ticket link
 			children[config.changecell].className="d-change-confirmonly";
 			var link = createChunk(stui.str("file_a_ticket"),"a");
 			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
@@ -1724,9 +1740,9 @@ function updateRow(tr, theRow) {
 					link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
 				}
 			children[config.changecell].appendChild(link);
-                } else if(!canModify) {
+        } else if(!canChange) { // nothing 
 			children[config.changecell].style.display="none";
-		} else {
+		} else { // can change
 			var changeButton = cloneAnon(protoButton);
 			children[config.changecell].appendChild(changeButton);
 			var changeBox = cloneAnon(dojo.byId("proto-inputbox"));

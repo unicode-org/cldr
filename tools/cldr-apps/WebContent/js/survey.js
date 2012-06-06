@@ -1340,8 +1340,13 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	} else {
 		ourDiv = ourItem.div;
 	}
-	if(json&&!parseStatusAction(theRow.statusAction).vote) {
+	if(json&&!parseStatusAction(json.statusAction).vote) {
 		ourDiv.className = "d-item-err";
+		if(ourItem) {
+			str = stui.sub("StatusAction_msg",
+					[ stui_str("StatusAction_"+json.statusAction) ],"p", "");
+			showInPop(str, tr, null, null, true);
+		}
 	} else {
 		setDivClass(ourDiv,testKind);
 	}
@@ -1740,8 +1745,12 @@ function updateRow(tr, theRow) {
 					link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
 				}
 			children[config.changecell].appendChild(link);
-        } else if(!canChange) { // nothing 
-			children[config.changecell].style.display="none";
+        } else if(!canChange) { // nothing
+        	//if(!canModify) {  // if not showing any other votes..
+        	if(!tr.theTable.json.canModify) { // only if hidden in the header
+        		children[config.changecell].style.display="none"; // hide the cell 
+        	}
+        	//}
 		} else { // can change
 			var changeButton = cloneAnon(protoButton);
 			children[config.changecell].appendChild(changeButton);
@@ -1779,7 +1788,9 @@ function updateRow(tr, theRow) {
 		children[config.nocell].appendChild(noOpinion);
 		listenToPop(null, tr, children[config.nocell]);
 	} else if (!ticketOnly) {
-		children[config.nocell].style.display="none";
+    	if(!tr.theTable.json.canModify) { // only if hidden in the header
+    		children[config.nocell].style.display="none";
+    	}
 	}
 	
 	tr.className='vother';

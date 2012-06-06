@@ -138,7 +138,7 @@ abstract public class CheckCLDR {
          * @param pathValueInfo
          * @param inputMethod
          * @param status
-         * @param userInfo
+         * @param userInfo null if there is no userInfo (nobody logged in).
          * @return
          */
         public StatusAction getAction(
@@ -156,7 +156,7 @@ abstract public class CheckCLDR {
             }
 
             // if TC+, allow anything else, even suppress items ane errors
-            if (userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
+            if (userInfo != null && userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
                 return StatusAction.ALLOW;
             }
 

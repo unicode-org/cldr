@@ -559,13 +559,36 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 makeSource(false);
                 ElapsedTimer et = !SurveyLog.DEBUG?null:new ElapsedTimer("Recording PLD for " + locale+" "+distinguishingXpath + " : " + user + " voting for '" + value);
                 Connection conn = null;
-                PreparedStatement ps = null;
-                PreparedStatement ps2 = null;
+                PreparedStatement saveOld = null; // save off old value
+                PreparedStatement ps = null; // all for mysql, or 1st step for derby
+                PreparedStatement ps2 = null; // 2nd step for derby
                 ResultSet rs = null;
                 int xpathId = sm.xpt.getByXpath(distinguishingXpath);
                 int submitter = user.id;
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
+                    
+                    String add0="",add1="",add2="";
+                    if(DBUtils.db_Mysql) {
+                        add0="IGNORE";
+                        //add1="ON DUPLICATE KEY IGNORE";
+                    } else {
+                        add2 = "and not exists (select * from "+CLDR_VBV_ALT+
+                                " where "+CLDR_VBV_ALT+".locale="+CLDR_VBV+".locale and "+CLDR_VBV_ALT+".xpath="+CLDR_VBV+".xpath "+
+                                " and "+CLDR_VBV_ALT+".value="+CLDR_VBV+".value )";
+                    }
+                    String sql = "insert "+add0+" into " + CLDR_VBV_ALT + "   " + 
+                            add1 + 
+                            " select "+CLDR_VBV+".locale,"+CLDR_VBV+".xpath,"+CLDR_VBV+".value "+
+                            " from cldr_votevalue where locale=? and xpath=? and submitter=? and value is not null " +
+                            add2;
+                    //if(DEBUG) System.out.println(sql);
+                    saveOld=DBUtils.prepareStatementWithArgs(conn, sql, 
+                                        locale.getBaseName(),xpathId,user.id );
+                    
+                    int oldSaved = saveOld.executeUpdate();
+                    //System.err.println("SaveOld: saved " + oldSaved + " values");
+
                     if(DBUtils.db_Mysql) { //  use 'on duplicate key' syntax 
                         ps = DBUtils.prepareForwardReadOnly(conn,"INSERT INTO " + CLDR_VBV + " (locale,xpath,submitter,value) values (?,?,?,?) " + 
                                 "ON DUPLICATE KEY UPDATE locale=?,xpath=?,submitter=?,value=?");
@@ -789,6 +812,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     // Database stuff here.
     static final String CLDR_VBV = "cldr_votevalue";
+    static final String CLDR_VBV_ALT = "cldr_votevalue_alt";
 
     /**
      * These locales can not be modified.
@@ -1027,41 +1051,60 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         Statement s = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
-
-            boolean isNew = !DBUtils.hasTable(conn, CLDR_VBV);
-            if(!isNew) {
-                return; // nothing to setup
+            if( !DBUtils.hasTable(conn, CLDR_VBV)) {
+                /*              
+                        CREATE TABLE  cldr_votevalue (
+                            locale VARCHAR(20),
+                            xpath  INT NOT NULL,
+                            submitter INT NOT NULL,
+                            value BLOB    
+                         );
+    
+                         CREATE UNIQUE INDEX cldr_votevalue_unique ON cldr_votevalue (locale,xpath,submitter);
+                 */
+                s = conn.createStatement();
+    
+                sql = "create table " + CLDR_VBV + "( " +
+                        "locale VARCHAR(20), " + 
+                        "xpath  INT NOT NULL, " +
+                        "submitter INT NOT NULL, " +
+                        "value "+DBUtils.DB_SQL_UNICODE+", " +
+                        DBUtils.DB_SQL_LAST_MOD + " " +
+                        ", PRIMARY KEY (locale,submitter,xpath) " +
+    
+                " )";
+                //            SurveyLog.logger.info(sql);
+                s.execute(sql);
+    
+                sql = "CREATE UNIQUE INDEX  " + CLDR_VBV + " ON cldr_votevalue (locale,xpath,submitter)";
+                s.execute(sql);
+                s.close();
+                s = null; //don't close twice.
+                conn.commit();
+                System.err.println("Created table " + CLDR_VBV);
             }
-
-            /*				
-				    CREATE TABLE  cldr_votevalue (
-				        locale VARCHAR(20),
-				        xpath  INT NOT NULL,
-				        submitter INT NOT NULL,
-				        value BLOB    
-				     );
-
-				     CREATE UNIQUE INDEX cldr_votevalue_unique ON cldr_votevalue (locale,xpath,submitter);
-             */
-            s = conn.createStatement();
-
-            sql = "create table " + CLDR_VBV + "( " +
-                    "locale VARCHAR(20), " + 
-                    "xpath  INT NOT NULL, " +
-                    "submitter INT NOT NULL, " +
-                    "value "+DBUtils.DB_SQL_UNICODE+", " +
-                    DBUtils.DB_SQL_LAST_MOD + " " +
-                    ", PRIMARY KEY (locale,submitter,xpath) " +
-
-			" )";
-            //            SurveyLog.logger.info(sql);
-            s.execute(sql);
-
-            sql = "CREATE UNIQUE INDEX  " + CLDR_VBV + " ON cldr_votevalue (locale,xpath,submitter)";
-            s.execute(sql);
-            s.close();
-            s = null; //don't close twice.
-            conn.commit();
+            if( !DBUtils.hasTable(conn, CLDR_VBV_ALT)) {
+                s = conn.createStatement();
+    
+                sql = "create table " + CLDR_VBV_ALT + "( " +
+                        "locale VARCHAR(20), " + 
+                        "xpath  INT NOT NULL, " +
+                        "value "+DBUtils.DB_SQL_UNICODE+", " +
+                       // DBUtils.DB_SQL_LAST_MOD + " " +
+                        " PRIMARY KEY (locale,xpath,value) " +
+                " )";
+                //            SurveyLog.logger.info(sql);
+                s.execute(sql);
+    
+                sql = "CREATE UNIQUE INDEX  " + CLDR_VBV_ALT + " ON cldr_votevalue_alt (locale,xpath,value)";
+                s.execute(sql);
+//                sql = "CREATE INDEX  " + CLDR_VBV_ALT + " ON cldr_votevalue_alt (locale)";
+//                s.execute(sql);
+                s.close();
+                s = null; //don't close twice.
+                conn.commit();
+                System.err.println("Created table " + CLDR_VBV_ALT);
+            }
         } catch(SQLException se) {
             SurveyLog.logException(se, "SQL: " + sql);
             SurveyMain.busted("Setting up DB for STFactory, SQL: "  + sql, se);
@@ -1152,9 +1195,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     private String getVotesSometimeTableName() {
-       return ("cldr_v" + sm.getNewVersion() +"submission").toLowerCase();
-    }
-    
+        return ("cldr_v" + sm.getNewVersion() +"submission").toLowerCase();
+     }
+
     /*
        votes sometime table
        

@@ -145,6 +145,11 @@
 		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/scientificFormats[@numberSystem='arabext']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/percentFormats[@numberSystem='arabext']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="dz" value="30" match="numbers/symbols[@numberSystem='tibt']/%numberSymbols"/>
+		<coverageLevel inLanguage="dz" value="30" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="dz" value="30" match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="dz" value="30" match="numbers/scientificFormats[@numberSystem='tibt']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="dz" value="30" match="numbers/percentFormats[@numberSystem='tibt']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
@@ -206,6 +211,7 @@
 		<coverageLevel value="40" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel inLanguage="ar" value="40" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="40" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
+		<coverageLevel inLanguage="dz" value="40" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="listPatterns/listPattern/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="40" match="units/unit[@type='(second|minute|hour|day|week|month|year)(\-(future|past))?']/unitPattern[@count='[^']++']([@alt='short'])?"/>
 		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='%language60']([@alt='%shortVariant'])?"/>

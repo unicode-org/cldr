@@ -1712,7 +1712,7 @@ public class DataSection implements JSONString {
 		}
 
         private StatusAction getStatusAction() {
-            // need to fix this, the null is temporary
+            // null because this is for display.
             return sm.phase().getCPhase()
                     .getAction(null, this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
         }
@@ -3063,6 +3063,11 @@ public class DataSection implements JSONString {
 				
 				
 
+                if(oldFile!=null) {
+                    p.oldValue = oldFile.getStringValue(xpath);
+                } else {
+                    p.oldValue = null;
+                }
                 Set<String> v = ballotBox.getValues(xpath);
                 if (v != null) {
                     for (String avalue : v) {
@@ -3079,11 +3084,6 @@ public class DataSection implements JSONString {
                             }
                         }
                     }
-                }
-                if(oldFile!=null) {
-                    p.oldValue = oldFile.getStringValue(xpath);
-                } else {
-                    p.oldValue = null;
                 }
                 if (p.oldValue!=null && !p.oldValue.equals(value) && (v==null ||  !v.contains(p.oldValue))) {
 					CandidateItem oldItem = p.addItem(p.oldValue);

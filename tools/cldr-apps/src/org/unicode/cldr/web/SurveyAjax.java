@@ -426,6 +426,7 @@ public class SurveyAjax extends HttpServlet {
                                     r.put("cPhase",cPhase);
                                     r.put("phStatus",phStatus);
                                     r.put("statusAction",statusAction);
+                                    r.put("areAdding",areAdding);
                                     r.put("covLev", covLev);
                                     if(   (statusAction==CheckCLDR.StatusAction.ALLOW   // all OK.
                                        ||  (statusAction==StatusAction.ALLOW_VOTING_AND_TICKET && !areAdding)     // don't allow adding
@@ -433,6 +434,8 @@ public class SurveyAjax extends HttpServlet {
                                             && otherErr==null) {
                                         ballotBox.voteForValue(mySession.user, xp, val);
                                         r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
+                                    } else {
+                                        r.put("didNotSubmit","Did not submit.");
                                     }
                                 }
                             } catch(Throwable t) {

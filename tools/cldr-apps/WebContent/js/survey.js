@@ -1347,6 +1347,10 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 					[ stui_str("StatusAction_"+json.statusAction) ],"p", "");
 			showInPop(str, tr, null, null, true);
 		}
+	} else if(json&&json.didNotSubmit) {
+		ourDiv.className = "d-item-err";
+		showInPop("(ERROR: Unknown error - did not submit this value.)", tr, null, null, true);
+		return;
 	} else {
 		setDivClass(ourDiv,testKind);
 	}

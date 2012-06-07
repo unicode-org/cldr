@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.BitSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -250,7 +251,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             sm.xpt.loadXPaths(diskData);
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
             pathsForFile = phf.pathsForFile(diskFile); 
+            
+            if(checkHadVotesSometimeThisRelease) {
+                votesSometimeThisRelease = loadVotesSometimeThisRelease(locale);
+                if(votesSometimeThisRelease == null) {
+                    System.err.println("Note: giving up on loading 'sometime this release' votes. The database name would be " + getVotesSometimeTableName());
+                    checkHadVotesSometimeThisRelease = false; // don't try anymore.
+                }
+            }
         }
+
 
         public final Stamp getStamp() {
             return stamp;
@@ -636,7 +646,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
         
         private Set<String> pathsForFile = null;
+
+        BitSet votesSometimeThisRelease = null;
+
+        @Override
+        public boolean hadVotesSometimeThisRelease(int xpath) {
+            if(votesSometimeThisRelease!=null) {
+                return votesSometimeThisRelease.get(xpath);
+            } else {
+                return false; // unknown.
+            }
+        }
     }
+    
+    private static boolean checkHadVotesSometimeThisRelease = true;
 
     /**
      * @author srl
@@ -1094,4 +1117,59 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public Set<String> getPathsForFile(CLDRLocale locale) {
         return get(locale).getPathsForFile();
     }
+
+    /**
+     * Load the 'cldr_v22submission' table.
+     * @param forLocale
+     * @return
+     */
+    private BitSet loadVotesSometimeThisRelease(CLDRLocale forLocale) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int n = 0;
+        BitSet result = new BitSet(CookieSession.sm.xpt.count());
+        String tableName = getVotesSometimeTableName() ;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            ps = DBUtils.prepareForwardReadOnly(conn, "select xpath from " + tableName+ " where locale=?");
+            ps.setString(1, forLocale.getBaseName());
+            rs = ps.executeQuery();
+
+            while(rs.next()) {
+                int xp = rs.getInt(1);
+                result.set(xp);
+                n++;
+            }
+        } catch (SQLException e) {
+            SurveyLog.logException(e,"loadVotesSometimeThisRelease for " + tableName+" "+forLocale);
+            return null;
+        } finally {
+            DBUtils.close(rs,ps,conn);
+        }
+        System.err.println("loadVotesSometimeThisRelease: " + n + " xpaths from " + tableName+" "+forLocale);
+        return result;
+    }
+
+    private String getVotesSometimeTableName() {
+       return ("cldr_v" + sm.getNewVersion() +"submission").toLowerCase();
+    }
+    
+    /*
+       votes sometime table
+       
+       DERBY
+           create table cldr_v22submission ( xpath integer not null, locale varchar(20) );
+           create unique index cldr_v22submission_uq on  cldr_v22submission ( xpath, locale );
+           
+           insert into  cldr_v22submission select distinct cldr_votevalue.xpath,cldr_votevalue.locale from cldr_votevalue where cldr_votevalue.value is not null;
+
+
+        MYSQL
+            drop table if exists cldr_v22submission;
+            create table cldr_v22submission ( primary key(xpath,locale),key(locale) ) 
+                select distinct cldr_votevalue.xpath,cldr_votevalue.locale from cldr_votevalue where cldr_votevalue.value is not null;
+
+     */
+
 }

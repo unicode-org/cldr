@@ -1734,13 +1734,12 @@ public class DataSection implements JSONString {
          */
         @Override
         public boolean hadVotesSometimeThisRelease() {
-            for (CandidateInfo candidateInfo : getValues()) {
-                if (candidateInfo.getUsersVotingOn().size() != 0) {
-                    return true;
-                }
-            }
-            // TODO: add check for whether there was a vote in data submission.  ( table cldr_v22submission ) 
-            return false;
+//            for (CandidateInfo candidateInfo : getValues()) {
+//                if (candidateInfo.getUsersVotingOn().size() != 0) {
+//                    return true;
+//                }
+//            }
+            return  ballotBox.hadVotesSometimeThisRelease(xpathId);
         }
 	}
 	

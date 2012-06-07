@@ -61,4 +61,11 @@ public interface BallotBox<T> {
 	 * @return
 	 */
 	public boolean userDidVote(User myUser, String somePath);
+
+	/**
+	 * Were there any votes some-time this release?
+	 * @see org.unicode.cldr.util.CLDRInfo.PathValueInfo#hadVotesSometimeThisRelease()
+	 * @return
+	 */
+    public boolean hadVotesSometimeThisRelease(int xpid);
 }

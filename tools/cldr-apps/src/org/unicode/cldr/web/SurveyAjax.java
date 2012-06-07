@@ -402,25 +402,35 @@ public class SurveyAjax extends HttpServlet {
                                     final String candVal = val;
                                     
                                   DataSection section = DataSection.make(null,null,mySession, locale, xp, null, false,Level.COMPREHENSIVE.toString());
-                                    CandidateInfo ci = new CandidateInfo() {
-                                        @Override
-                                        public String getValue() {
-                                            return candVal;
-                                        }
-                                        
-                                        @Override
-                                        public Collection<UserInfo> getUsersVotingOn() {
-                                            return Collections.emptyList(); // No users voting - yet.
-                                        }
-                                        
-                                        @Override
-                                        public List<CheckStatus> getCheckStatusList() {
-                                            return result;
-                                        }
-                                    };
                                     DataRow pvi = section.getDataRow(xp);
                                     boolean areAdding =  (candVal==null)?false:((pvi.getItem(candVal)==null)); // null = abstention
-                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(areAdding?ci:null, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
+                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(null, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
+                                    
+                                    if(areAdding) {
+                                        CandidateInfo ci = new CandidateInfo() {
+                                            @Override
+                                            public String getValue() {
+                                                return candVal;
+                                            }
+                                            
+                                            @Override
+                                            public Collection<UserInfo> getUsersVotingOn() {
+                                                return Collections.emptyList(); // No users voting - yet.
+                                            }
+                                            
+                                            @Override
+                                            public List<CheckStatus> getCheckStatusList() {
+                                                return result;
+                                            }
+                                        };
+                                        CheckCLDR.StatusAction statusActionNewItem =   cPhase.getAction(ci, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
+                                        if(statusAction!=StatusAction.ALLOW ||
+                                           statusActionNewItem!=StatusAction.ALLOW_VOTING_AND_TICKET || 
+                                           statusActionNewItem==StatusAction.ALLOW_VOTING_BUT_NO_ADD) {
+                                            statusAction = statusActionNewItem;
+                                        }
+                                    }                                    
+                                    
                                     // don't allow adding items if ALLOW_VOTING_BUT_NO_ADD
                                         
                                     r.put("cPhase",cPhase);

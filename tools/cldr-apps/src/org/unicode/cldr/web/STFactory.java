@@ -239,6 +239,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /* SIMPLE IMP */
         private Map<String, Map<User,String>> xpathToVotes = new HashMap<String,Map<User,String>>();
+        private Map<Integer, Set<String>> xpathToOtherValues = new HashMap<Integer,Set<String>>();
         private Set <User> allVoters = new TreeSet<User>();
         private boolean oldFileMissing;
         private XMLSource resolvedXmlsource = null;
@@ -296,8 +297,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 ElapsedTimer et = (SurveyLog.DEBUG)?new ElapsedTimer("Loading PLD for " + locale):null;
                 Connection conn = null;
                 PreparedStatement ps = null;
+                PreparedStatement ps2 = null;
                 ResultSet rs = null;
+                ResultSet rs2=null;
                 int n = 0;
+                int n2 = 0;
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
                     ps = openQueryByLocale(conn);
@@ -313,15 +317,23 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         internalSetVoteForValue(sm.reg.getInfo(submitter), xpath, value, resolver, dataBackedSource);
                         n++;
                     }
-
+                    
+                    ps2 = DBUtils.prepareStatementWithArgs(conn, "select xpath,value from " + CLDR_VBV_ALT +  " where locale=?", locale);
+                    rs2 = ps2.executeQuery();
+                    while(rs2.next()) {
+                        int xp = rs2.getInt(1);
+                        String value = DBUtils.getStringUTF8(rs2, 2);
+                        getXpathToOthers(xp).add(value); 
+                        n2++;
+                    }
                 } catch (SQLException e) {
                     SurveyLog.logException(e);
                     SurveyMain.busted("Could not read locale " + locale, e);
                     throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
                 } finally {
-                    DBUtils.close(rs,ps,conn);
+                    DBUtils.close(rs2,ps2,rs,ps,conn);
                 }
-                SurveyLog.debug(et + " - read " + n + " items.");
+                SurveyLog.debug(et + " - read " + n + " items  ("+xpathToVotes.size()+" xpaths.) and " + n2 + " alternate values ("+xpathToOtherValues.size()+" xpaths.)");
                 if(RESOLVE_ALL_XPATHS) {
                 	et = (SurveyLog.DEBUG)?new ElapsedTimer("Loading PLD for " + locale):null;
                 	int j=0;
@@ -462,20 +474,22 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         @Override
         public Set<String> getValues(String xpath) {
-            Map<User,String> m = peekXpathToVotes(xpath);
-            if(m==null) {
-                return null;
-            } else {
-                Set<String> ts = new TreeSet<String>();
-                ts.addAll(m.values());
+            Set<String> other = xpathToOtherValues.get(sm.xpt.getByXpath(xpath));
+            
+            Set<String> ts = other!=null?new TreeSet<String>(other):new TreeSet<String>();
 
-                // include the on-disk value, if not present.
-                String fbValue = diskData.getValueAtDPath(xpath);
-                if(fbValue!=null) {
-                    ts.add(fbValue);
-                }
-                return ts;
+            Map<User,String> m = peekXpathToVotes(xpath);
+            if(m!=null) {
+                ts.addAll(m.values());
             }
+            // include the on-disk value, if not present.
+            String fbValue = diskData.getValueAtDPath(xpath);
+            if(fbValue!=null) {
+                ts.add(fbValue);
+            }
+            
+            if(ts.isEmpty()) return null; // or empty?
+            return ts;
         }
 
         @Override
@@ -622,7 +636,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     SurveyMain.busted("Could not read locale " + locale, e);
                     throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
                 } finally {
-                    DBUtils.close(rs,ps,conn);
+                    DBUtils.close(saveOld,rs,ps,ps2,conn);
                 }
                 SurveyLog.debug(et);
             } else {
@@ -643,6 +657,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 String distinguishingXpath, String value, VoteResolver<String> resolver, DataBackedSource source) {
             if(value!=null) {
                 getXpathToVotes(distinguishingXpath).put(user, value);
+                getXpathToOthers(sm.xpt.getByXpath(distinguishingXpath)).add(value);
             } else {
                 getXpathToVotes(distinguishingXpath).remove(user); 
                 allVoters.add(user);
@@ -651,7 +666,22 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return resolver=source.setValueFromResolver(distinguishingXpath, resolver);
         }
 
-		@Override
+        /**
+         * Get the xpahtToOthers set, creating if it doesn't exist.
+         * @param distinguishingXpath
+         * @return
+         */
+		private Set<String> getXpathToOthers(int id) {
+            Set<String> s = xpathToOtherValues.get(id);
+            if(s==null) {
+                s = new TreeSet<String>();
+                xpathToOtherValues.put(id, s);
+            }
+            return s;
+        }
+
+
+        @Override
         public boolean userDidVote(User myUser, String somePath) {
             Map<User, String> x = getXpathToVotes(somePath);
             if(x==null) return false;

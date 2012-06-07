@@ -161,22 +161,24 @@ abstract public class CheckCLDR {
                 return StatusAction.FORBID_READONLY;
             }
 
-            // always forbid bulk except in data submission.
+            // always forbid bulk import except in data submission.
             if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
                 return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
             }
 
-            // if TC+, allow anything else, even suppress items and errors
+            // if TC+, allow anything else, even suppressed items and errors
             if (userInfo != null && userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
                 return StatusAction.ALLOW;
             }
 
-            // if the coverage level is optional, disallow
+            // if the coverage level is optional, disallow everything
             if (pathValueInfo.getCoverageLevel().compareTo(Level.COMPREHENSIVE) > 0) {
                 return StatusAction.FORBID_COVERAGE;
             }
 
-            // check for errors (allowing collisions
+            // check for errors (allowing collisions)
+            // if the enteredValue exists, then check it.
+            // otherwise just check if the row can be seen.
             ValueStatus valueStatus = ValueStatus.NONE;
             if (enteredValue != null) {
                 valueStatus = getValueStatus(enteredValue, valueStatus);
@@ -193,23 +195,21 @@ abstract public class CheckCLDR {
                 return StatusAction.FORBID_READONLY;
             }
             
-            // at this point the status is either 
+            // At this point the status is either 
             // * READ_WRITE = (can vote or add in Change box)
             // * READ-ONLY = (can vote, but ticket instead of change box)
             
-            if (this != Phase.VETTING) {
+            // If we are not vetting, or we are vetting and have errors or warnings
+            // allow votes and either Change box or ticket.
+            
+            if (this != Phase.VETTING || valueStatus != ValueStatus.NONE) {
                 return status == SurveyToolStatus.READ_WRITE 
                     ? StatusAction.ALLOW 
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
             
-            // at this point we are in Vetting phase
-            // only allow actions if there are errors, warnings, or votes
-            if (valueStatus != ValueStatus.NONE || pathValueInfo.hadVotesSometimeThisRelease()) {
-                return status == SurveyToolStatus.READ_WRITE 
-                    ? StatusAction.ALLOW 
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
-            }
+            // Otherwise (we are vetting, but with no errors or warnings)
+            // allow votes but no Change box or ticket
             
             return StatusAction.ALLOW_VOTING_BUT_NO_ADD;
         }

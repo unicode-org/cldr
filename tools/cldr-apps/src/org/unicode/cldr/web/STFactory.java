@@ -1126,7 +1126,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 //            SurveyLog.logger.info(sql);
                 s.execute(sql);
     
-                sql = "CREATE UNIQUE INDEX  " + CLDR_VBV_ALT + " ON cldr_votevalue_alt (locale,xpath,value)";
+                sql = "CREATE UNIQUE INDEX  " + CLDR_VBV_ALT + " ON cldr_votevalue_alt (locale,xpath,value"+valueLen+")";
                 s.execute(sql);
 //                sql = "CREATE INDEX  " + CLDR_VBV_ALT + " ON cldr_votevalue_alt (locale)";
 //                s.execute(sql);

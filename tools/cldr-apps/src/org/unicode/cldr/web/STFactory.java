@@ -1115,13 +1115,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             if( !DBUtils.hasTable(conn, CLDR_VBV_ALT)) {
                 s = conn.createStatement();
-    
+                String valueLen=DBUtils.db_Mysql?"(800)":"";
                 sql = "create table " + CLDR_VBV_ALT + "( " +
                         "locale VARCHAR(20), " + 
                         "xpath  INT NOT NULL, " +
                         "value "+DBUtils.DB_SQL_UNICODE+", " +
                        // DBUtils.DB_SQL_LAST_MOD + " " +
-                        " PRIMARY KEY (locale,xpath,value) " +
+                        " PRIMARY KEY (locale,xpath,value"+valueLen+") " +
                 " )";
                 //            SurveyLog.logger.info(sql);
                 s.execute(sql);

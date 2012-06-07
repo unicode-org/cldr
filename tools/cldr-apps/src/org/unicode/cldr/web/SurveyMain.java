@@ -4541,7 +4541,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if(!oldCommon.isDirectory()) {
                 final String url = "http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/common";
                 try {
-                    getOutputFileManager().svnExport(oldCommon, url);
+                    getOutputFileManager().svnExport(oldCommon.getParentFile(), url);
                 } catch (SVNException e) {
                     final String msg = "Exporting" + url + " into " + oldCommon.getAbsolutePath();
                     SurveyLog.logException(e,msg);
@@ -4560,7 +4560,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if(!oldSeed.isDirectory()) {
                 final String url = "http://unicode.org/repos/cldr/tags/"+verAsMilestone + "/seed";
                 try {
-                    getOutputFileManager().svnExport(oldSeed, url);
+                    getOutputFileManager().svnExport(oldSeed.getParentFile(), url);
                 } catch (SVNException e) {
                     final String msg = "Exporting" + url + " into " + oldSeed.getAbsolutePath();
                     SurveyLog.logException(e,msg);

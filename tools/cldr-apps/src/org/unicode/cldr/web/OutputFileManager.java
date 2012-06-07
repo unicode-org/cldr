@@ -73,7 +73,7 @@ public class OutputFileManager {
 
             System.err.println(whyNot);
             
-            svnShutdown();
+            //svnShutdown();
         }
         if(tryCommit) {
             System.err.println("SVN commits active in " + vxmlDir.getAbsolutePath() + " - r" + i.getCommittedRevision().getNumber() + " " + i.getCommittedDate());
@@ -1084,7 +1084,7 @@ public class OutputFileManager {
                 updateClient.setIgnoreExternals( true );
                 System.err.println("Exporting " + url + " into " + dir.getAbsolutePath());
                 long rv = updateClient.doExport( SVNURL.parseURIEncoded(url), dir, SVNRevision.UNDEFINED, SVNRevision.HEAD, "native", false, SVNDepth.INFINITY );
-                System.err.println(".. Exported " + rv);
+                System.err.println(".. Exported r" + rv);
             }
         }
         public SVNCommitInfo svnCommit(File[] f) throws SVNException {

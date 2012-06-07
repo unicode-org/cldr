@@ -98,6 +98,14 @@ public class StackTracker implements Iterable<Object>{
     public static String currentStack() {
     	return stackToString(Thread.currentThread().getStackTrace(),2);
     }
+    
+    /**
+     * Convenience function, gets the current element
+     * @param stacks to skip - 0 for immediate caller, 1, etc
+     */
+    public static StackTraceElement currentElement(int skip) {
+        return Thread.currentThread().getStackTrace()[2+skip];
+    }
 
     /**
      * 

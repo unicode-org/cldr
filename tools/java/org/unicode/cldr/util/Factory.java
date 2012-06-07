@@ -135,7 +135,11 @@ import com.ibm.icu.impl.IllegalIcuArgumentException;
         List<XMLSource> sourceList = new ArrayList<XMLSource>();
         String curLocale = localeID;
         while(curLocale != null) {
-            XMLSource source = handleMake(curLocale, false, madeWithMinimalDraftStatus).dataSource;
+            CLDRFile file = handleMake(curLocale, false, madeWithMinimalDraftStatus);
+            if(file==null) {
+                throw new NullPointerException(this+  ".handleMake returned a null CLDRFile for " + curLocale);
+            }
+            XMLSource source = file.dataSource;
             sourceList.add(source);
             curLocale = LocaleIDParser.getParent(curLocale);
         }

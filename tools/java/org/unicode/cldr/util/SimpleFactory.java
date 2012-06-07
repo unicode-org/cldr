@@ -90,6 +90,16 @@ public class SimpleFactory extends Factory {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("{"+getClass().getName())
+            .append(" dirs=");
+        for(File f : sourceDirectories) {
+            sb.append(f.getPath()).append(' ');
+        }
+        sb.append('}');
+        return sb.toString();
+    }
 
     protected Set<String> handleGetAvailable() {
         return localeList;

@@ -450,6 +450,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
             illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
             percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
+            tooManyGroupingSeparators,
             sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus;
         public String toString() {
             return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

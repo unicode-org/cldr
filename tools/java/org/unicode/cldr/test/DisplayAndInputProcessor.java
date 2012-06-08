@@ -401,5 +401,13 @@ public class DisplayAndInputProcessor {
                 return NOT_NUMERIC;
             }
         }
+
+        public int[] getDigitCount() {
+            return digitCount;
+        }
+
+        public int[] getPosixDigitCount() {
+            return posixDigitCount;
+        }
     };
 }

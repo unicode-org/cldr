@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -42,6 +43,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private static Random random = new Random();
 
     private static Pattern ALLOWED_INTEGER = Pattern.compile("1(0+)");
+    private static Pattern COMMA_ABUSE = Pattern.compile(",[0#]([^0#]|$)");
 
     /**
      * A MessageFormat string. For display, anything variable that contains strings that might have BIDI 
@@ -136,12 +138,20 @@ public class CheckNumbers extends FactoryCheckCLDR {
                 }
             }
 
+            // Check for sane usage of grouping separators.
+            if (COMMA_ABUSE.matcher(value).find()) {
+                result.add(new CheckStatus()
+                        .setCause(this).setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.tooManyGroupingSeparators)
+                        .setMessage("Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
+            }
+            
             // check that we have a canonical pattern
             String pattern = getCanonicalPattern(value, type, zeroCount, isPOSIX);
             if (!pattern.equals(value)) {
                 result.add(new CheckStatus()
                 .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.numberPatternNotCanonical)
-                .setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));				
+                .setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));
             }
             // Make sure currency patterns contain a currency symbol
             if ( type == NumericType.CURRENCY ) {
@@ -299,7 +309,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         String pattern;
 
         if (zeroCount == 0) {
-            int[] digits = isPOSIX ? POSIX_DIGIT_COUNT[type.ordinal()] : DIGIT_COUNT[type.ordinal()];
+            int[] digits = isPOSIX ? type.getPosixDigitCount() : type.getDigitCount();
             df.setMinimumIntegerDigits(digits[0]);
             df.setMinimumFractionDigits(digits[1]);
             df.setMaximumFractionDigits(digits[2]);
@@ -317,30 +327,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
         return pattern;
     }
 
-    /*
-     * This tests what type a numeric pattern is.
-     */
-    public enum NumericType {
-        CURRENCY, DECIMAL, PERCENT, SCIENTIFIC, NOT_NUMERIC;
-
-        public static NumericType getNumericType(String xpath) {
-            if (xpath.indexOf("/pattern") < 0) {
-                return NOT_NUMERIC;
-            } else if (xpath.startsWith("//ldml/numbers/currencyFormats/")) {
-                return CURRENCY;
-            } else if (xpath.startsWith("//ldml/numbers/decimalFormats/")) {
-                return DECIMAL;
-            } else if (xpath.startsWith("//ldml/numbers/percentFormats/")) {
-                return PERCENT;
-            } else if (xpath.startsWith("//ldml/numbers/scientificFormats/")) {
-                return SCIENTIFIC;
-            } else if (xpath.startsWith("//ldml/numbers/currencies/currency/")) {
-                return CURRENCY;
-            } else {
-                return NOT_NUMERIC;
-            }
-        }
-    };
     /**
      * You don't normally need this, unless you are doing a demo also.
      */

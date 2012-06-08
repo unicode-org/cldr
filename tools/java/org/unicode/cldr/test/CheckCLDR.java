@@ -79,15 +79,33 @@ abstract public class CheckCLDR {
         /**
          * Disallow (for various reasons)
          */
-        FORBID_ERRORS, 
+        FORBID_ERRORS(true), 
         FORBID_READONLY, 
         FORBID_UNLESS_DATA_SUBMISSION, 
-        FORBID_COVERAGE
+        FORBID_COVERAGE,
+        FORBID_NEEDS_TICKET
         ;
+        private final boolean isForbidden;
+        private StatusAction() {
+            isForbidden = false;
+        };
+        private StatusAction(boolean isForbidden) {
+            this.isForbidden = isForbidden;
+        };
+        public boolean isForbidden() {
+            return isForbidden;
+        }
+        public boolean canShow() {
+            return !isForbidden;
+        }
         /**
          * @deprecated
          */
         public static final StatusAction FORBID = FORBID_READONLY;
+        public static final StatusAction SHOW_VOTING_AND_ADD = ALLOW;
+        public static final StatusAction SHOW_VOTING_AND_TICKET = ALLOW_VOTING_AND_TICKET;
+        public static final StatusAction SHOW_VOTING_BUT_NO_ADD = ALLOW_VOTING_BUT_NO_ADD;
+        public static final StatusAction FORBID_HAS_ERROR = FORBID_ERRORS;
     }
 
     public enum Phase {
@@ -135,21 +153,14 @@ abstract public class CheckCLDR {
         }
 
         /**
-         * New Improved Version
-         * TODO Consider moving Phase, StatusAction, etc into CLDRInfo.
-         * @param enteredValue WARNING, this has a special meaning.
-         * <ol>
-         * <li>If <b>null</b>, means you are asking for the status of a whole row.</li>
-         * <li>If </b>non-null</b>, means you are assessing whether a particular value can be in the Change box or as a Bulk item</li>
-         * </ol>
+         * Return whether or not to show a row, and if so, how.
          * @param pathValueInfo
          * @param inputMethod
          * @param status
          * @param userInfo null if there is no userInfo (nobody logged in).
          * @return
          */
-        public StatusAction getAction(
-            CandidateInfo enteredValue,
+        public StatusAction getShowRowAction(
             PathValueInfo pathValueInfo,
             InputMethod inputMethod, 
             PathHeader.SurveyToolStatus status,
@@ -168,7 +179,7 @@ abstract public class CheckCLDR {
 
             // if TC+, allow anything else, even suppressed items and errors
             if (userInfo != null && userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
-                return StatusAction.ALLOW;
+                return StatusAction.SHOW_VOTING_AND_ADD;
             }
 
             // if the coverage level is optional, disallow everything
@@ -176,42 +187,95 @@ abstract public class CheckCLDR {
                 return StatusAction.FORBID_COVERAGE;
             }
 
-            // check for errors (allowing collisions)
-            // if the enteredValue exists, then check it.
-            // otherwise just check if the row can be seen.
-            ValueStatus valueStatus = ValueStatus.NONE;
-            if (enteredValue != null) {
-                valueStatus = getValueStatus(enteredValue, valueStatus);
-                if (valueStatus == ValueStatus.ERROR) {
-                    return StatusAction.FORBID_ERRORS;
-                }
-            } else {
-                for (CandidateInfo value : pathValueInfo.getValues()) {
-                    valueStatus = getValueStatus(value, valueStatus);
-                }
-            }
-
             if (status == SurveyToolStatus.HIDE) {
                 return StatusAction.FORBID_READONLY;
             }
-            
-            // At this point the status is either 
-            // * READ_WRITE = (can vote or add in Change box)
-            // * READ-ONLY = (can vote, but ticket instead of change box)
-            
-            // If we are not vetting, or we are vetting and have errors or warnings
-            // allow votes and either Change box or ticket.
-            
-            if (this != Phase.VETTING || valueStatus != ValueStatus.NONE) {
+
+            if (this == Phase.SUBMISSION) {
                 return status == SurveyToolStatus.READ_WRITE 
-                    ? StatusAction.ALLOW 
+                    ? StatusAction.SHOW_VOTING_AND_ADD 
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
-            
-            // Otherwise (we are vetting, but with no errors or warnings)
-            // allow votes but no Change box or ticket
-            
+
+            // We are not in submission. 
+            // Only allow ADD if we have an error or warning
+            ValueStatus valueStatus = ValueStatus.NONE;
+            for (CandidateInfo value : pathValueInfo.getValues()) {
+                valueStatus = getValueStatus(value, valueStatus);
+                if (valueStatus != ValueStatus.NONE) {
+                    return status == SurveyToolStatus.READ_WRITE 
+                        ? StatusAction.ALLOW 
+                            : StatusAction.ALLOW_VOTING_AND_TICKET;
+                }
+            }
+
+            // No warnings, so allow just voting.
             return StatusAction.ALLOW_VOTING_BUT_NO_ADD;
+        }
+
+        /**
+         * getAcceptNewItemAction. MUST only be called if getShowRowAction(...).canShow()
+         * TODO Consider moving Phase, StatusAction, etc into CLDRInfo.
+         * @param enteredValue If null, means an abstention. 
+         * If voting for an existing value, pathValueInfo.getValues().contains(enteredValue) MUST be true
+         * @param pathValueInfo
+         * @param inputMethod
+         * @param status
+         * @param userInfo
+         * @return
+         */
+        public StatusAction getAcceptNewItemAction(
+            CandidateInfo enteredValue,
+            PathValueInfo pathValueInfo,
+            InputMethod inputMethod, 
+            PathHeader.SurveyToolStatus status,
+            UserInfo userInfo // can get voterInfo from this.
+            ) {
+
+            // only logged in users can add items.
+            if (userInfo == null) {
+                return StatusAction.FORBID_ERRORS;
+            }
+
+            // we can always abstain
+            if (enteredValue == null) {
+                return StatusAction.ALLOW;
+            }
+
+            // if TC+, allow anything else, even suppressed items and errors
+            if (userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
+                return StatusAction.ALLOW;
+            }
+
+            // Disallow errors.
+            ValueStatus valueStatus = getValueStatus(enteredValue, ValueStatus.NONE);
+            if (valueStatus == ValueStatus.ERROR) {
+                return StatusAction.FORBID_ERRORS;
+            }
+
+            // Allow items if submission
+            if (this == Phase.SUBMISSION) {
+                return StatusAction.ALLOW;
+            }
+
+            // Voting for an existing value is ok
+            valueStatus = ValueStatus.NONE;
+            for (CandidateInfo value : pathValueInfo.getValues()) {
+                if (value == enteredValue) {
+                    return StatusAction.ALLOW;
+                }
+                valueStatus = getValueStatus(value, valueStatus);
+            }
+            
+            // If there were any errors/warnings on other values, allow
+            if (valueStatus != ValueStatus.NONE) {
+                return StatusAction.ALLOW;
+            }
+
+            // Otherwise (we are vetting, but with no errors or warnings)
+            // DISALLOW NEW STUFF
+
+            return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
         }
 
         enum ValueStatus {ERROR, WARNING, NONE}

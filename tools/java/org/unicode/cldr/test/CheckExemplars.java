@@ -157,10 +157,11 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     quoteSet.add(getResolvedCldrFileToCheck().getWinningValue("//ldml/delimiters/" + element));
                 }
                 if (!punctuationSet.containsAll(quoteSet)) {
+                    quoteSet.removeAll(punctuationSet);
                     CheckStatus message = new CheckStatus().setCause(this)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.missingPunctuationCharacters)
-                            .setMessage("Puncutation exemplar characters should contain all quotation marks for this locale: " + quoteSet);
+                            .setMessage("Punctuation exemplar characters are missing quotation marks for this locale: " + quoteSet.toPattern(false));
                     result.add(message);
                 }
             }

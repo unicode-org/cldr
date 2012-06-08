@@ -391,62 +391,65 @@ public class SurveyAjax extends HttpServlet {
                                     if(!UserRegistry.userCanModifyLocale(mySession.user,locale)) {
                                         throw new InternalError("User cannot modify locale.");
                                     }
-                                    
+
                                     SupplementalDataInfo sdi = mySession.sm.getSupplementalDataInfo();
-                                    int coverageValue = sdi.getCoverageValue(xp, locale.toULocale());
+                                    int coverageValue = sdi.getCoverageValue(xp, locale.toULocale()); // TODO: get from DataRow
                                     PathHeader ph = stf.getPathHeader(xp);
                                     CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
                                     SurveyToolStatus phStatus = ph.getSurveyToolStatus();
                                     Level covLev = org.unicode.cldr.util.Level.fromLevel(coverageValue);
-                                    
+
                                     final String candVal = val;
-                                    
-                                  DataSection section = DataSection.make(null,null,mySession, locale, xp, null, false,Level.COMPREHENSIVE.toString());
+
+                                    DataSection section = DataSection.make(null,null,mySession, locale, xp, null, false,Level.COMPREHENSIVE.toString());
+                                    section.setUserAndFileForVotelist(mySession.user, null);
+
                                     DataRow pvi = section.getDataRow(xp);
-                                    boolean areAdding =  (candVal==null)?false:((pvi.getItem(candVal)==null)); // null = abstention
-                                    CheckCLDR.StatusAction statusAction = cPhase.getAction(null, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
-                                    
-                                    if(areAdding) {
-                                        CandidateInfo ci = new CandidateInfo() {
-                                            @Override
-                                            public String getValue() {
-                                                return candVal;
+                                    CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
+
+                                    if(otherErr!=null) {
+                                        r.put("didNotSubmit","Did not submit.");
+                                    } else if(!showRowAction.isForbidden()) {
+                                        CandidateInfo ci;
+                                        if(candVal==null) {
+                                            ci = null; // abstention
+                                        } else {
+                                            ci = pvi.getItem(candVal);  // existing item?
+                                            if(ci==null) { // no, new item
+                                                ci = new CandidateInfo() {
+                                                    @Override
+                                                    public String getValue() {
+                                                        return candVal;
+                                                    }
+    
+                                                    @Override
+                                                    public Collection<UserInfo> getUsersVotingOn() {
+                                                        return Collections.emptyList(); // No users voting - yet.
+                                                    }
+    
+                                                    @Override
+                                                    public List<CheckStatus> getCheckStatusList() {
+                                                        return result;
+                                                    }
+                                                };
                                             }
-                                            
-                                            @Override
-                                            public Collection<UserInfo> getUsersVotingOn() {
-                                                return Collections.emptyList(); // No users voting - yet.
-                                            }
-                                            
-                                            @Override
-                                            public List<CheckStatus> getCheckStatusList() {
-                                                return result;
-                                            }
-                                        };
-                                        CheckCLDR.StatusAction statusActionNewItem =   cPhase.getAction(ci, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
-                                        if(statusAction!=StatusAction.ALLOW ||
-                                           statusActionNewItem!=StatusAction.ALLOW_VOTING_AND_TICKET || 
-                                           statusActionNewItem==StatusAction.ALLOW_VOTING_BUT_NO_ADD) {
-                                            statusAction = statusActionNewItem;
                                         }
-                                    }                                    
-                                    
+                                        CheckCLDR.StatusAction statusActionNewItem =   cPhase.getAcceptNewItemAction(ci, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
+                                        if(statusActionNewItem.isForbidden()) {
+                                            r.put("statusAction", statusActionNewItem);
+                                        } else {
+                                            ballotBox.voteForValue(mySession.user, xp, val);
+                                            r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
+                                        }
+                                    } else {
+                                        r.put("statusAction", showRowAction);
+                                    }
                                     // don't allow adding items if ALLOW_VOTING_BUT_NO_ADD
-                                        
+
+                                    // informational
                                     r.put("cPhase",cPhase);
                                     r.put("phStatus",phStatus);
-                                    r.put("statusAction",statusAction);
-                                    r.put("areAdding",areAdding);
                                     r.put("covLev", covLev);
-                                    if(   (statusAction==CheckCLDR.StatusAction.ALLOW   // all OK.
-                                       ||  (statusAction==StatusAction.ALLOW_VOTING_AND_TICKET && !areAdding)     // don't allow adding
-                                       ||  (statusAction == StatusAction.ALLOW_VOTING_BUT_NO_ADD && !areAdding) ) // don't allow adding
-                                            && otherErr==null) {
-                                        ballotBox.voteForValue(mySession.user, xp, val);
-                                        r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
-                                    } else {
-                                        r.put("didNotSubmit","Did not submit.");
-                                    }
                                 }
                             } catch(Throwable t) {
                                 SurveyLog.logException(t,"Processing submission " + locale + ":" + xp);

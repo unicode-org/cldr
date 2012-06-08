@@ -1711,10 +1711,10 @@ public class DataSection implements JSONString {
 		    }
 		}
 
-        private StatusAction getStatusAction() {
+        public StatusAction getStatusAction() {
             // null because this is for display.
             return sm.phase().getCPhase()
-                    .getAction(null, this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
+                    .getShowRowAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
         }
 
         @Override

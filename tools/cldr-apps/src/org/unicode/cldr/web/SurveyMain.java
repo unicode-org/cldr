@@ -43,6 +43,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
@@ -216,6 +217,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static OperatingSystemMXBean osmxbean = ManagementFactory.getOperatingSystemMXBean();
     static double nProcs = osmxbean.getAvailableProcessors();
 
+    
+    /**
+     * Is the CPU essentially busy?
+     * @return
+     */
+    public static final boolean hostBusy() {
+        return (osmxbean.getSystemLoadAverage()*2)>=osmxbean.getAvailableProcessors();
+    }
     
     // ===== UI constants
     static final String CURRENT_NAME="Others";
@@ -5636,7 +5645,7 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
     }
 
 
-    public static void addPeriodicTask(Runnable task) {
+    public static ScheduledFuture<?> addPeriodicTask(Runnable task) {
         final boolean CLDR_QUICK_DAY = CldrUtility.getProperty("CLDR_QUICK_DAY",false);
         int firstTime=isUnofficial()?15:30;       
         int eachTime=isUnofficial()?15:15;
@@ -5645,9 +5654,9 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
             firstTime = 1;
             eachTime = 3;
         }
-        getTimer().scheduleAtFixedRate(task, firstTime, eachTime, TimeUnit.MINUTES);
+        return getTimer().scheduleWithFixedDelay(task, firstTime, eachTime, TimeUnit.MINUTES);
     }
-    public static void addDailyTask(Runnable task) {
+    public static ScheduledFuture<?>[] addDailyTask(Runnable task) {
         long now = System.currentTimeMillis();
         long next = now;
         long period = 24*60*60*1000; // 1 day
@@ -5671,9 +5680,10 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
         next = c.getTimeInMillis();
         System.err.println("DailyTask- next time is " + ElapsedTimer.elapsedTime(now,next) + " and period is " + ElapsedTimer.elapsedTime(now,now+period));
         
-        getTimer().schedule(task, 5, TimeUnit.MINUTES); // run one soon after startup
-        getTimer().scheduleAtFixedRate(task, next-now, period, TimeUnit.MILLISECONDS);
-        
+        ScheduledFuture<?> o[] = { null, null };
+        o[0] = getTimer().schedule(task, 5, TimeUnit.MINUTES); // run one soon after startup
+        o[1] = getTimer().scheduleAtFixedRate(task, next-now, period, TimeUnit.MILLISECONDS);
+        return o;
     }
     
     /**
@@ -5918,6 +5928,13 @@ static final UnicodeSet CallOut = new UnicodeSet("[\\u200b-\\u200f]");
         return getDataFile(kind,loc).getParentFile();
     }
     Map<Pair<String,CLDRLocale>,File> dirToFile = new HashMap<Pair<String,CLDRLocale>,File>();
+    /**
+     * Just get the File. Don't write it.
+     * @param kind
+     * @param loc
+     * @return
+     * @throws IOException
+     */
     public synchronized File getDataFile(String kind, CLDRLocale loc) throws IOException {
         Pair<String,CLDRLocale> k = new Pair<String,CLDRLocale>(kind,loc);
         File f = dirToFile.get(k);

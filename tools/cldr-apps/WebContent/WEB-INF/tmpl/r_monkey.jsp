@@ -5,14 +5,40 @@
 <%!Random rand = new Random(System.currentTimeMillis());
 
 	enum Actions {
-		value, confirm
+		value(100.0), confirm(300), chloc(1);
+		
+		Actions(double d) {
+			this.weight = d;
+		}
+		double weight;
+		
+		static double getTotalWeight() {
+			double tweight = 0;
+			for(Actions a : values()) {
+				tweight += a.weight;
+			}
+			return tweight;
+		}
+	   public static double totalWeight = Actions.getTotalWeight();
 	};
 	
+    
+    Actions getRandomAction() {
+        double r = rand.nextDouble()*Actions.totalWeight;
+        
+        for(Actions a : Actions.values()) {
+        	r -= a.weight;
+        	if(r<=0) {
+        		return a;
+        	}
+        }
+        return null; // shouldn't happen?
+    }
 
 	String randString(UnicodeSet exem) {
 		StringBuilder str = new StringBuilder(10);
 		int length = rand.nextInt(10) + 1;
-		if(rand.nextDouble()<0.002) {
+		if(rand.nextDouble()<0.002 || exem.size()<2) {
 			for(int i=1;i<length;i++)
 				str.appendCodePoint(65+rand.nextInt(18));
 		} else 
@@ -33,18 +59,20 @@
 	response.sendRedirect(request.getContextPath());
 		return;
 	}
-	CLDRFile f = ctx.sm.getSTFactory().make(
-			ctx.getLocale().getBaseName(), true);
+   boolean rl = ctx.hasField("randloc");
+    CLDRLocale locs[] = ctx.sm.getLocales();   
+    CLDRLocale locale = ctx.getLocale();
 	List<String> allXpaths = new ArrayList<String>();
-	UnicodeSet exem = f.getExemplarSet("",
-			CLDRFile.WinningChoice.WINNING);
+    CLDRFile f = ctx.sm.getSTFactory().make(
+            locale.getBaseName(), true);
+    UnicodeSet exem = f.getExemplarSet("",
+            CLDRFile.WinningChoice.WINNING);
 	BallotBox<UserRegistry.User> ballotBox = ctx.sm.getSTFactory()
-			.ballotBoxForLocale(ctx.getLocale());
-
+			.ballotBoxForLocale(locale);
 	TestCache.TestResultBundle bund = ctx.sm.getSTFactory()
-			.getTestResult(ctx.getLocale(), ctx.getOptionsMap());
+			.getTestResult(locale, ctx.getOptionsMap());
 	List<CheckCLDR.CheckStatus> result = new ArrayList<CheckCLDR.CheckStatus>();
-	Actions allActions[] = Actions.values();
+	//Actions allActions[] = Actions.values();
 
 	for (Iterator<String> i = f.iterator(); i.hasNext();) {
 		String s = i.next();
@@ -55,10 +83,24 @@
 <ol>
 	<%
 		for (int i = 0; i < 1000; i++) {
-			Actions nextAction = allActions[rand.nextInt(allActions.length)];
+			Actions nextAction = getRandomAction(); // allActions[rand.nextInt(allActions.length)];
 			String xpath = allXpaths.get(rand.nextInt(allXpaths.size()));
 			String randStr = randString(exem);
 	switch (nextAction) {
+    	case chloc:
+            if(rl) {
+                locale = locs[rand.nextInt(locs.length)];
+                   f = ctx.sm.getSTFactory().make(
+                          locale.getBaseName(), true);
+                  ballotBox = ctx.sm.getSTFactory()
+                          .ballotBoxForLocale(locale);
+                  bund = ctx.sm.getSTFactory()
+                          .getTestResult(locale, ctx.getOptionsMap());
+                   exem = f.getExemplarSet("",
+                          CLDRFile.WinningChoice.WINNING);
+                  out.println("Now in locale " + locale + "<br>");
+            }
+            break;
 		case confirm:
 			Set<String> strs = ballotBox.getValues(xpath);
 			if(strs!=null&&!strs.isEmpty()) {

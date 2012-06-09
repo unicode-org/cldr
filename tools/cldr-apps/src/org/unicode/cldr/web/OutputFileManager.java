@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.Set;
 import java.util.TimerTask;
 import java.util.TreeSet;
+import java.util.concurrent.ScheduledFuture;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -81,7 +82,7 @@ public class OutputFileManager {
     }
 
     public enum Kind {
-        vxml, xml, rxml, fxml
+        vxml, xml, rxml, fxml, pxml
     };
     
     
@@ -114,6 +115,7 @@ public class OutputFileManager {
     public static final String ZXML_PREFIX="/zxml/main";
     public static final String ZVXML_PREFIX="/zvxml/main";
     public static final String VXML_PREFIX="/vxml/main";
+    public static final String PXML_PREFIX="/pxml/main";
     public static final String TXML_PREFIX="/txml/main";
     public static final String RXML_PREFIX="/rxml/main";
     public static final String FXML_PREFIX="/fxml/main";
@@ -269,10 +271,10 @@ public class OutputFileManager {
             boolean isFlat = false;
         	if(kind.equals("vxml")) {
         	    file = sm.getSTFactory().make(loc, false);
-//        	} else if(kind.equals("fxml")) {
-//        			dbSource = makeDBSource(loc, true);
-//        		    file = makeCLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);;
-//        		    isFlat=true;
+        	} else if(kind.equals("pxml")) {
+        	    file = sm.getSTFactory().makeProposedFile(loc);
+//        	} else if(kind.equals("pxml")) {
+//        	    
 //        	} else if(kind.equals("rxml")) {
 //        		dbSource = makeDBSource(loc, true, true);
 //            	file = new CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
@@ -292,7 +294,7 @@ public class OutputFileManager {
         		doWriteFile(loc, file, isFlat, outFile);
         		SurveyLog.debug("Updater: Wrote: " + kind + "/" + loc + " - " +  ElapsedTimer.elapsedTime(st));
         		
-        		if(tryCommit && kind.equals("vxml")){
+        		if(tryCommit && (kind.equals("vxml")||kind.equals("pxml"))  ){
                     try {
                         ElapsedTimer et = new ElapsedTimer();
                         svnAdd(outFile);
@@ -604,6 +606,7 @@ public class OutputFileManager {
 
         if((s==null)||!(s.startsWith(XML_PREFIX)||s.startsWith(ZXML_PREFIX)||s.startsWith(ZVXML_PREFIX)||s.startsWith(VXML_PREFIX)||
                 s.startsWith(FXML_PREFIX) ||
+                s.startsWith(PXML_PREFIX) ||
                 s.startsWith(RXML_PREFIX)||s.startsWith(TXML_PREFIX)||s.startsWith(FEED_PREFIX))) {
             return false;
         }
@@ -632,6 +635,15 @@ public class OutputFileManager {
                 }
                 kind="vxml";
                 s = s.substring(VXML_PREFIX.length()+1,s.length()); //   "foo.xml"
+            } else if(s.startsWith(PXML_PREFIX)) {
+                    finalData = true;
+                    if(s.equals(PXML_PREFIX)) {
+//                        WebContext ctx = new WebContext(request,response);
+//                        response.sendRedirect(ctx.schemeHostPort()+ctx.base()+PXML_PREFIX+"/");
+                        return true;
+                    }
+                    kind="pxml";
+                    s = s.substring(PXML_PREFIX.length()+1,s.length()); //   "foo.xml"
             } else if(s.startsWith(RXML_PREFIX)) {
                 finalData = true;
                 if(s.equals(RXML_PREFIX)) {
@@ -731,6 +743,9 @@ public class OutputFileManager {
                     if(kind.equals("vxml")) {
                       sm.getSTFactory().make(foundLocale.getBaseName(),false).write(response.getWriter());
                       return true;
+                    } else if (kind.equals("pxml")) {
+                        sm.getSTFactory().makeProposedFile(foundLocale).write(response.getWriter());
+                        return true;
                     }
 //
 //                    if(kind!=null ) {
@@ -817,6 +832,15 @@ public class OutputFileManager {
         	}
         }
     
+        /**
+         * Get and write the file
+         * @param conn
+         * @param loc
+         * @param kind
+         * @return
+         * @throws SQLException
+         * @throws IOException
+         */
         public File getOutputFile(Connection conn, CLDRLocale loc, String kind) throws SQLException, IOException {
             if(fileNeedsUpdate(conn,loc,kind)) {
                 return writeOutputFile(loc,kind);
@@ -890,30 +914,35 @@ public class OutputFileManager {
         	return fileNeedsUpdate(getLocaleTime(conn,loc),loc,kind);
         }
 
-        public boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
-        	File outFile = sm.getDataFile(kind, loc);
-        	if(!outFile.exists()) return true;
-        	Timestamp theFile = null;
+        static final boolean debugWhyUpdate = false;
         
-        	long lastMod = outFile.lastModified();
-        	if(outFile.exists()) {
-        		theFile = new Timestamp(lastMod);
-        	}
-        	if(theDate==null) {
+        public boolean fileNeedsUpdate(Timestamp theDate, CLDRLocale loc, String kind) throws SQLException, IOException {
+            File outFile = sm.getDataFile(kind, loc);
+            if(!outFile.exists()) {
+                if (debugWhyUpdate ) SurveyLog.debug("Out of Date: MISSING! Must output " + loc + " / " + kind );
+                return true;
+            }
+            Timestamp theFile = null;
+
+            long lastMod = outFile.lastModified();
+            if(outFile.exists()) {
+                theFile = new Timestamp(lastMod);
+            }
+            if(theDate==null) {
                 SurveyLog.logger.warning(" .. no data.");
-        		return false; // no data (?)
-        	}
-//        	SurveyLog.logger.warning(loc+" .. exists " + theFile + " vs " + theDate);
-        	if(theFile!=null && !theFile.before(theDate)) {
-//        		SurveyLog.logger.warning(" .. OK, up to date.");
-        		return false;
-        	}
-//        	if(true) SurveyLog.logger.warning("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
-        	return true;
+                return false; // no data (?)
+            }
+            if (debugWhyUpdate ) SurveyLog.debug(loc+" .. exists " + theFile + " vs " + theDate);
+            if(theFile!=null && !theFile.before(theDate)) {
+                if (debugWhyUpdate ) SurveyLog.debug(" .. OK, up to date.");
+                return false;
+            }
+            if (debugWhyUpdate ) SurveyLog.debug("Out of Date: Must output " + loc + " / " + kind + " - @" + theFile + " vs  SQL " + theDate);
+            return true;
         }
         void addUpdateTasks() {
             System.err.println("addPeriodicTask... updater");
-            SurveyMain.addPeriodicTask(new Runnable()
+            final ScheduledFuture<?> myTask = SurveyMain.addPeriodicTask(new Runnable()
             {
                 int spinner = (int)Math.round(Math.random()*(double)sm.getLocales().length); // Start on a different locale each time.
                 @Override
@@ -937,33 +966,69 @@ public class OutputFileManager {
                         File outFile = null;
                         //                        SurveyLog.logger.warning("Updater: locs to do: "  +locs.length );
                         CLDRLocale loc = null;
-                        for(int j=0;j< Math.min(16,locs.length);j++) { // Try 16 locales looking for one that doesn't exist. No more, due to load.
-                            loc = CLDR_OUTPUT_ONLY!=null?
-                                    CLDRLocale.getInstance(CLDR_OUTPUT_ONLY) // DEBUGGING
-                                    :locs[(spinner++)%locs.length]; // A new one each time. (normal case
-                                    //                            SurveyLog.logger.warning("Updater: Considering: "  +loc );
+                        
+                        for(int wrtl=1;wrtl<locs.length;wrtl++) { // keep going while not busy
+                            
+                            
+                            for(int j=0;j< locs.length;j++) { // Try 16 locales looking for one that doesn't exist. No more, due to load.
+                                loc = CLDR_OUTPUT_ONLY!=null?
+                                        CLDRLocale.getInstance(CLDR_OUTPUT_ONLY) // DEBUGGING
+                                        :locs[(spinner++)%locs.length]; // A new one each time. (normal case
+                                        //SurveyLog.debug("Updater: Considering: "  +loc );
 
-                                    Timestamp localeTime = getLocaleTime(conn,loc);
-                                    //                            SurveyLog.logger.warning("Updater: Considering: "  +loc + " - " + localeTime);
-                                    if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
-                                        loc=null;
-                                        //                          progress.update(0, "Still looking.");
-                                    }
+                                        Timestamp localeTime = getLocaleTime(conn,loc);
+                                        SurveyLog.debug("Updater: Considering: "  +loc + " - " + localeTime );
+                                        if(!fileNeedsUpdate(localeTime,loc,"vxml") /*&& !fileNeedsUpdate(localeTime,loc,"xml")*/ ) {
+                                            loc=null;
+                                            //                          progress.update(0, "Still looking.");
+                                        } else {
+                                            SurveyLog.debug("Updater: To update:: "  +loc + " - " + localeTime);
+                                            break; // update it.
+                                        }
+                                        if(j%16==0) {
+                                            // SurveyLog.debug("Updater: looked at " + j + " locales, sleeping..");
+                                            Thread.sleep(1000);
+                                            if(SurveyMain.hostBusy()) {
+                                                SurveyLog.debug("CPU busy - exitting." + SurveyMain.osmxbean.getSystemLoadAverage());
+                                                return;
+                                            } else {
+                                                 SurveyLog.debug("CPU not busy- continuing!"+ SurveyMain.osmxbean.getSystemLoadAverage());
+                                            }
+                                        }
+                            }
+    
+                            if(loc==null) {
+                                SurveyLog.debug("None to update.");
+                                //                            SurveyLog.logger.warning("All " + locs.length + " up to date.");
+                                return; // nothing to do.
+                            }
+                            
+                            
+                            progress = sm.openProgress("Updater", 3);
+                            progress.update(1, "Update vxml:"  +loc);
+                            SurveyLog.debug("Updater update vxml: " + loc);
+                            getOutputFile(sm, loc, "vxml");
+                            getOutputFile(sm, loc, "pxml");
+                            /*
+                            progress.update(2, "Writing xml:"  +loc);
+                            getOutputFile(loc, "xml");
+                             */
+                            progress.update(3, "Done:"  +loc);
+                         
+                            if(SurveyMain.hostBusy()) {
+                                SurveyLog.debug("Wrote " + wrtl + "locales  , but host is busy:  " + SurveyMain.osmxbean.getSystemLoadAverage());
+                                return; 
+                            } else {
+                                Thread.sleep(5000);
+                                if(SurveyMain.hostBusy()) {
+                                    SurveyLog.debug("Wrote " + wrtl + "locales, slept 5s , but host is now busy:  " + SurveyMain.osmxbean.getSystemLoadAverage());
+                                    return;
+                                } else {
+                                    SurveyLog.debug("Wrote " + wrtl + "locales  , continuing! host is not busy:  " + SurveyMain.osmxbean.getSystemLoadAverage());
+                                }
+                            }
                         }
-
-                        if(loc==null) {
-                            //                            progress.update(3, "None to update.");
-                            //                            SurveyLog.logger.warning("All " + locs.length + " up to date.");
-                            return; // nothing to do.
-                        }
-                        progress = sm.openProgress("Updater", 3);
-                        progress.update(1, "Update vxml:"  +loc);
-                        getOutputFile(sm, loc, "vxml");
-                        /*
-                        progress.update(2, "Writing xml:"  +loc);
-                        getOutputFile(loc, "xml");
-                         */
-                        progress.update(3, "Done:"  +loc);
+                            
                         //                        SurveyLog.logger.warning("Finished writing " + loc);
                     } catch (SQLException e) {
                         SurveyLog.logException(e);
@@ -989,11 +1054,15 @@ public class OutputFileManager {
 
                 @Override
                 public void run() {
+                    run("vxml");
+                    run("pxml");
+                }
+                private void run(String type) {
                     if(!tryCommit) return;
                     ElapsedTimer daily = new ElapsedTimer();
                     try {
                         boolean svnOk = true;
-                        System.err.println("Beginning daily (or once at boot) update of SVN data: " + new Date());
+                        System.err.println("Beginning daily (or once at boot) update of SVN " + type + " data: " + new Date());
                         // quickAddAll
                         int added=0;
                         File some = null;
@@ -1002,7 +1071,7 @@ public class OutputFileManager {
                         //System.err.println("Traversing..!!");
                         for(CLDRLocale l : locs) {
                             try {
-                                File f = CookieSession.sm.getDataFile("vxml",l);
+                                File f = CookieSession.sm.getDataFile(type,l);
                                 if(some==null) {
                                     some = f.getParentFile().getParentFile().getParentFile();
 

@@ -29,6 +29,8 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
@@ -401,6 +403,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             return oldFile;
         }
+        
 
         //		public VoteResolver<String> getResolver(Map<User, String> m, String path) {
         //			return getResolver(m, path, null);
@@ -571,7 +574,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             if(!readonly) {
                 makeSource(false);
-                ElapsedTimer et = !SurveyLog.DEBUG?null:new ElapsedTimer("Recording PLD for " + locale+" "+distinguishingXpath + " : " + user + " voting for '" + value);
+                ElapsedTimer et = !SurveyLog.DEBUG?null:new ElapsedTimer("{0} Recording PLD for " + locale+" "+distinguishingXpath + " : " + user + " voting for '" + value);
                 Connection conn = null;
                 PreparedStatement saveOld = null; // save off old value
                 PreparedStatement ps = null; // all for mysql, or 1st step for derby
@@ -1205,6 +1208,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         String tableName = getVotesSometimeTableName() ;
         try {
             conn = DBUtils.getInstance().getDBConnection();
+            
+            if( !DBUtils.hasTable(conn, tableName)) {
+                System.err.println(StackTracker.currentElement(0)+": no table (this is probably OK):"+ tableName);
+                return null;
+            }
+            
             ps = DBUtils.prepareForwardReadOnly(conn, "select xpath from " + tableName+ " where locale=?");
             ps.setString(1, forLocale.getBaseName());
             rs = ps.executeQuery();
@@ -1244,5 +1253,50 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 select distinct cldr_votevalue.xpath,cldr_votevalue.locale from cldr_votevalue where cldr_votevalue.value is not null;
 
      */
+    public CLDRFile makeProposedFile(CLDRLocale locale) {
+        Connection conn = null;
+        PreparedStatement ps = null; // all for mysql, or 1st step for derby
+        ResultSet rs = null;
+        SimpleXMLSource sxs = new SimpleXMLSource(locale.getBaseName());
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            
+            ps = DBUtils.prepareStatementWithArgsFRO(conn, "select xpath,submitter,value from "+CLDR_VBV+" where locale=? and value IS NOT NULL", locale);
+            
+            rs = ps.executeQuery();
+            XPathParts xpp = new XPathParts(null,null);
+            while(rs.next()) {
+                String xp = sm.xpt.getById(rs.getInt(1));
+                int sub = rs.getInt(2);
+                String prefix = sm.xpt.altProposedPrefix(sub);
+                
+                StringBuilder sb = new StringBuilder(xp);
+                String alt=null;
+                if(xp.contains("[@alt")) {
+                    alt = sm.xpt.getAlt(xp, xpp);
+                    sb = new StringBuilder(sm.xpt.removeAlt(xp, xpp)); // replace
+                }
+
+                sb.append("[@alt=\"");
+                if(alt!=null) {
+                    sb.append(alt);  
+                    sb.append('-');
+                }
+                sb.append(prefix);
+                sb.append("\"]");
+
+                sxs.putValueAtPath(sb.toString(),DBUtils.getStringUTF8(rs, 3));
+            }
+
+            CLDRFile f = new CLDRFile(sxs);
+            return f;
+        } catch (SQLException e) {
+            SurveyLog.logException(e);
+            SurveyMain.busted("Could not read locale " + locale, e);
+            throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
+        } finally {
+            DBUtils.close(rs,ps,conn);
+        }
+    }
 
 }

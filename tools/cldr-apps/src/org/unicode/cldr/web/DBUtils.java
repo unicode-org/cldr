@@ -735,23 +735,38 @@ public class DBUtils {
 		return(datasource!=null);
 	}
     /**
-	 * @param conn
-	 * @param sql
-	 * @param args
-	 * @return
-	 * @throws SQLException
-	 */
-	public static PreparedStatement prepareStatementWithArgs(Connection conn, String sql,
-			Object... args) throws SQLException {
-		PreparedStatement ps;
-		ps = conn.prepareStatement(sql);
-		
-//		while (args!=null&&args.length==1&&args[0] instanceof Object[]) {
-//			System.err.println("Unwrapping " + args + " to " + args[0]);
-//		}
-		setArgs(ps, args);
-		return ps;
-	}
+     * @param conn
+     * @param sql
+     * @param args
+     * @return
+     * @throws SQLException
+     */
+    public static PreparedStatement prepareStatementWithArgs(Connection conn, String sql,
+            Object... args) throws SQLException {
+        PreparedStatement ps;
+        ps = conn.prepareStatement(sql);
+        
+//      while (args!=null&&args.length==1&&args[0] instanceof Object[]) {
+//          System.err.println("Unwrapping " + args + " to " + args[0]);
+//      }
+        setArgs(ps, args);
+        return ps;
+    }
+    /**
+     * @param conn
+     * @param sql
+     * @param args
+     * @return
+     * @throws SQLException
+     */
+    public static PreparedStatement prepareStatementWithArgsFRO(Connection conn, String sql,
+            Object... args) throws SQLException {
+        PreparedStatement ps;
+        ps = conn.prepareStatement(sql,ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
+        
+        setArgs(ps, args);
+        return ps;
+    }
     /**
      * @param ps
      * @param args

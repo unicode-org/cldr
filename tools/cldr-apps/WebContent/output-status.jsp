@@ -30,13 +30,15 @@ int totals[] = new int[OutputFileManager.Kind.values().length];
 <div style='display: table-row;'>
 <table class='sqlbox' style='display: table-cell; font-size: 140%;'>
 <%
-for(int i=0;i<totals.length;i++) {totals[i]=0;}
+
+	for(int i=0;i<totals.length;i++) {totals[i]=0;}
 int count=0;
 int k=0;
 boolean flip=false;
 	Set<CLDRLocale> sortSet = new TreeSet<CLDRLocale>();
 	sortSet.addAll(SurveyMain.getLocalesSet());
 	Connection conn = null;
+	synchronized(OutputFileManager.class) {
 	try {
 		conn = sm.dbUtils.getDBConnection();
 		for (CLDRLocale loc : sortSet) {
@@ -61,9 +63,15 @@ boolean flip=false;
 							boolean nu= sm.outputFileManager.fileNeedsUpdate(locTime,loc,kind.name());
 							if(nu) totals[j]++;
 							j++;
+//                            org.tmatesoft.svn.core.wc.SVNInfo i = sm.outputFileManager.svnInfo(sm.getDataFile(kind.name(), loc));
+                       //     org.tmatesoft.svn.core.wc.SVNStatus s = sm.outputFileManager.svnStatus(sm.getDataFile(kind.name(), loc));
 			%>
 					<td style='background-color: <%= nu?"red":"green" %>'>
 						<%= kind %>
+					<%--
+					   : <%= s.getNodeStatus() %>  
+					   --%>
+					   
 					</td>
 				
 			<% } %>
@@ -75,6 +83,8 @@ boolean flip=false;
 	} finally {
 		DBUtils.close(conn);
 	}
+}
+
 %>
 <tr>
 	<th>TOTAL</th>

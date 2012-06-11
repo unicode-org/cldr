@@ -1152,13 +1152,16 @@ public class OutputFileManager {
         
 
         public long svnCheckout(File dir, String url) throws SVNException {
+            return svnCheckout(dir,url, SVNRevision.UNDEFINED,SVNRevision.HEAD,SVNDepth.INFINITY,true);
+        }
+        public long svnCheckout(File dir, String url, SVNRevision r1, SVNRevision r2, SVNDepth d, boolean b) throws SVNException {
             synchronized(OutputFileManager.class) {
                 SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
-            updateClient.setIgnoreExternals( true );
-            System.err.println("Checking out " + url + " into " + dir.getAbsolutePath());
-            long rv = updateClient.doCheckout(SVNURL.parseURIEncoded(url), dir,SVNRevision.UNDEFINED,SVNRevision.HEAD,SVNDepth.INFINITY,true);
-            System.err.println(".. Checked out  r" + rv);
-            return rv;
+                updateClient.setIgnoreExternals( true );
+                System.err.println("Checking out " + url + " into " + dir.getAbsolutePath());
+                long rv = updateClient.doCheckout(SVNURL.parseURIEncoded(url), dir,r1, r2, d, b);
+                System.err.println(".. Checked out  r" + rv);
+                return rv;
             }
         }
 
@@ -1181,6 +1184,12 @@ public class OutputFileManager {
             synchronized(OutputFileManager.class) {
                 SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
                 return updateClient.doUpdate(f, SVNRevision.HEAD, true);
+            }
+        }
+        public long[] svnUpdate(File f[], SVNRevision rev, SVNDepth depth, boolean allowUnversionedObstructions, boolean depthIsSticky) throws SVNException {
+            synchronized(OutputFileManager.class) {
+                SVNUpdateClient updateClient = getClientManager().getUpdateClient( );
+                return updateClient.doUpdate(f, rev, depth, allowUnversionedObstructions, depthIsSticky);
             }
         }
         private void svnRemoveAndResolved(File outFile) {

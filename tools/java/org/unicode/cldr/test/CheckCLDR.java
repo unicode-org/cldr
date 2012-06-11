@@ -490,7 +490,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                 MessageFormat format = new MessageFormat(fixedApos);
                 message = format.format(parameters);
             } catch (Exception e) {
-                throw new IllegalArgumentException(messageFormat + "; " + Arrays.asList(parameters), e);
+                throw new IllegalArgumentException(subtype + ";" + messageFormat + "; " 
+                    + (parameters == null ? null : Arrays.asList(parameters)), e);
             }
             Exception[] exceptionParameters = getExceptionParameters();
             if (exceptionParameters != null) {

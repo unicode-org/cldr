@@ -266,7 +266,7 @@ abstract public class CheckCLDR {
                 }
                 valueStatus = getValueStatus(value, valueStatus);
             }
-            
+
             // If there were any errors/warnings on other values, allow
             if (valueStatus != ValueStatus.NONE) {
                 return StatusAction.ALLOW;
@@ -483,15 +483,19 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             return this;
         }
         public String getMessage() {
-            if (messageFormat == null) return messageFormat;
-            String message;
-            try {
-                String fixedApos = MessageFormat.autoQuoteApostrophe(messageFormat);
-                MessageFormat format = new MessageFormat(fixedApos);
-                message = format.format(parameters);
-            } catch (Exception e) {
-                throw new IllegalArgumentException(subtype + ";" + messageFormat + "; " 
-                    + (parameters == null ? null : Arrays.asList(parameters)), e);
+            String message = messageFormat;
+            if (messageFormat != null && parameters != null) {
+                try {
+                    String fixedApos = MessageFormat.autoQuoteApostrophe(messageFormat);
+                    MessageFormat format = new MessageFormat(fixedApos);
+                    message = format.format(parameters);
+                } catch (Exception e) {
+                    message = messageFormat;
+                    System.err.println("MessageFormat Failure: " + subtype + "; " + messageFormat + "; " 
+                        + (parameters == null ? null : Arrays.asList(parameters)));
+                    //                    throw new IllegalArgumentException(subtype + "; " + messageFormat + "; " 
+                    //                        + (parameters == null ? null : Arrays.asList(parameters)), e);
+                }
             }
             Exception[] exceptionParameters = getExceptionParameters();
             if (exceptionParameters != null) {
@@ -519,6 +523,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         }
         public CheckStatus setMessage(String message) {
             this.messageFormat = message;
+            this.parameters = null;
             return this;
         }
         public CheckStatus setMessage(String message, Object... messageArguments) {

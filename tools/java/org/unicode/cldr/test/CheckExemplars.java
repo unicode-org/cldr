@@ -158,10 +158,20 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 }
                 if (!punctuationSet.containsAll(quoteSet)) {
                     quoteSet.removeAll(punctuationSet);
+                    // go ahead and list the characters separately, with space between, for clarity.
+                    StringBuilder characters = new StringBuilder();
+                    for (String item : quoteSet) {
+                        if (characters.length() != 0) {
+                            characters.append(" ");
+                        }
+                        characters.append(item);
+                    }
+                    //String characters = quoteSet.toPattern(false);
                     CheckStatus message = new CheckStatus().setCause(this)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.missingPunctuationCharacters)
-                            .setMessage("Punctuation exemplar characters are missing quotation marks for this locale: " + quoteSet.toPattern(false));
+                            .setMessage("Punctuation exemplar characters are missing quotation marks for this locale: {0}", 
+                                characters);
                     result.add(message);
                 }
             }

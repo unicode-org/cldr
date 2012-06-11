@@ -1054,10 +1054,25 @@ public class OutputFileManager {
 
                 @Override
                 public void run() {
-                    run("vxml");
-                    run("pxml");
+                    SurveyMain sm = CookieSession.sm;
+                    ElapsedTimer daily = new ElapsedTimer();
+                    //Date ourDate = new Date();
+                    try {
+                        File usersa = sm.makeDataDir("usersa");
+                        sm.reg.writeUserFile(sm, "sometime", true, new File(usersa,"usersa.xml"));
+                        File users = sm.makeDataDir("users");
+                        sm.reg.writeUserFile(sm, "sometime", false, new File(users,"users.xml"));
+                        System.err.println("Writing users data: " + new Date());
+                    } catch (Throwable t) {
+                        SurveyLog.logException(t, "writing user data");
+                    }
+                    
+                    addAndCommitData("vxml"); // vetted
+                    
+                    addAndCommitData("pxml"); // proposed
+                    
                 }
-                private void run(String type) {
+                private void addAndCommitData(String type) {
                     if(!tryCommit) return;
                     ElapsedTimer daily = new ElapsedTimer();
                     try {

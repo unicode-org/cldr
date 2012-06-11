@@ -10,10 +10,12 @@ import java.io.BufferedReader;
 import java.io.Externalizable;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -68,6 +70,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -628,6 +631,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
          */
 
         String baseThreadName = Thread.currentThread().getName();
+        
+        // helper file
+        if(CLDRConfig.getInstance().getEnvironment()==Environment.LOCAL) {
+            File helperFile = new File(getSurveyHome(), "admin.html");
+            if(!helperFile.exists()) {
+                OutputStream file = new FileOutputStream(helperFile, false); // Append
+                PrintWriter pw = new PrintWriter(file);
+                pw.write("<h3>Survey Tool admin interface link</h3>");
+                pw.write("if you change the admin password ( CLDR_VAP in config.properties ), you will also need to change this link.<p>");
+                String url = ctx.schemeHostPort()+  ctx.context("AdminPanel.jsp") + "?vap=" + vap;
+                pw.write("<b>Admin Panel:</b>  <a href='"+url+"'>"+url+"</a>");
+                pw.close();
+                file.close();
+            }
+        }
 
         try {
 

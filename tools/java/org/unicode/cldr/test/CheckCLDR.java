@@ -484,7 +484,14 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         }
         public String getMessage() {
             if (messageFormat == null) return messageFormat;
-            String message = MessageFormat.format(MessageFormat.autoQuoteApostrophe(messageFormat), parameters);
+            String message;
+            try {
+                String fixedApos = MessageFormat.autoQuoteApostrophe(messageFormat);
+                MessageFormat format = new MessageFormat(fixedApos);
+                message = format.format(parameters);
+            } catch (Exception e) {
+                throw new IllegalArgumentException(messageFormat + "; " + Arrays.asList(parameters), e);
+            }
             Exception[] exceptionParameters = getExceptionParameters();
             if (exceptionParameters != null) {
                 for (Exception exception : exceptionParameters) {

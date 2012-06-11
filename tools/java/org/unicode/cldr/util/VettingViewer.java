@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -65,6 +66,7 @@ public class VettingViewer<T> {
     private static final boolean TESTING  = CldrUtility.getProperty("TEST", false);
     private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
     private static final String  LOCALE   = CldrUtility.getProperty("LOCALE", "de");
+    private static final String  CURRENT_MAIN   = CldrUtility.getProperty("MAIN", "/Users/markdavis/Documents/workspace/cldr/common/main");
 
     private static final Pattern ALT_PROPOSED = Pattern.compile("\\[@alt=\"[^\"]*proposed");
 
@@ -82,7 +84,8 @@ public class VettingViewer<T> {
         /**
          * There is a dispute.
          */
-        hasDispute('D', "Disputed", "Different organizations are choosing different values. Please review to try to reach consensus."),
+        hasDispute('D', "Disputed", "Different organizations are choosing different values, or an item doesn't have enough votes for approval. " +
+        		"Please review to approve or reach consensus."),
         /**
          * There is a console-check warning
          */
@@ -95,12 +98,12 @@ public class VettingViewer<T> {
         /**
          * The value changed from the last version of CLDR
          */
-        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value."),
+        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
         /**
          * Given the users' coverage, some items are missing.
          */
         missingCoverage('M', "Missing",
-            "Your current coverage level requires the item to be present and approved. During the vetting phase, this is informational: you can’t add new values."),
+            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
             //        /**
             //         * There is a console-check error
             //         */
@@ -834,6 +837,7 @@ public class VettingViewer<T> {
                 // appendToMessage(usersValue, testMessage);
                 break;
             case disputed:
+            case provisionalOrWorse:
                 problems.add(Choice.hasDispute);
                 problemCounter.increment(Choice.hasDispute);
                 break;
@@ -1041,7 +1045,8 @@ public class VettingViewer<T> {
         boolean missing = false;
         if (localeFound.equals("root") 
             || localeFound.equals(XMLSource.CODE_FALLBACK_ID) 
-            || voteStatus == VoteStatus.provisionalOrWorse) {
+            // || voteStatus == VoteStatus.provisionalOrWorse
+            ) {
             // certain paths are ok to be missing.
             if (missingOk.get(path) == null) {
                 missing = true;
@@ -1375,13 +1380,13 @@ public class VettingViewer<T> {
     public static void main(String[] args) throws IOException {
         Timer timer = new Timer();
         timer.start();
-        final String currentMain = "/Users/markdavis/Documents/workspace/cldr/common/main";
         final String version = "2.0.1";
         final String lastMain = "/Users/markdavis/Documents/workspace/cldr-archive/cldr-" +
             version +
             "/common/main";
 
-        Factory cldrFactory = Factory.make(currentMain, ".*");
+        Factory cldrFactory = Factory.make(CURRENT_MAIN, ".*");
+        cldrFactory.setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
         Factory cldrFactoryOld = Factory.make(lastMain, ".*");
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
         CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));

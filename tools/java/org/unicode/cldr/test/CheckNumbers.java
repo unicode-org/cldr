@@ -144,14 +144,14 @@ public class CheckNumbers extends FactoryCheckCLDR {
                         .setCause(this).setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.tooManyGroupingSeparators)
                         .setMessage("Grouping separator (,) should not be used to group tens. Check if a decimal symbol (.) should have been used instead."));
-            }
-            
-            // check that we have a canonical pattern
-            String pattern = getCanonicalPattern(value, type, zeroCount, isPOSIX);
-            if (!pattern.equals(value)) {
-                result.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.numberPatternNotCanonical)
-                .setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));
+            } else {
+                // check that we have a canonical pattern
+                String pattern = getCanonicalPattern(value, type, zeroCount, isPOSIX);
+                if (!pattern.equals(value)) {
+                    result.add(new CheckStatus()
+                    .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.numberPatternNotCanonical)
+                    .setMessage("Value should be \u200E{0}\u200E", new Object[]{pattern}));
+                }
             }
             // Make sure currency patterns contain a currency symbol
             if ( type == NumericType.CURRENCY ) {
@@ -292,12 +292,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
     + "</tr>"
     + "</table>";
      */
-
-    /**
-     * Data used for canonical patterns.
-     */
-    private static int[][] DIGIT_COUNT = {{1,2,2}, {1,0,3}, {1,0,0}, {0,0,0}};
-    private static int[][] POSIX_DIGIT_COUNT = {{1,2,2}, {1,0,6}, {1,0,0}, {1,6,6}};
 
     /**
      * Produce a canonical pattern, which will vary according to type and whether it is posix or not.

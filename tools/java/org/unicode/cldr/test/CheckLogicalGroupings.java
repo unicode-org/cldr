@@ -30,7 +30,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
       if (logicalGroupingIsEmpty) return this; // skip if the logical grouping is empty
       if (!getCldrFileToCheck().isHere(path)) {
           String showError;
-          if ( this.getPhase() != null && this.getPhase().equals(Phase.SUBMISSION)) {
+          if ( this.getPhase() != null && ( this.getPhase().equals(Phase.SUBMISSION) || this.getPhase().equals(Phase.VETTING))) {
               showError = CheckStatus.warningType;
           } else {
               showError = CheckStatus.errorType;

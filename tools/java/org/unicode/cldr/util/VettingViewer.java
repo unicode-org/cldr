@@ -84,8 +84,12 @@ public class VettingViewer<T> {
         /**
          * There is a dispute.
          */
-        hasDispute('D', "Disputed", "Different organizations are choosing different values, or an item doesn't have enough votes for approval. " +
-        		"Please review to approve or reach consensus."),
+        notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used)."),
+        /**
+         * There is a dispute.
+         */
+        hasDispute('D', "Disputed", "Different organizations are choosing different values. " +
+                "Please review to approve or reach consensus."),
         /**
          * There is a console-check warning
          */
@@ -837,9 +841,12 @@ public class VettingViewer<T> {
                 // appendToMessage(usersValue, testMessage);
                 break;
             case disputed:
-            case provisionalOrWorse:
                 problems.add(Choice.hasDispute);
                 problemCounter.increment(Choice.hasDispute);
+                break;
+            case provisionalOrWorse:
+                problems.add(Choice.notApproved);
+                problemCounter.increment(Choice.notApproved);
                 break;
             }
 
@@ -1151,6 +1158,7 @@ public class VettingViewer<T> {
             + ".hide {display:none}\n"
             + ".vve {}\n"
             + ".vvn {}\n"
+            + ".vvp {}\n"
             + ".vvl {}\n"
             + ".vvm {}\n"
             + ".vvu {}\n"

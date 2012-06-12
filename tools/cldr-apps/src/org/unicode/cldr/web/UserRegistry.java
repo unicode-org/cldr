@@ -29,10 +29,19 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.unittest.web.TestAll;
+import org.unicode.cldr.unittest.web.TestSTFactory;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.Level;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.VoteResolver.Organization;
+import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.web.UserRegistry.InfoType;
 
@@ -154,8 +163,7 @@ public class UserRegistry {
     
     
     
-    public static final String SQL_insertStmt = "INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales,lastlogin) " +
-    "VALUES(?,?,?,?,?,?,NULL)";
+    public static final String SQL_insertStmt = "INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password,locales,lastlogin) " + "VALUES(?,?,?,?,?,?,NULL)";
     public static final String SQL_queryStmt_FRO = "SELECT id,name,userlevel,org,locales,intlocs,lastlogin from " + CLDR_USERS +" where email=? AND password=?"; 
     	//            ResultSet.TYPE_FORWARD_ONLY,ResultSet.CONCUR_READ_ONLY);
     public static final String SQL_queryIdStmt_FRO = "SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from " + CLDR_USERS +" where id=?"; 
@@ -450,32 +458,7 @@ public class UserRegistry {
     //            logger.info("UserRegistry DB: initializing...");
                 boolean hadUserTable = DBUtils.hasTable(conn,CLDR_USERS);
                 if(!hadUserTable) {
-                    Statement s = conn.createStatement();
-                
-                    sql = ("create table " + CLDR_USERS + "(id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
-                                                            "userlevel int not null, " +
-                                                            "name "+DBUtils.DB_SQL_UNICODE+" not null, " +
-                                                            "email varchar(128) not null UNIQUE, " +
-                                                            "org varchar(256) not null, " +
-                                                            "password varchar(100) not null, " +
-                                                            "audit varchar(1024) , " +
-                                                            "locales varchar(1024) , " +
-                                                            //"prefs varchar(1024) , " + /* deprecated Dec 2010. Not used anywhere */
-                                                            "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
-                                                            "lastlogin " + DBUtils.DB_SQL_TIMESTAMP0 + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
-                                                            (!DBUtils.db_Mysql?",primary key(id)":"") +  ")"); 
-                    s.execute(sql);
-                    sql=("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
-                                                            "VALUES(" + ADMIN +"," + 
-                                                            "'admin'," + 
-                                                            "'SurveyTool'," +
-                                                            "'admin@'," +
-                                                            "'" + sm.vap +"')");
-                    s.execute(sql);
-                    sql = null;
-                    SurveyLog.debug("DB: added user Admin");
-                    
-                    s.close();
+                    sql = createUserTable(conn);
                     conn.commit();
                 } else if(!DBUtils.db_Derby) {
                     /* update table to DATETIME instead of TIMESTAMP */
@@ -519,6 +502,42 @@ public class UserRegistry {
         } finally {
         	DBUtils.close(conn);
         }
+    }
+
+    /**
+     * @param conn
+     * @return
+     * @throws SQLException
+     */
+    private String createUserTable(Connection conn) throws SQLException {
+        String sql;
+        Statement s = conn.createStatement();
+            
+        sql = ("create table " + CLDR_USERS + "(id INT NOT NULL "+DBUtils.DB_SQL_IDENTITY+", " +
+                                                "userlevel int not null, " +
+                                                "name "+DBUtils.DB_SQL_UNICODE+" not null, " +
+                                                "email varchar(128) not null UNIQUE, " +
+                                                "org varchar(256) not null, " +
+                                                "password varchar(100) not null, " +
+                                                "audit varchar(1024) , " +
+                                                "locales varchar(1024) , " +
+                                                //"prefs varchar(1024) , " + /* deprecated Dec 2010. Not used anywhere */
+                                                "intlocs varchar(1024) , " + // added apr 2006: ALTER table CLDR_USERS ADD COLUMN intlocs VARCHAR(1024)
+                                                "lastlogin " + DBUtils.DB_SQL_TIMESTAMP0 + // added may 2006:  alter table CLDR_USERS ADD COLUMN lastlogin TIMESTAMP
+                                                (!DBUtils.db_Mysql?",primary key(id)":"") +  ")"); 
+        s.execute(sql);
+        sql=("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " +
+                                                "VALUES(" + ADMIN +"," + 
+                                                "'admin'," + 
+                                                "'SurveyTool'," +
+                                                "'admin@'," +
+                                                "'" + sm.vap +"')");
+        s.execute(sql);
+        sql = null;
+        SurveyLog.debug("DB: added user Admin");
+        
+        s.close();
+        return sql;
     }
     
     /**
@@ -1736,6 +1755,133 @@ public class UserRegistry {
 
 		orgList = orgs.toArray(orgList);
 	}
+
+	/**
+	 * Read back an XML file
+	 * @param sm
+	 * @param inFile
+	 * @return
+	 */
+	public int readUserFile(SurveyMain sm, final File inFile) {
+	    int nusers = 0;
+	    if(CLDRConfig.getInstance().getEnvironment()!=Environment.LOCAL) {
+	        throw new InternalError("Error: can only do this in LOCAL"); // insanity check
+	    }
+
+	    Connection conn = null;
+	    PreparedStatement ps = null;
+	    PreparedStatement ps2 = null;
+	    PreparedStatement ps3 = null;
+	    try { // do this in 1 transaction. just in case.
+	        conn = DBUtils.getInstance().getDBConnection();
+
+	        
+	        ps = DBUtils.prepareStatementWithArgs(conn, "drop table " + CLDR_USERS);
+
+	        int del = ps.executeUpdate();
+            System.err.println("DELETED " + del + "users.. reading from " + inFile.getAbsolutePath());
+            
+            String sql = createUserTable(conn);
+
+	        XMLFileReader myReader = new XMLFileReader();
+	        final XPathParts xpp = new XPathParts(null,null);
+	        final Map<String,String> attrs = new TreeMap<String,String>();
+	        //final Map<String,UserRegistry.User> users = new TreeMap<String,UserRegistry.User>();
+
+	        //<user id="10" email="u_10@apple.example.com" level="vetter" name="Apple#10" org="apple" locales="nl nl_BE nl_NL"/>
+	        // >> //users/user[@id="10"][@email="__"][@level="vetter"][@name="Apple"][@org="apple"][@locales="nl.. "]	           
+            final PreparedStatement myInsert = ps2 = DBUtils.prepareStatementForwardReadOnly(conn, "myInser", "UPDATE " + CLDR_USERS
+                    + " SET userlevel=?,name=?,org=?,email=?,password=?,locales=?, lastlogin=NULL where id=?");
+            final PreparedStatement myAdder = ps3 = DBUtils.prepareStatementForwardReadOnly(conn, "myAdder", SQL_insertStmt);
+            final Connection myConn = conn; // for committing
+	        myReader.setHandler(new XMLFileReader.SimpleHandler(){
+	            int nusers=0;
+	            int             maxUserId = 1;
+	            public void handlePathValue(String path, String value) {
+	                xpp.clear();
+	                xpp.initialize(path);
+	                attrs.clear();
+	                for(String k : xpp.getAttributeKeys(-1)) {
+	                    attrs.put(k,xpp.getAttributeValue(-1, k));
+	                }
+	                String elem = xpp.getElement(-1);
+	                System.err.println("* <"+elem+" " + attrs.toString() + ">"+value+"</"+elem+">");
+
+
+	                try {
+
+	                    String xpath = attrs.get("xpath");
+	                    if(xpath!=null) {
+	                        xpath = xpath.trim().replace("'", "\"");
+	                    }
+	                    if(elem.equals("user")) {
+	                        int id = Integer.parseInt(attrs.get("id"));	                    
+	                        nusers++;
+	                        if(id<=1) return; //skip user 1
+
+	                        while(id>maxUserId) { // loop, until we get to that ID. 
+	                            ++maxUserId;
+	                            //userlevel,name,org,email,password,locales,lastlogin
+	                            myAdder.setInt(1, LOCKED);
+	                            myAdder.setString(2,"Deleted User "+maxUserId);
+	                            myAdder.setString(3,"n/a");
+	                            myAdder.setString(4,"deleted-"+maxUserId+"@nobody.example.com");
+	                            myAdder.setString(5,makePassword(""));
+	                            myAdder.setString(6,"");
+	                            int add = myAdder.executeUpdate();
+	                            if(add!=1) {
+	                                throw new InternalError("Trying to add dummy user " + maxUserId); 
+	                            }
+	                        }
+
+	                        String name = attrs.get("name");
+	                        String org = attrs.get("org");
+	                        String email = attrs.get("email");
+	                        Level level = Level.valueOf(attrs.get("level"));
+	                        String locales = attrs.get("locales");
+
+                            if(name==null) {
+                                name=org+"#"+id;
+                            }
+                            if(email ==null) {
+                                email=org.toLowerCase()+id+"@"+org.toLowerCase()+".example.com";
+                            }
+	                        myInsert.setInt(1, level.getSTLevel());
+	                        DBUtils.setStringUTF8(myInsert, 2, name);
+	                        myInsert.setString(3, org);
+	                        myInsert.setString(4, email);
+	                        myInsert.setString(5,makePassword(email));
+	                        myInsert.setString(6, locales);
+	                        myInsert.setInt(7, id);
+	                        int set = myInsert.executeUpdate();
+	                        if(set!=1) {
+	                            myConn.commit();
+	                            throw new InternalError("Could not add user " + id + " - max user supposedly " + maxUserId + " :: " +  path);
+	                        }
+	                    } else {
+	                        throw new IllegalArgumentException("Unknown test element type " + elem);
+	                    }
+	                } catch(SQLException e) {
+	                    SurveyLog.logException(e, "importing from " + inFile.getAbsolutePath() + " - " + "* <"+elem+" " + attrs.toString() + ">"+value+"</"+elem+">" );
+	                    throw new IllegalArgumentException(e);
+	                }
+	            };
+	            //	            public void handleComment(String path, String comment) {};
+	            //	            public void handleElementDecl(String name, String model) {};
+	            //	            public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {};
+	        });
+	        myReader.read(inFile.getAbsolutePath(),-1,false);
+	        //nusers += myReader.nusers;
+	        nusers++;
+	        conn.commit();
+	    } catch (SQLException e) {
+	        SurveyLog.logException(e, "importing users from " + inFile.getAbsolutePath());
+	    } finally {
+	        DBUtils.close(ps3,ps2,ps,conn);
+	    }
+	    return nusers;
+	}
+
 	
 	/*
 <user id="460" email="?@??.??">
@@ -1771,6 +1917,8 @@ public class UserRegistry {
 > <edit>de</edit>
 > </user>
 > 	 */
+	
+	
 	/**
 	 * @param sm TODO
 	 * @param ourDate

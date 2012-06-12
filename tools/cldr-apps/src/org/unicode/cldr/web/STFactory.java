@@ -17,21 +17,28 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.Vector;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.SimpleTestCache;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
+import org.unicode.cldr.unittest.web.TestSTFactory;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -316,7 +323,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         hitXpaths.add(xpath);
                         int submitter = rs.getInt(2);
                         String value = DBUtils.getStringUTF8(rs, 3);
-                        internalSetVoteForValue(sm.reg.getInfo(submitter), xpath, value, resolver, dataBackedSource);
+                        User theSubmitter = sm.reg.getInfo(submitter);
+                        if(theSubmitter==null) {
+                            throw new InternalError("Could not get info for submitter " + submitter + " for " + locale+":"+xpath);
+                        }
+                        internalSetVoteForValue(theSubmitter, xpath, value, resolver, dataBackedSource);
                         n++;
                     }
                     
@@ -1299,4 +1310,96 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
     }
 
+    /**
+     * Read back  a dir full of pxml files
+     * @param sm
+     * @param inFile dir containing pxmls
+     * @return
+     */
+    public Integer[] readPXMLFiles(final File inFileList[]) {
+        int nusers = 0;
+        int nlocs = 0;
+        if(CLDRConfig.getInstance().getEnvironment()!=Environment.LOCAL) {
+            throw new InternalError("Error: can only do this in LOCAL"); // insanity check
+        }
+        
+        Vector<Integer> ret = new Vector<Integer>();
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        PreparedStatement ps3 = null;
+        int maxUserId = 0;
+        try { // do this in 1 transaction. just in case.
+            conn = DBUtils.getInstance().getDBConnection();
+
+            
+            ps = DBUtils.prepareStatementWithArgs(conn, "delete from " + CLDR_VBV);
+            int del = ps.executeUpdate();
+            ps2 = DBUtils.prepareStatementWithArgs(conn, "delete from " + CLDR_VBV_ALT);
+            del += ps2.executeUpdate();
+            System.err.println("DELETED " + del + "regular votes .. reading from files");
+            
+            XMLFileReader myReader = new XMLFileReader();
+            final XPathParts xpp = new XPathParts(null,null);
+            final Map<String,String> attrs = new TreeMap<String,String>();
+            //final Map<String,UserRegistry.User> users = new TreeMap<String,UserRegistry.User>();
+
+            //<user id="10" email="u_10@apple.example.com" level="vetter" name="Apple#10" org="apple" locales="nl nl_BE nl_NL"/>
+            // >> //users/user[@id="10"][@email="__"][@level="vetter"][@name="Apple"][@org="apple"][@locales="nl.. "]              
+            final PreparedStatement myInsert = ps2 = DBUtils.prepareStatementForwardReadOnly(conn, "myInser", 
+                            "INSERT INTO  " + CLDR_VBV + " (locale,xpath,submitter,value) VALUES (?,?,?,?) ");
+            final SurveyMain sm2 = sm;
+            myReader.setHandler(new XMLFileReader.SimpleHandler(){
+                int nusers=0;
+                int             maxUserId = 1;
+                public void handlePathValue(String path, String value) {
+                    String alt = XPathTable.getAlt(path, xpp);
+                    
+                    if(alt==null || !alt.contains(XPathTable.PROPOSED_U)) return; // not an alt proposed
+                    String altParts[] = LDMLUtilities.parseAlt(alt);
+                    StringBuilder newPath = new StringBuilder(XPathTable.removeAlt(path, xpp));
+                    if(altParts[0]!=null) {
+                        newPath.append("[@alt=\""+altParts[0]+"\"]");
+                    }
+                    
+                    try {
+                        myInsert.setInt(2, sm2.xpt.getByXpath(newPath.toString()));
+                        myInsert.setInt(3, XPathTable.altProposedToUserid(altParts[1]));
+                        DBUtils.setStringUTF8(myInsert, 4, value);
+                        myInsert.executeUpdate();
+                    } catch(SQLException e) {
+                        SurveyLog.logException(e, "importing  - " + path + " = " + value  );
+                        throw new IllegalArgumentException(e);
+                    }
+                };
+                //              public void handleComment(String path, String comment) {};
+                //              public void handleElementDecl(String name, String model) {};
+                //              public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {};
+            });
+
+            for(File inFile : inFileList) {
+                System.out.println("Reading pxmls from " + inFile.getAbsolutePath());
+                for(File theFile : inFile.listFiles()) {
+                    if(!theFile.isFile()) continue;
+                    CLDRLocale loc = SurveyMain.getLocaleOf(theFile.getName());
+                    System.out.println("Reading: " + loc + " from " + theFile.getAbsolutePath());
+                    myInsert.setString(1, loc.getBaseName());
+                    myReader.read(theFile.getAbsolutePath(),-1,false);
+                    nusers++;
+                }
+                ret.add(nusers); // add to the list
+                System.out.println("  .. read " + nusers + "  pxmls from " + inFile.getAbsolutePath());
+                nusers=0;
+            }
+
+            conn.commit();
+        } catch (SQLException e) {
+            SurveyLog.logException(e, "importing locale data from files");
+        } finally {
+            DBUtils.close(ps2,ps,conn);
+        }
+        return ret.toArray(new Integer[2]);
+    }
+    
 }

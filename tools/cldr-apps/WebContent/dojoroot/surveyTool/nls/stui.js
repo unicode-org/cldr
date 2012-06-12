@@ -91,6 +91,10 @@ define({
 			adminExceptionDupList: "List of other instances:",
 			clickToSelect: "select",
 			
+			admin_ops: "Actions",
+			admin_ops_desc: "Administrative Actions",
+			
+			
 			recentLoc: "Locale",
 			recentXpath: "XPath",
 			recentValue: "Value",

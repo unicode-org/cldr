@@ -6566,7 +6566,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return (int) (Math.floor(total - free));
     }
 
-    protected static void busted(String what) {
+    public  static void busted(String what) {
         busted(what, null, null);
     }
 

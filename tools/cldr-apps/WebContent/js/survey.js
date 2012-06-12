@@ -2866,6 +2866,31 @@ function loadAdminPanel() {
 	});
 
 	
+	addAdminPanel("admin_ops", function(div) {
+		var frag = document.createDocumentFragment();
+		
+		div.className="adminThreads";
+
+		var baseUrl = contextPath + "/AdminPanel.jsp?vap="+vap+"&do=";
+		var hashSuff  = ""; //  "#" + window.location.hash;
+
+		var actions = [
+		               				"rawload"
+		               ];
+		
+		for(var k in actions) {
+			var action = actions[k];
+			var newUrl = baseUrl + action + hashSuff;
+			var b = createChunk(stui_str(action), "button");
+			b.onclick = function() {window.location = newUrl;  return false; };
+			frag.appendChild(b);
+		}
+		removeAllChildNodes(div);	
+		div.appendChild(frag);
+		
+	});
+	
+	
 	// last panel loaded.
 	// If it's in the hashtag, use it, otherwise first.
 	if(window.location.hash && window.location.hash.indexOf("#!")==0) {

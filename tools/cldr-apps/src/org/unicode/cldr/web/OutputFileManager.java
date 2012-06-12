@@ -1003,8 +1003,9 @@ public class OutputFileManager {
                                 return; // nothing to do.
                             }
                             
-                            
-                            progress = sm.openProgress("Updater", 3);
+                            if(progress!=null) {
+                                progress = sm.openProgress("Updater", 3);
+                            }
                             progress.update(1, "Update vxml:"  +loc);
                             SurveyLog.debug("Updater update vxml: " + loc);
                             getOutputFile(sm, loc, "vxml");

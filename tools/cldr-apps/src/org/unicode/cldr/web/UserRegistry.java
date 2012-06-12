@@ -21,6 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -403,19 +404,24 @@ public class UserRegistry {
         ctx.println("<a href='" + ctx.base() + "?email=" + email + "&amp;uid=" + password + "'>Login for " + 
             email + "</a>");
     }
-        
-    public static Organization computeVROrganization(String org) {
-        VoteResolver.Organization o = null;
-        try {
-            String arg = org
-                            .replaceAll("Utilika Foundation", "utilika")
-                            .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
-			.replaceAll("ICT Agency of Sri Lanka", "srilanka")
-                            .toLowerCase().replaceAll("[.-]", "_");
-            o = VoteResolver.Organization.valueOf(arg);
-        } catch(IllegalArgumentException iae) {
-            o = VoteResolver.Organization.guest;
-            System.err.println("Unknown organization: "+org);
+    
+    private static  Map<String,VoteResolver.Organization> orgToVrOrg = new HashMap<String,VoteResolver.Organization>();
+    
+    public static  synchronized Organization computeVROrganization(String org) {
+        VoteResolver.Organization o = orgToVrOrg.get(org);
+        if(o==null) {
+            try {
+                String arg = org
+                                .replaceAll("Utilika Foundation", "utilika")
+                                .replaceAll("Government of Pakistan - National Language Authority", "pakistan")
+    			.replaceAll("ICT Agency of Sri Lanka", "srilanka")
+                                .toLowerCase().replaceAll("[.-]", "_");
+                o = VoteResolver.Organization.valueOf(arg);
+            } catch(IllegalArgumentException iae) {
+                o = VoteResolver.Organization.guest;
+                System.err.println("Unknown organization: "+org);
+            }
+            orgToVrOrg.put(org,o);
         }
         return o;
 	}

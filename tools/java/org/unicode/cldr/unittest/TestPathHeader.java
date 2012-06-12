@@ -329,7 +329,7 @@ public class TestPathHeader extends TestFmwk {
             String old = headerToPath.get(p);
             if (old == null) {
                 headerToPath.put(p, path);
-            } else if (!old.equals(path)){
+            } else if (!old.equals(path)) {
                 errln("Collision with path " + p + "\t" + old + "\t" + path);
             }
             final String visible = p.toString();

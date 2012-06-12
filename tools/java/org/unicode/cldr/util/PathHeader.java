@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
@@ -89,15 +88,30 @@ public class PathHeader implements Comparable<PathHeader> {
     private static EnumNames<PageId> PageIdNames = new EnumNames<PageId>();
     private static Relation<SectionId,PageId> SectionIdToPageIds = Relation.of(new TreeMap<SectionId,Set<PageId>>(), TreeSet.class);
 
-    private static class SubstringOrder {
-        public SubstringOrder(int startPosition, int endPosition, int order) {
-            this.startPosition = startPosition;
-            this.endPosition = endPosition;
-            this.order = order;
+    private static class SubstringOrder implements Comparable<SubstringOrder> {
+        final String mainOrder;
+        final int order;
+        public SubstringOrder(String source) {
+            int pos = source.lastIndexOf('-') + 1;
+            int ordering = COUNTS.indexOf(source.substring(pos));
+            // account for digits, and "some" future proofing.
+            order = ordering < 0 
+                ? source.charAt(pos) 
+                    : 0x10000 + ordering;
+            mainOrder = source.substring(0,pos);
         }
-        int startPosition;
-        int endPosition;
-        int order;
+        @Override
+        public String toString() {
+            return "{" + mainOrder + ", " + order + "}";
+        }
+        @Override
+        public int compareTo(SubstringOrder other) {
+            int diff = alphabetic.compare(mainOrder, other.mainOrder);
+            if (diff != 0) {
+                return diff;
+            }
+            return order - other.order;
+        }
     }
 
     /**
@@ -191,17 +205,17 @@ public class PathHeader implements Comparable<PathHeader> {
 
     static final Pattern              SEMI                 = Pattern.compile("\\s*;\\s*");
     static final Matcher              ALT_MATCHER          = Pattern.compile(
-    "\\[@alt=\"([^\"]*+)\"]")
-    .matcher("");
+        "\\[@alt=\"([^\"]*+)\"]")
+        .matcher("");
 
     static final RuleBasedCollator    alphabetic           = (RuleBasedCollator) Collator
-    .getInstance(ULocale.ENGLISH);
+        .getInstance(ULocale.ENGLISH);
     static {
         alphabetic.setNumericCollation(true);
     }
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
     static final Map<String, String>  metazoneToContinent  = supplementalDataInfo
-    .getMetazoneToContinentMap();
+        .getMetazoneToContinentMap();
     static final StandardCodes        standardCode         = StandardCodes.make();
     static final Map<String, String>  metazoneToPageTerritory = new HashMap<String,String>();
     static {
@@ -248,7 +262,7 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param status 
      */
     private PathHeader(SectionId sectionId, PageId pageId, String header,
-            int headerOrder, String code, int codeOrder, SubstringOrder suborder, SurveyToolStatus status, String originalPath) {
+        int headerOrder, String code, int codeOrder, SubstringOrder suborder, SurveyToolStatus status, String originalPath) {
         this.sectionId = sectionId;
         this.pageId = pageId;
         this.header = header;
@@ -318,10 +332,10 @@ public class PathHeader implements Comparable<PathHeader> {
     @Override
     public String toString() {
         return sectionId 
-        + "\t" + pageId
-        + "\t" + header // + "\t" + headerOrder
-        + "\t" + code // + "\t" + codeOrder
-        ;
+            + "\t" + pageId
+            + "\t" + header // + "\t" + headerOrder
+            + "\t" + code // + "\t" + codeOrder
+            ;
     }
 
     @Override
@@ -347,14 +361,7 @@ public class PathHeader implements Comparable<PathHeader> {
             }
             if (codeSuborder != null) { // do all three cases, for transitivity
                 if (other.codeSuborder != null) {
-                    // hack for counts
-                    if (0 != (result = alphabetic.compare(code.substring(0,codeSuborder.startPosition), other.code.substring(0,other.codeSuborder.startPosition)))) {
-                        return result;
-                    }
-                    if (0 != (result = alphabetic.compare(code.substring(codeSuborder.endPosition), other.code.substring(other.codeSuborder.endPosition)))) {
-                        return result;
-                    }
-                    if (0 != (result = codeSuborder.order - other.codeSuborder.order)) {
+                    if (0 != (result = codeSuborder.compareTo(other.codeSuborder))) {
                         return result;
                     }
                 } else {
@@ -362,10 +369,9 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             } else if (other.codeSuborder != null) {
                 return -1; // if codeSuborder == null (and other.codeSuborder != null), it is greater
-            } else {
-                if (0 != (result = alphabetic.compare(code, other.code))) {
-                    return result;
-                }
+            }
+            if (0 != (result = alphabetic.compare(code, other.code))) {
+                return result;
             }
             if (0 != (result = alphabetic.compare(originalPath, other.originalPath))) {
                 return result;
@@ -385,8 +391,8 @@ public class PathHeader implements Comparable<PathHeader> {
             return false;
         }
         return sectionId == other.sectionId && pageId == other.pageId
-        && header.equals(other.header) && code.equals(other.code)
-        && originalPath.equals(other.originalPath);
+            && header.equals(other.header) && code.equals(other.code)
+            && originalPath.equals(other.originalPath);
     }
 
     @Override
@@ -396,12 +402,12 @@ public class PathHeader implements Comparable<PathHeader> {
 
     public static class Factory {
         static final RegexLookup<RawData>                  lookup                     = RegexLookup
-        .of(new PathHeaderTransform())
-        .setPatternTransform(
+            .of(new PathHeaderTransform())
+            .setPatternTransform(
                 RegexLookup.RegexFinderTransformPath)
                 .loadFromFile(
-                        PathHeader.class,
-                "data/PathHeader.txt");
+                    PathHeader.class,
+                    "data/PathHeader.txt");
         // synchronized with lookup
         static final Output<String[]>                      args                       = new Output<String[]>();
         // synchronized with lookup
@@ -416,7 +422,7 @@ public class PathHeader implements Comparable<PathHeader> {
         // synchronized with cache
         static final Map<SectionId, Map<PageId, SectionPage>> sectionToPageToSectionPage = new EnumMap<SectionId, Map<PageId, SectionPage>>(SectionId.class);
         static final Relation<SectionPage, String>         sectionPageToPaths         = Relation
-        .of(new TreeMap<SectionPage, Set<String>>(),
+            .of(new TreeMap<SectionPage, Set<String>>(),
                 HashSet.class);
         private static CLDRFile                            englishFile;
 
@@ -466,7 +472,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 if (altPos >= 0) {
                     if (ALT_MATCHER.reset(cleanPath).find()) {
                         cleanPath = cleanPath.substring(0, ALT_MATCHER.start())
-                        + cleanPath.substring(ALT_MATCHER.end());
+                            + cleanPath.substring(ALT_MATCHER.end());
                         alt = ALT_MATCHER.group(1);
                         int pos = alt.indexOf("proposed");
                         if (pos >= 0) {
@@ -488,12 +494,15 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
                 try {
                     PathHeader result = new PathHeader(
-                            SectionId.forString(fix(data.section, 0)),
-                            PageId.forString(fix(data.page, 0)),
-                            fix(data.header, data.headerOrder), order,
-                            fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), order, suborder,
-                            data.status,
-                            path);
+                        SectionId.forString(fix(data.section, 0)),
+                        PageId.forString(fix(data.page, 0)),
+                        fix(data.header, data.headerOrder), 
+                        order, // only valid after call to fix. TODO, make this cleaner
+                        fix(data.code + (alt == null ? "" : "-" + alt), data.codeOrder), 
+                        order, // only valid after call to fix
+                        suborder,
+                        data.status,
+                        path);
                     synchronized (cache) {
                         PathHeader old = cache.get(path);
                         if (old == null) {
@@ -502,24 +511,24 @@ public class PathHeader implements Comparable<PathHeader> {
                             result = old;
                         }
                         Map<PageId, SectionPage> pageToPathHeaders = sectionToPageToSectionPage
-                        .get(result.sectionId);
+                            .get(result.sectionId);
                         if (pageToPathHeaders == null) {
                             sectionToPageToSectionPage.put(result.sectionId, pageToPathHeaders
-                                    = new EnumMap<PageId, SectionPage>(PageId.class));
+                                = new EnumMap<PageId, SectionPage>(PageId.class));
                         }
                         SectionPage sectionPage = pageToPathHeaders.get(result.pageId);
                         if (sectionPage == null) {
                             pageToPathHeaders.put(result.pageId, sectionPage
-                                    = new SectionPage(result.sectionId,
-                                            result.pageId));
+                                = new SectionPage(result.sectionId,
+                                    result.pageId));
                         }
                         sectionPageToPaths.put(sectionPage, path);
                     }
                     return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
-                            "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + cleanPath,
-                            e);
+                        "Probably mismatch in Page/Section enum, or too few capturing groups in regex for " + cleanPath,
+                        e);
                 }
             }
         }
@@ -586,7 +595,7 @@ public class PathHeader implements Comparable<PathHeader> {
             Set<String> target = new HashSet<String>();
             synchronized (cache) {
                 Map<PageId, SectionPage> pageToSectionPage = sectionToPageToSectionPage
-                .get(sectionId);
+                    .get(sectionId);
                 if (pageToSectionPage == null) {
                     return null;
                 }
@@ -751,10 +760,10 @@ public class PathHeader implements Comparable<PathHeader> {
             @Override
             public String toString() {
                 return section + "\t"
-                + page + "\t"
-                + header + "\t" + headerOrder + "\t"
-                + code + "\t" + codeOrder + "\t"
-                + status;
+                    + page + "\t"
+                    + header + "\t" + headerOrder + "\t"
+                    + code + "\t" + codeOrder + "\t"
+                    + status;
             }
         }
 
@@ -772,7 +781,7 @@ public class PathHeader implements Comparable<PathHeader> {
         public class CounterData extends Row.R4<String, RawData, String, String> {
             public CounterData(String a, RawData b, String c) {
                 super(a, b, c == null ? "no sample" : c, c == null ? "no sample" : fromPath(c)
-                        .toString());
+                    .toString());
             }
         }
 
@@ -800,9 +809,8 @@ public class PathHeader implements Comparable<PathHeader> {
             "Oct", "Nov", "Dec",
         "Und" };
         static List<String>                           days           = Arrays.asList("sun", "mon",
-                "tue", "wed", "thu",
-                "fri", "sat");
-        static List<String>                           counts           = Arrays.asList("zero", "one", "two", "few", "many", "other");
+            "tue", "wed", "thu",
+            "fri", "sat");
         // static Map<String, String> likelySubtags =
         // supplementalDataInfo.getLikelySubtags();
         static LikelySubtags                          likelySubtags  = new LikelySubtags();
@@ -819,11 +827,7 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("count", new Transform<String, String>() {
                 public String transform(String source) {
-                    int pos = source.lastIndexOf('-') + 1;
-                    int ordering = counts.indexOf(source.substring(pos));
-                    // account for digits, and "some" future proofing.
-                    ordering = ordering < 0 ? source.charAt(pos) : 0x10000 + ordering;
-                    suborder = new SubstringOrder(pos, source.length(), ordering);
+                    suborder = new SubstringOrder(source);
                     return source;
                 }
             });
@@ -836,12 +840,12 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("calendar", new Transform<String, String>() {
                 Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
-                .put("islamicc", "Islamic Civil")
-                .put("roc", "ROC")
-                .put("Ethioaa", "Ethiopic Amete Alem")
-                .put("Gregory", "Gregorian")
-                .put("iso8601", "ISO 8601")
-                .freeze();
+                    .put("islamicc", "Islamic Civil")
+                    .put("roc", "ROC")
+                    .put("Ethioaa", "Ethiopic Amete Alem")
+                    .put("Gregory", "Gregorian")
+                    .put("iso8601", "ISO 8601")
+                    .freeze();
 
                 public String transform(String source) {
                     String result = fixNames.get(source);
@@ -873,12 +877,12 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     String scriptName = englishFile.getName(CLDRFile.SCRIPT_NAME, script);
                     return script.equals("Hans") || script.equals("Hant") ? "Han Script"
-                            : scriptName.endsWith(" Script") ? scriptName
-                                    : scriptName + " Script";
+                        : scriptName.endsWith(" Script") ? scriptName
+                            : scriptName + " Script";
                 }
             });
             functionMap.put("categoryFromTerritory",
-                    catFromTerritory = new Transform<String, String>() {
+                catFromTerritory = new Transform<String, String>() {
                 public String transform(String source) {
                     String territory = hyphenSplitter.split(source);
                     String container = Containment.getContainer(territory);
@@ -887,7 +891,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("categoryFromTimezone", 
-                    catFromTimezone = new Transform<String, String>() {
+                catFromTimezone = new Transform<String, String>() {
                 public String transform(String source0) {
                     String territory = Containment.getRegionFromZone(source0);
                     if (territory == null) {
@@ -920,15 +924,15 @@ public class PathHeader implements Comparable<PathHeader> {
                         return "Not Current Tender";
                     }
                     return catFromTerritory.transform(territory)
-                    + ": "
-                    + englishFile
-                    .getName(CLDRFile.TERRITORY_NAME, territory);
+                        + ": "
+                        + englishFile
+                        .getName(CLDRFile.TERRITORY_NAME, territory);
                 }
             });
             functionMap.put("numberingSystem", new Transform<String, String>() {
                 public String transform(String source0) {
                     String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@type=\"" + source0 +
-                    "\"][@key=\"numbers\"]");
+                        "\"][@key=\"numbers\"]");
                     return displayName == null ? source0 : displayName + " (" + source0 + ")";
                 }
             });
@@ -968,7 +972,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 int functionEnd = input.indexOf('(', functionStart);
                 int argEnd = input.indexOf(')', functionEnd);
                 Transform<String, String> func = functionMap.get(input.substring(functionStart + 1,
-                        functionEnd));
+                    functionEnd));
                 String temp = func.transform(input.substring(functionEnd + 1, argEnd));
                 input = input.substring(0, functionStart) + temp + input.substring(argEnd + 1);
             }
@@ -1003,4 +1007,6 @@ public class PathHeader implements Comparable<PathHeader> {
         String result = metazoneToPageTerritory.get(source);
         return result == null ? "ZZ" : result;
     }
+
+    private static final List<String>                           COUNTS           = Arrays.asList("zero", "one", "two", "few", "many", "other");
 }

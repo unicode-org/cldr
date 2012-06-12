@@ -344,7 +344,7 @@ public class ShowKeyboards {
                 String valueString = value instanceof Collection 
                 ? CollectionUtilities.join((Collection)value, " ")
                         : value.toString();
-                hover.append(TransliteratorUtilities.toHTML.transform(keyString)).append('→').append(TransliteratorUtilities.toHTML.transform(valueString));
+                hover.append(TransliteratorUtilities.toHTML.transform(keyString)).append("→").append(TransliteratorUtilities.toHTML.transform(valueString));
             }
         }
     }

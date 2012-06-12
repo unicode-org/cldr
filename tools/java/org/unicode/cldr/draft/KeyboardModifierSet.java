@@ -295,6 +295,6 @@ public class KeyboardModifierSet {
     public String getShortInput() {
         int pos = input.indexOf(' ');
         if (pos < 0) return input;
-        return input.substring(0,pos)+'…';
+        return input.substring(0,pos)+"…";
     }
 }

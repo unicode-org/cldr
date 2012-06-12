@@ -153,7 +153,7 @@ public class PathDescription {
 
                 boolean found = false;
                 if ("001".equals(country)) {
-                    code = "the timezone “" + codeName + '”';
+                    code = "the timezone “" + codeName + "”";
                     found = true;
                 } else if (country != null) {
                     String countryName = english.getName("territory", country);
@@ -161,7 +161,7 @@ public class PathDescription {
                         if (!codeName.equals(countryName)) {
                             code = "the city “" + codeName + "” (in " + countryName + ")";
                         } else {
-                            code = "the country “" + codeName + '”';
+                            code = "the country “" + codeName + "”";
                         }
                         found = true;
                     }

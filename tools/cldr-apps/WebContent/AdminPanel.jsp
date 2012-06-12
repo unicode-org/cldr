@@ -75,6 +75,9 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 	    	    if(true) {
 	    	    	%>
 	    	    	   <hr>
+	    	    	   <b>NOTE: This process purposefully causes the SurveyTool to enter a "broken" state, so that it isn't used in an inconsistent manner. The message "WARNING: SurveyTool busted: Due to IMPORT of local data" is expected and due to successful import.
+	    	    	   </b>
+	    	    	   <br>
 	    	    	    ... Now busting (shutting down) your surveytool so that this will be picked up the next time around
 	    	    	    
 	    	    	    <div class='warnText'>You must manually restart the SurveyTool to proceed. (i.e. restart Tomcat)</div>'

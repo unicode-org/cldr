@@ -1003,7 +1003,7 @@ public class OutputFileManager {
                                 return; // nothing to do.
                             }
                             
-                            if(progress!=null) {
+                            if(progress==null) {
                                 progress = sm.openProgress("Updater", 3);
                             }
                             progress.update(1, "Update vxml:"  +loc);

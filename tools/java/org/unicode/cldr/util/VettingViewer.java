@@ -89,30 +89,30 @@ public class VettingViewer<T> {
          * There is a dispute.
          */
         hasDispute('D', "Disputed", "Different organizations are choosing different values. " +
-                "Please review to approve or reach consensus."),
-        /**
-         * There is a console-check warning
-         */
-        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
-        /**
-         * The English value for the path changed AFTER the current value for
-         * the locale.
-         */
-        englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
-        /**
-         * The value changed from the last version of CLDR
-         */
-        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
-        /**
-         * Given the users' coverage, some items are missing.
-         */
-        missingCoverage('M', "Missing",
-            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
-            //        /**
-            //         * There is a console-check error
-            //         */
-            //        other('O', "Other", "Everything else."),
-            ;
+            "Please review to approve or reach consensus."),
+            /**
+             * There is a console-check warning
+             */
+            warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
+            /**
+             * The English value for the path changed AFTER the current value for
+             * the locale.
+             */
+            englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
+            /**
+             * The value changed from the last version of CLDR
+             */
+            changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
+            /**
+             * Given the users' coverage, some items are missing.
+             */
+            missingCoverage('M', "Missing",
+                "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
+                //        /**
+                //         * There is a console-check error
+                //         */
+                //        other('O', "Other", "Everything else."),
+                ;
 
         public final char   abbreviation;
         public final String buttonLabel;
@@ -791,7 +791,8 @@ public class VettingViewer<T> {
 
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
 
-            if (isMissing(sourceFile, path, status, voteStatus)) {
+            boolean isMissing = isMissing(sourceFile, path, status, voteStatus);
+            if (isMissing) {
                 problems.add(Choice.missingCoverage);
                 problemCounter.increment(Choice.missingCoverage);
             }
@@ -845,8 +846,10 @@ public class VettingViewer<T> {
                 problemCounter.increment(Choice.hasDispute);
                 break;
             case provisionalOrWorse:
-                problems.add(Choice.notApproved);
-                problemCounter.increment(Choice.notApproved);
+                if (!isMissing) {
+                    problems.add(Choice.notApproved);
+                    problemCounter.increment(Choice.notApproved);
+                }
                 break;
             }
 

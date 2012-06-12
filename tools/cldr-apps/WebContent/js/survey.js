@@ -7,7 +7,7 @@ dojo.require("dojo.i18n");
 dojo.require("dojo.string");
 dojo.requireLocalization("surveyTool", "stui");
 
-var stui = {online: "Online", 			disconnected: "Disconnected", startup: "Starting up..."};
+var stui = {online: "Online", 		error_restart: "(May be due to SurveyTool restart on server)", 	error: "Disconnected: Error", "details": "Details...", disconnected: "Disconnected", startup: "Starting up..."};
 
 var onIE =  (navigator && navigator.appName && navigator.appName == 'Microsoft Internet Explorer');
 
@@ -366,10 +366,13 @@ function showWord() {
 	if(oneword==null) { // nowhere to show
 		return;
 	}
-	if(disconnected || (progressWord&&progressWord=="disconnected")) { // top priority
-		oneword.innerHTML = stopIcon +  stui_str('disconnected');
+	if(disconnected
+			|| (progressWord&&progressWord=="disconnected")
+			|| (progressWord&&progressWord=="error")
+			) { // top priority
+		oneword.innerHTML = stopIcon +  stui_str(progressWord);
 		p.className = "progress-disconnected";
-		busted();
+		busted(); // no further processing.
 	} else if(ajaxWord) {
 		p.className = "progress-ok";
 		oneword.innerHTML = ajaxWord;
@@ -398,8 +401,12 @@ function updateAjaxWord(ajax) {
 }
 
 var saidDisconnect=false;
-function handleDisconnect(why, json) {
-	updateProgressWord("disconnected");
+
+function handleDisconnect(why, json, word) {
+	if(!word) {
+		word = "error"; // assume it's an error except for a couple of cases.
+	}
+	updateProgressWord(word);
 	if(!saidDisconnect) {
 		saidDisconnect=true;
 		if(json&&json.err) {
@@ -411,12 +418,28 @@ function handleDisconnect(why, json) {
 			oneword.title = "Disconnected: " + why;
 			oneword.onclick = function() {
 				var p = dojo.byId("progress");	
+				var chunk0 = document.createElement("i");
+				chunk0.appendChild(document.createTextNode(stui_str("error_restart")));
 				var chunk = document.createElement("pre");
 				chunk.appendChild(document.createTextNode(why));
+				p.appendChild(chunk0);
 				p.appendChild(chunk);
+				if(oneword.details) {
+					oneword.details.style.display="none";
+				}
 				oneword.onclick=null;
 				return false;
 			};
+			{
+				var p = dojo.byId("progress");	
+				var detailsButton = document.createElement("button");
+				detailsButton.type = "button";
+				detailsButton.id = "progress-details";
+				detailsButton.appendChild(document.createTextNode(stui_str("details")));
+				detailsButton.onclick = oneword.onclick;
+				p.appendChild(detailsButton);
+				oneword.details = detailsButton;
+			}
 		}
 		if(json) {
 			stdebug("JSON: " + json.toString());
@@ -448,15 +471,15 @@ function updateSpecialHeader(newSpecialHeader) {
 }
 function updateStatusBox(json) {
 	if(json.disconnected) {
-		handleDisconnect("Misc Disconnect", json);
+		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
 	} else if (json.SurveyOK==0) {
-		handleDisconnect("Server says: SurveyOK=0 - ", json);
+		handleDisconnect("Not running: ", json,"disconnected"); // ST has restarted
 	} else if (json.status && json.status.isBusted) {
-		handleDisconnect("Server says: busted " + json.status.isBusted, json);
+		handleDisconnect("Server says: busted " + json.status.isBusted, json,"disconnected"); // Server down- not our fault. Hopefully.
 	} else if(!json.status) {
 		handleDisconnect("!json.status",json);
 	} else if(json.status.surveyRunningStamp!=surveyRunningStamp) {
-		handleDisconnect("Server restarted since page was loaded",json);
+		handleDisconnect("Server restarted since page was loaded",json,"disconnected"); // desync
 	} else if(json.status && json.status.isSetup==false && json.SurveyOK==1) {
 		updateProgressWord("startup");
 	} else {
@@ -540,7 +563,7 @@ function updateStatus() {
         handleAs:"json",
         timeout: ajaxTimeout,
         load: function(json){
-            if(json.status&&json.status.isBusted) {
+            if((json==null) || (json.status&&json.status.isBusted)) {
                 wasBusted = true;
                 busted();
             }

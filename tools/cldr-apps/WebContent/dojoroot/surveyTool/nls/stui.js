@@ -113,6 +113,9 @@ define({
 
 			online: "Online",
 			disconnected: "Disconnected",
+			error_restart: "(May be due to SurveyTool restart on server)",
+			error: "Disconnected: Error",
+			details: "Details...",
 			startup: "Starting up...",
 			
 			admin_users: "Users",

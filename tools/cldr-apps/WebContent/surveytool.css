@@ -2021,11 +2021,15 @@ body.disconnected div#progress {
 }
 
 button#progress-refresh {
-	display: none;
-	bottom: 0.25em;
-	position: absolute;
-	right: 0.25em;
-	font-size: x-small;
+    display: none;
+    bottom: 0.25em;
+    position: absolute;
+    right: 0.25em;
+    font-size: x-small;
+}
+button#progress-details {
+	display: block;
+    font-size: x-small;
 }
 
 body.disconnected div#progress button#progress-refresh {

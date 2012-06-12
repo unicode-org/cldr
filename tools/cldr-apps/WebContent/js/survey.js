@@ -410,7 +410,7 @@ function handleDisconnect(why, json, word) {
 	if(!saidDisconnect) {
 		saidDisconnect=true;
 		if(json&&json.err) {
-			why = why + " err="+json.err;
+			why = why + "\n The error message was: \n"+json.err;
 		}
 		console.log("Disconnect: " + why);
 		var oneword = dojo.byId("progress_oneword");
@@ -420,8 +420,11 @@ function handleDisconnect(why, json, word) {
 				var p = dojo.byId("progress");	
 				var chunk0 = document.createElement("i");
 				chunk0.appendChild(document.createTextNode(stui_str("error_restart")));
-				var chunk = document.createElement("pre");
+				var chunk = document.createElement("textarea");
+				chunk.className = "errorMessage";
 				chunk.appendChild(document.createTextNode(why));
+				chunk.rows="10";
+				chunk.cols="40";				
 				p.appendChild(chunk0);
 				p.appendChild(chunk);
 				if(oneword.details) {
@@ -2376,11 +2379,11 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 				// v_tr.className="tr_err";
 				// v_tr2.className="tr_err";
 //				showLoader(tr.theTable.theDiv.loader,"Error!");
-				handleDisconnect('Error while voting', json);
+				handleDisconnect('Error submitting a vote', json);
 				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
 				// e_div.innerHTML = newHtml;
 				myUnDefer();
-				handleDisconnect('Error while voting', json);
+				handleDisconnect('Error submitting a vote', json);
 			} else {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';

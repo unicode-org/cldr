@@ -65,7 +65,7 @@ public class VettingViewer<T> {
     private static final double NANOSECS = 1000000000.0;
     private static final boolean TESTING  = CldrUtility.getProperty("TEST", false);
     private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
-    private static final String  LOCALE   = CldrUtility.getProperty("LOCALE", "de");
+    private static final String  LOCALE   = CldrUtility.getProperty("LOCALE", "af");
     private static final String  CURRENT_MAIN   = CldrUtility.getProperty("MAIN", "/Users/markdavis/Documents/workspace/cldr/common/main");
 
     private static final Pattern ALT_PROPOSED = Pattern.compile("\\[@alt=\"[^\"]*proposed");
@@ -88,31 +88,30 @@ public class VettingViewer<T> {
         /**
          * There is a dispute.
          */
-        hasDispute('D', "Disputed", "Different organizations are choosing different values. " +
-            "Please review to approve or reach consensus."),
-            /**
-             * There is a console-check warning
-             */
-            warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
-            /**
-             * The English value for the path changed AFTER the current value for
-             * the locale.
-             */
-            englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
-            /**
-             * The value changed from the last version of CLDR
-             */
-            changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
-            /**
-             * Given the users' coverage, some items are missing.
-             */
-            missingCoverage('M', "Missing",
-                "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
-                //        /**
-                //         * There is a console-check error
-                //         */
-                //        other('O', "Other", "Everything else."),
-                ;
+        hasDispute('D', "Disputed", "Different organizations are choosing different values. " + "Please review to approve or reach consensus."),
+        /**
+         * There is a console-check warning
+         */
+        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
+        /**
+         * The English value for the path changed AFTER the current value for
+         * the locale.
+         */
+        englishChanged('U', "Unsync’d", "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
+        /**
+         * The value changed from the last version of CLDR
+         */
+        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
+        /**
+         * Given the users' coverage, some items are missing.
+         */
+        missingCoverage('M', "Missing",
+            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
+            //        /**
+            //         * There is a console-check error
+            //         */
+            //        other('O', "Other", "Everything else."),
+            ;
 
         public final char   abbreviation;
         public final String buttonLabel;
@@ -791,12 +790,11 @@ public class VettingViewer<T> {
 
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
 
-            boolean isMissing = isMissing(sourceFile, path, status, voteStatus);
-            if (isMissing) {
+            MissingStatus missingStatus = getMissingStatus(sourceFile, path, status);
+            if (missingStatus == MissingStatus.ABSENT) {
                 problems.add(Choice.missingCoverage);
                 problemCounter.increment(Choice.missingCoverage);
             }
-
 
             boolean itemsOkIfVoted = SUPPRESS 
                 && voteStatus == VoteStatus.ok;
@@ -846,7 +844,8 @@ public class VettingViewer<T> {
                 problemCounter.increment(Choice.hasDispute);
                 break;
             case provisionalOrWorse:
-                if (!isMissing) {
+                if (missingStatus == MissingStatus.PRESENT) {
+                    MissingStatus debug = getMissingStatus(sourceFile, path, status);
                     problems.add(Choice.notApproved);
                     problemCounter.increment(Choice.notApproved);
                 }
@@ -1039,36 +1038,48 @@ public class VettingViewer<T> {
                 VettingViewer.class,
                 "data/paths/missingOk.txt");
 
-    private boolean isMissing(CLDRFile sourceFile, String path, Status status, VoteStatus voteStatus) {
+    enum MissingStatus {PRESENT, ALIASED, MISSING_OK, ABSENT}
+
+    private MissingStatus getMissingStatus(CLDRFile sourceFile, String path, Status status) {
         if (sourceFile == null) {
-            return true;
+            return MissingStatus.ABSENT;
         }
         if ("root".equals(sourceFile.getLocaleID())) {
-            return false;
+            return MissingStatus.MISSING_OK;
         }
         if (path.equals(TEST_PATH)) {
-            int x = 1; // for debugging
+            int debug = 1;
         }
-        String localeFound = sourceFile.getSourceLocaleID(path, status);
-        // only count it as missing IF the (localeFound is root or codeFallback)
-        // AND the aliasing didn't change the path
-        boolean missing = false;
-        if (localeFound.equals("root") 
-            || localeFound.equals(XMLSource.CODE_FALLBACK_ID) 
-            // || voteStatus == VoteStatus.provisionalOrWorse
-            ) {
-            // certain paths are ok to be missing.
-            if (missingOk.get(path) == null) {
-                missing = true;
-            }
-        } else if (!path.equals(status.pathWhereFound)) {
-            // special case compact numbers
-            if (path.contains("decimalFormatLength[@type=\"long\"]") && path.contains("pattern[@type=\"1")) {
+        MissingStatus result;
+
+        String value = sourceFile.getStringValue(path);
+        if (value == null) {
+            result = MissingStatus.ABSENT;
+        } else {
+            String localeFound = sourceFile.getSourceLocaleID(path, status);
+
+            // only count it as missing IF the (localeFound is root or codeFallback)
+            // AND the aliasing didn't change the path
+            if (localeFound.equals("root") 
+                || localeFound.equals(XMLSource.CODE_FALLBACK_ID) 
+                // || voteStatus == VoteStatus.provisionalOrWorse
+                ) {
+                result = MissingStatus.ABSENT;
+            } else if (path.equals(status.pathWhereFound)) {
+                result = MissingStatus.PRESENT;
+            } else if (path.contains("decimalFormatLength[@type=\"long\"]") && path.contains("pattern[@type=\"1")) { // aliased
+                // special case compact numbers
                 //ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"]
-                missing = true;
+                result = MissingStatus.ABSENT;
+            } else {
+                result = MissingStatus.PRESENT;
             }
         }
-        return missing;
+        // certain paths are ok to be missing.
+        if (result == MissingStatus.ABSENT && missingOk.get(path) != null) {
+            result = MissingStatus.MISSING_OK;
+        }
+        return result;
     }
 
     private static StringBuilder appendToMessage(CharSequence usersValue, StringBuilder testMessage) {
@@ -1305,9 +1316,9 @@ public class VettingViewer<T> {
                     }
                     // value for last version
                     final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-                    boolean oldValueMissing = isMissing(lastSourceFile, path, status, null);
+                    MissingStatus oldValueMissing = getMissingStatus(lastSourceFile, path, status);
 
-                    addCell(output, oldStringValue, null, oldValueMissing ? "tv-miss" : "tv-last", HTMLType.plain);
+                    addCell(output, oldStringValue, null, oldValueMissing != MissingStatus.PRESENT ? "tv-miss" : "tv-last", HTMLType.plain);
                     // value for last version
                     String newWinningValue = sourceFile.getWinningValue(path);
                     if (CharSequences.equals(newWinningValue, oldStringValue)) {

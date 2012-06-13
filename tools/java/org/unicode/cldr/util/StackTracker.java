@@ -104,7 +104,7 @@ public class StackTracker implements Iterable<Object>{
      * @param stacks to skip - 0 for immediate caller, 1, etc
      */
     public static StackTraceElement currentElement(int skip) {
-        return Thread.currentThread().getStackTrace()[2+skip];
+        return Thread.currentThread().getStackTrace()[3+skip];
     }
 
     /**

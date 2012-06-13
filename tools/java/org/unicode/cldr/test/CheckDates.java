@@ -588,7 +588,9 @@ public class CheckDates extends FactoryCheckCLDR {
         DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
         style += dateTimeLength.ordinal();
         // do regex match with skeletonCanonical but report errors using skeleton; they have corresponding field lengths
-        if (!dateTimePatterns[style].matcher(skeletonCanonical).matches() && !pathParts.findAttributeValue("calendar", "type").equals("chinese")) {
+        if ( !dateTimePatterns[style].matcher(skeletonCanonical).matches()
+                && !pathParts.findAttributeValue("calendar", "type").equals("chinese")
+                && !pathParts.findAttributeValue("calendar", "type").equals("hebrew") ) {
             int i = RegexUtilities.findMismatch(dateTimePatterns[style], skeletonCanonical);
             String skeletonPosition = skeleton.substring(0,i) + "☹" + skeleton.substring(i);
             result.add(new CheckStatus()

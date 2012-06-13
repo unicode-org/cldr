@@ -1475,10 +1475,10 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 }
 
 function popInfoInto(tr, theRow, theChild, immediate) {
-	if(theRow.voteInfoText) {
-		showInPop(theRow.voteInfoText, tr, theChild, null, immediate);
-		return;
-	}
+	//if(theRow.voteInfoText) {
+	//	showInPop(theRow.voteInfoText, tr, theChild, null, immediate);
+	//	return;
+	//}
 	showInPop("<i>" + stui.str("loading") + "</i>", tr, theChild);
 	var popShowingToken = getPopToken();
 	stdebug('Got token ' + popShowingToken);

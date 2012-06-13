@@ -55,6 +55,7 @@ import org.unicode.cldr.web.DataSection.DataRow;
  * 
  */
 public class SurveyAjax extends HttpServlet {
+    final boolean DEBUG = true||SurveyLog.isDebug();
     public final static String WHAT_MY_LOCALES ="mylocales";
     /**
      * Consolidate my JSONify functions here.
@@ -168,7 +169,6 @@ public class SurveyAjax extends HttpServlet {
         StringBuilder sb = new StringBuilder();
         Reader r = request.getReader();
         int ch;
-        final boolean DEBUG = SurveyLog.isDebug();
         while((ch = r.read())>-1) {
             if (DEBUG) System.err.println(" POST >> " + Integer.toHexString(ch));
             sb.append((char)ch);
@@ -343,10 +343,10 @@ public class SurveyAjax extends HttpServlet {
                                     }
                                 } else {
                                     if(val!=null) {
-                                        if(SurveyLog.isDebug()) System.err.println("val WAS "+escapeString(val));
+                                        if(DEBUG) System.err.println("val WAS "+escapeString(val));
                                         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale);
                                         val = daip.processInput(xp, val, exceptionList);
-                                        if(SurveyLog.isDebug()) System.err.println("val IS "+escapeString(val));
+                                        if(DEBUG) System.err.println("val IS "+escapeString(val));
                                         if(val.isEmpty()) {
                                             otherErr = ("DAIP returned a 0 length string");
                                         }
@@ -437,11 +437,16 @@ public class SurveyAjax extends HttpServlet {
                                         CheckCLDR.StatusAction statusActionNewItem =   cPhase.getAcceptNewItemAction(ci, pvi, CheckCLDR.InputMethod.DIRECT, phStatus, mySession.user);
                                         if(statusActionNewItem.isForbidden()) {
                                             r.put("statusAction", statusActionNewItem);
+                                            if(DEBUG) System.err.println("Not voting: ::  " + statusActionNewItem);
                                         } else {
+                                            if(DEBUG) System.err.println("Voting for::  " + val);
                                             ballotBox.voteForValue(mySession.user, xp, val);
-                                            r.put("submitResultRaw", ballotBox.getResolver(xp).toString());
+                                            String subRes = ballotBox.getResolver(xp).toString();
+                                            if(DEBUG) System.err.println("Voting result ::  " + subRes);
+                                            r.put("submitResultRaw", subRes);
                                         }
                                     } else {
+                                        if(DEBUG) System.err.println("Not voting: ::  " + showRowAction);
                                         r.put("statusAction", showRowAction);
                                     }
                                     // don't allow adding items if ALLOW_VOTING_BUT_NO_ADD

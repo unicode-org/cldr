@@ -121,7 +121,7 @@ public class DataSection implements JSONString {
 			// words, we won't be parsing
 			// 'proposed-uXX' items. )
 			public List<CheckStatus> tests = null;
-			public String value = null; // actual value
+			final public String value; // actual value
 
 			public Set<UserRegistry.User> votes = null; // Set of Users who
 
@@ -629,7 +629,7 @@ public class DataSection implements JSONString {
 		// parent
 
 		private CandidateItem winningItem = null;
-		public Map<String,CandidateItem> items = new TreeMap<String,CandidateItem>(myCollator);
+		public Map<String,CandidateItem> items = new TreeMap<String,CandidateItem>();
 
 		String myFieldHash = null;
 		/** Cache of field hash **/
@@ -694,6 +694,7 @@ public class DataSection implements JSONString {
 		public CandidateItem addItem(String value) {
 		    final String kValue = (value==null)?"":value;
 		    CandidateItem pi = items.get(kValue);
+            if(DEBUG) System.err.println("Adding VItem value="+kValue + " ret="+pi+ ", of " + items.size());
 			if(pi!=null) return pi;
 			pi = new CandidateItem(value);
 			items.put(kValue,pi);
@@ -972,7 +973,9 @@ public class DataSection implements JSONString {
 		 */
 		CandidateItem getWinningItem() {
 			if(winningValue==null) return null;
-			return items.get(winningValue);
+			CandidateItem ci =  items.get(winningValue);
+			if(DEBUG) System.err.println("WV = '"+winningValue+"' and return is " + ci);
+			return ci;
 		}
 
 		public String getWinningValue() {

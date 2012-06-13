@@ -3,7 +3,7 @@
 <%@ page import="org.unicode.cldr.util.*" %>
 
 <div class='ferrbox'>
-Debugging only.
+Debugging only.!
 </div>
 
 <%
@@ -26,12 +26,22 @@ session=<%= ctx.session.id %>
 
 <hr>
 
-<%--
 <%
  DataSection section2 = ctx.getSection(XPathTable.xpathToBaseXpath(xp),Level.COMPREHENSIVE.toString(),WebContext.LoadingShow.dontShowLoading);
+DataSection.DataRow r = section2.getDataRow(xpid);
 %>
- --%>
-<%--  <%= section2.toJSONString() %> --%>
+
+  <%= r.toString() %> 
+
+<hr>
+Items:
+<%
+for( DataSection.DataRow.CandidateItem ci : r.getItems() ) {
+	%>
+	   item: <%= ci.toString() %><br>
+	<%
+}
+%>
 
 <div id='DataSection'>
 </div>

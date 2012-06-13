@@ -833,7 +833,6 @@ public class ExampleGenerator {
                 ChoiceFormat cf = new ChoiceFormat(value);
                 value = cf.format(NUMBER_SAMPLE);
             }
-            // TODO fix to use value!!
             String result;
             DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
             result = x.format(NUMBER_SAMPLE);

@@ -442,7 +442,7 @@ public class ICUServiceBuilder {
   
   private DecimalFormat _getNumberFormat(String key1, int kind, String currencySymbol) {
     ULocale ulocale = new ULocale(cldrFile.getLocaleID());
-    String key = ulocale + "/" + key1 + "/" + kind;
+    String key = (currencySymbol==null)? ulocale + "/" + key1 + "/" + kind : ulocale + "/" + key1 + "/" + kind + "/" + currencySymbol;
     DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
     if (result != null) return result;
     

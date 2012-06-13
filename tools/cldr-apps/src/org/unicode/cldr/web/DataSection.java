@@ -692,10 +692,11 @@ public class DataSection implements JSONString {
                 }
 
 		public CandidateItem addItem(String value) {
-			CandidateItem pi = items.get(value);
+		    final String kValue = (value==null)?"":value;
+		    CandidateItem pi = items.get(kValue);
 			if(pi!=null) return pi;
 			pi = new CandidateItem(value);
-			items.put(value,pi);
+			items.put(kValue,pi);
 			if(pi.isWinner()) {
 				winningItem = pi;
 			}
@@ -3033,6 +3034,7 @@ public class DataSection implements JSONString {
 				String value = isExtraPath ? null : aFile.getStringValue(xpath);
 				if (value == null) {
 					//value = "(NOTHING)"; /* This is set to prevent crashes.. */
+				    System.err.println("warning: populatefrom " + this + ": " + locale+":"+xpath + " = NULL! wasExtraPath="+isExtraPath);
 					isExtraPath = true;
 				}
 
@@ -3566,7 +3568,7 @@ public class DataSection implements JSONString {
 
 	@Override
 	public String toString() {
-		return "{"+getClass().getSimpleName() + " " + locale + ":" + xpathPrefix + " #" + super.toString() + ", " + getAll().size() + " items} ";
+		return "{"+getClass().getSimpleName() + " " + locale + ":" + xpathPrefix + " #" + super.toString() + ", " + getAll().size() + " items, pageid " + this.pageId + " } ";
 	}
 
 	public void touch() {

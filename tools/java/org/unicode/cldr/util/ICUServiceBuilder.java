@@ -120,11 +120,10 @@ public class ICUServiceBuilder {
   }
   
   private SimpleDateFormat getFullFormat(String calendar, String pattern) {
-    SimpleDateFormat result = calendar.equals("chinese")
-      ? new ChineseDateFormat(pattern, new ULocale(cldrFile.getLocaleID())) // formatData
-      : new SimpleDateFormat(pattern, new ULocale(cldrFile.getLocaleID())); // formatData      
-    // TODO Serious Hack, until #4915 is fixed
-    Calendar cal = Calendar.getInstance(new ULocale("en@calendar=" + calendar));
+    ULocale curLocaleWithCalendar = new ULocale(cldrFile.getLocaleID() + "@calendar=" + calendar);
+    SimpleDateFormat result = new SimpleDateFormat(pattern, curLocaleWithCalendar); // formatData      
+    // TODO Serious Hack, until ICU #4915 is fixed. => It *was* fixed in ICU 3.8, so now use current locale.(?)
+    Calendar cal = Calendar.getInstance(curLocaleWithCalendar);
     // TODO look these up and set them
     //cal.setFirstDayOfWeek()
     //cal.setMinimalDaysInFirstWeek()
@@ -153,7 +152,12 @@ public class ICUServiceBuilder {
     DateFormatSymbols gregorianBackup = null;
     boolean notGregorian = !calendar.equals("gregorian");
     String[] last;
-    DateFormatSymbols formatData = calendar.equals("chinese") ? new ChineseDateFormatSymbols() : new DateFormatSymbols();
+    // TODO We would also like to be able to set the new symbols leapMonthPatterns & shortYearNames
+    // (related to Chinese calendar) to their currently-winning values. Until we have the necessary
+    // setters (per ICU ticket #9385) we can't do that. However, we can at least use the values
+    // that ICU has for the current locale, instead of using the values that ICU has for root.
+    ULocale curLocaleWithCalendar = new ULocale(cldrFile.getLocaleID() + "@calendar=" + calendar);
+    DateFormatSymbols formatData = new DateFormatSymbols(curLocaleWithCalendar);
     
     String prefix = "//ldml/dates/calendars/calendar[@type=\""+ calendar + "\"]/";
 

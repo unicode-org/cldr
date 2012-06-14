@@ -1,9 +1,18 @@
 package org.unicode.cldr.util;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.Set;
+
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRulesUtil;
+import com.ibm.icu.text.PluralRulesUtil.KeywordStatus;
 
 public class LogicalGrouping {
     
@@ -35,7 +44,7 @@ public class LogicalGrouping {
      * Return the set of paths that are in the same logical set as the given path
      * @param path - the distinguishing xpath 
      */
-    public static Set<String> getPaths(String path) {
+    public static Set<String> getPaths(CLDRFile cldrFile, String path) {
         String[] metazone_string_types = { "generic", "standard", "daylight" };
 
         Set<String> result = new TreeSet<String>();
@@ -87,9 +96,64 @@ public class LogicalGrouping {
                         parts.setAttribute("month", "yeartype", "leap");
                         result.add(parts.toString());
                     }
+            }
+        } else if (path.indexOf("[@count=") > 0) {
+            // Get all plural forms of this xpath.
+            PluralInfo pluralInfo = getPluralInfo(cldrFile);
+            Set<Count> pluralTypes = pluralInfo.getCountToExamplesMap().keySet();
+            parts.set(path);
+            String lastElement = parts.getElement(-1);
+            for (Count count : pluralTypes) {
+                parts.setAttribute(lastElement, "count", count.toString());
+                result.add(parts.toString());
+            }
         }
-    }
-        
         return result;
+    }
+
+    /**
+     * Returns the plural info for a given locale.
+     */
+    private static PluralInfo getPluralInfo(CLDRFile cldrFile) {
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(
+            cldrFile.getSupplementalDirectory());
+        return supplementalData.getPlurals(PluralType.cardinal,
+                cldrFile.getLocaleID());
+    }
+
+    /**
+     * @param cldrFile
+     * @param path
+     * @return true if the specified path is optional in the logical grouping
+     * that it belongs to.
+     */
+    public static boolean isOptional(CLDRFile cldrFile, String path) {
+        // Paths with count="(zero|one)" are optional if their usage is covered
+        // fully by paths with count="(0|1)", which are always optional themselves.
+        if (!path.contains("[@count=")) return false;
+        XPathParts parts = new XPathParts().set(path);
+        String pluralType = parts.getAttributeValue(-1, "count");
+        if (pluralType.equals("0") || pluralType.equals("1")) return true;
+        if (!pluralType.equals("zero") && !pluralType.equals("one")) return false;
+
+        PluralRules pluralRules = getPluralInfo(cldrFile).getPluralRules();
+        String lastElement = parts.getElement(-1);
+        parts.setAttribute(lastElement, "count", "0");
+        Set<Double> explicits = new HashSet<Double>();
+        if (cldrFile.isHere(parts.toString())) {
+            explicits.add(0.0);
+        }
+        parts.setAttribute(lastElement, "count", "1");
+        if (cldrFile.isHere(parts.toString())) {
+            explicits.add(1.0);
+        }
+        if (!explicits.isEmpty()) {
+            KeywordStatus status = PluralRulesUtil.getKeywordStatus(
+                pluralRules, pluralType, 0, explicits, true);
+            if (status == KeywordStatus.SUPPRESSED) {
+                return true;
+            }
+        }
+        return false;
     }
 }

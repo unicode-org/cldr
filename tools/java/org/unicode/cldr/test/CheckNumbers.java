@@ -1,19 +1,27 @@
 package org.unicode.cldr.test;
 
 import java.text.ParseException;
-import java.text.ParsePosition;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
@@ -29,6 +37,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
      */
     private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 
+    private Set<Count> pluralTypes;
+    private PathHeader.Factory pathHeaderFactory;
     /**
      * A number formatter used to show the English format for comparison.
      */
@@ -44,6 +54,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
     private static Pattern ALLOWED_INTEGER = Pattern.compile("1(0+)");
     private static Pattern COMMA_ABUSE = Pattern.compile(",[0#]([^0#]|$)");
+    private static final String decimalFormatXpath =
+            "//ldml/numbers/decimalFormats[@numberSystem=\"%s\"]/decimalFormatLength[@type=\"%s\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"%s\"][@count=\"%s\"]";
 
     /**
      * A MessageFormat string. For display, anything variable that contains strings that might have BIDI 
@@ -56,13 +68,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
      */
     boolean isPOSIX;
 
-    /**
-     * Formatters require this for checking that we've read to the end.
-     */
-    private ParsePosition parsePosition = new ParsePosition(0);
-
     public CheckNumbers(Factory factory) {
         super(factory);
+        pathHeaderFactory = PathHeader.getFactory(factory.make("en", true));
     }
 
     /**
@@ -75,6 +83,11 @@ public class CheckNumbers extends FactoryCheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
         isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(
+                getFactory().getSupplementalDirectory()); 
+        PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
+        pluralTypes = pluralInfo.getCountToExamplesMap().keySet();
+
         return this;
     }
 
@@ -138,6 +151,11 @@ public class CheckNumbers extends FactoryCheckCLDR {
                 }
             }
 
+            // Check for consistency in short/long decimal formats.
+            if (parts.containsElement("decimalFormatLength") && parts.containsAttribute("count")) {
+                checkDecimalFormatConsistency(parts, path, value, result);
+            }
+
             // Check for sane usage of grouping separators.
             if (COMMA_ABUSE.matcher(value).find()) {
                 result.add(new CheckStatus()
@@ -197,6 +215,42 @@ public class CheckNumbers extends FactoryCheckCLDR {
         return this;
     }
 
+    private void checkDecimalFormatConsistency(XPathParts parts, String path, String value, List<CheckStatus> result) {
+        // Look for duplicates of decimal formats with the same number
+        // system and type.
+        // Decimal formats of the same type should have the same number
+        // of integer digits in all the available plural forms.
+        DecimalFormat format = new DecimalFormat(value);
+        int numIntegerDigits = format.getMinimumIntegerDigits();
+        Count thisCount = Count.valueOf(parts.getAttributeValue(-1, "count"));
+        CLDRFile resolvedFile = getResolvedCldrFileToCheck();
+        Set<String> inconsistentItems = new TreeSet<String>();
+        Set<Count> otherCounts = new HashSet<Count>(pluralTypes);
+        otherCounts.remove(thisCount);
+        for (Count count : otherCounts) {
+            parts.setAttribute("pattern", "count", count.toString());
+            String otherPattern = resolvedFile.getWinningValue(parts.toString());
+            if (otherPattern == null) continue;
+            format = new DecimalFormat(otherPattern);
+            if (format.getMinimumIntegerDigits() != numIntegerDigits) {
+                PathHeader pathHeader = pathHeaderFactory.fromPath(parts.toString());
+                inconsistentItems.add(pathHeader.getHeaderCode());
+            }
+        }
+        if (inconsistentItems.size() > 0) {
+            // Get label for items of this type by removing the count.
+            PathHeader pathHeader = pathHeaderFactory.fromPath(path.substring(0, path.lastIndexOf('[')));
+            String groupHeaderString = pathHeader.getHeaderCode();
+            boolean isWinningValue = resolvedFile.getWinningValue(path).equals(value);
+            result.add(new CheckStatus().setCause(this)
+                    .setMainType(isWinningValue ? CheckStatus.errorType : CheckStatus.warningType)
+                    .setSubtype(Subtype.inconsistentPluralFormat)
+                    .setMessage( "All values for {0} must the same number of digits. " +
+                        "The number of zeros in this pattern is inconsistent with the following: {1}.",
+                        groupHeaderString,
+                        inconsistentItems.toString()));
+        }
+    }
     /**
      * This method builds a decimal format (based on whether the pattern is for currencies or not)
      * and tests samples.

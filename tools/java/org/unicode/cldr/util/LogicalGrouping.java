@@ -148,7 +148,9 @@ public class LogicalGrouping {
             explicits.add(1.0);
         }
         if (!explicits.isEmpty()) {
-            KeywordStatus status = PluralRulesUtil.getKeywordStatus(
+            // HACK: The com.ibm.icu.text prefix is needed so that ST can find it
+            // (no idea why).
+            KeywordStatus status = com.ibm.icu.text.PluralRulesUtil.getKeywordStatus(
                 pluralRules, pluralType, 0, explicits, true);
             if (status == KeywordStatus.SUPPRESSED) {
                 return true;

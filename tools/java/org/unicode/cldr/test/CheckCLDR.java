@@ -450,7 +450,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
             illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
             percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
-            tooManyGroupingSeparators,
+            tooManyGroupingSeparators, inconsistentPluralFormat,
             sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus;
         public String toString() {
             return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
@@ -788,6 +788,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                         item.handleCheck(path, fullPath, value, options, result);
                     }
                 } catch (Exception e) {
+                    e.printStackTrace();
                     addError(result, item, e);
                     return this;
                 }
@@ -840,6 +841,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                         }
                     }
                 } catch (RuntimeException e) {
+                    e.printStackTrace();
                     addError(possibleErrors, item, e);
                     if(SHOW_TIMES) System.out.println("ERR: " + testTime + " - " + e.toString());
                 }

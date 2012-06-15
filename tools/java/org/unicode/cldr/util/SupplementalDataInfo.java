@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.PluralRulesUtil.KeywordStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 
@@ -41,7 +42,6 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.PluralRulesUtil.KeywordStatus;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -2482,7 +2482,7 @@ public class SupplementalDataInfo {
                 temp.add("1");
                 for (Count count : Count.values()) {
                     temp.add(count.toString());
-                    KeywordStatus status = com.ibm.icu.text.PluralRulesUtil.getKeywordStatus(pluralRules, count.toString(), 0, explicits, true);
+                    KeywordStatus status = org.unicode.cldr.util.PluralRulesUtil.getKeywordStatus(pluralRules, count.toString(), 0, explicits, true);
                     if (status != KeywordStatus.SUPPRESSED && status != KeywordStatus.INVALID) {
                         temp.add(count.toString());
                     }

@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.Set;
 
+import org.unicode.cldr.util.PluralRulesUtil.KeywordStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRulesUtil;
-import com.ibm.icu.text.PluralRulesUtil.KeywordStatus;
 
 public class LogicalGrouping {
     
@@ -150,7 +149,7 @@ public class LogicalGrouping {
         if (!explicits.isEmpty()) {
             // HACK: The com.ibm.icu.text prefix is needed so that ST can find it
             // (no idea why).
-            KeywordStatus status = com.ibm.icu.text.PluralRulesUtil.getKeywordStatus(
+            KeywordStatus status = org.unicode.cldr.util.PluralRulesUtil.getKeywordStatus(
                 pluralRules, pluralType, 0, explicits, true);
             if (status == KeywordStatus.SUPPRESSED) {
                 return true;

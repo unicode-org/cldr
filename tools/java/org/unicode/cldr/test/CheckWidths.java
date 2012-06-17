@@ -11,10 +11,10 @@ public class CheckWidths extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*CheckWidths.*
 
-    private static final int EM = ApproximateWidth.getWidth("月");
+    private static final double EM = ApproximateWidth.getWidth("月");
 
     private static class Limits {
-        public Limits(int minimumLength, int maximumLength, int minimumWidth, int maximumWidth,
+        public Limits(int minimumLength, int maximumLength, double minimumWidth, double maximumWidth,
             String errorType) {
             this.minimumLength = minimumLength;
             this.maximumLength = maximumLength;
@@ -24,8 +24,8 @@ public class CheckWidths extends CheckCLDR {
         }
         final int minimumLength;
         final int maximumLength;
-        final int minimumWidth;
-        final int maximumWidth;
+        final double minimumWidth;
+        final double maximumWidth;
         final String errorType;
         void check(String path, String value, List<CheckStatus> result, CheckCLDR cause) {
             boolean lengthProblem = false;
@@ -41,7 +41,7 @@ public class CheckWidths extends CheckCLDR {
                     .setMessage("There are too many characters: should be at most {0} character long.", maximumLength)); 
             }
             if (!lengthProblem && (minimumWidth >= 0 || maximumWidth >= 0)) {
-                int width = ApproximateWidth.getWidth(value) / EM;
+                double width = ApproximateWidth.getWidth(value) / EM;
                 if (minimumWidth >= 0 
                     && width < minimumWidth) {
                     result.add(new CheckStatus().setCause(cause).setMainType(errorType).setSubtype(Subtype.valueTooNarrow) 
@@ -56,30 +56,23 @@ public class CheckWidths extends CheckCLDR {
     }
 
     RegexLookup<Limits> lookup = new RegexLookup<Limits>()
-        .add("^//ldml/delimiters/quotation", 
-            new Limits(1, 1, -1, -1, CheckStatus.errorType))
-            .add("^//ldml/delimiters/alternateQuotation", 
-                new Limits(1, 1, -1, -1, CheckStatus.errorType))
+        .add("^//ldml/delimiters/quotation", new Limits(1, 1, -1, -1, CheckStatus.errorType))
+        .add("^//ldml/delimiters/alternateQuotation", new Limits(1, 1, -1, -1, CheckStatus.errorType))
 
-                // The following are rough measures, just to check strange cases
+        // The following are rough measures, just to check strange cases
 
-                .add("^//ldml/characters/ellipsis[@type=\"final\"]", 
-                    new Limits(-1, -1, -1, 2 * ApproximateWidth.getWidth("{0}…"), CheckStatus.errorType))
-                    .add("^//ldml/characters/ellipsis[@type=\"initial\"]", 
-                        new Limits(-1, -1, -1, 2 * ApproximateWidth.getWidth("…{0}"), CheckStatus.errorType))
-                        .add("^//ldml/characters/ellipsis[@type=\"medial\"]", 
-                            new Limits(-1, -1, -1, 2 * ApproximateWidth.getWidth("{0}…{1}"), CheckStatus.errorType))
+        .add("^//ldml/characters/ellipsis[@type=\"final\"]", new Limits(-1, -1, -1, 2 * ApproximateWidth.getWidth("{0}…"), CheckStatus.warningType))
+        .add("^//ldml/characters/ellipsis[@type=\"initial\"]", new Limits(-1, -1, -1, 2 * ApproximateWidth.getWidth("…{0}"), CheckStatus.warningType))
+        .add("^//ldml/characters/ellipsis[@type=\"medial\"]", new Limits(-1, -1, -1, 2 * ApproximateWidth.getWidth("{0}…{1}"), CheckStatus.warningType))
 
-                            // Narrow items should be no wider that 2 em
+        // Narrow items should be no wider that 2.5 em
 
-                            .add("^//ldml/dates/calendars/calendar.*\\[@type=\"narrow\"\\](?!/cyclic|/dayPeriod)", 
-                                new Limits(-1, -1, -1, 2, CheckStatus.errorType))
+        .add("^//ldml/dates/calendars/calendar.*\\[@type=\"narrow\"\\](?!/cyclic|/dayPeriod)", new Limits(-1, -1, -1, 2.5, CheckStatus.errorType))
 
-                                // Numeric items should be no more than a single character
+        // Numeric items should be no more than a single character
 
-                                .add("^//ldml/numbers/symbols\\[@numberSystem=\"(?!am|pm)[^\"]\"\\]/(decimal|group|minus|percent|perMille|plus)", 
-                                    new Limits(1, 1, -1, -1, CheckStatus.errorType))
-                                    ;
+        .add("^//ldml/numbers/symbols\\[@numberSystem=\"(?!am|pm)[^\"]\"\\]/(decimal|group|minus|percent|perMille|plus)", new Limits(1, 1, -1, -1, CheckStatus.errorType))
+        ;
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (value == null) {

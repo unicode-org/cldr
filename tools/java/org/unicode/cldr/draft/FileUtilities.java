@@ -72,6 +72,8 @@ public final class FileUtilities {
         public int getLineCount() {
             return lineCount;
         }
+        public void handleComment(String line, int commentCharPosition) {
+        }
 
         public FileProcessor process(Class classLocation, String fileName) {
             try {
@@ -106,6 +108,7 @@ public final class FileUtilities {
                     }
                     int comment = line.indexOf("#");
                     if (comment >= 0) {
+                        handleComment(line, comment);
                         line = line.substring(0,comment);
                     }
                     if (line.startsWith("\uFEFF")) {

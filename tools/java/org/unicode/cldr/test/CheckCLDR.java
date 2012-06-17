@@ -333,6 +333,7 @@ abstract public class CheckCLDR {
         .add(new CheckCurrencies())
         .add(new CheckCasing())
         .add(new CheckConsistentCasing(factory)) //  this doesn't work; many spurious errors that user can't correct
+        .add(new CheckWidths())
         .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
         ;
     }
@@ -451,7 +452,9 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
             percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
             tooManyGroupingSeparators, inconsistentPluralFormat,
-            sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus;
+            sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus,
+            valueTooWide,
+            valueTooNarrow;
         public String toString() {
             return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
         }

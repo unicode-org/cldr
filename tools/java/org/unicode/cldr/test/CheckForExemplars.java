@@ -65,6 +65,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     static final UnicodeSet START_PAREN = new UnicodeSet("[(\\[（［]").freeze();
     static final UnicodeSet END_PAREN = new UnicodeSet("[)\\]］）]").freeze();
     static final UnicodeSet ALL_CURRENCY_SYMBOLS = new UnicodeSet("[[:Sc:]]").freeze();
+    static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
+
     private UnicodeSet exemplars;
     private UnicodeSet exemplarsPlusAscii;
     private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplars = new UnicodeSet("[()（）;,；，]").freeze();
@@ -295,6 +297,13 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 return this; // we are done, no text.
             }
             value = justText.toString();
+            if (NUMBERS.containsSome(value)) {
+                UnicodeSet disallowed = new UnicodeSet().addAll(value).retainAll(NUMBERS);
+                addMissingMessage(disallowed, CheckStatus.errorType, 
+                    Subtype.patternCannotContainDigits, 
+                    Subtype.patternCannotContainDigits, 
+                    "cannot occur in date or time patterns.", result);
+            }
         }
 
         if (path.startsWith("//ldml/posix/messages")) return this;

@@ -454,7 +454,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             tooManyGroupingSeparators, inconsistentPluralFormat,
             sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus,
             valueTooWide,
-            valueTooNarrow;
+            valueTooNarrow,
+            patternCannotContainDigits;
         public String toString() {
             return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
         }

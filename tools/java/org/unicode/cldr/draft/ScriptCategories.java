@@ -112,7 +112,7 @@ public class ScriptCategories {
   .removeAll(IPA_EXTENSIONS)
   .freeze();
   static {
-    UnicodeSet knownOk = new UnicodeSet("[\u0392\u0398\u03A0\u03A6\u03B2\u03B8\u03C0\u03C6]");
+    UnicodeSet knownOk = new UnicodeSet("[\u0392\u0398\u03A0\u03A6\u03B2\u03B8\u03C0\u03C6[\u10C7\u10CD]]");
     final UnicodeSet caseProblems = new UnicodeSet(ARCHAIC).closeOver(UnicodeSet.CASE).removeAll(ARCHAIC).removeAll(knownOk);
     if (caseProblems.size() != 0) {
       throw new IllegalArgumentException("Case: " + caseProblems);

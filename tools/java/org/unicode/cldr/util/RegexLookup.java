@@ -25,6 +25,7 @@ import com.ibm.icu.text.Transform;
  * @param <T>
  */
 public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
+    private VariableReplacer variables = new VariableReplacer();
     private static final boolean DEBUG = true;
     private final Map<Finder, Row.R2<Finder,T>> entries = new LinkedHashMap<Finder, Row.R2<Finder,T>>();
     private Transform<String, ? extends Finder> patternTransform = RegexFinderTransform;
@@ -227,7 +228,6 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
      */
     public RegexLookup<T> loadFromFile(Class<?> baseClass, String filename) {
         try {
-            VariableReplacer variables = new VariableReplacer();
             BufferedReader file = FileUtilities.openFile(baseClass, filename);
             for (int lineNumber = 0;; ++lineNumber) {
                 String line = file.readLine();
@@ -243,11 +243,8 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
                     if (pos < 0) {
                         throw new IllegalArgumentException("Failed to read RegexLookup File " + filename + "\t\t(" + lineNumber + ") " + line);
                     }
-                    variables.add(line.substring(0,pos).trim(), line.substring(pos+1).trim());
+                    addVariable(line.substring(0,pos), line.substring(pos+1));
                     continue;
-                }
-                if (line.contains("%")) {
-                    line = variables.replace(line);
                 }
                 int pos = line.indexOf("; ");
                 if (pos < 0) {
@@ -263,6 +260,14 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
         }
     }
 
+    public RegexLookup<T> addVariable(String variable, String variableValue) {
+        if (!variable.startsWith("%")) {
+            throw new IllegalArgumentException("Variables must start with %");
+        }
+        variables.add(variable.trim(), variableValue.trim());
+        return this;
+    }
+
     /**
      * Add a pattern/value pair, transforming the target according to the constructor valueTransform (if not null).
      * @param stringPattern
@@ -271,6 +276,9 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
      */
     public RegexLookup<T> add(String stringPattern, String target) {
         try {
+            if (target.contains("%")) {
+                target = variables.replace(target);
+            }
             @SuppressWarnings("unchecked")
             T result = valueTransform == null ? (T) target : valueTransform.transform(target);
             return add(stringPattern, result);
@@ -286,6 +294,9 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>>{
      * @return this, for chaining
      */
     public RegexLookup<T> add(String stringPattern, T target) {
+        if (stringPattern.contains("%")) {
+            stringPattern = variables.replace(stringPattern);
+        }
         Finder pattern0 = patternTransform.transform(stringPattern);
         return add(pattern0, target);
     }

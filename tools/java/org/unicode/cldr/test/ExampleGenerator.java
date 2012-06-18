@@ -835,7 +835,7 @@ public class ExampleGenerator {
         // Match decimal formats.
         if (countValue != null) {
             Count count = Count.valueOf(countValue);
-            if (pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
+            if (!pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
                 return startItalicSymbol + "Invalid item" + endItalicSymbol;
             }
             DecimalFormat format = new DecimalFormat(value);

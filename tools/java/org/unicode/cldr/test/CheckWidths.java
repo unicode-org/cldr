@@ -89,7 +89,7 @@ public class CheckWidths extends CheckCLDR {
         
         // Compact number formats must be no bigger than 4 EM
 
-        .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1", new Limits(-1, -1, -1, 4, CheckStatus.errorType, Special.QUOTES))
+        .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1", new Limits(-1, -1, -1, 4.5, CheckStatus.errorType, Special.QUOTES))
         ;
     
     Set<Limits> found = new LinkedHashSet();

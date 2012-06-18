@@ -91,14 +91,14 @@ public class PathHeader implements Comparable<PathHeader> {
     private static class SubstringOrder implements Comparable<SubstringOrder> {
         final String mainOrder;
         final int order;
-        public SubstringOrder(String source) {
+        public SubstringOrder(String source, int topLevelCompare) {
             int pos = source.lastIndexOf('-') + 1;
             int ordering = COUNTS.indexOf(source.substring(pos));
             // account for digits, and "some" future proofing.
             order = ordering < 0 
                 ? source.charAt(pos) 
                     : 0x10000 + ordering;
-            mainOrder = source.substring(0,pos);
+           mainOrder = source.substring(0,pos);
         }
         @Override
         public String toString() {
@@ -827,7 +827,15 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("count", new Transform<String, String>() {
                 public String transform(String source) {
-                    suborder = new SubstringOrder(source);
+                    suborder = new SubstringOrder(source, 1);
+                    return source;
+                }
+            });
+            functionMap.put("count2", new Transform<String, String>() {
+                public String transform(String source) {
+                    int pos = source.indexOf('-');
+                    source = pos + source.substring(pos);
+                    suborder = new SubstringOrder(source, pos); // make 10000-... into 5-
                     return source;
                 }
             });
@@ -967,16 +975,20 @@ public class PathHeader implements Comparable<PathHeader> {
             input = RegexLookup.replace(input, args.value);
             order = orderIn;
             suborder = null;
-            int functionStart = input.indexOf("&");
-            if (functionStart >= 0) {
+            int pos = 0;
+            while (true) {
+                int functionStart = input.indexOf('&', pos);
+                if (functionStart < 0) {
+                    return input;
+                }
                 int functionEnd = input.indexOf('(', functionStart);
                 int argEnd = input.indexOf(')', functionEnd);
                 Transform<String, String> func = functionMap.get(input.substring(functionStart + 1,
                     functionEnd));
                 String temp = func.transform(input.substring(functionEnd + 1, argEnd));
                 input = input.substring(0, functionStart) + temp + input.substring(argEnd + 1);
+                pos = functionStart + temp.length();
             }
-            return input;
         }
 
         /**

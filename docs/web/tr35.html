@@ -43,7 +43,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td>21.0.1</td>
+			<td>22<span class="changed"> (draft 1)</span></td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012-03-20</td>
+			<td>2012<span class="changed">-06-18</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -93,7 +93,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a href="#Modifications">25</a></td>
+			<td><a href="#Modifications" class="changed">26</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
@@ -3351,9 +3351,10 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	in <a href="#Orderings">Orderings</a>.</p>
 <h4>5.14.3 <a name="Setting_Options">Setting Options</a></h4>
 	<p>In XML syntax, these are attributes of &lt;settings&gt;. For example, &lt;setting strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights. In basic syntax, these are of the form [<em>keyword</em> <em>value</em>].</p>
-	<p>If the attribute is not present, the default (or for the base url&#39;s attribute, if there is one) is used. That  default is listed in italics. Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. The Example cells include an LDML example followed by the same example in basic syntax.</p>
+	<p>If the attribute is not present, the default (or for the base url&#39;s attribute, if there is one) is used. That  default is listed in <span class="changed">bold</span> italics. Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. </p>
+  <p>The Example cells include an LDML example followed by the same example in basic syntax.</p>
 	<table>
-		<caption><a name="Collation_Settings">Collation Settings</a></caption>
+    <caption><a name="Collation_Settings">Collation Settings</a></caption>
 		<tr>
 			<th>Attribute</th>
 			<th>Options</th>
@@ -3364,8 +3365,8 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><font color="#000000">strength</font></td>
 			<td>primary (1)<br>
 			secondary (2)<br>
-			<em>tertiary (3)</em><br>
-			quaternary (4)<br>
+			<em><strong>tertiary (3)</strong></em><strong><br>
+			</strong>quaternary (4)<br>
 			identical (5)</td>
 			<td><code>strength = &quot;<span style="color: blue">primary</span>&quot;<br>
 			  <br>
@@ -3374,12 +3375,15 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		</tr>
 		<tr>
 			<td>alternate</td>
-			<td><i>non-ignorable</i><br>
-			shifted</td>
+			<td><i><strong>non-ignorable</strong></i><strong><br>
+	    </strong>shifted<br>
+        <span class="changedspan">shift-trimmed</span><br>
+        <i>blanked</i><br>
+      <span class="changedspan">ignoresp</span></td>
 			<td><code>alternate = &quot;<span style="color: blue">non-ignorable</span>&quot;<br>
 		    <br>
 		    [alternate non-ignorable]</code></td>
-			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <strong><em>Note that the default for CLDR is different than it is in the UCA. Thus whitespace and punctuation are not ignored by default, and even when alternate is set to &quot;shifted&quot;, symbols are not affected.</em></strong></td>
+			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <strong><em>The default for CLDR is different than it is in the UCA. Thus whitespace and punctuation are not ignored by default, <span class="changed">and the meaning of &quot;shifted&quot; is actually &quot;ignoresp&quot;.</span></em></strong></td>
 		</tr>
 		<tr>
 			<td>backwards</td>
@@ -3410,8 +3414,8 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 			  [caseLevel on]<br>
             </code></td>
-			<td>If set to <i>on,</i> a level consisting only of case characteristics will be inserted in front of tertiary level. To ignore accents but take cases 
-			into account, set strength to primary and case level to <i>on</i>. </td>
+			<td>If set to <i>on,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take cases 
+			into account, set strength to primary and case level to <i>on</i>. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</span></td>
 		</tr>
 		<tr>
 			<td>caseFirst</td>
@@ -3422,7 +3426,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    [caseFirst off]</code></td>
 			<td>If set to <i>upper</i>, causes upper case to sort before lower case. If set to <i>lower</i>, lower case will sort before upper case. Useful for 
-			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels.</td>
+			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</span></td>
 		</tr>
 		<tr>
 			<td>hiraganaQuaternary</td>
@@ -3432,7 +3436,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    [hiraganaQ on]			</code></td>
 			<td>Controls special treatment of Hiragana code points on quaternary level. If turned <i>on</i>, Hiragana codepoints will get lower values than all 
-			the other non-variable code points. The strength must be greater or equal than quaternary if you want this attribute to take effect.</td>
+			the other non-variable code points. <span class="changed">That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
 		</tr>
 		<tr>
 			<td>numeric</td>
@@ -3442,7 +3446,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    [numeric on]</code></td>
 			<td>If set to <i>on</i>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
-			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.</td>
+			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The first primary value is the set to just after the primary value of &quot;0&quot;, wherever that has been tailored to. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a12&quot; &lt; &quot;a2&quot; &lt; &quot;aa&quot;.</span></td>
 		</tr>
 		<tr>
 			<td>variableTop</td>
@@ -3458,6 +3462,13 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			affected by the alternate handling. Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but not in CLDR. See below for more information.</p>
 			</td>
 		</tr>
+		<tr class="changed">
+		  <td>reorder</td>
+		  <td>a sequence of one or more reorder codes</td>
+		  <td>&nbsp;</td>
+		  <td>Specifies a reordering of scripts or other significant blocks of characters such as symbols, punctuation, and digits. 
+	      For the precise meaning and usage of the reorder codes, see <em>Section 5.14.12, <a href="#Script_Reordering">Collation Reordering</a>.</em></td>
+	  </tr>
 		<tr>
 			<td>match-boundaries:</td>
 			<td nowrap><em>none</em><br>
@@ -3466,7 +3477,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>match-boundaries = &quot;<span style="color: blue">whole-word</span>&quot;</code><br>
 			  <br>
 		    n/a<br></td>
-			<td>The meaning is according to the descriptions in <em>Section 8 Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+			<td><span class="changed">Defined by  <em>Section 8, </em></span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>
 			<td>match-style</td>
@@ -3476,7 +3487,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>match-style = &quot;<span style="color: blue">medial</span>&quot;</code><br>
 			  <br>
 		    n/a</td>
-			<td>The meaning is according to the descriptions <em>Section 8 Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+			<td><span class="changed">Defined by <em>Section 8,</em> </span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
   </table>
   <p>Variable Top bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20B8 (see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
@@ -4153,6 +4164,78 @@ text data in the rule. For example, the following are all disallowed:</p>
   </tbody>
 </table>
 <p>The reordering blocks are defined by DUCET, and do not always completely  follow Script or General_Category property values. For more information, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
+<h4 class="changed"><a name="Case_Level"></a>5.14.13 Case Level</h4>
+<p class="changed">The Case Level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and swapping the order of upper and lowercase. The use of the Case Level inserts an extra level (&quot;2.5&quot;) between levels 2 and 3. When specified, this level will show up even when the strength is Level 1. When the Case Level is not specified, the Case-First option may still have an effect on the tertiary level values.</p>
+<p class="changed">Importantly, unless two characters have the same the primary value and different case level values, the case level values make no difference. </p>
+<p class="changed">The following describes the derivation of the case level, where the other levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):<br>
+</p>
+<ol>
+  <li class="changed">If t == 0, set  c = ĉ = 0, and skip to #6.</li>
+  <li class="changed">Convert the code point to NFKD.</li>
+  <li class="changed">Look up a case value for each character x based on UCD properties.</li>
+  <ol>
+    <li class="changed">LOWER if x ∈ Lowercase or x ∈ CWUC or x ∈ <strong>LowerExceptions</strong></li>
+    <li class="changed">UPPER if x ∈ Uppercase or x ∈ CWLC or x ∈ <strong>UpperExceptions</strong></li>
+    <li class="changed">MIXED if gc=Lt or both (a) and (b)<em> // currently can’t happen</em></li>
+    <li class="changed">UNCASED otherwise</li>
+  </ol>
+  <li class="changed">Combine the set of values to a single value:</li>
+  <ol>
+    <li class="changed">first removing UNCASED, then using:</li>
+    <li class="changed">MIXED if not all elements are identical, otherwise</li>
+    <li class="changed">UPPER if the set contains UPPER, otherwise</li>
+    <li class="changed">LOWER.</li>
+  </ol>
+  <li class="changed">Set</li>
+  <ol>
+    <li class="changed">c = LOWER ? 1 : MIXED ? 2 : 3</li>
+    <li class="changed">ĉ = UPPER ? 1 : MIXED ? 2 : 3</li>
+  </ol>
+  <li class="changed">Compute the case level and tertiary as following. The notation <em>xt</em> means that the values are numerically combined into a single level, where <em>x</em> is shifted high enough to not collide with any <em>t</em> value.</li>
+</ol>
+<div dir="ltr">
+  <div align="center">
+    <table>
+      <colgroup>
+        <col width="145">
+        <col width="111">
+        <col width="122">
+        </colgroup>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">CaseLevel=Off</strong></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">CaseLevel=On</strong></td>
+          </tr>
+        <tr>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">CaseFirst=Off</strong></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">p.s.t</strong></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">p.s.c.t</strong></td>
+          </tr>
+        <tr>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">CaseFirst=LowerFirst</strong></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">p.s.ct</strong></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">p.s.c.t</strong></td>
+          </tr>
+        <tr>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">CaseFirst=UpperFirst</strong></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">p.s.ĉt</strong></td>
+          <td class="changed"><strong id="internal-source-marker_0.6060675045009702">p.s.ĉ.t</strong></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+<p class="changed">  Note that if t = 0, the results are 0.0.0 and 0.0.0.0 respectively.</p>
+<p class="changed"><strong>LowerExceptions</strong> = script=Hiragana or Katakana small letters, other characters lowercase in form. In Unicode 6.2, these are:</p>
+<ul>
+  <li class="changed">[\u0363-\u036F\u1DCA\u1DD3-\u1DDA\u1DDC\u1DDD\u1DE0\u1DE3-\u1DE6 ℩ぁぃぅぇぉっゃゅょゎゕゖァィゥェォッ ャュョヮヵヶㇰ-ㇿ]</li>
+</ul>
+<p class="changed"><strong>UpperExceptions</strong> = other script=Hiragana or Katakana letters, other characters uppercase in form. In Unicode 6.2, these are:</p>
+<ul>
+  <li><span class="changed">[ᴯᴻ℘℺⅁-⅄あいうえお-ぢつ-もやゆ よ-ろわ-ゔゝゞアイウエオ-ヂツ-モヤユヨ-ロ ワ-ヴヷ-ヺヽヾ𛀀𛀁🅐-🅩🅰-</span>🆏🆑-🆚]<br>
+  </li>
+</ul>
 <h3>5.15 <span><a name="Segmentations">Segmentations</a></span></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 
   notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an id attribute.</p>
@@ -9221,9 +9304,14 @@ decimal?, group?, special*)) &gt;</pre>
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
 
-  <h3>Revision 25</h3>
+  <h3 class="changed">Revision 26</h3>
+  <ul>
+    <li class="changed">Added new section <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</li>
+    <li class="changed">Modified the table in <em>Section 5.14.3, <a href="#Setting_Options">Setting Options</a></em> to include information from UCA, and to add clarifications.</li>
+  </ul>
+<h3>Revision 25</h3>
 	<ul>
-		<li>Updated for CLDR Version 21.0.1.</li>
+    <li>Updated for CLDR Version 21.0.1.</li>
 		<li>Fixed typo in 't' extension.</li>
 		<li>Added note on the special case of 'und' in language matching:  <a href="http://unicode.org/cldr/trac/ticket/3439">#3439</a></li>
 		<li>Added explanation of Empty Override: <a href="http://unicode.org/cldr/trac/ticket/4012">#4012</a></li>

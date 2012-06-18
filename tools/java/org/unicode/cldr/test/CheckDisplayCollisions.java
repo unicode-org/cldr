@@ -63,6 +63,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     Matcher exclusions = Pattern.compile("XXXX").matcher(""); // no matches
     Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*+)\"]").matcher("");
     Matcher attributesToIgnore = Pattern.compile("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
+    Matcher compactNumberAttributesToIgnore = Pattern.compile("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
 
     boolean[] builtCollisions;
     Set<String> paths = new HashSet<String>();
@@ -74,7 +75,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private transient Relation<String,String> hasCollisions = Relation.of(new TreeMap<String,Set<String>>(), HashSet.class);
     private boolean finalTesting;
     private Set<Count> pluralTypes;
-    
+
     private PathHeader.Factory pathHeaderFactory;
 
     public CheckDisplayCollisions(Factory factory) {
@@ -99,8 +100,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                         //codes.remove(code); // don't show self
 
                         CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.displayCollision)
-                        .setCheckOnSubmit(false)
-                        .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
+                            .setCheckOnSubmit(false)
+                            .setMessage("Can't have same translation as {0}", new Object[]{codes.toString()});
                         result.add(item);
                     }
                     break;
@@ -131,16 +132,21 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             // get the paths with the same value. If there aren't duplicates, continue;
             retrievedPaths.clear();
             paths.clear();
-            
+
             Matcher matcher = null;
             String message = "Can't have same translation as {0}";
+            Matcher currentAttributesToIgnore = attributesToIgnore;
+
             if (myPrefix.equals(DECIMAL_FORMAT_PREFIX)) {
-                if (!path.contains("[@count=")) return this;
+                if (!path.contains("[@count=")) {
+                    return this;
+                }
                 XPathParts parts = new XPathParts().set(path);
                 String type = parts.getAttributeValue(-1, "type");
                 myPrefix = parts.removeElement(-1).toString();
                 matcher = Pattern.compile(myPrefix.replaceAll("\\[", "\\\\[") +
-                        "/pattern\\[@type=(?!\"" + type + "\")\"\\d+\"].*").matcher(path);
+                    "/pattern\\[@type=(?!\"" + type + "\")\"\\d+\"].*").matcher(path);
+                currentAttributesToIgnore = compactNumberAttributesToIgnore;
                 message = "Can't have same number pattern as {0}";
             }
             getResolvedCldrFileToCheck().getPathsWithValue(value, myPrefix, matcher, retrievedPaths);
@@ -159,12 +165,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     continue;
                 }
                 // clean up the pat
-                String newPath = attributesToIgnore.reset(pathName).replaceAll("");
+                String newPath = currentAttributesToIgnore.reset(pathName).replaceAll("");
                 paths.add(newPath);
             }
-            String cleanPath = attributesToIgnore.reset(path).replaceAll("");
+            String cleanPath = currentAttributesToIgnore.reset(path).replaceAll("");
             paths.remove(cleanPath);
-            
+
             if (paths.isEmpty()) {
                 return this;
             }
@@ -179,7 +185,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             collidingTypes.clear();
             if (SKIP_TYPE_CHECK) {
                 for (String pathName : paths) {
-                    attributesToIgnore.reset(pathName);
+                    currentAttributesToIgnore.reset(pathName);
                     PathHeader pathHeader = pathHeaderFactory.fromPath(pathName);
                     collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
                 }
@@ -203,8 +209,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }}
 
             CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.displayCollision)
-            .setCheckOnSubmit(false)
-            .setMessage(message, new Object[]{collidingTypes.toString()});
+                .setCheckOnSubmit(false)
+                .setMessage(message, new Object[]{collidingTypes.toString()});
             result.add(item);
         }
         return this;
@@ -225,11 +231,11 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     it.remove();
                     continue main;
                 }
-//                // make sure the collision is with the same type
-//                if (dpath.startsWith(typesICareAbout[myType]) 
-//                        && !exclusions.reset(dpath).find()) {
-//                    continue main;
-//                }
+                //                // make sure the collision is with the same type
+                //                if (dpath.startsWith(typesICareAbout[myType]) 
+                //                        && !exclusions.reset(dpath).find()) {
+                //                    continue main;
+                //                }
                 // no match, remove
                 it.remove();
             }
@@ -245,7 +251,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         finalTesting  = Phase.FINAL_TESTING == getPhase();
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(
-                getFactory().getSupplementalDirectory()); 
+            getFactory().getSupplementalDirectory()); 
         PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
         pluralTypes = pluralInfo.getCountToExamplesMap().keySet();
 
@@ -362,8 +368,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             getOffset(otherPath, otherOffsets);
 
             if (pathOffsets[0] == otherOffsets[0] 
-                                               && pathOffsets[0] == pathOffsets[1] 
-                                                                                && otherOffsets[0] == otherOffsets[1]) return true;
+                && pathOffsets[0] == pathOffsets[1] 
+                    && otherOffsets[0] == otherOffsets[1]) return true;
 
             // if they are short/long variants of the same path, they are ok
             if (CLDRFile.getCode(path).equals(CLDRFile.getCode(otherPath))) {

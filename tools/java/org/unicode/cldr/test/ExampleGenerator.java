@@ -27,6 +27,7 @@ import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 
@@ -132,6 +133,10 @@ public class ExampleGenerator {
     private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 
     private Set<String> singleCountryZones;
+    
+    private PluralInfo pluralInfo;
+
+    private Map<Integer, Map<Count,Integer>> patternExamples;
 
     /**
      * For getting the end of the "background" style. Default is "</span>". It is
@@ -216,6 +221,8 @@ public class ExampleGenerator {
                 singleCountryZones = new HashSet(Arrays.asList(listValue.trim().split("\\s+")));
             }
         }
+        pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
+        patternExamples = new HashMap<Integer, Map<Count,Integer>>();
     }
 
     public enum ExampleType {NATIVE, ENGLISH};
@@ -812,17 +819,67 @@ public class ExampleGenerator {
             dateFormat.setTimeZone(ZONE_SAMPLE);
             result = dateFormat.format(DATE_SAMPLE);
         } else if (parts.contains("numbers")) {
-            DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
-            double numberSample = NUMBER_SAMPLE;
-            String compactType = parts.getAttributeValue(-1, "type");
-            if (compactType != null && !compactType.equals("standard")) {
-                int digits = numberFormat.getMinimumIntegerDigits();
-                numberSample = 1.2345678 * Math.pow(10,digits-1);
-            }
-            result = numberFormat.format(numberSample);
-            result = setBackgroundOnMatch(result, ALL_DIGITS);
+            result = handleDecimalFormat(value);
         }
         return result;
+    }
+
+    /**
+     * Creates examples for decimal formats.
+     * @param value
+     * @return
+     */
+    private String handleDecimalFormat(String value) {
+        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
+        String countValue = parts.getAttributeValue(-1, "count");
+        // Match decimal formats.
+        if (countValue != null) {
+            Count count = Count.valueOf(countValue);
+            if (pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
+                return startItalicSymbol + "Invalid item" + endItalicSymbol;
+            }
+            DecimalFormat format = new DecimalFormat(value);
+            Integer numberSample = getExampleForPattern(format, count);
+            return numberSample == null ?
+                    startItalicSymbol + "n/a" + endItalicSymbol
+                    : format.format(numberSample.doubleValue());
+        } else {
+            String result = numberFormat.format(NUMBER_SAMPLE);
+            result = setBackgroundOnMatch(result, ALL_DIGITS);
+            return result;
+        }
+    }
+
+    /**
+     * Calculates a numerical example to use for the specified pattern using
+     * brute force (TODO: there should be a more elegant way to do this).
+     * @param format
+     * @param count
+     * @return
+     */
+    private Integer getExampleForPattern(DecimalFormat format, Count count) {
+        int numDigits = format.getMinimumIntegerDigits();
+        int min = (int) Math.pow(10, numDigits- 1);
+        int max = min * 10;
+        Map<Count, Integer> examples = patternExamples.get(numDigits);
+        if (examples == null) {
+            patternExamples.put(numDigits, examples = new HashMap<Count, Integer>());
+            Set<Count> typesLeft = new HashSet<Count>(pluralInfo.getCountToExamplesMap().keySet());
+            // Add at most one example of each type.
+            for (int i = min; i < max; ++i) {
+                if (typesLeft.isEmpty()) break;
+                Count type = Count.valueOf(pluralInfo.getPluralRules().select(i));
+                if (!typesLeft.contains(type)) continue;
+                examples.put(type, i);
+                typesLeft.remove(type);
+            }
+            // Add zero as an example only if there is no other option.
+            if (min == 1) {
+                Count type = Count.valueOf(pluralInfo.getPluralRules().select(0));
+                if (!examples.containsKey(type)) examples.put(type, 0);
+            }
+        }
+        return examples.get(count);
     }
 
     private String handleCurrency(String xpath, String value, ExampleContext context, ExampleType type) {

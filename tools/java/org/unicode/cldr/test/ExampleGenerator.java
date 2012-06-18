@@ -283,7 +283,11 @@ public class ExampleGenerator {
             } else if (parts.contains("currency")) {
                 result = handleCurrency(xpath, value, context, type);
             } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
+                if (parts.contains("calendar")) {
                 result = handleDateFormatItem(value);
+                } else if (parts.contains("numbers")) {
+                    result = handleDecimalFormat(value, type);
+                }
             } else if (parts.getElement(2).contains("symbols")) {
                 result = handleNumberSymbol(parts, value);
             } else if (parts.contains("defaultNumberingSystem") || parts.contains("otherNumberingSystems")) {
@@ -798,30 +802,23 @@ public class ExampleGenerator {
     }
 
     private String handleDateFormatItem(String value) {
-        String result = null;
-        if (parts.contains("calendar")) {
-            String calendar = parts.findAttributeValue("calendar", "type");
-            SimpleDateFormat dateFormat;
-            if (parts.contains("dateTimeFormat")) {
-                SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
-                SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
-                date2.applyPattern(format(value, setBackground(time.toPattern()), setBackground(date2.toPattern())));
-                dateFormat = date2;
+        String calendar = parts.findAttributeValue("calendar", "type");
+        SimpleDateFormat dateFormat;
+        if (parts.contains("dateTimeFormat")) {
+            SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
+            SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
+            date2.applyPattern(format(value, setBackground(time.toPattern()), setBackground(date2.toPattern())));
+            dateFormat = date2;
+        } else {
+            String id = parts.findAttributeValue("dateFormatItem", "id");
+            if ("NEW".equals(id) || value == null) {
+                return startItalicSymbol + "n/a" + endItalicSymbol;
             } else {
-                String id = parts.findAttributeValue("dateFormatItem", "id");
-                if ("NEW".equals(id) || value == null) {
-                    result = startItalicSymbol + "n/a" + endItalicSymbol;
-                    return result;
-                } else {
-                    dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
-                }
+                dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
             }
-            dateFormat.setTimeZone(ZONE_SAMPLE);
-            result = dateFormat.format(DATE_SAMPLE);
-        } else if (parts.contains("numbers")) {
-            result = handleDecimalFormat(value);
         }
-        return result;
+        dateFormat.setTimeZone(ZONE_SAMPLE);
+        return dateFormat.format(DATE_SAMPLE);
     }
 
     /**
@@ -829,20 +826,27 @@ public class ExampleGenerator {
      * @param value
      * @return
      */
-    private String handleDecimalFormat(String value) {
+    private String handleDecimalFormat(String value, ExampleType type) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
         String countValue = parts.getAttributeValue(-1, "count");
         // Match decimal formats.
         if (countValue != null) {
             Count count = Count.valueOf(countValue);
-            if (!pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
-                return startItalicSymbol + "Invalid item" + endItalicSymbol;
+            if (type != ExampleType.ENGLISH &&
+                    !pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
+                return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
             }
-            DecimalFormat format = new DecimalFormat(value);
-            Integer numberSample = getExampleForPattern(format, count);
-            return numberSample == null ?
-                    startItalicSymbol + "n/a" + endItalicSymbol
-                    : format.format(numberSample.doubleValue());
+            Integer numberSample = getExampleForPattern(numberFormat, count);
+            if (numberSample == null) {
+                if (type == ExampleType.ENGLISH) {
+                    int digits = numberFormat.getMinimumIntegerDigits();
+                    return numberFormat.format(1.2345678 * Math.pow(10,digits-1));
+                } else {
+                    return startItalicSymbol + "n/a" + endItalicSymbol;
+                }
+            } else {
+                return numberFormat.format(numberSample.doubleValue());
+            }
         } else {
             String result = numberFormat.format(NUMBER_SAMPLE);
             result = setBackgroundOnMatch(result, ALL_DIGITS);

@@ -121,7 +121,11 @@ public class DisplayAndInputProcessor {
             if (numericType != NumericType.NOT_NUMERIC) {
                 // Canonicalize existing values that aren't canonicalized yet.
                 // New values will be canonicalized on input using processInput().
-                value = getCanonicalPattern(value, numericType, isPosix);
+                try {
+                    value = getCanonicalPattern(value, numericType, isPosix);
+                } catch (IllegalArgumentException e) {
+                    if(DEBUG_DAIP) System.err.println("Illegal pattern: " + value);
+                }
                 if (numericType != NumericType.CURRENCY) {
                     value = value.replace("'", "");
                 }

@@ -3383,7 +3383,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>alternate = &quot;<span style="color: blue">non-ignorable</span>&quot;<br>
 		    <br>
 		    [alternate non-ignorable]</code></td>
-			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <strong><em>The default for CLDR is different than it is in the UCA. Thus whitespace and punctuation are not ignored by default, <span class="changed">and the meaning of &quot;shifted&quot; is actually &quot;ignoresp&quot;.</span></em></strong></td>
+			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <strong><em>The default for CLDR is different than it is in the UCA. <span class="changed">In CLDR, </span>whitespace and punctuation are not ignored by default, <span class="changed">and the meaning of &quot;shifted&quot; is actually &quot;ignoresp&quot;. For other implementations of UCA, &quot;ignoresp&quot; and &quot;shifted&quot; may be different.</span></em></strong></td>
 		</tr>
 		<tr>
 			<td>backwards</td>
@@ -3436,7 +3436,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    [hiraganaQ on]			</code></td>
 			<td>Controls special treatment of Hiragana code points on quaternary level. If turned <i>on</i>, Hiragana codepoints will get lower values than all 
-			the other non-variable code points. <span class="changed">That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
+			the other non-variable code points <span class="changed">in <strong>shifted</strong> or <strong>ignoresp</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
 		</tr>
 		<tr>
 			<td>numeric</td>
@@ -4173,27 +4173,27 @@ text data in the rule. For example, the following are all disallowed:</p>
 </p>
 <ol>
   <li class="changed">If t == 0, set  c = ĉ = 0, and skip to #6.</li>
-  <li class="changed">Convert the code point to NFKD.</li>
-  <li class="changed">Look up a case value for each character x based on UCD properties.
-  <ol>
-    <li class="changed">LOWER if x ∈ Lowercase or x ∈ CWUC or x ∈ <strong>LowerExceptions</strong></li>
-    <li class="changed">UPPER if x ∈ Uppercase or x ∈ CWLC or x ∈ <strong>UpperExceptions</strong></li>
-    <li class="changed">MIXED if gc=Lt or both (a) and (b)<em> // currently can’t happen</em></li>
+  <li class="changed">Convert the code points in the source string to an NFKD string s.</li>
+  <li class="changed">Form a set of case values for s by looking  up a case value for each character x based on UCD properties:
+    <ol>
+    <li class="changed">LOWER if x ∈ <strong>Lowercase</strong> or x ∈ <strong>Changes_When_Uppercased</strong> or x ∈ <a href="#LowerExceptions">LowerExceptions</a></li>
+    <li class="changed">UPPER if x ∈ <strong>Uppercase</strong> or x ∈ <strong>Changes_When_Lowercased</strong> or x ∈ <a href="#UpperExceptions">UpperExceptions</a></li>
+    <li class="changed">MIXED if x ∈ <strong>gc=Lt</strong> or both (a) and (b)<em> // currently can’t happen</em></li>
     <li class="changed">UNCASED otherwise</li>
   </ol></li>
-  <li class="changed">Combine the set of values to a single value:
-  <ol>
+  <li class="changed">Combine the set of values from s into  a single value:
+    <ol>
     <li class="changed">first removing UNCASED, then using:</li>
     <li class="changed">MIXED if not all elements are identical, otherwise</li>
     <li class="changed">UPPER if the set contains UPPER, otherwise</li>
     <li class="changed">LOWER.</li>
   </ol></li>
-  <li class="changed">Set
-  <ol>
+  <li class="changed">Based on that value, set the following two variables:
+    <ol>
     <li class="changed">c = LOWER ? 1 : MIXED ? 2 : 3</li>
     <li class="changed">ĉ = UPPER ? 1 : MIXED ? 2 : 3</li>
   </ol></li>
-  <li class="changed">Compute the case level and tertiary as following. The notation <em>xt</em> means that the values are numerically combined into a single level, where <em>x</em> is shifted high enough to not collide with any <em>t</em> value.</li>
+  <li class="changed">Compute the case level and tertiary according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y.</li>
 </ol>
 <div dir="ltr">
   <div align="center">
@@ -4229,11 +4229,12 @@ text data in the rule. For example, the following are all disallowed:</p>
   </div>
 </div>
 <p class="changed">  Note that if t = 0, the results are 0.0.0 and 0.0.0.0 respectively.</p>
-<p class="changed"><strong>LowerExceptions</strong> = script=Hiragana or Katakana small letters, other characters lowercase in form. In Unicode 6.2, these are:</p>
+<p class="changed">A known limitation of the case levels is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;. (In practice this has not been found to be a significant limitation.)</p>
+<p class="changed"><strong><a name="LowerExceptions"></a>LowerExceptions</strong> = script=Hiragana or Katakana small letters, other characters lowercase in form. In Unicode 6.2, these are:</p>
 <ul>
   <li class="changed">[\u0363-\u036F\u1DCA\u1DD3-\u1DDA\u1DDC\u1DDD\u1DE0\u1DE3-\u1DE6 ℩ぁぃぅぇぉっゃゅょゎゕゖァィゥェォッ ャュョヮヵヶㇰ-ㇿ]</li>
 </ul>
-<p class="changed"><strong>UpperExceptions</strong> = other script=Hiragana or Katakana letters, other characters uppercase in form. In Unicode 6.2, these are:</p>
+<p class="changed"><strong><a name="UpperExceptions"></a>UpperExceptions</strong> = other script=Hiragana or Katakana letters, other characters uppercase in form. In Unicode 6.2, these are:</p>
 <ul>
   <li><span class="changed">[ᴯᴻ℘℺⅁-⅄あいうえお-ぢつ-もやゆ よ-ろわ-ゔゝゞアイウエオ-ヂツ-モヤユヨ-ロ ワ-ヴヷ-ヺヽヾ𛀀𛀁🅐-🅩🅰-</span>🆏🆑-🆚]<br>
   </li>

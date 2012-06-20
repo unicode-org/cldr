@@ -22,31 +22,31 @@ public class CheckWidths extends CheckCLDR {
     private enum Special {NONE, QUOTES}
     
     private static class Limit {
-        final double reference;
+        final double warningReference;
+        final double errorReference;
         final LimitType limit;
         final Measure measure;
-        final String errorType;
         final Special special;
         final String message;
         final Subtype subtype;
 
-        public Limit(double reference, Measure measure, LimitType limit, String errorType, Special special) {
-            this.reference = reference;
+        public Limit(double warningReference, double errorReference, Measure measure, LimitType limit, Special special) {
+            this.warningReference = warningReference;
+            this.errorReference = errorReference;
             this.limit = limit;
             this.measure = measure;
-            this.errorType = errorType;
             this.special = special;
             switch (limit) {
             case MINIMUM:
                 this.message = measure == Measure.CODE_POINTS 
-                ? "Expected length of ≥{0} character(s), but was {1}" 
-                    : "Expected width of ≥{0} em, but was ~{1} em." ;
+                ? "Expected no fewer than {0} character(s), but was {1}." 
+                    : "Too narrow by about {2}% (with common fonts)." ;
                 this.subtype = Subtype.valueTooNarrow;
                 break;
             case MAXIMUM:
                 this.message = measure == Measure.CODE_POINTS 
-                ? "Expected length of ≤{0} character(s), but was {1}."
-                    : "Expected width of ≤{0} em, but was ~{1} em.";
+                ? "Expected no more than {0} character(s), but was {1}."
+                    : "Too wide by about {2}% (with common fonts).";
                 this.subtype = Subtype.valueTooWide;
                 break;
             default: throw new IllegalArgumentException();
@@ -59,21 +59,29 @@ public class CheckWidths extends CheckCLDR {
             }
             double valueMeasure = measure == Measure.CODE_POINTS 
                 ? value.codePointCount(0, value.length()) 
-                    : ApproximateWidth.getWidth(value) / EM;
+                    : ApproximateWidth.getWidth(value);
+            String errorType = CheckStatus.warningType;
             switch (limit) {
             case MINIMUM: 
-                if (valueMeasure >= reference) {
+                if (valueMeasure >= warningReference) {
                     return false;
+                } 
+                if (valueMeasure < errorReference) {
+                    errorType = CheckStatus.errorType;
                 }
                 break;
             case MAXIMUM: 
-                if (valueMeasure <= reference) {
+                if (valueMeasure <= warningReference) {
                     return false;
+                }
+                if (valueMeasure > errorReference) {
+                    errorType = CheckStatus.errorType;
                 }
                 break;
             }
+            double percent = (int) (Math.abs(100*ApproximateWidth.getWidth(value) / warningReference - 100.0d) + 0.49999d);
             result.add(new CheckStatus().setCause(cause).setMainType(errorType).setSubtype(subtype) 
-                .setMessage(message, reference, valueMeasure)); 
+                .setMessage(message, warningReference, valueMeasure, percent)); 
             return true;
         }
     }
@@ -84,33 +92,32 @@ public class CheckWidths extends CheckCLDR {
         .setPatternTransform(RegexLookup.RegexFinderTransformPath)
         .addVariable("%A", "\"[^\"]+\"")
         .add("//ldml/delimiters/(quotation|alternateQuotation)", new Limit[] {
-            new Limit(1, Measure.CODE_POINTS, LimitType.MAXIMUM, CheckStatus.errorType, Special.NONE)
+            new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
             })
 
         // Numeric items should be no more than a single character
 
         .add("//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)", new Limit[] {
-            new Limit(1, Measure.CODE_POINTS, LimitType.MAXIMUM, CheckStatus.errorType, Special.NONE)
+            new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
             })
 
         // Now widths
         // The following are rough measures, just to check strange cases
 
         .add("//ldml/characters/ellipsis[@type=\"final\"]", new Limit[] {
-            new Limit(1.5 * ApproximateWidth.getWidth("{0}…"), Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, CheckStatus.warningType, Special.NONE)
+            new Limit(1.5 * EM * ApproximateWidth.getWidth("{0}…"), Double.POSITIVE_INFINITY, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
             })
         .add("//ldml/characters/ellipsis[@type=\"initial\"]", new Limit[] {
-            new Limit(1.5 * ApproximateWidth.getWidth("…{0}"), Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, CheckStatus.warningType, Special.NONE)
+            new Limit(1.5 * EM * ApproximateWidth.getWidth("…{0}"), Double.POSITIVE_INFINITY, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
             })
         .add("//ldml/characters/ellipsis[@type=\"medial\"]", new Limit[] {
-            new Limit(1.5 * ApproximateWidth.getWidth("{0}…{1}"), Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, CheckStatus.warningType, Special.NONE)
+            new Limit(1.5 * EM * ApproximateWidth.getWidth("{0}…{1}"), Double.POSITIVE_INFINITY, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
             })
 
         // Narrow items
 
         .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod)", new Limit[] {
-            new Limit(2.25, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, CheckStatus.errorType, Special.NONE),
-            new Limit(1.5, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, CheckStatus.warningType, Special.NONE)
+            new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
             })
         // \"(?!am|pm)[^\"]+\"\\
 
@@ -118,8 +125,7 @@ public class CheckWidths extends CheckCLDR {
 
         .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1", 
             new Limit[] {
-            new Limit(4.5, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, CheckStatus.errorType, Special.QUOTES),
-            new Limit(4, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, CheckStatus.warningType, Special.QUOTES)
+            new Limit(4 * EM, 4.5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.QUOTES)
             })
             ;
 

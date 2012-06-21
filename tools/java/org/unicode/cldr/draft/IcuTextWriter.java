@@ -21,12 +21,6 @@ public class IcuTextWriter {
     private static final String TAB = "    ";
 
     /**
-     * Map for converting enums to their integer values.
-     */
-    private static final Map<String,String> enumMap = Builder.with(new HashMap<String,String>())
-            .put("titlecase-firstword", "1").freeze();
-
-    /**
      * ICU paths have a simple comparison, alphabetical within a level. We do
      * have to catch the / so that it is lower than everything.
      */
@@ -98,12 +92,16 @@ public class IcuTextWriter {
             for (int i = common + 1; i < labels.length; ++i) {
                 final String pad = Utility.repeat(TAB, i);
                 out.append(pad);
-                out.append(labels[i]).append('{');
+                String label = labels[i];
+                if (!label.startsWith("<") && !label.endsWith(">")) {
+                    out.append(label);
+                }
+                out.append('{');
                 if (i != labels.length - 1) {
                     out.append('\n');
                 }
             }
-            boolean quote = !isIntRbPath(path);
+            boolean quote = !IcuData.isIntRbPath(path);
             List<String[]> values = icuData.get(path);
             wasSingular = appendValues(values, labels.length, quote, out);
             out.flush();
@@ -190,7 +188,7 @@ public class IcuTextWriter {
         if (quote) {
             return out.append('"').append(value).append('"');
         } else {
-            return out.append(enumMap.containsKey(value) ? enumMap.get(value) : value);
+            return out.append(value);
         }
     }
 
@@ -252,9 +250,5 @@ public class IcuTextWriter {
             }
         }
         return i - 1;
-    }
-
-    private static boolean isIntRbPath(String rbPath) {
-        return rbPath.endsWith(":int") || rbPath.endsWith(":intvector");
     }
 }

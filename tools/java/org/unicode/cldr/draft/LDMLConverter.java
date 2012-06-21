@@ -2,17 +2,21 @@ package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
+import org.unicode.cldr.tool.Option;
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.ibm.icu.dev.tool.UOption;
 
 /**
  * Simpler mechanism for converting CLDR data to ICU Resource Bundles, intended
@@ -33,19 +37,20 @@ import com.ibm.icu.dev.tool.UOption;
 public class LDMLConverter extends CLDRConverterTool {
     static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
     
-    /**
-     * These must be kept in sync with getOptions().
-     */
-    private static final int HELP1 = 0;
-    private static final int HELP2 = 1;
-    private static final int SOURCEDIR = 2;
-    private static final int DESTDIR = 3;
-    private static final int SPECIALSDIR = 4;
-    private static final int SUPPLEMENTALDIR = 5;
-    // Debugging: doesn't split up locale into separate directories.
-    private static final int KEEP_TOGETHER = 6;
-    private static final int PLURALS = 7;
-    
+    private static final Options options = new Options(
+            "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
+            "This program is used to convert LDML files to ICU data text files.\n" +
+            "Please refer to the following options. Options are not case sensitive.\n" +
+            "example: org.unicode.cldr.drafts.LDMLConverter -s xxx -d yyy en.xml\n"+
+            "Options:\n")
+        .add("sourcedir", ".*", "Source directory for CLDR files")
+        .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
+        .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
+        .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
+        .add("keeptogether", 'k', null, null, "Write locale data to one file instead of splitting into separate directories. For debugging")
+        .add("plurals-only", 'r', null, null, "Read the plurals files from the supplemental directory and " +
+                                  "write the output to the destination directory");
+
     private static final String LOCALES_DIR = "locales";
 
     private boolean keepTogether = false;
@@ -124,89 +129,49 @@ public class LDMLConverter extends CLDRConverterTool {
         }
         set.add(value);
     }
-    
-    private void usage() {
-        System.out.println(
-            "\nUsage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
-            "This program is used to convert LDML files to ICU data text files.\n" +
-            "Please refer to the following options. Options are not case sensitive.\n" +
-            "Options:\n" +
-            "-s or --sourcedir          source directory for files followed by path, " +
-                                       "default is current directory.\n" +
-            "-d or --destdir            destination directory, followed by the path, "+
-                                       "default is current directory.\n" +
-            "-p or --specialsdir        source directory for files containing special data " +
-                                       "followed by the path. None if not specified\n" +
-            "-m or --suplementaldir     source directory for finding the supplemental data.\n" +
-            "-k or --keeptogether       write locale data to one file instead of splitting.\n" +
-            "-r or --plurals-only       read the plurals files from the supplemental directory and " +
-                                       "write the output to the destination directory\n" +
-            "-h or -? or --help         this usage text.\n" +
-            "example: org.unicode.cldr.drafts.LDMLConverter -s xxx -d yyy en.xml");
-        System.exit(-1);
-    }
 
     @Override
     public void processArgs(String[] args) {
-        UOption[] options = new UOption[] {
-            UOption.HELP_H(),
-            UOption.HELP_QUESTION_MARK(),
-            UOption.SOURCEDIR(),
-            UOption.DESTDIR(),
-            UOption.create("specialsdir", 'p', UOption.REQUIRES_ARG),
-            UOption.create("supplementaldir", 'm', UOption.REQUIRES_ARG),
-            UOption.create("keeptogether", 'k', UOption.NO_ARG),
-            UOption.create("plurals-only", 'r', UOption.NO_ARG)
-        };
-
-        int remainingArgs = 0;
-        try {
-            remainingArgs = UOption.parseArgs(args, options);
-        } catch (Exception e) {
-            System.out.println("Error parsing args: " + e.getMessage());
-            e.printStackTrace();
-            usage();
-        }
-        if (args.length == 0 || options[HELP1].doesOccur || options[HELP2].doesOccur) {
-            usage();
-        }
+        Set<String> extraArgs = options.parse(args, true);
 
         // plurals.txt only requires the supplemental directory to be specified.
-        boolean sourceDirRequired = !options[PLURALS].doesOccur;
-        if (sourceDirRequired && !options[SOURCEDIR].doesOccur) {
+        if (!options.get("plurals-only").doesOccur() && !options.get("sourcedir").doesOccur()) {
             throw new IllegalArgumentException("Source directory must be specified.");
         }
-        String sourceDir = options[SOURCEDIR].value;
+        String sourceDir = options.get("sourcedir").getValue();
 
         SupplementalDataInfo supplementalDataInfo = null;
-        if (options[SUPPLEMENTALDIR].doesOccur) {
-            supplementalDataInfo = SupplementalDataInfo.getInstance(options[SUPPLEMENTALDIR].value);
+        Option option = options.get("supplementaldir");
+        if (option.doesOccur()) {
+            supplementalDataInfo = SupplementalDataInfo.getInstance(options.get("supplementaldir").getValue());
         } else {
             throw new IllegalArgumentException("Supplemental directory must be specified.");
         }
 
-        destinationDir = options[DESTDIR].doesOccur ? options[DESTDIR].value : ".";
+        destinationDir = options.get("destdir").getValue();
         Factory specialFactory = null;
-        if (options[SPECIALSDIR].doesOccur) {
-            specialFactory = Factory.make(options[SPECIALSDIR].value, ".*");
+        option = options.get("specialsdir");
+        if (option.doesOccur()) {
+            specialFactory = Factory.make(option.getValue(), ".*");
         }
-        keepTogether = options[KEEP_TOGETHER].doesOccur;
+        keepTogether = options.get("keeptogether").doesOccur();
 
         // Process files.
-        if (options[PLURALS].doesOccur) {
+        if (options.get("plurals-only").doesOccur()) {
             processPlurals(supplementalDataInfo);
         } else {
             // LocalesMap passed in from ant
-            Set<String> locales = new HashSet<String>();
+            List<String> locales = new ArrayList<String>();
             Factory factory = null;
             if (getLocalesMap() != null && getLocalesMap().size() > 0) {
                 for (String filename : getLocalesMap().keySet()) {
                     // Remove ".xml" from the end.
                     locales.add(filename.substring(0, filename.length() - 4));
                 }
-                factory = Factory.make(sourceDir, ".*");
-            } else if (remainingArgs > 0) {
-                factory = Factory.make(sourceDir, args[0]);
+                factory = Factory.make(sourceDir, ".*", DraftStatus.contributed);
+                Collections.sort(locales);
+            } else if (extraArgs.size() > 0) {
+                factory = Factory.make(sourceDir, extraArgs.iterator().next());
                 locales.addAll(factory.getAvailable());
             } else {
                 throw new IllegalArgumentException("No files specified!");
@@ -231,16 +196,17 @@ public class LDMLConverter extends CLDRConverterTool {
         }
     }
 
-    private void processLocales(LdmlLocaleMapper mapper, Set<String> locales) {
+    private void processLocales(LdmlLocaleMapper mapper, List<String> locales) {
         for (String locale : locales) {
             long time = System.currentTimeMillis();
             IcuData icuData = mapper.fillFromCLDR(locale);
             if (keepTogether) {
                 writeIcuData(icuData, destinationDir);
             } else {
+                // TODO: manage mapping some other way.
                 Map<String, Set<String>> dirPaths = mapDirToPaths(icuData.keySet());
                 for (String dir : dirPaths.keySet()) {
-                    IcuData dirData = new IcuData("common/main/" + locale + ".xml", locale);
+                    IcuData dirData = new IcuData("common/main/" + locale + ".xml", locale, true);
                     Set<String> paths = dirPaths.get(dir);
                     for (String path : paths) {
                         dirData.addAll(path, icuData.get(path));
@@ -249,6 +215,9 @@ public class LDMLConverter extends CLDRConverterTool {
                 }
             }
             System.out.println("Converted " + locale + ".xml in " + (System.currentTimeMillis() - time) + "ms");
+        }
+        if (aliasDeprecates != null) {
+            // TODO: process alias deprecates
         }
     }
 

@@ -2,6 +2,7 @@ package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -67,15 +68,19 @@ public class RBChecker {
         for (String filename : filenames) {
             if (!filename.matches(regex +"\\.txt")) continue;
             String locale = filename.substring(0, filename.length() - 4);
-            IcuData oldData = loadDataFromTextfiles(dir1, locale);
-            IcuData newData = loadDataFromTextfiles(dir2, locale);
-            StringBuffer messages = new StringBuffer();
-            if (analyseMatches(oldData, newData, messages)) {
-                System.out.println("=== Differences found for " + locale + " ===");
-                System.out.print(messages);
-                different++;
-            } else {
-                same++;
+            try {
+                IcuData oldData = loadDataFromTextfiles(dir1, locale);
+                IcuData newData = loadDataFromTextfiles(dir2, locale);
+                StringBuffer messages = new StringBuffer();
+                if (analyseMatches(oldData, newData, messages)) {
+                    System.out.println("=== Differences found for " + locale + " ===");
+                    System.out.print(messages);
+                    different++;
+                } else {
+                    same++;
+                }
+            } catch (FileNotFoundException e) {
+                System.err.println(locale + " file not found, skipping");
             }
         }
         System.out.println("Check finished with " + different + " different and " + same + " same locales.");
@@ -139,7 +144,7 @@ public class RBChecker {
 
     private static IcuData loadDataFromTextfiles(String icuPath, String locale) throws IOException {
         List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<Row.R2<MyTokenizer.Type, String>>();
-        IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale);
+        IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale, true);
         String filename = icuPath + '/' + locale + ".txt";
         if (new File(filename).exists()) {
             parseRB(filename, icuData, comments);

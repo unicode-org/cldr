@@ -1,17 +1,32 @@
-# Data-driven file for mapping LDML paths to ICU paths.
+# Used by LdmlLocaleMapper.
+# Data-driven file for mapping LDML locale paths to ICU paths.
 # Order is not important, so regexes are grouped logically and are assumed to be
 # mutually exclusive.
-# Format is:
-# ldmlRegex ; icuPath ; specialInstructions
-# Each regex pattern is transformed by the following before use: "^" + source.replace("[@", "\\[@") + "$"
-# Each icuPath is prefixed by the file name (eg /en).
-# specialInstructions are optional. If one occurs, then it is a regex for extra paths to be added from the fully-resolved file.
+# The format is:
+# ldmlRegex ; icuPath (; specialInstructions)*
+# Each regex pattern must match an xpath completely to hava a successful match.
+# Square brackets that are part of the xpath will be preceded by a backslash
+# during processing, so there's no need to do it here.
+# specialInstructions are optional. There may be multiple special instructions,
+# with each instruction being one of the following:
+#     - values=<comma-separated-values> which can be
+#       - hardcoded strings,
+#       - regex arguments w.r.t the xpath regex (e.g. $1) or
+#       - {value} to represent the value of the xpath in the CLDR data
+#     - fallback=<value> which can be
+#       - a hardcoded string or
+#       - a regex argument that is already in the rbPath
+#     - array, which indicates that the values created using this xpath should
+#       be grouped together in their own sub-array in the ICU data file.
+# All matched arguments from xpaths will be split by whitespace unless the
+# corresponding argument in the replacement string is surrounded by quotes, e.g.
+# "$1".
 
 # Variables
 # Attribute value
 %A=[^"']++
-# Element value
-%E=[\w\-]++
+# Word
+%W=[\w\-]++
 # Greedy word match
 %G=[\w\-]+
 # Number match
@@ -28,16 +43,16 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNarrow/alias[@source="locale"][@path="../eraAbbr"] ; /calendar/$1/eras/narrow:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNames/alias[@source="locale"][@path="../eraAbbr"] ; /calendar/$1/eras/wide:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%E)"]/alias[@source="locale"][@path="../\2[@type='(%A)']"]   ; /calendar/$1/$2s/$3:alias ; values=/LOCALE/calendar/$1/$2s/$4
-//ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%E)"]/(cyclicName)Context[@type="(%E)"]/\4Width[@type="(%E)"]/alias[@source="locale"][@path="../\4Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$5/$6:alias ; values=/LOCALE/calendar/$1/$2s/$3/$5/$7
-//ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet|monthPattern|quarter)s/\2Context[@type="(%E)"]/\2Width[@type="(%E)"]/alias[@source="locale"][@path="../../\2Context[@type='(%E)']/\2Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$4:alias ; values=/LOCALE/calendar/$1/$2s/$5/$6
+//ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%W)"]/alias[@source="locale"][@path="../\2[@type='(%A)']"]   ; /calendar/$1/$2s/$3:alias ; values=/LOCALE/calendar/$1/$2s/$4
+//ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%W)"]/(cyclicName)Context[@type="(%W)"]/\4Width[@type="(%W)"]/alias[@source="locale"][@path="../\4Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$5/$6:alias ; values=/LOCALE/calendar/$1/$2s/$3/$5/$7
+//ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet|monthPattern|quarter)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/alias[@source="locale"][@path="../../\2Context[@type='(%W)']/\2Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$4:alias ; values=/LOCALE/calendar/$1/$2s/$5/$6
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/alias[@source="locale"][@path="../../%E[@type='(%A)']/%E"] ; /calendar/$1/$2Names:alias ; values=/LOCALE/calendar/$3/$2Names
-//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/\2Context[@type="(%E)"]/\2Width[@type="(%E)"]/alias[@source="locale"][@path="../\2Width[@type='(%A)']"]   ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$3/$5
-//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/\2Context[@type="(%E)"]/\2Width[@type="(%E)"]/alias[@source="locale"][@path="../../\2Context[@type='(%E)']/\2Width[@type='(%A)']"]   ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$5/$6
+//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/alias[@source="locale"][@path="../../%W[@type='(%A)']/%W"] ; /calendar/$1/$2Names:alias ; values=/LOCALE/calendar/$3/$2Names
+//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/alias[@source="locale"][@path="../\2Width[@type='(%A)']"]   ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$3/$5
+//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/alias[@source="locale"][@path="../../\2Context[@type='(%W)']/\2Width[@type='(%A)']"]   ; /calendar/$1/$2Names/$3/$4:alias ; values=/LOCALE/calendar/$1/$2Names/$5/$6
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/(monthPattern|quarter)s/\2Context[@type="(%E)"]/\2Width[@type="(%E)"]/alias[@source="locale"][@path="../\2Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$4:alias ; values=/LOCALE/calendar/$1/$2s/$3/$5
-//ldml/dates/calendars/calendar[@type="(%A)"]/quarters/alias[@source="locale"][@path="../../%E[@type='(%A)']/%E"] ; /calendar/$1/quarters:alias ; values=/LOCALE/calendar/$2/quarters
+//ldml/dates/calendars/calendar[@type="(%A)"]/(monthPattern|quarter)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/alias[@source="locale"][@path="../\2Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$4:alias ; values=/LOCALE/calendar/$1/$2s/$3/$5
+//ldml/dates/calendars/calendar[@type="(%A)"]/quarters/alias[@source="locale"][@path="../../%W[@type='(%A)']/%W"] ; /calendar/$1/quarters:alias ; values=/LOCALE/calendar/$2/quarters
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateFormats/alias[@source="locale"][@path="../../calendar[@type='(%A)']/dateFormats"]   ; /calendar/$1/DateTimePatterns:alias ; values=/LOCALE/calendar/$2/DateTimePatterns
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/alias[@source="locale"][@path="../../calendar[@type='(%A)']/dateTimeFormats"]   ; /calendar/$1/availableFormats:alias ; values=/LOCALE/calendar/$2/availableFormats
@@ -61,17 +76,21 @@
 //ldml/dates/calendars/default[@choice="(%A)"]   ; /calendar/default ; values=$1
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/(month|day)s/default[@choice="(%A)"] ; /calendar/$1/$2Names/default  ; values=$3
-//ldml/dates/calendars/calendar[@type="(%A)"]/(month|day)s/%E[@type="(%A)"]/default[@choice="(%A)"] ; /calendar/$1/$2Names/$3/default  ; values=$4
-//ldml/dates/calendars/calendar[@type="(%A)"]/(monthPattern)s/\2Context[@type="(%E)"]/\2Width[@type="(%E)"]/\2[@type="(%E)"]   ; /calendar/$1/$2s/$3/$4/$5
+//ldml/dates/calendars/calendar[@type="(%A)"]/(month|day)s/%W[@type="(%A)"]/default[@choice="(%A)"] ; /calendar/$1/$2Names/$3/default  ; values=$4
+//ldml/dates/calendars/calendar[@type="(%A)"]/(monthPattern)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/\2[@type="(%W)"]   ; /calendar/$1/$2s/$3/$4/$5
 
 # Dates
 
 //ldml/dates/calendars/calendar[@type="chinese"]/cyclicNameSets/cyclicNameSet[@type="(%A)"]/cyclicNameContext[@type="(%A)"]/cyclicNameWidth[@type="(%A)"]/cyclicName[@type="(%A)"] ; /calendar/chinese/cyclicNameSets/$1/$2/$3 ;
-//ldml/dates/calendars/calendar[@type="(%A)"]/dateFormats/dateFormatLength[@type="(%A)"]/dateFormat[@type="%A"]/pattern[@type="%A"][@numbers="(%E)"] ; /calendar/$1/DateTimePatterns ;  values=$value $3
+# This is a weird edge case. When the number attribute is present in the xpath,
+# its value needs to be grouped together with the xpath value in its own special
+# array, which is treated like just another value in /DateTimePatterns.
+# The array keyword is used here to specify that values from the same xpath
+# should be grouped into their own separate array.
+# So far (June 2012), this only happens in the Chinese calendar for zh_Hant.
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateFormats/dateFormatLength[@type="(%A)"]/dateFormat[@type="%A"]/pattern[@type="%A"][@numbers="(%W)"] ; /calendar/$1/DateTimePatterns ;  values={value} $3 ; array
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/((date|time|dateTime)Format)s/\2Length[@type="(%A)"]/\2[@type="%A"]/pattern[@type="%A"] ; /calendar/$1/DateTimePatterns
-# Hack to duplicate the default element in dateTimeFormats/dateTimeFormatLength
-//ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/default[@choice="(%A)"]   ; /calendar/$1/DateTimePatterns ; values=//ldml/dates/calendars/calendar[@type="$1"]/dateTimeFormats/dateTimeFormatLength[@type="$2"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/appendItems/appendItem[@request="(%A)"] ; /calendar/$1/appendItems/$2
 
@@ -89,18 +108,18 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/fields/field[@type="(%A)"]/displayName ; /calendar/$1/fields/$2/dn
 //ldml/dates/calendars/calendar[@type="(%A)"]/fields/field[@type="(%A)"]/relative[@type="(%A)"] ; /calendar/$1/fields/$2/relative/"$3"
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/%E[@type="(%A)"]/%E[@type="(%A)"]/%E[@type="(%A)"]([@yeartype="(%A)"])? ; /calendar/$1/$2Names/$3/$4
-//ldml/dates/calendars/calendar[@type="(%A)"]/(quarters)/%E[@type="(%A)"]/%E[@type="(%A)"]/%E[@type="(?:%A)"] ; /calendar/$1/$2/$3/$4
+//ldml/dates/calendars/calendar[@type="(%A)"]/(day|month)s/%W[@type="(%A)"]/%W[@type="(%A)"]/%W[@type="(%A)"]([@yeartype="(%A)"])? ; /calendar/$1/$2Names/$3/$4
+//ldml/dates/calendars/calendar[@type="(%A)"]/(quarters)/%W[@type="(%A)"]/%W[@type="(%A)"]/%W[@type="(?:%A)"] ; /calendar/$1/$2/$3/$4
 
 //ldml/dates/timeZoneNames/(%GFormat)   ; /zoneStrings/$1
 
-//ldml/dates/timeZoneNames/metazone[@type="(%A)"]/(\w)%E/(\w)%E ; /zoneStrings/"meta:$1"/$2$3
+//ldml/dates/timeZoneNames/metazone[@type="(%A)"]/(\w)%W/(\w)%W ; /zoneStrings/"meta:$1"/$2$3
 
 //ldml/dates/timeZoneNames/singleCountries[@list="(%A)"] ; /zoneStrings/singleCountries ; values=$1
 
-//ldml/dates/timeZoneNames/zone[@type="(%E)/(%E)"]/exemplarCity ; /zoneStrings/"$1:$2"/ec
-//ldml/dates/timeZoneNames/zone[@type="(%E)/(%E)"]/(\w)%E/(\w)%E ; /zoneStrings/"$1:$2"/$3$4
-//ldml/dates/timeZoneNames/zone[@type="(%E)/(%E)/(%E)"]/exemplarCity ; /zoneStrings/"$1:$2:$3"/ec
+//ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)"]/exemplarCity ; /zoneStrings/"$1:$2"/ec
+//ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)"]/(\w)%W/(\w)%W ; /zoneStrings/"$1:$2"/$3$4
+//ldml/dates/timeZoneNames/zone[@type="(%W)/(%W)/(%W)"]/exemplarCity ; /zoneStrings/"$1:$2:$3"/ec
 
 # Locale Display Names
 
@@ -132,25 +151,25 @@
 
 //ldml/numbers/currencies/currency[@type="(%A)"]/displayName[@count="(%A)"] ; /CurrencyPlurals/$1/$2
 
-//ldml/numbers/currencies/currency[@type="(%A)"]/symbol ; /Currencies/$1
+//ldml/numbers/currencies/currency[@type="(%A)"]/symbol ; /Currencies/$1 ; fallback=$1
 //ldml/numbers/currencies/currency[@type="(%A)"]/displayName ; /Currencies/$1
-# HACK: put the following xpaths in one struct within Currencies/$1 by appending a slash.
-//ldml/numbers/currencies/currency[@type="(%A)"]/(pattern[@type="standard"]|decimal|group) ; /Currencies/$1/
+//ldml/numbers/currencies/currency[@type="(%A)"]/(pattern[@type="standard"]|decimal|group) ; /Currencies/$1/<$1>
 
-//ldml/numbers/currencyFormats[@numberSystem="(%A)"]/currencySpacing/(%E)/(%E)   ; /currencySpacing/$2/$3; $1=//ldml/numbers/defaultNumberingSystem
+//ldml/numbers/currencyFormats[@numberSystem="(%A)"]/currencySpacing/(%W)/(%W)   ; /currencySpacing/$2/$3; $1=//ldml/numbers/defaultNumberingSystem
 //ldml/numbers/currencyFormats[@numberSystem="(%A)"]/unitPattern[@count="(%A)"] ; /CurrencyUnitPatterns/$2 ; $1=//ldml/numbers/defaultNumberingSystem
 
 //ldml/numbers/defaultNumberingSystem ; /NumberElements/default
-//ldml/numbers/otherNumberingSystems/(%E)   ; /NumberElements/$1
+//ldml/numbers/otherNumberingSystems/(%W)   ; /NumberElements/$1
 
-//ldml/numbers/symbols[@numberSystem="(%A)"]/(%E) ; /NumberElements/$1/symbols/$2
+//ldml/numbers/symbols[@numberSystem="(%A)"]/(%W) ; /NumberElements/$1/symbols/$2
 //ldml/numbers/(%GFormat)s[@numberSystem="(%A)"]/\1Length/\1[@type="standard"]/pattern[@type="standard"] ; /NumberElements/$2/patterns/$1
 
 # Misc
 
-//ldml/contextTransforms/contextTransformUsage[@type="(%A)"]/contextTransform[@type="(%A)"] ; /contextTransforms/$1:intvector
+//ldml/contextTransforms/contextTransformUsage[@type="(%W)"]/contextTransform[@type="uiListOrMenu"] ; /contextTransforms/$1:intvector ; fallback=0
+//ldml/contextTransforms/contextTransformUsage[@type="(%W)"]/contextTransform[@type="stand-alone"] ; /contextTransforms/$1:intvector ; fallback=0
 
-//ldml/delimiters/(%E) ; /delimiters/$1
+//ldml/delimiters/(%W) ; /delimiters/$1
 
 //ldml/layout/orientation[@lines="(%A)"][@characters="(%A)"]   ; /layout/lines ; values=$1
 //ldml/layout/orientation[@lines="(%A)"][@characters="(%A)"]   ; /layout/characters ; values=$2

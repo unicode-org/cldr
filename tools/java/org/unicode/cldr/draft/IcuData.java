@@ -1,6 +1,7 @@
 package org.unicode.cldr.draft;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,16 +17,18 @@ class IcuData {
     private String name;
     private Map<String, List<String[]>> rbPathToValues;
     private boolean hasSpecial;
-
-    public IcuData(String sourceFile, String name) {
-        this(sourceFile, name, true);
-    }
+    private Map<String, String> enumMap;
 
     public IcuData(String sourceFile, String name, boolean hasFallback) {
+        this(sourceFile, name, hasFallback, null);
+    }
+
+    public IcuData(String sourceFile, String name, boolean hasFallback, Map<String, String> enumMap) {
         this.hasFallback = hasFallback;
         this.sourceFile = sourceFile;
         this.name = name;
         rbPathToValues = new HashMap<String,List<String[]>>();
+        this.enumMap = enumMap;
     }
 
     /**
@@ -69,12 +72,13 @@ class IcuData {
      * @param value
      * @return
      */
-    public void add(String path, String[] value) {
+    public void add(String path, String[] values) {
         List<String[]> list = rbPathToValues.get(path);
         if (list == null) {
             rbPathToValues.put(path, list = new ArrayList<String[]>(1));
         }
-        list.add(value);
+        normalizeValues(mightNormalize(path), values);
+        list.add(values);
     }
 
     /**
@@ -89,8 +93,19 @@ class IcuData {
         add(path, new String[]{value});
     }
     
-    void addAll(String path, List<String[]> values) {
-        rbPathToValues.put(path, values);
+    void addAll(String path, Collection<String[]> valueList) {
+        for (String[] values : valueList) {
+            add(path, values);
+        }
+    }
+
+    private void normalizeValues(boolean isInt, String[] values) {
+        if (isInt) {
+            for (int i = 0; i < values.length; i++) {
+                String value = enumMap.get(values[i]);
+                if (value != null) values[i] = value;
+            }
+        }
     }
 
     /**
@@ -116,5 +131,13 @@ class IcuData {
     
     public List<String[]> get(String path) {
         return rbPathToValues.get(path);
+    }
+
+    public static boolean isIntRbPath(String rbPath) {
+        return rbPath.endsWith(":int") || rbPath.endsWith(":intvector");
+    }
+
+    private boolean mightNormalize(String rbPath) {
+        return enumMap != null && isIntRbPath(rbPath);
     }
 }

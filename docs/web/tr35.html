@@ -3414,7 +3414,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 			  [caseLevel on]<br>
             </code></td>
-			<td>If set to <i>on,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take cases 
+			<td>If set to <i>on,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take case 
 			into account, set strength to primary and case level to <i>on</i>. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</span></td>
 		</tr>
 		<tr>
@@ -3425,7 +3425,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>caseFirst = &quot;<span style="color: blue">off</span>&quot;<br>
 			  <br>
 		    [caseFirst off]</code></td>
-			<td>If set to <i>upper</i>, causes upper case to sort before lower case. If set to <i>lower</i>, lower case will sort before upper case. Useful for 
+			<td>If set to <i>upper</i>, causes upper case to sort before lower case. If set to <i>lower</i>, causes lower case to sort before upper case. Useful for 
 			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</span></td>
 		</tr>
 		<tr>
@@ -3446,7 +3446,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    [numeric on]</code></td>
 			<td>If set to <i>on</i>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
-			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The first primary value is the set to just after the primary value of &quot;0&quot;, wherever that has been tailored to. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a12&quot; &lt; &quot;a2&quot; &lt; &quot;aa&quot;.</span></td>
+			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The first primary value is  set to immediately after the primary value of &quot;0&quot;. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a12&quot; &lt; &quot;a2&quot; &lt; &quot;aa&quot;. In a tailored table, the &quot;0&quot; may have a different primary weight.</span></td>
 		</tr>
 		<tr>
 			<td>variableTop</td>
@@ -4167,12 +4167,12 @@ text data in the rule. For example, the following are all disallowed:</p>
 </table>
 <p>The reordering blocks are defined by DUCET, and do not always completely  follow Script or General_Category property values. For more information, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
 <h4 class="changed"><a name="Case_Level"></a>5.14.13 Case Level</h4>
-<p class="changed">The Case Level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and swapping the order of upper and lowercase. The use of the Case Level inserts an extra level (&quot;2.5&quot;) after Level 2 (or after Level 1, if there is no Level 2 due to strength settings). When the Case Level is not specified, the Case-First option may still have an effect on the tertiary level values. The case level is also used for small vs large Kana characters, to support Japanese collation.</p>
+<p class="changed">The case level is an intermediate level between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and swapping the order of upper and lowercase. The use of the case level inserts an extra level (&quot;2.5&quot;) after Level 2 (or after Level 1, if there is no Level 2 due to strength settings). When the case level is not specified, the caseFirst attribute may still have an effect on the tertiary level values, as described below. The case level is also used for small versus large Kana characters, to support Japanese collation.</p>
 <p class="changed">Importantly, unless two characters have the same the primary value and different case level values, the case level values make no difference. </p>
 <p class="changed">The following describes the derivation of the case level, where the other levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):<br>
 </p>
 <ol>
-  <li class="changed">If t == 0, set  c = ĉ = 0, and skip to #6.</li>
+  <li class="changed">If t = 0, set  variables c0 = c1 = 0, and skip to #6.</li>
   <li class="changed">Convert the code points in the source string to an NFKD string s.</li>
   <li class="changed">Form a set of case values for s by looking  up a case value for each character x based on UCD properties:
     <ol>
@@ -4190,10 +4190,10 @@ text data in the rule. For example, the following are all disallowed:</p>
   </ol></li>
   <li class="changed">Based on that value, set the following two variables:
     <ol>
-    <li class="changed">c = LOWER ? 1 : MIXED ? 2 : 3</li>
-    <li class="changed">ĉ = UPPER ? 1 : MIXED ? 2 : 3</li>
+    <li class="changed">Set c0 = LOWER ? 1 : MIXED ? 2 : 3</li>
+    <li class="changed">Set c1 = UPPER ? 1 : MIXED ? 2 : 3</li>
   </ol></li>
-  <li class="changed">Compute the case level and tertiary according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y.</li>
+  <li class="changed">Compute new weights  according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y.</li>
 </ol>
 <div dir="ltr">
   <div align="center">
@@ -4212,17 +4212,17 @@ text data in the rule. For example, the following are all disallowed:</p>
         <tr>
           <td class="changed"><strong>CaseFirst=Off</strong></td>
           <td class="changed"><strong>p.s.t</strong></td>
-          <td class="changed"><strong>p.s.c.t</strong></td>
+          <td class="changed"><strong>p.s.c0.t</strong></td>
           </tr>
         <tr>
           <td class="changed"><strong>CaseFirst=LowerFirst</strong></td>
-          <td class="changed"><strong>p.s.ct</strong></td>
-          <td class="changed"><strong>p.s.c.t</strong></td>
+          <td class="changed"><strong>p.s.c0t</strong></td>
+          <td class="changed"><strong>p.s.c0.t</strong></td>
           </tr>
         <tr>
           <td class="changed"><strong>CaseFirst=UpperFirst</strong></td>
-          <td class="changed"><strong>p.s.ĉt</strong></td>
-          <td class="changed"><strong>p.s.ĉ.t</strong></td>
+          <td class="changed"><strong>p.s.c1t</strong></td>
+          <td class="changed"><strong>p.s.c1.t</strong></td>
           </tr>
         </tbody>
     </table>
@@ -4230,13 +4230,13 @@ text data in the rule. For example, the following are all disallowed:</p>
 </div>
 <p class="changed">  Note that if t = 0, the results are 0.0.0 and 0.0.0.0 respectively.</p>
 <p class="changed">A known limitation of the case levels is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;. (In practice this has not been found to be a significant limitation.)</p>
-<p class="changed"><strong><a name="LowerExceptions"></a>LowerExceptions</strong> = script=Hiragana or Katakana small letters, other characters lowercase in form. In Unicode 6.2, these are:</p>
+<p class="changed"><strong><a name="LowerExceptions"></a>LowerExceptions:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
 <ul>
   <li class="changed">[\u0363-\u036F\u1DCA\u1DD3-\u1DDA\u1DDC\u1DDD\u1DE0\u1DE3-\u1DE6 ℩ぁぃぅぇぉっゃゅょゎゕゖァィゥェォッ ャュョヮヵヶㇰ-ㇿ]</li>
 </ul>
-<p class="changed"><strong><a name="UpperExceptions"></a>UpperExceptions</strong> = other script=Hiragana or Katakana letters, other characters uppercase in form. In Unicode 6.2, these are:</p>
+<p class="changed"><strong><a name="UpperExceptions"></a>UpperExceptions:</strong> is  the set of non-small letters where script=Hiragana or Katakana, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
 <ul>
-  <li><span class="changed">[ᴯᴻ℘℺⅁-⅄あいうえお-ぢつ-もやゆ よ-ろわ-ゔゝゞアイウエオ-ヂツ-モヤユヨ-ロ ワ-ヴヷ-ヺヽヾ𛀀𛀁🅐-🅩🅰-</span>🆏🆑-🆚]<br>
+  <li><span class="changed">[ᴯᴻ℘℺⅁-⅄あいうえお-ぢつ-もやゆ よ-ろわ-ゔゝゞアイウエオ-ヂツ-モヤユヨ-ロ ワ-ヴヷ-ヺヽヾ𛀀𛀁🅐-🅩🅰-🆏🆑-🆚]</span><br>
   </li>
 </ul>
 <h3>5.15 <span><a name="Segmentations">Segmentations</a></span></h3>

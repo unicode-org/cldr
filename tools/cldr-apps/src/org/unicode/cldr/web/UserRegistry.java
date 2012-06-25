@@ -66,7 +66,7 @@ public class UserRegistry {
         
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            s = DBUtils.prepareStatementWithArgs(conn, "select distinct cldr_interest.forum from cldr_interest where exists (select * from cldr_users  where cldr_users.id=cldr_interest.uid 	and cldr_users.org=?);", st_org);
+            s = DBUtils.prepareStatementWithArgs(conn, "select distinct cldr_interest.forum from cldr_interest where exists (select * from cldr_users  where cldr_users.id=cldr_interest.uid 	and cldr_users.org=?)", st_org);
             rs = s.executeQuery();
             while(rs.next()) {
                 res.add(rs.getString(1));
@@ -89,7 +89,7 @@ public class UserRegistry {
         
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            s = DBUtils.prepareStatementWithArgs(conn, "select distinct cldr_votevalue.locale from cldr_votevalue where exists (select * from cldr_users	where cldr_votevalue.submitter=cldr_users.id and cldr_users.org=?);", st_org);
+            s = DBUtils.prepareStatementWithArgs(conn, "select distinct cldr_votevalue.locale from cldr_votevalue where exists (select * from cldr_users	where cldr_votevalue.submitter=cldr_users.id and cldr_users.org=?)", st_org);
             rs = s.executeQuery();
             while(rs.next()) {
                 res.add(CLDRLocale.getInstance(rs.getString(1)));

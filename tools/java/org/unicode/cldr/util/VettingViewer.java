@@ -1205,11 +1205,11 @@ public class VettingViewer<T> {
                     "</tr>\n");
 
             // find the choice to check
-            // if !vetting and missing != 0, use missing. Otherwise pick first.
+            // OLD if !vetting and missing != 0, use missing. Otherwise pick first.
             Choice checkedItem = null;
-            if (nonVettingPhase && problemCounter.get(Choice.missingCoverage) != 0) {
-                checkedItem = Choice.missingCoverage;
-            }
+//            if (nonVettingPhase && problemCounter.get(Choice.missingCoverage) != 0) {
+//                checkedItem = Choice.missingCoverage;
+//            }
 
             for (Choice choice : choices) {
                 long count = problemCounter.get(choice);

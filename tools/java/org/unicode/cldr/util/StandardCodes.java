@@ -298,6 +298,8 @@ public class StandardCodes {
             if (status != null && status != Level.UNDETERMINED) return status;
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
+        Level status = locale_status.get("*");
+        if (status != null && status != Level.UNDETERMINED) return status;
         return Level.UNDETERMINED;
     }
 

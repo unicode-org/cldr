@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.ApproximateWidth;
@@ -19,7 +20,9 @@ public class CheckWidths extends CheckCLDR {
 
     private enum Measure {CODE_POINTS, DISPLAY_WIDTH}
     private enum LimitType {MINIMUM, MAXIMUM}
-    private enum Special {NONE, QUOTES}
+    private enum Special {NONE, QUOTES, PLACEHOLDERS}
+    
+    private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("\\{\\d\\}");
     
     private static class Limit {
         final double warningReference;
@@ -54,8 +57,13 @@ public class CheckWidths extends CheckCLDR {
         }
 
         boolean hasProblem(String value, List<CheckStatus> result, CheckCLDR cause) {
-            if (special == Special.QUOTES) {
+            switch (special) {
+            case QUOTES:
                 value = value.replace("'","");
+                break;
+            case PLACEHOLDERS:
+                value = PLACEHOLDER_PATTERN.matcher(value).replaceAll("");
+                break;
             }
             double valueMeasure = measure == Measure.CODE_POINTS 
                 ? value.codePointCount(0, value.length()) 
@@ -104,14 +112,28 @@ public class CheckWidths extends CheckCLDR {
         // Now widths
         // The following are rough measures, just to check strange cases
 
-        .add("//ldml/characters/ellipsis[@type=\"final\"]", new Limit[] {
-            new Limit(1.5 * EM * ApproximateWidth.getWidth("{0}…"), Double.POSITIVE_INFINITY, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+        .add("//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]", new Limit[] {
+            new Limit(2 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
             })
-        .add("//ldml/characters/ellipsis[@type=\"initial\"]", new Limit[] {
-            new Limit(1.5 * EM * ApproximateWidth.getWidth("…{0}"), Double.POSITIVE_INFINITY, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+            
+         .add("//ldml/localeDisplayNames/localeDisplayPattern/", new Limit[] { // {0}: {1}, {0} ({1}), , 
+            new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
             })
-        .add("//ldml/characters/ellipsis[@type=\"medial\"]", new Limit[] {
-            new Limit(1.5 * EM * ApproximateWidth.getWidth("{0}…{1}"), Double.POSITIVE_INFINITY, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+
+         .add("//ldml/listPatterns/listPattern/listPatternPart[@type=%A]", new Limit[] { // {0} and {1}
+            new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+            })
+            
+         .add("//ldml/dates/timeZoneNames/fallbackFormat", new Limit[] { // {1} ({0})
+            new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+            })
+
+         .add("//ldml/dates/timeZoneNames/(fallbackRegionFormat|regionFormat|hourFormat)", new Limit[] { // {1} Time ({0}), {0} Time, +HH:mm;-HH:mm
+            new Limit(10 * EM, 20 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+            })
+
+         .add("//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)", new Limit[] { // GMT{0}, GMT
+            new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
             })
 
         // Narrow items

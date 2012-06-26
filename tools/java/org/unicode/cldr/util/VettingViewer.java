@@ -687,13 +687,6 @@ public class VettingViewer<T> {
     //    }
 
     /**
-     * @deprecated
-     */
-    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel) {
-        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, true);
-    }
-
-    /**
      * Show a table of values, filtering according to the choices here and in
      * the constructor.
      * 
@@ -705,13 +698,7 @@ public class VettingViewer<T> {
      * @param usersLevel
      * @param nonVettingPhase
      */
-    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, 
-        boolean nonVettingPhase) {
-        generateHtmlErrorTablesNew(output, choices, localeID, user, usersLevel, nonVettingPhase);
-    }
-
-    private void generateHtmlErrorTablesNew(Appendable output, EnumSet<Choice> choices, String localeID, T user, 
-        Level usersLevel, boolean nonVettingPhase) {
+    public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user, Level usersLevel, boolean nonVettingPhase) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -737,6 +724,7 @@ public class VettingViewer<T> {
         WritingInfo> sorted, Counter<Choice> problemCounter,
         EnumSet<Choice> choices, String localeID, boolean nonVettingPhase, 
         T user, Level usersLevel) {
+        
         CoverageLevel2 coverage = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
         Status status = new Status();
         errorChecker.initErrorStatus(sourceFile);
@@ -892,14 +880,7 @@ public class VettingViewer<T> {
         }
     };
 
-    /**
-     * @deprecated
-     */
-    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale) {
-        generateSummaryHtmlErrorTables(output, choices, includeLocale, null);
-    }
-
-    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale, Organization organization) {
+    public void generateSummaryHtmlErrorTables(Appendable output, EnumSet<Choice> choices, Predicate<String> includeLocale, T organization) {
         try {
 
             output.append("<p>The following summarizes the Priority Items across locales, using the default coverage level for your organization for each locale. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
@@ -959,7 +940,7 @@ public class VettingViewer<T> {
                 if (organization != null) {
                     level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
                 }
-                getFileInfo(sourceFile, lastSourceFile, null, problemCounter, choices, localeID, true, null, level);
+                getFileInfo(sourceFile, lastSourceFile, null, problemCounter, choices, localeID, true, organization, level);
 
                 char nextChar = name.charAt(0);
                 if (lastChar != nextChar) {
@@ -1415,9 +1396,9 @@ public class VettingViewer<T> {
 
         // FAKE this, because we don't have access to ST data
 
-        UsersChoice<Integer> usersChoice = new UsersChoice<Integer>() {
+        UsersChoice<Organization> usersChoice = new UsersChoice<Organization>() {
             // Fake values for now
-            public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Integer user) {
+            public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
                 if (path.contains("AFN")) {
                     return "dummy ‘losing’ value";
                 }
@@ -1425,7 +1406,7 @@ public class VettingViewer<T> {
             }
 
             // Fake values for now
-            public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Integer user) {
+            public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
                 String usersValue = getWinningValueForUsersOrganization(cldrFile, path, user);
                 String winningValue = cldrFile.getWinningValue(path);
                 if (CharSequences.equals(usersValue, winningValue)) {
@@ -1447,7 +1428,7 @@ public class VettingViewer<T> {
         // The Options should come from a GUI; from each you can get a long
         // description and a button label.
         // Assuming user can be identified by an int
-        VettingViewer<Integer> tableView = new VettingViewer<Integer>(supplementalDataInfo, cldrFactory, cldrFactoryOld, usersChoice, "CLDR " + version,
+        VettingViewer<Organization> tableView = new VettingViewer<Organization>(supplementalDataInfo, cldrFactory, cldrFactoryOld, usersChoice, "CLDR " + version,
             "Winning Proposed");
 
         // here are per-view parameters
@@ -1495,7 +1476,7 @@ public class VettingViewer<T> {
         /** For a summary view of data **/
         summary}
 
-    private static void writeFile(VettingViewer<Integer> tableView, final EnumSet<Choice> choiceSet, 
+    private static void writeFile(VettingViewer<Organization> tableView, final EnumSet<Choice> choiceSet, 
         String name, String localeStringID, int userNumericID,
         Level usersLevel,
         CodeChoice newCode, Organization organization)
@@ -1534,7 +1515,7 @@ public class VettingViewer<T> {
 
         switch (newCode) {
         case newCode:
-            tableView.generateHtmlErrorTablesNew(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
+            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, SHOW_ALL);
             break;
             //        case oldCode:
             //            tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);

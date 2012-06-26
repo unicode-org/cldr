@@ -412,7 +412,7 @@ public class VettingViewerQueue {
 						vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true);
 					} else {
 						if(DEBUG) System.err.println("Starting summary gen..");
-						vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, createLocalesWithVotes(st_org));
+						vv.generateSummaryHtmlErrorTables(aBuffer, choiceSet, createLocalesWithVotes(st_org), usersOrg);
 					}
 					/*if(running()) {
 						aBuffer.append("<hr/>"+PRE+"Processing time: "+ElapsedTimer.elapsedTime(start)+POST );

@@ -286,7 +286,7 @@ public class ExampleGenerator {
                 if (parts.contains("calendar")) {
                 result = handleDateFormatItem(value);
                 } else if (parts.contains("numbers")) {
-                    result = handleDecimalFormat(value, type);
+                    result = handleDecimalFormat(parts, value, type);
                 }
             } else if (parts.getElement(2).contains("symbols")) {
                 result = handleNumberSymbol(parts, value);
@@ -655,6 +655,7 @@ public class ExampleGenerator {
 
     private String handleNumberSymbol(XPathParts parts, String value) {
         String symbolType = parts.getElement(-1);
+        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
         int index = 1;//dec/percent/sci
         double numberSample = NUMBER_SAMPLE;
         String originalValue = cldrFile.getWinningValue(parts.toString());
@@ -679,7 +680,7 @@ public class ExampleGenerator {
             // We don't have an example for the list symbol either.
             return null;
         }
-        DecimalFormat x = icuServiceBuilder.getNumberFormat(index);
+        DecimalFormat x = icuServiceBuilder.getNumberFormat(index, numberSystem);
         x.setExponentSignAlwaysShown(true);
         String example = x.format(numberSample);
         example = example.replace(originalValue, backgroundEndSymbol + value + backgroundStartSymbol);
@@ -826,8 +827,9 @@ public class ExampleGenerator {
      * @param value
      * @return
      */
-    private String handleDecimalFormat(String value, ExampleType type) {
-        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value);
+    private String handleDecimalFormat(XPathParts parts, String value, ExampleType type) {
+        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
+        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value, numberSystem);
         String countValue = parts.getAttributeValue(-1, "count");
         // Match decimal formats.
         if (countValue != null) {

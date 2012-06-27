@@ -50,7 +50,7 @@ public class ICUServiceBuilder {
   private Map<String, SimpleDateFormat> cacheDateFormats = new HashMap();
   private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap();
   private Map<String, NumberFormat> cacheNumberFormats = new HashMap();
-  DecimalFormatSymbols cacheDecimalFormatSymbols = null;
+  private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap();
   private SupplementalDataInfo supplementalData;
  
 //private Factory cldrFactory;
@@ -86,7 +86,7 @@ public class ICUServiceBuilder {
     cacheDateFormats.clear();
     cacheNumberFormats.clear();
     cacheDateFormatSymbols.clear();
-    cacheDecimalFormatSymbols = null;
+    cacheDecimalFormatSymbols.clear();
     return this;
   }
   
@@ -416,17 +416,22 @@ public class ICUServiceBuilder {
   
   public DecimalFormat getCurrencyFormat(String currency) {
     //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    return _getNumberFormat(currency, CURRENCY, null);
+    return _getNumberFormat(currency, CURRENCY, null, null);
   }
   
   public DecimalFormat getCurrencyFormat(String currency, String currencySymbol) {
     //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    return _getNumberFormat(currency, CURRENCY, currencySymbol);
+    return _getNumberFormat(currency, CURRENCY, currencySymbol, null);
   }
   
   public DecimalFormat getNumberFormat(int index) {
       //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-      return _getNumberFormat(NumberNames[index], OTHER_KEY, null);
+      return _getNumberFormat(NumberNames[index], OTHER_KEY, null, null);
+    }
+
+  public DecimalFormat getNumberFormat(int index, String numberSystem) {
+      //CLDRFile cldrFile = cldrFactory.make(localeID, true);
+      return _getNumberFormat(NumberNames[index], OTHER_KEY, null, numberSystem);
     }
 
   public NumberFormat getGenericNumberFormat(String ns) {
@@ -441,18 +446,24 @@ public class ICUServiceBuilder {
   
   public DecimalFormat getNumberFormat(String pattern) {
     //CLDRFile cldrFile = cldrFactory.make(localeID, true);
-    return _getNumberFormat(pattern, PATTERN, null);
+    return _getNumberFormat(pattern, PATTERN, null, null);
   }
   
-  private DecimalFormat _getNumberFormat(String key1, int kind, String currencySymbol) {
-    ULocale ulocale = new ULocale(cldrFile.getLocaleID());
+  public DecimalFormat getNumberFormat(String pattern, String numberSystem) {
+    //CLDRFile cldrFile = cldrFactory.make(localeID, true);
+    return _getNumberFormat(pattern, PATTERN, null, numberSystem);
+  }
+  
+  private DecimalFormat _getNumberFormat(String key1, int kind, String currencySymbol, String numberSystem) {
+    String localeIDString = (numberSystem==null)? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers=" + numberSystem;
+    ULocale ulocale = new ULocale(localeIDString);
     String key = (currencySymbol==null)? ulocale + "/" + key1 + "/" + kind : ulocale + "/" + key1 + "/" + kind + "/" + currencySymbol;
     DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
     if (result != null) return result;
     
     String pattern = kind == PATTERN ? key1 : getPattern(key1, kind);
     
-    DecimalFormatSymbols symbols = _getDecimalFormatSymbols();
+    DecimalFormatSymbols symbols = _getDecimalFormatSymbols(numberSystem);
     /*
      currencySymbol.equals(other.currencySymbol) &&
      intlCurrencySymbol.equals(other.intlCurrencySymbol) &&
@@ -461,6 +472,7 @@ public class ICUServiceBuilder {
      */
     MyCurrency mc = null;
     if (kind == CURRENCY) {
+      // in this case numberSystem is null and symbols are for the default system
       
       String prefix = "//ldml/numbers/currencies/currency[@type=\"" + key1 + "\"]/";
       // /ldml/numbers/currencies/currency[@type="GBP"]/symbol
@@ -557,48 +569,51 @@ public class ICUServiceBuilder {
   }
   
   private DecimalFormatSymbols cloneIfNeeded(DecimalFormatSymbols symbols) {
-    if (symbols == _getDecimalFormatSymbols()) {
+    if (symbols == _getDecimalFormatSymbols(null)) {
       return (DecimalFormatSymbols) symbols.clone();
     }
     return symbols;
   }
   
-  private DecimalFormatSymbols _getDecimalFormatSymbols() {
-    DecimalFormatSymbols symbols = cacheDecimalFormatSymbols;
+  private DecimalFormatSymbols _getDecimalFormatSymbols(String numberSystem) {
+    String key = (numberSystem==null)? cldrFile.getLocaleID() : cldrFile.getLocaleID() + "@numbers=" + numberSystem;
+    DecimalFormatSymbols symbols = (DecimalFormatSymbols) cacheDecimalFormatSymbols.get(key);
     if (symbols != null) return symbols;
 
     symbols = new DecimalFormatSymbols();
+    if (numberSystem == null) {
+       numberSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+    }
     
     // currently constants
     // symbols.setPadEscape(cldrFile.getWinningValue("//ldml/numbers/symbols/xxx"));
     // symbols.setSignificantDigit(cldrFile.getWinningValue("//ldml/numbers/symbols/patternDigit"));
     
-    symbols.setDecimalSeparator(getSymbolCharacter("decimal"));
-//    symbols.setDigit(getSymbolCharacter("patternDigit"));
-    symbols.setExponentSeparator(getSymbolString("exponential"));
-    symbols.setGroupingSeparator(getSymbolCharacter("group"));
-    symbols.setInfinity(getSymbolString("infinity"));
-    symbols.setMinusSign(getSymbolCharacter("minusSign"));
-    symbols.setNaN(getSymbolString("nan"));
-    symbols.setPatternSeparator(getSymbolCharacter("list"));
-    symbols.setPercent(getSymbolCharacter("percentSign"));
-    symbols.setPerMill(getSymbolCharacter("perMille"));
-    symbols.setPlusSign(getSymbolCharacter("plusSign"));
-//    symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit"));
-    String numsys = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
-    String digits = supplementalData.getDigits(numsys);
+    symbols.setDecimalSeparator(getSymbolCharacter("decimal", numberSystem));
+//    symbols.setDigit(getSymbolCharacter("patternDigit", numberSystem));
+    symbols.setExponentSeparator(getSymbolString("exponential", numberSystem));
+    symbols.setGroupingSeparator(getSymbolCharacter("group", numberSystem));
+    symbols.setInfinity(getSymbolString("infinity", numberSystem));
+    symbols.setMinusSign(getSymbolCharacter("minusSign", numberSystem));
+    symbols.setNaN(getSymbolString("nan", numberSystem));
+    symbols.setPatternSeparator(getSymbolCharacter("list", numberSystem));
+    symbols.setPercent(getSymbolCharacter("percentSign", numberSystem));
+    symbols.setPerMill(getSymbolCharacter("perMille", numberSystem));
+    symbols.setPlusSign(getSymbolCharacter("plusSign", numberSystem));
+//    symbols.setZeroDigit(getSymbolCharacter("nativeZeroDigit", numberSystem));
+    String digits = supplementalData.getDigits(numberSystem);
     if ( digits != null && digits.length() == 10) {
         symbols.setZeroDigit(digits.charAt(0));
     }
     
     try {
-        symbols.setMonetaryDecimalSeparator(getSymbolCharacter("currencyDecimal"));
+        symbols.setMonetaryDecimalSeparator(getSymbolCharacter("currencyDecimal", numberSystem));
     } catch (IllegalArgumentException e) {
         symbols.setMonetaryDecimalSeparator(symbols.getDecimalSeparator());
     }
 
     try {
-        symbols.setMonetaryGroupingSeparator(getSymbolCharacter("currencyGroup"));
+        symbols.setMonetaryGroupingSeparator(getSymbolCharacter("currencyGroup", numberSystem));
     } catch (IllegalArgumentException e) {
         symbols.setMonetaryGroupingSeparator(symbols.getGroupingSeparator());
     }
@@ -612,20 +627,20 @@ public class ICUServiceBuilder {
     afterSurroundingMatch = new UnicodeSet(cldrFile.getWinningValue(prefix + "surroundingMatch"));
     afterInsertBetween = cldrFile.getWinningValue(prefix + "insertBetween");
 
-    cacheDecimalFormatSymbols = symbols;
+    cacheDecimalFormatSymbols.put(key, symbols);
     
     return symbols;
   }
   
-  private char getSymbolCharacter(String key) {
-    return getSymbolString(key).charAt(0);
+  private char getSymbolCharacter(String key, String numsys) {
+    // numsys should not be null (previously resolved to defaultNumberingSystem if necessary)
+    return getSymbolString(key, numsys).charAt(0);
   }
   
-  private String getSymbolString(String key) {
+  private String getSymbolString(String key, String numsys) {
+    // numsys should not be null (previously resolved to defaultNumberingSystem if necessary)
     String value = null;
-    String numsys = null;
     try {
-      numsys = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem"); 
       value = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);
       if (value == null || value.length() < 1) {
           throw new RuntimeException();

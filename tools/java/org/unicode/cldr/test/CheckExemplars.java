@@ -168,7 +168,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                     }
                     //String characters = quoteSet.toPattern(false);
                     CheckStatus message = new CheckStatus().setCause(this)
-                            .setMainType(CheckStatus.errorType)
+                            .setMainType(CheckStatus.warningType)
                             .setSubtype(Subtype.missingPunctuationCharacters)
                             .setMessage("Punctuation exemplar characters are missing quotation marks for this locale: {0}", 
                                 characters);

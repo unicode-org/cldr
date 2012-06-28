@@ -156,7 +156,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         informationMessage = "<a href='http://unicode.org/cldr/apps/survey?_=" + locale + "&x=characters'>characters</a>";
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
-        spaceCol.setStrength(col.PRIMARY);
+        spaceCol.setStrength(Collator.PRIMARY);
 
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
         boolean[] ok = new boolean[1];
@@ -299,10 +299,20 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             value = justText.toString();
             if (NUMBERS.containsSome(value)) {
                 UnicodeSet disallowed = new UnicodeSet().addAll(value).retainAll(NUMBERS);
-                addMissingMessage(disallowed, CheckStatus.errorType, 
+                addMissingMessage(disallowed, CheckStatus.errorType,
                     Subtype.patternCannotContainDigits, 
                     Subtype.patternCannotContainDigits, 
-                    "cannot occur in date or time patterns.", result);
+                    "cannot occur in date or time patterns", result);
+            }
+            if (path.endsWith("/hourFormat")) {
+                UnicodeSet disallowed = new UnicodeSet().addAll(value)
+                    .retainAll(new UnicodeSet("[[:letter:]]")).remove('H').remove('m');
+                if (!disallowed.isEmpty()) {
+                    addMissingMessage(disallowed, CheckStatus.errorType, 
+                        Subtype.patternContainsInvalidCharacters,
+                        Subtype.patternContainsInvalidCharacters, 
+                        "cannot occur in the hour format", result);
+                }
             }
         }
 
@@ -333,6 +343,15 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 //                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.discouragedCharactersInTranslation)
                 //                        .setMessage("The characters \u200E{1}\u200E are discouraged in display names. Please avoid these characters.", new Object[]{null,fixedMissing}));
                 //                // note: we are using {1} so that we don't include these in the console summary of bad characters.
+            }
+            if (path.contains("/codePatterns")) {
+                disallowed = new UnicodeSet().addAll(value).retainAll(NUMBERS);
+                if (!disallowed.isEmpty()) {
+                    addMissingMessage(disallowed, CheckStatus.errorType,
+                        Subtype.patternCannotContainDigits, 
+                        Subtype.patternCannotContainDigits, 
+                        "cannot occur in locale fields", result);
+                }
             }
         } else if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
             addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars, Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);

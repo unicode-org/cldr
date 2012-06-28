@@ -55,6 +55,8 @@ public class CheckDates extends FactoryCheckCLDR {
         ; // keep aligned with previous
 
     private static final String DECIMAL_XPATH = "//ldml/numbers/symbols[@numberSystem='latn']/decimal";
+    private static final Pattern HOUR_SYMBOL = Pattern.compile("H{1,2}");
+    private static final Pattern MINUTE_SYMBOL = Pattern.compile("mm");
 
     static String[] calTypePathsToCheck = {
         "//ldml/dates/calendars/calendar[@type=\"buddhist\"]",
@@ -400,9 +402,25 @@ public class CheckDates extends FactoryCheckCLDR {
                 if (patternBasicallyOk) {
                     checkPattern(path, fullPath, value, result);
                 }
+            } else if (path.contains("hourFormat")) {
+                int semicolonPos = value.indexOf(';');
+                if (semicolonPos < 0) {
+                    CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
+                        .setMessage("Value should contain a positive hour format and a negative hour format separated by a semicolon.");
+                    result.add(item);
+                } else {
+                    String[] formats = value.split(";");
+                    if (formats[0].equals(formats[1])) {
+                        CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
+                            .setMessage("The hour formats should not be the same.");
+                        result.add(item);
+                    } else {
+                        checkHasHourMinuteSymbols(formats[0], result);
+                        checkHasHourMinuteSymbols(formats[1], result);
+                    }
+                }
             }
         } catch (ParseException e) {
-
             CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern)
             .setMessage("ParseException in creating date format {0}", new Object[]{e});
             result.add(item);
@@ -416,6 +434,31 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    /**
+     * Check for the presence of hour and minute symbols.
+     * @param value the value to be checked
+     * @param result the list to add any errors to.
+     */
+    private void checkHasHourMinuteSymbols(String value, List<CheckStatus> result) {
+        boolean hasHourSymbol = HOUR_SYMBOL.matcher(value).find();
+        boolean hasMinuteSymbol = MINUTE_SYMBOL.matcher(value).find();
+        if (!hasHourSymbol && !hasMinuteSymbol) {
+            result.add(createErrorCheckStatus().setMessage("The hour and minute symbols are missing from {0}.", value));            
+        } else if (!hasHourSymbol) {
+            result.add(createErrorCheckStatus().setMessage("The hour symbol (H or HH) should be present in {0}.", value));
+        } else if (!hasMinuteSymbol) {
+            result.add(createErrorCheckStatus().setMessage("The minute symbol (mm) should be present in {0}.", value));
+        }
+    }
+
+    /**
+     * Convenience method for creating errors.
+     * @return
+     */
+    private CheckStatus createErrorCheckStatus() {
+        return new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalDatePattern);
     }
 
     public boolean skipPath(String path) {

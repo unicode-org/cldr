@@ -129,6 +129,7 @@ public class CldrUtility {
   public static final String COLLATION_DIRECTORY = getPath(COMMON_DIRECTORY,"collation/");
   public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR", getPath(BASE_DIRECTORY , "../Generated/cldr/"))); 
   public static final String TMP_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR", getPath(BASE_DIRECTORY , "../cldr-tmp/"))); 
+  public static final String TMP2_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR", getPath(BASE_DIRECTORY , "../cldr-tmp2/"))); 
 
   /**
    * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
@@ -139,7 +140,7 @@ public class CldrUtility {
    * Only the default, if no other directory is specified.
    */
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
-  public static final String CHART_DIRECTORY = getPath(TMP_DIRECTORY,  "diff/");
+  public static final String CHART_DIRECTORY = getPath(TMP_DIRECTORY,  "beta-charts/");
   public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");
 
 

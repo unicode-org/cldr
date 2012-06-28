@@ -41,6 +41,7 @@ public class LanguageCodeConverter {
         Builder.with(new LinkedHashMap<String,String>()) // preserve order
         .put("iw", "he")
         .put("no", "nb")
+        .put("tl", "fil")
         .put("pt-BR", "pt")
         .put("xx-bork", "x_bork")
         .put("xx-elmer", "x_elmer")
@@ -170,7 +171,7 @@ public class LanguageCodeConverter {
     public static String fromGoogleLocaleId(String localeId) {
         localeId = localeId.replace("_", "-");
         // TODO fix to do languages, etc. field by field
-        String result = CLDR_GOOGLE.get(localeId);
+        String result = GOOGLE_CLDR.get(localeId);
         result = result == null ? localeId : result;
         return result.replace("-", "_");
     }

@@ -504,6 +504,11 @@ public class CheckDates extends FactoryCheckCLDR {
         String skeleton = dateTimePatternGenerator.getSkeletonAllowingDuplicates(value);
         String skeletonCanonical = dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(value);
 
+        if (value.contains("MMM.") || value.contains("LLL.") || value.contains("E.") || value.contains("eee.") || value.contains("ccc.")) {
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.incorrectDatePattern)
+                    .setMessage("Your pattern ({0}) is probably incorrect; abbreviated month or weekday names that need a period should include it in the name, rather than adding it to the pattern.", value));
+        }
+
         pathParts.set(path);
         final boolean isIntervalFormat = pathParts.contains("intervalFormatItem");
         if (pathParts.containsElement("dateFormatItem") || isIntervalFormat) {

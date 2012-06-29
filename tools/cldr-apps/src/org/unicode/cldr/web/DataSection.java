@@ -552,7 +552,15 @@ public class DataSection implements JSONString {
 				if(theVotes!=null && !theVotes.isEmpty()) {
 					JSONObject voteList = new JSONObject();
 					for(UserRegistry.User u : theVotes) {
-						voteList.put(Integer.toString(u.id), u.toString(userForVotelist));
+					    JSONObject uu = new JSONObject();
+                        uu.put("org",u.getOrganization());
+                        uu.put("level",u.getLevel());
+                        uu.put("votes",u.getLevel().getVotes());
+					    if(userForVotelist!=null) {
+					        uu.put("name", u.name);
+					        uu.put("email", u.email.replace("@", " (at) "));
+					    }
+						voteList.put(Integer.toString(u.id), uu);
 					}
 					j.put("votes", voteList);
 				}

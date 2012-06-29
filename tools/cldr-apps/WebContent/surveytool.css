@@ -2210,3 +2210,41 @@ div#pu-content {
 .recentList div b {
 	background-color: #ddd;
 }
+
+div.voterList {
+	display:  table;
+}
+
+div.voterList .voterName {
+	font-weight: bold;
+}
+
+div.voterList p {
+	display:  block;
+	margin-left:  1em;
+	padding-left:  20px;
+	background: url('vote.png') no-repeat;
+}
+
+div.voterList p span, div.voterList p address {
+	display:  inline;
+	padding:  0.5em;
+}
+
+
+div.voterList address:before {
+	content: '<';
+}
+div.voterList address:after {
+	content: '>';
+}
+div.voterList .voterOrg {
+	font-size:  smaller;
+}
+div.voterList .voterOrg:before {
+	content: '(';
+}
+div.voterList .voterOrg:after {
+	content: ')';
+}
+

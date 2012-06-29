@@ -150,7 +150,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if(ballotBox.xpathToVotes == null || ballotBox.xpathToVotes.isEmpty()) {
                 return delegate.iterator();
             } else {
-                SurveyLog.debug("Note: DBS.iterator() todo -- iterate over losing values?");
+//                SurveyLog.debug("Note: DBS.iterator() todo -- iterate over losing values?"); // losing values are available in the raw xml.
                 return delegate.iterator();
             }
         }

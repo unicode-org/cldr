@@ -1446,9 +1446,8 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		}
 		td.appendChild(h3);
 		
-                // we've got some 'splaining to do.
 		if ( item.value) {
-               td.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
+               h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
 		 }
         
 //		votes: {
@@ -1464,22 +1463,20 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		if(item.votes) {
 			var vdiv = document.createElement("div");
 			vdiv.className="voterList";
-			vdiv.appendChild(createChunk(stui_str("Voters"),"h4"));
+			//vdiv.appendChild(createChunk(stui_str("Voters"),"h4"));
 			for(vuid in item.votes) {
 				var voter = item.votes[vuid];
 				var vp = document.createElement("p");
+				vp.appendChild(createChunk(voter.org,"span","voterOrg"));
 				if(voter.name) {
 					vp.appendChild(createChunk(voter.name,"span","voterName"));
-					vp.appendChild(createChunk(" "));
 				} else {
 					vp.appendChild(createChunk("#"+vuid,"span","voterName"));
-					vp.appendChild(createChunk(" "));
 				}
 				if(voter.email) {
 					vp.appendChild(createChunk(voter.email,"address","voterAddress"));
 					vp.appendChild(createChunk(" "));
 				}
-				vp.appendChild(createChunk(voter.org,"span","voterOrg"));
 				vdiv.appendChild(vp);
 			}
 			
@@ -1500,8 +1497,8 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		
 		if(item.inExample) {
 			appendExample(td, item.inExample);
-		} else if(item.example) {
-			appendExample(td, item.example);
+//		} else if(item.example) {
+//			appendExample(td, item.example);
 		}
 		
 		//return function(){ var d2 = div; return function(){ 	d2.className="d-item";  };}();
@@ -1766,7 +1763,12 @@ function updateRow(tr, theRow) {
 	}
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
 	tr.selectThisRow = function(e) {
-		showInPop(null, tr, tr.proposedcell, tr.proposedcell.showFn, true);
+		// select the proposed cell:
+		//showInPop(null, tr, tr.proposedcell, tr.proposedcell.showFn, true);
+		
+		// select the 'approved' cell
+		popInfoInto(tr,theRow,children[config.statuscell],true);
+
 		stStopPropagation(e); return false; 
 	};
 

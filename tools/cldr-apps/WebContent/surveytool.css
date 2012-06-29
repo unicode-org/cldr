@@ -2212,39 +2212,47 @@ div#pu-content {
 }
 
 div.voterList {
-	display:  table;
+	display:  block;
+}
+
+p.pClassExplain {
+	margin-top: 0.25em;	
+	display: inline;
+	font-weight: normal;
+	font-size: small;
+	margin-left:  1em;
+}
+p.pClassExplain:before {
+	content: '(';
+}
+p.pClassExplain:after {
+	content: ')';
 }
 
 div.voterList .voterName {
 	font-weight: bold;
+	display:  inline;
 }
 
 div.voterList p {
-	display:  block;
-	margin-left:  1em;
+	display:  table-row;
+	margin-left:  0.25em;
 	padding-left:  20px;
-	background: url('vote.png') no-repeat;
+	padding-top: 0;
+	margin-top:0;
+	margin-bottom:  0.5em;
 }
 
 div.voterList p span, div.voterList p address {
-	display:  inline;
-	padding:  0.5em;
+	display:  table-cell;
+	padding-left:  0.25em;
+	padding-right:  0.25em;
 }
 
 
-div.voterList address:before {
-	content: '<';
-}
-div.voterList address:after {
-	content: '>';
-}
 div.voterList .voterOrg {
+	background: url('vote.png') no-repeat;
+	padding-left:  20px;
 	font-size:  smaller;
-}
-div.voterList .voterOrg:before {
-	content: '(';
-}
-div.voterList .voterOrg:after {
-	content: ')';
 }
 

@@ -538,6 +538,11 @@ public class DataSection implements JSONString {
 			}
 			@Override
 			public String toJSONString() throws JSONException {
+			    String example = getExample();
+			    String inExample = getInExample();
+			    if(inExample!=null&&inExample.equals(example)) {
+			        inExample = null; // omit if the same
+			    }
 				JSONObject j =  new JSONObject().put("valueHash", getValueHash()).put("rawValue", value)
 						.put("value", getProcessedValue())
 						.put("example", getExample())

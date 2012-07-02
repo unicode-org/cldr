@@ -294,11 +294,11 @@ public class DateTimeFormats {
         String example;
         int slashPos = skeleton.indexOf('/');
         if (slashPos >= 0) {
-            skeleton = skeleton.replace('j', generator.getDefaultHourFormatChar());
             String mainSkeleton = skeleton.substring(0,slashPos);
             DateIntervalFormat dateIntervalFormat = new DateIntervalFormat(mainSkeleton, dateIntervalInfo, generator, 
                 icuServiceBuilder.getDateFormat(calendarID, generator.getBestPattern(mainSkeleton)));
-            int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, skeleton.substring(slashPos+1));
+            String diffString = skeleton.substring(slashPos+1).replace('j', 'H');
+            int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diffString);
             Date endDate = SAMPLE_DATE_END[diffNumber];
             try {
                 example = dateIntervalFormat.format(new DateInterval(SAMPLE_DATE.getTime(), endDate.getTime()));

@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -151,87 +152,87 @@ public class DateTimeFormats {
     private static final String[][] NAME_AND_PATTERN = {
         { "-", "Full Month" },
         { "year month", "yMMMM" },
-        { "- interval with month+1", "yMMMM/M" },
-        { "- interval with year+1", "yMMMM/y" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMMMM/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMMMM/y" },
         { "year month day", "yMMMMd" },
-        { "- interval with day+1", "yMMMMd/d" },
-        { "- interval with month+1", "yMMMMd/M" },
-        { "- interval with year+1", "yMMMMd/y" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "yMMMMd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMMMMd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMMMMd/y" },
         { "year month day weekday", "yMMMMEEEEd" },
-        { "- interval with day+1", "yMMMMEEEEd/d" },
-        { "- interval with month+1", "yMMMMEEEEd/M" },
-        { "- interval with year+1", "yMMMMEEEEd/y" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "yMMMMEEEEd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMMMMEEEEd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMMMMEEEEd/y" },
         { "month day", "MMMMd" },
-        { "- interval with day+1", "MMMMd/d" },
-        { "- interval with month+1", "MMMMd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "MMMMd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "MMMMd/M" },
         { "month day weekday", "MMMMEEEEd" },
-        { "- interval with day+1", "MMMMEEEEd/d" },
-        { "- interval with month+1", "MMMMEEEEd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "MMMMEEEEd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "MMMMEEEEd/M" },
 
         { "-", "Abbreviated Month" },
         { "year month<sub>a</sub>", "yMMM" },
-        { "- interval with month+1", "yMMM/M" },
-        { "- interval with year+1", "yMMM/y" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMMM/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMMM/y" },
         { "year month<sub>a</sub> day", "yMMMd" },
-        { "- interval with day+1", "yMMMd/d" },
-        { "- interval with month+1", "yMMMd/M" },
-        { "- interval with year+1", "yMMMd/y" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "yMMMd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMMMd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMMMd/y" },
         { "year month<sub>a</sub> day weekday", "yMMMEd" },
-        { "- interval with day+1", "yMMMEd/d" },
-        { "- interval with month+1", "yMMMEd/M" },
-        { "- interval with year+1", "yMMMEd/y" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "yMMMEd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMMMEd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMMMEd/y" },
         { "month<sub>a</sub> day", "MMMd" },
-        { "- interval with day+1", "MMMd/d" },
-        { "- interval with month+1", "MMMd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "MMMd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "MMMd/M" },
         { "month<sub>a</sub> day weekday", "MMMEd" },
-        { "- interval with day+1", "MMMEd/d" },
-        { "- interval with month+1", "MMMEd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "MMMEd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "MMMEd/M" },
 
         { "-", "Numeric Month" },
         { "year month<sub>n</sub>", "yM" },
-        { "- interval with month+1", "yM/M" },
-        { "- interval with year+1", "yM/y" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yM/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yM/y" },
         { "year month<sub>n</sub> day", "yMd" },
-        { "- interval with day+1", "yMd/d" },
-        { "- interval with month+1", "yMd/M" },
-        { "- interval with year+1", "yMd/y" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "yMd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMd/y" },
         { "year month<sub>n</sub> day weekday", "yMEd" },
-        { "- interval with day+1", "yMEd/d" },
-        { "- interval with month+1", "yMEd/M" },
-        { "- interval with year+1", "yMEd/y" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "yMEd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "yMEd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "yMEd/y" },
         { "month<sub>n</sub> day", "Md" },
-        { "- interval with day+1", "Md/d" },
-        { "- interval with month+1", "Md/M" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "Md/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "Md/M" },
         { "month<sub>n</sub> day weekday", "MEd" },
-        { "- interval with day+1", "MEd/d" },
-        { "- interval with month+1", "MEd/M" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "MEd/d" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "MEd/M" },
 
         { "-", "Other Dates" },
         { "year", "y" },
-        { "- interval with year+1", "y/y" },
+        { "&nbsp;&nbsp;&nbsp;to  year+1", "y/y" },
         { "year quarter", "yQQQQ" },
         { "year quarter<sub>a</sub>", "yQQQ" },
         { "quarter", "QQQQ" },
         { "quarter<sub>a</sub>", "QQQ" },
         { "month", "MMMM" },
-        { "- interval with month+1", "MMMM/M" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "MMMM/M" },
         { "month<sub>a</sub>", "MMM" },
-        { "- interval with month+1", "MMM/M" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "MMM/M" },
         { "month<sub>n</sub>", "M" },
-        { "- interval with month+1", "M/M" },
+        { "&nbsp;&nbsp;&nbsp;to  month+1", "M/M" },
         { "day", "d" },
-        { "- interval with day+1", "d/d" },
+        { "&nbsp;&nbsp;&nbsp;to  day+1", "d/d" },
         { "weekday", "EEEE" },
-        { "- interval with weekday+1", "EEEE/E" },
+        { "&nbsp;&nbsp;&nbsp;to  weekday+1", "EEEE/E" },
         { "weekday<sub>a</sub>", "E" },
-        { "- interval with weekday+1", "E/E" },
+        { "&nbsp;&nbsp;&nbsp;to  weekday+1", "E/E" },
 
         { "-", "Times" },
         { "hour", "j" },
-        { "- interval with hour+1", "j/j" },
+        { "&nbsp;&nbsp;&nbsp;to  hour+1", "j/j" },
         { "hour minute", "jm" },
-        { "- interval with minute+1", "jm/m" },
-        { "- interval with hour+1", "jm/j" },
+        { "&nbsp;&nbsp;&nbsp;to  minute+1", "jm/m" },
+        { "&nbsp;&nbsp;&nbsp;to  hour+1", "jm/j" },
         { "hour minute second", "jms" },
         { "minute second", "ms" },
         { "minute", "m" },
@@ -239,10 +240,10 @@ public class DateTimeFormats {
 
         { "-", "Times 24h" },
         { "hour<sub>24</sub>", "H" },
-        { "- interval with hour+1", "H/H" },
+        { "&nbsp;&nbsp;&nbsp;to  hour+1", "H/H" },
         { "hour<sub>24</sub> minute", "Hm" },
-        { "- interval with minute+1", "Hm/m" },
-        { "- interval with hour+1", "Hm/H" },
+        { "&nbsp;&nbsp;&nbsp;to  minute+1", "Hm/m" },
+        { "&nbsp;&nbsp;&nbsp;to  hour+1", "Hm/H" },
         { "hour<sub>24</sub> minute second", "Hms" },
 
         //        { "-", "Timezones (used alone or with Time)" },
@@ -262,7 +263,7 @@ public class DateTimeFormats {
      */
     public void addTable(DateTimeFormats comparison, Appendable output) {
         try {
-            output.append("<table>");
+            output.append("<h2><a href='#Patterns' name='Patterns'>Patterns</a></h2>\n<table class='dtf-table'>");
             showRow(output, RowStyle.header, FIELDS_TITLE, "Skeleton", "English Example", "Native Example");
             for (String[] nameAndSkeleton : NAME_AND_PATTERN) {
                 String name = nameAndSkeleton[0];
@@ -335,9 +336,9 @@ public class DateTimeFormats {
             String startCell = rowStyle == RowStyle.header ? "<th class='dtf-h'>" : "<td class='dtf-s'>";
             String endCell = rowStyle == RowStyle.header  ? "</th>" : "</td>";
             if (name.equals(FIELDS_TITLE)) {
-                output.append("<th>").append(name).append("</a></th>");
+                output.append("<th class='dtf-th'>").append(name).append("</a></th>");
             } else {
-                output.append("<th><a " +
+                output.append("<th class='dtf-left'><a " +
                     "href='#" + skeleton + "' " +
                     "name='" + skeleton + "' " +
                     ">").append(name).append("</a></th>");
@@ -382,9 +383,87 @@ public class DateTimeFormats {
             }
             return null;
         }
+        return getFixFromPath(path);
+    }
+
+    public String getFixFromPath(String path) {
+        String value = file.getStringValue(path);
+        if (value == null) {
+            return null;
+        }
         String strid = Long.toHexString(StringId.getId(path));
         return "<a href='http://st.unicode.org/cldr-apps/survey?_=" + file.getLocaleID() +
             "&strid=" + strid + "'><i>fix</i></a>";
+    }
+
+    /**
+     * Add a table of date comparisons
+     * @param english
+     * @param output
+     */
+    public void addDateTable(CLDRFile english, Appendable output) {
+        //ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="format"]/monthWidth[@type="abbreviated"]/month[@type="1"]
+        //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]
+        //ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sun"]
+        try {
+            output.append("<h2><a href='#Weekdays' name='Weekdays'>Weekdays</a></h2>\n");
+            addDateSubtable("//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/days/dayContext[@type=\"FORMAT\"]/dayWidth[@type=\"WIDTH\"]/day[@type=\"TYPE\"]",
+                english, output, "sun", "mon", "tue", "wed", "thu", "fri", "sat");
+            output.append("<h2><a href='#Months' name='Months'>Months</a></h2>\n");
+            addDateSubtable("//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/months/monthContext[@type=\"FORMAT\"]/monthWidth[@type=\"WIDTH\"]/month[@type=\"TYPE\"]",
+                english, output, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
+            output.append("<h2><a href='#Quarters' name='Quarters'>Quarters</a></h2>\n");
+            addDateSubtable("//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/quarters/quarterContext[@type=\"FORMAT\"]/quarterWidth[@type=\"WIDTH\"]/quarter[@type=\"TYPE\"]",
+                english, output, "1", "2", "3", "4");
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+
+    private void addDateSubtable(String path, CLDRFile english, Appendable output, String... types) throws IOException {
+        path = path.replace("CALENDAR", calendarID);
+        output.append("<table class='dtf-table'>\n" +
+            "<tr><th class='dtf-th'>English</th><th class='dtf-th'>Wide</th><th class='dtf-th'>Abbr.</th><th class='dtf-th'>Narrow</th></tr>" +
+            "\n");
+        for (String type : types) {
+            String path1 = path.replace("TYPE", type);
+            output.append("<tr>");
+            boolean first = true;
+            for (String width : Arrays.asList("wide", "abbreviated", "narrow")) {
+                String path2 = path1.replace("WIDTH", width);
+                String last = null;
+                String lastPath = null;
+                for (String format : Arrays.asList("format", "stand-alone")) {
+                    String path3 = path2.replace("FORMAT", format);
+                    if (first) {
+                        String value = english.getStringValue(path3);
+                        output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(value)).append("</th>");
+                        first = false;
+                    }
+                    String value = file.getStringValue(path3);
+                    if (last == null) {
+                        last = value;
+                        lastPath = path3;
+                    } else {
+                        String lastFix = getFixFromPath(lastPath);
+                        output.append("<td class='dtf-nopad'><table class='dtf-int'><tr><td>").append(TransliteratorUtilities.toHTML.transform(last));
+                        if (lastFix != null) {
+                            output.append("</td><td class='dtf-fix'>").append(lastFix);
+                        }
+                        if (!value.equals(last)) {
+                            String fix = getFixFromPath(path3);
+                            output.append("</td></tr><tr><td>").append(TransliteratorUtilities.toHTML.transform(value));                        
+                            if (fix != null) {
+                                output.append("</td><td class='dtf-fix'>").append(fix);
+                            }
+                        }
+                        output.append("</td></tr></table></td>");
+                    }
+                }
+            }
+            output.append("</tr>\n");
+        }
+        output.append("</table>\n");
     }
 
     /**
@@ -422,35 +501,40 @@ public class DateTimeFormats {
             sorted.put(englishFile.getName(localeID,true), localeID);
         }
 
+        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "dates/", "index.css");
+        out.println(".dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}\n" +
+            ".dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}\n" +
+            ".dtf-th {background-color:#EEE; padding:4px}\n" +
+            ".dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}\n" +
+            ".dtf-sep {background-color:#EEF; text-align:center}\n" +
+            ".dtf-s {text-align:center;}\n" +
+            ".dtf-int {width:100%; height:100%}\n" +
+            ".dtf-fix {width:1px}\n" +
+            ".dtf-left {text-align:left;}\n" +
+            ".dtf-nopad {padding:0px; align:top}\n"
+            );
+        out.close();
+        
         int oldFirst = 0;
         for (Entry<String, String> nameAndLocale : sorted.entrySet()) {
             String name = nameAndLocale.getKey();
             String localeID = nameAndLocale.getValue();
             DateTimeFormats formats = new DateTimeFormats().set(factory.make(localeID, true), "gregorian");
             String filename = localeID + ".html";
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "dates/", filename);
+            out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "dates/", filename);
             out.println(
                 "<html><head>\n" +
                     "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
                     "<title>Date/Time Charts: " + name + "</title>\n" +
-                    "<style type='text/css'>\n" +
-                    "table, td, th {border-collapse:collapse; border:1px solid gray;}\n" +
-                    "table {margin-left:auto; margin-right:auto}\n" +
-                    "th {text-align:left; background-color:#EEE; padding:4px}\n" +
-                    "td {padding:3px}\n" +
-                    ".dtf-sep {background-color:#EEF; text-align:center}\n" +
-                    ".dtf-s {text-align:center;}\n" +
-                    "</style>\n" +
+                    "<link rel='stylesheet' type='text/css' href='index.css'>\n" +
                     "</head><body><h1>Date/Time Charts: " + name + "</h1>" +
                     "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
-                    "<p style='float:right; text-align:right'>" + dateString + "</p>\n" +
+                    "<p style='float:right; text-align:right'><i>Last Generated: " + dateString + "</i></p>\n" +
                     "<p style='clear:both'>The following chart shows typical usage of date and time formatting with the Gregorian calendar. " +
-                    "If any of these look incorrect for your language <i>or are inconsistent with other rows!</i>, please fix them as described on " +
-                    "<a href='http://cldr.unicode.org/translation/date-time-review'>Date/Time Review</a>." +
-                    "</p>\n" +
-                    "<p>The base date is " + SAMPLE_DATE_STRING + ". The date/time intervals have that as the starting date. " +
-                "The 'Times 24h' is only relevant where the preferred format is 12 hour.</p>");
+                    "<i>There is important information on <a href='http://cldr.unicode.org/translation/date-time-review'>Date/Time Review</a>, " +
+                "so please read that page before starting!</i></p>\n");
             formats.addTable(english, out);
+            formats.addDateTable(englishFile, out);
             out.println("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" +
                 "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
             out.println("</body></html>");

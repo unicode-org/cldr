@@ -67,6 +67,10 @@ public class DateTimeFormats {
     private String calendarID;
     private CLDRFile file;
 
+    private static String surveyUrl = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
+
+    
+    
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      * @param file
@@ -392,7 +396,7 @@ public class DateTimeFormats {
             return null;
         }
         String strid = Long.toHexString(StringId.getId(path));
-        return "<a href='http://st.unicode.org/cldr-apps/survey?_=" + file.getLocaleID() +
+        return "<a href='"+surveyUrl+"?_=" + file.getLocaleID() +
             "&strid=" + strid + "'><i>fix</i></a>";
     }
 

@@ -123,7 +123,10 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 	        	%><label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Priority Items</a></label> |
         
         <%   } 
-	        %><label class='menutop-other'><a href="http://unicode.org/repos/cldr-tmp/trunk/beta-charts/dates/<%= ctx.getLocale() %>.html" class="notselected">Date/Time Review</a></label> |
+	        %>
+	      
+	      <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_datetime&calendar=gregorian"
+	                        class="notselected">Date/Time Review</a></label> |
     
 <%
             String covlev = ctx.getCoverageSetting();

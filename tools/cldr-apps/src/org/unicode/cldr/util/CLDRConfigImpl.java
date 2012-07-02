@@ -51,6 +51,11 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         }
         
         survprops = new java.util.Properties(); 
+        
+        // set defaults here
+        survprops.put("CLDR_SURVEY_URL", "survey"); // default to relative URL.
+        
+        
         File propFile;
         System.err.println("init, cldrHome="+cldrHome);
         if(cldrHome == null) {

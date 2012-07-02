@@ -30,6 +30,7 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -1162,5 +1163,17 @@ public static final class Output<T> {
     synchronized(df) {
       return df.format(date);
     }
+  }
+  
+
+  public static <K,V> ConcurrentHashMap<K,V> newConcurrentHashMap() {
+      // http://ria101.wordpress.com/2011/12/12/concurrenthashmap-avoid-a-common-misuse/
+      return new ConcurrentHashMap<K,V>(4, 0.9f, 1);
+  }
+
+  public static <K,V> ConcurrentHashMap<K,V> newConcurrentHashMap(Map<K, V> source) {
+      ConcurrentHashMap<K,V> result = newConcurrentHashMap();
+      result.putAll(source);
+      return result;
   }
 }

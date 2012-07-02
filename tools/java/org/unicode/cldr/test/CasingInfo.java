@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,8 +38,8 @@ public class CasingInfo {
 
     public CasingInfo(String dir) {
         this.casingDir = new File(dir);
-        casing = new HashMap<String, Map<String, CasingType>>();
-        localeUsesCasing = new HashMap<String, Boolean>();
+        casing = CldrUtility.newConcurrentHashMap();
+        localeUsesCasing = CldrUtility.newConcurrentHashMap();
     }
     
     /**

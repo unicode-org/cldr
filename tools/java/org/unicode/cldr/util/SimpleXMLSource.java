@@ -4,7 +4,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,8 +15,8 @@ import org.unicode.cldr.util.XPathParts.Comments;
 import com.ibm.icu.dev.test.util.Relation;
 
 public class SimpleXMLSource extends XMLSource {
-    private HashMap<String,String> xpath_value = new HashMap<String,String>(); // TODO change to HashMap, once comparator is gone
-    private HashMap<String,String> xpath_fullXPath = new HashMap<String,String>();
+    private Map<String,String> xpath_value = CldrUtility.newConcurrentHashMap();
+    private Map<String,String> xpath_fullXPath = CldrUtility.newConcurrentHashMap();
     private Comments xpath_comments = new Comments(); // map from paths to comments.
     private Relation<String, String> VALUE_TO_PATH = null;
     private Object VALUE_TO_PATH_MUTEX = new Object();
@@ -76,8 +78,8 @@ public class SimpleXMLSource extends XMLSource {
     public Object cloneAsThawed() {
       SimpleXMLSource result = (SimpleXMLSource) super.cloneAsThawed();
       result.xpath_comments = (Comments) result.xpath_comments.clone();
-      result.xpath_fullXPath = (HashMap<String,String>) result.xpath_fullXPath.clone();
-      result.xpath_value = (HashMap) result.xpath_value.clone();
+      result.xpath_fullXPath = CldrUtility.newConcurrentHashMap(result.xpath_fullXPath);
+      result.xpath_value = CldrUtility.newConcurrentHashMap(result.xpath_value);
       return result;
     }
     public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
@@ -105,7 +107,7 @@ public class SimpleXMLSource extends XMLSource {
         // build a Relation mapping value to paths, if needed
         synchronized (VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH == null) {
-                VALUE_TO_PATH = new Relation(new HashMap(), HashSet.class);
+                VALUE_TO_PATH = new Relation(new ConcurrentHashMap(), HashSet.class);
                 for (Iterator<String> it = iterator(); it.hasNext();) {
                     String path = it.next();
                     String value = getValueAtDPath(path);

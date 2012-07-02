@@ -1,10 +1,11 @@
 package org.unicode.cldr.unittest;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 
@@ -12,7 +13,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestXMLSource extends TestFmwk {
     private class DummyXMLSource extends XMLSource {
-        HashMap<String, String> valueMap = new HashMap();
+        Map<String, String> valueMap = CldrUtility.newConcurrentHashMap();
 
         @Override
         public Object freeze() {

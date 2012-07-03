@@ -1405,7 +1405,7 @@ $Date$
 <!ATTLIST rulesetGrouping draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 
 <!ELEMENT ruleset ( alias | rbnfrule*) >
-<!ATTLIST ruleset type CDATA #REQUIRED>
+<!ATTLIST ruleset type NMTOKEN #REQUIRED>
 <!ATTLIST ruleset access ( public | private ) #IMPLIED >
 <!ATTLIST ruleset allowsParsing ( true | false ) #IMPLIED >
 <!ATTLIST ruleset draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->

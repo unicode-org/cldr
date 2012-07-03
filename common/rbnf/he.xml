@@ -58,14 +58,14 @@
                 <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טריליון[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-prefixpart@noparse">
+            <ruleset type="spellout-cardinal-feminine-prefixpart" allowsParsing="false">
                 <rbnfrule value="-x">מינוס →%spellout-cardinal-feminine→;</rbnfrule>
                 <rbnfrule value="0">=%spellout-cardinal-feminine= ;</rbnfrule>
                 <rbnfrule value="1">;</rbnfrule>
                 <rbnfrule value="2">שתי;</rbnfrule>
                 <rbnfrule value="3">=%spellout-cardinal-feminine= ;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-postfixpart@noparse">
+            <ruleset type="spellout-cardinal-feminine-postfixpart" allowsParsing="false">
                 <rbnfrule value="-x">;</rbnfrule>
                 <rbnfrule value="0">;</rbnfrule>
                 <rbnfrule value="1">=%spellout-cardinal-feminine=;</rbnfrule>
@@ -214,14 +214,14 @@
                 <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טריליון[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-prefixpart@noparse">
+            <ruleset type="spellout-cardinal-masculine-prefixpart" allowsParsing="false">
                 <rbnfrule value="-x">מינוס →%spellout-cardinal-masculine→;</rbnfrule>
                 <rbnfrule value="0">=%spellout-cardinal-masculine= ;</rbnfrule>
                 <rbnfrule value="1">;</rbnfrule>
                 <rbnfrule value="2">שני;</rbnfrule>
                 <rbnfrule value="3">=%spellout-cardinal-masculine= ;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-postfixpart@noparse">
+            <ruleset type="spellout-cardinal-masculine-postfixpart" allowsParsing="false">
                 <rbnfrule value="-x">;</rbnfrule>
                 <rbnfrule value="0">;</rbnfrule>
                 <rbnfrule value="1">=%spellout-cardinal-masculine=;</rbnfrule>

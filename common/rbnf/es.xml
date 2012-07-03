@@ -8,6 +8,9 @@
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <ruleset type="lenient-parse" access="private">
+                <rbnfrule value="0">&amp;[last primary ignorable ] ←← ' ' ←← ',' ←← '-' ←← '­';</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
@@ -144,6 +147,58 @@
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardos[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-ordinal-masculine-adjective">
+                <rbnfrule value="-x">menos →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">cero;</rbnfrule>
+                <rbnfrule value="1">primer;</rbnfrule>
+                <rbnfrule value="2">segundo;</rbnfrule>
+                <rbnfrule value="3">tercer;</rbnfrule>
+                <rbnfrule value="4">cuarto;</rbnfrule>
+                <rbnfrule value="5">quinto;</rbnfrule>
+                <rbnfrule value="6">sexto;</rbnfrule>
+                <rbnfrule value="7">séptimo;</rbnfrule>
+                <rbnfrule value="8">octavo;</rbnfrule>
+                <rbnfrule value="9">noveno;</rbnfrule>
+                <rbnfrule value="10">décimo;</rbnfrule>
+                <rbnfrule value="11">undécimo;</rbnfrule>
+                <rbnfrule value="12">duodécimo;</rbnfrule>
+                <rbnfrule value="13">decimo→→;</rbnfrule>
+                <rbnfrule value="20">vigésimo[ →→];</rbnfrule>
+                <rbnfrule value="30">trigésimo[ →→];</rbnfrule>
+                <rbnfrule value="40">cuadragésimo[ →→];</rbnfrule>
+                <rbnfrule value="50">quincuagésimo[ →→];</rbnfrule>
+                <rbnfrule value="60">sexagésimo[ →→];</rbnfrule>
+                <rbnfrule value="70">septuagésimo[ →→];</rbnfrule>
+                <rbnfrule value="80">octogésimo[ →→];</rbnfrule>
+                <rbnfrule value="90">nonagésimo[ →→];</rbnfrule>
+                <rbnfrule value="100">centésimo[ →→];</rbnfrule>
+                <rbnfrule value="200">ducentésimo[ →→];</rbnfrule>
+                <rbnfrule value="300">tricentésimo[ →→];</rbnfrule>
+                <rbnfrule value="400">cuadringentésimo[ →→];</rbnfrule>
+                <rbnfrule value="500">quingentésimo[ →→];</rbnfrule>
+                <rbnfrule value="600">sexcentésimo[ →→];</rbnfrule>
+                <rbnfrule value="700">septingentésimo[ →→];</rbnfrule>
+                <rbnfrule value="800">octingésimo[ →→];</rbnfrule>
+                <rbnfrule value="900">noningentésimo[ →→];</rbnfrule>
+                <rbnfrule value="1000">milésimo[ →→];</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal-masculine← milésimo[ →→];</rbnfrule>
+                <rbnfrule value="1000000">un millonésimo[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-masculine← millonésimo[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">un millardésimo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← millardésimo[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">un billonésimo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésimo[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">un billardésimo[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardésimo[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=º;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural">
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="1">=%spellout-ordinal-masculine=s;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=º;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-ordinal-masculine">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
@@ -189,6 +244,12 @@
                 <rbnfrule value="1000000000000000">un billardésimo[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=º;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural">
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="1">=%spellout-ordinal-feminine=s;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=ª;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
@@ -240,9 +301,9 @@
         <rulesetGrouping type="OrdinalRules">
             <ruleset type="dord-mascabbrev" access="private">
                 <rbnfrule value="0">º;</rbnfrule>
-                <rbnfrule value="1">er;</rbnfrule>
+                <rbnfrule value="1">ᵉʳ;</rbnfrule>
                 <rbnfrule value="2">º;</rbnfrule>
-                <rbnfrule value="3">er;</rbnfrule>
+                <rbnfrule value="3">ᵉʳ;</rbnfrule>
                 <rbnfrule value="4">º;</rbnfrule>
                 <rbnfrule value="20">→→;</rbnfrule>
                 <rbnfrule value="100">→→;</rbnfrule>

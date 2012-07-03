@@ -8,6 +8,9 @@
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <ruleset type="lenient-parse" access="private">
+                <rbnfrule value="0">&amp;[last primary ignorable ] ←← ' ' ←← ',' ←← '-' ←← '­';</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="-x">moins →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
@@ -152,10 +155,13 @@
                 <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%cents-o→;</rbnfrule>
                 <rbnfrule value="1000">mill-→%%mille-o→;</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-masculine←-mill-→%%mille-o→;</rbnfrule>
-                <rbnfrule value="2001">1,000,000 ←%spellout-cardinal-masculine←-million-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="2001">←%spellout-cardinal-masculine←-million→%%cents-o→;</rbnfrule>
                 <rbnfrule value="1000000000">←%spellout-cardinal-masculine←-milliard-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000001">←%spellout-cardinal-masculine←-milliard→%%cents-o→;</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal-masculine←-billion-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000001">←%spellout-cardinal-masculine←-billion→%%cents-o→;</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine←-billiard-→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000000001">←%spellout-cardinal-masculine←-billiard→%%cents-o→;</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine">

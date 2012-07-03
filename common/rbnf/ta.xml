@@ -16,8 +16,8 @@
                 <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">--- →→;</rbnfrule>
-                <rbnfrule value="x.x">←← ... →→;</rbnfrule>
+                <rbnfrule value="-x">எதிர்ம →→;</rbnfrule>
+                <rbnfrule value="x.x">←← புள்ளி →→;</rbnfrule>
                 <rbnfrule value="0">பூஜ்யம்;</rbnfrule>
                 <rbnfrule value="1">ஒன்று;</rbnfrule>
                 <rbnfrule value="2">இரண்டு;</rbnfrule>
@@ -59,6 +59,32 @@
                 <rbnfrule value="100000">←← லட்சம்[ →→];</rbnfrule>
                 <rbnfrule value="10000000">←← கோடி[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal">
+                <rbnfrule value="-x">எதிர்ம →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">பூஜ்யம்;</rbnfrule>
+                <rbnfrule value="1">முதலாவது;</rbnfrule>
+                <rbnfrule value="2">இரண்டாவது;</rbnfrule>
+                <rbnfrule value="3">மூன்றாவது;</rbnfrule>
+                <rbnfrule value="4">நான்காவது;</rbnfrule>
+                <rbnfrule value="5">ஐந்தாவது;</rbnfrule>
+                <rbnfrule value="6">ஆறாவது;</rbnfrule>
+                <rbnfrule value="7">ஏழாவது;</rbnfrule>
+                <rbnfrule value="8">எட்டாவது;</rbnfrule>
+                <rbnfrule value="9">ஒன்பதாவது;</rbnfrule>
+                <rbnfrule value="10">பத்தாவது;</rbnfrule>
+                <rbnfrule value="11">பதினொன்றாவது;</rbnfrule>
+                <rbnfrule value="12">பன்னிரண்டாவது;</rbnfrule>
+                <rbnfrule value="13">பதிமூன்றாவது;</rbnfrule>
+                <rbnfrule value="14">பதிநான்காவது;</rbnfrule>
+                <rbnfrule value="15">பதினைந்தாவது;</rbnfrule>
+                <rbnfrule value="16">பதினாறாவது;</rbnfrule>
+                <rbnfrule value="17">பதினேழாவது;</rbnfrule>
+                <rbnfrule value="18">பதினெட்டாவது;</rbnfrule>
+                <rbnfrule value="19">பத்தொன்பதாவது;</rbnfrule>
+                <rbnfrule value="20">இருபதாவது;</rbnfrule>
+                <rbnfrule value="21">=#,##,##0=ாவது;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">

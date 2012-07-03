@@ -47,39 +47,35 @@
                 <rbnfrule value="1000000">מיליון[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="3000000">←%%spellout-numbering-m← מיליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000">מילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000">שני מילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="3000000000">←%%spellout-numbering-m← מילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000">טריליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000">שני טריליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="3000000000000">←%%spellout-numbering-m← טריליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">טרילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">שני טרילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טרילירד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000">מיליארד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000">שני מיליארד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="3000000000">←%%spellout-numbering-m← מיליארד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000">ביליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000">שני ביליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="3000000000000">←%%spellout-numbering-m← ביליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">טריליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">שני טריליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טריליון[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-prefixpart" allowsParsing="false">
+            <ruleset type="spellout-cardinal-feminine-prefixpart@noparse">
+                <rbnfrule value="-x">מינוס →%spellout-cardinal-feminine→;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-feminine= ;</rbnfrule>
+                <rbnfrule value="1">;</rbnfrule>
+                <rbnfrule value="2">שתי;</rbnfrule>
+                <rbnfrule value="3">=%spellout-cardinal-feminine= ;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-postfixpart@noparse">
+                <rbnfrule value="-x">;</rbnfrule>
+                <rbnfrule value="0">;</rbnfrule>
+                <rbnfrule value="1">=%spellout-cardinal-feminine=;</rbnfrule>
+                <rbnfrule value="2">;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>
-                <rbnfrule value="x.x">←%spellout-numbering← נקודה →%%zz-fraction-feminine→ ;</rbnfrule>
-                <rbnfrule value="0">אפס ;</rbnfrule>
-                <rbnfrule value="1">;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-feminine-prefx= ;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine-postfixpart" allowsParsing="false">
-                <rbnfrule value="-x">→→;</rbnfrule>
-                <rbnfrule value="x.x">;</rbnfrule>
-                <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">' =%%spellout-cardinal-feminine-postfx=;</rbnfrule>
-                <rbnfrule value="2">;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine-postfx" access="private">
-                <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">אחת;</rbnfrule>
-                <rbnfrule value="2">;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine-prefx" access="private">
+                <rbnfrule value="x.x">←%spellout-numbering← נקודה →→ ;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
-                <rbnfrule value="1">;</rbnfrule>
+                <rbnfrule value="1">אחת;</rbnfrule>
                 <rbnfrule value="2">שתיים;</rbnfrule>
                 <rbnfrule value="3">שלוש;</rbnfrule>
                 <rbnfrule value="4">ארבע;</rbnfrule>
@@ -90,7 +86,7 @@
                 <rbnfrule value="9">תשע;</rbnfrule>
                 <rbnfrule value="10">עשר;</rbnfrule>
                 <rbnfrule value="11">אחת עשרה;</rbnfrule>
-                <rbnfrule value="12">שתים עשרה;</rbnfrule>
+                <rbnfrule value="12">שתיים עשרה;</rbnfrule>
                 <rbnfrule value="13">→→ עשרה;</rbnfrule>
                 <rbnfrule value="20">עשרים[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="30">שלושים[ →%%and-feminine→];</rbnfrule>
@@ -110,65 +106,68 @@
                 <rbnfrule value="1000000">מיליון[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="3000000">←%%spellout-numbering-m← מיליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000">מילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000">שני מילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="3000000000">←%%spellout-numbering-m← מילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000">טריליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000">שני טריליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="3000000000000">←%%spellout-numbering-m← טריליון[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">טרילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">שני טרילירד[ →%%and-feminine→];</rbnfrule>
-                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טרילירד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000">מיליארד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000">שני מיליארד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="3000000000">←%%spellout-numbering-m← מיליארד[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000">ביליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000">שני ביליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="3000000000000">←%%spellout-numbering-m← ביליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">טריליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">שני טריליון[ →%%and-feminine→];</rbnfrule>
+                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טריליון[ →%%and-feminine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="and-feminine" access="private">
                 <rbnfrule value="1">ו=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="2">ושתיים;</rbnfrule>
+                <rbnfrule value="3">ו=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="20">עשרים;</rbnfrule>
                 <rbnfrule value="21">עשרים →→;</rbnfrule>
-                <rbnfrule value="30">ושלושים;</rbnfrule>
+                <rbnfrule value="30">שלושים;</rbnfrule>
                 <rbnfrule value="31">שלושים →→;</rbnfrule>
-                <rbnfrule value="40">וארבעים;</rbnfrule>
+                <rbnfrule value="40">ארבעים;</rbnfrule>
                 <rbnfrule value="41">ארבעים →→;</rbnfrule>
-                <rbnfrule value="50">וחמישים;</rbnfrule>
+                <rbnfrule value="50">חמישים;</rbnfrule>
                 <rbnfrule value="51">חמישים →→;</rbnfrule>
-                <rbnfrule value="60">ושישים;</rbnfrule>
+                <rbnfrule value="60">שישים;</rbnfrule>
                 <rbnfrule value="61">שישים →→;</rbnfrule>
-                <rbnfrule value="70">ושבעים;</rbnfrule>
+                <rbnfrule value="70">שבעים;</rbnfrule>
                 <rbnfrule value="71">שבעים →→;</rbnfrule>
-                <rbnfrule value="80">ושמונים;</rbnfrule>
+                <rbnfrule value="80">שמונים;</rbnfrule>
                 <rbnfrule value="81">שמונים →→;</rbnfrule>
-                <rbnfrule value="90">ותשעים;</rbnfrule>
+                <rbnfrule value="90">תשעים;</rbnfrule>
                 <rbnfrule value="91">תשעים →→;</rbnfrule>
-                <rbnfrule value="100">ומאה;</rbnfrule>
+                <rbnfrule value="100">מאה;</rbnfrule>
                 <rbnfrule value="101">מאה →→;</rbnfrule>
-                <rbnfrule value="200">ומאתיים;</rbnfrule>
+                <rbnfrule value="200">מאתיים;</rbnfrule>
                 <rbnfrule value="201">מאתיים →→;</rbnfrule>
-                <rbnfrule value="300">ושלוש מאות;</rbnfrule>
+                <rbnfrule value="300">שלוש מאות;</rbnfrule>
                 <rbnfrule value="301">שלוש מאות →→;</rbnfrule>
-                <rbnfrule value="400">וארבע מאות;</rbnfrule>
+                <rbnfrule value="400">ארבע מאות;</rbnfrule>
                 <rbnfrule value="401">ארבע מאות →→;</rbnfrule>
-                <rbnfrule value="500">וחמש מאות;</rbnfrule>
+                <rbnfrule value="500">חמש מאות;</rbnfrule>
                 <rbnfrule value="501">חמש מאות →→;</rbnfrule>
-                <rbnfrule value="600">ושש מאות;</rbnfrule>
+                <rbnfrule value="600">שש מאות;</rbnfrule>
                 <rbnfrule value="601">שש מאות →→;</rbnfrule>
-                <rbnfrule value="700">ושבע מאות;</rbnfrule>
+                <rbnfrule value="700">שבע מאות;</rbnfrule>
                 <rbnfrule value="701">שבע מאות →→;</rbnfrule>
-                <rbnfrule value="800">ושמונה מאות;</rbnfrule>
+                <rbnfrule value="800">שמונה מאות;</rbnfrule>
                 <rbnfrule value="801">שמונה מאות →→;</rbnfrule>
-                <rbnfrule value="900">ותשע מאות;</rbnfrule>
+                <rbnfrule value="900">תשע מאות;</rbnfrule>
                 <rbnfrule value="901">תשע מאות →→;</rbnfrule>
-                <rbnfrule value="1000">ואלף[ →→];</rbnfrule>
-                <rbnfrule value="2000">ואלפיים[ →→];</rbnfrule>
+                <rbnfrule value="1000">אלף[ →→];</rbnfrule>
+                <rbnfrule value="2000">אלפיים[ →→];</rbnfrule>
                 <rbnfrule value="3000">←%%and-thousands← אלפים[ →→];</rbnfrule>
                 <rbnfrule value="11000" radix="1000">←%%and-masculine← אלף[ →→];</rbnfrule>
-                <rbnfrule value="1000000">ומיליון[ →→];</rbnfrule>
-                <rbnfrule value="2000000">ושני מיליון[ →→];</rbnfrule>
+                <rbnfrule value="1000000">מיליון[ →→];</rbnfrule>
+                <rbnfrule value="2000000">שני מיליון[ →→];</rbnfrule>
                 <rbnfrule value="3000000">←%%and-masculine← מיליון[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">ומילירד[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">ושני מילירד[ →→];</rbnfrule>
-                <rbnfrule value="3000000000">←%%and-masculine← מילירד[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">וטריליון[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">ושני טריליון[ →→];</rbnfrule>
-                <rbnfrule value="3000000000000">←%%and-masculine← טריליון[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">מיליארד[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">שני מיליארד[ →→];</rbnfrule>
+                <rbnfrule value="3000000000">←%%and-masculine← מיליארד[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">ביליון[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">שני ביליון[ →→];</rbnfrule>
+                <rbnfrule value="3000000000000">←%%and-masculine← ביליון[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering-m" access="private">
@@ -184,7 +183,7 @@
                 <rbnfrule value="9">תשעה;</rbnfrule>
                 <rbnfrule value="10">עשרה;</rbnfrule>
                 <rbnfrule value="11">אחד עשר;</rbnfrule>
-                <rbnfrule value="12">שנים עשר;</rbnfrule>
+                <rbnfrule value="12">שניים עשר;</rbnfrule>
                 <rbnfrule value="13">→→ עשר;</rbnfrule>
                 <rbnfrule value="20">עשרים[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="30">שלושים[ →%%and-masculine→];</rbnfrule>
@@ -204,39 +203,35 @@
                 <rbnfrule value="1000000">מיליון[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="3000000">←%%spellout-numbering-m← מיליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000">מילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000">שני מילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="3000000000">←%%spellout-numbering-m← מילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000">טריליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000">שני טריליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="3000000000000">←%%spellout-numbering-m← טריליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">טרילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">שני טרילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טרילירד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000">מיליארד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000">שני מיליארד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="3000000000">←%%spellout-numbering-m← מיליארד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000">ביליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000">שני ביליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="3000000000000">←%%spellout-numbering-m← ביליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">טריליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">שני טריליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טריליון[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-prefixpart" allowsParsing="false">
+            <ruleset type="spellout-cardinal-masculine-prefixpart@noparse">
+                <rbnfrule value="-x">מינוס →%spellout-cardinal-masculine→;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-masculine= ;</rbnfrule>
+                <rbnfrule value="1">;</rbnfrule>
+                <rbnfrule value="2">שני;</rbnfrule>
+                <rbnfrule value="3">=%spellout-cardinal-masculine= ;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-postfixpart@noparse">
+                <rbnfrule value="-x">;</rbnfrule>
+                <rbnfrule value="0">;</rbnfrule>
+                <rbnfrule value="1">=%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="2">;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>
-                <rbnfrule value="x.x">←%%spellout-numbering-m← נקודה →%%zz-fraction-masculine→ ;</rbnfrule>
-                <rbnfrule value="0">אפס ;</rbnfrule>
-                <rbnfrule value="1">;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-masculine-prefx= ;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine-postfixpart" allowsParsing="false">
-                <rbnfrule value="-x">→→;</rbnfrule>
-                <rbnfrule value="x.x">;</rbnfrule>
-                <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">' =%%spellout-cardinal-masculine-postfx=;</rbnfrule>
-                <rbnfrule value="2">;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine-postfx" access="private">
-                <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">אחד;</rbnfrule>
-                <rbnfrule value="2">;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine-prefx" access="private">
+                <rbnfrule value="x.x">←%%spellout-numbering-m← נקודה →→ ;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
-                <rbnfrule value="1">;</rbnfrule>
+                <rbnfrule value="1">אחד;</rbnfrule>
                 <rbnfrule value="2">שניים;</rbnfrule>
                 <rbnfrule value="3">שלושה;</rbnfrule>
                 <rbnfrule value="4">ארבעה;</rbnfrule>
@@ -247,7 +242,7 @@
                 <rbnfrule value="9">תשעה;</rbnfrule>
                 <rbnfrule value="10">עשרה;</rbnfrule>
                 <rbnfrule value="11">אחד עשר;</rbnfrule>
-                <rbnfrule value="12">שנים עשר;</rbnfrule>
+                <rbnfrule value="12">שניים עשר;</rbnfrule>
                 <rbnfrule value="13">→→ עשר;</rbnfrule>
                 <rbnfrule value="20">עשרים[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="30">שלושים[ →%%and-masculine→];</rbnfrule>
@@ -267,65 +262,81 @@
                 <rbnfrule value="1000000">מיליון[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="2000000">שני מיליון[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="3000000">←%%spellout-numbering-m← מיליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000">מילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000">שני מילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="3000000000">←%%spellout-numbering-m← מילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000">טריליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000">שני טריליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="3000000000000">←%%spellout-numbering-m← טריליון[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="1000000000000000">טרילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="2000000000000000">שני טרילירד[ →%%and-masculine→];</rbnfrule>
-                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טרילירד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000">מיליארד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000">שני מיליארד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="3000000000">←%%spellout-numbering-m← מיליארד[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000">ביליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000">שני ביליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="3000000000000">←%%spellout-numbering-m← ביליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="1000000000000000">טריליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="2000000000000000">שני טריליון[ →%%and-masculine→];</rbnfrule>
+                <rbnfrule value="3000000000000000">←%%spellout-numbering-m← טריליון[ →%%and-masculine→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-construct-masculine">
+                <rbnfrule value="-x">מינוס →→;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-masculine= ;</rbnfrule>
+                <rbnfrule value="1">אחד;</rbnfrule>
+                <rbnfrule value="2">שני;</rbnfrule>
+                <rbnfrule value="3">שלושת;</rbnfrule>
+                <rbnfrule value="4">ארבעת;</rbnfrule>
+                <rbnfrule value="5">חמשת;</rbnfrule>
+                <rbnfrule value="6">ששת;</rbnfrule>
+                <rbnfrule value="7">שבעת;</rbnfrule>
+                <rbnfrule value="8">שמונת;</rbnfrule>
+                <rbnfrule value="9">תשעת;</rbnfrule>
+                <rbnfrule value="10">עשרת;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-masculine= ;</rbnfrule>
             </ruleset>
             <ruleset type="and-masculine" access="private">
                 <rbnfrule value="1">ו=%%spellout-numbering-m=;</rbnfrule>
+                <rbnfrule value="20">עשרים;</rbnfrule>
                 <rbnfrule value="21">עשרים →→;</rbnfrule>
-                <rbnfrule value="30">ושלושים;</rbnfrule>
+                <rbnfrule value="30">שלושים;</rbnfrule>
                 <rbnfrule value="31">שלושים →→;</rbnfrule>
-                <rbnfrule value="40">וארבעים;</rbnfrule>
+                <rbnfrule value="40">ארבעים;</rbnfrule>
                 <rbnfrule value="41">ארבעים →→;</rbnfrule>
-                <rbnfrule value="50">וחמישים;</rbnfrule>
+                <rbnfrule value="50">חמישים;</rbnfrule>
                 <rbnfrule value="51">חמישים →→;</rbnfrule>
-                <rbnfrule value="60">ושישים;</rbnfrule>
+                <rbnfrule value="60">שישים;</rbnfrule>
                 <rbnfrule value="61">שישים →→;</rbnfrule>
-                <rbnfrule value="70">ושבעים;</rbnfrule>
+                <rbnfrule value="70">שבעים;</rbnfrule>
                 <rbnfrule value="71">שבעים →→;</rbnfrule>
-                <rbnfrule value="80">ושמונים;</rbnfrule>
+                <rbnfrule value="80">שמונים;</rbnfrule>
                 <rbnfrule value="81">שמונים →→;</rbnfrule>
-                <rbnfrule value="90">ותשעים;</rbnfrule>
+                <rbnfrule value="90">תשעים;</rbnfrule>
                 <rbnfrule value="91">תשעים →→;</rbnfrule>
-                <rbnfrule value="100">ומאה;</rbnfrule>
+                <rbnfrule value="100">מאה;</rbnfrule>
                 <rbnfrule value="101">מאה →→;</rbnfrule>
-                <rbnfrule value="200">ומאתיים;</rbnfrule>
+                <rbnfrule value="200">מאתיים;</rbnfrule>
                 <rbnfrule value="201">מאתיים →→;</rbnfrule>
-                <rbnfrule value="300">ושלוש מאות;</rbnfrule>
+                <rbnfrule value="300">שלוש מאות;</rbnfrule>
                 <rbnfrule value="301">שלוש מאות →→;</rbnfrule>
-                <rbnfrule value="400">וארבע מאות;</rbnfrule>
+                <rbnfrule value="400">ארבע מאות;</rbnfrule>
                 <rbnfrule value="401">ארבע מאות →→;</rbnfrule>
-                <rbnfrule value="500">וחמש מאות;</rbnfrule>
+                <rbnfrule value="500">חמש מאות;</rbnfrule>
                 <rbnfrule value="501">חמש מאות →→;</rbnfrule>
-                <rbnfrule value="600">ושש מאות;</rbnfrule>
+                <rbnfrule value="600">שש מאות;</rbnfrule>
                 <rbnfrule value="601">שש מאות →→;</rbnfrule>
-                <rbnfrule value="700">ושבע מאות;</rbnfrule>
+                <rbnfrule value="700">שבע מאות;</rbnfrule>
                 <rbnfrule value="701">שבע מאות →→;</rbnfrule>
-                <rbnfrule value="800">ושמונה מאות;</rbnfrule>
+                <rbnfrule value="800">שמונה מאות;</rbnfrule>
                 <rbnfrule value="801">שמונה מאות →→;</rbnfrule>
-                <rbnfrule value="900">ותשע מאות;</rbnfrule>
+                <rbnfrule value="900">תשע מאות;</rbnfrule>
                 <rbnfrule value="901">תשע מאות →→;</rbnfrule>
-                <rbnfrule value="1000">ואלף[ →→];</rbnfrule>
-                <rbnfrule value="2000">ואלפיים[ →→];</rbnfrule>
+                <rbnfrule value="1000">אלף[ →→];</rbnfrule>
+                <rbnfrule value="2000">אלפיים[ →→];</rbnfrule>
                 <rbnfrule value="3000">←%%and-thousands← אלפים[ →→];</rbnfrule>
                 <rbnfrule value="11000" radix="1000">←%%and-masculine← אלף[ →→];</rbnfrule>
-                <rbnfrule value="1000000">ומיליון[ →→];</rbnfrule>
-                <rbnfrule value="2000000">ושני מיליון[ →→];</rbnfrule>
+                <rbnfrule value="1000000">מיליון[ →→];</rbnfrule>
+                <rbnfrule value="2000000">שני מיליון[ →→];</rbnfrule>
                 <rbnfrule value="3000000">←%%and-masculine← מיליון[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">ומילירד[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">ושני מילירד[ →→];</rbnfrule>
-                <rbnfrule value="3000000000">←%%and-masculine← מילירד[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">וטריליון[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">ושני טריליון[ →→];</rbnfrule>
-                <rbnfrule value="3000000000000">←%%and-masculine← טריליון[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">מיליארד[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">שני מיליארד[ →→];</rbnfrule>
+                <rbnfrule value="3000000000">←%%and-masculine← מיליארד[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">ביליון[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">שני ביליון[ →→];</rbnfrule>
+                <rbnfrule value="3000000000000">←%%and-masculine← ביליון[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="thousands" access="private">
@@ -339,30 +350,6 @@
                 <rbnfrule value="1">ERROR-=0=;</rbnfrule>
                 <rbnfrule value="3">ו=%%thousands=;</rbnfrule>
                 <rbnfrule value="11">ERROR-=0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="zz-fraction-feminine" access="private">
-                <rbnfrule value="10">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="100">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="1000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="10000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="100000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="10000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="100000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="10000000000">←#,##0←←;</rbnfrule>
-            </ruleset>
-            <ruleset type="zz-fraction-masculine" access="private">
-                <rbnfrule value="10">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="100">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="1000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="10000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="100000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="1000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="10000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="100000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="1000000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="10000000000">←#,##0←←;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine">
                 <rbnfrule value="-x">מינוס →→;</rbnfrule>

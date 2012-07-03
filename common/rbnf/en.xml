@@ -8,8 +8,11 @@
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
+            <ruleset type="lenient-parse" access="private">
+                <rbnfrule value="0">&amp;[last primary ignorable ] ←← ' ' ←← ',' ←← '-' ←← '­';</rbnfrule>
+            </ruleset>
             <ruleset type="2d-year" access="private">
-                <rbnfrule value="0">hundred[ and →%spellout-numbering→];</rbnfrule>
+                <rbnfrule value="0">hundred;</rbnfrule>
                 <rbnfrule value="1">oh-=%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="10">=%spellout-numbering=;</rbnfrule>
             </ruleset>
@@ -17,7 +20,32 @@
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1000" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="1001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="1100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="2000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="2001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="2100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="3000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="3001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="3100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="4000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="4001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="4100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="5000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="5001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="5100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="6000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="6001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="6100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="7000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="7001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="7100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="8000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="8001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="8100" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="9000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="9001" radix="100">←← →%%2d-year→;</rbnfrule>
+                <rbnfrule value="9100" radix="100">←← →%%2d-year→;</rbnfrule>
                 <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">

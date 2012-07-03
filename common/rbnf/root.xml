@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="root"/>
-	</identity>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="root"/>
+    </identity>
     <rbnf>
         <rulesetGrouping type="NumberingSystemRules">
             <ruleset type="armenian-upper">
                 <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">0;</rbnfrule>
                 <rbnfrule value="1">Ա;</rbnfrule>
                 <rbnfrule value="2">Բ;</rbnfrule>
@@ -51,6 +52,7 @@
             </ruleset>
             <ruleset type="armenian-lower">
                 <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">0;</rbnfrule>
                 <rbnfrule value="1">ա;</rbnfrule>
                 <rbnfrule value="2">բ;</rbnfrule>
@@ -91,7 +93,8 @@
                 <rbnfrule value="10000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="ethiopic">
-                <rbnfrule value="-x">=#,##0=;</rbnfrule>
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">ባዶ;</rbnfrule>
                 <rbnfrule value="1">፩;</rbnfrule>
                 <rbnfrule value="2">፪;</rbnfrule>
@@ -134,7 +137,8 @@
                 <rbnfrule value="1000000" radix="1000000">=%ethiopic=;</rbnfrule>
             </ruleset>
             <ruleset type="georgian">
-                <rbnfrule value="-x">=#,##0=;</rbnfrule>
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">=#,##0=;</rbnfrule>
                 <rbnfrule value="1">ა;</rbnfrule>
                 <rbnfrule value="2">ბ;</rbnfrule>
@@ -177,9 +181,10 @@
             </ruleset>
             <ruleset type="greek-lower">
                 <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">00;</rbnfrule>
                 <rbnfrule value="1">=%%greek-numeral-minuscules=´;</rbnfrule>
-                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+                <rbnfrule value="1000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="greek-numeral-minuscules" access="private">
                 <rbnfrule value="1">α;</rbnfrule>
@@ -218,12 +223,31 @@
                 <rbnfrule value="7000">͵ζ[→→];</rbnfrule>
                 <rbnfrule value="8000">͵η[→→];</rbnfrule>
                 <rbnfrule value="9000">͵θ[→→];</rbnfrule>
+                <rbnfrule value="10000">͵ι[→→];</rbnfrule>
+                <rbnfrule value="20000">͵κ[→→];</rbnfrule>
+                <rbnfrule value="30000">͵λ[→→];</rbnfrule>
+                <rbnfrule value="40000">͵μ[→→];</rbnfrule>
+                <rbnfrule value="50000">͵ν[→→];</rbnfrule>
+                <rbnfrule value="60000">͵ξ[→→];</rbnfrule>
+                <rbnfrule value="70000">͵ο[→→];</rbnfrule>
+                <rbnfrule value="80000">͵π[→→];</rbnfrule>
+                <rbnfrule value="90000">͵ϟ[→→];</rbnfrule>
+                <rbnfrule value="100000">͵ρ[→→];</rbnfrule>
+                <rbnfrule value="200000">͵σ[→→];</rbnfrule>
+                <rbnfrule value="300000">͵τ[→→];</rbnfrule>
+                <rbnfrule value="400000">͵υ[→→];</rbnfrule>
+                <rbnfrule value="500000">͵φ[→→];</rbnfrule>
+                <rbnfrule value="600000">͵χ[→→];</rbnfrule>
+                <rbnfrule value="700000">͵ψ[→→];</rbnfrule>
+                <rbnfrule value="800000">͵ω[→→];</rbnfrule>
+                <rbnfrule value="900000">͵ϡ[→→];</rbnfrule>
             </ruleset>
             <ruleset type="greek-upper">
                 <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">00;</rbnfrule>
                 <rbnfrule value="1">=%%GREEK-NUMERAL-MAJUSCULES=´;</rbnfrule>
-                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+                <rbnfrule value="1000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="GREEK-NUMERAL-MAJUSCULES" access="private">
                 <rbnfrule value="1">Α;</rbnfrule>
@@ -262,9 +286,28 @@
                 <rbnfrule value="7000">͵Ζ[→→];</rbnfrule>
                 <rbnfrule value="8000">͵Η[→→];</rbnfrule>
                 <rbnfrule value="9000">͵Θ[→→];</rbnfrule>
+                <rbnfrule value="10000">͵Ι[→→];</rbnfrule>
+                <rbnfrule value="20000">͵Κ[→→];</rbnfrule>
+                <rbnfrule value="30000">͵Λ[→→];</rbnfrule>
+                <rbnfrule value="40000">͵Μ[→→];</rbnfrule>
+                <rbnfrule value="50000">͵Ν[→→];</rbnfrule>
+                <rbnfrule value="60000">͵Ξ[→→];</rbnfrule>
+                <rbnfrule value="70000">͵Ο[→→];</rbnfrule>
+                <rbnfrule value="80000">͵Π[→→];</rbnfrule>
+                <rbnfrule value="90000">͵Ϟ[→→];</rbnfrule>
+                <rbnfrule value="100000">͵Ρ[→→];</rbnfrule>
+                <rbnfrule value="200000">͵Σ[→→];</rbnfrule>
+                <rbnfrule value="300000">͵Τ[→→];</rbnfrule>
+                <rbnfrule value="400000">͵Υ[→→];</rbnfrule>
+                <rbnfrule value="500000">͵Φ[→→];</rbnfrule>
+                <rbnfrule value="600000">͵Χ[→→];</rbnfrule>
+                <rbnfrule value="700000">͵Ψ[→→];</rbnfrule>
+                <rbnfrule value="800000">͵Ω[→→];</rbnfrule>
+                <rbnfrule value="900000">͵Ϡ[→→];</rbnfrule>
             </ruleset>
             <ruleset type="hebrew">
-                <rbnfrule value="-x">=#,##0=;</rbnfrule>
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">א׳;</rbnfrule>
                 <rbnfrule value="2">ב׳;</rbnfrule>
@@ -385,7 +428,8 @@
                 <rbnfrule value="400">=%hebrew=;=%hebrew=׳;</rbnfrule>
             </ruleset>
             <ruleset type="roman-lower">
-                <rbnfrule value="-x">→→n;</rbnfrule>
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">n;</rbnfrule>
                 <rbnfrule value="1">i;</rbnfrule>
                 <rbnfrule value="2">ii;</rbnfrule>
@@ -421,7 +465,8 @@
                 <rbnfrule value="5000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="roman-upper">
-                <rbnfrule value="-x">→→N;</rbnfrule>
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">N;</rbnfrule>
                 <rbnfrule value="1">I;</rbnfrule>
                 <rbnfrule value="2">II;</rbnfrule>
@@ -474,7 +519,8 @@
                 <rbnfrule value="400000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="tamil">
-                <rbnfrule value="-x">=#,##,##0=;</rbnfrule>
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">௦;</rbnfrule>
                 <rbnfrule value="1">௧;</rbnfrule>
                 <rbnfrule value="2">௨;</rbnfrule>

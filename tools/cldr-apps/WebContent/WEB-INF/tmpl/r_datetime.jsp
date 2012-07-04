@@ -8,7 +8,9 @@ String type = ctx.field("calendar", "gregorian");
 %>
 <h3>Date/Time Review : <%=         com.ibm.icu.lang.UCharacter.toTitleCase(SurveyMain.BASELINE_LOCALE.toLocale(), type, null)  %></h3>
 <%
-CLDRFile englishFile = ctx.sm.getSTFactory().getOldFile(CLDRLocale.getInstance("en"));
+// OLD CLDRFile englishFile = ctx.sm.getSTFactory().getOldFile(CLDRLocale.getInstance("en"));
+// NEW
+CLDRFile englishFile = ctx.sm.getDiskFactory().make("en",true);
 DateTimeFormats formats = new DateTimeFormats().set(ctx.sm.getSTFactory().make(ctx.getLocale(), true), type);
 DateTimeFormats english = new DateTimeFormats().set(englishFile,type);
 formats.addTable(english, out);

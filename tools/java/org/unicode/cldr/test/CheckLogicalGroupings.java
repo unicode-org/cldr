@@ -42,7 +42,11 @@ public class CheckLogicalGroupings extends CheckCLDR {
         if (this.getPhase() != null && this.getPhase().equals(Phase.FINAL_TESTING)) {
             Set<String> draftStatuses = new TreeSet<String>();
             for ( String apath : paths) {
-                parts.set(getCldrFileToCheck().getFullXPath(apath));
+                String fPath = getCldrFileToCheck().getFullXPath(apath);
+                if (fPath == null) {
+                    continue;
+                }
+                parts.set(fPath);
                 String draftStatus = parts.findFirstAttributeValue("draft");
                 if ( draftStatus == null ) {
                     draftStatus = "approved";

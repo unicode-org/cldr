@@ -46,6 +46,7 @@ define({
 			unconfirmed: "Unconfirmed", 
 			contributed: "Contributed", 
 			provisional: "Provisional",
+			missing: "Missing",
 			
 			
 			admin_settings: "Settings",
@@ -129,6 +130,18 @@ define({
                         pClass_loser: "This is a proposed item which is not currently winning.",
                         pClass_fallback: "This item is inherited from ${inheritFromDisplay}.",
 			
+           winningStatus_msg:  "${0} Value: ",
+           lastReleaseStatus_msg: "(${0} Last Release: ",
+           lastReleaseStatus1_msg: " )",
+           
+           htmlvorg: "Org",
+           htmlvorgvote: "Organization's vote",
+           htmlvdissenting: "Dissenting Votes",	   
+           flyovervorg: "List of Organizations",
+           flyovervorgvote: "The final vote for this organization",
+           flyovervdissenting: "Other votes cast against the final vote by members of the organization",
+           voteInfoScorebox_msg: "${0}: ${1}",
+                        
            // CheckCLDR.StatusAction 
            StatusAction_msg:              "Item was not submitted: ${0}",
            StatusAction_ALLOW:            "(Actually, it was allowed.)", // shouldn't happen

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.DataSection.DataRow;
 
 
@@ -128,6 +130,37 @@ public class SurveyAjax extends HttpServlet {
                 newList.add(wrap(cs));
             }
             return newList;
+        }
+
+        public static JSONObject wrap(final VoteResolver<String> r) throws JSONException {
+            JSONObject ret = new JSONObject()
+                .put("raw",r.toString())
+                .put("isDisputed", r.isDisputed())
+                .put("isEstablished", r.isEstablished())
+                .put("lastReleaseStatus",  r.getLastReleaseStatus())
+                .put("winningValue", r.getWinningValue())
+                .put("lastReleaseValue",  r.getLastReleaseValue())
+                .put("winningStatus", r.getWinningStatus());
+            
+                EnumSet<VoteResolver.Organization> conflictedOrgs = r.getConflictedOrganizations();
+                JSONObject orgs = new JSONObject();
+                for(VoteResolver.Organization o:VoteResolver.Organization.values()) {
+                    String orgVote = r.getOrgVote(o);
+                    if(orgVote==null) continue;
+        
+                    Map<String,Long> votes = r.getOrgToVotes(o);
+                    
+                    JSONObject org = new JSONObject()
+                        .put("status",r.getStatusForOrganization(o))
+                        .put("orgVote", orgVote)
+                        .put("votes", votes);
+                    if(conflictedOrgs.contains(org)) {
+                        org.put("conflicted", true);
+                    }
+                    orgs.put(o.name(), org);
+                }
+                ret.put("orgs", orgs);
+                return ret;
         }
     }
 

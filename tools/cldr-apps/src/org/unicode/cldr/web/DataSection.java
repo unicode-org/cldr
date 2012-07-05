@@ -1721,6 +1721,7 @@ public class DataSection implements JSONString {
 					.put("winningVhash", winningVhash)
 					.put("ourVote", ourVote)
 					.put("voteVhash", voteVhash)
+					.put("voteResolver", SurveyAjax.JSONWriter.wrap(ballotBox.getResolver(xpath)))
 					.put("items",itemsJson).toString();
 		    } catch(Throwable t) {
 		        SurveyLog.logException(t,"Exception in toJSONString of " + this);

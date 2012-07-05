@@ -172,7 +172,7 @@ function updateIf(id, txt) {
     }
 }
 
-// work around IE8 fail
+// work around IE8 problem
 
 function listenFor(what, event, fn, ievent) {
 	if(!(what._stlisteners)) {
@@ -1146,6 +1146,7 @@ dojo.ready(function() {
 
 		var td = document.createDocumentFragment();
 
+		// Always have help (if available).
 		var theHelp = null;
 		if(tr&& tr.helpDiv) {
 			theHelp =  tr.helpDiv;
@@ -1154,15 +1155,25 @@ dojo.ready(function() {
 			td.appendChild(theHelp.cloneNode(true));
 		}
 
-		if(str) {
+		if(str) { // If a simple string, clone the string
 			var div2 = document.createElement("div");
 			div2.innerHTML=str;
 			td.appendChild(div2);
 		}
+		// If a generator fn (common case), call it.
 		if(fn!=null) {
 			unShow=fn(td);
 		}
 
+		var theVoteinfo = null;
+		if(tr&& tr.voteDiv) {
+			theVoteinfo =  tr.voteDiv;
+		}
+		if(theVoteinfo) {
+			td.appendChild(theVoteinfo.cloneNode(true));
+		}
+
+		
 		removeAllChildNodes(pucontent);
 		pucontent.appendChild(td);
 		if(stdebug_enabled) {
@@ -1275,7 +1286,7 @@ dojo.ready(function() {
 //	return span;
 //}
 
-function appendItem(div,value, pClass) {
+function appendItem(div,value, pClass, tr) {
 	var text = document.createTextNode(value?value:stui.str("no value"));
 	var span = document.createElement("span");
 	span.appendChild(text);
@@ -1285,6 +1296,29 @@ function appendItem(div,value, pClass) {
 		span.className = "value";
 	}
 	div.appendChild(span);
+	
+	// clicking on some item will attempt to jump to that item.
+	if(false && tr && value) { // TODO: not working yet.
+		addClass(span, "rolloverspan");
+		var fn = null;
+		listenFor(span, "mouseover",
+			 fn = 	function(e) {
+			console.log("Clicked on " + value + " - item is " + item.toString());
+					var item = tr.theRow.valueToItem[value];
+					if(item && item.showFn) {
+						showInPop("", tr, item.div, item.showFn, true);
+						stStopPropagation(e);
+						return false;
+					} else {
+						return true;
+					}
+				});
+		
+		//span.onclick = fn;
+//	} else {
+//		console.log("no tr or no value: " + value);
+	}
+	
 	return span;
 }
 
@@ -1358,7 +1392,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 			ourDiv.appendChild(newButton);
 		}
 		var h3 = document.createElement("span");
-		var span=appendItem(h3, value, "value");
+		var span=appendItem(h3, value, "value",tr);
 		span.dir = tr.theTable.json.dir;
 		ourDiv.appendChild(h3);
 		
@@ -1389,7 +1423,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 
 		if(!ourItem) {
 			var h3 = document.createElement("h3");
-			var span=appendItem(h3, value, "value");
+			var span=appendItem(h3, value, "value",tr);
 			span.dir = tr.theTable.json.dir;
 			h3.className="span";
 			div3.appendChild(h3);
@@ -1433,7 +1467,7 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		//div.className = 'd-item-selected';
 
 		var h3 = document.createElement("h3");
-		var span = appendItem(h3, item.value, item.pClass);
+		var span = appendItem(h3, item.value, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
 		h3.className="span";
 		if(false) { // click to copy
 			h3.onclick = function() {
@@ -1506,6 +1540,9 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 }
 
 function popInfoInto(tr, theRow, theChild, immediate) {
+	showInPop("NOT USED.", tr, theChild); // empty
+	return; 
+	
 	//if(theRow.voteInfoText) {
 	//	showInPop(theRow.voteInfoText, tr, theChild, null, immediate);
 	//	return;
@@ -1575,8 +1612,10 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	var isWinner = (td==tr.proposedcell);
 	var testKind = getTestKind(item.tests);
 	setDivClass(div,testKind);
-	item.div = div;
-	
+	item.div = div; // back link
+	if(item.value) {
+		tr.valueToItem[item.value] = item; // back link by value
+	}
 	if(item==null)  {
 //		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
 		return;
@@ -1587,7 +1626,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 		wireUpButton(newButton,tr,theRow,vHash);
 		div.appendChild(newButton);
 	}
-	var span = appendItem(div,item.value,item.pClass);
+	var span = appendItem(div,item.value,item.pClass,tr);
 	
 	span.dir = tr.theTable.json.dir;
 	if(item.isOldValue==true && !isWinner) {
@@ -1611,11 +1650,142 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	}
 }
 
+function calcPClass(value, winner) {
+	if(value==winner) {
+		return "winner";
+	} else {
+		return "value";
+	}
+}
+
 function updateRow(tr, theRow) {
+	tr.valueToItem = {}; // hash:  string value to item (which has a div)
+	
 	if(!tr.helpDiv && theRow.displayHelp) {
 		// this also marks this row as a 'help parent'
 		tr.helpDiv = cloneAnon(dojo.byId("proto-help"));
 		tr.helpDiv.innerHTML += theRow.displayHelp;
+	}
+	
+	// update the vote info
+	if(theRow.voteResolver) {
+		
+		tr.voteDiv = document.createElement("div");
+		tr.voteDiv.className = "voteDiv";
+		
+		tr.voteDiv.appendChild(document.createElement("hr"));
+		// approved and last release status
+		{
+			var p = document.createElement("p");
+			p.appendChild(createChunk(
+						stui.sub("winningStatus_msg",
+								[ stui.str(theRow.voteResolver.winningStatus) ])
+						, "b", "d-dr-"+theRow.voteResolver.winningStatus+" selected winningStatus"));
+			appendItem(p, theRow.voteResolver.winningValue, "winner",tr);
+			
+			p.appendChild(createChunk(
+					stui.sub("lastReleaseStatus_msg",
+							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
+					, "b",  /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus0"));
+			appendItem(p, theRow.voteResolver.lastReleaseValue, "value",tr);
+			p.appendChild(createChunk(
+					stui.sub("lastReleaseStatus1_msg",
+							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
+					, "b", /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus1"));
+
+			
+			tr.voteDiv.appendChild(p);
+		}
+		
+		// next, the org votes
+		var div = tr.voteDiv;
+		
+		if(theRow.voteResolver.orgs && Object.keys(theRow.voteResolver.orgs).length > 0 ) {
+			var table = document.createElement("table");
+			table.className = "tzbox";
+			table.id = "voteinfo";
+			
+			div.appendChild(table);
+			table.appendChild(cloneLocalizeAnon(dojo.byId("voteInfoHead")));
+	
+			var tbody = document.createElement("tbody")
+			table.appendChild(tbody);
+		
+			for(org in theRow.voteResolver.orgs) {
+				var vtr = document.createElement("tr");
+				var theOrg = theRow.voteResolver.orgs[org];
+				var vth_org = createChunk(org, 'th', 'org_'+theOrg.status)
+				var vtd_orgvote = document.createElement("td");
+				var vtd_dissenting = document.createElement("td");
+				tbody.appendChild(vtr);
+				vtr.appendChild(vth_org);
+				vtr.appendChild(vtd_orgvote);
+				vtr.appendChild(vtd_dissenting);
+				
+				appendItem(vtd_orgvote, theOrg.orgVote, calcPClass(theOrg.orgVote, theRow.voteResolver.winningValue),tr);
+				var scorebox = createChunk(
+							stui.sub("voteInfoScorebox_msg",
+										[
+										 	theOrg.votes[theOrg.orgVote],
+										 	theOrg.status
+										 ]),
+							"span",
+							"scorebox"
+						);
+				scorebox.dir = 'ltr'; // important
+				vtd_orgvote.appendChild(scorebox);
+				//. TODO: collect & append voters.
+				
+				
+				// now, the dissenters.
+				for(dValue in theOrg.votes) {
+					if(dValue == theOrg.orgVote) continue;
+				
+					var dp = document.createElement("p");
+					
+					appendItem(dp, dValue, calcPClass(dValue, theRow.voteResolver.winningValue),tr);
+					vtd_dissenting.appendChild(dp);
+					
+					var scorebox = createChunk(
+							stui.sub("voteInfoScorebox_msg",
+										[
+										 	theOrg.votes[dValue],
+										 	stui.str("dissenting")  //theOrg.status
+										 ]),
+							"span",
+							"scorebox"
+						);
+						scorebox.dir = 'ltr'; // important
+						dp.appendChild(scorebox);
+				}
+				
+				/*
+				 *  %>
+		<tr>
+		<th class='org_<%= r.getStatusForOrganization(o) %>'><%= o %></th>
+		
+		<td>
+				  	<span class='<%= orgVote.equals(winner)?"winner":"value" %>' dir='<%= dir %>' title='#'><%= orgVote %></span>
+				  <span dir='ltr' class='scorebox'><%= votes.get(orgVote) %>: <%= r.getStatusForOrganization(o) %></span>
+		</td>
+		
+		<td>
+			<% for(Map.Entry<String,Long> e:votes.entrySet()) { 
+				if(e.getKey().equals(orgVote)) continue;
+			%>
+				  	<span class='<%= e.getKey().equals(winner)?"winner":"value" %>'  dir='<%= dir %>' title='#'><%= e.getKey() %></span>
+				  <span dir='ltr' class='scorebox'><%= e.getValue() %></span>
+				  	<br/>
+			<% } %>
+		</td>
+				 */
+				
+				
+			}
+		}
+		// done with voteresolver table
+	} else {
+		tr.voteDiv = null;
 	}
 	
 	var statusAction = parseStatusAction(theRow.statusAction);
@@ -1668,10 +1838,12 @@ function updateRow(tr, theRow) {
 	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus;
 	if(!children[config.statuscell].isSetup) {
+		listenToPop("", tr, children[config.statuscell]);
+
 //		listenFor(children[config.statuscell],"mouseover",
 //				doPopInfo);
-		listenFor(children[config.statuscell],"click",
-				doPopInfoNow);
+//		listenFor(children[config.statuscell],"click",  // TODO: change t empty
+//				doPopInfoNow);
 		children[config.statuscell].isSetup=true;
 	}
 	children[config.statuscell].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
@@ -1767,7 +1939,11 @@ function updateRow(tr, theRow) {
 		//showInPop(null, tr, tr.proposedcell, tr.proposedcell.showFn, true);
 		
 		// select the 'approved' cell
-		popInfoInto(tr,theRow,children[config.statuscell],true);
+		//popInfoInto(tr,theRow,children[config.statuscell],true);
+
+		// select the approved cell - no message.
+		showInPop('', tr, children[config.statuscell], null, true);
+
 
 		stStopPropagation(e); return false; 
 	};
@@ -2434,6 +2610,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 						} else {
 							hidePop(tr);
+							// TODO: hidden after submit - should instead update.
 						}
 						if(box) {
 							box.value=""; // submitted - dont show.
@@ -2450,6 +2627,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 					} else {
 						hidePop(tr);
+						// TODO: not submitted, but no errors.  Refresh row and show?
 					}
 					if(box) {
 						box.value=""; // submitted - dont show.

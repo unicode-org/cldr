@@ -1856,6 +1856,20 @@ span.d-sort-size {
 	background: url(missing.png) no-repeat center top;
 }
 
+.voteDiv .winningStatus  {
+	padding-left: 20px;
+	background-position: left !important;
+}
+
+.voteDiv .lastReleaseStatus1 {
+    background: none !important;
+}
+
+.voteDiv .lastReleaseStatus0 {
+	background: none !important;
+ margin-left: 2em;
+}
+
 .d-code {
     vertical-align: top;
 	font: bold small "Courier New", Courier, mono;
@@ -2267,3 +2281,8 @@ div.voterList .voterOrg {
 .dtf-fix {width:1px}
 .dtf-left {text-align:left;}
 .dtf-nopad {padding:0px; align:top;}
+
+.rolloverspan:hover {
+	color: white !important;
+	background-color: navy !important;
+}

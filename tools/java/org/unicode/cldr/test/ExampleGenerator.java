@@ -802,12 +802,24 @@ public class ExampleGenerator {
         return result;
     }
 
+    private static String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
+
     private String handleDateFormatItem(String value) {
         String calendar = parts.findAttributeValue("calendar", "type");
         SimpleDateFormat dateFormat;
         if (parts.contains("dateTimeFormat")) {
-            SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, 2, 0); // date
-            SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, 2); // time
+            int formatLengthIndex = 2; // medium
+            String formatLengthName = parts.findAttributeValue("dateTimeFormatLength", "type");
+            if (formatLengthName != null) {
+                for (int nameIndex = 0; nameIndex < DateFormatNames.length; nameIndex++) {
+                    if ( formatLengthName.equals(DateFormatNames[nameIndex]) ) {
+                        formatLengthIndex = nameIndex;
+                        break;
+                    }
+                }
+            }
+            SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, formatLengthIndex, 0); // date
+            SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, formatLengthIndex); // time
             date2.applyPattern(format(value, setBackground(time.toPattern()), setBackground(date2.toPattern())));
             dateFormat = date2;
         } else {

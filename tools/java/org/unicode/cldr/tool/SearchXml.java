@@ -74,6 +74,8 @@ public class SearchXml {
         double startTime = System.currentTimeMillis();
         myOptions.parse(args, true);
 
+        verbose = myOptions.get("Verbose").doesOccur();
+        
         String sourceDirectory = myOptions.get("source").getValue();
         if (sourceDirectory == null) {
             System.out.println("Need Source Directory! ");
@@ -193,9 +195,12 @@ public class SearchXml {
 
             if (fileMatcher != null && fileExclude == fileMatcher.reset(coreName).find()) {
                 if (verbose) {
-                    System.out.println("Skipping " + canonicalFile);
+                    System.out.println("* Skipping " + canonicalFile);
                 }
                 continue;
+            }
+            if (verbose) {
+                System.out.println("Searching " + canonicalFile);
             }
 
 

@@ -9,9 +9,13 @@ import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
 
@@ -63,6 +67,11 @@ public class OutdatedPaths {
     public OutdatedPaths(String directory) {
         try {
             DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
+            Map<Long,PathHeader> id2header = new HashMap();
+            if (DEBUG) {
+                Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+                id2header = getIdToPath(factory);
+            }
             while (true) {
                 String locale = dataIn.readUTF();
                 if (locale.equals("$END$")) {
@@ -77,7 +86,7 @@ public class OutdatedPaths {
                     long item = dataIn.readLong();
                     data.add(item);
                     if (DEBUG) {
-                        System.out.println("OutdatedPaths: " + item);
+                        System.out.println(locale + "\t" + id2header.get(item));
                     }
                 }
                 localeToData.put(locale, Collections.unmodifiableSet(data));
@@ -95,7 +104,7 @@ public class OutdatedPaths {
                 long pathId = dataIn.readLong();
                 String previous = dataIn.readUTF();
                 if (DEBUG) {
-                    System.out.println(pathId + "\t" + previous);
+                    System.out.println("en\t(" + previous + ")\t" + id2header.get(pathId));
                 }
                 pathToPrevious.put(pathId, previous);
             }
@@ -108,6 +117,18 @@ public class OutdatedPaths {
         } catch (IOException e) {
             throw new IllegalArgumentException("Data Not Available", e);
         }
+    }
+
+    public Map<Long, PathHeader> getIdToPath(Factory factory) {
+        Map<Long, PathHeader> result = new HashMap<Long, PathHeader>();
+        CLDRFile english = factory.make("en", true);
+        PathHeader.Factory pathHeaders = PathHeader.getFactory(english);
+        for (String s : english) {
+            long id = StringId.getId(s);
+            PathHeader pathHeader = pathHeaders.fromPath(s);
+            result.put(id, pathHeader);
+        }
+        return result;
     }
 
     private DataInputStream openDataInput(String directory, String filename) throws FileNotFoundException {

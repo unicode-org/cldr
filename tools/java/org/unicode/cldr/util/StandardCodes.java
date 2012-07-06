@@ -341,15 +341,21 @@ public class StandardCodes {
                 if (line == null)
                     break;
                 int commentPos = line.indexOf('#');
-                if (commentPos >= 0)
+                if (commentPos >= 0) {
                     line = line.substring(0, commentPos);
+                }
+                line = line.trim();
                 if (line.length() == 0)
                     continue;
                 List stuff = CldrUtility.splitList(line, ';', true);
                 String organization = (String) stuff.get(0);
                 
                 // verify that the organization is valid
-                VoteResolver.Organization.valueOf(organization.toLowerCase(Locale.ENGLISH));
+                try {
+                    VoteResolver.Organization.valueOf(organization.toLowerCase(Locale.ENGLISH));
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("Invalid organization in Locales.txt: " + line);
+                }
                 
                 // verify that the locale is valid BCP47
                 String locale = (String) stuff.get(1);
@@ -357,7 +363,7 @@ public class StandardCodes {
                     parser.set(locale);
                     String valid = validate(parser);
                     if (valid.length() != 0) {
-                        throw new IllegalArgumentException("Cannot invalid locale in Locales.txt: " + line);
+                        throw new IllegalArgumentException("Invalid locale in Locales.txt: " + line);
                     }
                     locale = parser.toString(); // normalize
 

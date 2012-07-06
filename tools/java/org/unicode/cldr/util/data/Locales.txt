@@ -190,94 +190,96 @@ IBM	;	kok	;	basic
 IBM	;	sw	;	basic
 
 
-#Google Tier 1
-Google	;	en	;	comprehensive	;	American English
-
-Google	;	en_GB	;	modern	;	British English
-Google	;	fr	;	modern	;	French
-Google	;	de	;	modern	;	German
-Google	;	ja	;	modern	;	Japanese
-Google	;	ru	;	modern	;	Russian
-Google	;	es	;	modern	;	Spanish
-Google	;	ar	;	modern	;	Arabic
-Google	;	pt	;	modern	;	Brazilian Portuguese
-Google	;	nl	;	modern	;	Dutch
-Google	;	it	;	modern	;	Italian
-Google	;	ko	;	modern	;	Korean
-Google	;	pl	;	modern	;	Polish
-Google	;	zh	;	modern	;	Simplified Chinese
-Google	;	th	;	modern	;	Thai
-Google	;	zh_Hant	;	modern	;	Traditional Chinese
-Google	;	tr	;	modern	;	Turkish
-
-#Google Tier 2
-Google	;	bg	;	modern	;	Bulgarian
-Google	;	ca	;	modern	;	Catalan
-Google	;	hr	;	modern	;	Croatian
-Google	;	cs	;	modern	;	Czech
-Google	;	da	;	modern	;	Danish
-Google	;	fil	;	modern	;	Filipino
-Google	;	fi	;	modern	;	Finnish
-Google	;	el	;	modern	;	Greek
-Google	;	he	;	modern	;	Hebrew
-Google	;	hi	;	modern	;	Hindi
-Google	;	hu	;	modern	;	Hungarian
-Google	;	pt_PT	;	modern	;	Iberian Portuguese
-Google	;	id	;	modern	;	Indonesian
-Google	;	es_419	;	modern	;	Latin American Spanish
-Google	;	lv	;	modern	;	Latvian
-Google	;	lt	;	modern	;	Lithuanian
-Google	;	nb	;	modern	;	Norwegian (Bokmål)
-Google	;	fa	;	modern	;	Persian
-Google	;	ro	;	modern	;	Romanian
-Google	;	sr	;	modern	;	Serbian
-Google	;	sk	;	modern	;	Slovak
-Google	;	sl	;	modern	;	Slovenian
-Google	;	sv	;	modern	;	Swedish
-Google	;	uk	;	modern	;	Ukrainian
-Google	;	vi	;	modern	;	Vietnamese
-
-#Google Tier 3
-Google  ;   af  ;   modern ;   Afrikaans
-Google	;	am	;	modern	;	Amharic
-Google	;	bn	;	modern	;	Bengali
-Google	;	et	;	modern	;	Estonian
-Google	;	is	;	modern	;	Icelandic
-Google	;	ms	;	modern	;	Malay
-Google	;	mr	;	modern	;	Marathi
-Google	;	sw	;	modern	;	Swahili 
-Google	;	ta	;	modern	;	Tamil
-
-#Google Tier 4
-Google  ;   te  ;   modern   ;   Telugu
-Google  ;   ur  ;   modern   ;   Urdu
-Google  ;   ml  ;   modern   ;   Malayalam
-Google  ;   kn  ;   modern   ;   Kannada
-Google  ;   gu  ;   modern   ;   Gujarati
-Google  ;   eu  ;   modern   ;   Basque
-Google  ;   gl  ;   modern ;   Galician
-Google  ;   fr_CA  ;   modern ;   Canadian French
-Google  ;   zh_Hant_HK ; modern ; Hong Kong Chinese (T)
-
-#Google Tier 5 tentative
-Google  ;   cy  ;   modern   ;   Welsh
-Google  ;   si  ;   modern  ;   Sinhala
-Google  ;   km  ;   modern  ;   Khmer 
-Google  ;   lo  ;   modern  ;   Lao
-Google  ;   ne  ;   modern   ;   Nepali
-Google  ;   ka  ;   modern   ;   Georgian
-Google ;   hy  ;   modern   ;   Armenian
-Google ; * ; moderate ; All others
-
-#Google  ;   az  ;   basic   ;   Azerbaijani
-#Google	;	sq	;	basic	;	Albanian
-#Google	;	be	;	basic	;	Belarusian
-#Google  ;   mk  ;   basic   ;   Macedonian
-#Google  ;   kk  ;   basic   ;   Kazakh
-#Google  ;   mt  ;   basic   ;   Maltese
-#Google	;	uz	;	basic	;	Uzbek
-#Google  ;   ku  ;   basic   ;   Kurdish
-#Google	;	oc	;	basic	;	Occitan
+#Google	Tier	0					
+Google	;	en	;	modern	;	T0	American English
+							
+#Google	Tier	1					
+Google	;	en_GB	;	modern	;	T1	British English
+Google	;	fr	;	modern	;	T1	French
+Google	;	de	;	modern	;	T1	German
+Google	;	ja	;	modern	;	T1	Japanese
+Google	;	ru	;	modern	;	T1	Russian
+Google	;	es	;	modern	;	T1	European Spanish
+Google	;	ar	;	modern	;	T1	Arabic
+Google	;	pt	;	modern	;	T1	Brazilian Portuguese
+Google	;	nl	;	modern	;	T1	Dutch
+Google	;	it	;	modern	;	T1	Italian
+Google	;	ko	;	modern	;	T1	Korean
+Google	;	pl	;	modern	;	T1	Polish
+Google	;	zh	;	modern	;	T1	Simplified Chinese
+Google	;	th	;	modern	;	T1	Thai
+Google	;	zh_Hant	;	modern	;	T1	Traditional Chinese
+Google	;	tr	;	modern	;	T1	Turkish
+Google	;	es_419	;	modern	;	T1.1	Latin American Spanish
+							
+#Google	Tier	2					
+Google	;	bg	;	modern	;	T2	Bulgarian
+Google	;	ca	;	modern	;	T2	Catalan
+Google	;	hr	;	modern	;	T2	Croatian
+Google	;	cs	;	modern	;	T2	Czech
+Google	;	da	;	modern	;	T2	Danish
+Google	;	fil	;	modern	;	T2	Filipino
+Google	;	fi	;	modern	;	T2	Finnish
+Google	;	el	;	modern	;	T2	Greek
+Google	;	he	;	modern	;	T2	Hebrew
+Google	;	hi	;	modern	;	T2	Hindi
+Google	;	hu	;	modern	;	T2	Hungarian
+Google	;	pt_PT	;	modern	;	T2	European Portuguese
+Google	;	id	;	modern	;	T2	Indonesian
+Google	;	lv	;	modern	;	T2	Latvian
+Google	;	lt	;	modern	;	T2	Lithuanian
+Google	;	nb	;	modern	;	T2	Norwegian (Bokmål)
+Google	;	ro	;	modern	;	T2	Romanian
+Google	;	sr	;	modern	;	T2	Serbian
+Google	;	sk	;	modern	;	T2	Slovak
+Google	;	sl	;	modern	;	T2	Slovenian
+Google	;	sv	;	modern	;	T2	Swedish
+Google	;	uk	;	modern	;	T2	Ukrainian
+Google	;	vi	;	modern	;	T2	Vietnamese
+Google	;	fa	;	modern	;	T2.1	Persian
+							
+#Google	Tier	3					
+Google	;	af	;	modern	;	T3	Afrikaans
+Google	;	am	;	modern	;	T3	Amharic
+Google	;	bn	;	modern	;	T3	Bengali
+Google	;	et	;	modern	;	T3	Estonian
+Google	;	is	;	modern	;	T3	Icelandic
+Google	;	ms	;	modern	;	T3	Malay
+Google	;	mr	;	modern	;	T3	Marathi
+Google	;	sw	;	modern	;	T3	Swahili 
+Google	;	ta	;	modern	;	T3	Tamil
+							
+#Google	Tier	4					
+Google	;	te	;	modern	;	T4	Telugu
+Google	;	ur	;	modern	;	T4	Urdu
+Google	;	ml	;	modern	;	T4	Malayalam
+Google	;	kn	;	modern	;	T4	Kannada
+Google	;	gu	;	modern	;	T4	Gujarati
+Google	;	eu	;	modern	;	T4	Basque
+Google	;	gl	;	modern	;	T4	Galician
+Google	;	fr_CA	;	modern	;	T4	Canadian French
+Google	;	zh_Hant_HK	;	modern	;	T4	Hong Kong Chinese (T)
+							
+#Google	Tier	5	tentative				
+Google	;	cy	;	modern	;	T5	Welsh
+Google	;	si	;	modern	;	T5	Sinhala
+Google	;	km	;	modern	;	T5	Khmer
+Google	;	lo	;	modern	;	T5	Lao
+Google	;	ne	;	modern	;	T5	Nepali
+Google	;	ka	;	modern	;	T5	Georgian
+Google	;	hy	;	modern	;	T5	Armenian
+							
+#Google	;	az	;	n/a	;	n/a	Azerbaijani
+#Google	;	sq	;	n/a	;	n/a	Albanian
+#Google	;	be	;	n/a	;	n/a	Belarusian
+#Google	;	mk	;	n/a	;	n/a	Macedonian
+#Google	;	kk	;	n/a	;	n/a	Kazakh
+#Google	;	mt	;	n/a	;	n/a	Maltese
+#Google	;	uz	;	n/a	;	n/a	Uzbek
+#Google	;	ku	;	n/a	;	n/a	Kurdish
+#Google	;	oc	;	n/a	;	n/a	Occitan
+							
+Google	;	*	;	moderate	;	n/a	All others										
 
 Apple	;	en	;	comprehensive
 Apple	;	da	;	modern

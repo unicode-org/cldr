@@ -1101,7 +1101,20 @@ public class VoteResolver<T> {
         return values.size();
     }
 
-
+    /**
+     * Returns a map from value to resolved vote count, in descending order
+     * @return
+     */
+    public Map<T, Long> getResolvedVoteCounts() {
+        if (!resolved) {
+            resolveVotes();
+        }
+        Map<T,Long> result = new LinkedHashMap<T,Long>();
+        for (T value : totals.getKeysetSortedByCount(false, votesThenUcaCollator)) {
+            result.put(value, totals.get(value));
+        }
+        return result;
+    }
 
     public VoteStatus getStatusForOrganization(Organization orgOfUser) {
         if (!resolved) {

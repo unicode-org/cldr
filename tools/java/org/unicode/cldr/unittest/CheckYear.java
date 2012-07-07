@@ -36,7 +36,7 @@ import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 
 public class CheckYear {
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
-    private static final String LOCALES = "e.*";
+    private static final String LOCALES = ".*";
     private static final String[] STOCK = {"short", "medium", "long", "full"};
 
     enum Category {Year2_MonthNumeric, Year2_Other, Year4_MonthNumeric, Year4_Other}

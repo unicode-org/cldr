@@ -13,12 +13,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
@@ -143,11 +145,14 @@ public class SurveyAjax extends HttpServlet {
                 .put("winningStatus", r.getWinningStatus());
             
                 EnumSet<VoteResolver.Organization> conflictedOrgs = r.getConflictedOrganizations();
+                
+                Map<String,Long> valueToVote = r.getResolvedVoteCounts();
+                
+                
                 JSONObject orgs = new JSONObject();
                 for(VoteResolver.Organization o:VoteResolver.Organization.values()) {
                     String orgVote = r.getOrgVote(o);
                     if(orgVote==null) continue;
-        
                     Map<String,Long> votes = r.getOrgToVotes(o);
                     
                     JSONObject org = new JSONObject()
@@ -160,6 +165,11 @@ public class SurveyAjax extends HttpServlet {
                     orgs.put(o.name(), org);
                 }
                 ret.put("orgs", orgs);
+                JSONArray valueToVoteA = new JSONArray();
+                for(Map.Entry<String, Long> e : valueToVote.entrySet()) {
+                    valueToVoteA.put(e.getKey()).put(e.getValue());
+                }
+                ret.put("value_vote", valueToVoteA);
                 return ret;
         }
     }

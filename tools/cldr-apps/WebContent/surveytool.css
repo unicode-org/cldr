@@ -1,4 +1,3 @@
-
 /* Copyright (c) 2004-2012 IBM and others. All Rights Reserved. */
 
 /* @override 
@@ -815,6 +814,10 @@ table.userlist {
 	text-align: left;
 }
 
+.voteDiv p {
+	margin: 2px;	
+}
+
 .user1 {
 	color: navy;
 	background: #a0ff66;
@@ -1216,6 +1219,12 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 .warnText {
     padding-left: 2em;
     background: #e4dcd4 url(warn.png) no-repeat 0.25em center;
+    padding-top: 2px;
+    padding-bottom:  2px;
+}
+
+.nobg {
+	background-color: inherit !important;
 }
 
 .appendInputBoxChange, .appendInputBoxCancel {
@@ -1268,6 +1277,8 @@ table#usertable {
 	content: ')';
 }
 
+/* @group voteinfo old - obsolete? */
+
 table#voteinfo td {
 	border-right: none !important;
 	border-left: none !important;
@@ -1291,6 +1302,73 @@ table#voteinfo thead th:first-child {
 table#voteinfo thead th:first-child {
 	font-weight: bold;
 }
+
+/* @end */
+
+/* @group voteInfo_perValue */
+
+.voteInfo_perValue {
+	display:  inline-table;
+	
+	margin:  0.1em;
+	vertical-align: top;
+	border:  1px solid gray;
+}
+
+.voteInfo_tr_heading {
+	background-color: #e0ecff;
+}
+.voteInfo_iconValue  {
+	background-position: left !important;
+	padding-left:  20px !important;
+}
+
+div.voteInfo_orgColumn {
+	font-weight: bold;
+}
+
+.voteInfo_orgHeading  div.voteInfo_orgColumn{
+	border-top:  1px solid gray;
+}
+
+.voteInfo_tr {
+	display:  table-row;
+}
+
+.voteInfo_td  {
+	display:  table-cell;
+	padding-left:  0.10em;
+	padding-right:  0.10em;
+}
+
+.voteInfo_voterInfo, .voteInfo_voteCount {
+	border-top:  1px solid gray;
+}
+
+.voteInfo_orgsVote {
+	font-weight: bold;
+}
+
+.voteInfo_voteTitle {
+	font-size: large;
+	font-weight: bold;
+}
+.voteInfo_orgsNonVote {
+	color: #333;
+	font-style: italic;	
+}
+
+.voteInfo_lastRelease {
+	background: url(star.png) no-repeat right top  !important;
+	padding-right:  20px !important;
+}
+
+.voteInfo_lastReleaseKey {
+	background: url(star.png) no-repeat left  !important;
+}
+
+/* @end */
+
 
 
 .loser {
@@ -1859,6 +1937,7 @@ span.d-sort-size {
 .voteDiv .winningStatus  {
 	padding-left: 20px;
 	background-position: left !important;
+	width: inherit !important;
 }
 
 .voteDiv .lastReleaseStatus1 {
@@ -1868,6 +1947,14 @@ span.d-sort-size {
 .voteDiv .lastReleaseStatus0 {
 	background: none !important;
  margin-left: 2em;
+}
+
+.voteInfo_key {
+	padding-left:  1em;
+}
+
+h3.voteInfo_key_title {
+	margin-bottom: .1em;	
 }
 
 .d-code {

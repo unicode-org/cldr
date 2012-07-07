@@ -557,6 +557,7 @@ public class DataSection implements JSONString {
 				if(theVotes!=null && !theVotes.isEmpty()) {
 					JSONObject voteList = new JSONObject();
 					for(UserRegistry.User u : theVotes) {
+					    if(u.getLevel()==VoteResolver.Level.locked) continue; // dont care
 					    JSONObject uu = new JSONObject();
                         uu.put("org",u.getOrganization());
                         uu.put("level",u.getLevel());

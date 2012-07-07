@@ -1403,6 +1403,7 @@ public class UserRegistry {
         return localeMatchesLocaleList(localeArray, locale);
     }
     
+    // TODO: speedup. precalculate list of locales on user load.
     public static final boolean userCanModifyLocale(User u, CLDRLocale locale) {
         if(u==null) return false; // no user, no dice
         if(STFactory.isReadOnlyLocale(locale)) return false;

@@ -569,6 +569,7 @@ function updateStatus() {
             if((json==null) || (json.status&&json.status.isBusted)) {
                 wasBusted = true;
                 busted();
+                return; // don't thrash
             }
             var st_err =  document.getElementById('st_err');
             if(json.err != null && json.err.length > 0) {
@@ -1613,9 +1614,6 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	var testKind = getTestKind(item.tests);
 	setDivClass(div,testKind);
 	item.div = div; // back link
-	if(item.value) {
-		tr.valueToItem[item.value] = item; // back link by value
-	}
 	if(item==null)  {
 //		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
 		return;
@@ -1660,6 +1658,14 @@ function calcPClass(value, winner) {
 
 function updateRow(tr, theRow) {
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
+	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
+	for(k in theRow.items) {
+		var item = theRow.items[k];
+		if(item.value) {
+			tr.valueToItem[item.value] = item; // back link by value
+			tr.rawValueToItem[item.rawValue] = item; // back link by value
+		}
+	}
 	
 	if(!tr.helpDiv && theRow.displayHelp) {
 		// this also marks this row as a 'help parent'
@@ -1669,37 +1675,103 @@ function updateRow(tr, theRow) {
 	
 	// update the vote info
 	if(theRow.voteResolver) {
-		
-		tr.voteDiv = document.createElement("div");
+		var vr = theRow.voteResolver;
+		var div = tr.voteDiv = document.createElement("div");
 		tr.voteDiv.className = "voteDiv";
 		
 		tr.voteDiv.appendChild(document.createElement("hr"));
-		// approved and last release status
-		{
-			var p = document.createElement("p");
-			p.appendChild(createChunk(
-						stui.sub("winningStatus_msg",
-								[ stui.str(theRow.voteResolver.winningStatus) ])
-						, "b", "d-dr-"+theRow.voteResolver.winningStatus+" selected winningStatus"));
-			appendItem(p, theRow.voteResolver.winningValue, "winner",tr);
-			
-			p.appendChild(createChunk(
-					stui.sub("lastReleaseStatus_msg",
-							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
-					, "b",  /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus0"));
-			appendItem(p, theRow.voteResolver.lastReleaseValue, "value",tr);
-			p.appendChild(createChunk(
-					stui.sub("lastReleaseStatus1_msg",
-							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
-					, "b", /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus1"));
-
-			
-			tr.voteDiv.appendChild(p);
+		
+		
+		// TODO: lazy evaluate this clause?
+		if(theRow.voteResolver.orgs && Object.keys(theRow.voteResolver.orgs).length > 0) {
+			// next, the org votes
+			var perValueContainer = div; // IF NEEDED: >>  = document.createElement("div");  perValueContainer.className = "perValueContainer";  
+			var n = 0;
+			while(n < vr.value_vote.length) {
+				var value = vr.value_vote[n++];
+				var vote = vr.value_vote[n++];
+				var item = tr.rawValueToItem[value]; // backlink to specific item in hash
+				var vdiv = createChunk(null, "div", "voteInfo_perValue");
+				
+				// heading row
+				{
+					var valueExtra = (value==vr.winningValue)?(" voteInfo_iconValue d-dr-"+theRow.voteResolver.winningStatus):"";
+					var voteExtra = (value==vr.lastReleaseValue)?(" voteInfo_lastRelease"):"";
+					var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_tr_heading");
+					vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"div","voteInfo_orgColumn voteInfo_td"));
+					var vvalue = createChunk(null, "div", "voteInfo_valueTitle voteInfo_td"+valueExtra);
+					appendItem(vvalue, value, calcPClass(value, vr.winningValue), tr);
+					vrow.appendChild(vvalue);
+					vrow.appendChild(createChunk(vote,"div","voteInfo_voteTitle voteInfo_td"+voteExtra));
+					vdiv.appendChild(vrow);
+				}
+				
+				var createVoter = function(v) {
+					var div = createChunk(v.email,"div","voteInfo_voterInfo voteInfo_td");
+					div.title = v.name + " ("+v.org+")";
+					return div;
+				};
+				
+				for(org in theRow.voteResolver.orgs) {
+					var theOrg = vr.orgs[org];
+					var orgVoteValue = theOrg.votes[value];
+					if(orgVoteValue) { // someone in the org actually voted for it
+						var topVoter = null; // top voter for this item
+						var orgsVote = (theOrg.orgVote == value);
+						if(orgsVote) {
+							// find a top-ranking voter to use for the top line
+							for(var voter in item.votes) {
+								if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
+									topVoter = voter;
+									break;
+								}
+							}
+						} else {
+							// just find someone in the right org..
+							for(var voter in item.votes) {
+								if(item.votes[voter].org==org) {
+									topVoter = voter;
+									break;
+								}
+							}
+						}
+						
+						
+						// ORG SUBHEADING row
+						{
+							var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_orgHeading");
+							vrow.appendChild(createChunk(org,"div","voteInfo_orgColumn voteInfo_td"));
+							vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
+							vrow.appendChild(createChunk(orgVoteValue,"div",(orgsVote?"voteInfo_orgsVote ":"voteInfo_orgsNonVote ")+"voteInfo_voteCount voteInfo_td"));
+							vdiv.appendChild(vrow);
+						}
+						
+						//now, other rows:
+						for(var voter in item.votes) {
+							if(item.votes[voter].org!=org ||  // wrong org or
+									voter==topVoter) { // already done
+								continue; // skip
+							}
+							// OTHER VOTER row
+							{
+								var vrow = createChunk(null, "div", "voteInfo_tr");
+								vrow.appendChild(createChunk("","div","voteInfo_td")); // spacer
+								vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
+								vrow.appendChild(createChunk(item.votes[voter].votes,"div","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
+								vdiv.appendChild(vrow);
+							}
+						}
+					} else {
+						// omit this org - not relevant for this value.
+					}
+				}
+				
+				perValueContainer.appendChild(vdiv);
+			}
+		} else {
+			// ? indicate approved, last release value?
 		}
-		
-		// next, the org votes
-		var div = tr.voteDiv;
-		
+		/*
 		if(theRow.voteResolver.orgs && Object.keys(theRow.voteResolver.orgs).length > 0 ) {
 			var table = document.createElement("table");
 			table.className = "tzbox";
@@ -1758,30 +1830,40 @@ function updateRow(tr, theRow) {
 						scorebox.dir = 'ltr'; // important
 						dp.appendChild(scorebox);
 				}
-				
-				/*
-				 *  %>
-		<tr>
-		<th class='org_<%= r.getStatusForOrganization(o) %>'><%= o %></th>
-		
-		<td>
-				  	<span class='<%= orgVote.equals(winner)?"winner":"value" %>' dir='<%= dir %>' title='#'><%= orgVote %></span>
-				  <span dir='ltr' class='scorebox'><%= votes.get(orgVote) %>: <%= r.getStatusForOrganization(o) %></span>
-		</td>
-		
-		<td>
-			<% for(Map.Entry<String,Long> e:votes.entrySet()) { 
-				if(e.getKey().equals(orgVote)) continue;
-			%>
-				  	<span class='<%= e.getKey().equals(winner)?"winner":"value" %>'  dir='<%= dir %>' title='#'><%= e.getKey() %></span>
-				  <span dir='ltr' class='scorebox'><%= e.getValue() %></span>
-				  	<br/>
-			<% } %>
-		</td>
-				 */
-				
-				
 			}
+		}
+		*/
+		
+		// KEY
+		// approved and last release status
+		{
+			var kdiv = createChunk(null,"div","voteInfo_key");
+			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_key"),"h3","voteInfo_key_title"));
+			var disputedText = (theRow.voteResolver.isDisputed)?stui.str("winningStatus_disputed"):"";
+			//var p = document.createElement("p");
+//			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_established"),"p","warnText nobg"));
+//			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_lastRelease"),"p","voteInfo_lastReleaseKey voteInfo_iconValue"));
+			kdiv.appendChild(createChunk(
+						stui.sub("winningStatus_msg",
+								[ stui.str(theRow.voteResolver.winningStatus), disputedText ])
+						, "div", "d-dr-"+theRow.voteResolver.winningStatus+" winningStatus"));
+//			appendItem(p, theRow.voteResolver.winningValue, "winner",tr);
+			
+			kdiv.appendChild(createChunk(
+					stui.sub("lastReleaseStatus_msg",
+							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
+					, "div",  /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "voteInfo_lastReleaseKey voteInfo_iconValue"));
+//			appendItem(p, theRow.voteResolver.lastReleaseValue, "value",tr);
+//			p.appendChild(createChunk(
+//					stui.sub("lastReleaseStatus1_msg",
+//							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
+//					, "b", /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus1"));
+
+			
+			tr.voteDiv.appendChild(kdiv);
+		}
+		if(theRow.voteResolver.isEstablished) {
+			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_established"),"p","warnText nobg"));
 		}
 		// done with voteresolver table
 	} else {
@@ -2271,6 +2353,9 @@ function loadStui(loc) {
 	}
 	return stui;
 }
+function firstword(str) {
+	return str.split(" ")[0];
+}
 function createChunk(text, tag, className) {
 	if(!tag) {
 		tag="span";
@@ -2278,7 +2363,7 @@ function createChunk(text, tag, className) {
 	var chunk = document.createElement(tag);
 	if(className) {
 		chunk.className = className;
-		chunk.title=stui_str(className+"_desc");
+		chunk.title=stui_str(firstword(className)+"_desc");
 	}
 	if(text) {
 		chunk.appendChild(document.createTextNode(text));

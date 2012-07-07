@@ -130,9 +130,10 @@ define({
                         pClass_loser: "This is a proposed item which is not currently winning.",
                         pClass_fallback: "This item is inherited from ${inheritFromDisplay}.",
 			
-           winningStatus_msg:  "${0} Value: ",
-           lastReleaseStatus_msg: "(${0} Last Release: ",
-           lastReleaseStatus1_msg: " )",
+           winningStatus_disputed: "Disputed",
+           winningStatus_msg:  "${1} ${0} Value ",
+           lastReleaseStatus_msg: "${0} Last Release: ",
+           lastReleaseStatus1_msg: "",
            
            htmlvorg: "Org",
            htmlvorgvote: "Organization's vote",
@@ -141,6 +142,10 @@ define({
            flyovervorgvote: "The final vote for this organization",
            flyovervdissenting: "Other votes cast against the final vote by members of the organization",
            voteInfoScorebox_msg: "${0}: ${1}",
+           voteInfo_established_url: "http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value",
+           voteInfo_established: "This is an established locale.",
+           voteInfo_orgColumn: "Org.",
+           voteInfo_key: "Key:",
                         
            // CheckCLDR.StatusAction 
            StatusAction_msg:              "Item was not submitted: ${0}",

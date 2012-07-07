@@ -327,6 +327,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         if(theSubmitter==null) {
                             throw new InternalError("Could not get info for submitter " + submitter + " for " + locale+":"+xpath);
                         }
+                        if(!UserRegistry.userCanModifyLocale(theSubmitter, locale)) {
+                            continue;
+                        }
                         internalSetVoteForValue(theSubmitter, xpath, value, resolver, dataBackedSource);
                         n++;
                     }

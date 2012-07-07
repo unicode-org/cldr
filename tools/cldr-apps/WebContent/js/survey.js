@@ -1485,39 +1485,41 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
                h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
 		 }
         
-//		votes: {
-//			1000: {
-//			level: "tc",
-//			email: "asdasdasf_iij7kpoiq (at) zc32.kendra.example.com",
-//			name: "ASDASDASF_TESTER_",
-//			votes: 8,
-//			org: "kendra"
+		
+//		// NOT USED - because it's in the Approved box.
+////		votes: {
+////			1000: {
+////			level: "tc",
+////			email: "asdasdasf_iij7kpoiq (at) zc32.kendra.example.com",
+////			name: "ASDASDASF_TESTER_",
+////			votes: 8,
+////			org: "kendra"
+////			}
+////		}
+//		
+//		if(item.votes) {
+//			var vdiv = document.createElement("div");
+//			vdiv.className="voterList";
+//			//vdiv.appendChild(createChunk(stui_str("Voters"),"h4"));
+//			for(vuid in item.votes) {
+//				var voter = item.votes[vuid];
+//				var vp = document.createElement("p");
+//				vp.appendChild(createChunk(voter.org,"span","voterOrg"));
+//				if(voter.name) {
+//					vp.appendChild(createChunk(voter.name,"span","voterName"));
+//				} else {
+//					vp.appendChild(createChunk("#"+vuid,"span","voterName"));
+//				}
+//				if(voter.email) {
+//					vp.appendChild(createChunk(voter.email,"address","voterAddress"));
+//					vp.appendChild(createChunk(" "));
+//				}
+//				vdiv.appendChild(vp);
 //			}
+//			
+//			td.appendChild(vdiv);
 //		}
-		
-		if(item.votes) {
-			var vdiv = document.createElement("div");
-			vdiv.className="voterList";
-			//vdiv.appendChild(createChunk(stui_str("Voters"),"h4"));
-			for(vuid in item.votes) {
-				var voter = item.votes[vuid];
-				var vp = document.createElement("p");
-				vp.appendChild(createChunk(voter.org,"span","voterOrg"));
-				if(voter.name) {
-					vp.appendChild(createChunk(voter.name,"span","voterName"));
-				} else {
-					vp.appendChild(createChunk("#"+vuid,"span","voterName"));
-				}
-				if(voter.email) {
-					vp.appendChild(createChunk(voter.email,"address","voterAddress"));
-					vp.appendChild(createChunk(" "));
-				}
-				vdiv.appendChild(vp);
-			}
-			
-			td.appendChild(vdiv);
-		}
-		
+//		
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
 		var newHtml = "";

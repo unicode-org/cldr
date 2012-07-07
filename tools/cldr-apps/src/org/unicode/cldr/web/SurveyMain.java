@@ -864,7 +864,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String getSurveyHome() {
         String cldrHome;
         CLDRConfig survprops = CLDRConfig.getInstance();
-        cldrHome = survprops.getProperty("CLDRHOME");
+        
+        if(!(survprops instanceof CLDRConfigImpl)) {
+            File tmpHome = new File("testing_cldr_home");
+            if(!tmpHome.isDirectory()) {
+                if(!tmpHome.mkdir()) {
+                    throw new InternalError("Couldn't create " + tmpHome.getAbsolutePath());
+                }
+            }
+            cldrHome = tmpHome.getAbsolutePath();
+            System.out.println("NOTE:  not inside of web process, using temporary CLDRHOME " + cldrHome);
+        } else {
+            cldrHome = survprops.getProperty("CLDRHOME");
+        }
         if (cldrHome == null)
             throw new NullPointerException("CLDRHOME==null");
         return cldrHome;
@@ -5465,6 +5477,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     SupplementalDataInfo supplementalDataInfo = null;
 
+    /**
+     * @return
+     * @deprecated SupplementalData is deprecated.
+     */
+    public SupplementalData getSupplementalData() {
+        if(supplemental==null) {
+            getSupplementalDataInfo();
+        }
+        return supplemental;
+    }
+    
     public synchronized final SupplementalDataInfo getSupplementalDataInfo() {
         if (supplementalDataInfo == null) {
             supplementalDataDir = getDiskFactory().getSupplementalDirectory();
@@ -6168,7 +6191,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public synchronized File getVetdir() {
         if (_vetdir == null) {
-            CLDRConfigImpl survprops = (CLDRConfigImpl) CLDRConfig.getInstance();
+            CLDRConfig survprops = CLDRConfig.getInstance();
             vetdata = survprops.getProperty("CLDR_VET_DATA", SurveyMain.getSurveyHome()+ "/vetdata"); // dir
                                                                                             // for
                                                                                             // vetted

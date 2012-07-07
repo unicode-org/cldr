@@ -1402,33 +1402,55 @@ public class UserRegistry {
         
         return localeMatchesLocaleList(localeArray, locale);
     }
-    
-    // TODO: speedup. precalculate list of locales on user load.
+    public enum ModifyDenial {
+        DENY_NULL_USER,
+        DENY_LOCALE_READONLY,
+        DENY_PHASE_READONLY,
+        DENY_ALIASLOCALE,
+        DENY_DEFAULTCONTENT,
+        DENY_PHASE_CLOSED,
+        DENY_NO_RIGHTS,
+        DENY_LOCALE_LIST
+    }
     public static final boolean userCanModifyLocale(User u, CLDRLocale locale) {
-        if(u==null) return false; // no user, no dice
-        if(STFactory.isReadOnlyLocale(locale)) return false;
+        return (userCanModifyLocaleWhy(u,locale) == null);
+    }
+    // TODO: speedup. precalculate list of locales on user load.
+    public static final ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
+        if(u==null) return ModifyDenial.DENY_NULL_USER; // no user, no dice
+        if(STFactory.isReadOnlyLocale(locale)) return ModifyDenial.DENY_LOCALE_READONLY;
 
-        if(!userIsStreet(u)) return false; // at least street level
-        if(SurveyMain.isPhaseReadonly()) return false; // readonly = locked for ALL
-        if((sm.isLocaleAliased(locale)!=null) ||
-            sm.supplemental.defaultContentToParent(locale.toString())!=null) return false; // it's a defaultcontent locale or a pure alias.
-        if(userIsAdmin(u)) return true; // Admin can modify all
-        if(userIsTC(u)) return true; // TC can modify all
+        if(!userIsStreet(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least street level
+        if(SurveyMain.isPhaseReadonly()) return ModifyDenial.DENY_LOCALE_READONLY; // readonly = locked for ALL
+        CLDRLocale isAliasTo =sm.isLocaleAliased(locale);
+        if(isAliasTo!=null) {
+            return ModifyDenial.DENY_ALIASLOCALE;
+        }
+        String dcParent =     sm.getSupplementalData().defaultContentToParent(locale.toString());
+        if(dcParent!=null)  {
+            return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent locale or a pure alias.
+        }
+        if(userIsAdmin(u)) return null; // Admin can modify all
+        if(userIsTC(u)) return null; // TC can modify all
         if((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
         }
-        if(userIsTC(u) ) return true; // TC (or manager) can modify all
-        if(SurveyMain.isPhaseClosed()) return false;
-        if(SurveyMain.isPhaseSubmit() && !userIsStreet(u)) return false;
-        if(SurveyMain.isPhaseVetting() && !userIsStreet (u)) return false;
+        if(userIsTC(u) ) return null; // TC (or manager) can modify all
+        if(SurveyMain.isPhaseClosed()) return ModifyDenial.DENY_PHASE_CLOSED;
+        if(SurveyMain.isPhaseSubmit() && !userIsStreet(u)) return ModifyDenial.DENY_NO_RIGHTS;
+        if(SurveyMain.isPhaseVetting() && !userIsStreet (u)) return ModifyDenial.DENY_NO_RIGHTS;
         if(locale.getLanguage().equals("und")) {  // all user accounts can write to und.
-            return true;
+            return null;
         }
         
 //        if(SurveyMain.phaseVetting && !userIsStreet(u)) return false;
-        if((u.locales == null) && userIsExpert(u)) return true; // empty = ALL
-        if(false|| userIsExactlyManager(u)) return true; // manager can edit all
+        if((u.locales == null) && userIsExpert(u)) return null; // empty = ALL
+        if(false|| userIsExactlyManager(u)) return null; // manager can edit all
         String localeArray[] = tokenizeLocale(u.locales);
-        return userCanModifyLocale(localeArray,locale);
+        if(userCanModifyLocale(localeArray,locale)) {
+            return null;
+        } else {
+            return ModifyDenial.DENY_LOCALE_LIST;
+        }
     }
 
     private static boolean userCanModifyLocale(String[] localeArray, CLDRLocale locale) {

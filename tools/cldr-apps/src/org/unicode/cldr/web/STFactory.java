@@ -44,6 +44,7 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.web.STFactory.DataBackedSource;
+import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
@@ -585,6 +586,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public synchronized void voteForValue(User user, String distinguishingXpath,
                 String value) {
             SurveyLog.debug("V4v: "+locale+" "+distinguishingXpath + " : " + user + " voting for '" + value + "'");
+            ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user,locale);
+            if(denial!=null) {
+                throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial );
+            }
 
             if(!readonly) {
                 makeSource(false);

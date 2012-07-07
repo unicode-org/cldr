@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLFileReader;
@@ -73,8 +74,9 @@ public class TestSTFactory extends TestFmwk {
 		CLDRLocale locale = CLDRLocale.getInstance(file.getLocaleID());
 		String currentWinner = file.getStringValue(path);
 		boolean didVote = box.userDidVote(getMyUser(),path);
-		StackTraceElement them =  Thread.currentThread().getStackTrace()[2];
-		String where = them.getFileName()+":"+them.getLineNumber()+": ";
+        StackTraceElement  them = StackTracker.currentElement(1);
+        String where = " ("+them.getFileName()+":"+them.getLineNumber()+"): ";
+		
 				
 		if(expectString==null) expectString = NULL;
 		if(currentWinner==null) currentWinner=NULL;
@@ -104,7 +106,7 @@ public class TestSTFactory extends TestFmwk {
 		String originalValue = null;
 		String changedTo = null;
 		
-		CLDRLocale locale = CLDRLocale.getInstance("mt");
+		CLDRLocale locale = CLDRLocale.getInstance("de");
 		{
 			CLDRFile mt = fac.make(locale, false);
 			BallotBox<User> box = fac.ballotBoxForLocale(locale);
@@ -183,6 +185,37 @@ public class TestSTFactory extends TestFmwk {
 		}
 	}
 	
+	public void TestDenyVote() throws SQLException, IOException {
+	       STFactory fac = getFactory();
+	        final String somePath2 =  "//ldml/localeDisplayNames/keys/key[@type=\"numbers\"]";
+	        String originalValue2 = null;
+	        String changedTo2 = null;
+	        // test votring for a bad locale
+            {
+                CLDRLocale locale2 = CLDRLocale.getInstance("mt_MT");
+                CLDRFile mt_MT = fac.make(locale2, false);
+                BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+
+                try {
+                    box.voteForValue(getMyUser(), somePath2, changedTo2);
+                    errln("Error! should have failed to vote for " + locale2);
+                } catch (Throwable t) {
+                    logln("Good - caught " + t.toString() + " as this locale is a default content.");
+                }
+            }
+            {
+                CLDRLocale locale2 = CLDRLocale.getInstance("en");
+                CLDRFile mt_MT = fac.make(locale2, false);
+                BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+
+                try {
+                    box.voteForValue(getMyUser(), somePath2, changedTo2);
+                    errln("Error! should have failed to vote for " + locale2);
+                } catch (Throwable t) {
+                    logln("Good - caught " + t.toString() + " as this locale is readonly english.");
+                }
+            }
+	}
 	
 	public void TestSparseVote() throws SQLException, IOException {
 		STFactory fac = getFactory();
@@ -190,7 +223,7 @@ public class TestSTFactory extends TestFmwk {
 		final String somePath2 =  "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
 		String originalValue2 = null;
 		String changedTo2 = null;
-		CLDRLocale locale2 = CLDRLocale.getInstance("mt_MT");
+		CLDRLocale locale2 = CLDRLocale.getInstance("de_CH");
 		// test sparsity
 		{
 			CLDRFile mt_MT = fac.make(locale2, false);
@@ -364,7 +397,6 @@ public class TestSTFactory extends TestFmwk {
 			logln("Pass: " +  loc + " is readonly, caught " + t.toString());
 		}
 	}
-	String someLocales[] = { "mt" };
 
 	public UserRegistry.User getMyUser()  {
 		if(gUser ==null) {

@@ -1112,13 +1112,13 @@ public class VoteResolver<T> {
             resolveVotes();
         }
         Map<T,Long> result = new LinkedHashMap<T,Long>();
-        if (!totals.containsKey(winningValue)) {
+        if (winningValue != null && !totals.containsKey(winningValue)) {
             result.put(winningValue, 0l);
         }
         for (T value : totals.getKeysetSortedByCount(false, votesThenUcaCollator)) {
             result.put(value, totals.get(value));
         }
-        if (!totals.containsKey(lastReleaseValue)) {
+        if (lastReleaseValue != null && !totals.containsKey(lastReleaseValue)) {
             result.put(lastReleaseValue, 0l);
         }
         return result;

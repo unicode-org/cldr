@@ -584,6 +584,14 @@ public class TestUtilities extends TestFmwk {
         counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList(counts.keySet()).get(0));
+        
+        resolver.clear();
+        resolver.setEstablishedFromLocale("de");
+        resolver.setLastRelease("foo", Status.approved);
+        resolver.add("zebra", toVoterId("googleS"));
+        counts = resolver.getResolvedVoteCounts();
+        logln(counts.toString());
+        assertEquals("", "foo", new ArrayList(counts.keySet()).get(0));
     }
 
 

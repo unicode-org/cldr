@@ -560,6 +560,33 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", Status.provisional, winningStatus);
     }
 
+    public void TestResolvedVoteCounts() {
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+
+        Status oldStatus = Status.unconfirmed;
+        
+        resolver.setEstablishedFromLocale("de");
+        resolver.setLastRelease("foo", oldStatus);
+        resolver.add("zebra", toVoterId("googleV"));
+        resolver.add("apple", toVoterId("appleV"));
+        
+        // check that alphabetical wins when votes are equal
+        Map<String, Long> counts = resolver.getResolvedVoteCounts();
+        logln(counts.toString());
+        assertEquals("", "foo", new ArrayList(counts.keySet()).get(2));
+        
+        resolver.clear();
+        resolver.setEstablishedFromLocale("de");
+        resolver.setLastRelease("foo", Status.approved);
+        resolver.add("zebra", toVoterId("googleV"));
+        resolver.add("apple", toVoterId("appleV"));
+        counts = resolver.getResolvedVoteCounts();
+        logln(counts.toString());
+        assertEquals("", "foo", new ArrayList(counts.keySet()).get(0));
+    }
+
+
     public void TestVoteResolver() {
         // to make it easier to debug failures, the first digit is an org, second is the individual in that org, and third is the voting weight.
         VoteResolver.setVoterToInfo(testdata);

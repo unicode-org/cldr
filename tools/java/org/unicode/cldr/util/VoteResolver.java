@@ -1102,7 +1102,9 @@ public class VoteResolver<T> {
     }
 
     /**
-     * Returns a map from value to resolved vote count, in descending order
+     * Returns a map from value to resolved vote count, in descending order.
+     * If the winning item is not there, insert at the front.
+     * If the last-release item is not there, insert at the end.
      * @return
      */
     public Map<T, Long> getResolvedVoteCounts() {
@@ -1110,8 +1112,14 @@ public class VoteResolver<T> {
             resolveVotes();
         }
         Map<T,Long> result = new LinkedHashMap<T,Long>();
+        if (!totals.containsKey(winningValue)) {
+            result.put(winningValue, 0l);
+        }
         for (T value : totals.getKeysetSortedByCount(false, votesThenUcaCollator)) {
             result.put(value, totals.get(value));
+        }
+        if (!totals.containsKey(lastReleaseValue)) {
+            result.put(lastReleaseValue, 0l);
         }
         return result;
     }

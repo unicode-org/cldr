@@ -1701,7 +1701,7 @@ function updateRow(tr, theRow) {
 					var voteExtra = (value==vr.lastReleaseValue)?(" voteInfo_lastRelease"):"";
 					var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_tr_heading");
 					if(!item.votes || Object.keys(item.votes).length==0) {
-						vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"),"div","voteInfo_noVotes voteInfo_td"));
+						//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
 					} else {
 						vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"div","voteInfo_orgColumn voteInfo_td"));
 					}
@@ -1718,60 +1718,66 @@ function updateRow(tr, theRow) {
 					return div;
 				};
 				
-				for(org in theRow.voteResolver.orgs) {
-					var theOrg = vr.orgs[org];
-					var orgVoteValue = theOrg.votes[value];
-					if(orgVoteValue) { // someone in the org actually voted for it
-						var topVoter = null; // top voter for this item
-						var orgsVote = (theOrg.orgVote == value);
-						if(orgsVote) {
-							// find a top-ranking voter to use for the top line
+				if(!item.votes || Object.keys(item.votes).length==0) {
+					var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_orgHeading");
+					//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
+					vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"),"div","voteInfo_noVotes voteInfo_td"));
+					vdiv.appendChild(vrow);
+				} else {
+					for(org in theRow.voteResolver.orgs) {
+						var theOrg = vr.orgs[org];
+						var orgVoteValue = theOrg.votes[value];
+						if(orgVoteValue) { // someone in the org actually voted for it
+							var topVoter = null; // top voter for this item
+							var orgsVote = (theOrg.orgVote == value);
+							if(orgsVote) {
+								// find a top-ranking voter to use for the top line
+								for(var voter in item.votes) {
+									if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
+										topVoter = voter;
+										break;
+									}
+								}
+							} else {
+								// just find someone in the right org..
+								for(var voter in item.votes) {
+									if(item.votes[voter].org==org) {
+										topVoter = voter;
+										break;
+									}
+								}
+							}
+							
+							
+							// ORG SUBHEADING row
+							{
+								var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_orgHeading");
+								vrow.appendChild(createChunk(org,"div","voteInfo_orgColumn voteInfo_td"));
+								vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
+								vrow.appendChild(createChunk(orgVoteValue,"div",(orgsVote?"voteInfo_orgsVote ":"voteInfo_orgsNonVote ")+"voteInfo_voteCount voteInfo_td"));
+								vdiv.appendChild(vrow);
+							}
+							
+							//now, other rows:
 							for(var voter in item.votes) {
-								if(item.votes[voter].org==org && item.votes[voter].votes==theOrg.votes[value]) {
-									topVoter = voter;
-									break;
+								if(item.votes[voter].org!=org ||  // wrong org or
+										voter==topVoter) { // already done
+									continue; // skip
+								}
+								// OTHER VOTER row
+								{
+									var vrow = createChunk(null, "div", "voteInfo_tr");
+									vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td")); // spacer
+									vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
+									vrow.appendChild(createChunk(item.votes[voter].votes,"div","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
+									vdiv.appendChild(vrow);
 								}
 							}
 						} else {
-							// just find someone in the right org..
-							for(var voter in item.votes) {
-								if(item.votes[voter].org==org) {
-									topVoter = voter;
-									break;
-								}
-							}
+							// omit this org - not relevant for this value.
 						}
-						
-						
-						// ORG SUBHEADING row
-						{
-							var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_orgHeading");
-							vrow.appendChild(createChunk(org,"div","voteInfo_orgColumn voteInfo_td"));
-							vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
-							vrow.appendChild(createChunk(orgVoteValue,"div",(orgsVote?"voteInfo_orgsVote ":"voteInfo_orgsNonVote ")+"voteInfo_voteCount voteInfo_td"));
-							vdiv.appendChild(vrow);
-						}
-						
-						//now, other rows:
-						for(var voter in item.votes) {
-							if(item.votes[voter].org!=org ||  // wrong org or
-									voter==topVoter) { // already done
-								continue; // skip
-							}
-							// OTHER VOTER row
-							{
-								var vrow = createChunk(null, "div", "voteInfo_tr");
-								vrow.appendChild(createChunk("","div","voteInfo_td")); // spacer
-								vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
-								vrow.appendChild(createChunk(item.votes[voter].votes,"div","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
-								vdiv.appendChild(vrow);
-							}
-						}
-					} else {
-						// omit this org - not relevant for this value.
 					}
 				}
-				
 				perValueContainer.appendChild(vdiv);
 			}
 		} else {
@@ -1790,7 +1796,7 @@ function updateRow(tr, theRow) {
 			kdiv.appendChild(createChunk(
 						stui.sub("winningStatus_msg",
 								[ stui.str(theRow.voteResolver.winningStatus), disputedText ])
-						, "div", "d-dr-"+theRow.voteResolver.winningStatus+" winningStatus"));
+						, "div", "voteInfo_winningKey d-dr-"+theRow.voteResolver.winningStatus+" winningStatus"));
 //			appendItem(p, theRow.voteResolver.winningValue, "winner",tr);
 			
 			kdiv.appendChild(createChunk(

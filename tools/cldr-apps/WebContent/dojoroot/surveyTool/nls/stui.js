@@ -132,7 +132,7 @@ define({
 			
            winningStatus_disputed: "Disputed",
            winningStatus_msg:  "${1} ${0} Value ",
-           lastReleaseStatus_msg: "${0} Last Release: ",
+           lastReleaseStatus_msg: "${0} Last Release Value ",
            lastReleaseStatus1_msg: "",
            
            htmlvorg: "Org",
@@ -146,8 +146,16 @@ define({
            voteInfo_established: "This is an established locale.",
            voteInfo_orgColumn: "Org.",
            voteInfo_noVotes: "(no votes)",
+           voteInfo_noVotes_desc: "There were no votes for this item.",
            voteInfo_key: "Key:",
-                        
+           voteInfo_valueTitle_desc: "Item's value",
+           voteInfo_orgColumn_desc: "Which organization is voting",
+           voteInfo_voteTitle_desc: "The total vote score for this value",
+           voteInfo_orgsVote_desc: "This vote is the organization's winning vote",
+           voteInfo_orgsNonVote_desc: "This vote is not the organization's winning vote",
+           voteInfo_lastReleaseKey_desc: "This mark shows on the item which was approved in the last release, if any.",
+           voteInfo_winningKey_desc: "This mark shows the item which is currently winning.",
+           voteInfo_perValue_desc: "This shows the state and voters for a particular item.",
            // CheckCLDR.StatusAction 
            StatusAction_msg:              "Item was not submitted: ${0}",
            StatusAction_ALLOW:            "(Actually, it was allowed.)", // shouldn't happen

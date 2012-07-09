@@ -1324,6 +1324,11 @@ table#voteinfo thead th:first-child {
 	border:  1px solid gray;
 }
 
+div.voteInfo_noVotes.voteInfo_td {
+	white-space: nowrap;
+	font-style: italic;
+}
+
 
 .voteInfo_winningItem  {
 	white-space: nowrap;

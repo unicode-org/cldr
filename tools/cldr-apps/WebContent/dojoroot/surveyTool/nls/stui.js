@@ -145,6 +145,7 @@ define({
            voteInfo_established_url: "http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value",
            voteInfo_established: "This is an established locale.",
            voteInfo_orgColumn: "Org.",
+           voteInfo_noVotes: "(no votes)",
            voteInfo_key: "Key:",
                         
            // CheckCLDR.StatusAction 

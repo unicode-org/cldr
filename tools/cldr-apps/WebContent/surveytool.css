@@ -115,6 +115,15 @@ div.adminUserUser i {
 	font-size:  small;
 }
 
+.debugStuff {
+	font-family: monospace,"Courier New", Courier, mono;
+	font-size:  small;
+	padding:  0.25em;
+	background-color:  white;
+	border:  3px groove green;
+	box-shadow: 3px 3px 2px gray;
+}
+
 i.userlevel_street {
 	background-color: navy !important;
 	color:  white !important;
@@ -1315,6 +1324,12 @@ table#voteinfo thead th:first-child {
 	border:  1px solid gray;
 }
 
+
+.voteInfo_winningItem  {
+	white-space: nowrap;
+}
+
+
 .voteInfo_tr_heading {
 	background-color: #e0ecff;
 }
@@ -1339,10 +1354,13 @@ div.voteInfo_orgColumn {
 	display:  table-cell;
 	padding-left:  0.10em;
 	padding-right:  0.10em;
+	border-right:  1px solid #bbb;
 }
 
 .voteInfo_voterInfo, .voteInfo_voteCount {
 	border-top:  1px solid gray;
+	overflow: visible;
+	width
 }
 
 .voteInfo_orgsVote {
@@ -1350,7 +1368,7 @@ div.voteInfo_orgColumn {
 }
 
 .voteInfo_voteTitle {
-	font-size: large;
+	font-size: 110%;
 	font-weight: bold;
 }
 .voteInfo_orgsNonVote {

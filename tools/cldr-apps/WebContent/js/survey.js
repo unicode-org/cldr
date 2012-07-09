@@ -1691,8 +1691,10 @@ function updateRow(tr, theRow) {
 			var n = 0;
 			while(n < vr.value_vote.length) {
 				var value = vr.value_vote[n++];
+				if(value==null) continue;
 				var vote = vr.value_vote[n++];
 				var item = tr.rawValueToItem[value]; // backlink to specific item in hash
+				if(item==null) continue;
 				var vdiv = createChunk(null, "div", "voteInfo_perValue");
 				
 				// heading row

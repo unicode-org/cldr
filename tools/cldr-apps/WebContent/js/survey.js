@@ -1683,6 +1683,8 @@ function updateRow(tr, theRow) {
 		
 		tr.voteDiv.appendChild(document.createElement("hr"));
 		
+		var haveWinner = false;
+		var haveLast = false;
 		
 		// TODO: lazy evaluate this clause?
 		if(true /*theRow.voteResolver.orgs && Object.keys(theRow.voteResolver.orgs).length > 0*/) {
@@ -1699,18 +1701,29 @@ function updateRow(tr, theRow) {
 				
 				// heading row
 				{
-					var valueExtra = (value==vr.winningValue)?(" voteInfo_iconValue voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus):"";
-					var voteExtra = (value==vr.lastReleaseValue)?(" voteInfo_lastRelease"):"";
+					//var valueExtra = (value==vr.winningValue)?(" voteInfo_iconValue voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus):"";
+					//var voteExtra = (value==vr.lastReleaseValue)?(" voteInfo_lastRelease"):"";
 					var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_tr_heading");
 					if(!item.votes || Object.keys(item.votes).length==0) {
 						//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
 					} else {
 						vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"div","voteInfo_orgColumn voteInfo_td"));
 					}
-					var vvalue = createChunk(null, "div", "voteInfo_valueTitle voteInfo_td"+valueExtra);
+					var isection = createChunk(null, "div", "voteInfo_iconBar");
+					vrow.appendChild(isection);
+					
+					var vvalue = createChunk(null, "div", "voteInfo_valueTitle voteInfo_td"+"");
+					
+					if(value==vr.winningValue) {
+						appendIcon(isection,"voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus);
+					}
+					if(value==vr.lastReleaseValue) {
+						appendIcon(isection,"voteInfo_lastRelease i-star");
+					}
+					
 					appendItem(vvalue, value, calcPClass(value, vr.winningValue), tr);
 					vrow.appendChild(vvalue);
-					vrow.appendChild(createChunk(vote,"div","voteInfo_voteTitle voteInfo_td"+voteExtra));
+					vrow.appendChild(createChunk(vote,"div","voteInfo_voteTitle voteInfo_td"+""));
 					vdiv.appendChild(vrow);
 				}
 				
@@ -1755,6 +1768,8 @@ function updateRow(tr, theRow) {
 							{
 								var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_orgHeading");
 								vrow.appendChild(createChunk(org,"div","voteInfo_orgColumn voteInfo_td"));
+								var isection = createChunk(null, "div", "voteInfo_iconBar");
+								vrow.appendChild(isection);
 								vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
 								vrow.appendChild(createChunk(orgVoteValue,"div",(orgsVote?"voteInfo_orgsVote ":"voteInfo_orgsNonVote ")+"voteInfo_voteCount voteInfo_td"));
 								vdiv.appendChild(vrow);
@@ -1770,6 +1785,8 @@ function updateRow(tr, theRow) {
 								{
 									var vrow = createChunk(null, "div", "voteInfo_tr");
 									vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td")); // spacer
+									var isection = createChunk(null, "div", "voteInfo_iconBar");
+									vrow.appendChild(isection);
 									vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
 									vrow.appendChild(createChunk(item.votes[voter].votes,"div","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
 									vdiv.appendChild(vrow);
@@ -2325,6 +2342,12 @@ function createChunk(text, tag, className) {
 		chunk.appendChild(document.createTextNode(text));
 	}
 	return chunk;
+}
+
+function appendIcon(toElement, className) {
+	var e = createChunk(null, "div", className);
+	toElement.appendChild(e);
+	return e;
 }
 
 function hideAfter(whom, when) {

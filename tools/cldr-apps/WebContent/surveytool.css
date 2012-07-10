@@ -1330,17 +1330,31 @@ div.voteInfo_noVotes.voteInfo_td {
 }
 
 
-.voteInfo_winningItem  {
-	white-space: nowrap;
+.voteInfo_winningItem,.voteInfo_lastRelease  {
+	margin: 0 !important;
+	padding:  0 !important;
+	border:  none !important;
+	text-align: left;
+	display: inline-block;
 }
 
+
+.voteInfo_valueTitle  {
+	/*margin-left: auto;
+	margin-right: auto;*/
+	text-align: center;
+	/*width: 100%;*/
+}
 
 .voteInfo_tr_heading {
 	background-color: #e0ecff;
 }
+
 .voteInfo_iconValue  {
-	background-position: left !important;
+	background-position: left top !important;
 	padding-left:  20px !important;
+	width:  inherit !important;
+	height:  inherit !important;
 }
 
 div.voteInfo_orgColumn {
@@ -1355,17 +1369,22 @@ div.voteInfo_orgColumn {
 	display:  table-row;
 }
 
-.voteInfo_td  {
+.voteInfo_td, div.voteInfo_iconBar  {
 	display:  table-cell;
 	padding-left:  0.10em;
 	padding-right:  0.10em;
 	border-right:  1px solid #bbb;
+    border-top:  1px solid gray;
 }
+
+div.voteInfo_iconBar {
+	border-right:  none !important;
+}
+
 
 .voteInfo_voterInfo, .voteInfo_voteCount {
 	border-top:  1px solid gray;
 	overflow: visible;
-	width
 }
 
 .voteInfo_orgsVote {
@@ -1381,10 +1400,6 @@ div.voteInfo_orgColumn {
 	font-style: italic;	
 }
 
-.voteInfo_lastRelease {
-	background: url(star.png) no-repeat right top  !important;
-	padding-right:  20px !important;
-}
 
 .voteInfo_lastReleaseKey {
 	background: url(star.png) no-repeat left  !important;

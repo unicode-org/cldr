@@ -4169,9 +4169,9 @@ text data in the rule. For example, the following are all disallowed:</p>
 <h4 class="changed"><a name="Case_Parameters"></a>5.14.13 Case Parameters</h4>
 <p class="changed">The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
 <p class="changed">The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
-<p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary</strong>.</p>
+<p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
 <p class="changed">The following describes the derivation of the case level, where the other levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):</p>
-<p class="changed"><strong>Compute Case Weight</strong></p>
+<h5 class="changed"><strong>Compute Case Weight</strong></h5>
 <ol>
   <li class="changed">If t = 0, set  case-weight <strong>c</strong> = 0, and stop.</li>
   <li class="changed">If the character is U+FFFE (lowest-weight), set <strong>c</strong> = 1, and stop. </li>
@@ -4197,39 +4197,91 @@ text data in the rule. For example, the following are all disallowed:</p>
     </ol>
   </li>
   </ol>
-<p><strong>Compute Modified Collation Elements</strong></p>
-<ol>
-  <li class="changed">Compute new collation elements according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y.</li>
-</ol>
-<div dir="ltr">
+<h5 class="changed"><strong>Compute Modified Collation Elements</strong></h5>
+<p class="changed">Compute new collation elements according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y. The fourth level (if it exists) is unaffected.</p>
+
   <div align="center">
-    <table>
-      <colgroup>
-        <col width="145">
-        <col width="111">
-        <col width="122">
-        </colgroup>
+    <table class="changed">
       <tbody>
         <tr>
-          <td></td>
-          <td class="changed"><strong>CaseLevel=Off</strong></td>
-          <td class="changed"><strong>CaseLevel=On</strong></td>
+          <th>Case Level</th>
+          <th>Strength</th>
+          <th>Original CE</th>
+          <th>Modified CE</th>
+          <th>Description</th>
           </tr>
         <tr>
-          <td class="changed"><strong>CaseFirst=Off</strong></td>
-          <td class="changed"><strong>p.s.t</strong></td>
-          <td class="changed"><strong>p.s.c.t</strong></td>
-          </tr>
+          <td rowspan="9"><strong>on</strong></td>
+          <td rowspan="2"><strong>primary</strong></td>
+          <td><code>0.s.t</code></td>
+          <td><code>0.0</code></td>
+          <td rowspan="2">ignore case level weights of primary-ignorable CEs</td>
+        </tr>
         <tr>
-          <td class="changed"><strong>CaseFirst≠Off</strong></td>
-          <td class="changed"><strong>p.s.ct</strong></td>
-          <td class="changed"><strong>p.s.c.t</strong></td>
-          </tr>
+          <td><code>p.s.t</code></td>
+          <td><code>p.c</code></td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>secondary</strong></td>
+          <td><code>0.0.t</code></td>
+          <td><code>0.0.0</code></td>
+          <td rowspan="3">ignore case level weights of secondary-ignorable CEs</td>
+        </tr>
+        <tr>
+          <td><code>0.s.t</code></td>
+          <td><code>0.s.c</code></td>
+        </tr>
+        <tr>
+          <td><code>p.s.t</code></td>
+          <td><code>p.s.c</code></td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>tertiary<br>
+          </strong>or higher</td>
+          <td><code>0.0.0</code></td>
+          <td><code>0.0.0.0</code></td>
+          <td rowspan="4">ignore case level weights of tertiary-ignorable CEs</td>
+        </tr>
+        <tr>
+          <td><code>0.0.t</code></td>
+          <td><code>0.0.c.t</code></td>
+        </tr>
+        <tr>
+          <td><code>0.s.t</code></td>
+          <td><code>0.s.c.t</code></td>
+        </tr>
+        <tr>
+          <td><code>p.s.t</code></td>
+          <td><code>p.s.c.t</code></td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>off</strong></td>
+          <td rowspan="4">any</td>
+          <td><code>0.0.0</code></td>
+          <td><code>0.0.00</code></td>
+          <td rowspan="4">ignore case level weights of tertiary-ignorable CEs</td>
+        </tr>
+        <tr>
+          <td><code>0.0.t</code></td>
+          <td><code>0.0.ct</code></td>
+        </tr>
+        <tr>
+          <td><code>0.s.t</code></td>
+          <td><code>0.s.ct</code></td>
+        </tr>
+        <tr>
+          <td><code>p.s.t</code></td>
+          <td><code>p.s.ct</code></td>
+        </tr>
         </tbody>
     </table>
   </div>
-</div>
-<p class="changed">  Note that if t = 0, the results are 0.0.0 and 0.0.0.0 respectively.</p>
+
+
+
+
+
+
 <p class="changed">A known limitation of the case levels is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;. (In practice this has not been found to be a significant limitation.)</p>
 <p class="changed"><strong><a name="LowerExceptions"></a>LowerExceptions:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
 <ul>

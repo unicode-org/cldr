@@ -222,11 +222,19 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // of integer digits in all the available plural forms.
         DecimalFormat format = new DecimalFormat(value);
         int numIntegerDigits = format.getMinimumIntegerDigits();
-        Count thisCount = Count.valueOf(parts.getAttributeValue(-1, "count"));
+        String countString = parts.getAttributeValue(-1, "count");
+        Count thisCount = null;
+        try {
+            thisCount = Count.valueOf(countString);
+        } catch (Exception e) {
+            // can happen if count is numeric literal, like "1"
+        }
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
         Set<String> inconsistentItems = new TreeSet<String>();
         Set<Count> otherCounts = new HashSet<Count>(pluralTypes);
-        otherCounts.remove(thisCount);
+        if (thisCount != null) {
+            otherCounts.remove(thisCount);
+        }
         for (Count count : otherCounts) {
             parts.setAttribute("pattern", "count", count.toString());
             String otherPattern = resolvedFile.getWinningValue(parts.toString());

@@ -592,7 +592,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial );
             }
             
-            if(value.length()>MAX_VAL_LEN) {
+            if(value!=null && value.length()>MAX_VAL_LEN) {
                 throw new IllegalArgumentException("Value exceeds limit of " + MAX_VAL_LEN);
             }
 

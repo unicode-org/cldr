@@ -225,6 +225,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     }
 
+    private static final int MAX_VAL_LEN = 4096;
     /**
      * the STFactory maintains exactly one instance of this class per locale it is working with. It contains the XMLSource, Example Generator, etc..
      * @author srl
@@ -590,6 +591,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if(denial!=null) {
                 throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial );
             }
+            
+            if(value.length()>MAX_VAL_LEN) {
+                throw new IllegalArgumentException("Value exceeds limit of " + MAX_VAL_LEN);
+            }
 
             if(!readonly) {
                 makeSource(false);
@@ -655,7 +660,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     conn.commit();
                 } catch (SQLException e) {
                     SurveyLog.logException(e);
-                    SurveyMain.busted("Could not read locale " + locale, e);
+                    SurveyMain.busted("Could not vote for value in locale locale " + locale, e);
                     throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
                 } finally {
                     DBUtils.close(saveOld,rs,ps,ps2,conn);

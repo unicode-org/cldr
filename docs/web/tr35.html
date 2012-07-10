@@ -3351,8 +3351,8 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	in <a href="#Orderings">Orderings</a>.</p>
 <h4>5.14.3 <a name="Setting_Options">Setting Options</a></h4>
 	<p>In XML syntax, these are attributes of &lt;settings&gt;. For example, &lt;setting strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights. In basic syntax, these are of the form [<em>keyword</em> <em>value</em>].</p>
-	<p>If the attribute is not present, the default (or for the base url&#39;s attribute, if there is one) is used. That  default is listed in <span class="changed">bold</span> italics. Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. </p>
-  <p>The Example cells include an LDML example followed by the same example in basic syntax.</p>
+	<p>If the attribute is not present, the <span class="changed">CLDR</span> default (or for the base url&#39;s attribute, if there is one) is used. That  default is listed in <span class="changed">bold</span> italics. <span class="changed">Where there is a UCA default that is different, it is listed in bold with (<strong>UCA default</strong>). </span>Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. </p>
+<p>The Example cells include an LDML example followed by the same example in basic syntax.</p>
 	<table>
     <caption><a name="Collation_Settings">Collation Settings</a></caption>
 		<tr>
@@ -3371,19 +3371,19 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>strength = &quot;<span style="color: blue">primary</span>&quot;<br>
 			  <br>
 		    [strength 1]</code></td>
-			<td>Sets the default strength for comparison, as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. <strong><em>Note that strength setting of greater than 3 may have the same effect as  identical, depending on the locale and implementation.</em></strong></td>
+			<td>Sets the default strength for comparison, as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].<em> Note that strength setting of greater than <span class="changed">4</span> may have the same effect as <strong>identical</strong>, depending on the locale and implementation.</em></td>
 		</tr>
 		<tr>
 			<td>alternate</td>
 			<td><i><strong>non-ignorable</strong></i><strong><br>
-	    </strong>shifted<br>
+	    shifted (UCA default)</strong><br>
         <span class="changedspan">shift-trimmed</span><br>
         <i>blanked</i><br>
       <span class="changedspan">ignoresp</span></td>
 			<td><code>alternate = &quot;<span style="color: blue">non-ignorable</span>&quot;<br>
 		    <br>
 		    [alternate non-ignorable]</code></td>
-			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <strong><em>The default for CLDR is different than it is in the UCA. <span class="changed">In CLDR, </span>whitespace and punctuation are not ignored by default, <span class="changed">and the meaning of &quot;shifted&quot; is actually &quot;ignoresp&quot;. For other implementations of UCA, &quot;ignoresp&quot; and &quot;shifted&quot; may be different.</span></em></strong></td>
+			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <em>The default for <span class="changed">LDML</span> is different than it is in the UCA. <span class="changed">In LDML, the default for alternate handling is <strong>non-ignorable</strong>, while in UCA it is <strong>shifted</strong>. In addition, in LDML only </span>whitespace and punctuation are <span class="changed">variable, thus the meaning of <strong>shifted</strong> is the same as <strong>ignoresp</strong>. (In UCA, symbols are  variable in <strong>shifted</strong>, but not in <strong>ignoresp</strong>.) For other implementations of UCA, <strong>ignoresp</strong> and <strong>shifted</strong> may  have different results.</span></em></td>
 		</tr>
 		<tr>
 			<td>backwards</td>
@@ -3392,19 +3392,19 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>backwards = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [backwards 2]</code></td>
-			<td>Sets the comparison for the second level to be backwards (&quot;French&quot;), as described in
+			<td>Sets the comparison for the second level to be <strong>backwards</strong> (&quot;French&quot;), as described in
 			[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>
 			<td>normalization</td>
-			<td>on<br>
+			<td><strong>on (UCA default)</strong><br>
 		    <em><strong>off</strong></em></td>
 			<td><code>normalization = &quot;<span style="color: blue">off</span>&quot;<br>
 <br>
 [normalization off]			</code></td>
-			<td>If <i>on</i>, then the normal [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used.
-			If <i>off</i>, then all strings that are in [<a href="#FCD">FCD</a>] will sort correctly, but 
-			others will not necessarily sort correctly. So should only be set <i>off</i> if the the strings to be compared are in FCD. <strong><em>Note that the default for CLDR is different than it is in the UCA. The rules for particular locales have it set to &quot;on&quot;: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</em></strong></td>
+			<td>If <strong>on</strong>, then the normal [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used.
+			If <strong>off</strong>, then all strings that are in [<a href="#FCD">FCD</a>] will sort correctly, but 
+			others will not necessarily sort correctly. So should only be set <strong>off</strong> if the the strings to be compared are in FCD. <em>Note that the default for <span class="changed">CLDR locales may be</span> different than  in the UCA. The rules for particular locales have it set to <strong>on</strong>: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</em></td>
 		</tr>
 		<tr>
 			<td>caseLevel</td>
@@ -3414,8 +3414,8 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 			  [caseLevel on]<br>
             </code></td>
-			<td>If set to <i>on,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take case 
-			into account, set strength to primary and case level to <i>on</i>. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</span></td>
+			<td>If set to <strong>on</strong><i>,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take case 
+			into account, set strength to <strong>primary</strong> and case level to <strong>on</strong>. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</span></td>
 		</tr>
 		<tr>
 			<td>caseFirst</td>
@@ -3425,8 +3425,8 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>caseFirst = &quot;<span style="color: blue">off</span>&quot;<br>
 			  <br>
 		    [caseFirst off]</code></td>
-			<td>If set to <i>upper</i>, causes upper case to sort before lower case. If set to <i>lower</i>, causes lower case to sort before upper case. Useful for 
-			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</span></td>
+			<td>If set to <strong>upper</strong>, causes upper case to sort before lower case. If set to <strong>lower</strong>, causes lower case to sort before upper case. Useful for 
+			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</span></td>
 		</tr>
 		<tr>
 			<td>hiraganaQuaternary</td>
@@ -3435,7 +3435,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>		    hiragana­Quaternary = &quot;<span style="color: blue">on</span>&quot;			<br>
 			  <br>
 		    [hiraganaQ on]			</code></td>
-			<td>Controls special treatment of Hiragana code points on quaternary level. If turned <i>on</i>, Hiragana codepoints will get lower values than all 
+			<td>Controls special treatment of Hiragana code points on quaternary level. If turned <strong>on</strong>, Hiragana codepoints will get lower values than all 
 			the other non-variable code points <span class="changed">in <strong>shifted</strong> or <strong>ignoresp</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
 		</tr>
 		<tr>
@@ -3445,7 +3445,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>numeric = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [numeric on]</code></td>
-			<td>If set to <i>on</i>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
+			<td>If set to <strong>on</strong>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
 			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The first primary value is  set to immediately after the primary value of &quot;0&quot;. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a12&quot; &lt; &quot;a2&quot; &lt; &quot;aa&quot;. In a tailored table, the &quot;0&quot; may have a different primary weight.</span></td>
 		</tr>
 		<tr>
@@ -3458,7 +3458,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		    &amp; \u00XX\uYYYY &lt; [variable top]</code></td>
 			<td>The parameter value is an encoded Unicode string, with code points in hex, leading zeros removed, and &#39;u&#39; inserted between successive elements. Note that this is <em>not</em> the syntax used in the corresponding Key/Type definition for vt, which is described in <i> Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
 			Keys and Types</a>.</i> 			  <p>
-		  Sets the  string value for the variable top. All the code points with primary strengths less than that string will be considered variable, and thus 
+		  Sets the  string value for the variable top. All the code points with primary strengths less than <span class="changed">or equal to </span>that string will be considered variable, and thus 
 			affected by the alternate handling. Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but not in CLDR. See below for more information.</p>
 			</td>
 		</tr>
@@ -3492,7 +3492,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><span class="changed">Defined by <em>Section 8,</em> </span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
   </table>
-  <p>Variable Top bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20B8 (see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
+  <p>Variable Top bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20B<span class="changed">A (in Unicode 6.2; </span>see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
   <p>The effect of these settings is to customize to ignore different sets of characters when comparing strings. For example, the locale identifier "de-u-ka-shifted-vt-0024" is requesting  settings appropriate for German, including German sorting conventions, and that '$' and characters sorting below it are ignored in sorting.
   </p>
   <h4>5.14.4 <a name="Rules">Collation Rule Syntax</a></h4>
@@ -4166,13 +4166,15 @@ text data in the rule. For example, the following are all disallowed:</p>
   </tbody>
 </table>
 <p>The reordering blocks are defined by DUCET, and do not always completely  follow Script or General_Category property values. For more information, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
-<h4 class="changed"><a name="Case_Level"></a>5.14.13 Case Level</h4>
-<p class="changed">The case level is an intermediate level between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and swapping the order of upper and lowercase. The use of the case level inserts an extra level (&quot;2.5&quot;) after Level 2 (or after Level 1, if there is no Level 2 due to strength settings). When the case level is not specified, the caseFirst attribute may still have an effect on the tertiary level values, as described below. The case level is also used for small versus large Kana characters, to support Japanese collation.</p>
-<p class="changed">Importantly, unless two characters have the same the primary value and different case level values, the case level values make no difference. </p>
-<p class="changed">The following describes the derivation of the case level, where the other levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):<br>
-</p>
+<h4 class="changed"><a name="Case_Parameters"></a>5.14.13 Case Parameters</h4>
+<p class="changed">The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
+<p class="changed">The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
+<p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary</strong>.</p>
+<p class="changed">The following describes the derivation of the case level, where the other levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):</p>
+<p class="changed"><strong>Compute Case Weight</strong></p>
 <ol>
-  <li class="changed">If t = 0, set  variables c0 = c1 = 0, and skip to #6.</li>
+  <li class="changed">If t = 0, set  case-weight <strong>c</strong> = 0, and stop.</li>
+  <li class="changed">If the character is U+FFFE (lowest-weight), set <strong>c</strong> = 1, and stop. </li>
   <li class="changed">Convert the code points in the source string to an NFKD string s.</li>
   <li class="changed">Form a set of case values for s by looking  up a case value for each character x based on UCD properties:
     <ol>
@@ -4188,12 +4190,16 @@ text data in the rule. For example, the following are all disallowed:</p>
     <li class="changed">UPPER if the set contains UPPER, otherwise</li>
     <li class="changed">LOWER.</li>
   </ol></li>
-  <li class="changed">Based on that value, set the following two variables:
+  <li class="changed">Based on that value, set the following two case-weights:
     <ol>
-    <li class="changed">Set c0 = LOWER ? 1 : MIXED ? 2 : 3</li>
-    <li class="changed">Set c1 = UPPER ? 1 : MIXED ? 2 : 3</li>
-  </ol></li>
-  <li class="changed">Compute new weights  according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y.</li>
+      <li class="changed">If <strong>CaseFirst=UpperFirst</strong> set c = UPPER ? 2 : MIXED ? 3 : 4</li>
+      <li class="changed">Otherwise set <strong>c</strong> = LOWER ? 2 : MIXED ? 3 : 4</li>
+    </ol>
+  </li>
+  </ol>
+<p><strong>Compute Modified Collation Elements</strong></p>
+<ol>
+  <li class="changed">Compute new collation elements according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y.</li>
 </ol>
 <div dir="ltr">
   <div align="center">
@@ -4212,17 +4218,12 @@ text data in the rule. For example, the following are all disallowed:</p>
         <tr>
           <td class="changed"><strong>CaseFirst=Off</strong></td>
           <td class="changed"><strong>p.s.t</strong></td>
-          <td class="changed"><strong>p.s.c0.t</strong></td>
+          <td class="changed"><strong>p.s.c.t</strong></td>
           </tr>
         <tr>
-          <td class="changed"><strong>CaseFirst=LowerFirst</strong></td>
-          <td class="changed"><strong>p.s.c0t</strong></td>
-          <td class="changed"><strong>p.s.c0.t</strong></td>
-          </tr>
-        <tr>
-          <td class="changed"><strong>CaseFirst=UpperFirst</strong></td>
-          <td class="changed"><strong>p.s.c1t</strong></td>
-          <td class="changed"><strong>p.s.c1.t</strong></td>
+          <td class="changed"><strong>CaseFirst≠Off</strong></td>
+          <td class="changed"><strong>p.s.ct</strong></td>
+          <td class="changed"><strong>p.s.c.t</strong></td>
           </tr>
         </tbody>
     </table>
@@ -9310,7 +9311,7 @@ decimal?, group?, special*)) &gt;</pre>
   <h3 class="changed">Revision 26</h3>
   <ul>
     <li class="changed">Proposed update for Version 22.</li>
-	  <li class="changed">Added new section <em>Section 5.14.13, <a href="#Case_Level">Case Level</a></em>.</li>
+	  <li class="changed">Added new section <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</li>
     <li class="changed">Modified the table in <em>Section 5.14.3, <a href="#Setting_Options">Setting Options</a></em> to include information from UCA, and to add clarifications.</li>
   </ul>
 <h3>Revision 25</h3>

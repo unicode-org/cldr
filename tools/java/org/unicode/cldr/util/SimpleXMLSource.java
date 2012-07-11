@@ -94,7 +94,9 @@ public class SimpleXMLSource extends XMLSource {
     private void updateValuePathMapping(String distinguishingXPath, String oldValue, String newValue) {
         synchronized(VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH != null) {
-                VALUE_TO_PATH.remove(oldValue, distinguishingXPath);
+                if(oldValue!=null) {
+                    VALUE_TO_PATH.remove(oldValue, distinguishingXPath);
+                }
                 if (newValue != null) {
                     VALUE_TO_PATH.put(newValue, distinguishingXPath);
                 }

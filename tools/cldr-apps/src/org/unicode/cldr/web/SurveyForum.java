@@ -245,7 +245,7 @@ public class SurveyForum {
 		}
 
 		if(!loggedout && (forumNumber >= GOOD_FORUM)) {
-			canModify = (UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale()));
+			canModify = (UserRegistry.userCanAccessForum(ctx.session.user,ctx.getLocale()));
 		}
 
 		/* can we accept a string xpath? (ignore if 'forum' is set) */

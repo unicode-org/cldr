@@ -1415,6 +1415,29 @@ public class UserRegistry {
     public static final boolean userCanModifyLocale(User u, CLDRLocale locale) {
         return (userCanModifyLocaleWhy(u,locale) == null);
     }
+    
+    public static final boolean userCanAccessForum(User u, CLDRLocale locale) {
+        return (userCanAccessForumWhy(u,locale) == null);
+    }
+    
+    private static Object userCanAccessForumWhy(User u, CLDRLocale locale) {
+        if(u==null) return ModifyDenial.DENY_NULL_USER; // no user, no dice
+        if(!userIsStreet(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least street level
+        if(userIsAdmin(u)) return null; // Admin can modify all
+        if(userIsTC(u)) return null; // TC can modify all
+        if(locale.getLanguage().equals("und")) {  // all user accounts can write to und.
+            return null;
+        }
+        if((u.locales == null) && userIsExpert(u)) return null; // empty = ALL
+        if(false|| userIsExactlyManager(u)) return null; // manager can edit all
+        String localeArray[] = tokenizeLocale(u.locales);
+        if(userCanModifyLocale(localeArray,locale)) {
+            return null;
+        } else {
+            return ModifyDenial.DENY_LOCALE_LIST;
+        }
+    }
+
     // TODO: speedup. precalculate list of locales on user load.
     public static final ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
         if(u==null) return ModifyDenial.DENY_NULL_USER; // no user, no dice

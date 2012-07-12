@@ -105,7 +105,7 @@
             </ruleset>
             <ruleset type="spellout-cardinal-reale">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komma →%%spellout-fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
                 <rbnfrule value="0">noll;</rbnfrule>
                 <rbnfrule value="1">en;</rbnfrule>
                 <rbnfrule value="2">=%spellout-numbering=;</rbnfrule>
@@ -130,31 +130,6 @@
                 <rbnfrule value="1000000000000000">en biljard[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-reale← biljarder[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-fraction" access="private">
-                <rbnfrule value="10">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000000000">←0←;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-fraction-digits" access="private">
-                <rbnfrule value="0">noll;</rbnfrule>
-                <rbnfrule value="1">ett;</rbnfrule>
-                <rbnfrule value="2">två;</rbnfrule>
-                <rbnfrule value="3">tre;</rbnfrule>
-                <rbnfrule value="4">fyra;</rbnfrule>
-                <rbnfrule value="5">fem;</rbnfrule>
-                <rbnfrule value="6">sex;</rbnfrule>
-                <rbnfrule value="7">sju;</rbnfrule>
-                <rbnfrule value="8">åtta;</rbnfrule>
-                <rbnfrule value="9">nio;</rbnfrule>
-                <rbnfrule value="10">←←[ →→];</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neutre">
                 <rbnfrule value="-x">minus →→;</rbnfrule>

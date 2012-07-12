@@ -308,9 +308,13 @@
                 <rbnfrule value="20">→→;</rbnfrule>
                 <rbnfrule value="100">→→;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-masculine">
+            <ruleset type="digits-ordinal-masculine-adjective">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0==%%dord-mascabbrev=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-masculine">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=º;</rbnfrule>
             </ruleset>
             <ruleset type="dord-femabbrev" access="private">
                 <rbnfrule value="0">ª;</rbnfrule>

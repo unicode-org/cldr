@@ -21,7 +21,7 @@ public class WindowsZonesConverter extends BaseTimeZoneDataConverter {
 
             String name = node.getNodeName();
             if (name.equals(LDMLConstants.MAP_TIMEZONES)) {
-                res = parseMapTimezones(node, true);
+                res = parseMapTimezones(node, false);
                 break;
             }
         }

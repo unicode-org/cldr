@@ -116,7 +116,7 @@ public class SimpleFactory extends Factory {
             if (resolved) {
                 result = new CLDRFile(makeResolvingSource(localeName, minimalDraftStatus));
                 if (result==null && true /*DEBUG*/) {
-                    System.out.println("# SimpleFactory.handleMake, resolved=T, locale " + localeName + ", new CLDRFile returned null"); 
+                    throw new NullPointerException("# SimpleFactory.handleMake, resolved=T, locale " + localeName + ", new CLDRFile returned null"); 
                 }
             } else {
                 final File parentDir = getSourceDirectoryForLocale(localeName);
@@ -126,9 +126,9 @@ public class SimpleFactory extends Factory {
                 }
                 if (result==null && true /*DEBUG*/) {
                     if (parentDir == null) {
-                        System.out.println("# SimpleFactory.handleMake, resolved=F, locale " + localeName + ", getSourceDirectoryForLocale returned null"); 
+                        throw new NullPointerException("# SimpleFactory.handleMake, resolved=F, locale " + localeName + ", getSourceDirectoryForLocale returned null"); 
                     } else {
-                        System.out.println("# SimpleFactory.handleMake, resolved=F, locale " + localeName + ", makeFile returned null"); 
+                        throw new NullPointerException("# SimpleFactory.handleMake, resolved=F, locale " + localeName + ", makeFile returned null"); 
                     }
                 }
             }
@@ -239,7 +239,7 @@ public class SimpleFactory extends Factory {
             if(xmlFile.canRead()) {
                 return dir;
             } else if (localeName.equals("en_150") && true /*DEBUG*/) {
-                System.out.println("# SimpleFactory.getSourceDirectoryForLocale en_150, can't read file, isSupplemental "
+                throw new NullPointerException("# SimpleFactory.getSourceDirectoryForLocale en_150, can't read file, isSupplemental "
                         + isSupplemental + ", dir " + dir.getPath() + ", xmlFile " + xmlFile.getPath()); 
             }
         }

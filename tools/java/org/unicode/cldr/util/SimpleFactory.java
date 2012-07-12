@@ -115,11 +115,21 @@ public class SimpleFactory extends Factory {
         if (result == null) {
             if (resolved) {
                 result = new CLDRFile(makeResolvingSource(localeName, minimalDraftStatus));
+                if (result==null && true /*DEBUG*/) {
+                    System.out.println("# SimpleFactory.handleMake, resolved=T, locale " + localeName + ", new CLDRFile returned null"); 
+                }
             } else {
                 final File parentDir = getSourceDirectoryForLocale(localeName);
                 if(parentDir != null) {
                     result = makeFile(localeName, parentDir, minimalDraftStatus);
                     result.freeze();
+                }
+                if (result==null && true /*DEBUG*/) {
+                    if (parentDir == null) {
+                        System.out.println("# SimpleFactory.handleMake, resolved=F, locale " + localeName + ", getSourceDirectoryForLocale returned null"); 
+                    } else {
+                        System.out.println("# SimpleFactory.handleMake, resolved=F, locale " + localeName + ", makeFile returned null"); 
+                    }
                 }
             }
             if(result!=null) {
@@ -228,6 +238,9 @@ public class SimpleFactory extends Factory {
             final File xmlFile = makeFileName(localeName,dir);
             if(xmlFile.canRead()) {
                 return dir;
+            } else if (localeName.equals("en_150") && true /*DEBUG*/) {
+                System.out.println("# SimpleFactory.getSourceDirectoryForLocale en_150, can't read file, isSupplemental "
+                        + isSupplemental + ", dir " + dir.getPath() + ", xmlFile " + xmlFile.getPath()); 
             }
         }
         return null;

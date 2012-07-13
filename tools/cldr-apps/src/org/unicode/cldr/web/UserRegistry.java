@@ -45,6 +45,7 @@ import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.web.UserRegistry.InfoType;
+import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
@@ -1438,6 +1439,40 @@ public class UserRegistry {
         }
     }
 
+    public static boolean countUserVoteForLocale(User theSubmitter, CLDRLocale locale) {
+        return (countUserVoteForLocaleWhy(theSubmitter, locale)==null);
+    }
+    
+    public static final ModifyDenial countUserVoteForLocaleWhy(User u, CLDRLocale locale) {
+        if(u==null) return ModifyDenial.DENY_NULL_USER; // no user, no dice
+        if(STFactory.isReadOnlyLocale(locale)) return ModifyDenial.DENY_LOCALE_READONLY;
+
+        if(!userIsStreet(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least street level
+        CLDRLocale isAliasTo =sm.isLocaleAliased(locale);
+        if(isAliasTo!=null) {
+            return ModifyDenial.DENY_ALIASLOCALE;
+        }
+        String dcParent =     sm.getSupplementalData().defaultContentToParent(locale.toString());
+        if(dcParent!=null)  {
+            return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent locale or a pure alias.
+        }
+        if(userIsAdmin(u)) return null; // Admin can modify all
+        if(userIsTC(u)) return null; // TC can modify all
+        if(userIsTC(u) ) return null; // TC (or manager) can modify all
+        if(locale.getLanguage().equals("und")) {  // all user accounts can write to und.
+            return null;
+        }
+        
+        if((u.locales == null) && userIsExpert(u)) return null; // empty = ALL
+        if(false|| userIsExactlyManager(u)) return null; // manager can edit all
+        String localeArray[] = tokenizeLocale(u.locales);
+        if(userCanModifyLocale(localeArray,locale)) {
+            return null;
+        } else {
+            return ModifyDenial.DENY_LOCALE_LIST;
+        }
+    }
+
     // TODO: speedup. precalculate list of locales on user load.
     public static final ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
         if(u==null) return ModifyDenial.DENY_NULL_USER; // no user, no dice
@@ -2044,4 +2079,5 @@ public class UserRegistry {
 		out.close();
 		return 1;
 	}
+
 }

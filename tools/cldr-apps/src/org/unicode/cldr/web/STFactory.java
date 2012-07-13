@@ -329,7 +329,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         if(theSubmitter==null) {
                             throw new InternalError("Could not get info for submitter " + submitter + " for " + locale+":"+xpath);
                         }
-                        if(!UserRegistry.userCanModifyLocale(theSubmitter, locale)) {
+                        if(!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // this is whether the vote is accounted for.
                             continue;
                         }
                         internalSetVoteForValue(theSubmitter, xpath, value, resolver, dataBackedSource);
@@ -587,7 +587,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public synchronized void voteForValue(User user, String distinguishingXpath,
                 String value) {
             SurveyLog.debug("V4v: "+locale+" "+distinguishingXpath + " : " + user + " voting for '" + value + "'");
-            ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user,locale);
+            ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user,locale); // this has to do with changing a vote - not counting it. 
             if(denial!=null) {
                 throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial );
             }
@@ -1309,7 +1309,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 sb.append(prefix);
                 sb.append("\"]");
 
-                sxs.putValueAtPath(sb.toString(),DBUtils.getStringUTF8(rs, 3));
+                sxs.putValueAtPath(sb.toString(),DBUtils.getStringUTF8(rs, 3));  // value is never null, due to  SQL 
             }
 
             CLDRFile f = new CLDRFile(sxs);

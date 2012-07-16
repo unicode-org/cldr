@@ -3303,8 +3303,9 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	of the root order. The root order is based on the UCA default table defined in <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. (For a chart view of the UCA, see
 	Collation Chart [<a href="#UCAChart">UCAChart</a>].) </p>
   <blockquote>
-      <p>There were major changes in CLDR 1.9, including use of the modified tables  as described in <a href="http://www.unicode.org/Public/UCA/6.0.0/CollationAuxiliary.html" rel="nofollow">CollationAuxiliary.html</a> for the root order. There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</p>
-      <p>As of CLDR 2.0, special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
+      <p>There were major changes in CLDR 1.9 <span class='changed'>and beyond</span>, including use of the modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong><span class='changed'> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFF and U+FFFE have special tailorings as well.</span></p>
+<p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</p>
+  <p>As of CLDR 2.0, special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
       <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
       &lt;pc&gt;阿呵𥥩锕𠼞𨉚&lt;/pc&gt;&lt;!-- ā --&gt;</p>
       <p>…</p>

@@ -718,7 +718,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
   <p>
 
-	<table>
+  <table>
 		<caption><a name="Key_Type_Definitions">Key/Type Definitions</a></caption>
 		<tr>
 			<th>category</th>
@@ -970,7 +970,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			<td>"posix"</td>
 			<td>POSIX style locale variant</td>
 		</tr>
-	</table>
+  </table>
 
 	<p>For more information on the allowed keys and types, see the specific elements below, and Appendix Q: 
 <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type DataUnicode BCP 47 Extension Data</a>.</p>
@@ -4170,35 +4170,26 @@ text data in the rule. For example, the following are all disallowed:</p>
 <p class="changed">The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
 <p class="changed">The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
 <p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
-<p class="changed">The following describes the derivation of the case level, where the other levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):</p>
-<h5 class="changed"><strong>Compute Case Weight</strong></h5>
+<p class="changed">The following describes the derivation of the modified collation elements, where the original levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):</p>
+<h5 class="changed"><strong>Untailored Characters</strong></h5>
+<p><span class="changed">For untailored character (and strings), the case value for each collation element is computed from the DUCET tertiary weight. This is used to modify the collation element.</span></p>
 <ol>
-  <li class="changed">If t = 0, set  case-weight <strong>c</strong> = 0, and stop.</li>
-  <li class="changed">If the character is U+FFFE (lowest-weight), set <strong>c</strong> = 1, and stop. </li>
-  <li class="changed">Convert the code points in the source string to an NFKD string s.</li>
-  <li class="changed">Form a set of case values for s by looking  up a case value for each character x based on UCD properties:
+  <li class="changed">If the character is U+FFFE (lowest-weight), set case value = LOWEST. </li>
+  <li class="changed">Otherwise, look up a  case value for the tertiary weight x of each collation element:
     <ol>
-    <li class="changed">LOWER if x ∈ <strong>Lowercase</strong> or x ∈ <strong>Changes_When_Uppercased</strong> or x ∈ <a href="#LowerExceptions">LowerExceptions</a></li>
-    <li class="changed">UPPER if x ∈ <strong>Uppercase</strong> or x ∈ <strong>Changes_When_Lowercased</strong> or x ∈ <a href="#UpperExceptions">UpperExceptions</a></li>
-    <li class="changed">MIXED if x ∈ <strong>gc=Lt</strong> or both (a) and (b)</li>
-    <li class="changed">UNCASED otherwise</li>
-  </ol></li>
-  <li class="changed">Combine the set of values from s into  a single value:
-    <ol>
-    <li class="changed">first removing UNCASED, then using:</li>
-    <li class="changed">MIXED if not all elements are identical, otherwise</li>
-    <li class="changed">UPPER if the set contains UPPER, otherwise</li>
-    <li class="changed">LOWER.</li>
-  </ol></li>
-  <li class="changed">Based on that value, set the following two case-weights:
-    <ol>
-      <li class="changed">If <strong>CaseFirst=UpperFirst</strong> set c = UPPER ? 2 : MIXED ? 3 : 4</li>
-      <li class="changed">Otherwise set <strong>c</strong> = LOWER ? 2 : MIXED ? 3 : 4</li>
-    </ol>
+      <li class="changed">UPPER if x ∈  {08-0C, 0E, 11, 12, 1D}</li>
+      <li class="changed">UNCASED otherwise</li>
+      </ol>
   </li>
-  </ol>
+</ol>
 <h5 class="changed"><strong>Compute Modified Collation Elements</strong></h5>
-<p class="changed">Compute new collation elements according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y. The fourth level (if it exists) is unaffected.</p>
+<p class="changed">From a computed case value, set a weight <strong>c</strong> according to the following.</p>
+<ol>
+  <li class="changed">If the value is LOWEST, set <strong>c</strong> = 1</li>
+  <li class="changed">Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong> = UPPER ? 2 : MIXED ? 3 : 4</li>
+  <li class="changed">Otherwise set <strong>c</strong> = LOWER ? 2 : MIXED ? 3 : 4</li>
+</ol>
+<p class="changed">Compute a new collation element according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y. The fourth level (if it exists) is unaffected.</p>
 
   <div align="center">
     <table class="changed">
@@ -4209,7 +4200,7 @@ text data in the rule. For example, the following are all disallowed:</p>
           <th>Original CE</th>
           <th>Modified CE</th>
           <th>Description</th>
-          </tr>
+        </tr>
         <tr>
           <td rowspan="9"><strong>on</strong></td>
           <td rowspan="2"><strong>primary</strong></td>
@@ -4273,7 +4264,7 @@ text data in the rule. For example, the following are all disallowed:</p>
           <td><code>p.s.t</code></td>
           <td><code>p.s.ct</code></td>
         </tr>
-        </tbody>
+      </tbody>
     </table>
   </div>
 
@@ -4282,7 +4273,27 @@ text data in the rule. For example, the following are all disallowed:</p>
 
 
 
-<p class="changed">A known limitation of the case levels is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;. (In practice this has not been found to be a significant limitation.)</p>
+<p class="changed">&nbsp;</p>
+<h5 class="changed">Tailored Strings</h5>
+<p class="changed">Tailored characters or strings have case values computed from their UCD properties. A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</p>
+<ol class="changed">
+  <li>Form a set of case values by looking  up a case value for each character x in the NFKD mapping of the source string, based on UCD properties:
+<ol>
+  <li class="changed">LOWER if x ∈ <strong>Lowercase</strong> or x ∈ <strong>Changes_When_Uppercased</strong> or x ∈ <a href="#LowerExceptions">LowerExceptions</a></li>
+  <li class="changed">UPPER if x ∈ <strong>Uppercase</strong> or x ∈ <strong>Changes_When_Lowercased</strong> or x ∈ <a href="#UpperExceptions">UpperExceptions</a></li>
+  <li class="changed">MIXED if x ∈ <strong>gc=Lt</strong> or both (a) and (b)</li>
+  <li class="changed">UNCASED otherwise</li>
+  </ol>
+
+  <li class="changed">Compute a single case value from this set, by first removing UNCASED, then setting:
+    <ol>
+      <li class="changed">MIXED if not all elements are identical, otherwise</li>
+      <li class="changed">UPPER if the set contains UPPER, otherwise</li>
+      <li class="changed">LOWER</li>
+    </ol>
+  </li>
+  <li class="changed">Apply that case-value to the first collation element in the tailoring, according to &quot;<strong>Compute Modified Collation Elements</strong>&quot;. The case values and weights in an expansion are unaffected.</li>
+</ol>
 <p class="changed"><strong><a name="LowerExceptions"></a>LowerExceptions:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
 <ul>
   <li class="changed">[\u0363-\u036F\u1DCA\u1DD3-\u1DDA\u1DDC\u1DDD\u1DE0\u1DE3-\u1DE6 ℩ぁぃぅぇぉっゃゅょゎゕゖァィゥェォッ ャュョヮヵヶㇰ-ㇿ]</li>
@@ -5901,7 +5912,7 @@ range         = value'..'value</pre>
   &lt;!ATTLIST personList type ( neutral | mixedNeutral | maleTaints )
   #REQUIRED &gt; <br>
   &lt;!ATTLIST personList locales NMTOKENS #REQUIRED &gt; <br>
-	</p>
+  </p>
   
     This can be used to determine the gender of a list of 2 or more
   persons, such as "Tom and Mary", for use with gender-selection
@@ -8310,7 +8321,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<td valign="top" bgcolor="#eeeeee"><code>\←&nbsp;&nbsp; →&nbsp; arrow\ sign ;<br>
 			&#39;←&#39;&nbsp;&nbsp; →&nbsp;&nbsp; &#39;arrow sign&#39; ;<br>
 			&#39;←&#39;&nbsp;&nbsp; →&nbsp;&nbsp; arrow&#39; &#39;sign ;</code></td>
-		</tr>
+	  </tr>
 	</table>
 	<p>Spaces may be inserted anywhere without any effect on the rules. Use extra space to separate items out for clarity without worrying about the effects. This 
 	feature is particularly useful with combining marks; it is handy to put some spaces around it to separate it from the surrounding text. The following is an 

@@ -21,5 +21,34 @@
 	<unvote name="B" locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']"/>  
 	
 	<!--  Another verify -->
-	<verify status="provisional"  locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</verify> <!--  a is a lower codepoint, so wins, but only provisionally -->
+	<verify status="provisional"  locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</verify> <!--  a is a lower codepoint, so wins, but only approvedly -->
+
+
+    <!--  Test meta' -->
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='1']">month1</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='2']">month2</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='3']">month3</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='4']">month4</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='5']">month5</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='6']">month6</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='7']">month7</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='8']">month8</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='9']">month9</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='10']">month10</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='11']">month11</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='12']">month12</vote>
+
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='1']">month1</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='2']">month2</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='3']">month3</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='4']">month4</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='5']">month5</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='6']">month6</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='7']">month7</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='8']">month8</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='9']">month9</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='10']">month10</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='11']">month11</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='12']">month12</verify>
+
 </TestSTFactory>

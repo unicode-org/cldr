@@ -1,12 +1,10 @@
 package org.unicode.cldr.unittest.web;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
@@ -295,9 +293,11 @@ public class TestSTFactory extends TestFmwk {
 	
 	public void TestVettingDataDriven() throws SQLException, IOException {
 	    final STFactory fac = getFactory();
+        final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName()+"_output");
 
         XMLFileReader myReader = new XMLFileReader();
         final XPathParts xpp = new XPathParts(null,null);
+        final XPathParts xpp2 = new XPathParts(null,null);
         final Map<String,String> attrs = new TreeMap<String,String>();
         final Map<String,UserRegistry.User> users = new TreeMap<String,UserRegistry.User>();
         myReader.setHandler(new XMLFileReader.SimpleHandler(){
@@ -376,6 +376,74 @@ public class TestSTFactory extends TestFmwk {
                    } else {
                        errln("Expected: Status="+expStatus+" got "+winStatus+" "+locale+":"+xpath+" Resolver=" + box.getResolver(xpath));
                    }
+                   
+                   xpp2.clear();
+                   xpp2.set(fullXpath);
+                   String statusFromXpath = xpp2.getAttributeValue(-1, "draft");
+                   
+                   if(statusFromXpath == null) {
+                       statusFromXpath = "approved"; // no draft = approved
+                   }
+                   Status xpathStatus = Status.fromString(statusFromXpath);
+                   
+                   if(xpathStatus==expStatus) {
+                       logln("OK from fullxpath: Status="+xpathStatus+" "+locale+":"+fullXpath+" Resolver=" + box.getResolver(xpath));
+                   } else {
+                       errln("Expected from fullxpath: Status="+expStatus+" got "+xpathStatus+" "+locale+":"+fullXpath+" Resolver=" + box.getResolver(xpath));
+                   }
+                   
+                   
+                   // Verify from XML
+                   File outFile = new File(targDir,locale.getBaseName()+".xml");
+                   if(outFile.exists()) outFile.delete();
+                   try {
+                       PrintWriter pw;
+                       pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale.getBaseName()+".xml");
+                       cf.write(pw,noDtdPlease);
+                       pw.close();
+                   } catch (IOException e) {
+                       // TODO Auto-generated catch block
+                       e.printStackTrace();
+                       handleException(e);
+                       return;
+                   }
+                   
+                   //logln("Read back..");
+                   CLDRFile readBack = null;
+                   try {
+                       readBack = CLDRFile.loadFromFile(outFile, locale.getBaseName(), DraftStatus.unconfirmed);
+                   } catch (IllegalArgumentException iae) {
+                       iae.getCause().printStackTrace();
+                       System.err.println(iae.getCause().toString());
+                       handleException(iae);
+                   }
+                   String reRead = readBack.getStringValue(xpath);
+                   xpp2.clear();
+                   String fullXpathBack = readBack.getFullXPath(xpath);
+                   xpp2.set(fullXpathBack);
+                   String statusFromXpathBack = xpp2.getAttributeValue(-1, "draft");
+                   
+                   if(statusFromXpathBack == null) {
+                       statusFromXpathBack = "approved"; // no draft = approved
+                   }
+                   Status xpathStatusBack = Status.fromString(statusFromXpathBack);
+                   
+                   if(value==null && reRead!=null) {
+                       errln("Expected null value from XML at " + locale+":"+xpath + " got " + reRead);
+                   } else if(value!=null && !value.equals(reRead)) {
+                       errln("Expected from XML "+value+" at " + locale+":"+xpath + " got " + reRead);
+                   } else {
+                       logln("OK from XML: " + locale+":"+xpath + " = " + reRead);
+                   }
+
+                   
+                   if(xpathStatusBack==expStatus) {
+                       logln("OK from XML: Status="+xpathStatusBack+" "+locale+":"+fullXpathBack+" Resolver=" + box.getResolver(xpath));
+                   } else {
+                       errln("Expected from XML: Status="+expStatus+" got "+xpathStatusBack+" "+locale+":"+fullXpathBack+" Resolver=" + box.getResolver(xpath));
+                   }
+                   
+                   
                } else {
                    throw new IllegalArgumentException("Unknown test element type " + elem);
                }

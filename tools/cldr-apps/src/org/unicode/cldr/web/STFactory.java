@@ -120,14 +120,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver) {
             Map<User,String> m = ballotBox.peekXpathToVotes(path);
             String res;
+            String fullPath = null;
             if((m==null || m.isEmpty()) && !RESOLVE_ALL_XPATHS) { // no votes, so..
                 res = ballotBox.diskData.getValueAtDPath(path);
+                fullPath = ballotBox.diskData.getFullPathAtDPath(path);
+                //System.err.println("SVFR: " + fullPath + " due to disk data");
             } else {
                 res = (resolver=ballotBox.getResolver(m,path, resolver)).getWinningValue();
+                String baseXPath = CLDRFile.getDistinguishingXPath(path,null,false); // TODO: why false? What does this parameter do?
+                Status win = resolver.getWinningStatus();
+                if(win==Status.approved) {
+                    fullPath = baseXPath;
+                } else {
+                    fullPath = baseXPath+"[@draft=\""+win+"\"]";
+                }
+                //System.err.println(" SVFR: " + fullPath + " due to " + win + " from " + resolver.toString());
             }
             //			SurveyLog.logger.info(path+"="+res+", by resolver.");
             if(res!=null) {
-                delegate.putValueAtDPath(path, res);
+                delegate.removeValueAtDPath(path); // TODO: needed to clear fullpath? Otherwise, fullpath may be ignored if value is extant.
+                delegate.putValueAtPath(fullPath, res);
             } else {
                 delegate.removeValueAtDPath(path);
             }

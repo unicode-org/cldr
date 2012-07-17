@@ -378,14 +378,18 @@ public class TestSTFactory extends TestFmwk {
                    }
                    
                    xpp2.clear();
-                   xpp2.set(fullXpath);
-                   String statusFromXpath = xpp2.getAttributeValue(-1, "draft");
-                   
-                   if(statusFromXpath == null) {
-                       statusFromXpath = "approved"; // no draft = approved
-                   }
-                   Status xpathStatus = Status.fromString(statusFromXpath);
-                   
+                   Status xpathStatus;
+                   if(fullXpath == null) {
+                       xpathStatus = Status.missing;
+                   } else {
+                       xpp2.set(fullXpath);
+                       String statusFromXpath = xpp2.getAttributeValue(-1, "draft");
+                       
+                       if(statusFromXpath == null) {
+                           statusFromXpath = "approved"; // no draft = approved
+                       }
+                       xpathStatus = Status.fromString(statusFromXpath);
+                   }                   
                    if(xpathStatus==expStatus) {
                        logln("OK from fullxpath: Status="+xpathStatus+" "+locale+":"+fullXpath+" Resolver=" + box.getResolver(xpath));
                    } else {
@@ -420,13 +424,18 @@ public class TestSTFactory extends TestFmwk {
                    String reRead = readBack.getStringValue(xpath);
                    xpp2.clear();
                    String fullXpathBack = readBack.getFullXPath(xpath);
-                   xpp2.set(fullXpathBack);
-                   String statusFromXpathBack = xpp2.getAttributeValue(-1, "draft");
-                   
-                   if(statusFromXpathBack == null) {
-                       statusFromXpathBack = "approved"; // no draft = approved
+                   Status xpathStatusBack;
+                   if(fullXpathBack == null) {
+                       xpathStatusBack = Status.missing;
+                   } else {
+                       xpp2.set(fullXpathBack);
+                       String statusFromXpathBack = xpp2.getAttributeValue(-1, "draft");
+                       
+                       if(statusFromXpathBack == null) {
+                           statusFromXpathBack = "approved"; // no draft = approved
+                       }
+                       xpathStatusBack = Status.fromString(statusFromXpathBack);
                    }
-                   Status xpathStatusBack = Status.fromString(statusFromXpathBack);
                    
                    if(value==null && reRead!=null) {
                        errln("Expected null value from XML at " + locale+":"+xpath + " got " + reRead);

@@ -59,9 +59,6 @@
     <!--  test vote for invisible value -->
     <vote name="A" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='1000'][@count='zero']">0 duisend</vote>
 
-<!--
-    TODO: UNCOMMENT WHEN #5045 is fixed otherwise you will get "expected missing, got 0 duisend" 
     <verify status="missing" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='1000'][@count='zero']"/>
--->
 
 </TestSTFactory>

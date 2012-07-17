@@ -308,6 +308,24 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             return lastStatus;
         }
+  
+        /**
+         * 
+         * @param user - The user voting on the path
+         * @param xpath - The xpath being voted on.
+         * @return true - If pathHeader and coverage would indicate a value that the user should have been able to vote on.
+         * 
+         */
+        private boolean isValidSurveyToolVote(UserRegistry.User user, String xpath) {
+            PathHeader ph = getPathHeader(xpath);
+            if(ph==null) return false;
+            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.DEPRECATED) return false;
+            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.HIDE && !UserRegistry.userIsTC(user)) return false;
+            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.READ_ONLY && !UserRegistry.userIsTC(user)) return false;
+            if(sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.toULocale())>org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) return false;
+            return true;
+        }
+        
         /**
          * Load internal data , push into source.
          * @param dataBackedSource 
@@ -342,6 +360,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                             throw new InternalError("Could not get info for submitter " + submitter + " for " + locale+":"+xpath);
                         }
                         if(!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // this is whether the vote is accounted for.
+                            continue;
+                        }
+                        if(!isValidSurveyToolVote(theSubmitter, xpath)) { // Make sure this vote is for a real visible path
                             continue;
                         }
                         internalSetVoteForValue(theSubmitter, xpath, value, resolver, dataBackedSource);

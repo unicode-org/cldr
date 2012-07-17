@@ -4171,7 +4171,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 <p class="changed">The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
 <p class="changed">The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
 <p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
-<p class="changed">The following describes the derivation of the modified collation elements, where the original levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary):</p>
+<p class="changed">The following describes the derivation of the modified collation elements, where the original levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics  more closely.</p>
 <h5 class="changed"><strong>Untailored Characters</strong></h5>
 <p><span class="changed">For untailored character (and strings), the case value for each collation element is computed from the DUCET tertiary weight. This is used to modify the collation element.</span></p>
 <ol>
@@ -4280,6 +4280,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 <ol class="changed">
   <li>Form a set of case values by looking  up a case value for each character x in the NFKD mapping of the source string, based on UCD properties:
 <ol>
+  <li class="changed">UNCASED if x ∈ <a href="#UncasedExceptions">UncasedExceptions</a></li>
   <li class="changed">LOWER if x ∈ <strong>Lowercase</strong> or x ∈ <strong>Changes_When_Uppercased</strong> or x ∈ <a href="#LowerExceptions">LowerExceptions</a></li>
   <li class="changed">UPPER if x ∈ <strong>Uppercase</strong> or x ∈ <strong>Changes_When_Lowercased</strong> or x ∈ <a href="#UpperExceptions">UpperExceptions</a></li>
   <li class="changed">MIXED if x ∈ <strong>gc=Lt</strong> or both (a) and (b)</li>
@@ -4295,14 +4296,19 @@ text data in the rule. For example, the following are all disallowed:</p>
   </li>
   <li class="changed">Apply that case-value to the first collation element in the tailoring, according to &quot;<strong>Compute Modified Collation Elements</strong>&quot;. The case values and weights in an expansion are unaffected.</li>
 </ol>
+<p class="changed"><strong><a name="UncasedExceptions"></a>UncasedExceptions:</strong> is  the set of letter modifiers</p>
+<ul>
+  <li class="changed">[:General_Category=Lm:]</li>
+</ul>
 <p class="changed"><strong><a name="LowerExceptions"></a>LowerExceptions:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
 <ul>
-  <li class="changed">[\u0363-\u036F\u1DCA\u1DD3-\u1DDA\u1DDC\u1DDD\u1DE0\u1DE3-\u1DE6 ℩ぁぃぅぇぉっゃゅょゎゕゖァィゥェォッ ャュョヮヵヶㇰ-ㇿ]</li>
+  <li class="changed">[ぁァ ぃィ ぅゥ ぇェ ぉォ ゕヵ ㇰ ゖヶ ㇱ ㇲ っッ ㇳ-ㇺ ゃャ ゅュ ょョ ㇻ-ㇿ ゎヮ]</li>
+  <li class="changed">[℩]</li>
 </ul>
-<p class="changed"><strong><a name="UpperExceptions"></a>UpperExceptions:</strong> is  the set of non-small letters where script=Hiragana or Katakana, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
+<p class="changed"><strong><a name="UpperExceptions"></a>UpperExceptions:</strong> is  the set of non-small letters where script=Hiragana or Katakana, minus the iteration mark, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
 <ul>
-  <li><span class="changed">[℘℺⅁-⅄あいうえお-ぢつ-もやゆ よ-ろわ-ゔゝゞアイウエオ-ヂツ-モヤユヨ-ロ ワ-ヴヷ-ヺヽヾ𛀀𛀁🅐-🅩🅰-🆏🆑-🆚]</span><br>
-  </li>
+  <li><span class="changed">[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</span></li>
+  <li class="changed">[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
 </ul>
 <h3>5.15 <span><a name="Segmentations">Segmentations</a></span></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 

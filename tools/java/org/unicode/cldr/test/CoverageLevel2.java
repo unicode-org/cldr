@@ -26,7 +26,7 @@ public class CoverageLevel2 {
     
     private RegexLookup<Level> lookup = null;
     
-    enum SetMatchType {Target_Language, Target_Scripts, Target_Territories, Target_TimeZones, Target_Currencies, Calendar_List}
+    enum SetMatchType {Target_Language, Target_Scripts, Target_Territories, Target_TimeZones, Target_Currencies, Target_Plurals, Calendar_List}
 
     private static class LocaleSpecificInfo {
         CoverageVariableInfo cvi;
@@ -79,6 +79,7 @@ public class CoverageLevel2 {
                 case Target_Territories: return localeSpecificInfo.cvi.targetTerritories.contains(groupMatch);
                 case Target_TimeZones: return localeSpecificInfo.cvi.targetTimeZones.contains(groupMatch);
                 case Target_Currencies: return localeSpecificInfo.cvi.targetCurrencies.contains(groupMatch);
+                case Target_Plurals: return localeSpecificInfo.cvi.targetPlurals.contains(groupMatch);
                 case Calendar_List: return localeSpecificInfo.cvi.calendars.contains(groupMatch);
                 }
             }

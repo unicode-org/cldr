@@ -1666,6 +1666,7 @@ public class SupplementalDataInfo {
         public Set<String> calendars;
         public Set<String> targetCurrencies;
         public Set<String> targetTimeZones;
+        public Set<String> targetPlurals;
     }
 
     public static String toRegexString(Set<String> s) {
@@ -1932,6 +1933,7 @@ public class SupplementalDataInfo {
         String calendarListString = toRegexString(cvi.calendars);
         String targetCurrencyString = toRegexString(cvi.targetCurrencies);
         String targetTimeZoneString = toRegexString(cvi.targetTimeZones);
+        String targetPluralsString = toRegexString(cvi.targetPlurals);
         Iterator<CoverageLevelInfo> i = coverageLevels.iterator();
         while (i.hasNext()) {
             CoverageLevelInfo ci = i.next();
@@ -1944,6 +1946,7 @@ public class SupplementalDataInfo {
             .replace("${Target-Territories}", targetTerritoryString)
             .replace("${Target-TimeZones}", targetTimeZoneString)
             .replace("${Target-Currencies}", targetCurrencyString)
+            .replace("${Target-Plurals}", targetPluralsString)
             .replace("${Calendar-List}", calendarListString);
 
             // Special logic added for coverage fields that are only to be applicable
@@ -1997,6 +2000,7 @@ public class SupplementalDataInfo {
             cvi.calendars = getCalendars(cvi.targetTerritories);
             cvi.targetCurrencies = getCurrentCurrencies(cvi.targetTerritories);
             cvi.targetTimeZones = getCurrentTimeZones(cvi.targetTerritories);
+            cvi.targetPlurals = getTargetPlurals(targetLanguage);
             localeSpecificVariables.put(targetLanguage, cvi);
         }
         return cvi;
@@ -2084,6 +2088,15 @@ public class SupplementalDataInfo {
             }
         }
         return targetTimeZones;
+    }
+
+    private Set<String> getTargetPlurals(String language) {
+        Set<String> targetPlurals = getPlurals(PluralType.cardinal,language).getCanonicalKeywords();
+        // TODO: Kept 0 and 1 specifically until Mark figures out what to do with them.
+        // They should be removed once this is done.
+        targetPlurals.add("0");
+        targetPlurals.add("1");
+        return targetPlurals;
     }
 
     public String getExplicitParentLocale(String loc) {

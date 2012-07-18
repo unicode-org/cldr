@@ -130,7 +130,7 @@
  		<coverageLevel inScript="Thai" value="30" match="localeDisplayNames/types/type[@type='thai'][@key='numbers']"/>
  		<coverageLevel inScript="Tibt" value="30" match="localeDisplayNames/types/type[@type='tibt'][@key='numbers']"/>
  		<coverageLevel inLanguage="vai" value="30" match="localeDisplayNames/types/type[@type='vaii'][@key='numbers']"/>
-		<coverageLevel value="30" match="numbers/currencies/currency[@type='%currency30']/displayName([@count='[^']++'])?"/>
+		<coverageLevel value="30" match="numbers/currencies/currency[@type='%currency30']/displayName([@count='${Target-Plurals}'])?"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='${Target-Currencies}']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="30" match="numbers/percentFormats[@numberSystem='latn']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel value="30" match="numbers/scientificFormats[@numberSystem='latn']/scientificFormatLength/scientificFormat%stdPattern"/>
@@ -181,8 +181,8 @@
 		<coverageLevel value="40" match="localeDisplayNames/codePatterns/codePattern[@type='(language|script|territory)']"/>
 		<coverageLevel value="40" match="localeDisplayNames/measurementSystemNames/measurementSystemName[@type='(metric|UK|US)']"/>
 		<coverageLevel value="40" match="localeDisplayNames/localeDisplayPattern/locale((KeyType)?Pattern|Separator)"/>
-		<coverageLevel value="40" match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='[^']++']"/>
-		<coverageLevel value="40" match="numbers/currencies/currency[@type='%currency40']/(symbol|displayName([@count='[^']++'])?)"/>
+		<coverageLevel value="40" match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="40" match="numbers/currencies/currency[@type='%currency40']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='[^']++']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='(day|week|month|year)']/relative[@type='(\-?1|0)']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/fields/field[@type='[^']++']/displayName"/>
@@ -213,7 +213,7 @@
 		<coverageLevel inLanguage="%arabextLanguages" value="40" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel inLanguage="dz" value="40" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="listPatterns/listPattern/listPatternPart[@type='(2|start|middle|end)']"/>
-		<coverageLevel value="40" match="units/unit[@type='(second|minute|hour|day|week|month|year)(\-(future|past))?']/unitPattern[@count='[^']++']([@alt='short'])?"/>
+		<coverageLevel value="40" match="units/unit[@type='(second|minute|hour|day|week|month|year)(\-(future|past))?']/unitPattern[@count='${Target-Plurals}']([@alt='short'])?"/>
 		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='%language60']([@alt='%shortVariant'])?"/>
 		<coverageLevel inTerritory="CF" value="60" match="localeDisplayNames/languages/language[@type='sg']([@alt='%shortVariant'])?"/>
 		<coverageLevel inTerritory="CG" value="60" match="localeDisplayNames/languages/language[@type='(kg|ln)']([@alt='%shortVariant'])?"/>
@@ -225,8 +225,8 @@
 		<coverageLevel value="60" match="localeDisplayNames/scripts/script[@type='%script60']"/>
 		<coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='%territory60']"/>
 		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/territories/territory[@type='%territory60_EU']"/>
-		<coverageLevel value="60" match="numbers/currencies/currency[@type='%currency60']/(symbol|displayName([@count='[^']++'])?)"/>
-		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='%currency60_EU']/(symbol|displayName([@count='[^']++'])?)"/>
+		<coverageLevel value="60" match="numbers/currencies/currency[@type='%currency60']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
+		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='%currency60_EU']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="TH" value="60" match="dates/calendars/calendar[@type='buddhist']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="%islamicCalendarTerritories" value="60" match="dates/calendars/calendar[@type='islamic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
@@ -248,8 +248,8 @@
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80_stdonly']/long/standard"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='[^']++']/exemplarCity"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='Europe/(Dublin|London)']/(long|short)/daylight"/>
-		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/(symbol|displayName([@count='[^']++'])?)"/>
-		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='[^']++']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='[^']++']"/>
+		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
+		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='[^']++']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='${Target-Plurals}']"/>
 	        <coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
 		<coverageLevel value="80" match="characters/ellipsis[@type='[^']++']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
@@ -270,9 +270,9 @@
 		<coverageLevel value="100" match="localeDisplayNames/keys/key[@type='[^']++']"/>
 		<coverageLevel value="100" match="localeDisplayNames/types/type[@type='[^']++'][@key='[^']++']"/>
 		<coverageLevel value="100" match="localeDisplayNames/transformNames/transformName[@type='[^']++']"/>
-		<coverageLevel value="100" match="numbers/currencies/currency[@type='[A-Z]{3}']/(symbol|displayName)([@count='[^']++'])?"/>
+		<coverageLevel value="100" match="numbers/currencies/currency[@type='[A-Z]{3}']/(symbol|displayName)([@count='${Target-Plurals}'])?"/>
 		<coverageLevel value="100" match="numbers/currencyFormats/currencySpacing/(before|after)Currency/(insertBetween|(currency|surrounding)Match)"/>
-		<coverageLevel value="100" match="numbers/decimalFormats[@numberSystem='[^']++']/decimalFormatLength[@type='[^']++']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='[^']++']"/>
+		<coverageLevel value="100" match="numbers/decimalFormats[@numberSystem='[^']++']/decimalFormatLength[@type='[^']++']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='${Target-Plurals}']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/era(Names|Narrow)/era[@type='(0|1)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='%wideNarrow']/dayPeriod[@type='[^']++']"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/%metazoneTypes"/>

@@ -2091,7 +2091,8 @@ public class SupplementalDataInfo {
     }
 
     private Set<String> getTargetPlurals(String language) {
-        Set<String> targetPlurals = getPlurals(PluralType.cardinal,language).getCanonicalKeywords();
+        Set<String> targetPlurals = new HashSet<String>();
+        targetPlurals.addAll(getPlurals(PluralType.cardinal,language).getCanonicalKeywords());
         // TODO: Kept 0 and 1 specifically until Mark figures out what to do with them.
         // They should be removed once this is done.
         targetPlurals.add("0");

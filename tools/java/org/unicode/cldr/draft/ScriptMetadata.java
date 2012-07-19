@@ -4,20 +4,31 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.tool.CountryCodeConverter;
+import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.lang.UScript;
 
 public class ScriptMetadata {
+    private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
+
+    // To get the data, go do the Script MetaData spreadsheet, and Download As Comma Separated Items into DATA_FILE
     public enum Column {
+        // must match the spreadshee header (caseless compare) or have the alternate header as an argument.
+        // doesn't have to be in order
         WR, SAMPLE, ID_USAGE("ID Usage (UAX31)"), RTL("RTL?"), LB_LETTERS("LB letters?"), SHAPING_REQ("Shaping Req?"), IME("IME?"),
         ORIGIN_COUNTRY("Origin Country"),
-        DENSITY("~Density");
+        DENSITY("~Density"),
+        LIKELY_LANGUAGE("Likely Language"),
+        HAS_CASE("Has Case?"),
+        ;
         int columnNumber = -1;
         final Set<String> names = new HashSet<String>();
         Column(String... alternateNames) {
@@ -62,18 +73,37 @@ public class ScriptMetadata {
     public enum Shaping {UNKNOWN, NO, MIN, YES}
 
     static StandardCodes SC = StandardCodes.make();
-    static HashMap<String,String> NAME_TO_REGION_CODE = new HashMap<String,String>();
+    //static HashMap<String,String> NAME_TO_REGION_CODE = new HashMap<String,String>();
+//    static HashMap<String,String> NAME_TO_LANGUAGE_CODE = new HashMap<String,String>();
     static EnumLookup<Shaping> shapingLookup = EnumLookup.of(Shaping.class, null, "n/a", Shaping.UNKNOWN);
     static EnumLookup<Trinary> trinaryLookup = EnumLookup.of(Trinary.class, null, "n/a", Trinary.UNKNOWN);
     static EnumLookup<IdUsage> idUsageLookup = EnumLookup.of(IdUsage.class, null, "n/a", IdUsage.UNKNOWN);
     static {
-        for (String region : SC.getAvailableCodes("territory")) {
-            String name = (String)(SC.getFullData("territory", region).get(0));
-            NAME_TO_REGION_CODE.put(name.toUpperCase(Locale.ENGLISH), region);
+//        addNameToCode("language", NAME_TO_LANGUAGE_CODE);
+//        //      NAME_TO_LANGUAGE_CODE.put("", "und");
+//        NAME_TO_LANGUAGE_CODE.put("N/A", "und");
+//        addSynonym(NAME_TO_LANGUAGE_CODE, "Ancient Greek", "Ancient Greek (to 1453)");
+//        //addSynonym(NAME_TO_LANGUAGE_CODE, "Khmer", "Cambodian");
+//        addSynonym(NAME_TO_LANGUAGE_CODE, "Old Irish", "Old Irish (to 900)");
+        
+//        addNameToCode("region", NAME_TO_REGION_CODE);
+//        //        NAME_TO_REGION_CODE.put("UNKNOWN", "ZZ");
+//        //        NAME_TO_REGION_CODE.put("", "ZZ");
+//        NAME_TO_REGION_CODE.put("N/A", "ZZ");
+//        addSynonym(NAME_TO_REGION_CODE, "Laos", "Lao People's Democratic Republic");
+    }
+
+    public static void addNameToCode(String type, Map<String, String> hashMap) {
+        for (String language : SC.getAvailableCodes(type)) {
+            Map<String, String> fullData = SC.getLStreg().get(type).get(language);
+            String name = (String)(fullData.get("Description"));
+            hashMap.put(name.toUpperCase(Locale.ENGLISH), language);
         }
-        NAME_TO_REGION_CODE.put("UNKNOWN", "ZZ");
-        NAME_TO_REGION_CODE.put("", "ZZ");
-        NAME_TO_REGION_CODE.put("N/A", "ZZ");
+    }
+
+    public static void addSynonym(Map<String, String> map, String newTerm, String oldTerm) {
+        String code = map.get(oldTerm.toUpperCase(Locale.ENGLISH));
+        map.put(newTerm.toUpperCase(Locale.ENGLISH), code);
     }
 
     public static class Info {
@@ -82,10 +112,12 @@ public class ScriptMetadata {
         public final IdUsage idUsage;
         public final Trinary rtl;
         public final Trinary lbLetters;
+        public final Trinary hasCase;
         public final Shaping shapingReq;
         public final Trinary ime;
         public final int density;
         public final String originCountry;
+        public final String likelyLanguage;
         private Info(String[] items) {
             // 3,Han,Hani,1.1,"74,519",字,5B57,East_Asian,Recommended,no,Yes,no,Yes
             rank = Column.WR.getInt(items, 999);
@@ -95,31 +127,50 @@ public class ScriptMetadata {
             lbLetters = trinaryLookup.forString(Column.LB_LETTERS.getItem(items)); 
             shapingReq = shapingLookup.forString(Column.SHAPING_REQ.getItem(items));
             ime = trinaryLookup.forString(Column.IME.getItem(items));
+            hasCase = trinaryLookup.forString(Column.HAS_CASE.getItem(items));
             density = Column.DENSITY.getInt(items, -1);
+
             final String countryRaw = Column.ORIGIN_COUNTRY.getItem(items);
-            String country = NAME_TO_REGION_CODE.get(countryRaw.toUpperCase(Locale.ENGLISH));
+            String country = CountryCodeConverter.getCodeFromName(countryRaw);
+            //NAME_TO_REGION_CODE.get(countryRaw.toUpperCase(Locale.ENGLISH));
             if (country == null) {
                 errors.add("Can't map " + countryRaw + " to country/region");
             }
             originCountry = country == null ? "ZZ" : country;
+
+            final String likelyLanguageRaw = Column.LIKELY_LANGUAGE.getItem(items);
+            String language = LanguageCodeConverter.getCodeForName(likelyLanguageRaw);
+            if (language == null) {
+                errors.add("Can't map " + likelyLanguageRaw + " to language");
+            }
+            likelyLanguage = country == null ? "und" : country;
         }
-//        public Trinary parseTrinary(Column title, String[] items) {
-//            return Trinary.valueOf(fix(title.getItem(items)).toUpperCase(Locale.ENGLISH));
-//        }
+        //        public Trinary parseTrinary(Column title, String[] items) {
+        //            return Trinary.valueOf(fix(title.getItem(items)).toUpperCase(Locale.ENGLISH));
+        //        }
         String fix(String in) {
             return in.toUpperCase(Locale.ENGLISH).replace("N/A", "UNKNOWN").replace("?","UNKNOWN").replace("RTL","YES");
         }
         public String toString() {
             return rank 
-            + "\t" + sampleChar
-            + "\t" + SC.getFullData("territory", originCountry).get(0) + "\t(" + originCountry + ")"
-            + "\t" + idUsage
-            + "\t" + rtl
-            + "\t" + lbLetters
-            + "\t" + shapingReq
-            + "\t" + ime
-            + "\t" + density
-            ;
+                + "\t" + sampleChar
+                + "\t" + getName("territory", originCountry) + "\t(" + originCountry + ")"
+                + "\t" + getName("language", likelyLanguage) + "\t(" + likelyLanguage + ")"
+                + "\t" + idUsage
+                + "\t" + rtl
+                + "\t" + lbLetters
+                + "\t" + shapingReq
+                + "\t" + ime
+                + "\t" + hasCase
+                + "\t" + density
+                ;
+        }
+        public Object getName(String type, String code) {
+            List fullData = SC.getFullData(type, code);
+            if (fullData == null) {
+                return "unavailable";
+            }
+            return fullData.get(0);
         }
     }
 
@@ -177,12 +228,12 @@ public class ScriptMetadata {
         EXTRAS.put("Hang", "Kore");
         EXTRAS.put("Hira", "Jpan");
     }
-    static Map<String,Info> data = new MyFileReader().process(ScriptMetadata.class, "/org/unicode/cldr/util/data/Script_Metadata.csv").data;
+    static Map<String,Info> data = new MyFileReader().process(ScriptMetadata.class, DATA_FILE).data;
 
     public static Info getInfo(String s) {
         return data.get(s);
     }
-    
+
     public static Set<String> getScripts() {
         return data.keySet();
     }

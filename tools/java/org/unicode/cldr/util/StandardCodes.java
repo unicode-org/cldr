@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
@@ -104,7 +105,7 @@ public class StandardCodes {
         try {
             if (type.equals("territory")) type = "region";
             else if (type.equals("variant")) code = code.toLowerCase(Locale.ENGLISH);
-            return (Map) ((Map)languageRegistry.get(type)).get(code);
+            return (Map) ((Map)getLStreg().get(type)).get(code);
         } catch (RuntimeException e) {
             return null;
         }
@@ -480,7 +481,6 @@ public class StandardCodes {
     }
 
     // ========== PRIVATES ==========
-    static Map languageRegistry;
 
     private StandardCodes() {
         String[] files = {/* "lstreg.txt", */"ISO4217.txt" }; // , "TZID.txt"
@@ -594,8 +594,8 @@ public class StandardCodes {
         // comments
         // HACK, just rework
 
-        languageRegistry = getLStreg();
-        languageRegistry = CldrUtility.protectCollection(languageRegistry);
+        Map<String, Map<String, Map<String, String>>> languageRegistry = getLStreg();
+        //languageRegistry = CldrUtility.protectCollection(languageRegistry);
 
         for (Iterator it = languageRegistry.keySet().iterator(); it.hasNext();) {
             String type = (String) it.next();
@@ -841,6 +841,8 @@ public class StandardCodes {
 
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
+    static Map<String,Map<String,Map<String,String>>> LSTREG;
+
     /**
      * Returns a map like {extlang={aao={Added=2009-07-29, Description=Algerian Saharan Arabic, ...<br>
      * That is, type => subtype => map<tag,value>. Descriptions are concatenated together, separated by
@@ -848,7 +850,11 @@ public class StandardCodes {
      * @return
      */
     public static Map<String,Map<String,Map<String,String>>> getLStreg() {
-
+        
+        if (LSTREG != null) {
+            return LSTREG;
+        }
+        
         Map<String,Map<String,Map<String,String>>> result = new TreeMap();
 
         int lineNumber = 1;
@@ -979,7 +985,8 @@ public class StandardCodes {
             		" data for " + extras[i][1] + "\twith" + labelData);
             subtagData.put(extras[i][1], labelData);
         }
-        return result;
+        LSTREG = CldrUtility.protectCollection(result);
+        return LSTREG;
     }
 
     private static Object putSubtagData(String lastTag, Map subtagData, Map currentData) {

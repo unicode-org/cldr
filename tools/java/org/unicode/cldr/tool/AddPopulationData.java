@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.StandardCodes;
@@ -56,7 +57,6 @@ public class AddPopulationData {
 
     private static CountryData other = new CountryData();
 
-    private static Map<String, String> nameToCountryCode     = new TreeMap(new UTF16.StringComparator(true, true, 0));
 
     static class CountryData {
         private static Counter2<String> population   = new Counter2<String>();
@@ -91,8 +91,8 @@ public class AddPopulationData {
         Set<String> altNames = new TreeSet<String>();
         String oldCode = "";
         int alt = 0;
-        for (String display : nameToCountryCode.keySet()) {
-            String code = nameToCountryCode.get(display);
+        for (String display : CountryCodeConverter.names()) {
+            String code = CountryCodeConverter.getCodeFromName(display);
             String icu = ULocale.getDisplayCountry("und-" + code, "en");
             if (!display.equalsIgnoreCase(icu)) {       
                 altNames.add(code + "\t" + display + "\t" + icu);
@@ -151,129 +151,6 @@ public class AddPopulationData {
         return 0.0;
     }
 
-    private interface LineHandler {
-        /**
-         * Return false if line was skipped
-         * @param line
-         * @return
-         */
-        boolean handle(String line) throws Exception;
-    }
-
-    private static void handleFile(String filename, LineHandler handler) throws IOException {
-        BufferedReader in = CldrUtility.getUTF8Data(filename);
-        while (true) {
-            String line = in.readLine();
-            if (line == null) {
-                break;
-            }
-            try {
-                if (!handler.handle(line)) {
-                    if (SHOW_SKIP) System.out.println("Skipping line: " + line);
-                }
-            } catch (Exception e) {
-                throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
-                .initCause(e);
-            }
-        }
-        in.close();
-    }
-
-    private static void loadNames() throws IOException {
-        for (String country : ULocale.getISOCountries()) {
-            addName(ULocale.getDisplayCountry("und-" + country, "en"), country);
-        }
-        StandardCodes sc = StandardCodes.make();
-        for (String country : sc.getGoodAvailableCodes("territory")) {
-            String description = (String) sc.getFullData("territory", country).get(0);
-            if (country.equals("057")) continue;
-            addName(description, country);
-        }
-        handleFile("external/alternate_country_names.txt", new LineHandler() {
-            public boolean handle(String line) {    
-                if (line.trim().length() == 0) {
-                    return true; // don't show skips
-                }
-                String[] pieces = line.split(";");
-                addName(pieces[2].trim(), pieces[0].trim());
-                return true;
-            }
-        });
-        //    if (false) {
-        //    //addName("World", "ZZ");
-        //    //addName("European Union", "ZZ");
-        //    addName("Hong Kong", "HK");
-        //    addName("Burma", "MM");
-        //    addName("Cote d'Ivoire", "CI");
-        //    addName("Congo, Democratic Republic of the", "CD");
-        //    addName("Congo, Republic of the", "CG");
-        //    addName("Macau", "MO");
-        //    addName("Bahamas, The", "BS");
-        //    addName("Gaza Strip", "PS");
-        //    addName("West Bank", "PS");
-        //    addName("Kosovo", "RS"); // no country code
-        //    addName("Timor-Leste", "TL");
-        //    addName("Gambia, The", "GM");
-        //    addName("Virgin Islands", "VI"); // American
-        //    addName("Micronesia, Federated States of", "FM");
-        //    addName("Falkland Islands (Islas Malvinas)", "FK");
-        //
-        //    addName("Akrotiri", "CY"); // part
-        //    addName("Dhekelia", "CY"); // part
-        //    addName("Saint Barthelemy", "BL");
-        //    addName("Svalbard", "SJ"); // part
-        //    addName("Holy See (Vatican City)", "VA");
-        //    addName("Cocos (Keeling) Islands", "CC");
-        //    addName("Pitcairn Islands", "PN");
-        //
-        //    addName("Brunei Darussalam", "BN");
-        //    addName("Channel Islands", "GG"); // should be GG + JE
-        //    addName("Congo, Dem. Rep.", "CD");
-        //    addName("Congo, Rep.", "CG");
-        //    //addName("East Asia & Pacific", "ZZ");
-        //    addName("Egypt, Arab Rep.", "EG");
-        //    //addName("Europe & Central Asia", "ZZ");
-        //    //addName("Euro area", "ZZ");
-        //    addName("Faeroe Islands", "FO");
-        //    //addName("Heavily indebted poor countries (HIPC)", "ZZ");
-        //    //addName("High income", "ZZ");
-        //    //addName("High income: nonOECD", "ZZ");
-        //    //addName("High income: OECD", "ZZ");
-        //    addName("Hong Kong, China", "HK");
-        //    addName("Iran, Islamic Rep.", "IR");
-        //    addName("Korea, Dem. Rep.", "KP");
-        //    addName("Korea, Rep.", "KR");
-        //    addName("Kyrgyz Republic", "KG");
-        //    addName("Lao PDR", "LA");
-        //    //addName("Latin America & Caribbean", "ZZ");
-        //    //addName("Least developed countries: UN classification", "ZZ");
-        //    //addName("Low & middle income", "ZZ");
-        //    //addName("Low income", "ZZ");
-        //    //addName("Lower middle income", "ZZ");
-        //    addName("Macao, China", "MO");
-        //    addName("Macedonia, FYR", "MK");
-        //    addName("The Former Yugoslav Rep. of Macedonia", "MK");
-        //    addName("Micronesia, Fed. Sts.", "FM");
-        //    //addName("Middle East & North Africa", "ZZ");
-        //    //addName("Middle income", "ZZ");
-        //    addName("Russian Federation", "RU");
-        //    addName("Slovak Republic", "SK");
-        //    //addName("South Asia", "ZZ");
-        //    addName("St. Kitts and Nevis", "KN");
-        //    addName("St. Lucia", "LC");
-        //    addName("St. Vincent and the Grenadines", "VC");
-        //    //addName("Sub-Saharan Africa", "ZZ");
-        //    addName("Syrian Arab Republic", "SY");
-        //    //addName("Upper middle income", "ZZ");
-        //    addName("Venezuela, RB", "VE");
-        //    addName("Virgin Islands (U.S.)", "VI");
-        //    addName("West Bank and Gaza", "PS");
-        //    addName("Palestinian Autonomous Territories", "PS");
-        //    addName("Yemen, Rep.", "YE");
-        //    addName("C�te d'Ivoire", "CI");
-        //    }
-    }
-
     static String[] splitCommaSeparated(String line) {
         // items are separated by ','
         // each item is of the form abc...
@@ -311,60 +188,15 @@ public class AddPopulationData {
         return result.toArray(new String[result.size()]);
     }
 
-    private static void addName(String key, String code) {
-        addName2(key, code);
-        String trial = reverseComma(key);
-        if (trial != null) {
-            addName2(trial, code);
-        }
-    }
-
-    private static void addName2(String key, String code) {
-        String old = nameToCountryCode.get(key);
-        if (old != null && !code.equals(old)) {
-            System.out.println("Conflict!!" + key + "\t" + old + "\t" + code);
-            return;
-        }
-        nameToCountryCode.put(key, code);
-    }
-
-    private static String countryToCode(String display) {
-        String trial = display.trim();
-        String result = nameToCountryCode.get(trial);
-        if (result == null) {
-            trial = reverseComma(display);
-            if (trial != null) {
-                result = nameToCountryCode.get(trial);
-                if (result != null) {
-                    addName(trial, result);
-                }
-            }
-        }
-        if (SHOW_SKIP && result == null) {
-            System.out.println("Missing code for: " + display);
-        }
-        return result;
-    }
-
-    private static String reverseComma(String display) {
-        String trial;
-        trial = null;
-        int comma = display.indexOf(',');
-        if (comma >= 0) {
-            trial = display.substring(comma + 1).trim() + " " + display.substring(0, comma).trim();
-        }
-        return trial;
-    }
-
     private static void loadFactbookInfo(String filename, final Counter2<String> factbookGdp) throws IOException {
-        handleFile(filename, new LineHandler() {
+        FileUtilities.handleFile(filename, new FileUtilities.LineHandler() {
             public boolean handle(String line) {
                 if (line.length() == 0 || line.startsWith("This tab") || line.startsWith("Rank")
                         || line.startsWith(" This file")) {
                     return false;
                 }
                 String[] pieces = line.split("\t");
-                String code = countryToCode(FBLine.Country.get(pieces));
+                String code = CountryCodeConverter.getCodeFromName(FBLine.Country.get(pieces));
                 if (code == null) {
                     return false;
                 }
@@ -384,7 +216,7 @@ public class AddPopulationData {
     static final NumberFormat dollars = NumberFormat.getCurrencyInstance(ULocale.US);
     static final NumberFormat number = NumberFormat.getNumberInstance(ULocale.US);
 
-    static class MyLineHandler implements LineHandler {
+    static class MyLineHandler implements FileUtilities.LineHandler {
         CountryData countryData;
 
         public MyLineHandler(CountryData countryData) {
@@ -442,7 +274,7 @@ public class AddPopulationData {
 
     private static void loadFactbookLiteracy() throws IOException {
         final String filename = "external/factbook_literacy.html";
-        handleFile(filename, new LineHandler() {
+        FileUtilities.handleFile(filename, new FileUtilities.LineHandler() {
             Matcher m = Pattern.compile("<strong>total population:</strong>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
             //Matcher m = Pattern.compile("<i>total population:</i>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
             //Matcher codeMatcher = Pattern.compile("<a href=\"../geos/[^\\.]+.html\" class=\"CountryLink\">([^<]+)</a>").matcher("");
@@ -456,7 +288,7 @@ public class AddPopulationData {
                         throw new IllegalArgumentException("bad regex match: file changed format");
                     }
                     String trialCode = codeMatcher.group(1);
-                    code = countryToCode(trialCode);
+                    code = CountryCodeConverter.getCodeFromName(trialCode);
                     System.out.println(trialCode + "\t" + code);
                     if (code == null) {
                         throw new IllegalArgumentException("bad country: change countryToCode()\t" + trialCode + "\t" + code);
@@ -504,7 +336,7 @@ public class AddPopulationData {
 
         //List<List<String>> data = SpreadSheet.convert(CldrUtility.getUTF8Data(filename));
 
-        handleFile(filename, new LineHandler() {
+        FileUtilities.handleFile(filename, new FileUtilities.LineHandler() {
             public boolean handle(String line) {
                 if (line.contains("Series Code")) {
                     return false;
@@ -527,7 +359,7 @@ public class AddPopulationData {
                 if (last == null) {
                     return false;
                 }
-                String country = countryToCode(WBLine.Country_Name.get(pieces));
+                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces));
                 if (country == null) {
                     return false;
                 }
@@ -551,14 +383,14 @@ public class AddPopulationData {
 
 
     private static void loadUnLiteracy() throws IOException {
-        handleFile("external/un_literacy.csv", new LineHandler() {
+        FileUtilities.handleFile("external/un_literacy.csv", new FileUtilities.LineHandler() {
             public boolean handle(String line) {
                 // Afghanistan,2000, ,28,43,13,,34,51,18
                 String[] pieces = splitCommaSeparated(line);
                 if (pieces.length != 10 || !DIGITS.containsAll(pieces[1])) {
                     return false;
                 }
-                String code = countryToCode(pieces[0]);
+                String code = CountryCodeConverter.getCodeFromName(pieces[0]);
                 if (code == null) {
                     return false;
                 }
@@ -575,13 +407,12 @@ public class AddPopulationData {
 
     static {
         try {
-            loadNames();
             loadFactbookLiteracy();
             loadUnLiteracy();
 
             loadFactbookInfo("external/factbook_gdp_ppp.txt", factbook_gdp);
             loadFactbookInfo("external/factbook_population.txt", factbook_population);
-            handleFile("external/other_country_data.txt", new MyLineHandler(other));
+            FileUtilities.handleFile("external/other_country_data.txt", new MyLineHandler(other));
 
             loadWorldBankInfo();
             StandardCodes sc = StandardCodes.make();

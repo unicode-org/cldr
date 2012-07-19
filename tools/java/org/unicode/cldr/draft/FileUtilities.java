@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
 
@@ -334,9 +335,38 @@ public final class FileUtilities {
     }
     
     public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*");
+    private static final boolean SHOW_SKIP = false;
 
     public static String[] cleanSemiFields(String line) {
         line = cleanLine(line);
         return line.isEmpty() ? null : SEMI_SPLIT.split(line);
+    }
+    
+    public interface LineHandler {
+        /**
+         * Return false if line was skipped
+         * @param line
+         * @return
+         */
+        boolean handle(String line) throws Exception;
+    }
+
+    public static void handleFile(String filename, LineHandler handler) throws IOException {
+        BufferedReader in = CldrUtility.getUTF8Data(filename);
+        while (true) {
+            String line = in.readLine();
+            if (line == null) {
+                break;
+            }
+            try {
+                if (!handler.handle(line)) {
+                    if (SHOW_SKIP) System.out.println("Skipping line: " + line);
+                }
+            } catch (Exception e) {
+                throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
+                .initCause(e);
+            }
+        }
+        in.close();
     }
 }

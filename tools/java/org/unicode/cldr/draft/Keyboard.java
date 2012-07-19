@@ -332,7 +332,7 @@ public class Keyboard {
 
     private void addOutput(Collection<Output> values, UnicodeSet results) {
         for (Output value : values) {
-            if (value.output != null) {
+            if (value.output != null && !value.output.isEmpty()) {
                 results.add(value.output);
             }
             for (List<String> outputList : value.gestures.values()) {

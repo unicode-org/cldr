@@ -17,7 +17,32 @@
                 <rbnfrule value="-x">min →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1010" radix="100">←←­→%%2d-year→;</rbnfrule>
                 <rbnfrule value="1100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="2000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="2010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="2100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="3000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="3010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="3100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="4000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="4010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="4100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="5000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="5010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="5100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="6000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="6010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="6100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="7000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="7010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="7100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="8000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="8010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="8100" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="9000">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="9010" radix="100">←←­→%%2d-year→;</rbnfrule>
+                <rbnfrule value="9100" radix="100">←←­→%%2d-year→;</rbnfrule>
                 <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
@@ -60,8 +85,7 @@
                 <rbnfrule value="70">[→%%number-en→]zeventig;</rbnfrule>
                 <rbnfrule value="80">[→%%number-en→]tachtig;</rbnfrule>
                 <rbnfrule value="90">[→%%number-en→]negentig;</rbnfrule>
-                <rbnfrule value="100">honderd[-en-→→];</rbnfrule>
-                <rbnfrule value="130">honderd[­→→];</rbnfrule>
+                <rbnfrule value="100">honderd[→→];</rbnfrule>
                 <rbnfrule value="200">←←­honderd[­→→];</rbnfrule>
                 <rbnfrule value="1000">duizend[­→→];</rbnfrule>
                 <rbnfrule value="2000">←←­duizend[­→→];</rbnfrule>
@@ -74,8 +98,7 @@
             </ruleset>
             <ruleset type="ord-ste" access="private">
                 <rbnfrule value="0">ste;</rbnfrule>
-                <rbnfrule value="1">­en­=%spellout-ordinal=;</rbnfrule>
-                <rbnfrule value="2">­=%spellout-ordinal=;</rbnfrule>
+                <rbnfrule value="1">­=%spellout-ordinal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">
                 <rbnfrule value="-x">min →→;</rbnfrule>
@@ -85,9 +108,13 @@
                 <rbnfrule value="2">tweede;</rbnfrule>
                 <rbnfrule value="3">derde;</rbnfrule>
                 <rbnfrule value="4">=%spellout-cardinal=de;</rbnfrule>
+                <rbnfrule value="8">=%spellout-cardinal=ste;</rbnfrule>
+                <rbnfrule value="9">=%spellout-cardinal=de;</rbnfrule>
                 <rbnfrule value="20">=%spellout-cardinal=ste;</rbnfrule>
-                <rbnfrule value="102">←%spellout-cardinal← honderd→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal← duisend→%%ord-ste→;</rbnfrule>
+                <rbnfrule value="102">honderd→%%ord-ste→;</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal←­honderd→%%ord-ste→;</rbnfrule>
+                <rbnfrule value="1000">duisend→%%ord-ste→;</rbnfrule>
+                <rbnfrule value="2000">←%spellout-cardinal←­duisend→%%ord-ste→;</rbnfrule>
                 <rbnfrule value="1000000">←%spellout-cardinal← miljoen→%%ord-ste→;</rbnfrule>
                 <rbnfrule value="1000000000">←%spellout-cardinal← miljard→%%ord-ste→;</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal← biljoen→%%ord-ste→;</rbnfrule>
@@ -100,6 +127,8 @@
                 <rbnfrule value="0">ste;</rbnfrule>
                 <rbnfrule value="1">ste;</rbnfrule>
                 <rbnfrule value="2">de;</rbnfrule>
+                <rbnfrule value="8">ste;</rbnfrule>
+                <rbnfrule value="9">de;</rbnfrule>
                 <rbnfrule value="20">ste;</rbnfrule>
                 <rbnfrule value="100">→→;</rbnfrule>
             </ruleset>

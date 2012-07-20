@@ -854,7 +854,7 @@ public static final class Output<T> {
    * Fetch data from jar
    * @param name a name residing in the org/unicode/cldr/util/data/  directory, or loading from a jar will break.
    */
-  static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
+  static public BufferedReader getUTF8Data(String name) {
       /*if(name.startsWith(".")||name.startsWith("/")) {
           throw new IllegalArgumentException("Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"+name+"'.");
       }*/

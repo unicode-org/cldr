@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -25,13 +26,12 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.Row.R5;
 
 public class LanguageCodeConverter {
     static Map<String,String> languageNameToCode = new TreeMap<String,String>();
     static Set<String> exceptionCodes = new TreeSet<String>();
+    static Set<String> parseErrors = new LinkedHashSet<String>();
 
     static TestInfo testInfo = TestAll.TestInfo.getInstance();
     static SupplementalDataInfo supplementalInfo = testInfo.getSupplementalDataInfo();
@@ -111,13 +111,13 @@ public class LanguageCodeConverter {
         }
         // add exceptions
         LanguageTagParser ltp = new LanguageTagParser();
-        for (String line : FileUtilities.in(CldrUtility.UTIL_DATA_DIR + "/external/", "alternate_language_names.txt")) {
+        for (String line : FileUtilities.in(CldrUtility.getUTF8Data("/external/alternate_language_names.txt"))) {
             String[] parts = FileUtilities.cleanSemiFields(line);
             if (parts == null || parts.length == 0) continue;
             String code = parts[0];
             if (!validCodes.contains(code)) {
                 if (code.equals("*OMIT")) {
-                    System.out.println("Skipping " + line);
+                    parseErrors.add("Skipping " + line);
                     continue;
                 }
                 String base = ltp.set(code).getLanguage();
@@ -126,7 +126,7 @@ public class LanguageCodeConverter {
                     if (alias != null) {
                         code = alias.get0().get(0);
                     } else {
-                        System.out.println("Skipping " + line);
+                        parseErrors.add("Skipping " + line);
                         continue;
                     }
                 }
@@ -152,7 +152,7 @@ public class LanguageCodeConverter {
         String oldCode = languageNameToCode.get(name);
         if (oldCode != null) {
             if (!oldCode.equals(code)) {
-                System.out.println("Name Collision! " + type + ": " + name + " <" + oldCode + ", " + code + ">");
+                parseErrors.add("Name Collision! " + type + ": " + name + " <" + oldCode + ", " + code + ">");
             } else {
                 return;
             }
@@ -200,7 +200,7 @@ public class LanguageCodeConverter {
     public static void main(String[] args) {
         CLDRFile english = testInfo.getEnglish();
         System.out.println("Input Name" + "\t" + "Std Code" + "\t" + "Std Name");
-        Set<LanguageName> names = new TreeSet();
+        Set<LanguageName> names = new TreeSet<LanguageName>();
         for (Entry<String, String> codeName : languageNameToCode.entrySet()) {
             String name = codeName.getKey();
             String code = codeName.getValue();
@@ -222,7 +222,7 @@ public class LanguageCodeConverter {
         System.out.println();
         System.out.println("Input Code" + "\t" + "Bcp47 Code" + "\t" + "CLDR Code" + "\t" + "Google Code" + "\t" + "Std Name");
 
-        Set<LanguageLine> lines = new TreeSet();
+        Set<LanguageLine> lines = new TreeSet<LanguageLine>();
         for (Entry<String, R2<List<String>, String>> languageAlias : languageAliases.entrySet()) {
             String badCode = languageAlias.getKey();
             R2<List<String>, String> alias = languageAlias.getValue();
@@ -266,7 +266,7 @@ public class LanguageCodeConverter {
         LikelySubtags likely = new LikelySubtags(supplementalInfo);
         LanguageTagParser ltp = new LanguageTagParser();
         // get targets of language aliases for macros
-        Map<String,String> macroToEncompassed = new HashMap();
+        Map<String,String> macroToEncompassed = new HashMap<String,String>();
         for (Entry<String, R2<List<String>, String>> languageAlias : languageAliases.entrySet()) {
             String reason = languageAlias.getValue().get1();
             if ("macrolanguage".equals(reason)) {

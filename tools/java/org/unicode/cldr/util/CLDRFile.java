@@ -50,8 +50,6 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.MessageFormat;
@@ -81,6 +79,8 @@ import com.ibm.icu.util.ULocale;
  http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {  
+
+  private static final boolean DEBUG = false;
 
   public   static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
 
@@ -700,63 +700,85 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
   private static final boolean MINIMIZE_ALT_PROPOSED = false;
 
+
+  public interface RetentionTest {
+      public enum Retention {RETAIN, REMOVE, RETAIN_IF_DIFFERENT}
+      public Retention getRetention(String path);
+  }
+  
   /**
    * Removes all items with same value
-   * @param keepIfMatches TODO
-   * @param keepList TODO
+ * @param keepIfMatches TODO
+ * @param removedItems TODO
+ * @param keepList TODO
    */
-  public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, boolean dontRemoveSpecials, Predicate keepIfMatches) {
-    if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-    //Matcher specialPathMatcher = dontRemoveSpecials ? specialsToKeep.matcher("") : null;
-    boolean first = true;
-    List<String> toRemove = new ArrayList();
-    for (Iterator it = iterator(); it.hasNext();) { // see what items we have that the other also has
-      String xpath = (String)it.next();
-      String currentValue = dataSource.getValueAtPath(xpath);
-      //if (currentValue == null) continue;
-      String otherXpath = xpath;
-      String otherValue = other.dataSource.getValueAtPath(otherXpath);
-      if (!currentValue.equals(otherValue)) {
-        if (MINIMIZE_ALT_PROPOSED) {
-          otherXpath = CLDRFile.getNondraftNonaltXPath(xpath);
-          if (otherXpath.equals(xpath)) {
-            continue;
-          }
-          otherValue = other.dataSource.getValueAtPath(otherXpath);
-          if (!currentValue.equals(otherValue)) {
-            continue;
-          }
-        } else {
-          continue;
-        }
+  public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, RetentionTest keepIfMatches, Collection<String> removedItems) {
+      if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
+      //Matcher specialPathMatcher = dontRemoveSpecials ? specialsToKeep.matcher("") : null;
+      boolean first = true;
+      if (removedItems == null) {
+          removedItems = new ArrayList<String>();
+      } else {
+          removedItems.clear();
       }
-      if (dontRemoveSpecials) {
-        String keepValue = (String) XMLSource.getPathsAllowingDuplicates().get(xpath);
-        if (keepValue != null && keepValue.equals(currentValue)) {
-          continue;
-        }
-        if (keepIfMatches.is(xpath)) { // skip certain xpaths
-          continue;
-        }
-      }
+      for (Iterator it = iterator(); it.hasNext();) { // see what items we have that the other also has
+          String xpath = (String)it.next();
+          switch (keepIfMatches.getRetention(xpath)) {
+          case RETAIN: 
+              continue;
+          case RETAIN_IF_DIFFERENT:
+              String currentValue = dataSource.getValueAtPath(xpath);
+              //if (currentValue == null) continue;
+              String otherXpath = xpath;
+              String otherValue = other.dataSource.getValueAtPath(otherXpath);
+              if (!currentValue.equals(otherValue)) {
+                  if (MINIMIZE_ALT_PROPOSED) {
+                      otherXpath = CLDRFile.getNondraftNonaltXPath(xpath);
+                      if (otherXpath.equals(xpath)) {
+                          continue;
+                      }
+                      otherValue = other.dataSource.getValueAtPath(otherXpath);
+                      if (!currentValue.equals(otherValue)) {
+                          continue;
+                      }
+                  } else {
+                      continue;
+                  }
+              }
+              String keepValue = (String) XMLSource.getPathsAllowingDuplicates().get(xpath);
+              if (keepValue != null && keepValue.equals(currentValue)) {
+                  continue;
+              }
+              // we've now established that the values are the same
+              String currentFullXPath = dataSource.getFullPath(xpath);
+              String otherFullXPath = other.dataSource.getFullPath(otherXpath);
+              if (!equalsIgnoringDraft(currentFullXPath, otherFullXPath)) {
+                  continue;
+              }
+              if (DEBUG) {
+                  keepIfMatches.getRetention(xpath);
+              }
+              break;
+          case REMOVE: 
+              if (DEBUG) {
+                  keepIfMatches.getRetention(xpath);
+              }
+              break;
+          }
 
-      // we've now established that the values are the same for the 
-      String currentFullXPath = dataSource.getFullPath(xpath);
-      String otherFullXPath = other.dataSource.getFullPath(otherXpath);
-      if (!equalsIgnoringDraft(currentFullXPath, otherFullXPath)) continue;
-      if (first) {
-        first = false;
-        if (butComment) appendFinalComment("Duplicates removed:");
+          if (first) {
+              first = false;
+              if (butComment) appendFinalComment("Duplicates removed:");
+          }
+          // we can't remove right away, since that disturbs the iterator.
+          removedItems.add(xpath);
+          //remove(xpath, butComment);
       }
-      // we can't remove right away, since that disturbs the iterator.
-      toRemove.add(xpath);
-      //remove(xpath, butComment);
-    }
-    // now remove them safely
-    for (String xpath : toRemove) {
-      remove(xpath, butComment);
-    }
-    return this;
+      // now remove them safely
+      for (String xpath : removedItems) {
+          remove(xpath, butComment);
+      }
+      return this;
   }
 
   public CLDRFile putRoot(CLDRFile rootFile) {

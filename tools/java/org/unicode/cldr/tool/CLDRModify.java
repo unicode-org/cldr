@@ -7,6 +7,7 @@
 package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -28,12 +29,14 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.Predicate;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
@@ -264,7 +267,8 @@ public class CLDRModify {
         }
         new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
 
-        RetainCoveragePredicate minimalCoverage = null;
+        RetainWhenMinimizing retainIfTrue = null;
+        PathHeader.Factory pathHeaderFactory = null;
         
         fixList.handleSetup();
 
@@ -321,25 +325,38 @@ public class CLDRModify {
             System.out.println("Debug3 (" + test + "):\t" + k.toString(DEBUG_PATHS));
           }
           if (options[MINIMIZE].doesOccur) {
-            // TODO, fix identity
-            String parent = LocaleIDParser.getParent(test);
-            if (parent != null) {
-              CLDRFile toRemove = cldrFactory.make(parent, true);
-              // remove the items that are language codes, script codes, or region codes
-              // since they may be real translations.
-              if (parent.equals("root")) {
-                if (k.getFullXPath("//ldml/alias",true) != null) {
-                  System.out.println("Skipping completely aliased file: " + test);  
-                } else {
-                  // k.putRoot(toRemove);
-                }
+              if (pathHeaderFactory == null) {
+                  pathHeaderFactory = PathHeader.getFactory(cldrFactory.make("en", true));
               }
-              if (minimalCoverage == null) {
-                minimalCoverage = new RetainCoveragePredicate();
+              // TODO, fix identity
+              String parent = LocaleIDParser.getParent(test);
+              if (parent != null) {
+                  CLDRFile toRemove = cldrFactory.make(parent, true);
+                  // remove the items that are language codes, script codes, or region codes
+                  // since they may be real translations.
+                  if (parent.equals("root")) {
+                      if (k.getFullXPath("//ldml/alias",true) != null) {
+                          System.out.println("Skipping completely aliased file: " + test);  
+                      } else {
+                          // k.putRoot(toRemove);
+                      }
+                  }
+                  if (retainIfTrue == null) {
+                      retainIfTrue = new RetainWhenMinimizing();
+                  }
+                  retainIfTrue.setParentFile(toRemove);
+                  List<String> removed = DEBUG ? null : new ArrayList<String>();
+                  k.removeDuplicates(toRemove, COMMENT_REMOVALS, retainIfTrue, removed);
+                  if (removed != null) {
+                      Set<PathHeader> sorted = new TreeSet<PathHeader>();
+                      for (String path : removed) {
+                          sorted.add(pathHeaderFactory.fromPath(path));
+                      }
+                      for (PathHeader pathHeader : sorted) {
+                          System.out.println(test + "\t" + pathHeader + "\t" + pathHeader.getOriginalPath());
+                      }
+                  }
               }
-              minimalCoverage.setFile(k);
-              k.removeDuplicates(toRemove, COMMENT_REMOVALS, parent.equals("root"), minimalCoverage);
-            }
           }
           //System.out.println(CLDRFile.getAttributeOrder());
 
@@ -429,17 +446,26 @@ public class CLDRModify {
    * Use the coverage to determine what we should keep in the case of a locale just below root.
    */
 
-  static class RetainCoveragePredicate implements Predicate<String> {
-    //private CoverageLevel coverage = new CoverageLevel();
-    public RetainCoveragePredicate setFile(CLDRFile file) {
-//      coverage.setFile(file, null, null, new ArrayList());
-      return this;
-    }
-    public boolean is(String path) {
-//      Level pathLevel = coverage.getCoverageLevel(path);
-//      boolean result = Level.BASIC.compareTo(pathLevel) >= 0;
-        // return result;
-      return true;
+  static class RetainWhenMinimizing implements CLDRFile.RetentionTest {
+      private CLDRFile file;
+      Status status = new Status();
+      public RetainWhenMinimizing setParentFile(CLDRFile file) {
+          this.file = file;
+          return this;
+      }
+    @Override
+    public Retention getRetention(String path) {
+        if (path.startsWith("//ldml/identity/")) {
+            return Retention.RETAIN;
+        }
+        String localeId = file.getSourceLocaleID(path, status);
+//        if (!path.equals(status.pathWhereFound)) { // remove items just there for aliases
+//            return Retention.REMOVE;
+//        }
+        if ("root".equals(localeId)) {
+            return Retention.RETAIN;
+        }
+        return Retention.RETAIN_IF_DIFFERENT;
     }
   };
 

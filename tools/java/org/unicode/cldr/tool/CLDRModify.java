@@ -64,6 +64,7 @@ import com.ibm.icu.util.ULocale;
  * <br>-DSHOW_FILES=<anything> shows all create/open of files.
  */
 public class CLDRModify {
+  private static final boolean DEBUG = false;
   static final String DEBUG_PATHS = null; // ".*currency.*";
   static final boolean COMMENT_REMOVALS = false; // append removals as comments
   static UnicodeSet whitespace = (UnicodeSet) new UnicodeSet("[:whitespace:]").freeze();

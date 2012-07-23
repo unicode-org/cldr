@@ -3378,13 +3378,11 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td>alternate</td>
 			<td><i><strong>non-ignorable</strong></i><strong><br>
 	    shifted (UCA default)</strong><br>
-        <span class="changedspan">shift-trimmed</span><br>
-        <i>blanked</i><br>
-      <span class="changedspan">ignoresp</span></td>
+	    <i>blanked</i></td>
 			<td><code>alternate = &quot;<span style="color: blue">non-ignorable</span>&quot;<br>
 		    <br>
 		    [alternate non-ignorable]</code></td>
-			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <em>The default for <span class="changed">LDML</span> is different than it is in the UCA. <span class="changed">In LDML, the default for alternate handling is <strong>non-ignorable</strong>, while in UCA it is <strong>shifted</strong>. In addition, in LDML only </span>whitespace and punctuation are <span class="changed">variable, thus the meaning of <strong>shifted</strong> is the same as <strong>ignoresp</strong>. (In UCA, symbols are  variable in <strong>shifted</strong>, but not in <strong>ignoresp</strong>.) For other implementations of UCA, <strong>ignoresp</strong> and <strong>shifted</strong> may  have different results.</span></em></td>
+			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <em>The default for <span class="changed">LDML</span> is different than it is in the UCA. <span class="changed">In LDML, the default for alternate handling is <strong>non-ignorable</strong>, while in UCA it is <strong>shifted</strong>. In addition, in LDML only </span>whitespace and punctuation are <span class="changed">variable.</span></em></td>
 		</tr>
 		<tr>
 			<td>backwards</td>
@@ -3437,7 +3435,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    [hiraganaQ on]			</code></td>
 			<td>Controls special treatment of Hiragana code points on quaternary level. If turned <strong>on</strong>, Hiragana codepoints will get lower values than all 
-			the other non-variable code points <span class="changed">in <strong>shifted</strong> or <strong>ignoresp</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
+			the other non-variable code points <span class="changed">in <strong>shifted</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
 		</tr>
 		<tr>
 			<td>numeric</td>
@@ -4171,7 +4169,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 <p class="changed">The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
 <p class="changed">The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
 <p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
-<p class="changed">The following describes the derivation of the modified collation elements, where the original levels for the code point are &lt;p.s.t&gt; (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics  more closely.</p>
+<p class="changed">When either the <strong>case level</strong> or <strong>case first</strong> parameters are set, the following describes the derivation of the modified collation elements. It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics  more closely.</p>
 <h5 class="changed"><strong>Untailored Characters</strong></h5>
 <p><span class="changed">For untailored character (and strings), the case value for each collation element is computed from the DUCET tertiary weight. This is used to modify the collation element.</span></p>
 <ol>
@@ -4187,8 +4185,8 @@ text data in the rule. For example, the following are all disallowed:</p>
 <p class="changed">From a computed case value, set a weight <strong>c</strong> according to the following.</p>
 <ol>
   <li class="changed">If the value is LOWEST, set <strong>c</strong> = 1</li>
-  <li class="changed">Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong> = UPPER ? 2 : MIXED ? 3 : 4</li>
-  <li class="changed">Otherwise set <strong>c</strong> = LOWER ? 2 : MIXED ? 3 : 4</li>
+  <li class="changed">Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong> = UPPER ? <strong>2</strong> : MIXED ? 3 : <strong>4</strong></li>
+  <li class="changed">Otherwise set <strong>c</strong> = UPPER ? <strong>4</strong> : MIXED ? 3 : <strong>2</strong></li>
 </ol>
 <p class="changed">Compute a new collation element according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y. The fourth level (if it exists) is unaffected.</p>
 
@@ -4200,7 +4198,7 @@ text data in the rule. For example, the following are all disallowed:</p>
           <th>Strength</th>
           <th>Original CE</th>
           <th>Modified CE</th>
-          <th>Description</th>
+          <th>Comment</th>
         </tr>
         <tr>
           <td rowspan="9"><strong>on</strong></td>
@@ -4236,7 +4234,7 @@ text data in the rule. For example, the following are all disallowed:</p>
         </tr>
         <tr>
           <td><code>0.0.t</code></td>
-          <td><code>0.0.c.t</code></td>
+          <td><code>0.0.5.t</code></td>
         </tr>
         <tr>
           <td><code>0.s.t</code></td>
@@ -4255,7 +4253,7 @@ text data in the rule. For example, the following are all disallowed:</p>
         </tr>
         <tr>
           <td><code>0.0.t</code></td>
-          <td><code>0.0.ct</code></td>
+          <td><code>0.0.4t</code></td>
         </tr>
         <tr>
           <td><code>0.s.t</code></td>
@@ -4274,7 +4272,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 
 
 
-<p class="changed">&nbsp;</p>
+<p class="changed">Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights. For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
 <h5 class="changed">Tailored Strings</h5>
 <p class="changed">Tailored characters or strings have case values computed from their UCD properties. A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</p>
 <ol class="changed">

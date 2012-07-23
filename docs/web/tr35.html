@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012<span class="changed">-06-18</span></td>
+			<td>2012<span class="changed">-07-23</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -4164,7 +4164,18 @@ text data in the rule. For example, the following are all disallowed:</p>
     </tr>
   </tbody>
 </table>
-<p>The reordering blocks are defined by DUCET, and do not always completely  follow Script or General_Category property values. For more information, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
+<p class="changed">The default  reordering groups are defined by the FractionalUCA.txt file, based on the primary weights of associated collation elements. The [top_byte] table contains a mapping from the first (top) byte of  primary weights  to the associated reordering group. For example:</p>
+<blockquote>
+  <p><span class="changed">U+02D0 MODIFIER LETTER TRIANGULAR COLON has a fractional UCA collation weight of [<strong>0E</strong> 0B, 05, 05]. In the [topbyte] table, the line [top_byte	0E	SYMBOL] indicates that <strong>0E</strong> maps to <strong>SYMBOL</strong>.</span></p>
+</blockquote>
+<p class="changed">There are some special cases:</p>
+<ul>
+  <li><span class="changed">The TRAILING group, the FIELD-SEPARATOR (associated with U+FFFE), and collation elements with only zero primary weights are not reordered. </span></li>
+  <li><span class="changed">The IMPLICIT group is currently treated as if it were part of <strong>Hani</strong>. </span></li>
+  <li><span class="changed">The TERMINATOR, LEVEL-SEPARATOR,  and SPECIAL groups are never associated with characters. </span></li>
+</ul>
+<p><span class="changed">The default reordering groups   follow the allkeys_CLDR.txt ordering; they also may be tailored by implementations to different values. </span>For more information on <span class="changed">FractionalUCA.txt and allkeys_CLDR.txt</span>, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
+<p><span class="changed"> The DUCET ordering is slightly different from the allkeys_CLDR ordering. The reordering groups for the DUCET are not specified here. However, most reordering groups would start with the same characters as in FractionalUCA.txt.</span></p>
 <h4 class="changed"><a name="Case_Parameters"></a>5.14.13 Case Parameters</h4>
 <p class="changed">The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
 <p class="changed">The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>

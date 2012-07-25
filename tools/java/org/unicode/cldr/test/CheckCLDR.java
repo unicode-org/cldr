@@ -12,11 +12,14 @@ import java.io.IOException;
 import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -108,11 +111,22 @@ abstract public class CheckCLDR {
         public static final StatusAction FORBID_HAS_ERROR = FORBID_ERRORS;
     }
 
+    private static final HashMap<String, Phase> PHASE_NAMES = new HashMap<String, Phase>();
+    
     public enum Phase {
-        SUBMISSION, VETTING, FINAL_TESTING;
+        SUBMISSION, VETTING, FINAL_TESTING("RESOLUTION");
+        Phase(String... alternateName) {
+            for (String name : alternateName) {
+                PHASE_NAMES.put(name.toUpperCase(Locale.ENGLISH), this);
+            }
+        }
 
         public static Phase forString(String value) {
-            return value == null ? null : Phase.valueOf(value.toUpperCase(Locale.ENGLISH));
+            value = value.toUpperCase(Locale.ENGLISH);
+            Phase result = PHASE_NAMES.get(value);
+            return result != null ? result 
+                : value == null ? null 
+                    : Phase.valueOf(value);
         }
 
         /**

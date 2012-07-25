@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -110,7 +111,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
   private File supplementalDirectory;
 
-  public enum DraftStatus {unconfirmed, provisional, contributed, approved};
+  public enum DraftStatus {
+      unconfirmed, provisional, contributed, approved;
+      
+      public static DraftStatus forString(String string) {
+          return string == null ? DraftStatus.approved 
+              : DraftStatus.valueOf(string.toLowerCase(Locale.ENGLISH));
+      }
+  };
 
   public String toString() {
     return "{"

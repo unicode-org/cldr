@@ -198,7 +198,7 @@ public class TestPathHeader extends TestFmwk {
         for (Level level : Level.values()) {
             b.append("\t" + level);
         }
-        errln(b.toString());
+        logln(b.toString());
         for (Entry<R2<SectionId, PageId>, Counter<Level>> entry : data.entrySet()) {
             b.setLength(0);
             b.append(entry.getKey().get0() + "\t" + entry.getKey().get1());
@@ -208,7 +208,7 @@ public class TestPathHeader extends TestFmwk {
                 total += counter.getCount(level);
                 b.append("\t" + total);
             }
-            errln(b.toString());
+            logln(b.toString());
         }
     }
 
@@ -326,6 +326,9 @@ public class TestPathHeader extends TestFmwk {
         Map<String, String> headerVisibleToPath = new HashMap();
         for (String path : nativeFile.fullIterable()) {
             PathHeader p = pathHeaderFactory.fromPath(path);
+            if (p.getSectionId() == SectionId.Special) {
+                continue;
+            }
             String old = headerToPath.get(p);
             if (old == null) {
                 headerToPath.put(p, path);

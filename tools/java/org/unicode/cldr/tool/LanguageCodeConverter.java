@@ -120,7 +120,7 @@ public class LanguageCodeConverter {
         }
         // add exceptions
         LanguageTagParser ltp = new LanguageTagParser();
-        for (String line : FileUtilities.in(CldrUtility.getUTF8Data("/external/alternate_language_names.txt"))) {
+        for (String line : FileUtilities.in(CldrUtility.getUTF8Data("external/alternate_language_names.txt"))) {
             String[] parts = FileUtilities.cleanSemiFields(line);
             if (parts == null || parts.length == 0) continue;
             String code = parts[0];

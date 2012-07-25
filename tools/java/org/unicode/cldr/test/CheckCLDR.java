@@ -122,10 +122,12 @@ abstract public class CheckCLDR {
         }
 
         public static Phase forString(String value) {
+            if (value == null) {
+                return org.unicode.cldr.util.CLDRConfig.getInstance().getPhase();
+            }
             value = value.toUpperCase(Locale.ENGLISH);
             Phase result = PHASE_NAMES.get(value);
             return result != null ? result 
-                : value == null ? null 
                     : Phase.valueOf(value);
         }
 

@@ -14,20 +14,14 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.unittest.TestAll;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 
-import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.util.ULocale;
 
 public class LanguageCodeConverter {
@@ -36,7 +30,7 @@ public class LanguageCodeConverter {
     private static Set<String> parseErrors = new LinkedHashSet<String>();
 
     private static Map<String, R2<List<String>, String>> languageAliases = 
-        SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY).getLocaleAliasInfo().get("language");
+        CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo().get("language");
 
     /**
      * Public only for testing.

@@ -4625,11 +4625,13 @@
 			</currency>
 			<currency type="XAG">
 				<displayName>Silver</displayName>
-				<displayName count="one">Silver</displayName>
+				<displayName count="one">troy ounce of silver</displayName>
+				<displayName count="other">troy ounces of silver</displayName>
 			</currency>
 			<currency type="XAU">
 				<displayName>Gold</displayName>
-				<displayName count="one">Gold</displayName>
+				<displayName count="one">troy ounce of gold</displayName>
+				<displayName count="other">troy ounces of gold</displayName>
 			</currency>
 			<currency type="XBA">
 				<displayName>European Composite Unit</displayName>
@@ -4683,7 +4685,8 @@
 			</currency>
 			<currency type="XPD">
 				<displayName>Palladium</displayName>
-				<displayName count="one">Palladium</displayName>
+				<displayName count="one">troy ounce of palladium</displayName>
+				<displayName count="other">troy ounces of palladium</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
@@ -4692,11 +4695,13 @@
 			</currency>
 			<currency type="XPT">
 				<displayName>Platinum</displayName>
-				<displayName count="one">Platinum</displayName>
+				<displayName count="one">troy ounce of platinum</displayName>
+				<displayName count="other">troy ounces of platinum</displayName>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET Funds</displayName>
-				<displayName count="one">RINET Funds</displayName>
+				<displayName count="one">RINET Funds unit</displayName>
+				<displayName count="other">RINET Funds units</displayName>
 			</currency>
 			<currency type="XSU">
 				<displayName>Sucre</displayName>
@@ -4705,7 +4710,8 @@
 			</currency>
 			<currency type="XTS">
 				<displayName>Testing Currency Code</displayName>
-				<displayName count="one">Testing Currency Code</displayName>
+				<displayName count="one">Testing Currency unit</displayName>
+				<displayName count="other">Testing Currency units</displayName>
 			</currency>
 			<currency type="XUA">
 				<displayName>ADB Unit of Account</displayName>
@@ -4714,6 +4720,7 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>Unknown Currency</displayName>
+				<displayName count="one">(unknown unit of currency)</displayName>
 				<displayName count="other">(unknown currency)</displayName>
 			</currency>
 			<currency type="YDD">

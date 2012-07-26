@@ -332,10 +332,10 @@ public class VettingViewerQueue {
             System.err.println("CovGroupsFor " + st_org + "="+covGroupsForOrg.size() + ", anyVotes="+anyVotesFromOrg.size() + "  - " + SurveyMain.freeMem());
             
             Predicate<String> localesWithVotes = new Predicate<String>() {
-                final boolean THRASH_ALL_LOCALES = CldrUtility.getProperty("THRASH_ALL_LOCALES", false);
+                final boolean showAllLocales = (vr_org==Organization.surveytool) ||  CldrUtility.getProperty("THRASH_ALL_LOCALES", false);
                 @Override
                 public boolean is(String item) {
-                    if(THRASH_ALL_LOCALES) return true;
+                    if(showAllLocales) return true;
                     CLDRLocale loc = CLDRLocale.getInstance(item);
                     return (aLocs.contains(item) ||                         // a
                             covGroupsForOrg.contains(loc.getBaseName()) ||  // b

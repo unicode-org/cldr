@@ -2354,13 +2354,13 @@
 		<symbols numberSystem="knda">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
-		<symbols numberSystem="laoo">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
-		</symbols>
 		<symbols numberSystem="lana">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="lanatham">
+			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+		</symbols>
+		<symbols numberSystem="laoo">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="latn">
@@ -2489,6 +2489,9 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<alias source="locale" path="../decimalFormatLength[@type='short']"/>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000" count="one">0.0K</pattern>
@@ -2517,9 +2520,6 @@
 					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
-            <decimalFormatLength type="long">
-                <alias source="locale" path="../decimalFormatLength[@type='short']"/>
-            </decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="lepc">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
@@ -3080,4 +3080,3 @@
 		</messages>
 	</posix>
 </ldml>
-

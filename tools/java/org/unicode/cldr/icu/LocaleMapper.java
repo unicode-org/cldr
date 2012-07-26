@@ -1,7 +1,5 @@
-package org.unicode.cldr.draft;
+package org.unicode.cldr.icu;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,6 +9,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.ant.CLDRConverterTool.Alias;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -23,14 +22,13 @@ import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-
 /**
- * Converts CLDR locale XML files to a format suitable for writing ICU data
- * with.
+ * A mapper that converts locale data from CLDR to the ICU data structure.
  * @author jchye
  */
-public class LdmlLocaleMapper extends LdmlMapper {
+public class LocaleMapper extends LdmlMapper {
+    public static final String ALIAS_PATH = "/\"%%ALIAS\"";
+
     /**
      * Map for converting enums to their integer values.
      */
@@ -54,7 +52,7 @@ public class LdmlLocaleMapper extends LdmlMapper {
      * Special hack comparator, so that RB strings come out in the right order.
      * This is only important for the order of items in arrays.
      */
-    private static Comparator<CldrValue> SpecialLdmlComparator = new Comparator<CldrValue>() {
+    private static Comparator<String> comparator = new Comparator<String>() {
         private final Pattern CURRENCY_FORMAT = Pattern.compile(
             "//ldml/numbers/currencies/currency\\[@type=\"\\w++\"]/(.++)");
         private final Pattern DATE_OR_TIME_FORMAT = Pattern.compile(
@@ -64,6 +62,8 @@ public class LdmlLocaleMapper extends LdmlMapper {
         private final Pattern CONTEXT_TRANSFORM = Pattern.compile(
                 "//ldml/contextTransforms/contextTransformUsage\\[@type=\"([^\"]++)\"]/contextTransform\\[@type=\"([^\"]++)\"]");
 
+        private final String[] CURRENCY_ORDER = {"symbol", "displayName",
+                "pattern[@type=\"standard\"]", "decimal", "group"};
         /**
          * Reverse the ordering of the following:
          * //ldml/numbers/currencies/currency[@type="([^"]*)"]/displayName ; curr ; /Currencies/$1
@@ -73,18 +73,13 @@ public class LdmlLocaleMapper extends LdmlMapper {
          */
         @SuppressWarnings("unchecked")
         @Override
-        public int compare(CldrValue value0, CldrValue value1) {
-            String arg0 = value0.getXpath();
-            String arg1 = value1.getXpath();
-
+        public int compare(String arg0, String arg1) {
             Matcher[] matchers = new Matcher[2];
             if (matches(CURRENCY_FORMAT, arg0, arg1, matchers)) {
                 // Use ldml ordering except that symbol should be first.
-                if (matchers[0].group(1).equals("symbol")) {
-                    return -1;
-                } else if (matchers[1].group(1).equals("symbol")) {
-                    return 1;
-                }
+                int index0 = getIndexOf(CURRENCY_ORDER, matchers[0].group(1));
+                int index1 = getIndexOf(CURRENCY_ORDER, matchers[1].group(1));
+                return index0 - index1;
             } else if (matches(DATE_OR_TIME_FORMAT, arg0, arg1, matchers)) {
                 int compareValue = matchers[0].group(1).compareTo(matchers[1].group(1));
                 if (compareValue != 0) return -compareValue;
@@ -106,9 +101,22 @@ public class LdmlLocaleMapper extends LdmlMapper {
         }
     };
     
-    public LdmlLocaleMapper(Factory factory, Factory specialFactory,
+    /**
+     * Looks for a string in an array
+     * @param order the array to be searched
+     * @param key the string to be searched for
+     * @return the index of the string if found, -1 if not found
+     */
+    private static int getIndexOf(String[] order, String key) {
+        for (int i = 0; i < order.length; i++) {
+            if (order[i].equals(key)) return i;
+        }
+        return -1;
+    }
+
+    public LocaleMapper(Factory factory, Factory specialFactory,
             SupplementalDataInfo supplementalDataInfo) {
-        super("ldml2icu.txt");
+        super("ldml2icu_locale.txt");
         this.factory = factory;
         this.specialFactory = specialFactory;
         this.supplementalDataInfo = supplementalDataInfo;
@@ -120,7 +128,11 @@ public class LdmlLocaleMapper extends LdmlMapper {
     public Set<String> getAvailable() {
         return factory.getAvailable();
     }
-    
+
+    /**
+     * @param filename
+     * @return true if a special XML file with the specified filename is available.
+     */
     private boolean hasSpecialFile(String filename) {
         return specialFactory != null && specialFactory.getAvailable().contains(filename);
     }
@@ -146,11 +158,12 @@ public class LdmlLocaleMapper extends LdmlMapper {
      */
     public IcuData fillFromCLDR(String locale) {
         Set<String> deprecatedTerritories = getDeprecatedTerritories();
-        RegexLookup<RegexResult> pathConverter = getPathConverter();
+        CLDRFile resolvedCldr = factory.make(locale, true);
+        RegexLookup<RegexResult> pathConverter = getPathConverter(resolvedCldr);
 
         // First pass through the unresolved CLDRFile to get all icu paths.
         CLDRFile cldr = factory.make(locale, false);
-        Map<String,List<CldrValue>> pathValueMap = new HashMap<String,List<CldrValue>>();
+        Map<String,CldrArray> pathValueMap = new HashMap<String,CldrArray>();
         Set<String> validRbPaths = new HashSet<String>();
         for (String xpath : cldr) {
             // Territory hacks to be removed once CLDR data is fixed.
@@ -176,76 +189,103 @@ public class LdmlLocaleMapper extends LdmlMapper {
         }
         
         // Get all values from the resolved CLDRFile.
-        CLDRFile resolvedCldr = factory.make(locale, true);
-        Set<String> resolvedPaths = new HashSet<String>();
-        CollectionUtilities.addAll(resolvedCldr.iterator(), resolvedPaths);
-        //resolvedPaths.addAll(LdmlMapper.getFallbackPaths().keySet());
-        for (String xpath : resolvedPaths) {
-            addMatchesForPath(xpath, resolvedCldr, validRbPaths, pathValueMap);
+        for (String xpath : resolvedCldr) {
+            addMatchesForPath(xpath, resolvedCldr, validRbPaths, pathConverter, pathValueMap);
         }
 
         // Add fallback paths if necessary.
-        addFallbackValues(pathValueMap);
+        addFallbackValues(resolvedCldr, pathValueMap);
 
         // Add special values to file.
-        IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale, true, enumMap);
-        if (hasSpecialFile(locale)) {
-            icuData.setHasSpecial(true);
+        boolean hasSpecial = hasSpecialFile(locale);
+        if (hasSpecial) {
             CLDRFile specialCldrFile = specialFactory.make(locale, false);
             for (String xpath : specialCldrFile) {
-                addMatchesForPath(xpath, specialCldrFile, null, pathValueMap);
+                if (resolvedCldr.isHere(xpath)) continue;
+                addMatchesForPath(xpath, specialCldrFile, null, pathConverter, pathValueMap);
             }
         }
 
-        // Convert values to final data structure.
         for (String rbPath : pathValueMap.keySet()) {
-            List<CldrValue> values = pathValueMap.get(rbPath);
-
             // HACK: DateTimePatterns needs a duplicate of the medium
             // dateTimeFormat (formerly indicated using dateTimeFormats/default).
             // This hack can be removed when ICU no longer requires it.
             Matcher matcher = RB_DATETIMEPATTERN.matcher(rbPath);
             if (matcher.matches()) {
                 String calendar = matcher.group(1);
-                List<CldrValue> valueList = getList("/calendar/" + calendar + "/DateTimePatterns", pathValueMap);
+                CldrArray valueList = getCldrArray(rbPath, pathValueMap);
                 // Create a dummy xpath to sort the value in front of the other date time formats.
                 String basePath = "//ldml/dates/calendars/calendar[@type=\"" + calendar + "\"]/dateTimeFormats";
                 String mediumFormatPath = basePath + "/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
-                valueList.add(new CldrValue(basePath,
+                valueList.add(basePath,
                         getStringValue(resolvedCldr, mediumFormatPath),
-                        false));
+                        null);
             }
-
-            Collections.sort(values, SpecialLdmlComparator);
-            List<String[]> sortedValues = new ArrayList<String[]>();
-            List<String> arrayValues = new ArrayList<String>();
-            String lastPath = values.get(0).getXpath();
-            // Group isArray for the same xpath together.
-            for (CldrValue value : values) {
-                String currentPath = value.getXpath();
-                if (!currentPath.equals(lastPath) || 
-                        !value.isArray() && arrayValues.size() != 0) {
-                    sortedValues.add(toArray(arrayValues));
-                    arrayValues.clear();
-                }
-                lastPath = currentPath;
-                arrayValues.add(value.getValue());
-            }
-            sortedValues.add(toArray(arrayValues));
-            icuData.addAll(rbPath, sortedValues);
         }
-        // Hacks
+
+        // HACK: Fill missing narrow era values with their abbreviated versions.
+        CldrArray narrowEras = pathValueMap.get("/calendar/japanese/eras/narrow");
+        CldrArray abbreviatedEras = pathValueMap.get("/calendar/japanese/eras/abbreviated");
+        if (narrowEras != null && abbreviatedEras != null) {
+            narrowEras.addAll(abbreviatedEras);
+        }
+
+        IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale, true, enumMap);
+        icuData.setHasSpecial(hasSpecial);
+        fillIcuData(pathValueMap, comparator, icuData);
+
+        // More hacks
         hackAddExtras(resolvedCldr, locale, icuData);
         return icuData;
     }
 
     /**
-     * Converts a list into an Array.
+     * Creates an IcuData object for an aliased locale.
+     * NOTE: this method is not currently used because the -w parameter in
+     * LDML2ICUConverter already writes aliases. When we get around to deprecating
+     * the LDML2ICUConverter, use this to write aliases instead..
      */
-    private static String[] toArray(List<String> list) {
-        String[] array = new String[list.size()];
-        list.toArray(array);
-        return array;
+    public IcuData fillFromCldr(Alias alias) {
+        // TODO: is this method actually needed?
+        String from = alias.from;
+        String to = alias.to;
+        String xpath = alias.xpath;
+        if (!factory.getAvailable().contains(to)) {
+            System.err.println(to + " doesn't exist, skipping alias " + from);
+            return null;
+        }
+
+        if (from == null || to == null) {
+            System.err.println("Malformed alias - no 'from' or 'to': from=\"" +
+                    from + "\" to=\"" + to + "\"");
+            return null;
+        }
+
+        if (to.indexOf('@') != -1 && xpath == null) {
+            System.err.println("Malformed alias - '@' but no xpath: from=\"" +
+                    from + "\" to=\"" + to + "\"");
+            return null;
+        }
+
+        IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);
+        System.out.println("aliased " + from + " to " + to);
+        RegexLookup<RegexResult> pathConverter = getPathConverter();
+        if (xpath == null) {
+            Map<String,CldrArray> pathValueMap = new HashMap<String,CldrArray>();
+            addMatchesForPath(xpath, null, null, pathConverter, pathValueMap);
+            fillIcuData(pathValueMap, comparator, icuData);
+        } else {
+            icuData.add("/\"%%ALIAS\"", to.substring(0, to.indexOf('@')));
+        }
+        return icuData;
+    }
+
+    private void fillIcuData(Map<String, CldrArray> pathValueMap,
+            Comparator<String> comparator, IcuData icuData) {
+        // Convert values to final data structure.
+        for (String rbPath : pathValueMap.keySet()) {
+            icuData.addAll(rbPath, pathValueMap.get(rbPath).sortValues(comparator));
+        }
     }
 
     public static String getFullXPath(String xpath, CLDRFile cldrFile) {
@@ -278,35 +318,24 @@ public class LdmlLocaleMapper extends LdmlMapper {
      * @param pathValueMap the map that the results will be added to
      */
     private void addMatchesForPath(String xpath, CLDRFile cldrFile,
-            Set<String> validRbPaths, Map<String, List<CldrValue>> pathValueMap) {
+            Set<String> validRbPaths, RegexLookup<RegexResult> pathConverter,
+            Map<String, CldrArray> pathValueMap) {
         Output<Finder> matcher = new Output<Finder>();
-        RegexResult regexResult = matchXPath(getPathConverter(),
+        RegexResult regexResult = matchXPath(pathConverter,
             cldrFile, xpath, matcher);
         if (regexResult == null) return;
         String[] arguments = matcher.value.getInfo();
-        if (!regexResult.argumentsMatch(cldrFile, arguments)) return;
         for (PathValueInfo info : regexResult) {
-            // TODO: make localeMapper and supplementalMapper calls to processX consistent!
             String rbPath = info.processRbPath(arguments);
             // Don't add additional paths at this stage.
             if (validRbPaths != null && !validRbPaths.contains(rbPath)) continue;
-            List<CldrValue> valueList = getList(rbPath, pathValueMap);
-            String[] values = info.processValues(arguments, cldrFile, xpath);
-            for (String value : values) {
-                valueList.add(new CldrValue(xpath, value, info.isArray()));
-            }
+            CldrArray valueList = getCldrArray(rbPath, pathValueMap);
+            List<String> values = info.processValues(arguments, cldrFile, xpath);
+            String groupKey = info.processGroupKey(arguments);
+            valueList.add(xpath, values, groupKey);
         }
     }
     
-    private List<CldrValue> getList(String key, Map<String, List<CldrValue>> pathValueMap) {
-        List<CldrValue> list = pathValueMap.get(key);
-        if (list == null) {
-            list = new ArrayList<CldrValue>();
-            pathValueMap.put(key, list);
-        }
-        return list;
-    }
-
     /**
      * Adds all mappings that couldn't be represented in the ldml2icu.txt file.
      * @param cldrResolved

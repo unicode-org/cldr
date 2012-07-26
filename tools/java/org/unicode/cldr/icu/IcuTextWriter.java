@@ -1,19 +1,21 @@
-package org.unicode.cldr.draft;
+package org.unicode.cldr.icu;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.draft.FileUtilities;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 
+/**
+ * Writes an IcuData object to a text file.
+ * @author jchye
+ */
 public class IcuTextWriter {
     /**
      * The default tab indent (actually spaces)
@@ -63,7 +65,7 @@ public class IcuTextWriter {
 
         // Append the header.
         String[] replacements = { "%source%", icuData.getSourceFile() };
-        FileUtilities.appendFile(LDMLConverter.class, "ldml2icu_header.txt", null, replacements, out);
+        FileUtilities.appendFile(NewLdml2IcuConverter.class, "ldml2icu_header.txt", null, replacements, out);
         if (icuData.hasSpecial()) {
             out.println("/**");
             out.println(" *  ICU <specials> source: <path>/xml/main/" + name + ".xml");
@@ -103,7 +105,7 @@ public class IcuTextWriter {
             }
             boolean quote = !IcuData.isIntRbPath(path);
             List<String[]> values = icuData.get(path);
-            wasSingular = appendValues(values, labels.length, quote, out);
+            wasSingular = appendValues(path, values, labels.length, quote, out);
             out.flush();
             lastLabels = labels;
         }
@@ -128,11 +130,11 @@ public class IcuTextWriter {
      * @param out
      * @return
      */
-    private static boolean appendValues(List<String[]> values, int numTabs, boolean quote, PrintWriter out) {
+    private static boolean appendValues(String rbPath, List<String[]> values, int numTabs, boolean quote, PrintWriter out) {
         String[] firstArray;
         boolean wasSingular = false;
         if (values.size() == 1) {
-            if ((firstArray = values.get(0)).length == 1) {
+            if ((firstArray = values.get(0)).length == 1 && !mustBeArray(rbPath)) {
                 String value = quoteInside(firstArray[0]);
                 int maxWidth = 84 - Math.min(4, numTabs) * TAB.length();
                 if (value.length() <= maxWidth) {
@@ -176,6 +178,16 @@ public class IcuTextWriter {
         return wasSingular;
     }
     
+    /**
+     * Wrapper for a hack to determine if the given rb path should always
+     * present its values as an array. This hack is required for an ICU data test to pass.
+     * @param rbPath
+     * @return
+     */
+    private static boolean mustBeArray(String rbPath) {
+       return rbPath.equals("/LocaleScript") || rbPath.contains("/eras/") && !rbPath.endsWith(":alias");
+    }
+
     private static PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {
         for (String value : valueArray) {
             out.append(padding);

@@ -1,4 +1,4 @@
-package org.unicode.cldr.draft;
+package org.unicode.cldr.icu;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,13 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.With;
+import org.unicode.cldr.tool.Option.Options;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.impl.Row;
@@ -24,32 +25,39 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
- * Compares the contents of ICU data output.
- * @author markdavis
+ * Compares the contents of ICU data output while ignoring comments.
+ * @author markdavis, jchye
  *
  */
-public class RBChecker {
+public class CompareIcuOutput {
     private static final boolean DEBUG = false;
 
+    private static final Options options = new Options(
+        "Usage: RBChecker [OPTIONS] DIR1 DIR2 FILE_REGEX\n" +
+        "This program is used to compare the RB text files in two different directories.\n" +
+        "  Example: org.unicode.cldr.icu.RBChecker olddatadir newdatadir .*")
+        .add("sort", 's', null, null, "Sort values for comparison");
+
+    private static final Comparator<String[]> comparator = new Comparator<String[]>() {
+        @Override
+        public int compare(String[] arg0, String[] arg1) {
+            return arg0[0].compareTo(arg1[0]);
+        }
+    };
+
+    private static boolean shouldSort = false;
+
     public static void main(String[] args) throws IOException {
-        if (args.length != 4) {
-            throw new IllegalArgumentException(
-                    "Args required: -t <icu_data_dir> <cldr_dir> <locales_regex>" +
-                    "           or: -c <icu_data_dir> <icu_data_dir_2> <locales_regex>"
-                );
-        }
-        String option = args[0];
-        String dir1 = args[1];
-        String dir2 = args[2];
-        String regex = args[3];
+        // TODO: change output of Options.parse() to a List.
+        Set<String> extraArgs = options.parse(args, true);
+        Iterator<String> iterator = extraArgs.iterator();
+        String dir1 = iterator.next();
+        String dir2 = iterator.next();
+        String regex = iterator.next();
+        shouldSort = options.get("sort").doesOccur();
         long totaltime = System.currentTimeMillis();
-        if (option.equals("-t")) {
-            System.out.println("Comparing the contents of text files...");
-            compareTextFiles(dir1, dir2, regex);
-        } else if (option.equals("-c")) {
-            System.out.println("Comparing the contents of text files and converter output...");
-            compareTextAndConverter(dir1, dir2, regex);
-        }
+        System.out.println("Comparing the contents of text files...");
+        compareTextFiles(dir1, dir2, regex);
         System.out.println("Total time taken: " + (System.currentTimeMillis() - totaltime));
     }
     
@@ -85,74 +93,15 @@ public class RBChecker {
         }
         System.out.println("Check finished with " + different + " different and " + same + " same locales.");
     }
-    
-    /**
-     * Compares an ICU textfile with the output of the LDMLConverter. This
-     * method should only be used for sanity checking because there are several
-     * differences between the data structure parsed from an ICU file and the
-     * data structure retrieved directly from LDMLConverter, even if the data
-     * itself is identical. Also, comparing two ICU textfiles is much faster
-     * than loading the output of LDMLConverter.
-     * @param icuDir
-     * @param cldrDir
-     * @param regex
-     * @throws IOException
-     */
-    private static void compareTextAndConverter(String icuDir, String cldrDir, String regex) throws IOException {
-        File specialDir = new File(icuDir, "xml/main");
-        Factory specialFactory = null;
-        if (specialDir.exists()) {
-            specialFactory = Factory.make(specialDir.getAbsolutePath(), regex);
-        }
-        Factory factory = Factory.make(cldrDir, regex);
-        SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-        LdmlLocaleMapper mapper = new LdmlLocaleMapper(factory, specialFactory, supplementalDataInfo);
-        int same = 0, different = 0;
-        for (String locale : factory.getAvailable()) {
-            IcuData oldData = loadDataFromTextfiles(icuDir, locale);
-            IcuData newData = mapper.fillFromCLDR(locale);
-            StringBuffer messages = new StringBuffer();
-            if (analyseMatches(oldData, newData, messages)) {
-                System.out.println("=== Differences found for " + locale + " ===");
-                System.out.println(messages);
-                different++;
-            } else {
-                same++;
-            }
-        }
-        System.out.println("Check finished with " + different + " different and " + same + " same.");
-    }
-
-    /**
-     * NOTE: unused. can delete?
-     * @param comments
-     * @param output
-     * @throws IOException
-     */
-    private static void writeComments(List<R2<MyTokenizer.Type, String>> comments, Appendable output) throws IOException {
-        for (R2<MyTokenizer.Type, String> entity : comments) {
-            switch (entity.get0()) {
-            case LINE_COMMENT:
-                output.append("// ").append(entity.get1()).append('\n');
-                break;
-            case BLOCK_COMMENT:
-                output.append("/*").append(entity.get1()).append("*/\n");
-                break;
-            }
-        }
-    }
 
     private static IcuData loadDataFromTextfiles(String icuPath, String locale) throws IOException {
         List<Row.R2<MyTokenizer.Type, String>> comments = new ArrayList<Row.R2<MyTokenizer.Type, String>>();
-        IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale, true);
+        IcuData icuData = new IcuData(locale + ".xml", locale, true);
         String filename = icuPath + '/' + locale + ".txt";
         if (new File(filename).exists()) {
             parseRB(filename, icuData, comments);
         } else {
-            for (String dir : With.array("locales", "lang", "region", "curr", "zone")) {
-                String source = icuPath + '/' + dir + '/' + locale + ".txt";
-                parseRB(source, icuData, comments);
-            }
+            throw new FileNotFoundException(filename +" does not exist.");
         }
         return icuData;
     }
@@ -181,8 +130,13 @@ public class RBChecker {
         Set<String> common = new TreeSet<String>(oldData.keySet());
         common.retainAll(newData.keySet());
         for (String rbPath : common) {
+            if (rbPath.startsWith("/Version")) continue; // skip version
             List<String[]> oldValues = oldData.get(rbPath);
             List<String[]> newValues = newData.get(rbPath);
+            if (shouldSort) {
+                Collections.sort(oldValues, comparator);
+                Collections.sort(newValues, comparator);
+            }
             // Print out any value differences.
             if (valuesDiffer(oldValues, newValues)) {
                 buffer.append(rbPath + " contains differences:\n");
@@ -220,8 +174,12 @@ public class RBChecker {
         buffer.append('\n');
     }
     
+    /**
+     * @param oldValues
+     * @param newValues
+     * @return true if the contents of the lists are identical
+     */
     private static boolean valuesDiffer(List<String[]> oldValues, List<String[]> newValues) {
-        // TODO: handle arrays with multiple values.
         if (oldValues.size() != newValues.size()) return true;
         boolean differ = false;
         for (int i=0; i < oldValues.size(); i++) {
@@ -262,6 +220,7 @@ public class RBChecker {
         MyTokenizer tokenIterator = new MyTokenizer(in);
         StringBuffer tokenText = new StringBuffer();
         List<String> oldPaths = new ArrayList<String>();
+        List<Integer> indices = new ArrayList<Integer>();
         String lastLabel = null;
         String path = "";
         /*
@@ -278,7 +237,7 @@ public class RBChecker {
          */
         MyTokenizer.Type lastToken = null;
         List<String> arrayValues = null;
-        main: while (true) {
+        while (true) {
             MyTokenizer.Type nextToken = tokenIterator.next(tokenText);
             if (DEBUG)
                 System.out.println(nextToken + "\t" + tokenText);
@@ -293,9 +252,10 @@ public class RBChecker {
                 if (oldPaths.size() != 0) {
                     throw new IllegalArgumentException("missing }");
                 }
-                break main;
+                in.close();
+                return;
             case ID:
-                lastLabel = lastLabel == null ? tokenText.toString() : lastLabel + tokenText;
+                lastLabel = lastLabel == null ? tokenText.toString() : lastLabel + " " + tokenText;
                 break;
             case QUOTED:
                 if (lastLabel == null) {
@@ -306,19 +266,22 @@ public class RBChecker {
                 }
                 break;
             case OPEN_BRACE:
-                if (lastToken == MyTokenizer.Type.OPEN_BRACE) {
-                    throw new IllegalArgumentException("{{");
-                }
                 // Check for array-type values.
-                if(lastToken == MyTokenizer.Type.COMMA || lastToken == MyTokenizer.Type.CLOSE_BRACE) {
+                if(lastToken == MyTokenizer.Type.COMMA) {
                    arrayValues = new ArrayList<String>();
                 } else {
                     oldPaths.add(path);
-                    if (lastLabel.contains(":") && !lastLabel.contains(":int") && !lastLabel.contains(":alias")
+                    indices.add(0);
+                    if (lastToken == MyTokenizer.Type.OPEN_BRACE || lastToken == MyTokenizer.Type.CLOSE_BRACE) {
+                       int currentIndexPos = indices.size() - 2;
+                       int currentIndex = indices.get(currentIndexPos);
+                       lastLabel = "<" + currentIndex + ">";
+                       indices.set(currentIndexPos, currentIndex + 1);
+                    } else if (lastLabel.contains(":") && !lastLabel.contains(":int") && !lastLabel.contains(":alias")
                             || path.endsWith("/relative")) {
                         lastLabel = '"' + lastLabel + '"';
                     }
-                    path = path + "/" + lastLabel;
+                    path += "/" + lastLabel;
                 }
                 lastLabel = null;
                 break;
@@ -327,8 +290,10 @@ public class RBChecker {
                     addPath(path, lastLabel, icuData);
                     lastLabel = null;
                 }
+                
                 if (arrayValues == null) {
                     path = oldPaths.remove(oldPaths.size() - 1);
+                    indices.remove(indices.size() - 1);
                 } else {
                     // Value array closed, add it to the path.
                     String[] array = new String[0];
@@ -356,7 +321,6 @@ public class RBChecker {
             }
             lastToken = nextToken;
         }
-        in.close();
     }
     
     private static void addPath(String path, String value, IcuData icuData) {
@@ -365,14 +329,11 @@ public class RBChecker {
     
     private static void addPath(String path, String[] values, IcuData icuData) {
         path = path.substring(path.indexOf('/', 1));
-        // Hack to stop additional copies of the /Version value from being added.
-        if (path.equals("/Version") && icuData.containsKey(path)) {
-            return;
-        }
         icuData.add(path, values);
     }
 
     /**
+     * Reads in tokens from an ICU data file reader.
      * Replace by updated PatternTokenizer someday
      * @author markdavis
      *
@@ -382,7 +343,7 @@ public class RBChecker {
 
         private final UForwardCharacterIterator source;
         private final UnicodeSet spaceCharacters = new UnicodeSet("[\\u0000\\uFEFF[:pattern_whitespace:]]");
-        private final UnicodeSet idCharacters = new UnicodeSet("[-:%\"'[:xid_continue:]]");
+        private final UnicodeSet idCharacters = new UnicodeSet("[-+.():%\"'[:xid_continue:]]");
         private final UnicodeSet quoteCharacters = new UnicodeSet("[\"']");
 
         private int bufferedChar;
@@ -400,6 +361,7 @@ public class RBChecker {
             while(cp >= 0 && spaceCharacters.contains(cp)) {
                 cp = getCodePoint();
             }
+
             if (cp == -1) {
                 return Type.DONE;
             }

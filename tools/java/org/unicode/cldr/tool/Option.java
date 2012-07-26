@@ -175,13 +175,21 @@ public class Option {
                 // can be of the form -fparam or -f param or --file param
                 boolean isStringOption = arg.startsWith("--");
                 String value = null;
+                Option option;
                 if (isStringOption) {
                     arg = arg.substring(2);
-                } else if (arg.length() > 2) {
-                    value = arg.substring(2);
-                    arg = arg.substring(1,2);
-                } else {
+                    int equalsPos = arg.indexOf('=');
+                    if (equalsPos > -1) {
+                        value = arg.substring(equalsPos + 1);
+                        arg = arg.substring(0, equalsPos);
+                    }
+                    option = stringToValues.get(arg);
+                } else { // starts with single -
+                    if (arg.length() > 2) {
+                        value = arg.substring(2);
+                    }
                     arg = arg.substring(1);
+                    option = charToValues.get(arg.charAt(0));
                 }
                 boolean tookExtraArgument = false;
                 if (value == null) {
@@ -193,11 +201,6 @@ public class Option {
                         ++i;
                         tookExtraArgument = true;
                     }
-                }
-                Character argFlag = arg.charAt(0);
-                Option option = charToValues.get(argFlag);
-                if (option == null) {
-                    option = stringToValues.get(arg);
                 }
                 if (option == null) {
                     ++errorCount;

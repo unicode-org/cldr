@@ -1,4 +1,4 @@
-package org.unicode.cldr.draft;
+package org.unicode.cldr.icu;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 /**
- * Wrapper class for converted ICU data.
+ * Wrapper class for converted ICU data which RB paths to values.
  */
 class IcuData {
     private boolean hasFallback;
@@ -19,10 +19,30 @@ class IcuData {
     private boolean hasSpecial;
     private Map<String, String> enumMap;
 
+    /**
+     * IcuData constructor.
+     * @param sourceFile the source file of the IcuData object, displayed in
+     *      comments in the file
+     * @param name The name of the IcuData object, also used as the name of the
+     *      root node in the output file
+     * @param hasFallback true if the output file has another ICU file as a
+     *      fallback
+     */
     public IcuData(String sourceFile, String name, boolean hasFallback) {
-        this(sourceFile, name, hasFallback, null);
+        this(sourceFile, name, hasFallback, new HashMap<String, String>());
     }
 
+    /**
+     * IcuData constructor.
+     * @param sourceFile the source file of the IcuData object, displayed in
+     *      comments in the file
+     * @param name The name of the IcuData object, also used as the name of the
+     *      root node in the output file
+     * @param hasFallback true if the output file has another ICU file as a
+     *      fallback
+     * @param enumMap a mapping of CLDR string values to their integer values in
+     *      ICU
+     */
     public IcuData(String sourceFile, String name, boolean hasFallback, Map<String, String> enumMap) {
         this.hasFallback = hasFallback;
         this.sourceFile = sourceFile;
@@ -77,8 +97,7 @@ class IcuData {
         if (list == null) {
             rbPathToValues.put(path, list = new ArrayList<String[]>(1));
         }
-        normalizeValues(mightNormalize(path), values);
-        list.add(values);
+        list.add(normalizeValues(path, values));
     }
 
     /**
@@ -99,12 +118,18 @@ class IcuData {
         }
     }
 
-    private void normalizeValues(boolean isInt, String[] values) {
-        if (isInt) {
+    private String[] normalizeValues(String rbPath, String[] values) {
+        if (isIntRbPath(rbPath)) {
+            List<String> normalizedValues = new ArrayList<String>();
             for (int i = 0; i < values.length; i++) {
-                String value = enumMap.get(values[i]);
-                if (value != null) values[i] = value;
+                String curValue = values[i];
+                String enumValue = enumMap.get(curValue);
+                if (enumValue != null) curValue = enumValue;
+                normalizedValues.add(curValue);
             }
+            return normalizedValues.toArray(values);
+        } else {
+            return values;
         }
     }
 
@@ -125,6 +150,10 @@ class IcuData {
         return rbPathToValues.keySet();
     }
     
+    public int size() {
+        return rbPathToValues.size();
+    }
+
     public boolean containsKey(String key) {
         return rbPathToValues.containsKey(key);
     }
@@ -133,11 +162,11 @@ class IcuData {
         return rbPathToValues.get(path);
     }
 
+    /**
+     * @param rbPath
+     * @return true if the rbPath is for integer values.
+     */
     public static boolean isIntRbPath(String rbPath) {
         return rbPath.endsWith(":int") || rbPath.endsWith(":intvector");
-    }
-
-    private boolean mightNormalize(String rbPath) {
-        return enumMap != null && isIntRbPath(rbPath);
     }
 }

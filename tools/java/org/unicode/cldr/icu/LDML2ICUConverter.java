@@ -96,6 +96,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
     private static final int ASCII_NUMBERS = 16;
     private static final int WINDOWSZONES_ONLY = 17;
     private static final int BCP47_KEY_TYPE = 18;
+    private static final int OVERRIDE_DEPRECATED = 19;
 
     private static final UOption[] options = new UOption[] {
         UOption.HELP_H(),
@@ -117,6 +118,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         UOption.create("ascii-numbers", 'a', UOption.NO_ARG),
         UOption.create("windowszones-only", 'i', UOption.NO_ARG),
         UOption.create("bcp47-keytype", 'k', UOption.REQUIRES_ARG),
+        UOption.create("override", 'o', UOption.NO_ARG),
     };
 
     private String sourceDir;
@@ -325,7 +327,10 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDir);
         }
 
-        if (options[SUPPLEMENTALONLY].doesOccur) {
+        boolean override = options[OVERRIDE_DEPRECATED].doesOccur;
+        UOption curOption;
+        if ((curOption = options[SUPPLEMENTALONLY]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             // TODO(dougfelt): this assumes there is no data in list before this point. check.
             // addToXPathList(supplementalDoc);
             setXPathList(makeXPathList(supplementalDoc));
@@ -340,17 +345,23 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             if (res != null && ((ResourceTable) res).first != null) {
                 writer.writeResource(res, supplementalDataFile);
             }
-        } else if (options[METADATA_ONLY].doesOccur) {
+        } else if ((curOption = options[METADATA_ONLY]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             new SupplementalMetadataConverter(log, supplementalMetadataFile, supplementalDir).convert(writer);
-        } else if (options[METAZONES_ONLY].doesOccur) {
+        } else if ((curOption = options[METAZONES_ONLY]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             new MetaZonesConverter(log, metaZonesFile, supplementalDir).convert(writer);
-        } else if (options[WINDOWSZONES_ONLY].doesOccur) {
+        } else if ((curOption = options[WINDOWSZONES_ONLY]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             new WindowsZonesConverter(log, windowsZonesFile, supplementalDir).convert(writer);
-        } else if (options[LIKELYSUBTAGS_ONLY].doesOccur) {
+        } else if ((curOption = options[LIKELYSUBTAGS_ONLY]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             new LikelySubtagsConverter(log, likelySubtagsFile, supplementalDir).convert(writer);
-        } else if (options[PLURALS_ONLY].doesOccur) {
+        } else if ((curOption = options[PLURALS_ONLY]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             new PluralsConverter(log, pluralsFile, supplementalDir).convert(writer);
-        } else if (options[NUMBERS_ONLY].doesOccur) {
+        } else if ((curOption = options[NUMBERS_ONLY]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             new NumberingSystemsConverter(log, numberingSystemsFile, supplementalDir).convert(writer);
         } else if (options[BCP47_KEY_TYPE].doesOccur) {
             if (remainingArgc > 0) {
@@ -370,6 +381,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             String[] externalized = new String[] { "timezone" };
             new KeyTypeDataConverter(log, dirstr, externalized).convert(writer);
         } else {
+            System.err.println("WARNING: generation of locale data is performed by NewLdml2IcuConverter now. " +
+                "This option should only be used to generate data not from common/main!");
             spinUpFactories(sourceDir, specialsDir);
             if (getLocalesMap() != null && getLocalesMap().size() > 0) {
                 for (Iterator<String> iter = getLocalesMap().keySet().iterator(); iter.hasNext();) {
@@ -398,6 +411,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             } else {
                 log.error("No files specified !");
             }
+        }
+    }
+
+    /**
+     * Shows an error that the specified option has been deprecated
+     * @param option
+     * @param useOverride true if the conversion should proceed anyway
+     */
+    private void showDeprecatedError(String option, boolean useOverride) {
+        if (useOverride) {
+            System.err.println("Warning: usage of --" + option + " is deprecated. Use NewLdml2ICuConverter instead.");
+        } else {
+            throw new UnsupportedOperationException(
+                "Usage of --" + option + " is deprecated, use NewLdml2IcuConverter instead." +
+                " To force this option to run anyway, use the argument --override (-o).");
         }
     }
 

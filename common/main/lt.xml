@@ -1839,6 +1839,9 @@
 				<exemplarCity>Librevilis</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight>Britanijos vasaros laikas</daylight>
+				</long>
 				<exemplarCity>Londonas</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
@@ -1896,6 +1899,9 @@
 				<exemplarCity>Džajapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
+				<long>
+					<daylight>Airijos vasaros laikas</daylight>
+				</long>
 				<exemplarCity>Dublinas</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
@@ -2368,9 +2374,9 @@
 			</metazone>
 			<metazone type="Almaty">
 				<long>
-					<generic>Almaty laikas</generic>
-					<standard>Almaty žiemos laikas</standard>
-					<daylight>Almaty vasaros laikas</daylight>
+					<generic>Almatos laikas</generic>
+					<standard>Almatos žiemos laikas</standard>
+					<daylight>Almatos vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -2417,16 +2423,21 @@
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
-					<generic>Aqtau laikas</generic>
-					<standard>Aqtau žiemos laikas</standard>
-					<daylight>Aqtau vasaros laikas</daylight>
+					<generic>Aktau laikas</generic>
+					<standard>Aktau žiemos laikas</standard>
+					<daylight>Aktau vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
-					<generic>Aqtobe laikas</generic>
-					<standard>Aqtobe žiemos laikas</standard>
-					<daylight>Aqtobe vasaros laikas</daylight>
+					<generic>Aktobės laikas</generic>
+					<standard>Aktobės žiemos laikas</standard>
+					<daylight>Aktobės vasaros laikas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<standard>Arabijos žiemos laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
@@ -2481,7 +2492,7 @@
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>Rytų Australijos laikas</generic>
-					<standard>Centrinės rytų Australijos žiemos laikas</standard>
+					<standard>Rytų Australijos žiemos laikas</standard>
 					<daylight>Rytų Australijos vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -2502,7 +2513,7 @@
 			<metazone type="Azores">
 				<long>
 					<generic>Azorų salų laikas</generic>
-					<standard>Azorų salų žiemos laikas</standard>
+					<standard>Azorų Salų žiemos laikas</standard>
 					<daylight>Azorų salų vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -2559,13 +2570,13 @@
 			<metazone type="Cape_Verde">
 				<long>
 					<generic>Verde iškyšulio laikas</generic>
-					<standard>Verde iškyšulio žiemos laikas</standard>
+					<standard>Žaliojo Kyšulio žiemos laikas</standard>
 					<daylight>Verde iškyšulio vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<standard>Chamorro laikas</standard>
+					<standard>Čamoro laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Changbai">
@@ -2576,7 +2587,7 @@
 			<metazone type="Chatham">
 				<long>
 					<generic>Chatham laikas</generic>
-					<standard>Chatham žiemos laikas</standard>
+					<standard>Čatamo žiemos laikas</standard>
 					<daylight>Chatham vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -2597,8 +2608,8 @@
 			<metazone type="Choibalsan">
 				<long>
 					<generic>Čoibalsano laikas</generic>
-					<standard>Choibalsan žiemos laikas</standard>
-					<daylight>Choibalsan vasaros laikas</daylight>
+					<standard>Čoibalsano žiemos laikas</standard>
+					<daylight>Čoibalsano vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -2621,7 +2632,7 @@
 			<metazone type="Cook">
 				<long>
 					<generic>Kuko salų pusės laikas</generic>
-					<standard>Kuko salų pusės žiemos laikas</standard>
+					<standard>Kuko Salų žiemos laikas</standard>
 					<daylight>Kuko salų pusės vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -2657,7 +2668,7 @@
 			<metazone type="Easter">
 				<long>
 					<generic>Velykų salos laikas</generic>
-					<standard>Velykų salos žiemos laikas</standard>
+					<standard>Velykų Salos žiemos laikas</standard>
 					<daylight>Velykų salos vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -2690,7 +2701,7 @@
 			<metazone type="Falkland">
 				<long>
 					<generic>Folklandų salų laikas</generic>
-					<standard>Folklandų salų žiemos laikas</standard>
+					<standard>Folklando Salų žiemos laikas</standard>
 					<daylight>Folklandų salų vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -2708,7 +2719,7 @@
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard>Pietų Prancūzijos ir Antarktinis Laikas</standard>
+					<standard>Pietų Prancūzijos ir Antarktinis laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Frunze">
@@ -2797,6 +2808,11 @@
 					<daylight>Hovd vasaros laikas</daylight>
 				</long>
 			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>Indijos laikas</standard>
+				</long>
+			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
 					<standard>Indijos vandenyno laikas</standard>
@@ -2879,15 +2895,15 @@
 			</metazone>
 			<metazone type="Kizilorda">
 				<long>
-					<generic>Kizilorda laikas</generic>
-					<standard>Kizilorda žiemos laikas</standard>
-					<daylight>Kizilorda vasaros laikas</daylight>
+					<generic>Kizilordos laikas</generic>
+					<standard>Kizilordos žiemos laikas</standard>
+					<daylight>Kizilordos vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
 					<generic>Korėjiečių laikas</generic>
-					<standard>Korėjiečių žiemos laikas</standard>
+					<standard>Korėjos žiemos laikas</standard>
 					<daylight>Korėjiečių vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -2912,7 +2928,7 @@
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
-					<standard>Kwajalein laikas</standard>
+					<standard>Maršalo Salos laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Kyrgystan">
@@ -2922,7 +2938,7 @@
 			</metazone>
 			<metazone type="Lanka">
 				<long>
-					<standard>Lanka laikas</standard>
+					<standard>Lankos laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Line_Islands">
@@ -2937,16 +2953,16 @@
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
-					<generic>Lord Howe laikas</generic>
-					<standard>Lord Howe žiemos laikas</standard>
-					<daylight>Lord Howe vasaros laikas</daylight>
+					<generic>Lordo Hau laikas</generic>
+					<standard>Lordo Hau žiemos laikas</standard>
+					<daylight>Lordo Hau vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macau">
 				<long>
-					<generic>Macau laikas</generic>
-					<standard>Macau žiemos laikas</standard>
-					<daylight>Macau vasaros laikas</daylight>
+					<generic>Makau laikas</generic>
+					<standard>Makau žiemos laikas</standard>
+					<daylight>Makau vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -3062,7 +3078,7 @@
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
-					<standard>Šiaurės Marianos salų laikas</standard>
+					<standard>Šiaurės Marianos Salų laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -3134,9 +3150,9 @@
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
-					<generic>Qyzylorda laikas</generic>
-					<standard>Qyzylorda žiemos laikas</standard>
-					<daylight>Qyzylorda vasaros laikas</daylight>
+					<generic>Kyzylordos laikas</generic>
+					<standard>Kyzylordos žiemos laikas</standard>
+					<daylight>Kyzylordos vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -3167,7 +3183,7 @@
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<standard>Samoa žiemos laikas</standard>
+					<standard>Samoa laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -3184,7 +3200,7 @@
 			</metazone>
 			<metazone type="Singapore">
 				<long>
-					<standard>Singapūro žiemos laikas</standard>
+					<standard>Singapūro laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
@@ -3262,7 +3278,7 @@
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Turkmenistano laikas</generic>
-					<standard>Turkmenistano žiemos laikas</standard>
+					<standard>Turkmėnistano žiemos laikas</standard>
 					<daylight>Turkmenistano vasaros laikas</daylight>
 				</long>
 			</metazone>
@@ -3273,9 +3289,9 @@
 			</metazone>
 			<metazone type="Uralsk">
 				<long>
-					<generic>Ural'sk laikas</generic>
-					<standard>Ural'sk žiemos laikas</standard>
-					<daylight>Ural'sk vasaros laikas</daylight>
+					<generic>Uralsko laikas</generic>
+					<standard>Uralsko žiemos laikas</standard>
+					<daylight>Uralsko vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
@@ -3287,7 +3303,7 @@
 			</metazone>
 			<metazone type="Urumqi">
 				<long>
-					<standard>Urumqi laikas</standard>
+					<standard>Urumčio laikas</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -3370,36 +3386,105 @@
 			<infinity>∞</infinity>
 			<nan>¤¤¤</nan>
 		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="few">0.0 K</pattern>
+					<pattern type="1000" count="one">0.0 K</pattern>
+					<pattern type="1000" count="other">0.0 K</pattern>
+					<pattern type="10000" count="few">00 K</pattern>
+					<pattern type="10000" count="one">00 K</pattern>
+					<pattern type="10000" count="other">00 K</pattern>
+					<pattern type="100000" count="few">000 K</pattern>
+					<pattern type="100000" count="one">000 K</pattern>
+					<pattern type="100000" count="other">000 K</pattern>
+					<pattern type="1000000" count="few">0.0 M</pattern>
+					<pattern type="1000000" count="one">0.0 M</pattern>
+					<pattern type="1000000" count="other">0.0 M</pattern>
+					<pattern type="10000000" count="few">00 M</pattern>
+					<pattern type="10000000" count="one">00 M</pattern>
+					<pattern type="10000000" count="other">00 M</pattern>
+					<pattern type="100000000" count="few">000 M</pattern>
+					<pattern type="100000000" count="one">000 M</pattern>
+					<pattern type="100000000" count="other">000 M</pattern>
+					<pattern type="1000000000" count="few">0.0 G</pattern>
+					<pattern type="1000000000" count="one">0.0 G</pattern>
+					<pattern type="1000000000" count="other">0.0 G</pattern>
+					<pattern type="10000000000" count="few">00 G</pattern>
+					<pattern type="10000000000" count="one">00 G</pattern>
+					<pattern type="10000000000" count="other">00 G</pattern>
+					<pattern type="100000000000" count="few">000 G</pattern>
+					<pattern type="100000000000" count="one">000 G</pattern>
+					<pattern type="100000000000" count="other">000 G</pattern>
+					<pattern type="1000000000000" count="few">0.0 T</pattern>
+					<pattern type="1000000000000" count="one">0.0 T</pattern>
+					<pattern type="1000000000000" count="other">0.0 T</pattern>
+					<pattern type="10000000000000" count="few">00 T</pattern>
+					<pattern type="10000000000000" count="one">00 T</pattern>
+					<pattern type="10000000000000" count="other">00 T</pattern>
+					<pattern type="100000000000000" count="few">000 T</pattern>
+					<pattern type="100000000000000" count="one">000 T</pattern>
+					<pattern type="100000000000000" count="other">000 T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="10000" count="other">00 tūkstančių</pattern>
+					<pattern type="100000" count="other">000 tūkstančių</pattern>
+					<pattern type="1000000" count="other">0.0 milijonų</pattern>
+					<pattern type="10000000" count="other">00 milijonų</pattern>
+					<pattern type="100000000" count="other">000 milijonų</pattern>
+					<pattern type="1000000000" count="other">0.0 milijardų</pattern>
+					<pattern type="10000000000" count="other">00 milijardų</pattern>
+					<pattern type="100000000000" count="other">000 milijardų</pattern>
+					<pattern type="1000000000000" count="other">0.0 trilijonų</pattern>
+					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
+					<pattern type="100000000000000" count="other">000 trilijonų</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" count="few">0.0 K</pattern>
 					<pattern type="1000" count="one" draft="contributed">0.0 K</pattern>
 					<pattern type="1000" count="other" draft="contributed">0.0 K</pattern>
+					<pattern type="10000" count="few">00 K</pattern>
 					<pattern type="10000" count="one" draft="contributed">00 K</pattern>
 					<pattern type="10000" count="other" draft="contributed">00 K</pattern>
+					<pattern type="100000" count="few">000 K</pattern>
 					<pattern type="100000" count="one" draft="contributed">000 K</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 K</pattern>
+					<pattern type="100000" count="other">000 K</pattern>
+					<pattern type="1000000" count="few">0.0 M</pattern>
 					<pattern type="1000000" count="one" draft="contributed">0.0 M</pattern>
 					<pattern type="1000000" count="other" draft="contributed">0.0 M</pattern>
+					<pattern type="10000000" count="few">00 M</pattern>
 					<pattern type="10000000" count="one" draft="contributed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="contributed">00 M</pattern>
+					<pattern type="100000000" count="few">000 M</pattern>
 					<pattern type="100000000" count="one" draft="contributed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="contributed">000 M</pattern>
+					<pattern type="1000000000" count="few">0.0 G</pattern>
 					<pattern type="1000000000" count="one" draft="contributed">0.0 G</pattern>
 					<pattern type="1000000000" count="other" draft="contributed">0.0 G</pattern>
+					<pattern type="10000000000" count="few">00 G</pattern>
 					<pattern type="10000000000" count="one" draft="contributed">00 G</pattern>
 					<pattern type="10000000000" count="other" draft="contributed">00 G</pattern>
+					<pattern type="100000000000" count="few">000 G</pattern>
 					<pattern type="100000000000" count="one" draft="contributed">000 G</pattern>
 					<pattern type="100000000000" count="other" draft="contributed">000 G</pattern>
+					<pattern type="1000000000000" count="few">0.0 T</pattern>
 					<pattern type="1000000000000" count="one" draft="contributed">0.0 T</pattern>
 					<pattern type="1000000000000" count="other" draft="contributed">0.0 T</pattern>
+					<pattern type="10000000000000" count="few">00 T</pattern>
 					<pattern type="10000000000000" count="one" draft="contributed">00 T</pattern>
 					<pattern type="10000000000000" count="other" draft="contributed">00 T</pattern>
+					<pattern type="100000000000000" count="few">000 T</pattern>
 					<pattern type="100000000000000" count="one" draft="contributed">000 T</pattern>
 					<pattern type="100000000000000" count="other" draft="contributed">000 T</pattern>
 				</decimalFormat>
@@ -5350,4 +5435,3 @@
 		</messages>
 	</posix>
 </ldml>
-

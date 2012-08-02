@@ -60,7 +60,7 @@
 			<language type="bem">Bemba</language>
 			<language type="ber">Rumpun Bahasa Berber</language>
 			<language type="bez">Bena</language>
-			<language type="bg">Bulgaria</language>
+			<language type="bg">Bulgar</language>
 			<language type="bh">Bihari</language>
 			<language type="bho">Bhojpur</language>
 			<language type="bi">Bislama</language>
@@ -157,7 +157,7 @@
 			<language type="fat">Fanti</language>
 			<language type="ff">Fulah</language>
 			<language type="fi">Suomi</language>
-			<language type="fil">Filipina</language>
+			<language type="fil">Filipino</language>
 			<language type="fiu">Rumpun Bahasa Finno-Ugrik</language>
 			<language type="fj">Fiji</language>
 			<language type="fo">Faro</language>
@@ -283,14 +283,14 @@
 			<language type="lo">Lao</language>
 			<language type="lol">Mongo</language>
 			<language type="loz">Lozi</language>
-			<language type="lt">Lithuania</language>
+			<language type="lt">Lituavi</language>
 			<language type="lu">Luba-Katanga</language>
 			<language type="lua">Luba-Lulua</language>
 			<language type="lui">Luiseno</language>
 			<language type="lun">Lunda</language>
 			<language type="luo">Luo</language>
 			<language type="lus">Lushai</language>
-			<language type="lv">Latvia</language>
+			<language type="lv">Latvi</language>
 			<language type="mad">Madura</language>
 			<language type="mag">Magahi</language>
 			<language type="mai">Maithili</language>
@@ -378,7 +378,7 @@
 			<language type="phi">Rumpun Bahasa Filipina</language>
 			<language type="phn">Funisia</language>
 			<language type="pi">Pali</language>
-			<language type="pl">Polandia</language>
+			<language type="pl">Polski</language>
 			<language type="pon">Pohnpeia</language>
 			<language type="pra">Rumpun Bahasa Prakrit</language>
 			<language type="pro">Provençal Lama</language>
@@ -517,9 +517,9 @@
 			<language type="za">Zhuang</language>
 			<language type="zap">Zapotek</language>
 			<language type="zen">Zenaga</language>
-			<language type="zh">Mandarin</language>
-			<language type="zh_Hans">Mandarin (aksara sederhana)</language>
-			<language type="zh_Hant">Mandarin (aksara tradisional)</language>
+			<language type="zh">China</language>
+			<language type="zh_Hans">China (Aksara Sederhana)</language>
+			<language type="zh_Hant">China (Aksara Tradisional)</language>
 			<language type="znd">Zande</language>
 			<language type="zu">Zulu</language>
 			<language type="zun">Zuni</language>
@@ -921,7 +921,7 @@
 			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM">Kepulauan Kecil Terluar Amerika Serikat</territory>
+			<territory type="UM">Kepulauan Terluar A.S.</territory>
 			<territory type="US">Amerika Serikat</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistan</territory>
@@ -1112,12 +1112,18 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="hm">h.mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
+						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="Md">d-M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="yM">M/y G</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d/M/y G</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
@@ -1283,39 +1289,41 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>H:mm:ss zzzz</pattern>
+							<pattern>HH.mm.ss zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
+							<pattern>HH.mm.ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
+							<pattern>HH.mm.ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
+							<pattern>HH.mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="hm" draft="unconfirmed">h.mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">HH.mm</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">h.mm.ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h.mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
+						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="unconfirmed">mm.ss</dateFormatItem>
+						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
@@ -1327,32 +1335,32 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="unconfirmed">h a – h a</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">h–h a</greatestDifference>
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="unconfirmed">h.mm a – h.mm a</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">h.mm–h.mm a</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">h.mm–h.mm a</greatestDifference>
+							<greatestDifference id="a">h.mm a – h.mm a</greatestDifference>
+							<greatestDifference id="h">h.mm–h.mm a</greatestDifference>
+							<greatestDifference id="m">h.mm–h.mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="unconfirmed">HH.mm–HH.mm</greatestDifference>
-							<greatestDifference id="H" draft="unconfirmed">HH.mm–HH.mm</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH.mm–HH.mm</greatestDifference>
+							<greatestDifference id="a">HH.mm–HH.mm</greatestDifference>
+							<greatestDifference id="H">HH.mm–HH.mm</greatestDifference>
+							<greatestDifference id="m">HH.mm–HH.mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="unconfirmed">h.mm a – h.mm a v</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">h.mm–h.mm a v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">h.mm–h.mm a v</greatestDifference>
+							<greatestDifference id="a">h.mm a – h.mm a v</greatestDifference>
+							<greatestDifference id="h">h.mm–h.mm a v</greatestDifference>
+							<greatestDifference id="m">h.mm–h.mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="unconfirmed">HH.mm–HH.mm v</greatestDifference>
-							<greatestDifference id="H" draft="unconfirmed">HH.mm–HH.mm v</greatestDifference>
-							<greatestDifference id="m" draft="unconfirmed">HH.mm–HH.mm v</greatestDifference>
+							<greatestDifference id="a">HH.mm–HH.mm v</greatestDifference>
+							<greatestDifference id="H">HH.mm–HH.mm v</greatestDifference>
+							<greatestDifference id="m">HH.mm–HH.mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="unconfirmed">h – h a v</greatestDifference>
-							<greatestDifference id="h" draft="unconfirmed">h–h a v</greatestDifference>
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d/M – d/M</greatestDifference>
@@ -1505,12 +1513,17 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="hm">h.mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
+						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="Md">d-M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
@@ -1549,12 +1562,18 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="hm">h.mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
+						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="Md">d-M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E, d/M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
@@ -1594,12 +1613,18 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="hm">h.mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
+						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
 						<dateFormatItem id="Md">d-M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E, d/M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
@@ -1610,7 +1635,7 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<hourFormat>+HH.mm;-HH.mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>Waktu {0}</regionFormat>
 			<fallbackRegionFormat>Waktu {1} ({0})</fallbackRegionFormat>
@@ -3074,4 +3099,3 @@
 		</messages>
 	</posix>
 </ldml>
-

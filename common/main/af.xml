@@ -720,7 +720,18 @@
 							<month type="12">D</month>
 						</monthWidth>
 						<monthWidth type="wide">
+							<month type="1">Januarie</month>
+							<month type="2">Februarie</month>
+							<month type="3">Maart</month>
 							<month type="4">April</month>
+							<month type="5">Mei</month>
+							<month type="6">Junie</month>
+							<month type="7">Julie</month>
+							<month type="8">Augustus</month>
+							<month type="9">September</month>
+							<month type="10">Oktober</month>
+							<month type="11">November</month>
+							<month type="12">Desember</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1053,7 +1064,7 @@
 			<metazone type="Amazon">
 				<long>
 					<generic>Amasone-tyd</generic>
-					<standard>Amasone-tyd</standard>
+					<standard>Amasone-standaardtyd</standard>
 					<daylight>Amasone-somertyd</daylight>
 				</long>
 			</metazone>
@@ -1088,21 +1099,21 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic>Anadyr-tyd</generic>
-					<standard>Anadyr-tyd</standard>
+					<standard>Anadyr-standaardtyd</standard>
 					<daylight>Anadyr-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>Argentinië-tyd</generic>
-					<standard>Argentinië-tyd</standard>
+					<standard>Argentinië-standaardtyd</standard>
 					<daylight>Argentinië-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>Argentinië Westelike tyd</generic>
-					<standard>Westelike Argentinië-tyd</standard>
+					<standard>Argentinië Westelike standaardtyd</standard>
 					<daylight>Argentinië Westelike somertyd</daylight>
 				</long>
 			</metazone>
@@ -1144,14 +1155,14 @@
 			<metazone type="Brasilia">
 				<long>
 					<generic>Brasilië-tyd</generic>
-					<standard>Brasilië-tyd</standard>
+					<standard>Brasilië-standaardtyd</standard>
 					<daylight>Brasilië somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic>Choibalsan-tyd</generic>
-					<standard>Choibalsan-tyd</standard>
+					<standard>Choibalsan-standaardtyd</standard>
 					<daylight>Choibalsan-somertyd</daylight>
 				</long>
 			</metazone>
@@ -1165,7 +1176,7 @@
 			<metazone type="Hovd">
 				<long>
 					<generic>Hovd-tyd</generic>
-					<standard>Hovd-tyd</standard>
+					<standard>Hovd-standaardtyd</standard>
 					<daylight>Hovd-somertyd</daylight>
 				</long>
 			</metazone>
@@ -1187,14 +1198,14 @@
 			<metazone type="Irkutsk">
 				<long>
 					<generic>Irkutsk-tyd</generic>
-					<standard>Irkutsk-tyd</standard>
+					<standard>Irkutsk-standaardtyd</standard>
 					<daylight>Irkutsk-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>Kamchatka-tyd</generic>
-					<standard>Petropavlovsk-Kamchatski-tyd</standard>
+					<generic>Petropavlovsk-Kamchatski-tyd</generic>
+					<standard>Petropavlovsk-Kamchatski-standaardtyd</standard>
 					<daylight>Petropavlovsk-Kamchatski-somertyd</daylight>
 				</long>
 			</metazone>
@@ -1210,9 +1221,9 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic>Krasnoyarsk-tyd</generic>
-					<standard>Krasnoyarsk-tyd</standard>
-					<daylight>Krasnoyarsk-somertyd</daylight>
+					<generic>Krasnojarsk-tyd</generic>
+					<standard>Krasnojarsk-standaardtyd</standard>
+					<daylight>Krasnojarsk-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -1230,7 +1241,7 @@
 			<metazone type="Magadan">
 				<long>
 					<generic>Magadan-tyd</generic>
-					<standard>Magadan-tyd</standard>
+					<standard>Magadan-standaardtyd</standard>
 					<daylight>Magadan-somertyd</daylight>
 				</long>
 			</metazone>
@@ -1257,70 +1268,71 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>Noronha-tyd</generic>
-					<standard>Fernando de Noronha-tyd</standard>
+					<generic>Fernando de Noronha-tyd</generic>
+					<standard>Fernando de Noronha-standaardtyd</standard>
 					<daylight>Fernando de Noronha-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsk-tyd</generic>
-					<standard>Novosibirsk-tyd</standard>
+					<standard>Novosibirsk-standaardtyd</standard>
 					<daylight>Novosibirsk-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic>Omsk-tyd</generic>
-					<standard>Omsk-tyd</standard>
+					<standard>Omsk-standaardtyd</standard>
 					<daylight>Omsk-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic>Sakhalin-tyd</generic>
-					<standard>Sakhalin-tyd</standard>
+					<standard>Sakhalin-standaardtyd</standard>
 					<daylight>Sakhalin-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic>Samara-tyd</generic>
-					<standard>Samara-tyd</standard>
+					<standard>Samara-standaardtyd</standard>
 					<daylight>Samara-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic>Vladivostok-tyd</generic>
-					<standard>Vladivostok-tyd</standard>
+					<standard>Vladivostok-standaardtyd</standard>
 					<daylight>Vladivostok-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic>Volgograd-tyd</generic>
-					<standard>Volgograd-tyd</standard>
+					<standard>Volgograd-standaardtyd</standard>
 					<daylight>Volgograd-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic>Yakutsk-tyd</generic>
-					<standard>Yakutsk-tyd</standard>
-					<daylight>Yakutsk-somertyd</daylight>
+					<generic>Jakoetsk-tyd</generic>
+					<standard>Jakoetsk-standaardtyd</standard>
+					<daylight>Jakoetsk-somertyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic>Yekaterinburg-tyd</generic>
-					<standard>Yekaterinburg-tyd</standard>
-					<daylight>Yekaterinburg-somertyd</daylight>
+					<generic>Jekaterinburg-tyd</generic>
+					<standard>Jekaterinburg-standaardtyd</standard>
+					<daylight>Jekaterinburg-somertyd</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem>latn</defaultNumberingSystem>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
@@ -1339,26 +1351,48 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="10000" count="one">00 duisend</pattern>
+					<pattern type="10000" count="other">00 duisend</pattern>
+					<pattern type="100000" count="one">000 duisend</pattern>
+					<pattern type="100000" count="other">000 duisend</pattern>
+					<pattern type="1000000" count="one">0.0 miljoen</pattern>
+					<pattern type="1000000" count="other">0.0 miljoen</pattern>
+					<pattern type="10000000" count="one">00 miljoen</pattern>
+					<pattern type="10000000" count="other">00 miljoen</pattern>
+					<pattern type="100000000" count="one">000 miljoen</pattern>
+					<pattern type="100000000" count="other">000 miljoen</pattern>
+					<pattern type="1000000000" count="one">0.0 miljard</pattern>
+					<pattern type="1000000000" count="other">0.0 miljard</pattern>
+					<pattern type="10000000000" count="one">00 miljard</pattern>
+					<pattern type="10000000000" count="other">00 miljard</pattern>
+					<pattern type="100000000000" count="one">000 miljard</pattern>
+					<pattern type="100000000000" count="other">000 miljard</pattern>
+					<pattern type="1000000000000" count="one">0.0 triljoen</pattern>
+					<pattern type="1000000000000" count="other">0.0 triljoen</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0000</pattern>
-					<pattern type="1000" count="other" draft="contributed">0000</pattern>
-					<pattern type="10000" count="one" draft="contributed">00000</pattern>
-					<pattern type="10000" count="other" draft="contributed">00000</pattern>
-					<pattern type="100000" count="one" draft="contributed">000000</pattern>
-					<pattern type="100000" count="other" draft="contributed">000000</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0 mil</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0 mil</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00 mil</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 mil</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000 mil</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 mil</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0 mjd</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0 mjd</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00 mjd</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 mjd</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000 mjd</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 mjd</pattern>
+					<pattern type="1000" count="one">0000</pattern>
+					<pattern type="1000" count="other">0000</pattern>
+					<pattern type="10000" count="one">00000</pattern>
+					<pattern type="10000" count="other">00000</pattern>
+					<pattern type="100000" count="one">000000</pattern>
+					<pattern type="100000" count="other">000000</pattern>
+					<pattern type="1000000" count="one">0.0 mil</pattern>
+					<pattern type="1000000" count="other">0.0 mil</pattern>
+					<pattern type="10000000" count="one">00 mil</pattern>
+					<pattern type="10000000" count="other">00 mil</pattern>
+					<pattern type="100000000" count="one">000 mil</pattern>
+					<pattern type="100000000" count="other">000 mil</pattern>
+					<pattern type="1000000000" count="one">0.0 mjd</pattern>
+					<pattern type="1000000000" count="other">0.0 mjd</pattern>
+					<pattern type="10000000000" count="one">00 mjd</pattern>
+					<pattern type="10000000000" count="other">00 mjd</pattern>
+					<pattern type="100000000000" count="one">000 mjd</pattern>
+					<pattern type="100000000000" count="other">000 mjd</pattern>
 					<pattern type="1000000000000" count="one" draft="contributed">0.0 bil</pattern>
 					<pattern type="1000000000000" count="other" draft="contributed">0.0 bil</pattern>
 					<pattern type="10000000000000" count="one" draft="contributed">00 bil</pattern>
@@ -1385,7 +1419,7 @@
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#,##0.00</pattern>
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -1907,7 +1941,7 @@
 			<unitPattern count="0" alt="short">0 uur</unitPattern>
 			<unitPattern count="1">1 uur</unitPattern>
 			<unitPattern count="1" alt="short">1 uur</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} uur</unitPattern>
+			<unitPattern count="one">{0} uur</unitPattern>
 			<unitPattern count="other">{0} uur</unitPattern>
 			<unitPattern count="other" alt="short">{0} uur</unitPattern>
 		</unit>
@@ -1926,7 +1960,7 @@
 			<unitPattern count="0" alt="short">0 min</unitPattern>
 			<unitPattern count="1">1 minuut</unitPattern>
 			<unitPattern count="1" alt="short">1 min</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} minuut</unitPattern>
+			<unitPattern count="one">{0} minuut</unitPattern>
 			<unitPattern count="other">{0} minute</unitPattern>
 			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
@@ -1945,7 +1979,7 @@
 			<unitPattern count="0" alt="short">0 mnde</unitPattern>
 			<unitPattern count="1">1 maand</unitPattern>
 			<unitPattern count="1" alt="short">1 mnd</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} maand</unitPattern>
+			<unitPattern count="one">{0} maand</unitPattern>
 			<unitPattern count="other">{0} maande</unitPattern>
 			<unitPattern count="other" alt="short">{0} mnde</unitPattern>
 		</unit>
@@ -1964,7 +1998,7 @@
 			<unitPattern count="0" alt="short">0 sek</unitPattern>
 			<unitPattern count="1">1 sekonde</unitPattern>
 			<unitPattern count="1" alt="short">1 sek</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} sekonde</unitPattern>
+			<unitPattern count="one">{0} sekonde</unitPattern>
 			<unitPattern count="other">{0} sekondes</unitPattern>
 			<unitPattern count="other" alt="short">{0} sek</unitPattern>
 		</unit>
@@ -2002,7 +2036,7 @@
 			<unitPattern count="0" alt="short">0 jr</unitPattern>
 			<unitPattern count="1">1 jaar</unitPattern>
 			<unitPattern count="1" alt="short">1 jr</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} jaar</unitPattern>
+			<unitPattern count="one">{0} jaar</unitPattern>
 			<unitPattern count="other">{0} jaar</unitPattern>
 			<unitPattern count="other" alt="short">{0} jr</unitPattern>
 		</unit>
@@ -2030,4 +2064,3 @@
 		</messages>
 	</posix>
 </ldml>
-

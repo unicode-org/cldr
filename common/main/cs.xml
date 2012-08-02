@@ -997,9 +997,10 @@
 	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a á b c č d ď e é ě f g h {ch} i í j k l m n ň o ó p q r ř s š t ť u ú ů v w x y ý z ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="contributed">[à â ä ã æ ç è ê ë ì î ï ĺ ñ ò ô ö ø œ ù û ü ÿ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ľ ł ñ ó ò ŏ ô ö ø ō œ ŕ ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" draft="contributed">[a b c č d ď e f g h i j k l m n ň o p q r ř s š t ť u v w x y z ž]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A B C Č D E F G H {CH} I J K L M N O P Q R Ř S Š T U V W X Y Z Ž]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – , ; \: ! ? . … ‘ ‚ “ „ ( ) \[ \] § @ * / \&amp;]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
@@ -2965,6 +2966,11 @@
 					<daylight draft="contributed">Magadanský letní čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard>Malajsijský čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<generic draft="contributed">Ulánbátarský čas</generic>
@@ -4838,4 +4844,3 @@
 		</messages>
 	</posix>
 </ldml>
-

@@ -4415,6 +4415,10 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>latn</native>
+		</otherNumberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
@@ -4433,32 +4437,60 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0.0 mil</pattern>
+					<pattern type="1000" count="other">0.0 mil</pattern>
+					<pattern type="10000" count="one">00 mil</pattern>
+					<pattern type="10000" count="other">00 mil</pattern>
+					<pattern type="100000" count="one">000 mil</pattern>
+					<pattern type="100000" count="other">000 mil</pattern>
+					<pattern type="1000000" count="one">0.0 milhão</pattern>
+					<pattern type="1000000" count="other">0.0 milhões</pattern>
+					<pattern type="10000000" count="one">00 milhão</pattern>
+					<pattern type="10000000" count="other">00 milhões</pattern>
+					<pattern type="100000000" count="one">000 milhão</pattern>
+					<pattern type="100000000" count="other">000 milhões</pattern>
+					<pattern type="1000000000" count="one">0.0 bilhão</pattern>
+					<pattern type="1000000000" count="other">0.0 bilhões</pattern>
+					<pattern type="10000000000" count="one">00 bilhão</pattern>
+					<pattern type="10000000000" count="other">00 bilhões</pattern>
+					<pattern type="100000000000" count="one">000 bilhão</pattern>
+					<pattern type="100000000000" count="other">000 bilhões</pattern>
+					<pattern type="1000000000000" count="one">0.0 trilhão</pattern>
+					<pattern type="1000000000000" count="other">0.0 trilhões</pattern>
+					<pattern type="10000000000000" count="one">00 trilhão</pattern>
+					<pattern type="10000000000000" count="other">00 trilhões</pattern>
+					<pattern type="100000000000000" count="one">000 trilhão</pattern>
+					<pattern type="100000000000000" count="other">000 trilhões</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0.0 mil</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0 mil</pattern>
-					<pattern type="10000" count="one" draft="contributed">00 mil</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 mil</pattern>
-					<pattern type="100000" count="one" draft="contributed">000 mil</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 mil</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0 mi</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0 mi</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00 mi</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 mi</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000 mi</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 mi</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0 bi</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0 bi</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00 bi</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 bi</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000 bi</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 bi</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0 tri</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0 tri</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00 tri</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 tri</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000 tri</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 tri</pattern>
+					<pattern type="1000" count="one">0.0 mil</pattern>
+					<pattern type="1000" count="other">0.0 mil</pattern>
+					<pattern type="10000" count="one">00 mil</pattern>
+					<pattern type="10000" count="other">00 mil</pattern>
+					<pattern type="100000" count="one">000 mil</pattern>
+					<pattern type="100000" count="other">000 mil</pattern>
+					<pattern type="1000000" count="one">0.0 mi</pattern>
+					<pattern type="1000000" count="other">0.0 mi</pattern>
+					<pattern type="10000000" count="one">00 mi</pattern>
+					<pattern type="10000000" count="other">00 mi</pattern>
+					<pattern type="100000000" count="one">000 mi</pattern>
+					<pattern type="100000000" count="other">000 mi</pattern>
+					<pattern type="1000000000" count="one">0.0 bi</pattern>
+					<pattern type="1000000000" count="other">0.0 bi</pattern>
+					<pattern type="10000000000" count="one">00 bi</pattern>
+					<pattern type="10000000000" count="other">00 bi</pattern>
+					<pattern type="100000000000" count="one">000 bi</pattern>
+					<pattern type="100000000000" count="other">000 bi</pattern>
+					<pattern type="1000000000000" count="one">0.0 tri</pattern>
+					<pattern type="1000000000000" count="other">0.0 tri</pattern>
+					<pattern type="10000000000000" count="one">00 tri</pattern>
+					<pattern type="10000000000000" count="other">00 tri</pattern>
+					<pattern type="100000000000000" count="one">000 tri</pattern>
+					<pattern type="100000000000000" count="other">000 tri</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4552,12 +4584,12 @@
 				<displayName count="other">Austrais argentinos</displayName>
 			</currency>
 			<currency type="ARL">
-				<displayName draft="contributed">Peso lei argentino (1970-1983)</displayName>
+				<displayName>Peso lei argentino (1970-1983)</displayName>
 				<displayName count="one" draft="contributed">Peso lei argentino (1970-1983)</displayName>
 				<displayName count="other" draft="contributed">Pesos lei argentinos (1970-1983)</displayName>
 			</currency>
 			<currency type="ARM">
-				<displayName draft="contributed">Peso argentino (1881-1970)</displayName>
+				<displayName>Peso argentino (1881-1970)</displayName>
 				<displayName count="one" draft="contributed">Peso argentino (1881-1970)</displayName>
 				<displayName count="other" draft="contributed">Pesos argentinos (1881-1970)</displayName>
 			</currency>
@@ -4597,7 +4629,7 @@
 				<displayName count="other">Manats do Azeibaijão</displayName>
 			</currency>
 			<currency type="BAD">
-				<displayName>Dinar da Bósnia-Herzegovina</displayName>
+				<displayName>Dinar da Bósnia-Herzegovina (1992-1994)</displayName>
 				<displayName count="one">Dinar da Bósnia Herzegovina</displayName>
 				<displayName count="other">Dinares da Bósnia Herzegovina</displayName>
 			</currency>
@@ -4607,7 +4639,7 @@
 				<displayName count="other">Marcas conversíveis da Bósnia Herzegovina</displayName>
 			</currency>
 			<currency type="BAN">
-				<displayName draft="contributed">Novo dinar da Bósnia-Herzegovina</displayName>
+				<displayName>Novo dinar da Bósnia-Herzegovina (1994-1997)</displayName>
 				<displayName count="one" draft="contributed">Novo dinar da Bósnia-Herzegovina</displayName>
 				<displayName count="other" draft="contributed">Novos dinares da Bósnia-Herzegovina</displayName>
 			</currency>
@@ -4642,7 +4674,7 @@
 				<displayName count="other">Levs fortes búlgaros</displayName>
 			</currency>
 			<currency type="BGM">
-				<displayName draft="contributed">Lev socialista búlgaro</displayName>
+				<displayName>Lev socialista búlgaro</displayName>
 				<displayName count="one" draft="contributed">Lev socialista búlgaro</displayName>
 				<displayName count="other" draft="contributed">Levs socialistas búlgaros</displayName>
 			</currency>
@@ -4652,7 +4684,7 @@
 				<displayName count="other">Levs búlgaros</displayName>
 			</currency>
 			<currency type="BGO">
-				<displayName draft="contributed">Lev búlgaro (1879-1952)</displayName>
+				<displayName>Lev búlgaro (1879-1952)</displayName>
 				<displayName count="one" draft="contributed">Lev búlgaro (1879-1952)</displayName>
 				<displayName count="other" draft="contributed">Levs búlgaros (1879-1952)</displayName>
 			</currency>
@@ -4682,7 +4714,7 @@
 				<displayName count="other">Bolivianos</displayName>
 			</currency>
 			<currency type="BOL">
-				<displayName draft="contributed">Boliviano (1863-1963)</displayName>
+				<displayName>Boliviano (1863-1963)</displayName>
 				<displayName count="one" draft="contributed">Boliviano (1863-1963)</displayName>
 				<displayName count="other" draft="contributed">Bolivianos (1863-1963)</displayName>
 			</currency>
@@ -4702,7 +4734,7 @@
 				<displayName count="other">Cruzeiros novos brasileiros (BRB)</displayName>
 			</currency>
 			<currency type="BRC">
-				<displayName>Cruzado brasileiro</displayName>
+				<displayName>Cruzado brasileiro (1986-1989)</displayName>
 				<displayName count="one">Cruzado brasileiro</displayName>
 				<displayName count="other">Cruzados brasileiros</displayName>
 			</currency>
@@ -4718,17 +4750,17 @@
 				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
-				<displayName>Cruzado novo brasileiro</displayName>
+				<displayName>Cruzado novo brasileiro (1989-1990)</displayName>
 				<displayName count="one">Cruzado novo brasileiro</displayName>
 				<displayName count="other">Cruzados novos brasileiros</displayName>
 			</currency>
 			<currency type="BRR">
-				<displayName>Cruzeiro brasileiro</displayName>
+				<displayName>Cruzeiro brasileiro (1993-1994)</displayName>
 				<displayName count="one">Cruzeiro brasileiro</displayName>
 				<displayName count="other">Cruzeiros brasileiros</displayName>
 			</currency>
 			<currency type="BRZ">
-				<displayName draft="contributed">Cruzeiro brasileiro antigo</displayName>
+				<displayName>Cruzeiro brasileiro (1942-1967)</displayName>
 				<displayName count="one" draft="contributed">Cruzeiro brasileiro antigo</displayName>
 				<displayName count="other" draft="contributed">Cruzeiros brasileiros antigos</displayName>
 			</currency>
@@ -4793,7 +4825,7 @@
 				<displayName count="other">Francos WIR</displayName>
 			</currency>
 			<currency type="CLE">
-				<displayName draft="contributed">Escudo chileno</displayName>
+				<displayName>Escudo chileno</displayName>
 				<displayName count="one" draft="contributed">Escudo chileno</displayName>
 				<displayName count="other" draft="contributed">Escudos chilenos</displayName>
 			</currency>
@@ -4808,7 +4840,7 @@
 				<displayName count="other">Pesos chilenos</displayName>
 			</currency>
 			<currency type="CNX">
-				<displayName draft="contributed">Dólar do Banco Popular da China</displayName>
+				<displayName>Dólar do Banco Popular da China</displayName>
 				<displayName count="one" draft="contributed">Dólar do Banco Popular da China</displayName>
 				<displayName count="other" draft="contributed">Dólares do Banco Popular da China</displayName>
 			</currency>
@@ -4833,7 +4865,7 @@
 				<displayName count="other">Colons costa-riquenhos</displayName>
 			</currency>
 			<currency type="CSD">
-				<displayName>Dinar sérvio antigo</displayName>
+				<displayName>Dinar sérvio (2002-2006)</displayName>
 				<displayName count="one">Dinar antigo da Sérvia</displayName>
 				<displayName count="other">Dinares antigos da Sérvia</displayName>
 			</currency>
@@ -5168,12 +5200,12 @@
 				<displayName count="other">Wons norte-coreanos</displayName>
 			</currency>
 			<currency type="KRH">
-				<displayName draft="contributed">Hwan da Coreia do Sul</displayName>
+				<displayName>Hwan da Coreia do Sul (1953-1962)</displayName>
 				<displayName count="one" draft="contributed">Hwan da Coreia do Sul</displayName>
 				<displayName count="other" draft="contributed">Hwans da Coreia do Sul</displayName>
 			</currency>
 			<currency type="KRO">
-				<displayName draft="contributed">Won antigo da Coreia do Sul</displayName>
+				<displayName>Won da Coreia do Sul (1945-1953)</displayName>
 				<displayName count="one" draft="contributed">Won antigo da Coreia do Sul</displayName>
 				<displayName count="other" draft="contributed">Wons antigos da Coreia do Sul</displayName>
 			</currency>
@@ -5303,7 +5335,7 @@
 				<displayName count="other">Dinares da Macedônia</displayName>
 			</currency>
 			<currency type="MKN">
-				<displayName draft="contributed">Dinar macedônio (1992-1993)</displayName>
+				<displayName>Dinar macedônio (1992-1993)</displayName>
 				<displayName count="one" draft="contributed">Dinar macedônio (1992-1993)</displayName>
 				<displayName count="other" draft="contributed">Dinares macedônios (1992-1993)</displayName>
 			</currency>
@@ -5383,7 +5415,7 @@
 				<displayName count="other">Escudos de Moçambique</displayName>
 			</currency>
 			<currency type="MZM">
-				<displayName>Metical antigo de Moçambique</displayName>
+				<displayName>Metical de Moçambique (1980-2006)</displayName>
 				<displayName count="one">Metical antigo de Moçambique</displayName>
 				<displayName count="other">Meticales antigos de Moçambique</displayName>
 			</currency>
@@ -5403,9 +5435,9 @@
 				<displayName count="other">Nairas da Nigéria</displayName>
 			</currency>
 			<currency type="NIC">
-				<displayName>Córdoba nicaraguense</displayName>
-				<displayName count="one">Córdoba nicaraguense</displayName>
-				<displayName count="other">Córdobas da Nicarágua</displayName>
+				<displayName>Córdoba nicaraguense (1988-1991)</displayName>
+				<displayName count="one">Córdoba nicaraguense (1988-1991)</displayName>
+				<displayName count="other">Córdobas nicaraguense (1988-1991)</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName>Córdoba Ouro nicaraguense</displayName>
@@ -5453,7 +5485,7 @@
 				<displayName count="other">Novos soles peruanos</displayName>
 			</currency>
 			<currency type="PES">
-				<displayName>Sol peruano</displayName>
+				<displayName>Sol peruano (1863-1965)</displayName>
 				<displayName count="one">Sol peruano</displayName>
 				<displayName count="other">Soles peruanos</displayName>
 			</currency>
@@ -5504,7 +5536,7 @@
 				<displayName count="other">Dólares da Rodésia</displayName>
 			</currency>
 			<currency type="ROL">
-				<displayName>Leu romeno antigo</displayName>
+				<displayName>Leu romeno (1952-2006)</displayName>
 				<displayName count="one">Leu antigo da Romênia</displayName>
 				<displayName count="other">Leus antigos da Romênia</displayName>
 			</currency>
@@ -5549,7 +5581,7 @@
 				<displayName count="other">Rúpias das Ilhas Seychelles</displayName>
 			</currency>
 			<currency type="SDD">
-				<displayName>Dinar sudanês</displayName>
+				<displayName>Dinar sudanês (1992-2007)</displayName>
 				<displayName count="one">Dinar antigo do Sudão</displayName>
 				<displayName count="other">Dinares antigos do Sudão</displayName>
 			</currency>
@@ -5559,7 +5591,7 @@
 				<displayName count="other">Libras sudanesas</displayName>
 			</currency>
 			<currency type="SDP">
-				<displayName>Libra sudanesa antiga</displayName>
+				<displayName>Libra sudanesa (1957-1998)</displayName>
 				<displayName count="one">Libra antiga sudanesa</displayName>
 				<displayName count="other">Libras antigas sudanesas</displayName>
 			</currency>
@@ -5674,7 +5706,7 @@
 				<displayName count="other">Escudos do Timor</displayName>
 			</currency>
 			<currency type="TRL">
-				<displayName>Lira turca antiga</displayName>
+				<displayName>Lira turca (1922-2005)</displayName>
 				<displayName count="one">Lira turca antiga</displayName>
 				<displayName count="other">Liras turcas antigas</displayName>
 			</currency>
@@ -5754,9 +5786,9 @@
 				<displayName count="other">Somes do Uzbequistão</displayName>
 			</currency>
 			<currency type="VEB">
-				<displayName>Bolívar venezuelano</displayName>
-				<displayName count="one">Bolívar venezuelano</displayName>
-				<displayName count="other">Bolívares venezuelanos</displayName>
+				<displayName>Bolívar venezuelano (1871-2008)</displayName>
+				<displayName count="one">Bolívar venezuelano (1871-2008)</displayName>
+				<displayName count="other">Bolívares venezuelanos (1871-2008)</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>Bolívar venezuelano forte</displayName>
@@ -5769,7 +5801,7 @@
 				<displayName count="other">Dongs vietnameses</displayName>
 			</currency>
 			<currency type="VNN">
-				<displayName draft="contributed">Dong vietnamita (1978-1985)</displayName>
+				<displayName>Dong vietnamita (1978-1985)</displayName>
 				<displayName count="one" draft="contributed">Dong vietnamita (1978-1985)</displayName>
 				<displayName count="other" draft="contributed">Dong vietnamita (1978-1985)</displayName>
 			</currency>
@@ -5889,22 +5921,22 @@
 				<displayName count="other">Riales do Iêmen</displayName>
 			</currency>
 			<currency type="YUD">
-				<displayName>Dinar forte iugoslavo</displayName>
+				<displayName>Dinar forte iugoslavo (1966-1990)</displayName>
 				<displayName count="one">Dinar forte iugoslavo</displayName>
 				<displayName count="other">Dinares fortes iugoslavos</displayName>
 			</currency>
 			<currency type="YUM">
-				<displayName>Dinar noviy iugoslavo</displayName>
+				<displayName>Dinar noviy iugoslavo (1994-2002)</displayName>
 				<displayName count="one">Dinar noviy da Iugoslávia</displayName>
 				<displayName count="other">Dinares noviy da Iugoslávia</displayName>
 			</currency>
 			<currency type="YUN">
-				<displayName>Dinar conversível iugoslavo</displayName>
+				<displayName>Dinar conversível iugoslavo (1990-1992)</displayName>
 				<displayName count="one">Dinar conversível da Iugoslávia</displayName>
 				<displayName count="other">Dinares conversíveis da Iugoslávia</displayName>
 			</currency>
 			<currency type="YUR">
-				<displayName draft="contributed">Dinar iugoslavo reformado</displayName>
+				<displayName>Dinar reformado iugoslavo (1992-1993)</displayName>
 				<displayName count="one" draft="contributed">Dinar iugoslavo reformado</displayName>
 				<displayName count="other" draft="contributed">Dinares iugoslavos reformados</displayName>
 			</currency>
@@ -5924,17 +5956,17 @@
 				<displayName count="other">Kwachas da Zâmbia</displayName>
 			</currency>
 			<currency type="ZRN">
-				<displayName>Zaire Novo zairense</displayName>
+				<displayName>Zaire Novo zairense (1993-1998)</displayName>
 				<displayName count="one">Novo zaire do Zaire</displayName>
 				<displayName count="other">Novos zaires do Zaire</displayName>
 			</currency>
 			<currency type="ZRZ">
-				<displayName>Zaire zairense</displayName>
+				<displayName>Zaire zairense (1971-1993)</displayName>
 				<displayName count="one">Zaire do Zaire</displayName>
 				<displayName count="other">Zaires do Zaire</displayName>
 			</currency>
 			<currency type="ZWD">
-				<displayName>Dólar do Zimbábue</displayName>
+				<displayName>Dólar do Zimbábue (1980-2008)</displayName>
 				<displayName count="one">Dólar do Zimbábue</displayName>
 				<displayName count="other">Dólares do Zimbábue</displayName>
 			</currency>
@@ -6091,4 +6123,3 @@
 		</messages>
 	</posix>
 </ldml>
-

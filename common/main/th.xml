@@ -567,7 +567,7 @@
 			<script type="Hans">ฮั่นประยุกต์</script>
 			<script type="Hans" alt="stand-alone" draft="contributed">อักษรฮั่นแบบย่อ</script>
 			<script type="Hant">ฮั่นดั้งเดิม</script>
-			<script type="Hant" alt="stand-alone" draft="contributed">อักษรฮั่นตัวเต็ม</script>
+			<script type="Hant" alt="stand-alone">ฮั่นดั้งเดิม</script>
 			<script type="Hebr">ฮีบรู</script>
 			<script type="Hira">ฮิระงะนะ</script>
 			<script type="Hmng">ปาเฮาห์ม้ง</script>
@@ -688,7 +688,7 @@
 			<territory type="151">ยุโรปตะวันออก</territory>
 			<territory type="154">ยุโรปเหนือ</territory>
 			<territory type="155">ยุโรปตะวันตก</territory>
-			<territory type="419">ละตินอเมริกาและแคริบเบียน</territory>
+			<territory type="419">ละตินอเมริกา</territory>
 			<territory type="AC">เกาะแอสเซนชัน</territory>
 			<territory type="AD">อันดอร์รา</territory>
 			<territory type="AE">สหรัฐอาหรับเอมิเรตส์</territory>
@@ -923,7 +923,7 @@
 			<territory type="TH">ไทย</territory>
 			<territory type="TJ">ทาจิกิสถาน</territory>
 			<territory type="TK">โตเกเลา</territory>
-			<territory type="TL">ติมอร์ตะวันออก</territory>
+			<territory type="TL">ติมอร์-เลสเต</territory>
 			<territory type="TL" alt="variant">ติมอร์ตะวันออก</territory>
 			<territory type="TM">เติร์กเมนิสถาน</territory>
 			<territory type="TN">ตูนิเซีย</territory>
@@ -1035,7 +1035,8 @@
 			<type type="romanlow" key="numbers" draft="contributed">ตัวเลขโรมันพิมพ์เล็ก</type>
 			<type type="search" key="collation">การค้นหาทั่วไป</type>
 			<type type="stroke" key="collation">เรียงตามการลากเส้น</type>
-			<type type="taml" key="numbers" draft="contributed">ตัวเลขทมิฬ</type>
+			<type type="taml" key="numbers">ตัวเลขทมิฬดั้งเดิม</type>
+			<type type="tamldec" key="numbers">ตัวเลขทมิฬ</type>
 			<type type="telu" key="numbers" draft="contributed">ตัวเลขเตลูกู</type>
 			<type type="thai" key="numbers">ตัวเลขไทย</type>
 			<type type="tibt" key="numbers" draft="contributed">ตัวเลขทิเบต</type>
@@ -1108,7 +1109,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d/M/yyyy</pattern>
+							<pattern>d/M/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1419,12 +1420,12 @@
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>H นาฬิกา m นาที ss วินาที zzzz</pattern>
+							<pattern>H นาฬิกา mm นาที ss วินาที zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>H นาฬิกา m นาที ss วินาที z</pattern>
+							<pattern>H นาฬิกา mm นาที ss วินาที z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
@@ -3489,23 +3490,23 @@
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic draft="contributed">เวลายุโรปกลาง</generic>
-					<standard draft="contributed">เวลายุโรปกลาง</standard>
-					<daylight draft="contributed">เวลาฤดูร้อนยุโรปกลาง</daylight>
+					<generic>เวลายุโรปกลาง</generic>
+					<standard>เวลามาตรฐานยุโรปกลาง</standard>
+					<daylight>เวลาฤดูร้อนยุโรปกลาง</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic draft="contributed">เวลายุโรปตะวันออก</generic>
-					<standard draft="contributed">เวลายุโรปตะวันออก</standard>
-					<daylight draft="contributed">เวลาฤดูร้อนยุโรปตะวันออก</daylight>
+					<generic>เวลายุโรปตะวันออก</generic>
+					<standard>เวลามาตรฐานยุโรปตะวันออก</standard>
+					<daylight>เวลาฤดูร้อนยุโรปตะวันออก</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic draft="contributed">เวลายุโรปตะวันตก</generic>
-					<standard draft="contributed">เวลายุโรปตะวันตก</standard>
-					<daylight draft="contributed">เวลาฤดูร้อนยุโรปตะวันตก</daylight>
+					<generic>เวลายุโรปตะวันตก</generic>
+					<standard>เวลามาตรฐานยุโรปตะวันตก</standard>
+					<daylight>เวลาฤดูร้อนยุโรปตะวันตก</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
@@ -3529,7 +3530,7 @@
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard draft="provisional">เวลามาตรฐานกรีนิช</standard>
+					<standard>เวลามาตรฐานกรีนิช</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Central">
@@ -3567,7 +3568,7 @@
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard draft="provisional">เวลามาตรฐานอินเดีย</standard>
+					<standard>เวลาอินเดีย</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -3773,6 +3774,11 @@
 			<metazone type="Samoa">
 				<long>
 					<standard draft="provisional">เวลามาตรฐานซามัว</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard>เวลาสิงคโปร์</standard>
 				</long>
 			</metazone>
 			<metazone type="South_Georgia">
@@ -4863,4 +4869,3 @@
 		</messages>
 	</posix>
 </ldml>
-

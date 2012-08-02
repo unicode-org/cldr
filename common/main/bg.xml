@@ -1471,6 +1471,8 @@
 							<month type="9">иар</month>
 							<month type="10">сиван</month>
 							<month type="11">тамуз</month>
+							<month type="12">ав</month>
+							<month type="13">елул</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -2756,9 +2758,16 @@
 			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic>Часова зона Аляска</generic>
-					<standard>Часова зона Аляска</standard>
-					<daylight>Лятна часова зона Аляска</daylight>
+					<generic>Аляска време</generic>
+					<standard>Аляска стандартно време</standard>
+					<daylight>Аляска лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic>Амазонско време</generic>
+					<standard>Амазонско стандартно време</standard>
+					<daylight>Амазонско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -2791,9 +2800,9 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic draft="contributed">Анадир</generic>
-					<standard draft="contributed">Анадир</standard>
-					<daylight draft="contributed">Анадир – лятно часово време</daylight>
+					<generic>Анадир време</generic>
+					<standard>Анадир – стандартно време</standard>
+					<daylight>Анадир – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -2805,16 +2814,16 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<generic draft="contributed">Аржентина</generic>
-					<standard draft="contributed">Аржентина</standard>
+					<generic>Аржентинско време</generic>
+					<standard>Аржентина – стандартно време</standard>
 					<daylight draft="contributed">Аржентина – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="contributed">Аржентина – западно време</generic>
-					<standard draft="contributed">Аржентина – западно време</standard>
-					<daylight draft="contributed">Аржентина – западно лятно часово време</daylight>
+					<generic>Аржентина – западно време</generic>
+					<standard>Аржентина – западно стандартно време</standard>
+					<daylight>Аржентина – западно лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -2854,43 +2863,50 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic draft="contributed">Бразилия</generic>
-					<standard draft="contributed">Бразилия</standard>
-					<daylight draft="contributed">Бразилия – лятно часово време</daylight>
+					<generic>Бразилско време</generic>
+					<standard>Бразилско стандартно време</standard>
+					<daylight>Бразилско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
 				<long>
-					<generic>Китайска часова зона</generic>
-					<standard>Китайска часова зона</standard>
-					<daylight>Китайска – лятно часово време</daylight>
+					<generic>Китайско време</generic>
+					<standard>Китайско стандартно време</standard>
+					<daylight>Китайско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<generic draft="contributed">Чойбалсан</generic>
-					<standard draft="contributed">Чойбалсан</standard>
-					<daylight draft="contributed">Чойбалсан – лятно часово време</daylight>
+					<generic>Чойбалсанско време</generic>
+					<standard>Чойбалсанско стандартно време</standard>
+					<daylight>Чойбалсанско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>Кубинско време</generic>
+					<standard>Кубинско стандартно време</standard>
+					<daylight>Кубинско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic>Централноевропейска часова зона</generic>
-					<standard>Централноевропейска часова зона</standard>
-					<daylight>Централноевропейска лятна часова зона</daylight>
+					<generic>Централноевропейско време</generic>
+					<standard>Централноевропейско стандартно време</standard>
+					<daylight>Централноевропейско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic>Източноевропейска часова зона</generic>
-					<standard>Източноевропейска часова зона</standard>
-					<daylight>Източноевропейска лятна часова зона</daylight>
+					<generic>Източноевропейско време</generic>
+					<standard>Източноевропейско стандартно време</standard>
+					<daylight>Източноевропейско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic>Западноевропейска часова зона</generic>
-					<standard>Западноевропейска часова зона</standard>
+					<generic>Западноевропейско време</generic>
+					<standard>Западноевропейско стандартно време</standard>
 					<daylight>Западноевропейско лятно време</daylight>
 				</long>
 			</metazone>
@@ -2899,18 +2915,32 @@
 					<standard>Часова зона Гринуич</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>Източногренландско време</generic>
+					<standard>Източногренландско стандартно време</standard>
+					<daylight>Източногренландско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>Западногренландско време</generic>
+					<standard>Западногренландско стандартно време</standard>
+					<daylight>Западногренландско лятно часово време</daylight>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic draft="contributed">Хавайско алеутско време</generic>
-					<standard draft="contributed">Хавайско алеутско време</standard>
-					<daylight draft="contributed">Хавайско алеутско лятно време</daylight>
+					<generic>Хавайско алеутско време</generic>
+					<standard>Хавайско алеутско стандартно време</standard>
+					<daylight>Хавайско алеутско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic draft="contributed">Ховд</generic>
-					<standard draft="contributed">Ховд</standard>
-					<daylight draft="contributed">Ховд – лятно часово време</daylight>
+					<generic>Ховдско време</generic>
+					<standard>Ховд – стандартно време</standard>
+					<daylight>Ховд – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="India">
@@ -2935,30 +2965,30 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic draft="contributed">Иркутск</generic>
-					<standard draft="contributed">Иркутск</standard>
-					<daylight draft="contributed">Иркутск – лятно часово време</daylight>
+					<generic>Иркутско време</generic>
+					<standard>Иркутск – стандартно време</standard>
+					<daylight>Иркутск – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
-					<generic>Часова зона Израел</generic>
-					<standard>Часова зона Израел</standard>
-					<daylight>Лятна часова зона Израел</daylight>
+					<generic>Израелско време</generic>
+					<standard>Израелско стандартно време</standard>
+					<daylight>Израелско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
-					<generic>Японска часова зона</generic>
-					<standard>Японска часова зона</standard>
-					<daylight>Японска часова зона - лятното часово време</daylight>
+					<generic>Японско време</generic>
+					<standard>Японско стандартно време</standard>
+					<daylight>Японско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">Камчатка</generic>
-					<standard draft="contributed">Петропавловск-Камчатски</standard>
-					<daylight draft="contributed">Петропавловск-Камчатски – лятно часово време</daylight>
+					<generic>Петропавловск-Камчатски време</generic>
+					<standard>Петропавловск-Камчатски стандартно време</standard>
+					<daylight>Петропавловск-Камчатски – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -2980,9 +3010,9 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic draft="contributed">Красноярск</generic>
-					<standard draft="contributed">Красноярск</standard>
-					<daylight draft="contributed">Красноярск – лятно часово време</daylight>
+					<generic>Красноярско време</generic>
+					<standard>Красноярск – стандартно време</standard>
+					<daylight>Красноярск – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -2999,23 +3029,23 @@
 			</metazone>
 			<metazone type="Magadan">
 				<long>
-					<generic draft="contributed">Магадан</generic>
-					<standard draft="contributed">Магадан</standard>
-					<daylight draft="contributed">Магадан – лятно часово време</daylight>
+					<generic>Магаданско време</generic>
+					<standard>Магадан – стандартно време</standard>
+					<daylight>Магадан – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Улан Батор</generic>
-					<standard draft="contributed">Улан Батор – стандартно време</standard>
-					<daylight draft="contributed">Улан Батор – лятно часово време</daylight>
+					<generic>*Улан Батор</generic>
+					<standard>Улан Батор – стандартно време</standard>
+					<daylight>Улан Батор – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
 				<long>
-					<generic draft="contributed">Москва</generic>
-					<standard draft="contributed">Москва – стандартно време</standard>
-					<daylight draft="contributed">Москва – лятно часово време</daylight>
+					<generic>Москва време</generic>
+					<standard>Москва – стандартно време</standard>
+					<daylight>Москва – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -3034,58 +3064,65 @@
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
-					<generic draft="contributed">Новосибирск</generic>
-					<standard draft="contributed">Новосибирск</standard>
-					<daylight draft="contributed">Новосибирск – лятно часово време</daylight>
+					<generic>Новосибирско време</generic>
+					<standard>Новосибирск – стандартно време</standard>
+					<daylight>Новосибирск – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
-					<generic draft="contributed">Омск</generic>
-					<standard draft="contributed">Омск</standard>
-					<daylight draft="contributed">Омск – лятно часово време</daylight>
+					<generic>Омско време</generic>
+					<standard>Омск – стандартно време</standard>
+					<daylight>Омск – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>Сен Пиер и Микелон време</generic>
+					<standard>Сен Пиер и Микелон – стандартно време</standard>
+					<daylight>Сен Пиер и Микелон – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
-					<generic draft="contributed">Сахалин</generic>
-					<standard draft="contributed">Сахалин</standard>
-					<daylight draft="contributed">Сахалин – лятно часово време</daylight>
+					<generic>Сахалинско време</generic>
+					<standard>Сахалин – стандартно време</standard>
+					<daylight>Сахалин – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<generic draft="contributed">Самара</generic>
-					<standard draft="contributed">Самара</standard>
-					<daylight draft="contributed">Самара – лятно часово време</daylight>
+					<generic>Самара време</generic>
+					<standard>Самара – стандартно време</standard>
+					<daylight>Самара – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
-					<generic draft="contributed">Владивосток</generic>
-					<standard draft="contributed">Владивосток</standard>
-					<daylight draft="contributed">Владивосток – лятно часово време</daylight>
+					<generic>Владивостокско време</generic>
+					<standard>Владивосток – стандартно време</standard>
+					<daylight>Владивосток – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<generic draft="contributed">Волгоград</generic>
-					<standard draft="contributed">Волгоград</standard>
-					<daylight draft="contributed">Волгоград – лятно часово време</daylight>
+					<generic>Волгоградско време</generic>
+					<standard>Волгоград – стандартно време</standard>
+					<daylight>Волгоград – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic draft="contributed">Якутск</generic>
-					<standard draft="contributed">Якутск</standard>
-					<daylight draft="contributed">Якутск – лятно часово време</daylight>
+					<generic>Якутско време</generic>
+					<standard>Якутск – стандартно време</standard>
+					<daylight>Якутск – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic draft="contributed">Екатеринбург</generic>
-					<standard draft="contributed">Екатеринбург</standard>
-					<daylight draft="contributed">Екатеринбург – лятно часово време</daylight>
+					<generic>Екатеринбургско време</generic>
+					<standard>Екатеринбург – стандартно време</standard>
+					<daylight>Екатеринбург – лятно часово време</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -3106,6 +3143,16 @@
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000000" count="one">0.0 милион</pattern>
+					<pattern type="1000000" count="other">0.0 милиона</pattern>
+					<pattern type="1000000000" count="one">0.0 милиард</pattern>
+					<pattern type="1000000000" count="other">0.0 милиарда</pattern>
+					<pattern type="1000000000000" count="one">0.0 трилион</pattern>
+					<pattern type="1000000000000" count="other">0.0 трилиона</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -3245,6 +3292,7 @@
 			<currency type="AZN">
 				<displayName>Азербайджански манат</displayName>
 				<displayName count="one">азербайджански манат</displayName>
+				<displayName count="other">азербайджански маната</displayName>
 			</currency>
 			<currency type="BAD">
 				<displayName>Босна и Херцеговина-динар</displayName>
@@ -3491,6 +3539,7 @@
 			<currency type="ECS">
 				<displayName>Еквадорско сукре</displayName>
 				<displayName count="one">еквадорско сукре</displayName>
+				<displayName count="other">еквадорско сукре</displayName>
 			</currency>
 			<currency type="ECV">
 				<displayName>Еквадорска банкова единица</displayName>
@@ -3948,10 +3997,12 @@
 			<currency type="PEN">
 				<displayName>Перуански нов сол</displayName>
 				<displayName count="one">перуански нов сол</displayName>
+				<displayName count="other">перуански нов сол</displayName>
 			</currency>
 			<currency type="PES">
 				<displayName>Перуански сол</displayName>
-				<displayName count="one">перуански сол</displayName>
+				<displayName count="one">перуански сол (1863-1965)</displayName>
+				<displayName count="other">перуански сол (1863-1965)</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>Папуа-новогвинейска кина</displayName>
@@ -4163,6 +4214,7 @@
 			</currency>
 			<currency type="TTD">
 				<displayName>Тринидат и Тобаго - долар</displayName>
+				<displayName count="one">Тринидат и Тобаго - долара</displayName>
 				<displayName count="other">Тринидат и Тобаго - долара</displayName>
 			</currency>
 			<currency type="TWD">
@@ -4197,6 +4249,7 @@
 			</currency>
 			<currency type="USD">
 				<displayName>САЩ долар</displayName>
+				<displayName count="one">САЩ долара</displayName>
 				<displayName count="other">САЩ долара</displayName>
 			</currency>
 			<currency type="UYI">
@@ -4363,14 +4416,16 @@
 			<unitPattern count="other" alt="short">{0} дн.</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0" draft="contributed">След 0 дни</unitPattern>
-			<unitPattern count="1" draft="contributed">След 1 ден</unitPattern>
-			<unitPattern count="other" draft="contributed">След {0} дни</unitPattern>
+			<unitPattern count="0">След 0 дни</unitPattern>
+			<unitPattern count="1">След 1 ден</unitPattern>
+			<unitPattern count="one">След {0} дни</unitPattern>
+			<unitPattern count="other">След {0} дни</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">Преди 0 дни</unitPattern>
-			<unitPattern count="1" draft="contributed">Преди 1 ден</unitPattern>
-			<unitPattern count="other" draft="contributed">Преди {0} дни</unitPattern>
+			<unitPattern count="0">Преди 0 дни</unitPattern>
+			<unitPattern count="1">Преди 1 ден</unitPattern>
+			<unitPattern count="one">Преди {0} дни</unitPattern>
+			<unitPattern count="other">Преди {0} дни</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} час</unitPattern>
@@ -4379,14 +4434,16 @@
 			<unitPattern count="other" alt="short">{0} ч</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0" draft="contributed">След 0 часа</unitPattern>
-			<unitPattern count="1" draft="contributed">След 1 час</unitPattern>
-			<unitPattern count="other" draft="contributed">След {0} часа</unitPattern>
+			<unitPattern count="0">След 0 часа</unitPattern>
+			<unitPattern count="1">След 1 час</unitPattern>
+			<unitPattern count="one">След {0} часа</unitPattern>
+			<unitPattern count="other">След {0} часа</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0" draft="contributed">Преди 0 часа</unitPattern>
-			<unitPattern count="1" draft="contributed">Преди 1 час</unitPattern>
-			<unitPattern count="other" draft="contributed">Преди {0} часа</unitPattern>
+			<unitPattern count="0">Преди 0 часа</unitPattern>
+			<unitPattern count="1">Преди 1 час</unitPattern>
+			<unitPattern count="one">Преди {0} часа</unitPattern>
+			<unitPattern count="other">Преди {0} часа</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} минута</unitPattern>
@@ -4395,14 +4452,16 @@
 			<unitPattern count="other" alt="short">{0} мин</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0" draft="contributed">След 0 минути</unitPattern>
-			<unitPattern count="1" draft="contributed">След 1 минута</unitPattern>
-			<unitPattern count="other" draft="contributed">След {0} минути</unitPattern>
+			<unitPattern count="0">След 0 минути</unitPattern>
+			<unitPattern count="1">След 1 минута</unitPattern>
+			<unitPattern count="one">След {0} минути</unitPattern>
+			<unitPattern count="other">След {0} минути</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0" draft="contributed">Преди 0 минути</unitPattern>
-			<unitPattern count="1" draft="contributed">Преди 1 минута</unitPattern>
-			<unitPattern count="other" draft="contributed">Преди {0} минути</unitPattern>
+			<unitPattern count="0">Преди 0 минути</unitPattern>
+			<unitPattern count="1">Преди 1 минута</unitPattern>
+			<unitPattern count="one">Преди {0} минути</unitPattern>
+			<unitPattern count="other">Преди {0} минути</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} месец</unitPattern>
@@ -4411,14 +4470,16 @@
 			<unitPattern count="other" alt="short">{0} мес.</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0" draft="contributed">След 0 месеца</unitPattern>
-			<unitPattern count="1" draft="contributed">След 1 месец</unitPattern>
-			<unitPattern count="other" draft="contributed">След {0} месеца</unitPattern>
+			<unitPattern count="0">След 0 месеца</unitPattern>
+			<unitPattern count="1">След 1 месец</unitPattern>
+			<unitPattern count="one">След {0} месеца</unitPattern>
+			<unitPattern count="other">След {0} месеца</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0" draft="contributed">Преди 0 месеца</unitPattern>
-			<unitPattern count="1" draft="contributed">Преди 1 месец</unitPattern>
-			<unitPattern count="other" draft="contributed">Преди {0} месеца</unitPattern>
+			<unitPattern count="0">Преди 0 месеца</unitPattern>
+			<unitPattern count="1">Преди 1 месец</unitPattern>
+			<unitPattern count="one">Преди {0} месеца</unitPattern>
+			<unitPattern count="other">Преди {0} месеца</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} секунда</unitPattern>
@@ -4427,14 +4488,16 @@
 			<unitPattern count="other" alt="short">{0} сек</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0" draft="contributed">След 0 секунди</unitPattern>
-			<unitPattern count="1" draft="contributed">След 1 секунда</unitPattern>
-			<unitPattern count="other" draft="contributed">След {0} секунди</unitPattern>
+			<unitPattern count="0">След 0 секунди</unitPattern>
+			<unitPattern count="1">След 1 секунда</unitPattern>
+			<unitPattern count="one">След {0} секунди</unitPattern>
+			<unitPattern count="other">След {0} секунди</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0" draft="contributed">Преди 0 секунди</unitPattern>
-			<unitPattern count="1" draft="contributed">Преди 1 секунда</unitPattern>
-			<unitPattern count="other" draft="contributed">Преди {0} секунди</unitPattern>
+			<unitPattern count="0">Преди 0 секунди</unitPattern>
+			<unitPattern count="1">Преди 1 секунда</unitPattern>
+			<unitPattern count="one">Преди {0} секунди</unitPattern>
+			<unitPattern count="other">Преди {0} секунди</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} седмица</unitPattern>
@@ -4443,14 +4506,16 @@
 			<unitPattern count="other" alt="short">{0} седм.</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0" draft="contributed">След 0 седмици</unitPattern>
-			<unitPattern count="1" draft="contributed">След 1 седмица</unitPattern>
-			<unitPattern count="other" draft="contributed">След {0} седмици</unitPattern>
+			<unitPattern count="0">След 0 седмици</unitPattern>
+			<unitPattern count="1">След 1 седмица</unitPattern>
+			<unitPattern count="one">След {0} седмици</unitPattern>
+			<unitPattern count="other">След {0} седмици</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0" draft="contributed">Преди 0 седмици</unitPattern>
-			<unitPattern count="1" draft="contributed">Преди 1 седмица</unitPattern>
-			<unitPattern count="other" draft="contributed">Преди {0} седмици</unitPattern>
+			<unitPattern count="0">Преди 0 седмици</unitPattern>
+			<unitPattern count="1">Преди 1 седмица</unitPattern>
+			<unitPattern count="one">Преди {0} седмици</unitPattern>
+			<unitPattern count="other">Преди {0} седмици</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} година</unitPattern>
@@ -4459,14 +4524,16 @@
 			<unitPattern count="other" alt="short">{0} год.</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0" draft="contributed">След 0 години</unitPattern>
-			<unitPattern count="1" draft="contributed">След 1 година</unitPattern>
-			<unitPattern count="other" draft="contributed">След {0} години</unitPattern>
+			<unitPattern count="0">След 0 години</unitPattern>
+			<unitPattern count="1">След 1 година</unitPattern>
+			<unitPattern count="one">След {0} години</unitPattern>
+			<unitPattern count="other">След {0} години</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0" draft="contributed">Преди 0 години</unitPattern>
-			<unitPattern count="1" draft="contributed">Преди 1 година</unitPattern>
-			<unitPattern count="other" draft="contributed">Преди {0} години</unitPattern>
+			<unitPattern count="0">Преди 0 години</unitPattern>
+			<unitPattern count="1">Преди 1 година</unitPattern>
+			<unitPattern count="one">Преди {0} години</unitPattern>
+			<unitPattern count="other">Преди {0} години</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
@@ -4482,4 +4549,3 @@
 		</messages>
 	</posix>
 </ldml>
-

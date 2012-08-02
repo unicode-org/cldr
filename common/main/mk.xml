@@ -2145,6 +2145,42 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0.0 илјади</pattern>
+					<pattern type="1000" count="other">0.0 илјади</pattern>
+					<pattern type="1000000" count="one">0.0 милиони</pattern>
+					<pattern type="1000000" count="other">0.0 милиони</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0.0 милијарди</pattern>
+					<pattern type="1000000000" count="other">0.0 милијарди</pattern>
+					<pattern type="1000000000000" count="one">0.0 трилиони</pattern>
+					<pattern type="1000000000000" count="other">0.0 трилиони</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one">0.0 илј'.'</pattern>
+					<pattern type="1000" count="other">0.0 илј'.'</pattern>
+					<pattern type="1000000" count="one">0.0 мил'.'</pattern>
+					<pattern type="1000000" count="other">0.0 мил'.'</pattern>
+					<pattern type="10000000" count="one">00 мил'.'</pattern>
+					<pattern type="10000000" count="other">00 мил'.'</pattern>
+					<pattern type="100000000" count="one">000 мил'.'</pattern>
+					<pattern type="100000000" count="other">000 мил'.'</pattern>
+					<pattern type="1000000000" count="one">0.0 млјд'.'</pattern>
+					<pattern type="1000000000" count="other">0.0 млјд'.'</pattern>
+					<pattern type="10000000000" count="one">00 млјд'.'</pattern>
+					<pattern type="10000000000" count="other">00 млјд'.'</pattern>
+					<pattern type="100000000000" count="one">000 млјд'.'</pattern>
+					<pattern type="100000000000" count="other">000 млјд'.'</pattern>
+					<pattern type="1000000000000" count="one">0.0 трлн'.'</pattern>
+					<pattern type="1000000000000" count="other">0.0 трлн'.'</pattern>
+					<pattern type="10000000000000" count="one">00 трлн'.'</pattern>
+					<pattern type="10000000000000" count="other">00 трлн'.'</pattern>
+					<pattern type="100000000000000" count="one">000 трлн'.'</pattern>
+					<pattern type="100000000000000" count="other">000 трлн'.'</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<currencies>
 			<currency type="ADP">
@@ -2254,6 +2290,12 @@
 			</currency>
 			<currency type="CSK">
 				<displayName>Чехословачка цврста корона</displayName>
+			</currency>
+			<currency type="CUC">
+				<displayName>Кубански пезос (конвертибилен)</displayName>
+				<displayName count="one">Кубански пезос (конвертибилен)</displayName>
+				<displayName count="other">Кубански пезос (конвертибилен)</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Кубански пезос</displayName>
@@ -2492,6 +2534,9 @@
 			<currency type="NIC">
 				<displayName>Никарагванска кордоба</displayName>
 			</currency>
+			<currency type="NIO">
+				<displayName count="one">Никарагванска Кордоба</displayName>
+			</currency>
 			<currency type="NLG">
 				<displayName>Холандски гилдер</displayName>
 			</currency>
@@ -2623,7 +2668,12 @@
 				<displayName>Тиморски ескудо</displayName>
 			</currency>
 			<currency type="TRL">
-				<displayName>Турска лира</displayName>
+				<displayName>Турска лира (1922-2005)</displayName>
+				<displayName count="one">Турска лира (1922-2005)</displayName>
+				<displayName count="other">Турска лира (1922-2005)</displayName>
+			</currency>
+			<currency type="TRY">
+				<displayName count="one">Турска лира</displayName>
 			</currency>
 			<currency type="TWD">
 				<displayName>Тајвански нов долар</displayName>
@@ -2659,7 +2709,9 @@
 				<displayName>Узбекистански сом</displayName>
 			</currency>
 			<currency type="VEB">
-				<displayName>Венецуелски боливар</displayName>
+				<displayName>Венецуелски боливар (1871-2008)</displayName>
+				<displayName count="one">Венецуелски боливар (1871-2008)</displayName>
+				<displayName count="other">Венецуелски боливар (1871-2008)</displayName>
 			</currency>
 			<currency type="VND">
 				<displayName>Виетнамски донг</displayName>

@@ -10,6 +10,7 @@
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>، </localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">آفاری</language>
@@ -53,6 +54,7 @@
 			<language type="ban">بالیایی</language>
 			<language type="bas">باسایی</language>
 			<language type="bat">زبان بالتیکی</language>
+			<language type="bax">بمونی</language>
 			<language type="be">بلوروسی</language>
 			<language type="bej">بجایی</language>
 			<language type="bem">بمبایی</language>
@@ -91,7 +93,8 @@
 			<language type="chp">چیپه‌ویه‌ای</language>
 			<language type="chr">چروکیایی</language>
 			<language type="chy">شایانی</language>
-			<language type="co" draft="contributed">کورسی</language>
+			<language type="ckb">کردی سورانی</language>
+			<language type="co">کورسی</language>
 			<language type="cop">قبطی</language>
 			<language type="cpe">کریول یا پیجین مبتنی بر انگلیسی</language>
 			<language type="cpf">کریول یا پیجین مبتنی بر فرانسوی</language>
@@ -138,7 +141,7 @@
 			<language type="eo">اسپرانتو</language>
 			<language type="es">اسپانیایی</language>
 			<language type="es_419">اسپانیایی امریکای لاتین</language>
-			<language type="es_ES">اسپانیایی اسپانیا</language>
+			<language type="es_ES">اسپانیایی اروپا</language>
 			<language type="et">استونیایی</language>
 			<language type="eu">باسکی</language>
 			<language type="ewo" draft="contributed">اواندو</language>
@@ -343,9 +346,9 @@
 			<language type="nyn">نیانکوله‌ای</language>
 			<language type="nyo">نیورویی</language>
 			<language type="nzi" draft="contributed">نزیمایی</language>
-			<language type="oc" draft="contributed">اوکیتایی</language>
+			<language type="oc">اوکیتایی</language>
 			<language type="oj">اوجیبوایی</language>
-			<language type="om" draft="contributed">اورومویی</language>
+			<language type="om">اورومویی</language>
 			<language type="or">اوریه‌ای</language>
 			<language type="os">آسی</language>
 			<language type="osa">اوسیجی</language>
@@ -367,10 +370,10 @@
 			<language type="pra">زبان پراکریتی</language>
 			<language type="pro">پرووانسی باستان</language>
 			<language type="ps">پشتو</language>
-			<language type="ps" alt="variant">پشتو</language>
+			<language type="ps" alt="variant">پختو</language>
 			<language type="pt">پرتغالی</language>
 			<language type="pt_BR">پرتغالی برزیل</language>
-			<language type="pt_PT">پرتغالی پرتغال</language>
+			<language type="pt_PT">پرتغالی اروپا</language>
 			<language type="qu">کچوایی</language>
 			<language type="raj">راجستانی</language>
 			<language type="rap" draft="contributed">راپانویی</language>
@@ -403,6 +406,7 @@
 			<language type="sgn">زبان اشاره</language>
 			<language type="sh">صرب و کرواتی</language>
 			<language type="shn">شانی</language>
+			<language type="shu">عربی چادی</language>
 			<language type="si">سینهالی</language>
 			<language type="sid">سیدامویی</language>
 			<language type="sio">زبان سویی</language>
@@ -430,6 +434,7 @@
 			<language type="sv">سوئدی</language>
 			<language type="sw">سواحلی</language>
 			<language type="swb">کوموری</language>
+			<language type="swc">سواحلی کنگویی</language>
 			<language type="syc">سریانی کلاسیک</language>
 			<language type="syr">سریانی</language>
 			<language type="ta">تامیلی</language>
@@ -549,7 +554,8 @@
 			<script type="Hant" alt="stand-alone">هان سنتی</script>
 			<script type="Hebr">عبری</script>
 			<script type="Hira">هیراگانا</script>
-			<script type="Hrkt">کاتاکانا یا هیراگانا</script>
+			<script type="Hluw">هیروگلیف‌های آناتولی</script>
+			<script type="Hrkt">سیلابی‌های ژاپنی</script>
 			<script type="Hung">مجاری باستان</script>
 			<script type="Inds" draft="contributed">ایندوس</script>
 			<script type="Java">جاوه‌ای</script>
@@ -557,6 +563,7 @@
 			<script type="Kali" draft="contributed">کایالی</script>
 			<script type="Kana">کاتاکانا</script>
 			<script type="Khmr">خمری</script>
+			<script type="Khoj">خواجکی</script>
 			<script type="Knda">کاناده‌ای</script>
 			<script type="Kore">کره‌ای</script>
 			<script type="Kthi" draft="contributed">کثی</script>
@@ -579,6 +586,7 @@
 			<script type="Moon" draft="contributed">مونی</script>
 			<script type="Mtei" draft="contributed">مایک میتی</script>
 			<script type="Mymr">میانمار</script>
+			<script type="Nbat">نبطی</script>
 			<script type="Ogam" draft="contributed">اوگامی</script>
 			<script type="Orkh" draft="contributed">اورخونی</script>
 			<script type="Orya">اوریه‌ای</script>
@@ -614,6 +622,7 @@
 			<script type="Xsux">میخی سومری‐آکدی</script>
 			<script type="Yiii">یی</script>
 			<script type="Zinh">موروثی</script>
+			<script type="Zmth">علائم ریاضی</script>
 			<script type="Zsym">علائم</script>
 			<script type="Zxxx">نانوشته</script>
 			<script type="Zyyy">مشترک</script>
@@ -636,9 +645,9 @@
 			<territory type="029">کارائیب</territory>
 			<territory type="030">شرق آسیا</territory>
 			<territory type="034">جنوب آسیا</territory>
-			<territory type="035">جنوب شرقی آسیا</territory>
+			<territory type="035">جنوب شرق آسیا</territory>
 			<territory type="039">جنوب اروپا</territory>
-			<territory type="053">استرالیا و زلاند نو</territory>
+			<territory type="053">استرالزی</territory>
 			<territory type="054">ملانزی</territory>
 			<territory type="057">ناحیهٔ میکرونزی</territory>
 			<territory type="061">پلی‌نزی</territory>
@@ -896,7 +905,7 @@
 			<territory type="TZ">تانزانیا</territory>
 			<territory type="UA">اوکراین</territory>
 			<territory type="UG">اوگاندا</territory>
-			<territory type="UM">جزایر کوچک دورافتادهٔ ایالات متحده</territory>
+			<territory type="UM">جزایر دورافتادهٔ ایالات متحده</territory>
 			<territory type="US">ایالات متحدهٔ امریکا</territory>
 			<territory type="UY">اروگوئه</territory>
 			<territory type="UZ">ازبکستان</territory>
@@ -921,6 +930,8 @@
 			<variant type="1996">رسم‌الخط آلمانی ۱۹۹۶ میلادی</variant>
 			<variant type="AREVELA">ارمنی شرقی</variant>
 			<variant type="AREVMDA">ارمنی غربی</variant>
+			<variant type="FONIPA">فونتیک IPA</variant>
+			<variant type="FONUPA">فونتیک UPA</variant>
 			<variant type="POSIX">کامپیوتری</variant>
 			<variant type="REVISED">رسم‌الخط تجدیدنظرشده</variant>
 			<variant type="SAAHO">ساهویی</variant>
@@ -928,7 +939,7 @@
 		</variants>
 		<keys>
 			<key type="calendar">تقویم</key>
-			<key type="collation">ترتیب‌بندی</key>
+			<key type="collation">ترتیب</key>
 			<key type="currency">واحد پول</key>
 			<key type="numbers">اعداد</key>
 			<key type="x">استفادهٔ خصوصی</key>
@@ -938,6 +949,7 @@
 			<type type="arabext" key="numbers">ارقام فارسی</type>
 			<type type="armn" key="numbers">اعداد ارمنی</type>
 			<type type="armnlow" key="numbers">اعداد ارمنی با حروف کوچک</type>
+			<type type="bali" key="numbers">ارقام بالیایی</type>
 			<type type="beng" key="numbers">ارقام بنگالی</type>
 			<type type="big5han" key="collation">ترتیب چینی سنتی - Big5</type>
 			<type type="buddhist" key="calendar">تقویم بودایی</type>
@@ -968,6 +980,7 @@
 			<type type="islamic" key="calendar">تقویم هجری قمری</type>
 			<type type="islamic-civil" key="calendar">تقویم هجری قمری مدنی</type>
 			<type type="japanese" key="calendar">تقویم ژاپنی</type>
+			<type type="java" key="numbers">ارقام جاوه‌ای</type>
 			<type type="jpan" key="numbers">اعداد ژاپنی</type>
 			<type type="jpanfin" key="numbers">اعداد مالی ژاپنی</type>
 			<type type="khmr" key="numbers">ارقام خمری</type>
@@ -977,6 +990,7 @@
 			<type type="mlym" key="numbers">ارقام مالایالامی</type>
 			<type type="mong" key="numbers">ارقام مغولی</type>
 			<type type="mymr" key="numbers">ارقام میانماری</type>
+			<type type="mymrshan" key="numbers">ارقام شان میانماری</type>
 			<type type="orya" key="numbers">ارقام اوریه‌ای</type>
 			<type type="persian" key="calendar">تقویم هجری شمسی</type>
 			<type type="phonebook" key="collation">ترتیب دفتر تلفن</type>
@@ -986,22 +1000,25 @@
 			<type type="roman" key="numbers">اعداد رومی</type>
 			<type type="romanlow" key="numbers">اعداد رومی با حروف کوچک</type>
 			<type type="search" key="collation">جستجوی عمومی</type>
+			<type type="searchjl" key="collation">جستجو با صامت اول هانگول</type>
 			<type type="stroke" key="collation">ترتیب حرکتی</type>
 			<type type="taml" key="numbers">اعداد سنتی تامیلی</type>
+			<type type="tamldec" key="numbers">ارقام تامیلی</type>
 			<type type="telu" key="numbers">ارقام تلوگویی</type>
 			<type type="thai" key="numbers">ارقام تایلندی</type>
 			<type type="tibt" key="numbers">ارقام تبتی</type>
 			<type type="traditional" key="collation">ترتیب سنتی</type>
 			<type type="unihan" key="collation">ترتیب رادیکالی-حرکتی</type>
+			<type type="vaii" key="numbers">ارقام وایی</type>
 		</types>
 		<transformNames>
 			<transformName type="Numeric">سیستم اعداد</transformName>
 			<transformName type="Tone">تون</transformName>
 			<transformName type="x-Accents">تکیه</transformName>
-			<transformName type="x-Fullwidth">تمام عرض</transformName>
-			<transformName type="x-Halfwidth">نیم عرض</transformName>
+			<transformName type="x-Fullwidth">تمام‌عرض</transformName>
+			<transformName type="x-Halfwidth">نیم‌عرض</transformName>
 			<transformName type="x-Jamo">جامو</transformName>
-			<transformName type="x-Pinyin">پین یین</transformName>
+			<transformName type="x-Pinyin">پین‌یین</transformName>
 			<transformName type="x-Publishing">نشر</transformName>
 		</transformNames>
 		<measurementSystemNames>
@@ -1347,10 +1364,10 @@
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQ">Q y</dateFormatItem>
+						<dateFormatItem id="yQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yyyyM">yyyy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM yyyy</dateFormatItem>
 					</availableFormats>
 					<appendItems>
@@ -1866,11 +1883,18 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>وقت {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>وقت {1} ({0})</fallbackRegionFormat>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>بیولا، داکوتای شمالی</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity>GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity>GMT+1</exemplarCity>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>شهر نامشخص</exemplarCity>
@@ -1903,7 +1927,7 @@
 				<exemplarCity>لواندا</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Rothera">
-				<exemplarCity draft="contributed">روترا</exemplarCity>
+				<exemplarCity>روترا</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Palmer">
 				<exemplarCity>پالمر</exemplarCity>
@@ -1912,10 +1936,10 @@
 				<exemplarCity>قطب جنوب</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
-				<exemplarCity draft="contributed">سی ووا</exemplarCity>
+				<exemplarCity>شووا</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
-				<exemplarCity draft="contributed">ماوسون</exemplarCity>
+				<exemplarCity>ماوسون</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Davis">
 				<exemplarCity>دیویس</exemplarCity>
@@ -1927,13 +1951,13 @@
 				<exemplarCity>کیسی</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity draft="contributed">دومونت د اورویل</exemplarCity>
+				<exemplarCity>دومون دورویل</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
-				<exemplarCity draft="contributed">مک موردو</exemplarCity>
+				<exemplarCity>مک‌موردو</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="contributed">ریو گالگوس</exemplarCity>
+				<exemplarCity>ریوگالگوس</exemplarCity>
 			</zone>
 			<zone type="America/Mendoza">
 				<exemplarCity>مندوسا</exemplarCity>
@@ -1942,10 +1966,10 @@
 				<exemplarCity>سن‌خوان</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity draft="contributed">اوشوایا</exemplarCity>
+				<exemplarCity>اوشوایا</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity draft="contributed">لاریوجا</exemplarCity>
+				<exemplarCity>لاریوخا</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Luis">
 				<exemplarCity>سن‌لوئیس</exemplarCity>
@@ -1960,7 +1984,7 @@
 				<exemplarCity>خوخوی</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="contributed">توکومن</exemplarCity>
+				<exemplarCity>توکومن</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>کوردووا</exemplarCity>
@@ -2083,7 +2107,7 @@
 				<exemplarCity>کمپو گرانده</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
-				<exemplarCity draft="contributed">بلم</exemplarCity>
+				<exemplarCity>بلم</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity>آراگواینا</exemplarCity>
@@ -2092,7 +2116,7 @@
 				<exemplarCity>سائوپائولو</exemplarCity>
 			</zone>
 			<zone type="America/Bahia">
-				<exemplarCity draft="contributed">باهیا</exemplarCity>
+				<exemplarCity>بایا</exemplarCity>
 			</zone>
 			<zone type="America/Fortaleza">
 				<exemplarCity>فورتالزا</exemplarCity>
@@ -2143,10 +2167,10 @@
 				<exemplarCity>ادمونتون</exemplarCity>
 			</zone>
 			<zone type="America/Swift_Current">
-				<exemplarCity draft="contributed">سوئیفت کورنت</exemplarCity>
+				<exemplarCity>سوئیفت‌کرنت</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
-				<exemplarCity>خلیج کمبریج</exemplarCity>
+				<exemplarCity>کمبریج‌بی</exemplarCity>
 			</zone>
 			<zone type="America/Regina">
 				<exemplarCity>رجاینا</exemplarCity>
@@ -2197,10 +2221,10 @@
 				<exemplarCity>گلیس‌بی</exemplarCity>
 			</zone>
 			<zone type="America/Blanc-Sablon">
-				<exemplarCity draft="contributed">بلنک-سابلن</exemplarCity>
+				<exemplarCity>بلان‐سابلون</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<exemplarCity draft="contributed">سنت جان</exemplarCity>
+				<exemplarCity>سنت جان</exemplarCity>
 			</zone>
 			<zone type="Indian/Cocos">
 				<exemplarCity>کوکوس</exemplarCity>
@@ -2335,7 +2359,7 @@
 				<exemplarCity>پانپی</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
-				<exemplarCity draft="contributed">کوساره</exemplarCity>
+				<exemplarCity>کوسرای</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>فارو</exemplarCity>
@@ -2347,6 +2371,9 @@
 				<exemplarCity>لیبرویل</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight>وقت تابستانی بریتانیا</daylight>
+				</long>
 				<exemplarCity>لندن</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2374,7 +2401,7 @@
 				<exemplarCity>گودهوب</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity draft="contributed">اسکورسبیساند</exemplarCity>
+				<exemplarCity>اسکورسبیسوند</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
 				<exemplarCity>دانمارک‌شاون</exemplarCity>
@@ -2437,6 +2464,9 @@
 				<exemplarCity>جایاپورا</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
+				<long>
+					<daylight>وقت تابستانی ایرلند</daylight>
+				</long>
 				<exemplarCity>دوبلین</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2578,7 +2608,7 @@
 				<exemplarCity>آنتاناناریوو</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kwajalein">
-				<exemplarCity draft="contributed">کواجالین</exemplarCity>
+				<exemplarCity>کواجیلین</exemplarCity>
 			</zone>
 			<zone type="Pacific/Majuro">
 				<exemplarCity draft="contributed">ماجورو</exemplarCity>
@@ -2656,7 +2686,7 @@
 				<exemplarCity>کوالالامپور</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
-				<exemplarCity draft="contributed">کوچینگ</exemplarCity>
+				<exemplarCity>کوچینگ</exemplarCity>
 			</zone>
 			<zone type="Africa/Maputo">
 				<exemplarCity>ماپوتو</exemplarCity>
@@ -2695,7 +2725,7 @@
 				<exemplarCity>نیوئه</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
-				<exemplarCity draft="contributed">چاتام</exemplarCity>
+				<exemplarCity>چتم</exemplarCity>
 			</zone>
 			<zone type="Pacific/Auckland">
 				<exemplarCity>اوکلند</exemplarCity>
@@ -2743,7 +2773,7 @@
 				<exemplarCity>غزه</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
-				<exemplarCity draft="contributed">آزورس</exemplarCity>
+				<exemplarCity>آزور</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>مادیرا</exemplarCity>
@@ -2761,7 +2791,7 @@
 				<exemplarCity>قطر</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>ریونیون</exemplarCity>
+				<exemplarCity>رئونیون</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>بخارست</exemplarCity>
@@ -2791,7 +2821,7 @@
 				<exemplarCity>نووسیبیریسک</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity draft="contributed">کراسنویارسک</exemplarCity>
+				<exemplarCity>کراسنویارسک</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>ایرکوتسک</exemplarCity>
@@ -2812,7 +2842,7 @@
 				<exemplarCity>کامچاتکا</exemplarCity>
 			</zone>
 			<zone type="Asia/Anadyr">
-				<exemplarCity draft="contributed">آنادیر</exemplarCity>
+				<exemplarCity>آنادیر</exemplarCity>
 			</zone>
 			<zone type="Africa/Kigali">
 				<exemplarCity>کیگالی</exemplarCity>
@@ -2821,7 +2851,7 @@
 				<exemplarCity>ریاض</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guadalcanal">
-				<exemplarCity>گوادال کانال</exemplarCity>
+				<exemplarCity>گوادال‌کانال</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
 				<exemplarCity>ماهه</exemplarCity>
@@ -2863,7 +2893,7 @@
 				<exemplarCity>پاراماریبو</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>سائو تومه</exemplarCity>
+				<exemplarCity>سائوتومه</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>السالوادور</exemplarCity>
@@ -2959,7 +2989,7 @@
 				<exemplarCity>انکریج</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
-				<exemplarCity draft="contributed">یاکوتات</exemplarCity>
+				<exemplarCity>یاکوتات</exemplarCity>
 			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>جونو</exemplarCity>
@@ -3095,7 +3125,7 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard>وقت عادی جنوب افریقا</standard>
+					<standard>وقت جنوب افریقا</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -3117,6 +3147,13 @@
 					<generic>وقت آلاسکا‐هاوائی</generic>
 					<standard>وقت عادی آلاسکا‐هاوائی</standard>
 					<daylight>وقت تابستانی آلاسکا‐هاوائی</daylight>
+				</long>
+			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<generic>وقت آلماآتا</generic>
+					<standard>وقت عادی آلماآتا</standard>
+					<daylight>وقت تابستانی آلماآتا</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -3156,9 +3193,9 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic>ساعت آنادیر</generic>
-					<standard>ساعت عادی آنادیر</standard>
-					<daylight>ساعت تابستانی آنادیر</daylight>
+					<generic>وقت آنادیر</generic>
+					<standard>وقت عادی آنادیر</standard>
+					<daylight>وقت تابستانی آنادیر</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3212,9 +3249,9 @@
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
-					<generic>ساعت مرکزی غرب استرالیا</generic>
-					<standard>ساعت استاندارد مرکزی غرب استرالیا</standard>
-					<daylight>ساعت تابستانی مرکزی غرب استرالیا</daylight>
+					<generic>وقت مرکز-غرب استرالیا</generic>
+					<standard>وقت عادی مرکز-غرب استرالیا</standard>
+					<daylight>وقت تابستانی مرکز-غرب استرالیا</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
@@ -3236,6 +3273,13 @@
 					<generic>وقت جمهوری آذربایجان</generic>
 					<standard>وقت عادی جمهوری آذربایجان</standard>
 					<daylight>وقت تابستانی جمهوری آذربایجان</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic>وقت آزور</generic>
+					<standard>وقت عادی آزور</standard>
+					<daylight>وقت تابستانی آزور</daylight>
 				</long>
 			</metazone>
 			<metazone type="Baku">
@@ -3276,11 +3320,28 @@
 					<daylight>وقت تابستانی برازیلیا</daylight>
 				</long>
 			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard>وقت برونئی دارالسلام</standard>
+				</long>
+			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic>وقت کیپ‌ورد</generic>
 					<standard>وقت عادی کیپ‌ورد</standard>
 					<daylight>وقت تابستانی کیپ‌ورد</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<standard>وقت چامورو</standard>
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic>وقت چت‌هام</generic>
+					<standard>وقت عادی چت‌هام</standard>
+					<daylight>وقت تابستانی چت‌هام</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
@@ -3338,6 +3399,11 @@
 			<metazone type="Davis">
 				<long>
 					<standard>وقت دیویس</standard>
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard>وقت دومون دورویل</standard>
 				</long>
 			</metazone>
 			<metazone type="Dushanbe">
@@ -3409,9 +3475,19 @@
 					<standard>وقت گویان فرانسه</standard>
 				</long>
 			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard>وقت سرزمین‌های جنوبی و جنوبگان فرانسه</standard>
+				</long>
+			</metazone>
 			<metazone type="Galapagos">
 				<long>
 					<standard>وقت گالاپاگوس</standard>
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard>وقت گامبیه</standard>
 				</long>
 			</metazone>
 			<metazone type="Georgia">
@@ -3419,6 +3495,11 @@
 					<generic>وقت گرجستان</generic>
 					<standard>وقت عادی گرجستان</standard>
 					<daylight>وقت تابستانی گرجستان</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard>وقت جزایر گیلبرت</standard>
 				</long>
 			</metazone>
 			<metazone type="GMT">
@@ -3435,21 +3516,26 @@
 			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
-					<generic>وقت شرق گروئنلند</generic>
-					<standard>وقت عادی شرق گروئنلند</standard>
-					<daylight>وقت تابستانی شرق گروئنلند</daylight>
+					<generic>وقت شرق گرینلند</generic>
+					<standard>وقت عادی شرق گرینلند</standard>
+					<daylight>وقت تابستانی شرق گرینلند</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
-					<generic>وقت غرب گروئنلند</generic>
-					<standard>وقت عادی غرب گروئنلند</standard>
-					<daylight>وقت تابستانی غرب گروئنلند</daylight>
+					<generic>وقت غرب گرینلند</generic>
+					<standard>وقت عادی غرب گرینلند</standard>
+					<daylight>وقت تابستانی غرب گرینلند</daylight>
 				</long>
 			</metazone>
 			<metazone type="Guam">
 				<long>
 					<standard>وقت عادی گوام</standard>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard>وقت خلیج فارس</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
@@ -3459,9 +3545,9 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic>ساعت هاوایی آلوشن</generic>
-					<standard>ساعت عادی هاوایی آلوشن</standard>
-					<daylight>ساعت تابستانی هاوایی آلوشن</daylight>
+					<generic>وقت هاوایی</generic>
+					<standard>وقت عادی هاوایی</standard>
+					<daylight>وقت تابستانی هاوایی</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -3480,7 +3566,7 @@
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>وقت عادی هند</standard>
+					<standard>وقت هند</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -3538,9 +3624,9 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>ساعت کامچاتکا</generic>
-					<standard>ساعت عادی پتروپاولوسک-کامچاتسکی</standard>
-					<daylight>ساعت تابستانی پتروپاولوسک-کامچاتسکی</daylight>
+					<generic>وقت پتروپاولوسک‐کامچاتسکی</generic>
+					<standard>وقت عادی پتروپاولوسک‐کامچاتسکی</standard>
+					<daylight>وقت تابستانی پتروپاولوسک‐کامچاتسکی</daylight>
 				</long>
 			</metazone>
 			<metazone type="Karachi">
@@ -3570,6 +3656,11 @@
 					<daylight>وقت تابستانی کره</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard>وقت کوسرای</standard>
+				</long>
+			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>وقت کراسنویارسک</generic>
@@ -3587,11 +3678,16 @@
 					<standard>وقت لانکا</standard>
 				</long>
 			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard>وقت جزایر لاین</standard>
+				</long>
+			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
-					<generic>ساعت لردهو</generic>
-					<standard>ساعت استاندارد لردهو</standard>
-					<daylight>ساعت تابستانی لردهو</daylight>
+					<generic>وقت لردهو</generic>
+					<standard>وقت عادی لردهو</standard>
+					<daylight>وقت تابستانی لردهو</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macau">
@@ -3603,7 +3699,7 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<standard>ساعت ماکواری</standard>
+					<standard>وقت جزیرهٔ مکواری</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3623,9 +3719,26 @@
 					<standard>وقت مالدیو</standard>
 				</long>
 			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard>وقت مارکوئز</standard>
+				</long>
+			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
 					<standard>وقت جزایر مارشال</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic>وقت موریس</generic>
+					<standard>وقت عادی موریس</standard>
+					<daylight>وقت تابستانی موریس</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard>وقت ماوسون</standard>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
@@ -3657,6 +3770,13 @@
 					<standard>وقت نپال</standard>
 				</long>
 			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<generic>وقت کالدونیای جدید</generic>
+					<standard>وقت عادی کالدونیای جدید</standard>
+					<daylight>وقت تابستانی کالدونیای جدید</daylight>
+				</long>
+			</metazone>
 			<metazone type="New_Zealand">
 				<long>
 					<generic>وقت زلاند نو</generic>
@@ -3666,16 +3786,26 @@
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
-					<generic>ساعت نیوفوندلند</generic>
-					<standard>ساعت استاندارد نیوفوندلند</standard>
-					<daylight>ساعت تابستانی نیوفوندلند</daylight>
+					<generic>وقت نیوفاندلند</generic>
+					<standard>وقت عادی نیوفاندلند</standard>
+					<daylight>وقت تابستانی نیوفاندلند</daylight>
+				</long>
+			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard>وقت نیوئه</standard>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard>وقت جزایر نورفولک</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>ساعت فرناندو دی نورونیا</generic>
-					<standard>ساعت عادی فرناندو دی نورونیا</standard>
-					<daylight>ساعت تابستانی فرناندو دی نورونیا</daylight>
+					<generic>وقت فرناندو دی نورونیا</generic>
+					<standard>وقت عادی فرناندو دی نورونیا</standard>
+					<daylight>وقت تابستانی فرناندو دی نورونیا</daylight>
 				</long>
 			</metazone>
 			<metazone type="North_Mariana">
@@ -3735,6 +3865,45 @@
 					<daylight>وقت تابستانی فیلیپین</daylight>
 				</long>
 			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard>وقت جزایر فونیکس</standard>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>وقت پیر و میکلون</generic>
+					<standard>وقت عادی پیر و میکلون</standard>
+					<daylight>وقت تابستانی پیر و میکلون</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard>وقت پیتکایرن</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard>وقت پوناپه</standard>
+				</long>
+			</metazone>
+			<metazone type="Qyzylorda">
+				<long>
+					<generic>وقت قیزیل‌اوردا</generic>
+					<standard>وقت عادی قیزیل‌اوردا</standard>
+					<daylight>وقت تابستانی قیزیل‌اوردا</daylight>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard>وقت ریونیون</standard>
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard>وقت روترا</standard>
+				</long>
+			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic>وقت ساخالین</generic>
@@ -3744,9 +3913,9 @@
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<generic>ساعت سامارا</generic>
-					<standard>ساعت عادی سامارا</standard>
-					<daylight>ساعت تابستانی سامارا</daylight>
+					<generic>وقت سامارا</generic>
+					<standard>وقت عادی سامارا</standard>
+					<daylight>وقت تابستانی سامارا</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samarkand">
@@ -3758,7 +3927,7 @@
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<standard>وقت عادی ساموا</standard>
+					<standard>وقت ساموا</standard>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -3768,7 +3937,7 @@
 			</metazone>
 			<metazone type="Singapore">
 				<long>
-					<standard>وقت عادی سنگاپور</standard>
+					<standard>وقت سنگاپور</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
@@ -3786,9 +3955,21 @@
 					<standard>وقت سورینام</standard>
 				</long>
 			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard>وقت شووا</standard>
+				</long>
+			</metazone>
 			<metazone type="Tahiti">
 				<long>
 					<standard>وقت تاهیتی</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>وقت تایپه</generic>
+					<standard>وقت عادی تایپه</standard>
+					<daylight>وقت تابستانی تایپه</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -3810,11 +3991,21 @@
 					<daylight>وقت تابستانی تفلیس</daylight>
 				</long>
 			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard>وقت توکلائو</standard>
+				</long>
+			</metazone>
 			<metazone type="Tonga">
 				<long>
 					<generic>وقت تونگا</generic>
 					<standard>وقت عادی تونگا</standard>
 					<daylight>وقت تابستانی تونگا</daylight>
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard>وقت چوئوک</standard>
 				</long>
 			</metazone>
 			<metazone type="Turkey">
@@ -3881,9 +4072,19 @@
 					<daylight>وقت تابستانی ولگاگراد</daylight>
 				</long>
 			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard>وقت وستوک</standard>
+				</long>
+			</metazone>
 			<metazone type="Wake">
 				<long>
 					<standard>وقت جزیرهٔ ویک</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard>وقت والیس و فوتونا</standard>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
@@ -3907,6 +4108,13 @@
 					<daylight>وقت تابستانی ایروان</daylight>
 				</long>
 			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<generic>وقت یوکان</generic>
+					<standard>وقت عادی یوکان</standard>
+					<daylight>وقت تابستانی یوکان</daylight>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -3919,8 +4127,12 @@
 			<group>٬</group>
 			<list>؛</list>
 			<percentSign>٪</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>−</minusSign>
 			<exponential>×۱۰^</exponential>
 			<perMille>؉</perMille>
+			<infinity>∞</infinity>
+			<nan>ناعدد</nan>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
@@ -3940,20 +4152,36 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="other">0.0 هزار</pattern>
+					<pattern type="10000" count="other">00 هزار</pattern>
+					<pattern type="100000" count="other">000 هزار</pattern>
+					<pattern type="1000000" count="other">0.0 میلیون</pattern>
+					<pattern type="10000000" count="other">00 میلیون</pattern>
+					<pattern type="100000000" count="other">000 میلیون</pattern>
+					<pattern type="1000000000" count="other">0.0 میلیارد</pattern>
+					<pattern type="10000000000" count="other">00 میلیارد</pattern>
+					<pattern type="100000000000" count="other">000 میلیارد</pattern>
+					<pattern type="1000000000000" count="other">0.0 هزار میلیارد</pattern>
+					<pattern type="10000000000000" count="other">00 هزار میلیارد</pattern>
+					<pattern type="100000000000000" count="other">000 هزار میلیارد</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
-					<pattern type="10000" count="other" draft="contributed">00K</pattern>
-					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+					<pattern type="1000" count="other">0.0K</pattern>
+					<pattern type="10000" count="other">00K</pattern>
+					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="other">0.0M</pattern>
+					<pattern type="10000000" count="other">00M</pattern>
+					<pattern type="100000000" count="other">000M</pattern>
+					<pattern type="1000000000" count="other">0.0G</pattern>
+					<pattern type="10000000000" count="other">00G</pattern>
+					<pattern type="100000000000" count="other">000G</pattern>
+					<pattern type="1000000000000" count="other">0.0T</pattern>
+					<pattern type="10000000000000" count="other">00T</pattern>
+					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4026,7 +4254,7 @@
 				<displayName>منات جمهوری آذربایجان</displayName>
 			</currency>
 			<currency type="BAD">
-				<displayName>دینار بوسنی و هرزگوین</displayName>
+				<displayName>دینار بوسنی و هرزگوین (۱۹۹۲ تا ۱۹۹۴)</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>مارک تبدیل‌پذیر بوسنی و هرزگوین</displayName>
@@ -4107,7 +4335,7 @@
 				<displayName>کولون کاستاریکا</displayName>
 			</currency>
 			<currency type="CSD">
-				<displayName>دینار قدیم صربستان</displayName>
+				<displayName>دینار صربستان (۲۰۰۲ تا ۲۰۰۶)</displayName>
 			</currency>
 			<currency type="CUC">
 				<displayName>پزوی تبدیل‌پذیر کوبا</displayName>
@@ -4441,7 +4669,7 @@
 				<displayName>روپیهٔ سیشل</displayName>
 			</currency>
 			<currency type="SDD">
-				<displayName>دینار قدیم سودان</displayName>
+				<displayName>دینار سودان (۱۹۹۲ تا ۲۰۰۷)</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName>لیرهٔ سودان</displayName>
@@ -4504,7 +4732,7 @@
 				<displayName>اسکودوی تیمور</displayName>
 			</currency>
 			<currency type="TRL">
-				<displayName>لیرهٔ قدیم ترکیه</displayName>
+				<displayName>لیرهٔ ترکیه (۱۹۲۲ تا ۲۰۰۵)</displayName>
 			</currency>
 			<currency type="TRY">
 				<displayName>لیرهٔ ترکیه</displayName>
@@ -4600,7 +4828,7 @@
 				<displayName>کواچای زامبیا</displayName>
 			</currency>
 			<currency type="ZWD">
-				<displayName>دلار زیمبابوه</displayName>
+				<displayName>دلار زیمبابوه (۱۹۸۰ تا ۲۰۰۸)</displayName>
 			</currency>
 			<currency type="ZWL">
 				<displayName>دلار زیمبابوه (۲۰۰۹)</displayName>
@@ -4612,115 +4840,115 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0" alt="short">0 روز</unitPattern>
-			<unitPattern count="1" alt="short">1 روز</unitPattern>
+			<unitPattern count="0" alt="short">{0} روز</unitPattern>
+			<unitPattern count="1" alt="short">{0} روز</unitPattern>
 			<unitPattern count="other">{0} روز</unitPattern>
 			<unitPattern count="other" alt="short">{0} روز</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">در 0 روز</unitPattern>
-			<unitPattern count="1">در 1 روز</unitPattern>
+			<unitPattern count="0">{0} روز بعد</unitPattern>
+			<unitPattern count="1">{0} روز بعد</unitPattern>
 			<unitPattern count="other">{0} روز بعد</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">0 روز قبل</unitPattern>
-			<unitPattern count="1">1 روز قبل</unitPattern>
+			<unitPattern count="0">{0} روز پیش</unitPattern>
+			<unitPattern count="1">{0} روز پیش</unitPattern>
 			<unitPattern count="other">{0} روز پیش</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0" alt="short">0 ساعت</unitPattern>
-			<unitPattern count="1" alt="short">1 ساعت</unitPattern>
+			<unitPattern count="0" alt="short">{0} ساعت</unitPattern>
+			<unitPattern count="1" alt="short">{0} ساعت</unitPattern>
 			<unitPattern count="other">{0} ساعت</unitPattern>
 			<unitPattern count="other" alt="short">{0} ساعت</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">در 0 ساعت</unitPattern>
-			<unitPattern count="1">در 1 ساعت</unitPattern>
+			<unitPattern count="0">{0} ساعت بعد</unitPattern>
+			<unitPattern count="1">{0} ساعت بعد</unitPattern>
 			<unitPattern count="other">{0} ساعت بعد</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">0 ساعت قبل</unitPattern>
-			<unitPattern count="1">1 ساعت قبل</unitPattern>
+			<unitPattern count="0">{0} ساعت پیش</unitPattern>
+			<unitPattern count="1">{0} ساعت پیش</unitPattern>
 			<unitPattern count="other">{0} ساعت پیش</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0" alt="short">0 دقیقه</unitPattern>
-			<unitPattern count="1" alt="short">1 دقیقه</unitPattern>
+			<unitPattern count="0" alt="short">{0} دقیقه</unitPattern>
+			<unitPattern count="1" alt="short">{0} دقیقه</unitPattern>
 			<unitPattern count="other">{0} دقیقه</unitPattern>
 			<unitPattern count="other" alt="short">{0} دقیقه</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">در 0 دقیقه</unitPattern>
-			<unitPattern count="1">در 1 دقیقه</unitPattern>
+			<unitPattern count="0">{0} دقیقه بعد</unitPattern>
+			<unitPattern count="1">{0} دقیقه بعد</unitPattern>
 			<unitPattern count="other">{0} دقیقه بعد</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">0 دقیقه قبل</unitPattern>
-			<unitPattern count="1">1 دقیقه قبل</unitPattern>
+			<unitPattern count="0">{0} دقیقه پیش</unitPattern>
+			<unitPattern count="1">{0} دقیقه پیش</unitPattern>
 			<unitPattern count="other">{0} دقیقه پیش</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0" alt="short">0 ماه</unitPattern>
-			<unitPattern count="1" alt="short">1 ماه</unitPattern>
+			<unitPattern count="0" alt="short">{0} ماه</unitPattern>
+			<unitPattern count="1" alt="short">{0} ماه</unitPattern>
 			<unitPattern count="other">{0} ماه</unitPattern>
 			<unitPattern count="other" alt="short">{0} ماه</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">در 0 ماه</unitPattern>
-			<unitPattern count="1">در 1 ماه</unitPattern>
+			<unitPattern count="0">{0} ماه بعد</unitPattern>
+			<unitPattern count="1">{0} ماه بعد</unitPattern>
 			<unitPattern count="other">{0} ماه بعد</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">0 ماه قبل</unitPattern>
-			<unitPattern count="1">1 ماه قبل</unitPattern>
+			<unitPattern count="0">{0} ماه پیش</unitPattern>
+			<unitPattern count="1">{0} ماه پیش</unitPattern>
 			<unitPattern count="other">{0} ماه پیش</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0" alt="short">0 ثانیه</unitPattern>
-			<unitPattern count="1" alt="short">1 ثانیه</unitPattern>
+			<unitPattern count="0" alt="short">{0} ثانیه</unitPattern>
+			<unitPattern count="1" alt="short">{0} ثانیه</unitPattern>
 			<unitPattern count="other">{0} ثانیه</unitPattern>
 			<unitPattern count="other" alt="short">{0} ثانیه</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">در 0 ثانیه</unitPattern>
-			<unitPattern count="1">در 1 ثانیه</unitPattern>
+			<unitPattern count="0">{0} ثانیه بعد</unitPattern>
+			<unitPattern count="1">{0} ثانیه بعد</unitPattern>
 			<unitPattern count="other">{0} ثانیه بعد</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">0 ثانیه قبل</unitPattern>
-			<unitPattern count="1">1 ثانیه قبل</unitPattern>
+			<unitPattern count="0">{0} ثانیه پیش</unitPattern>
+			<unitPattern count="1">{0} ثانیه پیش</unitPattern>
 			<unitPattern count="other">{0} ثانیه پیش</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0" alt="short">0 هفته</unitPattern>
-			<unitPattern count="1" alt="short">1 هفته</unitPattern>
+			<unitPattern count="0" alt="short">{0} هفته</unitPattern>
+			<unitPattern count="1" alt="short">{0} هفته</unitPattern>
 			<unitPattern count="other">{0} هفته</unitPattern>
 			<unitPattern count="other" alt="short">{0} هفته</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">در 0 هفته</unitPattern>
-			<unitPattern count="1">در 1 هفته</unitPattern>
+			<unitPattern count="0">{0} هفته بعد</unitPattern>
+			<unitPattern count="1">{0} هفته بعد</unitPattern>
 			<unitPattern count="other">{0} هفته بعد</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">0 هفته قبل</unitPattern>
-			<unitPattern count="1">1 هفته قبل</unitPattern>
+			<unitPattern count="0">{0} هفته پیش</unitPattern>
+			<unitPattern count="1">{0} هفته پیش</unitPattern>
 			<unitPattern count="other">{0} هفته پیش</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0" alt="short">0 سال</unitPattern>
-			<unitPattern count="1" alt="short">1 سال</unitPattern>
+			<unitPattern count="0" alt="short">{0} سال</unitPattern>
+			<unitPattern count="1" alt="short">{0} سال</unitPattern>
 			<unitPattern count="other">{0} سال</unitPattern>
 			<unitPattern count="other" alt="short">{0} سال</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">در 0 سال</unitPattern>
-			<unitPattern count="1">در 1 سال</unitPattern>
+			<unitPattern count="0">{0} سال بعد</unitPattern>
+			<unitPattern count="1">{0} سال بعد</unitPattern>
 			<unitPattern count="other">{0} سال بعد</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">0 سال قبل</unitPattern>
-			<unitPattern count="1">1 سال قبل</unitPattern>
+			<unitPattern count="0">{0} سال پیش</unitPattern>
+			<unitPattern count="1">{0} سال پیش</unitPattern>
 			<unitPattern count="other">{0} سال پیش</unitPattern>
 		</unit>
 	</units>
@@ -4739,4 +4967,3 @@
 		</messages>
 	</posix>
 </ldml>
-

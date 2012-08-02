@@ -618,8 +618,8 @@
 		<exemplarCharacters>[a á à ã b d ɖ e é è ẽ ɛ {ɛ\u0301} {ɛ\u0300} {ɛ\u0303} f ƒ g ɣ h x i í ì ĩ k l m n ŋ o ó ò õ ɔ {ɔ\u0301} {ɔ\u0300} {ɔ\u0303} p r s t u ú ù ũ v ʋ w y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c j q ă â å ä ā æ ç ĕ ê ë ĭ î ï ñ ŏ ô ö ø œ ŭ û ü ÿ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a b c č d e f g h i j k l ł m n o º p q r s t ŧ u v w x y z]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ " “ ” ( ) \[ \] \{\} § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B D Ɖ E Ɛ F Ƒ G Ɣ H X I K L M N Ŋ O Ɔ P R S T U V Ʋ W Y Z]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] \{\} § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<moreInformation>...</moreInformation>
 	</characters>
 	<delimiters>
@@ -741,6 +741,15 @@
 							<day type="fri">f</day>
 							<day type="sat">m</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">kɔs</day>
+							<day type="mon">dzo</day>
+							<day type="tue">bla</day>
+							<day type="wed">kuɖ</day>
+							<day type="thu">yaw</day>
+							<day type="fri">fiɖ</day>
+							<day type="sat">mem</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">kɔsiɖa</day>
 							<day type="mon">dzoɖa</day>
@@ -770,6 +779,15 @@
 							<day type="fri">f</day>
 							<day type="sat">m</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">kɔs</day>
+							<day type="mon">dzo</day>
+							<day type="tue">bla</day>
+							<day type="wed">kuɖ</day>
+							<day type="thu">yaw</day>
+							<day type="fri">fiɖ</day>
+							<day type="sat">mem</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">kɔsiɖa</day>
 							<day type="mon">dzoɖa</day>
@@ -784,10 +802,10 @@
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">q1</quarter>
-							<quarter type="2">q2</quarter>
-							<quarter type="3">q3</quarter>
-							<quarter type="4">q4</quarter>
+							<quarter type="1">k1</quarter>
+							<quarter type="2">k2</quarter>
+							<quarter type="3">k3</quarter>
+							<quarter type="4">k4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -796,24 +814,24 @@
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">memama ene ƒe akpa gbãtɔ</quarter>
-							<quarter type="2">memama ene ƒe akpa evelia</quarter>
-							<quarter type="3">memama ene ƒe akpa etɔ̃lia</quarter>
-							<quarter type="4">memama ene ƒe akpa enelia</quarter>
+							<quarter type="1">kɔta gbãtɔ</quarter>
+							<quarter type="2">kɔta evelia</quarter>
+							<quarter type="3">kɔta etɔ̃lia</quarter>
+							<quarter type="4">kɔta enelia</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">q1</quarter>
-							<quarter type="2">q2</quarter>
-							<quarter type="3">q3</quarter>
-							<quarter type="4">q4</quarter>
+							<quarter type="1">k1</quarter>
+							<quarter type="2">k2</quarter>
+							<quarter type="3">k3</quarter>
+							<quarter type="4">k4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">memama ene ƒe akpa gbãtɔ</quarter>
-							<quarter type="2">memama ene ƒe akpa evelia</quarter>
-							<quarter type="3">memama ene ƒe akpa etɔ̃lia</quarter>
-							<quarter type="4">memama ene ƒe akpa enelia</quarter>
+							<quarter type="1">kɔta gbãtɔ</quarter>
+							<quarter type="2">kɔta evelia</quarter>
+							<quarter type="3">kɔta etɔ̃lia</quarter>
+							<quarter type="4">kɔta enelia</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -852,22 +870,22 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM y</pattern>
+							<pattern>EEEE, MMMM d 'lia' y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM y</pattern>
+							<pattern>MMMM d 'lia' y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM y</pattern>
+							<pattern>MMM d 'lia', y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>dd/MM/yyyy</pattern>
+							<pattern>M/d/yy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -879,17 +897,17 @@
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>a h:mm:ss z</pattern>
+							<pattern>a 'ga' h:mm:ss z</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>a h:mm:ss</pattern>
+							<pattern>a 'ga' h:mm:ss</pattern>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>a h:mm</pattern>
+							<pattern>a 'ga' h:mm</pattern>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -917,26 +935,27 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="h">a h</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="h">a 'ga' h</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">a 'ga' h:mm</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="hms">a 'ga' h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, MMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, MMMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="ms">'aɖabaƒoƒo' mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
-						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
+						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">MMM d 'lia', y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ">Q y</dateFormatItem>
@@ -944,30 +963,51 @@
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">a h – a h</greatestDifference>
 							<greatestDifference id="h">a h–h</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a">HH–HH</greatestDifference>
+							<greatestDifference id="H">HH–HH</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a">a h:mm – a h:mm</greatestDifference>
-							<greatestDifference id="h">a h:mm–h:mm</greatestDifference>
-							<greatestDifference id="m">a h:mm–h:mm</greatestDifference>
+							<greatestDifference id="a">a 'ga' h:mm - a 'ga' h:mm</greatestDifference>
+							<greatestDifference id="h">a 'ga' h:mm - 'ga' h:mm</greatestDifference>
+							<greatestDifference id="m">a 'ga' h:mm – 'ga' h:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">a h:mm – a h:mm v</greatestDifference>
-							<greatestDifference id="h">a h:mm–h:mm v</greatestDifference>
+							<greatestDifference id="a">a 'ga' h:mm – a 'ga' h:mm v</greatestDifference>
+							<greatestDifference id="h">a 'ga' h:mm–h:mm v</greatestDifference>
 							<greatestDifference id="m">a h:mm–h:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">a h – a h v</greatestDifference>
-							<greatestDifference id="h">a h–h v</greatestDifference>
+							<greatestDifference id="h">a 'ga' h–h v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a">HH–HH v</greatestDifference>
+							<greatestDifference id="H">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">'ɣleti' M 'lia' – 'ɣleti' M 'lia'</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">M/d – M/d</greatestDifference>
-							<greatestDifference id="M">M/d – M/d 2</greatestDifference>
+							<greatestDifference id="M">M/d – M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">E, M/d – E, M/d</greatestDifference>
@@ -977,12 +1017,12 @@
 							<greatestDifference id="M">MMM–MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">MMM d–d</greatestDifference>
-							<greatestDifference id="M">MMM d – MMM d</greatestDifference>
+							<greatestDifference id="d">MMM d 'lia' – d 'lia'</greatestDifference>
+							<greatestDifference id="M">MMM d 'lia' – MMM d 'lia'</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, MMM d – E, MMM d</greatestDifference>
-							<greatestDifference id="M">E, MMM d – E, MMM d</greatestDifference>
+							<greatestDifference id="d">E, MMM d 'lia' – E, MMM d 'lia'</greatestDifference>
+							<greatestDifference id="M">E, MMM d 'lia' – E, MMM d 'lia'</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M/yy – M/yy</greatestDifference>
@@ -1003,14 +1043,14 @@
 							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">MMM d–d, y</greatestDifference>
-							<greatestDifference id="M">MMM d – MMM d, y</greatestDifference>
-							<greatestDifference id="y">MMM d, y – MMM d, y</greatestDifference>
+							<greatestDifference id="d">MMM d 'lia' – d 'lia' , y</greatestDifference>
+							<greatestDifference id="M">MMM d 'lia' – MMM d 'lia', y</greatestDifference>
+							<greatestDifference id="y">MMM d 'lia' , y – MMM d 'lia', y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, MMM d – E, MMM d, y</greatestDifference>
-							<greatestDifference id="M">E, MMM d – E, MMM d, y</greatestDifference>
-							<greatestDifference id="y">E, MMM d, y – E, MMM d, y</greatestDifference>
+							<greatestDifference id="d">E, MMM d 'lia' – E, MMM d 'lia', y</greatestDifference>
+							<greatestDifference id="M">E, MMM d 'lia' – E, MMM d 'lia', y</greatestDifference>
+							<greatestDifference id="y">E, MMM d 'lia', y – E, MMM d 'lia', y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
@@ -2310,24 +2350,26 @@
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="100000" count="one">00K</pattern>
-					<pattern type="100000" count="other">00K</pattern>
-					<pattern type="10000000" count="one">0M</pattern>
-					<pattern type="10000000" count="other">0M</pattern>
-					<pattern type="100000000" count="one">00M</pattern>
-					<pattern type="100000000" count="other">00M</pattern>
-					<pattern type="1000000000" count="one">0.000M</pattern>
-					<pattern type="1000000000" count="other">0.000M</pattern>
+					<pattern type="100000" count="one">000K</pattern>
+					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="one">0.0M</pattern>
+					<pattern type="1000000" count="other">0.0M</pattern>
+					<pattern type="10000000" count="one">00M</pattern>
+					<pattern type="10000000" count="other">00M</pattern>
+					<pattern type="100000000" count="one">000M</pattern>
+					<pattern type="100000000" count="other">000M</pattern>
+					<pattern type="1000000000" count="one">0000M</pattern>
+					<pattern type="1000000000" count="other">0000M</pattern>
 					<pattern type="10000000000" count="one">00000M</pattern>
 					<pattern type="10000000000" count="other">00000M</pattern>
-					<pattern type="100000000000" count="one">0000M</pattern>
-					<pattern type="100000000000" count="other">0000M</pattern>
+					<pattern type="100000000000" count="one">000000M</pattern>
+					<pattern type="100000000000" count="other">000000M</pattern>
 					<pattern type="1000000000000" count="one">0.0B</pattern>
 					<pattern type="1000000000000" count="other">0.0B</pattern>
-					<pattern type="10000000000000" count="one">0B</pattern>
-					<pattern type="10000000000000" count="other">0B</pattern>
-					<pattern type="100000000000000" count="one">00B</pattern>
-					<pattern type="100000000000000" count="other">00B</pattern>
+					<pattern type="10000000000000" count="one">00B</pattern>
+					<pattern type="10000000000000" count="other">00B</pattern>
+					<pattern type="100000000000000" count="one">000B</pattern>
+					<pattern type="100000000000000" count="other">000B</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

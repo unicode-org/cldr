@@ -4443,32 +4443,106 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="few">0.0 тысячи</pattern>
+					<pattern type="1000" count="many">0.0 тысяч</pattern>
+					<pattern type="1000" count="one">0.0 тысяча</pattern>
+					<pattern type="1000" count="other">0.0 тысячи</pattern>
+					<pattern type="10000" count="few">00 тысячи</pattern>
+					<pattern type="10000" count="many">00 тысяч</pattern>
+					<pattern type="10000" count="one">00 тысяча</pattern>
+					<pattern type="10000" count="other">00 тысячи</pattern>
+					<pattern type="100000" count="few">000 тысячи</pattern>
+					<pattern type="100000" count="many">000 тысяч</pattern>
+					<pattern type="100000" count="one">000 тысяча</pattern>
+					<pattern type="100000" count="other">000 тысячи</pattern>
+					<pattern type="1000000" count="few">0.0 миллиона</pattern>
+					<pattern type="1000000" count="many">0.0 миллионов</pattern>
+					<pattern type="1000000" count="one">0.0 миллион</pattern>
+					<pattern type="1000000" count="other">0.0 миллиона</pattern>
+					<pattern type="10000000" count="few">00 миллиона</pattern>
+					<pattern type="10000000" count="many">00 миллионов</pattern>
+					<pattern type="10000000" count="one">00 миллион</pattern>
+					<pattern type="10000000" count="other">00 миллиона</pattern>
+					<pattern type="100000000" count="few">000 миллиона</pattern>
+					<pattern type="100000000" count="many">000 миллионов</pattern>
+					<pattern type="100000000" count="one">000 миллион</pattern>
+					<pattern type="100000000" count="other">000 миллиона</pattern>
+					<pattern type="1000000000" count="few">0.0 миллиарда</pattern>
+					<pattern type="1000000000" count="many">0.0 миллиардов</pattern>
+					<pattern type="1000000000" count="one">0.0 миллиард</pattern>
+					<pattern type="1000000000" count="other">0.0 миллиарда</pattern>
+					<pattern type="10000000000" count="few">00 миллиарда</pattern>
+					<pattern type="10000000000" count="many">00 миллиардов</pattern>
+					<pattern type="10000000000" count="one">00 миллиард</pattern>
+					<pattern type="10000000000" count="other">00 миллиарда</pattern>
+					<pattern type="100000000000" count="few">000 миллиарда</pattern>
+					<pattern type="100000000000" count="many">000 миллиардов</pattern>
+					<pattern type="100000000000" count="one">000 миллиард</pattern>
+					<pattern type="100000000000" count="other">000 миллиарда</pattern>
+					<pattern type="1000000000000" count="few">0.0 триллиона</pattern>
+					<pattern type="1000000000000" count="many">0.0 триллионов</pattern>
+					<pattern type="1000000000000" count="one">0.0 триллион</pattern>
+					<pattern type="1000000000000" count="other">0.0 триллиона</pattern>
+					<pattern type="10000000000000" count="few">00 триллиона</pattern>
+					<pattern type="10000000000000" count="many">00 триллионов</pattern>
+					<pattern type="10000000000000" count="one">00 триллион</pattern>
+					<pattern type="10000000000000" count="other">00 триллиона</pattern>
+					<pattern type="100000000000000" count="few">000 триллиона</pattern>
+					<pattern type="100000000000000" count="many">000 триллионов</pattern>
+					<pattern type="100000000000000" count="one">000 триллион</pattern>
+					<pattern type="100000000000000" count="other">000 триллиона</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0.0 тыс'.'</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0 тыс'.'</pattern>
-					<pattern type="10000" count="one" draft="contributed">00 тыс'.'</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 тыс'.'</pattern>
-					<pattern type="100000" count="one" draft="contributed">000 тыс'.'</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 тыс'.'</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0 млн</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0 млн</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00 млн</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 млн</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000 млн</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 млн</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0 млрд</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0 млрд</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00 млрд</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 млрд</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000 млрд</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 млрд</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0 трлн</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0 трлн</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00 трлн</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 трлн</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000 трлн</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 трлн</pattern>
+					<pattern type="1000" count="one">0.0 тыс'.'</pattern>
+					<pattern type="1000" count="other">0.0 тыс'.'</pattern>
+					<pattern type="10000" count="few">00 тыс'.'</pattern>
+					<pattern type="10000" count="many">00 тыс'.'</pattern>
+					<pattern type="10000" count="one">00 тыс'.'</pattern>
+					<pattern type="10000" count="other">00 тыс'.'</pattern>
+					<pattern type="100000" count="few">000 тыс'.'</pattern>
+					<pattern type="100000" count="many">000 тыс'.'</pattern>
+					<pattern type="100000" count="one">000 тыс'.'</pattern>
+					<pattern type="100000" count="other">000 тыс'.'</pattern>
+					<pattern type="1000000" count="few">0.0 млн</pattern>
+					<pattern type="1000000" count="many">0.0 млн</pattern>
+					<pattern type="1000000" count="one">0.0 млн</pattern>
+					<pattern type="1000000" count="other">0.0 млн</pattern>
+					<pattern type="10000000" count="few">00 млн</pattern>
+					<pattern type="10000000" count="many">00 млн</pattern>
+					<pattern type="10000000" count="one">00 млн</pattern>
+					<pattern type="10000000" count="other">00 млн</pattern>
+					<pattern type="100000000" count="few">000 млн</pattern>
+					<pattern type="100000000" count="many">000 млн</pattern>
+					<pattern type="100000000" count="one">000 млн</pattern>
+					<pattern type="100000000" count="other">000 млн</pattern>
+					<pattern type="1000000000" count="few">0.0 млрд</pattern>
+					<pattern type="1000000000" count="many">0.0 млрд</pattern>
+					<pattern type="1000000000" count="one">0.0 млрд</pattern>
+					<pattern type="1000000000" count="other">0.0 млрд</pattern>
+					<pattern type="10000000000" count="few">00 млрд</pattern>
+					<pattern type="10000000000" count="many">00 млрд</pattern>
+					<pattern type="10000000000" count="one">00 млрд</pattern>
+					<pattern type="10000000000" count="other">00 млрд</pattern>
+					<pattern type="100000000000" count="few">000 млрд</pattern>
+					<pattern type="100000000000" count="many">000 млрд</pattern>
+					<pattern type="100000000000" count="one">000 млрд</pattern>
+					<pattern type="100000000000" count="other">000 млрд</pattern>
+					<pattern type="1000000000000" count="few">0.0 трлн</pattern>
+					<pattern type="1000000000000" count="many">0.0 трлн</pattern>
+					<pattern type="1000000000000" count="one">0.0 трлн</pattern>
+					<pattern type="1000000000000" count="other">0.0 трлн</pattern>
+					<pattern type="10000000000000" count="few">00 трлн</pattern>
+					<pattern type="10000000000000" count="many">00 трлн</pattern>
+					<pattern type="10000000000000" count="one">00 трлн</pattern>
+					<pattern type="10000000000000" count="other">00 трлн</pattern>
+					<pattern type="100000000000000" count="few">000 трлн</pattern>
+					<pattern type="100000000000000" count="many">000 трлн</pattern>
+					<pattern type="100000000000000" count="one">000 трлн</pattern>
+					<pattern type="100000000000000" count="other">000 трлн</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -6143,4 +6217,3 @@
 		</messages>
 	</posix>
 </ldml>
-

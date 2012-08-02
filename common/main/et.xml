@@ -1228,6 +1228,7 @@
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
+						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm.ss a</dateFormatItem>
@@ -1586,7 +1587,7 @@
 			<metazone type="Anadyr">
 				<long>
 					<generic>Anadõri aeg</generic>
-					<standard>Anadõri aeg</standard>
+					<standard>Anadõri standardaeg</standard>
 					<daylight>Anadõri suveaeg</daylight>
 				</long>
 			</metazone>
@@ -2995,4 +2996,3 @@
 		</messages>
 	</posix>
 </ldml>
-

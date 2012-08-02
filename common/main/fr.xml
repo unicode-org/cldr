@@ -560,7 +560,7 @@
 			<script type="Cans">syllabaire autochtone canadien unifié</script>
 			<script type="Cari">carien</script>
 			<script type="Cham">cham</script>
-			<script type="Cher">tchérokî</script>
+			<script type="Cher">cherokee</script>
 			<script type="Cirt">cirth</script>
 			<script type="Copt">copte</script>
 			<script type="Cprt">syllabaire chypriote</script>
@@ -953,7 +953,7 @@
 			<territory type="TZ">Tanzanie</territory>
 			<territory type="UA">Ukraine</territory>
 			<territory type="UG">Ouganda</territory>
-			<territory type="UM">Îles Mineures Éloignées des États-Unis</territory>
+			<territory type="UM">Îles éloignées des États-Unis</territory>
 			<territory type="US">États-Unis</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Ouzbékistan</territory>
@@ -1129,10 +1129,10 @@
 		</stopwords>
 	</characters>
 	<delimiters>
-        <quotationStart>“</quotationStart>
-        <quotationEnd>”</quotationEnd>
-        <alternateQuotationStart>«</alternateQuotationStart>
-        <alternateQuotationEnd>»</alternateQuotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>«</alternateQuotationStart>
+		<alternateQuotationEnd>»</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -1940,33 +1940,49 @@
 					<monthContext type="format">
 						<default choice="wide"/>
 						<monthWidth type="abbreviated">
-							<month type="1">Mouh.</month>
-							<month type="2">Saf.</month>
-							<month type="3">Rabiʻ-oul-A.</month>
-							<month type="4">Rabiʻ-out-T.</month>
-							<month type="5">Djoum.-l-O.</month>
-							<month type="6">Djoum.-t-T.</month>
-							<month type="7">Radj.</month>
-							<month type="8">Cha.</month>
-							<month type="9">Ram.</month>
-							<month type="10">Chaou.</month>
-							<month type="11">Dou-l-Q.</month>
-							<month type="12">Dou-l-H.</month>
+							<month type="1">mouh.</month>
+							<month type="2">saf.</month>
+							<month type="3">rab.aw.</month>
+							<month type="4">rab.th.</month>
+							<month type="5">joum.oul.</month>
+							<month type="6">joum.tha.</month>
+							<month type="7">raj.</month>
+							<month type="8">chaa.</month>
+							<month type="9">ram.</month>
+							<month type="10">chaw.</month>
+							<month type="11">dhou.q.</month>
+							<month type="12">dhou.h.</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">Mouharram</month>
-							<month type="3">Rabiʻ-oul-Aououal</month>
-							<month type="4">Rabiʻ-out-Tani</month>
-							<month type="5">Djoumada-l-Oula</month>
-							<month type="6">Djoumada-t-Tania</month>
-							<month type="7">Radjab</month>
-							<month type="8">Chaʻban</month>
-							<month type="10">Chaououal</month>
-							<month type="11">Dou-l-Qaʻda</month>
-							<month type="12">Dou-l-Hidjja</month>
+							<month type="1">mouharram</month>
+							<month type="2">safar</month>
+							<month type="3">rabia al awal</month>
+							<month type="4">rabia ath-thani</month>
+							<month type="5">joumada al oula</month>
+							<month type="6">joumada ath-thania</month>
+							<month type="7">rajab</month>
+							<month type="8">chaabane</month>
+							<month type="9">ramadan</month>
+							<month type="10">chawwal</month>
+							<month type="11">dhou al qi`da</month>
+							<month type="12">dhou al-hijja</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">mouh.</month>
+							<month type="2">saf.</month>
+							<month type="3">rab.aw.</month>
+							<month type="4">rab.th.</month>
+							<month type="5">joum.ou.</month>
+							<month type="6">joum.th.</month>
+							<month type="7">raj.</month>
+							<month type="8">chaa.</month>
+							<month type="9">ram.</month>
+							<month type="10">chaw.</month>
+							<month type="11">dhou.qi.</month>
+							<month type="12">dhou.hi.</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -1980,6 +1996,20 @@
 							<month type="10">10</month>
 							<month type="11">11</month>
 							<month type="12">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">mouharram</month>
+							<month type="2">safar</month>
+							<month type="3">rabia al awal</month>
+							<month type="4">rabia ath-thani</month>
+							<month type="5">joumada al oula</month>
+							<month type="6">joumada ath-thania</month>
+							<month type="7">rajab</month>
+							<month type="8">chaabane</month>
+							<month type="9">ramadan</month>
+							<month type="10">chawwal</month>
+							<month type="11">dhou al qi`da</month>
+							<month type="12">dhou al-hijja</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -2758,9 +2788,9 @@
 			</metazone>
 			<metazone type="Aktyubinsk">
 				<long>
-					<generic>heure d’Aqtöbe</generic>
-					<standard>heure normale d’Aqtöbe</standard>
-					<daylight>heure avancée d’Aqtöbe</daylight>
+					<generic>heure d’Aktioubé</generic>
+					<standard>heure normale d’Aktioubé</standard>
+					<daylight>heure avancée d’Aktioubé</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -3644,6 +3674,14 @@
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="100000000" count="one">000 million</pattern>
+					<pattern type="100000000" count="other">000 millions</pattern>
+					<pattern type="10000000000" count="one">00 milliard</pattern>
+					<pattern type="10000000000" count="other">00 milliards</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -5278,4 +5316,3 @@
 		</messages>
 	</posix>
 </ldml>
-

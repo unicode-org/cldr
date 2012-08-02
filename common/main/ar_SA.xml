@@ -8,6 +8,24 @@
 		<territory type="SA"/>
 	</identity>
 	<numbers>
+		<defaultNumberingSystem>arab</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>arab</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="arab">
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>؉</perMille>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal>.</decimal>
+			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>‰</perMille>
+		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -24,4 +42,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

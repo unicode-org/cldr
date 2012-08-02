@@ -2216,7 +2216,7 @@
 			<metazone type="Amazon">
 				<long>
 					<generic>የአማዞን ሰዓት አቆጣጠር</generic>
-					<standard>የአማዞን ሰዓት አቆጣጠር</standard>
+					<standard>የአማዞን መደበኛ ሰዓት አቆጣጠር</standard>
 					<daylight>የአማዞን የቀን ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
@@ -2321,7 +2321,7 @@
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>የሃዋይ አሌኡት ሰዓት አቆጣጠር</generic>
-					<standard>የሃዋይ አሌኡት ሰዓት አቆጣጠር</standard>
+					<standard>የሃዋይ አሌኡት መደበኛ ሰዓት አቆጣጠር</standard>
 					<daylight>የሃዋይ አሌኡት የቀን ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
@@ -2442,14 +2442,14 @@
 			<metazone type="Sakhalin">
 				<long>
 					<generic>የሳክሃሊን ሰዓት አቆጣጠር</generic>
-					<standard>የሳክሃሊን ሰዓት አቆጣጠር</standard>
+					<standard>የሳክሃሊን መደበኛ ሰዓት አቆጣጠር</standard>
 					<daylight>የሳክሃሊን የበጋ ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
 				<long>
 					<generic>የሳማራ ሰዓት አቆጣጠር</generic>
-					<standard>የሳማራ ሰዓት አቆጣጠር</standard>
+					<standard>የሳማራ መደበኛ ሰዓት አቆጣጠር</standard>
 					<daylight>የሳማራ የበጋ ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
@@ -2477,7 +2477,7 @@
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic>የየካተሪንበርግ ሰዓት አቆጣጠር</generic>
-					<standard>የየካተሪንበርግ ሰዓት አቆጣጠር</standard>
+					<standard>የየካተሪንበርግ መደበኛ ሰዓት አቆጣጠር</standard>
 					<daylight>የየካተሪንበርግ የበጋ ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
@@ -2492,10 +2492,10 @@
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0.0K</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
-					<pattern type="10000" count="one" draft="contributed">00K</pattern>
-					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="1000" count="one">0.0K</pattern>
+					<pattern type="1000" count="other">0.0K</pattern>
+					<pattern type="10000" count="one">00K</pattern>
+					<pattern type="10000" count="other">00K</pattern>
 					<pattern type="100000" count="one">000ኪባ</pattern>
 					<pattern type="100000" count="other">000ኪባ</pattern>
 					<pattern type="1000000" count="one" draft="contributed">0.0 ሜትር</pattern>
@@ -2510,12 +2510,12 @@
 					<pattern type="10000000000" count="other" draft="contributed">00G</pattern>
 					<pattern type="100000000000" count="one" draft="contributed">000G</pattern>
 					<pattern type="100000000000" count="other" draft="contributed">000G</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+					<pattern type="1000000000000" count="one">0.0T</pattern>
+					<pattern type="1000000000000" count="other">0.0T</pattern>
+					<pattern type="10000000000000" count="one">00T</pattern>
+					<pattern type="10000000000000" count="other">00T</pattern>
+					<pattern type="100000000000000" count="one">000T</pattern>
+					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -2719,6 +2719,8 @@
 			</currency>
 			<currency type="IQD">
 				<displayName>የኢራቅ ዲናር</displayName>
+				<displayName count="one">የኢራቅ ዲናር</displayName>
+				<displayName count="other">የኢራቅ ዲናር</displayName>
 			</currency>
 			<currency type="IRR">
 				<displayName>የኢራን ሪአል</displayName>
@@ -2989,6 +2991,8 @@
 			</currency>
 			<currency type="XPF">
 				<displayName>ሲ ኤፍ ፒ ፍራንክ</displayName>
+				<displayName count="one">ሲ ኤፍ ፒ ፍራንክ</displayName>
+				<displayName count="other">ሲ ኤፍ ፒ ፍራንክ</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName>ያልታወቀ ገንዘብ</displayName>
@@ -3148,4 +3152,3 @@
 		</messages>
 	</posix>
 </ldml>
-

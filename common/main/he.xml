@@ -143,7 +143,7 @@
 			<language type="jpr">פרסית יהודית</language>
 			<language type="jrb">ערבית יהודית</language>
 			<language type="jv">יאוונית</language>
-			<language type="ka">גיאורגית</language>
+			<language type="ka">גאורגית</language>
 			<language type="kab">קבילה</language>
 			<language type="kk">קזחית</language>
 			<language type="kl">קאלאליסוטית</language>
@@ -304,6 +304,7 @@
 			<script type="Beng">בנגלי</script>
 			<script type="Bopo" draft="contributed">בופומופו</script>
 			<script type="Brai">ברייל</script>
+			<script type="Cham" draft="contributed">צ'אם</script>
 			<script type="Cher">צ׳ירוקי</script>
 			<script type="Copt">קופטי</script>
 			<script type="Cprt">קפריסאי</script>
@@ -328,6 +329,7 @@
 			<script type="Hung">הונגרי עתיק</script>
 			<script type="Inds">אינדוס</script>
 			<script type="Ital">איטלקי עתיק</script>
+			<script type="Java" draft="contributed">ג'אוונזי</script>
 			<script type="Jpan">יפני</script>
 			<script type="Kana" draft="contributed">קטקאנה</script>
 			<script type="Khmr" draft="contributed">קמרית</script>
@@ -336,6 +338,7 @@
 			<script type="Laoo">לאית</script>
 			<script type="Latg">לטיני גאלי</script>
 			<script type="Latn">לטיני</script>
+			<script type="Maya" draft="contributed">מאיה</script>
 			<script type="Mlym" draft="contributed">מליאלאם</script>
 			<script type="Mong">מונגולי</script>
 			<script type="Mymr" draft="contributed">מיאנמר</script>
@@ -354,6 +357,8 @@
 			<script type="Tibt">טיבטי</script>
 			<script type="Ugar">אוגריתי</script>
 			<script type="Xpeo">פרסי עתיק</script>
+			<script type="Zinh" draft="contributed">מורש</script>
+			<script type="Zmth" draft="contributed">סימון מתמטי</script>
 			<script type="Zsym" draft="contributed">סמלים</script>
 			<script type="Zxxx">לא כתוב</script>
 			<script type="Zyyy" draft="contributed">רגיל</script>
@@ -2625,7 +2630,7 @@
 			<metazone type="America_Eastern">
 				<long>
 					<generic>שעון החוף המזרחי</generic>
-					<standard>שעון רגיל של החוף המזרחי</standard>
+					<standard draft="contributed">שעון רגיל של החוף המזרחי</standard>
 					<daylight>שעון קיץ מזרח ארה״ב</daylight>
 				</long>
 			</metazone>
@@ -2713,10 +2718,22 @@
 					<daylight draft="contributed">שעון קיץ ברזיליה</daylight>
 				</long>
 			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic draft="contributed">שעון כף ורדה</generic>
+					<standard draft="contributed">שעון חורף, כף ורדה</standard>
+					<daylight draft="contributed">שעון קיץ, כף ורדה</daylight>
+				</long>
+			</metazone>
+			<metazone type="Changbai">
+				<long>
+					<standard draft="contributed">שעון צ'אנגבאי</standard>
+				</long>
+			</metazone>
 			<metazone type="China">
 				<long>
 					<generic draft="provisional">שעון סין</generic>
-					<standard draft="provisional">שעון רגיל סין</standard>
+					<standard draft="contributed">שעון חורף סין</standard>
 					<daylight draft="provisional">שעון קיץ סין</daylight>
 				</long>
 			</metazone>
@@ -2725,6 +2742,11 @@
 					<generic draft="contributed">שעון צ'ויבלסן</generic>
 					<standard draft="contributed">שעון רגיל צ'ויבלסן</standard>
 					<daylight draft="contributed">שעון קיץ צ'ויבלסן</daylight>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard draft="contributed">שעון מזרח טימור</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -2758,6 +2780,13 @@
 					<generic draft="contributed">שעון האיים האלאוטיים הוואי</generic>
 					<standard draft="contributed">שעון רגיל האיים האלאוטיים הוואי</standard>
 					<daylight draft="contributed">שעון קיץ האיים האלאוטיים הוואי</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic draft="contributed">שעון הונג קונג</generic>
+					<standard draft="contributed">שעון חורף הונג קונג</standard>
+					<daylight draft="contributed">שעון קיץ הונג קונג</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
@@ -2804,7 +2833,7 @@
 			<metazone type="Japan">
 				<long>
 					<generic draft="provisional">שעון יפן</generic>
-					<standard draft="provisional">שעון רגיל יפן</standard>
+					<standard draft="contributed">שעון חורף יפן</standard>
 					<daylight draft="provisional">שעון קיץ יפן</daylight>
 				</long>
 			</metazone>
@@ -2828,7 +2857,7 @@
 			<metazone type="Korea">
 				<long>
 					<generic draft="provisional">שעון קוריאה</generic>
-					<standard draft="provisional">שעון רגיל קוריאה</standard>
+					<standard draft="contributed">שעון חורף קוריאה</standard>
 					<daylight draft="provisional">שעון קיץ קוריאה</daylight>
 				</long>
 			</metazone>
@@ -2846,6 +2875,13 @@
 					<daylight draft="contributed">שעון קיץ של אי הלורד האו</daylight>
 				</long>
 			</metazone>
+			<metazone type="Macau">
+				<long>
+					<generic draft="contributed">שעון מקאו</generic>
+					<standard draft="contributed">שעון חורף מקאו</standard>
+					<daylight draft="contributed">שעון קיץ מקאו</daylight>
+				</long>
+			</metazone>
 			<metazone type="Macquarie">
 				<long>
 					<standard draft="contributed">שעון מקווארי</standard>
@@ -2856,6 +2892,18 @@
 					<generic draft="contributed">שעון מגדן</generic>
 					<standard draft="contributed">שעון רגיל מגדן</standard>
 					<daylight draft="contributed">שעון קיץ מגדן</daylight>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard draft="contributed">שעון מלזיה</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic draft="contributed">שעון מאוריציוס</generic>
+					<standard draft="contributed">שעון חורף מאוריציוס</standard>
+					<daylight draft="contributed">שעון קיץ, מאוריציוס</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
@@ -2870,6 +2918,11 @@
 					<generic>שעון מוסקבה</generic>
 					<standard>שעון רגיל מוסקבה</standard>
 					<daylight>שעון קיץ מוסקבה</daylight>
+				</long>
+			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard draft="contributed">שעון מיינמר</standard>
 				</long>
 			</metazone>
 			<metazone type="Newfoundland">
@@ -2900,6 +2953,18 @@
 					<daylight draft="contributed">שעון קיץ אומסק</daylight>
 				</long>
 			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic draft="contributed">שעון פיליפינים</generic>
+					<standard draft="contributed">שעון חורף פיליפינים</standard>
+					<daylight draft="contributed">שעון קיץ פיליפינים</daylight>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard draft="contributed">שעון ריניון</standard>
+				</long>
+			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic draft="contributed">שעון סחלין</generic>
@@ -2912,6 +2977,23 @@
 					<generic draft="contributed">שעון סמרה</generic>
 					<standard draft="contributed">שעון רגיל סמרה</standard>
 					<daylight draft="contributed">שעון קיץ סמרה</daylight>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard draft="contributed">שעון סיישל</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard draft="contributed">שעון סינגפור</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic draft="contributed">שעון טאיפיי</generic>
+					<standard draft="contributed">שעון חורף טאיפיי</standard>
+					<daylight draft="contributed">שעון קיץ טאיפיי</daylight>
 				</long>
 			</metazone>
 			<metazone type="Turkey">
@@ -2987,20 +3069,31 @@
 					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
 					<pattern type="10000000" count="one" draft="contributed">00M</pattern>
 					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="many">‏000 מיליון</pattern>
 					<pattern type="100000000" count="one" draft="contributed">000M</pattern>
 					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0B</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00B</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000B</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="1000000000" count="many">0.0B</pattern>
+					<pattern type="1000000000" count="one">0.0B</pattern>
+					<pattern type="1000000000" count="other">0.0B</pattern>
+					<pattern type="1000000000" count="two">0.0B</pattern>
+					<pattern type="10000000000" count="many">00B</pattern>
+					<pattern type="10000000000" count="one">00B</pattern>
+					<pattern type="10000000000" count="other">00B</pattern>
+					<pattern type="10000000000" count="two">00B</pattern>
+					<pattern type="100000000000" count="many">000B</pattern>
+					<pattern type="100000000000" count="one">000B</pattern>
+					<pattern type="100000000000" count="other">000B</pattern>
+					<pattern type="100000000000" count="two">000B</pattern>
+					<pattern type="1000000000000" count="many">0.0T</pattern>
+					<pattern type="1000000000000" count="one">0.0T</pattern>
+					<pattern type="1000000000000" count="other">0.0T</pattern>
+					<pattern type="1000000000000" count="two">0.0T</pattern>
 					<pattern type="10000000000000" count="one" draft="contributed">00T</pattern>
 					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+					<pattern type="100000000000000" count="many">000T</pattern>
+					<pattern type="100000000000000" count="one">000T</pattern>
+					<pattern type="100000000000000" count="other">000T</pattern>
+					<pattern type="100000000000000" count="two">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3700,130 +3793,130 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="one">יום</unitPattern>
-			<unitPattern count="two">יומיים</unitPattern>
 			<unitPattern count="many">{0} יום</unitPattern>
+			<unitPattern count="one">יום</unitPattern>
 			<unitPattern count="other">{0} ימים</unitPattern>
+			<unitPattern count="two">יומיים</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="one">בעוד 24 שעות</unitPattern>
-			<unitPattern count="two">בעוד יומיים</unitPattern>
 			<unitPattern count="many">בעוד {0} יום</unitPattern>
+			<unitPattern count="one">בעוד 24 שעות</unitPattern>
 			<unitPattern count="other">בעוד {0} ימים</unitPattern>
+			<unitPattern count="two">בעוד יומיים</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="one">לפני 24 שעות</unitPattern>
-			<unitPattern count="two">לפני יומיים</unitPattern>
 			<unitPattern count="many">לפני {0} יום</unitPattern>
+			<unitPattern count="one">לפני 24 שעות</unitPattern>
 			<unitPattern count="other">לפני {0} ימים</unitPattern>
+			<unitPattern count="two">לפני יומיים</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="one">שעה</unitPattern>
-			<unitPattern count="two">שעתיים</unitPattern>
 			<unitPattern count="many">{0} שעות</unitPattern>
+			<unitPattern count="one">שעה</unitPattern>
 			<unitPattern count="other">{0} שעות</unitPattern>
+			<unitPattern count="two">שעתיים</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="one">בעוד שעה</unitPattern>
-			<unitPattern count="two">בעוד שעתיים</unitPattern>
 			<unitPattern count="many">בעוד {0} שעות</unitPattern>
+			<unitPattern count="one">בעוד שעה</unitPattern>
 			<unitPattern count="other">בעוד {0} שעות</unitPattern>
+			<unitPattern count="two">בעוד שעתיים</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="one">לפני שעה</unitPattern>
-			<unitPattern count="two">לפני שעתיים</unitPattern>
 			<unitPattern count="many">לפני {0} שעות</unitPattern>
+			<unitPattern count="one">לפני שעה</unitPattern>
 			<unitPattern count="other">לפני {0} שעות</unitPattern>
+			<unitPattern count="two">לפני שעתיים</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="one">דקה</unitPattern>
-			<unitPattern count="two">שתי דקות</unitPattern>
 			<unitPattern count="many">{0} דקות</unitPattern>
+			<unitPattern count="one">דקה</unitPattern>
 			<unitPattern count="other">{0} דקות</unitPattern>
+			<unitPattern count="two">שתי דקות</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="one">בעוד דקה</unitPattern>
-			<unitPattern count="two">בעוד שתי דקות</unitPattern>
 			<unitPattern count="many">בעוד {0} דקות</unitPattern>
+			<unitPattern count="one">בעוד דקה</unitPattern>
 			<unitPattern count="other">בעוד {0} דקות</unitPattern>
+			<unitPattern count="two">בעוד שתי דקות</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="one">לפני דקה</unitPattern>
-			<unitPattern count="two">לפני שתי דקות</unitPattern>
 			<unitPattern count="many">לפני {0} דקות</unitPattern>
+			<unitPattern count="one">לפני דקה</unitPattern>
 			<unitPattern count="other">לפני {0} דקות</unitPattern>
+			<unitPattern count="two">לפני שתי דקות</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="one">חודש</unitPattern>
-			<unitPattern count="two">חודשיים</unitPattern>
 			<unitPattern count="many">{0} חודשים</unitPattern>
+			<unitPattern count="one">חודש</unitPattern>
 			<unitPattern count="other">{0} חודשים</unitPattern>
+			<unitPattern count="two">חודשיים</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="one">בעוד חודש</unitPattern>
-			<unitPattern count="two">בעוד חודשיים</unitPattern>
 			<unitPattern count="many">בעוד {0} חודשים</unitPattern>
+			<unitPattern count="one">בעוד חודש</unitPattern>
 			<unitPattern count="other">בעוד {0} חודשים</unitPattern>
+			<unitPattern count="two">בעוד חודשיים</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="one">לפני חודש</unitPattern>
-			<unitPattern count="two">לפני חודשיים</unitPattern>
 			<unitPattern count="many">לפני {0} חודשים</unitPattern>
+			<unitPattern count="one">לפני חודש</unitPattern>
 			<unitPattern count="other">לפני {0} חודשים</unitPattern>
+			<unitPattern count="two">לפני חודשיים</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one">שניה</unitPattern>
-			<unitPattern count="two">שתי שניות</unitPattern>
 			<unitPattern count="many">{0} שניות</unitPattern>
+			<unitPattern count="one">שניה</unitPattern>
 			<unitPattern count="other">{0} שניות</unitPattern>
+			<unitPattern count="two">שתי שניות</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="one">בעוד שניה</unitPattern>
-			<unitPattern count="two">בעוד שתי שניות</unitPattern>
 			<unitPattern count="many">בעוד {0} שניות</unitPattern>
+			<unitPattern count="one">בעוד שניה</unitPattern>
 			<unitPattern count="other">בעוד {0} שניות</unitPattern>
+			<unitPattern count="two">בעוד שתי שניות</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="one">לפני שניה</unitPattern>
-			<unitPattern count="two">לפני שתי שניות</unitPattern>
 			<unitPattern count="many">לפני {0} שניות</unitPattern>
+			<unitPattern count="one">לפני שניה</unitPattern>
 			<unitPattern count="other">לפני {0} שניות</unitPattern>
+			<unitPattern count="two">לפני שתי שניות</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="one">שבוע</unitPattern>
-			<unitPattern count="two">שבועיים</unitPattern>
 			<unitPattern count="many">{0} שבועות</unitPattern>
+			<unitPattern count="one">שבוע</unitPattern>
 			<unitPattern count="other">{0} שבועות</unitPattern>
+			<unitPattern count="two">שבועיים</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="one">בעוד שבוע</unitPattern>
-			<unitPattern count="two">בעוד שבועיים</unitPattern>
 			<unitPattern count="many">בעוד {0} שבועות</unitPattern>
+			<unitPattern count="one">בעוד שבוע</unitPattern>
 			<unitPattern count="other">בעוד {0} שבועות</unitPattern>
+			<unitPattern count="two">בעוד שבועיים</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="one">לפני שבוע</unitPattern>
-			<unitPattern count="two">לפני שבועיים</unitPattern>
 			<unitPattern count="many">לפני {0} שבועות</unitPattern>
+			<unitPattern count="one">לפני שבוע</unitPattern>
 			<unitPattern count="other">לפני {0} שבועות</unitPattern>
+			<unitPattern count="two">לפני שבועיים</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="one">שנה</unitPattern>
-			<unitPattern count="two">שנתיים</unitPattern>
 			<unitPattern count="many">{0} שנה</unitPattern>
+			<unitPattern count="one">שנה</unitPattern>
 			<unitPattern count="other">{0} שנים</unitPattern>
+			<unitPattern count="two">שנתיים</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="one">בעוד שנה</unitPattern>
-			<unitPattern count="two">בעוד שנתיים</unitPattern>
 			<unitPattern count="many">בעוד {0} שנה</unitPattern>
+			<unitPattern count="one">בעוד שנה</unitPattern>
 			<unitPattern count="other">בעוד {0} שנים</unitPattern>
+			<unitPattern count="two">בעוד שנתיים</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="one">לפני שנה</unitPattern>
-			<unitPattern count="two">לפני שנתיים</unitPattern>
 			<unitPattern count="many">לפני {0} שנה</unitPattern>
+			<unitPattern count="one">לפני שנה</unitPattern>
 			<unitPattern count="other">לפני {0} שנים</unitPattern>
+			<unitPattern count="two">לפני שנתיים</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>
@@ -3839,4 +3932,3 @@
 		</messages>
 	</posix>
 </ldml>
-

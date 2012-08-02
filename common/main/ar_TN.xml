@@ -10,6 +10,96 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">جانفي</month>
+							<month type="2" draft="contributed">فيفري</month>
+							<month type="3" draft="contributed">مارس</month>
+							<month type="4" draft="contributed">أفريل</month>
+							<month type="5" draft="contributed">ماي</month>
+							<month type="6" draft="contributed">جوان</month>
+							<month type="7" draft="contributed">جويلية</month>
+							<month type="8" draft="contributed">أوت</month>
+							<month type="9" draft="contributed">سبتمبر</month>
+							<month type="10" draft="contributed">أكتوبر</month>
+							<month type="11" draft="contributed">نوفمبر</month>
+							<month type="12" draft="contributed">ديسمبر</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">ج</month>
+							<month type="2" draft="contributed">ف</month>
+							<month type="3" draft="contributed">م</month>
+							<month type="4" draft="contributed">أ</month>
+							<month type="5" draft="contributed">م</month>
+							<month type="6" draft="contributed">ج</month>
+							<month type="7" draft="contributed">ج</month>
+							<month type="8" draft="contributed">أ</month>
+							<month type="9" draft="contributed">س</month>
+							<month type="10" draft="contributed">أ</month>
+							<month type="11" draft="contributed">ن</month>
+							<month type="12" draft="contributed">د</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">جانفي</month>
+							<month type="2" draft="contributed">فيفري</month>
+							<month type="3" draft="contributed">مارس</month>
+							<month type="4" draft="contributed">أفريل</month>
+							<month type="5" draft="contributed">ماي</month>
+							<month type="6" draft="contributed">جوان</month>
+							<month type="7" draft="contributed">جويلية</month>
+							<month type="8" draft="contributed">أوت</month>
+							<month type="9" draft="contributed">سبتمبر</month>
+							<month type="10" draft="contributed">أكتوبر</month>
+							<month type="11" draft="contributed">نوفمبر</month>
+							<month type="12" draft="contributed">ديسمبر</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">جانفي</month>
+							<month type="2" draft="contributed">فيفري</month>
+							<month type="3" draft="contributed">مارس</month>
+							<month type="4" draft="contributed">أفريل</month>
+							<month type="5" draft="contributed">ماي</month>
+							<month type="6" draft="contributed">جوان</month>
+							<month type="7" draft="contributed">جويلية</month>
+							<month type="8" draft="contributed">أوت</month>
+							<month type="9" draft="contributed">سبتمبر</month>
+							<month type="10" draft="contributed">أكتوبر</month>
+							<month type="11" draft="contributed">نوفمبر</month>
+							<month type="12" draft="contributed">ديسمبر</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">ج</month>
+							<month type="2" draft="contributed">ف</month>
+							<month type="3" draft="contributed">م</month>
+							<month type="4" draft="contributed">أ</month>
+							<month type="5" draft="contributed">م</month>
+							<month type="6" draft="contributed">ج</month>
+							<month type="7" draft="contributed">ج</month>
+							<month type="8" draft="contributed">أ</month>
+							<month type="9" draft="contributed">س</month>
+							<month type="10" draft="contributed">أ</month>
+							<month type="11" draft="contributed">ن</month>
+							<month type="12" draft="contributed">د</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">جانفي</month>
+							<month type="2" draft="contributed">فيفري</month>
+							<month type="3" draft="contributed">مارس</month>
+							<month type="4" draft="contributed">أفريل</month>
+							<month type="5" draft="contributed">ماي</month>
+							<month type="6" draft="contributed">جوان</month>
+							<month type="7" draft="contributed">جويلية</month>
+							<month type="8" draft="contributed">أوت</month>
+							<month type="9" draft="contributed">سبتمبر</month>
+							<month type="10" draft="contributed">أكتوبر</month>
+							<month type="11" draft="contributed">نوفمبر</month>
+							<month type="12" draft="contributed">ديسمبر</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<dateFormats>
 					<dateFormatLength type="medium">
 						<dateFormat>
@@ -52,6 +142,23 @@
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>arab</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="arab">
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>؉</perMille>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group>.</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>‰</perMille>
+		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -68,4 +175,3 @@
 		</currencyFormats>
 	</numbers>
 </ldml>
-

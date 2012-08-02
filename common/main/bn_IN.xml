@@ -36,17 +36,37 @@
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="narrow">
+							<day type="sun">র</day>
+							<day type="mon">সো</day>
+							<day type="tue">ম</day>
+							<day type="wed">বু</day>
+							<day type="thu">বৃ</day>
+							<day type="fri">শু</day>
+							<day type="sat">শ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
 							<quarter type="1">ত্রৈমাসিক</quarter>
 							<quarter type="2">ষাণ্মাসিক</quarter>
+							<quarter type="3">চতুর্থাংশ ৩</quarter>
 							<quarter type="4">বার্ষিক</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">ত্রৈমাসিক</quarter>
 							<quarter type="2">ষাণ্মাসিক</quarter>
+							<quarter type="3">তৃতীয় চতুর্থাংশ</quarter>
 							<quarter type="4">বার্ষিক</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="wide">
+							<quarter type="3">তৃতীয় চতুর্থাংশ</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -63,6 +83,255 @@
 				</fields>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<metazone type="Alaska">
+				<long>
+					<generic>আলাস্কার সময়</generic>
+					<standard>অ্যালাসকা মানক সময়</standard>
+					<daylight>আলাসকা দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic>অ্যামাজন সময়</generic>
+					<standard>আমাজন মানক সময়</standard>
+					<daylight>অ্যামাজন গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic>আর্জেনটিনা সময়</generic>
+					<standard>আর্জেনটিনা মানক সময়</standard>
+					<daylight>আর্জেনটিনা গৃষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard>বোলিভিয়া সময়</standard>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic>ব্রাসিলিয়া সময়</generic>
+					<standard>ব্রাসিলিয়া মানক সময়</standard>
+					<daylight>ব্রাসিলিয়া গৃষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>চীন সময়</generic>
+					<standard>চীন মানক সময়</standard>
+					<daylight>চীন দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<generic>চয়বালসন সময়</generic>
+					<standard>চয়বালসন মানক সময়</standard>
+					<daylight>চয়বালসন গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic>কোলোম্বিয়া সময়</generic>
+					<standard>কোলোম্বিয়া মানক সময়</standard>
+					<daylight>কোলোম্বিয়া গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>কিউবা সময়</generic>
+					<standard>কিউবা মানক সময়</standard>
+					<daylight>কিউবা দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>পূর্ব গ্রীনল্যান্ড সময়</generic>
+					<standard>পূর্ব গ্রীনল্যান্ড মানক সময়</standard>
+					<daylight>পূর্ব গ্রীনল্যান্ড গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>পশ্চিম গ্রীনল্যান্ড সময়</generic>
+					<standard>পশ্চিম গ্রীনল্যান্ড মানক সময়</standard>
+					<daylight>পশ্চিম গ্রীনল্যান্ড গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic>হাওয়াই অ্যালিউটিয়ান সময়</generic>
+					<standard>হাওয়াই-আলেউত মানক সময়</standard>
+					<daylight>হাওয়াই-আলেউত দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic>হং কং সময়</generic>
+					<standard>হং কং মানক সময়</standard>
+					<daylight>হং কং গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic>হোভড সময়</generic>
+					<standard>হোভড মানক সময়</standard>
+					<daylight>হোভড গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic>য়াকুটস্ক সময়</generic>
+					<standard>য়াকুটস্ক মানক সময়</standard>
+					<daylight>য়াকুটস্ক গৃষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>জাপান সময়</generic>
+					<standard>জাপান মানক সময়</standard>
+					<daylight>জাপান দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard>পূর্ব কজাকস্তান মানক সময়</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard>পশ্চিম কজাকস্তান মানক সময়</standard>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>কোরিয়ান সময়</generic>
+					<standard>কোরিয়ান মানক সময়</standard>
+					<daylight>কোরিয়ান দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic>ক্রাসনোয়ার্স্কি সময়</generic>
+					<standard>ক্রাসনোয়ার্স্কি মানক সময়</standard>
+					<daylight>ক্রাসনোয়ার্স্কি গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>কিরগিস্তান সময়</standard>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic>মাগাদান সময়</generic>
+					<standard>মাগাদান মানক সময়</standard>
+					<daylight>মাগাদান গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic>উলান বাতোর সময়</generic>
+					<standard>উলান বাতোর মানক সময়</standard>
+					<daylight>উলান বাতোর গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>মস্কো সময়</generic>
+					<standard>মস্কো মানক সময়</standard>
+					<daylight>মস্কো গৃষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic>নোভোসিবির্স্ক সময়</generic>
+					<standard>নোভোসিবির্স্ক মানক সময়</standard>
+					<daylight>নোভোসিবির্স্ক গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic>ওমস্ক সময়</generic>
+					<standard>ওমস্ক মানক সময়</standard>
+					<daylight>ওমস্ক গৃষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>পিয়ের ও মিকেলন সময়</generic>
+					<standard>পিয়ের ও মিকেলন মানক সময়</standard>
+					<daylight>পিয়ের ও মিকেলন দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic>সাখালিন সময়</generic>
+					<standard>সাখালিন মানক সময়</standard>
+					<daylight>সাখালিন গৃষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>তাইপেই সময়</generic>
+					<standard>তাইপেই মানক সময়</standard>
+					<daylight>তাইপেই দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>তাজাখাস্তান সময়</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic>তুর্কমেনিস্তান সময়</generic>
+					<standard>তুর্কমেনিস্তান মানক সময়</standard>
+					<daylight>তুর্কমেনিস্তান গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic>উজবেকিস্তান সময়</generic>
+					<standard>উজবেকিস্তান মানক সময়</standard>
+					<daylight>উজবেকিস্তান গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic>ব্লাদিবোস্তোক সময়</generic>
+					<standard>ব্লাদিবোস্তোক মানক সময়</standard>
+					<daylight>ব্লাদিবোস্তোক গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic>ভলগোগ্রাড সময়</generic>
+					<standard>ভলগোগ্রাড মানক সময়</standard>
+					<daylight>ভলগোগ্রাড গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic>য়াকুতস্ক সময়</generic>
+					<standard>য়াকুতস্ক মানক সময়</standard>
+					<daylight>য়াকুতস্ক গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic>ইয়েকাতেরিনবুর্গ সময়</generic>
+					<standard>ইয়েকাতেরিনবুর্গ মানক সময়</standard>
+					<daylight>ইয়েকাতেরিনবুর্গ গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
+	<numbers>
+		<defaultNumberingSystem>beng</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>beng</native>
+		</otherNumberingSystems>
+	</numbers>
 </ldml>
-

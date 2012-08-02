@@ -57,6 +57,7 @@
 			<language type="ban">bali</language>
 			<language type="bas">basa</language>
 			<language type="bat">balttilainen kieli</language>
+			<language type="bbj">ghomala</language>
 			<language type="be">valkovenäjä</language>
 			<language type="bej">bedža</language>
 			<language type="bem">bemba</language>
@@ -428,6 +429,7 @@
 			<language type="sga">muinaisiiri</language>
 			<language type="sgn">viittomakieli</language>
 			<language type="sh">serbokroaatti</language>
+			<language type="shi">tašelhit</language>
 			<language type="shn">shan</language>
 			<language type="si">sinhala</language>
 			<language type="sid">sidamo</language>
@@ -1081,9 +1083,12 @@
 			<type type="knda" key="numbers">kannadalaiset numerot</type>
 			<type type="laoo" key="numbers">laolaiset numerot</type>
 			<type type="latn" key="numbers">länsimaiset numerot</type>
+			<type type="lepc" key="numbers">lepchanumerot</type>
+			<type type="limb" key="numbers">limbunumerot</type>
 			<type type="mlym" key="numbers">malajalamilaiset numerot</type>
 			<type type="mong" key="numbers">mongolialaiset numerot</type>
 			<type type="mymr" key="numbers">burmalaiset numerot</type>
+			<type type="nkoo" key="numbers">n'ko-numerot</type>
 			<type type="orya" key="numbers">orijalaiset numerot</type>
 			<type type="persian" key="calendar">persialainen kalenteri</type>
 			<type type="phonebook" key="collation">puhelinluettelojärjestys</type>
@@ -1094,7 +1099,8 @@
 			<type type="romanlow" key="numbers">roomalaiset piennumerot</type>
 			<type type="search" key="collation">yleishakujärjestys</type>
 			<type type="stroke" key="collation">piirtojärjestys</type>
-			<type type="taml" key="numbers">tamilinumerot</type>
+			<type type="taml" key="numbers">perinteiset tamilinumerot</type>
+			<type type="tamldec" key="numbers">tamilinumerot</type>
 			<type type="telu" key="numbers">telugulaiset numerot</type>
 			<type type="thai" key="numbers">thainumerot</type>
 			<type type="tibt" key="numbers">tiibetiläiset numerot</type>
@@ -1468,7 +1474,7 @@
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>cccc, d. MMMM y</pattern>
+							<pattern>cccc d. MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -1523,7 +1529,7 @@
 						<dateFormatItem id="MEd">E d.M.</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">ccc d. MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">L.yyyy</dateFormatItem>
@@ -1532,7 +1538,7 @@
 						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d. MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d. MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMMccccd">cccc, d. MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMccccd">cccc d. MMMM y</dateFormatItem>
 						<dateFormatItem id="yQ">Q/yyyy</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yyMM">M/yy</dateFormatItem>
@@ -3906,32 +3912,48 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="provisional">0.0 tuhat</pattern>
+					<pattern type="10000" count="one" draft="provisional">00 tuhat</pattern>
+					<pattern type="100000" count="one" draft="provisional">000 tuhat</pattern>
+					<pattern type="1000000" count="one" draft="provisional">0.0 miljoona</pattern>
+					<pattern type="10000000" count="one" draft="provisional">00 miljoona</pattern>
+					<pattern type="100000000" count="one" draft="provisional">000 miljoona</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">0.0 miljardi</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">00 miljardi</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">000 miljardi</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">0.0 biljoona</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">00 biljoona</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">000 biljoona</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0.0 t</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0 t</pattern>
-					<pattern type="10000" count="one" draft="contributed">00 t</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 t</pattern>
-					<pattern type="100000" count="one" draft="contributed">000 t</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 t</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0 ml</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0 ml</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00 ml</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 ml</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000 ml</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 ml</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0 mr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0 mr</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00 mr</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 mr</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000 mr</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 mr</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0 b</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0 b</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00 b</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 b</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000 b</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 b</pattern>
+					<pattern type="1000" count="one">0.0 t'.'</pattern>
+					<pattern type="1000" count="other">0.0 t'.'</pattern>
+					<pattern type="10000" count="one">00 t'.'</pattern>
+					<pattern type="10000" count="other">00 t'.'</pattern>
+					<pattern type="100000" count="one">000 t'.'</pattern>
+					<pattern type="100000" count="other">000 t'.'</pattern>
+					<pattern type="1000000" count="one">0.0 milj'.'</pattern>
+					<pattern type="1000000" count="other">0.0 milj'.'</pattern>
+					<pattern type="10000000" count="one">00 milj'.'</pattern>
+					<pattern type="10000000" count="other">00 milj'.'</pattern>
+					<pattern type="100000000" count="one">000 milj'.'</pattern>
+					<pattern type="100000000" count="other">000 milj'.'</pattern>
+					<pattern type="1000000000" count="one">0.0 mrd'.'</pattern>
+					<pattern type="1000000000" count="other">0.0 mrd'.'</pattern>
+					<pattern type="10000000000" count="one">00 mrd'.'</pattern>
+					<pattern type="10000000000" count="other">00 mrd'.'</pattern>
+					<pattern type="100000000000" count="one">000 mrd'.'</pattern>
+					<pattern type="100000000000" count="other">000 mrd'.'</pattern>
+					<pattern type="1000000000000" count="one">0.0 bilj'.'</pattern>
+					<pattern type="1000000000000" count="other">0.0 bilj'.'</pattern>
+					<pattern type="10000000000000" count="one">00 bilj'.'</pattern>
+					<pattern type="10000000000000" count="other">00 bilj'.'</pattern>
+					<pattern type="100000000000000" count="one">000 bilj'.'</pattern>
+					<pattern type="100000000000000" count="other">000 bilj'.'</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -5565,4 +5587,3 @@
 		</messages>
 	</posix>
 </ldml>
-

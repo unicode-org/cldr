@@ -1047,8 +1047,8 @@
 		</stopwords>
 	</characters>
 	<delimiters>
-        <quotationStart>“</quotationStart>
-        <quotationEnd>”</quotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
 		<alternateQuotationStart>«</alternateQuotationStart>
 		<alternateQuotationEnd>»</alternateQuotationEnd>
 	</delimiters>
@@ -1942,6 +1942,20 @@
 					<standard>Hora mitjana de Greenwich</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>Hora de l'Est de Grenlàndia</generic>
+					<standard>Hora estàndard de l'Est de Grenlàndia</standard>
+					<daylight>Hora d'estiu de l'Est de Grenlàndia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>Hora de l'Oest de Grenlàndia</generic>
+					<standard>Hora estàndard de l'Oest de Grenlàndia</standard>
+					<daylight>Hora d'estiu de l'Oest de Grenlàndia</daylight>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Hora de Hawaii Aleutian</generic>
@@ -2166,32 +2180,53 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="other">0.0 mil</pattern>
+					<pattern type="10000" count="one">00 mil</pattern>
+					<pattern type="10000" count="other">00 mil</pattern>
+					<pattern type="100000" count="one">000 mil</pattern>
+					<pattern type="100000" count="other">000 mil</pattern>
+					<pattern type="1000000" count="one">0.0 milió</pattern>
+					<pattern type="1000000" count="other">0.0 milions</pattern>
+					<pattern type="10000000" count="one">00 milió</pattern>
+					<pattern type="10000000" count="other">00 milions</pattern>
+					<pattern type="100000000" count="one">000 milió</pattern>
+					<pattern type="100000000" count="other">000 milions</pattern>
+					<pattern type="1000000000" count="one">0.0 miliard</pattern>
+					<pattern type="1000000000" count="other">0.0 miliards</pattern>
+					<pattern type="10000000000" count="one">00 miliards</pattern>
+					<pattern type="10000000000" count="other">00 miliards</pattern>
+					<pattern type="100000000000" count="one">000 miliard</pattern>
+					<pattern type="100000000000" count="other">000 miliards</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000" count="one" draft="contributed">0000</pattern>
 					<pattern type="1000" count="other" draft="contributed">0000</pattern>
-					<pattern type="10000" count="one" draft="contributed">00000</pattern>
-					<pattern type="10000" count="other" draft="contributed">00000</pattern>
-					<pattern type="100000" count="one" draft="contributed">000000</pattern>
-					<pattern type="100000" count="other" draft="contributed">000000</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0 M</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00 M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 M</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000 M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0000 M</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0000 M</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00k M</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00k M</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000k M</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000k M</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0 B</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0 B</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00 B</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 B</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000 B</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 B</pattern>
+					<pattern type="10000" count="one">00 K</pattern>
+					<pattern type="10000" count="other">00 K</pattern>
+					<pattern type="100000" count="one">000 K</pattern>
+					<pattern type="100000" count="other">000 K</pattern>
+					<pattern type="1000000" count="one">0.0 M</pattern>
+					<pattern type="1000000" count="other">0.0 M</pattern>
+					<pattern type="10000000" count="one">00 M</pattern>
+					<pattern type="10000000" count="other">00 M</pattern>
+					<pattern type="100000000" count="one">000 M</pattern>
+					<pattern type="100000000" count="other">000 M</pattern>
+					<pattern type="1000000000" count="one">0000 M</pattern>
+					<pattern type="1000000000" count="other">0000 M</pattern>
+					<pattern type="10000000000" count="one">00k M</pattern>
+					<pattern type="10000000000" count="other">00k M</pattern>
+					<pattern type="100000000000" count="one">000k M</pattern>
+					<pattern type="100000000000" count="other">000k M</pattern>
+					<pattern type="1000000000000" count="one">0.0 B</pattern>
+					<pattern type="1000000000000" count="other">0.0 B</pattern>
+					<pattern type="10000000000000" count="one">00 B</pattern>
+					<pattern type="10000000000000" count="other">00 B</pattern>
+					<pattern type="100000000000000" count="one">000 B</pattern>
+					<pattern type="100000000000000" count="other">000 B</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3819,4 +3854,3 @@
 		</messages>
 	</posix>
 </ldml>
-

@@ -1039,10 +1039,10 @@
 		<orientation characters="right-to-left"/>
 	</layout>
 	<characters>
-		<exemplarCharacters>[\u064B \u064C \u064D \u064E \u064F \u0650 \u0651 \u0652 ء آ أ ؤ إ ئ ا ب ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ى]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[\u200C\u200D\u200E\u200F]</exemplarCharacters>
+		<exemplarCharacters>[\u064B \u064C \u064D \u064E \u064F \u0650 \u0651 \u0652 \u0670 ء آ أ ؤ إ ئ ا ب ت ة ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ى]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200C\u200D\u200E\u200F ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩ پ چ ڜ ڢ ڤ ڥ ٯ ڧ ڨ گ ی]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol" draft="contributed">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="contributed">[ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي]</exemplarCharacters>
+		<exemplarCharacters type="index">[ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي]</exemplarCharacters>
 		<stopwords>
 			<stopwordList type="collation" draft="provisional">ال</stopwordList>
 		</stopwords>
@@ -1212,13 +1212,13 @@
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="contributed">الأحد</day>
+							<day type="sun">الأحد</day>
 							<day type="mon">الاثنين</day>
-							<day type="tue" draft="contributed">الثلاثاء</day>
-							<day type="wed" draft="contributed">الأربعاء</day>
-							<day type="thu" draft="contributed">الخميس</day>
-							<day type="fri" draft="contributed">الجمعة</day>
-							<day type="sat" draft="contributed">السبت</day>
+							<day type="tue">الثلاثاء</day>
+							<day type="wed">الأربعاء</day>
+							<day type="thu">الخميس</day>
+							<day type="fri">الجمعة</day>
+							<day type="sat">السبت</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">ح</day>
@@ -1230,7 +1230,13 @@
 							<day type="sat">س</day>
 						</dayWidth>
 						<dayWidth type="wide">
+							<day type="sun">الأحد</day>
 							<day type="mon">الاثنين</day>
+							<day type="tue">الثلاثاء</day>
+							<day type="wed">الأربعاء</day>
+							<day type="thu">الخميس</day>
+							<day type="fri">الجمعة</day>
+							<day type="sat">السبت</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1580,10 +1586,13 @@
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">محرم</month>
+							<month type="2">صفر</month>
 							<month type="3">ربيع الأول</month>
 							<month type="4">ربيع الآخر</month>
 							<month type="5">جمادى الأولى</month>
 							<month type="6">جمادى الآخرة</month>
+							<month type="7">رجب</month>
+							<month type="8">شعبان</month>
 							<month type="9">رمضان</month>
 							<month type="10">شوال</month>
 							<month type="11">ذو القعدة</month>
@@ -1672,7 +1681,7 @@
 						<era type="19">ديدو</era>
 						<era type="20">كونين</era>
 						<era type="21">تنتشو</era>
-						<era type="22">شووا</era>
+						<era type="22">شووا (٨٣٤–٨٤٨)‏</era>
 						<era type="23">كاجو</era>
 						<era type="24">نينجو</era>
 						<era type="25">سيكو</era>
@@ -1699,7 +1708,7 @@
 						<era type="46">كانا</era>
 						<era type="47">اي-ان</era>
 						<era type="48">ايسو</era>
-						<era type="49">شورياكو</era>
+						<era type="49">شورياكو (٩٩٠–٩٩٥)‏</era>
 						<era type="50">تشوتوكو</era>
 						<era type="51">تشوهو</era>
 						<era type="52">كانكو</era>
@@ -1709,36 +1718,36 @@
 						<era type="56">مانجو</era>
 						<era type="57">تشوجين</era>
 						<era type="58">تشورياكو</era>
-						<era type="59">تشوكيو</era>
+						<era type="59">تشوكيو (١٠٤٠–١٠٤٤)‏</era>
 						<era type="60">كانتوكو</era>
-						<era type="61">ايشو</era>
+						<era type="61">ايشو (١٠٤٦–١٠٥٣)‏</era>
 						<era type="62">تينجي</era>
 						<era type="63">كوهيي</era>
 						<era type="64">جيرياكو</era>
-						<era type="65">انكيو</era>
-						<era type="66">شوهو</era>
-						<era type="67">شورياكو</era>
+						<era type="65">انكيو (١٠٦٩–١٠٧٤)‏</era>
+						<era type="66">شوهو (١٠٧٤–١٠٧٧)‏</era>
+						<era type="67">شورياكو (١٠٧٧–١٠٨١)‏</era>
 						<era type="68">ايهو</era>
 						<era type="69">أوتوكو</era>
 						<era type="70">كانجي</era>
 						<era type="71">كاهو</era>
 						<era type="72">ايتشو</era>
 						<era type="73">شوتوكو</era>
-						<era type="74">كووا</era>
+						<era type="74">كووا (١٠٩٩–١١٠٤)‏</era>
 						<era type="75">تشوجي</era>
 						<era type="76">كاشو</era>
 						<era type="77">تنين</era>
 						<era type="78">تن-اي</era>
-						<era type="79">ايكيو</era>
+						<era type="79">ايكيو (١١١٣–١١١٨)‏</era>
 						<era type="80">جن-اي</era>
 						<era type="81">هوان</era>
 						<era type="82">تنجي</era>
 						<era type="83">ديجي</era>
-						<era type="84">تنشو</era>
+						<era type="84">تنشو (١١٣١–١١٣٢)‏</era>
 						<era type="85">تشوشو</era>
 						<era type="86">هوين</era>
 						<era type="87">ايجي</era>
-						<era type="88">كوجي</era>
+						<era type="88">كوجي (١١٤٢–١١٤٤)‏</era>
 						<era type="89">تنيو</era>
 						<era type="90">كيوان</era>
 						<era type="91">نينبيي</era>
@@ -1761,11 +1770,11 @@
 						<era type="108">كنكيو</era>
 						<era type="109">شوجي</era>
 						<era type="110">كنين</era>
-						<era type="111">جنكيو</era>
+						<era type="111">جنكيو (١٢٠٤–١٢٠٦)‏</era>
 						<era type="112">كن-اي</era>
-						<era type="113">شوجن</era>
+						<era type="113">شوجن (١٢٠٧–١٢١١)‏</era>
 						<era type="114">كنرياكو</era>
-						<era type="115">كنبو</era>
+						<era type="115">كنبو (١٢١٣–١٢١٩)‏</era>
 						<era type="116">شوكيو</era>
 						<era type="117">جو</era>
 						<era type="118">جيننين</era>
@@ -1784,13 +1793,13 @@
 						<era type="131">كنتشو</era>
 						<era type="132">كوجن</era>
 						<era type="133">شوكا</era>
-						<era type="134">شوجن</era>
+						<era type="134">شوجن (١٢٥٩–١٢٦٠)‏</era>
 						<era type="135">بن-أو</era>
 						<era type="136">كوتشو</era>
 						<era type="137">بن-اي</era>
 						<era type="138">كنجي</era>
 						<era type="139">كوان</era>
-						<era type="140">شوو</era>
+						<era type="140">شوو (١٢٨٨–١٢٩٣)‏</era>
 						<era type="141">اينين</era>
 						<era type="142">شوان</era>
 						<era type="143">كنجن</era>
@@ -1798,11 +1807,11 @@
 						<era type="145">توكجي</era>
 						<era type="146">انكي</era>
 						<era type="147">أوتشو</era>
-						<era type="148">شووا</era>
+						<era type="148">شووا (١٣١٢–١٣١٧)‏</era>
 						<era type="149">بنبو</era>
 						<era type="150">جنو</era>
-						<era type="151">جنكيو</era>
-						<era type="152">شوتشو</era>
+						<era type="151">جنكيو (١٣٢١–١٣٢٤)‏</era>
+						<era type="152">شوتشو (١٣٢٤–١٣٢٦)‏</era>
 						<era type="153">كريكي</era>
 						<era type="154">جنتكو</era>
 						<era type="155">جنكو</era>
@@ -1814,15 +1823,15 @@
 						<era type="161">بنتشو</era>
 						<era type="162">تنجو</era>
 						<era type="163">كورياكو</era>
-						<era type="164">كووا</era>
+						<era type="164">كووا (١٣٨١–١٣٨٤)‏</era>
 						<era type="165">جنتشو</era>
-						<era type="166">مييتكو</era>
+						<era type="166">مييتكو (١٣٨٤–١٣٨٧)‏</era>
 						<era type="167">كاكي</era>
 						<era type="168">كو</era>
-						<era type="169">مييتكو</era>
+						<era type="169">مييتكو (١٣٩٠–١٣٩٤)‏</era>
 						<era type="170">أويي</era>
-						<era type="171">شوتشو</era>
-						<era type="172">ايكيو</era>
+						<era type="171">شوتشو (١٤٢٨–١٤٢٩)‏</era>
+						<era type="172">ايكيو (١٤٢٩–١٤٤١)‏</era>
 						<era type="173">ككيتسو</era>
 						<era type="174">بن-أن</era>
 						<era type="175">هوتكو</era>
@@ -1833,25 +1842,25 @@
 						<era type="180">بنشو</era>
 						<era type="181">أونين</era>
 						<era type="182">بنمي</era>
-						<era type="183">تشوكيو</era>
+						<era type="183">تشوكيو (١٤٨٧–١٤٨٩)‏</era>
 						<era type="184">انتكو</era>
 						<era type="185">ميو</era>
 						<era type="186">بنكي</era>
-						<era type="187">ايشو</era>
+						<era type="187">ايشو (١٥٠٤–١٥٢١)‏</era>
 						<era type="188">تييي</era>
 						<era type="189">كيوركو</era>
 						<era type="190">تنمن</era>
-						<era type="191">كوجي</era>
+						<era type="191">كوجي (١٥٥٥–١٥٥٨)‏</era>
 						<era type="192">ايركو</era>
 						<era type="193">جنكي</era>
-						<era type="194">تنشو</era>
+						<era type="194">تنشو (١٥٧٣–١٥٩٢)‏</era>
 						<era type="195">بنركو</era>
 						<era type="196">كيتشو</era>
 						<era type="197">جنوا</era>
 						<era type="198">كان-اي</era>
-						<era type="199">شوهو</era>
+						<era type="199">شوهو (١٦٤٤–١٦٤٨)‏</era>
 						<era type="200">كيان</era>
-						<era type="201">شوو</era>
+						<era type="201">شوو (١٦٥٢–١٦٥٥)‏</era>
 						<era type="202">ميرياكو</era>
 						<era type="203">منجي</era>
 						<era type="204">كنبن</era>
@@ -1863,8 +1872,8 @@
 						<era type="210">شوتكو</era>
 						<era type="211">كيوهو</era>
 						<era type="212">جنبن</era>
-						<era type="213">كنبو</era>
-						<era type="214">انكيو</era>
+						<era type="213">كنبو (١٧٤١–١٧٤٤)‏</era>
+						<era type="214">انكيو (١٧٤٤–١٧٤٨)‏</era>
 						<era type="215">كان-ان</era>
 						<era type="216">هورياكو</era>
 						<era type="217">مييوا</era>
@@ -3250,58 +3259,58 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic draft="contributed">الأمازون الزمن</generic>
-					<standard draft="contributed">الأمازون الزمن</standard>
-					<daylight draft="contributed">الأمازون التوقيت الصيفي</daylight>
+					<generic>توقيت الأمازون</generic>
+					<standard>توقيت الأمازون الرسمي</standard>
+					<daylight>توقيت الأمازون الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic draft="contributed">التوقيت المركزي</generic>
-					<standard draft="contributed">التوقيت الرسمي المركزي</standard>
-					<daylight draft="contributed">التوقيت الصيفي المركزي</daylight>
+					<generic>التوقيت المركزي</generic>
+					<standard>التوقيت الرسمي المركزي</standard>
+					<daylight>التوقيت الصيفي المركزي</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic draft="contributed">التوقيت الشرقي</generic>
-					<standard draft="contributed">التوقيت الرسمي الشرقي</standard>
-					<daylight draft="contributed">التوقيت الصيفي الشرقي</daylight>
+					<generic>التوقيت الشرقي</generic>
+					<standard>التوقيت الرسمي الشرقي</standard>
+					<daylight>التوقيت الصيفي الشرقي</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic draft="contributed">التوقيت الجبلي</generic>
-					<standard draft="contributed">التوقيت الجبلي الرسمي</standard>
-					<daylight draft="contributed">التوقيت الجبلي الصيفي</daylight>
+					<generic>التوقيت الجبلي</generic>
+					<standard>التوقيت الجبلي الرسمي</standard>
+					<daylight>التوقيت الجبلي الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic draft="contributed">توقيت المحيط الهادي</generic>
-					<standard draft="contributed">توقيت المحيط الهادي</standard>
-					<daylight draft="contributed">توقيت المحيط الهادي الصيفي</daylight>
+					<generic>توقيت المحيط الهادي</generic>
+					<standard>توقيت المحيط الهادي الرسمي</standard>
+					<daylight>توقيت المحيط الهادي الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic draft="contributed">توقيت أنادير</generic>
-					<standard draft="contributed">توقيت أنادير</standard>
-					<daylight draft="contributed">التوقيت الصيفي لأنادير</daylight>
+					<generic>توقيت أنادير</generic>
+					<standard>توقيت أنادير الرسمي</standard>
+					<daylight>التوقيت الصيفي لأنادير</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<generic draft="contributed">توقيت الأرجنتين</generic>
-					<standard draft="contributed">توقيت الأرجنتين</standard>
-					<daylight draft="contributed">توقيت الأرجنتين الصيفي</daylight>
+					<generic>توقيت الأرجنتين</generic>
+					<standard>توقيت الأرجنتين الرسمي</standard>
+					<daylight>توقيت الأرجنتين الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="contributed">توقيت الأرجنتين الغربي</generic>
-					<standard draft="contributed">توقيت غرب الأرجنتين</standard>
-					<daylight draft="contributed">توقيت الأرجنتين الغربي الصيفي</daylight>
+					<generic>توقيت الأرجنتين الغربي</generic>
+					<standard>توقيت الأرجنتين الغربي الرسمي</standard>
+					<daylight>توقيت الأرجنتين الغربي الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -3341,16 +3350,52 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic draft="contributed">توقيت برازيليا</generic>
-					<standard draft="contributed">توقيت برازيليا</standard>
-					<daylight draft="contributed">توقيت برازيليا الصيفي</daylight>
+					<generic>توقيت برازيليا</generic>
+					<standard>توقيت برازيليا الرسمي</standard>
+					<daylight>توقيت برازيليا الصيفي</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic>توقيت شيلي</generic>
+					<standard>توقيت شيلي الرسمي</standard>
+					<daylight>توقيت شيلي الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<generic draft="contributed">توقيت شويبالسان</generic>
-					<standard draft="contributed">توقيت شويبالسان</standard>
-					<daylight draft="contributed">التوقيت الصيفي لشويبالسان</daylight>
+					<generic>توقيت شويبالسان</generic>
+					<standard>توقيت شويبالسان الرسمي</standard>
+					<daylight>التوقيت الصيفي لشويبالسان</daylight>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic>توقيت جزر استر</generic>
+					<standard>توقيت جزر استر الرسمي</standard>
+					<daylight>توقيت جزر استر الصيفي</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard>توقيت غويانا الفرنسية</standard>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard>توقيت غلاباغوس</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>توقيت غرب غرينلاند</generic>
+					<standard>توقيت غرب غرينلاند الرسمي</standard>
+					<daylight>توقيت غرب غرينلاند الصيفي</daylight>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard>توقيت غيانا</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -3362,9 +3407,9 @@
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic draft="contributed">توقيت هوفد</generic>
-					<standard draft="contributed">توقيت هوفد</standard>
-					<daylight draft="contributed">توقيت هوفد الصيفي</daylight>
+					<generic>توقيت هوفد</generic>
+					<standard>توقيت هوفد الرسمي</standard>
+					<daylight>توقيت هوفد الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
@@ -3384,9 +3429,9 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic draft="contributed">توقيت إركوتسك</generic>
+					<generic>توقيت إركوتسك</generic>
 					<standard draft="contributed">توقيت إركوتسك</standard>
-					<daylight draft="contributed">توقيت إركوتسك الصيفي</daylight>
+					<daylight>توقيت إركوتسك الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
@@ -3408,9 +3453,9 @@
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
-					<generic draft="contributed">توقيت كراسنويارسك</generic>
-					<standard draft="contributed">توقيت كراسنويارسك</standard>
-					<daylight draft="contributed">التوقيت الصيفي لكراسنويارسك</daylight>
+					<generic>توقيت كراسنويارسك</generic>
+					<standard>توقيت كراسنويارسك الرسمي</standard>
+					<daylight>التوقيت الصيفي لكراسنويارسك</daylight>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -3427,16 +3472,16 @@
 			</metazone>
 			<metazone type="Magadan">
 				<long>
-					<generic draft="contributed">توقيت ماغادان</generic>
-					<standard draft="contributed">توقيت ماغادان</standard>
-					<daylight draft="contributed">توقيت ماغادان الصيفي</daylight>
+					<generic>توقيت ماغادان</generic>
+					<standard>توقيت ماغادان الرسمي</standard>
+					<daylight>توقيت ماغادان الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">توقيت منغوليا</generic>
-					<standard draft="contributed">توقيت أولان باتور</standard>
-					<daylight draft="contributed">توقيت أولان باتور الصيفي</daylight>
+					<generic>توقيت أولان باتور</generic>
+					<standard>توقيت أولان باتور الرسمي</standard>
+					<daylight>توقيت أولان باتور الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
@@ -3456,29 +3501,29 @@
 			<metazone type="Noronha">
 				<long>
 					<generic draft="contributed">توقيت نورونها</generic>
-					<standard draft="contributed">فيرناندو دي نورونها</standard>
-					<daylight draft="contributed">توقيت فرناندو دي نورونها الصيفي</daylight>
+					<standard>توقيت فرناندو دي نورونها الرسمي</standard>
+					<daylight>توقيت فرناندو دي نورونها الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
-					<generic draft="contributed">توقيت نوفوسيبيرسك</generic>
-					<standard draft="contributed">توقيت نوفوسيبيرسك</standard>
-					<daylight draft="contributed">التوقيت الصيفي لنوفوسيبيرسك</daylight>
+					<generic>توقيت نوفوسيبيرسك</generic>
+					<standard>توقيت نوفوسيبيرسك الرسمي</standard>
+					<daylight>توقيت نوفوسيبيرسك الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
-					<generic draft="contributed">توقيت أومسك</generic>
-					<standard draft="contributed">توقيت أومسك</standard>
-					<daylight draft="contributed">التوقيت الصيفي أومسك</daylight>
+					<generic>توقيت أومسك</generic>
+					<standard>توقيت أومسك الرسمي</standard>
+					<daylight>توقيت أومسك الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
-					<generic draft="contributed">توقيت ساخالين</generic>
-					<standard draft="contributed">توقيت ساخالين</standard>
-					<daylight draft="contributed">توقيت ساخالين الصيفي</daylight>
+					<generic>توقيت ساخالين</generic>
+					<standard>توقيت ساخالين الرسمي</standard>
+					<daylight>توقيت ساخالين الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
@@ -3490,30 +3535,30 @@
 			</metazone>
 			<metazone type="Vladivostok">
 				<long>
-					<generic draft="contributed">توقيت فلاديفوستوك</generic>
-					<standard draft="contributed">توقيت فلاديفوستوك</standard>
-					<daylight draft="contributed">التوقيت الصيفي فلاديفوستوك</daylight>
+					<generic>توقيت فلاديفوستوك</generic>
+					<standard>توقيت فلاديفوستوك الرسمي</standard>
+					<daylight>توقيت فلاديفوستوك الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
-					<generic draft="contributed">توقيت فولغوغراد</generic>
-					<standard draft="contributed">توقيت فولغوغراد</standard>
-					<daylight draft="contributed">توقيت فولغوغراد الصيفي</daylight>
+					<generic>توقيت فولغوغراد</generic>
+					<standard>توقيت فولغوغراد الرسمي</standard>
+					<daylight>توقيت فولغوغراد الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic draft="contributed">توقيت ياكوتسك</generic>
-					<standard draft="contributed">توقيت ياكوتسك</standard>
-					<daylight draft="contributed">توقيت ياكوتسك الصيفي</daylight>
+					<generic>توقيت ياكوتسك</generic>
+					<standard>توقيت ياكوتسك الرسمي</standard>
+					<daylight>توقيت ياكوتسك الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic draft="contributed">توقيت يكاترينبورغ</generic>
-					<standard draft="contributed">توقيت يكاترينبورغ</standard>
-					<daylight draft="contributed">توقيت يكاترينبورغ الصيفي</daylight>
+					<generic>توقيت يكاترينبورغ</generic>
+					<standard>توقيت يكاترينبورغ الرسمي</standard>
+					<daylight>توقيت يكاترينبورغ الصيفي</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -3536,8 +3581,8 @@
 			<nan>ليس رقم</nan>
 		</symbols>
 		<symbols numberSystem="latn">
-			<decimal>,</decimal>
-			<group>.</group>
+			<decimal>.</decimal>
+			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
 			<plusSign>+</plusSign>
@@ -3588,35 +3633,123 @@
 					<pattern>#,##0.###;#,##0.###-</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000000000" count="few">0.0 بلايين</pattern>
+					<pattern type="1000000000" count="many">0.0 بليون</pattern>
+					<pattern type="1000000000" count="one">0.0 بليون</pattern>
+					<pattern type="1000000000" count="other">0.0 بليون</pattern>
+					<pattern type="1000000000" count="two">0.0 بليون</pattern>
+					<pattern type="1000000000" count="zero">0.0 بليون</pattern>
+					<pattern type="10000000000" count="few">00 بليون</pattern>
+					<pattern type="10000000000" count="many">00 بليون</pattern>
+					<pattern type="10000000000" count="one">00 بليون</pattern>
+					<pattern type="10000000000" count="other">00 بليون</pattern>
+					<pattern type="10000000000" count="two">00 بليون</pattern>
+					<pattern type="10000000000" count="zero">00 بليون</pattern>
+					<pattern type="100000000000" count="few">000 بليون</pattern>
+					<pattern type="100000000000" count="many">000 بليون</pattern>
+					<pattern type="100000000000" count="one">000 بليون</pattern>
+					<pattern type="100000000000" count="other">000 بليون</pattern>
+					<pattern type="100000000000" count="two">000 بليون</pattern>
+					<pattern type="100000000000" count="zero">000 بليون</pattern>
+					<pattern type="100000000000000" count="two">000 تريليون</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000" count="one" draft="contributed">0.0K</pattern>
 					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="1000" count="two">0.0 ألف</pattern>
 					<pattern type="10000" count="one" draft="contributed">00K</pattern>
 					<pattern type="10000" count="other" draft="contributed">00K</pattern>
 					<pattern type="100000" count="one" draft="contributed">000K</pattern>
 					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0M</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0B</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00B</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000B</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+					<pattern type="1000000" count="few">0.0 مليو</pattern>
+					<pattern type="1000000" count="many">0.0 مليو</pattern>
+					<pattern type="1000000" count="one">0.0 مليو</pattern>
+					<pattern type="1000000" count="other">0.0 مليو</pattern>
+					<pattern type="1000000" count="two">0.0 مليو</pattern>
+					<pattern type="1000000" count="zero">0.0 مليو</pattern>
+					<pattern type="10000000" count="few">00 مليو</pattern>
+					<pattern type="10000000" count="many">00 مليو</pattern>
+					<pattern type="10000000" count="one">00 مليو</pattern>
+					<pattern type="10000000" count="other">00 مليو</pattern>
+					<pattern type="10000000" count="two">00 مليو</pattern>
+					<pattern type="10000000" count="zero">00 مليو</pattern>
+					<pattern type="100000000" count="few">000 مليو</pattern>
+					<pattern type="100000000" count="many">000 مليو</pattern>
+					<pattern type="100000000" count="one">000 مليو</pattern>
+					<pattern type="100000000" count="other">000 مليو</pattern>
+					<pattern type="100000000" count="two">000 مليو</pattern>
+					<pattern type="100000000" count="zero">000 مليو</pattern>
+					<pattern type="1000000000" count="few">0.0 بليو</pattern>
+					<pattern type="1000000000" count="many">0.0 بليو</pattern>
+					<pattern type="1000000000" count="one">0.0 بليو</pattern>
+					<pattern type="1000000000" count="other">0.0 بليو</pattern>
+					<pattern type="1000000000" count="two">0.0 بليو</pattern>
+					<pattern type="1000000000" count="zero">0.0 بليو</pattern>
+					<pattern type="10000000000" count="few">00 بليو</pattern>
+					<pattern type="10000000000" count="many">00 بليو</pattern>
+					<pattern type="10000000000" count="one">00 بليو</pattern>
+					<pattern type="10000000000" count="other">00 بليو</pattern>
+					<pattern type="10000000000" count="two">00 بليو</pattern>
+					<pattern type="10000000000" count="zero">00 بليو</pattern>
+					<pattern type="100000000000" count="few">000 بليو</pattern>
+					<pattern type="100000000000" count="many">000 بليو</pattern>
+					<pattern type="100000000000" count="one">000 بليو</pattern>
+					<pattern type="100000000000" count="other">000 بليو</pattern>
+					<pattern type="100000000000" count="two">000 بليو</pattern>
+					<pattern type="100000000000" count="zero">000 بليو</pattern>
+					<pattern type="1000000000000" count="few">0.0 ترليو</pattern>
+					<pattern type="1000000000000" count="many">0.0 ترليو</pattern>
+					<pattern type="1000000000000" count="one">0.0 ترليو</pattern>
+					<pattern type="1000000000000" count="other">0.0 ترليو</pattern>
+					<pattern type="1000000000000" count="two">0.0 ترليو</pattern>
+					<pattern type="1000000000000" count="zero">0.0 ترليو</pattern>
+					<pattern type="10000000000000" count="few">00 ترليو</pattern>
+					<pattern type="10000000000000" count="many">00 ترليو</pattern>
+					<pattern type="10000000000000" count="one">00 ترليو</pattern>
+					<pattern type="10000000000000" count="other">00 ترليو</pattern>
+					<pattern type="10000000000000" count="two">00 ترليو</pattern>
+					<pattern type="10000000000000" count="zero">00 ترليو</pattern>
+					<pattern type="100000000000000" count="few">000 ترليو</pattern>
+					<pattern type="100000000000000" count="many">000 ترليو</pattern>
+					<pattern type="100000000000000" count="one">000 ترليو</pattern>
+					<pattern type="100000000000000" count="other">000 ترليو</pattern>
+					<pattern type="100000000000000" count="two">000 ترليو</pattern>
+					<pattern type="100000000000000" count="zero">000 ترليو</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="arab">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
 				<currencyFormat>
@@ -3818,16 +3951,22 @@
 				<displayName>فرنك بلجيكي مالي</displayName>
 			</currency>
 			<currency type="BGL">
-				<displayName>ليف بلغاري</displayName>
+				<displayName>ليف بلغاري قديم</displayName>
+				<displayName count="few">ليف بلغاري قديم</displayName>
+				<displayName count="many">ليف بلغاري قديم</displayName>
+				<displayName count="one">ليف بلغاري قديم</displayName>
+				<displayName count="other">ليف بلغاري قديم</displayName>
+				<displayName count="two">ليف بلغاري قديم</displayName>
+				<displayName count="zero">ليف بلغاري قديم</displayName>
 			</currency>
 			<currency type="BGN">
 				<displayName>ليف بلغاري جديد</displayName>
-				<displayName count="few" draft="provisional">ليف بلغاري جديد</displayName>
-				<displayName count="many" draft="provisional">ليف بلغاري جديد</displayName>
-				<displayName count="one" draft="provisional">ليف بلغاري جديد</displayName>
-				<displayName count="other" draft="provisional">ليف بلغاري جديد</displayName>
-				<displayName count="two" draft="provisional">ليف بلغاري جديد</displayName>
-				<displayName count="zero" draft="provisional">ليف بلغاري جديد</displayName>
+				<displayName count="few">ليف بلغاري</displayName>
+				<displayName count="many">ليف بلغاري</displayName>
+				<displayName count="one">ليف بلغاري</displayName>
+				<displayName count="other">ليف بلغاري</displayName>
+				<displayName count="two">ليف بلغاري</displayName>
+				<displayName count="zero">ليف بلغاري</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>دينار بحريني</displayName>
@@ -4126,12 +4265,12 @@
 			</currency>
 			<currency type="EGP">
 				<displayName>جنيه مصري</displayName>
-				<displayName count="few" draft="contributed">جنيه مصري</displayName>
-				<displayName count="many" draft="contributed">جنيه مصري</displayName>
-				<displayName count="one" draft="contributed">جنيه مصري</displayName>
-				<displayName count="other" draft="contributed">جنيه مصري</displayName>
-				<displayName count="two" draft="contributed">جنيه مصري</displayName>
-				<displayName count="zero" draft="contributed">جنيه مصري</displayName>
+				<displayName count="few">جنيه مصري</displayName>
+				<displayName count="many">جنيه مصري</displayName>
+				<displayName count="one">جنيه مصري</displayName>
+				<displayName count="other">جنيه مصري</displayName>
+				<displayName count="two">جنيه مصري</displayName>
+				<displayName count="zero">جنيه مصري</displayName>
 				<symbol>ج.م.‏</symbol>
 			</currency>
 			<currency type="ERN">
@@ -4208,12 +4347,12 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>جنيه إسترليني</displayName>
-				<displayName count="few" draft="contributed">جنيه إسترليني</displayName>
-				<displayName count="many" draft="contributed">جنيه إسترليني</displayName>
-				<displayName count="one" draft="contributed">جنيه إسترليني</displayName>
-				<displayName count="other" draft="contributed">جنيه إسترليني</displayName>
-				<displayName count="two" draft="contributed">جنيه إسترليني</displayName>
-				<displayName count="zero" draft="provisional">جنيه إسترليني</displayName>
+				<displayName count="few">جنيه إسترليني</displayName>
+				<displayName count="many">جنيه إسترليني</displayName>
+				<displayName count="one">جنيه إسترليني</displayName>
+				<displayName count="other">جنيه إسترليني</displayName>
+				<displayName count="two">جنيه إسترليني</displayName>
+				<displayName count="zero">جنيه إسترليني</displayName>
 			</currency>
 			<currency type="GEL">
 				<displayName>لارى جورجي</displayName>
@@ -5754,4 +5893,3 @@
 		</messages>
 	</posix>
 </ldml>
-

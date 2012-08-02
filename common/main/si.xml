@@ -7,6 +7,11 @@
 		<language type="si"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>, </localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="ar">අරාබි</language>
 			<language type="bn">බෙංගලි</language>
@@ -291,6 +296,9 @@
 			<type type="hebrew" key="calendar">හීබෲ දිනදසුන</type>
 			<type type="taml" key="numbers">දෙමළ ඉලක්කම්</type>
 		</types>
+		<codePatterns>
+			<codePattern type="territory">කලාපය: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[අ ආ ඇ ඈ ඉ ඊ උ ඌ ඍ එ ඒ ඓ ඔ ඕ ඖ ං ඃ ක ඛ ග ඝ ඞ ඟ ච ඡ ජ ඣ ඥ ඤ ට ඨ ඩ ඪ ණ ඬ ත ථ ද ධ න ඳ ප ඵ බ භ ම ඹ ය ර ල ව ශ ෂ ස හ ළ ෆ ා ැ ෑ \u0DD2 \u0DD3 \u0DD4 \u0DD6 ෘ ෲ ෟ ෙ ේ ෛ ො ෝ ෞ \u0DCA]</exemplarCharacters>
@@ -298,6 +306,12 @@
 		<exemplarCharacters type="currencySymbol">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index">[අ ආ ඇ ඈ ඉ ඊ උ ඌ ඍ එ ඒ ඓ ඔ ඕ ඖ ක ඛ ග ඝ ඞ ඟ ච ඡ ජ ඣ ඥ ඤ ට ඨ ඩ ඪ ණ ඬ ත ථ ද ධ න ඳ ප ඵ බ භ ම ඹ ය ර ල ව ශ ෂ ස හ ළ ෆ]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -579,25 +593,57 @@
 							<greatestDifference id="a">a h - h vv</greatestDifference>
 							<greatestDifference id="h">a h - h vv</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a">HH-HH v</greatestDifference>
+							<greatestDifference id="H">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">M-d - M-d</greatestDifference>
+							<greatestDifference id="M">M-d - M-d</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">MM-dd, E – MM-dd, E</greatestDifference>
 							<greatestDifference id="M">MM-dd, E – MM-dd, E</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">LLL–LLL</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">MMM d-d</greatestDifference>
+							<greatestDifference id="M">MMM d - MMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">MMM-dd, E – MMM-dd, E</greatestDifference>
 							<greatestDifference id="M">MMM-dd, E – MMM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">M-yy - M-yy</greatestDifference>
+							<greatestDifference id="y">M-yy - M-yy</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">M-d-yy - M-d-yy</greatestDifference>
+							<greatestDifference id="M">M-d-yy - M-d-yy</greatestDifference>
+							<greatestDifference id="y">M-d-yy - M-d-yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
 							<greatestDifference id="d">yy-M-d, E - yy-M-d, E</greatestDifference>
 							<greatestDifference id="M">yy-M-d, E - yy-M-d, E</greatestDifference>
 							<greatestDifference id="y">yyyy-MM-dd, E - yyyy-MM-dd, E</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">y MMM–MMM</greatestDifference>
+							<greatestDifference id="y">y MMM - y MMM</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d">y MMM d - d</greatestDifference>
 							<greatestDifference id="M">y MMM d - MMM d</greatestDifference>
+							<greatestDifference id="y">y MMM d - y MMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">y MMM d, E - y MMM d, E</greatestDifference>
@@ -606,6 +652,7 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">y MMMM - MMMM</greatestDifference>
+							<greatestDifference id="y">y MMMM - y MMMM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -637,6 +684,12 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>ග්‍රිමවේ</gmtZeroFormat>
+			<regionFormat>({0}) ජපාන වේලාව</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackRegionFormat>{1} ({0})</fallbackRegionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>හඳුනා නොගත් නගරය</exemplarCity>
 			</zone>
@@ -733,9 +786,125 @@
 			<zone type="Europe/Istanbul">
 				<exemplarCity>ඉස්තාන්බුල්</exemplarCity>
 			</zone>
+			<metazone type="Arabian">
+				<long>
+					<generic>අරාබි වේලාව</generic>
+					<standard>අරාබි සම්මත වේලාව</standard>
+					<daylight>අරාබි දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Central">
+				<long>
+					<generic>මධ්‍යම ඕස්ට්‍රේලියානු වේලාව</generic>
+					<standard>ඕස්ට්‍රේලියානු සම්මත වේලාව</standard>
+					<daylight>මධ්‍යම ඔස්ටේලියානු දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_CentralWestern">
+				<long>
+					<generic>මධ්‍යම බටහිර ඔස්ටේලියානු වේලාව</generic>
+					<standard>මධ්‍යම බටහිර ඔස්ටේලියානු සම්මත වේලාව</standard>
+					<daylight>මධ්‍යම බටහිර ඔස්ටේලියානු දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Eastern">
+				<long>
+					<generic>නැගෙනහිර ඕස්ට්‍රේලියානු වේලාව</generic>
+					<standard>නැගෙනහිර ඕස්ට්‍රේලියානු සම්මත වේලාව</standard>
+					<daylight>නැඟෙනහිර ඕස්ටේලියානු දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Australia_Western">
+				<long>
+					<generic>බටහිර ඕස්ට්‍රේලියානු වේලාව</generic>
+					<standard>බටහිර ඕස්ට්‍රේලියානු සම්මත වේලාව</standard>
+					<daylight>බටහිර ඔස්ටේලියානු දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>චීන වේලාව</generic>
+					<standard>චීන සම්මත වේලාව</standard>
+					<daylight>චීන දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>මධ්‍යම යුරෝපීය වේලාව</generic>
+					<standard>මධ්‍යම යුරෝපීය සම්මත වේලාව</standard>
+					<daylight>මධ්‍යම යුරෝපීය ග්‍රීෂ්ම ඍතු වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>නැගෙනහිර යුරෝපීය වේලාව</generic>
+					<standard>නැගෙනහිර යුරෝපීය සම්මත වේලාව</standard>
+					<daylight>නැගෙනහිර යුරෝපීය ග්‍රීෂ්ම ඍතු වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>බටහිර යුරෝපීය වේලාව</generic>
+					<standard>බටහිර යුරෝපීය සම්මත වේලාව</standard>
+					<daylight>බටහිර යුරෝපීය ග්‍රීෂ්ම ඍතු වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>ග්‍රීන්විච් මධ්‍යම වේලාව</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard>ඉන්දුචීන වේලාව</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard>මධ්‍යම ඉන්දුනීසියානු වේලාව</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard>නැගෙනහිර ඉන්දුනීසියානු වේලාව</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard>බටහිර ඉන්දුනීසියානු වේලාව</standard>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic>ඊශ්‍රායල වේලාව</generic>
+					<standard>ඊශ්‍රායල සම්මත වේලාව</standard>
+					<daylight>ඊශ්‍රායල දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>ජපාන වේලාව</generic>
+					<standard>ජපාන සම්මත වේලාව</standard>
+					<daylight>ජපාන දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>කොරියානු වේලාව</generic>
+					<standard>කොරියානු සම්මත වේලාව</standard>
+					<daylight>කොරියානු දහවල් වේලාව</daylight>
+				</long>
+			</metazone>
 			<metazone type="Lanka">
 				<long>
 					<standard>ශ්‍රී ලංකා වේලාව</standard>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>මොස්කව් වේලාව</generic>
+					<standard>මොස්කව් සම්මත</standard>
+					<daylight>මොස්කව් ග්‍රීෂ්ම ඍතු වේලාව</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -758,7 +927,7 @@
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#,##,##0.00;(¤#,##,##0.00)</pattern>
+					<pattern>¤ #,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -774,6 +943,12 @@
 			</currency>
 			<currency type="BHD">
 				<displayName>බහරේන් ඩිනාර්</displayName>
+			</currency>
+			<currency type="BMD">
+				<symbol>බ.ඩො.</symbol>
+			</currency>
+			<currency type="CAD">
+				<symbol>කැ.ඩො.</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>චීන යුආන්</displayName>
@@ -833,4 +1008,3 @@
 		</messages>
 	</posix>
 </ldml>
-

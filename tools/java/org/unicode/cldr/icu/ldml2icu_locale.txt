@@ -148,7 +148,12 @@
 //ldml/numbers/otherNumberingSystems/(%W)   ; /NumberElements/$1
 
 //ldml/numbers/symbols[@numberSystem="(%A)"]/(%W) ; /NumberElements/$1/symbols/$2
-//ldml/numbers/(%GFormat)s[@numberSystem="(%A)"]/\1Length/\1[@type="standard"]/pattern[@type="standard"] ; /NumberElements/$2/patterns/$1
+//ldml/numbers/(%GFormat)s[@numberSystem="(%W)"]/\1Length/\1[@type="standard"]/pattern[@type="standard"] ; /NumberElements/$2/patterns/$1
+# TODO(jchye): remove the following CLDR21-compatible regex for compact decimal formats once ICU uses CLDR22.
+//ldml/numbers/decimalFormats[@numberSystem="(%W)"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="(%N)"] ; /NumberElements/$1/patternsShort/decimalFormat/$2/other
+# CLDR22-compatible regexes for compact/long decimal formats.
+//ldml/numbers/decimalFormats[@numberSystem="(%W)"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="(%N)"][@count="(%W)"] ; /NumberElements/$1/patternsShort/decimalFormat/$2/$3
+//ldml/numbers/decimalFormats[@numberSystem="(%W)"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="(%N)"][@count="(%W)"] ; /NumberElements/$1/patternsLong/decimalFormat/$2/$3
 
 # Misc
 

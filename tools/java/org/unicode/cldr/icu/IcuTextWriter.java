@@ -185,7 +185,9 @@ public class IcuTextWriter {
      * @return
      */
     private static boolean mustBeArray(String rbPath) {
-       return rbPath.equals("/LocaleScript") || rbPath.contains("/eras/") && !rbPath.endsWith(":alias");
+       // TODO(jchye): Add this as an option to the locale file instead of hardcoding.
+       return rbPath.equals("/LocaleScript") || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias")) ||
+               rbPath.startsWith("/calendarPreferenceData") || rbPath.startsWith("/metazoneInfo");
     }
 
     private static PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {

@@ -54,7 +54,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         metadata(SuperType.supplemental), metaZones(SuperType.supplemental),
         numberingSystems(SuperType.supplemental), plurals(SuperType.supplemental),
         supplementalData(SuperType.supplemental), 
-        windowsZones(SuperType.supplemental);
+        windowsZones(SuperType.supplemental),
+        keyTypeData(SuperType.bcp47);
         
         private SuperType superType;
         private Type(SuperType superType) {
@@ -200,9 +201,19 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         case supplemental:  // supplemental data
             processSupplemental(type, options.get("cldrVersion").getValue());
             break;
-        // TODO: add BCP47 data conversion.
+        case bcp47:
+            processBcp47Data(type);
+            break;
         default:
             throw new UnsupportedOperationException("ERROR: " + type + " not supported.");
+        }
+    }
+
+    private void processBcp47Data(Type type) {
+        Bcp47Mapper mapper = new Bcp47Mapper(sourceDir);
+        IcuData[] icuData = mapper.fillFromCldr();
+        for (IcuData data : icuData) {
+            writeIcuData(data, destinationDir);
         }
     }
 

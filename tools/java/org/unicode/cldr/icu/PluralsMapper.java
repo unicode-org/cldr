@@ -54,21 +54,9 @@ public class PluralsMapper {
     
     private void fillType(PluralType type, IcuData icuData) {
         PluralsHandler handler = new PluralsHandler(type, icuData);
-        XMLReader xmlReader = XMLFileReader.createXMLReader(true);
-        xmlReader.setContentHandler(handler);
         String filename = type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml";
         File inputFile = new File(supplementalDir, filename); // handle ordinals too.
-        try {
-            FileInputStream fis = new FileInputStream(inputFile);
-            InputSource is = new InputSource(fis);
-            // Set the system ID so the parser knows where to find the dtd.
-            is.setSystemId(inputFile.toString());
-            xmlReader.parse(is);
-            fis.close();
-        } catch (Exception e) {
-            System.err.println("Error loading " + inputFile.getAbsolutePath());
-            e.printStackTrace();
-        }
+        MapperUtils.parseFile(inputFile, handler);
     }
 
     private class PluralsHandler implements ContentHandler {
